@@ -5545,13 +5545,13 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %73 = and i64 %66, 4294967295
   %74 = getelementptr inbounds nuw %class.ObjArrayTask, ptr %72, i64 %73
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %74, i64 12, i1 false)
-  %75 = add i64 %66, 1
-  %.sroa.09.0.insert.ext.i = and i64 %75, 131071
-  %76 = and i32 %.sroa.010.0.extract.trunc.i, 131071
-  %77 = icmp eq i32 %76, 131071
+  %75 = add i32 %.sroa.010.0.extract.trunc.i, 1
+  %76 = and i32 %75, 131071
+  %77 = icmp eq i32 %76, 0
   %78 = select i1 %77, i64 4294967296, i64 0
   %.sroa.6.0.extract.shift21.i = add i64 %78, %66
   %.sroa.3.0.insert.ext.i = and i64 %.sroa.6.0.extract.shift21.i, -4294967296
+  %.sroa.09.0.insert.ext.i = zext nneg i32 %76 to i64
   %.sroa.09.0.insert.insert.i = or disjoint i64 %.sroa.3.0.insert.ext.i, %.sroa.09.0.insert.ext.i
   %79 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i, i64 %66, ptr nonnull %58) #11, !srcloc !17
   %80 = icmp eq i64 %79, %66
@@ -5579,14 +5579,14 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %90 = and i64 %83, 4294967295
   %91 = getelementptr inbounds nuw %class.ObjArrayTask, ptr %89, i64 %90
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %91, i64 12, i1 false)
-  %92 = add i64 %83, 1
-  %.sroa.09.0.insert.ext.i46 = and i64 %92, 131071
-  %93 = and i32 %.sroa.010.0.extract.trunc.i42, 131071
-  %94 = icmp eq i32 %93, 131071
+  %92 = add i32 %.sroa.010.0.extract.trunc.i42, 1
+  %93 = and i32 %92, 131071
+  %94 = icmp eq i32 %93, 0
   %95 = select i1 %94, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i47 = add i64 %95, %83
-  %.sroa.3.0.insert.ext.i48 = and i64 %.sroa.6.0.extract.shift21.i47, -4294967296
-  %.sroa.09.0.insert.insert.i49 = or disjoint i64 %.sroa.3.0.insert.ext.i48, %.sroa.09.0.insert.ext.i46
+  %.sroa.6.0.extract.shift21.i46 = add i64 %95, %83
+  %.sroa.3.0.insert.ext.i47 = and i64 %.sroa.6.0.extract.shift21.i46, -4294967296
+  %.sroa.09.0.insert.ext.i48 = zext nneg i32 %93 to i64
+  %.sroa.09.0.insert.insert.i49 = or disjoint i64 %.sroa.3.0.insert.ext.i47, %.sroa.09.0.insert.ext.i48
   %96 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i49, i64 %83, ptr nonnull %47) #11, !srcloc !17
   %97 = icmp eq i64 %96, %83
   br i1 %97, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, label %98
@@ -5630,14 +5630,14 @@ _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit
   %116 = and i64 %108, 4294967295
   %117 = getelementptr inbounds nuw %class.ObjArrayTask, ptr %115, i64 %116
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %117, i64 12, i1 false)
-  %118 = add i64 %108, 1
-  %.sroa.09.0.insert.ext.i55 = and i64 %118, 131071
-  %119 = and i32 %.sroa.010.0.extract.trunc.i51, 131071
-  %120 = icmp eq i32 %119, 131071
+  %118 = add i32 %.sroa.010.0.extract.trunc.i51, 1
+  %119 = and i32 %118, 131071
+  %120 = icmp eq i32 %119, 0
   %121 = select i1 %120, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i56 = add i64 %121, %108
-  %.sroa.3.0.insert.ext.i57 = and i64 %.sroa.6.0.extract.shift21.i56, -4294967296
-  %.sroa.09.0.insert.insert.i58 = or disjoint i64 %.sroa.3.0.insert.ext.i57, %.sroa.09.0.insert.ext.i55
+  %.sroa.6.0.extract.shift21.i55 = add i64 %121, %108
+  %.sroa.3.0.insert.ext.i56 = and i64 %.sroa.6.0.extract.shift21.i55, -4294967296
+  %.sroa.09.0.insert.ext.i57 = zext nneg i32 %119 to i64
+  %.sroa.09.0.insert.insert.i58 = or disjoint i64 %.sroa.3.0.insert.ext.i56, %.sroa.09.0.insert.ext.i57
   %122 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i58, i64 %108, ptr nonnull %107) #11, !srcloc !17
   %123 = icmp eq i64 %122, %108
   %124 = select i1 %123, i32 2, i32 1
@@ -5754,13 +5754,13 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8
   store ptr %75, ptr %2, align 8
-  %76 = add i64 %66, 1
-  %.sroa.09.0.insert.ext.i = and i64 %76, 131071
-  %77 = and i32 %.sroa.010.0.extract.trunc.i, 131071
-  %78 = icmp eq i32 %77, 131071
+  %76 = add i32 %.sroa.010.0.extract.trunc.i, 1
+  %77 = and i32 %76, 131071
+  %78 = icmp eq i32 %77, 0
   %79 = select i1 %78, i64 4294967296, i64 0
   %.sroa.6.0.extract.shift21.i = add i64 %79, %66
   %.sroa.3.0.insert.ext.i = and i64 %.sroa.6.0.extract.shift21.i, -4294967296
+  %.sroa.09.0.insert.ext.i = zext nneg i32 %77 to i64
   %.sroa.09.0.insert.insert.i = or disjoint i64 %.sroa.3.0.insert.ext.i, %.sroa.09.0.insert.ext.i
   %80 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i, i64 %66, ptr nonnull %58) #11, !srcloc !17
   %81 = icmp eq i64 %80, %66
@@ -5789,14 +5789,14 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %92 = getelementptr inbounds nuw ptr, ptr %90, i64 %91
   %93 = load ptr, ptr %92, align 8
   store ptr %93, ptr %2, align 8
-  %94 = add i64 %84, 1
-  %.sroa.09.0.insert.ext.i46 = and i64 %94, 131071
-  %95 = and i32 %.sroa.010.0.extract.trunc.i42, 131071
-  %96 = icmp eq i32 %95, 131071
+  %94 = add i32 %.sroa.010.0.extract.trunc.i42, 1
+  %95 = and i32 %94, 131071
+  %96 = icmp eq i32 %95, 0
   %97 = select i1 %96, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i47 = add i64 %97, %84
-  %.sroa.3.0.insert.ext.i48 = and i64 %.sroa.6.0.extract.shift21.i47, -4294967296
-  %.sroa.09.0.insert.insert.i49 = or disjoint i64 %.sroa.3.0.insert.ext.i48, %.sroa.09.0.insert.ext.i46
+  %.sroa.6.0.extract.shift21.i46 = add i64 %97, %84
+  %.sroa.3.0.insert.ext.i47 = and i64 %.sroa.6.0.extract.shift21.i46, -4294967296
+  %.sroa.09.0.insert.ext.i48 = zext nneg i32 %95 to i64
+  %.sroa.09.0.insert.insert.i49 = or disjoint i64 %.sroa.3.0.insert.ext.i47, %.sroa.09.0.insert.ext.i48
   %98 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i49, i64 %84, ptr nonnull %47) #11, !srcloc !17
   %99 = icmp eq i64 %98, %84
   br i1 %99, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit, label %100
@@ -5841,14 +5841,14 @@ _ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit: ; p
   %119 = getelementptr inbounds nuw ptr, ptr %117, i64 %118
   %120 = load ptr, ptr %119, align 8
   store ptr %120, ptr %2, align 8
-  %121 = add i64 %110, 1
-  %.sroa.09.0.insert.ext.i55 = and i64 %121, 131071
-  %122 = and i32 %.sroa.010.0.extract.trunc.i51, 131071
-  %123 = icmp eq i32 %122, 131071
+  %121 = add i32 %.sroa.010.0.extract.trunc.i51, 1
+  %122 = and i32 %121, 131071
+  %123 = icmp eq i32 %122, 0
   %124 = select i1 %123, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i56 = add i64 %124, %110
-  %.sroa.3.0.insert.ext.i57 = and i64 %.sroa.6.0.extract.shift21.i56, -4294967296
-  %.sroa.09.0.insert.insert.i58 = or disjoint i64 %.sroa.3.0.insert.ext.i57, %.sroa.09.0.insert.ext.i55
+  %.sroa.6.0.extract.shift21.i55 = add i64 %124, %110
+  %.sroa.3.0.insert.ext.i56 = and i64 %.sroa.6.0.extract.shift21.i55, -4294967296
+  %.sroa.09.0.insert.ext.i57 = zext nneg i32 %122 to i64
+  %.sroa.09.0.insert.insert.i58 = or disjoint i64 %.sroa.3.0.insert.ext.i56, %.sroa.09.0.insert.ext.i57
   %125 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i58, i64 %110, ptr nonnull %109) #11, !srcloc !17
   %126 = icmp eq i64 %125, %110
   %127 = select i1 %126, i32 2, i32 1

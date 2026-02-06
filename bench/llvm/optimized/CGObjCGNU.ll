@@ -4204,7 +4204,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase14addNullPointerEPN4llvm11Pointer
   store i64 0, ptr %207, align 8, !tbaa !643
   %208 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 128, ptr %208, align 8, !tbaa !644
-  %209 = icmp eq i32 %31, -1
+  %209 = icmp eq i64 %205, 0
   br i1 %209, label %_ZN4llvm11SmallVectorItLj128EEC2Em.exit, label %210
 
 210:                                              ; preds = %203

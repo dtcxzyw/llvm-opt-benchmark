@@ -3279,10 +3279,9 @@ for.body.lr.ph.split.split:                       ; preds = %for.body.lr.ph.spli
   %12 = add i32 %reass.sub, 1
   %13 = sub nsw i32 %conv32, %conv16.i
   %xtraiter = and i32 %12, 3
-  %14 = and i32 %reass.sub, 3
-  %lcmp.mod.not = icmp eq i32 %14, 3
-  %15 = icmp ult i32 %13, 3
-  br i1 %15, label %for.body.lr.ph.split.split.split.us, label %for.body.lr.ph.split.split.split
+  %lcmp.mod.not = icmp eq i32 %xtraiter, 0
+  %14 = icmp ult i32 %13, 3
+  br i1 %14, label %for.body.lr.ph.split.split.split.us, label %for.body.lr.ph.split.split.split
 
 for.body.lr.ph.split.split.split.us:              ; preds = %for.body.lr.ph.split.split
   br i1 %lcmp.mod.not, label %for.cond.cleanup, label %for.body.us
@@ -3313,7 +3312,7 @@ for.body35.prol.us.us:                            ; preds = %for.body35.prol.us.
   %param1.prol.us.us = getelementptr inbounds nuw i8, ptr %param1.prol.split.us.us, i64 2
   store i8 %light, ptr %param1.prol.us.us, align 2, !tbaa !170
   %inc37.prol.us.us = add i32 %i.082.prol.us.us, 1
-  %prol.iter.next.us.us = add i32 %prol.iter.us.us, 1
+  %prol.iter.next.us.us = add nuw nsw i32 %prol.iter.us.us, 1
   %prol.iter.cmp.not.us.us = icmp eq i32 %prol.iter.next.us.us, %xtraiter
   br i1 %prol.iter.cmp.not.us.us, label %for.body35.prol.loopexit.loopexit.us.us, label %for.body35.prol.us.us, !llvm.loop !171
 
@@ -3331,7 +3330,7 @@ for.body.lr.ph.split.split.split:                 ; preds = %for.body.lr.ph.spli
   br i1 %lcmp.mod.not, label %for.body.us20, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %for.body.lr.ph.split.split.split
-  %16 = add nsw i32 %conv16.i, %xtraiter
+  %15 = add nsw i32 %conv16.i, %xtraiter
   br label %for.body
 
 for.body.us20:                                    ; preds = %for.body.lr.ph.split.split.split, %for.cond14.for.cond.cleanup19_crit_edge.split.split.split.us.us
@@ -3396,20 +3395,20 @@ for.cond.cleanup:                                 ; preds = %for.cond14.for.cond
   ret void
 
 lpad4:                                            ; preds = %entry
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
-  %18 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
-  %cmp.i.i.i62 = icmp eq ptr %18, %1
+  %17 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
+  %cmp.i.i.i62 = icmp eq ptr %17, %1
   br i1 %cmp.i.i.i62, label %ehcleanup, label %if.then.i.i63
 
 if.then.i.i63:                                    ; preds = %lpad4
-  call void @_ZdlPv(ptr noundef %18) #35
+  call void @_ZdlPv(ptr noundef %17) #35
   br label %ehcleanup
 
 ehcleanup:                                        ; preds = %lpad4, %if.then.i.i63
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   call void @llvm.lifetime.end.p0(ptr nonnull %sp)
-  resume { ptr, i32 } %17
+  resume { ptr, i32 } %16
 
 for.body:                                         ; preds = %for.body.preheader, %for.cond14.for.cond.cleanup19_crit_edge.split.split.split
   %z.087 = phi i32 [ %inc44, %for.cond14.for.cond.cleanup19_crit_edge.split.split.split ], [ %conv, %for.body.preheader ]
@@ -3442,7 +3441,7 @@ for.body35.prol:                                  ; preds = %for.body20, %for.bo
   %param1.prol = getelementptr inbounds nuw i8, ptr %param1.prol.split, i64 2
   store i8 %light, ptr %param1.prol, align 2, !tbaa !170
   %inc37.prol = add i32 %i.082.prol, 1
-  %prol.iter.next = add i32 %prol.iter, 1
+  %prol.iter.next = add nuw nsw i32 %prol.iter, 1
   %prol.iter.cmp.not = icmp eq i32 %prol.iter.next, %xtraiter
   br i1 %prol.iter.cmp.not, label %for.body35, label %for.body35.prol, !llvm.loop !171
 
@@ -3452,7 +3451,7 @@ for.cond29.for.cond.cleanup34_crit_edge.loopexit: ; preds = %for.body35
   br i1 %exitcond95.not, label %for.cond14.for.cond.cleanup19_crit_edge.split.split.split, label %for.body20, !llvm.loop !173
 
 for.body35:                                       ; preds = %for.body35.prol, %for.body35
-  %x.083 = phi i32 [ %inc.3, %for.body35 ], [ %16, %for.body35.prol ]
+  %x.083 = phi i32 [ %inc.3, %for.body35 ], [ %15, %for.body35.prol ]
   %i.082 = phi i32 [ %inc37.3, %for.body35 ], [ %inc37.prol, %for.body35.prol ]
   %idxprom = zext i32 %i.082 to i64
   %param1.split = getelementptr inbounds nuw %struct.MapNode, ptr %11, i64 %idxprom

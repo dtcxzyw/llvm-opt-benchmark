@@ -633,52 +633,53 @@ define dso_local ptr @eth_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 1
 
 74:                                               ; preds = %68, %61
   %75 = phi i16 [ %.pre, %68 ], [ %65, %61 ]
-  %76 = add i16 %75, 2048
-  %77 = and i16 %76, 30720
-  %78 = and i16 %75, -30721
-  %79 = or disjoint i16 %77, %78
-  store i16 %79, ptr %64, align 2
-  %80 = and i16 %75, 30720
-  %81 = icmp eq i16 %80, 28672
-  br i1 %81, label %82, label %86, !prof !5
+  %76 = lshr i16 %75, 11
+  %77 = add nuw nsw i16 %76, 1
+  %78 = and i16 %77, 15
+  %79 = shl nuw nsw i16 %78, 11
+  %80 = and i16 %75, -30721
+  %81 = or disjoint i16 %79, %80
+  store i16 %81, ptr %64, align 2
+  %82 = icmp eq i16 %78, 15
+  br i1 %82, label %83, label %87, !prof !5
 
-82:                                               ; preds = %74
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %84 = load i16, ptr %83, align 4
-  %85 = or i16 %84, 1
-  store i16 %85, ptr %83, align 4
+83:                                               ; preds = %74
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %85 = load i16, ptr %84, align 4
+  %86 = or i16 %85, 1
+  store i16 %86, ptr %84, align 4
   br label %.thread
 
-86:                                               ; preds = %74
-  %87 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %88 = load ptr, ptr %87, align 8
-  %89 = icmp eq ptr %88, @ipv6_gro_receive
-  br i1 %89, label %90, label %92, !prof !8
+87:                                               ; preds = %74
+  %88 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %89 = load ptr, ptr %88, align 8
+  %90 = icmp eq ptr %89, @ipv6_gro_receive
+  br i1 %90, label %91, label %93, !prof !8
 
-90:                                               ; preds = %86
-  %91 = tail call ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #12
+91:                                               ; preds = %87
+  %92 = tail call ptr @ipv6_gro_receive(ptr noundef %0, ptr noundef %1) #12
   br label %.thread
 
-92:                                               ; preds = %86
-  %93 = icmp eq ptr %88, @inet_gro_receive
-  br i1 %93, label %94, label %96, !prof !8
+93:                                               ; preds = %87
+  %94 = icmp eq ptr %89, @inet_gro_receive
+  br i1 %94, label %95, label %97, !prof !8
 
-94:                                               ; preds = %92
-  %95 = tail call ptr @inet_gro_receive(ptr noundef %0, ptr noundef %1) #12
+95:                                               ; preds = %93
+  %96 = tail call ptr @inet_gro_receive(ptr noundef %0, ptr noundef %1) #12
   br label %.thread
 
-96:                                               ; preds = %92
-  %97 = tail call ptr %88(ptr noundef %0, ptr noundef %1) #12
+97:                                               ; preds = %93
+  %98 = tail call ptr %89(ptr noundef %0, ptr noundef %1) #12
   br label %.thread
 
-.thread:                                          ; preds = %18, %20, %96, %94, %90, %82, %.loopexit, %26
-  %98 = phi i16 [ 1, %26 ], [ 1, %.loopexit ], [ 0, %90 ], [ 0, %96 ], [ 0, %94 ], [ 0, %82 ], [ 1, %20 ], [ 1, %18 ]
-  %99 = phi ptr [ null, %26 ], [ null, %.loopexit ], [ %91, %90 ], [ %97, %96 ], [ %95, %94 ], [ null, %82 ], [ null, %20 ], [ null, %18 ]
-  %100 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %101 = load i16, ptr %100, align 4
-  %102 = or i16 %101, %98
-  store i16 %102, ptr %100, align 4
-  ret ptr %99
+.thread:                                          ; preds = %18, %20, %97, %95, %91, %83, %.loopexit, %26
+  %99 = phi i16 [ 1, %26 ], [ 1, %.loopexit ], [ 0, %91 ], [ 0, %97 ], [ 0, %95 ], [ 0, %83 ], [ 1, %20 ], [ 1, %18 ]
+  %100 = phi ptr [ null, %26 ], [ null, %.loopexit ], [ %92, %91 ], [ %98, %97 ], [ %96, %95 ], [ null, %83 ], [ null, %20 ], [ null, %18 ]
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %102 = load i16, ptr %101, align 4
+  %103 = or i16 %102, %99
+  store i16 %103, ptr %101, align 4
+  ret ptr %100
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -4855,28 +4855,27 @@ _ZN4node5http212Http2Session21OnMaxFrameSizePaddingEmm.exit: ; preds = %sw.bb1, 
 
 sw.bb2:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(ptr nonnull %pad.i)
-  %7 = and i64 %0, 7
-  %cmp.i = icmp eq i64 %7, 7
+  %add.i = add i64 %0, 1
+  %rem.i = and i64 %add.i, 7
+  %cmp.i = icmp eq i64 %rem.i, 0
   br i1 %cmp.i, label %_ZN4node5http212Http2Session21OnDWordAlignedPaddingEmm.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.bb2
-  %add.i = add i64 %0, 1
-  %rem.i = and i64 %add.i, 7
   %reass.sub.i = add i64 %0, 8
   %add2.i = sub i64 %reass.sub.i, %rem.i
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %add2.i, i64 %maxPayloadLen)
   store i64 %.sroa.speculated.i, ptr %pad.i, align 8
   %provider_type_.i.i6 = getelementptr inbounds nuw i8, ptr %user_data, i64 32
-  %8 = load i32, ptr %provider_type_.i.i6, align 8
+  %7 = load i32, ptr %provider_type_.i.i6, align 8
   %realm_.i.i7 = getelementptr inbounds nuw i8, ptr %user_data, i64 16
-  %9 = load ptr, ptr %realm_.i.i7, align 8
-  %env_.i.i.i8 = getelementptr inbounds nuw i8, ptr %9, i64 176
-  %10 = load ptr, ptr %env_.i.i.i8, align 8
-  %enabled_debug_list_.i.i9 = getelementptr inbounds nuw i8, ptr %10, i64 2240
-  %idxprom.i.i10 = zext i32 %8 to i64
+  %8 = load ptr, ptr %realm_.i.i7, align 8
+  %env_.i.i.i8 = getelementptr inbounds nuw i8, ptr %8, i64 176
+  %9 = load ptr, ptr %env_.i.i.i8, align 8
+  %enabled_debug_list_.i.i9 = getelementptr inbounds nuw i8, ptr %9, i64 2240
+  %idxprom.i.i10 = zext i32 %7 to i64
   %arrayidx.i.i11 = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i.i9, i64 %idxprom.i.i10
-  %11 = load i8, ptr %arrayidx.i.i11, align 1
-  %tobool.i.i12 = trunc i8 %11 to i1
+  %10 = load i8, ptr %arrayidx.i.i11, align 1
+  %tobool.i.i12 = trunc i8 %10 to i1
   br i1 %tobool.i.i12, label %if.end.i.i13, label %_ZN4node5http212Http2Session21OnDWordAlignedPaddingEmm.exit
 
 if.end.i.i13:                                     ; preds = %if.end.i
@@ -8606,28 +8605,27 @@ nrvo.skipdtor:                                    ; preds = %entry, %if.then4, %
 define dso_local noundef i64 @_ZN4node5http212Http2Session21OnDWordAlignedPaddingEmm(ptr noundef nonnull align 8 dereferenceable(640) %this, i64 noundef %frameLen, i64 noundef %maxPayloadLen) local_unnamed_addr #4 align 2 {
 entry:
   %pad = alloca i64, align 8
-  %0 = and i64 %frameLen, 7
-  %cmp = icmp eq i64 %0, 7
+  %add = add i64 %frameLen, 1
+  %rem = and i64 %add, 7
+  %cmp = icmp eq i64 %rem, 0
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %add = add i64 %frameLen, 1
-  %rem = and i64 %add, 7
   %reass.sub = add i64 %frameLen, 8
   %add2 = sub i64 %reass.sub, %rem
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %add2, i64 %maxPayloadLen)
   store i64 %.sroa.speculated, ptr %pad, align 8
   %provider_type_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %1 = load i32, ptr %provider_type_.i, align 8
+  %0 = load i32, ptr %provider_type_.i, align 8
   %realm_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 176
-  %3 = load ptr, ptr %env_.i.i, align 8
-  %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %3, i64 2240
-  %idxprom.i = zext i32 %1 to i64
+  %1 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %2 = load ptr, ptr %env_.i.i, align 8
+  %enabled_debug_list_.i = getelementptr inbounds nuw i8, ptr %2, i64 2240
+  %idxprom.i = zext i32 %0 to i64
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %enabled_debug_list_.i, i64 %idxprom.i
-  %4 = load i8, ptr %arrayidx.i, align 1
-  %tobool.i = trunc i8 %4 to i1
+  %3 = load i8, ptr %arrayidx.i, align 1
+  %tobool.i = trunc i8 %3 to i1
   br i1 %tobool.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end

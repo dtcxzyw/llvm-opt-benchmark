@@ -45236,7 +45236,7 @@ _ZNK5clang13StringLiteral22containsNonAsciiOrNullEv.exit.i: ; preds = %.lr.ph.i.
   store i64 0, ptr %37, align 8, !tbaa !926
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 128, ptr %38, align 8, !tbaa !927
-  %39 = icmp eq i32 %25, -1
+  %39 = icmp eq i64 %35, 0
   br i1 %39, label %_ZN4llvm11SmallVectorItLj128EEC2Em.exit.i, label %40
 
 40:                                               ; preds = %_ZNK5clang13StringLiteral22containsNonAsciiOrNullEv.exit.i
@@ -45508,7 +45508,7 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit:       ; preds = %.lr.ph
   %164 = and i32 %163, 127
   %165 = add nsw i32 %164, -45
   %166 = icmp ult i32 %165, -7
-  %spec.select245 = select i1 %166, ptr null, ptr %161
+  %spec.select243 = select i1 %166, ptr null, ptr %161
   br label %_ZNK5clang12DeclListNode8iteratordeEv.exit.thread._crit_edge
 
 _ZNK5clang12DeclListNode8iteratordeEv.exit.thread: ; preds = %.lr.ph
@@ -45529,7 +45529,7 @@ _ZN5clang12DeclListNode8iteratorppEv.exit:        ; preds = %_ZNK5clang12DeclLis
   br i1 %.not194, label %_ZNK5clang12DeclListNode8iteratordeEv.exit.thread._crit_edge, label %.lr.ph
 
 _ZNK5clang12DeclListNode8iteratordeEv.exit.thread._crit_edge: ; preds = %_ZN5clang12DeclListNode8iteratorppEv.exit, %_ZNK5clang12DeclListNode8iteratordeEv.exit.thread, %_ZNK5clang12DeclListNode8iteratordeEv.exit, %143
-  %.195 = phi ptr [ null, %143 ], [ %spec.select245, %_ZNK5clang12DeclListNode8iteratordeEv.exit ], [ %167, %_ZNK5clang12DeclListNode8iteratordeEv.exit.thread ], [ null, %_ZN5clang12DeclListNode8iteratorppEv.exit ]
+  %.195 = phi ptr [ null, %143 ], [ %spec.select243, %_ZNK5clang12DeclListNode8iteratordeEv.exit ], [ %167, %_ZNK5clang12DeclListNode8iteratordeEv.exit.thread ], [ null, %_ZN5clang12DeclListNode8iteratorppEv.exit ]
   %175 = load i32, ptr %139, align 4, !tbaa !398
   %176 = icmp eq i32 %175, 3
   br i1 %176, label %177, label %_ZN4llvm11GlobalValue10setLinkageENS0_12LinkageTypesE.exit118
@@ -45750,7 +45750,7 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.e
 
 _ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit123.sink.split: ; preds = %268, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit
   %.sink = phi i32 [ %266, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit ], [ %273, %268 ]
-  %.sink247.ph = phi ptr [ %265, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit ], [ %272, %268 ]
+  %.sink245.ph = phi ptr [ %265, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit ], [ %272, %268 ]
   %275 = zext i32 %.sink to i64
   %276 = add nuw nsw i64 %275, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %227, ptr noundef nonnull %228, i64 noundef %276, i64 noundef 8) #28
@@ -45758,16 +45758,16 @@ _ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.e
   br label %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit123
 
 _ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit123: ; preds = %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit123.sink.split, %268, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit
-  %.sink249 = phi i32 [ %273, %268 ], [ %266, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit ], [ %.pre.i.i.i125, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit123.sink.split ]
-  %.sink247 = phi ptr [ %272, %268 ], [ %265, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit ], [ %.sink247.ph, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit123.sink.split ]
+  %.sink247 = phi i32 [ %273, %268 ], [ %266, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit ], [ %.pre.i.i.i125, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit123.sink.split ]
+  %.sink245 = phi ptr [ %272, %268 ], [ %265, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit ], [ %.sink245.ph, %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit123.sink.split ]
   %277 = load ptr, ptr %227, align 8, !tbaa !25
-  %278 = zext i32 %.sink249 to i64
+  %278 = zext i32 %.sink247 to i64
   %279 = getelementptr inbounds nuw ptr, ptr %277, i64 %278
-  %280 = ptrtoint ptr %.sink247 to i64
+  %280 = ptrtoint ptr %.sink245 to i64
   store i64 %280, ptr %279, align 1
   %281 = load i32, ptr %229, align 8, !tbaa !26
-  %storemerge239 = add i32 %281, 1
-  store i32 %storemerge239, ptr %229, align 8, !tbaa !26
+  %storemerge237 = add i32 %281, 1
+  store i32 %storemerge237, ptr %229, align 8, !tbaa !26
   br i1 %.0183, label %282, label %292
 
 282:                                              ; preds = %_ZN5clang7CodeGen28ConstantAggregateBuilderBase6addIntEPN4llvm11IntegerTypeEmb.exit123

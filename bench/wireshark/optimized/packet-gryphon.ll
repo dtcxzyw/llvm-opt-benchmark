@@ -2896,18 +2896,17 @@ define internal fastcc i32 @decode_data(ptr noundef %0, i32 noundef %1, ptr noun
 
 72:                                               ; preds = %68, %67
   %.2 = phi i32 [ %71, %68 ], [ %.1, %67 ]
-  %73 = and i32 %14, 3
-  %.not90 = icmp eq i32 %73, 0
-  br i1 %.not90, label %78, label %74
+  %.not90 = icmp eq i32 %16, 3
+  br i1 %.not90, label %77, label %73
 
-74:                                               ; preds = %72
-  %75 = load i32, ptr @hf_gryphon_data_padding, align 4
-  %76 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %75, ptr noundef %0, i32 noundef %.2, i32 noundef %17, i32 noundef 0)
-  %77 = add i32 %.2, %17
-  br label %78
+73:                                               ; preds = %72
+  %74 = load i32, ptr @hf_gryphon_data_padding, align 4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %57, i32 noundef %74, ptr noundef %0, i32 noundef %.2, i32 noundef %17, i32 noundef 0)
+  %76 = add i32 %.2, %17
+  br label %77
 
-78:                                               ; preds = %74, %72
-  %.3 = phi i32 [ %77, %74 ], [ %.2, %72 ]
+77:                                               ; preds = %73, %72
+  %.3 = phi i32 [ %76, %73 ], [ %.2, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.3
 }
@@ -3720,10 +3719,10 @@ define internal fastcc i32 @cmd_options(ptr noundef %0, ptr noundef %1) unnamed_
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %2, %51
-  %.05864 = phi i32 [ %52, %51 ], [ 16, %2 ]
-  %.05963 = phi i32 [ %53, %51 ], [ %8, %2 ]
-  %.06062 = phi i32 [ %54, %51 ], [ 1, %2 ]
+.lr.ph:                                           ; preds = %2, %50
+  %.05864 = phi i32 [ %51, %50 ], [ 16, %2 ]
+  %.05963 = phi i32 [ %52, %50 ], [ %8, %2 ]
+  %.06062 = phi i32 [ %53, %50 ], [ 1, %2 ]
   %10 = add i32 %.05864, 1
   %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %10)
   %12 = zext i8 %11 to i32
@@ -3798,25 +3797,24 @@ define internal fastcc i32 @cmd_options(ptr noundef %0, ptr noundef %1) unnamed_
   %43 = load i32, ptr @hf_gryphon_option_data, align 4
   %44 = add i32 %.05864, 2
   %45 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format_value(ptr noundef %19, i32 noundef %43, ptr noundef %0, i32 noundef %44, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.1056, ptr noundef nonnull %.0)
-  %46 = and i32 %12, 3
-  %.not = icmp eq i32 %46, 2
-  br i1 %.not, label %51, label %47
+  %.not = icmp eq i32 %15, 3
+  br i1 %.not, label %50, label %46
 
-47:                                               ; preds = %40
-  %48 = load i32, ptr @hf_gryphon_padding, align 4
-  %49 = add i32 %44, %12
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %48, ptr noundef %0, i32 noundef %49, i32 noundef %16, i32 noundef 0)
-  br label %51
+46:                                               ; preds = %40
+  %47 = load i32, ptr @hf_gryphon_padding, align 4
+  %48 = add i32 %44, %12
+  %49 = tail call ptr @proto_tree_add_item(ptr noundef %19, i32 noundef %47, ptr noundef %0, i32 noundef %48, i32 noundef %16, i32 noundef 0)
+  br label %50
 
-51:                                               ; preds = %47, %40
-  %52 = add i32 %17, %.05864
-  %53 = sub nsw i32 %.05963, %17
-  %54 = add i32 %.06062, 1
-  %55 = icmp sgt i32 %53, 0
-  br i1 %55, label %.lr.ph, label %._crit_edge, !llvm.loop !18
+50:                                               ; preds = %46, %40
+  %51 = add i32 %17, %.05864
+  %52 = sub nsw i32 %.05963, %17
+  %53 = add i32 %.06062, 1
+  %54 = icmp sgt i32 %52, 0
+  br i1 %54, label %.lr.ph, label %._crit_edge, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %51, %2
-  %.058.lcssa = phi i32 [ 16, %2 ], [ %52, %51 ]
+._crit_edge:                                      ; preds = %50, %2
+  %.058.lcssa = phi i32 [ 16, %2 ], [ %51, %50 ]
   ret i32 %.058.lcssa
 }
 
@@ -4654,13 +4652,13 @@ define internal fastcc i32 @filter_block(ptr noundef %0, i32 noundef %1, ptr nou
   %33 = add i32 %32, %20
   %34 = and i32 %32, 2
   %.not59 = icmp eq i32 %34, 0
-  br i1 %.not59, label %68, label %35
+  br i1 %.not59, label %67, label %35
 
 35:                                               ; preds = %23
   %36 = load i32, ptr @hf_gryphon_padding, align 4
   %37 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %36, ptr noundef %0, i32 noundef %33, i32 noundef %34, i32 noundef 0)
   %38 = add i32 %33, %34
-  br label %68
+  br label %67
 
 39:                                               ; preds = %3
   %40 = load i32, ptr %5, align 4
@@ -4698,21 +4696,20 @@ define internal fastcc i32 @filter_block(ptr noundef %0, i32 noundef %1, ptr nou
 58:                                               ; preds = %53, %49, %45, %41
   %.1 = phi i32 [ %57, %53 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ]
   %59 = load i32, ptr %5, align 4
-  %60 = and i32 %59, 3
-  %.not = icmp eq i32 %60, 0
-  br i1 %.not, label %68, label %61
+  %60 = add i32 %59, 3
+  %61 = and i32 %60, 3
+  %.not = icmp eq i32 %61, 3
+  br i1 %.not, label %67, label %62
 
-61:                                               ; preds = %58
-  %62 = add i32 %59, 3
-  %63 = and i32 %62, 3
-  %64 = xor i32 %63, 3
-  %65 = load i32, ptr @hf_gryphon_padding, align 4
-  %66 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %65, ptr noundef %0, i32 noundef %.1, i32 noundef %64, i32 noundef 0)
-  %67 = add i32 %64, %.1
-  br label %68
+62:                                               ; preds = %58
+  %63 = xor i32 %61, 3
+  %64 = load i32, ptr @hf_gryphon_padding, align 4
+  %65 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %64, ptr noundef %0, i32 noundef %.1, i32 noundef %63, i32 noundef 0)
+  %66 = add i32 %63, %.1
+  br label %67
 
-68:                                               ; preds = %58, %61, %23, %35
-  %.0 = phi i32 [ %38, %35 ], [ %33, %23 ], [ %67, %61 ], [ %.1, %58 ]
+67:                                               ; preds = %58, %62, %23, %35
+  %.0 = phi i32 [ %38, %35 ], [ %33, %23 ], [ %66, %62 ], [ %.1, %58 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

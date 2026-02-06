@@ -13077,9 +13077,9 @@ Mf_CutArea.exit:                                  ; preds = %2
   %27 = getelementptr i8, ptr %0, i64 40
   br label %28
 
-28:                                               ; preds = %.lr.ph, %55
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %.029 = phi i32 [ %.0.i34, %.lr.ph ], [ %.1, %55 ]
+28:                                               ; preds = %.lr.ph, %57
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %57 ]
+  %.029 = phi i32 [ %.0.i34, %.lr.ph ], [ %.1, %57 ]
   %29 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !12
   %.val25 = load ptr, ptr %26, align 8, !tbaa !78
@@ -13087,48 +13087,50 @@ Mf_CutArea.exit:                                  ; preds = %2
   %32 = getelementptr inbounds %struct.Mf_Obj_t_, ptr %.val25, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 12
   %34 = load i32, ptr %33, align 4
-  %35 = and i32 %34, -65536
-  %36 = add i32 %35, -65536
-  %37 = and i32 %34, 65535
-  %38 = or disjoint i32 %36, %37
-  store i32 %38, ptr %33, align 4
-  %.not18 = icmp eq i32 %35, 65536
-  br i1 %.not18, label %39, label %55
+  %35 = lshr i32 %34, 16
+  %36 = add nuw nsw i32 %35, 65535
+  %37 = and i32 %36, 65535
+  %38 = shl nuw i32 %37, 16
+  %39 = and i32 %34, 65535
+  %40 = or disjoint i32 %38, %39
+  store i32 %40, ptr %33, align 4
+  %.not18 = icmp eq i32 %37, 0
+  br i1 %.not18, label %41, label %57
 
-39:                                               ; preds = %28
-  %40 = load i32, ptr %29, align 4, !tbaa !12
+41:                                               ; preds = %28
+  %42 = load i32, ptr %29, align 4, !tbaa !12
   %.val = load ptr, ptr %26, align 8, !tbaa !78
-  %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %struct.Mf_Obj_t_, ptr %.val, i64 %41
-  %43 = load i32, ptr %42, align 4, !tbaa !80
-  %.not19 = icmp eq i32 %43, 0
-  br i1 %.not19, label %55, label %44
+  %43 = sext i32 %42 to i64
+  %44 = getelementptr inbounds %struct.Mf_Obj_t_, ptr %.val, i64 %43
+  %45 = load i32, ptr %44, align 4, !tbaa !80
+  %.not19 = icmp eq i32 %45, 0
+  br i1 %.not19, label %57, label %46
 
-44:                                               ; preds = %39
+46:                                               ; preds = %41
   %.val21 = load ptr, ptr %27, align 8, !tbaa !79
-  %45 = ashr i32 %43, 16
-  %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds ptr, ptr %.val21, i64 %46
-  %48 = load ptr, ptr %47, align 8, !tbaa !82
-  %49 = and i32 %43, 65535
-  %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %48, i64 %50
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  %53 = tail call i32 @Mf_CutDeref_rec(ptr noundef nonnull %0, ptr noundef nonnull %52)
-  %54 = add nsw i32 %53, %.029
-  br label %55
+  %47 = ashr i32 %45, 16
+  %48 = sext i32 %47 to i64
+  %49 = getelementptr inbounds ptr, ptr %.val21, i64 %48
+  %50 = load ptr, ptr %49, align 8, !tbaa !82
+  %51 = and i32 %45, 65535
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw i32, ptr %50, i64 %52
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  %55 = tail call i32 @Mf_CutDeref_rec(ptr noundef nonnull %0, ptr noundef nonnull %54)
+  %56 = add nsw i32 %55, %.029
+  br label %57
 
-55:                                               ; preds = %28, %39, %44
-  %.1 = phi i32 [ %.029, %28 ], [ %54, %44 ], [ %.029, %39 ]
+57:                                               ; preds = %28, %41, %46
+  %.1 = phi i32 [ %.029, %28 ], [ %56, %46 ], [ %.029, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val23 = load i32, ptr %1, align 4, !tbaa !12
-  %56 = and i32 %.val23, 31
-  %57 = zext nneg i32 %56 to i64
-  %.not.not = icmp samesign ult i64 %indvars.iv, %57
+  %58 = and i32 %.val23, 31
+  %59 = zext nneg i32 %58 to i64
+  %.not.not = icmp samesign ult i64 %indvars.iv, %59
   br i1 %.not.not, label %28, label %._crit_edge, !llvm.loop !268
 
-._crit_edge:                                      ; preds = %55, %Mf_CutArea.exit
-  %.0.lcssa = phi i32 [ 0, %Mf_CutArea.exit ], [ %.1, %55 ]
+._crit_edge:                                      ; preds = %57, %Mf_CutArea.exit
+  %.0.lcssa = phi i32 [ 0, %Mf_CutArea.exit ], [ %.1, %57 ]
   ret i32 %.0.lcssa
 }
 
@@ -13364,9 +13366,9 @@ Mf_CutArea.exit:                                  ; preds = %4, %16, %21, %24
   %32 = add nsw i32 %3, -1
   br label %33
 
-33:                                               ; preds = %.lr.ph, %89
-  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %89 ]
-  %.039 = phi i32 [ %.0.i, %.lr.ph ], [ %.1, %89 ]
+33:                                               ; preds = %.lr.ph, %91
+  %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %91 ]
+  %.039 = phi i32 [ %.0.i, %.lr.ph ], [ %.1, %91 ]
   %34 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !12
   %36 = load i32, ptr %29, align 4, !tbaa !26
@@ -13437,48 +13439,50 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %66 = getelementptr inbounds %struct.Mf_Obj_t_, ptr %.val35, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %68 = load i32, ptr %67, align 4
-  %69 = and i32 %68, -65536
-  %70 = add i32 %69, -65536
-  %71 = and i32 %68, 65535
-  %72 = or disjoint i32 %70, %71
-  store i32 %72, ptr %67, align 4
-  %.not28 = icmp eq i32 %69, 65536
-  br i1 %.not28, label %73, label %89
+  %69 = lshr i32 %68, 16
+  %70 = add nuw nsw i32 %69, 65535
+  %71 = and i32 %70, 65535
+  %72 = shl nuw i32 %71, 16
+  %73 = and i32 %68, 65535
+  %74 = or disjoint i32 %72, %73
+  store i32 %74, ptr %67, align 4
+  %.not28 = icmp eq i32 %71, 0
+  br i1 %.not28, label %75, label %91
 
-73:                                               ; preds = %Vec_IntPush.exit
-  %74 = load i32, ptr %34, align 4, !tbaa !12
+75:                                               ; preds = %Vec_IntPush.exit
+  %76 = load i32, ptr %34, align 4, !tbaa !12
   %.val = load ptr, ptr %30, align 8, !tbaa !78
-  %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds %struct.Mf_Obj_t_, ptr %.val, i64 %75
-  %77 = load i32, ptr %76, align 4, !tbaa !80
-  %.not29 = icmp eq i32 %77, 0
-  br i1 %.not29, label %89, label %78
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds %struct.Mf_Obj_t_, ptr %.val, i64 %77
+  %79 = load i32, ptr %78, align 4, !tbaa !80
+  %.not29 = icmp eq i32 %79, 0
+  br i1 %.not29, label %91, label %80
 
-78:                                               ; preds = %73
+80:                                               ; preds = %75
   %.val31 = load ptr, ptr %31, align 8, !tbaa !79
-  %79 = ashr i32 %77, 16
-  %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %.val31, i64 %80
-  %82 = load ptr, ptr %81, align 8, !tbaa !82
-  %83 = and i32 %77, 65535
-  %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %82, i64 %84
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  %87 = tail call i32 @Mf_CutDeref2_rec(ptr noundef nonnull %0, ptr noundef nonnull %86, ptr noundef nonnull %2, i32 noundef %32)
-  %88 = add nsw i32 %87, %.039
-  br label %89
+  %81 = ashr i32 %79, 16
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds ptr, ptr %.val31, i64 %82
+  %84 = load ptr, ptr %83, align 8, !tbaa !82
+  %85 = and i32 %79, 65535
+  %86 = zext nneg i32 %85 to i64
+  %87 = getelementptr inbounds nuw i32, ptr %84, i64 %86
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
+  %89 = tail call i32 @Mf_CutDeref2_rec(ptr noundef nonnull %0, ptr noundef nonnull %88, ptr noundef nonnull %2, i32 noundef %32)
+  %90 = add nsw i32 %89, %.039
+  br label %91
 
-89:                                               ; preds = %Vec_IntPush.exit, %73, %78
-  %.1 = phi i32 [ %.039, %Vec_IntPush.exit ], [ %88, %78 ], [ %.039, %73 ]
+91:                                               ; preds = %Vec_IntPush.exit, %75, %80
+  %.1 = phi i32 [ %.039, %Vec_IntPush.exit ], [ %90, %80 ], [ %.039, %75 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val33 = load i32, ptr %1, align 4, !tbaa !12
-  %90 = and i32 %.val33, 31
-  %91 = zext nneg i32 %90 to i64
-  %.not.not = icmp samesign ult i64 %indvars.iv, %91
+  %92 = and i32 %.val33, 31
+  %93 = zext nneg i32 %92 to i64
+  %.not.not = icmp samesign ult i64 %indvars.iv, %93
   br i1 %.not.not, label %33, label %.loopexit, !llvm.loop !270
 
-.loopexit:                                        ; preds = %89, %Mf_CutArea.exit
-  %.026 = phi i32 [ %.0.i, %Mf_CutArea.exit ], [ %.1, %89 ]
+.loopexit:                                        ; preds = %91, %Mf_CutArea.exit
+  %.026 = phi i32 [ %.0.i, %Mf_CutArea.exit ], [ %.1, %91 ]
   ret i32 %.026
 }
 

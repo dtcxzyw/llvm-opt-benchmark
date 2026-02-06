@@ -2760,7 +2760,7 @@ define dso_local void @pm_runtime_enable(ptr noundef %0) #0 align 16 {
   %12 = and i16 %5, -8
   %13 = or disjoint i16 %11, %12
   store i16 %13, ptr %4, align 8
-  %14 = icmp eq i16 %6, 1
+  %14 = icmp eq i16 %11, 0
   br i1 %14, label %15, label %31
 
 15:                                               ; preds = %9

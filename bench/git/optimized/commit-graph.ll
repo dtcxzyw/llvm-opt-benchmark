@@ -3456,19 +3456,19 @@ st_mult.exit178:                                  ; preds = %st_mult.exit178.lr.
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %25, ptr readonly align 1 %181, i64 %186, i1 false)
   %187 = load i64, ptr %185, align 8, !tbaa !72
   %188 = icmp ult i64 %187, 32
-  br i1 %188, label %189, label %.preheader381
+  br i1 %188, label %189, label %.preheader382
 
 189:                                              ; preds = %st_mult.exit178
   %190 = getelementptr inbounds nuw i8, ptr %25, i64 %187
   %191 = sub nuw nsw i64 32, %187
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %190, i8 0, i64 %191, i1 false)
-  br label %.preheader381
+  br label %.preheader382
 
-.preheader381:                                    ; preds = %189, %st_mult.exit178
+.preheader382:                                    ; preds = %189, %st_mult.exit178
   br label %192
 
-192:                                              ; preds = %.preheader381, %194
-  %.0811.i.i = phi i64 [ %195, %194 ], [ 0, %.preheader381 ]
+192:                                              ; preds = %.preheader382, %194
+  %.0811.i.i = phi i64 [ %195, %194 ], [ 0, %.preheader382 ]
   %193 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %184, %193
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %194
@@ -4549,10 +4549,10 @@ _.exit156.i:                                      ; preds = %661, %659
   br label %671
 
 671:                                              ; preds = %667, %665
-  %.sink209.i = phi ptr [ %650, %665 ], [ %.val148.i, %667 ]
-  %.sink207.i = phi i32 [ %666, %665 ], [ %670, %667 ]
-  %672 = call ptr @get_tempfile_path(ptr noundef %.sink209.i) #24
-  %673 = call ptr @hashfd(i32 noundef %.sink207.i, ptr noundef %672) #24
+  %.sink210.i = phi ptr [ %650, %665 ], [ %.val148.i, %667 ]
+  %.sink208.i = phi i32 [ %666, %665 ], [ %670, %667 ]
+  %672 = call ptr @get_tempfile_path(ptr noundef %.sink210.i) #24
+  %673 = call ptr @hashfd(i32 noundef %.sink208.i, ptr noundef %672) #24
   %674 = call ptr @init_chunkfile(ptr noundef %673) #24
   call void @add_chunk(ptr noundef %674, i32 noundef 1330201670, i64 noundef 1024, ptr noundef nonnull @write_graph_chunk_fanout) #24
   %675 = and i64 %619, 4294967295
@@ -4575,7 +4575,7 @@ st_mult.exit.i236:                                ; preds = %677, %671
   %680 = add i64 %619, 16
   %681 = and i64 %680, 4294967295
   %682 = load i64, ptr %552, align 8, !tbaa !222
-  %.not.i157.i = icmp eq i64 %675, 4294967280
+  %.not.i157.i = icmp eq i64 %681, 0
   br i1 %.not.i157.i, label %st_mult.exit160.i, label %683
 
 683:                                              ; preds = %st_mult.exit.i236

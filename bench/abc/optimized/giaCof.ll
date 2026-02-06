@@ -1922,40 +1922,42 @@ define i32 @Cof_NodeDeref_rec(ptr noundef captures(none) %0) local_unnamed_addr 
   br i1 %4, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %tailrecurse
-  %5 = phi i32 [ %25, %tailrecurse ], [ %2, %1 ]
-  %.tr5 = phi ptr [ %22, %tailrecurse ], [ %0, %1 ]
-  %accumulator.tr4 = phi i32 [ %24, %tailrecurse ], [ 0, %1 ]
-  %6 = and i32 %5, -256
-  %7 = add i32 %6, -256
-  %8 = and i32 %5, 255
-  %9 = or disjoint i32 %7, %8
-  store i32 %9, ptr %.tr5, align 4
-  %.not = icmp eq i32 %6, 256
+  %5 = phi i32 [ %27, %tailrecurse ], [ %2, %1 ]
+  %.tr5 = phi ptr [ %24, %tailrecurse ], [ %0, %1 ]
+  %accumulator.tr4 = phi i32 [ %26, %tailrecurse ], [ 0, %1 ]
+  %6 = lshr i32 %5, 8
+  %7 = add nuw nsw i32 %6, 16777215
+  %8 = and i32 %7, 16777215
+  %9 = shl nuw i32 %8, 8
+  %10 = and i32 %5, 255
+  %11 = or disjoint i32 %9, %10
+  store i32 %11, ptr %.tr5, align 4
+  %.not = icmp eq i32 %8, 0
   br i1 %.not, label %tailrecurse, label %._crit_edge
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %.tr5, i64 24
-  %11 = load i32, ptr %10, align 4
-  %12 = and i32 %11, 2147483647
-  %13 = zext nneg i32 %12 to i64
-  %14 = sub nsw i64 0, %13
-  %15 = getelementptr inbounds i32, ptr %.tr5, i64 %14
-  %16 = tail call i32 @Cof_NodeDeref_rec(ptr noundef nonnull %15)
-  %17 = getelementptr inbounds nuw i8, ptr %.tr5, i64 28
-  %18 = load i32, ptr %17, align 4
-  %19 = and i32 %18, 2147483647
-  %20 = zext nneg i32 %19 to i64
-  %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds i32, ptr %.tr5, i64 %21
-  %23 = add i32 %accumulator.tr4, 1
-  %24 = add i32 %23, %16
-  %25 = load i32, ptr %22, align 4
-  %26 = and i32 %25, 240
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %._crit_edge, label %.lr.ph
+  %12 = getelementptr inbounds nuw i8, ptr %.tr5, i64 24
+  %13 = load i32, ptr %12, align 4
+  %14 = and i32 %13, 2147483647
+  %15 = zext nneg i32 %14 to i64
+  %16 = sub nsw i64 0, %15
+  %17 = getelementptr inbounds i32, ptr %.tr5, i64 %16
+  %18 = tail call i32 @Cof_NodeDeref_rec(ptr noundef nonnull %17)
+  %19 = getelementptr inbounds nuw i8, ptr %.tr5, i64 28
+  %20 = load i32, ptr %19, align 4
+  %21 = and i32 %20, 2147483647
+  %22 = zext nneg i32 %21 to i64
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds i32, ptr %.tr5, i64 %23
+  %25 = add i32 %accumulator.tr4, 1
+  %26 = add i32 %25, %18
+  %27 = load i32, ptr %24, align 4
+  %28 = and i32 %27, 240
+  %29 = icmp eq i32 %28, 0
+  br i1 %29, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %tailrecurse, %.lr.ph, %1
-  %accumulator.tr.lcssa = phi i32 [ 0, %1 ], [ %accumulator.tr4, %.lr.ph ], [ %24, %tailrecurse ]
+  %accumulator.tr.lcssa = phi i32 [ 0, %1 ], [ %accumulator.tr4, %.lr.ph ], [ %26, %tailrecurse ]
   ret i32 %accumulator.tr.lcssa
 }
 

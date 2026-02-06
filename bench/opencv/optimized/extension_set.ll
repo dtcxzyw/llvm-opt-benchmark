@@ -1244,18 +1244,15 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet3Ha
   br i1 %7, label %25, label %10, !prof !50
 
 10:                                               ; preds = %6
-  %.not.i = icmp eq i16 %4, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %10
   %11 = zext nneg i16 %4 to i64
   %12 = add nuw nsw i64 %11, 576460752303423487
   %13 = and i64 %12, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %13, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %10 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %10 ]
   %14 = lshr i64 %.01116.i.i.i, 1
   %15 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !73
@@ -1333,18 +1330,15 @@ define hidden noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet10FindOrNu
   br i1 %7, label %26, label %10, !prof !50
 
 10:                                               ; preds = %6
-  %.not = icmp eq i16 %4, 1
-  br i1 %.not, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader: ; preds = %10
   %11 = zext nneg i16 %4 to i64
   %12 = add nuw nsw i64 %11, 576460752303423487
   %13 = and i64 %12, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i
+  %.not = icmp eq i64 %13, 0
+  br i1 %.not, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i
-  %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader ]
-  %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i: ; preds = %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i
+  %.017.i.i = phi ptr [ %.1.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i ], [ %9, %10 ]
+  %.01116.i.i = phi i64 [ %.112.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i ], [ %13, %10 ]
   %14 = lshr i64 %.01116.i.i, 1
   %15 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !73
@@ -1416,18 +1410,15 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet7Ha
   br i1 %7, label %24, label %10, !prof !50
 
 10:                                               ; preds = %6
-  %.not.i.i = icmp eq i16 %4, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %10
   %11 = zext nneg i16 %4 to i64
   %12 = add nuw nsw i64 %11, 576460752303423487
   %13 = and i64 %12, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %13, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %9, %10 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %10 ]
   %14 = lshr i64 %.01116.i.i.i.i, 1
   %15 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !73
@@ -1444,7 +1435,7 @@ _ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15Fir
   %.0.lcssa.i.i.i.i = phi ptr [ %9, %10 ], [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ]
   %22 = load i32, ptr %.0.lcssa.i.i.i.i, align 8, !tbaa !73
   %23 = icmp eq i32 %22, %1
-  br i1 %23, label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread5, label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread
+  br i1 %23, label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread7, label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread
 
 24:                                               ; preds = %6
   %25 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1482,25 +1473,22 @@ _ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit: ; preds = %_ZNSt3mapIiN6
   %37 = trunc i8 %36 to i1
   br i1 %37, label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread, label %53
 
-_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread5: ; preds = %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i
+_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread7: ; preds = %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i
   %38 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i, i64 18
   %39 = load i8, ptr %38, align 2
   %40 = trunc i8 %39 to i1
   br i1 %40, label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread, label %.thread
 
-.thread:                                          ; preds = %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread5
-  %.not.i = icmp eq i16 %4, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %.thread
+.thread:                                          ; preds = %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread7
   %41 = zext nneg i16 %4 to i64
   %42 = add nuw nsw i64 %41, 576460752303423487
   %43 = and i64 %42, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %43, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %43, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %.thread, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %.thread ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %43, %.thread ]
   %44 = lshr i64 %.01116.i.i.i, 1
   %45 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %44
   %46 = load i32, ptr %45, align 8, !tbaa !73
@@ -1551,8 +1539,8 @@ _ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit: ; preds = %_ZSt1
   %65 = icmp ne i8 %64, 0
   br label %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread
 
-_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread: ; preds = %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread5, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i, %24, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, %2, %_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit, %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit
-  %66 = phi i1 [ false, %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit ], [ %65, %_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit ], [ false, %2 ], [ false, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i ], [ false, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i ], [ false, %24 ], [ false, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i ], [ false, %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread5 ]
+_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread: ; preds = %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread7, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i, %24, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, %2, %_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit, %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit
+  %66 = phi i1 [ false, %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit ], [ %65, %_ZNK6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit ], [ false, %2 ], [ false, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i ], [ false, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i ], [ false, %24 ], [ false, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i ], [ false, %_ZNK6google8protobuf8internal12ExtensionSet3HasEi.exit.thread7 ]
   ret i1 %66
 }
 
@@ -1624,18 +1612,15 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet13Extensio
   br i1 %7, label %25, label %10, !prof !50
 
 10:                                               ; preds = %6
-  %.not.i = icmp eq i16 %4, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %10
   %11 = zext nneg i16 %4 to i64
   %12 = add nuw nsw i64 %11, 576460752303423487
   %13 = and i64 %12, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %13, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %10 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %10 ]
   %14 = lshr i64 %.01116.i.i.i, 1
   %15 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !73
@@ -1827,18 +1812,15 @@ define hidden noundef zeroext i8 @_ZNK6google8protobuf8internal12ExtensionSet13E
   br i1 %11, label %29, label %14, !prof !50
 
 14:                                               ; preds = %10
-  %.not.i = icmp eq i16 %8, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %17, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %14 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %17, %14 ]
   %18 = lshr i64 %.01116.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !73
@@ -1992,18 +1974,15 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet14ClearExtensionEi
   br i1 %7, label %25, label %10, !prof !50
 
 10:                                               ; preds = %6
-  %.not.i.i = icmp eq i16 %4, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %10
   %11 = zext nneg i16 %4 to i64
   %12 = add nuw nsw i64 %11, 576460752303423487
   %13 = and i64 %12, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %13, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %9, %10 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %10 ]
   %14 = lshr i64 %.01116.i.i.i.i, 1
   %15 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !73
@@ -2077,18 +2056,15 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet10FindOrNul
   br i1 %7, label %26, label %10, !prof !50
 
 10:                                               ; preds = %6
-  %.not.i = icmp eq i16 %4, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %10
   %11 = zext nneg i16 %4 to i64
   %12 = add nuw nsw i64 %11, 576460752303423487
   %13 = and i64 %12, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %13, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %9, %10 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %13, %10 ]
   %14 = lshr i64 %.01116.i.i.i, 1
   %15 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %14
   %16 = load i32, ptr %15, align 8, !tbaa !73
@@ -2341,18 +2317,15 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet8GetInt32E
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -2433,18 +2406,15 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -2562,18 +2532,15 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet16GetRepea
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -2688,18 +2655,15 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -2813,18 +2777,15 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet16SetRepeatedInt32
   br i1 %11, label %29, label %14, !prof !50
 
 14:                                               ; preds = %10
-  %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %14 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %14 ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !73
@@ -3020,18 +2981,15 @@ define hidden noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet8GetInt64E
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -3112,18 +3070,15 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protob
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -3229,18 +3184,15 @@ define hidden noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet16GetRepea
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -3355,18 +3307,15 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protob
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -3480,18 +3429,15 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet16SetRepeatedInt64
   br i1 %11, label %29, label %14, !prof !50
 
 14:                                               ; preds = %10
-  %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %14 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %14 ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !73
@@ -3687,18 +3633,15 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet9GetUInt32
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -3779,18 +3722,15 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -3896,18 +3836,15 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet17GetRepea
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -4022,18 +3959,15 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -4147,18 +4081,15 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet17SetRepeatedUInt3
   br i1 %11, label %29, label %14, !prof !50
 
 14:                                               ; preds = %10
-  %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %14 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %14 ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !73
@@ -4354,18 +4285,15 @@ define hidden noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet9GetUInt64
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -4446,18 +4374,15 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protob
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -4563,18 +4488,15 @@ define hidden noundef i64 @_ZNK6google8protobuf8internal12ExtensionSet17GetRepea
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -4689,18 +4611,15 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protob
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -4814,18 +4733,15 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet17SetRepeatedUInt6
   br i1 %11, label %29, label %14, !prof !50
 
 14:                                               ; preds = %10
-  %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %14 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %14 ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !73
@@ -5021,18 +4937,15 @@ define hidden noundef float @_ZNK6google8protobuf8internal12ExtensionSet8GetFloa
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -5113,18 +5026,15 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -5230,18 +5140,15 @@ define hidden noundef float @_ZNK6google8protobuf8internal12ExtensionSet16GetRep
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -5356,18 +5263,15 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -5481,18 +5385,15 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet16SetRepeatedFloat
   br i1 %11, label %29, label %14, !prof !50
 
 14:                                               ; preds = %10
-  %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %14 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %14 ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !73
@@ -5688,18 +5589,15 @@ define hidden noundef double @_ZNK6google8protobuf8internal12ExtensionSet9GetDou
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -5780,18 +5678,15 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protob
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -5897,18 +5792,15 @@ define hidden noundef double @_ZNK6google8protobuf8internal12ExtensionSet17GetRe
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -6023,18 +5915,15 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protob
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -6148,18 +6037,15 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet17SetRepeatedDoubl
   br i1 %11, label %29, label %14, !prof !50
 
 14:                                               ; preds = %10
-  %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %14 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %14 ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !73
@@ -6355,18 +6241,15 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet7Ge
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -6448,18 +6331,15 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6google8protob
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -6566,18 +6446,15 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet15G
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -6693,18 +6570,15 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6google8protob
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -6818,18 +6692,15 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet15SetRepeatedBoolE
   br i1 %11, label %29, label %14, !prof !50
 
 14:                                               ; preds = %10
-  %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %14 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %14 ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !73
@@ -7027,18 +6898,15 @@ define hidden noundef ptr @_ZNK6google8protobuf8internal12ExtensionSet19GetRawRe
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -7395,18 +7263,15 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet23MutableRa
   br i1 %9, label %27, label %12, !prof !50
 
 12:                                               ; preds = %8
-  %.not.i.i = icmp eq i16 %6, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %12
   %13 = zext nneg i16 %6 to i64
   %14 = add nuw nsw i64 %13, 576460752303423487
   %15 = and i64 %14, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %15, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %12 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %12 ]
   %16 = lshr i64 %.01116.i.i.i.i, 1
   %17 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !73
@@ -7514,18 +7379,15 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet7GetEnumEi
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -7606,18 +7468,15 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -7723,18 +7582,15 @@ define hidden noundef i32 @_ZNK6google8protobuf8internal12ExtensionSet15GetRepea
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -7849,18 +7705,15 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZNK6google8protob
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -7974,18 +7827,15 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet15SetRepeatedEnumE
   br i1 %11, label %29, label %14, !prof !50
 
 14:                                               ; preds = %10
-  %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %14 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %14 ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !73
@@ -8181,18 +8031,15 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8proto
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -8330,18 +8177,15 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6google8proto
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -8457,18 +8301,15 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet21MutableRe
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i.i = icmp eq i16 %7, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %16, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -8685,18 +8526,15 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6google8proto
   br i1 %8, label %26, label %11, !prof !50
 
 11:                                               ; preds = %7
-  %.not.i = icmp eq i16 %5, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %11
   %12 = zext nneg i16 %5 to i64
   %13 = add nuw nsw i64 %12, 576460752303423487
   %14 = and i64 %13, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %14, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %10, %11 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %14, %11 ]
   %15 = lshr i64 %.01116.i.i.i, 1
   %16 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %15
   %17 = load i32, ptr %16, align 8, !tbaa !73
@@ -8840,18 +8678,15 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet19SetAllocatedMess
   br i1 %12, label %30, label %15, !prof !50
 
 15:                                               ; preds = %11
-  %.not.i.i.i = icmp eq i16 %9, 1
-  br i1 %.not.i.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i: ; preds = %15
   %16 = zext nneg i16 %9 to i64
   %17 = add nuw nsw i64 %16, 576460752303423487
   %18 = and i64 %17, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i
+  %.not.i.i.i = icmp eq i64 %18, 0
+  br i1 %.not.i.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i
-  %.017.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i ]
-  %.01116.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %18, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i: ; preds = %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i
+  %.017.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %14, %15 ]
+  %.01116.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %18, %15 ]
   %19 = lshr i64 %.01116.i.i.i.i.i, 1
   %20 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i.i, i64 %19
   %21 = load i32, ptr %20, align 8, !tbaa !73
@@ -9071,18 +8906,15 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet30UnsafeArenaSetAl
   br i1 %12, label %30, label %15, !prof !50
 
 15:                                               ; preds = %11
-  %.not.i.i.i = icmp eq i16 %9, 1
-  br i1 %.not.i.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i: ; preds = %15
   %16 = zext nneg i16 %9 to i64
   %17 = add nuw nsw i64 %16, 576460752303423487
   %18 = and i64 %17, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i
+  %.not.i.i.i = icmp eq i64 %18, 0
+  br i1 %.not.i.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i
-  %.017.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i ]
-  %.01116.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %18, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i: ; preds = %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i
+  %.017.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %14, %15 ]
+  %.01116.i.i.i.i.i = phi i64 [ %.112.i.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i.i ], [ %18, %15 ]
   %19 = lshr i64 %.01116.i.i.i.i.i, 1
   %20 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i.i, i64 %19
   %21 = load i32, ptr %20, align 8, !tbaa !73
@@ -9222,18 +9054,15 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet14ReleaseMe
   br i1 %9, label %27, label %12, !prof !50
 
 12:                                               ; preds = %8
-  %.not.i.i = icmp eq i16 %6, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %12
   %13 = zext nneg i16 %6 to i64
   %14 = add nuw nsw i64 %13, 576460752303423487
   %15 = and i64 %14, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %15, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %12 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %12 ]
   %16 = lshr i64 %.01116.i.i.i.i, 1
   %17 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !73
@@ -9489,18 +9318,15 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet25UnsafeAre
   br i1 %9, label %27, label %12, !prof !50
 
 12:                                               ; preds = %8
-  %.not.i.i = icmp eq i16 %6, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %12
   %13 = zext nneg i16 %6 to i64
   %14 = add nuw nsw i64 %13, 576460752303423487
   %15 = and i64 %14, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %15, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %12 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %12 ]
   %16 = lshr i64 %.01116.i.i.i.i, 1
   %17 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !73
@@ -9670,18 +9496,15 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZNK6google8proto
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i = icmp eq i16 %7, 1
-  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.not.i = icmp eq i64 %16, 0
+  br i1 %.not.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i
-  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
-  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i
+  %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -9797,18 +9620,15 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet22MutableRe
   br i1 %10, label %28, label %13, !prof !50
 
 13:                                               ; preds = %9
-  %.not.i.i = icmp eq i16 %7, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %13
   %14 = zext nneg i16 %7 to i64
   %15 = add nuw nsw i64 %14, 576460752303423487
   %16 = and i64 %15, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %16, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %12, %13 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %16, %13 ]
   %17 = lshr i64 %.01116.i.i.i.i, 1
   %18 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !73
@@ -10008,18 +9828,15 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet10RemoveLastEi(ptr
   br i1 %9, label %27, label %12, !prof !50
 
 12:                                               ; preds = %8
-  %.not.i.i = icmp eq i16 %6, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %12
   %13 = zext nneg i16 %6 to i64
   %14 = add nuw nsw i64 %13, 576460752303423487
   %15 = and i64 %14, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %15, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %12 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %12 ]
   %16 = lshr i64 %.01116.i.i.i.i, 1
   %17 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !73
@@ -10239,18 +10056,15 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet11ReleaseLa
   br i1 %9, label %27, label %12, !prof !50
 
 12:                                               ; preds = %8
-  %.not.i.i = icmp eq i16 %6, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %12
   %13 = zext nneg i16 %6 to i64
   %14 = add nuw nsw i64 %13, 576460752303423487
   %15 = and i64 %14, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %15, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %12 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %12 ]
   %16 = lshr i64 %.01116.i.i.i.i, 1
   %17 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !73
@@ -10384,18 +10198,15 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ExtensionSet22UnsafeAre
   br i1 %9, label %27, label %12, !prof !50
 
 12:                                               ; preds = %8
-  %.not.i.i = icmp eq i16 %6, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %12
   %13 = zext nneg i16 %6 to i64
   %14 = add nuw nsw i64 %13, 576460752303423487
   %15 = and i64 %14, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %15, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %12, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %11, %12 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %12 ]
   %16 = lshr i64 %.01116.i.i.i.i, 1
   %17 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %16
   %18 = load i32, ptr %17, align 8, !tbaa !73
@@ -10529,18 +10340,15 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet12SwapElementsEiii
   br i1 %11, label %29, label %14, !prof !50
 
 14:                                               ; preds = %10
-  %.not.i.i = icmp eq i16 %8, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %14
   %15 = zext nneg i16 %8 to i64
   %16 = add nuw nsw i64 %15, 576460752303423487
   %17 = and i64 %16, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %17, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %14, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %13, %14 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %17, %14 ]
   %18 = lshr i64 %.01116.i.i.i.i, 1
   %19 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !73
@@ -12816,18 +12624,15 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet13SwapExtensionEPK
   br i1 %19, label %38, label %22, !prof !50
 
 22:                                               ; preds = %18
-  %.not.i.i = icmp eq i16 %16, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %22
   %23 = zext nneg i16 %16 to i64
   %24 = add nuw nsw i64 %23, 576460752303423487
   %25 = and i64 %24, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %25, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %21, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %25, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %22, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %21, %22 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %25, %22 ]
   %26 = lshr i64 %.01116.i.i.i.i, 1
   %27 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %26
   %28 = load i32, ptr %27, align 8, !tbaa !73
@@ -12885,7 +12690,7 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit: ; preds = %14, %_
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %51 = load i16, ptr %50, align 2, !tbaa !65
   %52 = icmp eq i16 %51, 0
-  br i1 %52, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit73, label %53
+  br i1 %52, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit72, label %53
 
 53:                                               ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit
   %54 = icmp slt i16 %51, 0
@@ -12894,78 +12699,75 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit: ; preds = %14, %_
   br i1 %54, label %73, label %57, !prof !50
 
 57:                                               ; preds = %53
-  %.not.i.i49 = icmp eq i16 %51, 1
-  br i1 %.not.i.i49, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i58, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i50
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i50: ; preds = %57
   %58 = zext nneg i16 %51 to i64
   %59 = add nuw nsw i64 %58, 576460752303423487
   %60 = and i64 %59, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51
+  %.not.i.i49 = icmp eq i64 %60, 0
+  br i1 %.not.i.i49, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i57, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i50
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i50
-  %.017.i.i.i.i52 = phi ptr [ %.1.i.i.i.i57, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51 ], [ %56, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i50 ]
-  %.01116.i.i.i.i53 = phi i64 [ %.112.i.i.i.i56, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51 ], [ %60, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i50 ]
-  %61 = lshr i64 %.01116.i.i.i.i53, 1
-  %62 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i52, i64 %61
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i50: ; preds = %57, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i50
+  %.017.i.i.i.i51 = phi ptr [ %.1.i.i.i.i56, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i50 ], [ %56, %57 ]
+  %.01116.i.i.i.i52 = phi i64 [ %.112.i.i.i.i55, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i50 ], [ %60, %57 ]
+  %61 = lshr i64 %.01116.i.i.i.i52, 1
+  %62 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i51, i64 %61
   %63 = load i32, ptr %62, align 8, !tbaa !73
   %64 = icmp slt i32 %63, %3
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 32
   %66 = xor i64 %61, -1
-  %67 = add nsw i64 %.01116.i.i.i.i53, %66
-  %.112.i.i.i.i56 = select i1 %64, i64 %67, i64 %61
-  %.1.i.i.i.i57 = select i1 %64, ptr %65, ptr %.017.i.i.i.i52
-  %68 = icmp sgt i64 %.112.i.i.i.i56, 0
-  br i1 %68, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i58, !llvm.loop !76
+  %67 = add nsw i64 %.01116.i.i.i.i52, %66
+  %.112.i.i.i.i55 = select i1 %64, i64 %67, i64 %61
+  %.1.i.i.i.i56 = select i1 %64, ptr %65, ptr %.017.i.i.i.i51
+  %68 = icmp sgt i64 %.112.i.i.i.i55, 0
+  br i1 %68, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i50, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i57, !llvm.loop !76
 
-_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i58: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51, %57
-  %.0.lcssa.i.i.i.i59 = phi ptr [ %56, %57 ], [ %.1.i.i.i.i57, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i51 ]
-  %69 = load i32, ptr %.0.lcssa.i.i.i.i59, align 8, !tbaa !73
+_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i57: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i50, %57
+  %.0.lcssa.i.i.i.i58 = phi ptr [ %56, %57 ], [ %.1.i.i.i.i56, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i50 ]
+  %69 = load i32, ptr %.0.lcssa.i.i.i.i58, align 8, !tbaa !73
   %70 = icmp eq i32 %69, %3
-  %71 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i59, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i58, i64 8
   %72 = select i1 %70, ptr %71, ptr null
-  br label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit73
+  br label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit72
 
 73:                                               ; preds = %53
   %74 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !72
   %76 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %.not10.i.i.i.i.i.i61 = icmp eq ptr %75, null
-  br i1 %.not10.i.i.i.i.i.i61, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit73, label %.lr.ph.i.i.i.i.i.i62
+  %.not10.i.i.i.i.i.i60 = icmp eq ptr %75, null
+  br i1 %.not10.i.i.i.i.i.i60, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit72, label %.lr.ph.i.i.i.i.i.i61
 
-.lr.ph.i.i.i.i.i.i62:                             ; preds = %73, %.lr.ph.i.i.i.i.i.i62
-  %.012.i.i.i.i.i.i63 = phi ptr [ %.1.i.i.i.i.i.i68, %.lr.ph.i.i.i.i.i.i62 ], [ %75, %73 ]
-  %.0811.i.i.i.i.i.i64 = phi ptr [ %.19.i.i.i.i.i.i65, %.lr.ph.i.i.i.i.i.i62 ], [ %76, %73 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i63, i64 32
+.lr.ph.i.i.i.i.i.i61:                             ; preds = %73, %.lr.ph.i.i.i.i.i.i61
+  %.012.i.i.i.i.i.i62 = phi ptr [ %.1.i.i.i.i.i.i67, %.lr.ph.i.i.i.i.i.i61 ], [ %75, %73 ]
+  %.0811.i.i.i.i.i.i63 = phi ptr [ %.19.i.i.i.i.i.i64, %.lr.ph.i.i.i.i.i.i61 ], [ %76, %73 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i62, i64 32
   %78 = load i32, ptr %77, align 4, !tbaa !37
   %79 = icmp slt i32 %78, %3
-  %.19.i.i.i.i.i.i65 = select i1 %79, ptr %.0811.i.i.i.i.i.i64, ptr %.012.i.i.i.i.i.i63
-  %.1.in.v.i.i.i.i.i.i66 = select i1 %79, i64 24, i64 16
-  %.1.in.i.i.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i63, i64 %.1.in.v.i.i.i.i.i.i66
-  %.1.i.i.i.i.i.i68 = load ptr, ptr %.1.in.i.i.i.i.i.i67, align 8, !tbaa !77
-  %.not.i.i.i.i.i.i69 = icmp eq ptr %.1.i.i.i.i.i.i68, null
-  br i1 %.not.i.i.i.i.i.i69, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i70, label %.lr.ph.i.i.i.i.i.i62, !llvm.loop !78
+  %.19.i.i.i.i.i.i64 = select i1 %79, ptr %.0811.i.i.i.i.i.i63, ptr %.012.i.i.i.i.i.i62
+  %.1.in.v.i.i.i.i.i.i65 = select i1 %79, i64 24, i64 16
+  %.1.in.i.i.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i62, i64 %.1.in.v.i.i.i.i.i.i65
+  %.1.i.i.i.i.i.i67 = load ptr, ptr %.1.in.i.i.i.i.i.i66, align 8, !tbaa !77
+  %.not.i.i.i.i.i.i68 = icmp eq ptr %.1.i.i.i.i.i.i67, null
+  br i1 %.not.i.i.i.i.i.i68, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i69, label %.lr.ph.i.i.i.i.i.i61, !llvm.loop !78
 
-_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i70: ; preds = %.lr.ph.i.i.i.i.i.i62
-  %80 = icmp eq ptr %.19.i.i.i.i.i.i65, %76
-  br i1 %80, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit73, label %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i71
+_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i69: ; preds = %.lr.ph.i.i.i.i.i.i61
+  %80 = icmp eq ptr %.19.i.i.i.i.i.i64, %76
+  br i1 %80, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit72, label %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i70
 
-_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i71: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i70
-  %81 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i65, i64 32
+_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i70: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i69
+  %81 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i64, i64 32
   %82 = load i32, ptr %81, align 4, !tbaa !37
   %83 = icmp slt i32 %3, %82
-  %84 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i65, i64 40
-  %spec.select.i.i.i72 = select i1 %83, ptr null, ptr %84
-  br label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit73
+  %84 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i64, i64 40
+  %spec.select.i.i.i71 = select i1 %83, ptr null, ptr %84
+  br label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit72
 
-_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit73: ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i58, %73, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i70, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i71
-  %.0.i.i60 = phi ptr [ null, %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit ], [ %72, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i58 ], [ null, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i70 ], [ %spec.select.i.i.i72, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i71 ], [ null, %73 ]
-  %85 = icmp eq ptr %.0.i.i, %.0.i.i60
+_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit72: ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i57, %73, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i69, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i70
+  %.0.i.i59 = phi ptr [ null, %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit ], [ %72, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i57 ], [ null, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i69 ], [ %spec.select.i.i.i71, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i70 ], [ null, %73 ]
+  %85 = icmp eq ptr %.0.i.i, %.0.i.i59
   br i1 %85, label %220, label %86
 
-86:                                               ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit73
+86:                                               ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit72
   %87 = icmp ne ptr %.0.i.i, null
-  %88 = icmp ne ptr %.0.i.i60, null
+  %88 = icmp ne ptr %.0.i.i59, null
   %or.cond = and i1 %87, %88
   br i1 %or.cond, label %89, label %152
 
@@ -12978,13 +12780,13 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit73: ; preds = %_ZN6
   store i16 0, ptr %91, align 2, !tbaa !65
   %92 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %92, align 8, !tbaa !38
-  invoke void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEPKNS0_11MessageLiteEiRKNS2_9ExtensionEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i60, ptr noundef %11)
+  invoke void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEPKNS0_11MessageLiteEiRKNS2_9ExtensionEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i59, ptr noundef %11)
           to label %93 unwind label %147
 
 93:                                               ; preds = %89
   %94 = load i16, ptr %91, align 2, !tbaa !65
   %95 = icmp eq i16 %94, 0
-  br i1 %95, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit98, label %96
+  br i1 %95, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit96, label %96
 
 96:                                               ; preds = %93
   %97 = icmp slt i16 %94, 0
@@ -12992,68 +12794,65 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit73: ; preds = %_ZN6
   br i1 %97, label %112, label %99, !prof !50
 
 99:                                               ; preds = %96
-  %.not.i.i74 = icmp eq i16 %94, 1
-  br i1 %.not.i.i74, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i83, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i75
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i75: ; preds = %99
   %100 = zext nneg i16 %94 to i64
   %101 = add nuw nsw i64 %100, 576460752303423487
   %102 = and i64 %101, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76
+  %.not.i.i73 = icmp eq i64 %102, 0
+  br i1 %.not.i.i73, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i81, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i74
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i75
-  %.017.i.i.i.i77 = phi ptr [ %.1.i.i.i.i82, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76 ], [ %98, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i75 ]
-  %.01116.i.i.i.i78 = phi i64 [ %.112.i.i.i.i81, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76 ], [ %102, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i75 ]
-  %103 = lshr i64 %.01116.i.i.i.i78, 1
-  %104 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i77, i64 %103
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i74: ; preds = %99, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i74
+  %.017.i.i.i.i75 = phi ptr [ %.1.i.i.i.i80, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i74 ], [ %98, %99 ]
+  %.01116.i.i.i.i76 = phi i64 [ %.112.i.i.i.i79, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i74 ], [ %102, %99 ]
+  %103 = lshr i64 %.01116.i.i.i.i76, 1
+  %104 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i75, i64 %103
   %105 = load i32, ptr %104, align 8, !tbaa !73
   %106 = icmp slt i32 %105, %3
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %108 = xor i64 %103, -1
-  %109 = add nsw i64 %.01116.i.i.i.i78, %108
-  %.112.i.i.i.i81 = select i1 %106, i64 %109, i64 %103
-  %.1.i.i.i.i82 = select i1 %106, ptr %107, ptr %.017.i.i.i.i77
-  %110 = icmp sgt i64 %.112.i.i.i.i81, 0
-  br i1 %110, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i83, !llvm.loop !76
+  %109 = add nsw i64 %.01116.i.i.i.i76, %108
+  %.112.i.i.i.i79 = select i1 %106, i64 %109, i64 %103
+  %.1.i.i.i.i80 = select i1 %106, ptr %107, ptr %.017.i.i.i.i75
+  %110 = icmp sgt i64 %.112.i.i.i.i79, 0
+  br i1 %110, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i74, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i81, !llvm.loop !76
 
-_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i83: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76, %99
-  %.0.lcssa.i.i.i.i84 = phi ptr [ %98, %99 ], [ %.1.i.i.i.i82, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i76 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i84, i64 8
-  br label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit98
+_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i81: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i74, %99
+  %.0.lcssa.i.i.i.i82 = phi ptr [ %98, %99 ], [ %.1.i.i.i.i80, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i74 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i82, i64 8
+  br label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit96
 
 112:                                              ; preds = %96
   %113 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %114 = load ptr, ptr %113, align 8, !tbaa !72
-  %.not10.i.i.i.i.i.i86 = icmp eq ptr %114, null
-  br i1 %.not10.i.i.i.i.i.i86, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit98, label %.lr.ph.i.i.i.i.i.i87.preheader
+  %.not10.i.i.i.i.i.i84 = icmp eq ptr %114, null
+  br i1 %.not10.i.i.i.i.i.i84, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit96, label %.lr.ph.i.i.i.i.i.i85.preheader
 
-.lr.ph.i.i.i.i.i.i87.preheader:                   ; preds = %112
+.lr.ph.i.i.i.i.i.i85.preheader:                   ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  br label %.lr.ph.i.i.i.i.i.i87
+  br label %.lr.ph.i.i.i.i.i.i85
 
-.lr.ph.i.i.i.i.i.i87:                             ; preds = %.lr.ph.i.i.i.i.i.i87.preheader, %.lr.ph.i.i.i.i.i.i87
-  %.012.i.i.i.i.i.i88 = phi ptr [ %.1.i.i.i.i.i.i93, %.lr.ph.i.i.i.i.i.i87 ], [ %114, %.lr.ph.i.i.i.i.i.i87.preheader ]
-  %.0811.i.i.i.i.i.i89 = phi ptr [ %.19.i.i.i.i.i.i90, %.lr.ph.i.i.i.i.i.i87 ], [ %115, %.lr.ph.i.i.i.i.i.i87.preheader ]
-  %116 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i88, i64 32
+.lr.ph.i.i.i.i.i.i85:                             ; preds = %.lr.ph.i.i.i.i.i.i85.preheader, %.lr.ph.i.i.i.i.i.i85
+  %.012.i.i.i.i.i.i86 = phi ptr [ %.1.i.i.i.i.i.i91, %.lr.ph.i.i.i.i.i.i85 ], [ %114, %.lr.ph.i.i.i.i.i.i85.preheader ]
+  %.0811.i.i.i.i.i.i87 = phi ptr [ %.19.i.i.i.i.i.i88, %.lr.ph.i.i.i.i.i.i85 ], [ %115, %.lr.ph.i.i.i.i.i.i85.preheader ]
+  %116 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i86, i64 32
   %117 = load i32, ptr %116, align 4, !tbaa !37
   %118 = icmp slt i32 %117, %3
-  %.19.i.i.i.i.i.i90 = select i1 %118, ptr %.0811.i.i.i.i.i.i89, ptr %.012.i.i.i.i.i.i88
-  %.1.in.v.i.i.i.i.i.i91 = select i1 %118, i64 24, i64 16
-  %.1.in.i.i.i.i.i.i92 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i88, i64 %.1.in.v.i.i.i.i.i.i91
-  %.1.i.i.i.i.i.i93 = load ptr, ptr %.1.in.i.i.i.i.i.i92, align 8, !tbaa !77
-  %.not.i.i.i.i.i.i94 = icmp eq ptr %.1.i.i.i.i.i.i93, null
-  br i1 %.not.i.i.i.i.i.i94, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i95, label %.lr.ph.i.i.i.i.i.i87, !llvm.loop !78
+  %.19.i.i.i.i.i.i88 = select i1 %118, ptr %.0811.i.i.i.i.i.i87, ptr %.012.i.i.i.i.i.i86
+  %.1.in.v.i.i.i.i.i.i89 = select i1 %118, i64 24, i64 16
+  %.1.in.i.i.i.i.i.i90 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i86, i64 %.1.in.v.i.i.i.i.i.i89
+  %.1.i.i.i.i.i.i91 = load ptr, ptr %.1.in.i.i.i.i.i.i90, align 8, !tbaa !77
+  %.not.i.i.i.i.i.i92 = icmp eq ptr %.1.i.i.i.i.i.i91, null
+  br i1 %.not.i.i.i.i.i.i92, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i93, label %.lr.ph.i.i.i.i.i.i85, !llvm.loop !78
 
-_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i95: ; preds = %.lr.ph.i.i.i.i.i.i87
-  %119 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i90, i64 40
-  br label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit98
+_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i93: ; preds = %.lr.ph.i.i.i.i.i.i85
+  %119 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i88, i64 40
+  br label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit96
 
-_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit98: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i95, %112, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i83, %93
-  %.0.i.i85 = phi ptr [ null, %93 ], [ %111, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i83 ], [ %119, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i95 ], [ null, %112 ]
-  invoke void @_ZN6google8protobuf8internal12ExtensionSet9Extension5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i60)
+_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit96: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i93, %112, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i81, %93
+  %.0.i.i83 = phi ptr [ null, %93 ], [ %111, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i81 ], [ %119, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i93 ], [ null, %112 ]
+  invoke void @_ZN6google8protobuf8internal12ExtensionSet9Extension5ClearEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i59)
           to label %120 unwind label %149
 
-120:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit98
+120:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit96
   %121 = load ptr, ptr %0, align 8, !tbaa !60
   invoke void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEPKNS0_11MessageLiteEiRKNS2_9ExtensionEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i, ptr noundef %121)
           to label %122 unwind label %149
@@ -13064,7 +12863,7 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit98: ; preds = %_ZNS
 
 123:                                              ; preds = %122
   %124 = load ptr, ptr %7, align 8, !tbaa !60
-  invoke void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEPKNS0_11MessageLiteEiRKNS2_9ExtensionEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i85, ptr noundef %124)
+  invoke void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEPKNS0_11MessageLiteEiRKNS2_9ExtensionEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i83, ptr noundef %124)
           to label %125 unwind label %149
 
 125:                                              ; preds = %123
@@ -13131,7 +12930,7 @@ _ZN6google8protobuf8internal12ExtensionSetD2Ev.exit: ; preds = %125, %143, %144,
           cleanup
   br label %151
 
-149:                                              ; preds = %123, %122, %120, %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit98
+149:                                              ; preds = %123, %122, %120, %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit96
   %150 = landingpad { ptr, i32 }
           cleanup
   br label %151
@@ -13147,13 +12946,13 @@ _ZN6google8protobuf8internal12ExtensionSetD2Ev.exit: ; preds = %125, %143, %144,
   br i1 %153, label %154, label %187
 
 154:                                              ; preds = %152
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEPKNS0_11MessageLiteEiRKNS2_9ExtensionEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i60, ptr noundef %11)
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet26InternalExtensionMergeFromEPKNS0_11MessageLiteEiRKNS2_9ExtensionEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i59, ptr noundef %11)
   %155 = load ptr, ptr %2, align 8, !tbaa !60
   %156 = icmp eq ptr %155, null
   br i1 %156, label %157, label %158
 
 157:                                              ; preds = %154
-  tail call void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i60)
+  tail call void @_ZN6google8protobuf8internal12ExtensionSet9Extension4FreeEv(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i59)
   br label %158
 
 158:                                              ; preds = %157, %154
@@ -13203,8 +13002,8 @@ _ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15Firs
 
 180:                                              ; preds = %177
   %181 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not.i.i.i.i.i.i99 = icmp eq ptr %167, %181
-  br i1 %.not.i.i.i.i.i.i99, label %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i, label %182
+  %.not.i.i.i.i.i.i97 = icmp eq ptr %167, %181
+  br i1 %.not.i.i.i.i.i.i97, label %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i, label %182
 
 182:                                              ; preds = %180
   %183 = ptrtoint ptr %181 to i64
@@ -13244,63 +13043,63 @@ _ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit: ; preds = %163, %_ZSt11
 
 196:                                              ; preds = %191
   %197 = call noundef i64 @_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %195, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit114
+  br label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit112
 
 198:                                              ; preds = %191
   %199 = zext nneg i16 %192 to i64
   %200 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %195, i64 %199
   %201 = ptrtoint ptr %200 to i64
-  %.not9.i100 = icmp eq i16 %192, 0
-  br i1 %.not9.i100, label %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i108, label %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i101
+  %.not9.i98 = icmp eq i16 %192, 0
+  br i1 %.not9.i98, label %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i106, label %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i99
 
-_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i101: ; preds = %198, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i101
-  %.017.i.i.i102 = phi ptr [ %.1.i.i.i107, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i101 ], [ %195, %198 ]
-  %.01116.i.i.i103 = phi i64 [ %.112.i.i.i106, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i101 ], [ %199, %198 ]
-  %202 = lshr i64 %.01116.i.i.i103, 1
-  %203 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i102, i64 %202
+_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i99: ; preds = %198, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i99
+  %.017.i.i.i100 = phi ptr [ %.1.i.i.i105, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i99 ], [ %195, %198 ]
+  %.01116.i.i.i101 = phi i64 [ %.112.i.i.i104, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i99 ], [ %199, %198 ]
+  %202 = lshr i64 %.01116.i.i.i101, 1
+  %203 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i100, i64 %202
   %204 = load i32, ptr %203, align 8, !tbaa !73
   %205 = icmp slt i32 %204, %3
   %206 = getelementptr inbounds nuw i8, ptr %203, i64 32
   %207 = xor i64 %202, -1
-  %208 = add nsw i64 %.01116.i.i.i103, %207
-  %.112.i.i.i106 = select i1 %205, i64 %208, i64 %202
-  %.1.i.i.i107 = select i1 %205, ptr %206, ptr %.017.i.i.i102
-  %209 = icmp sgt i64 %.112.i.i.i106, 0
-  br i1 %209, label %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i101, label %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i108, !llvm.loop !142
+  %208 = add nsw i64 %.01116.i.i.i101, %207
+  %.112.i.i.i104 = select i1 %205, i64 %208, i64 %202
+  %.1.i.i.i105 = select i1 %205, ptr %206, ptr %.017.i.i.i100
+  %209 = icmp sgt i64 %.112.i.i.i104, 0
+  br i1 %209, label %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i99, label %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i106, !llvm.loop !142
 
-_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i108: ; preds = %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i101, %198
-  %.0.lcssa.i.i.i109 = phi ptr [ %195, %198 ], [ %.1.i.i.i107, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i101 ]
-  %.not.i110 = icmp eq ptr %.0.lcssa.i.i.i109, %200
-  br i1 %.not.i110, label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit114, label %210
+_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i106: ; preds = %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i99, %198
+  %.0.lcssa.i.i.i107 = phi ptr [ %195, %198 ], [ %.1.i.i.i105, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i99 ]
+  %.not.i108 = icmp eq ptr %.0.lcssa.i.i.i107, %200
+  br i1 %.not.i108, label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit112, label %210
 
-210:                                              ; preds = %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i108
-  %211 = load i32, ptr %.0.lcssa.i.i.i109, align 8, !tbaa !73
+210:                                              ; preds = %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i106
+  %211 = load i32, ptr %.0.lcssa.i.i.i107, align 8, !tbaa !73
   %212 = icmp eq i32 %211, %3
-  br i1 %212, label %213, label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit114
+  br i1 %212, label %213, label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit112
 
 213:                                              ; preds = %210
-  %214 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i109, i64 32
-  %.not.i.i.i.i.i.i111 = icmp eq ptr %200, %214
-  br i1 %.not.i.i.i.i.i.i111, label %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i113, label %215
+  %214 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i107, i64 32
+  %.not.i.i.i.i.i.i109 = icmp eq ptr %200, %214
+  br i1 %.not.i.i.i.i.i.i109, label %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i111, label %215
 
 215:                                              ; preds = %213
   %216 = ptrtoint ptr %214 to i64
   %217 = sub i64 %201, %216
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.lcssa.i.i.i109, ptr nonnull align 8 %214, i64 %217, i1 false)
-  %.pre.i112 = load i16, ptr %15, align 2, !tbaa !65
-  br label %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i113
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.lcssa.i.i.i107, ptr nonnull align 8 %214, i64 %217, i1 false)
+  %.pre.i110 = load i16, ptr %15, align 2, !tbaa !65
+  br label %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i111
 
-_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i113: ; preds = %215, %213
-  %218 = phi i16 [ %192, %213 ], [ %.pre.i112, %215 ]
+_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i111: ; preds = %215, %213
+  %218 = phi i16 [ %192, %213 ], [ %.pre.i110, %215 ]
   %219 = add i16 %218, -1
   store i16 %219, ptr %15, align 2, !tbaa !65
-  br label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit114
+  br label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit112
 
-_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit114: ; preds = %196, %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i108, %210, %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i113
+_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit112: ; preds = %196, %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i106, %210, %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i111
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %220
 
-220:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit73, %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit, %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit114, %_ZN6google8protobuf8internal12ExtensionSetD2Ev.exit, %4, %13
+220:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit72, %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit, %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit112, %_ZN6google8protobuf8internal12ExtensionSetD2Ev.exit, %4, %13
   ret void
 }
 
@@ -13325,18 +13124,15 @@ define hidden void @_ZN6google8protobuf8internal12ExtensionSet26UnsafeShallowSwa
   br i1 %13, label %32, label %16, !prof !50
 
 16:                                               ; preds = %12
-  %.not.i.i = icmp eq i16 %10, 1
-  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i: ; preds = %16
   %17 = zext nneg i16 %10 to i64
   %18 = add nuw nsw i64 %17, 576460752303423487
   %19 = and i64 %18, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.not.i.i = icmp eq i64 %19, 0
+  br i1 %.not.i.i, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i
-  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
-  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %19, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i ]
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i: ; preds = %16, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i
+  %.017.i.i.i.i = phi ptr [ %.1.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %15, %16 ]
+  %.01116.i.i.i.i = phi i64 [ %.112.i.i.i.i, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i ], [ %19, %16 ]
   %20 = lshr i64 %.01116.i.i.i.i, 1
   %21 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i, i64 %20
   %22 = load i32, ptr %21, align 8, !tbaa !73
@@ -13394,7 +13190,7 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit: ; preds = %8, %_Z
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %45 = load i16, ptr %44, align 2, !tbaa !65
   %46 = icmp eq i16 %45, 0
-  br i1 %46, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit55, label %47
+  br i1 %46, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit54, label %47
 
 47:                                               ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit
   %48 = icmp slt i16 %45, 0
@@ -13403,86 +13199,83 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit: ; preds = %8, %_Z
   br i1 %48, label %67, label %51, !prof !50
 
 51:                                               ; preds = %47
-  %.not.i.i31 = icmp eq i16 %45, 1
-  br i1 %.not.i.i31, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i40, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i32
-
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i32: ; preds = %51
   %52 = zext nneg i16 %45 to i64
   %53 = add nuw nsw i64 %52, 576460752303423487
   %54 = and i64 %53, 576460752303423487
-  br label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33
+  %.not.i.i31 = icmp eq i64 %54, 0
+  br i1 %.not.i.i31, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i39, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i32
 
-_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i32
-  %.017.i.i.i.i34 = phi ptr [ %.1.i.i.i.i39, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33 ], [ %50, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i32 ]
-  %.01116.i.i.i.i35 = phi i64 [ %.112.i.i.i.i38, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33 ], [ %54, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.preheader.i.i32 ]
-  %55 = lshr i64 %.01116.i.i.i.i35, 1
-  %56 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i34, i64 %55
+_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i32: ; preds = %51, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i32
+  %.017.i.i.i.i33 = phi ptr [ %.1.i.i.i.i38, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i32 ], [ %50, %51 ]
+  %.01116.i.i.i.i34 = phi i64 [ %.112.i.i.i.i37, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i32 ], [ %54, %51 ]
+  %55 = lshr i64 %.01116.i.i.i.i34, 1
+  %56 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i.i33, i64 %55
   %57 = load i32, ptr %56, align 8, !tbaa !73
   %58 = icmp slt i32 %57, %2
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %60 = xor i64 %55, -1
-  %61 = add nsw i64 %.01116.i.i.i.i35, %60
-  %.112.i.i.i.i38 = select i1 %58, i64 %61, i64 %55
-  %.1.i.i.i.i39 = select i1 %58, ptr %59, ptr %.017.i.i.i.i34
-  %62 = icmp sgt i64 %.112.i.i.i.i38, 0
-  br i1 %62, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i40, !llvm.loop !76
+  %61 = add nsw i64 %.01116.i.i.i.i34, %60
+  %.112.i.i.i.i37 = select i1 %58, i64 %61, i64 %55
+  %.1.i.i.i.i38 = select i1 %58, ptr %59, ptr %.017.i.i.i.i33
+  %62 = icmp sgt i64 %.112.i.i.i.i37, 0
+  br i1 %62, label %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i32, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i39, !llvm.loop !76
 
-_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i40: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33, %51
-  %.0.lcssa.i.i.i.i41 = phi ptr [ %50, %51 ], [ %.1.i.i.i.i39, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i33 ]
-  %63 = load i32, ptr %.0.lcssa.i.i.i.i41, align 8, !tbaa !73
+_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i39: ; preds = %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i32, %51
+  %.0.lcssa.i.i.i.i40 = phi ptr [ %50, %51 ], [ %.1.i.i.i.i38, %_ZSt7advanceIPKN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i.i32 ]
+  %63 = load i32, ptr %.0.lcssa.i.i.i.i40, align 8, !tbaa !73
   %64 = icmp eq i32 %63, %2
-  %65 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i41, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i40, i64 8
   %66 = select i1 %64, ptr %65, ptr null
-  br label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit55
+  br label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit54
 
 67:                                               ; preds = %47
   %68 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %69 = load ptr, ptr %68, align 8, !tbaa !72
   %70 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %.not10.i.i.i.i.i.i43 = icmp eq ptr %69, null
-  br i1 %.not10.i.i.i.i.i.i43, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit55, label %.lr.ph.i.i.i.i.i.i44
+  %.not10.i.i.i.i.i.i42 = icmp eq ptr %69, null
+  br i1 %.not10.i.i.i.i.i.i42, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit54, label %.lr.ph.i.i.i.i.i.i43
 
-.lr.ph.i.i.i.i.i.i44:                             ; preds = %67, %.lr.ph.i.i.i.i.i.i44
-  %.012.i.i.i.i.i.i45 = phi ptr [ %.1.i.i.i.i.i.i50, %.lr.ph.i.i.i.i.i.i44 ], [ %69, %67 ]
-  %.0811.i.i.i.i.i.i46 = phi ptr [ %.19.i.i.i.i.i.i47, %.lr.ph.i.i.i.i.i.i44 ], [ %70, %67 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i45, i64 32
+.lr.ph.i.i.i.i.i.i43:                             ; preds = %67, %.lr.ph.i.i.i.i.i.i43
+  %.012.i.i.i.i.i.i44 = phi ptr [ %.1.i.i.i.i.i.i49, %.lr.ph.i.i.i.i.i.i43 ], [ %69, %67 ]
+  %.0811.i.i.i.i.i.i45 = phi ptr [ %.19.i.i.i.i.i.i46, %.lr.ph.i.i.i.i.i.i43 ], [ %70, %67 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i44, i64 32
   %72 = load i32, ptr %71, align 4, !tbaa !37
   %73 = icmp slt i32 %72, %2
-  %.19.i.i.i.i.i.i47 = select i1 %73, ptr %.0811.i.i.i.i.i.i46, ptr %.012.i.i.i.i.i.i45
-  %.1.in.v.i.i.i.i.i.i48 = select i1 %73, i64 24, i64 16
-  %.1.in.i.i.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i45, i64 %.1.in.v.i.i.i.i.i.i48
-  %.1.i.i.i.i.i.i50 = load ptr, ptr %.1.in.i.i.i.i.i.i49, align 8, !tbaa !77
-  %.not.i.i.i.i.i.i51 = icmp eq ptr %.1.i.i.i.i.i.i50, null
-  br i1 %.not.i.i.i.i.i.i51, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i52, label %.lr.ph.i.i.i.i.i.i44, !llvm.loop !78
+  %.19.i.i.i.i.i.i46 = select i1 %73, ptr %.0811.i.i.i.i.i.i45, ptr %.012.i.i.i.i.i.i44
+  %.1.in.v.i.i.i.i.i.i47 = select i1 %73, i64 24, i64 16
+  %.1.in.i.i.i.i.i.i48 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i44, i64 %.1.in.v.i.i.i.i.i.i47
+  %.1.i.i.i.i.i.i49 = load ptr, ptr %.1.in.i.i.i.i.i.i48, align 8, !tbaa !77
+  %.not.i.i.i.i.i.i50 = icmp eq ptr %.1.i.i.i.i.i.i49, null
+  br i1 %.not.i.i.i.i.i.i50, label %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i51, label %.lr.ph.i.i.i.i.i.i43, !llvm.loop !78
 
-_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i52: ; preds = %.lr.ph.i.i.i.i.i.i44
-  %74 = icmp eq ptr %.19.i.i.i.i.i.i47, %70
-  br i1 %74, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit55, label %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i53
+_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i51: ; preds = %.lr.ph.i.i.i.i.i.i43
+  %74 = icmp eq ptr %.19.i.i.i.i.i.i46, %70
+  br i1 %74, label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit54, label %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i52
 
-_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i53: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i52
-  %75 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i47, i64 32
+_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i52: ; preds = %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i51
+  %75 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i46, i64 32
   %76 = load i32, ptr %75, align 4, !tbaa !37
   %77 = icmp slt i32 %2, %76
-  %78 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i47, i64 40
-  %spec.select.i.i.i54 = select i1 %77, ptr null, ptr %78
-  br label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit55
+  %78 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i.i46, i64 40
+  %spec.select.i.i.i53 = select i1 %77, ptr null, ptr %78
+  br label %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit54
 
-_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit55: ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i40, %67, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i52, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i53
-  %.0.i.i42 = phi ptr [ null, %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit ], [ %66, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i40 ], [ null, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i52 ], [ %spec.select.i.i.i54, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i53 ], [ null, %67 ]
-  %79 = icmp eq ptr %.0.i.i, %.0.i.i42
+_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit54: ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i39, %67, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i51, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i52
+  %.0.i.i41 = phi ptr [ null, %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit ], [ %66, %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit.i.i39 ], [ null, %_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS7_EPSt18_Rb_tree_node_baseRS1_.exit.i.i.i.i.i51 ], [ %spec.select.i.i.i53, %_ZNSt3mapIiN6google8protobuf8internal12ExtensionSet9ExtensionESt4lessIiESaISt4pairIKiS4_EEE4findERS8_.exit.i.i.i52 ], [ null, %67 ]
+  %79 = icmp eq ptr %.0.i.i, %.0.i.i41
   br i1 %79, label %146, label %80
 
-80:                                               ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit55
+80:                                               ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit54
   %81 = icmp ne ptr %.0.i.i, null
-  %82 = icmp ne ptr %.0.i.i42, null
+  %82 = icmp ne ptr %.0.i.i41, null
   %or.cond = and i1 %81, %82
   br i1 %or.cond, label %83, label %84
 
 83:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i, i64 24, i1 false), !tbaa.struct !157
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i42, i64 24, i1 false), !tbaa.struct !157
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i42, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !157
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i41, i64 24, i1 false), !tbaa.struct !157
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i41, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !157
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %146
 
@@ -13493,7 +13286,7 @@ _ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit55: ; preds = %_ZN6
 86:                                               ; preds = %84
   %87 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %2)
   %.fca.0.extract3 = extractvalue { ptr, i8 } %87, 0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.fca.0.extract3, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i42, i64 24, i1 false), !tbaa.struct !157
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.fca.0.extract3, ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i41, i64 24, i1 false), !tbaa.struct !157
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %2, ptr %5, align 4, !tbaa !37
   %88 = load i16, ptr %44, align 2, !tbaa !65
@@ -13540,8 +13333,8 @@ _ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15Firs
 
 109:                                              ; preds = %106
   %110 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i, i64 32
-  %.not.i.i.i.i.i.i56 = icmp eq ptr %96, %110
-  br i1 %.not.i.i.i.i.i.i56, label %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i, label %111
+  %.not.i.i.i.i.i.i55 = icmp eq ptr %96, %110
+  br i1 %.not.i.i.i.i.i.i55, label %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i, label %111
 
 111:                                              ; preds = %109
   %112 = ptrtoint ptr %110 to i64
@@ -13574,63 +13367,63 @@ _ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit: ; preds = %92, %_ZSt11l
 
 122:                                              ; preds = %116
   %123 = call noundef i64 @_ZNSt8_Rb_treeIiSt4pairIKiN6google8protobuf8internal12ExtensionSet9ExtensionEESt10_Select1stIS7_ESt4lessIiESaIS7_EE5eraseERS1_(ptr noundef nonnull align 8 dereferenceable(48) %121, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  br label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit71
+  br label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit70
 
 124:                                              ; preds = %116
   %125 = zext nneg i16 %118 to i64
   %126 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %121, i64 %125
   %127 = ptrtoint ptr %126 to i64
-  %.not9.i57 = icmp eq i16 %118, 0
-  br i1 %.not9.i57, label %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i65, label %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i58
+  %.not9.i56 = icmp eq i16 %118, 0
+  br i1 %.not9.i56, label %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i64, label %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i57
 
-_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i58: ; preds = %124, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i58
-  %.017.i.i.i59 = phi ptr [ %.1.i.i.i64, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i58 ], [ %121, %124 ]
-  %.01116.i.i.i60 = phi i64 [ %.112.i.i.i63, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i58 ], [ %125, %124 ]
-  %128 = lshr i64 %.01116.i.i.i60, 1
-  %129 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i59, i64 %128
+_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i57: ; preds = %124, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i57
+  %.017.i.i.i58 = phi ptr [ %.1.i.i.i63, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i57 ], [ %121, %124 ]
+  %.01116.i.i.i59 = phi i64 [ %.112.i.i.i62, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i57 ], [ %125, %124 ]
+  %128 = lshr i64 %.01116.i.i.i59, 1
+  %129 = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %.017.i.i.i58, i64 %128
   %130 = load i32, ptr %129, align 8, !tbaa !73
   %131 = icmp slt i32 %130, %2
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 32
   %133 = xor i64 %128, -1
-  %134 = add nsw i64 %.01116.i.i.i60, %133
-  %.112.i.i.i63 = select i1 %131, i64 %134, i64 %128
-  %.1.i.i.i64 = select i1 %131, ptr %132, ptr %.017.i.i.i59
-  %135 = icmp sgt i64 %.112.i.i.i63, 0
-  br i1 %135, label %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i58, label %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i65, !llvm.loop !142
+  %134 = add nsw i64 %.01116.i.i.i59, %133
+  %.112.i.i.i62 = select i1 %131, i64 %134, i64 %128
+  %.1.i.i.i63 = select i1 %131, ptr %132, ptr %.017.i.i.i58
+  %135 = icmp sgt i64 %.112.i.i.i62, 0
+  br i1 %135, label %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i57, label %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i64, !llvm.loop !142
 
-_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i65: ; preds = %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i58, %124
-  %.0.lcssa.i.i.i66 = phi ptr [ %121, %124 ], [ %.1.i.i.i64, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i58 ]
-  %.not.i67 = icmp eq ptr %.0.lcssa.i.i.i66, %126
-  br i1 %.not.i67, label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit71, label %136
+_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i64: ; preds = %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i57, %124
+  %.0.lcssa.i.i.i65 = phi ptr [ %121, %124 ], [ %.1.i.i.i63, %_ZSt7advanceIPN6google8protobuf8internal12ExtensionSet8KeyValueElEvRT_T0_.exit.i.i.i57 ]
+  %.not.i66 = icmp eq ptr %.0.lcssa.i.i.i65, %126
+  br i1 %.not.i66, label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit70, label %136
 
-136:                                              ; preds = %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i65
-  %137 = load i32, ptr %.0.lcssa.i.i.i66, align 8, !tbaa !73
+136:                                              ; preds = %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i64
+  %137 = load i32, ptr %.0.lcssa.i.i.i65, align 8, !tbaa !73
   %138 = icmp eq i32 %137, %2
-  br i1 %138, label %139, label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit71
+  br i1 %138, label %139, label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit70
 
 139:                                              ; preds = %136
-  %140 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i66, i64 32
-  %.not.i.i.i.i.i.i68 = icmp eq ptr %126, %140
-  br i1 %.not.i.i.i.i.i.i68, label %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i70, label %141
+  %140 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i65, i64 32
+  %.not.i.i.i.i.i.i67 = icmp eq ptr %126, %140
+  br i1 %.not.i.i.i.i.i.i67, label %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i69, label %141
 
 141:                                              ; preds = %139
   %142 = ptrtoint ptr %140 to i64
   %143 = sub i64 %127, %142
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.lcssa.i.i.i66, ptr nonnull align 8 %140, i64 %143, i1 false)
-  %.pre.i69 = load i16, ptr %9, align 2, !tbaa !65
-  br label %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i70
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %.0.lcssa.i.i.i65, ptr nonnull align 8 %140, i64 %143, i1 false)
+  %.pre.i68 = load i16, ptr %9, align 2, !tbaa !65
+  br label %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i69
 
-_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i70: ; preds = %141, %139
-  %144 = phi i16 [ %118, %139 ], [ %.pre.i69, %141 ]
+_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i69: ; preds = %141, %139
+  %144 = phi i16 [ %118, %139 ], [ %.pre.i68, %141 ]
   %145 = add i16 %144, -1
   store i16 %145, ptr %9, align 2, !tbaa !65
-  br label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit71
+  br label %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit70
 
-_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit71: ; preds = %122, %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i65, %136, %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i70
+_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit70: ; preds = %122, %_ZSt11lower_boundIPN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S7_S7_RKT0_T1_.exit.i64, %136, %_ZSt4copyIPN6google8protobuf8internal12ExtensionSet8KeyValueES5_ET0_T_S7_S6_.exit.i69
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %146
 
-146:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit55, %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit, %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit71, %83, %3
+146:                                              ; preds = %_ZN6google8protobuf8internal12ExtensionSet10FindOrNullEi.exit54, %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit, %_ZN6google8protobuf8internal12ExtensionSet5EraseEi.exit70, %83, %3
   ret void
 }
 

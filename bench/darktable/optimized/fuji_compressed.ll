@@ -4351,8 +4351,8 @@ define internal fastcc void @_ZL13fuji_zerobitsP21fuji_compressed_blockPi(ptr no
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %10
 
-10:                                               ; preds = %70, %2
-  %storemerge = phi i32 [ 0, %2 ], [ %72, %70 ]
+10:                                               ; preds = %69, %2
+  %storemerge = phi i32 [ 0, %2 ], [ %71, %69 ]
   store i32 %storemerge, ptr %1, align 4, !tbaa !6
   %11 = load ptr, ptr %3, align 8, !tbaa !106
   %12 = load i32, ptr %4, align 4, !tbaa !109
@@ -4365,94 +4365,93 @@ define internal fastcc void @_ZL13fuji_zerobitsP21fuji_compressed_blockPi(ptr no
   %19 = add nsw i32 %17, 1
   %20 = and i32 %19, 7
   store i32 %20, ptr %0, align 8, !tbaa !107
-  %21 = and i32 %17, 7
-  %.not = icmp eq i32 %21, 7
-  br i1 %.not, label %22, label %_ZL16fuji_fill_bufferP21fuji_compressed_block.exit
+  %.not = icmp eq i32 %20, 0
+  br i1 %.not, label %21, label %_ZL16fuji_fill_bufferP21fuji_compressed_block.exit
 
-22:                                               ; preds = %10
-  %23 = add nsw i32 %12, 1
-  store i32 %23, ptr %4, align 4, !tbaa !109
-  %24 = load i32, ptr %5, align 4, !tbaa !108
-  %.not.i = icmp slt i32 %23, %24
-  br i1 %.not.i, label %_ZL16fuji_fill_bufferP21fuji_compressed_block.exit, label %25
+21:                                               ; preds = %10
+  %22 = add nsw i32 %12, 1
+  store i32 %22, ptr %4, align 4, !tbaa !109
+  %23 = load i32, ptr %5, align 4, !tbaa !108
+  %.not.i = icmp slt i32 %22, %23
+  br i1 %.not.i, label %_ZL16fuji_fill_bufferP21fuji_compressed_block.exit, label %24
 
-25:                                               ; preds = %22
+24:                                               ; preds = %21
   store i32 0, ptr %4, align 4, !tbaa !109
-  %26 = sext i32 %24 to i64
-  %27 = load i64, ptr %6, align 8, !tbaa !110
-  %28 = add nsw i64 %27, %26
-  store i64 %28, ptr %6, align 8, !tbaa !110
-  %29 = load ptr, ptr %7, align 8, !tbaa !104
-  %30 = load ptr, ptr %29, align 8, !tbaa !100
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 104
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call noundef i32 %32(ptr noundef nonnull align 8 dereferenceable(8) %29)
-  %34 = load ptr, ptr %7, align 8, !tbaa !104
-  %35 = load i64, ptr %6, align 8, !tbaa !110
-  %36 = load ptr, ptr %34, align 8, !tbaa !100
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %38 = load ptr, ptr %37, align 8
-  %39 = tail call noundef i32 %38(ptr noundef nonnull align 8 dereferenceable(8) %34, i64 noundef %35, i32 noundef 0)
-  %40 = load ptr, ptr %7, align 8, !tbaa !104
-  %41 = load ptr, ptr %3, align 8, !tbaa !106
-  %42 = load i32, ptr %8, align 8, !tbaa !102
-  %narrow.i = tail call i32 @llvm.umin.i32(i32 %42, i32 65536)
+  %25 = sext i32 %23 to i64
+  %26 = load i64, ptr %6, align 8, !tbaa !110
+  %27 = add nsw i64 %26, %25
+  store i64 %27, ptr %6, align 8, !tbaa !110
+  %28 = load ptr, ptr %7, align 8, !tbaa !104
+  %29 = load ptr, ptr %28, align 8, !tbaa !100
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable(8) %28)
+  %33 = load ptr, ptr %7, align 8, !tbaa !104
+  %34 = load i64, ptr %6, align 8, !tbaa !110
+  %35 = load ptr, ptr %33, align 8, !tbaa !100
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %37 = load ptr, ptr %36, align 8
+  %38 = tail call noundef i32 %37(ptr noundef nonnull align 8 dereferenceable(8) %33, i64 noundef %34, i32 noundef 0)
+  %39 = load ptr, ptr %7, align 8, !tbaa !104
+  %40 = load ptr, ptr %3, align 8, !tbaa !106
+  %41 = load i32, ptr %8, align 8, !tbaa !102
+  %narrow.i = tail call i32 @llvm.umin.i32(i32 %41, i32 65536)
   %spec.select.i = zext nneg i32 %narrow.i to i64
-  %43 = load ptr, ptr %40, align 8, !tbaa !100
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call noundef i32 %45(ptr noundef nonnull align 8 dereferenceable(8) %40, ptr noundef %41, i64 noundef 1, i64 noundef %spec.select.i)
-  store i32 %46, ptr %5, align 4, !tbaa !108
-  %47 = load ptr, ptr %7, align 8, !tbaa !104
-  %48 = load ptr, ptr %47, align 8, !tbaa !100
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 112
-  %50 = load ptr, ptr %49, align 8
-  tail call void %50(ptr noundef nonnull align 8 dereferenceable(8) %47)
-  %51 = load i32, ptr %5, align 4, !tbaa !108
-  %52 = icmp slt i32 %51, 1
-  br i1 %52, label %53, label %64
+  %42 = load ptr, ptr %39, align 8, !tbaa !100
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = tail call noundef i32 %44(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef %40, i64 noundef 1, i64 noundef %spec.select.i)
+  store i32 %45, ptr %5, align 4, !tbaa !108
+  %46 = load ptr, ptr %7, align 8, !tbaa !104
+  %47 = load ptr, ptr %46, align 8, !tbaa !100
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 112
+  %49 = load ptr, ptr %48, align 8
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(8) %46)
+  %50 = load i32, ptr %5, align 4, !tbaa !108
+  %51 = icmp slt i32 %50, 1
+  br i1 %51, label %52, label %63
 
-53:                                               ; preds = %25
-  %54 = load i32, ptr %9, align 8, !tbaa !103
-  %55 = icmp sgt i32 %54, 0
-  br i1 %55, label %56, label %62
+52:                                               ; preds = %24
+  %53 = load i32, ptr %9, align 8, !tbaa !103
+  %54 = icmp sgt i32 %53, 0
+  br i1 %54, label %55, label %61
 
-56:                                               ; preds = %53
-  %57 = tail call i32 @llvm.umin.i32(i32 %54, i32 65536)
-  %58 = load ptr, ptr %3, align 8, !tbaa !106
-  %59 = zext nneg i32 %57 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %58, i8 0, i64 %59, i1 false)
-  %60 = load i32, ptr %9, align 8, !tbaa !103
-  %61 = sub nsw i32 %60, %57
-  store i32 %61, ptr %9, align 8, !tbaa !103
+55:                                               ; preds = %52
+  %56 = tail call i32 @llvm.umin.i32(i32 %53, i32 65536)
+  %57 = load ptr, ptr %3, align 8, !tbaa !106
+  %58 = zext nneg i32 %56 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %57, i8 0, i64 %58, i1 false)
+  %59 = load i32, ptr %9, align 8, !tbaa !103
+  %60 = sub nsw i32 %59, %56
+  store i32 %60, ptr %9, align 8, !tbaa !103
   %.pre.i = load i32, ptr %5, align 4, !tbaa !108
-  br label %64
+  br label %63
 
-62:                                               ; preds = %53
-  %63 = tail call ptr @__cxa_allocate_exception(i64 4) #12
-  store i32 4, ptr %63, align 16, !tbaa !111
-  tail call void @__cxa_throw(ptr nonnull %63, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #13
+61:                                               ; preds = %52
+  %62 = tail call ptr @__cxa_allocate_exception(i64 4) #12
+  store i32 4, ptr %62, align 16, !tbaa !111
+  tail call void @__cxa_throw(ptr nonnull %62, ptr nonnull @_ZTI17LibRaw_exceptions, ptr null) #13
   unreachable
 
-64:                                               ; preds = %56, %25
-  %65 = phi i32 [ %.pre.i, %56 ], [ %51, %25 ]
-  %66 = load i32, ptr %8, align 8, !tbaa !102
-  %67 = sub i32 %66, %65
-  store i32 %67, ptr %8, align 8, !tbaa !102
+63:                                               ; preds = %55, %24
+  %64 = phi i32 [ %.pre.i, %55 ], [ %50, %24 ]
+  %65 = load i32, ptr %8, align 8, !tbaa !102
+  %66 = sub i32 %65, %64
+  store i32 %66, ptr %8, align 8, !tbaa !102
   br label %_ZL16fuji_fill_bufferP21fuji_compressed_block.exit
 
-_ZL16fuji_fill_bufferP21fuji_compressed_block.exit: ; preds = %64, %22, %10
-  %68 = shl nuw i32 1, %18
-  %69 = and i32 %68, %16
-  %.not12 = icmp eq i32 %69, 0
-  br i1 %.not12, label %70, label %73
+_ZL16fuji_fill_bufferP21fuji_compressed_block.exit: ; preds = %63, %21, %10
+  %67 = shl nuw i32 1, %18
+  %68 = and i32 %67, %16
+  %.not12 = icmp eq i32 %68, 0
+  br i1 %.not12, label %69, label %72
 
-70:                                               ; preds = %_ZL16fuji_fill_bufferP21fuji_compressed_block.exit
-  %71 = load i32, ptr %1, align 4, !tbaa !6
-  %72 = add nsw i32 %71, 1
+69:                                               ; preds = %_ZL16fuji_fill_bufferP21fuji_compressed_block.exit
+  %70 = load i32, ptr %1, align 4, !tbaa !6
+  %71 = add nsw i32 %70, 1
   br label %10, !llvm.loop !162
 
-73:                                               ; preds = %_ZL16fuji_fill_bufferP21fuji_compressed_block.exit
+72:                                               ; preds = %_ZL16fuji_fill_bufferP21fuji_compressed_block.exit
   ret void
 }
 

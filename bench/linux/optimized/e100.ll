@@ -4892,7 +4892,7 @@ define internal noundef range(i32 -22, 1) i32 @e100_set_eeprom(ptr noundef captu
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 4660
-  br i1 %8, label %9, label %76
+  br i1 %8, label %9, label %75
 
 9:                                                ; preds = %3
   %10 = getelementptr i8, ptr %0, i64 3198
@@ -4923,80 +4923,79 @@ define internal noundef range(i32 -22, 1) i32 @e100_set_eeprom(ptr noundef captu
   %31 = add nuw nsw i32 %30, %29
   %32 = and i32 %26, 65535
   %33 = icmp samesign ult i32 %31, %32
-  br i1 %33, label %34, label %74
+  br i1 %33, label %34, label %73
 
 34:                                               ; preds = %9
-  %35 = and i32 %20, 131070
-  %36 = icmp eq i32 %35, 131070
-  br i1 %36, label %.loopexit, label %37
+  %35 = icmp eq i32 %30, 0
+  br i1 %35, label %.loopexit, label %36
 
-37:                                               ; preds = %34
-  %38 = trunc i32 %19 to i16
-  br label %45
+36:                                               ; preds = %34
+  %37 = trunc i32 %19 to i16
+  br label %44
 
-.loopexit.loopexit:                               ; preds = %45
+.loopexit.loopexit:                               ; preds = %44
   %.pre = load i16, ptr %28, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %34
-  %39 = phi i16 [ %.pre, %.loopexit.loopexit ], [ %27, %34 ]
-  %40 = zext i16 %39 to i32
-  %41 = add nsw i32 %40, -1
-  %42 = icmp ugt i16 %39, 1
-  br i1 %42, label %43, label %63
+  %38 = phi i16 [ %.pre, %.loopexit.loopexit ], [ %27, %34 ]
+  %39 = zext i16 %38 to i32
+  %40 = add nsw i32 %39, -1
+  %41 = icmp ugt i16 %38, 1
+  br i1 %41, label %42, label %62
 
-43:                                               ; preds = %.loopexit
-  %44 = zext i32 %41 to i64
-  br label %53
+42:                                               ; preds = %.loopexit
+  %43 = zext i32 %40 to i64
+  br label %52
 
-45:                                               ; preds = %45, %37
-  %46 = phi i16 [ %50, %45 ], [ %38, %37 ]
-  %47 = zext i16 %46 to i64
-  %48 = getelementptr i16, ptr %10, i64 %47
-  %49 = load i16, ptr %48, align 2
-  tail call fastcc void @e100_eeprom_write(ptr noundef %5, i16 noundef zeroext %24, i16 noundef zeroext %46, i16 noundef zeroext %49)
-  %50 = add i16 %46, 1
-  %51 = zext i16 %50 to i32
-  %52 = icmp samesign ugt i32 %31, %51
-  br i1 %52, label %45, label %.loopexit.loopexit, !llvm.loop !43
+44:                                               ; preds = %44, %36
+  %45 = phi i16 [ %49, %44 ], [ %37, %36 ]
+  %46 = zext i16 %45 to i64
+  %47 = getelementptr i16, ptr %10, i64 %46
+  %48 = load i16, ptr %47, align 2
+  tail call fastcc void @e100_eeprom_write(ptr noundef %5, i16 noundef zeroext %24, i16 noundef zeroext %45, i16 noundef zeroext %48)
+  %49 = add i16 %45, 1
+  %50 = zext i16 %49 to i32
+  %51 = icmp samesign ugt i32 %31, %50
+  br i1 %51, label %44, label %.loopexit.loopexit, !llvm.loop !43
 
-53:                                               ; preds = %53, %43
-  %54 = phi i64 [ 0, %43 ], [ %59, %53 ]
-  %55 = phi i16 [ 0, %43 ], [ %58, %53 ]
-  %56 = getelementptr i16, ptr %10, i64 %54
-  %57 = load i16, ptr %56, align 2
-  %58 = add i16 %57, %55
-  %59 = add nuw nsw i64 %54, 1
-  %60 = icmp eq i64 %59, %44
-  br i1 %60, label %61, label %53, !llvm.loop !44
+52:                                               ; preds = %52, %42
+  %53 = phi i64 [ 0, %42 ], [ %58, %52 ]
+  %54 = phi i16 [ 0, %42 ], [ %57, %52 ]
+  %55 = getelementptr i16, ptr %10, i64 %53
+  %56 = load i16, ptr %55, align 2
+  %57 = add i16 %56, %54
+  %58 = add nuw nsw i64 %53, 1
+  %59 = icmp eq i64 %58, %43
+  br i1 %59, label %60, label %52, !llvm.loop !44
 
-61:                                               ; preds = %53
-  %62 = sub i16 -17734, %58
-  br label %63
+60:                                               ; preds = %52
+  %61 = sub i16 -17734, %57
+  br label %62
 
-63:                                               ; preds = %61, %.loopexit
-  %64 = phi i16 [ -17734, %.loopexit ], [ %62, %61 ]
-  %65 = sext i32 %41 to i64
-  %66 = getelementptr i16, ptr %10, i64 %65
-  store i16 %64, ptr %66, align 2
-  %67 = load i16, ptr %28, align 4
-  %68 = zext i16 %67 to i32
-  %69 = add nsw i32 %68, -1
-  %70 = trunc i32 %69 to i16
-  %71 = sext i32 %69 to i64
-  %72 = getelementptr i16, ptr %10, i64 %71
-  %73 = load i16, ptr %72, align 2
-  tail call fastcc void @e100_eeprom_write(ptr noundef %5, i16 noundef zeroext %24, i16 noundef zeroext %70, i16 noundef zeroext %73)
-  br label %74
+62:                                               ; preds = %60, %.loopexit
+  %63 = phi i16 [ -17734, %.loopexit ], [ %61, %60 ]
+  %64 = sext i32 %40 to i64
+  %65 = getelementptr i16, ptr %10, i64 %64
+  store i16 %63, ptr %65, align 2
+  %66 = load i16, ptr %28, align 4
+  %67 = zext i16 %66 to i32
+  %68 = add nsw i32 %67, -1
+  %69 = trunc i32 %68 to i16
+  %70 = sext i32 %68 to i64
+  %71 = getelementptr i16, ptr %10, i64 %70
+  %72 = load i16, ptr %71, align 2
+  tail call fastcc void @e100_eeprom_write(ptr noundef %5, i16 noundef zeroext %24, i16 noundef zeroext %69, i16 noundef zeroext %72)
+  br label %73
 
-74:                                               ; preds = %63, %9
-  %75 = phi i32 [ 0, %63 ], [ -22, %9 ]
+73:                                               ; preds = %62, %9
+  %74 = phi i32 [ 0, %62 ], [ -22, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %76
+  br label %75
 
-76:                                               ; preds = %74, %3
-  %77 = phi i32 [ %75, %74 ], [ -22, %3 ]
-  ret i32 %77
+75:                                               ; preds = %73, %3
+  %76 = phi i32 [ %74, %73 ], [ -22, %3 ]
+  ret i32 %76
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)

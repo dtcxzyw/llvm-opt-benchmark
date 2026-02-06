@@ -1312,67 +1312,66 @@ _ZNK5clang8comments11FullComment11getDeclInfoEv.exit: ; preds = %2, %8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = and i64 %15, 4294967295
-  %19 = and i64 %11, 4294967295
-  %20 = icmp eq i64 %19, 1
-  br i1 %20, label %._crit_edge, label %.lr.ph34
+  %19 = icmp eq i64 %18, 0
+  br i1 %19, label %._crit_edge, label %.lr.ph34
 
-._crit_edge:                                      ; preds = %52, %.lr.ph
-  %.025.lcssa = phi ptr [ %14, %.lr.ph ], [ %.1, %52 ]
-  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %18
-  %22 = load i32, ptr %21, align 4, !tbaa !184
-  %23 = getelementptr inbounds nuw i8, ptr %.025.lcssa, i64 24
-  %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
-  %26 = load ptr, ptr %25, align 8, !tbaa !185
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %28 = load i64, ptr %27, align 8, !tbaa !175
-  %29 = and i64 %28, 7
-  %30 = icmp ne i64 %29, 0
-  %31 = and i64 %28, -8
-  %.not2.i = icmp eq i64 %31, 0
-  %.not.i19 = or i1 %30, %.not2.i
-  br i1 %.not.i19, label %_ZNK5clang9NamedDecl7getNameEv.exit, label %32
+._crit_edge:                                      ; preds = %51, %.lr.ph
+  %.025.lcssa = phi ptr [ %14, %.lr.ph ], [ %.1, %51 ]
+  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %21 = load i32, ptr %20, align 4, !tbaa !184
+  %22 = getelementptr inbounds nuw i8, ptr %.025.lcssa, i64 24
+  %23 = zext i32 %21 to i64
+  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %25 = load ptr, ptr %24, align 8, !tbaa !185
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %27 = load i64, ptr %26, align 8, !tbaa !175
+  %28 = and i64 %27, 7
+  %29 = icmp ne i64 %28, 0
+  %30 = and i64 %27, -8
+  %.not2.i = icmp eq i64 %30, 0
+  %.not.i19 = or i1 %29, %.not2.i
+  br i1 %.not.i19, label %_ZNK5clang9NamedDecl7getNameEv.exit, label %31
 
-32:                                               ; preds = %._crit_edge
-  %33 = inttoptr i64 %31 to ptr
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %35 = load ptr, ptr %34, align 8, !tbaa !176
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  %37 = load i64, ptr %35, align 8, !tbaa !179
-  %38 = and i64 %37, 4294967295
+31:                                               ; preds = %._crit_edge
+  %32 = inttoptr i64 %30 to ptr
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %34 = load ptr, ptr %33, align 8, !tbaa !176
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %36 = load i64, ptr %34, align 8, !tbaa !179
+  %37 = and i64 %36, 4294967295
   br label %_ZNK5clang9NamedDecl7getNameEv.exit
 
-.lr.ph34:                                         ; preds = %.lr.ph, %52
-  %.02533 = phi ptr [ %.1, %52 ], [ %14, %.lr.ph ]
-  %indvars.iv32 = phi i64 [ %indvars.iv.next, %52 ], [ 0, %.lr.ph ]
-  %39 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv32
-  %40 = load i32, ptr %39, align 4, !tbaa !184
-  %41 = getelementptr inbounds nuw i8, ptr %.02533, i64 24
-  %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
-  %44 = load ptr, ptr %43, align 8, !tbaa !185
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 28
-  %46 = load i32, ptr %45, align 4
-  %47 = and i32 %46, 127
-  %48 = icmp ne i32 %47, 66
-  %.not1820 = icmp eq ptr %44, null
-  %.not18 = or i1 %.not1820, %48
-  br i1 %.not18, label %52, label %49
+.lr.ph34:                                         ; preds = %.lr.ph, %51
+  %.02533 = phi ptr [ %.1, %51 ], [ %14, %.lr.ph ]
+  %indvars.iv32 = phi i64 [ %indvars.iv.next, %51 ], [ 0, %.lr.ph ]
+  %38 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv32
+  %39 = load i32, ptr %38, align 4, !tbaa !184
+  %40 = getelementptr inbounds nuw i8, ptr %.02533, i64 24
+  %41 = zext i32 %39 to i64
+  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
+  %43 = load ptr, ptr %42, align 8, !tbaa !185
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 28
+  %45 = load i32, ptr %44, align 4
+  %46 = and i32 %45, 127
+  %47 = icmp ne i32 %46, 66
+  %.not1820 = icmp eq ptr %43, null
+  %.not18 = or i1 %.not1820, %47
+  br i1 %.not18, label %51, label %48
 
-49:                                               ; preds = %.lr.ph34
-  %50 = getelementptr inbounds nuw i8, ptr %44, i64 56
-  %51 = load ptr, ptr %50, align 8, !tbaa !103
-  br label %52
+48:                                               ; preds = %.lr.ph34
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 56
+  %50 = load ptr, ptr %49, align 8, !tbaa !103
+  br label %51
 
-52:                                               ; preds = %49, %.lr.ph34
-  %.1 = phi ptr [ %51, %49 ], [ %.02533, %.lr.ph34 ]
+51:                                               ; preds = %48, %.lr.ph34
+  %.1 = phi ptr [ %50, %48 ], [ %.02533, %.lr.ph34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv32, 1
-  %53 = icmp eq i64 %indvars.iv.next, %18
-  br i1 %53, label %._crit_edge, label %.lr.ph34
+  %52 = icmp eq i64 %indvars.iv.next, %18
+  br i1 %52, label %._crit_edge, label %.lr.ph34
 
-_ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit, %32, %._crit_edge
-  %.sroa.3.0 = phi i64 [ 0, %._crit_edge ], [ %38, %32 ], [ 0, %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit ]
-  %.sroa.0.0 = phi ptr [ @.str.17, %._crit_edge ], [ %36, %32 ], [ @.str.17, %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit ]
+_ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit, %31, %._crit_edge
+  %.sroa.3.0 = phi i64 [ 0, %._crit_edge ], [ %37, %31 ], [ 0, %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit ]
+  %.sroa.0.0 = phi ptr [ @.str.17, %._crit_edge ], [ %35, %31 ], [ @.str.17, %_ZNK5clang8comments11FullComment11getDeclInfoEv.exit ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %.fca.1.insert

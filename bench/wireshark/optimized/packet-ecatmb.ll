@@ -641,7 +641,7 @@ define internal i32 @dissect_ecat_mailbox(ptr noundef %0, ptr noundef %1, ptr no
   %9 = alloca [200 x i8], align 16
   %10 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %11 = icmp sgt i32 %10, 5
-  br i1 %11, label %12, label %746
+  br i1 %11, label %12, label %744
 
 12:                                               ; preds = %4
   %13 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 0)
@@ -675,16 +675,16 @@ define internal i32 @dissect_ecat_mailbox(ptr noundef %0, ptr noundef %1, ptr no
   %40 = zext nneg i16 %39 to i32
   %41 = tail call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %37, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef %40)
   %.not = icmp samesign ult i32 %10, %20
-  br i1 %.not, label %740, label %42
+  br i1 %.not, label %738, label %42
 
 42:                                               ; preds = %12
   %43 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 6, i32 noundef %19)
-  switch i16 %34, label %737 [
+  switch i16 %34, label %735 [
     i16 1, label %44
     i16 2, label %47
     i16 3, label %205
-    i16 4, label %495
-    i16 5, label %597
+    i16 4, label %493
+    i16 5, label %595
   ]
 
 44:                                               ; preds = %42
@@ -967,7 +967,7 @@ define internal i32 @dissect_ecat_mailbox(ptr noundef %0, ptr noundef %1, ptr no
   %212 = load ptr, ptr %16, align 8
   tail call void @col_append_str(ptr noundef %212, i32 noundef 25, ptr noundef nonnull @.str.365)
   %213 = icmp ugt i32 %206, 1
-  br i1 %213, label %214, label %492
+  br i1 %213, label %214, label %490
 
 214:                                              ; preds = %211
   %215 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %43, i32 noundef 0)
@@ -995,8 +995,8 @@ define internal i32 @dissect_ecat_mailbox(ptr noundef %0, ptr noundef %1, ptr no
   %.0336.i = phi ptr [ null, %._crit_edge403.i ], [ %218, %216 ]
   switch i16 %.pre-phi.i, label %dissect_ecat_coe.exit [
     i16 2, label %228
-    i16 3, label %339
-    i16 8, label %423
+    i16 3, label %338
+    i16 8, label %421
   ]
 
 228:                                              ; preds = %227
@@ -1067,10 +1067,10 @@ CANopenSdoReqFormatter.exit.i:                    ; preds = %253, %251, %249, %2
   %262 = call ptr @proto_item_add_subtree(ptr noundef %260, i32 noundef %261)
   switch i8 %238, label %dissect_ecat_coe.exit [
     i8 1, label %263
-    i8 2, label %304
-    i8 0, label %315
-    i8 3, label %329
-    i8 4, label %336
+    i8 2, label %303
+    i8 0, label %314
+    i8 3, label %328
+    i8 4, label %335
   ]
 
 263:                                              ; preds = %257
@@ -1094,813 +1094,811 @@ CANopenSdoReqFormatter.exit.i:                    ; preds = %253, %251, %249, %2
   %281 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %280, ptr noundef %43, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648)
   %282 = and i8 %234, 3
   %or.cond.i = icmp eq i8 %282, 1
-  br i1 %or.cond.i, label %283, label %292
+  br i1 %or.cond.i, label %283, label %291
 
 283:                                              ; preds = %263
-  %284 = load i32, ptr @hf_ecat_mailbox_coe_sdolength, align 4
-  %285 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %284, ptr noundef %43, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648)
-  %286 = and i32 %206, 65535
-  %.not360.i = icmp eq i32 %286, 10
-  br i1 %.not360.i, label %dissect_ecat_coe.exit, label %287
+  %284 = add i32 %206, 65526
+  %285 = load i32, ptr @hf_ecat_mailbox_coe_sdolength, align 4
+  %286 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %285, ptr noundef %43, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648)
+  %287 = and i32 %284, 65535
+  %.not360.i = icmp eq i32 %287, 0
+  br i1 %.not360.i, label %dissect_ecat_coe.exit, label %288
 
-287:                                              ; preds = %283
-  %288 = add i32 %206, 65526
-  %289 = and i32 %288, 65535
-  %290 = load i32, ptr @hf_ecat_mailbox_coe_sdoldata, align 4
-  %291 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %290, ptr noundef %43, i32 noundef 10, i32 noundef %289, i32 noundef 0)
+288:                                              ; preds = %283
+  %289 = load i32, ptr @hf_ecat_mailbox_coe_sdoldata, align 4
+  %290 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %289, ptr noundef %43, i32 noundef 10, i32 noundef %287, i32 noundef 0)
   br label %dissect_ecat_coe.exit
 
-292:                                              ; preds = %263
-  %293 = lshr i8 %234, 2
-  %294 = and i8 %293, 3
-  switch i8 %294, label %301 [
-    i8 3, label %295
-    i8 2, label %298
+291:                                              ; preds = %263
+  %292 = lshr i8 %234, 2
+  %293 = and i8 %292, 3
+  switch i8 %293, label %300 [
+    i8 3, label %294
+    i8 2, label %297
   ]
 
-295:                                              ; preds = %292
-  %296 = load i32, ptr @hf_ecat_mailbox_coe_sdodata1, align 4
-  %297 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %296, ptr noundef %43, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648)
+294:                                              ; preds = %291
+  %295 = load i32, ptr @hf_ecat_mailbox_coe_sdodata1, align 4
+  %296 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %295, ptr noundef %43, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648)
   br label %dissect_ecat_coe.exit
 
-298:                                              ; preds = %292
-  %299 = load i32, ptr @hf_ecat_mailbox_coe_sdodata2, align 4
-  %300 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %299, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
+297:                                              ; preds = %291
+  %298 = load i32, ptr @hf_ecat_mailbox_coe_sdodata2, align 4
+  %299 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %298, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
   br label %dissect_ecat_coe.exit
 
-301:                                              ; preds = %292
-  %302 = load i32, ptr @hf_ecat_mailbox_coe_sdodata, align 4
-  %303 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %302, ptr noundef %43, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648)
+300:                                              ; preds = %291
+  %301 = load i32, ptr @hf_ecat_mailbox_coe_sdodata, align 4
+  %302 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %301, ptr noundef %43, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648)
   br label %dissect_ecat_coe.exit
 
-304:                                              ; preds = %257
-  %305 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsiu, align 4
-  %306 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %305, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %307 = load i32, ptr @ett_ecat_mailbox_coe_sdoccs, align 4
-  %308 = call ptr @proto_item_add_subtree(ptr noundef %306, i32 noundef %307)
-  %309 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsid_complete, align 4
-  %310 = call ptr @proto_tree_add_item(ptr noundef %308, i32 noundef %309, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %311 = load i32, ptr @hf_ecat_mailbox_coe_sdoidx, align 4
-  %312 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %311, ptr noundef %43, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648)
-  %313 = load i32, ptr @hf_ecat_mailbox_coe_sdosub, align 4
-  %314 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %313, ptr noundef %43, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648)
+303:                                              ; preds = %257
+  %304 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsiu, align 4
+  %305 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %304, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %306 = load i32, ptr @ett_ecat_mailbox_coe_sdoccs, align 4
+  %307 = call ptr @proto_item_add_subtree(ptr noundef %305, i32 noundef %306)
+  %308 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsid_complete, align 4
+  %309 = call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %308, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %310 = load i32, ptr @hf_ecat_mailbox_coe_sdoidx, align 4
+  %311 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %310, ptr noundef %43, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648)
+  %312 = load i32, ptr @hf_ecat_mailbox_coe_sdosub, align 4
+  %313 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %312, ptr noundef %43, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648)
   br label %dissect_ecat_coe.exit
 
-315:                                              ; preds = %257
-  %316 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsds, align 4
-  %317 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %316, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %318 = load i32, ptr @ett_ecat_mailbox_coe_sdoccs, align 4
-  %319 = call ptr @proto_item_add_subtree(ptr noundef %317, i32 noundef %318)
-  %320 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsds_lastseg, align 4
-  %321 = call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %320, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %322 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsds_size, align 4
-  %323 = call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %322, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %324 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsds_toggle, align 4
-  %325 = call ptr @proto_tree_add_item(ptr noundef %319, i32 noundef %324, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %326 = add i32 %206, -3
-  %327 = load i32, ptr @hf_ecat_mailbox_coe_sdoldata, align 4
-  %328 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %327, ptr noundef %43, i32 noundef 3, i32 noundef %326, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %328, ptr noundef nonnull @.str.368, i32 noundef %326)
+314:                                              ; preds = %257
+  %315 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsds, align 4
+  %316 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %315, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %317 = load i32, ptr @ett_ecat_mailbox_coe_sdoccs, align 4
+  %318 = call ptr @proto_item_add_subtree(ptr noundef %316, i32 noundef %317)
+  %319 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsds_lastseg, align 4
+  %320 = call ptr @proto_tree_add_item(ptr noundef %318, i32 noundef %319, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %321 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsds_size, align 4
+  %322 = call ptr @proto_tree_add_item(ptr noundef %318, i32 noundef %321, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %323 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsds_toggle, align 4
+  %324 = call ptr @proto_tree_add_item(ptr noundef %318, i32 noundef %323, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %325 = add i32 %206, -3
+  %326 = load i32, ptr @hf_ecat_mailbox_coe_sdoldata, align 4
+  %327 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %326, ptr noundef %43, i32 noundef 3, i32 noundef %325, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %327, ptr noundef nonnull @.str.368, i32 noundef %325)
   br label %dissect_ecat_coe.exit
 
-329:                                              ; preds = %257
-  %330 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsus, align 4
-  %331 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %330, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %332 = load i32, ptr @ett_ecat_mailbox_coe_sdoccs, align 4
-  %333 = call ptr @proto_item_add_subtree(ptr noundef %331, i32 noundef %332)
-  %334 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsus_toggle, align 4
-  %335 = call ptr @proto_tree_add_item(ptr noundef %333, i32 noundef %334, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+328:                                              ; preds = %257
+  %329 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsus, align 4
+  %330 = call ptr @proto_tree_add_item(ptr noundef %262, i32 noundef %329, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %331 = load i32, ptr @ett_ecat_mailbox_coe_sdoccs, align 4
+  %332 = call ptr @proto_item_add_subtree(ptr noundef %330, i32 noundef %331)
+  %333 = load i32, ptr @hf_ecat_mailbox_coe_sdoccsus_toggle, align 4
+  %334 = call ptr @proto_tree_add_item(ptr noundef %332, i32 noundef %333, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
   br label %dissect_ecat_coe.exit
 
-336:                                              ; preds = %257
-  %337 = load i32, ptr @hf_ecat_mailbox_coe_sdoabortcode, align 4
-  %338 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %337, ptr noundef %43, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648)
+335:                                              ; preds = %257
+  %336 = load i32, ptr @hf_ecat_mailbox_coe_sdoabortcode, align 4
+  %337 = call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %336, ptr noundef %43, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648)
   br label %dissect_ecat_coe.exit
 
-339:                                              ; preds = %227
-  %340 = icmp ult i32 %206, 10
-  br i1 %340, label %341, label %344
+338:                                              ; preds = %227
+  %339 = icmp ult i32 %206, 10
+  br i1 %339, label %340, label %343
 
-341:                                              ; preds = %339
-  %342 = load ptr, ptr %16, align 8
-  tail call void @col_append_str(ptr noundef %342, i32 noundef 25, ptr noundef nonnull @.str.369)
-  %343 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0336.i, ptr noundef nonnull @ei_ecat_mailbox_coe_error, ptr noundef nonnull @.str.369)
+340:                                              ; preds = %338
+  %341 = load ptr, ptr %16, align 8
+  tail call void @col_append_str(ptr noundef %341, i32 noundef 25, ptr noundef nonnull @.str.369)
+  %342 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0336.i, ptr noundef nonnull @ei_ecat_mailbox_coe_error, ptr noundef nonnull @.str.369)
   br label %dissect_ecat_coe.exit
 
-344:                                              ; preds = %339
-  %345 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 2)
-  %346 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %43, i32 noundef 3)
-  %347 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 5)
-  %348 = tail call i32 @tvb_get_letohl(ptr noundef %43, i32 noundef 6)
-  %349 = load ptr, ptr %16, align 8
-  %350 = lshr i8 %345, 5
-  %351 = zext nneg i8 %350 to i32
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %349, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %351)
-  br i1 %.not.i59, label %dissect_ecat_coe.exit, label %352
+343:                                              ; preds = %338
+  %344 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 2)
+  %345 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %43, i32 noundef 3)
+  %346 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 5)
+  %347 = tail call i32 @tvb_get_letohl(ptr noundef %43, i32 noundef 6)
+  %348 = load ptr, ptr %16, align 8
+  %349 = lshr i8 %344, 5
+  %350 = zext nneg i8 %349 to i32
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %348, i32 noundef 25, ptr noundef nonnull @.str.370, i32 noundef %350)
+  br i1 %.not.i59, label %dissect_ecat_coe.exit, label %351
 
-352:                                              ; preds = %344
-  %353 = load i32, ptr @hf_ecat_mailbox_coe_sdores, align 4
-  %354 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0336.i, i32 noundef %353, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef %351, ptr noundef nonnull @.str.371, i32 noundef %351)
-  %355 = load i32, ptr @ett_ecat_mailbox_sdo, align 4
-  %356 = tail call ptr @proto_item_add_subtree(ptr noundef %.0338.i, i32 noundef %355)
-  switch i8 %350, label %dissect_ecat_coe.exit [
-    i8 3, label %357
-    i8 2, label %362
-    i8 1, label %402
-    i8 0, label %409
+351:                                              ; preds = %343
+  %352 = load i32, ptr @hf_ecat_mailbox_coe_sdores, align 4
+  %353 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0336.i, i32 noundef %352, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef %350, ptr noundef nonnull @.str.371, i32 noundef %350)
+  %354 = load i32, ptr @ett_ecat_mailbox_sdo, align 4
+  %355 = tail call ptr @proto_item_add_subtree(ptr noundef %.0338.i, i32 noundef %354)
+  switch i8 %349, label %dissect_ecat_coe.exit [
+    i8 3, label %356
+    i8 2, label %361
+    i8 1, label %400
+    i8 0, label %407
   ]
 
-357:                                              ; preds = %352
-  %358 = load i32, ptr @hf_ecat_mailbox_coe_sdoidx, align 4
-  %359 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %358, ptr noundef %43, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648)
-  %360 = load i32, ptr @hf_ecat_mailbox_coe_sdosub, align 4
-  %361 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %360, ptr noundef %43, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648)
+356:                                              ; preds = %351
+  %357 = load i32, ptr @hf_ecat_mailbox_coe_sdoidx, align 4
+  %358 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %357, ptr noundef %43, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648)
+  %359 = load i32, ptr @hf_ecat_mailbox_coe_sdosub, align 4
+  %360 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %359, ptr noundef %43, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648)
   br label %dissect_ecat_coe.exit
 
-362:                                              ; preds = %352
-  %363 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsiu, align 4
-  %364 = tail call ptr @proto_tree_add_item(ptr noundef %356, i32 noundef %363, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %365 = load i32, ptr @ett_ecat_mailbox_coe_sdoscs, align 4
-  %366 = tail call ptr @proto_item_add_subtree(ptr noundef %364, i32 noundef %365)
-  %367 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsiu_sizeind, align 4
-  %368 = tail call ptr @proto_tree_add_item(ptr noundef %366, i32 noundef %367, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %369 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsiu_expedited, align 4
-  %370 = tail call ptr @proto_tree_add_item(ptr noundef %366, i32 noundef %369, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %371 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsiu_size0, align 4
-  %372 = tail call ptr @proto_tree_add_item(ptr noundef %366, i32 noundef %371, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %373 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsiu_size1, align 4
-  %374 = tail call ptr @proto_tree_add_item(ptr noundef %366, i32 noundef %373, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %375 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsiu_complete, align 4
-  %376 = tail call ptr @proto_tree_add_item(ptr noundef %366, i32 noundef %375, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %377 = load i32, ptr @hf_ecat_mailbox_coe_sdoidx, align 4
-  %378 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %377, ptr noundef %43, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648)
-  %379 = load i32, ptr @hf_ecat_mailbox_coe_sdosub, align 4
-  %380 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %379, ptr noundef %43, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648)
-  %381 = and i8 %345, 3
-  %or.cond361.i = icmp eq i8 %381, 1
-  br i1 %or.cond361.i, label %382, label %391
+361:                                              ; preds = %351
+  %362 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsiu, align 4
+  %363 = tail call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %362, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %364 = load i32, ptr @ett_ecat_mailbox_coe_sdoscs, align 4
+  %365 = tail call ptr @proto_item_add_subtree(ptr noundef %363, i32 noundef %364)
+  %366 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsiu_sizeind, align 4
+  %367 = tail call ptr @proto_tree_add_item(ptr noundef %365, i32 noundef %366, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %368 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsiu_expedited, align 4
+  %369 = tail call ptr @proto_tree_add_item(ptr noundef %365, i32 noundef %368, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %370 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsiu_size0, align 4
+  %371 = tail call ptr @proto_tree_add_item(ptr noundef %365, i32 noundef %370, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %372 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsiu_size1, align 4
+  %373 = tail call ptr @proto_tree_add_item(ptr noundef %365, i32 noundef %372, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %374 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsiu_complete, align 4
+  %375 = tail call ptr @proto_tree_add_item(ptr noundef %365, i32 noundef %374, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %376 = load i32, ptr @hf_ecat_mailbox_coe_sdoidx, align 4
+  %377 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %376, ptr noundef %43, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648)
+  %378 = load i32, ptr @hf_ecat_mailbox_coe_sdosub, align 4
+  %379 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %378, ptr noundef %43, i32 noundef 5, i32 noundef 1, i32 noundef -2147483648)
+  %380 = and i8 %344, 3
+  %or.cond361.i = icmp eq i8 %380, 1
+  br i1 %or.cond361.i, label %381, label %389
 
-382:                                              ; preds = %362
+381:                                              ; preds = %361
+  %382 = add i32 %206, 65526
   %383 = load i32, ptr @hf_ecat_mailbox_coe_sdolength, align 4
   %384 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %383, ptr noundef %43, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648)
-  %385 = and i32 %206, 65535
-  %.not353.i = icmp eq i32 %385, 10
+  %385 = and i32 %382, 65535
+  %.not353.i = icmp eq i32 %385, 0
   br i1 %.not353.i, label %dissect_ecat_coe.exit, label %386
 
-386:                                              ; preds = %382
-  %387 = add i32 %206, 65526
-  %388 = and i32 %387, 65535
-  %389 = load i32, ptr @hf_ecat_mailbox_coe_sdoldata, align 4
-  %390 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %389, ptr noundef %43, i32 noundef 10, i32 noundef %388, i32 noundef 0)
+386:                                              ; preds = %381
+  %387 = load i32, ptr @hf_ecat_mailbox_coe_sdoldata, align 4
+  %388 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %387, ptr noundef %43, i32 noundef 10, i32 noundef %385, i32 noundef 0)
   br label %dissect_ecat_coe.exit
 
-391:                                              ; preds = %362
-  %392 = and i8 %345, 15
-  switch i8 %392, label %399 [
-    i8 15, label %393
-    i8 11, label %396
+389:                                              ; preds = %361
+  %390 = and i8 %344, 15
+  switch i8 %390, label %397 [
+    i8 15, label %391
+    i8 11, label %394
   ]
 
-393:                                              ; preds = %391
-  %394 = load i32, ptr @hf_ecat_mailbox_coe_sdodata1, align 4
-  %395 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %394, ptr noundef %43, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648)
+391:                                              ; preds = %389
+  %392 = load i32, ptr @hf_ecat_mailbox_coe_sdodata1, align 4
+  %393 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %392, ptr noundef %43, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648)
   br label %dissect_ecat_coe.exit
 
-396:                                              ; preds = %391
-  %397 = load i32, ptr @hf_ecat_mailbox_coe_sdodata2, align 4
-  %398 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %397, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
+394:                                              ; preds = %389
+  %395 = load i32, ptr @hf_ecat_mailbox_coe_sdodata2, align 4
+  %396 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %395, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
   br label %dissect_ecat_coe.exit
 
-399:                                              ; preds = %391
-  %400 = load i32, ptr @hf_ecat_mailbox_coe_sdodata, align 4
-  %401 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %400, ptr noundef %43, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648)
+397:                                              ; preds = %389
+  %398 = load i32, ptr @hf_ecat_mailbox_coe_sdodata, align 4
+  %399 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %398, ptr noundef %43, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648)
   br label %dissect_ecat_coe.exit
 
-402:                                              ; preds = %352
-  %403 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsds, align 4
-  %404 = tail call ptr @proto_tree_add_item(ptr noundef %356, i32 noundef %403, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %405 = load i32, ptr @ett_ecat_mailbox_coe_sdoscs, align 4
-  %406 = tail call ptr @proto_item_add_subtree(ptr noundef %404, i32 noundef %405)
-  %407 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsds_toggle, align 4
-  %408 = tail call ptr @proto_tree_add_item(ptr noundef %406, i32 noundef %407, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+400:                                              ; preds = %351
+  %401 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsds, align 4
+  %402 = tail call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %401, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %403 = load i32, ptr @ett_ecat_mailbox_coe_sdoscs, align 4
+  %404 = tail call ptr @proto_item_add_subtree(ptr noundef %402, i32 noundef %403)
+  %405 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsds_toggle, align 4
+  %406 = tail call ptr @proto_tree_add_item(ptr noundef %404, i32 noundef %405, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
   br label %dissect_ecat_coe.exit
 
-409:                                              ; preds = %352
-  %410 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsus, align 4
-  %411 = tail call ptr @proto_tree_add_item(ptr noundef %356, i32 noundef %410, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %412 = load i32, ptr @ett_ecat_mailbox_coe_sdoscs, align 4
-  %413 = tail call ptr @proto_item_add_subtree(ptr noundef %411, i32 noundef %412)
-  %414 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsus_lastseg, align 4
-  %415 = tail call ptr @proto_tree_add_item(ptr noundef %413, i32 noundef %414, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %416 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsus_bytes, align 4
-  %417 = tail call ptr @proto_tree_add_item(ptr noundef %413, i32 noundef %416, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %418 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsus_toggle, align 4
-  %419 = tail call ptr @proto_tree_add_item(ptr noundef %413, i32 noundef %418, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %420 = add i32 %206, -3
-  %421 = load i32, ptr @hf_ecat_mailbox_coe_sdoldata, align 4
-  %422 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %421, ptr noundef %43, i32 noundef 3, i32 noundef %420, i32 noundef 0)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %422, ptr noundef nonnull @.str.368, i32 noundef %420)
+407:                                              ; preds = %351
+  %408 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsus, align 4
+  %409 = tail call ptr @proto_tree_add_item(ptr noundef %355, i32 noundef %408, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %410 = load i32, ptr @ett_ecat_mailbox_coe_sdoscs, align 4
+  %411 = tail call ptr @proto_item_add_subtree(ptr noundef %409, i32 noundef %410)
+  %412 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsus_lastseg, align 4
+  %413 = tail call ptr @proto_tree_add_item(ptr noundef %411, i32 noundef %412, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %414 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsus_bytes, align 4
+  %415 = tail call ptr @proto_tree_add_item(ptr noundef %411, i32 noundef %414, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %416 = load i32, ptr @hf_ecat_mailbox_coe_sdoscsus_toggle, align 4
+  %417 = tail call ptr @proto_tree_add_item(ptr noundef %411, i32 noundef %416, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %418 = add i32 %206, -3
+  %419 = load i32, ptr @hf_ecat_mailbox_coe_sdoldata, align 4
+  %420 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %419, ptr noundef %43, i32 noundef 3, i32 noundef %418, i32 noundef 0)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %420, ptr noundef nonnull @.str.368, i32 noundef %418)
   br label %dissect_ecat_coe.exit
 
-423:                                              ; preds = %227
-  %424 = icmp ult i32 %206, 8
-  br i1 %424, label %425, label %428
+421:                                              ; preds = %227
+  %422 = icmp ult i32 %206, 8
+  br i1 %422, label %423, label %426
 
-425:                                              ; preds = %423
-  %426 = load ptr, ptr %16, align 8
-  tail call void @col_append_str(ptr noundef %426, i32 noundef 25, ptr noundef nonnull @.str.372)
-  %427 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0336.i, ptr noundef nonnull @ei_ecat_mailbox_coe_error, ptr noundef nonnull @.str.372)
+423:                                              ; preds = %421
+  %424 = load ptr, ptr %16, align 8
+  tail call void @col_append_str(ptr noundef %424, i32 noundef 25, ptr noundef nonnull @.str.372)
+  %425 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0336.i, ptr noundef nonnull @ei_ecat_mailbox_coe_error, ptr noundef nonnull @.str.372)
   br label %dissect_ecat_coe.exit
 
-428:                                              ; preds = %423
-  %429 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 2)
-  %430 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 3)
-  %431 = load ptr, ptr %16, align 8
-  %432 = and i8 %429, 127
-  %433 = zext nneg i8 %432 to i32
-  %434 = tail call ptr @val_to_str(i32 noundef %433, ptr noundef nonnull @CANopenSdoInfo, ptr noundef nonnull @.str.373)
-  tail call void @col_append_str(ptr noundef %431, i32 noundef 25, ptr noundef %434)
-  %.not346.i = icmp sgt i8 %429, -1
-  br i1 %.not346.i, label %437, label %435
+426:                                              ; preds = %421
+  %427 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 2)
+  %428 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 3)
+  %429 = load ptr, ptr %16, align 8
+  %430 = and i8 %427, 127
+  %431 = zext nneg i8 %430 to i32
+  %432 = tail call ptr @val_to_str(i32 noundef %431, ptr noundef nonnull @CANopenSdoInfo, ptr noundef nonnull @.str.373)
+  tail call void @col_append_str(ptr noundef %429, i32 noundef 25, ptr noundef %432)
+  %.not346.i = icmp sgt i8 %427, -1
+  br i1 %.not346.i, label %435, label %433
 
-435:                                              ; preds = %428
-  %436 = load ptr, ptr %16, align 8
-  tail call void @col_append_str(ptr noundef %436, i32 noundef 25, ptr noundef nonnull @.str.374)
-  br label %437
+433:                                              ; preds = %426
+  %434 = load ptr, ptr %16, align 8
+  tail call void @col_append_str(ptr noundef %434, i32 noundef 25, ptr noundef nonnull @.str.374)
+  br label %435
 
-437:                                              ; preds = %435, %428
-  br i1 %.not.i59, label %dissect_ecat_coe.exit, label %438
+435:                                              ; preds = %433, %426
+  br i1 %.not.i59, label %dissect_ecat_coe.exit, label %436
 
-438:                                              ; preds = %437
-  %439 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoopcode, align 4
-  %440 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %439, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
-  %441 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfofrag, align 4
-  %442 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %441, ptr noundef %43, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648)
-  switch i8 %432, label %dissect_ecat_coe.exit [
-    i8 1, label %443
-    i8 2, label %446
-    i8 3, label %452
-    i8 4, label %455
-    i8 5, label %467
-    i8 6, label %474
-    i8 7, label %489
+436:                                              ; preds = %435
+  %437 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoopcode, align 4
+  %438 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %437, ptr noundef %43, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648)
+  %439 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfofrag, align 4
+  %440 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %439, ptr noundef %43, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648)
+  switch i8 %430, label %dissect_ecat_coe.exit [
+    i8 1, label %441
+    i8 2, label %444
+    i8 3, label %450
+    i8 4, label %453
+    i8 5, label %465
+    i8 6, label %472
+    i8 7, label %487
   ]
 
-443:                                              ; preds = %438
-  %444 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfolisttype, align 4
-  %445 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %444, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
+441:                                              ; preds = %436
+  %442 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfolisttype, align 4
+  %443 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %442, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
   br label %dissect_ecat_coe.exit
 
-446:                                              ; preds = %438
-  %447 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfolisttype, align 4
-  %448 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %447, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
-  %449 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfolist, align 4
-  %450 = add i32 %206, -8
-  %451 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %449, ptr noundef %43, i32 noundef 8, i32 noundef %450, i32 noundef 0)
+444:                                              ; preds = %436
+  %445 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfolisttype, align 4
+  %446 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %445, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
+  %447 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfolist, align 4
+  %448 = add i32 %206, -8
+  %449 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %447, ptr noundef %43, i32 noundef 8, i32 noundef %448, i32 noundef 0)
   br label %dissect_ecat_coe.exit
 
-452:                                              ; preds = %438
-  %453 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoindex, align 4
-  %454 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %453, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
+450:                                              ; preds = %436
+  %451 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoindex, align 4
+  %452 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %451, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
   br label %dissect_ecat_coe.exit
 
-455:                                              ; preds = %438
-  %456 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoindex, align 4
-  %457 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %456, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
-  %458 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfodatatype, align 4
-  %459 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %458, ptr noundef %43, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648)
-  %460 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfomaxsub, align 4
-  %461 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %460, ptr noundef %43, i32 noundef 10, i32 noundef 1, i32 noundef -2147483648)
-  %462 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoobjcode, align 4
-  %463 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %462, ptr noundef %43, i32 noundef 11, i32 noundef 1, i32 noundef -2147483648)
-  %464 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoname, align 4
-  %465 = add i32 %206, -12
-  %466 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %464, ptr noundef %43, i32 noundef 12, i32 noundef %465, i32 noundef 0)
+453:                                              ; preds = %436
+  %454 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoindex, align 4
+  %455 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %454, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
+  %456 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfodatatype, align 4
+  %457 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %456, ptr noundef %43, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648)
+  %458 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfomaxsub, align 4
+  %459 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %458, ptr noundef %43, i32 noundef 10, i32 noundef 1, i32 noundef -2147483648)
+  %460 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoobjcode, align 4
+  %461 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %460, ptr noundef %43, i32 noundef 11, i32 noundef 1, i32 noundef -2147483648)
+  %462 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoname, align 4
+  %463 = add i32 %206, -12
+  %464 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %462, ptr noundef %43, i32 noundef 12, i32 noundef %463, i32 noundef 0)
   br label %dissect_ecat_coe.exit
 
-467:                                              ; preds = %438
-  %468 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoindex, align 4
-  %469 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %468, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
-  %470 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfosubindex, align 4
-  %471 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %470, ptr noundef %43, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648)
-  %472 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfovalueinfo, align 4
-  %473 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %472, ptr noundef %43, i32 noundef 9, i32 noundef 1, i32 noundef -2147483648)
+465:                                              ; preds = %436
+  %466 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoindex, align 4
+  %467 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %466, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
+  %468 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfosubindex, align 4
+  %469 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %468, ptr noundef %43, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648)
+  %470 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfovalueinfo, align 4
+  %471 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %470, ptr noundef %43, i32 noundef 9, i32 noundef 1, i32 noundef -2147483648)
   br label %dissect_ecat_coe.exit
 
-474:                                              ; preds = %438
-  %475 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoindex, align 4
-  %476 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %475, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
-  %477 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfosubindex, align 4
-  %478 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %477, ptr noundef %43, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648)
-  %479 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfovalueinfo, align 4
-  %480 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %479, ptr noundef %43, i32 noundef 9, i32 noundef 1, i32 noundef -2147483648)
-  %481 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfodatatype, align 4
-  %482 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %481, ptr noundef %43, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648)
-  %483 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfobitlen, align 4
-  %484 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %483, ptr noundef %43, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648)
-  %485 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoobjaccess, align 4
-  %486 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %485, ptr noundef %43, i32 noundef 14, i32 noundef 2, i32 noundef -2147483648)
+472:                                              ; preds = %436
+  %473 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoindex, align 4
+  %474 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %473, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
+  %475 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfosubindex, align 4
+  %476 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %475, ptr noundef %43, i32 noundef 8, i32 noundef 1, i32 noundef -2147483648)
+  %477 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfovalueinfo, align 4
+  %478 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %477, ptr noundef %43, i32 noundef 9, i32 noundef 1, i32 noundef -2147483648)
+  %479 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfodatatype, align 4
+  %480 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %479, ptr noundef %43, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648)
+  %481 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfobitlen, align 4
+  %482 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %481, ptr noundef %43, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648)
+  %483 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoobjaccess, align 4
+  %484 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %483, ptr noundef %43, i32 noundef 14, i32 noundef 2, i32 noundef -2147483648)
   %.pre.i = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoname, align 4
-  %487 = add i32 %206, -16
-  %488 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %.pre.i, ptr noundef %43, i32 noundef 16, i32 noundef %487, i32 noundef 0)
+  %485 = add i32 %206, -16
+  %486 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %.pre.i, ptr noundef %43, i32 noundef 16, i32 noundef %485, i32 noundef 0)
   br label %dissect_ecat_coe.exit
 
-489:                                              ; preds = %438
-  %490 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoerrorcode, align 4
-  %491 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %490, ptr noundef %43, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648)
+487:                                              ; preds = %436
+  %488 = load i32, ptr @hf_ecat_mailbox_coe_sdoinfoerrorcode, align 4
+  %489 = tail call ptr @proto_tree_add_item(ptr noundef %.0336.i, i32 noundef %488, ptr noundef %43, i32 noundef 6, i32 noundef 4, i32 noundef -2147483648)
   br label %dissect_ecat_coe.exit
 
-492:                                              ; preds = %211
-  %493 = load ptr, ptr %16, align 8
-  tail call void @col_append_str(ptr noundef %493, i32 noundef 25, ptr noundef nonnull @.str.375)
-  %494 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %23, ptr noundef nonnull @ei_ecat_mailbox_coe_error)
+490:                                              ; preds = %211
+  %491 = load ptr, ptr %16, align 8
+  tail call void @col_append_str(ptr noundef %491, i32 noundef 25, ptr noundef nonnull @.str.375)
+  %492 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %23, ptr noundef nonnull @ei_ecat_mailbox_coe_error)
   br label %dissect_ecat_coe.exit
 
-dissect_ecat_coe.exit:                            ; preds = %227, %230, %CANopenSdoReqFormatter.exit.i, %257, %283, %287, %295, %298, %301, %304, %315, %329, %336, %341, %344, %352, %357, %382, %386, %393, %396, %399, %402, %409, %425, %437, %438, %443, %446, %452, %455, %467, %474, %489, %492
+dissect_ecat_coe.exit:                            ; preds = %227, %230, %CANopenSdoReqFormatter.exit.i, %257, %283, %288, %294, %297, %300, %303, %314, %328, %335, %340, %343, %351, %356, %381, %386, %391, %394, %397, %400, %407, %423, %435, %436, %441, %444, %450, %453, %465, %472, %487, %490
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %dissect_ecat_eoe.exit
 
-495:                                              ; preds = %42
+493:                                              ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %496 = tail call i32 @tvb_reported_length(ptr noundef %43)
+  %494 = tail call i32 @tvb_reported_length(ptr noundef %43)
   %.not.i60 = icmp eq ptr %23, null
-  br i1 %.not.i60, label %501, label %497
+  br i1 %.not.i60, label %499, label %495
 
-497:                                              ; preds = %495
-  %498 = load i32, ptr @hf_ecat_mailbox_foe, align 4
-  %499 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef nonnull %23, i32 noundef %498, ptr noundef %43, i32 noundef 0, i32 noundef %496, ptr noundef null, ptr noundef nonnull @.str.207)
-  %500 = tail call ptr @proto_item_get_parent(ptr noundef %499)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %500, ptr noundef nonnull @.str.382)
-  br label %501
+495:                                              ; preds = %493
+  %496 = load i32, ptr @hf_ecat_mailbox_foe, align 4
+  %497 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef nonnull %23, i32 noundef %496, ptr noundef %43, i32 noundef 0, i32 noundef %494, ptr noundef null, ptr noundef nonnull @.str.207)
+  %498 = tail call ptr @proto_item_get_parent(ptr noundef %497)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %498, ptr noundef nonnull @.str.382)
+  br label %499
 
-501:                                              ; preds = %497, %495
-  %.0.i61 = phi ptr [ %499, %497 ], [ null, %495 ]
-  %502 = icmp ugt i32 %496, 5
-  br i1 %502, label %503, label %594
+499:                                              ; preds = %495, %493
+  %.0.i61 = phi ptr [ %497, %495 ], [ null, %493 ]
+  %500 = icmp ugt i32 %494, 5
+  br i1 %500, label %501, label %592
 
-503:                                              ; preds = %501
-  %504 = getelementptr inbounds nuw i8, ptr %1, i64 408
-  %505 = load ptr, ptr %504, align 8
-  %506 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 0)
-  %507 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 1)
-  %508 = tail call i32 @tvb_get_letohl(ptr noundef %43, i32 noundef 2)
-  switch i8 %506, label %514 [
-    i8 1, label %509
-    i8 2, label %509
-    i8 5, label %509
+501:                                              ; preds = %499
+  %502 = getelementptr inbounds nuw i8, ptr %1, i64 408
+  %503 = load ptr, ptr %502, align 8
+  %504 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 0)
+  %505 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 1)
+  %506 = tail call i32 @tvb_get_letohl(ptr noundef %43, i32 noundef 2)
+  switch i8 %504, label %512 [
+    i8 1, label %507
+    i8 2, label %507
+    i8 5, label %507
   ]
 
-509:                                              ; preds = %503, %503, %503
-  %.not95.i = icmp eq i32 %496, 6
-  br i1 %.not95.i, label %514, label %510
+507:                                              ; preds = %501, %501, %501
+  %.not95.i = icmp eq i32 %494, 6
+  br i1 %.not95.i, label %512, label %508
 
-510:                                              ; preds = %509
-  %511 = add i32 %496, -6
-  %512 = tail call i32 @llvm.umin.i32(i32 %511, i32 49)
-  %513 = tail call ptr @tvb_get_string_enc(ptr noundef %505, ptr noundef %43, i32 noundef 6, i32 noundef %512, i32 noundef 0)
-  br label %514
+508:                                              ; preds = %507
+  %509 = add i32 %494, -6
+  %510 = tail call i32 @llvm.umin.i32(i32 %509, i32 49)
+  %511 = tail call ptr @tvb_get_string_enc(ptr noundef %503, ptr noundef %43, i32 noundef 6, i32 noundef %510, i32 noundef 0)
+  br label %512
 
-514:                                              ; preds = %510, %509, %503
-  %.0.i.i = phi ptr [ null, %503 ], [ %513, %510 ], [ null, %509 ]
-  switch i8 %506, label %539 [
-    i8 1, label %515
-    i8 2, label %518
-    i8 3, label %521
-    i8 4, label %525
-    i8 5, label %528
-    i8 6, label %531
+512:                                              ; preds = %508, %507, %501
+  %.0.i.i = phi ptr [ null, %501 ], [ %511, %508 ], [ null, %507 ]
+  switch i8 %504, label %537 [
+    i8 1, label %513
+    i8 2, label %516
+    i8 3, label %519
+    i8 4, label %523
+    i8 5, label %526
+    i8 6, label %529
   ]
 
-515:                                              ; preds = %514
+513:                                              ; preds = %512
   %.not42.i.i = icmp eq ptr %.0.i.i, null
-  %516 = select i1 %.not42.i.i, ptr @.str.385, ptr %.0.i.i
-  %517 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.384, i32 noundef %508, ptr noundef nonnull %516)
+  %514 = select i1 %.not42.i.i, ptr @.str.385, ptr %.0.i.i
+  %515 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.384, i32 noundef %506, ptr noundef nonnull %514)
   br label %FoeFormatter.exit.i
 
-518:                                              ; preds = %514
+516:                                              ; preds = %512
   %.not41.i.i = icmp eq ptr %.0.i.i, null
-  %519 = select i1 %.not41.i.i, ptr @.str.385, ptr %.0.i.i
-  %520 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.386, i32 noundef %508, ptr noundef nonnull %519)
+  %517 = select i1 %.not41.i.i, ptr @.str.385, ptr %.0.i.i
+  %518 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.386, i32 noundef %506, ptr noundef nonnull %517)
   br label %FoeFormatter.exit.i
 
-521:                                              ; preds = %514
-  %522 = and i32 %508, 65535
-  %523 = add i32 %496, -6
-  %524 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.387, i32 noundef %522, i32 noundef %523)
+519:                                              ; preds = %512
+  %520 = and i32 %506, 65535
+  %521 = add i32 %494, -6
+  %522 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.387, i32 noundef %520, i32 noundef %521)
   br label %FoeFormatter.exit.i
 
-525:                                              ; preds = %514
-  %526 = and i32 %508, 65535
-  %527 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.388, i32 noundef %526)
+523:                                              ; preds = %512
+  %524 = and i32 %506, 65535
+  %525 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.388, i32 noundef %524)
   br label %FoeFormatter.exit.i
 
-528:                                              ; preds = %514
+526:                                              ; preds = %512
   %.not40.i.i = icmp eq ptr %.0.i.i, null
-  %529 = select i1 %.not40.i.i, ptr @.str.385, ptr %.0.i.i
-  %530 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.389, i32 noundef %508, ptr noundef nonnull %529)
+  %527 = select i1 %.not40.i.i, ptr @.str.385, ptr %.0.i.i
+  %528 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.389, i32 noundef %506, ptr noundef nonnull %527)
   br label %FoeFormatter.exit.i
 
-531:                                              ; preds = %514
-  %.sroa.644.6.extract.shift.i.i = lshr i32 %508, 16
+529:                                              ; preds = %512
+  %.sroa.644.6.extract.shift.i.i = lshr i32 %506, 16
   %.not.i.i = icmp eq i32 %.sroa.644.6.extract.shift.i.i, 0
-  br i1 %.not.i.i, label %537, label %532
+  br i1 %.not.i.i, label %535, label %530
 
-532:                                              ; preds = %531
-  %533 = and i32 %508, 65535
-  %534 = mul nuw nsw i32 %533, 100
-  %535 = udiv i32 %534, %.sroa.644.6.extract.shift.i.i
-  %536 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.390, i32 noundef %535)
+530:                                              ; preds = %529
+  %531 = and i32 %506, 65535
+  %532 = mul nuw nsw i32 %531, 100
+  %533 = udiv i32 %532, %.sroa.644.6.extract.shift.i.i
+  %534 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.390, i32 noundef %533)
   br label %FoeFormatter.exit.i
 
-537:                                              ; preds = %531
-  %538 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.391, i32 noundef %508, i32 noundef 0)
+535:                                              ; preds = %529
+  %536 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.391, i32 noundef %506, i32 noundef 0)
   br label %FoeFormatter.exit.i
 
-539:                                              ; preds = %514
-  %540 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.392)
+537:                                              ; preds = %512
+  %538 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.392)
   br label %FoeFormatter.exit.i
 
-FoeFormatter.exit.i:                              ; preds = %539, %537, %532, %528, %525, %521, %518, %515
-  %541 = load ptr, ptr %16, align 8
-  call void @col_append_str(ptr noundef %541, i32 noundef 25, ptr noundef nonnull %8)
-  br i1 %.not.i60, label %dissect_ecat_foe.exit, label %542
+FoeFormatter.exit.i:                              ; preds = %537, %535, %530, %526, %523, %519, %516, %513
+  %539 = load ptr, ptr %16, align 8
+  call void @col_append_str(ptr noundef %539, i32 noundef 25, ptr noundef nonnull %8)
+  br i1 %.not.i60, label %dissect_ecat_foe.exit, label %540
 
-542:                                              ; preds = %FoeFormatter.exit.i
-  %543 = call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 0)
-  %544 = call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 1)
-  %545 = call i32 @tvb_get_letohl(ptr noundef %43, i32 noundef 2)
-  %546 = load i32, ptr @ett_ecat_mailbox_foe, align 4
-  %547 = call ptr @proto_item_add_subtree(ptr noundef %.0.i61, i32 noundef %546)
-  %548 = load i32, ptr @hf_ecat_mailbox_foe_opmode, align 4
-  %549 = call ptr @proto_tree_add_item(ptr noundef %547, i32 noundef %548, ptr noundef %43, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
-  switch i8 %543, label %dissect_ecat_foe.exit [
-    i8 1, label %550
-    i8 2, label %550
-    i8 3, label %556
-    i8 4, label %580
-    i8 5, label %583
-    i8 6, label %589
+540:                                              ; preds = %FoeFormatter.exit.i
+  %541 = call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 0)
+  %542 = call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 1)
+  %543 = call i32 @tvb_get_letohl(ptr noundef %43, i32 noundef 2)
+  %544 = load i32, ptr @ett_ecat_mailbox_foe, align 4
+  %545 = call ptr @proto_item_add_subtree(ptr noundef %.0.i61, i32 noundef %544)
+  %546 = load i32, ptr @hf_ecat_mailbox_foe_opmode, align 4
+  %547 = call ptr @proto_tree_add_item(ptr noundef %545, i32 noundef %546, ptr noundef %43, i32 noundef 0, i32 noundef 1, i32 noundef -2147483648)
+  switch i8 %541, label %dissect_ecat_foe.exit [
+    i8 1, label %548
+    i8 2, label %548
+    i8 3, label %554
+    i8 4, label %578
+    i8 5, label %581
+    i8 6, label %587
   ]
 
-550:                                              ; preds = %542, %542
-  %551 = load i32, ptr @hf_ecat_mailbox_foe_filelength, align 4
-  %552 = call ptr @proto_tree_add_item(ptr noundef %547, i32 noundef %551, ptr noundef %43, i32 noundef 2, i32 noundef 4, i32 noundef -2147483648)
-  %553 = load i32, ptr @hf_ecat_mailbox_foe_filename, align 4
-  %554 = add i32 %496, -6
-  %555 = call ptr @proto_tree_add_item(ptr noundef %547, i32 noundef %553, ptr noundef %43, i32 noundef 6, i32 noundef %554, i32 noundef 0)
+548:                                              ; preds = %540, %540
+  %549 = load i32, ptr @hf_ecat_mailbox_foe_filelength, align 4
+  %550 = call ptr @proto_tree_add_item(ptr noundef %545, i32 noundef %549, ptr noundef %43, i32 noundef 2, i32 noundef 4, i32 noundef -2147483648)
+  %551 = load i32, ptr @hf_ecat_mailbox_foe_filename, align 4
+  %552 = add i32 %494, -6
+  %553 = call ptr @proto_tree_add_item(ptr noundef %545, i32 noundef %551, ptr noundef %43, i32 noundef 6, i32 noundef %552, i32 noundef 0)
   br label %dissect_ecat_foe.exit
 
-556:                                              ; preds = %542
-  %557 = load i32, ptr @hf_ecat_mailbox_foe_packetno, align 4
-  %558 = call ptr @proto_tree_add_item(ptr noundef %547, i32 noundef %557, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
-  %559 = add i32 %496, -6
-  %560 = icmp ugt i32 %559, 7
-  br i1 %560, label %561, label %577
+554:                                              ; preds = %540
+  %555 = load i32, ptr @hf_ecat_mailbox_foe_packetno, align 4
+  %556 = call ptr @proto_tree_add_item(ptr noundef %545, i32 noundef %555, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
+  %557 = add i32 %494, -6
+  %558 = icmp ugt i32 %557, 7
+  br i1 %558, label %559, label %575
 
-561:                                              ; preds = %556
-  %562 = load i32, ptr @hf_ecat_mailbox_foe_efw, align 4
-  %563 = call ptr @proto_tree_add_item(ptr noundef %547, i32 noundef %562, ptr noundef %43, i32 noundef 6, i32 noundef %559, i32 noundef 0)
-  %564 = load i32, ptr @ett_ecat_mailbox_foe_efw, align 4
-  %565 = call ptr @proto_item_add_subtree(ptr noundef %563, i32 noundef %564)
-  %566 = load i32, ptr @hf_ecat_mailbox_foe_efw_cmd, align 4
-  %567 = call ptr @proto_tree_add_item(ptr noundef %565, i32 noundef %566, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
-  %568 = load i32, ptr @hf_ecat_mailbox_foe_efw_size, align 4
-  %569 = call ptr @proto_tree_add_item(ptr noundef %565, i32 noundef %568, ptr noundef %43, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648)
-  %570 = load i32, ptr @hf_ecat_mailbox_foe_efw_addresslw, align 4
-  %571 = call ptr @proto_tree_add_item(ptr noundef %565, i32 noundef %570, ptr noundef %43, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648)
-  %572 = load i32, ptr @hf_ecat_mailbox_foe_efw_addresshw, align 4
-  %573 = call ptr @proto_tree_add_item(ptr noundef %565, i32 noundef %572, ptr noundef %43, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648)
-  %574 = load i32, ptr @hf_ecat_mailbox_foe_efw_data, align 4
-  %575 = add i32 %496, -14
-  %576 = call ptr @proto_tree_add_item(ptr noundef %565, i32 noundef %574, ptr noundef %43, i32 noundef 14, i32 noundef %575, i32 noundef 0)
+559:                                              ; preds = %554
+  %560 = load i32, ptr @hf_ecat_mailbox_foe_efw, align 4
+  %561 = call ptr @proto_tree_add_item(ptr noundef %545, i32 noundef %560, ptr noundef %43, i32 noundef 6, i32 noundef %557, i32 noundef 0)
+  %562 = load i32, ptr @ett_ecat_mailbox_foe_efw, align 4
+  %563 = call ptr @proto_item_add_subtree(ptr noundef %561, i32 noundef %562)
+  %564 = load i32, ptr @hf_ecat_mailbox_foe_efw_cmd, align 4
+  %565 = call ptr @proto_tree_add_item(ptr noundef %563, i32 noundef %564, ptr noundef %43, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
+  %566 = load i32, ptr @hf_ecat_mailbox_foe_efw_size, align 4
+  %567 = call ptr @proto_tree_add_item(ptr noundef %563, i32 noundef %566, ptr noundef %43, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648)
+  %568 = load i32, ptr @hf_ecat_mailbox_foe_efw_addresslw, align 4
+  %569 = call ptr @proto_tree_add_item(ptr noundef %563, i32 noundef %568, ptr noundef %43, i32 noundef 10, i32 noundef 2, i32 noundef -2147483648)
+  %570 = load i32, ptr @hf_ecat_mailbox_foe_efw_addresshw, align 4
+  %571 = call ptr @proto_tree_add_item(ptr noundef %563, i32 noundef %570, ptr noundef %43, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648)
+  %572 = load i32, ptr @hf_ecat_mailbox_foe_efw_data, align 4
+  %573 = add i32 %494, -14
+  %574 = call ptr @proto_tree_add_item(ptr noundef %563, i32 noundef %572, ptr noundef %43, i32 noundef 14, i32 noundef %573, i32 noundef 0)
   br label %dissect_ecat_foe.exit
 
-577:                                              ; preds = %556
-  %578 = load i32, ptr @hf_ecat_mailbox_foe_data, align 4
-  %579 = call ptr @proto_tree_add_item(ptr noundef %547, i32 noundef %578, ptr noundef %43, i32 noundef 6, i32 noundef %559, i32 noundef 0)
+575:                                              ; preds = %554
+  %576 = load i32, ptr @hf_ecat_mailbox_foe_data, align 4
+  %577 = call ptr @proto_tree_add_item(ptr noundef %545, i32 noundef %576, ptr noundef %43, i32 noundef 6, i32 noundef %557, i32 noundef 0)
   br label %dissect_ecat_foe.exit
 
-580:                                              ; preds = %542
-  %581 = load i32, ptr @hf_ecat_mailbox_foe_packetno, align 4
-  %582 = call ptr @proto_tree_add_item(ptr noundef %547, i32 noundef %581, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
+578:                                              ; preds = %540
+  %579 = load i32, ptr @hf_ecat_mailbox_foe_packetno, align 4
+  %580 = call ptr @proto_tree_add_item(ptr noundef %545, i32 noundef %579, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
   br label %dissect_ecat_foe.exit
 
-583:                                              ; preds = %542
-  %584 = load i32, ptr @hf_ecat_mailbox_foe_errcode, align 4
-  %585 = call ptr @proto_tree_add_item(ptr noundef %547, i32 noundef %584, ptr noundef %43, i32 noundef 2, i32 noundef 4, i32 noundef -2147483648)
-  %586 = load i32, ptr @hf_ecat_mailbox_foe_errtext, align 4
-  %587 = add i32 %496, -6
-  %588 = call ptr @proto_tree_add_item(ptr noundef %547, i32 noundef %586, ptr noundef %43, i32 noundef 6, i32 noundef %587, i32 noundef 0)
+581:                                              ; preds = %540
+  %582 = load i32, ptr @hf_ecat_mailbox_foe_errcode, align 4
+  %583 = call ptr @proto_tree_add_item(ptr noundef %545, i32 noundef %582, ptr noundef %43, i32 noundef 2, i32 noundef 4, i32 noundef -2147483648)
+  %584 = load i32, ptr @hf_ecat_mailbox_foe_errtext, align 4
+  %585 = add i32 %494, -6
+  %586 = call ptr @proto_tree_add_item(ptr noundef %545, i32 noundef %584, ptr noundef %43, i32 noundef 6, i32 noundef %585, i32 noundef 0)
   br label %dissect_ecat_foe.exit
 
-589:                                              ; preds = %542
-  %590 = load i32, ptr @hf_ecat_mailbox_foe_busydone, align 4
-  %591 = call ptr @proto_tree_add_item(ptr noundef %547, i32 noundef %590, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
-  %592 = load i32, ptr @hf_ecat_mailbox_foe_busyentire, align 4
-  %593 = call ptr @proto_tree_add_item(ptr noundef %547, i32 noundef %592, ptr noundef %43, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648)
+587:                                              ; preds = %540
+  %588 = load i32, ptr @hf_ecat_mailbox_foe_busydone, align 4
+  %589 = call ptr @proto_tree_add_item(ptr noundef %545, i32 noundef %588, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
+  %590 = load i32, ptr @hf_ecat_mailbox_foe_busyentire, align 4
+  %591 = call ptr @proto_tree_add_item(ptr noundef %545, i32 noundef %590, ptr noundef %43, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648)
   br label %dissect_ecat_foe.exit
 
-594:                                              ; preds = %501
-  %595 = load ptr, ptr %16, align 8
-  tail call void @col_append_str(ptr noundef %595, i32 noundef 25, ptr noundef nonnull @.str.383)
-  %596 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %23, ptr noundef nonnull @ei_ecat_mailbox_foe_error)
+592:                                              ; preds = %499
+  %593 = load ptr, ptr %16, align 8
+  tail call void @col_append_str(ptr noundef %593, i32 noundef 25, ptr noundef nonnull @.str.383)
+  %594 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %23, ptr noundef nonnull @ei_ecat_mailbox_foe_error)
   br label %dissect_ecat_foe.exit
 
-dissect_ecat_foe.exit:                            ; preds = %FoeFormatter.exit.i, %542, %550, %561, %577, %580, %583, %589, %594
+dissect_ecat_foe.exit:                            ; preds = %FoeFormatter.exit.i, %540, %548, %559, %575, %578, %581, %587, %592
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dissect_ecat_eoe.exit
 
-597:                                              ; preds = %42
+595:                                              ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %598 = tail call i32 @tvb_reported_length(ptr noundef %43)
+  %596 = tail call i32 @tvb_reported_length(ptr noundef %43)
   %.not.i62 = icmp eq ptr %23, null
-  br i1 %.not.i62, label %603, label %599
+  br i1 %.not.i62, label %601, label %597
 
-599:                                              ; preds = %597
-  %600 = load i32, ptr @hf_ecat_mailbox_soe, align 4
-  %601 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %23, i32 noundef %600, ptr noundef %43, i32 noundef 0, i32 noundef %598, i32 noundef 0)
-  %602 = tail call ptr @proto_item_get_parent(ptr noundef %601)
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %602, ptr noundef nonnull @.str.393)
-  br label %603
+597:                                              ; preds = %595
+  %598 = load i32, ptr @hf_ecat_mailbox_soe, align 4
+  %599 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %23, i32 noundef %598, ptr noundef %43, i32 noundef 0, i32 noundef %596, i32 noundef 0)
+  %600 = tail call ptr @proto_item_get_parent(ptr noundef %599)
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %600, ptr noundef nonnull @.str.393)
+  br label %601
 
-603:                                              ; preds = %599, %597
-  %.091.i = phi ptr [ %602, %599 ], [ null, %597 ]
-  %.0.i63 = phi ptr [ %601, %599 ], [ null, %597 ]
-  %604 = icmp ugt i32 %598, 3
-  br i1 %604, label %605, label %734
+601:                                              ; preds = %597, %595
+  %.091.i = phi ptr [ %600, %597 ], [ null, %595 ]
+  %.0.i63 = phi ptr [ %599, %597 ], [ null, %595 ]
+  %602 = icmp ugt i32 %596, 3
+  br i1 %602, label %603, label %732
 
-605:                                              ; preds = %603
+603:                                              ; preds = %601
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(50) %5, i8 noundef 0, i64 noundef 50, i1 noundef false) #6
-  %606 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 0)
-  %.sroa.0.0.insert.ext.i.i = zext i8 %606 to i16
-  %607 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 1)
-  %.sroa.0.1.insert.ext.i.i = zext i8 %607 to i16
-  %608 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %43, i32 noundef 2)
-  %609 = and i16 %.sroa.0.0.insert.ext.i.i, 16
-  %.not.i.i64 = icmp eq i16 %609, 0
-  br i1 %.not.i.i64, label %610, label %670
+  %604 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 0)
+  %.sroa.0.0.insert.ext.i.i = zext i8 %604 to i16
+  %605 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 1)
+  %.sroa.0.1.insert.ext.i.i = zext i8 %605 to i16
+  %606 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %43, i32 noundef 2)
+  %607 = and i16 %.sroa.0.0.insert.ext.i.i, 16
+  %.not.i.i64 = icmp eq i16 %607, 0
+  br i1 %.not.i.i64, label %608, label %668
 
-610:                                              ; preds = %605
-  %611 = and i16 %.sroa.0.0.insert.ext.i.i, 8
-  %.not34.i.i = icmp eq i16 %611, 0
-  %612 = zext i16 %608 to i32
-  br i1 %.not34.i.i, label %613, label %668
+608:                                              ; preds = %603
+  %609 = and i16 %.sroa.0.0.insert.ext.i.i, 8
+  %.not34.i.i = icmp eq i16 %609, 0
+  %610 = zext i16 %606 to i32
+  br i1 %.not34.i.i, label %611, label %666
 
-613:                                              ; preds = %610
-  %.not.i.i.i = icmp sgt i16 %608, -1
-  %614 = lshr i32 %612, 12
-  br i1 %.not.i.i.i, label %619, label %615
+611:                                              ; preds = %608
+  %.not.i.i.i = icmp sgt i16 %606, -1
+  %612 = lshr i32 %610, 12
+  br i1 %.not.i.i.i, label %617, label %613
 
-615:                                              ; preds = %613
-  %616 = and i32 %614, 7
-  %617 = and i32 %612, 4095
-  %618 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 49, i32 noundef 2, i64 noundef 50, ptr noundef nonnull @.str.411, i32 noundef %616, i32 noundef %617)
+613:                                              ; preds = %611
+  %614 = and i32 %612, 7
+  %615 = and i32 %610, 4095
+  %616 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 49, i32 noundef 2, i64 noundef 50, ptr noundef nonnull @.str.411, i32 noundef %614, i32 noundef %615)
   br label %SoEIdToString.exit.i.i
 
-619:                                              ; preds = %613
-  %620 = and i32 %612, 4095
-  %621 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 49, i32 noundef 2, i64 noundef 50, ptr noundef nonnull @.str.412, i32 noundef %614, i32 noundef %620)
+617:                                              ; preds = %611
+  %618 = and i32 %610, 4095
+  %619 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 49, i32 noundef 2, i64 noundef 50, ptr noundef nonnull @.str.412, i32 noundef %612, i32 noundef %618)
   br label %SoEIdToString.exit.i.i
 
-SoEIdToString.exit.i.i:                           ; preds = %619, %615
+SoEIdToString.exit.i.i:                           ; preds = %617, %613
   store i8 0, ptr %6, align 16
-  %622 = and i16 %.sroa.0.1.insert.ext.i.i, 1
-  %.not35.i.i = icmp eq i16 %622, 0
-  br i1 %.not35.i.i, label %625, label %623
+  %620 = and i16 %.sroa.0.1.insert.ext.i.i, 1
+  %.not35.i.i = icmp eq i16 %620, 0
+  br i1 %.not35.i.i, label %623, label %621
 
-623:                                              ; preds = %SoEIdToString.exit.i.i
-  %624 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.395, i64 noundef 50)
-  br label %625
+621:                                              ; preds = %SoEIdToString.exit.i.i
+  %622 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.395, i64 noundef 50)
+  br label %623
 
-625:                                              ; preds = %623, %SoEIdToString.exit.i.i
-  %626 = and i16 %.sroa.0.1.insert.ext.i.i, 2
-  %.not36.i.i = icmp eq i16 %626, 0
-  br i1 %.not36.i.i, label %629, label %627
+623:                                              ; preds = %621, %SoEIdToString.exit.i.i
+  %624 = and i16 %.sroa.0.1.insert.ext.i.i, 2
+  %.not36.i.i = icmp eq i16 %624, 0
+  br i1 %.not36.i.i, label %627, label %625
 
-627:                                              ; preds = %625
-  %628 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.396, i64 noundef 50)
-  br label %629
+625:                                              ; preds = %623
+  %626 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.396, i64 noundef 50)
+  br label %627
 
-629:                                              ; preds = %627, %625
-  %630 = and i16 %.sroa.0.1.insert.ext.i.i, 4
-  %.not37.i.i = icmp eq i16 %630, 0
-  br i1 %.not37.i.i, label %633, label %631
+627:                                              ; preds = %625, %623
+  %628 = and i16 %.sroa.0.1.insert.ext.i.i, 4
+  %.not37.i.i = icmp eq i16 %628, 0
+  br i1 %.not37.i.i, label %631, label %629
 
-631:                                              ; preds = %629
-  %632 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.397, i64 noundef 50)
-  br label %633
+629:                                              ; preds = %627
+  %630 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.397, i64 noundef 50)
+  br label %631
 
-633:                                              ; preds = %631, %629
-  %634 = and i16 %.sroa.0.1.insert.ext.i.i, 8
-  %.not38.i.i = icmp eq i16 %634, 0
-  br i1 %.not38.i.i, label %637, label %635
+631:                                              ; preds = %629, %627
+  %632 = and i16 %.sroa.0.1.insert.ext.i.i, 8
+  %.not38.i.i = icmp eq i16 %632, 0
+  br i1 %.not38.i.i, label %635, label %633
 
-635:                                              ; preds = %633
-  %636 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.398, i64 noundef 50)
-  br label %637
+633:                                              ; preds = %631
+  %634 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.398, i64 noundef 50)
+  br label %635
 
-637:                                              ; preds = %635, %633
-  %638 = and i16 %.sroa.0.1.insert.ext.i.i, 16
-  %.not39.i.i = icmp eq i16 %638, 0
-  br i1 %.not39.i.i, label %641, label %639
+635:                                              ; preds = %633, %631
+  %636 = and i16 %.sroa.0.1.insert.ext.i.i, 16
+  %.not39.i.i = icmp eq i16 %636, 0
+  br i1 %.not39.i.i, label %639, label %637
 
-639:                                              ; preds = %637
-  %640 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.399, i64 noundef 50)
-  br label %641
+637:                                              ; preds = %635
+  %638 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.399, i64 noundef 50)
+  br label %639
 
-641:                                              ; preds = %639, %637
-  %642 = and i16 %.sroa.0.1.insert.ext.i.i, 32
-  %.not40.i.i66 = icmp eq i16 %642, 0
-  br i1 %.not40.i.i66, label %645, label %643
+639:                                              ; preds = %637, %635
+  %640 = and i16 %.sroa.0.1.insert.ext.i.i, 32
+  %.not40.i.i66 = icmp eq i16 %640, 0
+  br i1 %.not40.i.i66, label %643, label %641
 
-643:                                              ; preds = %641
-  %644 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.400, i64 noundef 50)
-  br label %645
+641:                                              ; preds = %639
+  %642 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.400, i64 noundef 50)
+  br label %643
 
-645:                                              ; preds = %643, %641
-  %646 = and i16 %.sroa.0.1.insert.ext.i.i, 64
-  %.not41.i.i67 = icmp eq i16 %646, 0
-  br i1 %.not41.i.i67, label %649, label %647
+643:                                              ; preds = %641, %639
+  %644 = and i16 %.sroa.0.1.insert.ext.i.i, 64
+  %.not41.i.i67 = icmp eq i16 %644, 0
+  br i1 %.not41.i.i67, label %647, label %645
 
-647:                                              ; preds = %645
-  %648 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.401, i64 noundef 50)
-  br label %649
+645:                                              ; preds = %643
+  %646 = call i64 @g_strlcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.401, i64 noundef 50)
+  br label %647
 
-649:                                              ; preds = %647, %645
-  %650 = and i16 %.sroa.0.0.insert.ext.i.i, 7
-  switch i16 %650, label %666 [
-    i16 1, label %651
-    i16 2, label %653
-    i16 4, label %656
-    i16 3, label %658
-    i16 5, label %661
-    i16 6, label %664
+647:                                              ; preds = %645, %643
+  %648 = and i16 %.sroa.0.0.insert.ext.i.i, 7
+  switch i16 %648, label %664 [
+    i16 1, label %649
+    i16 2, label %651
+    i16 4, label %654
+    i16 3, label %656
+    i16 5, label %659
+    i16 6, label %662
   ]
 
-651:                                              ; preds = %649
-  %652 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.402, ptr noundef nonnull %5, ptr noundef nonnull %6)
+649:                                              ; preds = %647
+  %650 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.402, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br label %SoeFormatter.exit.i
 
-653:                                              ; preds = %649
-  %654 = add i32 %598, -4
-  %655 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.403, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %654)
+651:                                              ; preds = %647
+  %652 = add i32 %596, -4
+  %653 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.403, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %652)
   br label %SoeFormatter.exit.i
 
-656:                                              ; preds = %649
-  %657 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.404, ptr noundef nonnull %5, ptr noundef nonnull %6)
+654:                                              ; preds = %647
+  %655 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.404, ptr noundef nonnull %5, ptr noundef nonnull %6)
   br label %SoeFormatter.exit.i
 
-658:                                              ; preds = %649
-  %659 = add i32 %598, -4
-  %660 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.405, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %659)
+656:                                              ; preds = %647
+  %657 = add i32 %596, -4
+  %658 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.405, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %657)
   br label %SoeFormatter.exit.i
 
-661:                                              ; preds = %649
-  %662 = add i32 %598, -4
-  %663 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.406, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %662)
+659:                                              ; preds = %647
+  %660 = add i32 %596, -4
+  %661 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.406, ptr noundef nonnull %5, ptr noundef nonnull %6, i32 noundef %660)
   br label %SoeFormatter.exit.i
 
-664:                                              ; preds = %649
-  %665 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.407)
+662:                                              ; preds = %647
+  %663 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.407)
   br label %SoeFormatter.exit.i
 
-666:                                              ; preds = %649
-  %667 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.408)
+664:                                              ; preds = %647
+  %665 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.408)
   br label %SoeFormatter.exit.i
 
-668:                                              ; preds = %610
-  %669 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.409, i32 noundef %612)
+666:                                              ; preds = %608
+  %667 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.409, i32 noundef %610)
   br label %SoeFormatter.exit.i
 
-670:                                              ; preds = %605
-  %671 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %43, i32 noundef 4)
-  %672 = zext i16 %671 to i32
-  %673 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.410, i32 noundef %672)
+668:                                              ; preds = %603
+  %669 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %43, i32 noundef 4)
+  %670 = zext i16 %669 to i32
+  %671 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %7, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.410, i32 noundef %670)
   br label %SoeFormatter.exit.i
 
-SoeFormatter.exit.i:                              ; preds = %670, %668, %666, %664, %661, %658, %656, %653, %651
+SoeFormatter.exit.i:                              ; preds = %668, %666, %664, %662, %659, %656, %654, %651, %649
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %674 = load ptr, ptr %16, align 8
-  call void @col_append_str(ptr noundef %674, i32 noundef 25, ptr noundef nonnull %7)
-  br i1 %.not.i62, label %dissect_ecat_soe.exit, label %675
+  %672 = load ptr, ptr %16, align 8
+  call void @col_append_str(ptr noundef %672, i32 noundef 25, ptr noundef nonnull %7)
+  br i1 %.not.i62, label %dissect_ecat_soe.exit, label %673
 
-675:                                              ; preds = %SoeFormatter.exit.i
-  %676 = call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 0)
-  %.sroa.0.0.insert.ext.i = zext i8 %676 to i16
-  %677 = call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 1)
-  %678 = call zeroext i16 @tvb_get_letohs(ptr noundef %43, i32 noundef 2)
+673:                                              ; preds = %SoeFormatter.exit.i
+  %674 = call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 0)
+  %.sroa.0.0.insert.ext.i = zext i8 %674 to i16
+  %675 = call zeroext i8 @tvb_get_uint8(ptr noundef %43, i32 noundef 1)
+  %676 = call zeroext i16 @tvb_get_letohs(ptr noundef %43, i32 noundef 2)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.091.i, ptr noundef nonnull @.str.367, ptr noundef nonnull %7)
   call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %.0.i63, ptr noundef nonnull @.str.367, ptr noundef nonnull %7)
-  %679 = load i32, ptr @ett_ecat_mailbox_soe, align 4
-  %680 = call ptr @proto_item_add_subtree(ptr noundef %.0.i63, i32 noundef %679)
-  %681 = load i32, ptr @hf_ecat_mailbox_soe_header, align 4
-  %682 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %681, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
-  %683 = load i32, ptr @ett_ecat_mailbox_soeflag, align 4
-  %684 = call ptr @proto_item_add_subtree(ptr noundef %682, i32 noundef %683)
-  %685 = load i32, ptr @hf_ecat_mailbox_soe_header_opcode, align 4
-  %686 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %685, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
-  %687 = load i32, ptr @hf_ecat_mailbox_soe_header_incomplete, align 4
-  %688 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %687, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
-  %689 = load i32, ptr @hf_ecat_mailbox_soe_header_error, align 4
-  %690 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %689, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
-  %691 = load i32, ptr @hf_ecat_mailbox_soe_header_driveno, align 4
-  %692 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %691, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
-  %693 = load i32, ptr @hf_ecat_mailbox_soe_header_datastate, align 4
-  %694 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %693, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
-  %695 = load i32, ptr @hf_ecat_mailbox_soe_header_name, align 4
-  %696 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %695, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
-  %697 = load i32, ptr @hf_ecat_mailbox_soe_header_attribute, align 4
-  %698 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %697, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
-  %699 = load i32, ptr @hf_ecat_mailbox_soe_header_unit, align 4
-  %700 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %699, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
-  %701 = load i32, ptr @hf_ecat_mailbox_soe_header_min, align 4
-  %702 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %701, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
-  %703 = load i32, ptr @hf_ecat_mailbox_soe_header_max, align 4
-  %704 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %703, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
-  %705 = load i32, ptr @hf_ecat_mailbox_soe_header_value, align 4
-  %706 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %705, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
-  %707 = load i32, ptr @hf_ecat_mailbox_soe_header_reserved, align 4
-  %708 = call ptr @proto_tree_add_item(ptr noundef %684, i32 noundef %707, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
-  %709 = and i16 %.sroa.0.0.insert.ext.i, 16
-  %.not94.i = icmp eq i16 %709, 0
-  br i1 %.not94.i, label %710, label %729
+  %677 = load i32, ptr @ett_ecat_mailbox_soe, align 4
+  %678 = call ptr @proto_item_add_subtree(ptr noundef %.0.i63, i32 noundef %677)
+  %679 = load i32, ptr @hf_ecat_mailbox_soe_header, align 4
+  %680 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %679, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
+  %681 = load i32, ptr @ett_ecat_mailbox_soeflag, align 4
+  %682 = call ptr @proto_item_add_subtree(ptr noundef %680, i32 noundef %681)
+  %683 = load i32, ptr @hf_ecat_mailbox_soe_header_opcode, align 4
+  %684 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %683, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
+  %685 = load i32, ptr @hf_ecat_mailbox_soe_header_incomplete, align 4
+  %686 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %685, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
+  %687 = load i32, ptr @hf_ecat_mailbox_soe_header_error, align 4
+  %688 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %687, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
+  %689 = load i32, ptr @hf_ecat_mailbox_soe_header_driveno, align 4
+  %690 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %689, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
+  %691 = load i32, ptr @hf_ecat_mailbox_soe_header_datastate, align 4
+  %692 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %691, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
+  %693 = load i32, ptr @hf_ecat_mailbox_soe_header_name, align 4
+  %694 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %693, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
+  %695 = load i32, ptr @hf_ecat_mailbox_soe_header_attribute, align 4
+  %696 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %695, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
+  %697 = load i32, ptr @hf_ecat_mailbox_soe_header_unit, align 4
+  %698 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %697, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
+  %699 = load i32, ptr @hf_ecat_mailbox_soe_header_min, align 4
+  %700 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %699, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
+  %701 = load i32, ptr @hf_ecat_mailbox_soe_header_max, align 4
+  %702 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %701, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
+  %703 = load i32, ptr @hf_ecat_mailbox_soe_header_value, align 4
+  %704 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %703, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
+  %705 = load i32, ptr @hf_ecat_mailbox_soe_header_reserved, align 4
+  %706 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %705, ptr noundef %43, i32 noundef 0, i32 noundef 2, i32 noundef -2147483648)
+  %707 = and i16 %.sroa.0.0.insert.ext.i, 16
+  %.not94.i = icmp eq i16 %707, 0
+  br i1 %.not94.i, label %708, label %727
 
-710:                                              ; preds = %675
-  %711 = and i16 %.sroa.0.0.insert.ext.i, 8
-  %.not95.i65 = icmp eq i16 %711, 0
-  br i1 %.not95.i65, label %712, label %723
+708:                                              ; preds = %673
+  %709 = and i16 %.sroa.0.0.insert.ext.i, 8
+  %.not95.i65 = icmp eq i16 %709, 0
+  br i1 %.not95.i65, label %710, label %721
 
-712:                                              ; preds = %710
-  %713 = and i16 %.sroa.0.0.insert.ext.i, 7
-  switch i16 %713, label %dissect_ecat_soe.exit [
-    i16 1, label %714
-    i16 4, label %714
-    i16 2, label %717
-    i16 3, label %717
-    i16 5, label %717
+710:                                              ; preds = %708
+  %711 = and i16 %.sroa.0.0.insert.ext.i, 7
+  switch i16 %711, label %dissect_ecat_soe.exit [
+    i16 1, label %712
+    i16 4, label %712
+    i16 2, label %715
+    i16 3, label %715
+    i16 5, label %715
   ]
 
-714:                                              ; preds = %712, %712
-  %715 = load i32, ptr @hf_ecat_mailbox_soe_idn, align 4
-  %716 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %715, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
+712:                                              ; preds = %710, %710
+  %713 = load i32, ptr @hf_ecat_mailbox_soe_idn, align 4
+  %714 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %713, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
   br label %dissect_ecat_soe.exit
 
-717:                                              ; preds = %712, %712, %712
-  %718 = load i32, ptr @hf_ecat_mailbox_soe_idn, align 4
-  %719 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %718, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
-  %720 = load i32, ptr @hf_ecat_mailbox_soe_data, align 4
-  %721 = add i32 %598, -4
-  %722 = call ptr @proto_tree_add_item(ptr noundef nonnull %23, i32 noundef %720, ptr noundef %43, i32 noundef 4, i32 noundef %721, i32 noundef 0)
+715:                                              ; preds = %710, %710, %710
+  %716 = load i32, ptr @hf_ecat_mailbox_soe_idn, align 4
+  %717 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %716, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
+  %718 = load i32, ptr @hf_ecat_mailbox_soe_data, align 4
+  %719 = add i32 %596, -4
+  %720 = call ptr @proto_tree_add_item(ptr noundef nonnull %23, i32 noundef %718, ptr noundef %43, i32 noundef 4, i32 noundef %719, i32 noundef 0)
   br label %dissect_ecat_soe.exit
 
-723:                                              ; preds = %710
-  %724 = load i32, ptr @hf_ecat_mailbox_soe_frag, align 4
-  %725 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %724, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
-  %726 = load i32, ptr @hf_ecat_mailbox_soe_data, align 4
-  %727 = add i32 %598, -4
-  %728 = call ptr @proto_tree_add_item(ptr noundef nonnull %23, i32 noundef %726, ptr noundef %43, i32 noundef 4, i32 noundef %727, i32 noundef 0)
+721:                                              ; preds = %708
+  %722 = load i32, ptr @hf_ecat_mailbox_soe_frag, align 4
+  %723 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %722, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
+  %724 = load i32, ptr @hf_ecat_mailbox_soe_data, align 4
+  %725 = add i32 %596, -4
+  %726 = call ptr @proto_tree_add_item(ptr noundef nonnull %23, i32 noundef %724, ptr noundef %43, i32 noundef 4, i32 noundef %725, i32 noundef 0)
   br label %dissect_ecat_soe.exit
 
-729:                                              ; preds = %675
-  %730 = load i32, ptr @hf_ecat_mailbox_soe_idn, align 4
-  %731 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %730, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
-  %732 = load i32, ptr @hf_ecat_mailbox_soe_error, align 4
-  %733 = call ptr @proto_tree_add_item(ptr noundef nonnull %23, i32 noundef %732, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
+727:                                              ; preds = %673
+  %728 = load i32, ptr @hf_ecat_mailbox_soe_idn, align 4
+  %729 = call ptr @proto_tree_add_item(ptr noundef %678, i32 noundef %728, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
+  %730 = load i32, ptr @hf_ecat_mailbox_soe_error, align 4
+  %731 = call ptr @proto_tree_add_item(ptr noundef nonnull %23, i32 noundef %730, ptr noundef %43, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
   br label %dissect_ecat_soe.exit
 
-734:                                              ; preds = %603
-  %735 = load ptr, ptr %16, align 8
-  tail call void @col_append_str(ptr noundef %735, i32 noundef 25, ptr noundef nonnull @.str.394)
-  %736 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %23, ptr noundef nonnull @ei_ecat_mailbox_soe_error)
+732:                                              ; preds = %601
+  %733 = load ptr, ptr %16, align 8
+  tail call void @col_append_str(ptr noundef %733, i32 noundef 25, ptr noundef nonnull @.str.394)
+  %734 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %23, ptr noundef nonnull @ei_ecat_mailbox_soe_error)
   br label %dissect_ecat_soe.exit
 
-dissect_ecat_soe.exit:                            ; preds = %SoeFormatter.exit.i, %712, %714, %717, %723, %729, %734
+dissect_ecat_soe.exit:                            ; preds = %SoeFormatter.exit.i, %710, %712, %715, %721, %727, %732
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_ecat_eoe.exit
 
-737:                                              ; preds = %42
-  %738 = load i32, ptr @hf_ecat_mailboxdata, align 4
-  %739 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %738, ptr noundef %0, i32 noundef 6, i32 noundef %19, i32 noundef 0)
+735:                                              ; preds = %42
+  %736 = load i32, ptr @hf_ecat_mailboxdata, align 4
+  %737 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %736, ptr noundef %0, i32 noundef 6, i32 noundef %19, i32 noundef 0)
   br label %dissect_ecat_eoe.exit
 
-740:                                              ; preds = %12
-  %741 = load i32, ptr @hf_ecat_mailboxdata, align 4
-  %742 = add nsw i32 %10, -6
-  %743 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %741, ptr noundef %0, i32 noundef 6, i32 noundef %742, i32 noundef 0)
-  %744 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %743, ptr noundef nonnull @ei_ecat_mailbox_error, ptr noundef nonnull @.str.354, i32 noundef %19, i32 noundef %742)
+738:                                              ; preds = %12
+  %739 = load i32, ptr @hf_ecat_mailboxdata, align 4
+  %740 = add nsw i32 %10, -6
+  %741 = tail call ptr @proto_tree_add_item(ptr noundef %23, i32 noundef %739, ptr noundef %0, i32 noundef 6, i32 noundef %740, i32 noundef 0)
+  %742 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %741, ptr noundef nonnull @ei_ecat_mailbox_error, ptr noundef nonnull @.str.354, i32 noundef %19, i32 noundef %740)
   br label %dissect_ecat_eoe.exit
 
-dissect_ecat_eoe.exit:                            ; preds = %202, %.loopexit.i, %44, %dissect_ecat_coe.exit, %dissect_ecat_foe.exit, %dissect_ecat_soe.exit, %737, %740
-  %745 = load ptr, ptr %16, align 8
-  call void @col_append_str(ptr noundef %745, i32 noundef 25, ptr noundef nonnull @.str.355)
-  br label %746
+dissect_ecat_eoe.exit:                            ; preds = %202, %.loopexit.i, %44, %dissect_ecat_coe.exit, %dissect_ecat_foe.exit, %dissect_ecat_soe.exit, %735, %738
+  %743 = load ptr, ptr %16, align 8
+  call void @col_append_str(ptr noundef %743, i32 noundef 25, ptr noundef nonnull @.str.355)
+  br label %744
 
-746:                                              ; preds = %dissect_ecat_eoe.exit, %4
-  %747 = call i32 @tvb_captured_length(ptr noundef %0)
-  ret i32 %747
+744:                                              ; preds = %dissect_ecat_eoe.exit, %4
+  %745 = call i32 @tvb_captured_length(ptr noundef %0)
+  ret i32 %745
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

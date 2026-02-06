@@ -1783,24 +1783,24 @@ heur_dissect_fp_rach.exit:                        ; preds = %251, %284
   br label %415
 
 415:                                              ; preds = %414, %413
-  %trunc13.i = trunc i32 %364 to i16
+  %416 = add i32 %364, 65530
+  %trunc13.i = trunc i32 %416 to i16
   switch i16 %trunc13.i, label %428 [
-    i16 36, label %416
-    i16 16, label %416
+    i16 30, label %417
+    i16 10, label %417
   ]
 
-416:                                              ; preds = %415, %415
-  %417 = shl i32 %364, 3
-  %418 = add i32 %417, 524240
-  %419 = and i32 %418, 524272
+417:                                              ; preds = %415, %415
+  %418 = shl i32 %416, 3
+  %419 = and i32 %418, 524280
   %420 = getelementptr i8, ptr %.3.i, i64 1112
   store i32 %419, ptr %420, align 4
   tail call fastcc void @set_both_sides_umts_fp_conv_data(ptr noundef %1, ptr noundef %.3.i)
   br label %421
 
-421:                                              ; preds = %416, %407, %403, %389, %388
-  %.1127.i = phi i8 [ 1, %403 ], [ 1, %416 ], [ %.0126.i, %389 ], [ %.0126.i, %388 ], [ %.0126.i, %407 ]
-  %.2125.i = phi i8 [ 1, %403 ], [ %.0123.i, %416 ], [ %.0123.i, %389 ], [ 1, %388 ], [ %.0123.i, %407 ]
+421:                                              ; preds = %417, %407, %403, %389, %388
+  %.1127.i = phi i8 [ 1, %403 ], [ 1, %417 ], [ %.0126.i, %389 ], [ %.0126.i, %388 ], [ %.0126.i, %407 ]
+  %.2125.i = phi i8 [ 1, %403 ], [ %.0123.i, %417 ], [ %.0123.i, %389 ], [ 1, %388 ], [ %.0123.i, %407 ]
   %422 = trunc nuw i8 %.2125.i to i1
   %423 = trunc nuw i8 %.1127.i to i1
   %or.cond24.i = select i1 %422, i1 %423, i1 false

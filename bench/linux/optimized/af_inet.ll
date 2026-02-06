@@ -3278,49 +3278,50 @@ define dso_local ptr @inet_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   %182 = trunc i32 %180 to i16
   %183 = add i16 %182, %176
   store i16 %183, ptr %181, align 2
-  %184 = add i16 %161, 2048
-  %185 = and i16 %184, 30720
-  %186 = or disjoint i16 %165, %185
-  store i16 %186, ptr %160, align 2
-  %187 = and i16 %161, 30720
-  %188 = icmp eq i16 %187, 28672
-  br i1 %188, label %189, label %191, !prof !28
+  %184 = lshr i16 %161, 11
+  %185 = add nuw nsw i16 %184, 1
+  %186 = and i16 %185, 15
+  %187 = shl nuw nsw i16 %186, 11
+  %188 = or disjoint i16 %187, %165
+  store i16 %188, ptr %160, align 2
+  %189 = icmp eq i16 %186, 15
+  br i1 %189, label %190, label %192, !prof !28
 
-189:                                              ; preds = %.loopexit
-  %190 = or i16 %168, 1
-  store i16 %190, ptr %166, align 4
+190:                                              ; preds = %.loopexit
+  %191 = or i16 %168, 1
+  store i16 %191, ptr %166, align 4
   br label %.thread
 
-191:                                              ; preds = %.loopexit
-  %192 = load ptr, ptr %37, align 8
-  %193 = icmp eq ptr %192, @tcp4_gro_receive
-  br i1 %193, label %194, label %196, !prof !9
+192:                                              ; preds = %.loopexit
+  %193 = load ptr, ptr %37, align 8
+  %194 = icmp eq ptr %193, @tcp4_gro_receive
+  br i1 %194, label %195, label %197, !prof !9
 
-194:                                              ; preds = %191
-  %195 = tail call ptr @tcp4_gro_receive(ptr noundef %0, ptr noundef %1) #15
+195:                                              ; preds = %192
+  %196 = tail call ptr @tcp4_gro_receive(ptr noundef %0, ptr noundef %1) #15
   br label %.thread
 
-196:                                              ; preds = %191
-  %197 = icmp eq ptr %192, @udp4_gro_receive
-  br i1 %197, label %198, label %200, !prof !9
+197:                                              ; preds = %192
+  %198 = icmp eq ptr %193, @udp4_gro_receive
+  br i1 %198, label %199, label %201, !prof !9
 
-198:                                              ; preds = %196
-  %199 = tail call ptr @udp4_gro_receive(ptr noundef %0, ptr noundef %1) #15
+199:                                              ; preds = %197
+  %200 = tail call ptr @udp4_gro_receive(ptr noundef %0, ptr noundef %1) #15
   br label %.thread
 
-200:                                              ; preds = %196
-  %201 = tail call ptr %192(ptr noundef %0, ptr noundef %1) #15
+201:                                              ; preds = %197
+  %202 = tail call ptr %193(ptr noundef %0, ptr noundef %1) #15
   br label %.thread
 
-.thread:                                          ; preds = %18, %20, %200, %198, %194, %189, %48, %43, %40, %36, %29, %26
-  %202 = phi i32 [ 1, %26 ], [ 1, %40 ], [ 1, %43 ], [ 1, %48 ], [ 1, %36 ], [ 1, %29 ], [ %67, %194 ], [ %67, %200 ], [ %67, %198 ], [ %67, %189 ], [ 1, %20 ], [ 1, %18 ]
-  %203 = phi ptr [ null, %26 ], [ null, %40 ], [ null, %43 ], [ null, %48 ], [ null, %36 ], [ null, %29 ], [ %195, %194 ], [ %201, %200 ], [ %199, %198 ], [ null, %189 ], [ null, %20 ], [ null, %18 ]
-  %204 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %205 = load i16, ptr %204, align 4
-  %206 = trunc i32 %202 to i16
-  %207 = or i16 %205, %206
-  store i16 %207, ptr %204, align 4
-  ret ptr %203
+.thread:                                          ; preds = %18, %20, %201, %199, %195, %190, %48, %43, %40, %36, %29, %26
+  %203 = phi i32 [ 1, %26 ], [ 1, %40 ], [ 1, %43 ], [ 1, %48 ], [ 1, %36 ], [ 1, %29 ], [ %67, %195 ], [ %67, %201 ], [ %67, %199 ], [ %67, %190 ], [ 1, %20 ], [ 1, %18 ]
+  %204 = phi ptr [ null, %26 ], [ null, %40 ], [ null, %43 ], [ null, %48 ], [ null, %36 ], [ null, %29 ], [ %196, %195 ], [ %202, %201 ], [ %200, %199 ], [ null, %190 ], [ null, %20 ], [ null, %18 ]
+  %205 = getelementptr inbounds nuw i8, ptr %1, i64 60
+  %206 = load i16, ptr %205, align 4
+  %207 = trunc i32 %203 to i16
+  %208 = or i16 %206, %207
+  store i16 %208, ptr %205, align 4
+  ret ptr %204
 }
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)

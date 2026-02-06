@@ -79,7 +79,7 @@ define internal range(i32 0, 2) i32 @vaes_gcm_aadupdate(ptr noundef %0, ptr noun
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %7 = load i64, ptr %6, align 8, !tbaa !13
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %8, label %53
+  br i1 %.not, label %8, label %51
 
 8:                                                ; preds = %3
   %9 = load i64, ptr %5, align 8, !tbaa !13
@@ -87,14 +87,14 @@ define internal range(i32 0, 2) i32 @vaes_gcm_aadupdate(ptr noundef %0, ptr noun
   %11 = icmp ugt i64 %10, 2305843009213693952
   %12 = icmp ult i64 %10, %2
   %or.cond = or i1 %11, %12
-  br i1 %or.cond, label %53, label %13
+  br i1 %or.cond, label %51, label %13
 
 13:                                               ; preds = %8
   store i64 %10, ptr %5, align 8, !tbaa !13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 628
   %15 = load i32, ptr %14, align 4, !tbaa !11
   %.not57 = icmp eq i32 %15, 0
-  br i1 %.not57, label %36, label %.preheader
+  br i1 %.not57, label %34, label %.preheader
 
 .preheader:                                       ; preds = %13
   %.not66 = icmp eq i64 %2, 0
@@ -119,68 +119,66 @@ define internal range(i32 0, 2) i32 @vaes_gcm_aadupdate(ptr noundef %0, ptr noun
   %25 = add nsw i64 %.15060, -1
   %26 = add i32 %.162, 1
   %27 = and i32 %26, 15
-  %28 = and i32 %.162, 15
-  %29 = icmp ne i32 %28, 15
-  %30 = icmp ne i64 %25, 0
-  %31 = select i1 %29, i1 %30, i1 false
-  br i1 %31, label %17, label %._crit_edge, !llvm.loop !14
+  %28 = icmp ne i32 %27, 0
+  %29 = icmp ne i64 %25, 0
+  %30 = select i1 %28, i1 %29, i1 false
+  br i1 %30, label %17, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %17
-  %32 = and i32 %.162, 15
-  %33 = icmp eq i32 %32, 15
-  br i1 %33, label %34, label %.sink.split
+  %31 = icmp eq i32 %27, 0
+  br i1 %31, label %32, label %.sink.split
 
-34:                                               ; preds = %._crit_edge
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  tail call void @ossl_gcm_gmult_avx512(ptr noundef nonnull %35, ptr noundef nonnull %4) #4
-  br label %36
+32:                                               ; preds = %._crit_edge
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  tail call void @ossl_gcm_gmult_avx512(ptr noundef nonnull %33, ptr noundef nonnull %4) #4
+  br label %34
 
-36:                                               ; preds = %34, %13
-  %.049 = phi i64 [ %25, %34 ], [ %2, %13 ]
-  %.046 = phi ptr [ %18, %34 ], [ %1, %13 ]
-  %37 = and i64 %.049, -16
-  %.not58 = icmp eq i64 %37, 0
-  br i1 %.not58, label %41, label %38
+34:                                               ; preds = %32, %13
+  %.049 = phi i64 [ %25, %32 ], [ %2, %13 ]
+  %.046 = phi ptr [ %18, %32 ], [ %1, %13 ]
+  %35 = and i64 %.049, -16
+  %.not58 = icmp eq i64 %35, 0
+  br i1 %.not58, label %39, label %36
 
-38:                                               ; preds = %36
-  tail call void @ossl_aes_gcm_update_aad_avx512(ptr noundef nonnull %4, ptr noundef %.046, i64 noundef %37) #4
-  %39 = getelementptr inbounds nuw i8, ptr %.046, i64 %37
-  %40 = and i64 %.049, 15
-  br label %41
+36:                                               ; preds = %34
+  tail call void @ossl_aes_gcm_update_aad_avx512(ptr noundef nonnull %4, ptr noundef %.046, i64 noundef %35) #4
+  %37 = getelementptr inbounds nuw i8, ptr %.046, i64 %35
+  %38 = and i64 %.049, 15
+  br label %39
 
-41:                                               ; preds = %38, %36
-  %.251 = phi i64 [ %40, %38 ], [ %.049, %36 ]
-  %.248 = phi ptr [ %39, %38 ], [ %.046, %36 ]
+39:                                               ; preds = %36, %34
+  %.251 = phi i64 [ %38, %36 ], [ %.049, %34 ]
+  %.248 = phi ptr [ %37, %36 ], [ %.046, %34 ]
   %.not59 = icmp eq i64 %.251, 0
-  br i1 %.not59, label %.sink.split, label %42
+  br i1 %.not59, label %.sink.split, label %40
 
-42:                                               ; preds = %41
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  br label %44
+40:                                               ; preds = %39
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  br label %42
 
-44:                                               ; preds = %42, %44
-  %.04465 = phi i64 [ 0, %42 ], [ %51, %44 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.248, i64 %.04465
-  %46 = load i8, ptr %45, align 1, !tbaa !13
-  %47 = sub i64 15, %.04465
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 %47
-  %49 = load i8, ptr %48, align 1, !tbaa !13
-  %50 = xor i8 %49, %46
-  store i8 %50, ptr %48, align 1, !tbaa !13
-  %51 = add nuw i64 %.04465, 1
-  %exitcond.not = icmp eq i64 %51, %.251
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %44, !llvm.loop !16
+42:                                               ; preds = %40, %42
+  %.04465 = phi i64 [ 0, %40 ], [ %49, %42 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.248, i64 %.04465
+  %44 = load i8, ptr %43, align 1, !tbaa !13
+  %45 = sub i64 15, %.04465
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 %45
+  %47 = load i8, ptr %46, align 1, !tbaa !13
+  %48 = xor i8 %47, %44
+  store i8 %48, ptr %46, align 1, !tbaa !13
+  %49 = add nuw i64 %.04465, 1
+  %exitcond.not = icmp eq i64 %49, %.251
+  br i1 %exitcond.not, label %.loopexit.loopexit, label %42, !llvm.loop !16
 
-.loopexit.loopexit:                               ; preds = %44
-  %52 = trunc nuw nsw i64 %.251 to i32
+.loopexit.loopexit:                               ; preds = %42
+  %50 = trunc nuw nsw i64 %.251 to i32
   br label %.sink.split
 
-.sink.split:                                      ; preds = %41, %.loopexit.loopexit, %._crit_edge, %.preheader
-  %.2.sink = phi i32 [ %15, %.preheader ], [ %27, %._crit_edge ], [ 0, %41 ], [ %52, %.loopexit.loopexit ]
+.sink.split:                                      ; preds = %39, %.loopexit.loopexit, %._crit_edge, %.preheader
+  %.2.sink = phi i32 [ %15, %.preheader ], [ %27, %._crit_edge ], [ 0, %39 ], [ %50, %.loopexit.loopexit ]
   store i32 %.2.sink, ptr %14, align 4, !tbaa !11
-  br label %53
+  br label %51
 
-53:                                               ; preds = %.sink.split, %8, %3
+51:                                               ; preds = %.sink.split, %8, %3
   %.0 = phi i32 [ 0, %8 ], [ 0, %3 ], [ 1, %.sink.split ]
   ret i32 %.0
 }

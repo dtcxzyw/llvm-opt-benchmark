@@ -1311,120 +1311,119 @@ _ZN4intx3clzILj256EEEjRKNS_4uintIXT_EEE.exit:     ; preds = %_ZN4intx23count_sig
   %42 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %41, i1 false)
   %43 = shl i64 %.06.i.i, 6
   %reass.sub = sub i64 %42, %43
-  %44 = and i64 %reass.sub, 4294967295
-  %.not16 = icmp eq i64 %44, 0
+  %44 = add i64 %reass.sub, 256
+  %45 = and i64 %44, 4294967295
+  %.not16 = icmp eq i64 %45, 256
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4intx3clzILj256EEEjRKNS_4uintIXT_EEE.exit
-  %45 = add i64 %reass.sub, 256
-  %46 = and i64 %45, 4294967295
-  %47 = sub nsw i64 256, %46
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %49 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %50 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  br label %51
+  %46 = sub nsw i64 256, %45
+  %47 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  br label %50
 
-._crit_edge:                                      ; preds = %31, %84, %_ZN4intx23count_significant_wordsILj256EEEjRKNS_4uintIXT_EEE.exit.i, %_ZN4intx3clzILj256EEEjRKNS_4uintIXT_EEE.exit
+._crit_edge:                                      ; preds = %31, %83, %_ZN4intx23count_significant_wordsILj256EEEjRKNS_4uintIXT_EEE.exit.i, %_ZN4intx3clzILj256EEEjRKNS_4uintIXT_EEE.exit
   ret void
 
-51:                                               ; preds = %.lr.ph, %84
-  %.017 = phi i64 [ %47, %.lr.ph ], [ %52, %84 ]
+50:                                               ; preds = %.lr.ph, %83
+  %.017 = phi i64 [ %46, %.lr.ph ], [ %51, %83 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6) #10
   call void @_ZN6evmmax3ecc3dblINS_9secp256k15CurveEEENS0_9ProjPointIT_EERKS6_(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ProjPoint") align 8 %6, ptr noundef nonnull align 8 dereferenceable(96) %0) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %6, i64 96, i1 false), !tbaa.struct !91
   call void @llvm.lifetime.end.p0(ptr nonnull %6) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %7) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %8) #10
-  %52 = add i64 %.017, -1
-  %53 = icmp ugt i64 %52, 255
-  br i1 %53, label %54, label %55, !prof !92
+  %51 = add i64 %.017, -1
+  %52 = icmp ugt i64 %51, 255
+  br i1 %52, label %53, label %54, !prof !92
 
-54:                                               ; preds = %51
+53:                                               ; preds = %50
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false), !alias.scope !93
   br label %_ZN4intxlsERKNS_4uintILj256EEEm.exit
 
-55:                                               ; preds = %51
-  %56 = icmp samesign ult i64 %.017, 129
-  br i1 %56, label %_ZN4intxlsENS_4uintILj128EEEm.exit30.i, label %_ZN4intxlsENS_4uintILj128EEEm.exit37.i
+54:                                               ; preds = %50
+  %55 = icmp samesign ult i64 %.017, 129
+  br i1 %55, label %_ZN4intxlsENS_4uintILj128EEEm.exit30.i, label %_ZN4intxlsENS_4uintILj128EEEm.exit37.i
 
-_ZN4intxlsENS_4uintILj128EEEm.exit30.i:           ; preds = %55
-  %57 = icmp samesign ult i64 %.017, 65
-  %58 = shl nuw i64 1, %52
-  %59 = add nsw i64 %.017, -65
-  %60 = shl nuw i64 1, %59
-  %.sroa.08.0.i5161.i = select i1 %57, i64 %58, i64 0
-  %.sroa.49.0.i5359.i = select i1 %57, i64 0, i64 %60
+_ZN4intxlsENS_4uintILj128EEEm.exit30.i:           ; preds = %54
+  %56 = icmp samesign ult i64 %.017, 65
+  %57 = shl nuw i64 1, %51
+  %58 = add nsw i64 %.017, -65
+  %59 = shl nuw i64 1, %58
+  %.sroa.08.0.i5161.i = select i1 %56, i64 %57, i64 0
+  %.sroa.49.0.i5359.i = select i1 %56, i64 0, i64 %59
   store i64 %.sroa.08.0.i5161.i, ptr %8, align 8, !tbaa !9, !alias.scope !93
-  store i64 %.sroa.49.0.i5359.i, ptr %50, align 8, !tbaa !9, !alias.scope !93
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
+  store i64 %.sroa.49.0.i5359.i, ptr %49, align 8, !tbaa !9, !alias.scope !93
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 0, i64 16, i1 false)
   br label %_ZN4intxlsERKNS_4uintILj256EEEm.exit
 
-_ZN4intxlsENS_4uintILj128EEEm.exit37.i:           ; preds = %55
-  %61 = icmp samesign ult i64 %.017, 193
-  %62 = add nsw i64 %.017, -129
-  %63 = shl nuw i64 1, %62
-  %64 = add nsw i64 %.017, -193
-  %65 = shl nuw i64 1, %64
-  %.sroa.08.0.i33.i = select i1 %61, i64 %63, i64 0
-  %.sroa.49.0.i34.i = select i1 %61, i64 0, i64 %65
+_ZN4intxlsENS_4uintILj128EEEm.exit37.i:           ; preds = %54
+  %60 = icmp samesign ult i64 %.017, 193
+  %61 = add nsw i64 %.017, -129
+  %62 = shl nuw i64 1, %61
+  %63 = add nsw i64 %.017, -193
+  %64 = shl nuw i64 1, %63
+  %.sroa.08.0.i33.i = select i1 %60, i64 %62, i64 0
+  %.sroa.49.0.i34.i = select i1 %60, i64 0, i64 %64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !alias.scope !93
-  store i64 %.sroa.08.0.i33.i, ptr %48, align 8, !tbaa !9, !alias.scope !93
-  store i64 %.sroa.49.0.i34.i, ptr %49, align 8, !tbaa !9, !alias.scope !93
+  store i64 %.sroa.08.0.i33.i, ptr %47, align 8, !tbaa !9, !alias.scope !93
+  store i64 %.sroa.49.0.i34.i, ptr %48, align 8, !tbaa !9, !alias.scope !93
   br label %_ZN4intxlsERKNS_4uintILj256EEEm.exit
 
-_ZN4intxlsERKNS_4uintILj256EEEm.exit:             ; preds = %54, %_ZN4intxlsENS_4uintILj128EEEm.exit30.i, %_ZN4intxlsENS_4uintILj128EEEm.exit37.i
+_ZN4intxlsERKNS_4uintILj256EEEm.exit:             ; preds = %53, %_ZN4intxlsENS_4uintILj128EEEm.exit30.i, %_ZN4intxlsENS_4uintILj128EEEm.exit37.i
   call void @llvm.experimental.noalias.scope.decl(metadata !96)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !tbaa !9, !alias.scope !96
-  br label %66
+  br label %65
 
-66:                                               ; preds = %66, %_ZN4intxlsERKNS_4uintILj256EEEm.exit
-  %.06.i = phi i64 [ 0, %_ZN4intxlsERKNS_4uintILj256EEEm.exit ], [ %73, %66 ]
-  %67 = getelementptr inbounds nuw i64, ptr %2, i64 %.06.i
-  %68 = load i64, ptr %67, align 8, !tbaa !9, !noalias !96
-  %69 = getelementptr inbounds nuw i64, ptr %8, i64 %.06.i
-  %70 = load i64, ptr %69, align 8, !tbaa !9, !noalias !96
-  %71 = and i64 %70, %68
-  %72 = getelementptr inbounds nuw i64, ptr %7, i64 %.06.i
-  store i64 %71, ptr %72, align 8, !tbaa !9, !alias.scope !96
-  %73 = add nuw nsw i64 %.06.i, 1
-  %exitcond.not.i6 = icmp eq i64 %73, 4
-  br i1 %exitcond.not.i6, label %_ZN4intxanERKNS_4uintILj256EEES3_.exit, label %66, !llvm.loop !32
+65:                                               ; preds = %65, %_ZN4intxlsERKNS_4uintILj256EEEm.exit
+  %.06.i = phi i64 [ 0, %_ZN4intxlsERKNS_4uintILj256EEEm.exit ], [ %72, %65 ]
+  %66 = getelementptr inbounds nuw i64, ptr %2, i64 %.06.i
+  %67 = load i64, ptr %66, align 8, !tbaa !9, !noalias !96
+  %68 = getelementptr inbounds nuw i64, ptr %8, i64 %.06.i
+  %69 = load i64, ptr %68, align 8, !tbaa !9, !noalias !96
+  %70 = and i64 %69, %67
+  %71 = getelementptr inbounds nuw i64, ptr %7, i64 %.06.i
+  store i64 %70, ptr %71, align 8, !tbaa !9, !alias.scope !96
+  %72 = add nuw nsw i64 %.06.i, 1
+  %exitcond.not.i6 = icmp eq i64 %72, 4
+  br i1 %exitcond.not.i6, label %_ZN4intxanERKNS_4uintILj256EEES3_.exit, label %65, !llvm.loop !32
 
-_ZN4intxanERKNS_4uintILj256EEES3_.exit:           ; preds = %66
+_ZN4intxanERKNS_4uintILj256EEES3_.exit:           ; preds = %65
   call void @llvm.lifetime.start.p0(ptr nonnull %9) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false)
-  br label %74
+  br label %73
 
-74:                                               ; preds = %74, %_ZN4intxanERKNS_4uintILj256EEES3_.exit
-  %.09.i = phi i64 [ 0, %_ZN4intxanERKNS_4uintILj256EEES3_.exit ], [ %81, %74 ]
-  %.078.i = phi i64 [ 0, %_ZN4intxanERKNS_4uintILj256EEES3_.exit ], [ %80, %74 ]
-  %75 = getelementptr inbounds nuw i64, ptr %7, i64 %.09.i
-  %76 = load i64, ptr %75, align 8, !tbaa !9
-  %77 = getelementptr inbounds nuw i64, ptr %9, i64 %.09.i
-  %78 = load i64, ptr %77, align 8, !tbaa !9
-  %79 = xor i64 %78, %76
-  %80 = or i64 %79, %.078.i
-  %81 = add nuw nsw i64 %.09.i, 1
-  %exitcond.not.i7 = icmp eq i64 %81, 4
-  br i1 %exitcond.not.i7, label %_ZN4intxeqERKNS_4uintILj256EEES3_.exit, label %74, !llvm.loop !33
+73:                                               ; preds = %73, %_ZN4intxanERKNS_4uintILj256EEES3_.exit
+  %.09.i = phi i64 [ 0, %_ZN4intxanERKNS_4uintILj256EEES3_.exit ], [ %80, %73 ]
+  %.078.i = phi i64 [ 0, %_ZN4intxanERKNS_4uintILj256EEES3_.exit ], [ %79, %73 ]
+  %74 = getelementptr inbounds nuw i64, ptr %7, i64 %.09.i
+  %75 = load i64, ptr %74, align 8, !tbaa !9
+  %76 = getelementptr inbounds nuw i64, ptr %9, i64 %.09.i
+  %77 = load i64, ptr %76, align 8, !tbaa !9
+  %78 = xor i64 %77, %75
+  %79 = or i64 %78, %.078.i
+  %80 = add nuw nsw i64 %.09.i, 1
+  %exitcond.not.i7 = icmp eq i64 %80, 4
+  br i1 %exitcond.not.i7, label %_ZN4intxeqERKNS_4uintILj256EEES3_.exit, label %73, !llvm.loop !33
 
-_ZN4intxeqERKNS_4uintILj256EEES3_.exit:           ; preds = %74
-  %82 = icmp eq i64 %80, 0
+_ZN4intxeqERKNS_4uintILj256EEES3_.exit:           ; preds = %73
+  %81 = icmp eq i64 %79, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %8) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %7) #10
-  br i1 %82, label %84, label %83
+  br i1 %81, label %83, label %82
 
-83:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit
+82:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10) #10
   call void @_ZN6evmmax3ecc3addINS_9secp256k15CurveEEENS0_9ProjPointIT_EERKS6_RKNS0_11AffinePointIS5_EE(ptr dead_on_unwind nonnull writable sret(%"struct.evmmax::ecc::ProjPoint") align 8 %10, ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %10, i64 96, i1 false), !tbaa.struct !91
   call void @llvm.lifetime.end.p0(ptr nonnull %10) #10
-  br label %84
+  br label %83
 
-84:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit, %83
-  %.not = icmp eq i64 %52, 0
-  br i1 %.not, label %._crit_edge, label %51, !llvm.loop !99
+83:                                               ; preds = %_ZN4intxeqERKNS_4uintILj256EEES3_.exit, %82
+  %.not = icmp eq i64 %51, 0
+  br i1 %.not, label %._crit_edge, label %50, !llvm.loop !99
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

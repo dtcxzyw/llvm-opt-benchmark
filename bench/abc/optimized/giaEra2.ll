@@ -2200,8 +2200,8 @@ define void @Gia_ManAreCubeAddToTree_rec(ptr noundef captures(none) %0, ptr noun
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %3
-  %.tr138 = phi ptr [ %1, %3 ], [ %29, %tailrecurse.backedge ]
-  %6 = load i32, ptr %.tr138, align 4
+  %.tr136 = phi ptr [ %1, %3 ], [ %29, %tailrecurse.backedge ]
+  %6 = load i32, ptr %.tr136, align 4
   %7 = shl i32 %6, 1
   %8 = lshr i32 %7, 5
   %9 = and i32 %8, 1023
@@ -2212,20 +2212,20 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %14 = shl nuw nsw i32 1, %13
   %15 = and i32 %14, %12
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %94, label %16
+  br i1 %.not, label %95, label %16
 
 16:                                               ; preds = %tailrecurse
   %17 = and i32 %6, 1032192
   %.not.i = icmp ne i32 %17, 0
-  %18 = getelementptr i8, ptr %.tr138, i64 4
+  %18 = getelementptr i8, ptr %.tr136, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 2147483647
   %or.cond = icmp eq i32 %20, 0
   %or.cond197 = select i1 %.not.i, i1 true, i1 %or.cond
   br i1 %or.cond197, label %Gia_ObjHasBranch0.exit.thread, label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %166, %97, %16
-  %.sink182 = phi i32 [ %168, %166 ], [ %100, %97 ], [ %19, %16 ]
+tailrecurse.backedge:                             ; preds = %168, %98, %16
+  %.sink182 = phi i32 [ %170, %168 ], [ %101, %98 ], [ %19, %16 ]
   %.val67 = load ptr, ptr %5, align 8, !tbaa !60
   %21 = lshr i32 %.sink182, 20
   %22 = and i32 %21, 2047
@@ -2239,368 +2239,372 @@ tailrecurse.backedge:                             ; preds = %166, %97, %16
   br label %tailrecurse
 
 Gia_ObjHasBranch0.exit.thread:                    ; preds = %16
-  %30 = getelementptr inbounds nuw i8, ptr %.tr138, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.tr136, i64 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 %19, ptr %31, align 4, !tbaa !89
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %33 = load i32, ptr %32, align 8, !tbaa !38
   %34 = add nsw i32 %33, -1
   store i32 %34, ptr %30, align 4, !tbaa !89
-  %35 = load i32, ptr %.tr138, align 4
-  %36 = add i32 %35, 16384
-  %37 = and i32 %36, 1032192
-  %38 = and i32 %35, -1032193
-  %39 = or disjoint i32 %37, %38
-  store i32 %39, ptr %.tr138, align 4
-  %40 = and i32 %35, 1032192
-  %41 = icmp eq i32 %40, 1015808
-  br i1 %41, label %42, label %Gia_ManAreCompress.exit
+  %35 = load i32, ptr %.tr136, align 4
+  %36 = lshr i32 %35, 14
+  %37 = add nuw nsw i32 %36, 1
+  %38 = and i32 %37, 63
+  %39 = shl nuw nsw i32 %38, 14
+  %40 = and i32 %35, -1032193
+  %41 = or disjoint i32 %39, %40
+  store i32 %41, ptr %.tr136, align 4
+  %42 = icmp eq i32 %38, 63
+  br i1 %42, label %43, label %Gia_ManAreCompress.exit
 
-42:                                               ; preds = %Gia_ObjHasBranch0.exit.thread
-  %43 = getelementptr i8, ptr %0, i64 24
-  %.val65 = load ptr, ptr %43, align 8, !tbaa !39
-  %44 = getelementptr i8, ptr %0, i64 48
-  %.val66 = load i32, ptr %44, align 8, !tbaa !40
-  %45 = lshr i32 %34, 20
-  %46 = and i32 %45, 2047
-  %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %.val65, i64 %47
-  %49 = load ptr, ptr %48, align 8, !tbaa !41
-  %50 = and i32 %34, 1048575
-  %51 = mul nsw i32 %.val66, %50
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %49, i64 %52
+43:                                               ; preds = %Gia_ObjHasBranch0.exit.thread
+  %44 = getelementptr i8, ptr %0, i64 24
+  %.val65 = load ptr, ptr %44, align 8, !tbaa !39
+  %45 = getelementptr i8, ptr %0, i64 48
+  %.val66 = load i32, ptr %45, align 8, !tbaa !40
+  %46 = lshr i32 %34, 20
+  %47 = and i32 %46, 2047
+  %48 = zext nneg i32 %47 to i64
+  %49 = getelementptr inbounds nuw ptr, ptr %.val65, i64 %48
+  %50 = load ptr, ptr %49, align 8, !tbaa !41
+  %51 = and i32 %34, 1048575
+  %52 = mul nsw i32 %.val66, %51
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i32, ptr %50, i64 %53
   %.val9.val.i = load ptr, ptr %.val65, align 8, !tbaa !41
-  %.not12.i = icmp eq ptr %53, %.val9.val.i
+  %.not12.i = icmp eq ptr %54, %.val9.val.i
   br i1 %.not12.i, label %Gia_ManAreListCountListUsed.exit.thread, label %.lr.ph.i
 
-Gia_ManAreListCountListUsed.exit.thread:          ; preds = %42
-  store i32 %38, ptr %.tr138, align 4
-  br label %71
+Gia_ManAreListCountListUsed.exit.thread:          ; preds = %43
+  store i32 %40, ptr %.tr136, align 4
+  br label %72
 
-.lr.ph.i:                                         ; preds = %42, %.lr.ph.i
-  %.04.i = phi i32 [ %55, %.lr.ph.i ], [ 0, %42 ]
-  %.073.i = phi ptr [ %65, %.lr.ph.i ], [ %53, %42 ]
+.lr.ph.i:                                         ; preds = %43, %.lr.ph.i
+  %.04.i = phi i32 [ %56, %.lr.ph.i ], [ 0, %43 ]
+  %.073.i = phi ptr [ %66, %.lr.ph.i ], [ %54, %43 ]
   %.07.val.i = load i32, ptr %.073.i, align 4
   %.not.i.i = icmp sgt i32 %.07.val.i, -1
-  %54 = zext i1 %.not.i.i to i32
-  %55 = add nuw nsw i32 %.04.i, %54
-  %56 = getelementptr i8, ptr %.073.i, i64 4
-  %.07.val12.i = load i32, ptr %56, align 4
-  %57 = lshr i32 %.07.val12.i, 20
-  %58 = and i32 %57, 2047
-  %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %.val65, i64 %59
-  %61 = load ptr, ptr %60, align 8, !tbaa !41
-  %62 = and i32 %.07.val12.i, 1048575
-  %63 = mul nsw i32 %62, %.val66
-  %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i32, ptr %61, i64 %64
-  %.not1.i = icmp eq ptr %65, %.val9.val.i
+  %55 = zext i1 %.not.i.i to i32
+  %56 = add nuw nsw i32 %.04.i, %55
+  %57 = getelementptr i8, ptr %.073.i, i64 4
+  %.07.val12.i = load i32, ptr %57, align 4
+  %58 = lshr i32 %.07.val12.i, 20
+  %59 = and i32 %58, 2047
+  %60 = zext nneg i32 %59 to i64
+  %61 = getelementptr inbounds nuw ptr, ptr %.val65, i64 %60
+  %62 = load ptr, ptr %61, align 8, !tbaa !41
+  %63 = and i32 %.07.val12.i, 1048575
+  %64 = mul nsw i32 %63, %.val66
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds i32, ptr %62, i64 %65
+  %.not1.i = icmp eq ptr %66, %.val9.val.i
   br i1 %.not1.i, label %Gia_ManAreListCountListUsed.exit, label %.lr.ph.i, !llvm.loop !79
 
 Gia_ManAreListCountListUsed.exit:                 ; preds = %.lr.ph.i
-  %66 = shl i32 %55, 14
-  %67 = and i32 %66, 1032192
-  %68 = or disjoint i32 %67, %38
-  store i32 %68, ptr %.tr138, align 4
-  %69 = and i32 %55, 63
-  %70 = icmp samesign ult i32 %69, 31
-  br i1 %70, label %71, label %91
+  %67 = shl i32 %56, 14
+  %68 = and i32 %67, 1032192
+  %69 = or disjoint i32 %68, %40
+  store i32 %69, ptr %.tr136, align 4
+  %70 = and i32 %56, 63
+  %71 = icmp samesign ult i32 %70, 31
+  br i1 %71, label %72, label %92
 
-71:                                               ; preds = %Gia_ManAreListCountListUsed.exit.thread, %Gia_ManAreListCountListUsed.exit
-  %72 = and i32 %34, -2147483648
-  store i32 %72, ptr %30, align 4
-  %.val21.i = load ptr, ptr %43, align 8, !tbaa !39
-  %.val22.i = load i32, ptr %44, align 8, !tbaa !40
-  %73 = getelementptr inbounds nuw ptr, ptr %.val21.i, i64 %47
-  %74 = load ptr, ptr %73, align 8, !tbaa !41
-  %75 = mul nsw i32 %.val22.i, %50
-  %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i32, ptr %74, i64 %76
+72:                                               ; preds = %Gia_ManAreListCountListUsed.exit.thread, %Gia_ManAreListCountListUsed.exit
+  %73 = and i32 %34, -2147483648
+  store i32 %73, ptr %30, align 4
+  %.val21.i = load ptr, ptr %44, align 8, !tbaa !39
+  %.val22.i = load i32, ptr %45, align 8, !tbaa !40
+  %74 = getelementptr inbounds nuw ptr, ptr %.val21.i, i64 %48
+  %75 = load ptr, ptr %74, align 8, !tbaa !41
+  %76 = mul nsw i32 %.val22.i, %51
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i32, ptr %75, i64 %77
   %.val23.val28.i = load ptr, ptr %.val21.i, align 8, !tbaa !41
-  %.not2429.i = icmp eq ptr %77, %.val23.val28.i
+  %.not2429.i = icmp eq ptr %78, %.val23.val28.i
   br i1 %.not2429.i, label %Gia_ManAreCompress.exit, label %.lr.ph.i73
 
-.lr.ph.i73:                                       ; preds = %71, %80
-  %.val23.val40.i = phi ptr [ %.val23.val.i, %80 ], [ %.val23.val28.i, %71 ]
-  %.val2338.i = phi ptr [ %.val23.i, %80 ], [ %.val21.i, %71 ]
-  %.val2036.i = phi i32 [ %.val20.i, %80 ], [ %.val22.i, %71 ]
-  %78 = phi i32 [ %81, %80 ], [ %72, %71 ]
-  %.sroa.03.031.i = phi i32 [ %.sroa.0.033.i, %80 ], [ %34, %71 ]
-  %.030.i = phi ptr [ %90, %80 ], [ %77, %71 ]
+.lr.ph.i73:                                       ; preds = %72, %81
+  %.val23.val40.i = phi ptr [ %.val23.val.i, %81 ], [ %.val23.val28.i, %72 ]
+  %.val2338.i = phi ptr [ %.val23.i, %81 ], [ %.val21.i, %72 ]
+  %.val2036.i = phi i32 [ %.val20.i, %81 ], [ %.val22.i, %72 ]
+  %79 = phi i32 [ %82, %81 ], [ %73, %72 ]
+  %.sroa.03.031.i = phi i32 [ %.sroa.0.033.i, %81 ], [ %34, %72 ]
+  %.030.i = phi ptr [ %91, %81 ], [ %78, %72 ]
   %.sroa.0.0.in32.i = getelementptr inbounds nuw i8, ptr %.030.i, i64 4
   %.sroa.0.033.i = load i32, ptr %.sroa.0.0.in32.i, align 4, !tbaa !89
   %.0.val.i = load i32, ptr %.030.i, align 4
   %.not19.i = icmp sgt i32 %.0.val.i, -1
-  br i1 %.not19.i, label %79, label %80
+  br i1 %.not19.i, label %80, label %81
 
-79:                                               ; preds = %.lr.ph.i73
-  store i32 %78, ptr %.sroa.0.0.in32.i, align 4, !tbaa !89
+80:                                               ; preds = %.lr.ph.i73
+  store i32 %79, ptr %.sroa.0.0.in32.i, align 4, !tbaa !89
   store i32 %.sroa.03.031.i, ptr %30, align 4, !tbaa !89
-  %.val.pre.i = load ptr, ptr %43, align 8, !tbaa !39
-  %.val20.pre.i = load i32, ptr %44, align 8, !tbaa !40
+  %.val.pre.i = load ptr, ptr %44, align 8, !tbaa !39
+  %.val20.pre.i = load i32, ptr %45, align 8, !tbaa !40
   %.val23.val.pre.i = load ptr, ptr %.val.pre.i, align 8, !tbaa !41
-  br label %80
+  br label %81
 
-80:                                               ; preds = %79, %.lr.ph.i73
-  %.val23.val.i = phi ptr [ %.val23.val40.i, %.lr.ph.i73 ], [ %.val23.val.pre.i, %79 ]
-  %.val23.i = phi ptr [ %.val2338.i, %.lr.ph.i73 ], [ %.val.pre.i, %79 ]
-  %.val20.i = phi i32 [ %.val2036.i, %.lr.ph.i73 ], [ %.val20.pre.i, %79 ]
-  %81 = phi i32 [ %78, %.lr.ph.i73 ], [ %.sroa.03.031.i, %79 ]
-  %82 = lshr i32 %.sroa.0.033.i, 20
-  %83 = and i32 %82, 2047
-  %84 = zext nneg i32 %83 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr %.val23.i, i64 %84
-  %86 = load ptr, ptr %85, align 8, !tbaa !41
-  %87 = and i32 %.sroa.0.033.i, 1048575
-  %88 = mul nsw i32 %.val20.i, %87
-  %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i32, ptr %86, i64 %89
-  %.not24.i = icmp eq ptr %90, %.val23.val.i
+81:                                               ; preds = %80, %.lr.ph.i73
+  %.val23.val.i = phi ptr [ %.val23.val40.i, %.lr.ph.i73 ], [ %.val23.val.pre.i, %80 ]
+  %.val23.i = phi ptr [ %.val2338.i, %.lr.ph.i73 ], [ %.val.pre.i, %80 ]
+  %.val20.i = phi i32 [ %.val2036.i, %.lr.ph.i73 ], [ %.val20.pre.i, %80 ]
+  %82 = phi i32 [ %79, %.lr.ph.i73 ], [ %.sroa.03.031.i, %80 ]
+  %83 = lshr i32 %.sroa.0.033.i, 20
+  %84 = and i32 %83, 2047
+  %85 = zext nneg i32 %84 to i64
+  %86 = getelementptr inbounds nuw ptr, ptr %.val23.i, i64 %85
+  %87 = load ptr, ptr %86, align 8, !tbaa !41
+  %88 = and i32 %.sroa.0.033.i, 1048575
+  %89 = mul nsw i32 %.val20.i, %88
+  %90 = sext i32 %89 to i64
+  %91 = getelementptr inbounds i32, ptr %87, i64 %90
+  %.not24.i = icmp eq ptr %91, %.val23.val.i
   br i1 %.not24.i, label %Gia_ManAreCompress.exit, label %.lr.ph.i73, !llvm.loop !90
 
-91:                                               ; preds = %Gia_ManAreListCountListUsed.exit
+92:                                               ; preds = %Gia_ManAreListCountListUsed.exit
   tail call fastcc void @Gia_ManAreRebalance(ptr noundef nonnull %0, ptr noundef nonnull %30)
-  %92 = load i32, ptr %.tr138, align 4
-  %93 = and i32 %92, -1032193
-  store i32 %93, ptr %.tr138, align 4
+  %93 = load i32, ptr %.tr136, align 4
+  %94 = and i32 %93, -1032193
+  store i32 %94, ptr %.tr136, align 4
   br label %Gia_ManAreCompress.exit
 
-94:                                               ; preds = %tailrecurse
-  %95 = shl nuw i32 2, %13
-  %96 = and i32 %95, %12
-  %.not58 = icmp eq i32 %96, 0
-  br i1 %.not58, label %166, label %97
+95:                                               ; preds = %tailrecurse
+  %96 = shl nuw i32 2, %13
+  %97 = and i32 %96, %12
+  %.not58 = icmp eq i32 %97, 0
+  br i1 %.not58, label %168, label %98
 
-97:                                               ; preds = %94
-  %98 = and i32 %6, 66060288
-  %.not.i74 = icmp ne i32 %98, 0
-  %99 = getelementptr i8, ptr %.tr138, i64 8
-  %100 = load i32, ptr %99, align 4
-  %101 = and i32 %100, 2147483647
-  %or.cond140 = icmp eq i32 %101, 0
-  %or.cond198 = select i1 %.not.i74, i1 true, i1 %or.cond140
+98:                                               ; preds = %95
+  %99 = and i32 %6, 66060288
+  %.not.i74 = icmp ne i32 %99, 0
+  %100 = getelementptr i8, ptr %.tr136, i64 8
+  %101 = load i32, ptr %100, align 4
+  %102 = and i32 %101, 2147483647
+  %or.cond138 = icmp eq i32 %102, 0
+  %or.cond198 = select i1 %.not.i74, i1 true, i1 %or.cond138
   br i1 %or.cond198, label %Gia_ObjHasBranch1.exit.thread, label %tailrecurse.backedge
 
-Gia_ObjHasBranch1.exit.thread:                    ; preds = %97
-  %102 = getelementptr inbounds nuw i8, ptr %.tr138, i64 8
-  %103 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %100, ptr %103, align 4, !tbaa !89
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %105 = load i32, ptr %104, align 8, !tbaa !38
-  %106 = add nsw i32 %105, -1
-  store i32 %106, ptr %102, align 4, !tbaa !89
-  %107 = load i32, ptr %.tr138, align 4
-  %108 = add i32 %107, 1048576
-  %109 = and i32 %108, 66060288
-  %110 = and i32 %107, -66060289
-  %111 = or disjoint i32 %109, %110
-  store i32 %111, ptr %.tr138, align 4
-  %112 = and i32 %107, 66060288
-  %113 = icmp eq i32 %112, 65011712
-  br i1 %113, label %114, label %Gia_ManAreCompress.exit
+Gia_ObjHasBranch1.exit.thread:                    ; preds = %98
+  %103 = getelementptr inbounds nuw i8, ptr %.tr136, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 %101, ptr %104, align 4, !tbaa !89
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %106 = load i32, ptr %105, align 8, !tbaa !38
+  %107 = add nsw i32 %106, -1
+  store i32 %107, ptr %103, align 4, !tbaa !89
+  %108 = load i32, ptr %.tr136, align 4
+  %109 = lshr i32 %108, 20
+  %110 = add nuw nsw i32 %109, 1
+  %111 = and i32 %110, 63
+  %112 = shl nuw nsw i32 %111, 20
+  %113 = and i32 %108, -66060289
+  %114 = or disjoint i32 %112, %113
+  store i32 %114, ptr %.tr136, align 4
+  %115 = icmp eq i32 %111, 63
+  br i1 %115, label %116, label %Gia_ManAreCompress.exit
 
-114:                                              ; preds = %Gia_ObjHasBranch1.exit.thread
-  %115 = getelementptr i8, ptr %0, i64 24
-  %.val63 = load ptr, ptr %115, align 8, !tbaa !39
-  %116 = getelementptr i8, ptr %0, i64 48
-  %.val64 = load i32, ptr %116, align 8, !tbaa !40
-  %117 = lshr i32 %106, 20
-  %118 = and i32 %117, 2047
-  %119 = zext nneg i32 %118 to i64
-  %120 = getelementptr inbounds nuw ptr, ptr %.val63, i64 %119
-  %121 = load ptr, ptr %120, align 8, !tbaa !41
-  %122 = and i32 %106, 1048575
-  %123 = mul nsw i32 %.val64, %122
-  %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds i32, ptr %121, i64 %124
+116:                                              ; preds = %Gia_ObjHasBranch1.exit.thread
+  %117 = getelementptr i8, ptr %0, i64 24
+  %.val63 = load ptr, ptr %117, align 8, !tbaa !39
+  %118 = getelementptr i8, ptr %0, i64 48
+  %.val64 = load i32, ptr %118, align 8, !tbaa !40
+  %119 = lshr i32 %107, 20
+  %120 = and i32 %119, 2047
+  %121 = zext nneg i32 %120 to i64
+  %122 = getelementptr inbounds nuw ptr, ptr %.val63, i64 %121
+  %123 = load ptr, ptr %122, align 8, !tbaa !41
+  %124 = and i32 %107, 1048575
+  %125 = mul nsw i32 %.val64, %124
+  %126 = sext i32 %125 to i64
+  %127 = getelementptr inbounds i32, ptr %123, i64 %126
   %.val9.val.i76 = load ptr, ptr %.val63, align 8, !tbaa !41
-  %.not12.i77 = icmp eq ptr %125, %.val9.val.i76
+  %.not12.i77 = icmp eq ptr %127, %.val9.val.i76
   br i1 %.not12.i77, label %Gia_ManAreListCountListUsed.exit86.thread, label %.lr.ph.i78
 
-Gia_ManAreListCountListUsed.exit86.thread:        ; preds = %114
-  store i32 %110, ptr %.tr138, align 4
-  br label %143
+Gia_ManAreListCountListUsed.exit86.thread:        ; preds = %116
+  store i32 %113, ptr %.tr136, align 4
+  br label %145
 
-.lr.ph.i78:                                       ; preds = %114, %.lr.ph.i78
-  %.04.i79 = phi i32 [ %127, %.lr.ph.i78 ], [ 0, %114 ]
-  %.073.i80 = phi ptr [ %137, %.lr.ph.i78 ], [ %125, %114 ]
+.lr.ph.i78:                                       ; preds = %116, %.lr.ph.i78
+  %.04.i79 = phi i32 [ %129, %.lr.ph.i78 ], [ 0, %116 ]
+  %.073.i80 = phi ptr [ %139, %.lr.ph.i78 ], [ %127, %116 ]
   %.07.val.i81 = load i32, ptr %.073.i80, align 4
   %.not.i.i82 = icmp sgt i32 %.07.val.i81, -1
-  %126 = zext i1 %.not.i.i82 to i32
-  %127 = add nuw nsw i32 %.04.i79, %126
-  %128 = getelementptr i8, ptr %.073.i80, i64 4
-  %.07.val12.i83 = load i32, ptr %128, align 4
-  %129 = lshr i32 %.07.val12.i83, 20
-  %130 = and i32 %129, 2047
-  %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw ptr, ptr %.val63, i64 %131
-  %133 = load ptr, ptr %132, align 8, !tbaa !41
-  %134 = and i32 %.07.val12.i83, 1048575
-  %135 = mul nsw i32 %134, %.val64
-  %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds i32, ptr %133, i64 %136
-  %.not1.i84 = icmp eq ptr %137, %.val9.val.i76
+  %128 = zext i1 %.not.i.i82 to i32
+  %129 = add nuw nsw i32 %.04.i79, %128
+  %130 = getelementptr i8, ptr %.073.i80, i64 4
+  %.07.val12.i83 = load i32, ptr %130, align 4
+  %131 = lshr i32 %.07.val12.i83, 20
+  %132 = and i32 %131, 2047
+  %133 = zext nneg i32 %132 to i64
+  %134 = getelementptr inbounds nuw ptr, ptr %.val63, i64 %133
+  %135 = load ptr, ptr %134, align 8, !tbaa !41
+  %136 = and i32 %.07.val12.i83, 1048575
+  %137 = mul nsw i32 %136, %.val64
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds i32, ptr %135, i64 %138
+  %.not1.i84 = icmp eq ptr %139, %.val9.val.i76
   br i1 %.not1.i84, label %Gia_ManAreListCountListUsed.exit86, label %.lr.ph.i78, !llvm.loop !79
 
 Gia_ManAreListCountListUsed.exit86:               ; preds = %.lr.ph.i78
-  %138 = shl i32 %127, 20
-  %139 = and i32 %138, 66060288
-  %140 = or disjoint i32 %139, %110
-  store i32 %140, ptr %.tr138, align 4
-  %141 = and i32 %127, 63
-  %142 = icmp samesign ult i32 %141, 31
-  br i1 %142, label %143, label %163
+  %140 = shl i32 %129, 20
+  %141 = and i32 %140, 66060288
+  %142 = or disjoint i32 %141, %113
+  store i32 %142, ptr %.tr136, align 4
+  %143 = and i32 %129, 63
+  %144 = icmp samesign ult i32 %143, 31
+  br i1 %144, label %145, label %165
 
-143:                                              ; preds = %Gia_ManAreListCountListUsed.exit86.thread, %Gia_ManAreListCountListUsed.exit86
-  %144 = and i32 %106, -2147483648
-  store i32 %144, ptr %102, align 4
-  %.val21.i88 = load ptr, ptr %115, align 8, !tbaa !39
-  %.val22.i89 = load i32, ptr %116, align 8, !tbaa !40
-  %145 = getelementptr inbounds nuw ptr, ptr %.val21.i88, i64 %119
-  %146 = load ptr, ptr %145, align 8, !tbaa !41
-  %147 = mul nsw i32 %.val22.i89, %122
-  %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds i32, ptr %146, i64 %148
+145:                                              ; preds = %Gia_ManAreListCountListUsed.exit86.thread, %Gia_ManAreListCountListUsed.exit86
+  %146 = and i32 %107, -2147483648
+  store i32 %146, ptr %103, align 4
+  %.val21.i88 = load ptr, ptr %117, align 8, !tbaa !39
+  %.val22.i89 = load i32, ptr %118, align 8, !tbaa !40
+  %147 = getelementptr inbounds nuw ptr, ptr %.val21.i88, i64 %121
+  %148 = load ptr, ptr %147, align 8, !tbaa !41
+  %149 = mul nsw i32 %.val22.i89, %124
+  %150 = sext i32 %149 to i64
+  %151 = getelementptr inbounds i32, ptr %148, i64 %150
   %.val23.val28.i90 = load ptr, ptr %.val21.i88, align 8, !tbaa !41
-  %.not2429.i91 = icmp eq ptr %149, %.val23.val28.i90
+  %.not2429.i91 = icmp eq ptr %151, %.val23.val28.i90
   br i1 %.not2429.i91, label %Gia_ManAreCompress.exit, label %.lr.ph.i92
 
-.lr.ph.i92:                                       ; preds = %143, %152
-  %.val23.val40.i93 = phi ptr [ %.val23.val.i102, %152 ], [ %.val23.val28.i90, %143 ]
-  %.val2338.i94 = phi ptr [ %.val23.i103, %152 ], [ %.val21.i88, %143 ]
-  %.val2036.i95 = phi i32 [ %.val20.i104, %152 ], [ %.val22.i89, %143 ]
-  %150 = phi i32 [ %153, %152 ], [ %144, %143 ]
-  %.sroa.03.031.i96 = phi i32 [ %.sroa.0.033.i99, %152 ], [ %106, %143 ]
-  %.030.i97 = phi ptr [ %162, %152 ], [ %149, %143 ]
+.lr.ph.i92:                                       ; preds = %145, %154
+  %.val23.val40.i93 = phi ptr [ %.val23.val.i102, %154 ], [ %.val23.val28.i90, %145 ]
+  %.val2338.i94 = phi ptr [ %.val23.i103, %154 ], [ %.val21.i88, %145 ]
+  %.val2036.i95 = phi i32 [ %.val20.i104, %154 ], [ %.val22.i89, %145 ]
+  %152 = phi i32 [ %155, %154 ], [ %146, %145 ]
+  %.sroa.03.031.i96 = phi i32 [ %.sroa.0.033.i99, %154 ], [ %107, %145 ]
+  %.030.i97 = phi ptr [ %164, %154 ], [ %151, %145 ]
   %.sroa.0.0.in32.i98 = getelementptr inbounds nuw i8, ptr %.030.i97, i64 4
   %.sroa.0.033.i99 = load i32, ptr %.sroa.0.0.in32.i98, align 4, !tbaa !89
   %.0.val.i100 = load i32, ptr %.030.i97, align 4
   %.not19.i101 = icmp sgt i32 %.0.val.i100, -1
-  br i1 %.not19.i101, label %151, label %152
+  br i1 %.not19.i101, label %153, label %154
 
-151:                                              ; preds = %.lr.ph.i92
-  store i32 %150, ptr %.sroa.0.0.in32.i98, align 4, !tbaa !89
-  store i32 %.sroa.03.031.i96, ptr %102, align 4, !tbaa !89
-  %.val.pre.i106 = load ptr, ptr %115, align 8, !tbaa !39
-  %.val20.pre.i107 = load i32, ptr %116, align 8, !tbaa !40
+153:                                              ; preds = %.lr.ph.i92
+  store i32 %152, ptr %.sroa.0.0.in32.i98, align 4, !tbaa !89
+  store i32 %.sroa.03.031.i96, ptr %103, align 4, !tbaa !89
+  %.val.pre.i106 = load ptr, ptr %117, align 8, !tbaa !39
+  %.val20.pre.i107 = load i32, ptr %118, align 8, !tbaa !40
   %.val23.val.pre.i108 = load ptr, ptr %.val.pre.i106, align 8, !tbaa !41
-  br label %152
+  br label %154
 
-152:                                              ; preds = %151, %.lr.ph.i92
-  %.val23.val.i102 = phi ptr [ %.val23.val40.i93, %.lr.ph.i92 ], [ %.val23.val.pre.i108, %151 ]
-  %.val23.i103 = phi ptr [ %.val2338.i94, %.lr.ph.i92 ], [ %.val.pre.i106, %151 ]
-  %.val20.i104 = phi i32 [ %.val2036.i95, %.lr.ph.i92 ], [ %.val20.pre.i107, %151 ]
-  %153 = phi i32 [ %150, %.lr.ph.i92 ], [ %.sroa.03.031.i96, %151 ]
-  %154 = lshr i32 %.sroa.0.033.i99, 20
-  %155 = and i32 %154, 2047
-  %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw ptr, ptr %.val23.i103, i64 %156
-  %158 = load ptr, ptr %157, align 8, !tbaa !41
-  %159 = and i32 %.sroa.0.033.i99, 1048575
-  %160 = mul nsw i32 %.val20.i104, %159
-  %161 = sext i32 %160 to i64
-  %162 = getelementptr inbounds i32, ptr %158, i64 %161
-  %.not24.i105 = icmp eq ptr %162, %.val23.val.i102
+154:                                              ; preds = %153, %.lr.ph.i92
+  %.val23.val.i102 = phi ptr [ %.val23.val40.i93, %.lr.ph.i92 ], [ %.val23.val.pre.i108, %153 ]
+  %.val23.i103 = phi ptr [ %.val2338.i94, %.lr.ph.i92 ], [ %.val.pre.i106, %153 ]
+  %.val20.i104 = phi i32 [ %.val2036.i95, %.lr.ph.i92 ], [ %.val20.pre.i107, %153 ]
+  %155 = phi i32 [ %152, %.lr.ph.i92 ], [ %.sroa.03.031.i96, %153 ]
+  %156 = lshr i32 %.sroa.0.033.i99, 20
+  %157 = and i32 %156, 2047
+  %158 = zext nneg i32 %157 to i64
+  %159 = getelementptr inbounds nuw ptr, ptr %.val23.i103, i64 %158
+  %160 = load ptr, ptr %159, align 8, !tbaa !41
+  %161 = and i32 %.sroa.0.033.i99, 1048575
+  %162 = mul nsw i32 %.val20.i104, %161
+  %163 = sext i32 %162 to i64
+  %164 = getelementptr inbounds i32, ptr %160, i64 %163
+  %.not24.i105 = icmp eq ptr %164, %.val23.val.i102
   br i1 %.not24.i105, label %Gia_ManAreCompress.exit, label %.lr.ph.i92, !llvm.loop !90
 
-163:                                              ; preds = %Gia_ManAreListCountListUsed.exit86
-  tail call fastcc void @Gia_ManAreRebalance(ptr noundef nonnull %0, ptr noundef nonnull %102)
-  %164 = load i32, ptr %.tr138, align 4
-  %165 = and i32 %164, -66060289
-  store i32 %165, ptr %.tr138, align 4
+165:                                              ; preds = %Gia_ManAreListCountListUsed.exit86
+  tail call fastcc void @Gia_ManAreRebalance(ptr noundef nonnull %0, ptr noundef nonnull %103)
+  %166 = load i32, ptr %.tr136, align 4
+  %167 = and i32 %166, -66060289
+  store i32 %167, ptr %.tr136, align 4
   br label %Gia_ManAreCompress.exit
 
-166:                                              ; preds = %94
+168:                                              ; preds = %95
   %.not.i110 = icmp ugt i32 %6, 67108863
-  %167 = getelementptr i8, ptr %.tr138, i64 12
-  %168 = load i32, ptr %167, align 4
-  %169 = and i32 %168, 2147483647
-  %or.cond141 = icmp eq i32 %169, 0
-  %or.cond199 = select i1 %.not.i110, i1 true, i1 %or.cond141
+  %169 = getelementptr i8, ptr %.tr136, i64 12
+  %170 = load i32, ptr %169, align 4
+  %171 = and i32 %170, 2147483647
+  %or.cond139 = icmp eq i32 %171, 0
+  %or.cond199 = select i1 %.not.i110, i1 true, i1 %or.cond139
   br i1 %or.cond199, label %Gia_ObjHasBranch2.exit.thread, label %tailrecurse.backedge
 
-Gia_ObjHasBranch2.exit.thread:                    ; preds = %166
-  %170 = getelementptr inbounds nuw i8, ptr %.tr138, i64 12
-  %171 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %168, ptr %171, align 4, !tbaa !89
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %173 = load i32, ptr %172, align 8, !tbaa !38
-  %174 = add nsw i32 %173, -1
-  store i32 %174, ptr %170, align 4, !tbaa !89
-  %175 = load i32, ptr %.tr138, align 4
-  %176 = and i32 %175, -67108864
-  %177 = add i32 %176, 67108864
-  %178 = and i32 %175, 67108863
-  %179 = or disjoint i32 %177, %178
-  store i32 %179, ptr %.tr138, align 4
-  %180 = icmp eq i32 %176, -134217728
-  br i1 %180, label %181, label %Gia_ManAreCompress.exit
+Gia_ObjHasBranch2.exit.thread:                    ; preds = %168
+  %172 = getelementptr inbounds nuw i8, ptr %.tr136, i64 12
+  %173 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 %170, ptr %173, align 4, !tbaa !89
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %175 = load i32, ptr %174, align 8, !tbaa !38
+  %176 = add nsw i32 %175, -1
+  store i32 %176, ptr %172, align 4, !tbaa !89
+  %177 = load i32, ptr %.tr136, align 4
+  %178 = lshr i32 %177, 26
+  %179 = add nuw nsw i32 %178, 1
+  %180 = and i32 %179, 63
+  %181 = shl nuw i32 %180, 26
+  %182 = and i32 %177, 67108863
+  %183 = or disjoint i32 %181, %182
+  store i32 %183, ptr %.tr136, align 4
+  %184 = icmp eq i32 %180, 63
+  br i1 %184, label %185, label %Gia_ManAreCompress.exit
 
-181:                                              ; preds = %Gia_ObjHasBranch2.exit.thread
-  %182 = getelementptr i8, ptr %0, i64 24
-  %.val = load ptr, ptr %182, align 8, !tbaa !39
-  %183 = getelementptr i8, ptr %0, i64 48
-  %.val62 = load i32, ptr %183, align 8, !tbaa !40
-  %184 = lshr i32 %174, 20
-  %185 = and i32 %184, 2047
-  %186 = zext nneg i32 %185 to i64
-  %187 = getelementptr inbounds nuw ptr, ptr %.val, i64 %186
-  %188 = load ptr, ptr %187, align 8, !tbaa !41
-  %189 = and i32 %174, 1048575
-  %190 = mul nsw i32 %.val62, %189
-  %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds i32, ptr %188, i64 %191
+185:                                              ; preds = %Gia_ObjHasBranch2.exit.thread
+  %186 = getelementptr i8, ptr %0, i64 24
+  %.val = load ptr, ptr %186, align 8, !tbaa !39
+  %187 = getelementptr i8, ptr %0, i64 48
+  %.val62 = load i32, ptr %187, align 8, !tbaa !40
+  %188 = lshr i32 %176, 20
+  %189 = and i32 %188, 2047
+  %190 = zext nneg i32 %189 to i64
+  %191 = getelementptr inbounds nuw ptr, ptr %.val, i64 %190
+  %192 = load ptr, ptr %191, align 8, !tbaa !41
+  %193 = and i32 %176, 1048575
+  %194 = mul nsw i32 %.val62, %193
+  %195 = sext i32 %194 to i64
+  %196 = getelementptr inbounds i32, ptr %192, i64 %195
   %.val9.val.i112 = load ptr, ptr %.val, align 8, !tbaa !41
-  %.not12.i113 = icmp eq ptr %192, %.val9.val.i112
+  %.not12.i113 = icmp eq ptr %196, %.val9.val.i112
   br i1 %.not12.i113, label %Gia_ManAreListCountListUsed.exit122.thread, label %.lr.ph.i114
 
-Gia_ManAreListCountListUsed.exit122.thread:       ; preds = %181
-  store i32 %178, ptr %.tr138, align 4
-  br label %209
+Gia_ManAreListCountListUsed.exit122.thread:       ; preds = %185
+  store i32 %182, ptr %.tr136, align 4
+  br label %213
 
-.lr.ph.i114:                                      ; preds = %181, %.lr.ph.i114
-  %.04.i115 = phi i32 [ %194, %.lr.ph.i114 ], [ 0, %181 ]
-  %.073.i116 = phi ptr [ %204, %.lr.ph.i114 ], [ %192, %181 ]
+.lr.ph.i114:                                      ; preds = %185, %.lr.ph.i114
+  %.04.i115 = phi i32 [ %198, %.lr.ph.i114 ], [ 0, %185 ]
+  %.073.i116 = phi ptr [ %208, %.lr.ph.i114 ], [ %196, %185 ]
   %.07.val.i117 = load i32, ptr %.073.i116, align 4
   %.not.i.i118 = icmp sgt i32 %.07.val.i117, -1
-  %193 = zext i1 %.not.i.i118 to i32
-  %194 = add nuw nsw i32 %.04.i115, %193
-  %195 = getelementptr i8, ptr %.073.i116, i64 4
-  %.07.val12.i119 = load i32, ptr %195, align 4
-  %196 = lshr i32 %.07.val12.i119, 20
-  %197 = and i32 %196, 2047
-  %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds nuw ptr, ptr %.val, i64 %198
-  %200 = load ptr, ptr %199, align 8, !tbaa !41
-  %201 = and i32 %.07.val12.i119, 1048575
-  %202 = mul nsw i32 %201, %.val62
-  %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds i32, ptr %200, i64 %203
-  %.not1.i120 = icmp eq ptr %204, %.val9.val.i112
+  %197 = zext i1 %.not.i.i118 to i32
+  %198 = add nuw nsw i32 %.04.i115, %197
+  %199 = getelementptr i8, ptr %.073.i116, i64 4
+  %.07.val12.i119 = load i32, ptr %199, align 4
+  %200 = lshr i32 %.07.val12.i119, 20
+  %201 = and i32 %200, 2047
+  %202 = zext nneg i32 %201 to i64
+  %203 = getelementptr inbounds nuw ptr, ptr %.val, i64 %202
+  %204 = load ptr, ptr %203, align 8, !tbaa !41
+  %205 = and i32 %.07.val12.i119, 1048575
+  %206 = mul nsw i32 %205, %.val62
+  %207 = sext i32 %206 to i64
+  %208 = getelementptr inbounds i32, ptr %204, i64 %207
+  %.not1.i120 = icmp eq ptr %208, %.val9.val.i112
   br i1 %.not1.i120, label %Gia_ManAreListCountListUsed.exit122, label %.lr.ph.i114, !llvm.loop !79
 
 Gia_ManAreListCountListUsed.exit122:              ; preds = %.lr.ph.i114
-  %205 = shl i32 %194, 26
-  %206 = or disjoint i32 %205, %178
-  store i32 %206, ptr %.tr138, align 4
-  %207 = and i32 %194, 63
-  %208 = icmp samesign ult i32 %207, 31
-  br i1 %208, label %209, label %210
+  %209 = shl i32 %198, 26
+  %210 = or disjoint i32 %209, %182
+  store i32 %210, ptr %.tr136, align 4
+  %211 = and i32 %198, 63
+  %212 = icmp samesign ult i32 %211, 31
+  br i1 %212, label %213, label %214
 
-209:                                              ; preds = %Gia_ManAreListCountListUsed.exit122.thread, %Gia_ManAreListCountListUsed.exit122
-  tail call fastcc void @Gia_ManAreCompress(ptr noundef nonnull %0, ptr noundef nonnull %170)
+213:                                              ; preds = %Gia_ManAreListCountListUsed.exit122.thread, %Gia_ManAreListCountListUsed.exit122
+  tail call fastcc void @Gia_ManAreCompress(ptr noundef nonnull %0, ptr noundef nonnull %172)
   br label %Gia_ManAreCompress.exit
 
-210:                                              ; preds = %Gia_ManAreListCountListUsed.exit122
-  tail call fastcc void @Gia_ManAreRebalance(ptr noundef nonnull %0, ptr noundef nonnull %170)
-  %211 = load i32, ptr %.tr138, align 4
-  %212 = and i32 %211, 67108863
-  store i32 %212, ptr %.tr138, align 4
+214:                                              ; preds = %Gia_ManAreListCountListUsed.exit122
+  tail call fastcc void @Gia_ManAreRebalance(ptr noundef nonnull %0, ptr noundef nonnull %172)
+  %215 = load i32, ptr %.tr136, align 4
+  %216 = and i32 %215, 67108863
+  store i32 %216, ptr %.tr136, align 4
   br label %Gia_ManAreCompress.exit
 
-Gia_ManAreCompress.exit:                          ; preds = %80, %152, %143, %71, %Gia_ObjHasBranch1.exit.thread, %163, %Gia_ObjHasBranch2.exit.thread, %210, %209, %91, %Gia_ObjHasBranch0.exit.thread
+Gia_ManAreCompress.exit:                          ; preds = %81, %154, %145, %72, %Gia_ObjHasBranch1.exit.thread, %165, %Gia_ObjHasBranch2.exit.thread, %214, %213, %92, %Gia_ObjHasBranch0.exit.thread
   ret void
 }
 

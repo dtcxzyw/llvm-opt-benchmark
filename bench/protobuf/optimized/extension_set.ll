@@ -1040,18 +1040,15 @@ if.else:                                          ; preds = %entry
   br i1 %cmp.i, label %for.cond.i.i.i.i.i, label %if.then3
 
 if.then3:                                         ; preds = %if.else
-  %cmp12.i.i.not = icmp eq i16 %0, 1
-  br i1 %cmp12.i.i.not, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit, label %while.body.i.i.preheader
-
-while.body.i.i.preheader:                         ; preds = %if.then3
   %idx.ext.i = zext nneg i16 %0 to i64
   %2 = add nuw nsw i64 %idx.ext.i, 576460752303423487
   %sub.ptr.div.i.i.i.i = and i64 %2, 576460752303423487
-  br label %while.body.i.i
+  %cmp12.i.i.not = icmp eq i64 %sub.ptr.div.i.i.i.i, 0
+  br i1 %cmp12.i.i.not, label %_ZSt11lower_boundIPKN6google8protobuf8internal12ExtensionSet8KeyValueEiNS4_15FirstComparatorEET_S8_S8_RKT0_T1_.exit, label %while.body.i.i
 
-while.body.i.i:                                   ; preds = %while.body.i.i.preheader, %while.body.i.i
-  %__first.addr.014.i.i = phi ptr [ %__first.addr.1.i.i, %while.body.i.i ], [ %1, %while.body.i.i.preheader ]
-  %__len.013.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i, %while.body.i.i.preheader ]
+while.body.i.i:                                   ; preds = %if.then3, %while.body.i.i
+  %__first.addr.014.i.i = phi ptr [ %__first.addr.1.i.i, %while.body.i.i ], [ %1, %if.then3 ]
+  %__len.013.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i, %if.then3 ]
   %shr.i.i = lshr i64 %__len.013.i.i, 1
   %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.google::protobuf::internal::ExtensionSet::KeyValue", ptr %__first.addr.014.i.i, i64 %shr.i.i
   %3 = load i32, ptr %add.ptr.i.i.i.i, align 8

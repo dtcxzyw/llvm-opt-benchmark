@@ -520,121 +520,120 @@ RsaPad_OAEP.exit:                                 ; preds = %52, %55, %58, %61, 
 115:                                              ; preds = %114
   %116 = add i32 %12, 7
   %117 = and i32 %116, 7
-  %118 = and i32 %12, 7
-  %119 = icmp eq i32 %118, 1
-  br i1 %119, label %120, label %123
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %119, label %122
 
-120:                                              ; preds = %115
-  %121 = getelementptr inbounds nuw i8, ptr %2, i64 1
+119:                                              ; preds = %115
+  %120 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 0, ptr %2, align 1, !tbaa !20
-  %122 = add nsw i32 %3, -1
-  br label %123
+  %121 = add nsw i32 %3, -1
+  br label %122
 
-123:                                              ; preds = %120, %115
-  %.076.i = phi i32 [ %122, %120 ], [ %3, %115 ]
-  %.075.i = phi ptr [ %121, %120 ], [ %2, %115 ]
-  %124 = icmp eq i32 %11, -1
-  br i1 %124, label %125, label %128
+122:                                              ; preds = %119, %115
+  %.076.i = phi i32 [ %121, %119 ], [ %3, %115 ]
+  %.075.i = phi ptr [ %120, %119 ], [ %2, %115 ]
+  %123 = icmp eq i32 %11, -1
+  br i1 %123, label %124, label %127
 
-125:                                              ; preds = %123
-  %126 = icmp eq i32 %12, 1024
-  %127 = icmp eq i32 %1, 64
-  %or.cond.i31 = and i1 %127, %126
+124:                                              ; preds = %122
+  %125 = icmp eq i32 %12, 1024
+  %126 = icmp eq i32 %1, 64
+  %or.cond.i31 = and i1 %126, %125
   %spec.store.select.i = select i1 %or.cond.i31, i32 62, i32 %1
-  br label %130
+  br label %129
 
-128:                                              ; preds = %123
-  %129 = icmp slt i32 %11, -1
-  br i1 %129, label %RsaPad.exit, label %130
+127:                                              ; preds = %122
+  %128 = icmp slt i32 %11, -1
+  br i1 %128, label %RsaPad.exit, label %129
 
-130:                                              ; preds = %128, %125
-  %.078.i = phi i32 [ %spec.store.select.i, %125 ], [ %11, %128 ]
-  %131 = sub nsw i32 %.076.i, %1
-  %132 = add nuw nsw i32 %.078.i, 2
-  %133 = icmp slt i32 %131, %132
-  br i1 %133, label %RsaPad.exit, label %134
+129:                                              ; preds = %127, %124
+  %.078.i = phi i32 [ %spec.store.select.i, %124 ], [ %11, %127 ]
+  %130 = sub nsw i32 %.076.i, %1
+  %131 = add nuw nsw i32 %.078.i, 2
+  %132 = icmp slt i32 %130, %131
+  br i1 %132, label %RsaPad.exit, label %133
 
-134:                                              ; preds = %130
-  %135 = add nsw i32 %.076.i, -1
-  %136 = sub nsw i32 %135, %1
-  %137 = add nuw i32 %1, 8
-  %138 = add i32 %.078.i, %137
-  %139 = zext i32 %138 to i64
-  %140 = tail call ptr @wolfSSL_Malloc(i64 noundef %139) #12
-  %141 = icmp eq ptr %140, null
-  br i1 %141, label %RsaPad.exit, label %142
+133:                                              ; preds = %129
+  %134 = add nsw i32 %.076.i, -1
+  %135 = sub nsw i32 %134, %1
+  %136 = add nuw i32 %1, 8
+  %137 = add i32 %.078.i, %136
+  %138 = zext i32 %137 to i64
+  %139 = tail call ptr @wolfSSL_Malloc(i64 noundef %138) #12
+  %140 = icmp eq ptr %139, null
+  br i1 %140, label %RsaPad.exit, label %141
 
-142:                                              ; preds = %134
-  store i64 0, ptr %140, align 1
-  %143 = getelementptr inbounds nuw i8, ptr %140, i64 8
-  %144 = zext nneg i32 %1 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %143, ptr readonly align 1 %0, i64 %144, i1 false)
-  %145 = getelementptr inbounds nuw i8, ptr %143, i64 %144
-  %146 = ptrtoint ptr %140 to i64
+141:                                              ; preds = %133
+  store i64 0, ptr %139, align 1
+  %142 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %143 = zext nneg i32 %1 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %142, ptr readonly align 1 %0, i64 %143, i1 false)
+  %144 = getelementptr inbounds nuw i8, ptr %142, i64 %143
+  %145 = ptrtoint ptr %139 to i64
   %.not10.i = icmp eq i32 %.078.i, 0
-  br i1 %.not10.i, label %153, label %147
+  br i1 %.not10.i, label %152, label %146
 
-147:                                              ; preds = %142
-  %148 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %5, ptr noundef nonnull %145, i32 noundef %.078.i) #12
-  %149 = icmp eq i32 %148, 0
-  br i1 %149, label %150, label %.thread7.i
+146:                                              ; preds = %141
+  %147 = tail call i32 @wc_RNG_GenerateBlock(ptr noundef %5, ptr noundef nonnull %144, i32 noundef %.078.i) #12
+  %148 = icmp eq i32 %147, 0
+  br i1 %148, label %149, label %.thread7.i
 
-150:                                              ; preds = %147
-  %151 = zext nneg i32 %.078.i to i64
-  %152 = getelementptr inbounds nuw i8, ptr %145, i64 %151
-  br label %153
+149:                                              ; preds = %146
+  %150 = zext nneg i32 %.078.i to i64
+  %151 = getelementptr inbounds nuw i8, ptr %144, i64 %150
+  br label %152
 
-153:                                              ; preds = %150, %142
-  %.077.ph.i = phi ptr [ %145, %142 ], [ %152, %150 ]
-  %154 = ptrtoint ptr %.077.ph.i to i64
-  %155 = sub i64 %154, %146
-  %156 = trunc i64 %155 to i32
-  %157 = sext i32 %136 to i64
-  %158 = getelementptr inbounds i8, ptr %.075.i, i64 %157
-  %159 = tail call i32 @wc_Hash(i32 noundef %7, ptr noundef nonnull %140, i32 noundef %156, ptr noundef %158, i32 noundef %1) #12
-  %160 = icmp eq i32 %159, 0
-  br i1 %160, label %161, label %.thread7.i
+152:                                              ; preds = %149, %141
+  %.077.ph.i = phi ptr [ %144, %141 ], [ %151, %149 ]
+  %153 = ptrtoint ptr %.077.ph.i to i64
+  %154 = sub i64 %153, %145
+  %155 = trunc i64 %154 to i32
+  %156 = sext i32 %135 to i64
+  %157 = getelementptr inbounds i8, ptr %.075.i, i64 %156
+  %158 = tail call i32 @wc_Hash(i32 noundef %7, ptr noundef nonnull %139, i32 noundef %155, ptr noundef %157, i32 noundef %1) #12
+  %159 = icmp eq i32 %158, 0
+  br i1 %159, label %160, label %.thread7.i
 
-161:                                              ; preds = %153
-  %162 = zext i32 %135 to i64
-  %163 = getelementptr inbounds nuw i8, ptr %.075.i, i64 %162
-  store i8 -68, ptr %163, align 1, !tbaa !20
-  %164 = tail call fastcc i32 @RsaMGF(i32 noundef %8, ptr noundef %158, i32 noundef %1, ptr noundef %.075.i, i32 noundef %136)
-  %165 = icmp eq i32 %164, 0
-  br i1 %165, label %166, label %.thread7.i
+160:                                              ; preds = %152
+  %161 = zext i32 %134 to i64
+  %162 = getelementptr inbounds nuw i8, ptr %.075.i, i64 %161
+  store i8 -68, ptr %162, align 1, !tbaa !20
+  %163 = tail call fastcc i32 @RsaMGF(i32 noundef %8, ptr noundef %157, i32 noundef %1, ptr noundef %.075.i, i32 noundef %135)
+  %164 = icmp eq i32 %163, 0
+  br i1 %164, label %165, label %.thread7.i
 
-166:                                              ; preds = %161
-  br i1 %119, label %172, label %167
+165:                                              ; preds = %160
+  br i1 %118, label %171, label %166
 
-167:                                              ; preds = %166
+166:                                              ; preds = %165
   %notmask.i = shl nsw i32 -1, %117
-  %168 = load i8, ptr %.075.i, align 1, !tbaa !20
-  %169 = trunc nsw i32 %notmask.i to i8
-  %170 = xor i8 %169, -1
-  %171 = and i8 %168, %170
-  store i8 %171, ptr %.075.i, align 1, !tbaa !20
-  br label %172
+  %167 = load i8, ptr %.075.i, align 1, !tbaa !20
+  %168 = trunc nsw i32 %notmask.i to i8
+  %169 = xor i8 %168, -1
+  %170 = and i8 %167, %169
+  store i8 %170, ptr %.075.i, align 1, !tbaa !20
+  br label %171
 
-172:                                              ; preds = %167, %166
-  %173 = zext nneg i32 %.078.i to i64
-  %174 = sub nsw i64 0, %173
-  %175 = getelementptr inbounds i8, ptr %158, i64 %174
-  %176 = getelementptr inbounds i8, ptr %175, i64 -1
-  %177 = load i8, ptr %176, align 1, !tbaa !20
-  %178 = xor i8 %177, 1
-  store i8 %178, ptr %176, align 1, !tbaa !20
-  %179 = sext i32 %137 to i64
-  %180 = getelementptr inbounds i8, ptr %140, i64 %179
-  tail call fastcc void @xorbuf(ptr noundef %175, ptr noundef nonnull %180, i32 noundef %.078.i)
+171:                                              ; preds = %166, %165
+  %172 = zext nneg i32 %.078.i to i64
+  %173 = sub nsw i64 0, %172
+  %174 = getelementptr inbounds i8, ptr %157, i64 %173
+  %175 = getelementptr inbounds i8, ptr %174, i64 -1
+  %176 = load i8, ptr %175, align 1, !tbaa !20
+  %177 = xor i8 %176, 1
+  store i8 %177, ptr %175, align 1, !tbaa !20
+  %178 = sext i32 %136 to i64
+  %179 = getelementptr inbounds i8, ptr %139, i64 %178
+  tail call fastcc void @xorbuf(ptr noundef %174, ptr noundef nonnull %179, i32 noundef %.078.i)
   br label %.thread7.i
 
-.thread7.i:                                       ; preds = %172, %161, %153, %147
-  %.29.i = phi i32 [ %164, %161 ], [ 0, %172 ], [ %159, %153 ], [ %148, %147 ]
-  tail call void @wolfSSL_Free(ptr noundef nonnull %140) #12
+.thread7.i:                                       ; preds = %171, %160, %152, %146
+  %.29.i = phi i32 [ %163, %160 ], [ 0, %171 ], [ %158, %152 ], [ %147, %146 ]
+  tail call void @wolfSSL_Free(ptr noundef nonnull %139) #12
   br label %RsaPad.exit
 
-RsaPad.exit:                                      ; preds = %.thread7.i, %134, %130, %128, %114, %111, %109, %.loopexit.i, %34, %23, %18, %14, %RsaPad_OAEP.exit
-  %.0 = phi i32 [ -201, %23 ], [ -201, %14 ], [ %.0.i, %RsaPad_OAEP.exit ], [ %38, %34 ], [ -173, %18 ], [ 0, %.loopexit.i ], [ -173, %114 ], [ -125, %109 ], [ %112, %111 ], [ -250, %128 ], [ -250, %130 ], [ %.29.i, %.thread7.i ], [ -125, %134 ]
+RsaPad.exit:                                      ; preds = %.thread7.i, %133, %129, %127, %114, %111, %109, %.loopexit.i, %34, %23, %18, %14, %RsaPad_OAEP.exit
+  %.0 = phi i32 [ -201, %23 ], [ -201, %14 ], [ %.0.i, %RsaPad_OAEP.exit ], [ %38, %34 ], [ -173, %18 ], [ 0, %.loopexit.i ], [ -173, %114 ], [ -125, %109 ], [ %112, %111 ], [ -250, %127 ], [ -250, %129 ], [ %.29.i, %.thread7.i ], [ -125, %133 ]
   ret i32 %.0
 }
 
@@ -1155,131 +1154,130 @@ RsaUnPad_OAEP.exit:                               ; preds = %.lr.ph35.i.i, %73, 
   br i1 %.not.i28, label %210, label %RsaUnPad.exit
 
 210:                                              ; preds = %203
-  %211 = and i32 %10, 7
-  %212 = icmp eq i32 %211, 1
-  %213 = sext i1 %212 to i32
-  %.075.idx.i = zext i1 %212 to i64
+  %211 = icmp eq i32 %205, 0
+  %212 = sext i1 %211 to i32
+  %.075.idx.i = zext i1 %211 to i64
   %.075.i = getelementptr inbounds nuw i8, ptr %0, i64 %.075.idx.i
   %.076.i = add i32 %1, -1
-  %214 = add i32 %.076.i, %213
-  %215 = sub nsw i32 %214, %201
-  %216 = icmp slt i32 %215, 0
-  br i1 %216, label %RsaUnPad.exit, label %217
+  %213 = add i32 %.076.i, %212
+  %214 = sub nsw i32 %213, %201
+  %215 = icmp slt i32 %214, 0
+  br i1 %215, label %RsaUnPad.exit, label %216
 
-217:                                              ; preds = %210
-  %218 = icmp eq i32 %9, -1
-  br i1 %218, label %219, label %222
+216:                                              ; preds = %210
+  %217 = icmp eq i32 %9, -1
+  br i1 %217, label %218, label %221
 
-219:                                              ; preds = %217
-  %220 = icmp eq i32 %10, 1024
-  %221 = icmp eq i32 %201, 64
-  %or.cond.i35 = and i1 %220, %221
+218:                                              ; preds = %216
+  %219 = icmp eq i32 %10, 1024
+  %220 = icmp eq i32 %201, 64
+  %or.cond.i35 = and i1 %219, %220
   %spec.store.select.i = select i1 %or.cond.i35, i32 62, i32 %201
-  br label %224
+  br label %223
 
-222:                                              ; preds = %217
-  %223 = icmp slt i32 %9, -1
-  br i1 %223, label %RsaUnPad.exit, label %224
+221:                                              ; preds = %216
+  %222 = icmp slt i32 %9, -1
+  br i1 %222, label %RsaUnPad.exit, label %223
 
-224:                                              ; preds = %222, %219
-  %.077.i = phi i32 [ %spec.store.select.i, %219 ], [ %9, %222 ]
-  %.not84.i = icmp samesign ugt i32 %215, %.077.i
-  br i1 %.not84.i, label %225, label %RsaUnPad.exit
+223:                                              ; preds = %221, %218
+  %.077.i = phi i32 [ %spec.store.select.i, %218 ], [ %9, %221 ]
+  %.not84.i = icmp samesign ugt i32 %214, %.077.i
+  br i1 %.not84.i, label %224, label %RsaUnPad.exit
 
-225:                                              ; preds = %224
-  %226 = zext i32 %214 to i64
-  %227 = getelementptr inbounds nuw i8, ptr %.075.i, i64 %226
-  %228 = load i8, ptr %227, align 1, !tbaa !20
-  %.not85.i = icmp eq i8 %228, -68
-  br i1 %.not85.i, label %229, label %RsaUnPad.exit
+224:                                              ; preds = %223
+  %225 = zext i32 %213 to i64
+  %226 = getelementptr inbounds nuw i8, ptr %.075.i, i64 %225
+  %227 = load i8, ptr %226, align 1, !tbaa !20
+  %.not85.i = icmp eq i8 %227, -68
+  br i1 %.not85.i, label %228, label %RsaUnPad.exit
 
-229:                                              ; preds = %225
-  %230 = zext nneg i32 %215 to i64
-  %231 = tail call ptr @wolfSSL_Malloc(i64 noundef %230) #12
-  %232 = icmp eq ptr %231, null
-  br i1 %232, label %RsaUnPad.exit, label %233
+228:                                              ; preds = %224
+  %229 = zext nneg i32 %214 to i64
+  %230 = tail call ptr @wolfSSL_Malloc(i64 noundef %229) #12
+  %231 = icmp eq ptr %230, null
+  br i1 %231, label %RsaUnPad.exit, label %232
 
-233:                                              ; preds = %229
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %231, i8 0, i64 %230, i1 false)
-  %234 = getelementptr inbounds nuw i8, ptr %.075.i, i64 %230
-  %235 = tail call fastcc i32 @RsaMGF(i32 noundef %6, ptr noundef nonnull %234, i32 noundef %201, ptr noundef nonnull %231, i32 noundef %215)
-  %.not86.i = icmp eq i32 %235, 0
-  br i1 %.not86.i, label %237, label %236
+232:                                              ; preds = %228
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %230, i8 0, i64 %229, i1 false)
+  %233 = getelementptr inbounds nuw i8, ptr %.075.i, i64 %229
+  %234 = tail call fastcc i32 @RsaMGF(i32 noundef %6, ptr noundef nonnull %233, i32 noundef %201, ptr noundef nonnull %230, i32 noundef %214)
+  %.not86.i = icmp eq i32 %234, 0
+  br i1 %.not86.i, label %236, label %235
 
-236:                                              ; preds = %233
-  tail call void @wolfSSL_Free(ptr noundef nonnull %231) #12
+235:                                              ; preds = %232
+  tail call void @wolfSSL_Free(ptr noundef nonnull %230) #12
   br label %RsaUnPad.exit
 
-237:                                              ; preds = %233
+236:                                              ; preds = %232
   %notmask.i = shl nsw i32 -1, %205
-  %238 = load i8, ptr %231, align 1, !tbaa !20
-  %239 = trunc nsw i32 %notmask.i to i8
-  %240 = xor i8 %239, -1
-  %241 = and i8 %238, %240
-  store i8 %241, ptr %231, align 1, !tbaa !20
-  %242 = load i8, ptr %.075.i, align 1, !tbaa !20
-  %243 = and i8 %242, %240
-  store i8 %243, ptr %.075.i, align 1, !tbaa !20
-  %244 = xor i32 %.077.i, -1
-  %245 = add nsw i32 %215, %244
-  %246 = icmp sgt i32 %245, 0
-  br i1 %246, label %.lr.ph.preheader.i30, label %._crit_edge.i29
+  %237 = load i8, ptr %230, align 1, !tbaa !20
+  %238 = trunc nsw i32 %notmask.i to i8
+  %239 = xor i8 %238, -1
+  %240 = and i8 %237, %239
+  store i8 %240, ptr %230, align 1, !tbaa !20
+  %241 = load i8, ptr %.075.i, align 1, !tbaa !20
+  %242 = and i8 %241, %239
+  store i8 %242, ptr %.075.i, align 1, !tbaa !20
+  %243 = xor i32 %.077.i, -1
+  %244 = add nsw i32 %214, %243
+  %245 = icmp sgt i32 %244, 0
+  br i1 %245, label %.lr.ph.preheader.i30, label %._crit_edge.i29
 
-.lr.ph.preheader.i30:                             ; preds = %237
-  %247 = zext nneg i32 %245 to i64
+.lr.ph.preheader.i30:                             ; preds = %236
+  %246 = zext nneg i32 %244 to i64
   br label %.lr.ph.i31
 
-.lr.ph.i31:                                       ; preds = %253, %.lr.ph.preheader.i30
-  %indvars.iv.i32 = phi i64 [ 0, %.lr.ph.preheader.i30 ], [ %indvars.iv.next.i33, %253 ]
-  %248 = getelementptr inbounds nuw i8, ptr %231, i64 %indvars.iv.i32
-  %249 = load i8, ptr %248, align 1, !tbaa !20
-  %250 = getelementptr inbounds nuw i8, ptr %.075.i, i64 %indvars.iv.i32
-  %251 = load i8, ptr %250, align 1, !tbaa !20
-  %.not88.i = icmp eq i8 %249, %251
-  br i1 %.not88.i, label %253, label %252
+.lr.ph.i31:                                       ; preds = %252, %.lr.ph.preheader.i30
+  %indvars.iv.i32 = phi i64 [ 0, %.lr.ph.preheader.i30 ], [ %indvars.iv.next.i33, %252 ]
+  %247 = getelementptr inbounds nuw i8, ptr %230, i64 %indvars.iv.i32
+  %248 = load i8, ptr %247, align 1, !tbaa !20
+  %249 = getelementptr inbounds nuw i8, ptr %.075.i, i64 %indvars.iv.i32
+  %250 = load i8, ptr %249, align 1, !tbaa !20
+  %.not88.i = icmp eq i8 %248, %250
+  br i1 %.not88.i, label %252, label %251
 
-252:                                              ; preds = %.lr.ph.i31
-  tail call void @wolfSSL_Free(ptr noundef nonnull %231) #12
+251:                                              ; preds = %.lr.ph.i31
+  tail call void @wolfSSL_Free(ptr noundef nonnull %230) #12
   br label %RsaUnPad.exit
 
-253:                                              ; preds = %.lr.ph.i31
+252:                                              ; preds = %.lr.ph.i31
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i32, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i33, %247
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i33, %246
   br i1 %exitcond.not, label %._crit_edge.loopexit.i34, label %.lr.ph.i31, !llvm.loop !37
 
-._crit_edge.loopexit.i34:                         ; preds = %253
-  %.phi.trans.insert4.i = getelementptr inbounds nuw i8, ptr %.075.i, i64 %247
+._crit_edge.loopexit.i34:                         ; preds = %252
+  %.phi.trans.insert4.i = getelementptr inbounds nuw i8, ptr %.075.i, i64 %246
   %.pre.i = load i8, ptr %.phi.trans.insert4.i, align 1, !tbaa !20
   br label %._crit_edge.i29
 
-._crit_edge.i29:                                  ; preds = %237, %._crit_edge.loopexit.i34
-  %254 = phi i8 [ %.pre.i, %._crit_edge.loopexit.i34 ], [ %243, %237 ]
-  %.078.lcssa.i = phi i32 [ %245, %._crit_edge.loopexit.i34 ], [ 0, %237 ]
-  %255 = zext nneg i32 %.078.lcssa.i to i64
-  %256 = getelementptr inbounds nuw i8, ptr %231, i64 %255
-  %257 = load i8, ptr %256, align 1, !tbaa !20
-  %258 = xor i8 %257, %254
-  %.not87.i = icmp eq i8 %258, 1
-  br i1 %.not87.i, label %260, label %259
+._crit_edge.i29:                                  ; preds = %236, %._crit_edge.loopexit.i34
+  %253 = phi i8 [ %.pre.i, %._crit_edge.loopexit.i34 ], [ %242, %236 ]
+  %.078.lcssa.i = phi i32 [ %244, %._crit_edge.loopexit.i34 ], [ 0, %236 ]
+  %254 = zext nneg i32 %.078.lcssa.i to i64
+  %255 = getelementptr inbounds nuw i8, ptr %230, i64 %254
+  %256 = load i8, ptr %255, align 1, !tbaa !20
+  %257 = xor i8 %256, %253
+  %.not87.i = icmp eq i8 %257, 1
+  br i1 %.not87.i, label %259, label %258
+
+258:                                              ; preds = %._crit_edge.i29
+  tail call void @wolfSSL_Free(ptr noundef nonnull %230) #12
+  br label %RsaUnPad.exit
 
 259:                                              ; preds = %._crit_edge.i29
-  tail call void @wolfSSL_Free(ptr noundef nonnull %231) #12
+  %260 = getelementptr inbounds nuw i8, ptr %.075.i, i64 %254
+  %261 = sub nsw i32 %214, %.078.lcssa.i
+  tail call fastcc void @xorbuf(ptr noundef nonnull %260, ptr noundef nonnull %255, i32 noundef %261)
+  tail call void @wolfSSL_Free(ptr noundef nonnull %230) #12
+  %262 = zext nneg i32 %.077.i to i64
+  %263 = sub nsw i64 0, %262
+  %264 = getelementptr inbounds i8, ptr %233, i64 %263
+  store ptr %264, ptr %2, align 8, !tbaa !30
+  %265 = add nuw nsw i32 %.077.i, %201
   br label %RsaUnPad.exit
 
-260:                                              ; preds = %._crit_edge.i29
-  %261 = getelementptr inbounds nuw i8, ptr %.075.i, i64 %255
-  %262 = sub nsw i32 %215, %.078.lcssa.i
-  tail call fastcc void @xorbuf(ptr noundef nonnull %261, ptr noundef nonnull %256, i32 noundef %262)
-  tail call void @wolfSSL_Free(ptr noundef nonnull %231) #12
-  %263 = zext nneg i32 %.077.i to i64
-  %264 = sub nsw i64 0, %263
-  %265 = getelementptr inbounds i8, ptr %234, i64 %264
-  store ptr %265, ptr %2, align 8, !tbaa !30
-  %266 = add nuw nsw i32 %.077.i, %201
-  br label %RsaUnPad.exit
-
-RsaUnPad.exit:                                    ; preds = %260, %259, %252, %236, %229, %225, %224, %222, %210, %203, %200, %._crit_edge.i, %39, %34, %.split.loop.exit103, %25, %23, %15, %12, %RsaUnPad_OAEP.exit
-  %.0 = phi i32 [ %72, %._crit_edge.i ], [ -201, %12 ], [ %.069.i, %RsaUnPad_OAEP.exit ], [ -201, %34 ], [ -173, %15 ], [ -201, %25 ], [ -201, %23 ], [ -201, %.split.loop.exit103 ], [ %40, %39 ], [ -234, %210 ], [ %201, %200 ], [ -193, %203 ], [ -250, %222 ], [ -250, %224 ], [ -193, %225 ], [ %235, %236 ], [ -250, %252 ], [ -250, %259 ], [ %266, %260 ], [ -125, %229 ]
+RsaUnPad.exit:                                    ; preds = %259, %258, %251, %235, %228, %224, %223, %221, %210, %203, %200, %._crit_edge.i, %39, %34, %.split.loop.exit103, %25, %23, %15, %12, %RsaUnPad_OAEP.exit
+  %.0 = phi i32 [ %72, %._crit_edge.i ], [ -201, %12 ], [ %.069.i, %RsaUnPad_OAEP.exit ], [ -201, %34 ], [ -173, %15 ], [ -201, %25 ], [ -201, %23 ], [ -201, %.split.loop.exit103 ], [ %40, %39 ], [ -234, %210 ], [ %201, %200 ], [ -193, %203 ], [ -250, %221 ], [ -250, %223 ], [ -193, %224 ], [ %234, %235 ], [ -250, %251 ], [ -250, %258 ], [ %265, %259 ], [ -125, %228 ]
   ret i32 %.0
 }
 

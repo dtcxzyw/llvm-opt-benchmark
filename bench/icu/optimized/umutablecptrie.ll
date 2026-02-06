@@ -3928,7 +3928,7 @@ default.unreachable:                              ; preds = %.loopexit136.i, %10
   store i32 %.pre242.i, ptr %1047, align 4, !tbaa !25
   %1048 = add nuw nsw i32 %.095175.i, 1
   %1049 = and i32 %1048, 3
-  %.not104.i = icmp eq i32 %.095175.i, 1
+  %.not104.i = icmp eq i32 %1049, 2
   br i1 %.not104.i, label %._crit_edge.loopexit.i, label %1043, !llvm.loop !91
 
 ._crit_edge.loopexit.i:                           ; preds = %1043

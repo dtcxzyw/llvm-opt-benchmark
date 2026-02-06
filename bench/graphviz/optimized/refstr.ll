@@ -405,65 +405,64 @@ strdict_find.exit:                                ; preds = %refstr_eq.exit.i
   %43 = and i64 %33, -9223372036854775808
   %44 = or disjoint i64 %42, %43
   store i64 %44, ptr %31, align 8
-  %45 = and i64 %33, 9223372036854775807
-  %46 = icmp eq i64 %45, 1
-  br i1 %46, label %47, label %strdict_remove.exit
+  %45 = icmp eq i64 %42, 0
+  br i1 %45, label %46, label %strdict_remove.exit
 
-47:                                               ; preds = %40
-  %48 = icmp slt i64 %33, 0
-  %49 = tail call fastcc i64 @strdict_hash(ptr noundef nonnull readonly %35, i1 noundef zeroext %48)
-  %50 = load ptr, ptr %19, align 8, !tbaa !23
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %strdict_remove.exit, label %.lr.ph.i16
+46:                                               ; preds = %40
+  %47 = icmp slt i64 %33, 0
+  %48 = tail call fastcc i64 @strdict_hash(ptr noundef nonnull readonly %35, i1 noundef zeroext %47)
+  %49 = load ptr, ptr %19, align 8, !tbaa !23
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %strdict_remove.exit, label %.lr.ph.i16
 
-.lr.ph.i16:                                       ; preds = %47
-  %52 = load i64, ptr %23, align 8, !tbaa !25
-  %53 = shl nuw i64 1, %52
-  %54 = add i64 %53, -1
-  br label %55
+.lr.ph.i16:                                       ; preds = %46
+  %51 = load i64, ptr %23, align 8, !tbaa !25
+  %52 = shl nuw i64 1, %51
+  %53 = add i64 %52, -1
+  br label %54
 
-55:                                               ; preds = %refstr_eq.exit.thread.i18, %.lr.ph.i16
-  %.030.i = phi i64 [ 0, %.lr.ph.i16 ], [ %72, %refstr_eq.exit.thread.i18 ]
-  %56 = add i64 %.030.i, %49
-  %57 = and i64 %56, %54
-  %58 = getelementptr inbounds nuw ptr, ptr %50, i64 %57
-  %59 = load ptr, ptr %58, align 8, !tbaa !20
-  %magicptr.i17 = ptrtoint ptr %59 to i64
-  switch i64 %magicptr.i17, label %60 [
+54:                                               ; preds = %refstr_eq.exit.thread.i18, %.lr.ph.i16
+  %.030.i = phi i64 [ 0, %.lr.ph.i16 ], [ %71, %refstr_eq.exit.thread.i18 ]
+  %55 = add i64 %.030.i, %48
+  %56 = and i64 %55, %53
+  %57 = getelementptr inbounds nuw ptr, ptr %49, i64 %56
+  %58 = load ptr, ptr %57, align 8, !tbaa !20
+  %magicptr.i17 = ptrtoint ptr %58 to i64
+  switch i64 %magicptr.i17, label %59 [
     i64 0, label %strdict_remove.exit
     i64 -1, label %refstr_eq.exit.thread.i18
   ]
 
-60:                                               ; preds = %55
-  %61 = load i64, ptr %59, align 8
-  %62 = xor i64 %61, %33
-  %.not4.i.i20 = icmp sgt i64 %62, -1
+59:                                               ; preds = %54
+  %60 = load i64, ptr %58, align 8
+  %61 = xor i64 %60, %33
+  %.not4.i.i20 = icmp sgt i64 %61, -1
   br i1 %.not4.i.i20, label %refstr_eq.exit.i21, label %refstr_eq.exit.thread.i18
 
-refstr_eq.exit.i21:                               ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  %64 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %35, ptr noundef nonnull readonly dereferenceable(1) %63) #19
-  %65 = icmp eq i32 %64, 0
-  br i1 %65, label %66, label %refstr_eq.exit.thread.i18
+refstr_eq.exit.i21:                               ; preds = %59
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %63 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %35, ptr noundef nonnull readonly dereferenceable(1) %62) #19
+  %64 = icmp eq i32 %63, 0
+  br i1 %64, label %65, label %refstr_eq.exit.thread.i18
 
-66:                                               ; preds = %refstr_eq.exit.i21
-  tail call void @free(ptr noundef nonnull %59) #18
-  %67 = load ptr, ptr %19, align 8, !tbaa !23
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %57
-  store ptr inttoptr (i64 -1 to ptr), ptr %68, align 8, !tbaa !20
-  %69 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %70 = load i64, ptr %69, align 8, !tbaa !29
-  %71 = add i64 %70, -1
-  store i64 %71, ptr %69, align 8, !tbaa !29
+65:                                               ; preds = %refstr_eq.exit.i21
+  tail call void @free(ptr noundef nonnull %58) #18
+  %66 = load ptr, ptr %19, align 8, !tbaa !23
+  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %56
+  store ptr inttoptr (i64 -1 to ptr), ptr %67, align 8, !tbaa !20
+  %68 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %69 = load i64, ptr %68, align 8, !tbaa !29
+  %70 = add i64 %69, -1
+  store i64 %70, ptr %68, align 8, !tbaa !29
   br label %strdict_remove.exit
 
-refstr_eq.exit.thread.i18:                        ; preds = %refstr_eq.exit.i21, %60, %55
-  %72 = add nuw i64 %.030.i, 1
-  %exitcond.not.i19 = icmp eq i64 %72, %53
-  br i1 %exitcond.not.i19, label %strdict_remove.exit, label %55, !llvm.loop !30
+refstr_eq.exit.thread.i18:                        ; preds = %refstr_eq.exit.i21, %59, %54
+  %71 = add nuw i64 %.030.i, 1
+  %exitcond.not.i19 = icmp eq i64 %71, %52
+  br i1 %exitcond.not.i19, label %strdict_remove.exit, label %54, !llvm.loop !30
 
-strdict_remove.exit:                              ; preds = %refstr_eq.exit.thread.i, %27, %55, %refstr_eq.exit.thread.i18, %strdict_find.exit, %40, %47, %66, %refdict.exit, %3
-  %.0 = phi i32 [ -1, %3 ], [ -1, %refdict.exit ], [ 0, %40 ], [ 0, %strdict_find.exit ], [ 0, %47 ], [ 0, %55 ], [ 0, %66 ], [ 0, %refstr_eq.exit.thread.i18 ], [ -1, %27 ], [ -1, %refstr_eq.exit.thread.i ]
+strdict_remove.exit:                              ; preds = %refstr_eq.exit.thread.i, %27, %54, %refstr_eq.exit.thread.i18, %strdict_find.exit, %40, %46, %65, %refdict.exit, %3
+  %.0 = phi i32 [ -1, %3 ], [ -1, %refdict.exit ], [ 0, %40 ], [ 0, %strdict_find.exit ], [ 0, %46 ], [ 0, %54 ], [ 0, %65 ], [ 0, %refstr_eq.exit.thread.i18 ], [ -1, %27 ], [ -1, %refstr_eq.exit.thread.i ]
   ret i32 %.0
 }
 

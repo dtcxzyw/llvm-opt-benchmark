@@ -39,14 +39,14 @@ define range(i32 0, 2) i32 @ossl_rsa_verify_PKCS1_PSS_mgf1(ptr noundef %0, ptr n
   %9 = tail call ptr @EVP_MD_CTX_new() #10
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %106, label %11
+  br i1 %10, label %105, label %11
 
 11:                                               ; preds = %6
   %12 = icmp eq ptr %3, null
   %spec.select = select i1 %12, ptr %2, ptr %3
   %13 = tail call i32 @EVP_MD_get_size(ptr noundef %2) #10
   %14 = icmp slt i32 %13, 1
-  br i1 %14, label %106, label %15
+  br i1 %14, label %105, label %15
 
 15:                                               ; preds = %11
   %16 = icmp eq i32 %8, -1
@@ -60,7 +60,7 @@ define range(i32 0, 2) i32 @ossl_rsa_verify_PKCS1_PSS_mgf1(ptr noundef %0, ptr n
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 78, ptr noundef nonnull @__func__.ossl_rsa_verify_PKCS1_PSS_mgf1) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 136, ptr noundef null) #10
-  br label %106
+  br label %105
 
 20:                                               ; preds = %15, %17
   %.089 = phi i32 [ %8, %17 ], [ %13, %15 ]
@@ -81,195 +81,194 @@ define range(i32 0, 2) i32 @ossl_rsa_verify_PKCS1_PSS_mgf1(ptr noundef %0, ptr n
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @__func__.ossl_rsa_verify_PKCS1_PSS_mgf1) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 133, ptr noundef null) #10
-  br label %106
+  br label %105
 
 32:                                               ; preds = %20
-  %33 = and i32 %23, 7
-  %34 = icmp eq i32 %33, 1
-  %35 = sext i1 %34 to i32
-  %.085 = add nsw i32 %26, %35
-  %.084.idx = zext i1 %34 to i64
+  %33 = icmp eq i32 %25, 0
+  %34 = sext i1 %33 to i32
+  %.085 = add nsw i32 %26, %34
+  %.084.idx = zext i1 %33 to i64
   %.084 = getelementptr inbounds nuw i8, ptr %4, i64 %.084.idx
-  %36 = add nuw nsw i32 %13, 2
-  %37 = icmp slt i32 %.085, %36
-  br i1 %37, label %38, label %39
+  %35 = add nuw nsw i32 %13, 2
+  %36 = icmp slt i32 %.085, %35
+  br i1 %36, label %37, label %38
 
-38:                                               ; preds = %32
+37:                                               ; preds = %32
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 93, ptr noundef nonnull @__func__.ossl_rsa_verify_PKCS1_PSS_mgf1) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 109, ptr noundef null) #10
-  br label %106
+  br label %105
 
-39:                                               ; preds = %32
-  %40 = icmp eq i32 %.089, -3
+38:                                               ; preds = %32
+  %39 = icmp eq i32 %.089, -3
   %reass.sub113 = sub nsw i32 %.085, %13
-  %41 = add nsw i32 %reass.sub113, -2
-  br i1 %40, label %45, label %42
+  %40 = add nsw i32 %reass.sub113, -2
+  br i1 %39, label %44, label %41
 
-42:                                               ; preds = %39
-  %43 = icmp sgt i32 %.089, %41
-  br i1 %43, label %44, label %45
+41:                                               ; preds = %38
+  %42 = icmp sgt i32 %.089, %40
+  br i1 %42, label %43, label %44
 
-44:                                               ; preds = %42
+43:                                               ; preds = %41
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 99, ptr noundef nonnull @__func__.ossl_rsa_verify_PKCS1_PSS_mgf1) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 109, ptr noundef null) #10
-  br label %106
+  br label %105
 
-45:                                               ; preds = %39, %42
-  %.190 = phi i32 [ %.089, %42 ], [ %41, %39 ]
-  %46 = zext nneg i32 %.085 to i64
-  %47 = getelementptr i8, ptr %.084, i64 %46
-  %48 = getelementptr i8, ptr %47, i64 -1
-  %49 = load i8, ptr %48, align 1, !tbaa !23
-  %.not101 = icmp eq i8 %49, -68
-  br i1 %.not101, label %51, label %50
+44:                                               ; preds = %38, %41
+  %.190 = phi i32 [ %.089, %41 ], [ %40, %38 ]
+  %45 = zext nneg i32 %.085 to i64
+  %46 = getelementptr i8, ptr %.084, i64 %45
+  %47 = getelementptr i8, ptr %46, i64 -1
+  %48 = load i8, ptr %47, align 1, !tbaa !23
+  %.not101 = icmp eq i8 %48, -68
+  br i1 %.not101, label %50, label %49
 
-50:                                               ; preds = %45
+49:                                               ; preds = %44
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 103, ptr noundef nonnull @__func__.ossl_rsa_verify_PKCS1_PSS_mgf1) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 134, ptr noundef null) #10
-  br label %106
+  br label %105
 
-51:                                               ; preds = %45
-  %52 = xor i32 %13, -1
-  %53 = add nsw i32 %.085, %52
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i8, ptr %.084, i64 %54
-  %56 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %54, ptr noundef nonnull @.str, i32 noundef 108) #10
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %106, label %58
+50:                                               ; preds = %44
+  %51 = xor i32 %13, -1
+  %52 = add nsw i32 %.085, %51
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %.084, i64 %53
+  %55 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %53, ptr noundef nonnull @.str, i32 noundef 108) #10
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %105, label %57
 
-58:                                               ; preds = %51
-  %59 = zext nneg i32 %13 to i64
-  %60 = tail call i32 @PKCS1_MGF1(ptr noundef nonnull %56, i64 noundef %54, ptr noundef nonnull %55, i64 noundef %59, ptr noundef %spec.select) #10
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %106, label %.preheader
+57:                                               ; preds = %50
+  %58 = zext nneg i32 %13 to i64
+  %59 = tail call i32 @PKCS1_MGF1(ptr noundef nonnull %55, i64 noundef %53, ptr noundef nonnull %54, i64 noundef %58, ptr noundef %spec.select) #10
+  %60 = icmp slt i32 %59, 0
+  br i1 %60, label %105, label %.preheader
 
-.preheader:                                       ; preds = %58
-  %62 = icmp sgt i32 %53, 0
-  br i1 %62, label %.lr.ph.preheader, label %._crit_edge
+.preheader:                                       ; preds = %57
+  %61 = icmp sgt i32 %52, 0
+  br i1 %61, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %53 to i64
+  %wide.trip.count = zext nneg i32 %52 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %63 = getelementptr inbounds nuw i8, ptr %.084, i64 %indvars.iv
-  %64 = load i8, ptr %63, align 1, !tbaa !23
-  %65 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv
-  %66 = load i8, ptr %65, align 1, !tbaa !23
-  %67 = xor i8 %66, %64
-  store i8 %67, ptr %65, align 1, !tbaa !23
+  %62 = getelementptr inbounds nuw i8, ptr %.084, i64 %indvars.iv
+  %63 = load i8, ptr %62, align 1, !tbaa !23
+  %64 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv
+  %65 = load i8, ptr %64, align 1, !tbaa !23
+  %66 = xor i8 %65, %63
+  store i8 %66, ptr %64, align 1, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !24
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
-  br i1 %34, label %74, label %68
+  br i1 %33, label %73, label %67
 
-68:                                               ; preds = %._crit_edge
-  %69 = sub nuw nsw i32 8, %25
-  %70 = lshr i32 255, %69
-  %71 = load i8, ptr %56, align 1, !tbaa !23
-  %72 = trunc nuw nsw i32 %70 to i8
-  %73 = and i8 %71, %72
-  store i8 %73, ptr %56, align 1, !tbaa !23
-  br label %74
+67:                                               ; preds = %._crit_edge
+  %68 = sub nuw nsw i32 8, %25
+  %69 = lshr i32 255, %68
+  %70 = load i8, ptr %55, align 1, !tbaa !23
+  %71 = trunc nuw nsw i32 %69 to i8
+  %72 = and i8 %70, %71
+  store i8 %72, ptr %55, align 1, !tbaa !23
+  br label %73
 
-74:                                               ; preds = %68, %._crit_edge
-  %75 = add nsw i32 %53, -1
-  %76 = sext i32 %75 to i64
-  br label %77
+73:                                               ; preds = %67, %._crit_edge
+  %74 = add nsw i32 %52, -1
+  %75 = sext i32 %74 to i64
+  br label %76
 
-77:                                               ; preds = %77, %74
-  %indvars.iv115 = phi i64 [ %indvars.iv.next116, %77 ], [ 0, %74 ]
-  %78 = getelementptr inbounds nuw i8, ptr %56, i64 %indvars.iv115
-  %79 = load i8, ptr %78, align 1, !tbaa !23
-  %80 = icmp eq i8 %79, 0
-  %81 = icmp slt i64 %indvars.iv115, %76
-  %82 = select i1 %80, i1 %81, i1 false
+76:                                               ; preds = %76, %73
+  %indvars.iv115 = phi i64 [ %indvars.iv.next116, %76 ], [ 0, %73 ]
+  %77 = getelementptr inbounds nuw i8, ptr %55, i64 %indvars.iv115
+  %78 = load i8, ptr %77, align 1, !tbaa !23
+  %79 = icmp eq i8 %78, 0
+  %80 = icmp slt i64 %indvars.iv115, %75
+  %81 = select i1 %79, i1 %80, i1 false
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  br i1 %82, label %77, label %83, !llvm.loop !26
+  br i1 %81, label %76, label %82, !llvm.loop !26
 
-83:                                               ; preds = %77
-  %84 = trunc nuw nsw i64 %indvars.iv115 to i32
-  %85 = add nuw nsw i32 %84, 1
-  %.not103 = icmp eq i8 %79, 1
-  br i1 %.not103, label %87, label %86
+82:                                               ; preds = %76
+  %83 = trunc nuw nsw i64 %indvars.iv115 to i32
+  %84 = add nuw nsw i32 %83, 1
+  %.not103 = icmp eq i8 %78, 1
+  br i1 %.not103, label %86, label %85
 
-86:                                               ; preds = %83
+85:                                               ; preds = %82
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 119, ptr noundef nonnull @__func__.ossl_rsa_verify_PKCS1_PSS_mgf1) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 135, ptr noundef null) #10
-  br label %106
+  br label %105
 
-87:                                               ; preds = %83
-  %88 = and i32 %.190, -3
-  %or.cond.not = icmp eq i32 %88, -4
-  %.pre = sub nsw i32 %53, %85
+86:                                               ; preds = %82
+  %87 = and i32 %.190, -3
+  %or.cond.not = icmp eq i32 %87, -4
+  %.pre = sub nsw i32 %52, %84
   %.not104 = icmp eq i32 %.pre, %.190
   %or.cond = select i1 %or.cond.not, i1 true, i1 %.not104
-  br i1 %or.cond, label %._crit_edge118, label %89
+  br i1 %or.cond, label %._crit_edge118, label %88
 
-89:                                               ; preds = %87
+88:                                               ; preds = %86
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 125, ptr noundef nonnull @__func__.ossl_rsa_verify_PKCS1_PSS_mgf1) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 136, ptr noundef nonnull @.str.1, i32 noundef %.190, i32 noundef %.pre) #10
-  br label %106
+  br label %105
 
-._crit_edge118:                                   ; preds = %87
-  %90 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %9, ptr noundef %2, ptr noundef null) #10
-  %.not105 = icmp eq i32 %90, 0
-  br i1 %.not105, label %106, label %91
+._crit_edge118:                                   ; preds = %86
+  %89 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %9, ptr noundef %2, ptr noundef null) #10
+  %.not105 = icmp eq i32 %89, 0
+  br i1 %.not105, label %105, label %90
 
-91:                                               ; preds = %._crit_edge118
-  %92 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %9, ptr noundef nonnull @zeroes, i64 noundef 8) #10
-  %.not106 = icmp eq i32 %92, 0
-  br i1 %.not106, label %106, label %93
+90:                                               ; preds = %._crit_edge118
+  %91 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %9, ptr noundef nonnull @zeroes, i64 noundef 8) #10
+  %.not106 = icmp eq i32 %91, 0
+  br i1 %.not106, label %105, label %92
 
-93:                                               ; preds = %91
-  %94 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %9, ptr noundef %1, i64 noundef %59) #10
-  %.not107 = icmp eq i32 %94, 0
-  br i1 %.not107, label %106, label %95
+92:                                               ; preds = %90
+  %93 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %9, ptr noundef %1, i64 noundef %58) #10
+  %.not107 = icmp eq i32 %93, 0
+  br i1 %.not107, label %105, label %94
 
-95:                                               ; preds = %93
-  %.not108 = icmp eq i32 %53, %85
-  br i1 %.not108, label %101, label %96
+94:                                               ; preds = %92
+  %.not108 = icmp eq i32 %52, %84
+  br i1 %.not108, label %100, label %95
 
-96:                                               ; preds = %95
-  %97 = zext nneg i32 %85 to i64
-  %98 = getelementptr inbounds nuw i8, ptr %56, i64 %97
-  %99 = sext i32 %.pre to i64
-  %100 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %9, ptr noundef nonnull %98, i64 noundef %99) #10
-  %.not109 = icmp eq i32 %100, 0
-  br i1 %.not109, label %106, label %101
+95:                                               ; preds = %94
+  %96 = zext nneg i32 %84 to i64
+  %97 = getelementptr inbounds nuw i8, ptr %55, i64 %96
+  %98 = sext i32 %.pre to i64
+  %99 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %9, ptr noundef nonnull %97, i64 noundef %98) #10
+  %.not109 = icmp eq i32 %99, 0
+  br i1 %.not109, label %105, label %100
 
-101:                                              ; preds = %96, %95
-  %102 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef null) #10
-  %.not110 = icmp eq i32 %102, 0
-  br i1 %.not110, label %106, label %103
+100:                                              ; preds = %95, %94
+  %101 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef null) #10
+  %.not110 = icmp eq i32 %101, 0
+  br i1 %.not110, label %105, label %102
 
-103:                                              ; preds = %101
-  %bcmp = call i32 @bcmp(ptr nonnull %7, ptr nonnull %55, i64 %59)
+102:                                              ; preds = %100
+  %bcmp = call i32 @bcmp(ptr nonnull %7, ptr nonnull %54, i64 %58)
   %.not111 = icmp eq i32 %bcmp, 0
-  br i1 %.not111, label %105, label %104
+  br i1 %.not111, label %104, label %103
 
-104:                                              ; preds = %103
+103:                                              ; preds = %102
   call void @ERR_new() #10
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 143, ptr noundef nonnull @__func__.ossl_rsa_verify_PKCS1_PSS_mgf1) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 104, ptr noundef null) #10
+  br label %104
+
+104:                                              ; preds = %102, %103
+  %.188 = phi i32 [ 0, %103 ], [ 1, %102 ]
+  store i32 %.pre, ptr %5, align 4, !tbaa !3
   br label %105
 
-105:                                              ; preds = %103, %104
-  %.188 = phi i32 [ 0, %104 ], [ 1, %103 ]
-  store i32 %.pre, ptr %5, align 4, !tbaa !3
-  br label %106
-
-106:                                              ; preds = %101, %96, %._crit_edge118, %91, %93, %58, %51, %11, %6, %105, %89, %86, %50, %44, %38, %31, %19
-  %.087 = phi i32 [ 0, %6 ], [ 0, %11 ], [ 0, %31 ], [ 0, %38 ], [ 0, %50 ], [ 0, %51 ], [ 0, %58 ], [ 0, %86 ], [ 0, %89 ], [ %.188, %105 ], [ 0, %101 ], [ 0, %96 ], [ 0, %93 ], [ 0, %91 ], [ 0, %._crit_edge118 ], [ 0, %44 ], [ 0, %19 ]
-  %.083 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %31 ], [ null, %38 ], [ null, %50 ], [ null, %51 ], [ %56, %58 ], [ %56, %86 ], [ %56, %89 ], [ %56, %105 ], [ %56, %101 ], [ %56, %96 ], [ %56, %93 ], [ %56, %91 ], [ %56, %._crit_edge118 ], [ null, %44 ], [ null, %19 ]
+105:                                              ; preds = %100, %95, %._crit_edge118, %90, %92, %57, %50, %11, %6, %104, %88, %85, %49, %43, %37, %31, %19
+  %.087 = phi i32 [ 0, %6 ], [ 0, %11 ], [ 0, %31 ], [ 0, %37 ], [ 0, %49 ], [ 0, %50 ], [ 0, %57 ], [ 0, %85 ], [ 0, %88 ], [ %.188, %104 ], [ 0, %100 ], [ 0, %95 ], [ 0, %92 ], [ 0, %90 ], [ 0, %._crit_edge118 ], [ 0, %43 ], [ 0, %19 ]
+  %.083 = phi ptr [ null, %6 ], [ null, %11 ], [ null, %31 ], [ null, %37 ], [ null, %49 ], [ null, %50 ], [ %55, %57 ], [ %55, %85 ], [ %55, %88 ], [ %55, %104 ], [ %55, %100 ], [ %55, %95 ], [ %55, %92 ], [ %55, %90 ], [ %55, %._crit_edge118 ], [ null, %43 ], [ null, %19 ]
   call void @CRYPTO_free(ptr noundef %.083, ptr noundef nonnull @.str, i32 noundef 151) #10
   call void @EVP_MD_CTX_free(ptr noundef %9) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -329,7 +328,7 @@ define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_PSS_mgf1(ptr noundef %0, 
   %spec.select = select i1 %8, ptr %3, ptr %4
   %9 = tail call i32 @EVP_MD_get_size(ptr noundef %3) #10
   %10 = icmp slt i32 %9, 1
-  br i1 %10, label %102, label %11
+  br i1 %10, label %101, label %11
 
 11:                                               ; preds = %6
   switch i32 %7, label %14 [
@@ -352,7 +351,7 @@ define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_PSS_mgf1(ptr noundef %0, 
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 216, ptr noundef nonnull @__func__.ossl_rsa_padding_add_PKCS1_PSS_mgf1) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 136, ptr noundef null) #10
-  br label %102
+  br label %101
 
 17:                                               ; preds = %11, %12, %14, %13
   %.190 = phi i32 [ %7, %14 ], [ -3, %12 ], [ -3, %13 ], [ %9, %11 ]
@@ -363,172 +362,171 @@ define range(i32 0, 2) i32 @ossl_rsa_padding_add_PKCS1_PSS_mgf1(ptr noundef %0, 
   %21 = add i32 %20, 7
   %22 = and i32 %21, 7
   %23 = tail call i32 @RSA_size(ptr noundef %0) #10
-  %24 = and i32 %20, 7
-  %25 = icmp eq i32 %24, 1
-  br i1 %25, label %26, label %29
+  %24 = icmp eq i32 %22, 0
+  br i1 %24, label %25, label %28
 
-26:                                               ; preds = %17
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 1
+25:                                               ; preds = %17
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 0, ptr %1, align 1, !tbaa !23
-  %28 = add nsw i32 %23, -1
-  br label %29
+  %27 = add nsw i32 %23, -1
+  br label %28
 
-29:                                               ; preds = %26, %17
-  %.085 = phi i32 [ %28, %26 ], [ %23, %17 ]
-  %.084 = phi ptr [ %27, %26 ], [ %1, %17 ]
-  %30 = add nuw nsw i32 %9, 2
-  %31 = icmp slt i32 %.085, %30
-  br i1 %31, label %32, label %33
+28:                                               ; preds = %25, %17
+  %.085 = phi i32 [ %27, %25 ], [ %23, %17 ]
+  %.084 = phi ptr [ %26, %25 ], [ %1, %17 ]
+  %29 = add nuw nsw i32 %9, 2
+  %30 = icmp slt i32 %.085, %29
+  br i1 %30, label %31, label %32
 
-32:                                               ; preds = %29
+31:                                               ; preds = %28
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 227, ptr noundef nonnull @__func__.ossl_rsa_padding_add_PKCS1_PSS_mgf1) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 110, ptr noundef null) #10
-  br label %102
+  br label %101
 
-33:                                               ; preds = %29
-  %34 = icmp eq i32 %.190, -3
-  %35 = sub nsw i32 %.085, %9
-  %36 = add nsw i32 %35, -2
-  br i1 %34, label %37, label %40
+32:                                               ; preds = %28
+  %33 = icmp eq i32 %.190, -3
+  %34 = sub nsw i32 %.085, %9
+  %35 = add nsw i32 %34, -2
+  br i1 %33, label %36, label %39
 
-37:                                               ; preds = %33
-  %38 = tail call i32 @llvm.smin.i32(i32 %36, i32 %.0)
-  %39 = icmp slt i32 %.0, 0
-  %spec.select107 = select i1 %39, i32 %36, i32 %38
-  br label %43
+36:                                               ; preds = %32
+  %37 = tail call i32 @llvm.smin.i32(i32 %35, i32 %.0)
+  %38 = icmp slt i32 %.0, 0
+  %spec.select107 = select i1 %38, i32 %35, i32 %37
+  br label %42
 
-40:                                               ; preds = %33
-  %41 = icmp sgt i32 %.190, %36
-  br i1 %41, label %42, label %43
+39:                                               ; preds = %32
+  %40 = icmp sgt i32 %.190, %35
+  br i1 %40, label %41, label %42
 
-42:                                               ; preds = %40
+41:                                               ; preds = %39
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 235, ptr noundef nonnull @__func__.ossl_rsa_padding_add_PKCS1_PSS_mgf1) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 4, i32 noundef 110, ptr noundef null) #10
-  br label %102
+  br label %101
 
-43:                                               ; preds = %37, %40
-  %.2 = phi i32 [ %spec.select107, %37 ], [ %.190, %40 ]
-  %44 = icmp sgt i32 %.2, 0
-  br i1 %44, label %45, label %54
+42:                                               ; preds = %36, %39
+  %.2 = phi i32 [ %spec.select107, %36 ], [ %.190, %39 ]
+  %43 = icmp sgt i32 %.2, 0
+  br i1 %43, label %44, label %53
 
-45:                                               ; preds = %43
-  %46 = zext nneg i32 %.2 to i64
-  %47 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %46, ptr noundef nonnull @.str, i32 noundef 239) #10
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %102, label %49
+44:                                               ; preds = %42
+  %45 = zext nneg i32 %.2 to i64
+  %46 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %45, ptr noundef nonnull @.str, i32 noundef 239) #10
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %101, label %48
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !27
-  %52 = tail call i32 @RAND_bytes_ex(ptr noundef %51, ptr noundef nonnull %47, i64 noundef %46, i32 noundef 0) #10
-  %53 = icmp slt i32 %52, 1
-  br i1 %53, label %102, label %54
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = load ptr, ptr %49, align 8, !tbaa !27
+  %51 = tail call i32 @RAND_bytes_ex(ptr noundef %50, ptr noundef nonnull %46, i64 noundef %45, i32 noundef 0) #10
+  %52 = icmp slt i32 %51, 1
+  br i1 %52, label %101, label %53
 
-54:                                               ; preds = %49, %43
-  %.1 = phi ptr [ %47, %49 ], [ null, %43 ]
-  %55 = xor i32 %9, -1
-  %56 = add nsw i32 %.085, %55
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i8, ptr %.084, i64 %57
-  %59 = tail call ptr @EVP_MD_CTX_new() #10
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %102, label %61
+53:                                               ; preds = %48, %42
+  %.1 = phi ptr [ %46, %48 ], [ null, %42 ]
+  %54 = xor i32 %9, -1
+  %55 = add nsw i32 %.085, %54
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds i8, ptr %.084, i64 %56
+  %58 = tail call ptr @EVP_MD_CTX_new() #10
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %101, label %60
 
-61:                                               ; preds = %54
-  %62 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %59, ptr noundef %3, ptr noundef null) #10
-  %.not = icmp eq i32 %62, 0
-  br i1 %.not, label %102, label %63
+60:                                               ; preds = %53
+  %61 = tail call i32 @EVP_DigestInit_ex(ptr noundef nonnull %58, ptr noundef %3, ptr noundef null) #10
+  %.not = icmp eq i32 %61, 0
+  br i1 %.not, label %101, label %62
 
-63:                                               ; preds = %61
-  %64 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %59, ptr noundef nonnull @zeroes, i64 noundef 8) #10
-  %.not100 = icmp eq i32 %64, 0
-  br i1 %.not100, label %102, label %65
+62:                                               ; preds = %60
+  %63 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %58, ptr noundef nonnull @zeroes, i64 noundef 8) #10
+  %.not100 = icmp eq i32 %63, 0
+  br i1 %.not100, label %101, label %64
 
-65:                                               ; preds = %63
-  %66 = zext nneg i32 %9 to i64
-  %67 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %59, ptr noundef %2, i64 noundef %66) #10
-  %.not101 = icmp eq i32 %67, 0
-  br i1 %.not101, label %102, label %68
+64:                                               ; preds = %62
+  %65 = zext nneg i32 %9 to i64
+  %66 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %58, ptr noundef %2, i64 noundef %65) #10
+  %.not101 = icmp eq i32 %66, 0
+  br i1 %.not101, label %101, label %67
 
-68:                                               ; preds = %65
+67:                                               ; preds = %64
   %.not102 = icmp eq i32 %.2, 0
-  br i1 %.not102, label %72, label %69
+  br i1 %.not102, label %71, label %68
 
-69:                                               ; preds = %68
-  %70 = sext i32 %.2 to i64
-  %71 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %59, ptr noundef %.1, i64 noundef %70) #10
-  %.not103 = icmp eq i32 %71, 0
-  br i1 %.not103, label %102, label %72
+68:                                               ; preds = %67
+  %69 = sext i32 %.2 to i64
+  %70 = tail call i32 @EVP_DigestUpdate(ptr noundef nonnull %58, ptr noundef %.1, i64 noundef %69) #10
+  %.not103 = icmp eq i32 %70, 0
+  br i1 %.not103, label %101, label %71
 
-72:                                               ; preds = %69, %68
-  %73 = tail call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %59, ptr noundef %58, ptr noundef null) #10
-  %.not104 = icmp eq i32 %73, 0
-  br i1 %.not104, label %102, label %74
+71:                                               ; preds = %68, %67
+  %72 = tail call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %58, ptr noundef %57, ptr noundef null) #10
+  %.not104 = icmp eq i32 %72, 0
+  br i1 %.not104, label %101, label %73
 
-74:                                               ; preds = %72
-  %75 = tail call i32 @PKCS1_MGF1(ptr noundef %.084, i64 noundef %57, ptr noundef %58, i64 noundef %66, ptr noundef %spec.select) #10
-  %.not105 = icmp eq i32 %75, 0
-  br i1 %.not105, label %76, label %102
+73:                                               ; preds = %71
+  %74 = tail call i32 @PKCS1_MGF1(ptr noundef %.084, i64 noundef %56, ptr noundef %57, i64 noundef %65, ptr noundef %spec.select) #10
+  %.not105 = icmp eq i32 %74, 0
+  br i1 %.not105, label %75, label %101
 
-76:                                               ; preds = %74
-  %77 = add i32 %9, %.2
-  %78 = sub i32 %.085, %77
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr i8, ptr %.084, i64 %79
-  %81 = getelementptr i8, ptr %80, i64 -2
-  %82 = load i8, ptr %81, align 1, !tbaa !23
-  %83 = xor i8 %82, 1
-  store i8 %83, ptr %81, align 1, !tbaa !23
-  br i1 %44, label %84, label %.loopexit
+75:                                               ; preds = %73
+  %76 = add i32 %9, %.2
+  %77 = sub i32 %.085, %76
+  %78 = sext i32 %77 to i64
+  %79 = getelementptr i8, ptr %.084, i64 %78
+  %80 = getelementptr i8, ptr %79, i64 -2
+  %81 = load i8, ptr %80, align 1, !tbaa !23
+  %82 = xor i8 %81, 1
+  store i8 %82, ptr %80, align 1, !tbaa !23
+  br i1 %43, label %83, label %.loopexit
 
-84:                                               ; preds = %76
-  %85 = getelementptr i8, ptr %80, i64 -1
+83:                                               ; preds = %75
+  %84 = getelementptr i8, ptr %79, i64 -1
   %wide.trip.count = zext nneg i32 %.2 to i64
-  br label %86
+  br label %85
 
-86:                                               ; preds = %84, %86
-  %indvars.iv = phi i64 [ 0, %84 ], [ %indvars.iv.next, %86 ]
-  %.082110 = phi ptr [ %85, %84 ], [ %89, %86 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.1, i64 %indvars.iv
-  %88 = load i8, ptr %87, align 1, !tbaa !23
-  %89 = getelementptr inbounds nuw i8, ptr %.082110, i64 1
-  %90 = load i8, ptr %.082110, align 1, !tbaa !23
-  %91 = xor i8 %90, %88
-  store i8 %91, ptr %.082110, align 1, !tbaa !23
+85:                                               ; preds = %83, %85
+  %indvars.iv = phi i64 [ 0, %83 ], [ %indvars.iv.next, %85 ]
+  %.082110 = phi ptr [ %84, %83 ], [ %88, %85 ]
+  %86 = getelementptr inbounds nuw i8, ptr %.1, i64 %indvars.iv
+  %87 = load i8, ptr %86, align 1, !tbaa !23
+  %88 = getelementptr inbounds nuw i8, ptr %.082110, i64 1
+  %89 = load i8, ptr %.082110, align 1, !tbaa !23
+  %90 = xor i8 %89, %87
+  store i8 %90, ptr %.082110, align 1, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %86, !llvm.loop !28
+  br i1 %exitcond.not, label %.loopexit, label %85, !llvm.loop !28
 
-.loopexit:                                        ; preds = %86, %76
-  br i1 %25, label %98, label %92
+.loopexit:                                        ; preds = %85, %75
+  br i1 %24, label %97, label %91
 
-92:                                               ; preds = %.loopexit
-  %93 = sub nuw nsw i32 8, %22
-  %94 = lshr i32 255, %93
-  %95 = load i8, ptr %.084, align 1, !tbaa !23
-  %96 = trunc nuw nsw i32 %94 to i8
-  %97 = and i8 %95, %96
-  store i8 %97, ptr %.084, align 1, !tbaa !23
-  br label %98
+91:                                               ; preds = %.loopexit
+  %92 = sub nuw nsw i32 8, %22
+  %93 = lshr i32 255, %92
+  %94 = load i8, ptr %.084, align 1, !tbaa !23
+  %95 = trunc nuw nsw i32 %93 to i8
+  %96 = and i8 %94, %95
+  store i8 %96, ptr %.084, align 1, !tbaa !23
+  br label %97
 
-98:                                               ; preds = %92, %.loopexit
-  %99 = zext nneg i32 %.085 to i64
-  %100 = getelementptr i8, ptr %.084, i64 %99
-  %101 = getelementptr i8, ptr %100, i64 -1
-  store i8 -68, ptr %101, align 1, !tbaa !23
+97:                                               ; preds = %91, %.loopexit
+  %98 = zext nneg i32 %.085 to i64
+  %99 = getelementptr i8, ptr %.084, i64 %98
+  %100 = getelementptr i8, ptr %99, i64 -1
+  store i8 -68, ptr %100, align 1, !tbaa !23
   store i32 %.2, ptr %5, align 4, !tbaa !3
-  br label %102
+  br label %101
 
-102:                                              ; preds = %74, %72, %69, %61, %63, %65, %54, %49, %45, %6, %98, %42, %32, %16
-  %.089 = phi i32 [ %7, %6 ], [ %.190, %32 ], [ %.2, %45 ], [ %.2, %49 ], [ %.2, %54 ], [ %.2, %74 ], [ %.2, %98 ], [ %.2, %72 ], [ %.2, %69 ], [ %.2, %65 ], [ %.2, %63 ], [ %.2, %61 ], [ %.190, %42 ], [ %7, %16 ]
-  %.088 = phi i32 [ 0, %6 ], [ 0, %32 ], [ 0, %45 ], [ 0, %49 ], [ 0, %54 ], [ 0, %74 ], [ 1, %98 ], [ 0, %72 ], [ 0, %69 ], [ 0, %65 ], [ 0, %63 ], [ 0, %61 ], [ 0, %42 ], [ 0, %16 ]
-  %.083 = phi ptr [ null, %6 ], [ null, %32 ], [ null, %45 ], [ %47, %49 ], [ %.1, %54 ], [ %.1, %74 ], [ %.1, %98 ], [ %.1, %72 ], [ %.1, %69 ], [ %.1, %65 ], [ %.1, %63 ], [ %.1, %61 ], [ null, %42 ], [ null, %16 ]
-  %.081 = phi ptr [ null, %6 ], [ null, %32 ], [ null, %45 ], [ null, %49 ], [ null, %54 ], [ %59, %74 ], [ %59, %98 ], [ %59, %72 ], [ %59, %69 ], [ %59, %65 ], [ %59, %63 ], [ %59, %61 ], [ null, %42 ], [ null, %16 ]
+101:                                              ; preds = %73, %71, %68, %60, %62, %64, %53, %48, %44, %6, %97, %41, %31, %16
+  %.089 = phi i32 [ %7, %6 ], [ %.190, %31 ], [ %.2, %44 ], [ %.2, %48 ], [ %.2, %53 ], [ %.2, %73 ], [ %.2, %97 ], [ %.2, %71 ], [ %.2, %68 ], [ %.2, %64 ], [ %.2, %62 ], [ %.2, %60 ], [ %.190, %41 ], [ %7, %16 ]
+  %.088 = phi i32 [ 0, %6 ], [ 0, %31 ], [ 0, %44 ], [ 0, %48 ], [ 0, %53 ], [ 0, %73 ], [ 1, %97 ], [ 0, %71 ], [ 0, %68 ], [ 0, %64 ], [ 0, %62 ], [ 0, %60 ], [ 0, %41 ], [ 0, %16 ]
+  %.083 = phi ptr [ null, %6 ], [ null, %31 ], [ null, %44 ], [ %46, %48 ], [ %.1, %53 ], [ %.1, %73 ], [ %.1, %97 ], [ %.1, %71 ], [ %.1, %68 ], [ %.1, %64 ], [ %.1, %62 ], [ %.1, %60 ], [ null, %41 ], [ null, %16 ]
+  %.081 = phi ptr [ null, %6 ], [ null, %31 ], [ null, %44 ], [ null, %48 ], [ null, %53 ], [ %58, %73 ], [ %58, %97 ], [ %58, %71 ], [ %58, %68 ], [ %58, %64 ], [ %58, %62 ], [ %58, %60 ], [ null, %41 ], [ null, %16 ]
   tail call void @EVP_MD_CTX_free(ptr noundef %.081) #10
-  %103 = sext i32 %.089 to i64
-  tail call void @CRYPTO_clear_free(ptr noundef %.083, i64 noundef %103, ptr noundef nonnull @.str, i32 noundef 287) #10
+  %102 = sext i32 %.089 to i64
+  tail call void @CRYPTO_clear_free(ptr noundef %.083, i64 noundef %102, ptr noundef nonnull @.str, i32 noundef 287) #10
   ret i32 %.088
 }
 

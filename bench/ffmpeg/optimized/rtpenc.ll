@@ -1563,34 +1563,31 @@ define internal fastcc void @rtcp_send_sr(ptr noundef %0, i64 noundef %1, i32 no
   %51 = load ptr, ptr %24, align 8, !tbaa !24
   tail call void @avio_w8(ptr noundef %51, i32 noundef 202) #7
   %52 = load ptr, ptr %24, align 8, !tbaa !24
-  %53 = add nuw nsw i32 %spec.select, 10
-  %54 = lshr i32 %53, 2
-  tail call void @avio_wb16(ptr noundef %52, i32 noundef %54) #7
-  %55 = load ptr, ptr %24, align 8, !tbaa !24
-  %56 = load i32, ptr %29, align 4, !tbaa !31
-  tail call void @avio_wb32(ptr noundef %55, i32 noundef %56) #7
-  %57 = load ptr, ptr %24, align 8, !tbaa !24
-  tail call void @avio_w8(ptr noundef %57, i32 noundef 1) #7
+  %53 = add nuw nsw i32 %spec.select, 3
+  %54 = add nuw nsw i32 %spec.select, 10
+  %55 = lshr i32 %54, 2
+  tail call void @avio_wb16(ptr noundef %52, i32 noundef %55) #7
+  %56 = load ptr, ptr %24, align 8, !tbaa !24
+  %57 = load i32, ptr %29, align 4, !tbaa !31
+  tail call void @avio_wb32(ptr noundef %56, i32 noundef %57) #7
   %58 = load ptr, ptr %24, align 8, !tbaa !24
-  tail call void @avio_w8(ptr noundef %58, i32 noundef %spec.select) #7
+  tail call void @avio_w8(ptr noundef %58, i32 noundef 1) #7
   %59 = load ptr, ptr %24, align 8, !tbaa !24
-  %60 = load ptr, ptr %46, align 8, !tbaa !91
-  tail call void @avio_write(ptr noundef %59, ptr noundef %60, i32 noundef %spec.select) #7
-  %61 = load ptr, ptr %24, align 8, !tbaa !24
-  tail call void @avio_w8(ptr noundef %61, i32 noundef 0) #7
-  %62 = and i32 %spec.select, 3
-  %.not5457 = icmp eq i32 %62, 1
-  br i1 %.not5457, label %.loopexit, label %.lr.ph.preheader
+  tail call void @avio_w8(ptr noundef %59, i32 noundef %spec.select) #7
+  %60 = load ptr, ptr %24, align 8, !tbaa !24
+  %61 = load ptr, ptr %46, align 8, !tbaa !91
+  tail call void @avio_write(ptr noundef %60, ptr noundef %61, i32 noundef %spec.select) #7
+  %62 = load ptr, ptr %24, align 8, !tbaa !24
+  tail call void @avio_w8(ptr noundef %62, i32 noundef 0) #7
+  %63 = and i32 %53, 3
+  %.not5457 = icmp eq i32 %63, 0
+  br i1 %.not5457, label %.loopexit, label %.lr.ph
 
-.lr.ph.preheader:                                 ; preds = %48
-  %63 = add nuw nsw i32 %spec.select, 3
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.058 = phi i32 [ %65, %.lr.ph ], [ %63, %.lr.ph.preheader ]
+.lr.ph:                                           ; preds = %48, %.lr.ph
+  %.058 = phi i32 [ %65, %.lr.ph ], [ %63, %48 ]
   %64 = load ptr, ptr %24, align 8, !tbaa !24
   tail call void @avio_w8(ptr noundef %64, i32 noundef 0) #7
-  %65 = add i32 %.058, 1
+  %65 = add nuw nsw i32 %.058, 1
   %66 = and i32 %65, 3
   %.not54 = icmp eq i32 %66, 0
   br i1 %.not54, label %.loopexit, label %.lr.ph, !llvm.loop !92
