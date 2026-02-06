@@ -549,8 +549,8 @@ Vec_PtrFree.exit:                                 ; preds = %43
   ]
 
 .preheader.preheader:                             ; preds = %Vec_PtrFree.exit
-  %.060.lcssa84 = ptrtoint ptr %.060 to i64
-  %94 = ptrtoint ptr %.161 to i64
+  %.060.lcssa84 = ptrtoaddr ptr %.060 to i64
+  %94 = ptrtoaddr ptr %.161 to i64
   %reass.sub = sub i64 %94, %.060.lcssa84
   %95 = getelementptr i8, ptr %.060, i64 %indvars.iv82
   %96 = getelementptr i8, ptr %95, i64 %reass.sub
