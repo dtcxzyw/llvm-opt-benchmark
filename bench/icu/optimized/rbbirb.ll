@@ -386,7 +386,7 @@ define noundef ptr @_ZN6icu_7715RBBIRuleBuilder11flattenDataEv(ptr noundef nonnu
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8, !tbaa !42
   %29 = shl i32 %28, 2
-  %30 = add nsw i32 %29, 7
+  %30 = add nsw i32 %29, 4
   %31 = and i32 %30, -8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !46

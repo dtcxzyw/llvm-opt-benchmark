@@ -11389,7 +11389,7 @@ define internal fastcc range(i32 0, 2) i32 @rb_group_member(i32 noundef %0) unna
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %15
   %18 = shl nuw nsw i64 %10, 2
-  %19 = add nuw nsw i64 %18, 7
+  %19 = add nuw nsw i64 %18, 4
   %20 = lshr i64 %19, 3
   %21 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %2, i64 noundef %18, i64 noundef %20) #28
   br label %22

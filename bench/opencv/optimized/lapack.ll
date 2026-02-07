@@ -5235,12 +5235,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit677: ; preds = %36
   %386 = zext nneg i32 %385 to i64
   %387 = sext i32 %380 to i64
   %388 = mul nsw i64 %387, %386
-  %389 = add nsw i64 %388, 15
+  %389 = add nsw i64 %388, 14
   %390 = and i64 %389, -16
   %or.cond25.not = icmp eq i32 %3, 1
   %391 = sext i32 %97 to i64
   %392 = mul nsw i64 %391, %386
-  %393 = add nsw i64 %392, 15
+  %393 = add nsw i64 %392, 14
   %394 = and i64 %393, -16
   %395 = select i1 %or.cond25.not, i64 %394, i64 %390
   call void @llvm.lifetime.start.p0(ptr nonnull %17)

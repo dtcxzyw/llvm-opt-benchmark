@@ -260,7 +260,7 @@ define internal i32 @dvbsub_encode(ptr noundef readonly captures(none) %0, ptr n
   %159 = mul nuw nsw i32 %138, 261992
   %.neg182 = mul nuw nsw i32 %140, 261846
   %160 = mul nuw nsw i32 %141, 450
-  %161 = add nuw nsw i32 %160, 511
+  %161 = add nuw nsw i32 %160, 510
   %162 = add nuw nsw i32 %161, %159
   %163 = add nuw nsw i32 %162, %.neg182
   %164 = lshr i32 %163, 10

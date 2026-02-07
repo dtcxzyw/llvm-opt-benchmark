@@ -8090,7 +8090,7 @@ define internal fastcc i32 @emit_oa_config(ptr noundef %0, ptr noundef %1, ptr n
   %61 = phi i64 [ %59, %54 ], [ 0, %48 ]
   %62 = add nsw i64 %50, %61
   %63 = shl nsw i64 %62, 2
-  %64 = add nsw i64 %63, 4107
+  %64 = add nsw i64 %63, 4104
   %65 = and i64 %64, -4096
   %66 = load ptr, ptr %0, align 8
   %67 = load ptr, ptr %66, align 8

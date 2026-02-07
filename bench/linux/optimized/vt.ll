@@ -2334,7 +2334,7 @@ define internal fastcc i32 @vc_do_resize(ptr noundef %0, ptr noundef %1, i32 nou
 
 53:                                               ; preds = %41, %34
   %54 = zext i32 %37 to i64
-  %55 = add i32 %37, -1
+  %55 = add i32 %37, -2
   %56 = icmp ult i32 %55, 4194304
   br i1 %56, label %57, label %292
 

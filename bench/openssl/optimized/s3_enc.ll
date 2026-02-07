@@ -217,7 +217,7 @@ define range(i32 0, 2) i32 @ssl3_setup_key_block(ptr noundef %0) local_unnamed_a
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %60 = zext i32 %34 to i64
   %umax = call i64 @llvm.umax.i64(i64 %60, i64 16)
-  %61 = add nsw i64 %umax, -1
+  %61 = add nsw i64 %umax, -2
   %62 = lshr i64 %61, 4
   br label %64
 

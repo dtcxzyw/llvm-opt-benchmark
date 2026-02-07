@@ -97,8 +97,8 @@ define internal range(i32 0, 52) i32 @s337m_probe(ptr noundef readonly captures(
 
 45:                                               ; preds = %44, %43, %42, %40
   %46 = phi i32 [ 1597, %44 ], [ 1996, %43 ], [ 1998, %42 ], [ 1916, %40 ]
-  %47 = add nuw nsw i32 %.0.i, 7
-  %48 = lshr i32 %47, 2
+  %47 = add nuw nsw i32 %.0.i, 4
+  %48 = lshr exact i32 %47, 2
   %49 = and i32 %48, 14
   %50 = mul nuw nsw i32 %46, %49
   %51 = select i1 %18, i64 1, i64 2
@@ -258,8 +258,8 @@ define internal i32 @s337m_read_packet(ptr noundef %0, ptr noundef %1) #2 {
 
 37:                                               ; preds = %34, %33, %32, %30
   %38 = phi i32 [ 1597, %34 ], [ 1996, %33 ], [ 1998, %32 ], [ 1916, %30 ]
-  %39 = add nuw nsw i32 %.0.i, 7
-  %40 = lshr i32 %39, 2
+  %39 = add nuw nsw i32 %.0.i, 4
+  %40 = lshr exact i32 %39, 2
   %41 = and i32 %40, 14
   %42 = mul nuw nsw i32 %38, %41
   %43 = tail call i32 @av_get_packet(ptr noundef %4, ptr noundef %1, i32 noundef %42) #6

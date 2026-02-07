@@ -1119,7 +1119,7 @@ define internal i32 @hwm_write(ptr noundef readonly captures(none) %0, i32 nound
 
 84:                                               ; preds = %9
   %85 = shl i64 %4, 6
-  %86 = add i64 %85, 500000
+  %86 = add i64 %85, 499968
   %87 = udiv i64 %86, 1000000
   %88 = trunc i64 %87 to i32
   %89 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1136,7 +1136,7 @@ define internal i32 @hwm_write(ptr noundef readonly captures(none) %0, i32 nound
 
 97:                                               ; preds = %95
   %98 = shl i64 %4, 6
-  %99 = add i64 %98, 500
+  %99 = add i64 %98, 496
   %100 = udiv i64 %99, 1000
   %101 = trunc i64 %100 to i32
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 8

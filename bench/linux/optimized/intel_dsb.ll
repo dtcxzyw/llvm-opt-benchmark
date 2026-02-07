@@ -359,7 +359,7 @@ define dso_local void @intel_dsb_finish(ptr noundef %0) local_unnamed_addr #0 al
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %13 = load i32, ptr %12, align 4
   %14 = shl i32 %13, 2
-  %15 = add i32 %14, 63
+  %15 = add i32 %14, 60
   %16 = and i32 %15, -64
   %17 = icmp ugt i32 %16, %14
   br i1 %17, label %18, label %22
@@ -1363,7 +1363,7 @@ define dso_local noundef ptr @intel_dsb_prepare(ptr noundef %0, i32 noundef %1) 
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8928
   %17 = tail call i64 @intel_runtime_pm_get(ptr noundef nonnull %16) #8
   %18 = shl i32 %1, 3
-  %19 = add i32 %18, 63
+  %19 = add i32 %18, 56
   %20 = and i32 %19, -64
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %22 = zext i32 %20 to i64

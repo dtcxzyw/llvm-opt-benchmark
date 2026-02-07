@@ -101,7 +101,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %21 = load i32, ptr %20, align 8, !tbaa !41
   %22 = mul nsw i32 %21, 6
-  %23 = add nsw i32 %22, 3
+  %23 = add nsw i32 %22, 2
   %24 = and i32 %23, -4
   %25 = sub nsw i32 %24, %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -579,7 +579,7 @@ write32_internal.exit.i171:                       ; preds = %254, %.thread.i174
   %295 = getelementptr inbounds nuw i8, ptr %49, i64 1664
   %296 = load i32, ptr %69, align 8, !tbaa !41
   %297 = mul nsw i32 %296, 6
-  %298 = add nsw i32 %297, 3
+  %298 = add nsw i32 %297, 2
   %299 = and i32 %298, -4
   %300 = sub nsw i32 %299, %297
   %301 = ashr exact i32 %300, 1

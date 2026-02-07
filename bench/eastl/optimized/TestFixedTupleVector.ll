@@ -1763,12 +1763,12 @@ invoke.cont219:                                   ; preds = %_ZN5eastl18fixed_tu
 
 if.then.i.i749:                                   ; preds = %invoke.cont219
   %mul.i.i.i750 = shl i64 %add.i729, 1
-  %add.i.i.i13279 = add i64 %mul.i.i.i750, 15
+  %add.i.i.i13279 = add i64 %mul.i.i.i750, 14
   %and.i.i.i.i13280 = and i64 %add.i.i.i13279, -16
   %mul.i.i.i.i13281 = shl i64 %add.i729, 5
   %add.i.i.i.i13282 = add i64 %and.i.i.i.i13280, %mul.i.i.i.i13281
   %mul.i.i.i.i.i13283 = mul i64 %add.i729, 6
-  %add.i.i.i.i.i13284 = add i64 %mul.i.i.i.i.i13283, 7
+  %add.i.i.i.i.i13284 = add i64 %mul.i.i.i.i.i13283, 6
   %sub.i.i.i.i.i.i13285 = add i64 %add.i.i.i.i.i13284, %add.i.i.i.i13282
   %and.i.i.i.i.i.i13286 = and i64 %sub.i.i.i.i.i.i13285, -8
   %mul.i.i.i.i.i.i13287 = mul i64 %add.i729, 48
@@ -1860,12 +1860,12 @@ invoke.cont221:                                   ; preds = %.noexc751, %invoke.
 
 if.then.i.i774:                                   ; preds = %invoke.cont221
   %mul.i.i.i775 = shl i64 %add.i754, 1
-  %add.i.i.i13323 = add i64 %mul.i.i.i775, 15
+  %add.i.i.i13323 = add i64 %mul.i.i.i775, 14
   %and.i.i.i.i13324 = and i64 %add.i.i.i13323, -16
   %mul.i.i.i.i13325 = shl i64 %add.i754, 5
   %add.i.i.i.i13326 = add i64 %and.i.i.i.i13324, %mul.i.i.i.i13325
   %mul.i.i.i.i.i13327 = mul i64 %add.i754, 6
-  %add.i.i.i.i.i13328 = add i64 %mul.i.i.i.i.i13327, 7
+  %add.i.i.i.i.i13328 = add i64 %mul.i.i.i.i.i13327, 6
   %sub.i.i.i.i.i.i13329 = add i64 %add.i.i.i.i.i13328, %add.i.i.i.i13326
   %and.i.i.i.i.i.i13330 = and i64 %sub.i.i.i.i.i.i13329, -8
   %mul.i.i.i.i.i.i13331 = mul i64 %add.i754, 48
@@ -1957,12 +1957,12 @@ invoke.cont223:                                   ; preds = %.noexc776, %invoke.
 
 if.then.i.i799:                                   ; preds = %invoke.cont223
   %mul.i.i.i800 = shl i64 %add.i779, 1
-  %add.i.i.i13367 = add i64 %mul.i.i.i800, 15
+  %add.i.i.i13367 = add i64 %mul.i.i.i800, 14
   %and.i.i.i.i13368 = and i64 %add.i.i.i13367, -16
   %mul.i.i.i.i13369 = shl i64 %add.i779, 5
   %add.i.i.i.i13370 = add i64 %and.i.i.i.i13368, %mul.i.i.i.i13369
   %mul.i.i.i.i.i13371 = mul i64 %add.i779, 6
-  %add.i.i.i.i.i13372 = add i64 %mul.i.i.i.i.i13371, 7
+  %add.i.i.i.i.i13372 = add i64 %mul.i.i.i.i.i13371, 6
   %sub.i.i.i.i.i.i13373 = add i64 %add.i.i.i.i.i13372, %add.i.i.i.i13370
   %and.i.i.i.i.i.i13374 = and i64 %sub.i.i.i.i.i.i13373, -8
   %mul.i.i.i.i.i.i13375 = mul i64 %add.i779, 48
@@ -2054,12 +2054,12 @@ invoke.cont225:                                   ; preds = %.noexc801, %invoke.
 
 if.then.i.i824:                                   ; preds = %invoke.cont225
   %mul.i.i.i825 = shl i64 %add.i804, 1
-  %add.i.i.i13411 = add i64 %mul.i.i.i825, 15
+  %add.i.i.i13411 = add i64 %mul.i.i.i825, 14
   %and.i.i.i.i13412 = and i64 %add.i.i.i13411, -16
   %mul.i.i.i.i13413 = shl i64 %add.i804, 5
   %add.i.i.i.i13414 = add i64 %and.i.i.i.i13412, %mul.i.i.i.i13413
   %mul.i.i.i.i.i13415 = mul i64 %add.i804, 6
-  %add.i.i.i.i.i13416 = add i64 %mul.i.i.i.i.i13415, 7
+  %add.i.i.i.i.i13416 = add i64 %mul.i.i.i.i.i13415, 6
   %sub.i.i.i.i.i.i13417 = add i64 %add.i.i.i.i.i13416, %add.i.i.i.i13414
   %and.i.i.i.i.i.i13418 = and i64 %sub.i.i.i.i.i.i13417, -8
   %mul.i.i.i.i.i.i13419 = mul i64 %add.i804, 48
@@ -23803,12 +23803,12 @@ invoke.cont219:                                   ; preds = %_ZN5eastl18fixed_tu
 
 if.then.i.i749:                                   ; preds = %invoke.cont219
   %mul.i.i.i750 = shl i64 %add.i729, 1
-  %add.i.i.i13279 = add i64 %mul.i.i.i750, 15
+  %add.i.i.i13279 = add i64 %mul.i.i.i750, 14
   %and.i.i.i.i13280 = and i64 %add.i.i.i13279, -16
   %mul.i.i.i.i13281 = shl i64 %add.i729, 5
   %add.i.i.i.i13282 = add i64 %and.i.i.i.i13280, %mul.i.i.i.i13281
   %mul.i.i.i.i.i13283 = mul i64 %add.i729, 6
-  %add.i.i.i.i.i13284 = add i64 %mul.i.i.i.i.i13283, 7
+  %add.i.i.i.i.i13284 = add i64 %mul.i.i.i.i.i13283, 6
   %sub.i.i.i.i.i.i13285 = add i64 %add.i.i.i.i.i13284, %add.i.i.i.i13282
   %and.i.i.i.i.i.i13286 = and i64 %sub.i.i.i.i.i.i13285, -8
   %mul.i.i.i.i.i.i13287 = mul i64 %add.i729, 48
@@ -23900,12 +23900,12 @@ invoke.cont221:                                   ; preds = %.noexc751, %invoke.
 
 if.then.i.i774:                                   ; preds = %invoke.cont221
   %mul.i.i.i775 = shl i64 %add.i754, 1
-  %add.i.i.i13323 = add i64 %mul.i.i.i775, 15
+  %add.i.i.i13323 = add i64 %mul.i.i.i775, 14
   %and.i.i.i.i13324 = and i64 %add.i.i.i13323, -16
   %mul.i.i.i.i13325 = shl i64 %add.i754, 5
   %add.i.i.i.i13326 = add i64 %and.i.i.i.i13324, %mul.i.i.i.i13325
   %mul.i.i.i.i.i13327 = mul i64 %add.i754, 6
-  %add.i.i.i.i.i13328 = add i64 %mul.i.i.i.i.i13327, 7
+  %add.i.i.i.i.i13328 = add i64 %mul.i.i.i.i.i13327, 6
   %sub.i.i.i.i.i.i13329 = add i64 %add.i.i.i.i.i13328, %add.i.i.i.i13326
   %and.i.i.i.i.i.i13330 = and i64 %sub.i.i.i.i.i.i13329, -8
   %mul.i.i.i.i.i.i13331 = mul i64 %add.i754, 48
@@ -23997,12 +23997,12 @@ invoke.cont223:                                   ; preds = %.noexc776, %invoke.
 
 if.then.i.i799:                                   ; preds = %invoke.cont223
   %mul.i.i.i800 = shl i64 %add.i779, 1
-  %add.i.i.i13367 = add i64 %mul.i.i.i800, 15
+  %add.i.i.i13367 = add i64 %mul.i.i.i800, 14
   %and.i.i.i.i13368 = and i64 %add.i.i.i13367, -16
   %mul.i.i.i.i13369 = shl i64 %add.i779, 5
   %add.i.i.i.i13370 = add i64 %and.i.i.i.i13368, %mul.i.i.i.i13369
   %mul.i.i.i.i.i13371 = mul i64 %add.i779, 6
-  %add.i.i.i.i.i13372 = add i64 %mul.i.i.i.i.i13371, 7
+  %add.i.i.i.i.i13372 = add i64 %mul.i.i.i.i.i13371, 6
   %sub.i.i.i.i.i.i13373 = add i64 %add.i.i.i.i.i13372, %add.i.i.i.i13370
   %and.i.i.i.i.i.i13374 = and i64 %sub.i.i.i.i.i.i13373, -8
   %mul.i.i.i.i.i.i13375 = mul i64 %add.i779, 48
@@ -24094,12 +24094,12 @@ invoke.cont225:                                   ; preds = %.noexc801, %invoke.
 
 if.then.i.i824:                                   ; preds = %invoke.cont225
   %mul.i.i.i825 = shl i64 %add.i804, 1
-  %add.i.i.i13411 = add i64 %mul.i.i.i825, 15
+  %add.i.i.i13411 = add i64 %mul.i.i.i825, 14
   %and.i.i.i.i13412 = and i64 %add.i.i.i13411, -16
   %mul.i.i.i.i13413 = shl i64 %add.i804, 5
   %add.i.i.i.i13414 = add i64 %and.i.i.i.i13412, %mul.i.i.i.i13413
   %mul.i.i.i.i.i13415 = mul i64 %add.i804, 6
-  %add.i.i.i.i.i13416 = add i64 %mul.i.i.i.i.i13415, 7
+  %add.i.i.i.i.i13416 = add i64 %mul.i.i.i.i.i13415, 6
   %sub.i.i.i.i.i.i13417 = add i64 %add.i.i.i.i.i13416, %add.i.i.i.i13414
   %and.i.i.i.i.i.i13418 = and i64 %sub.i.i.i.i.i.i13417, -8
   %mul.i.i.i.i.i.i13419 = mul i64 %add.i804, 48
@@ -45264,7 +45264,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm1856ELm1
   store volatile i32 -559038242, ptr null, align 4294967296
   %cmp.i.i.i.i.i.i.i.i.i.i921 = icmp eq i64 %172, 0
   call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i.i.i.i921)
-  %add.i.i.i.i924 = add nuw nsw i64 %174, 7
+  %add.i.i.i.i924 = add nuw nsw i64 %174, 6
   %and.i.i.i.i.i925 = and i64 %add.i.i.i.i924, 56
   %mul.i.i.i.i.i926 = mul nuw nsw i64 %174, 24
   %add.i.i.i.i.i927 = add nuw nsw i64 %and.i.i.i.i.i925, %mul.i.i.i.i.i926
@@ -45555,7 +45555,7 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm1856ELm1
   store volatile i32 -559038242, ptr null, align 4294967296
   %cmp.i.i.i.i.i.i.i.i.i.i1063 = icmp eq i64 %210, 0
   call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i.i.i.i1063)
-  %add.i.i.i.i1066 = add nuw nsw i64 %212, 7
+  %add.i.i.i.i1066 = add nuw nsw i64 %212, 6
   %and.i.i.i.i.i1067 = and i64 %add.i.i.i.i1066, 56
   %mul.i.i.i.i.i1068 = mul nuw nsw i64 %212, 24
   %add.i.i.i.i.i1069 = add nuw nsw i64 %and.i.i.i.i.i1067, %mul.i.i.i.i.i1068
@@ -65085,8 +65085,8 @@ for.body.i.i.preheader.i:                         ; preds = %entry
   %5 = ptrtoint ptr %call.i.i.i.i.i.i.i.i.i to i64
   %add.i6.i.i.i = add i64 %mul.i.i.i.i, %5
   %6 = inttoptr i64 %add.i6.i.i.i to ptr
-  %reass.add.i.i = shl i64 %1, 3
-  %add.i6.i.i.i.i = add i64 %reass.add.i.i, %5
+  %factor.i.i = shl i64 %1, 3
+  %add.i6.i.i.i.i = add i64 %factor.i.i, %5
   %7 = inttoptr i64 %add.i6.i.i.i.i to ptr
   %gepdiff.i = shl nsw i64 %1, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %call.i.i.i.i.i.i.i.i.i, ptr align 4 %4, i64 %gepdiff.i, i1 false)
@@ -66959,11 +66959,11 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAll
   %3 = tail call i64 @llvm.umax.i64(i64 %mul.i, i64 %add)
   %cond.i39 = select i1 %cmp.not.i, i64 %add, i64 %3
   %mul.i.i = shl i64 %cond.i39, 2
-  %reass.add = shl i64 %cond.i39, 3
+  %factor = shl i64 %cond.i39, 3
   %add.i.i.i.i = shl i64 %cond.i39, 5
   %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %4 = ptrtoint ptr %call.i.i.i.i.i.i.i to i64
-  %add.i6.i.i = add i64 %reass.add, %4
+  %add.i6.i.i = add i64 %factor, %4
   %5 = inttoptr i64 %add.i6.i.i to ptr
   %add.i6.i = add i64 %mul.i.i, %4
   %6 = inttoptr i64 %add.i6.i to ptr
@@ -68669,7 +68669,7 @@ if.end146:                                        ; preds = %while.body.i300, %_
 define linkonce_odr dso_local void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE12DoReallocateEmm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %oldNumElements, i64 noundef %requiredCapacity) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mul.i.i = shl i64 %requiredCapacity, 2
-  %reass.add = shl i64 %requiredCapacity, 3
+  %factor = shl i64 %requiredCapacity, 3
   %add.i.i.i.i = shl i64 %requiredCapacity, 5
   %tobool.not.i.i.i.i = icmp eq i64 %requiredCapacity, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit, label %cond.true.i.i.i.i
@@ -68681,7 +68681,7 @@ cond.true.i.i.i.i:                                ; preds = %entry
 _ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit: ; preds = %entry, %cond.true.i.i.i.i
   %cond.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i, %cond.true.i.i.i.i ], [ null, %entry ]
   %0 = ptrtoint ptr %cond.i.i.i.i to i64
-  %add.i6.i.i = add i64 %reass.add, %0
+  %add.i6.i.i = add i64 %factor, %0
   %1 = inttoptr i64 %add.i6.i.i to ptr
   %add.i6.i = add i64 %mul.i.i, %0
   %2 = inttoptr i64 %add.i6.i to ptr
@@ -68899,11 +68899,11 @@ entry:
 
 _ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm64ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i: ; preds = %entry
   %mul.i.i.i = shl i64 %sub.i.i, 2
-  %reass.add.i = shl i64 %sub.i.i, 3
+  %factor.i = shl i64 %sub.i.i, 3
   %add.i.i.i.i.i = shl i64 %sub.i.i, 5
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %3 = ptrtoint ptr %call.i.i.i.i.i.i.i.i to i64
-  %add.i6.i.i.i = add i64 %reass.add.i, %3
+  %add.i6.i.i.i = add i64 %factor.i, %3
   %4 = inttoptr i64 %add.i6.i.i.i to ptr
   %add.i6.i.i = add i64 %mul.i.i.i, %3
   %5 = inttoptr i64 %add.i6.i.i to ptr
@@ -71874,8 +71874,8 @@ for.body.i.i.preheader.i:                         ; preds = %entry
   %5 = ptrtoint ptr %call.i.i.i.i.i.i.i.i.i to i64
   %add.i6.i.i.i = add i64 %mul.i.i.i.i, %5
   %6 = inttoptr i64 %add.i6.i.i.i to ptr
-  %reass.add.i.i = shl i64 %1, 3
-  %add.i6.i.i.i.i = add i64 %reass.add.i.i, %5
+  %factor.i.i = shl i64 %1, 3
+  %add.i6.i.i.i.i = add i64 %factor.i.i, %5
   %7 = inttoptr i64 %add.i6.i.i.i.i to ptr
   %gepdiff.i = shl nsw i64 %1, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %call.i.i.i.i.i.i.i.i.i, ptr align 4 %4, i64 %gepdiff.i, i1 false)
@@ -73748,11 +73748,11 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAll
   %3 = tail call i64 @llvm.umax.i64(i64 %mul.i, i64 %add)
   %cond.i39 = select i1 %cmp.not.i, i64 %add, i64 %3
   %mul.i.i = shl i64 %cond.i39, 2
-  %reass.add = shl i64 %cond.i39, 3
+  %factor = shl i64 %cond.i39, 3
   %add.i.i.i.i = shl i64 %cond.i39, 5
   %call.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %4 = ptrtoint ptr %call.i.i.i.i.i.i.i to i64
-  %add.i6.i.i = add i64 %reass.add, %4
+  %add.i6.i.i = add i64 %factor, %4
   %5 = inttoptr i64 %add.i6.i.i to ptr
   %add.i6.i = add i64 %mul.i.i, %4
   %6 = inttoptr i64 %add.i6.i to ptr
@@ -75211,7 +75211,7 @@ if.end146:                                        ; preds = %while.body.i300, %_
 define linkonce_odr dso_local void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE12DoReallocateEmm(ptr noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %oldNumElements, i64 noundef %requiredCapacity) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mul.i.i = shl i64 %requiredCapacity, 2
-  %reass.add = shl i64 %requiredCapacity, 3
+  %factor = shl i64 %requiredCapacity, 3
   %add.i.i.i.i = shl i64 %requiredCapacity, 5
   %tobool.not.i.i.i.i = icmp eq i64 %requiredCapacity, 0
   br i1 %tobool.not.i.i.i.i, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit, label %cond.true.i.i.i.i
@@ -75223,7 +75223,7 @@ cond.true.i.i.i.i:                                ; preds = %entry
 _ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit: ; preds = %entry, %cond.true.i.i.i.i
   %cond.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i, %cond.true.i.i.i.i ], [ null, %entry ]
   %0 = ptrtoint ptr %cond.i.i.i.i to i64
-  %add.i6.i.i = add i64 %reass.add, %0
+  %add.i6.i.i = add i64 %factor, %0
   %1 = inttoptr i64 %add.i6.i.i to ptr
   %add.i6.i = add i64 %mul.i.i, %0
   %2 = inttoptr i64 %add.i6.i to ptr
@@ -75441,11 +75441,11 @@ entry:
 
 _ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAllocateINS_22fixed_vector_allocatorILm512ELm1ELm8ELm0ELb1ENS_9allocatorEEELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJiS2_S3_EEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPSC_mm.exit.i: ; preds = %entry
   %mul.i.i.i = shl i64 %sub.i.i, 2
-  %reass.add.i = shl i64 %sub.i.i, 3
+  %factor.i = shl i64 %sub.i.i, 3
   %add.i.i.i.i.i = shl i64 %sub.i.i, 5
   %call.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZnamPKcijS0_i(i64 noundef %add.i.i.i.i.i, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
   %3 = ptrtoint ptr %call.i.i.i.i.i.i.i.i to i64
-  %add.i6.i.i.i = add i64 %reass.add.i, %3
+  %add.i6.i.i.i = add i64 %factor.i, %3
   %4 = inttoptr i64 %add.i6.i.i.i to ptr
   %add.i6.i.i = add i64 %mul.i.i.i, %3
   %5 = inttoptr i64 %add.i6.i.i to ptr
@@ -78416,9 +78416,9 @@ invoke.cont11:
 
 _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i.thread: ; preds = %invoke.cont11
   store volatile i32 -559038242, ptr null, align 4294967296
-  %reass.add.i.i.i = shl i64 %8, 3
-  %9 = inttoptr i64 %reass.add.i.i.i to ptr
   %mul.i.i.i.i.i = shl i64 %8, 2
+  %factor.i.i.i = shl i64 %8, 3
+  %9 = inttoptr i64 %factor.i.i.i to ptr
   %10 = inttoptr i64 %mul.i.i.i.i.i to ptr
   %add.i.i.i.i.i.i.i = shl i64 %8, 5
   store ptr null, ptr %this, align 8
@@ -78574,9 +78574,9 @@ invoke.cont9:
 
 _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i.thread: ; preds = %invoke.cont9
   store volatile i32 -559038242, ptr null, align 4294967296
-  %reass.add.i.i.i = shl i64 %8, 3
-  %9 = inttoptr i64 %reass.add.i.i.i to ptr
   %mul.i.i.i.i.i = shl i64 %8, 2
+  %factor.i.i.i = shl i64 %8, 3
+  %9 = inttoptr i64 %factor.i.i.i to ptr
   %10 = inttoptr i64 %mul.i.i.i.i.i to ptr
   %add.i.i.i.i.i.i.i = shl i64 %8, 5
   store ptr null, ptr %this, align 8
@@ -78725,8 +78725,8 @@ _ZN5eastl16TupleVecInternal13TupleRecurserIJi12MoveOnlyType10TestObjectEE10DoAll
   %cond.i39 = select i1 %cmp.not.i, i64 %add, i64 %3
   store volatile i32 -559038242, ptr null, align 4294967296
   %mul.i.i = shl i64 %cond.i39, 2
-  %reass.add = shl i64 %cond.i39, 3
-  %4 = inttoptr i64 %reass.add to ptr
+  %factor = shl i64 %cond.i39, 3
+  %4 = inttoptr i64 %factor to ptr
   %5 = inttoptr i64 %mul.i.i to ptr
   %cmp.i.i.i.i.i.i.i.i = icmp eq i64 %0, 0
   tail call void @llvm.assume(i1 %cmp.i.i.i.i.i.i.i.i)
@@ -78976,9 +78976,9 @@ _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm2048ELm1
 _ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE23DoConditionalReallocateEmmm.exit.i.thread: ; preds = %_ZN5eastl16TupleVecInternal12TupleVecImplINS_22fixed_vector_allocatorILm2048ELm1ELm8ELm0ELb0ENS_9allocatorEEENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE5clearEv.exit
   store volatile i32 -559038242, ptr null, align 4294967296
   %add.ptr17.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %reass.add.i.i.i = shl i64 %10, 3
-  %12 = inttoptr i64 %reass.add.i.i.i to ptr
   %mul.i.i.i.i.i = shl i64 %10, 2
+  %factor.i.i.i = shl i64 %10, 3
+  %12 = inttoptr i64 %factor.i.i.i to ptr
   %13 = inttoptr i64 %mul.i.i.i.i.i to ptr
   %add.i.i.i.i.i.i.i = shl i64 %10, 5
   store ptr null, ptr %this, align 8

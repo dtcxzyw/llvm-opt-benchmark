@@ -362,7 +362,7 @@ define hidden void @_ZN21ExceptionHandlerTable7copy_toEP7nmethod(ptr noundef non
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = mul nsw i32 %11, 12
-  %13 = add i32 %12, 7
+  %13 = add i32 %12, 4
   %14 = and i32 %13, -8
   %15 = sext i32 %14 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %8, ptr align 4 %9, i64 %15, i1 false)
@@ -375,7 +375,7 @@ define hidden void @_ZN21ExceptionHandlerTable13copy_bytes_toEPh(ptr noundef non
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = mul nsw i32 %5, 12
-  %7 = add i32 %6, 7
+  %7 = add i32 %6, 4
   %8 = and i32 %7, -8
   %9 = sext i32 %8 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr align 4 %3, i64 %9, i1 false)
@@ -507,7 +507,7 @@ define hidden void @_ZNK21ExceptionHandlerTable5printEPh(ptr noundef nonnull rea
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = mul nsw i32 %5, 12
-  %7 = add i32 %6, 7
+  %7 = add i32 %6, 4
   %8 = and i32 %7, -8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.12, i32 noundef %8) #9
   %9 = load i32, ptr %4, align 8

@@ -5246,7 +5246,7 @@ bytestream2_get_le16.exit:                        ; preds = %bytestream2_init.ex
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %107 = shl nsw i64 %37, 2
-  %108 = add nsw i64 %107, 126
+  %108 = add nsw i64 %107, 124
   %109 = and i64 %108, -128
   call void @av_fast_padded_malloc(ptr noundef nonnull %105, ptr noundef nonnull %106, i64 noundef %109) #14
   %110 = load ptr, ptr %105, align 8, !tbaa !185
@@ -5275,7 +5275,7 @@ bytestream2_get_le16.exit:                        ; preds = %bytestream2_init.ex
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %121 = load ptr, ptr %120, align 8, !tbaa !153
   %122 = load ptr, ptr %105, align 8, !tbaa !185
-  %123 = add nsw i64 %104, 63
+  %123 = add nsw i64 %104, 62
   %124 = and i64 %123, -64
   %125 = getelementptr inbounds nuw i8, ptr %122, i64 %124
   call void %121(ptr noundef %125, i64 noundef %104) #14

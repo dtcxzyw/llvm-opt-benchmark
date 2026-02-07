@@ -7861,15 +7861,15 @@ dt_XYZ_to_Lab.exit.us:                            ; preds = %76
   br label %116
 
 ._crit_edge.loopexit:                             ; preds = %dt_XYZ_to_Lab.exit.us
-  %101 = add i64 %13, 17179869183
-  %102 = lshr i64 %101, 2
+  %101 = add i64 %13, 17179869180
+  %102 = lshr exact i64 %101, 2
   %103 = trunc i64 %102 to i32
   %104 = add i32 %103, 1
   br label %._crit_edge
 
 ._crit_edge.loopexit13:                           ; preds = %116
-  %105 = add i64 %13, 17179869183
-  %106 = lshr i64 %105, 2
+  %105 = add i64 %13, 17179869180
+  %106 = lshr exact i64 %105, 2
   %107 = trunc i64 %106 to i32
   %108 = add i32 %107, 1
   br label %._crit_edge

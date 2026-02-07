@@ -2117,7 +2117,7 @@ define hidden void @"_ZN83_$LT$hashbrown..raw..inner..RawTable$LT$T$C$A$GT$$u20$
   br i1 %or.cond.i, label %23, label %12, !prof !201
 
 12:                                               ; preds = %7
-  %13 = add nuw i64 %9, 15
+  %13 = add nuw i64 %9, 8
   %14 = and i64 %13, -16
   %15 = add nsw i64 %4, 17
   %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %15)
@@ -2632,7 +2632,7 @@ define hidden void @"_ZN9hashbrown3map24HashMap$LT$K$C$V$C$S$GT$24with_capacity_
 19:                                               ; preds = %12, %.thread.i
   %.sroa.4.0.i.ph.i10.i = phi i64 [ %.sroa.03.0.i.i.i, %.thread.i ], [ %18, %12 ]
   %20 = mul nuw i64 %.sroa.4.0.i.ph.i10.i, 24
-  %21 = add nuw i64 %20, 15
+  %21 = add nuw i64 %20, 8
   %22 = and i64 %21, -16
   %23 = add nuw nsw i64 %.sroa.4.0.i.ph.i10.i, 16
   %24 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %22, i64 %23)
@@ -5653,7 +5653,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 38:                                               ; preds = %.thread, %31
   %.sroa.4.0.i.ph.i43 = phi i64 [ %.sroa.03.0.i.i, %.thread ], [ %37, %31 ]
   %39 = mul nuw i64 %.sroa.4.0.i.ph.i43, 24
-  %40 = add nuw i64 %39, 15
+  %40 = add nuw i64 %39, 8
   %41 = and i64 %40, -16
   %42 = add nuw nsw i64 %.sroa.4.0.i.ph.i43, 16
   %43 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %41, i64 %42)
@@ -6597,7 +6597,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 38:                                               ; preds = %.thread, %31
   %.sroa.4.0.i.ph.i43 = phi i64 [ %.sroa.03.0.i.i, %.thread ], [ %37, %31 ]
   %39 = mul nuw i64 %.sroa.4.0.i.ph.i43, 24
-  %40 = add nuw i64 %39, 15
+  %40 = add nuw i64 %39, 8
   %41 = and i64 %40, -16
   %42 = add nuw nsw i64 %.sroa.4.0.i.ph.i43, 16
   %43 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %41, i64 %42)
@@ -8372,13 +8372,12 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$12free_bucket
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val1 = load i64, ptr %2, align 8, !noundef !3
   %3 = shl i64 %.val1, 3
-  %4 = add i64 %3, 23
-  %5 = and i64 %4, -16
-  %6 = add i64 %.val1, 17
-  %7 = add nuw i64 %6, %5
-  %8 = sub nsw i64 0, %5
-  %9 = getelementptr inbounds i8, ptr %.val, i64 %8
-  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %9, i64 noundef %7, i64 noundef range(i64 1, -9223372036854775807) 16) #25
+  %4 = and i64 %3, -16
+  %5 = add i64 %.val1, 33
+  %6 = add i64 %5, %4
+  %7 = sub nuw nsw i64 -16, %4
+  %8 = getelementptr inbounds i8, ptr %.val, i64 %7
+  tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %8, i64 noundef %6, i64 noundef range(i64 1, -9223372036854775807) 16) #25
   ret void
 }
 

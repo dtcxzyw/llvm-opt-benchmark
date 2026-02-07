@@ -65,7 +65,7 @@ define hidden noundef zeroext i1 @je_ckh_new(ptr noundef %0, ptr noundef writeon
   br i1 %24, label %25, label %45
 
 25:                                               ; preds = %17
-  %26 = add nuw nsw i64 %23, 63
+  %26 = add nuw nsw i64 %23, 48
   %27 = and i64 %26, 32704
   %28 = icmp samesign ult i64 %27, 4097
   br i1 %28, label %29, label %36, !prof !18
@@ -672,7 +672,7 @@ define hidden noundef zeroext i1 @je_ckh_insert(ptr noundef %0, ptr noundef capt
   br i1 %31, label %32, label %52
 
 32:                                               ; preds = %27
-  %33 = add nuw nsw i64 %30, 63
+  %33 = add nuw nsw i64 %30, 48
   %34 = and i64 %33, 32704
   %35 = icmp samesign ult i64 %34, 4097
   br i1 %35, label %36, label %43, !prof !18
@@ -1790,7 +1790,7 @@ ckh_isearch.exit:                                 ; preds = %41
   br i1 %73, label %74, label %94
 
 74:                                               ; preds = %69
-  %75 = add nuw nsw i64 %72, 63
+  %75 = add nuw nsw i64 %72, 48
   %76 = and i64 %75, 32704
   %77 = icmp samesign ult i64 %76, 4097
   br i1 %77, label %78, label %85, !prof !18

@@ -282,7 +282,7 @@ define hidden noundef i32 @_ZN9EdgeUtils11array_indexERK4Edge(ptr noundef nonnul
   %8 = select i1 %7, i32 16, i32 20
   %9 = load i8, ptr @UseCompressedOops, align 1
   %10 = trunc i8 %9 to i1
-  %narrow.i.i.i.i = add nuw nsw i32 %8, 7
+  %narrow.i.i.i.i = add nuw nsw i32 %8, 4
   %11 = and i32 %narrow.i.i.i.i, 24
   %12 = select i1 %10, i32 %8, i32 %11
   %13 = ptrtoint ptr %2 to i64

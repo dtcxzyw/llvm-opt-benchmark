@@ -75,7 +75,7 @@ define void @guided_filter(ptr noundef readonly captures(none) %0, ptr noundef r
   call void @llvm.assume(i1 true) [ "align"(ptr %57, i64 64) ]
   %58 = tail call i64 @dt_round_size(i64 noundef %49, i64 noundef 16) #6
   %59 = mul i64 %58, 36
-  %60 = add i64 %59, 63
+  %60 = add i64 %59, 60
   %61 = and i64 %60, -64
   %62 = tail call ptr @dt_alloc_aligned(i64 noundef %61) #6
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 64) ]

@@ -7342,7 +7342,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @read_colorspace_details(pt
   %34 = add nuw nsw i8 %33, 8
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %34, ptr %35, align 1, !tbaa !71
-  %narrow = add nuw nsw i8 %33, 15
+  %narrow = add nuw nsw i8 %33, 14
   %36 = lshr i8 %narrow, 3
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 3224
   store i8 %36, ptr %37, align 8, !tbaa !67

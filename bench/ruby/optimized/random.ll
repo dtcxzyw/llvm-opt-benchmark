@@ -2848,7 +2848,7 @@ define internal fastcc noundef i64 @rand_init(ptr noundef readonly captures(none
 
 .thread:                                          ; preds = %7
   %10 = shl nuw i64 %spec.store.select, 2
-  %11 = add i64 %10, 7
+  %11 = add i64 %10, 4
   %12 = lshr i64 %11, 3
   %13 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %4, i64 noundef %10, i64 noundef %12) #29
   %14 = call i32 @rb_integer_pack(i64 noundef %2, ptr noundef nonnull %13, i64 noundef %spec.store.select, i64 noundef 4, i64 noundef 0, i32 noundef 66) #24
@@ -4235,7 +4235,7 @@ define internal fastcc i64 @rand_init_default(ptr noundef nonnull readonly captu
   br label %15
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %2
-  %12 = add nuw nsw i64 %9, 7
+  %12 = add nuw nsw i64 %9, 4
   %13 = lshr i64 %12, 3
   %14 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %3, i64 noundef %9, i64 noundef %13) #29
   br label %15

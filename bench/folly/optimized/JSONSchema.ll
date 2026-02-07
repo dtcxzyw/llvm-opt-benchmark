@@ -8886,7 +8886,7 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %1
   %27 = ptrtoint ptr %26 to i64
-  %28 = add i64 %27, 15
+  %28 = add i64 %27, 8
   %29 = and i64 %28, -16
   %30 = inttoptr i64 %29 to ptr
   %.not56 = icmp eq i64 %9, 0

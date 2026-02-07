@@ -186,7 +186,7 @@ define_patches.exit:                              ; preds = %._crit_edge.i, %5
   %121 = add nsw i32 %120, 121
   %122 = sext i32 %121 to i64
   %123 = shl nsw i64 %122, 2
-  %124 = add nsw i64 %123, 63
+  %124 = add nsw i64 %123, 60
   %125 = and i64 %124, -64
   %126 = tail call ptr @dt_alloc_aligned(i64 noundef %125) #10
   call void @llvm.assume(i1 true) [ "align"(ptr %126, i64 64) ]

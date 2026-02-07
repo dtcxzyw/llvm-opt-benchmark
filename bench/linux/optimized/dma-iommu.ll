@@ -1399,7 +1399,7 @@ define internal ptr @iommu_dma_alloc(ptr noundef %0, i64 noundef %1, ptr noundef
   %47 = and i64 %46, -4096
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %49 = load i32, ptr %48, align 8
-  %50 = add i64 %47, -1
+  %50 = add i64 %1, -1
   %51 = lshr i64 %50, 12
   %52 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %51, i32 -1) #18, !srcloc !36
   %53 = add i32 %52, 1
@@ -2778,7 +2778,7 @@ define internal fastcc void @__iommu_dma_free(i64 noundef %0, ptr noundef %1) un
   br i1 %34, label %40, label %35
 
 35:                                               ; preds = %32
-  %36 = add i64 %4, -1
+  %36 = add i64 %0, -1
   %37 = lshr i64 %36, 12
   %38 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %37, i32 -1) #18, !srcloc !36
   %39 = add i32 %38, 1

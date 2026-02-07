@@ -1275,7 +1275,7 @@ define internal fastcc i32 @create_log_context(ptr noundef writeonly captures(no
   br i1 %82, label %.thread11, label %83
 
 .thread11:                                        ; preds = %73
-  %.lhs.trunc = add nuw nsw i64 %62, 1535
+  %.lhs.trunc = add nuw nsw i64 %62, 1528
   %.zext = lshr i64 %.lhs.trunc, 9
   br label %92
 

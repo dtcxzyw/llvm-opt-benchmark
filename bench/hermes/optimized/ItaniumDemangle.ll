@@ -19151,7 +19151,7 @@ entry:
   %sub.ptr.lhs.cast = ptrtoint ptr %end to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %begin to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %add.i.i = add i64 %sub.ptr.sub, 15
+  %add.i.i = add i64 %sub.ptr.sub, 8
   %and.i.i = and i64 %add.i.i, 4294967280
   %BlockList.i.i = getelementptr inbounds nuw i8, ptr %this, i64 4848
   %0 = load ptr, ptr %BlockList.i.i, align 16

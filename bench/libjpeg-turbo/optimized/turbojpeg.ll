@@ -8732,7 +8732,7 @@ define range(i32 -1, 1) i32 @tj3EncodeYUVPlanes8(ptr noundef %0, ptr noundef %1,
 
 ._crit_edge279:                                   ; preds = %180, %.preheader266
   %186 = shl i32 %151, 3
-  %187 = add i32 %186, 31
+  %187 = add i32 %186, 24
   %188 = and i32 %187, -32
   %189 = getelementptr inbounds nuw i8, ptr %149, i64 12
   %190 = load i32, ptr %189, align 4, !tbaa !120
@@ -12227,7 +12227,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 28
   %169 = load i32, ptr %168, align 4, !tbaa !223
   %170 = shl i32 %169, 3
-  %171 = add i32 %170, 31
+  %171 = add i32 %170, 24
   %172 = and i32 %171, -32
   %173 = getelementptr inbounds nuw i8, ptr %167, i64 12
   %174 = load i32, ptr %173, align 4, !tbaa !120

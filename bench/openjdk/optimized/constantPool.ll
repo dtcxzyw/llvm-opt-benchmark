@@ -711,7 +711,7 @@ _ZN15MetadataFactory10free_arrayIP5KlassEEvP15ClassLoaderDataP5ArrayIT_E.exit: ;
   %19 = add nsw i32 %18, -1
   %20 = zext nneg i32 %19 to i64
   %21 = shl nuw nsw i64 %20, 1
-  %22 = add nuw nsw i64 %21, 15
+  %22 = add nuw nsw i64 %21, 14
   %23 = lshr i64 %22, 3
   %24 = tail call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #18
   tail call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull %15, i64 noundef %23, i1 noundef zeroext false) #18
@@ -1063,7 +1063,7 @@ define hidden void @_ZN12ConstantPool30initialize_resolved_referencesEP15ClassLo
   %13 = add nsw i32 %3, -1
   %14 = zext nneg i32 %13 to i64
   %15 = shl nuw nsw i64 %14, 1
-  %16 = add nuw nsw i64 %15, 15
+  %16 = add nuw nsw i64 %15, 14
   %17 = lshr i64 %16, 3
   %18 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %1, i64 noundef %17, i32 noundef 3, ptr noundef %4) #18
   %19 = icmp eq ptr %18, null
@@ -6225,7 +6225,7 @@ _ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit: ; preds = %4, %8
   %23 = add nsw i32 %22, -1
   %24 = zext nneg i32 %23 to i64
   %25 = shl nuw nsw i64 %24, 1
-  %26 = add nuw nsw i64 %25, 15
+  %26 = add nuw nsw i64 %25, 14
   %27 = lshr i64 %26, 3
   %28 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %21, i64 noundef %27, i32 noundef 3, ptr noundef %3) #18
   %29 = icmp eq ptr %28, null
@@ -6290,7 +6290,7 @@ _ZN15MetadataFactory10free_arrayItEEvP15ClassLoaderDataP5ArrayIT_E.exit: ; preds
   %60 = add nsw i32 %59, -1
   %61 = zext nneg i32 %60 to i64
   %62 = shl nuw nsw i64 %61, 1
-  %63 = add nuw nsw i64 %62, 15
+  %63 = add nuw nsw i64 %62, 14
   %64 = lshr i64 %63, 3
   %65 = tail call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %21) #18
   tail call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %65, ptr noundef nonnull %57, i64 noundef %64, i1 noundef zeroext false) #18
@@ -6354,7 +6354,7 @@ _ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit15.thread: ; preds = %15,
   %30 = add nsw i32 %29, -1
   %31 = zext nneg i32 %30 to i64
   %32 = shl nuw nsw i64 %31, 1
-  %33 = add nuw nsw i64 %32, 15
+  %33 = add nuw nsw i64 %32, 14
   %34 = lshr i64 %33, 3
   %35 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %28, i64 noundef %34, i32 noundef 3, ptr noundef %2) #18
   %36 = icmp eq ptr %35, null
@@ -6491,7 +6491,7 @@ _ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit68: ; preds = %_ZN12Const
   %35 = add nsw i32 %34, -1
   %36 = zext nneg i32 %35 to i64
   %37 = shl nuw nsw i64 %36, 1
-  %38 = add nuw nsw i64 %37, 15
+  %38 = add nuw nsw i64 %37, 14
   %39 = lshr i64 %38, 3
   %40 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %30, i64 noundef %39, i32 noundef 3, ptr noundef %2) #18
   %41 = icmp eq ptr %40, null
@@ -6526,7 +6526,7 @@ _ZN15MetadataFactory9new_arrayItEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
   %58 = add nsw i32 %57, -1
   %59 = zext nneg i32 %58 to i64
   %60 = shl nuw nsw i64 %59, 1
-  %61 = add nuw nsw i64 %60, 15
+  %61 = add nuw nsw i64 %60, 14
   %62 = lshr i64 %61, 3
   %63 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %30, i64 noundef %62, i32 noundef 3, ptr noundef %2) #18
   %64 = icmp eq ptr %63, null
@@ -12221,7 +12221,7 @@ define linkonce_odr hidden noundef i32 @_ZNK16MetaspaceClosure8ArrayRefItE4sizeE
   %7 = add nsw i32 %6, -1
   %8 = zext nneg i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 1
-  %10 = add nuw nsw i64 %9, 15
+  %10 = add nuw nsw i64 %9, 14
   %11 = lshr i64 %10, 3
   %12 = trunc nuw nsw i64 %11 to i32
   ret i32 %12

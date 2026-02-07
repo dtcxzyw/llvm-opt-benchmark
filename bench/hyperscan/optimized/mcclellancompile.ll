@@ -6125,7 +6125,7 @@ _ZNK3ue212_GLOBAL__N_18dfa_info13getAlphaShiftEv.exit320.i: ; preds = %1557
   %1568 = zext nneg i32 %1567 to i64
   %1569 = select i1 %1562, i64 2, i64 %1568
   %1570 = shl nuw nsw i64 %1566, %1569
-  %1571 = add nuw nsw i64 %1570, 387
+  %1571 = add nuw nsw i64 %1570, 386
   %1572 = and i64 %1571, 562949953421296
   %1573 = load ptr, ptr %40, align 8, !noalias !185
   %1574 = load ptr, ptr %1573, align 8
@@ -6218,7 +6218,7 @@ _ZN3ue2L21calcShermanRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i: ; preds = 
 
 ._crit_edge.i327.i:                               ; preds = %1632, %1616
   %.09.lcssa.i.i = phi i64 [ %1626, %1616 ], [ %1642, %1632 ]
-  %1630 = add i64 %.09.lcssa.i.i, 15
+  %1630 = add i64 %.09.lcssa.i.i, 14
   %1631 = and i64 %1630, -16
   br label %_ZN3ue2L18calcWideRegionSizeERKNS_12_GLOBAL__N_18dfa_infoE.exit.i
 
@@ -7863,7 +7863,7 @@ _ZNK3ue212_GLOBAL__N_18dfa_info13getAlphaShiftEv.exit.i: ; preds = %2375
   %2389 = sdiv exact i64 %2388, 96
   %2390 = select i1 %2380, i64 1, i64 %2384
   %2391 = shl i64 %2389, %2390
-  %2392 = add i64 %2391, 387
+  %2392 = add i64 %2391, 386
   %2393 = and i64 %2392, -16
   %2394 = load ptr, ptr %40, align 8, !noalias !257
   %2395 = load ptr, ptr %2394, align 8

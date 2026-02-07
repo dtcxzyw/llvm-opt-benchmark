@@ -4146,7 +4146,7 @@ define dso_local noundef range(i32 -22, 1) i32 @md_bitmap_resize(ptr noundef %0,
   %122 = phi i64 [ %111, %.thread126 ], [ %115, %113 ]
   store i64 %122, ptr %.sroa.gep1, align 8
   %123 = shl nuw nsw i64 %94, 2
-  %124 = add nuw nsw i64 %123, 7
+  %124 = add nuw nsw i64 %123, 4
   %125 = lshr i64 %124, 3
   %126 = add nuw nsw i64 %125, 7
   %127 = and i64 %126, 9007199254740984

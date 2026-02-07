@@ -55,7 +55,7 @@ define internal range(i32 -22, 1) i32 @decode_init(ptr noundef %0) #0 {
 
 10:                                               ; preds = %1
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.2) #8
-  br label %59
+  br label %56
 
 11:                                               ; preds = %1
   store ptr %0, ptr %3, align 8, !tbaa !29
@@ -65,7 +65,7 @@ define internal range(i32 -22, 1) i32 @decode_init(ptr noundef %0) #0 {
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %13, ptr %14, align 8, !tbaa !36
   %.not58 = icmp eq ptr %13, null
-  br i1 %.not58, label %59, label %15
+  br i1 %.not58, label %56, label %15
 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -75,7 +75,7 @@ define internal range(i32 -22, 1) i32 @decode_init(ptr noundef %0) #0 {
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 2024
   store ptr %18, ptr %19, align 8, !tbaa !37
   %.not59 = icmp eq ptr %18, null
-  br i1 %.not59, label %59, label %20
+  br i1 %.not59, label %56, label %20
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i32, ptr %18, i64 %17
@@ -89,7 +89,7 @@ define internal range(i32 -22, 1) i32 @decode_init(ptr noundef %0) #0 {
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 2040
   store ptr %27, ptr %28, align 8, !tbaa !39
   %.not60 = icmp eq ptr %27, null
-  br i1 %.not60, label %59, label %29
+  br i1 %.not60, label %56, label %29
 
 29:                                               ; preds = %20
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 2104
@@ -103,40 +103,37 @@ define internal range(i32 -22, 1) i32 @decode_init(ptr noundef %0) #0 {
   %36 = getelementptr inbounds i32, ptr %34, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 2080
   store ptr %36, ptr %37, align 8, !tbaa !42
-  %38 = add nsw i32 %5, 9
-  %39 = ashr i32 %38, 1
-  %40 = add nsw i32 %7, 9
-  %41 = ashr i32 %40, 1
-  %42 = mul nsw i32 %41, %39
-  %43 = sext i32 %42 to i64
-  %44 = tail call noalias ptr @av_calloc(i64 noundef %43, i64 noundef 16) #8
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 2048
-  store ptr %44, ptr %45, align 8, !tbaa !43
-  %.not61 = icmp eq ptr %44, null
-  br i1 %.not61, label %59, label %46
+  %38 = ashr exact i32 %23, 1
+  %39 = ashr exact i32 %24, 1
+  %40 = mul nsw i32 %39, %38
+  %41 = sext i32 %40 to i64
+  %42 = tail call noalias ptr @av_calloc(i64 noundef %41, i64 noundef 16) #8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 2048
+  store ptr %42, ptr %43, align 8, !tbaa !43
+  %.not61 = icmp eq ptr %42, null
+  br i1 %.not61, label %56, label %44
 
-46:                                               ; preds = %29
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 2108
-  store i32 %39, ptr %47, align 4, !tbaa !44
-  %48 = and i32 %38, -4
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %44, i64 %49
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = getelementptr inbounds nuw i8, ptr %3, i64 2064
-  store ptr %51, ptr %52, align 8, !tbaa !45
-  %53 = getelementptr inbounds i32, ptr %51, i64 %43
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 2088
-  store ptr %53, ptr %54, align 8, !tbaa !46
-  %55 = getelementptr inbounds i32, ptr %53, i64 %43
-  %56 = getelementptr inbounds nuw i8, ptr %3, i64 2072
-  store ptr %55, ptr %56, align 8, !tbaa !47
-  %57 = getelementptr inbounds i32, ptr %55, i64 %43
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 2096
-  store ptr %57, ptr %58, align 8, !tbaa !48
-  br label %59
+44:                                               ; preds = %29
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 2108
+  store i32 %38, ptr %45, align 4, !tbaa !44
+  %46 = sext i32 %23 to i64
+  %47 = getelementptr inbounds i32, ptr %42, i64 %46
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 2064
+  store ptr %48, ptr %49, align 8, !tbaa !45
+  %50 = getelementptr inbounds i32, ptr %48, i64 %41
+  %51 = getelementptr inbounds nuw i8, ptr %3, i64 2088
+  store ptr %50, ptr %51, align 8, !tbaa !46
+  %52 = getelementptr inbounds i32, ptr %50, i64 %41
+  %53 = getelementptr inbounds nuw i8, ptr %3, i64 2072
+  store ptr %52, ptr %53, align 8, !tbaa !47
+  %54 = getelementptr inbounds i32, ptr %52, i64 %41
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 2096
+  store ptr %54, ptr %55, align 8, !tbaa !48
+  br label %56
 
-59:                                               ; preds = %29, %20, %15, %11, %46, %10
-  %.0 = phi i32 [ -22, %10 ], [ 0, %46 ], [ -12, %20 ], [ -12, %15 ], [ -12, %11 ], [ -12, %29 ]
+56:                                               ; preds = %29, %20, %15, %11, %44, %10
+  %.0 = phi i32 [ -22, %10 ], [ 0, %44 ], [ -12, %20 ], [ -12, %15 ], [ -12, %11 ], [ -12, %29 ]
   ret i32 %.0
 }
 

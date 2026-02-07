@@ -2089,7 +2089,7 @@ _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i: ; preds = %
   ]
 
 104:                                              ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %101
-  %narrow.i = add nuw nsw i32 %99, 7
+  %narrow.i = add nuw nsw i32 %99, 4
   %105 = and i32 %narrow.i, 24
   br label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
 
@@ -2398,7 +2398,7 @@ _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i147: ; preds 
   ]
 
 287:                                              ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i147, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i147, %284
-  %narrow.i148 = add nuw nsw i32 %282, 7
+  %narrow.i148 = add nuw nsw i32 %282, 4
   %288 = and i32 %narrow.i148, 24
   br label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit149
 
@@ -4562,7 +4562,7 @@ _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i: ; preds = %
 
 63:                                               ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %.thread
   %64 = phi i8 [ %55, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ %55, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i ], [ 12, %.thread ]
-  %narrow.i = add nuw nsw i32 %58, 7
+  %narrow.i = add nuw nsw i32 %58, 4
   %65 = and i32 %narrow.i, 24
   br label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
 

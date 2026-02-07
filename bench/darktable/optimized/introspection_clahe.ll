@@ -162,7 +162,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %63 = load float, ptr %62, align 8, !tbaa !34
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %65 = load double, ptr %64, align 8, !tbaa !35
-  %66 = add nsw i64 %19, 63
+  %66 = add nsw i64 %19, 60
   %67 = and i64 %66, -64
   %68 = tail call ptr @dt_alloc_aligned(i64 noundef %67) #17
   call void @llvm.assume(i1 true) [ "align"(ptr %68, i64 64) ]

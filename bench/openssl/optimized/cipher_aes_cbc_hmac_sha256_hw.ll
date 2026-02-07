@@ -370,7 +370,7 @@ sha256_update.exit444:                            ; preds = %133, %.thread484
 158:                                              ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %159 = ptrtoint ptr %5 to i64
-  %160 = add i64 %159, 63
+  %160 = add i64 %159, 60
   %161 = and i64 %160, -64
   %162 = inttoptr i64 %161 to ptr
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 192

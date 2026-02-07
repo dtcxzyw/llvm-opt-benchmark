@@ -276,7 +276,7 @@ _ZNK13InstanceKlass17java_fields_countEv.exit:    ; preds = %.lr.ph.i.i.i.i.i, %
 
 52:                                               ; preds = %_ZNK13InstanceKlass17java_fields_countEv.exit
   %53 = shl i64 %51, 1
-  %54 = add i64 %53, 3
+  %54 = add i64 %53, 2
   %55 = and i64 %54, -1024
   %56 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %45, i64 noundef %51, i64 noundef %55, i32 noundef 0) #13
   store ptr %56, ptr %44, align 8
@@ -433,7 +433,7 @@ _ZN15JavaFieldStreamC2EPK13InstanceKlass.exit:    ; preds = %.lr.ph.i.i.i.i.i.i,
 
 143:                                              ; preds = %132
   %144 = shl i64 %142, 1
-  %145 = add i64 %144, 3
+  %145 = add i64 %144, 2
   %146 = and i64 %145, -1024
   %147 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %137, i64 noundef %142, i64 noundef %146, i32 noundef 0) #13
   store ptr %147, ptr %44, align 8
@@ -473,7 +473,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit42: ; preds = %154, %155
 
 163:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit42
   %164 = shl i64 %162, 1
-  %165 = add i64 %164, 3
+  %165 = add i64 %164, 2
   %166 = and i64 %165, -1024
   %167 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %157, i64 noundef %162, i64 noundef %166, i32 noundef 0) #13
   store ptr %167, ptr %44, align 8
@@ -513,7 +513,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit47: ; preds = %174, %175
 
 183:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit47
   %184 = shl i64 %182, 1
-  %185 = add i64 %184, 3
+  %185 = add i64 %184, 2
   %186 = and i64 %185, -1024
   %187 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %177, i64 noundef %182, i64 noundef %186, i32 noundef 0) #13
   store ptr %187, ptr %44, align 8
@@ -564,7 +564,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit52: ; preds = %194, %195
 
 206:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit52
   %207 = shl i64 %205, 1
-  %208 = add i64 %207, 3
+  %208 = add i64 %207, 2
   %209 = and i64 %208, -1024
   %210 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %200, i64 noundef %205, i64 noundef %209, i32 noundef 0) #13
   store ptr %210, ptr %44, align 8
@@ -608,7 +608,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit57: ; preds = %217, %218
 
 227:                                              ; preds = %219
   %228 = shl i64 %226, 1
-  %229 = add i64 %228, 5
+  %229 = add i64 %228, 4
   %230 = and i64 %229, -1024
   %231 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %221, i64 noundef %226, i64 noundef %230, i32 noundef 0) #13
   store ptr %231, ptr %44, align 8
@@ -647,7 +647,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %237, %238
 
 246:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
   %247 = shl i64 %245, 1
-  %248 = add i64 %247, 3
+  %248 = add i64 %247, 2
   %249 = and i64 %248, -1024
   %250 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %240, i64 noundef %245, i64 noundef %249, i32 noundef 0) #13
   store ptr %250, ptr %44, align 8
@@ -728,7 +728,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter8write_u2Et(ptr noundef nonn
 
 13:                                               ; preds = %2
   %14 = shl i64 %12, 1
-  %15 = add i64 %14, 3
+  %15 = add i64 %14, 2
   %16 = and i64 %15, -1024
   %17 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %16, i32 noundef 0) #13
   store ptr %17, ptr %5, align 8
@@ -853,7 +853,7 @@ _ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit: ; pred
 
 62:                                               ; preds = %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit
   %63 = shl i64 %61, 1
-  %64 = add i64 %63, 3
+  %64 = add i64 %63, 2
   %65 = and i64 %64, -1024
   %66 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %55, i64 noundef %61, i64 noundef %65, i32 noundef 0) #13
   store ptr %66, ptr %54, align 8
@@ -901,7 +901,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter8write_u4Ej(ptr noundef nonn
 
 13:                                               ; preds = %2
   %14 = shl i64 %12, 1
-  %15 = add i64 %14, 5
+  %15 = add i64 %14, 4
   %16 = and i64 %15, -1024
   %17 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %16, i32 noundef 0) #13
   store ptr %17, ptr %5, align 8
@@ -950,7 +950,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter25write_signature_attributeE
 
 13:                                               ; preds = %2
   %14 = shl i64 %12, 1
-  %15 = add i64 %14, 5
+  %15 = add i64 %14, 4
   %16 = and i64 %15, -1024
   %17 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %16, i32 noundef 0) #13
   store ptr %17, ptr %5, align 8
@@ -989,7 +989,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %23, %24
 
 32:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
   %33 = shl i64 %31, 1
-  %34 = add i64 %33, 3
+  %34 = add i64 %33, 2
   %35 = and i64 %34, -1024
   %36 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %26, i64 noundef %31, i64 noundef %35, i32 noundef 0) #13
   store ptr %36, ptr %5, align 8
@@ -1270,7 +1270,7 @@ _ZN14ExceptionTableC2EPK6Method.exit:             ; preds = %59, %66
 
 88:                                               ; preds = %_ZN14ExceptionTableC2EPK6Method.exit
   %89 = shl i64 %87, 1
-  %90 = add i64 %89, 5
+  %90 = add i64 %89, 4
   %91 = and i64 %90, -1024
   %92 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %81, i64 noundef %87, i64 noundef %91, i32 noundef 0) #13
   store ptr %92, ptr %80, align 8
@@ -1315,7 +1315,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %99, %100
 
 113:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
   %114 = shl i64 %112, 1
-  %115 = add i64 %114, 3
+  %115 = add i64 %114, 2
   %116 = and i64 %115, -1024
   %117 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %107, i64 noundef %112, i64 noundef %116, i32 noundef 0) #13
   store ptr %117, ptr %80, align 8
@@ -1360,7 +1360,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %124, %125
 
 138:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
   %139 = shl i64 %137, 1
-  %140 = add i64 %139, 3
+  %140 = add i64 %139, 2
   %141 = and i64 %140, -1024
   %142 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %132, i64 noundef %137, i64 noundef %141, i32 noundef 0) #13
   store ptr %142, ptr %80, align 8
@@ -1400,7 +1400,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit94: ; preds = %149, %150
 
 158:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit94
   %159 = shl i64 %157, 1
-  %160 = add i64 %159, 5
+  %160 = add i64 %159, 4
   %161 = and i64 %160, -1024
   %162 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %152, i64 noundef %157, i64 noundef %161, i32 noundef 0) #13
   store ptr %162, ptr %80, align 8
@@ -1467,7 +1467,7 @@ _ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit: ; preds = %_ZN27Jvmt
 
 195:                                              ; preds = %_ZN27JvmtiClassFileReconstituter17writeable_addressEm.exit
   %196 = shl i64 %194, 1
-  %197 = add i64 %196, 3
+  %197 = add i64 %196, 2
   %198 = and i64 %197, -1024
   %199 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %189, i64 noundef %194, i64 noundef %198, i32 noundef 0) #13
   store ptr %199, ptr %80, align 8
@@ -1518,7 +1518,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit105: ; preds = %206, %207
 
 217:                                              ; preds = %.lr.ph
   %218 = shl i64 %216, 1
-  %219 = add i64 %218, 3
+  %219 = add i64 %218, 2
   %220 = and i64 %219, -1024
   %221 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %211, i64 noundef %216, i64 noundef %220, i32 noundef 0) #13
   store ptr %221, ptr %80, align 8
@@ -1560,7 +1560,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit110: ; preds = %228, %229
 
 239:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit110
   %240 = shl i64 %238, 1
-  %241 = add i64 %240, 3
+  %241 = add i64 %240, 2
   %242 = and i64 %241, -1024
   %243 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %233, i64 noundef %238, i64 noundef %242, i32 noundef 0) #13
   store ptr %243, ptr %80, align 8
@@ -1602,7 +1602,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit115: ; preds = %250, %251
 
 261:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit115
   %262 = shl i64 %260, 1
-  %263 = add i64 %262, 3
+  %263 = add i64 %262, 2
   %264 = and i64 %263, -1024
   %265 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %255, i64 noundef %260, i64 noundef %264, i32 noundef 0) #13
   store ptr %265, ptr %80, align 8
@@ -1644,7 +1644,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit120: ; preds = %272, %273
 
 283:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit120
   %284 = shl i64 %282, 1
-  %285 = add i64 %284, 3
+  %285 = add i64 %284, 2
   %286 = and i64 %285, -1024
   %287 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %277, i64 noundef %282, i64 noundef %286, i32 noundef 0) #13
   store ptr %287, ptr %80, align 8
@@ -1689,7 +1689,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit125: ; preds = %294, %295
 
 303:                                              ; preds = %._crit_edge
   %304 = shl i64 %302, 1
-  %305 = add i64 %304, 3
+  %305 = add i64 %304, 2
   %306 = and i64 %305, -1024
   %307 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %297, i64 noundef %302, i64 noundef %306, i32 noundef 0) #13
   store ptr %307, ptr %80, align 8
@@ -2085,7 +2085,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter33write_line_number_table_at
 
 18:                                               ; preds = %3
   %19 = shl i64 %17, 1
-  %20 = add i64 %19, 5
+  %20 = add i64 %19, 4
   %21 = and i64 %20, -1024
   %22 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %11, i64 noundef %17, i64 noundef %21, i32 noundef 0) #13
   store ptr %22, ptr %10, align 8
@@ -2125,7 +2125,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %29, %30
 
 38:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
   %39 = shl i64 %37, 1
-  %40 = add i64 %39, 3
+  %40 = add i64 %39, 2
   %41 = and i64 %40, -1024
   %42 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %32, i64 noundef %37, i64 noundef %41, i32 noundef 0) #13
   store ptr %42, ptr %10, align 8
@@ -2181,7 +2181,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %49, %50
 
 68:                                               ; preds = %58
   %69 = shl i64 %67, 1
-  %70 = add i64 %69, 3
+  %70 = add i64 %69, 2
   %71 = and i64 %70, -1024
   %72 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %62, i64 noundef %67, i64 noundef %71, i32 noundef 0) #13
   store ptr %72, ptr %10, align 8
@@ -2223,7 +2223,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit11: ; preds = %79, %80
 
 90:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit11
   %91 = shl i64 %89, 1
-  %92 = add i64 %91, 3
+  %92 = add i64 %91, 2
   %93 = and i64 %92, -1024
   %94 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %84, i64 noundef %89, i64 noundef %93, i32 noundef 0) #13
   store ptr %94, ptr %10, align 8
@@ -2276,7 +2276,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter30write_stackmap_table_attri
 
 14:                                               ; preds = %3
   %15 = shl i64 %13, 1
-  %16 = add i64 %15, 5
+  %16 = add i64 %15, 4
   %17 = and i64 %16, -1024
   %18 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %7, i64 noundef %13, i64 noundef %17, i32 noundef 0) #13
   store ptr %18, ptr %6, align 8
@@ -2361,7 +2361,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter36write_local_variable_table
 
 17:                                               ; preds = %3
   %18 = shl i64 %16, 1
-  %19 = add i64 %18, 5
+  %19 = add i64 %18, 4
   %20 = and i64 %19, -1024
   %21 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %10, i64 noundef %16, i64 noundef %20, i32 noundef 0) #13
   store ptr %21, ptr %9, align 8
@@ -2401,7 +2401,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %28, %29
 
 37:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
   %38 = shl i64 %36, 1
-  %39 = add i64 %38, 3
+  %39 = add i64 %38, 2
   %40 = and i64 %39, -1024
   %41 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %31, i64 noundef %36, i64 noundef %40, i32 noundef 0) #13
   store ptr %41, ptr %9, align 8
@@ -2456,7 +2456,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %48, %49
 
 66:                                               ; preds = %.lr.ph
   %67 = shl i64 %65, 1
-  %68 = add i64 %67, 3
+  %68 = add i64 %67, 2
   %69 = and i64 %68, -1024
   %70 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %60, i64 noundef %65, i64 noundef %69, i32 noundef 0) #13
   store ptr %70, ptr %9, align 8
@@ -2498,7 +2498,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit21: ; preds = %77, %78
 
 88:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit21
   %89 = shl i64 %87, 1
-  %90 = add i64 %89, 3
+  %90 = add i64 %89, 2
   %91 = and i64 %90, -1024
   %92 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %82, i64 noundef %87, i64 noundef %91, i32 noundef 0) #13
   store ptr %92, ptr %9, align 8
@@ -2540,7 +2540,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit26: ; preds = %99, %100
 
 110:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit26
   %111 = shl i64 %109, 1
-  %112 = add i64 %111, 3
+  %112 = add i64 %111, 2
   %113 = and i64 %112, -1024
   %114 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %104, i64 noundef %109, i64 noundef %113, i32 noundef 0) #13
   store ptr %114, ptr %9, align 8
@@ -2582,7 +2582,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit31: ; preds = %121, %122
 
 132:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit31
   %133 = shl i64 %131, 1
-  %134 = add i64 %133, 3
+  %134 = add i64 %133, 2
   %135 = and i64 %134, -1024
   %136 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %126, i64 noundef %131, i64 noundef %135, i32 noundef 0) #13
   store ptr %136, ptr %9, align 8
@@ -2624,7 +2624,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit36: ; preds = %143, %144
 
 154:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit36
   %155 = shl i64 %153, 1
-  %156 = add i64 %155, 3
+  %156 = add i64 %155, 2
   %157 = and i64 %156, -1024
   %158 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %148, i64 noundef %153, i64 noundef %157, i32 noundef 0) #13
   store ptr %158, ptr %9, align 8
@@ -2687,7 +2687,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter41write_local_variable_type_
 
 17:                                               ; preds = %3
   %18 = shl i64 %16, 1
-  %19 = add i64 %18, 5
+  %19 = add i64 %18, 4
   %20 = and i64 %19, -1024
   %21 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %10, i64 noundef %16, i64 noundef %20, i32 noundef 0) #13
   store ptr %21, ptr %9, align 8
@@ -2727,7 +2727,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %28, %29
 
 37:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
   %38 = shl i64 %36, 1
-  %39 = add i64 %38, 3
+  %39 = add i64 %38, 2
   %40 = and i64 %39, -1024
   %41 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %31, i64 noundef %36, i64 noundef %40, i32 noundef 0) #13
   store ptr %41, ptr %9, align 8
@@ -2788,7 +2788,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %48, %49
 
 69:                                               ; preds = %60
   %70 = shl i64 %68, 1
-  %71 = add i64 %70, 3
+  %71 = add i64 %70, 2
   %72 = and i64 %71, -1024
   %73 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %63, i64 noundef %68, i64 noundef %72, i32 noundef 0) #13
   store ptr %73, ptr %9, align 8
@@ -2830,7 +2830,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit24: ; preds = %80, %81
 
 91:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit24
   %92 = shl i64 %90, 1
-  %93 = add i64 %92, 3
+  %93 = add i64 %92, 2
   %94 = and i64 %93, -1024
   %95 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %85, i64 noundef %90, i64 noundef %94, i32 noundef 0) #13
   store ptr %95, ptr %9, align 8
@@ -2872,7 +2872,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit29: ; preds = %102, %103
 
 113:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit29
   %114 = shl i64 %112, 1
-  %115 = add i64 %114, 3
+  %115 = add i64 %114, 2
   %116 = and i64 %115, -1024
   %117 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %107, i64 noundef %112, i64 noundef %116, i32 noundef 0) #13
   store ptr %117, ptr %9, align 8
@@ -2913,7 +2913,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit34: ; preds = %124, %125
 
 134:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit34
   %135 = shl i64 %133, 1
-  %136 = add i64 %135, 3
+  %136 = add i64 %135, 2
   %137 = and i64 %136, -1024
   %138 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %128, i64 noundef %133, i64 noundef %137, i32 noundef 0) #13
   store ptr %138, ptr %9, align 8
@@ -2955,7 +2955,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit39: ; preds = %145, %146
 
 156:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit39
   %157 = shl i64 %155, 1
-  %158 = add i64 %157, 3
+  %158 = add i64 %157, 2
   %159 = and i64 %158, -1024
   %160 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %150, i64 noundef %155, i64 noundef %159, i32 noundef 0) #13
   store ptr %160, ptr %9, align 8
@@ -3020,7 +3020,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter26write_exceptions_attribute
 
 18:                                               ; preds = %2
   %19 = shl i64 %17, 1
-  %20 = add i64 %19, 5
+  %20 = add i64 %19, 4
   %21 = and i64 %20, -1024
   %22 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %11, i64 noundef %17, i64 noundef %21, i32 noundef 0) #13
   store ptr %22, ptr %10, align 8
@@ -3060,7 +3060,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %29, %30
 
 38:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
   %39 = shl i64 %37, 1
-  %40 = add i64 %39, 3
+  %40 = add i64 %39, 2
   %41 = and i64 %40, -1024
   %42 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %32, i64 noundef %37, i64 noundef %41, i32 noundef 0) #13
   store ptr %42, ptr %10, align 8
@@ -3111,7 +3111,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %49, %50
 
 60:                                               ; preds = %.lr.ph
   %61 = shl i64 %59, 1
-  %62 = add i64 %61, 3
+  %62 = add i64 %61, 2
   %63 = and i64 %62, -1024
   %64 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %54, i64 noundef %59, i64 noundef %63, i32 noundef 0) #13
   store ptr %64, ptr %10, align 8
@@ -3173,7 +3173,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter32write_method_parameter_att
 
 17:                                               ; preds = %2
   %18 = shl i64 %16, 1
-  %19 = add i64 %18, 5
+  %19 = add i64 %18, 4
   %20 = and i64 %19, -1024
   %21 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %10, i64 noundef %16, i64 noundef %20, i32 noundef 0) #13
   store ptr %21, ptr %9, align 8
@@ -3250,7 +3250,7 @@ _ZN27JvmtiClassFileReconstituter8write_u1Eh.exit: ; preds = %_ZN27JvmtiClassFile
 
 56:                                               ; preds = %.lr.ph
   %57 = shl i64 %55, 1
-  %58 = add i64 %57, 3
+  %58 = add i64 %57, 2
   %59 = and i64 %58, -1024
   %60 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %50, i64 noundef %55, i64 noundef %59, i32 noundef 0) #13
   store ptr %60, ptr %9, align 8
@@ -3292,7 +3292,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %67, %68
 
 78:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
   %79 = shl i64 %77, 1
-  %80 = add i64 %79, 3
+  %80 = add i64 %79, 2
   %81 = and i64 %80, -1024
   %82 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %72, i64 noundef %77, i64 noundef %81, i32 noundef 0) #13
   store ptr %82, ptr %9, align 8
@@ -3383,7 +3383,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter27write_source_file_attribut
 
 12:                                               ; preds = %1
   %13 = shl i64 %11, 1
-  %14 = add i64 %13, 5
+  %14 = add i64 %13, 4
   %15 = and i64 %14, -1024
   %16 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %5, i64 noundef %11, i64 noundef %15, i32 noundef 0) #13
   store ptr %16, ptr %4, align 8
@@ -3479,7 +3479,7 @@ _ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit: ; pred
 
 74:                                               ; preds = %_ZN30JvmtiConstantPoolReconstituter21symbol_to_cpool_indexEP6Symbol.exit
   %75 = shl i64 %73, 1
-  %76 = add i64 %75, 3
+  %76 = add i64 %75, 2
   %77 = and i64 %76, -1024
   %78 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %68, i64 noundef %73, i64 noundef %77, i32 noundef 0) #13
   store ptr %78, ptr %4, align 8
@@ -3535,7 +3535,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter38write_source_debug_extensi
 
 18:                                               ; preds = %1
   %19 = shl i64 %17, 1
-  %20 = add i64 %19, 5
+  %20 = add i64 %19, 4
   %21 = and i64 %20, -1024
   %22 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %11, i64 noundef %17, i64 noundef %21, i32 noundef 0) #13
   store ptr %22, ptr %10, align 8
@@ -3655,7 +3655,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter27write_annotations_attribut
 
 15:                                               ; preds = %3
   %16 = shl i64 %14, 1
-  %17 = add i64 %16, 5
+  %17 = add i64 %16, 4
   %18 = and i64 %17, -1024
   %19 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %8, i64 noundef %14, i64 noundef %18, i32 noundef 0) #13
   store ptr %19, ptr %7, align 8
@@ -3797,7 +3797,7 @@ _ZN12ConstantPool20operand_array_lengthEP5ArrayItE.exit: ; preds = %12
 
 45:                                               ; preds = %._crit_edge
   %46 = shl i64 %44, 1
-  %47 = add i64 %46, 5
+  %47 = add i64 %46, 4
   %48 = and i64 %47, -1024
   %49 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %38, i64 noundef %44, i64 noundef %48, i32 noundef 0) #13
   store ptr %49, ptr %37, align 8
@@ -3837,7 +3837,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %55, %56
 
 65:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
   %66 = shl i64 %64, 1
-  %67 = add i64 %66, 3
+  %67 = add i64 %66, 2
   %68 = and i64 %67, -1024
   %69 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %59, i64 noundef %64, i64 noundef %68, i32 noundef 0) #13
   store ptr %69, ptr %37, align 8
@@ -3909,7 +3909,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %76, %77
 
 105:                                              ; preds = %.lr.ph53
   %106 = shl i64 %104, 1
-  %107 = add i64 %106, 3
+  %107 = add i64 %106, 2
   %108 = and i64 %107, -1024
   %109 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %99, i64 noundef %104, i64 noundef %108, i32 noundef 0) #13
   store ptr %109, ptr %37, align 8
@@ -3949,7 +3949,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit36: ; preds = %116, %117
 
 125:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit36
   %126 = shl i64 %124, 1
-  %127 = add i64 %126, 3
+  %127 = add i64 %126, 2
   %128 = and i64 %127, -1024
   %129 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %119, i64 noundef %124, i64 noundef %128, i32 noundef 0) #13
   store ptr %129, ptr %37, align 8
@@ -4008,7 +4008,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit41: ; preds = %136, %137
 
 157:                                              ; preds = %.lr.ph50
   %158 = shl i64 %156, 1
-  %159 = add i64 %158, 3
+  %159 = add i64 %158, 2
   %160 = and i64 %159, -1024
   %161 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %151, i64 noundef %156, i64 noundef %160, i32 noundef 0) #13
   store ptr %161, ptr %37, align 8
@@ -4071,7 +4071,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter25write_nest_host_attributeE
 
 16:                                               ; preds = %1
   %17 = shl i64 %15, 1
-  %18 = add i64 %17, 5
+  %18 = add i64 %17, 4
   %19 = and i64 %18, -1024
   %20 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %9, i64 noundef %15, i64 noundef %19, i32 noundef 0) #13
   store ptr %20, ptr %8, align 8
@@ -4110,7 +4110,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %26, %27
 
 35:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
   %36 = shl i64 %34, 1
-  %37 = add i64 %36, 3
+  %37 = add i64 %36, 2
   %38 = and i64 %37, -1024
   %39 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %29, i64 noundef %34, i64 noundef %38, i32 noundef 0) #13
   store ptr %39, ptr %8, align 8
@@ -4166,7 +4166,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter28write_nest_members_attribu
 
 19:                                               ; preds = %1
   %20 = shl i64 %18, 1
-  %21 = add i64 %20, 5
+  %21 = add i64 %20, 4
   %22 = and i64 %21, -1024
   %23 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %12, i64 noundef %18, i64 noundef %22, i32 noundef 0) #13
   store ptr %23, ptr %11, align 8
@@ -4207,7 +4207,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %30, %31
 
 40:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
   %41 = shl i64 %39, 1
-  %42 = add i64 %41, 3
+  %42 = add i64 %41, 2
   %43 = and i64 %42, -1024
   %44 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %34, i64 noundef %39, i64 noundef %43, i32 noundef 0) #13
   store ptr %44, ptr %11, align 8
@@ -4259,7 +4259,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %51, %52
 
 65:                                               ; preds = %55
   %66 = shl i64 %64, 1
-  %67 = add i64 %66, 3
+  %67 = add i64 %66, 2
   %68 = and i64 %67, -1024
   %69 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %59, i64 noundef %64, i64 noundef %68, i32 noundef 0) #13
   store ptr %69, ptr %11, align 8
@@ -4320,7 +4320,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter36write_permitted_subclasses
 
 19:                                               ; preds = %1
   %20 = shl i64 %18, 1
-  %21 = add i64 %20, 5
+  %21 = add i64 %20, 4
   %22 = and i64 %21, -1024
   %23 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %12, i64 noundef %18, i64 noundef %22, i32 noundef 0) #13
   store ptr %23, ptr %11, align 8
@@ -4361,7 +4361,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %30, %31
 
 40:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
   %41 = shl i64 %39, 1
-  %42 = add i64 %41, 3
+  %42 = add i64 %41, 2
   %43 = and i64 %42, -1024
   %44 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %34, i64 noundef %39, i64 noundef %43, i32 noundef 0) #13
   store ptr %44, ptr %11, align 8
@@ -4413,7 +4413,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %51, %52
 
 65:                                               ; preds = %55
   %66 = shl i64 %64, 1
-  %67 = add i64 %66, 3
+  %67 = add i64 %66, 2
   %68 = and i64 %67, -1024
   %69 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %59, i64 noundef %64, i64 noundef %68, i32 noundef 0) #13
   store ptr %69, ptr %11, align 8
@@ -4523,7 +4523,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter22write_record_attributeEv(p
 
 40:                                               ; preds = %._crit_edge
   %41 = shl i64 %39, 1
-  %42 = add i64 %41, 5
+  %42 = add i64 %41, 4
   %43 = and i64 %42, -1024
   %44 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %33, i64 noundef %39, i64 noundef %43, i32 noundef 0) #13
   store ptr %44, ptr %32, align 8
@@ -4564,7 +4564,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %51, %52
 
 61:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
   %62 = shl i64 %60, 1
-  %63 = add i64 %62, 3
+  %63 = add i64 %62, 2
   %64 = and i64 %63, -1024
   %65 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %55, i64 noundef %60, i64 noundef %64, i32 noundef 0) #13
   store ptr %65, ptr %32, align 8
@@ -4617,7 +4617,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %72, %73
 
 87:                                               ; preds = %75
   %88 = shl i64 %86, 1
-  %89 = add i64 %88, 3
+  %89 = add i64 %88, 2
   %90 = and i64 %89, -1024
   %91 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %81, i64 noundef %86, i64 noundef %90, i32 noundef 0) #13
   store ptr %91, ptr %32, align 8
@@ -4659,7 +4659,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit53: ; preds = %98, %99
 
 109:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit53
   %110 = shl i64 %108, 1
-  %111 = add i64 %110, 3
+  %111 = add i64 %110, 2
   %112 = and i64 %111, -1024
   %113 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %103, i64 noundef %108, i64 noundef %112, i32 noundef 0) #13
   store ptr %113, ptr %32, align 8
@@ -4712,7 +4712,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit58: ; preds = %120, %121
 
 139:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit58
   %140 = shl i64 %138, 1
-  %141 = add i64 %140, 3
+  %141 = add i64 %140, 2
   %142 = and i64 %141, -1024
   %143 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %133, i64 noundef %138, i64 noundef %142, i32 noundef 0) #13
   store ptr %143, ptr %32, align 8
@@ -4823,7 +4823,7 @@ _ZN20InnerClassesIteratorC2EPK13InstanceKlass.exit.thread: ; preds = %2, %_ZN20I
 
 29:                                               ; preds = %13
   %30 = shl i64 %28, 1
-  %31 = add i64 %30, 5
+  %31 = add i64 %30, 4
   %32 = and i64 %31, -1024
   %33 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %22, i64 noundef %28, i64 noundef %32, i32 noundef 0) #13
   store ptr %33, ptr %21, align 8
@@ -4863,7 +4863,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %40, %41
 
 49:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
   %50 = shl i64 %48, 1
-  %51 = add i64 %50, 3
+  %51 = add i64 %50, 2
   %52 = and i64 %51, -1024
   %53 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %43, i64 noundef %48, i64 noundef %52, i32 noundef 0) #13
   store ptr %53, ptr %21, align 8
@@ -4914,7 +4914,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %60, %61
 
 73:                                               ; preds = %63
   %74 = shl i64 %72, 1
-  %75 = add i64 %74, 3
+  %75 = add i64 %74, 2
   %76 = and i64 %75, -1024
   %77 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %67, i64 noundef %72, i64 noundef %76, i32 noundef 0) #13
   store ptr %77, ptr %21, align 8
@@ -4957,7 +4957,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit13: ; preds = %84, %85
 
 96:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit13
   %97 = shl i64 %95, 1
-  %98 = add i64 %97, 3
+  %98 = add i64 %97, 2
   %99 = and i64 %98, -1024
   %100 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %90, i64 noundef %95, i64 noundef %99, i32 noundef 0) #13
   store ptr %100, ptr %21, align 8
@@ -4999,7 +4999,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit18: ; preds = %107, %108
 
 118:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit18
   %119 = shl i64 %117, 1
-  %120 = add i64 %119, 3
+  %120 = add i64 %119, 2
   %121 = and i64 %120, -1024
   %122 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %112, i64 noundef %117, i64 noundef %121, i32 noundef 0) #13
   store ptr %122, ptr %21, align 8
@@ -5041,7 +5041,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit23: ; preds = %129, %130
 
 140:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit23
   %141 = shl i64 %139, 1
-  %142 = add i64 %141, 3
+  %142 = add i64 %141, 2
   %143 = and i64 %142, -1024
   %144 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %134, i64 noundef %139, i64 noundef %143, i32 noundef 0) #13
   store ptr %144, ptr %21, align 8
@@ -5096,7 +5096,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter25write_synthetic_attributeE
 
 12:                                               ; preds = %1
   %13 = shl i64 %11, 1
-  %14 = add i64 %13, 5
+  %14 = add i64 %13, 4
   %15 = and i64 %14, -1024
   %16 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %5, i64 noundef %11, i64 noundef %15, i32 noundef 0) #13
   store ptr %16, ptr %4, align 8
@@ -5250,7 +5250,7 @@ _ZNK6Method16type_annotationsEv.exit:             ; preds = %_ZNK6Method18annota
 
 56:                                               ; preds = %43
   %57 = shl i64 %55, 1
-  %58 = add i64 %57, 3
+  %58 = add i64 %57, 2
   %59 = and i64 %58, -1024
   %60 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %49, i64 noundef %55, i64 noundef %59, i32 noundef 0) #13
   store ptr %60, ptr %48, align 8
@@ -5292,7 +5292,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %67, %68
 
 78:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
   %79 = shl i64 %77, 1
-  %80 = add i64 %79, 3
+  %80 = add i64 %79, 2
   %81 = and i64 %80, -1024
   %82 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %72, i64 noundef %77, i64 noundef %81, i32 noundef 0) #13
   store ptr %82, ptr %48, align 8
@@ -5334,7 +5334,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit61: ; preds = %89, %90
 
 100:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit61
   %101 = shl i64 %99, 1
-  %102 = add i64 %101, 3
+  %102 = add i64 %101, 2
   %103 = and i64 %102, -1024
   %104 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %94, i64 noundef %99, i64 noundef %103, i32 noundef 0) #13
   store ptr %104, ptr %48, align 8
@@ -5402,7 +5402,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit66: ; preds = %111, %112
 
 133:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit66
   %134 = shl i64 %132, 1
-  %135 = add i64 %134, 3
+  %135 = add i64 %134, 2
   %136 = and i64 %135, -1024
   %137 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %127, i64 noundef %132, i64 noundef %136, i32 noundef 0) #13
   store ptr %137, ptr %48, align 8
@@ -5603,7 +5603,7 @@ _ZNK13InstanceKlass22class_type_annotationsEv.exit: ; preds = %_ZN27JvmtiClassFi
 
 63:                                               ; preds = %_ZNK13InstanceKlass22class_type_annotationsEv.exit
   %64 = shl i64 %62, 1
-  %65 = add i64 %64, 3
+  %65 = add i64 %64, 2
   %66 = and i64 %65, -1024
   %67 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %56, i64 noundef %62, i64 noundef %66, i32 noundef 0) #13
   store ptr %67, ptr %55, align 8
@@ -5857,7 +5857,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter18write_method_infosEv(ptr n
 
 35:                                               ; preds = %._crit_edge
   %36 = shl i64 %34, 1
-  %37 = add i64 %36, 3
+  %37 = add i64 %36, 2
   %38 = and i64 %37, -1024
   %39 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %28, i64 noundef %34, i64 noundef %38, i32 noundef 0) #13
   store ptr %39, ptr %27, align 8
@@ -6064,7 +6064,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter23write_class_file_formatEv(
 
 15:                                               ; preds = %1
   %16 = shl i64 %14, 1
-  %17 = add i64 %16, 5
+  %17 = add i64 %16, 4
   %18 = and i64 %17, -1024
   %19 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %8, i64 noundef %14, i64 noundef %18, i32 noundef 0) #13
   store ptr %19, ptr %7, align 8
@@ -6106,7 +6106,7 @@ _ZN27JvmtiClassFileReconstituter8write_u4Ej.exit: ; preds = %25, %26
 
 37:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u4Ej.exit
   %38 = shl i64 %36, 1
-  %39 = add i64 %38, 3
+  %39 = add i64 %38, 2
   %40 = and i64 %39, -1024
   %41 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %31, i64 noundef %36, i64 noundef %40, i32 noundef 0) #13
   store ptr %41, ptr %7, align 8
@@ -6148,7 +6148,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit: ; preds = %48, %49
 
 59:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit
   %60 = shl i64 %58, 1
-  %61 = add i64 %60, 3
+  %61 = add i64 %60, 2
   %62 = and i64 %61, -1024
   %63 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %53, i64 noundef %58, i64 noundef %62, i32 noundef 0) #13
   store ptr %63, ptr %7, align 8
@@ -6194,7 +6194,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit20: ; preds = %70, %71
 
 84:                                               ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit20
   %85 = shl i64 %83, 1
-  %86 = add i64 %85, 3
+  %86 = add i64 %85, 2
   %87 = and i64 %86, -1024
   %88 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %78, i64 noundef %83, i64 noundef %87, i32 noundef 0) #13
   store ptr %88, ptr %7, align 8
@@ -6288,7 +6288,7 @@ _ZN30JvmtiConstantPoolReconstituter16copy_cpool_bytesEPh.exit: ; preds = %_ZN27J
 
 135:                                              ; preds = %_ZN30JvmtiConstantPoolReconstituter16copy_cpool_bytesEPh.exit
   %136 = shl i64 %124, 1
-  %137 = add i64 %136, 3
+  %137 = add i64 %136, 2
   %138 = and i64 %137, -1024
   %139 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %125, i64 noundef %124, i64 noundef %138, i32 noundef 0) #13
   store ptr %139, ptr %7, align 8
@@ -6385,7 +6385,7 @@ _ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit: 
 
 198:                                              ; preds = %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit
   %199 = shl i64 %197, 1
-  %200 = add i64 %199, 3
+  %200 = add i64 %199, 2
   %201 = and i64 %200, -1024
   %202 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %192, i64 noundef %197, i64 noundef %201, i32 noundef 0) #13
   store ptr %202, ptr %7, align 8
@@ -6486,7 +6486,7 @@ _ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit39
 
 263:                                              ; preds = %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit39
   %264 = shl i64 %262, 1
-  %265 = add i64 %264, 3
+  %265 = add i64 %264, 2
   %266 = and i64 %265, -1024
   %267 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %257, i64 noundef %262, i64 noundef %266, i32 noundef 0) #13
   store ptr %267, ptr %7, align 8
@@ -6530,7 +6530,7 @@ _ZN27JvmtiClassFileReconstituter8write_u2Et.exit44: ; preds = %273, %274
 
 287:                                              ; preds = %_ZN27JvmtiClassFileReconstituter8write_u2Et.exit44
   %288 = shl i64 %286, 1
-  %289 = add i64 %288, 3
+  %289 = add i64 %288, 2
   %290 = and i64 %289, -1024
   %291 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %281, i64 noundef %286, i64 noundef %290, i32 noundef 0) #13
   store ptr %291, ptr %7, align 8
@@ -6640,7 +6640,7 @@ _ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit53
 
 355:                                              ; preds = %_ZN30JvmtiConstantPoolReconstituter27class_symbol_to_cpool_indexEP6Symbol.exit53
   %356 = shl i64 %354, 1
-  %357 = add i64 %356, 3
+  %357 = add i64 %356, 2
   %358 = and i64 %357, -1024
   %359 = call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %349, i64 noundef %354, i64 noundef %358, i32 noundef 0) #13
   store ptr %359, ptr %7, align 8
@@ -6702,7 +6702,7 @@ define hidden void @_ZN27JvmtiClassFileReconstituter8write_u8Em(ptr noundef nonn
 
 13:                                               ; preds = %2
   %14 = shl i64 %12, 1
-  %15 = add i64 %14, 9
+  %15 = add i64 %14, 8
   %16 = and i64 %15, -1024
   %17 = tail call noundef ptr @_Z25resource_reallocate_bytesPcmmN17AllocFailStrategy13AllocFailEnumE(ptr noundef %6, i64 noundef %12, i64 noundef %16, i32 noundef 0) #13
   store ptr %17, ptr %5, align 8

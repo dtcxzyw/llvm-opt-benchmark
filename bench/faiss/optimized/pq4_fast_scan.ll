@@ -819,7 +819,7 @@ define void @_ZN5faiss13CodePackerPQ4C2Emm(ptr noundef nonnull writeonly align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8, !tbaa !4
   %6 = shl i64 %1, 2
-  %7 = add i64 %6, 7
+  %7 = add i64 %6, 4
   %8 = lshr i64 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %8, ptr %9, align 8, !tbaa !10

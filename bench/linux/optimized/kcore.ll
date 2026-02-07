@@ -506,7 +506,7 @@ define internal i64 @read_kcore_iter(ptr noundef captures(none) %0, ptr noundef 
   %32 = add i64 %31, 3
   %33 = and i64 %32, -4
   %34 = add i64 %30, %33
-  %35 = add nsw i64 %25, 4159
+  %35 = add nsw i64 %25, 4156
   %36 = add i64 %35, %34
   %37 = and i64 %36, -4096
   %38 = add nsw i64 %25, 64
@@ -761,7 +761,7 @@ define internal i64 @read_kcore_iter(ptr noundef captures(none) %0, ptr noundef 
   store i32 0, ptr %175, align 4
   %176 = getelementptr i8, ptr %172, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(11) %176, ptr noundef nonnull align 1 dereferenceable(11) @.str.4, i64 11, i1 false)
-  %177 = add nsw i64 %167, 26
+  %177 = add nsw i64 %160, 559
   %178 = and i64 %177, -4
   %179 = getelementptr i8, ptr %145, i64 %178
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %179, ptr align 1 %168, i64 %171, i1 false)

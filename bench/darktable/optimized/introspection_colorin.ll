@@ -3016,7 +3016,7 @@ _apply_blue_mapping.exit.us.i:                    ; preds = %1173, %1170, %1156
   %1191 = sext i32 %.8.val.fr.i88 to i64
   %1192 = shl nsw i64 %1191, 2
   %1193 = shl nsw i64 %1191, 4
-  %1194 = add nsw i64 %1193, 63
+  %1194 = add nsw i64 %1193, 48
   %1195 = and i64 %1194, -64
   %1196 = tail call ptr @dt_alloc_aligned(i64 noundef %1195) #17
   call void @llvm.assume(i1 true) [ "align"(ptr %1196, i64 64) ]

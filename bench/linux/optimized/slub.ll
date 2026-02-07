@@ -13331,7 +13331,7 @@ define internal noundef range(i32 -12, 1) i32 @slab_debug_trace_open(ptr noundef
   %39 = load ptr, ptr %33, align 8
   %40 = ptrtoint ptr %39 to i64
   %41 = mul i64 %36, 88
-  %42 = add i64 %41, -1
+  %42 = add i64 %41, -8
   %43 = lshr i64 %42, 12
   %44 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %43, i32 -1) #29, !srcloc !33
   %45 = add i32 %44, 1
@@ -13441,7 +13441,7 @@ define internal i32 @slab_debug_trace_release(ptr noundef %0, ptr noundef %1) #0
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
   %13 = mul i64 %7, 88
-  %14 = add i64 %13, -1
+  %14 = add i64 %13, -8
   %15 = lshr i64 %14, 12
   %16 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %15, i32 -1) #29, !srcloc !33
   %17 = add i32 %16, 1
@@ -13784,7 +13784,7 @@ define internal fastcc void @process_slab(ptr noundef nonnull captures(none) %0,
 242:                                              ; preds = %.loopexit
   %243 = shl i64 %240, 1
   %244 = mul i64 %240, 176
-  %245 = add i64 %244, -1
+  %245 = add i64 %244, -16
   %246 = lshr i64 %245, 12
   %247 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %246, i32 -1) #29, !srcloc !33
   %248 = add i32 %247, 1
@@ -13810,7 +13810,7 @@ define internal fastcc void @process_slab(ptr noundef nonnull captures(none) %0,
   %261 = load ptr, ptr %88, align 8
   %262 = ptrtoint ptr %261 to i64
   %263 = mul i64 %258, 88
-  %264 = add i64 %263, -1
+  %264 = add i64 %263, -8
   %265 = lshr i64 %264, 12
   %266 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %265, i32 -1) #29, !srcloc !33
   %267 = add i32 %266, 1

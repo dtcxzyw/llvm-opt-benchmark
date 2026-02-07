@@ -154,7 +154,7 @@ define hidden void @zend_optimizer_compact_vars(ptr noundef captures(none) %0) l
 .lr.ph.preheader:                                 ; preds = %91
   %95 = zext i32 %93 to i64
   %96 = shl nuw nsw i64 %95, 3
-  %97 = add nuw nsw i64 %96, 15
+  %97 = add nuw nsw i64 %96, 8
   %98 = lshr i64 %97, 4
   %99 = trunc nuw i64 %98 to i32
   br label %.lr.ph

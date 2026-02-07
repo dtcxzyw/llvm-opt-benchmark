@@ -15030,7 +15030,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
   %30 = sub nuw i64 %28, %29
   %31 = udiv exact i64 %30, 296
   %32 = shl nuw nsw i64 %31, 3
-  %33 = add nuw nsw i64 %32, 71
+  %33 = add nuw nsw i64 %32, 64
   %34 = and i64 %33, 1152921504606846912
   %35 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4036
   %36 = tail call noundef align 128 ptr @__rust_alloc(i64 noundef %34, i64 noundef 128) #56, !noalias !4036
@@ -15054,7 +15054,7 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
   br i1 %45, label %46, label %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i
 
 46:                                               ; preds = %39
-  %47 = add nuw nsw i64 %43, 63
+  %47 = add nuw nsw i64 %43, 56
   %48 = and i64 %47, 9223372036854775744
   %49 = shl nuw nsw i64 %40, 1
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umax.i64(i64 range(i64 0, -63) %48, i64 %49)
@@ -22495,8 +22495,8 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %32 = shl i64 %spec.select.i.i.i, 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6652)
-  %33 = add i64 %32, 67
-  %34 = and i64 %33, -64
+  %33 = and i64 %32, -64
+  %34 = add i64 %33, 64
   %35 = icmp ugt i64 %34, 9223372036854775680
   br i1 %35, label %36, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
 
@@ -45124,7 +45124,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer4push17h904d16d1c2443a52E.exit: ;
 define hidden void @"_ZN11arrow_array7builder17primitive_builder25PrimitiveBuilder$LT$T$GT$13with_capacity17h2c522b3edd11cb07E"(ptr noalias noundef writeonly sret({ { { { i64, i64 }, ptr, i64 }, i64, {} }, { { i64, [4 x i64] }, i64, i64 }, { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = shl i64 %1, 2
-  %5 = add i64 %4, 63
+  %5 = add i64 %4, 60
   %6 = and i64 %5, -64
   %7 = icmp ugt i64 %6, 9223372036854775680
   br i1 %7, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
@@ -45169,7 +45169,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h642e4304d430739
 define hidden void @"_ZN11arrow_array7builder17primitive_builder25PrimitiveBuilder$LT$T$GT$13with_capacity17h506dd6b469c27529E"(ptr noalias noundef writeonly sret({ { { { i64, i64 }, ptr, i64 }, i64, {} }, { { i64, [4 x i64] }, i64, i64 }, { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = shl i64 %1, 3
-  %5 = add i64 %4, 63
+  %5 = add i64 %4, 56
   %6 = and i64 %5, -64
   %7 = icmp ugt i64 %6, 9223372036854775680
   br i1 %7, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
@@ -45214,7 +45214,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h642e4304d430739
 define hidden void @"_ZN11arrow_array7builder17primitive_builder25PrimitiveBuilder$LT$T$GT$13with_capacity17hd533e2c10b7ace15E"(ptr noalias noundef writeonly sret({ { { { i64, i64 }, ptr, i64 }, i64, {} }, { { i64, [4 x i64] }, i64, i64 }, { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) unnamed_addr #8 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = shl i64 %1, 3
-  %5 = add i64 %4, 63
+  %5 = add i64 %4, 56
   %6 = and i64 %5, -64
   %7 = icmp ugt i64 %6, 9223372036854775680
   br i1 %7, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"

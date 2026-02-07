@@ -671,7 +671,7 @@ define hidden noundef i64 @_ZNK13ObjArrayKlass8oop_sizeEP7oopDesc(ptr nonnull re
   %12 = select i1 %4, i32 16, i32 20
   %13 = load i8, ptr @UseCompressedOops, align 1
   %14 = trunc i8 %13 to i1
-  %narrow.i.i.i.i = add nuw nsw i32 %12, 7
+  %narrow.i.i.i.i = add nuw nsw i32 %12, 4
   %15 = and i32 %narrow.i.i.i.i, 24
   %16 = select i1 %14, i32 %12, i32 %15
   %17 = zext nneg i32 %16 to i64
@@ -696,10 +696,10 @@ _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit:
   %5 = select i1 %4, i32 16, i32 20
   %6 = load i8, ptr @UseCompressedOops, align 1
   %7 = trunc i8 %6 to i1
-  %narrow.i.i = add nuw nsw i32 %5, 7
+  %narrow.i.i = add nuw nsw i32 %5, 4
   %8 = and i32 %narrow.i.i, 24
   %9 = select i1 %7, i32 %5, i32 %8
-  %narrow.i = add nuw nsw i32 %9, 7
+  %narrow.i = add nuw nsw i32 %9, 4
   %10 = lshr i32 %narrow.i, 3
   %11 = zext nneg i32 %10 to i64
   %12 = xor i64 %11, 2305843009213693951
@@ -732,7 +732,7 @@ _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit:
   %33 = select i1 %32, i32 16, i32 20
   %34 = load i8, ptr @UseCompressedOops, align 1
   %35 = trunc i8 %34 to i1
-  %narrow.i.i.i = add nuw nsw i32 %33, 7
+  %narrow.i.i.i = add nuw nsw i32 %33, 4
   %36 = and i32 %narrow.i.i.i, 24
   %37 = select i1 %35, i32 %33, i32 %36
   %38 = zext nneg i32 %37 to i64

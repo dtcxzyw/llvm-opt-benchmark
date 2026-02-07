@@ -48,7 +48,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i:           ; preds = %.lr.ph.i.i.i, %8
   %16 = tail call i64 @llvm.umax.i64(i64 %1, i64 %15)
   %..i.i = tail call i64 @llvm.umax.i64(i64 %2, i64 %16)
   %17 = shl i64 %..i.i, 2
-  %18 = add i64 %17, 63
+  %18 = add i64 %17, 60
   %19 = and i64 %18, -64
   %20 = tail call noundef ptr @dt_alloc_aligned(i64 noundef %19)
   call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 64) ]
@@ -260,7 +260,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i34:         ; preds = %.lr.ph.i.i.i31, %91
   %100 = tail call i64 @llvm.umax.i64(i64 %1, i64 %99)
   %..i.i36 = tail call i64 @llvm.umax.i64(i64 %98, i64 %100)
   %101 = shl i64 %..i.i36, 2
-  %102 = add i64 %101, 63
+  %102 = add i64 %101, 60
   %103 = and i64 %102, -64
   %104 = tail call noundef ptr @dt_alloc_aligned(i64 noundef %103)
   call void @llvm.assume(i1 true) [ "align"(ptr %104, i64 64) ]
@@ -514,7 +514,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i63:         ; preds = %.lr.ph.i.i.i60, %19
   %207 = tail call i64 @llvm.umax.i64(i64 %1, i64 %206)
   %..i.i65 = tail call i64 @llvm.umax.i64(i64 %205, i64 %207)
   %208 = shl i64 %..i.i65, 2
-  %209 = add i64 %208, 63
+  %209 = add i64 %208, 60
   %210 = and i64 %209, -64
   %211 = tail call noundef ptr @dt_alloc_aligned(i64 noundef %210)
   call void @llvm.assume(i1 true) [ "align"(ptr %211, i64 64) ]
@@ -859,7 +859,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i112:        ; preds = %.lr.ph.i.i.i109, %3
   %339 = tail call i64 @llvm.umax.i64(i64 %1, i64 %338)
   %..i.i114 = tail call i64 @llvm.umax.i64(i64 %337, i64 %339)
   %340 = shl i64 %..i.i114, 2
-  %341 = add i64 %340, 63
+  %341 = add i64 %340, 60
   %342 = and i64 %341, -64
   %343 = tail call noundef ptr @dt_alloc_aligned(i64 noundef %342)
   call void @llvm.assume(i1 true) [ "align"(ptr %343, i64 64) ]
@@ -1113,7 +1113,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit.i151:        ; preds = %.lr.ph.i.i.i148, %4
   %446 = tail call i64 @llvm.umax.i64(i64 %1, i64 %445)
   %..i.i153 = tail call i64 @llvm.umax.i64(i64 %444, i64 %446)
   %447 = shl i64 %..i.i153, 2
-  %448 = add i64 %447, 63
+  %448 = add i64 %447, 60
   %449 = and i64 %448, -64
   %450 = tail call noundef ptr @dt_alloc_aligned(i64 noundef %449)
   call void @llvm.assume(i1 true) [ "align"(ptr %450, i64 64) ]
@@ -1907,7 +1907,7 @@ _ZL20_alloc_scratch_spacemmmmPm.exit:             ; preds = %.lr.ph.i.i, %10
   %20 = tail call i64 @llvm.umax.i64(i64 %1, i64 %19)
   %..i = tail call i64 @llvm.umax.i64(i64 %18, i64 %20)
   %21 = shl i64 %..i, 2
-  %22 = add i64 %21, 63
+  %22 = add i64 %21, 60
   %23 = and i64 %22, -64
   %24 = tail call noundef ptr @dt_alloc_aligned(i64 noundef %23)
   call void @llvm.assume(i1 true) [ "align"(ptr %24, i64 64) ]
@@ -2828,7 +2828,7 @@ _ZL25_compute_effective_heightmm.exit.i:          ; preds = %.lr.ph.i.i, %9
   %19 = tail call i64 @llvm.umax.i64(i64 %1, i64 %18)
   %..i = tail call i64 @llvm.umax.i64(i64 %2, i64 %19)
   %20 = shl i64 %..i, 2
-  %21 = add i64 %20, 63
+  %21 = add i64 %20, 60
   %22 = and i64 %21, -64
   %23 = tail call noundef ptr @dt_alloc_aligned(i64 noundef %22)
   call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 64) ]
@@ -3462,7 +3462,7 @@ _ZL25_compute_effective_heightmm.exit.i:          ; preds = %.lr.ph.i.i, %9
   %19 = tail call i64 @llvm.umax.i64(i64 %1, i64 %18)
   %..i = tail call i64 @llvm.umax.i64(i64 %2, i64 %19)
   %20 = shl i64 %..i, 2
-  %21 = add i64 %20, 63
+  %21 = add i64 %20, 60
   %22 = and i64 %21, -64
   %23 = tail call noundef ptr @dt_alloc_aligned(i64 noundef %22)
   call void @llvm.assume(i1 true) [ "align"(ptr %23, i64 64) ]

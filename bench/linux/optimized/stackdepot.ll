@@ -701,7 +701,7 @@ default.unreachable112:                           ; preds = %.loopexit54
 
 297:                                              ; preds = %287
   %298 = shl nuw nsw i32 %288, 3
-  %299 = add nuw nsw i32 %298, 47
+  %299 = add nuw nsw i32 %298, 40
   %300 = and i32 %299, 2032
   %301 = zext nneg i32 %300 to i64
   br label %.thread35

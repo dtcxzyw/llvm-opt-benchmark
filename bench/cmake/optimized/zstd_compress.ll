@@ -2811,7 +2811,7 @@ ZSTD_allocateChainTable.exit.thread.i:            ; preds = %ZSTD_allocateChainT
   %34 = select i1 %33, i64 3, i64 4
   %35 = udiv i64 %30, %34
   %36 = shl i64 %35, 3
-  %37 = add i64 %36, 63
+  %37 = add i64 %36, 56
   %38 = and i64 %37, -64
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i32, ptr %39, align 4, !tbaa !69
@@ -2844,15 +2844,15 @@ ZSTD_allocateChainTable.exit.thread.i:            ; preds = %ZSTD_allocateChainT
   %57 = load i32, ptr %1, align 4, !tbaa !126
   %58 = icmp eq i32 %57, 1
   %59 = mul i64 %56, 12
-  %60 = add i64 %59, 63
+  %60 = add i64 %59, 60
   %61 = and i64 %60, -64
   %62 = select i1 %58, i64 %61, i64 0
   %.not = icmp eq i32 %2, 0
   %63 = udiv i64 %30, 3
   %.not43 = icmp eq i32 %7, 0
   %64 = shl i64 %63, 4
-  %65 = add i64 %64, 79
-  %66 = and i64 %65, -64
+  %65 = and i64 %64, -64
+  %66 = add i64 %65, 64
   %67 = select i1 %.not43, i64 0, i64 %66
   %68 = mul nuw nsw i64 %35, 3
   %69 = select i1 %.not, i64 20184, i64 25424
@@ -11893,7 +11893,7 @@ ZSTD_cwksp_clear.exit:                            ; preds = %.thread282.thread, 
 
 177:                                              ; preds = %162
   %178 = shl i64 %31, 3
-  %179 = add i64 %178, 63
+  %179 = add i64 %178, 56
   %180 = and i64 %179, -64
   %181 = load i32, ptr %147, align 8, !tbaa !309
   %182 = icmp ult i32 %181, 2
@@ -11979,7 +11979,7 @@ ZSTD_cwksp_reserve_aligned.exit:                  ; preds = %185, %ZSTD_cwksp_in
   %220 = load i32, ptr %219, align 4, !tbaa !96
   %221 = zext nneg i32 %220 to i64
   %222 = shl i64 8, %221
-  %223 = add nuw i64 %222, 63
+  %223 = add nuw i64 %222, 56
   %224 = and i64 %223, -64
   %225 = icmp ult i32 %214, 2
   br i1 %225, label %226, label %ZSTD_cwksp_internal_advance_phase.exit.i.i210
@@ -12052,7 +12052,7 @@ ZSTD_cwksp_reserve_aligned.exit215:               ; preds = %226, %ZSTD_cwksp_in
   store ptr %.0.i.i211, ptr %255, align 8, !tbaa !368
   tail call void @llvm.memset.p0.i64(ptr align 4 %.0.i.i211, i8 0, i64 %222, i1 false)
   %256 = mul i64 %55, 12
-  %257 = add i64 %256, 63
+  %257 = add i64 %256, 60
   %258 = and i64 %257, -64
   %259 = load i32, ptr %147, align 8, !tbaa !309
   %260 = icmp ult i32 %259, 2
@@ -12158,7 +12158,7 @@ ZSTD_cwksp_reserve_aligned.exit221:               ; preds = %263, %ZSTD_cwksp_in
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 5232
   store i64 %306, ptr %307, align 8, !tbaa !372
   %308 = shl i64 %306, 4
-  %309 = add i64 %308, 63
+  %309 = add i64 %308, 48
   %310 = and i64 %309, -64
   %311 = icmp ult i32 %302, 2
   br i1 %311, label %312, label %ZSTD_cwksp_internal_advance_phase.exit.i.i222

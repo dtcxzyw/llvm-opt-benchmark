@@ -2639,7 +2639,7 @@ define internal fastcc void @free_area_init_core(ptr noundef %0) unnamed_addr #0
   %16 = icmp ult i64 %15, %11
   %17 = select i1 %16, i64 %13, i64 %11
   %18 = shl i64 %17, 6
-  %19 = add i64 %18, 4095
+  %19 = add i64 %18, 4032
   %20 = lshr i64 %19, 12
   %21 = icmp ult i64 %13, %20
   br i1 %21, label %24, label %22

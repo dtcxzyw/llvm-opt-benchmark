@@ -12194,7 +12194,7 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %52
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = load i32, ptr %70, align 8, !tbaa !230
   %72 = shl i32 %71, 3
-  %73 = add i32 %72, 15
+  %73 = add i32 %72, 8
   %74 = and i32 %73, -16
   %75 = load i32, ptr %6, align 8, !tbaa !211
   %76 = icmp sgt i32 %74, %75
@@ -16941,7 +16941,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit148:          ; preds = %270, %267
 define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE20computeSubClusteringEPNS3_10KMeansNodeEPiiiiPPfRSt6vectorIfSaIfEES6_S6_(ptr noundef nonnull align 8 dereferenceable(212) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #3 comdat align 2 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %12 = shl i32 %4, 3
-  %13 = add i32 %12, 15
+  %13 = add i32 %12, 8
   %14 = and i32 %13, -16
   %15 = load i32, ptr %11, align 8, !tbaa !211
   %16 = icmp sgt i32 %14, %15

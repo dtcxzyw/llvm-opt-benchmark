@@ -17278,7 +17278,7 @@ invoke.cont701:                                   ; preds = %invoke.cont697
   %sub.ptr.rhs.cast.i.i1649 = ptrtoint ptr %426 to i64
   %sub.ptr.sub.i.i1650 = sub i64 %sub.ptr.lhs.cast.i.i1648, %sub.ptr.rhs.cast.i.i1649
   %mul.i1651 = shl i64 %sub.ptr.sub.i.i1650, 3
-  %427 = add i64 %mul.i1651, -1
+  %427 = add i64 %mul.i1651, -8
   %spec.select3529 = icmp ult i64 %427, 64
   %call710 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select3529, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 304, ptr noundef nonnull @.str.45)
           to label %invoke.cont712 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -17530,7 +17530,7 @@ invoke.cont760:                                   ; preds = %_ZN5eastl6vectorIm1
   %sub.ptr.rhs.cast.i.i1792 = ptrtoint ptr %465 to i64
   %sub.ptr.sub.i.i1793 = sub i64 %sub.ptr.lhs.cast.i.i1791, %sub.ptr.rhs.cast.i.i1792
   %mul.i1794 = shl i64 %sub.ptr.sub.i.i1793, 3
-  %467 = add i64 %mul.i1794, -17
+  %467 = add i64 %mul.i1794, -20
   %spec.select3532 = icmp ult i64 %467, 84
   %call768 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %spec.select3532, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str.1, i32 noundef 322, ptr noundef nonnull @.str.49)
           to label %invoke.cont767 unwind label %lpad680.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

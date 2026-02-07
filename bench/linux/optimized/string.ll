@@ -237,10 +237,10 @@ define dso_local i64 @strscpy(ptr noundef writeonly captures(none) %0, ptr nound
   br i1 %26, label %36, label %.thread
 
 .thread:                                          ; preds = %.lr.ph
-  %27 = add i64 %25, -1
+  %27 = add i64 %25, -128
   %28 = xor i64 %25, -1
   %29 = and i64 %27, %28
-  %30 = lshr i64 %29, 7
+  %30 = lshr exact i64 %29, 7
   %31 = and i64 %30, %21
   %32 = getelementptr i8, ptr %0, i64 %19
   store i64 %31, ptr %32, align 8

@@ -1820,7 +1820,7 @@ define linkonce_odr noundef ptr @_ZN12QHashPrivate4DataINS_4NodeI7QStringS2_EEE8
 _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, %4
   %.0.i.i = phi i64 [ %14, %9 ], [ 16, %4 ], [ -9223372036854775808, %8 ]
   store i64 %.0.i.i, ptr %6, align 8
-  %15 = add i64 %.0.i.i, 127
+  %15 = add i64 %.0.i.i, 126
   %16 = lshr i64 %15, 7
   %17 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %16, i64 144)
   %18 = extractvalue { i64, i1 } %17, 1

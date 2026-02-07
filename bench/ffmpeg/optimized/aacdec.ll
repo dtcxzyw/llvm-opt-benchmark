@@ -7423,8 +7423,8 @@ decode_dynamic_range.exit.i.i:                    ; preds = %631
   %668 = call i32 @llvm.umin.i32(i32 %665, i32 %667)
   store i32 %668, ptr %16, align 8, !tbaa !105
   %669 = add nsw i32 %661, -17
-  %670 = add nsw i32 %661, -25
-  %671 = lshr i32 %670, 3
+  %670 = add nsw i32 %661, -32
+  %671 = lshr exact i32 %670, 3
   %umin.i.i.i = call i32 @llvm.umin.i32(i32 %671, i32 254)
   %672 = add nuw nsw i32 %umin.i.i.i, 1
   %wide.trip.count.i74.i.i = zext nneg i32 %672 to i64

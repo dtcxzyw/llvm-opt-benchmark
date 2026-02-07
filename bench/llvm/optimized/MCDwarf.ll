@@ -3569,7 +3569,7 @@ define dso_local void @_ZN4llvm14MCGenDwarfInfo4EmitEPNS_10MCStreamerE(ptr nound
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !208
   %85 = shl nsw i32 %84, 1
-  %86 = add i32 %85, 31
+  %86 = add i32 %85, 30
   %87 = and i32 %86, %80
   %88 = sub nsw i32 %85, %87
   %89 = icmp eq i32 %87, 0

@@ -796,7 +796,7 @@ define internal void @h2v2_fancy_upsample(ptr noundef readonly captures(none) %0
   %69 = getelementptr inbounds nuw i8, ptr %.pn.lcssa, i64 3
   store i8 %68, ptr %.048.lcssa, align 1, !tbaa !37
   %70 = shl nuw nsw i32 %.047.lcssa, 2
-  %71 = add nuw nsw i32 %70, 7
+  %71 = add nuw nsw i32 %70, 4
   %72 = lshr i32 %71, 4
   %73 = trunc nuw i32 %72 to i8
   store i8 %73, ptr %69, align 1, !tbaa !37

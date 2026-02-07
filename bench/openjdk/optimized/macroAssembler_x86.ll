@@ -16332,7 +16332,7 @@ define hidden void @_ZN14MacroAssembler36push_call_clobbered_registers_exceptE14
   %30 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
   %31 = shl i32 %30, 1
   %32 = mul i32 %31, %29
-  %33 = add i32 %32, 15
+  %33 = add i32 %32, 14
   %34 = and i32 %33, -16
   br i1 %2, label %35, label %_ZL22register_section_sizes14AbstractRegSetI8RegisterES_I11XMMRegisterEbRiS4_S4_.exit
 
@@ -16446,7 +16446,7 @@ define hidden void @_ZN14MacroAssembler8push_setE14AbstractRegSetI8RegisterEi(pt
   %10 = shl nuw nsw i32 %9, 1
   %11 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
   %12 = mul i32 %10, %11
-  %13 = add i32 %12, 15
+  %13 = add i32 %12, 14
   %14 = and i32 %13, -16
   tail call void @_ZN9Assembler4subqE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef %14) #19
   br label %15
@@ -16664,7 +16664,7 @@ define hidden void @_ZN14MacroAssembler35pop_call_clobbered_registers_exceptE14A
   %30 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
   %31 = shl i32 %30, 1
   %32 = mul i32 %31, %29
-  %33 = add i32 %32, 15
+  %33 = add i32 %32, 14
   %34 = and i32 %33, -16
   br i1 %2, label %35, label %.thread
 
@@ -16924,7 +16924,7 @@ define hidden void @_ZN14MacroAssembler7pop_setE14AbstractRegSetI8RegisterEi(ptr
   %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
   %9 = trunc nuw nsw i64 %8 to i32
   %10 = mul i32 %7, %9
-  %11 = add i32 %10, 15
+  %11 = add i32 %10, 14
   %12 = and i32 %11, -16
   %13 = icmp eq i32 %2, -1
   %14 = icmp eq i64 %1, 0

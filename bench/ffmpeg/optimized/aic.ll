@@ -154,7 +154,7 @@ define internal i32 @aic_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %15 = load i32, ptr %14, align 4, !tbaa !39
   %16 = shl i32 %13, 1
   %17 = mul i32 %16, %15
-  %18 = add nsw i32 %17, 27
+  %18 = add nsw i32 %17, 26
   %19 = and i32 %18, -4
   %20 = icmp ult i32 %10, %19
   br i1 %20, label %21, label %22

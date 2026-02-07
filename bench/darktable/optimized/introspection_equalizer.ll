@@ -153,12 +153,12 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 
 .lr.ph207:                                        ; preds = %.lr.ph205
   %50 = shl nsw i64 %17, 2
-  %51 = add nsw i64 %50, 63
+  %51 = add nsw i64 %50, 60
   %52 = and i64 %51, -64
   %53 = icmp sgt i32 %14, 0
   %wide.trip.count465.i = zext nneg i32 %14 to i64
   %54 = shl nsw i64 %18, 2
-  %55 = add nsw i64 %54, 63
+  %55 = add nsw i64 %54, 60
   %56 = and i64 %55, -64
   %57 = icmp sgt i32 %12, 0
   %wide.trip.count499.i = zext nneg i32 %12 to i64
@@ -802,12 +802,12 @@ dt_iop_equalizer_wtf.exit:                        ; preds = %.loopexit.i, %._cri
 
 .lr.ph236:                                        ; preds = %432
   %398 = shl nsw i64 %18, 2
-  %399 = add nsw i64 %398, 63
+  %399 = add nsw i64 %398, 60
   %400 = and i64 %399, -64
   %401 = icmp sgt i32 %12, 0
   %402 = zext nneg i32 %12 to i64
   %403 = shl nsw i64 %17, 2
-  %404 = add nsw i64 %403, 63
+  %404 = add nsw i64 %403, 60
   %405 = and i64 %404, -64
   %406 = icmp sgt i32 %14, 0
   %wide.trip.count438.i = zext nneg i32 %14 to i64

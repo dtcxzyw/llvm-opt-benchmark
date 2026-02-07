@@ -1451,7 +1451,7 @@ define internal fastcc i32 @dissect_dlmap_ie(ptr noundef %0, ptr noundef %1, i32
   %69 = lshr i32 %66, %68
   %70 = and i32 %69, 255
   %71 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %72 = add nsw i32 %67, 7
+  %72 = add nsw i32 %67, 4
   %73 = lshr i32 %72, 3
   %74 = add nuw nsw i32 %73, 1
   %75 = tail call ptr @proto_tree_add_uint(ptr noundef %60, i32 noundef %71, ptr noundef %4, i32 noundef %64, i32 noundef %74, i32 noundef %70)
@@ -1826,7 +1826,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   %364 = lshr i32 %361, %363
   %365 = and i32 %364, 255
   %366 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %367 = add nsw i32 %362, 7
+  %367 = add nsw i32 %362, 4
   %368 = lshr i32 %367, 3
   %369 = add nuw nsw i32 %368, 1
   %370 = tail call ptr @proto_tree_add_uint(ptr noundef %355, i32 noundef %366, ptr noundef %4, i32 noundef %359, i32 noundef %369, i32 noundef %365)
@@ -1890,7 +1890,7 @@ Macro_MIMO_DL_Basic_IE.exit:                      ; preds = %329, %335
   br label %1282
 
 .lr.ph.i:                                         ; preds = %379
-  %422 = add nsw i32 %416, -1
+  %422 = add nsw i32 %416, -4
   br label %423
 
 423:                                              ; preds = %DL_HARQ_Chase_sub_burst_IE.exit.i, %.lr.ph.i
@@ -3156,7 +3156,7 @@ HARQ_ACK_IE.exit:                                 ; preds = %1307, %1313
   %1343 = lshr i32 %1340, %1342
   %1344 = and i32 %1343, 255
   %1345 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %1346 = add nsw i32 %1341, 7
+  %1346 = add nsw i32 %1341, 4
   %1347 = lshr i32 %1346, 3
   %1348 = add nuw nsw i32 %1347, 1
   %1349 = tail call ptr @proto_tree_add_uint(ptr noundef %1334, i32 noundef %1345, ptr noundef %4, i32 noundef %1338, i32 noundef %1348, i32 noundef %1344)
@@ -3379,7 +3379,7 @@ MIMO_DL_Enhanced_IE.exit:                         ; preds = %1472, %1478
   %1507 = lshr i32 %1504, %1506
   %1508 = and i32 %1507, 255
   %1509 = load i32, ptr @hf_dlmap_ie_length, align 4
-  %1510 = add nsw i32 %1505, 7
+  %1510 = add nsw i32 %1505, 4
   %1511 = lshr i32 %1510, 3
   %1512 = add nuw nsw i32 %1511, 1
   %1513 = tail call ptr @proto_tree_add_uint(ptr noundef %1498, i32 noundef %1509, ptr noundef %4, i32 noundef %1502, i32 noundef %1512, i32 noundef %1508)

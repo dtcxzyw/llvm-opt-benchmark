@@ -81,7 +81,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__22Usd_IntegerCompressio
 
 2:                                                ; preds = %1
   %3 = shl i64 %0, 1
-  %4 = add i64 %3, 7
+  %4 = add i64 %3, 6
   %5 = lshr i64 %4, 3
   %6 = shl i64 %0, 2
   %7 = add i64 %6, 4
@@ -103,7 +103,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__22Usd_IntegerCompressio
 
 2:                                                ; preds = %1
   %3 = shl i64 %0, 1
-  %4 = add i64 %3, 7
+  %4 = add i64 %3, 6
   %5 = lshr i64 %4, 3
   %6 = shl i64 %0, 2
   %7 = add i64 %6, 4
@@ -132,7 +132,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIiEEmm
 
 9:                                                ; preds = %3
   %10 = shl i64 %1, 1
-  %11 = add i64 %10, 7
+  %11 = add i64 %10, 6
   %12 = lshr i64 %11, 3
   %13 = shl i64 %1, 2
   %14 = add i64 %13, 4
@@ -581,7 +581,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIjEEmm
 
 9:                                                ; preds = %3
   %10 = shl i64 %1, 1
-  %11 = add i64 %10, 7
+  %11 = add i64 %10, 6
   %12 = lshr i64 %11, 3
   %13 = shl i64 %1, 2
   %14 = add i64 %13, 4
@@ -1020,7 +1020,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__22Usd_IntegerCompressio
 
 6:                                                ; preds = %5
   %7 = shl i64 %3, 1
-  %8 = add i64 %7, 7
+  %8 = add i64 %7, 6
   %9 = lshr i64 %8, 3
   %10 = shl i64 %3, 2
   %11 = add i64 %10, 4
@@ -1063,7 +1063,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
   %.0.copyload.i.i.i = load i32, ptr %.013.i, align 1
   %22 = getelementptr inbounds nuw i8, ptr %.013.i, i64 4
   %23 = shl i64 %3, 1
-  %24 = add i64 %23, 7
+  %24 = add i64 %23, 6
   %25 = lshr i64 %24, 3
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
   %27 = icmp ugt i64 %3, 3
@@ -1295,7 +1295,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__22Usd_IntegerCompressio
 
 6:                                                ; preds = %5
   %7 = shl i64 %3, 1
-  %8 = add i64 %7, 7
+  %8 = add i64 %7, 6
   %9 = lshr i64 %8, 3
   %10 = shl i64 %3, 2
   %11 = add i64 %10, 4
@@ -1338,7 +1338,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
   %.0.copyload.i.i.i = load i32, ptr %.013.i, align 1
   %22 = getelementptr inbounds nuw i8, ptr %.013.i, i64 4
   %23 = shl i64 %3, 1
-  %24 = add i64 %23, 7
+  %24 = add i64 %23, 6
   %25 = lshr i64 %24, 3
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
   %27 = icmp ugt i64 %3, 3
@@ -1570,7 +1570,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__24Usd_IntegerCompressio
 
 2:                                                ; preds = %1
   %3 = shl i64 %0, 1
-  %4 = add i64 %3, 7
+  %4 = add i64 %3, 6
   %5 = lshr i64 %4, 3
   %6 = shl i64 %0, 3
   %7 = add i64 %6, 8
@@ -1590,7 +1590,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__24Usd_IntegerCompressio
 
 2:                                                ; preds = %1
   %3 = shl i64 %0, 1
-  %4 = add i64 %3, 7
+  %4 = add i64 %3, 6
   %5 = lshr i64 %4, 3
   %6 = shl i64 %0, 3
   %7 = add i64 %6, 8
@@ -1619,7 +1619,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeIlEEmm
 
 9:                                                ; preds = %3
   %10 = shl i64 %1, 1
-  %11 = add i64 %10, 7
+  %11 = add i64 %10, 6
   %12 = lshr i64 %11, 3
   %13 = shl i64 %1, 3
   %14 = add i64 %13, 8
@@ -2068,7 +2068,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121_GetEncodedBufferSizeImEEmm
 
 9:                                                ; preds = %3
   %10 = shl i64 %1, 1
-  %11 = add i64 %10, 7
+  %11 = add i64 %10, 6
   %12 = lshr i64 %11, 3
   %13 = shl i64 %1, 3
   %14 = add i64 %13, 8
@@ -2507,7 +2507,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__24Usd_IntegerCompressio
 
 6:                                                ; preds = %5
   %7 = shl i64 %3, 1
-  %8 = add i64 %7, 7
+  %8 = add i64 %7, 6
   %9 = lshr i64 %8, 3
   %10 = shl i64 %3, 3
   %11 = add i64 %10, 8
@@ -2550,7 +2550,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
   %.0.copyload.i.i.i = load i64, ptr %.013.i, align 1
   %22 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %23 = shl i64 %3, 1
-  %24 = add i64 %23, 7
+  %24 = add i64 %23, 6
   %25 = lshr i64 %24, 3
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
   %27 = icmp ugt i64 %3, 3
@@ -2782,7 +2782,7 @@ define noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__24Usd_IntegerCompressio
 
 6:                                                ; preds = %5
   %7 = shl i64 %3, 1
-  %8 = add i64 %7, 7
+  %8 = add i64 %7, 6
   %9 = lshr i64 %8, 3
   %10 = shl i64 %3, 3
   %11 = add i64 %10, 8
@@ -2825,7 +2825,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EE5resetIPcvEEvT_.exit.i: ; preds = %
   %.0.copyload.i.i.i = load i64, ptr %.013.i, align 1
   %22 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
   %23 = shl i64 %3, 1
-  %24 = add i64 %23, 7
+  %24 = add i64 %23, 6
   %25 = lshr i64 %24, 3
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 %25
   %27 = icmp ugt i64 %3, 3

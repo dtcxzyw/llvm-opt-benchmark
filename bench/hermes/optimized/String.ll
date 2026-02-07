@@ -1101,7 +1101,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT
 
 if.end.i.i:                                       ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_15StringPrimitiveEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
   %mul.i.i.i.i.i = shl nuw nsw i32 %12, 2
-  %sub.i.i.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i.i, 15
+  %sub.i.i.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i.i, 12
   %div1.i.i.i.i.i.i = and i32 %sub.i.i.i.i.i.i, 8388600
   %level_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
   %13 = load ptr, ptr %level_.i.i.i.i.i.i.i.i, align 8

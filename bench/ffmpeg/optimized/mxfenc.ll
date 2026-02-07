@@ -5237,7 +5237,7 @@ mxf_write_preface.exit:                           ; preds = %73, %klv_ber_length
 
 .thread.i.i.i:                                    ; preds = %.preheader.i.i.i
   %141 = shl i32 %.024.i.i.i, 1
-  %142 = add i32 %141, -1
+  %142 = add i32 %141, -128
   %143 = and i32 %142, %.127.i.i.i
   %144 = icmp ult i32 %143, 65536
   %.231.v.i.i.i = select i1 %144, i64 1, i64 2
@@ -5320,7 +5320,7 @@ mxf_utf16_local_tag_length.exit.i:                ; preds = %mxf_utf16len.exit.t
 
 .thread.i.i85.i:                                  ; preds = %.preheader.i.i69.i
   %171 = shl i32 %.024.i.i71.i, 1
-  %172 = add i32 %171, -1
+  %172 = add i32 %171, -128
   %173 = and i32 %172, %.127.i.i70.i
   %174 = icmp ult i32 %173, 65536
   %.231.v.i.i86.i = select i1 %174, i64 1, i64 2
@@ -5400,7 +5400,7 @@ mxf_utf16_local_tag_length.exit88.i:              ; preds = %mxf_utf16len.exit.t
 
 .thread.i.i112.i:                                 ; preds = %.preheader.i.i96.i
   %201 = shl i32 %.024.i.i98.i, 1
-  %202 = add i32 %201, -1
+  %202 = add i32 %201, -128
   %203 = and i32 %202, %.127.i.i97.i
   %204 = icmp ult i32 %203, 65536
   %.231.v.i.i113.i = select i1 %204, i64 1, i64 2
@@ -5484,7 +5484,7 @@ mxf_utf16_local_tag_length.exit115.i:             ; preds = %mxf_utf16len.exit.t
 
 .thread.i.i139.i:                                 ; preds = %.preheader.i.i123.i
   %232 = shl i32 %.024.i.i125.i, 1
-  %233 = add i32 %232, -1
+  %233 = add i32 %232, -128
   %234 = and i32 %233, %.127.i.i124.i
   %235 = icmp ult i32 %234, 65536
   %.231.v.i.i140.i = select i1 %235, i64 1, i64 2
@@ -5727,7 +5727,7 @@ mxf_write_content_storage.exit:                   ; preds = %275
 
 .thread.i.i.i98:                                  ; preds = %.preheader.i.i.i66
   %310 = shl i32 %.024.i.i.i68, 1
-  %311 = add i32 %310, -1
+  %311 = add i32 %310, -128
   %312 = and i32 %311, %.127.i.i.i67
   %313 = icmp ult i32 %312, 65536
   %.231.v.i.i.i99 = select i1 %313, i64 1, i64 2
@@ -5846,7 +5846,7 @@ mxf_utf16_local_tag_length.exit.i81:              ; preds = %mxf_utf16len.exit.t
 
 .thread.i.i.i.i.i:                                ; preds = %.preheader.i.i.i.i.i
   %362 = shl i32 %.024.i.i.i.i.i, 1
-  %363 = add i32 %362, -1
+  %363 = add i32 %362, -128
   %364 = and i32 %363, %.127.i.i.i.i.i
   %365 = icmp ult i32 %364, 65536
   %.231.v.i.i.i.i.i = select i1 %365, i64 1, i64 2
@@ -5929,7 +5929,7 @@ mxf_utf16_local_tag_length.exit.i.i.i:            ; preds = %mxf_utf16len.exit.t
 
 .thread.i.i50.i.i.i:                              ; preds = %.preheader.i.i34.i.i.i
   %392 = shl i32 %.024.i.i36.i.i.i, 1
-  %393 = add i32 %392, -1
+  %393 = add i32 %392, -128
   %394 = and i32 %393, %.127.i.i35.i.i.i
   %395 = icmp ult i32 %394, 65536
   %.231.v.i.i51.i.i.i = select i1 %395, i64 1, i64 2
@@ -7033,7 +7033,7 @@ define internal fastcc void @mxf_write_local_tag_utf16(ptr noundef readonly capt
 
 .thread.i:                                        ; preds = %.preheader.i
   %24 = shl i32 %.024.i, 1
-  %25 = add i32 %24, -1
+  %25 = add i32 %24, -128
   %26 = and i32 %25, %.127.i
   %27 = icmp ult i32 %26, 65536
   %.231.v.i = select i1 %27, i64 1, i64 2

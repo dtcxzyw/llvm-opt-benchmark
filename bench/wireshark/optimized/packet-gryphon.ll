@@ -3039,19 +3039,18 @@ define internal fastcc range(i32 20, 132113) i32 @cmd_setfilt(ptr noundef %0, pt
   %21 = shl nuw nsw i32 %11, 1
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %20, ptr noundef %0, i32 noundef 20, i32 noundef %21, i32 noundef 0)
   %23 = add nuw nsw i32 %21, 20
-  %24 = add nuw nsw i32 %21, 3
-  %25 = and i32 %24, 2
-  %.not37.not = icmp eq i32 %25, 0
-  br i1 %.not37.not, label %26, label %.thread
+  %24 = and i32 %21, 2
+  %.not37 = icmp eq i32 %24, 0
+  br i1 %.not37, label %.thread, label %25
 
-26:                                               ; preds = %19
-  %27 = load i32, ptr @hf_gryphon_setfilt_padding, align 4
-  %28 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %27, ptr noundef %0, i32 noundef %23, i32 noundef 2, i32 noundef 0)
-  %29 = add nuw nsw i32 %21, 22
+25:                                               ; preds = %19
+  %26 = load i32, ptr @hf_gryphon_setfilt_padding, align 4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %26, ptr noundef %0, i32 noundef %23, i32 noundef %24, i32 noundef 0)
+  %28 = add nuw nsw i32 %23, %24
   br label %.thread
 
-.thread:                                          ; preds = %2, %26, %19
-  %.1 = phi i32 [ %29, %26 ], [ %23, %19 ], [ 20, %2 ]
+.thread:                                          ; preds = %2, %25, %19
+  %.1 = phi i32 [ %28, %25 ], [ %23, %19 ], [ 20, %2 ]
   ret i32 %.1
 }
 

@@ -5561,50 +5561,58 @@ mi_heap_malloc_aligned_at.exit:                   ; preds = %87, %91
   call void @llvm.assume(i1 true) [ "align"(ptr %.027.i.i59, i64 8) ]
   call void @llvm.assume(i1 true) [ "align"(ptr %1, i64 8) ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %.027.i.i59, ptr nonnull readonly align 8 %1, i64 %116, i1 false)
-  %117 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #63, !srcloc !52
-  %118 = ptrtoint ptr %117 to i64
-  %119 = getelementptr inbounds nuw i8, ptr %53, i64 256
-  %120 = load atomic i64, ptr %119 monotonic, align 256
-  %121 = icmp eq i64 %120, %118
-  %122 = load i32, ptr %58, align 4, !tbaa !53
-  %123 = zext i32 %122 to i64
-  %124 = sub nsw i64 0, %123
-  %125 = getelementptr i8, ptr %57, i64 %124
-  br i1 %121, label %126, label %140, !prof !49
+  %117 = add i64 %50, -8
+  %118 = and i64 %117, -33554432
+  %119 = inttoptr i64 %118 to ptr
+  %120 = tail call ptr asm "movq %fs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(ptr) null) #63, !srcloc !52
+  %121 = ptrtoint ptr %120 to i64
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 256
+  %123 = load atomic i64, ptr %122 monotonic, align 256
+  %124 = icmp eq i64 %123, %121
+  %125 = sub i64 %50, %118
+  %126 = lshr i64 %125, 16
+  %127 = getelementptr inbounds nuw i8, ptr %119, i64 264
+  %128 = getelementptr %struct.mi_page_s, ptr %127, i64 %126
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 4
+  %130 = load i32, ptr %129, align 4, !tbaa !53
+  %131 = zext i32 %130 to i64
+  %132 = sub nsw i64 0, %131
+  %133 = getelementptr i8, ptr %128, i64 %132
+  br i1 %124, label %134, label %148, !prof !49
 
-126:                                              ; preds = %115
-  %127 = getelementptr inbounds nuw i8, ptr %125, i64 14
-  %128 = load i8, ptr %127, align 2, !tbaa !54
-  %129 = icmp eq i8 %128, 0
-  br i1 %129, label %130, label %139, !prof !49
+134:                                              ; preds = %115
+  %135 = getelementptr inbounds nuw i8, ptr %133, i64 14
+  %136 = load i8, ptr %135, align 2, !tbaa !54
+  %137 = icmp eq i8 %136, 0
+  br i1 %137, label %138, label %147, !prof !49
 
-130:                                              ; preds = %126
-  %131 = getelementptr inbounds nuw i8, ptr %125, i64 32
-  %132 = load ptr, ptr %131, align 8, !tbaa !51
-  %133 = ptrtoint ptr %132 to i64
-  store i64 %133, ptr %1, align 8, !tbaa !15
-  store ptr %1, ptr %131, align 8, !tbaa !51
-  %134 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  %135 = load i32, ptr %134, align 8, !tbaa !14
-  %136 = add i32 %135, -1
-  store i32 %136, ptr %134, align 8, !tbaa !14
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %mi_heap_malloc_zero_aligned_at.exit, !prof !13
+138:                                              ; preds = %134
+  %139 = getelementptr inbounds nuw i8, ptr %133, i64 32
+  %140 = load ptr, ptr %139, align 8, !tbaa !51
+  %141 = ptrtoint ptr %140 to i64
+  store i64 %141, ptr %1, align 8, !tbaa !15
+  store ptr %1, ptr %139, align 8, !tbaa !51
+  %142 = getelementptr inbounds nuw i8, ptr %133, i64 24
+  %143 = load i32, ptr %142, align 8, !tbaa !14
+  %144 = add i32 %143, -1
+  store i32 %144, ptr %142, align 8, !tbaa !14
+  %145 = icmp eq i32 %144, 0
+  br i1 %145, label %146, label %mi_heap_malloc_zero_aligned_at.exit, !prof !13
 
-138:                                              ; preds = %130
-  tail call void @_mi_page_retire(ptr noundef %125)
+146:                                              ; preds = %138
+  tail call void @_mi_page_retire(ptr noundef %133)
   br label %mi_heap_malloc_zero_aligned_at.exit
 
-139:                                              ; preds = %126
-  tail call void @_mi_free_generic(ptr noundef nonnull %53, ptr noundef %125, i1 noundef zeroext true, ptr noundef nonnull %1)
+147:                                              ; preds = %134
+  tail call void @_mi_free_generic(ptr noundef nonnull %119, ptr noundef %133, i1 noundef zeroext true, ptr noundef nonnull %1)
   br label %mi_heap_malloc_zero_aligned_at.exit
 
-140:                                              ; preds = %115
-  tail call void @_mi_free_generic(ptr noundef nonnull %53, ptr noundef %125, i1 noundef zeroext false, ptr noundef nonnull %1)
+148:                                              ; preds = %115
+  tail call void @_mi_free_generic(ptr noundef nonnull %119, ptr noundef %133, i1 noundef zeroext false, ptr noundef nonnull %1)
   br label %mi_heap_malloc_zero_aligned_at.exit
 
-mi_heap_malloc_zero_aligned_at.exit:              ; preds = %83, %140, %139, %138, %130, %_mi_page_malloc.exit.i, %44, %43, %34, %12, %79, %mi_heap_malloc_aligned_at.exit, %8
-  %.0 = phi ptr [ %9, %8 ], [ null, %mi_heap_malloc_aligned_at.exit ], [ %1, %79 ], [ %.027.i.i59, %140 ], [ %28, %34 ], [ null, %12 ], [ %48, %_mi_page_malloc.exit.i ], [ %28, %44 ], [ %28, %43 ], [ %.027.i.i59, %130 ], [ %.027.i.i59, %138 ], [ %.027.i.i59, %139 ], [ null, %83 ]
+mi_heap_malloc_zero_aligned_at.exit:              ; preds = %83, %148, %147, %146, %138, %_mi_page_malloc.exit.i, %44, %43, %34, %12, %79, %mi_heap_malloc_aligned_at.exit, %8
+  %.0 = phi ptr [ %9, %8 ], [ null, %mi_heap_malloc_aligned_at.exit ], [ %1, %79 ], [ %.027.i.i59, %148 ], [ %28, %34 ], [ null, %12 ], [ %48, %_mi_page_malloc.exit.i ], [ %28, %44 ], [ %28, %43 ], [ %.027.i.i59, %138 ], [ %.027.i.i59, %146 ], [ %.027.i.i59, %147 ], [ null, %83 ]
   ret ptr %.0
 }
 
@@ -6687,7 +6695,7 @@ define hidden noalias ptr @mi_wcsdup(ptr noundef readonly captures(address_is_nu
   br i1 %11, label %12, label %mi_malloc.exit, !prof !49
 
 12:                                               ; preds = %6
-  %13 = add nsw i64 %7, 9
+  %13 = add nsw i64 %7, 8
   %14 = lshr i64 %13, 3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = getelementptr ptr, ptr %15, i64 %14
@@ -7049,7 +7057,7 @@ mi_option_get_size.exit.i:                        ; preds = %29, %26
   br i1 %33, label %.thread73, label %34
 
 34:                                               ; preds = %mi_option_get_size.exit.i
-  %35 = add i64 %32, 33554431
+  %35 = add i64 %32, 33553408
   %36 = and i64 %35, -33554432
   %37 = lshr i64 %24, 3
   %.1.i = shl i64 %36, %37
@@ -31511,7 +31519,7 @@ mi_option_is_enabled.exit:                        ; preds = %.thread, %41
   br i1 %.not.i, label %._crit_edge.i, label %48
 
 48:                                               ; preds = %44
-  %49 = add i64 %20, 33554431
+  %49 = add i64 %.0.i.i, 33554431
   %50 = and i64 %49, -33554432
   %51 = sub i64 %50, %20
   %52 = add i64 %51, %0

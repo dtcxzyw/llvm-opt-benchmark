@@ -520,26 +520,26 @@ define range(i32 -1094995529, 1) i32 @ff_flac_parse_streaminfo(ptr noundef %0, p
   %27 = load i32, ptr %26, align 1, !tbaa !13
   %28 = tail call i32 @llvm.bswap.i32(i32 %27)
   %29 = lshr i32 %28, 12
-  %30 = add nuw nsw i32 %4, 84
+  %30 = add nuw nsw i32 %4, 80
   store i32 %29, ptr %1, align 8, !tbaa !52
-  %31 = lshr i32 %30, 3
+  %31 = lshr exact i32 %30, 3
   %32 = zext nneg i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 %32
   %34 = load i32, ptr %33, align 1, !tbaa !13
   %35 = lshr i32 %34, 1
   %36 = and i32 %35, 7
-  %37 = add nuw nsw i32 %4, 87
+  %37 = add nuw nsw i32 %4, 80
   %38 = add nuw nsw i32 %36, 1
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %38, ptr %39, align 4, !tbaa !53
-  %40 = lshr i32 %37, 3
+  %40 = lshr exact i32 %37, 3
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 %41
   %43 = load i32, ptr %42, align 1, !tbaa !13
   %44 = tail call i32 @llvm.bswap.i32(i32 %43)
   %45 = shl i32 %44, 7
   %46 = lshr i32 %45, 27
-  %47 = add nuw nsw i32 %4, 92
+  %47 = add nuw nsw i32 %4, 88
   %48 = add nuw nsw i32 %46, 1
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %48, ptr %49, align 8, !tbaa !54
@@ -576,7 +576,7 @@ define range(i32 -1094995529, 1) i32 @ff_flac_parse_streaminfo(ptr noundef %0, p
   br label %ff_flac_set_channel_layout.exit
 
 ff_flac_set_channel_layout.exit:                  ; preds = %59, %61
-  %65 = lshr i32 %47, 3
+  %65 = lshr exact i32 %47, 3
   %66 = zext nneg i32 %65 to i64
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 %66
   %68 = load i32, ptr %67, align 1, !tbaa !13

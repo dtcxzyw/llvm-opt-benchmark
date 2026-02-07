@@ -4017,7 +4017,7 @@ define internal fastcc void @zend_hash_persist(ptr noundef captures(none) initia
   %156 = zext i32 %33 to i64
   %157 = shl nuw nsw i64 %156, 5
   %158 = add nuw nsw i64 %153, %157
-  %159 = add nuw nsw i64 %158, 7
+  %159 = add nuw nsw i64 %158, 4
   %160 = and i64 %159, 549755813880
   %161 = getelementptr inbounds nuw i8, ptr %148, i64 %160
   store ptr %161, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 368), align 8, !tbaa !152

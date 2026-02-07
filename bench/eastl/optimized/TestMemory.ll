@@ -1519,7 +1519,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %_ZN5eastl10destroy_
 
 if.then.i432:                                     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i, %_ZN5eastl10destroy_atI10TestObjectEEvPT_.exit.i408
   %229 = ptrtoint ptr %buffer to i64
-  %add.i = add i64 %229, 255
+  %add.i = add i64 %229, 240
   %and.i = and i64 %add.i, -256
   %sub.ptr.sub.i = sub i64 %and.i, %229
   %cmp3.not.i = icmp ult i64 %sub.ptr.sub.i, 257

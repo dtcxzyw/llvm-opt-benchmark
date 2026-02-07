@@ -7270,7 +7270,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_build_plane_wm_single(
   %115 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %116 = load i32, ptr %115, align 4
   %117 = shl i32 %116, 1
-  %118 = add i32 %117, 65535
+  %118 = add i32 %117, 65534
   %119 = lshr i32 %118, 16
   %120 = zext i16 %110 to i32
   %121 = tail call i32 @llvm.umax.i32(i32 %119, i32 %120)
@@ -7382,7 +7382,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_build_plane_wm_single(
   %195 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %196 = load i32, ptr %195, align 4
   %197 = shl i32 %196, 1
-  %198 = add i32 %197, 65535
+  %198 = add i32 %197, 65534
   %199 = lshr i32 %198, 16
   %200 = zext i16 %190 to i32
   %201 = tail call i32 @llvm.umax.i32(i32 %199, i32 %200)

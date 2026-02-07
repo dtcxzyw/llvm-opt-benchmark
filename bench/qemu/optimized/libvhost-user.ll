@@ -475,7 +475,7 @@ define internal fastcc noundef zeroext i1 @vu_message_write(ptr noundef %0, i32 
 19:                                               ; preds = %17
   %20 = zext nneg i32 %14 to i64
   %21 = shl nuw nsw i64 %20, 2
-  %22 = add nuw nsw i64 %21, 7
+  %22 = add nuw nsw i64 %21, 4
   %23 = and i64 %22, 17179869176
   %24 = add nuw nsw i64 %23, 16
   %25 = add nuw nsw i64 %21, 16
@@ -4789,7 +4789,7 @@ define internal fastcc void @vu_get_inflight_fd(ptr noundef %0, ptr noundef nonn
   %12 = load i16, ptr %11, align 1
   %13 = zext i16 %12 to i64
   %14 = shl nuw nsw i64 %13, 4
-  %15 = add nuw nsw i64 %14, 65
+  %15 = add nuw nsw i64 %14, 64
   %16 = and i64 %15, 2097088
   %17 = zext i16 %10 to i64
   %18 = mul nuw nsw i64 %16, %17
@@ -4916,7 +4916,7 @@ define internal fastcc void @vu_set_inflight_fd(ptr noundef %0, ptr noundef nonn
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = zext i16 %17 to i64
   %40 = shl nuw nsw i64 %39, 4
-  %41 = add nuw nsw i64 %40, 65
+  %41 = add nuw nsw i64 %40, 64
   %42 = and i64 %41, 2097088
   %wide.trip.count = zext i16 %15 to i64
   br label %43

@@ -10826,7 +10826,7 @@ _ZN11OpenImageIO6v3_1_017compute_miplevelsERNS0_14ImageCacheFileERNS0_13TextureO
   %.0302 = phi float [ %.0.i, %.loopexit.i.thread ], [ %.0.i, %266 ], [ %.0.i, %257 ], [ %.1.i74.i, %252 ], [ %.0.i, %240 ], [ %.0.i, %256 ]
   %269 = zext i16 %196 to i32
   %270 = shl nuw nsw i32 %269, 1
-  %271 = add nuw nsw i32 %270, 3
+  %271 = add nuw nsw i32 %270, 2
   %272 = and i32 %271, 262140
   %.not = icmp eq i32 %272, 0
   br i1 %.not, label %277, label %273
@@ -42648,7 +42648,7 @@ _ZN3fmt2v86detail9normalizeILi0EEENS1_2fpES3_.exit: ; preds = %.lr.ph.i, %_ZN3fm
   %130 = sub i32 -50, %.sroa.7.0.lcssa.i
   %131 = sext i32 %130 to i64
   %132 = mul nsw i64 %131, 1292913986
-  %133 = add nsw i64 %132, 4294967295
+  %133 = add nsw i64 %132, 4294967294
   %134 = lshr i64 %133, 32
   %135 = trunc nuw i64 %134 to i32
   %136 = add nsw i32 %135, 347

@@ -41,7 +41,7 @@ define internal range(i32 -2147483648, 1) i32 @paf_video_init(ptr noundef %0) #0
 13:                                               ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i32 11, ptr %14, align 8, !tbaa !34
-  %15 = add nsw i32 %8, 255
+  %15 = add nsw i32 %8, 252
   %16 = and i32 %15, -256
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 792
   %18 = load i64, ptr %17, align 8, !tbaa !35

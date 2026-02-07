@@ -1543,7 +1543,7 @@ define dso_local void @__io_sqe_files_unregister(ptr noundef %0) local_unnamed_a
 45:                                               ; preds = %41
   %46 = zext i32 %43 to i64
   %47 = shl nuw nsw i64 %46, 3
-  %48 = add nuw nsw i64 %47, 4095
+  %48 = add nuw nsw i64 %47, 4088
   %49 = lshr i64 %48, 12
   br label %50
 
@@ -1589,7 +1589,7 @@ define internal fastcc void @io_rsrc_data_free(ptr noundef %0) unnamed_addr #0 a
 9:                                                ; preds = %5
   %10 = zext i32 %7 to i64
   %11 = shl nuw nsw i64 %10, 3
-  %12 = add nuw nsw i64 %11, 4095
+  %12 = add nuw nsw i64 %11, 4088
   %13 = lshr i64 %12, 12
   br label %14
 
@@ -1969,7 +1969,7 @@ define dso_local void @__io_sqe_buffers_unregister(ptr noundef captures(none) %0
 59:                                               ; preds = %55
   %60 = zext i32 %57 to i64
   %61 = shl nuw nsw i64 %60, 3
-  %62 = add nuw nsw i64 %61, 4095
+  %62 = add nuw nsw i64 %61, 4088
   %63 = lshr i64 %62, 12
   br label %64
 

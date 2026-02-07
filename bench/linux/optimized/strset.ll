@@ -456,9 +456,9 @@ define internal i32 @strset_reply_size(ptr noundef readonly captures(none) %0, p
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br i1 %5, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %2, %53
-  %8 = phi i64 [ %54, %53 ], [ 0, %2 ]
-  %9 = phi i32 [ %.ph.us, %53 ], [ 4, %2 ]
+.split.us:                                        ; preds = %2, %49
+  %8 = phi i64 [ %50, %49 ], [ 0, %2 ]
+  %9 = phi i32 [ %.ph.us, %49 ], [ 4, %2 ]
   %10 = getelementptr %struct.strset_info, ptr %6, i64 %8
   %11 = load i8, ptr %10, align 8, !range !15, !noundef !16
   %12 = icmp eq i8 %11, 0
@@ -468,14 +468,14 @@ define internal i32 @strset_reply_size(ptr noundef readonly captures(none) %0, p
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %53, label %17
+  br i1 %16, label %49, label %17
 
 17:                                               ; preds = %13, %.split.us
   %18 = load ptr, ptr %1, align 8
   %19 = icmp eq ptr %18, null
   %20 = zext i1 %19 to i8
   %.not6.us = icmp eq i8 %11, %20
-  br i1 %.not6.us, label %53, label %21
+  br i1 %.not6.us, label %49, label %21
 
 21:                                               ; preds = %17
   %22 = load i8, ptr %7, align 4, !range !15, !noundef !16
@@ -494,99 +494,91 @@ define internal i32 @strset_reply_size(ptr noundef readonly captures(none) %0, p
   br label %33
 
 33:                                               ; preds = %33, %29
-  %34 = phi i64 [ 0, %29 ], [ %43, %33 ]
-  %35 = phi i32 [ 0, %29 ], [ %42, %33 ]
+  %34 = phi i64 [ 0, %29 ], [ %42, %33 ]
+  %35 = phi i32 [ 0, %29 ], [ %41, %33 ]
   %36 = getelementptr [32 x i8], ptr %31, i64 %34
   %37 = tail call i64 @strnlen(ptr noundef %36, i64 noundef 32)
   %38 = trunc i64 %37 to i32
   %39 = and i32 %38, -4
-  %40 = add i32 %39, 23
-  %41 = and i32 %40, -4
-  %42 = add i32 %41, %35
-  %43 = add nuw nsw i64 %34, 1
-  %44 = icmp eq i64 %43, %32
-  br i1 %44, label %45, label %33, !llvm.loop !20
+  %40 = add i32 %35, 20
+  %41 = add i32 %40, %39
+  %42 = add nuw nsw i64 %34, 1
+  %43 = icmp eq i64 %42, %32
+  br i1 %43, label %44, label %33, !llvm.loop !20
 
-45:                                               ; preds = %33
-  %46 = add i32 %42, 7
-  %47 = and i32 %46, -4
-  %48 = add i32 %47, 23
-  %49 = and i32 %48, -4
-  %50 = icmp slt i32 %48, 0
-  br i1 %50, label %.split8.us, label %.thread.us
+44:                                               ; preds = %33
+  %45 = add i32 %41, 24
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %.split8.us, label %.thread.us
 
-.thread.us:                                       ; preds = %45, %21
-  %51 = phi i32 [ %49, %45 ], [ %28, %21 ]
-  %52 = add i32 %51, %9
-  br label %53
+.thread.us:                                       ; preds = %44, %21
+  %47 = phi i32 [ %45, %44 ], [ %28, %21 ]
+  %48 = add i32 %47, %9
+  br label %49
 
-53:                                               ; preds = %.thread.us, %17, %13
-  %.ph.us = phi i32 [ %52, %.thread.us ], [ %9, %13 ], [ %9, %17 ]
-  %54 = add nuw nsw i64 %8, 1
-  %55 = icmp eq i64 %54, 21
-  br i1 %55, label %.split8.us, label %.split.us, !llvm.loop !21
+49:                                               ; preds = %.thread.us, %17, %13
+  %.ph.us = phi i32 [ %48, %.thread.us ], [ %9, %13 ], [ %9, %17 ]
+  %50 = add nuw nsw i64 %8, 1
+  %51 = icmp eq i64 %50, 21
+  br i1 %51, label %.split8.us, label %.split.us, !llvm.loop !21
 
-.split:                                           ; preds = %2, %94
-  %56 = phi i64 [ %95, %94 ], [ 0, %2 ]
-  %57 = phi i32 [ %.ph, %94 ], [ 4, %2 ]
-  %58 = trunc i64 %56 to i32
-  %59 = shl nuw nsw i32 1, %58
-  %60 = and i32 %59, %4
-  %.not = icmp eq i32 %60, 0
-  br i1 %.not, label %94, label %61
+.split:                                           ; preds = %2, %86
+  %52 = phi i64 [ %87, %86 ], [ 0, %2 ]
+  %53 = phi i32 [ %.ph, %86 ], [ 4, %2 ]
+  %54 = trunc i64 %52 to i32
+  %55 = shl nuw nsw i32 1, %54
+  %56 = and i32 %55, %4
+  %.not = icmp eq i32 %56, 0
+  br i1 %.not, label %86, label %57
 
-61:                                               ; preds = %.split
-  %62 = getelementptr %struct.strset_info, ptr %6, i64 %56
-  %63 = load i8, ptr %7, align 4, !range !15, !noundef !16
-  %64 = icmp ne i8 %63, 0
-  %65 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  %66 = load i32, ptr %65, align 4
-  %67 = icmp eq i32 %66, 0
-  %68 = or i1 %64, %67
-  %69 = select i1 %67, i32 0, i32 20
-  br i1 %68, label %.thread, label %70
+57:                                               ; preds = %.split
+  %58 = getelementptr %struct.strset_info, ptr %6, i64 %52
+  %59 = load i8, ptr %7, align 4, !range !15, !noundef !16
+  %60 = icmp ne i8 %59, 0
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  %62 = load i32, ptr %61, align 4
+  %63 = icmp eq i32 %62, 0
+  %64 = or i1 %60, %63
+  %65 = select i1 %63, i32 0, i32 20
+  br i1 %64, label %.thread, label %66
 
-70:                                               ; preds = %61
-  %71 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %72 = load ptr, ptr %71, align 8
-  %73 = zext i32 %66 to i64
-  br label %74
+66:                                               ; preds = %57
+  %67 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %69 = zext i32 %62 to i64
+  br label %70
 
-74:                                               ; preds = %74, %70
-  %75 = phi i64 [ 0, %70 ], [ %84, %74 ]
-  %76 = phi i32 [ 0, %70 ], [ %83, %74 ]
-  %77 = getelementptr [32 x i8], ptr %72, i64 %75
-  %78 = tail call i64 @strnlen(ptr noundef %77, i64 noundef 32)
-  %79 = trunc i64 %78 to i32
-  %80 = and i32 %79, -4
-  %81 = add i32 %80, 23
-  %82 = and i32 %81, -4
-  %83 = add i32 %82, %76
-  %84 = add nuw nsw i64 %75, 1
-  %85 = icmp eq i64 %84, %73
-  br i1 %85, label %86, label %74, !llvm.loop !20
+70:                                               ; preds = %70, %66
+  %71 = phi i64 [ 0, %66 ], [ %79, %70 ]
+  %72 = phi i32 [ 0, %66 ], [ %78, %70 ]
+  %73 = getelementptr [32 x i8], ptr %68, i64 %71
+  %74 = tail call i64 @strnlen(ptr noundef %73, i64 noundef 32)
+  %75 = trunc i64 %74 to i32
+  %76 = and i32 %75, -4
+  %77 = add i32 %72, 20
+  %78 = add i32 %77, %76
+  %79 = add nuw nsw i64 %71, 1
+  %80 = icmp eq i64 %79, %69
+  br i1 %80, label %81, label %70, !llvm.loop !20
 
-86:                                               ; preds = %74
-  %87 = add i32 %83, 7
-  %88 = and i32 %87, -4
-  %89 = add i32 %88, 23
-  %90 = and i32 %89, -4
-  %91 = icmp slt i32 %89, 0
-  br i1 %91, label %.split8.us, label %.thread
+81:                                               ; preds = %70
+  %82 = add i32 %78, 24
+  %83 = icmp slt i32 %82, 0
+  br i1 %83, label %.split8.us, label %.thread
 
-.thread:                                          ; preds = %61, %86
-  %92 = phi i32 [ %90, %86 ], [ %69, %61 ]
-  %93 = add i32 %92, %57
-  br label %94
+.thread:                                          ; preds = %57, %81
+  %84 = phi i32 [ %82, %81 ], [ %65, %57 ]
+  %85 = add i32 %84, %53
+  br label %86
 
-94:                                               ; preds = %.thread, %.split
-  %.ph = phi i32 [ %57, %.split ], [ %93, %.thread ]
-  %95 = add nuw nsw i64 %56, 1
-  %96 = icmp eq i64 %95, 21
-  br i1 %96, label %.split8.us, label %.split, !llvm.loop !21
+86:                                               ; preds = %.thread, %.split
+  %.ph = phi i32 [ %53, %.split ], [ %85, %.thread ]
+  %87 = add nuw nsw i64 %52, 1
+  %88 = icmp eq i64 %87, 21
+  br i1 %88, label %.split8.us, label %.split, !llvm.loop !21
 
-.split8.us:                                       ; preds = %94, %86, %45, %53
-  %.us-phi = phi i32 [ %49, %45 ], [ %.ph.us, %53 ], [ %.ph, %94 ], [ %90, %86 ]
+.split8.us:                                       ; preds = %86, %81, %44, %49
+  %.us-phi = phi i32 [ %45, %44 ], [ %.ph.us, %49 ], [ %.ph, %86 ], [ %82, %81 ]
   ret i32 %.us-phi
 }
 

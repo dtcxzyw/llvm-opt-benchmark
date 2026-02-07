@@ -15992,7 +15992,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit.thread: ; preds = %_ZNK
   %69 = add i64 %storemerge3145, 1
   %70 = shl i64 %69, 3
   %71 = mul i64 %69, 12
-  %72 = add i64 %71, 7
+  %72 = add i64 %71, 4
   %73 = add i64 %72, %70
   %74 = and i64 %73, -8
   %75 = add i64 %74, %70
@@ -16170,7 +16170,7 @@ define noundef i64 @_ZN6duckdb11ZSTDStorage18StringFinalAnalyzeERNS_12AnalyzeSta
   %28 = add nuw nsw i64 %24, %27
   %29 = shl nuw nsw i64 %28, 3
   %30 = mul nuw nsw i64 %28, 12
-  %31 = add nuw nsw i64 %30, 7
+  %31 = add nuw nsw i64 %30, 4
   %32 = add nuw nsw i64 %31, %29
   %33 = and i64 %32, 1152921504606846968
   %34 = add i64 %29, %23
@@ -16761,7 +16761,7 @@ define linkonce_odr void @_ZN6duckdb13ZSTDScanStateC2ERNS_13ColumnSegmentE(ptr n
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %52, ptr %53, align 8, !tbaa !913
   %54 = mul nuw nsw i64 %49, 12
-  %55 = add nuw nsw i64 %54, 7
+  %55 = add nuw nsw i64 %54, 4
   %56 = and i64 %55, 576460752303423480
   %57 = getelementptr inbounds nuw i8, ptr %41, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -26523,7 +26523,7 @@ define linkonce_odr void @_ZN6duckdb20ZSTDCompressionState16InitializeVectorEv(p
   %38 = add i64 %37, 1
   %39 = shl i64 %38, 3
   %40 = mul i64 %38, 12
-  %41 = add i64 %40, 7
+  %41 = add i64 %40, 4
   %42 = add i64 %41, %39
   %43 = and i64 %42, -8
   %44 = add i64 %43, %39
@@ -27080,7 +27080,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %56, ptr %57, align 8, !tbaa !1186
   %58 = mul i64 %.020, 12
-  %59 = add i64 %58, 7
+  %59 = add i64 %58, 4
   %60 = and i64 %59, -8
   tail call void @_ZNK6duckdb12optional_ptrINS_10FileBufferELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %47)
   %61 = load ptr, ptr %47, align 8, !tbaa !417
@@ -42201,7 +42201,7 @@ define linkonce_odr void @_ZN6duckdb16RLECompressStateIsLb1EE12FlushSegmentEv(pt
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i64, ptr %7, align 8, !tbaa !1435
   %9 = shl i64 %8, 1
-  %10 = add i64 %6, 15
+  %10 = add i64 %6, 14
   %11 = and i64 %10, -8
   %12 = add i64 %11, %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -44784,7 +44784,7 @@ define linkonce_odr void @_ZN6duckdb16RLECompressStateIiLb1EE12FlushSegmentEv(pt
   %8 = load i64, ptr %7, align 8, !tbaa !1478
   %9 = shl i64 %8, 2
   %10 = shl i64 %5, 2
-  %11 = add i64 %10, 15
+  %11 = add i64 %10, 12
   %12 = and i64 %11, -8
   %13 = add i64 %12, %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -47390,55 +47390,54 @@ define linkonce_odr void @_ZN6duckdb16RLECompressStateIlLb1EE12FlushSegmentEv(pt
   %8 = load i64, ptr %7, align 8, !tbaa !1521
   %9 = shl i64 %8, 3
   %10 = shl i64 %5, 3
-  %11 = add i64 %10, 15
-  %12 = and i64 %11, -8
-  %13 = add i64 %12, %6
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZNK6duckdb12optional_ptrINS_10FileBufferELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
-  %16 = load ptr, ptr %15, align 8, !tbaa !417
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !418
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %12
-  %20 = getelementptr i8, ptr %18, i64 %9
-  %21 = getelementptr i8, ptr %20, i64 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %19, ptr align 1 %21, i64 %6, i1 false)
-  store i64 %12, ptr %18, align 1
-  tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !1519
-  %24 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN6duckdb24ColumnDataCheckpointData18GetCheckpointStateEv(ptr noundef nonnull align 8 dereferenceable(40) %23)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load i64, ptr %25, align 8, !tbaa !192
-  store i64 %26, ptr %2, align 8, !tbaa !192
-  store ptr null, ptr %25, align 8, !tbaa !192
-  call void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %14) #35
-  %27 = load ptr, ptr %24, align 8, !tbaa !111
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %29 = load ptr, ptr %28, align 8
-  invoke void %29(ptr noundef nonnull align 8 dereferenceable(144) %24, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %13)
-          to label %30 unwind label %32
+  %11 = add i64 %10, 8
+  %12 = add i64 %11, %6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @_ZNK6duckdb12optional_ptrINS_10FileBufferELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %15 = load ptr, ptr %14, align 8, !tbaa !417
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !418
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %11
+  %19 = getelementptr i8, ptr %17, i64 %9
+  %20 = getelementptr i8, ptr %19, i64 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %18, ptr align 1 %20, i64 %6, i1 false)
+  store i64 %11, ptr %17, align 1
+  tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !1519
+  %23 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN6duckdb24ColumnDataCheckpointData18GetCheckpointStateEv(ptr noundef nonnull align 8 dereferenceable(40) %22)
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load i64, ptr %24, align 8, !tbaa !192
+  store i64 %25, ptr %2, align 8, !tbaa !192
+  store ptr null, ptr %24, align 8, !tbaa !192
+  call void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %13) #35
+  %26 = load ptr, ptr %23, align 8, !tbaa !111
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %28 = load ptr, ptr %27, align 8
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(144) %23, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %12)
+          to label %29 unwind label %31
 
-30:                                               ; preds = %1
+29:                                               ; preds = %1
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #35
-  %31 = load ptr, ptr %2, align 8, !tbaa !192
-  %.not.i = icmp eq ptr %31, null
+  %30 = load ptr, ptr %2, align 8, !tbaa !192
+  %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i: ; preds = %30
-  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %31) #35
-  call void @_ZdlPv(ptr noundef nonnull %31) #37
+_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i: ; preds = %29
+  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %30) #35
+  call void @_ZdlPv(ptr noundef nonnull %30) #37
   br label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; preds = %30, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; preds = %29, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
   ret void
 
-32:                                               ; preds = %1
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %1
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #35
   call void @_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #35
-  resume { ptr, i32 } %33
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -57452,7 +57451,7 @@ define linkonce_odr void @_ZN6duckdb16RLECompressStateItLb1EE12FlushSegmentEv(pt
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i64, ptr %7, align 8, !tbaa !1689
   %9 = shl i64 %8, 1
-  %10 = add i64 %6, 15
+  %10 = add i64 %6, 14
   %11 = and i64 %10, -8
   %12 = add i64 %11, %6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -60035,7 +60034,7 @@ define linkonce_odr void @_ZN6duckdb16RLECompressStateIjLb1EE12FlushSegmentEv(pt
   %8 = load i64, ptr %7, align 8, !tbaa !1732
   %9 = shl i64 %8, 2
   %10 = shl i64 %5, 2
-  %11 = add i64 %10, 15
+  %11 = add i64 %10, 12
   %12 = and i64 %11, -8
   %13 = add i64 %12, %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -62633,55 +62632,54 @@ define linkonce_odr void @_ZN6duckdb16RLECompressStateImLb1EE12FlushSegmentEv(pt
   %8 = load i64, ptr %7, align 8, !tbaa !1775
   %9 = shl i64 %8, 3
   %10 = shl i64 %5, 3
-  %11 = add i64 %10, 15
-  %12 = and i64 %11, -8
-  %13 = add i64 %12, %6
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZNK6duckdb12optional_ptrINS_10FileBufferELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
-  %16 = load ptr, ptr %15, align 8, !tbaa !417
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !418
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %12
-  %20 = getelementptr i8, ptr %18, i64 %9
-  %21 = getelementptr i8, ptr %20, i64 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %19, ptr align 1 %21, i64 %6, i1 false)
-  store i64 %12, ptr %18, align 1
-  tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !1773
-  %24 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN6duckdb24ColumnDataCheckpointData18GetCheckpointStateEv(ptr noundef nonnull align 8 dereferenceable(40) %23)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load i64, ptr %25, align 8, !tbaa !192
-  store i64 %26, ptr %2, align 8, !tbaa !192
-  store ptr null, ptr %25, align 8, !tbaa !192
-  call void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %14) #35
-  %27 = load ptr, ptr %24, align 8, !tbaa !111
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %29 = load ptr, ptr %28, align 8
-  invoke void %29(ptr noundef nonnull align 8 dereferenceable(144) %24, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %13)
-          to label %30 unwind label %32
+  %11 = add i64 %10, 8
+  %12 = add i64 %11, %6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @_ZNK6duckdb12optional_ptrINS_10FileBufferELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %15 = load ptr, ptr %14, align 8, !tbaa !417
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !418
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %11
+  %19 = getelementptr i8, ptr %17, i64 %9
+  %20 = getelementptr i8, ptr %19, i64 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %18, ptr align 1 %20, i64 %6, i1 false)
+  store i64 %11, ptr %17, align 1
+  tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !1773
+  %23 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN6duckdb24ColumnDataCheckpointData18GetCheckpointStateEv(ptr noundef nonnull align 8 dereferenceable(40) %22)
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load i64, ptr %24, align 8, !tbaa !192
+  store i64 %25, ptr %2, align 8, !tbaa !192
+  store ptr null, ptr %24, align 8, !tbaa !192
+  call void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %13) #35
+  %26 = load ptr, ptr %23, align 8, !tbaa !111
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %28 = load ptr, ptr %27, align 8
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(144) %23, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %12)
+          to label %29 unwind label %31
 
-30:                                               ; preds = %1
+29:                                               ; preds = %1
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #35
-  %31 = load ptr, ptr %2, align 8, !tbaa !192
-  %.not.i = icmp eq ptr %31, null
+  %30 = load ptr, ptr %2, align 8, !tbaa !192
+  %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i: ; preds = %30
-  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %31) #35
-  call void @_ZdlPv(ptr noundef nonnull %31) #37
+_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i: ; preds = %29
+  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %30) #35
+  call void @_ZdlPv(ptr noundef nonnull %30) #37
   br label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; preds = %30, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; preds = %29, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
   ret void
 
-32:                                               ; preds = %1
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %1
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #35
   call void @_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #35
-  resume { ptr, i32 } %33
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -65235,7 +65233,7 @@ define linkonce_odr void @_ZN6duckdb16RLECompressStateIfLb1EE12FlushSegmentEv(pt
   %8 = load i64, ptr %7, align 8, !tbaa !1818
   %9 = shl i64 %8, 2
   %10 = shl i64 %5, 2
-  %11 = add i64 %10, 15
+  %11 = add i64 %10, 12
   %12 = and i64 %11, -8
   %13 = add i64 %12, %6
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -67826,55 +67824,54 @@ define linkonce_odr void @_ZN6duckdb16RLECompressStateIdLb1EE12FlushSegmentEv(pt
   %8 = load i64, ptr %7, align 8, !tbaa !1861
   %9 = shl i64 %8, 3
   %10 = shl i64 %5, 3
-  %11 = add i64 %10, 15
-  %12 = and i64 %11, -8
-  %13 = add i64 %12, %6
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZNK6duckdb12optional_ptrINS_10FileBufferELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
-  %16 = load ptr, ptr %15, align 8, !tbaa !417
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !418
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %12
-  %20 = getelementptr i8, ptr %18, i64 %9
-  %21 = getelementptr i8, ptr %20, i64 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %19, ptr align 1 %21, i64 %6, i1 false)
-  store i64 %12, ptr %18, align 1
-  tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !1859
-  %24 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN6duckdb24ColumnDataCheckpointData18GetCheckpointStateEv(ptr noundef nonnull align 8 dereferenceable(40) %23)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load i64, ptr %25, align 8, !tbaa !192
-  store i64 %26, ptr %2, align 8, !tbaa !192
-  store ptr null, ptr %25, align 8, !tbaa !192
-  call void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %14) #35
-  %27 = load ptr, ptr %24, align 8, !tbaa !111
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %29 = load ptr, ptr %28, align 8
-  invoke void %29(ptr noundef nonnull align 8 dereferenceable(144) %24, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %13)
-          to label %30 unwind label %32
+  %11 = add i64 %10, 8
+  %12 = add i64 %11, %6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @_ZNK6duckdb12optional_ptrINS_10FileBufferELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %15 = load ptr, ptr %14, align 8, !tbaa !417
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !418
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %11
+  %19 = getelementptr i8, ptr %17, i64 %9
+  %20 = getelementptr i8, ptr %19, i64 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %18, ptr align 1 %20, i64 %6, i1 false)
+  store i64 %11, ptr %17, align 1
+  tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !1859
+  %23 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN6duckdb24ColumnDataCheckpointData18GetCheckpointStateEv(ptr noundef nonnull align 8 dereferenceable(40) %22)
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load i64, ptr %24, align 8, !tbaa !192
+  store i64 %25, ptr %2, align 8, !tbaa !192
+  store ptr null, ptr %24, align 8, !tbaa !192
+  call void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %13) #35
+  %26 = load ptr, ptr %23, align 8, !tbaa !111
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %28 = load ptr, ptr %27, align 8
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(144) %23, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %12)
+          to label %29 unwind label %31
 
-30:                                               ; preds = %1
+29:                                               ; preds = %1
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #35
-  %31 = load ptr, ptr %2, align 8, !tbaa !192
-  %.not.i = icmp eq ptr %31, null
+  %30 = load ptr, ptr %2, align 8, !tbaa !192
+  %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i: ; preds = %30
-  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %31) #35
-  call void @_ZdlPv(ptr noundef nonnull %31) #37
+_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i: ; preds = %29
+  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %30) #35
+  call void @_ZdlPv(ptr noundef nonnull %30) #37
   br label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; preds = %30, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; preds = %29, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
   ret void
 
-32:                                               ; preds = %1
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %1
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #35
   call void @_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #35
-  resume { ptr, i32 } %33
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -68674,55 +68671,54 @@ define linkonce_odr void @_ZN6duckdb16RLECompressStateImLb0EE12FlushSegmentEv(pt
   %8 = load i64, ptr %7, align 8, !tbaa !1873
   %9 = shl i64 %8, 3
   %10 = shl i64 %5, 3
-  %11 = add i64 %10, 15
-  %12 = and i64 %11, -8
-  %13 = add i64 %12, %6
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  tail call void @_ZNK6duckdb12optional_ptrINS_10FileBufferELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
-  %16 = load ptr, ptr %15, align 8, !tbaa !417
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !418
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %12
-  %20 = getelementptr i8, ptr %18, i64 %9
-  %21 = getelementptr i8, ptr %20, i64 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %19, ptr align 1 %21, i64 %6, i1 false)
-  store i64 %12, ptr %18, align 1
-  tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %14)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !1871
-  %24 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN6duckdb24ColumnDataCheckpointData18GetCheckpointStateEv(ptr noundef nonnull align 8 dereferenceable(40) %23)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load i64, ptr %25, align 8, !tbaa !192
-  store i64 %26, ptr %2, align 8, !tbaa !192
-  store ptr null, ptr %25, align 8, !tbaa !192
-  call void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %14) #35
-  %27 = load ptr, ptr %24, align 8, !tbaa !111
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %29 = load ptr, ptr %28, align 8
-  invoke void %29(ptr noundef nonnull align 8 dereferenceable(144) %24, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %13)
-          to label %30 unwind label %32
+  %11 = add i64 %10, 8
+  %12 = add i64 %11, %6
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  tail call void @_ZNK6duckdb12optional_ptrINS_10FileBufferELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %15 = load ptr, ptr %14, align 8, !tbaa !417
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !418
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 %11
+  %19 = getelementptr i8, ptr %17, i64 %9
+  %20 = getelementptr i8, ptr %19, i64 8
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %18, ptr align 1 %20, i64 %6, i1 false)
+  store i64 %11, ptr %17, align 1
+  tail call void @_ZN6duckdb12BufferHandle7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %13)
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8, !tbaa !1871
+  %23 = tail call noundef nonnull align 8 dereferenceable(144) ptr @_ZN6duckdb24ColumnDataCheckpointData18GetCheckpointStateEv(ptr noundef nonnull align 8 dereferenceable(40) %22)
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %25 = load i64, ptr %24, align 8, !tbaa !192
+  store i64 %25, ptr %2, align 8, !tbaa !192
+  store ptr null, ptr %24, align 8, !tbaa !192
+  call void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %13) #35
+  %26 = load ptr, ptr %23, align 8, !tbaa !111
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %28 = load ptr, ptr %27, align 8
+  invoke void %28(ptr noundef nonnull align 8 dereferenceable(144) %23, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef %12)
+          to label %29 unwind label %31
 
-30:                                               ; preds = %1
+29:                                               ; preds = %1
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #35
-  %31 = load ptr, ptr %2, align 8, !tbaa !192
-  %.not.i = icmp eq ptr %31, null
+  %30 = load ptr, ptr %2, align 8, !tbaa !192
+  %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
 
-_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i: ; preds = %30
-  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %31) #35
-  call void @_ZdlPv(ptr noundef nonnull %31) #37
+_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i: ; preds = %29
+  call void @_ZN6duckdb13ColumnSegmentD1Ev(ptr noundef nonnull align 8 dereferenceable(224) %30) #35
+  call void @_ZdlPv(ptr noundef nonnull %30) #37
   br label %_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit
 
-_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; preds = %30, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
+_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev.exit: ; preds = %29, %_ZNKSt14default_deleteIN6duckdb13ColumnSegmentEEclEPS1_.exit.i
   ret void
 
-32:                                               ; preds = %1
-  %33 = landingpad { ptr, i32 }
+31:                                               ; preds = %1
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #35
   call void @_ZNSt10unique_ptrIN6duckdb13ColumnSegmentESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #35
-  resume { ptr, i32 } %33
+  resume { ptr, i32 } %32
 }
 
 ; Function Attrs: mustprogress uwtable

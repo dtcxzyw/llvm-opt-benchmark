@@ -16647,7 +16647,7 @@ define internal fastcc i32 @mov_write_eac3_tag(ptr noundef %0, ptr noundef %1, p
   %6 = load i8, ptr %5, align 1, !tbaa !121
   %7 = zext i8 %6 to i32
   %8 = mul nuw nsw i32 %7, 34
-  %9 = add nuw nsw i32 %8, 41
+  %9 = add nuw nsw i32 %8, 40
   %10 = lshr i32 %9, 3
   %11 = add nuw nsw i32 %10, 2
   %12 = zext nneg i32 %11 to i64

@@ -620,10 +620,10 @@ _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit:
   %6 = select i1 %5, i32 16, i32 20
   %7 = load i8, ptr @UseCompressedOops, align 1
   %8 = trunc i8 %7 to i1
-  %narrow.i.i = add nuw nsw i32 %6, 7
+  %narrow.i.i = add nuw nsw i32 %6, 4
   %9 = and i32 %narrow.i.i, 24
   %10 = select i1 %8, i32 %6, i32 %9
-  %narrow.i = add nuw nsw i32 %10, 7
+  %narrow.i = add nuw nsw i32 %10, 4
   %11 = lshr i32 %narrow.i, 3
   %12 = zext nneg i32 %11 to i64
   %13 = xor i64 %12, 2305843009213693951
@@ -670,7 +670,7 @@ _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit:
   %45 = trunc i8 %30 to i1
   %46 = trunc i8 %29 to i1
   %47 = select i1 %46, i32 16, i32 20
-  %narrow.i.i.i = add nuw nsw i32 %47, 7
+  %narrow.i.i.i = add nuw nsw i32 %47, 4
   %48 = and i32 %narrow.i.i.i, 24
   %49 = select i1 %45, i32 %47, i32 %48
   %50 = zext nneg i32 %49 to i64

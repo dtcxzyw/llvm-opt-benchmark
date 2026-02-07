@@ -1997,12 +1997,12 @@ define internal noundef i32 @run_channel_cwt(ptr noundef readonly captures(none)
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %121 = load ptr, ptr %120, align 8, !tbaa !142
   %122 = shl nsw i32 %102, 1
-  %123 = add nsw i32 %122, 3
+  %123 = add nsw i32 %122, 2
   %124 = and i32 %123, -4
   tail call void %121(ptr noundef %90, ptr noundef %90, float noundef %31, i32 noundef %124) #15
   %125 = load ptr, ptr %56, align 8, !tbaa !77
   %126 = load ptr, ptr %125, align 8, !tbaa !144
-  %127 = add nsw i32 %122, 15
+  %127 = add nsw i32 %122, 14
   %128 = and i32 %127, -16
   tail call void %126(ptr noundef %85, ptr noundef %90, ptr noundef %93, i32 noundef %128) #15
   tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %58, i1 false)

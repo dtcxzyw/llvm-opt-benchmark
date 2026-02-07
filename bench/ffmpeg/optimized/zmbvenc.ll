@@ -411,7 +411,7 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 %127
   %129 = shl nsw i32 %120, 1
   %130 = mul i32 %129, %124
-  %131 = add nsw i32 %130, 3
+  %131 = add nsw i32 %130, 2
   %132 = and i32 %131, -4
   %133 = sext i32 %132 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %128, i8 0, i64 %133, i1 false)

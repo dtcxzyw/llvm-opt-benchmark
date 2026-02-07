@@ -270,7 +270,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN17duckdb_libpgquery12base_yyparseE
   %29 = shl i64 %21, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr align 2 %.05130, i64 %29, i1 false)
   %30 = shl nuw nsw i64 %spec.store.select, 1
-  %31 = add nuw nsw i64 %30, 7
+  %31 = add nuw nsw i64 %30, 4
   %32 = lshr i64 %31, 3
   %33 = getelementptr inbounds nuw %"union.duckdb_libpgquery::yyalloc", ptr %27, i64 %32
   %34 = shl i64 %21, 3

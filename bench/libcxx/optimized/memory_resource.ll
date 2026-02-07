@@ -779,7 +779,7 @@ _ZNSt3__13pmr25__try_allocate_from_chunkILb0ENS0_25monotonic_buffer_resource14__
   %57 = add i64 %.in, 32
   %.not41 = icmp ugt i64 %57, %.0.i44
   %58 = shl i64 %.0.i44, 1
-  %59 = add i64 %58, -57
+  %59 = add i64 %58, -58
   %60 = and i64 %59, -8
   %61 = add i64 %60, 32
   %.035 = select i1 %.not41, i64 %57, i64 %61

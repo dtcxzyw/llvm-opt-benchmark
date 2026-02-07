@@ -2061,7 +2061,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit: ; preds = %if
 if.else:                                          ; preds = %entry
   %mul.i.i.i = shl nuw nsw i32 %conv, 1
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 19
+  %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 18
   %div1.i.i.i.i = and i32 %sub.i.i.i.i, 262136
   call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #16
@@ -3013,7 +3013,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit: ; preds = %if
 if.else:                                          ; preds = %entry
   %mul.i.i.i = shl nuw nsw i32 %conv, 1
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 15
+  %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 14
   %div1.i.i.i.i = and i32 %sub.i.i.i.i, 262136
   call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #16

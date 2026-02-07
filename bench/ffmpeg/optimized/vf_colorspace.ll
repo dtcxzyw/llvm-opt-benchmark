@@ -314,7 +314,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %28 = load i32, ptr %27, align 8, !tbaa !54
   %29 = sext i32 %28 to i64
   %30 = shl nsw i64 %29, 1
-  %31 = add nsw i64 %30, 31
+  %31 = add nsw i64 %30, 30
   %32 = and i64 %31, -32
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %34 = load i32, ptr %33, align 4, !tbaa !59

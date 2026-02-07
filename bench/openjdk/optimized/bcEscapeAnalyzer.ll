@@ -7670,7 +7670,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %29, %31
   %33 = phi ptr [ %30, %29 ], [ %.pre316, %31 ]
   %.0.i.i = phi ptr [ %25, %29 ], [ %32, %31 ]
   %34 = sext i32 %19 to i64
-  %35 = add nsw i64 %34, 7
+  %35 = add nsw i64 %34, 4
   %36 = and i64 %35, -8
   %37 = ptrtoint ptr %33 to i64
   %38 = sub i64 %.pre-phi, %37
@@ -9705,7 +9705,7 @@ define hidden void @_ZN16BCEscapeAnalyzerC2EP8ciMethodPS_(ptr noundef nonnull al
   %61 = load i32, ptr %31, align 8
   %62 = sext i32 %61 to i64
   %63 = shl nsw i64 %62, 2
-  %64 = add nsw i64 %63, 7
+  %64 = add nsw i64 %63, 4
   %65 = and i64 %64, -8
   %66 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %67 = load ptr, ptr %66, align 8

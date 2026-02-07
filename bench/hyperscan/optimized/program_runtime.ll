@@ -10552,7 +10552,7 @@ mmbit_mask_index.exit.i2036.preheader:            ; preds = %.lr.ph5050
   br label %mmbit_sparse_iter_next.exit.thread3424
 
 5898:                                             ; preds = %mmbit_get_flat_block.exit.i2041
-  %5899 = add i64 %5901, -1
+  %5899 = add i64 %5901, -2
   %5900 = and i64 %5899, %5901
   %.not57.i2035 = icmp eq i64 %5900, 0
   br i1 %.not57.i2035, label %mmbit_sparse_iter_next.exit.thread.loopexit4098, label %mmbit_mask_index.exit.i2036

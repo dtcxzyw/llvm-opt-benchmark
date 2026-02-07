@@ -15547,7 +15547,7 @@ define internal void @_ZZN3nix12sourceToSinkESt8functionIFvRNS_6SourceEEEEN12Sou
   %spec.select.i.i = select i1 %28, ptr null, ptr %29
   %30 = ptrtoint ptr %22 to i64
   %31 = ptrtoint ptr %spec.select.i.i to i64
-  %32 = add i64 %31, -40
+  %32 = add i64 %31, -64
   %33 = and i64 %32, -256
   %34 = inttoptr i64 %33 to ptr
   store i64 %21, ptr %34, align 256
@@ -16965,7 +16965,7 @@ define internal noundef i64 @_ZZN3nix12sinkToSourceESt8functionIFvRNS_4SinkEEES0
   %28 = ptrtoint ptr %20 to i64
   %29 = ptrtoint ptr %spec.select.i.i to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %30 = add i64 %29, -40
+  %30 = add i64 %29, -64
   %31 = and i64 %30, -256
   %32 = inttoptr i64 %31 to ptr
   store i64 %19, ptr %32, align 256

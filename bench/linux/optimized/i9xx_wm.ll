@@ -5924,7 +5924,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr noundef r
   %156 = zext i32 %132 to i64
   %157 = zext nneg i32 %155 to i64
   %158 = mul nuw nsw i64 %157, %156
-  %159 = add nuw nsw i64 %158, 9999
+  %159 = add nuw nsw i64 %158, 9998
   %160 = udiv i64 %159, 10000
   %161 = trunc i64 %160 to i32
   br i1 %154, label %174, label %162
@@ -7946,7 +7946,7 @@ define internal void @pnv_update_wm(ptr noundef %0) #0 align 16 {
   %156 = shl nuw nsw i16 %155, 2
   %157 = zext nneg i16 %156 to i64
   %158 = mul nuw nsw i64 %157, %115
-  %159 = add nuw nsw i64 %158, 9999
+  %159 = add nuw nsw i64 %158, 9996
   %160 = udiv i64 %159, 10000
   %161 = trunc nuw nsw i64 %160 to i32
   %162 = add nuw nsw i32 %161, 63
@@ -7956,7 +7956,7 @@ define internal void @pnv_update_wm(ptr noundef %0) #0 align 16 {
   %165 = sub nsw i32 507, %163
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.55, i32 noundef %165) #14
   %166 = tail call i32 @llvm.smin.i32(i32 %165, i32 63)
-  %167 = icmp samesign ugt i64 %158, 323840000
+  %167 = icmp samesign ugt i64 %158, 323840003
   %168 = tail call i32 @llvm.umax.i32(i32 %166, i32 8)
   %169 = shl i32 %168, 24
   %170 = load ptr, ptr %130, align 8
@@ -8008,7 +8008,7 @@ define internal void @pnv_update_wm(ptr noundef %0) #0 align 16 {
   %212 = shl nuw nsw i16 %211, 2
   %213 = zext nneg i16 %212 to i64
   %214 = mul nuw nsw i64 %213, %115
-  %215 = add nuw nsw i64 %214, 9999
+  %215 = add nuw nsw i64 %214, 9996
   %216 = udiv i64 %215, 10000
   %217 = trunc nuw nsw i64 %216 to i32
   %218 = add nuw nsw i32 %217, 63
@@ -8018,7 +8018,7 @@ define internal void @pnv_update_wm(ptr noundef %0) #0 align 16 {
   %221 = sub nsw i32 507, %219
   tail call void (ptr, i32, ptr, ...) @___drm_dbg(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.55, i32 noundef %221) #14
   %222 = tail call i32 @llvm.smin.i32(i32 %221, i32 63)
-  %223 = icmp samesign ugt i64 %214, 323840000
+  %223 = icmp samesign ugt i64 %214, 323840003
   %224 = tail call i32 @llvm.umax.i32(i32 %222, i32 8)
   %225 = shl nuw i32 %224, 16
   %226 = load ptr, ptr %130, align 8
@@ -8481,7 +8481,7 @@ define internal void @i9xx_update_wm(ptr noundef %0) #0 align 16 {
   %88 = load i32, ptr %87, align 8
   %89 = zext i32 %88 to i64
   %90 = mul nuw nsw i64 %86, %89
-  %91 = add nuw nsw i64 %90, 9999
+  %91 = add nuw nsw i64 %90, 9998
   %92 = udiv i64 %91, 10000
   %93 = trunc i64 %92 to i32
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 6
@@ -8646,7 +8646,7 @@ define internal void @i9xx_update_wm(ptr noundef %0) #0 align 16 {
   %209 = load i32, ptr %208, align 8
   %210 = zext i32 %209 to i64
   %211 = mul nuw nsw i64 %207, %210
-  %212 = add nuw nsw i64 %211, 9999
+  %212 = add nuw nsw i64 %211, 9998
   %213 = udiv i64 %212, 10000
   %214 = trunc i64 %213 to i32
   %215 = getelementptr inbounds nuw i8, ptr %131, i64 6
@@ -9026,7 +9026,7 @@ define internal void @i845_update_wm(ptr noundef %0) #0 align 16 {
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %52, i32 noundef 2, ptr noundef nonnull @.str.62, i32 noundef %46, i32 noundef 65, i32 noundef %54) #14
   %55 = zext i32 %37 to i64
   %56 = mul nuw nsw i64 %55, 200
-  %57 = add nuw nsw i64 %56, 9999
+  %57 = add nuw nsw i64 %56, 9992
   %58 = udiv i64 %57, 10000
   %59 = trunc nuw nsw i64 %58 to i32
   %60 = add nuw nsw i32 %59, 31

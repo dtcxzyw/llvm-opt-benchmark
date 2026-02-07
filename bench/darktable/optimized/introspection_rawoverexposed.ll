@@ -142,7 +142,7 @@ process_common_setup.exit:                        ; preds = %28
   %64 = shl nsw i32 %63, 1
   %65 = sext i32 %64 to i64
   %66 = shl nsw i64 %65, 2
-  %67 = add nsw i64 %66, 63
+  %67 = add nsw i64 %66, 56
   %68 = and i64 %67, -64
   %69 = call ptr @dt_alloc_aligned(i64 noundef %68) #14
   call void @llvm.assume(i1 true) [ "align"(ptr %69, i64 64) ]

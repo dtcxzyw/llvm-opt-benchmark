@@ -908,8 +908,8 @@ define internal fastcc void @computeLeafRecompressWALData(ptr noundef captures(a
 52:                                               ; preds = %48, %.thread85
   %.090 = phi i8 [ 3, %.thread85 ], [ %17, %48 ]
   %53 = getelementptr inbounds nuw i8, ptr %.05898, i64 2
-  %54 = add nuw nsw i64 %29, 9
-  %55 = and i64 %54, 262142
+  %54 = add nuw nsw i64 %27, 9
+  %55 = and i64 %54, 131070
   %56 = load ptr, ptr %23, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %53, ptr noundef nonnull align 2 dereferenceable(1) %56, i64 %30, i1 false)
   %57 = icmp ne i8 %.090, 2

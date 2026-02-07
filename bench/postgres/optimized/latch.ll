@@ -153,7 +153,7 @@ define dso_local ptr @CreateWaitEventSet(ptr noundef %0, i32 noundef %1) local_u
   %4 = mul nsw i64 %3, 24
   %5 = add nsw i64 %4, 56
   %6 = mul nsw i64 %3, 12
-  %7 = add nsw i64 %6, 7
+  %7 = add nsw i64 %6, 4
   %8 = and i64 %7, -8
   %9 = add nsw i64 %5, %8
   %.not = icmp eq ptr %0, null

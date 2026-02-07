@@ -4145,7 +4145,7 @@ _ZN13TemplateTable11index_checkE8RegisterS0_.exit: ; preds = %0, %6
   %11 = load i8, ptr @UseCompressedClassPointers, align 1
   %12 = trunc i8 %11 to i1
   %13 = select i1 %12, i32 16, i32 20
-  %narrow.i = add nuw nsw i32 %13, 7
+  %narrow.i = add nuw nsw i32 %13, 4
   %14 = and i32 %narrow.i, 24
   %15 = select i1 %9, i32 %13, i32 %14
   store i32 2, ptr %2, align 8
@@ -5987,7 +5987,7 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit26: ; preds =
   %65 = load i8, ptr @UseCompressedClassPointers, align 1
   %66 = trunc i8 %65 to i1
   %67 = select i1 %66, i32 16, i32 20
-  %narrow.i = add nuw nsw i32 %67, 7
+  %narrow.i = add nuw nsw i32 %67, 4
   %68 = and i32 %narrow.i, 24
   %69 = select i1 %63, i32 %67, i32 %68
   store i32 2, ptr %9, align 8

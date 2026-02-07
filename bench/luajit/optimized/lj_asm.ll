@@ -2173,7 +2173,7 @@ ra_alloc1.exit79.i.i:                             ; preds = %882, %878
   %897 = getelementptr inbounds i8, ptr %896, i64 -4
   store i32 %895, ptr %897, align 4, !tbaa !21
   %898 = add nsw i32 %777, -12
-  %899 = icmp samesign ult i32 %777, 140
+  %899 = icmp ult i32 %775, 301989888
   br i1 %899, label %900, label %903
 
 900:                                              ; preds = %893
@@ -16727,7 +16727,7 @@ asm_head_root_base.exit.i:                        ; preds = %.asm_head_root_base
 
 8423:                                             ; preds = %asm_head_root_base.exit.i
   %8424 = load ptr, ptr %89, align 8, !tbaa !60
-  %8425 = add i32 %.0.i.i259, 127
+  %8425 = add i32 %.0.i.i259, 112
   %8426 = icmp ult i32 %8425, 256
   br i1 %8426, label %8427, label %8430
 

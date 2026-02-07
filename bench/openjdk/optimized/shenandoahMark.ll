@@ -10676,7 +10676,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass15oop_oop_iterateI9narrowOop3
   %25 = select i1 %24, i32 16, i32 20
   %26 = load i8, ptr @UseCompressedOops, align 1
   %27 = trunc i8 %26 to i1
-  %narrow.i.i.i.i = add nuw nsw i32 %25, 7
+  %narrow.i.i.i.i = add nuw nsw i32 %25, 4
   %28 = and i32 %narrow.i.i.i.i, 24
   %29 = select i1 %27, i32 %25, i32 %28
   %30 = ptrtoint ptr %1 to i64
@@ -10790,7 +10790,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc31
   %25 = select i1 %24, i32 16, i32 20
   %26 = load i8, ptr @UseCompressedOops, align 1
   %27 = trunc i8 %26 to i1
-  %narrow.i.i.i.i = add nuw nsw i32 %25, 7
+  %narrow.i.i.i.i = add nuw nsw i32 %25, 4
   %28 = and i32 %narrow.i.i.i.i, 24
   %29 = select i1 %27, i32 %25, i32 %28
   %30 = ptrtoint ptr %1 to i64
@@ -13221,7 +13221,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefs
   %25 = select i1 %24, i32 16, i32 20
   %26 = load i8, ptr @UseCompressedOops, align 1
   %27 = trunc i8 %26 to i1
-  %narrow.i.i.i.i.i = add nuw nsw i32 %25, 7
+  %narrow.i.i.i.i.i = add nuw nsw i32 %25, 4
   %28 = and i32 %narrow.i.i.i.i.i, 24
   %29 = select i1 %27, i32 %25, i32 %28
   %30 = ptrtoint ptr %1 to i64
@@ -13293,7 +13293,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI25ShenandoahMarkRefs
   %25 = select i1 %24, i32 16, i32 20
   %26 = load i8, ptr @UseCompressedOops, align 1
   %27 = trunc i8 %26 to i1
-  %narrow.i.i.i.i.i = add nuw nsw i32 %25, 7
+  %narrow.i.i.i.i.i = add nuw nsw i32 %25, 4
   %28 = and i32 %narrow.i.i.i.i.i, 24
   %29 = select i1 %27, i32 %25, i32 %28
   %30 = ptrtoint ptr %1 to i64

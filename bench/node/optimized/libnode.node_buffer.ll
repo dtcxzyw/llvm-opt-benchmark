@@ -15597,7 +15597,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %umax = tail call i64 @llvm.umax.i64(i64 %0, i64 2)
   %4 = getelementptr i16, ptr %2, i64 %1
   %5 = getelementptr i16, ptr %2, i64 %1
-  %notsub = add i64 %shl, 11
+  %notsub = add i64 %shl, 8
   %cmp497 = icmp sgt i64 %notsub, -1
   br i1 %cmp497, label %if.then.lr.ph, label %if.else
 

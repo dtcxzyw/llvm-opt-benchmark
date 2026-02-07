@@ -1345,8 +1345,8 @@ define internal fastcc void @ginRedoRecompress(ptr noundef %0, ptr noundef %1) u
   %57 = add nuw nsw i32 %56, 1
   %58 = and i32 %57, 131070
   %59 = add nuw nsw i32 %58, 8
-  %narrow = add nuw nsw i32 %58, 9
-  %60 = and i32 %narrow, 262142
+  %narrow = add nuw nsw i32 %56, 9
+  %60 = and i32 %narrow, 131070
   %61 = zext nneg i32 %60 to i64
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 %61
   br label %71

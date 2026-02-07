@@ -291,7 +291,7 @@ define hidden noundef range(i64 0, 17592186044416) i64 @_ZNK8PSOldGen19num_itera
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(56) %3) #7
   %8 = shl i64 %7, 3
-  %9 = add i64 %8, 1048575
+  %9 = add i64 %8, 1048568
   %10 = lshr i64 %9, 20
   ret i64 %10
 }

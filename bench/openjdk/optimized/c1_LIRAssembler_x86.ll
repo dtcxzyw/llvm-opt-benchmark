@@ -4779,7 +4779,7 @@ _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i: ; preds = %
   ]
 
 35:                                               ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %32
-  %narrow.i = add nuw nsw i32 %30, 7
+  %narrow.i = add nuw nsw i32 %30, 4
   %36 = and i32 %narrow.i, 24
   br label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
 
@@ -10033,7 +10033,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit408: ; preds = %405, %412
   %476 = select i1 %475, i32 16, i32 20
   %477 = load i8, ptr @UseCompressedOops, align 1
   %478 = trunc i8 %477 to i1
-  %narrow.i = add nuw nsw i32 %476, 7
+  %narrow.i = add nuw nsw i32 %476, 4
   %479 = and i32 %narrow.i, 24
   %480 = select i1 %478, i32 %476, i32 %479
   store i32 %71, ptr %54, align 8
@@ -10066,7 +10066,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit408: ; preds = %405, %412
   %494 = select i1 %493, i32 16, i32 20
   %495 = load i8, ptr @UseCompressedOops, align 1
   %496 = trunc i8 %495 to i1
-  %narrow.i407 = add nuw nsw i32 %494, 7
+  %narrow.i407 = add nuw nsw i32 %494, 4
   %497 = and i32 %narrow.i407, 24
   %498 = select i1 %496, i32 %494, i32 %497
   store i32 %73, ptr %55, align 8
@@ -10298,7 +10298,7 @@ _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i410: ; preds 
   %or.cond.i.i409423 = phi i1 [ false, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i410 ], [ false, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i410 ], [ true, %602 ]
   %608 = phi i32 [ %600, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i410 ], [ %600, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i410 ], [ %603, %602 ]
   %609 = phi ptr [ %597, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i410 ], [ %597, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i410 ], [ %604, %602 ]
-  %narrow.i411 = add nuw nsw i32 %608, 7
+  %narrow.i411 = add nuw nsw i32 %608, 4
   %610 = and i32 %narrow.i411, 24
   br label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit412
 
@@ -10348,7 +10348,7 @@ _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i414: ; preds 
   ]
 
 630:                                              ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i414, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i414, %627
-  %narrow.i415 = add nuw nsw i32 %626, 7
+  %narrow.i415 = add nuw nsw i32 %626, 4
   %631 = and i32 %narrow.i415, 24
   br label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit416
 

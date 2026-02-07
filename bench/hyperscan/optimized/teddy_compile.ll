@@ -315,10 +315,10 @@ _ZNSt3mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIKjS2_EEED2Ev.exit: ; preds = %_
           to label %84 unwind label %382, !noalias !10
 
 84:                                               ; preds = %.noexc
-  %85 = add nuw nsw i64 %72, 63
+  %85 = add nuw nsw i64 %72, 32
   %86 = and i64 %85, 8589934528
   %87 = add nuw nsw i64 %86, 64
-  %88 = add nuw nsw i64 %spec.select.i, 63
+  %88 = add nuw nsw i64 %spec.select.i, 62
   %89 = and i64 %88, 17179869120
   %90 = add nuw nsw i64 %87, %89
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 8

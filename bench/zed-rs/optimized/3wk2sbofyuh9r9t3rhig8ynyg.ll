@@ -16671,16 +16671,15 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h5a5dac0c78c9f3
 19:                                               ; preds = %15
   fence acquire
   %20 = mul nsw i64 %4, 24
-  %21 = add i64 %20, 23
-  %22 = and i64 %21, -8
-  %23 = icmp eq i64 %22, 0
-  br i1 %23, label %"_ZN4core3ptr104drop_in_place$LT$alloc..sync..Weak$LT$$u5b$alloc..string..String$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hda0a48d5451893e6E.exit", label %24
+  %21 = add i64 %20, 16
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %"_ZN4core3ptr104drop_in_place$LT$alloc..sync..Weak$LT$$u5b$alloc..string..String$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hda0a48d5451893e6E.exit", label %23
 
-24:                                               ; preds = %19
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %22, i64 noundef 8) #50, !noalias !3631
+23:                                               ; preds = %19
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %21, i64 noundef 8) #50, !noalias !3631
   br label %"_ZN4core3ptr104drop_in_place$LT$alloc..sync..Weak$LT$$u5b$alloc..string..String$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hda0a48d5451893e6E.exit"
 
-"_ZN4core3ptr104drop_in_place$LT$alloc..sync..Weak$LT$$u5b$alloc..string..String$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hda0a48d5451893e6E.exit": ; preds = %"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17habc76c7acbc958d7E.exit", %15, %19, %24
+"_ZN4core3ptr104drop_in_place$LT$alloc..sync..Weak$LT$$u5b$alloc..string..String$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hda0a48d5451893e6E.exit": ; preds = %"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17habc76c7acbc958d7E.exit", %15, %19, %23
   ret void
 }
 
@@ -18112,7 +18111,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17had88418fef0180
 10:                                               ; preds = %6
   fence acquire
   %11 = shl nsw i64 %4, 2
-  %12 = add i64 %11, 23
+  %12 = add i64 %11, 20
   %13 = and i64 %12, -8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Weak$LT$$u5b$language..highlight_map..HighlightId$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h2d87d5223baaae36E.exit", label %15

@@ -876,7 +876,7 @@ define dso_local noundef range(i32 -12, 1) i32 @e1000e_setup_tx_resources(ptr no
   %11 = load i32, ptr %3, align 4
   %12 = shl i32 %11, 4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %14 = add i32 %12, 4095
+  %14 = add i32 %12, 4080
   %15 = and i32 %14, -4096
   store i32 %15, ptr %13, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 1456
@@ -958,7 +958,7 @@ define dso_local noundef range(i32 -12, 1) i32 @e1000e_setup_rx_resources(ptr no
 
 .loopexit6.loopexit:                              ; preds = %13
   %24 = shl i32 %15, 5
-  %25 = add i32 %24, 4095
+  %25 = add i32 %24, 4064
   %26 = and i32 %25, -4096
   br label %.loopexit6
 
@@ -1731,7 +1731,7 @@ define dso_local void @e1000e_reset(ptr noundef %0) local_unnamed_addr #1 align 
   %40 = and i32 %38, 65535
   %41 = load i32, ptr %32, align 4
   %42 = shl i32 %41, 1
-  %43 = add i32 %42, 1047
+  %43 = add i32 %42, 1046
   %44 = lshr i32 %43, 10
   %45 = add i32 %41, 1023
   %46 = lshr i32 %45, 10
@@ -6348,7 +6348,7 @@ define dso_local i32 @e1000e_open(ptr noundef %0) #1 align 16 {
   %26 = load i32, ptr %18, align 4
   %27 = shl i32 %26, 4
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %29 = add i32 %27, 4095
+  %29 = add i32 %27, 4080
   %30 = and i32 %29, -4096
   store i32 %30, ptr %28, align 8
   %31 = getelementptr inbounds nuw i8, ptr %17, i64 1456

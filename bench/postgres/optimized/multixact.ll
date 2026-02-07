@@ -1830,7 +1830,7 @@ define internal zeroext i1 @MultiXactOffsetPagePrecedes(i64 noundef %0, i64 noun
   %.tr8 = trunc i64 %1 to i32
   %4 = shl i32 %.tr8, 11
   %5 = sub i32 %3, %4
-  %6 = add i32 %3, -2047
+  %6 = add i32 %3, -2048
   %7 = sub i32 %6, %4
   %8 = and i32 %5, %7
   %9 = icmp slt i32 %8, 0
@@ -1844,7 +1844,7 @@ define internal zeroext i1 @MultiXactMemberPagePrecedes(i64 noundef %0, i64 noun
   %5 = trunc i64 %1 to i32
   %6 = mul i32 %5, 1636
   %7 = sub i32 %4, %6
-  %.neg6 = add i32 %4, -1635
+  %.neg6 = add i32 %4, -1636
   %8 = sub i32 %.neg6, %6
   %9 = and i32 %7, %8
   %10 = icmp slt i32 %9, 0

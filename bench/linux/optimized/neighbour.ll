@@ -1367,7 +1367,7 @@ define internal fastcc ptr @___neigh_create(ptr noundef %0, ptr noundef %1, ptr 
   br label %262
 
 255:                                              ; preds = %251
-  %256 = add nsw i64 %247, -1
+  %256 = add nsw i64 %247, -8
   %257 = lshr i64 %256, 12
   %258 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %257, i32 -1) #25, !srcloc !52
   %259 = add i32 %258, 1
@@ -4923,7 +4923,7 @@ define internal void @neigh_hash_free_rcu(ptr noundef %0) #0 align 16 {
 
 11:                                               ; preds = %1
   %12 = ptrtoint ptr %8 to i64
-  %13 = add nsw i64 %7, -1
+  %13 = add nsw i64 %7, -8
   %14 = lshr i64 %13, 12
   %15 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %14, i32 -1) #25, !srcloc !52
   %16 = add i32 %15, 1

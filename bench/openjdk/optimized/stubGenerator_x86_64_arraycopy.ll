@@ -3525,7 +3525,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %302 = load i8, ptr @UseCompressedClassPointers, align 1
   %303 = trunc i8 %302 to i1
   %304 = select i1 %303, i32 16, i32 20
-  %narrow.i = add nuw nsw i32 %304, 7
+  %narrow.i = add nuw nsw i32 %304, 4
   %305 = and i32 %narrow.i, 24
   %306 = select i1 %300, i32 %304, i32 %305
   store i32 7, ptr %50, align 8
@@ -3558,7 +3558,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %320 = load i8, ptr @UseCompressedClassPointers, align 1
   %321 = trunc i8 %320 to i1
   %322 = select i1 %321, i32 16, i32 20
-  %narrow.i293 = add nuw nsw i32 %322, 7
+  %narrow.i293 = add nuw nsw i32 %322, 4
   %323 = and i32 %narrow.i293, 24
   %324 = select i1 %318, i32 %322, i32 %323
   store i32 2, ptr %51, align 8
@@ -3631,7 +3631,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %358 = load i8, ptr @UseCompressedClassPointers, align 1
   %359 = trunc i8 %358 to i1
   %360 = select i1 %359, i32 16, i32 20
-  %narrow.i295 = add nuw nsw i32 %360, 7
+  %narrow.i295 = add nuw nsw i32 %360, 4
   %361 = and i32 %narrow.i295, 24
   %362 = select i1 %356, i32 %360, i32 %361
   store i32 7, ptr %55, align 8
@@ -3664,7 +3664,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %100
   %376 = load i8, ptr @UseCompressedClassPointers, align 1
   %377 = trunc i8 %376 to i1
   %378 = select i1 %377, i32 16, i32 20
-  %narrow.i297 = add nuw nsw i32 %378, 7
+  %narrow.i297 = add nuw nsw i32 %378, 4
   %379 = and i32 %narrow.i297, 24
   %380 = select i1 %374, i32 %378, i32 %379
   store i32 2, ptr %56, align 8

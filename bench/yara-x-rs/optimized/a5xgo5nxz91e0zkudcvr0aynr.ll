@@ -67340,7 +67340,7 @@ define internal fastcc void @"_ZN6yara_x7modules2pe12authenticode18AuthenticodeP
   %spec.store.select.i = select i1 %.not.i, i32 %15, i32 0
   %16 = sub nsw i32 %13, %spec.store.select.i
   %17 = mul nsw i32 %16, 268
-  %18 = add nsw i32 %17, 8031
+  %18 = add nsw i32 %17, 8028
   %19 = lshr i32 %18, 13
   %20 = mul nuw nsw i32 %19, 3917
   %21 = add nuw nsw i32 %20, 28902

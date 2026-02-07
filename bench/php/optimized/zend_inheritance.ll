@@ -12716,7 +12716,7 @@ define internal fastcc void @zend_type_copy_ctor(ptr noundef captures(none) %0) 
   %3 = load i32, ptr %2, align 8, !tbaa !9
   %4 = and i32 %3, 4194304
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %42, label %5
+  br i1 %.not, label %40, label %5
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %0, align 8, !tbaa !12
@@ -12727,81 +12727,79 @@ define internal fastcc void @zend_type_copy_ctor(ptr noundef captures(none) %0) 
   %11 = add nuw nsw i64 %10, 24
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8, !tbaa !90
   %13 = load ptr, ptr %12, align 8, !tbaa !91
-  %14 = add nuw nsw i64 %10, 31
-  %15 = and i64 %14, 137438953464
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %17 = load ptr, ptr %16, align 8, !tbaa !93
-  %18 = ptrtoint ptr %17 to i64
-  %19 = ptrtoint ptr %13 to i64
-  %20 = sub i64 %18, %19
-  %.not.i.i = icmp ugt i64 %15, %20
-  br i1 %.not.i.i, label %23, label %21, !prof !94
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !93
+  %16 = ptrtoint ptr %15 to i64
+  %17 = ptrtoint ptr %13 to i64
+  %18 = sub i64 %16, %17
+  %.not.i.i = icmp ugt i64 %11, %18
+  br i1 %.not.i.i, label %21, label %19, !prof !94
+
+19:                                               ; preds = %5
+  %20 = getelementptr inbounds nuw i8, ptr %13, i64 %11
+  store ptr %20, ptr %12, align 8, !tbaa !91
+  br label %zend_arena_alloc.exit.i
 
 21:                                               ; preds = %5
-  %22 = getelementptr inbounds nuw i8, ptr %13, i64 %15
-  store ptr %22, ptr %12, align 8, !tbaa !91
+  %22 = add nuw nsw i64 %10, 48
+  %23 = ptrtoint ptr %12 to i64
+  %24 = sub i64 %16, %23
+  %..i.i = tail call i64 @llvm.umax.i64(i64 %22, i64 %24)
+  %25 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #18
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %11
+  store ptr %27, ptr %25, align 8, !tbaa !91
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 %..i.i
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store ptr %28, ptr %29, align 8, !tbaa !93
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store ptr %12, ptr %30, align 8, !tbaa !95
+  store ptr %25, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8, !tbaa !90
   br label %zend_arena_alloc.exit.i
 
-23:                                               ; preds = %5
-  %24 = add nuw nsw i64 %15, 24
-  %25 = ptrtoint ptr %12 to i64
-  %26 = sub i64 %18, %25
-  %..i.i = tail call i64 @llvm.umax.i64(i64 %24, i64 %26)
-  %27 = tail call noalias ptr @_emalloc(i64 noundef %..i.i) #18
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %15
-  store ptr %29, ptr %27, align 8, !tbaa !91
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %..i.i
-  %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store ptr %30, ptr %31, align 8, !tbaa !93
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store ptr %12, ptr %32, align 8, !tbaa !95
-  store ptr %27, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 360), align 8, !tbaa !90
-  br label %zend_arena_alloc.exit.i
-
-zend_arena_alloc.exit.i:                          ; preds = %23, %21
-  %.0.i.i = phi ptr [ %13, %21 ], [ %28, %23 ]
+zend_arena_alloc.exit.i:                          ; preds = %21, %19
+  %.0.i.i = phi ptr [ %13, %19 ], [ %26, %21 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %.0.i.i, ptr noundef nonnull align 8 dereferenceable(1) %6, i64 %11, i1 false)
   store ptr %.0.i.i, ptr %0, align 8, !tbaa !12
-  %33 = load i32, ptr %2, align 8, !tbaa !9
-  %34 = and i32 %33, -30408705
-  %35 = or disjoint i32 %34, 5242880
-  store i32 %35, ptr %2, align 8, !tbaa !9
-  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
-  %37 = load i32, ptr %.0.i.i, align 8, !tbaa !4
-  %38 = zext i32 %37 to i64
-  %.idx = shl nuw nsw i64 %38, 4
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx
-  %.not8 = icmp eq i32 %37, 0
+  %31 = load i32, ptr %2, align 8, !tbaa !9
+  %32 = and i32 %31, -30408705
+  %33 = or disjoint i32 %32, 5242880
+  store i32 %33, ptr %2, align 8, !tbaa !9
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
+  %35 = load i32, ptr %.0.i.i, align 8, !tbaa !4
+  %36 = zext i32 %35 to i64
+  %.idx = shl nuw nsw i64 %36, 4
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %.idx
+  %.not8 = icmp eq i32 %35, 0
   br i1 %.not8, label %zend_type_list_copy_ctor.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %zend_arena_alloc.exit.i, %.lr.ph
-  %.0.i67 = phi ptr [ %40, %.lr.ph ], [ %36, %zend_arena_alloc.exit.i ]
+  %.0.i67 = phi ptr [ %38, %.lr.ph ], [ %34, %zend_arena_alloc.exit.i ]
   tail call fastcc void @zend_type_copy_ctor(ptr noundef nonnull %.0.i67)
-  %40 = getelementptr inbounds nuw i8, ptr %.0.i67, i64 16
-  %41 = icmp ult ptr %40, %39
-  br i1 %41, label %.lr.ph, label %zend_type_list_copy_ctor.exit
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i67, i64 16
+  %39 = icmp ult ptr %38, %37
+  br i1 %39, label %.lr.ph, label %zend_type_list_copy_ctor.exit
 
-42:                                               ; preds = %1
-  %43 = and i32 %3, 16777216
-  %.not5 = icmp eq i32 %43, 0
-  br i1 %.not5, label %zend_type_list_copy_ctor.exit, label %44
+40:                                               ; preds = %1
+  %41 = and i32 %3, 16777216
+  %.not5 = icmp eq i32 %41, 0
+  br i1 %.not5, label %zend_type_list_copy_ctor.exit, label %42
 
-44:                                               ; preds = %42
-  %45 = load ptr, ptr %0, align 8, !tbaa !12
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %47 = load i32, ptr %46, align 4, !tbaa !21
-  %48 = and i32 %47, 64
-  %.not.i = icmp eq i32 %48, 0
-  br i1 %.not.i, label %49, label %zend_type_list_copy_ctor.exit
+42:                                               ; preds = %40
+  %43 = load ptr, ptr %0, align 8, !tbaa !12
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %45 = load i32, ptr %44, align 4, !tbaa !21
+  %46 = and i32 %45, 64
+  %.not.i = icmp eq i32 %46, 0
+  br i1 %.not.i, label %47, label %zend_type_list_copy_ctor.exit
 
-49:                                               ; preds = %44
-  %50 = load i32, ptr %45, align 4, !tbaa !84
-  %51 = add i32 %50, 1
-  store i32 %51, ptr %45, align 4, !tbaa !84
+47:                                               ; preds = %42
+  %48 = load i32, ptr %43, align 4, !tbaa !84
+  %49 = add i32 %48, 1
+  store i32 %49, ptr %43, align 4, !tbaa !84
   br label %zend_type_list_copy_ctor.exit
 
-zend_type_list_copy_ctor.exit:                    ; preds = %.lr.ph, %zend_arena_alloc.exit.i, %49, %44, %42
+zend_type_list_copy_ctor.exit:                    ; preds = %.lr.ph, %zend_arena_alloc.exit.i, %47, %42, %40
   ret void
 }
 

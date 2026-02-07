@@ -4852,7 +4852,7 @@ CCalloc.exit94.us:                                ; preds = %537, %._crit_edge.i
   store i32 %544, ptr %40, align 8
   %545 = load i32, ptr %39, align 8
   %546 = mul i32 %499, %545
-  %547 = add i32 %546, 7
+  %547 = add i32 %546, 4
   %548 = and i32 %547, -8
   %549 = icmp slt i32 %544, %548
   br i1 %549, label %550, label %CCalloc.exit88.us
@@ -5064,7 +5064,7 @@ add_to_masks.exit.i.us:                           ; preds = %608, %._crit_edge.i
   %644 = add nsw i32 %630, 1
   %645 = call i32 @llvm.smax.i32(i32 %644, i32 %474)
   %646 = shl i32 %645, 2
-  %647 = add i32 %646, 7
+  %647 = add i32 %646, 4
   %648 = and i32 %647, -8
   %649 = load i32, ptr %40, align 8
   %650 = icmp slt i32 %649, %648
@@ -5288,7 +5288,7 @@ CCalloc.exit82.us:                                ; preds = %741, %._crit_edge.i
   %750 = load i32, ptr %39, align 8
   %751 = shl i32 %.fr221.i.us, 2
   %752 = mul i32 %751, %750
-  %753 = add i32 %752, 7
+  %753 = add i32 %752, 4
   %754 = and i32 %753, -8
   %755 = icmp slt i32 %749, %754
   br i1 %755, label %756, label %CCalloc.exit.us

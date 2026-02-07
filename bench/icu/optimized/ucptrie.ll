@@ -101,7 +101,7 @@ define noalias noundef ptr @ucptrie_openFromBinary_77(i32 noundef %0, i32 nounde
   %60 = load i16, ptr %59, align 2, !tbaa !16
   %61 = zext i16 %60 to i32
   %62 = shl nuw nsw i32 %61, 9
-  %63 = add nuw nsw i32 %62, 4095
+  %63 = add nuw nsw i32 %62, 3584
   %64 = lshr i32 %63, 12
   %65 = trunc nuw nsw i32 %64 to i16
   %66 = trunc nuw nsw i32 %31 to i8

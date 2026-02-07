@@ -8449,7 +8449,7 @@ define internal fastcc void @png_do_expand(ptr noundef captures(none) %0, ptr no
 134:                                              ; preds = %.loopexit
   %135 = zext nneg i8 %126 to i64
   %136 = mul nuw nsw i64 %135, %129
-  %137 = add nuw nsw i64 %136, 7
+  %137 = add nuw nsw i64 %136, 6
   %138 = lshr i64 %137, 3
   br label %.sink.split
 
@@ -8658,7 +8658,7 @@ define internal fastcc void @png_do_expand(ptr noundef captures(none) %0, ptr no
 263:                                              ; preds = %.loopexit234
   %264 = zext nneg i8 %255 to i64
   %265 = mul nuw nsw i64 %264, %258
-  %266 = add nuw nsw i64 %265, 7
+  %266 = add nuw nsw i64 %265, 4
   %267 = lshr i64 %266, 3
   br label %.sink.split
 

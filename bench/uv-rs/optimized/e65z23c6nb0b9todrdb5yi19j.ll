@@ -1214,7 +1214,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capaci
 20:                                               ; preds = %.thread, %13
   %.sroa.4.0.i.ph.i10 = phi i64 [ %..i.i, %.thread ], [ %19, %13 ]
   %21 = mul nuw i64 %.sroa.4.0.i.ph.i10, 40
-  %22 = add nuw i64 %21, 15
+  %22 = add nuw i64 %21, 8
   %23 = and i64 %22, -16
   %24 = add nuw nsw i64 %.sroa.4.0.i.ph.i10, 16
   %25 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %23, i64 %24)
@@ -1309,7 +1309,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capaci
 20:                                               ; preds = %.thread, %13
   %.sroa.4.0.i.ph.i10 = phi i64 [ %..i.i, %.thread ], [ %19, %13 ]
   %21 = mul nuw i64 %.sroa.4.0.i.ph.i10, 104
-  %22 = add nuw i64 %21, 15
+  %22 = add nuw i64 %21, 8
   %23 = and i64 %22, -16
   %24 = add nuw nsw i64 %.sroa.4.0.i.ph.i10, 16
   %25 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %23, i64 %24)
@@ -1404,7 +1404,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capaci
 20:                                               ; preds = %.thread, %13
   %.sroa.4.0.i.ph.i10 = phi i64 [ %..i.i, %.thread ], [ %19, %13 ]
   %21 = mul nuw i64 %.sroa.4.0.i.ph.i10, 24
-  %22 = add nuw i64 %21, 15
+  %22 = add nuw i64 %21, 8
   %23 = and i64 %22, -16
   %24 = add nuw nsw i64 %.sroa.4.0.i.ph.i10, 16
   %25 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %23, i64 %24)
@@ -1499,7 +1499,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capaci
 20:                                               ; preds = %.thread, %13
   %.sroa.4.0.i.ph.i10 = phi i64 [ %..i.i, %.thread ], [ %19, %13 ]
   %21 = mul nuw i64 %.sroa.4.0.i.ph.i10, 168
-  %22 = add nuw i64 %21, 15
+  %22 = add nuw i64 %21, 8
   %23 = and i64 %22, -16
   %24 = add nuw nsw i64 %.sroa.4.0.i.ph.i10, 16
   %25 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %23, i64 %24)

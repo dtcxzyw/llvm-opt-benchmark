@@ -721,7 +721,7 @@ define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef reado
   %7 = add i32 %1, 2
   %8 = udiv i32 %7, 3
   %9 = shl i32 %8, 2
-  %10 = add i32 %9, 63
+  %10 = add i32 %9, 60
   %11 = lshr i32 %10, 6
   switch i32 %4, label %15 [
     i32 1, label %12

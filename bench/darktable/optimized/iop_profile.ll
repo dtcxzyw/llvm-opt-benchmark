@@ -2320,8 +2320,8 @@ dt_colormatrix_mul.exit.i:                        ; preds = %91
   %179 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %180 = getelementptr inbounds nuw i8, ptr %5, i64 816
   %181 = getelementptr inbounds nuw i8, ptr %5, i64 704
-  %182 = add i64 %105, -1
-  %183 = lshr i64 %182, 2
+  %182 = add i64 %105, -4
+  %183 = lshr exact i64 %182, 2
   br label %184
 
 ._crit_edge.i:                                    ; preds = %dt_apply_transposed_color_matrix.exit82.i, %139

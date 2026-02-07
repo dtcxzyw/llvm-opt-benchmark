@@ -12562,7 +12562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %48,
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 16, ptr %59, align 8, !tbaa !61
   %60 = shl i64 %2, 2
-  %61 = add i64 %60, 7
+  %61 = add i64 %60, 4
   %62 = lshr i64 %61, 3
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 %62, ptr %63, align 8, !tbaa !31

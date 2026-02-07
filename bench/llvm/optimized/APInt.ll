@@ -24614,7 +24614,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %9
 
 12:                                               ; preds = %9
   %13 = zext i32 %7 to i64
-  %14 = add nuw nsw i64 %13, 63
+  %14 = add nuw nsw i64 %13, 62
   %15 = lshr i64 %14, 6
   %16 = shl nuw nsw i64 %15, 3
   %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #23, !noalias !553
@@ -24639,7 +24639,7 @@ _ZN4llvm5APIntC2ERKS0_.exit.i:                    ; preds = %9
   %30 = load i32, ptr %29, align 8, !tbaa !3, !noalias !556
   %31 = icmp eq i32 %7, %30
   %32 = zext i32 %7 to i64
-  %33 = add nuw nsw i64 %32, 63
+  %33 = add nuw nsw i64 %32, 62
   br i1 %31, label %_ZN4llvm5APIntC2ERKS0_.exit.i7, label %38
 
 _ZN4llvm5APIntC2ERKS0_.exit.i7:                   ; preds = %28
@@ -24704,7 +24704,7 @@ _ZN4llvm5APIntD2Ev.exit.thread:                   ; preds = %3
   %64 = mul i64 %63, %62
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %7, ptr %65, align 8, !tbaa !3, !alias.scope !559
-  %66 = add nuw nsw i32 %7, 63
+  %66 = add nuw nsw i32 %7, 62
   %67 = and i32 %66, 62
   %68 = xor i32 %67, 62
   %69 = zext nneg i32 %68 to i64
@@ -24718,7 +24718,7 @@ _ZN4llvm5APIntD2Ev.exit.thread:                   ; preds = %3
   br label %_ZN4llvm5APIntD2Ev.exit12
 
 _ZN4llvm5APIntD2Ev.exit11:                        ; preds = %.lr.ph.i.i
-  %73 = add i32 %7, 63
+  %73 = add i32 %7, 62
   %74 = and i32 %73, 62
   %75 = xor i32 %74, 62
   %76 = zext nneg i32 %75 to i64

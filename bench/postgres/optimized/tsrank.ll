@@ -125,53 +125,52 @@ define internal fastcc void @getWeights(ptr noundef %0, ptr noundef nonnull writ
 
 26:                                               ; preds = %23
   %27 = sext i32 %25 to i64
-  br label %34
+  br label %33
 
 28:                                               ; preds = %23
   %29 = load i32, ptr %3, align 4
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 3
-  %32 = add nsw i64 %31, 23
-  %33 = and i64 %32, -8
-  br label %34
+  %32 = add nsw i64 %31, 16
+  br label %33
 
-34:                                               ; preds = %28, %26
-  %35 = phi i64 [ %27, %26 ], [ %33, %28 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 %35
-  br label %38
+33:                                               ; preds = %28, %26
+  %34 = phi i64 [ %27, %26 ], [ %32, %28 ]
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 %34
+  br label %37
 
-37:                                               ; preds = %45
+36:                                               ; preds = %44
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %53, label %38, !llvm.loop !4
+  br i1 %exitcond.not, label %52, label %37, !llvm.loop !4
 
-38:                                               ; preds = %34, %37
-  %indvars.iv = phi i64 [ 0, %34 ], [ %indvars.iv.next, %37 ]
-  %39 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
-  %40 = load float, ptr %39, align 4
-  %41 = fcmp ult float %40, 0.000000e+00
-  br i1 %41, label %42, label %45
+37:                                               ; preds = %33, %36
+  %indvars.iv = phi i64 [ 0, %33 ], [ %indvars.iv.next, %36 ]
+  %38 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
+  %39 = load float, ptr %38, align 4
+  %40 = fcmp ult float %39, 0.000000e+00
+  br i1 %40, label %41, label %44
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw float, ptr @default_weights, i64 %indvars.iv
-  %44 = load float, ptr %43, align 4
-  br label %45
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw float, ptr @default_weights, i64 %indvars.iv
+  %43 = load float, ptr %42, align 4
+  br label %44
 
-45:                                               ; preds = %38, %42
-  %46 = phi float [ %44, %42 ], [ %40, %38 ]
-  %47 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
-  store float %46, ptr %47, align 4
-  %48 = fcmp ogt float %46, 1.000000e+00
-  br i1 %48, label %49, label %37
+44:                                               ; preds = %37, %41
+  %45 = phi float [ %43, %41 ], [ %39, %37 ]
+  %46 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  store float %45, ptr %46, align 4
+  %47 = fcmp ogt float %45, 1.000000e+00
+  br i1 %47, label %48, label %36
 
-49:                                               ; preds = %45
-  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  %51 = tail call i32 @errcode(i32 noundef 50856066) #10
-  %52 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #10
+48:                                               ; preds = %44
+  %49 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  %50 = tail call i32 @errcode(i32 noundef 50856066) #10
+  %51 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 434, ptr noundef nonnull @__func__.getWeights) #10
   unreachable
 
-53:                                               ; preds = %37
+52:                                               ; preds = %36
   ret void
 }
 

@@ -6802,7 +6802,7 @@ _ZN4NodenwEm.exit:                                ; preds = %102, %104
   store i32 %116, ptr %123, align 4
   %124 = zext i32 %120 to i64
   %125 = shl nuw nsw i64 %124, 2
-  %126 = add nuw nsw i64 %125, 7
+  %126 = add nuw nsw i64 %125, 4
   %127 = and i64 %126, 34359738360
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 336
   %129 = load ptr, ptr %128, align 8
@@ -6829,7 +6829,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %135, %1
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %.0.i.i, ptr %140, align 8
   %141 = shl nuw nsw i64 %124, 1
-  %142 = add nuw nsw i64 %141, 7
+  %142 = add nuw nsw i64 %141, 6
   %143 = and i64 %142, 17179869176
   %144 = load ptr, ptr %12, align 8
   %145 = load ptr, ptr %14, align 8

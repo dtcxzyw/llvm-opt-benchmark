@@ -8557,7 +8557,7 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h00ce5e0e529cda
 10:                                               ; preds = %6
   fence acquire
   %11 = shl nsw i64 %4, 2
-  %12 = add i64 %11, 23
+  %12 = add i64 %11, 20
   %13 = and i64 %12, -8
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Weak$LT$$u5b$language..highlight_map..HighlightId$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hc58f9bcba9788b08E.exit", label %15
@@ -8780,16 +8780,15 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h06de17975c30aa
 36:                                               ; preds = %32
   fence acquire
   %37 = mul nsw i64 %5, 40
-  %38 = add i64 %37, 23
-  %39 = and i64 %38, -8
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Weak$LT$$u5b$fuzzy..strings..StringMatchCandidate$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h2ab46d5964b34035E.exit", label %41
+  %38 = add i64 %37, 16
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Weak$LT$$u5b$fuzzy..strings..StringMatchCandidate$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h2ab46d5964b34035E.exit", label %40
 
-41:                                               ; preds = %36
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %39, i64 noundef 8) #21, !noalias !1499
+40:                                               ; preds = %36
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %38, i64 noundef 8) #21, !noalias !1499
   br label %"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Weak$LT$$u5b$fuzzy..strings..StringMatchCandidate$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h2ab46d5964b34035E.exit"
 
-"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Weak$LT$$u5b$fuzzy..strings..StringMatchCandidate$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h2ab46d5964b34035E.exit": ; preds = %"_ZN4core3ptr67drop_in_place$LT$$u5b$fuzzy..strings..StringMatchCandidate$u5d$$GT$17h2b903c67db90e7ccE.exit", %32, %36, %41
+"_ZN4core3ptr119drop_in_place$LT$alloc..sync..Weak$LT$$u5b$fuzzy..strings..StringMatchCandidate$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h2ab46d5964b34035E.exit": ; preds = %"_ZN4core3ptr67drop_in_place$LT$$u5b$fuzzy..strings..StringMatchCandidate$u5d$$GT$17h2b903c67db90e7ccE.exit", %32, %36, %40
   ret void
 }
 
@@ -11006,16 +11005,15 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6817d9b7303ad0
 36:                                               ; preds = %32
   fence acquire
   %37 = mul nsw i64 %5, 24
-  %38 = add i64 %37, 23
-  %39 = and i64 %38, -8
-  %40 = icmp eq i64 %39, 0
-  br i1 %40, label %"_ZN4core3ptr104drop_in_place$LT$alloc..sync..Weak$LT$$u5b$alloc..string..String$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h5a1d4c2b6f3cf735E.exit", label %41
+  %38 = add i64 %37, 16
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %"_ZN4core3ptr104drop_in_place$LT$alloc..sync..Weak$LT$$u5b$alloc..string..String$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h5a1d4c2b6f3cf735E.exit", label %40
 
-41:                                               ; preds = %36
-  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %39, i64 noundef 8) #21, !noalias !2507
+40:                                               ; preds = %36
+  tail call void @__rust_dealloc(ptr noundef nonnull %3, i64 noundef %38, i64 noundef 8) #21, !noalias !2507
   br label %"_ZN4core3ptr104drop_in_place$LT$alloc..sync..Weak$LT$$u5b$alloc..string..String$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h5a1d4c2b6f3cf735E.exit"
 
-"_ZN4core3ptr104drop_in_place$LT$alloc..sync..Weak$LT$$u5b$alloc..string..String$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h5a1d4c2b6f3cf735E.exit": ; preds = %"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17h8ae69c08fb68d042E.exit", %32, %36, %41
+"_ZN4core3ptr104drop_in_place$LT$alloc..sync..Weak$LT$$u5b$alloc..string..String$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h5a1d4c2b6f3cf735E.exit": ; preds = %"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u5d$$GT$17h8ae69c08fb68d042E.exit", %32, %36, %40
   ret void
 }
 
@@ -11289,16 +11287,15 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7ee257dee26622
 10:                                               ; preds = %6
   fence acquire
   %11 = mul nsw i64 %4, 88
-  %12 = add i64 %11, 23
-  %13 = and i64 %12, -8
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %"_ZN4core3ptr137drop_in_place$LT$alloc..sync..Weak$LT$$u5b$text..selection..Selection$LT$text..anchor..Anchor$GT$$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h03db48b16ba73e4cE.exit", label %15
+  %12 = add i64 %11, 16
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %"_ZN4core3ptr137drop_in_place$LT$alloc..sync..Weak$LT$$u5b$text..selection..Selection$LT$text..anchor..Anchor$GT$$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h03db48b16ba73e4cE.exit", label %14
 
-15:                                               ; preds = %10
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %13, i64 noundef 8) #21, !noalias !2619
+14:                                               ; preds = %10
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %12, i64 noundef 8) #21, !noalias !2619
   br label %"_ZN4core3ptr137drop_in_place$LT$alloc..sync..Weak$LT$$u5b$text..selection..Selection$LT$text..anchor..Anchor$GT$$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h03db48b16ba73e4cE.exit"
 
-"_ZN4core3ptr137drop_in_place$LT$alloc..sync..Weak$LT$$u5b$text..selection..Selection$LT$text..anchor..Anchor$GT$$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h03db48b16ba73e4cE.exit": ; preds = %1, %6, %10, %15
+"_ZN4core3ptr137drop_in_place$LT$alloc..sync..Weak$LT$$u5b$text..selection..Selection$LT$text..anchor..Anchor$GT$$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h03db48b16ba73e4cE.exit": ; preds = %1, %6, %10, %14
   ret void
 }
 
@@ -12810,32 +12807,31 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17habb3ebcd67f9ad
   %.pre = load ptr, ptr %0, align 8
   %.pre12 = load i64, ptr %4, align 8
   %44 = mul nsw i64 %.pre12, 472
-  %45 = add i64 %44, 23
-  %46 = and i64 %45, -8
+  %45 = add i64 %44, 16
   br label %"_ZN4core3ptr58drop_in_place$LT$$u5b$editor..AvailableCodeAction$u5d$$GT$17h4e3c7e6cc8ce539dE.exit"
 
 "_ZN4core3ptr58drop_in_place$LT$$u5b$editor..AvailableCodeAction$u5d$$GT$17h4e3c7e6cc8ce539dE.exit": ; preds = %"_ZN4core3ptr58drop_in_place$LT$$u5b$editor..AvailableCodeAction$u5d$$GT$17h4e3c7e6cc8ce539dE.exit.loopexit", %1
-  %47 = phi i64 [ %46, %"_ZN4core3ptr58drop_in_place$LT$$u5b$editor..AvailableCodeAction$u5d$$GT$17h4e3c7e6cc8ce539dE.exit.loopexit" ], [ 16, %1 ]
-  %48 = phi ptr [ %.pre, %"_ZN4core3ptr58drop_in_place$LT$$u5b$editor..AvailableCodeAction$u5d$$GT$17h4e3c7e6cc8ce539dE.exit.loopexit" ], [ %3, %1 ]
-  %49 = icmp eq ptr %48, inttoptr (i64 -1 to ptr)
-  br i1 %49, label %"_ZN4core3ptr110drop_in_place$LT$alloc..sync..Weak$LT$$u5b$editor..AvailableCodeAction$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hcc390825c8005df4E.exit", label %50
+  %46 = phi i64 [ %45, %"_ZN4core3ptr58drop_in_place$LT$$u5b$editor..AvailableCodeAction$u5d$$GT$17h4e3c7e6cc8ce539dE.exit.loopexit" ], [ 16, %1 ]
+  %47 = phi ptr [ %.pre, %"_ZN4core3ptr58drop_in_place$LT$$u5b$editor..AvailableCodeAction$u5d$$GT$17h4e3c7e6cc8ce539dE.exit.loopexit" ], [ %3, %1 ]
+  %48 = icmp eq ptr %47, inttoptr (i64 -1 to ptr)
+  br i1 %48, label %"_ZN4core3ptr110drop_in_place$LT$alloc..sync..Weak$LT$$u5b$editor..AvailableCodeAction$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hcc390825c8005df4E.exit", label %49
 
-50:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$$u5b$editor..AvailableCodeAction$u5d$$GT$17h4e3c7e6cc8ce539dE.exit"
-  %51 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %52 = atomicrmw sub ptr %51, i64 1 release, align 8, !noalias !3242
-  %53 = icmp eq i64 %52, 1
-  br i1 %53, label %54, label %"_ZN4core3ptr110drop_in_place$LT$alloc..sync..Weak$LT$$u5b$editor..AvailableCodeAction$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hcc390825c8005df4E.exit"
+49:                                               ; preds = %"_ZN4core3ptr58drop_in_place$LT$$u5b$editor..AvailableCodeAction$u5d$$GT$17h4e3c7e6cc8ce539dE.exit"
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %51 = atomicrmw sub ptr %50, i64 1 release, align 8, !noalias !3242
+  %52 = icmp eq i64 %51, 1
+  br i1 %52, label %53, label %"_ZN4core3ptr110drop_in_place$LT$alloc..sync..Weak$LT$$u5b$editor..AvailableCodeAction$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hcc390825c8005df4E.exit"
 
-54:                                               ; preds = %50
+53:                                               ; preds = %49
   fence acquire
-  %55 = icmp eq i64 %47, 0
-  br i1 %55, label %"_ZN4core3ptr110drop_in_place$LT$alloc..sync..Weak$LT$$u5b$editor..AvailableCodeAction$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hcc390825c8005df4E.exit", label %56
+  %54 = icmp eq i64 %46, 0
+  br i1 %54, label %"_ZN4core3ptr110drop_in_place$LT$alloc..sync..Weak$LT$$u5b$editor..AvailableCodeAction$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hcc390825c8005df4E.exit", label %55
 
-56:                                               ; preds = %54
-  call void @__rust_dealloc(ptr noundef nonnull %48, i64 noundef %47, i64 noundef 8) #21, !noalias !3242
+55:                                               ; preds = %53
+  call void @__rust_dealloc(ptr noundef nonnull %47, i64 noundef %46, i64 noundef 8) #21, !noalias !3242
   br label %"_ZN4core3ptr110drop_in_place$LT$alloc..sync..Weak$LT$$u5b$editor..AvailableCodeAction$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hcc390825c8005df4E.exit"
 
-"_ZN4core3ptr110drop_in_place$LT$alloc..sync..Weak$LT$$u5b$editor..AvailableCodeAction$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hcc390825c8005df4E.exit": ; preds = %"_ZN4core3ptr58drop_in_place$LT$$u5b$editor..AvailableCodeAction$u5d$$GT$17h4e3c7e6cc8ce539dE.exit", %50, %54, %56
+"_ZN4core3ptr110drop_in_place$LT$alloc..sync..Weak$LT$$u5b$editor..AvailableCodeAction$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hcc390825c8005df4E.exit": ; preds = %"_ZN4core3ptr58drop_in_place$LT$$u5b$editor..AvailableCodeAction$u5d$$GT$17h4e3c7e6cc8ce539dE.exit", %49, %53, %55
   ret void
 }
 
@@ -13822,16 +13818,15 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf07c23ecba605a
 10:                                               ; preds = %6
   fence acquire
   %11 = mul nsw i64 %4, 120
-  %12 = add i64 %11, 23
-  %13 = and i64 %12, -8
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %"_ZN4core3ptr145drop_in_place$LT$alloc..sync..Weak$LT$$u5b$text..selection..Selection$LT$multi_buffer..anchor..Anchor$GT$$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hf0f90c662d0ebbf2E.exit", label %15
+  %12 = add i64 %11, 16
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %"_ZN4core3ptr145drop_in_place$LT$alloc..sync..Weak$LT$$u5b$text..selection..Selection$LT$multi_buffer..anchor..Anchor$GT$$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hf0f90c662d0ebbf2E.exit", label %14
 
-15:                                               ; preds = %10
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %13, i64 noundef 8) #21, !noalias !3627
+14:                                               ; preds = %10
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %12, i64 noundef 8) #21, !noalias !3627
   br label %"_ZN4core3ptr145drop_in_place$LT$alloc..sync..Weak$LT$$u5b$text..selection..Selection$LT$multi_buffer..anchor..Anchor$GT$$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hf0f90c662d0ebbf2E.exit"
 
-"_ZN4core3ptr145drop_in_place$LT$alloc..sync..Weak$LT$$u5b$text..selection..Selection$LT$multi_buffer..anchor..Anchor$GT$$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hf0f90c662d0ebbf2E.exit": ; preds = %1, %6, %10, %15
+"_ZN4core3ptr145drop_in_place$LT$alloc..sync..Weak$LT$$u5b$text..selection..Selection$LT$multi_buffer..anchor..Anchor$GT$$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hf0f90c662d0ebbf2E.exit": ; preds = %1, %6, %10, %14
   ret void
 }
 
@@ -13987,16 +13982,15 @@ define hidden void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hf42d41d87e1679
 10:                                               ; preds = %6
   fence acquire
   %11 = mul nsw i64 %4, 80
-  %12 = add i64 %11, 23
-  %13 = and i64 %12, -16
-  %14 = icmp eq i64 %13, 0
-  br i1 %14, label %"_ZN4core3ptr106drop_in_place$LT$alloc..sync..Weak$LT$$u5b$gpui..window..PaintQuad$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hcb7b6c5b257417adE.exit", label %15
+  %12 = add i64 %11, 16
+  %13 = icmp eq i64 %12, 0
+  br i1 %13, label %"_ZN4core3ptr106drop_in_place$LT$alloc..sync..Weak$LT$$u5b$gpui..window..PaintQuad$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hcb7b6c5b257417adE.exit", label %14
 
-15:                                               ; preds = %10
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %13, i64 noundef 8) #21, !noalias !3715
+14:                                               ; preds = %10
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %12, i64 noundef 8) #21, !noalias !3715
   br label %"_ZN4core3ptr106drop_in_place$LT$alloc..sync..Weak$LT$$u5b$gpui..window..PaintQuad$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hcb7b6c5b257417adE.exit"
 
-"_ZN4core3ptr106drop_in_place$LT$alloc..sync..Weak$LT$$u5b$gpui..window..PaintQuad$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hcb7b6c5b257417adE.exit": ; preds = %1, %6, %10, %15
+"_ZN4core3ptr106drop_in_place$LT$alloc..sync..Weak$LT$$u5b$gpui..window..PaintQuad$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17hcb7b6c5b257417adE.exit": ; preds = %1, %6, %10, %14
   ret void
 }
 

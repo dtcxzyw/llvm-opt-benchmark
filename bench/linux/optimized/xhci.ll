@@ -10918,7 +10918,7 @@ define internal fastcc noundef range(i32 -7, 1) i32 @xhci_update_timeout_for_end
   %51 = and i64 %50, 4294967295
   %52 = shl i64 125, %51
   %53 = mul i64 %52, 105000
-  %54 = add i64 %53, 99
+  %54 = add i64 %53, 96
   %55 = udiv i64 %54, 100
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 1320
   %57 = load i32, ptr %56, align 8

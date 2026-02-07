@@ -489,59 +489,58 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
 
 33:                                               ; preds = %18
   %34 = sext i32 %32 to i64
-  br label %42
+  br label %41
 
 35:                                               ; preds = %18
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
   %39 = shl nsw i64 %38, 3
-  %40 = add nsw i64 %39, 23
-  %41 = and i64 %40, -8
-  br label %42
+  %40 = add nsw i64 %39, 16
+  br label %41
 
-42:                                               ; preds = %35, %33
-  %43 = phi i64 [ %34, %33 ], [ %41, %35 ]
-  %44 = getelementptr inbounds nuw i8, ptr %30, i64 %43
-  %45 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %46 = load i32, ptr %45, align 4
-  %47 = sext i32 %46 to i64
-  %48 = shl nsw i64 %47, 3
-  %49 = call ptr @palloc(i64 noundef %48) #9
-  %50 = icmp sgt i32 %46, 0
-  br i1 %50, label %.lr.ph.preheader, label %._crit_edge.thread
+41:                                               ; preds = %35, %33
+  %42 = phi i64 [ %34, %33 ], [ %40, %35 ]
+  %43 = getelementptr inbounds nuw i8, ptr %30, i64 %42
+  %44 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %45 = load i32, ptr %44, align 4
+  %46 = sext i32 %45 to i64
+  %47 = shl nsw i64 %46, 3
+  %48 = call ptr @palloc(i64 noundef %47) #9
+  %49 = icmp sgt i32 %45, 0
+  br i1 %49, label %.lr.ph.preheader, label %._crit_edge.thread
 
-.lr.ph.preheader:                                 ; preds = %42
-  %wide.trip.count = zext nneg i32 %46 to i64
+.lr.ph.preheader:                                 ; preds = %41
+  %wide.trip.count = zext nneg i32 %45 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %58
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
-  %.05162 = phi i32 [ 0, %.lr.ph.preheader ], [ %.152, %58 ]
-  %51 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
-  %52 = load i32, ptr %51, align 4
-  %.not61 = icmp eq i32 %52, %0
-  br i1 %.not61, label %58, label %53
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %57
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %57 ]
+  %.05162 = phi i32 [ 0, %.lr.ph.preheader ], [ %.152, %57 ]
+  %50 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %51 = load i32, ptr %50, align 4
+  %.not61 = icmp eq i32 %51, %0
+  br i1 %.not61, label %57, label %52
 
-53:                                               ; preds = %.lr.ph
-  %54 = zext i32 %52 to i64
-  %55 = add i32 %.05162, 1
-  %56 = sext i32 %.05162 to i64
-  %57 = getelementptr inbounds i64, ptr %49, i64 %56
-  store i64 %54, ptr %57, align 8
-  br label %58
+52:                                               ; preds = %.lr.ph
+  %53 = zext i32 %51 to i64
+  %54 = add i32 %.05162, 1
+  %55 = sext i32 %.05162 to i64
+  %56 = getelementptr inbounds i64, ptr %48, i64 %55
+  store i64 %53, ptr %56, align 8
+  br label %57
 
-58:                                               ; preds = %.lr.ph, %53
-  %.152 = phi i32 [ %55, %53 ], [ %.05162, %.lr.ph ]
+57:                                               ; preds = %.lr.ph, %52
+  %.152 = phi i32 [ %54, %52 ], [ %.05162, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %58
-  %59 = icmp sgt i32 %.152, 0
-  br i1 %59, label %60, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %57
+  %58 = icmp sgt i32 %.152, 0
+  br i1 %58, label %59, label %._crit_edge.thread
 
-60:                                               ; preds = %._crit_edge
+59:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -550,68 +549,68 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false)
   store i64 1099511627776, ptr %8, align 8
   store i64 0, ptr %7, align 8
-  %61 = call ptr @construct_array_builtin(ptr noundef %49, i32 noundef %.152, i32 noundef 26) #9
-  %62 = ptrtoint ptr %61 to i64
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i64 %62, ptr %63, align 8
-  %64 = load ptr, ptr %26, align 8
-  %65 = call ptr @heap_modify_tuple(ptr noundef nonnull %14, ptr noundef %64, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
-  call void @CatalogTupleUpdate(ptr noundef %11, ptr noundef nonnull %66, ptr noundef %65) #9
+  %60 = call ptr @construct_array_builtin(ptr noundef %48, i32 noundef %.152, i32 noundef 26) #9
+  %61 = ptrtoint ptr %60 to i64
+  %62 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i64 %61, ptr %62, align 8
+  %63 = load ptr, ptr %26, align 8
+  %64 = call ptr @heap_modify_tuple(ptr noundef nonnull %14, ptr noundef %63, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  call void @CatalogTupleUpdate(ptr noundef %11, ptr noundef nonnull %65, ptr noundef %64) #9
   call void @deleteSharedDependencyRecordsFor(i32 noundef 3256, i32 noundef %2, i32 noundef 0) #9
   store i32 3256, ptr %10, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 %2, ptr %67, align 4
-  %68 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 0, ptr %68, align 4
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i32 %2, ptr %66, align 4
+  %67 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i32 0, ptr %67, align 4
   store i32 1260, ptr %9, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 0, ptr %69, align 4
-  %70 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %68 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 0, ptr %68, align 4
+  %69 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %wide.trip.count69 = zext nneg i32 %.152 to i64
-  br label %71
+  br label %70
 
-71:                                               ; preds = %60, %76
-  %indvars.iv66 = phi i64 [ 0, %60 ], [ %indvars.iv.next67, %76 ]
-  %72 = getelementptr inbounds nuw i64, ptr %49, i64 %indvars.iv66
-  %73 = load i64, ptr %72, align 8
-  %74 = trunc i64 %73 to i32
-  store i32 %74, ptr %70, align 4
-  %.not60 = icmp eq i32 %74, 0
-  br i1 %.not60, label %76, label %75
+70:                                               ; preds = %59, %75
+  %indvars.iv66 = phi i64 [ 0, %59 ], [ %indvars.iv.next67, %75 ]
+  %71 = getelementptr inbounds nuw i64, ptr %48, i64 %indvars.iv66
+  %72 = load i64, ptr %71, align 8
+  %73 = trunc i64 %72 to i32
+  store i32 %73, ptr %69, align 4
+  %.not60 = icmp eq i32 %73, 0
+  br i1 %.not60, label %75, label %74
 
-75:                                               ; preds = %71
+74:                                               ; preds = %70
   call void @recordSharedDependencyOn(ptr noundef nonnull %10, ptr noundef nonnull %9, i32 noundef 114) #9
-  br label %76
+  br label %75
 
-76:                                               ; preds = %71, %75
+75:                                               ; preds = %70, %74
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond70.not = icmp eq i64 %indvars.iv.next67, %wide.trip.count69
-  br i1 %exitcond70.not, label %77, label %71, !llvm.loop !9
+  br i1 %exitcond70.not, label %76, label %70, !llvm.loop !9
 
-77:                                               ; preds = %76
-  %78 = load ptr, ptr @object_access_hook, align 8
-  %.not58 = icmp eq ptr %78, null
-  br i1 %.not58, label %80, label %79
+76:                                               ; preds = %75
+  %77 = load ptr, ptr @object_access_hook, align 8
+  %.not58 = icmp eq ptr %77, null
+  br i1 %.not58, label %79, label %78
 
-79:                                               ; preds = %77
+78:                                               ; preds = %76
   call void @RunObjectPostAlterHook(i32 noundef 3256, i32 noundef %2, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #9
-  br label %80
+  br label %79
 
-80:                                               ; preds = %79, %77
-  call void @heap_freetuple(ptr noundef %65) #9
+79:                                               ; preds = %78, %76
+  call void @heap_freetuple(ptr noundef %64) #9
   call void @CommandCounterIncrement() #9
-  %81 = zext i32 %25 to i64
-  %82 = call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %81) #9
-  %.not59 = icmp eq ptr %82, null
-  br i1 %.not59, label %84, label %83
+  %80 = zext i32 %25 to i64
+  %81 = call ptr @SearchSysCache1(i32 noundef 57, i64 noundef %80) #9
+  %.not59 = icmp eq ptr %81, null
+  br i1 %.not59, label %83, label %82
 
-83:                                               ; preds = %80
-  call void @CacheInvalidateRelcacheByTuple(ptr noundef nonnull %82) #9
-  call void @ReleaseSysCache(ptr noundef nonnull %82) #9
-  br label %84
+82:                                               ; preds = %79
+  call void @CacheInvalidateRelcacheByTuple(ptr noundef nonnull %81) #9
+  call void @ReleaseSysCache(ptr noundef nonnull %81) #9
+  br label %83
 
-84:                                               ; preds = %83, %80
+83:                                               ; preds = %82, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -619,13 +618,13 @@ define dso_local noundef zeroext i1 @RemoveRoleFromObjectPolicy(i32 noundef %0, 
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %42, %._crit_edge, %84
-  %85 = phi i1 [ true, %84 ], [ false, %._crit_edge ], [ false, %42 ]
+._crit_edge.thread:                               ; preds = %41, %._crit_edge, %83
+  %84 = phi i1 [ true, %83 ], [ false, %._crit_edge ], [ false, %41 ]
   call void @systable_endscan(ptr noundef %13) #9
   call void @table_close(ptr noundef %11, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %85
+  ret i1 %84
 }
 
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
@@ -1261,7 +1260,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   %86 = ptrtoint ptr %.0104 to i64
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %86, ptr %87, align 8
-  br label %117
+  br label %116
 
 88:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1276,190 +1275,189 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
 
 95:                                               ; preds = %88
   %96 = sext i32 %94 to i64
-  br label %104
+  br label %103
 
 97:                                               ; preds = %88
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %99 = load i32, ptr %98, align 4
   %100 = sext i32 %99 to i64
   %101 = shl nsw i64 %100, 3
-  %102 = add nsw i64 %101, 23
-  %103 = and i64 %102, -8
-  br label %104
+  %102 = add nsw i64 %101, 16
+  br label %103
 
-104:                                              ; preds = %97, %95
-  %105 = phi i64 [ %96, %95 ], [ %103, %97 ]
-  %106 = getelementptr inbounds nuw i8, ptr %92, i64 %105
-  %107 = getelementptr inbounds nuw i8, ptr %92, i64 16
-  %108 = load i32, ptr %107, align 4
-  store i32 %108, ptr %3, align 4
-  %109 = sext i32 %108 to i64
-  %110 = shl nsw i64 %109, 3
-  %111 = call ptr @palloc(i64 noundef %110) #9
-  %112 = icmp sgt i32 %108, 0
-  br i1 %112, label %.lr.ph.preheader, label %._crit_edge
+103:                                              ; preds = %97, %95
+  %104 = phi i64 [ %96, %95 ], [ %102, %97 ]
+  %105 = getelementptr inbounds nuw i8, ptr %92, i64 %104
+  %106 = getelementptr inbounds nuw i8, ptr %92, i64 16
+  %107 = load i32, ptr %106, align 4
+  store i32 %107, ptr %3, align 4
+  %108 = sext i32 %107 to i64
+  %109 = shl nsw i64 %108, 3
+  %110 = call ptr @palloc(i64 noundef %109) #9
+  %111 = icmp sgt i32 %107, 0
+  br i1 %111, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %104
-  %wide.trip.count = zext nneg i32 %108 to i64
+.lr.ph.preheader:                                 ; preds = %103
+  %wide.trip.count = zext nneg i32 %107 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %113 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv
-  %114 = load i32, ptr %113, align 4
-  %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv
-  store i64 %115, ptr %116, align 8
+  %112 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv
+  %113 = load i32, ptr %112, align 4
+  %114 = zext i32 %113 to i64
+  %115 = getelementptr inbounds nuw i64, ptr %110, i64 %indvars.iv
+  store i64 %114, ptr %115, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %.lr.ph, %104
+._crit_edge:                                      ; preds = %.lr.ph, %103
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %117
+  br label %116
 
-117:                                              ; preds = %._crit_edge, %84
-  %.1 = phi ptr [ %.0, %84 ], [ %111, %._crit_edge ]
+116:                                              ; preds = %._crit_edge, %84
+  %.1 = phi ptr [ %.0, %84 ], [ %110, %._crit_edge ]
   %.not128 = icmp eq ptr %.0110, null
-  br i1 %.not128, label %124, label %118
+  br i1 %.not128, label %123, label %117
 
-118:                                              ; preds = %117
-  %119 = getelementptr inbounds nuw i8, ptr %7, i64 6
-  store i8 1, ptr %119, align 2
-  %120 = call ptr @nodeToString(ptr noundef nonnull %.0110) #9
-  %121 = call ptr @cstring_to_text(ptr noundef %120) #9
-  %122 = ptrtoint ptr %121 to i64
-  %123 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i64 %122, ptr %123, align 16
-  br label %138
-
-124:                                              ; preds = %117
-  call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %125 = load ptr, ptr %61, align 8
-  %126 = call fastcc i64 @heap_getattr(ptr noundef %51, i32 noundef 7, ptr noundef %125, ptr noundef %11)
-  %127 = load i8, ptr %11, align 1, !range !4, !noundef !5
-  %128 = trunc nuw i8 %127 to i1
-  br i1 %128, label %137, label %129
-
-129:                                              ; preds = %124
-  %130 = call ptr @make_parsestate(ptr noundef null) #9
-  %131 = inttoptr i64 %126 to ptr
-  %132 = call ptr @text_to_cstring(ptr noundef %131) #9
-  %133 = call ptr @stringToNode(ptr noundef %132) #9
-  %134 = call ptr @addRangeTableEntryForRelation(ptr noundef %130, ptr noundef %23, i32 noundef 1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #9
-  %135 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  %136 = load ptr, ptr %135, align 8
-  call void @free_parsestate(ptr noundef %130) #9
+117:                                              ; preds = %116
+  %118 = getelementptr inbounds nuw i8, ptr %7, i64 6
+  store i8 1, ptr %118, align 2
+  %119 = call ptr @nodeToString(ptr noundef nonnull %.0110) #9
+  %120 = call ptr @cstring_to_text(ptr noundef %119) #9
+  %121 = ptrtoint ptr %120 to i64
+  %122 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i64 %121, ptr %122, align 16
   br label %137
 
-137:                                              ; preds = %129, %124
-  %.2112 = phi ptr [ null, %124 ], [ %133, %129 ]
-  %.2 = phi ptr [ %.0105, %124 ], [ %136, %129 ]
+123:                                              ; preds = %116
+  call void @llvm.lifetime.start.p0(ptr nonnull %11)
+  %124 = load ptr, ptr %61, align 8
+  %125 = call fastcc i64 @heap_getattr(ptr noundef %51, i32 noundef 7, ptr noundef %124, ptr noundef %11)
+  %126 = load i8, ptr %11, align 1, !range !4, !noundef !5
+  %127 = trunc nuw i8 %126 to i1
+  br i1 %127, label %136, label %128
+
+128:                                              ; preds = %123
+  %129 = call ptr @make_parsestate(ptr noundef null) #9
+  %130 = inttoptr i64 %125 to ptr
+  %131 = call ptr @text_to_cstring(ptr noundef %130) #9
+  %132 = call ptr @stringToNode(ptr noundef %131) #9
+  %133 = call ptr @addRangeTableEntryForRelation(ptr noundef %129, ptr noundef %23, i32 noundef 1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #9
+  %134 = getelementptr inbounds nuw i8, ptr %129, i64 24
+  %135 = load ptr, ptr %134, align 8
+  call void @free_parsestate(ptr noundef %129) #9
+  br label %136
+
+136:                                              ; preds = %128, %123
+  %.2112 = phi ptr [ null, %123 ], [ %132, %128 ]
+  %.2 = phi ptr [ %.0105, %123 ], [ %135, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %138
+  br label %137
 
-138:                                              ; preds = %137, %118
-  %.1111 = phi ptr [ %.0110, %118 ], [ %.2112, %137 ]
-  %.1106 = phi ptr [ %.0105, %118 ], [ %.2, %137 ]
+137:                                              ; preds = %136, %117
+  %.1111 = phi ptr [ %.0110, %117 ], [ %.2112, %136 ]
+  %.1106 = phi ptr [ %.0105, %117 ], [ %.2, %136 ]
   %.not129 = icmp eq ptr %.0113, null
-  br i1 %.not129, label %145, label %139
+  br i1 %.not129, label %144, label %138
 
-139:                                              ; preds = %138
-  %140 = getelementptr inbounds nuw i8, ptr %7, i64 7
-  store i8 1, ptr %140, align 1
-  %141 = call ptr @nodeToString(ptr noundef nonnull %.0113) #9
-  %142 = call ptr @cstring_to_text(ptr noundef %141) #9
-  %143 = ptrtoint ptr %142 to i64
-  %144 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i64 %143, ptr %144, align 8
-  br label %159
-
-145:                                              ; preds = %138
-  call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %146 = load ptr, ptr %61, align 8
-  %147 = call fastcc i64 @heap_getattr(ptr noundef %51, i32 noundef 8, ptr noundef %146, ptr noundef %12)
-  %148 = load i8, ptr %12, align 1, !range !4, !noundef !5
-  %149 = trunc nuw i8 %148 to i1
-  br i1 %149, label %158, label %150
-
-150:                                              ; preds = %145
-  %151 = call ptr @make_parsestate(ptr noundef null) #9
-  %152 = inttoptr i64 %147 to ptr
-  %153 = call ptr @text_to_cstring(ptr noundef %152) #9
-  %154 = call ptr @stringToNode(ptr noundef %153) #9
-  %155 = call ptr @addRangeTableEntryForRelation(ptr noundef %151, ptr noundef %23, i32 noundef 1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #9
-  %156 = getelementptr inbounds nuw i8, ptr %151, i64 24
-  %157 = load ptr, ptr %156, align 8
-  call void @free_parsestate(ptr noundef %151) #9
+138:                                              ; preds = %137
+  %139 = getelementptr inbounds nuw i8, ptr %7, i64 7
+  store i8 1, ptr %139, align 1
+  %140 = call ptr @nodeToString(ptr noundef nonnull %.0113) #9
+  %141 = call ptr @cstring_to_text(ptr noundef %140) #9
+  %142 = ptrtoint ptr %141 to i64
+  %143 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i64 %142, ptr %143, align 8
   br label %158
 
-158:                                              ; preds = %150, %145
-  %.2115 = phi ptr [ null, %145 ], [ %154, %150 ]
-  %.2109 = phi ptr [ %.0107, %145 ], [ %157, %150 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %159
+144:                                              ; preds = %137
+  call void @llvm.lifetime.start.p0(ptr nonnull %12)
+  %145 = load ptr, ptr %61, align 8
+  %146 = call fastcc i64 @heap_getattr(ptr noundef %51, i32 noundef 8, ptr noundef %145, ptr noundef %12)
+  %147 = load i8, ptr %12, align 1, !range !4, !noundef !5
+  %148 = trunc nuw i8 %147 to i1
+  br i1 %148, label %157, label %149
 
-159:                                              ; preds = %158, %139
-  %.1114 = phi ptr [ %.0113, %139 ], [ %.2115, %158 ]
-  %.1108 = phi ptr [ %.0107, %139 ], [ %.2109, %158 ]
-  %160 = load ptr, ptr %61, align 8
-  %161 = call ptr @heap_modify_tuple(ptr noundef nonnull %51, ptr noundef %160, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
-  %162 = getelementptr inbounds nuw i8, ptr %161, i64 4
-  call void @CatalogTupleUpdate(ptr noundef nonnull %44, ptr noundef nonnull %162, ptr noundef %161) #9
-  %163 = call i64 @deleteDependencyRecordsFor(i32 noundef 3256, i32 noundef %83, i1 noundef zeroext false) #9
+149:                                              ; preds = %144
+  %150 = call ptr @make_parsestate(ptr noundef null) #9
+  %151 = inttoptr i64 %146 to ptr
+  %152 = call ptr @text_to_cstring(ptr noundef %151) #9
+  %153 = call ptr @stringToNode(ptr noundef %152) #9
+  %154 = call ptr @addRangeTableEntryForRelation(ptr noundef %150, ptr noundef %23, i32 noundef 1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false) #9
+  %155 = getelementptr inbounds nuw i8, ptr %150, i64 24
+  %156 = load ptr, ptr %155, align 8
+  call void @free_parsestate(ptr noundef %150) #9
+  br label %157
+
+157:                                              ; preds = %149, %144
+  %.2115 = phi ptr [ null, %144 ], [ %153, %149 ]
+  %.2109 = phi ptr [ %.0107, %144 ], [ %156, %149 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %12)
+  br label %158
+
+158:                                              ; preds = %157, %138
+  %.1114 = phi ptr [ %.0113, %138 ], [ %.2115, %157 ]
+  %.1108 = phi ptr [ %.0107, %138 ], [ %.2109, %157 ]
+  %159 = load ptr, ptr %61, align 8
+  %160 = call ptr @heap_modify_tuple(ptr noundef nonnull %51, ptr noundef %159, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #9
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
+  call void @CatalogTupleUpdate(ptr noundef nonnull %44, ptr noundef nonnull %161, ptr noundef %160) #9
+  %162 = call i64 @deleteDependencyRecordsFor(i32 noundef 3256, i32 noundef %83, i1 noundef zeroext false) #9
   store i32 1259, ptr %8, align 4
-  %164 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 %22, ptr %164, align 4
-  %165 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 0, ptr %165, align 4
+  %163 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 %22, ptr %163, align 4
+  %164 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 0, ptr %164, align 4
   store i32 3256, ptr %2, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 %83, ptr %166, align 4
-  %167 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 0, ptr %167, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 %83, ptr %165, align 4
+  %166 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 0, ptr %166, align 8
   call void @recordDependencyOn(ptr noundef nonnull %2, ptr noundef nonnull %8, i32 noundef 97) #9
   call void @recordDependencyOnExpr(ptr noundef nonnull %2, ptr noundef %.1111, ptr noundef %.1106, i32 noundef 110) #9
   call void @recordDependencyOnExpr(ptr noundef nonnull %2, ptr noundef %.1114, ptr noundef %.1108, i32 noundef 110) #9
   call void @deleteSharedDependencyRecordsFor(i32 noundef 3256, i32 noundef %83, i32 noundef 0) #9
   store i32 1260, ptr %8, align 4
-  store i32 0, ptr %165, align 4
-  %168 = load i32, ptr %3, align 4
-  %169 = icmp sgt i32 %168, 0
-  br i1 %169, label %.lr.ph135.preheader, label %._crit_edge136
+  store i32 0, ptr %164, align 4
+  %167 = load i32, ptr %3, align 4
+  %168 = icmp sgt i32 %167, 0
+  br i1 %168, label %.lr.ph135.preheader, label %._crit_edge136
 
-.lr.ph135.preheader:                              ; preds = %159
-  %wide.trip.count141 = zext nneg i32 %168 to i64
+.lr.ph135.preheader:                              ; preds = %158
+  %wide.trip.count141 = zext nneg i32 %167 to i64
   br label %.lr.ph135
 
-.lr.ph135:                                        ; preds = %.lr.ph135.preheader, %174
-  %indvars.iv138 = phi i64 [ 0, %.lr.ph135.preheader ], [ %indvars.iv.next139, %174 ]
-  %170 = getelementptr inbounds nuw i64, ptr %.1, i64 %indvars.iv138
-  %171 = load i64, ptr %170, align 8
-  %172 = trunc i64 %171 to i32
-  store i32 %172, ptr %164, align 4
-  %.not131 = icmp eq i32 %172, 0
-  br i1 %.not131, label %174, label %173
+.lr.ph135:                                        ; preds = %.lr.ph135.preheader, %173
+  %indvars.iv138 = phi i64 [ 0, %.lr.ph135.preheader ], [ %indvars.iv.next139, %173 ]
+  %169 = getelementptr inbounds nuw i64, ptr %.1, i64 %indvars.iv138
+  %170 = load i64, ptr %169, align 8
+  %171 = trunc i64 %170 to i32
+  store i32 %171, ptr %163, align 4
+  %.not131 = icmp eq i32 %171, 0
+  br i1 %.not131, label %173, label %172
 
-173:                                              ; preds = %.lr.ph135
+172:                                              ; preds = %.lr.ph135
   call void @recordSharedDependencyOn(ptr noundef nonnull %2, ptr noundef nonnull %8, i32 noundef 114) #9
-  br label %174
+  br label %173
 
-174:                                              ; preds = %.lr.ph135, %173
+173:                                              ; preds = %.lr.ph135, %172
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond142.not = icmp eq i64 %indvars.iv.next139, %wide.trip.count141
   br i1 %exitcond142.not, label %._crit_edge136, label %.lr.ph135, !llvm.loop !13
 
-._crit_edge136:                                   ; preds = %174, %159
-  %175 = load ptr, ptr @object_access_hook, align 8
-  %.not130 = icmp eq ptr %175, null
-  br i1 %.not130, label %177, label %176
+._crit_edge136:                                   ; preds = %173, %158
+  %174 = load ptr, ptr @object_access_hook, align 8
+  %.not130 = icmp eq ptr %174, null
+  br i1 %.not130, label %176, label %175
 
-176:                                              ; preds = %._crit_edge136
+175:                                              ; preds = %._crit_edge136
   call void @RunObjectPostAlterHook(i32 noundef 3256, i32 noundef %83, i32 noundef 0, i32 noundef 0, i1 noundef zeroext false) #9
-  br label %177
+  br label %176
 
-177:                                              ; preds = %176, %._crit_edge136
-  call void @heap_freetuple(ptr noundef %161) #9
+176:                                              ; preds = %175, %._crit_edge136
+  call void @heap_freetuple(ptr noundef %160) #9
   call void @CacheInvalidateRelcache(ptr noundef %23) #9
   call void @systable_endscan(ptr noundef %50) #9
   call void @relation_close(ptr noundef %23, i32 noundef 0) #9
@@ -1472,7 +1470,7 @@ define dso_local { i64, i32 } @AlterPolicy(ptr noundef %0) local_unnamed_addr #0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
-  %.sroa.2.0.copyload = load i32, ptr %167, align 8
+  %.sroa.2.0.copyload = load i32, ptr %166, align 8
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0.copyload, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.2.0.copyload, 1
   ret { i64, i32 } %.fca.1.insert

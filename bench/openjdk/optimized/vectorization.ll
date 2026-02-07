@@ -852,7 +852,7 @@ _ZNK8VPointer3cmpERKS_.exit:                      ; preds = %144, %133, %_ZN26Gr
   store ptr null, ptr %193, align 8
   %194 = shl i32 %.sroa.0.1, 2
   %195 = zext i32 %194 to i64
-  %196 = add nuw nsw i64 %195, 7
+  %196 = add nuw nsw i64 %195, 4
   %197 = and i64 %196, 8589934584
   %198 = getelementptr inbounds nuw i8, ptr %191, i64 40
   %199 = load ptr, ptr %198, align 8
@@ -1457,7 +1457,7 @@ define hidden void @_ZN20VLoopDependencyGraph8add_nodeEP7MemNodeR13GrowableArray
   %12 = load i32, ptr %2, align 8
   %13 = shl i32 %12, 2
   %14 = zext i32 %13 to i64
-  %15 = add nuw nsw i64 %14, 7
+  %15 = add nuw nsw i64 %14, 4
   %16 = and i64 %15, 8589934584
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %18 = load ptr, ptr %17, align 8
@@ -1895,7 +1895,7 @@ define hidden void @_ZN20VLoopDependencyGraph14DependencyNodeC2EP7MemNodeR13Grow
   %8 = load i32, ptr %2, align 8
   %9 = shl i32 %8, 2
   %10 = zext i32 %9 to i64
-  %11 = add nuw nsw i64 %10, 7
+  %11 = add nuw nsw i64 %10, 4
   %12 = and i64 %11, 8589934584
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %14 = load ptr, ptr %13, align 8

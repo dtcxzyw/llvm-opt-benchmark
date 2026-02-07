@@ -224,7 +224,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mpi_fromstr(ptr noundef %0, ptr 
 21:                                               ; preds = %16
   %22 = shl nuw nsw i32 %19, 2
   %23 = and i32 %19, 1
-  %24 = add nuw nsw i32 %22, 7
+  %24 = add nuw nsw i32 %22, 4
   %25 = lshr i32 %24, 3
   %26 = add nuw nsw i32 %25, 7
   %27 = lshr i32 %26, 3

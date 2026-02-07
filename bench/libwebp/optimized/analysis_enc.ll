@@ -864,7 +864,7 @@ define internal i32 @DoSegmentsJob(ptr noundef captures(none) %0, ptr noundef %1
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = ptrtoint ptr %7 to i64
-  %11 = add i64 %10, 31
+  %11 = add i64 %10, 16
   %12 = and i64 %11, -32
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48

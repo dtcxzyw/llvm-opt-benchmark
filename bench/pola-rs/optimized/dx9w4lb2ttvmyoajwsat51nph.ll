@@ -11933,7 +11933,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %61 = load i32, ptr %60, align 4, !alias.scope !1531, !noundef !3
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 %61, ptr %62, align 4, !noalias !1531
-  %63 = add nsw i64 %56, -1
+  %63 = add nsw i64 %56, -2
   %64 = and i64 %63, %56
   %65 = add i64 %.sroa.07.014.i, 2
   %.not.i = icmp eq i64 %64, 0
@@ -12007,7 +12007,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %94 = load i32, ptr %93, align 4, !alias.scope !1537, !noundef !3
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 4
   store i32 %94, ptr %95, align 4, !noalias !1537
-  %96 = add i64 %90, -1
+  %96 = add i64 %90, -2
   %97 = and i64 %96, %90
   %98 = add i64 %.sroa.07.014.i31, 2
   %.not.i32 = icmp eq i64 %97, 0
@@ -12144,7 +12144,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %61 = load i8, ptr %60, align 1, !alias.scope !1543, !noundef !3
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store i8 %61, ptr %62, align 1, !noalias !1543
-  %63 = add nsw i64 %56, -1
+  %63 = add nsw i64 %56, -2
   %64 = and i64 %63, %56
   %65 = add i64 %.sroa.07.014.i, 2
   %.not.i = icmp eq i64 %64, 0
@@ -12218,7 +12218,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %94 = load i8, ptr %93, align 1, !alias.scope !1549, !noundef !3
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 1
   store i8 %94, ptr %95, align 1, !noalias !1549
-  %96 = add i64 %90, -1
+  %96 = add i64 %90, -2
   %97 = and i64 %96, %90
   %98 = add i64 %.sroa.07.014.i31, 2
   %.not.i32 = icmp eq i64 %97, 0
@@ -12355,7 +12355,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %61 = load i8, ptr %60, align 1, !alias.scope !1555, !noundef !3
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 1
   store i8 %61, ptr %62, align 1, !noalias !1555
-  %63 = add nsw i64 %56, -1
+  %63 = add nsw i64 %56, -2
   %64 = and i64 %63, %56
   %65 = add i64 %.sroa.07.014.i, 2
   %.not.i = icmp eq i64 %64, 0
@@ -12429,7 +12429,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %94 = load i8, ptr %93, align 1, !alias.scope !1561, !noundef !3
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 1
   store i8 %94, ptr %95, align 1, !noalias !1561
-  %96 = add i64 %90, -1
+  %96 = add i64 %90, -2
   %97 = and i64 %96, %90
   %98 = add i64 %.sroa.07.014.i31, 2
   %.not.i32 = icmp eq i64 %97, 0
@@ -12563,7 +12563,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %59 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %49, i64 %57
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %60, ptr noundef nonnull readonly align 4 dereferenceable(16) %59, i64 16, i1 false)
-  %61 = add nsw i64 %55, -1
+  %61 = add nsw i64 %55, -2
   %62 = and i64 %61, %55
   %63 = add i64 %.sroa.07.014.i, 2
   %.not.i = icmp eq i64 %62, 0
@@ -12626,7 +12626,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %86 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %12, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %87, ptr noundef nonnull readonly align 4 dereferenceable(16) %86, i64 16, i1 false)
-  %88 = add i64 %83, -1
+  %88 = add i64 %83, -2
   %89 = and i64 %88, %83
   %90 = add i64 %.sroa.07.014.i31, 2
   %.not.i32 = icmp eq i64 %89, 0
@@ -12763,7 +12763,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %61 = load i64, ptr %60, align 8, !alias.scope !1570, !noundef !3
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 %61, ptr %62, align 8, !noalias !1570
-  %63 = add nsw i64 %56, -1
+  %63 = add nsw i64 %56, -2
   %64 = and i64 %63, %56
   %65 = add i64 %.sroa.07.014.i, 2
   %.not.i = icmp eq i64 %64, 0
@@ -12837,7 +12837,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %94 = load i64, ptr %93, align 8, !alias.scope !1576, !noundef !3
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i64 %94, ptr %95, align 8, !noalias !1576
-  %96 = add i64 %90, -1
+  %96 = add i64 %90, -2
   %97 = and i64 %96, %90
   %98 = add i64 %.sroa.07.014.i31, 2
   %.not.i32 = icmp eq i64 %97, 0
@@ -12974,7 +12974,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %61 = load i128, ptr %60, align 16, !alias.scope !1582, !noundef !3
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store i128 %61, ptr %62, align 16, !noalias !1582
-  %63 = add nsw i64 %56, -1
+  %63 = add nsw i64 %56, -2
   %64 = and i64 %63, %56
   %65 = add i64 %.sroa.07.014.i, 2
   %.not.i = icmp eq i64 %64, 0
@@ -13048,7 +13048,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %94 = load i128, ptr %93, align 16, !alias.scope !1588, !noundef !3
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 16
   store i128 %94, ptr %95, align 16, !noalias !1588
-  %96 = add i64 %90, -1
+  %96 = add i64 %90, -2
   %97 = and i64 %96, %90
   %98 = add i64 %.sroa.07.014.i31, 2
   %.not.i32 = icmp eq i64 %97, 0
@@ -13185,7 +13185,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %61 = load i32, ptr %60, align 4, !alias.scope !1594, !noundef !3
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 %61, ptr %62, align 4, !noalias !1594
-  %63 = add nsw i64 %56, -1
+  %63 = add nsw i64 %56, -2
   %64 = and i64 %63, %56
   %65 = add i64 %.sroa.07.014.i, 2
   %.not.i = icmp eq i64 %64, 0
@@ -13259,7 +13259,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %94 = load i32, ptr %93, align 4, !alias.scope !1600, !noundef !3
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 4
   store i32 %94, ptr %95, align 4, !noalias !1600
-  %96 = add i64 %90, -1
+  %96 = add i64 %90, -2
   %97 = and i64 %96, %90
   %98 = add i64 %.sroa.07.014.i31, 2
   %.not.i32 = icmp eq i64 %97, 0
@@ -13396,7 +13396,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %61 = load i64, ptr %60, align 8, !alias.scope !1606, !noundef !3
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i64 %61, ptr %62, align 8, !noalias !1606
-  %63 = add nsw i64 %56, -1
+  %63 = add nsw i64 %56, -2
   %64 = and i64 %63, %56
   %65 = add i64 %.sroa.07.014.i, 2
   %.not.i = icmp eq i64 %64, 0
@@ -13470,7 +13470,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %94 = load i64, ptr %93, align 8, !alias.scope !1612, !noundef !3
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i64 %94, ptr %95, align 8, !noalias !1612
-  %96 = add i64 %90, -1
+  %96 = add i64 %90, -2
   %97 = and i64 %96, %90
   %98 = add i64 %.sroa.07.014.i31, 2
   %.not.i32 = icmp eq i64 %97, 0
@@ -13607,7 +13607,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %61 = load double, ptr %60, align 8, !alias.scope !1618, !noundef !3
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store double %61, ptr %62, align 8, !noalias !1618
-  %63 = add nsw i64 %56, -1
+  %63 = add nsw i64 %56, -2
   %64 = and i64 %63, %56
   %65 = add i64 %.sroa.07.014.i, 2
   %.not.i = icmp eq i64 %64, 0
@@ -13681,7 +13681,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %94 = load double, ptr %93, align 8, !alias.scope !1624, !noundef !3
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store double %94, ptr %95, align 8, !noalias !1624
-  %96 = add i64 %90, -1
+  %96 = add i64 %90, -2
   %97 = and i64 %96, %90
   %98 = add i64 %.sroa.07.014.i31, 2
   %.not.i32 = icmp eq i64 %97, 0
@@ -13818,7 +13818,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %.sroa.09.0.copyload.i29 = load i16, ptr %59, align 2, !alias.scope !1630
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 2
   store i16 %.sroa.09.0.copyload.i29, ptr %60, align 2, !noalias !1630
-  %61 = add nsw i64 %55, -1
+  %61 = add nsw i64 %55, -2
   %62 = and i64 %61, %55
   %63 = add i64 %.sroa.011.018.i, 2
   %.not.i = icmp eq i64 %62, 0
@@ -13892,7 +13892,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %.sroa.09.0.copyload.i36 = load i16, ptr %89, align 2, !alias.scope !1636
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 2
   store i16 %.sroa.09.0.copyload.i36, ptr %90, align 2, !noalias !1636
-  %91 = add i64 %86, -1
+  %91 = add i64 %86, -2
   %92 = and i64 %91, %86
   %93 = add i64 %.sroa.011.018.i34, 2
   %.not.i37 = icmp eq i64 %92, 0
@@ -14029,7 +14029,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %61 = load float, ptr %60, align 4, !alias.scope !1642, !noundef !3
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store float %61, ptr %62, align 4, !noalias !1642
-  %63 = add nsw i64 %56, -1
+  %63 = add nsw i64 %56, -2
   %64 = and i64 %63, %56
   %65 = add i64 %.sroa.07.014.i, 2
   %.not.i = icmp eq i64 %64, 0
@@ -14103,7 +14103,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %94 = load float, ptr %93, align 4, !alias.scope !1648, !noundef !3
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 4
   store float %94, ptr %95, align 4, !noalias !1648
-  %96 = add i64 %90, -1
+  %96 = add i64 %90, -2
   %97 = and i64 %96, %90
   %98 = add i64 %.sroa.07.014.i31, 2
   %.not.i32 = icmp eq i64 %97, 0
@@ -14240,7 +14240,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %61 = load i16, ptr %60, align 2, !alias.scope !1654, !noundef !3
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 2
   store i16 %61, ptr %62, align 2, !noalias !1654
-  %63 = add nsw i64 %56, -1
+  %63 = add nsw i64 %56, -2
   %64 = and i64 %63, %56
   %65 = add i64 %.sroa.07.014.i, 2
   %.not.i = icmp eq i64 %64, 0
@@ -14314,7 +14314,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %94 = load i16, ptr %93, align 2, !alias.scope !1660, !noundef !3
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 2
   store i16 %94, ptr %95, align 2, !noalias !1660
-  %96 = add i64 %90, -1
+  %96 = add i64 %90, -2
   %97 = and i64 %96, %90
   %98 = add i64 %.sroa.07.014.i31, 2
   %.not.i32 = icmp eq i64 %97, 0
@@ -14451,7 +14451,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %61 = load i16, ptr %60, align 2, !alias.scope !1666, !noundef !3
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 2
   store i16 %61, ptr %62, align 2, !noalias !1666
-  %63 = add nsw i64 %56, -1
+  %63 = add nsw i64 %56, -2
   %64 = and i64 %63, %56
   %65 = add i64 %.sroa.07.014.i, 2
   %.not.i = icmp eq i64 %64, 0
@@ -14525,7 +14525,7 @@ _ZN12polars_utils5slice18load_padded_le_u6417h7b4a4aa596ebb38aE.exit: ; preds = 
   %94 = load i16, ptr %93, align 2, !alias.scope !1672, !noundef !3
   %95 = getelementptr inbounds nuw i8, ptr %88, i64 2
   store i16 %94, ptr %95, align 2, !noalias !1672
-  %96 = add i64 %90, -1
+  %96 = add i64 %90, -2
   %97 = and i64 %96, %90
   %98 = add i64 %.sroa.07.014.i31, 2
   %.not.i32 = icmp eq i64 %97, 0

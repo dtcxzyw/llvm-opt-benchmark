@@ -76,7 +76,7 @@ define internal fastcc noundef ptr @create_internal(ptr noundef %0, i64 noundef 
   %.056.i = phi i64 [ 7288, %7 ], [ %10, %8 ]
   %9 = add i32 %.07.i, 1
   %10 = add i64 %.056.i, 8
-  %11 = add i64 %.056.i, 4103
+  %11 = add i64 %.056.i, 4096
   %12 = lshr i64 %11, 12
   %13 = sext i32 %9 to i64
   %14 = icmp ugt i64 %12, %13
@@ -3635,7 +3635,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @dsa_minimum_size() loca
   %.056 = phi i64 [ 7288, %0 ], [ %3, %1 ]
   %2 = add i32 %.07, 1
   %3 = add i64 %.056, 8
-  %4 = add i64 %.056, 4103
+  %4 = add i64 %.056, 4096
   %5 = lshr i64 %4, 12
   %6 = sext i32 %2 to i64
   %7 = icmp ugt i64 %5, %6

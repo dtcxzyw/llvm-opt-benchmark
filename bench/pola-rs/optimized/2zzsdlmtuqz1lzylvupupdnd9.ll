@@ -140095,7 +140095,7 @@ _ZN9hashbrown3map9make_hash17hbb4599c1d6b4cefdE.exit: ; preds = %14, %"_ZN66_$LT
   br label %.backedge.us.us.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h4e04001279320565E.exit.us.us.i": ; preds = %.backedge.us.us.i
-  %54 = add i16 %64, -1
+  %54 = add i16 %64, -2
   %55 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %64, i1 true)
   %56 = zext nneg i16 %55 to i64
   %57 = and i16 %54, %64
@@ -140303,7 +140303,7 @@ _ZN9hashbrown3map9make_hash17h495d42a467e50154E.exit: ; preds = %2, %_ZN8foldhas
   br label %.backedge.us.us.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h7532bf5e966cf0f0E.exit.us.us.i": ; preds = %.backedge.us.us.i
-  %56 = add i16 %66, -1
+  %56 = add i16 %66, -2
   %57 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %66, i1 true)
   %58 = zext nneg i16 %57 to i64
   %59 = and i16 %56, %66
@@ -140554,7 +140554,7 @@ _ZN9hashbrown3map9make_hash17h013d24c1ccf96851E.exit: ; preds = %2, %_ZN4core4ha
   br label %.backedge.us.us.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hed6e68e8e9fc1745E.exit.us.us.i": ; preds = %.backedge.us.us.i
-  %55 = add i16 %65, -1
+  %55 = add i16 %65, -2
   %56 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %65, i1 true)
   %57 = zext nneg i16 %56 to i64
   %58 = and i16 %55, %65
@@ -140805,7 +140805,7 @@ _ZN9hashbrown3map9make_hash17h6ce65228b61303bfE.exit: ; preds = %2, %_ZN4core4ha
   br label %.backedge.us.us.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17he8e5c4d934d9f4baE.exit.us.us.i": ; preds = %.backedge.us.us.i
-  %55 = add i16 %65, -1
+  %55 = add i16 %65, -2
   %56 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %65, i1 true)
   %57 = zext nneg i16 %56 to i64
   %58 = and i16 %55, %65
@@ -141061,7 +141061,7 @@ _ZN9hashbrown3map9make_hash17h81640e54f7570a70E.exit: ; preds = %2, %_ZN8foldhas
   br label %.backedge.us.us.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17he15668953cdd34a4E.exit.us.us.i": ; preds = %.backedge.us.us.i
-  %58 = add i16 %68, -1
+  %58 = add i16 %68, -2
   %59 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %68, i1 true)
   %60 = zext nneg i16 %59 to i64
   %61 = and i16 %58, %68
@@ -141314,7 +141314,7 @@ _ZN9hashbrown3map9make_hash17h5aa9951b66721f7eE.exit: ; preds = %2, %_ZN4core4ha
   br label %.backedge.us.us.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h8ff60f97d5e972eeE.exit.us.us.i": ; preds = %.backedge.us.us.i
-  %55 = add i16 %65, -1
+  %55 = add i16 %65, -2
   %56 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %65, i1 true)
   %57 = zext nneg i16 %56 to i64
   %58 = and i16 %55, %65
@@ -141572,7 +141572,7 @@ _ZN9hashbrown3map9make_hash17hcf60e481d8896f5bE.exit: ; preds = %2, %_ZN8foldhas
   br label %.backedge.us.us.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h8e65ad74c5609c91E.exit.us.us.i": ; preds = %.backedge.us.us.i
-  %59 = add i16 %69, -1
+  %59 = add i16 %69, -2
   %60 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %69, i1 true)
   %61 = zext nneg i16 %60 to i64
   %62 = and i16 %59, %69
@@ -141827,7 +141827,7 @@ _ZN9hashbrown3map9make_hash17hf615c66c225591ffE.exit: ; preds = %2, %_ZN4core4ha
   br label %.backedge.us.us.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h1bdca6bae7e59901E.exit.us.us.i": ; preds = %.backedge.us.us.i
-  %56 = add i16 %66, -1
+  %56 = add i16 %66, -2
   %57 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %66, i1 true)
   %58 = zext nneg i16 %57 to i64
   %59 = and i16 %56, %66
@@ -142078,7 +142078,7 @@ _ZN9hashbrown3map9make_hash17hedf2d5898c7ec0f0E.exit: ; preds = %2, %_ZN8foldhas
   br label %.backedge.us.us.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h179596582291346cE.exit.us.us.i": ; preds = %.backedge.us.us.i
-  %55 = add i16 %65, -1
+  %55 = add i16 %65, -2
   %56 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %65, i1 true)
   %57 = zext nneg i16 %56 to i64
   %58 = and i16 %55, %65
@@ -142329,7 +142329,7 @@ _ZN9hashbrown3map9make_hash17hfb65854f27e86a5aE.exit: ; preds = %2, %_ZN8foldhas
   br label %.backedge.us.us.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hf1d0e798b8421dcfE.exit.us.us.i": ; preds = %.backedge.us.us.i
-  %55 = add i16 %65, -1
+  %55 = add i16 %65, -2
   %56 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %65, i1 true)
   %57 = zext nneg i16 %56 to i64
   %58 = and i16 %55, %65
@@ -142580,7 +142580,7 @@ _ZN9hashbrown3map9make_hash17h6dfac6308f7c5b84E.exit: ; preds = %2, %_ZN8foldhas
   br label %.backedge.us.us.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h33a1d5d934b08f80E.exit.us.us.i": ; preds = %.backedge.us.us.i
-  %55 = add i16 %65, -1
+  %55 = add i16 %65, -2
   %56 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %65, i1 true)
   %57 = zext nneg i16 %56 to i64
   %58 = and i16 %55, %65
@@ -142839,7 +142839,7 @@ _ZN9hashbrown3map9make_hash17hbb88ad75b7e90df1E.exit: ; preds = %2, %5
   br label %.backedge.us.us.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hcad9ec9a382af467E.exit.us.us.i": ; preds = %.backedge.us.us.i
-  %66 = add i16 %76, -1
+  %66 = add i16 %76, -2
   %67 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %76, i1 true)
   %68 = zext nneg i16 %67 to i64
   %69 = and i16 %66, %76
@@ -143126,7 +143126,7 @@ _ZN9hashbrown3map9make_hash17hbb4599c1d6b4cefdE.exit: ; preds = %13, %"_ZN66_$LT
   br label %.backedge.us.us.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h63008904c762269dE.exit.us.us.i": ; preds = %.backedge.us.us.i
-  %64 = add i16 %74, -1
+  %64 = add i16 %74, -2
   %65 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %74, i1 true)
   %66 = zext nneg i16 %65 to i64
   %67 = and i16 %64, %74
@@ -149624,7 +149624,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i: ; preds = %"_Z
   br label %.backedge.us.us.i.i
 
 88:                                               ; preds = %.backedge.us.us.i.i
-  %89 = add i16 %101, -1
+  %89 = add i16 %101, -2
   %90 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %101, i1 true)
   %91 = zext nneg i16 %90 to i64
   %92 = and i16 %89, %101
@@ -149675,7 +149675,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i: ; preds = %"_Z
   br label %.backedge.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h9e84f03c84fc48abE.exit.i.i": ; preds = %.backedge.i.i
-  %115 = add i16 %125, -1
+  %115 = add i16 %125, -2
   %116 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %125, i1 true)
   %117 = zext nneg i16 %116 to i64
   %118 = and i16 %115, %125
@@ -150066,7 +150066,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i: ; preds = %"_Z
   br label %.backedge.us.us.i.i
 
 87:                                               ; preds = %.backedge.us.us.i.i
-  %88 = add i16 %100, -1
+  %88 = add i16 %100, -2
   %89 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %100, i1 true)
   %90 = zext nneg i16 %89 to i64
   %91 = and i16 %88, %100
@@ -150117,7 +150117,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i: ; preds = %"_Z
   br label %.backedge.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17heaeb2e04f787f311E.exit.i.i": ; preds = %.backedge.i.i
-  %114 = add i16 %124, -1
+  %114 = add i16 %124, -2
   %115 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %124, i1 true)
   %116 = zext nneg i16 %115 to i64
   %117 = and i16 %114, %124
@@ -150555,7 +150555,7 @@ _ZN9hashbrown3map9make_hash17he24b8c686ca9c6e2E.exit.i: ; preds = %_ZN8foldhash4
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc749d01b85b763abE.exit.backedge.i.i"
 
 107:                                              ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hc749d01b85b763abE.exit.backedge.i.i"
-  %108 = add i16 %118, -1
+  %108 = add i16 %118, -2
   %109 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %118, i1 true)
   %110 = zext nneg i16 %109 to i64
   %111 = and i16 %108, %118
@@ -150991,7 +150991,7 @@ _ZN9hashbrown3map9make_hash17hc5a5a162f3d9c582E.exit.i: ; preds = %_ZN8foldhash4
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03bd96ac58a60e0bE.exit.backedge.i.i"
 
 106:                                              ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h03bd96ac58a60e0bE.exit.backedge.i.i"
-  %107 = add i16 %117, -1
+  %107 = add i16 %117, -2
   %108 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %117, i1 true)
   %109 = zext nneg i16 %108 to i64
   %110 = and i16 %107, %117

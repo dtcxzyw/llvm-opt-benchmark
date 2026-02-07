@@ -1773,7 +1773,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit:
   %53 = load i8, ptr @UseCompressedClassPointers, align 1
   %54 = trunc i8 %53 to i1
   %55 = select i1 %54, i32 16, i32 20
-  %narrow.i = add nuw nsw i32 %55, 7
+  %narrow.i = add nuw nsw i32 %55, 4
   %56 = and i32 %narrow.i, 24
   %57 = select i1 %51, i32 %55, i32 %56
   store i32 %1, ptr %9, align 8

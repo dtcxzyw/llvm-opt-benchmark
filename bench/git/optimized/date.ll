@@ -431,7 +431,7 @@ Q_.exit71:                                        ; preds = %75, %78
 
 82:                                               ; preds = %80
   %83 = mul nuw nsw i64 %49, 24
-  %84 = add nuw nsw i64 %83, 365
+  %84 = add nuw nsw i64 %83, 364
   %85 = udiv i64 %84, 730
   %86 = udiv i64 %84, 8760
   %87 = urem i64 %85, 12
@@ -446,7 +446,7 @@ Q_.exit71:                                        ; preds = %75, %78
   br i1 %.not.i72, label %90, label %93
 
 90:                                               ; preds = %88
-  %.off84 = add nsw i64 %83, -8395
+  %.off84 = add nsw i64 %83, -8400
   %91 = icmp ult i64 %.off84, 8760
   %92 = select i1 %91, ptr @.str.13, ptr @.str.14
   br label %Q_.exit74
@@ -486,7 +486,7 @@ Q_.exit77:                                        ; preds = %96, %99
   br i1 %.not.i78, label %105, label %108
 
 105:                                              ; preds = %103
-  %.off85 = add nsw i64 %83, -8395
+  %.off85 = add nsw i64 %83, -8400
   %106 = icmp ult i64 %.off85, 8760
   %107 = select i1 %106, ptr @.str.17, ptr @.str.18
   br label %Q_.exit80

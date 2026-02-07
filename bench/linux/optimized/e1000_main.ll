@@ -874,7 +874,7 @@ define dso_local void @e1000_reset(ptr noundef %0) local_unnamed_addr #3 align 1
   %36 = and i32 %34, 65535
   %37 = load i32, ptr %26, align 8
   %38 = shl i32 %37, 1
-  %39 = add i32 %38, 1047
+  %39 = add i32 %38, 1046
   %40 = lshr i32 %39, 10
   %41 = add i32 %37, 1023
   %42 = lshr i32 %41, 10
@@ -1423,7 +1423,7 @@ define dso_local noundef range(i32 -12, 1) i32 @e1000_setup_all_tx_resources(ptr
   %24 = load i32, ptr %16, align 4
   %25 = shl i32 %24, 4
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %27 = add i32 %25, 4095
+  %27 = add i32 %25, 4080
   %28 = and i32 %27, -4096
   store i32 %28, ptr %26, align 8
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 184
@@ -1621,7 +1621,7 @@ define dso_local noundef range(i32 -12, 1) i32 @e1000_setup_all_rx_resources(ptr
   %24 = load i32, ptr %16, align 4
   %25 = shl i32 %24, 4
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %27 = add i32 %25, 4095
+  %27 = add i32 %25, 4080
   %28 = and i32 %27, -4096
   store i32 %28, ptr %26, align 8
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 184

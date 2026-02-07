@@ -479,7 +479,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse
   br i1 %68, label %69, label %tailrecurse.backedge
 
 69:                                               ; preds = %64
-  %70 = add nuw nsw i32 %67, 31
+  %70 = add nuw nsw i32 %67, 30
   %71 = lshr i32 %70, 5
   store i32 %71, ptr %8, align 4
   br label %tailrecurse.backedge
@@ -1389,7 +1389,7 @@ define hidden void @_ZN14JNIHandleBlock17rebuild_free_listEv(ptr noundef nonnull
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %24
-  %30 = add nuw nsw i32 %27, 31
+  %30 = add nuw nsw i32 %27, 30
   %31 = lshr i32 %30, 5
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 260
   store i32 %31, ptr %32, align 4

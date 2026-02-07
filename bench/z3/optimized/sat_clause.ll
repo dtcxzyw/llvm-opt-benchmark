@@ -994,7 +994,7 @@ _ZN6id_gen7recycleEj.exit:                        ; preds = %2, %_ZN6vectorIjLb0
 
 31:                                               ; preds = %_ZN6id_gen7recycleEj.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %33 = add nuw nsw i64 %25, 27
+  %33 = add nuw nsw i64 %25, 24
   %34 = lshr i64 %33, 3
   %35 = getelementptr inbounds nuw %class.ptr_vector.1, ptr %32, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !39

@@ -18925,7 +18925,7 @@ define dso_local range(i64 4294967296, 1) i64 @_ZNK5clang12FunctionDecl24getRetu
 _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit.i: ; preds = %7, %1
   %10 = phi ptr [ %9, %7 ], [ %6, %1 ]
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %72, label %11
+  br i1 %.not.i, label %70, label %11
 
 11:                                               ; preds = %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit.i
   %.sroa.0.0.copyload.i.i = load i64, ptr %10, align 8, !tbaa !390
@@ -18954,7 +18954,7 @@ _ZNK5clang7TypeLoc12IgnoreParensEv.exit.i:        ; preds = %19, %_ZN5clang15Con
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 15
   %.not.i.i3.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i3.i, label %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i, label %72
+  br i1 %.not.i.i3.i, label %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i, label %70
 
 _ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i: ; preds = %_ZNK5clang7TypeLoc12IgnoreParensEv.exit.i
   %24 = extractvalue { ptr, ptr } %.fca.1.insert.merged.i.i, 1
@@ -18963,7 +18963,7 @@ _ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12Function
   %27 = load i8, ptr %26, align 16
   %28 = add i8 %27, -25
   %spec.select.i.i.i.i.i = icmp ult i8 %28, 2
-  br i1 %spec.select.i.i.i.i.i, label %29, label %72
+  br i1 %spec.select.i.i.i.i.i, label %29, label %70
 
 29:                                               ; preds = %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i
   %30 = tail call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33) %0) #30
@@ -18983,7 +18983,7 @@ _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i: ; preds =
   %36 = load i64, ptr %34, align 16
   %37 = and i64 %36, 270215977642229760
   %.not.i.i.i.i.i = icmp eq i64 %37, 0
-  %38 = select i1 %.not.i.i.i.i.i, i64 15, i64 23
+  %38 = select i1 %.not.i.i.i.i.i, i64 16, i64 24
   br label %39
 
 _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i: ; preds = %29
@@ -18992,56 +18992,54 @@ _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i: ; pre
 
 39:                                               ; preds = %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i
   %40 = phi i64 [ %36, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i ], [ %.pre.i.i.i.i.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i ]
-  %spec.select.i2.i.i.i.i.i = phi i64 [ %38, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i ], [ 15, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i ]
+  %spec.select.i2.i.i.i.i.i = phi i64 [ %38, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i ], [ 16, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i ]
   %sh.diff.i.i.i.i.i = lshr i64 %40, 35
   %41 = and i64 %sh.diff.i.i.i.i.i, 524280
   %42 = add nuw nsw i64 %41, %spec.select.i2.i.i.i.i.i
-  %43 = and i64 %42, 1048568
-  %44 = add nuw nsw i64 %43, 8
   br label %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit
 
 _ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit: ; preds = %29, %39
-  %45 = phi i64 [ %44, %39 ], [ 16, %29 ]
-  %46 = ptrtoint ptr %24 to i64
-  %47 = add i64 %45, %46
-  %48 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i) #31
-  %49 = icmp ne i64 %47, 0
-  %50 = zext i1 %49 to i64
-  %51 = sub i64 %47, %50
-  %52 = zext i32 %48 to i64
-  %53 = udiv i64 %51, %52
-  %54 = add i64 %53, %50
-  %55 = mul i64 %54, %52
-  %56 = inttoptr i64 %55 to ptr
-  %57 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i to ptr
-  store ptr %57, ptr %2, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %56, ptr %58, align 8
-  %59 = call i32 @_ZNK5clang7TypeLoc11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #31
-  %60 = call i32 @_ZNK5clang7TypeLoc9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #31
+  %43 = phi i64 [ %42, %39 ], [ 16, %29 ]
+  %44 = ptrtoint ptr %24 to i64
+  %45 = add i64 %43, %44
+  %46 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i) #31
+  %47 = icmp ne i64 %45, 0
+  %48 = zext i1 %47 to i64
+  %49 = sub i64 %45, %48
+  %50 = zext i32 %46 to i64
+  %51 = udiv i64 %49, %50
+  %52 = add i64 %51, %48
+  %53 = mul i64 %52, %50
+  %54 = inttoptr i64 %53 to ptr
+  %55 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i to ptr
+  store ptr %55, ptr %2, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %54, ptr %56, align 8
+  %57 = call i32 @_ZNK5clang7TypeLoc11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #31
+  %58 = call i32 @_ZNK5clang7TypeLoc9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.0.0.copyload.i3.i = load i32, ptr %61, align 8, !tbaa !18, !noalias !933
-  %62 = icmp eq i32 %59, 0
-  %63 = icmp eq i32 %60, 0
-  %.not2.i = select i1 %62, i1 true, i1 %63
-  %64 = icmp eq i32 %.sroa.0.0.copyload.i3.i, 0
-  %or.cond = select i1 %.not2.i, i1 true, i1 %64
-  br i1 %or.cond, label %72, label %65
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.sroa.0.0.copyload.i3.i = load i32, ptr %59, align 8, !tbaa !18, !noalias !933
+  %60 = icmp eq i32 %57, 0
+  %61 = icmp eq i32 %58, 0
+  %.not2.i = select i1 %60, i1 true, i1 %61
+  %62 = icmp eq i32 %.sroa.0.0.copyload.i3.i, 0
+  %or.cond = select i1 %.not2.i, i1 true, i1 %62
+  br i1 %or.cond, label %70, label %63
 
-65:                                               ; preds = %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit
-  %66 = call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %32, i32 %60, i32 %.sroa.0.0.copyload.i3.i) #31
-  br i1 %66, label %67, label %72
+63:                                               ; preds = %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit
+  %64 = call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %32, i32 %58, i32 %.sroa.0.0.copyload.i3.i) #31
+  br i1 %64, label %65, label %70
 
-67:                                               ; preds = %65
-  %68 = zext i32 %60 to i64
-  %69 = shl nuw i64 %68, 32
-  %70 = zext i32 %59 to i64
-  %71 = or disjoint i64 %69, %70
-  br label %72
+65:                                               ; preds = %63
+  %66 = zext i32 %58 to i64
+  %67 = shl nuw i64 %66, 32
+  %68 = zext i32 %57 to i64
+  %69 = or disjoint i64 %67, %68
+  br label %70
 
-72:                                               ; preds = %67, %65, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i, %_ZNK5clang7TypeLoc12IgnoreParensEv.exit.i, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit.i
-  %.sroa.6.0 = phi i64 [ 0, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i ], [ 0, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit.i ], [ 0, %_ZNK5clang7TypeLoc12IgnoreParensEv.exit.i ], [ %71, %67 ], [ 0, %65 ], [ 0, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit ]
+70:                                               ; preds = %65, %63, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i, %_ZNK5clang7TypeLoc12IgnoreParensEv.exit.i, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit.i
+  %.sroa.6.0 = phi i64 [ 0, %_ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE6isKindERKNS_7TypeLocE.exit.i.i ], [ 0, %_ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit.i ], [ 0, %_ZNK5clang7TypeLoc12IgnoreParensEv.exit.i ], [ %69, %65 ], [ 0, %63 ], [ 0, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit ]
   ret i64 %.sroa.6.0
 }
 

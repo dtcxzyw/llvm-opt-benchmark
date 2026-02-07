@@ -10306,7 +10306,7 @@ define hidden noundef i64 @rb_str_append_as_bytes(i32 noundef %0, ptr noundef ca
 
 .thread163:                                       ; preds = %8
   %11 = shl nuw nsw i64 %6, 2
-  %12 = add nuw nsw i64 %11, 7
+  %12 = add nuw nsw i64 %11, 4
   %13 = lshr i64 %12, 3
   %14 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %4, i64 noundef %11, i64 noundef %13) #34
   br label %.lr.ph.preheader

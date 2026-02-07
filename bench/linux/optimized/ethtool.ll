@@ -2186,7 +2186,7 @@ reg_pattern_test.exit64.thread:                   ; preds = %.preheader.i63, %re
   %543 = load i32, ptr %531, align 4
   %544 = shl i32 %543, 4
   %545 = getelementptr i8, ptr %0, i64 13952
-  %546 = add i32 %544, 4095
+  %546 = add i32 %544, 4080
   %547 = and i32 %546, -4096
   store i32 %547, ptr %545, align 8
   %548 = getelementptr inbounds nuw i8, ptr %530, i64 184

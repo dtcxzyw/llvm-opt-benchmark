@@ -760,7 +760,7 @@ DivRound.exit.i.i.i.i:                            ; preds = %296, %293
   br i1 %301, label %302, label %305
 
 302:                                              ; preds = %DivRound.exit.i.i.i.i
-  %303 = add nuw nsw i64 %300, 5
+  %303 = add nuw nsw i64 %300, 4
   %304 = udiv i64 %303, 10
   br label %DivRound.exit16.i.i.i.i
 
@@ -1598,7 +1598,7 @@ DivRound.exit.i.i.i.i:                            ; preds = %49, %46
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %DivRound.exit.i.i.i.i
-  %56 = add nuw nsw i64 %53, 5
+  %56 = add nuw nsw i64 %53, 4
   %57 = udiv i64 %56, 10
   br label %DivRound.exit16.i.i.i.i
 
@@ -1711,7 +1711,7 @@ DivRound.exit.i.i.i52.i:                          ; preds = %107, %104
   br i1 %112, label %113, label %116
 
 113:                                              ; preds = %DivRound.exit.i.i.i52.i
-  %114 = add nuw nsw i64 %111, 5
+  %114 = add nuw nsw i64 %111, 4
   %115 = udiv i64 %114, 10
   br label %DivRound.exit16.i.i.i55.i
 
@@ -1819,7 +1819,7 @@ DivRound.exit.i.i.i:                              ; preds = %158, %155
   br i1 %163, label %164, label %167
 
 164:                                              ; preds = %DivRound.exit.i.i.i
-  %165 = add nuw nsw i64 %162, 5
+  %165 = add nuw nsw i64 %162, 4
   %166 = udiv i64 %165, 10
   br label %DivRound.exit16.i.i.i
 
@@ -1959,7 +1959,7 @@ DivRound.exit.i.i.i.i47:                          ; preds = %233, %230
   br i1 %238, label %239, label %242
 
 239:                                              ; preds = %DivRound.exit.i.i.i.i47
-  %240 = add nuw nsw i64 %237, 5
+  %240 = add nuw nsw i64 %237, 4
   %241 = udiv i64 %240, 10
   br label %DivRound.exit16.i.i.i.i50
 

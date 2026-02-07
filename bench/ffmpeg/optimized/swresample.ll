@@ -1103,7 +1103,7 @@ define range(i32 -22, 2) i32 @swri_realloc_audio(ptr noundef captures(none) %0, 
 16:                                               ; preds = %13
   %17 = shl nuw nsw i32 %1, 1
   %18 = mul nsw i32 %7, %17
-  %19 = add nsw i32 %18, 31
+  %19 = add nsw i32 %18, 30
   %20 = and i32 %19, -32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(544) %3, ptr noundef nonnull align 8 dereferenceable(544) %0, i64 544, i1 false), !tbaa.struct !77
   %21 = sext i32 %20 to i64

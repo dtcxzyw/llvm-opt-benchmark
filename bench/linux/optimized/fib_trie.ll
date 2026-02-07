@@ -7180,7 +7180,7 @@ define internal noundef i32 @fib_triestat_seq_show(ptr noundef %0, ptr readnone 
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.43, i32 noundef %167) #17
   %171 = shl i32 %167, 3
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.44, i32 noundef %132) #17
-  %172 = add i32 %169, 1023
+  %172 = add i32 %169, 1016
   %173 = add i32 %172, %168
   %174 = add i32 %173, %170
   %175 = add i32 %174, %171

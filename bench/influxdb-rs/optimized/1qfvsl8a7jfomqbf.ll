@@ -3908,7 +3908,7 @@ _ZN11arrow_array5array5Array7is_null17h631dd23deb43ddb3E.exit: ; preds = %2, %_Z
 define hidden void @"_ZN11arrow_array7builder17primitive_builder25PrimitiveBuilder$LT$T$GT$13with_capacity17h0747667441b17d91E"(ptr noalias noundef writeonly sret({ { { { i64, i64 }, ptr, i64 }, i64, {} }, { { i64, [4 x i64] }, i64, i64 }, { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = shl i64 %1, 2
-  %5 = add i64 %4, 63
+  %5 = add i64 %4, 60
   %6 = and i64 %5, -64
   %7 = icmp ugt i64 %6, 9223372036854775680
   br i1 %7, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8abf2ccb318cd650E.exit.i"
@@ -3953,7 +3953,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h599cdfd44654158
 define hidden void @"_ZN11arrow_array7builder17primitive_builder25PrimitiveBuilder$LT$T$GT$13with_capacity17h2a8449385edf570bE"(ptr noalias noundef writeonly sret({ { { { i64, i64 }, ptr, i64 }, i64, {} }, { { i64, [4 x i64] }, i64, i64 }, { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = shl i64 %1, 3
-  %5 = add i64 %4, 63
+  %5 = add i64 %4, 56
   %6 = and i64 %5, -64
   %7 = icmp ugt i64 %6, 9223372036854775680
   br i1 %7, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8abf2ccb318cd650E.exit.i"
@@ -3998,7 +3998,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h599cdfd44654158
 define hidden void @"_ZN11arrow_array7builder17primitive_builder25PrimitiveBuilder$LT$T$GT$13with_capacity17h661c6d2fd87126d9E"(ptr noalias noundef writeonly sret({ { { { i64, i64 }, ptr, i64 }, i64, {} }, { { i64, [4 x i64] }, i64, i64 }, { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = shl i64 %1, 3
-  %5 = add i64 %4, 63
+  %5 = add i64 %4, 56
   %6 = and i64 %5, -64
   %7 = icmp ugt i64 %6, 9223372036854775680
   br i1 %7, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8abf2ccb318cd650E.exit.i"
@@ -4043,7 +4043,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h599cdfd44654158
 define hidden void @"_ZN11arrow_array7builder17primitive_builder25PrimitiveBuilder$LT$T$GT$13with_capacity17h7ddacadbd76cde16E"(ptr noalias noundef writeonly sret({ { { { i64, i64 }, ptr, i64 }, i64, {} }, { { i64, [4 x i64] }, i64, i64 }, { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = shl i64 %1, 3
-  %5 = add i64 %4, 63
+  %5 = add i64 %4, 56
   %6 = and i64 %5, -64
   %7 = icmp ugt i64 %6, 9223372036854775680
   br i1 %7, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8abf2ccb318cd650E.exit.i"
@@ -4088,7 +4088,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h599cdfd44654158
 define hidden void @"_ZN11arrow_array7builder17primitive_builder25PrimitiveBuilder$LT$T$GT$13with_capacity17h97a5f589e2703655E"(ptr noalias noundef writeonly sret({ { { { i64, i64 }, ptr, i64 }, i64, {} }, { { i64, [4 x i64] }, i64, i64 }, { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(120) %0, i64 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = shl i64 %1, 3
-  %5 = add i64 %4, 63
+  %5 = add i64 %4, 56
   %6 = and i64 %5, -64
   %7 = icmp ugt i64 %6, 9223372036854775680
   br i1 %7, label %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8abf2ccb318cd650E.exit.i"
@@ -4998,8 +4998,8 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
   %5 = alloca { { { i64, i64 }, ptr, i64 }, i64, {} }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = shl i64 %1, 2
-  %7 = add i64 %6, 67
-  %8 = and i64 %7, -64
+  %7 = and i64 %6, -64
+  %8 = add i64 %7, 64
   %9 = icmp ugt i64 %8, 9223372036854775680
   br i1 %9, label %10, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8abf2ccb318cd650E.exit.i"
 

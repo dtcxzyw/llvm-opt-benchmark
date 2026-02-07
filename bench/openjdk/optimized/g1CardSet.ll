@@ -523,7 +523,7 @@ define hidden void @_ZN22G1CardSetConfigurationC2Ejjdjdjj(ptr noundef nonnull al
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 40
   store i8 6, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 44
-  %47 = add i32 %44, 23
+  %47 = add i32 %44, 22
   %48 = and i32 %47, -8
   store i32 %48, ptr %46, align 4
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 48
@@ -544,56 +544,54 @@ define hidden void @_ZN22G1CardSetConfigurationC2Ejjdjdjj(ptr noundef nonnull al
   %60 = getelementptr inbounds nuw i8, ptr %52, i64 72
   store i8 6, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 76
-  %62 = add nuw nsw i32 %59, 23
-  %63 = and i32 %62, 2147483640
-  store i32 %63, ptr %61, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %52, i64 80
-  store i32 2, ptr %64, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %52, i64 84
-  store i32 256, ptr %65, align 4
-  %66 = getelementptr inbounds nuw i8, ptr %52, i64 88
-  store i32 8, ptr %66, align 8
+  %62 = add nuw nsw i32 %59, 16
+  store i32 %62, ptr %61, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 80
+  store i32 2, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %52, i64 84
+  store i32 256, ptr %64, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %52, i64 88
+  store i32 8, ptr %65, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21G1CardSetAllocOptions, i64 16), ptr %53, align 8
-  %67 = load ptr, ptr %35, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 96
-  %69 = load i32, ptr %11, align 8
-  %70 = shl i32 %69, 3
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 104
-  store i8 6, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %67, i64 108
-  %73 = add i32 %70, 23
-  %74 = and i32 %73, -8
-  store i32 %74, ptr %72, align 4
-  %75 = getelementptr inbounds nuw i8, ptr %67, i64 112
-  store i32 2, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %67, i64 116
-  store i32 256, ptr %76, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %67, i64 120
-  store i32 8, ptr %77, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21G1CardSetAllocOptions, i64 16), ptr %68, align 8
+  %66 = load ptr, ptr %35, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 96
+  %68 = load i32, ptr %11, align 8
+  %69 = shl i32 %68, 3
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 104
+  store i8 6, ptr %70, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %66, i64 108
+  %72 = add i32 %69, 16
+  store i32 %72, ptr %71, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 112
+  store i32 2, ptr %73, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %66, i64 116
+  store i32 256, ptr %74, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %66, i64 120
+  store i32 8, ptr %75, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21G1CardSetAllocOptions, i64 16), ptr %67, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 2, ptr %9, align 8
   %.sroa.21.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_130ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr %.sroa.21.0..sroa_idx.i.i, align 8
-  %78 = load i32, ptr %0, align 8
-  %79 = udiv i32 59, %78
-  %80 = load i32, ptr %10, align 4
-  %81 = zext i32 %80 to i64
-  %82 = shl nuw nsw i64 %81, 1
-  %83 = add nuw nsw i64 %82, 16
-  %84 = load i32, ptr %11, align 8
-  %85 = load i32, ptr %13, align 8
-  %86 = load i32, ptr %17, align 4
-  %87 = zext i32 %86 to i64
-  %88 = add nuw nsw i64 %87, 63
-  %89 = lshr i64 %88, 3
-  %90 = and i64 %89, 1073741816
-  %91 = add nuw nsw i64 %90, 16
-  %92 = load i32, ptr %23, align 8
-  %93 = load i32, ptr %31, align 4
-  %94 = shl nuw i32 1, %93
-  %95 = load i32, ptr %12, align 4
-  call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, i32 noundef %79, i64 noundef 8, i32 noundef %80, i64 noundef %83, i32 noundef %84, i32 noundef %85, i32 noundef %86, i64 noundef %91, i32 noundef %92, i32 noundef %94, i32 noundef %95)
+  %76 = load i32, ptr %0, align 8
+  %77 = udiv i32 59, %76
+  %78 = load i32, ptr %10, align 4
+  %79 = zext i32 %78 to i64
+  %80 = shl nuw nsw i64 %79, 1
+  %81 = add nuw nsw i64 %80, 16
+  %82 = load i32, ptr %11, align 8
+  %83 = load i32, ptr %13, align 8
+  %84 = load i32, ptr %17, align 4
+  %85 = zext i32 %84 to i64
+  %86 = add nuw nsw i64 %85, 63
+  %87 = lshr i64 %86, 3
+  %88 = and i64 %87, 1073741816
+  %89 = add nuw nsw i64 %88, 16
+  %90 = load i32, ptr %23, align 8
+  %91 = load i32, ptr %31, align 4
+  %92 = shl nuw i32 1, %91
+  %93 = load i32, ptr %12, align 4
+  call void (ptr, ptr, ...) @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull @.str, i32 noundef %77, i64 noundef 8, i32 noundef %78, i64 noundef %81, i32 noundef %82, i32 noundef %83, i32 noundef %84, i64 noundef %89, i32 noundef %90, i32 noundef %92, i32 noundef %93)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret void
 }
@@ -643,7 +641,7 @@ define hidden void @_ZN22G1CardSetConfiguration27init_card_set_alloc_optionsEv(p
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i8 6, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 44
-  %16 = add i32 %13, 23
+  %16 = add i32 %13, 22
   %17 = and i32 %16, -8
   store i32 %17, ptr %15, align 4
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -665,34 +663,32 @@ define hidden void @_ZN22G1CardSetConfiguration27init_card_set_alloc_optionsEv(p
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 72
   store i8 6, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 76
-  %32 = add nuw nsw i32 %29, 23
-  %33 = and i32 %32, 2147483640
-  store i32 %33, ptr %31, align 4
-  %34 = getelementptr inbounds nuw i8, ptr %21, i64 80
-  store i32 2, ptr %34, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %21, i64 84
-  store i32 256, ptr %35, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %21, i64 88
-  store i32 8, ptr %36, align 8
+  %32 = add nuw nsw i32 %29, 16
+  store i32 %32, ptr %31, align 4
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  store i32 2, ptr %33, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %21, i64 84
+  store i32 256, ptr %34, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 88
+  store i32 8, ptr %35, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21G1CardSetAllocOptions, i64 16), ptr %22, align 8
-  %37 = load ptr, ptr %3, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %40 = load i32, ptr %39, align 8
-  %41 = shl i32 %40, 3
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 104
-  store i8 6, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %37, i64 108
-  %44 = add i32 %41, 23
-  %45 = and i32 %44, -8
-  store i32 %45, ptr %43, align 4
-  %46 = getelementptr inbounds nuw i8, ptr %37, i64 112
-  store i32 2, ptr %46, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %37, i64 116
-  store i32 256, ptr %47, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %37, i64 120
-  store i32 8, ptr %48, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21G1CardSetAllocOptions, i64 16), ptr %38, align 8
+  %36 = load ptr, ptr %3, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 96
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %39 = load i32, ptr %38, align 8
+  %40 = shl i32 %39, 3
+  %41 = getelementptr inbounds nuw i8, ptr %36, i64 104
+  store i8 6, ptr %41, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %36, i64 108
+  %43 = add i32 %40, 16
+  store i32 %43, ptr %42, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %36, i64 112
+  store i32 2, ptr %44, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %36, i64 116
+  store i32 256, ptr %45, align 4
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 120
+  store i32 8, ptr %46, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV21G1CardSetAllocOptions, i64 16), ptr %37, align 8
   ret void
 }
 
@@ -10996,7 +10992,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI14G1CMOopClosureE5Ta
   %25 = select i1 %24, i32 16, i32 20
   %26 = load i8, ptr @UseCompressedOops, align 1
   %27 = trunc i8 %26 to i1
-  %narrow.i.i.i.i.i = add nuw nsw i32 %25, 7
+  %narrow.i.i.i.i.i = add nuw nsw i32 %25, 4
   %28 = and i32 %narrow.i.i.i.i.i, 24
   %29 = select i1 %27, i32 %25, i32 %28
   %30 = ptrtoint ptr %1 to i64
@@ -11091,7 +11087,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI14G1CMOopClosureE5Ta
   %25 = select i1 %24, i32 16, i32 20
   %26 = load i8, ptr @UseCompressedOops, align 1
   %27 = trunc i8 %26 to i1
-  %narrow.i.i.i.i.i = add nuw nsw i32 %25, 7
+  %narrow.i.i.i.i.i = add nuw nsw i32 %25, 4
   %28 = and i32 %narrow.i.i.i.i.i, 24
   %29 = select i1 %27, i32 %25, i32 %28
   %30 = ptrtoint ptr %1 to i64
@@ -15425,7 +15421,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClos
   %28 = select i1 %27, i32 16, i32 20
   %29 = load i8, ptr @UseCompressedOops, align 1
   %30 = trunc i8 %29 to i1
-  %narrow.i.i.i.i.i = add nuw nsw i32 %28, 7
+  %narrow.i.i.i.i.i = add nuw nsw i32 %28, 4
   %31 = and i32 %narrow.i.i.i.i.i, 24
   %32 = select i1 %30, i32 %28, i32 %31
   %33 = ptrtoint ptr %1 to i64
@@ -15524,7 +15520,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI14G1CMOopClos
   %28 = select i1 %27, i32 16, i32 20
   %29 = load i8, ptr @UseCompressedOops, align 1
   %30 = trunc i8 %29 to i1
-  %narrow.i.i.i.i.i = add nuw nsw i32 %28, 7
+  %narrow.i.i.i.i.i = add nuw nsw i32 %28, 4
   %31 = and i32 %narrow.i.i.i.i.i, 24
   %32 = select i1 %30, i32 %28, i32 %31
   %33 = ptrtoint ptr %1 to i64

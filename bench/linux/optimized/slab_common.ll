@@ -2357,7 +2357,7 @@ define dso_local ptr @find_mergeable(i32 noundef %0, i32 noundef %1, i32 noundef
   %24 = tail call i32 @llvm.umax.i32(i32 %23, i32 8)
   %25 = add i32 %24, 7
   %26 = and i32 %25, -8
-  %27 = add i32 %11, -1
+  %27 = add i32 %0, -1
   %28 = add i32 %27, %26
   %29 = sub i32 0, %26
   %30 = and i32 %28, %29

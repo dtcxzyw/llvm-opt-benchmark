@@ -1973,7 +1973,7 @@ _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i: ; preds =
   %8 = load i64, ptr %5, align 16
   %9 = and i64 %8, 270215977642229760
   %.not.i.i.i.i.i = icmp eq i64 %9, 0
-  %10 = select i1 %.not.i.i.i.i.i, i64 15, i64 23
+  %10 = select i1 %.not.i.i.i.i.i, i64 16, i64 24
   br label %12
 
 _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i: ; preds = %3
@@ -1986,30 +1986,28 @@ _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i: ; pre
 
 12:                                               ; preds = %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i
   %13 = phi i64 [ %8, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i ], [ %.pre.i.i.i.i.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i ]
-  %spec.select.i2.i.i.i.i.i = phi i64 [ %10, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i ], [ 15, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i ]
+  %spec.select.i2.i.i.i.i.i = phi i64 [ %10, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i ], [ 16, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i ]
   %sh.diff.i.i.i.i.i = lshr i64 %13, 35
   %14 = and i64 %sh.diff.i.i.i.i.i, 524280
   %15 = add nuw nsw i64 %14, %spec.select.i2.i.i.i.i.i
-  %16 = and i64 %15, 1048568
-  %17 = add nuw nsw i64 %16, 8
   br label %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit
 
 _ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit: ; preds = %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i, %12
-  %18 = phi i64 [ %17, %12 ], [ 16, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i ]
-  %19 = ptrtoint ptr %2 to i64
-  %20 = add i64 %18, %19
-  %21 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i) #14
-  %22 = icmp ne i64 %20, 0
-  %23 = zext i1 %22 to i64
-  %24 = sub i64 %20, %23
-  %25 = zext i32 %21 to i64
-  %26 = udiv i64 %24, %25
-  %27 = add i64 %26, %23
-  %28 = mul i64 %27, %25
-  %29 = inttoptr i64 %28 to ptr
-  %30 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i to ptr
-  %31 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %30, ptr %29)
-  ret i1 %31
+  %16 = phi i64 [ %15, %12 ], [ 16, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i ]
+  %17 = ptrtoint ptr %2 to i64
+  %18 = add i64 %16, %17
+  %19 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i) #14
+  %20 = icmp ne i64 %18, 0
+  %21 = zext i1 %20 to i64
+  %22 = sub i64 %18, %21
+  %23 = zext i32 %19 to i64
+  %24 = udiv i64 %22, %23
+  %25 = add i64 %24, %21
+  %26 = mul i64 %25, %23
+  %27 = inttoptr i64 %26 to ptr
+  %28 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i to ptr
+  %29 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %28, ptr %27)
+  ret i1 %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2027,7 +2025,7 @@ _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i: ; preds =
   %8 = load i64, ptr %5, align 16
   %9 = and i64 %8, 270215977642229760
   %.not.i.i.i.i.i = icmp eq i64 %9, 0
-  %10 = select i1 %.not.i.i.i.i.i, i64 15, i64 23
+  %10 = select i1 %.not.i.i.i.i.i, i64 16, i64 24
   br label %12
 
 _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i: ; preds = %3
@@ -2040,133 +2038,131 @@ _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i: ; pre
 
 12:                                               ; preds = %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i
   %13 = phi i64 [ %8, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i ], [ %.pre.i.i.i.i.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i ]
-  %spec.select.i2.i.i.i.i.i = phi i64 [ %10, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i ], [ 15, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i ]
+  %spec.select.i2.i.i.i.i.i = phi i64 [ %10, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i ], [ 16, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i ]
   %sh.diff.i.i.i.i.i = lshr i64 %13, 35
   %14 = and i64 %sh.diff.i.i.i.i.i, 524280
   %15 = add nuw nsw i64 %14, %spec.select.i2.i.i.i.i.i
-  %16 = and i64 %15, 1048568
-  %17 = add nuw nsw i64 %16, 8
   br label %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit
 
 _ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit: ; preds = %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i, %12
-  %18 = phi i64 [ %17, %12 ], [ 16, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i ]
-  %19 = ptrtoint ptr %2 to i64
-  %20 = add i64 %18, %19
-  %21 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i) #14
-  %22 = icmp ne i64 %20, 0
-  %23 = zext i1 %22 to i64
-  %24 = sub i64 %20, %23
-  %25 = zext i32 %21 to i64
-  %26 = udiv i64 %24, %25
-  %27 = add i64 %26, %23
-  %28 = mul i64 %27, %25
-  %29 = inttoptr i64 %28 to ptr
-  %30 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i to ptr
-  %31 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %30, ptr %29)
-  br i1 %31, label %32, label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread
+  %16 = phi i64 [ %15, %12 ], [ 16, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i.i ]
+  %17 = ptrtoint ptr %2 to i64
+  %18 = add i64 %16, %17
+  %19 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i) #14
+  %20 = icmp ne i64 %18, 0
+  %21 = zext i1 %20 to i64
+  %22 = sub i64 %18, %21
+  %23 = zext i32 %19 to i64
+  %24 = udiv i64 %22, %23
+  %25 = add i64 %24, %21
+  %26 = mul i64 %25, %23
+  %27 = inttoptr i64 %26 to ptr
+  %28 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i to ptr
+  %29 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %28, ptr %27)
+  br i1 %29, label %30, label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread
 
-32:                                               ; preds = %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit
-  %33 = load i8, ptr %5, align 16
-  %34 = icmp eq i8 %33, 25
+30:                                               ; preds = %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit
+  %31 = load i8, ptr %5, align 16
+  %32 = icmp eq i8 %31, 25
   %.pre74 = load i64, ptr %5, align 16
-  %35 = and i64 %.pre74, 18014123631575040
-  %.not60 = icmp eq i64 %35, 0
-  %or.cond = select i1 %34, i1 true, i1 %.not60
+  %33 = and i64 %.pre74, 18014123631575040
+  %.not60 = icmp eq i64 %33, 0
+  %or.cond = select i1 %32, i1 true, i1 %.not60
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %32
-  %36 = lshr i64 %.pre74, 38
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %39 = and i64 %36, 65535
-  br label %40
+.lr.ph:                                           ; preds = %30
+  %34 = lshr i64 %.pre74, 38
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %37 = and i64 %34, 65535
+  br label %38
 
-40:                                               ; preds = %.lr.ph, %52
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
-  %42 = load ptr, ptr %41, align 8, !tbaa !200
-  %.not43 = icmp eq ptr %42, null
-  br i1 %.not43, label %45, label %43
+38:                                               ; preds = %.lr.ph, %50
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
+  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %40 = load ptr, ptr %39, align 8, !tbaa !200
+  %.not43 = icmp eq ptr %40, null
+  br i1 %.not43, label %43, label %41
 
-43:                                               ; preds = %40
-  %44 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %42)
-  br i1 %44, label %52, label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread
+41:                                               ; preds = %38
+  %42 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %40)
+  br i1 %42, label %50, label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread
 
-45:                                               ; preds = %40
-  %46 = load i64, ptr %5, align 16
-  %47 = lshr i64 %46, 38
-  %48 = and i64 %47, 65535
-  %49 = icmp samesign ult i64 %indvars.iv, %48
-  br i1 %49, label %50, label %52
+43:                                               ; preds = %38
+  %44 = load i64, ptr %5, align 16
+  %45 = lshr i64 %44, 38
+  %46 = and i64 %45, 65535
+  %47 = icmp samesign ult i64 %indvars.iv, %46
+  br i1 %47, label %48, label %50
 
-50:                                               ; preds = %45
-  %51 = getelementptr inbounds nuw %"class.clang::QualType", ptr %38, i64 %indvars.iv
-  %.sroa.0.0.copyload.i = load i64, ptr %51, align 8, !tbaa !3
+48:                                               ; preds = %43
+  %49 = getelementptr inbounds nuw %"class.clang::QualType", ptr %36, i64 %indvars.iv
+  %.sroa.0.0.copyload.i = load i64, ptr %49, align 8, !tbaa !3
   tail call fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE12TraverseTypeENS_8QualTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.sroa.0.0.copyload.i)
-  br label %52
+  br label %50
 
-52:                                               ; preds = %50, %43, %45
+50:                                               ; preds = %48, %41, %43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, %39
-  br i1 %.not, label %._crit_edge.loopexit, label %40, !llvm.loop !202
+  %.not = icmp eq i64 %indvars.iv.next, %37
+  br i1 %.not, label %._crit_edge.loopexit, label %38, !llvm.loop !202
 
-._crit_edge.loopexit:                             ; preds = %52
+._crit_edge.loopexit:                             ; preds = %50
   %.pre73 = load i64, ptr %5, align 16
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %32
-  %53 = phi i64 [ %.pre73, %._crit_edge.loopexit ], [ %.pre74, %32 ]
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %55 = lshr i64 %53, 38
-  %56 = and i64 %55, 65535
-  %57 = getelementptr inbounds nuw %"class.clang::QualType", ptr %54, i64 %56
-  %58 = lshr i64 %53, 60
-  %59 = and i64 %58, 1
-  %60 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %57, i64 %59
-  %61 = ptrtoint ptr %60 to i64
-  %62 = add i64 %61, 7
-  %63 = and i64 %62, -8
-  %64 = inttoptr i64 %63 to ptr
-  %65 = and i64 %53, 576460752303423488
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %65, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i, label %66
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %30
+  %51 = phi i64 [ %.pre73, %._crit_edge.loopexit ], [ %.pre74, %30 ]
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %53 = lshr i64 %51, 38
+  %54 = and i64 %53, 65535
+  %55 = getelementptr inbounds nuw %"class.clang::QualType", ptr %52, i64 %54
+  %56 = lshr i64 %51, 60
+  %57 = and i64 %56, 1
+  %58 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %55, i64 %57
+  %59 = ptrtoint ptr %58 to i64
+  %60 = add i64 %59, 7
+  %61 = and i64 %60, -8
+  %62 = inttoptr i64 %61 to ptr
+  %63 = and i64 %51, 576460752303423488
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %63, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i, label %64
 
-66:                                               ; preds = %._crit_edge
-  %67 = load i16, ptr %64, align 8
-  %68 = lshr i16 %67, 10
-  %.lobit.i.i.i.i.i.i = and i16 %68, 1
-  %69 = zext nneg i16 %.lobit.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %71 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %70, i64 %69
+64:                                               ; preds = %._crit_edge
+  %65 = load i16, ptr %62, align 8
+  %66 = lshr i16 %65, 10
+  %.lobit.i.i.i.i.i.i = and i16 %66, 1
+  %67 = zext nneg i16 %.lobit.i.i.i.i.i.i to i64
+  %68 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %69 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %68, i64 %67
   br label %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i
 
-_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %66, %._crit_edge
-  %72 = phi ptr [ %71, %66 ], [ %64, %._crit_edge ]
-  %73 = phi ptr [ %70, %66 ], [ %64, %._crit_edge ]
-  %74 = phi i64 [ %69, %66 ], [ 0, %._crit_edge ]
-  %75 = and i64 %53, 270215977642229760
-  %76 = icmp eq i64 %75, 36028797018963968
-  br i1 %76, label %77, label %_ZNK5clang17FunctionProtoType10exceptionsEv.exit
+_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %64, %._crit_edge
+  %70 = phi ptr [ %69, %64 ], [ %62, %._crit_edge ]
+  %71 = phi ptr [ %68, %64 ], [ %62, %._crit_edge ]
+  %72 = phi i64 [ %67, %64 ], [ 0, %._crit_edge ]
+  %73 = and i64 %51, 270215977642229760
+  %74 = icmp eq i64 %73, 36028797018963968
+  br i1 %74, label %75, label %_ZNK5clang17FunctionProtoType10exceptionsEv.exit
 
-77:                                               ; preds = %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i
-  %78 = load i16, ptr %64, align 8
-  %79 = and i16 %78, 1023
-  %80 = zext nneg i16 %79 to i64
+75:                                               ; preds = %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i
+  %76 = load i16, ptr %62, align 8
+  %77 = and i16 %76, 1023
+  %78 = zext nneg i16 %77 to i64
   br label %_ZNK5clang17FunctionProtoType10exceptionsEv.exit
 
-_ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i, %77
-  %81 = phi i64 [ %80, %77 ], [ 0, %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i ]
-  %82 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %73, i64 %74
-  %83 = getelementptr inbounds nuw %"class.clang::QualType", ptr %82, i64 %81
-  %.not4462 = icmp eq ptr %72, %83
+_ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i, %75
+  %79 = phi i64 [ %78, %75 ], [ 0, %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i ]
+  %80 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %71, i64 %72
+  %81 = getelementptr inbounds nuw %"class.clang::QualType", ptr %80, i64 %79
+  %.not4462 = icmp eq ptr %70, %81
   br i1 %.not4462, label %._crit_edge65, label %.lr.ph64
 
 .lr.ph64:                                         ; preds = %_ZNK5clang17FunctionProtoType10exceptionsEv.exit, %.lr.ph64
-  %.04163 = phi ptr [ %84, %.lr.ph64 ], [ %72, %_ZNK5clang17FunctionProtoType10exceptionsEv.exit ]
+  %.04163 = phi ptr [ %82, %.lr.ph64 ], [ %70, %_ZNK5clang17FunctionProtoType10exceptionsEv.exit ]
   %.sroa.05.0.copyload = load i64, ptr %.04163, align 8, !tbaa !3
   tail call fastcc void @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE12TraverseTypeENS_8QualTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.sroa.05.0.copyload)
-  %84 = getelementptr inbounds nuw i8, ptr %.04163, i64 8
-  %.not44 = icmp eq ptr %84, %83
+  %82 = getelementptr inbounds nuw i8, ptr %.04163, i64 8
+  %.not44 = icmp eq ptr %82, %81
   br i1 %.not44, label %._crit_edge65.loopexit, label %.lr.ph64
 
 ._crit_edge65.loopexit:                           ; preds = %.lr.ph64
@@ -2174,70 +2170,70 @@ _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17Functio
   br label %._crit_edge65
 
 ._crit_edge65:                                    ; preds = %._crit_edge65.loopexit, %_ZNK5clang17FunctionProtoType10exceptionsEv.exit
-  %85 = phi i64 [ %.pre, %._crit_edge65.loopexit ], [ %53, %_ZNK5clang17FunctionProtoType10exceptionsEv.exit ]
-  %86 = lshr i64 %85, 54
-  %87 = trunc nuw nsw i64 %86 to i32
-  %88 = and i32 %87, 15
-  %89 = add nsw i32 %88, -6
-  %90 = icmp ult i32 %89, 3
-  br i1 %90, label %91, label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread
+  %83 = phi i64 [ %.pre, %._crit_edge65.loopexit ], [ %51, %_ZNK5clang17FunctionProtoType10exceptionsEv.exit ]
+  %84 = lshr i64 %83, 54
+  %85 = trunc nuw nsw i64 %84 to i32
+  %86 = and i32 %85, 15
+  %87 = add nsw i32 %86, -6
+  %88 = icmp ult i32 %87, 3
+  br i1 %88, label %89, label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread
 
-91:                                               ; preds = %._crit_edge65
-  %92 = lshr i64 %85, 38
-  %93 = and i64 %92, 65535
-  %94 = getelementptr inbounds nuw %"class.clang::QualType", ptr %54, i64 %93
-  %95 = lshr i64 %85, 60
-  %96 = and i64 %95, 1
-  %97 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %94, i64 %96
-  %98 = ptrtoint ptr %97 to i64
-  %99 = add i64 %98, 7
-  %100 = and i64 %99, -8
-  %101 = inttoptr i64 %100 to ptr
-  %102 = and i64 %85, 576460752303423488
-  %.not.i.i.i.i.i.i.i47 = icmp eq i64 %102, 0
-  br i1 %.not.i.i.i.i.i.i.i47, label %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i, label %103
+89:                                               ; preds = %._crit_edge65
+  %90 = lshr i64 %83, 38
+  %91 = and i64 %90, 65535
+  %92 = getelementptr inbounds nuw %"class.clang::QualType", ptr %52, i64 %91
+  %93 = lshr i64 %83, 60
+  %94 = and i64 %93, 1
+  %95 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %92, i64 %94
+  %96 = ptrtoint ptr %95 to i64
+  %97 = add i64 %96, 7
+  %98 = and i64 %97, -8
+  %99 = inttoptr i64 %98 to ptr
+  %100 = and i64 %83, 576460752303423488
+  %.not.i.i.i.i.i.i.i47 = icmp eq i64 %100, 0
+  br i1 %.not.i.i.i.i.i.i.i47, label %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i, label %101
 
-103:                                              ; preds = %91
-  %104 = load i16, ptr %101, align 8
-  %105 = lshr i16 %104, 10
-  %.lobit.i.i.i.i.i.i48 = and i16 %105, 1
-  %106 = zext nneg i16 %.lobit.i.i.i.i.i.i48 to i64
+101:                                              ; preds = %89
+  %102 = load i16, ptr %99, align 8
+  %103 = lshr i16 %102, 10
+  %.lobit.i.i.i.i.i.i48 = and i16 %103, 1
+  %104 = zext nneg i16 %.lobit.i.i.i.i.i.i48 to i64
   br label %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i
 
-_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i: ; preds = %103, %91
-  %107 = phi i64 [ 0, %91 ], [ %106, %103 ]
-  %108 = and i64 %85, 270215977642229760
-  %109 = icmp eq i64 %108, 36028797018963968
-  br i1 %109, label %110, label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit
+_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i: ; preds = %101, %89
+  %105 = phi i64 [ 0, %89 ], [ %104, %101 ]
+  %106 = and i64 %83, 270215977642229760
+  %107 = icmp eq i64 %106, 36028797018963968
+  br i1 %107, label %108, label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit
 
-110:                                              ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i
-  %111 = load i16, ptr %101, align 8
-  %112 = and i16 %111, 1023
-  %113 = zext nneg i16 %112 to i64
+108:                                              ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i
+  %109 = load i16, ptr %99, align 8
+  %110 = and i16 %109, 1023
+  %111 = zext nneg i16 %110 to i64
   br label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit
 
-_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i, %110
-  %spec.select.i.i.i.i.i = phi i64 [ %113, %110 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i ]
-  %114 = lshr i64 %85, 59
-  %115 = and i64 %114, 1
-  %116 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %101, i64 %115
-  %117 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %116, i64 %107
-  %118 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %117, i64 %spec.select.i.i.i.i.i
-  %119 = load ptr, ptr %118, align 8, !tbaa !203
-  %.not45 = icmp eq ptr %119, null
-  br i1 %.not45, label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread, label %120
+_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i, %108
+  %spec.select.i.i.i.i.i = phi i64 [ %111, %108 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i ]
+  %112 = lshr i64 %83, 59
+  %113 = and i64 %112, 1
+  %114 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %99, i64 %113
+  %115 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %114, i64 %105
+  %116 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %115, i64 %spec.select.i.i.i.i.i
+  %117 = load ptr, ptr %116, align 8, !tbaa !203
+  %.not45 = icmp eq ptr %117, null
+  br i1 %.not45, label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread, label %118
 
-120:                                              ; preds = %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit
-  %121 = load ptr, ptr %0, align 8, !tbaa !42
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %123 = load ptr, ptr %122, align 8, !tbaa !12
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %125 = load ptr, ptr %124, align 8, !tbaa !23
-  tail call void @_ZN5clang5index15IndexingContext9indexBodyEPKNS_4StmtEPKNS_9NamedDeclEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %121, ptr noundef nonnull %119, ptr noundef %123, ptr noundef %125) #14
+118:                                              ; preds = %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit
+  %119 = load ptr, ptr %0, align 8, !tbaa !42
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %121 = load ptr, ptr %120, align 8, !tbaa !12
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %123 = load ptr, ptr %122, align 8, !tbaa !23
+  tail call void @_ZN5clang5index15IndexingContext9indexBodyEPKNS_4StmtEPKNS_9NamedDeclEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %119, ptr noundef nonnull %117, ptr noundef %121, ptr noundef %123) #14
   br label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread
 
-_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread: ; preds = %43, %._crit_edge65, %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit, %120, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit
-  %.0 = phi i1 [ true, %._crit_edge65 ], [ false, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit ], [ true, %120 ], [ true, %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit ], [ false, %43 ]
+_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread: ; preds = %41, %._crit_edge65, %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit, %118, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit
+  %.0 = phi i1 [ true, %._crit_edge65 ], [ false, %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit ], [ true, %118 ], [ true, %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit ], [ false, %41 ]
   ret i1 %.0
 }
 
@@ -2467,64 +2463,63 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE27WalkUpFromObjCObj
   %35 = inttoptr i64 %34 to ptr
   %36 = load ptr, ptr %35, align 16, !tbaa !32
   %.not = icmp eq ptr %36, %1
-  br i1 %.not, label %58, label %37
+  br i1 %.not, label %57, label %37
 
 37:                                               ; preds = %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE27WalkUpFromObjCObjectTypeLocENS_17ObjCObjectTypeLocE.exit
   %38 = ptrtoint ptr %2 to i64
   %39 = lshr i32 %.pre48, 16
   %40 = and i32 %39, 1016
   %41 = lshr i32 %.pre48, 24
-  %42 = and i32 %41, 252
-  %43 = add nuw nsw i32 %42, 23
-  %.lhs.trunc.i.i.i.i = add nuw nsw i32 %43, %40
+  %42 = add nuw nsw i32 %41, 20
+  %.lhs.trunc.i.i.i.i = add nuw nsw i32 %42, %40
   %.zext.i.i.i.i = and i32 %.lhs.trunc.i.i.i.i, 2040
-  %44 = add nuw nsw i32 %.zext.i.i.i.i, 8
-  %45 = zext nneg i32 %44 to i64
-  %46 = add i64 %45, %38
-  %47 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i) #14
-  %48 = icmp ne i64 %46, 0
-  %49 = zext i1 %48 to i64
-  %50 = sub i64 %46, %49
-  %51 = zext i32 %47 to i64
-  %52 = udiv i64 %50, %51
-  %53 = add i64 %52, %49
-  %54 = mul i64 %53, %51
-  %55 = inttoptr i64 %54 to ptr
-  %56 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
-  %57 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %56, ptr %55)
-  br i1 %57, label %._crit_edge47, label %.loopexit
+  %43 = add nuw nsw i32 %.zext.i.i.i.i, 8
+  %44 = zext nneg i32 %43 to i64
+  %45 = add i64 %44, %38
+  %46 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i) #14
+  %47 = icmp ne i64 %45, 0
+  %48 = zext i1 %47 to i64
+  %49 = sub i64 %45, %48
+  %50 = zext i32 %46 to i64
+  %51 = udiv i64 %49, %50
+  %52 = add i64 %51, %48
+  %53 = mul i64 %52, %50
+  %54 = inttoptr i64 %53 to ptr
+  %55 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
+  %56 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %55, ptr %54)
+  br i1 %56, label %._crit_edge47, label %.loopexit
 
 ._crit_edge47:                                    ; preds = %37
   %.pre = load i32, ptr %5, align 16
-  br label %58
+  br label %57
 
-58:                                               ; preds = %._crit_edge47, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE27WalkUpFromObjCObjectTypeLocENS_17ObjCObjectTypeLocE.exit
-  %59 = phi i32 [ %.pre, %._crit_edge47 ], [ %.pre48, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE27WalkUpFromObjCObjectTypeLocENS_17ObjCObjectTypeLocE.exit ]
-  %60 = lshr i32 %59, 19
-  %61 = and i32 %60, 127
-  %.not2743 = icmp eq i32 %61, 0
+57:                                               ; preds = %._crit_edge47, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE27WalkUpFromObjCObjectTypeLocENS_17ObjCObjectTypeLocE.exit
+  %58 = phi i32 [ %.pre, %._crit_edge47 ], [ %.pre48, %_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE27WalkUpFromObjCObjectTypeLocENS_17ObjCObjectTypeLocE.exit ]
+  %59 = lshr i32 %58, 19
+  %60 = and i32 %59, 127
+  %.not2743 = icmp eq i32 %60, 0
   br i1 %.not2743, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %58
-  %62 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %63 = zext nneg i32 %61 to i64
-  br label %64
+.lr.ph:                                           ; preds = %57
+  %61 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %62 = zext nneg i32 %60 to i64
+  br label %63
 
-64:                                               ; preds = %64, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %64 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
-  %66 = load ptr, ptr %65, align 8, !tbaa !215
-  %.sroa.0.0.copyload.i29 = load i64, ptr %66, align 8, !tbaa !3
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  %68 = inttoptr i64 %.sroa.0.0.copyload.i29 to ptr
-  %69 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %68, ptr nonnull %67)
+63:                                               ; preds = %63, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
+  %64 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
+  %65 = load ptr, ptr %64, align 8, !tbaa !215
+  %.sroa.0.0.copyload.i29 = load i64, ptr %65, align 8, !tbaa !3
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %67 = inttoptr i64 %.sroa.0.0.copyload.i29 to ptr
+  %68 = tail call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111TypeIndexerEE15TraverseTypeLocENS_7TypeLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %67, ptr nonnull %66)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not27 = icmp ne i64 %indvars.iv.next, %63
-  %or.cond.not = select i1 %69, i1 %.not27, i1 false
-  br i1 %or.cond.not, label %64, label %.loopexit, !llvm.loop !216
+  %.not27 = icmp ne i64 %indvars.iv.next, %62
+  %or.cond.not = select i1 %68, i1 %.not27, i1 false
+  br i1 %or.cond.not, label %63, label %.loopexit, !llvm.loop !216
 
-.loopexit:                                        ; preds = %64, %58, %37
-  %.0 = phi i1 [ true, %58 ], [ false, %37 ], [ %69, %64 ]
+.loopexit:                                        ; preds = %63, %57, %37
+  %.0 = phi i1 [ true, %57 ], [ false, %37 ], [ %68, %63 ]
   ret i1 %.0
 }
 

@@ -408,7 +408,7 @@ define void @_ZN6icu_7713UnicodeStringC2Eiii(ptr noundef nonnull align 8 derefer
 13:                                               ; preds = %11
   %14 = shl nuw i32 %1, 1
   %15 = zext i32 %14 to i64
-  %16 = add nuw nsw i64 %15, 21
+  %16 = add nuw nsw i64 %15, 20
   %17 = and i64 %16, 8589934576
   %18 = invoke noalias ptr @uprv_malloc_77(i64 noundef %17) #26
           to label %.noexc unwind label %28
@@ -464,7 +464,7 @@ define void @_ZN6icu_7713UnicodeStringC2Eiii(ptr noundef nonnull align 8 derefer
 36:                                               ; preds = %34
   %37 = shl nuw i32 %spec.select, 1
   %38 = zext i32 %37 to i64
-  %39 = add nuw nsw i64 %38, 21
+  %39 = add nuw nsw i64 %38, 20
   %40 = and i64 %39, 8589934576
   %41 = invoke noalias ptr @uprv_malloc_77(i64 noundef %40) #26
           to label %.noexc62 unwind label %64
@@ -557,7 +557,7 @@ _ZN6icu_7713UnicodeString8allocateEi.exit63:      ; preds = %34, %.noexc62
 74:                                               ; preds = %72
   %75 = shl nuw i32 %1, 1
   %76 = zext i32 %75 to i64
-  %77 = add nuw nsw i64 %76, 21
+  %77 = add nuw nsw i64 %76, 20
   %78 = and i64 %77, 8589934576
   %79 = invoke noalias ptr @uprv_malloc_77(i64 noundef %78) #26
           to label %.noexc67 unwind label %28
@@ -605,7 +605,7 @@ _ZN6icu_7713UnicodeString8allocateEi.exit63:      ; preds = %34, %.noexc62
 94:                                               ; preds = %92
   %95 = shl nuw i32 %spec.select58, 1
   %96 = zext i32 %95 to i64
-  %97 = add nuw nsw i64 %96, 21
+  %97 = add nuw nsw i64 %96, 20
   %98 = and i64 %97, 8589934576
   %99 = invoke noalias ptr @uprv_malloc_77(i64 noundef %98) #26
           to label %.noexc72 unwind label %128
@@ -712,7 +712,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7713UnicodeString8allocateEi(p
 8:                                                ; preds = %6
   %9 = shl nuw i32 %1, 1
   %10 = zext i32 %9 to i64
-  %11 = add nuw nsw i64 %10, 21
+  %11 = add nuw nsw i64 %10, 20
   %12 = and i64 %11, 8589934576
   %13 = tail call noalias ptr @uprv_malloc_77(i64 noundef %12) #26
   %.not.not = icmp eq ptr %13, null
@@ -1537,7 +1537,7 @@ _ZL12us_arrayCopyPKDsiPDsii.exit.thread:          ; preds = %50, %52, %_ZL12us_a
 61:                                               ; preds = %_ZL12us_arrayCopyPKDsiPDsii.exit.thread
   %62 = shl nuw i32 %.042, 1
   %63 = zext i32 %62 to i64
-  %64 = add nuw nsw i64 %63, 21
+  %64 = add nuw nsw i64 %63, 20
   %65 = and i64 %64, 8589934576
   %66 = tail call noalias ptr @uprv_malloc_77(i64 noundef %65) #26
   %.not.not.i = icmp eq ptr %66, null
@@ -1575,7 +1575,7 @@ _ZL12us_arrayCopyPKDsiPDsii.exit.thread:          ; preds = %50, %52, %_ZL12us_a
 82:                                               ; preds = %80
   %83 = shl nuw i32 %.041, 1
   %84 = zext i32 %83 to i64
-  %85 = add nuw nsw i64 %84, 21
+  %85 = add nuw nsw i64 %84, 20
   %86 = and i64 %85, 8589934576
   %87 = tail call noalias ptr @uprv_malloc_77(i64 noundef %86) #26
   %.not.not.i62 = icmp eq ptr %87, null
@@ -2372,7 +2372,7 @@ _ZN6icu_7713UnicodeString12releaseArrayEv.exit:   ; preds = %24, %25, %31
 86:                                               ; preds = %84
   %87 = shl nuw i32 %82, 1
   %88 = zext i32 %87 to i64
-  %89 = add nuw nsw i64 %88, 21
+  %89 = add nuw nsw i64 %88, 20
   %90 = and i64 %89, 8589934576
   %91 = tail call noalias ptr @uprv_malloc_77(i64 noundef %90) #26
   %.not.not.i = icmp eq ptr %91, null

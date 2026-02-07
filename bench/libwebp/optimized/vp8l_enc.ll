@@ -3316,7 +3316,7 @@ define internal fastcc i32 @AllocateTransformBuffer(ptr noundef captures(none) %
   %11 = add i32 %10, 2
   %12 = sext i32 %11 to i64
   %13 = sext i32 %10 to i64
-  %14 = add nsw i64 %13, 3
+  %14 = add nsw i64 %13, 2
   %15 = lshr i64 %14, 2
   %16 = add nsw i64 %15, %12
   br label %20
@@ -3389,7 +3389,7 @@ define internal fastcc i32 @AllocateTransformBuffer(ptr noundef captures(none) %
   store ptr %58, ptr %59, align 8, !tbaa !114
   %60 = getelementptr inbounds nuw i32, ptr %58, i64 %30
   %61 = ptrtoint ptr %60 to i64
-  %62 = add i64 %61, 31
+  %62 = add i64 %61, 28
   %63 = and i64 %62, -32
   %64 = inttoptr i64 %63 to ptr
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 40

@@ -3901,7 +3901,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @Mini_Subchannel_all
   %38 = lshr i32 %35, %37
   %39 = and i32 %38, 65535
   %40 = load i32, ptr @hf_ulmap_mini_subcha_alloc_cid, align 4
-  %41 = add nsw i32 %36, 15
+  %41 = add nsw i32 %36, 14
   %42 = lshr i32 %41, 3
   %43 = add nuw nsw i32 %42, 1
   %44 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %11, i32 noundef %40, ptr noundef %3, i32 noundef %34, i32 noundef %43, i32 noundef %39, ptr noundef nonnull @.str.546, i32 noundef %.06772, i32 noundef %39)
@@ -4469,7 +4469,7 @@ define internal fastcc range(i32 -536870912, 536870912) i32 @Fast_Ranging_IE(ptr
   %36 = load i32, ptr @hf_ulmap_fast_ranging_mac_address, align 4
   %37 = sdiv i32 %29, 8
   %38 = srem i32 %29, 8
-  %39 = add nsw i32 %38, 47
+  %39 = add nsw i32 %38, 44
   %40 = lshr i32 %39, 3
   %41 = add nuw nsw i32 %40, 1
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %12, i32 noundef %36, ptr noundef %3, i32 noundef %37, i32 noundef %41, i32 noundef 0)

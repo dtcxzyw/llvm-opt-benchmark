@@ -5837,8 +5837,8 @@ define internal fastcc ptr @ialloc(ptr noundef %0, i64 noundef %1, ptr noundef r
 18:                                               ; preds = %11
   %19 = shl i64 %1, 3
   %20 = icmp ult i64 %19, 23
-  %21 = add i64 %19, 23
-  %22 = and i64 %21, -16
+  %21 = and i64 %19, -16
+  %22 = add i64 %21, 16
   %23 = select i1 %20, i64 32, i64 %22
   br label %24
 

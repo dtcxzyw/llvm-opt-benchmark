@@ -9182,7 +9182,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$hashbrown..set..HashSet$LT$e
   %.val.i.i.i = load ptr, ptr %0, align 8, !alias.scope !1283, !nonnull !6, !noundef !6
   %.val1.i.i.i = load i64, ptr %2, align 8, !alias.scope !1283, !noundef !6
   %6 = mul i64 %.val1.i.i.i, 12
-  %7 = add i64 %6, 27
+  %7 = add i64 %6, 24
   %8 = and i64 %7, -16
   %9 = add i64 %.val1.i.i.i, 17
   %10 = add nuw i64 %9, %8

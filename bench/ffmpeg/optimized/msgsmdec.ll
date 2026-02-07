@@ -140,7 +140,7 @@ define internal fastcc void @gsm_decode_block(ptr captures(none) %.32.val, ptr n
   %91 = shl i32 %88, 10
   %92 = and i32 %91, 15360
   %93 = mul nuw nsw i32 %92, 19223
-  %94 = add nsw i32 %93, -161072356
+  %94 = add nsw i32 %93, -161073152
   %95 = ashr i32 %94, 14
   %96 = and i32 %95, -2
   %97 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -159,7 +159,7 @@ define internal fastcc void @gsm_decode_block(ptr captures(none) %.32.val, ptr n
   %108 = shl i32 %105, 10
   %109 = and i32 %108, 15360
   %110 = mul nuw nsw i32 %109, 17476
-  %111 = add nsw i32 %110, -80513024
+  %111 = add nsw i32 %110, -80515072
   %112 = ashr i32 %111, 14
   %113 = and i32 %112, -2
   %114 = getelementptr inbounds nuw i8, ptr %10, i64 20
@@ -178,7 +178,7 @@ define internal fastcc void @gsm_decode_block(ptr captures(none) %.32.val, ptr n
   %125 = shl i32 %122, 10
   %126 = and i32 %125, 7168
   %127 = mul nuw nsw i32 %126, 31454
-  %128 = add nsw i32 %127, -107367572
+  %128 = add nsw i32 %127, -107368448
   %129 = ashr i32 %128, 14
   %130 = and i32 %129, -2
   %131 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -197,7 +197,7 @@ define internal fastcc void @gsm_decode_block(ptr captures(none) %.32.val, ptr n
   %142 = shl i32 %139, 10
   %143 = and i32 %142, 7168
   %144 = mul nuw nsw i32 %143, 29708
-  %145 = add nsw i32 %144, -53695680
+  %145 = add nsw i32 %144, -53698560
   %146 = ashr i32 %145, 14
   %147 = and i32 %146, -2
   %148 = getelementptr inbounds nuw i8, ptr %10, i64 28

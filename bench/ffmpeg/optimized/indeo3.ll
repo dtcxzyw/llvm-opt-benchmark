@@ -721,14 +721,14 @@ define internal fastcc range(i32 -1094995529, 1) i32 @allocate_frame_buffers(ptr
   %21 = lshr i32 %7, 2
   %22 = add nuw nsw i32 %21, 3
   %23 = and i32 %22, 2147483644
-  %24 = add nuw nsw i32 %6, 15
-  %25 = and i32 %24, 2032
-  %26 = add nuw nsw i32 %20, 15
+  %24 = add nsw i32 %2, 15
+  %25 = and i32 %24, -16
+  %26 = add nuw nsw i32 %18, 15
   %27 = and i32 %26, 2147483632
   %28 = or i32 %7, 1
-  %29 = mul i32 %25, %28
+  %29 = mul i32 %28, %25
   %30 = or disjoint i32 %23, 1
-  %31 = mul i32 %27, %30
+  %31 = mul i32 %30, %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 560
   br label %33
 
@@ -736,7 +736,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @allocate_frame_buffers(ptr
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %47 ]
   %.not = icmp eq i64 %indvars.iv, 0
   %.v = select i1 %.not, i32 %25, i32 %27
-  %34 = zext nneg i32 %.v to i64
+  %34 = zext i32 %.v to i64
   %35 = getelementptr inbounds nuw %struct.Plane, ptr %32, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   store i64 %34, ptr %36, align 8, !tbaa !63

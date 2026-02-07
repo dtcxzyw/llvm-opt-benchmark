@@ -313,14 +313,14 @@ _ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14: ; preds = %_ZL14ge
   %29 = load i64, ptr @_ZN9metaspace13InternalStats23_num_inconsistent_statsE, align 8
   %30 = add i64 %29, 1
   store i64 %30, ptr @_ZN9metaspace13InternalStats23_num_inconsistent_statsE, align 8
-  %31 = add i64 %.027.lcssa, 65535
+  %31 = add i64 %.027.lcssa, 65528
   %32 = and i64 %31, -65536
   %.2 = select i1 %.lcssa, i64 %32, i64 %.028.lcssa
   %33 = icmp ult i64 %.029.lcssa, %.2
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %28
-  %35 = add i64 %.2, 16777215
+  %35 = add i64 %.2, 16777208
   %36 = and i64 %35, -16777216
   br label %37
 
@@ -1664,7 +1664,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %42, %5
   %51 = call noundef i64 @_ZN9metaspace15RunningCounters21committed_words_classEv() #14
   %52 = shl i64 %51, 3
   %53 = shl i64 %1, 3
-  %54 = add i64 %53, 4194303
+  %54 = add i64 %53, 4194296
   %55 = and i64 %54, -4194304
   %56 = add i64 %52, %55
   %57 = load i64, ptr @CompressedClassSpaceSize, align 8

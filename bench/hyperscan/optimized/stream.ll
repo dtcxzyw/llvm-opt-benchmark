@@ -1021,7 +1021,7 @@ mmbit_mask_index.exit.i210.preheader:             ; preds = %.lr.ph944
   br label %mmbit_sparse_iter_next.exit
 
 617:                                              ; preds = %mmbit_get_flat_block.exit.i
-  %618 = add i64 %620, -1
+  %618 = add i64 %620, -2
   %619 = and i64 %618, %620
   %.not57.i = icmp eq i64 %619, 0
   br i1 %.not57.i, label %mmbit_sparse_iter_next.exit.loopexit845, label %mmbit_mask_index.exit.i210
@@ -4137,7 +4137,7 @@ mmbit_mask_index.exit.i54.i.preheader:            ; preds = %.lr.ph1030
   br label %mmbit_sparse_iter_next.exit.i
 
 2390:                                             ; preds = %mmbit_get_flat_block.exit.i.i264
-  %2391 = add i64 %2393, -1
+  %2391 = add i64 %2393, -2
   %2392 = and i64 %2391, %2393
   %.not57.i.i = icmp eq i64 %2392, 0
   br i1 %.not57.i.i, label %mmbit_sparse_iter_next.exit.i.loopexit839, label %mmbit_mask_index.exit.i54.i

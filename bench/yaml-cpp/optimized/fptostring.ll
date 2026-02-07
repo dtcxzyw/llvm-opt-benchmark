@@ -1288,7 +1288,7 @@ define linkonce_odr { i64, i8 } @_ZN4YAML3jkj9dragonbox6detail4implINS1_21ieee75
 7:                                                ; preds = %4
   %8 = sext i32 %5 to i64
   %9 = mul nsw i64 %8, 19728
-  %10 = add nsw i64 %9, 281474976702415
+  %10 = add nsw i64 %9, 281474976702400
   %11 = lshr i64 %10, 16
   %.neg182 = mul i64 %11, -4294967296
   %12 = ashr exact i64 %.neg182, 32

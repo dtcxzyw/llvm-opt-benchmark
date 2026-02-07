@@ -293,7 +293,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
   %136 = mul nuw nsw i32 %120, 261992
   %.neg = mul nuw nsw i32 %124, 261846
   %137 = mul nuw nsw i32 %128, 450
-  %138 = add nuw nsw i32 %136, 511
+  %138 = add nuw nsw i32 %136, 510
   %139 = add nuw nsw i32 %138, %.neg
   %140 = add nuw nsw i32 %139, %137
   %141 = lshr i32 %140, 10

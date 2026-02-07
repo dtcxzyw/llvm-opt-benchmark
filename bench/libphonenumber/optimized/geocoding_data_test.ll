@@ -7726,7 +7726,7 @@ _ZN4absl7debian218container_internal5btreeINS1_10set_paramsIiSt4lessIiESaIiELi25
   %33 = tail call i8 @llvm.umin.i8(i8 %32, i8 61)
   %34 = shl nuw i8 %33, 2
   %35 = zext i8 %34 to i64
-  %36 = add nuw nsw i64 %35, 19
+  %36 = add nuw nsw i64 %35, 16
   %37 = and i64 %36, 504
   %38 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %37) #22
   store ptr %38, ptr %38, align 8, !tbaa !93
@@ -7883,7 +7883,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal10btree_
 5:                                                ; preds = %2
   %6 = zext i8 %4 to i64
   %7 = shl nuw nsw i64 %6, 2
-  %8 = add nuw nsw i64 %7, 19
+  %8 = add nuw nsw i64 %7, 16
   %9 = and i64 %8, 2040
   br label %.loopexit.sink.split
 
@@ -7948,7 +7948,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal10btree_
   %.2 = phi ptr [ %.1, %23 ], [ %37, %._crit_edge68 ]
   %40 = zext i8 %39 to i64
   %41 = shl nuw nsw i64 %40, 2
-  %42 = add nuw nsw i64 %41, 19
+  %42 = add nuw nsw i64 %41, 16
   %43 = and i64 %42, 2040
   tail call void @_ZdlPvm(ptr noundef nonnull %.150, i64 noundef %43) #20
   %44 = getelementptr inbounds nuw i8, ptr %.2, i64 10

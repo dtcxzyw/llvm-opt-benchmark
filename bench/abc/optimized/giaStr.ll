@@ -6193,7 +6193,7 @@ Vec_IntSelectSortCost2.exit:                      ; preds = %._crit_edge.i
   br i1 %212, label %Str_CountBits.exit, label %213
 
 213:                                              ; preds = %209
-  %214 = add i64 %211, -1
+  %214 = add i64 %211, -2
   %215 = and i64 %214, %211
   %216 = icmp eq i64 %215, 0
   br i1 %216, label %Str_CountBits.exit, label %217
@@ -6237,7 +6237,7 @@ Str_CountBits.exit:                               ; preds = %204, %209, %213, %2
   br i1 %233, label %Str_CountBits.exit316, label %234
 
 234:                                              ; preds = %230
-  %235 = add i64 %232, -1
+  %235 = add i64 %232, -2
   %236 = and i64 %235, %232
   %237 = icmp eq i64 %236, 0
   br i1 %237, label %Str_CountBits.exit316, label %238
@@ -6289,7 +6289,7 @@ Str_CountBits.exit316:                            ; preds = %225, %230, %234, %2
   br i1 %259, label %Str_CountBits.exit318, label %260
 
 260:                                              ; preds = %256
-  %261 = add i64 %258, -1
+  %261 = add i64 %258, -2
   %262 = and i64 %261, %258
   %263 = icmp eq i64 %262, 0
   br i1 %263, label %Str_CountBits.exit318, label %264
@@ -6402,7 +6402,7 @@ Str_CountBits.exit318:                            ; preds = %250, %256, %260, %2
   br i1 %298, label %Str_CountBits.exit320, label %299
 
 299:                                              ; preds = %295
-  %300 = add i64 %297, -1
+  %300 = add i64 %297, -2
   %301 = and i64 %300, %297
   %302 = icmp eq i64 %301, 0
   br i1 %302, label %Str_CountBits.exit320, label %303

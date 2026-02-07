@@ -352,7 +352,7 @@ define internal range(i32 1, 0) i32 @decode_frame(ptr noundef %0, ptr noundef %1
   %169 = load i32, ptr %168, align 4, !tbaa !59
   %170 = shl i32 %167, 1
   %171 = mul i32 %170, %169
-  %172 = add nsw i32 %171, 3
+  %172 = add nsw i32 %171, 2
   %173 = and i32 %172, -4
   br label %174
 
@@ -665,7 +665,7 @@ define internal noundef i32 @zmbv_decode_xor_8(ptr noundef captures(none) %0) #1
   %21 = load i32, ptr %20, align 4, !tbaa !59
   %22 = shl i32 %19, 1
   %23 = mul i32 %22, %21
-  %24 = add nsw i32 %23, 3
+  %24 = add nsw i32 %23, 2
   %25 = and i32 %24, -4
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds i8, ptr %.0113, i64 %26
@@ -984,7 +984,7 @@ define internal noundef i32 @zmbv_decode_xor_16(ptr noundef readonly captures(no
   %7 = load i32, ptr %6, align 4, !tbaa !59
   %8 = shl i32 %5, 1
   %9 = mul i32 %8, %7
-  %10 = add nsw i32 %9, 3
+  %10 = add nsw i32 %9, 2
   %11 = and i32 %10, -4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
@@ -1313,7 +1313,7 @@ define internal noundef i32 @zmbv_decode_xor_32(ptr noundef readonly captures(no
   %7 = load i32, ptr %6, align 4, !tbaa !59
   %8 = shl i32 %5, 1
   %9 = mul i32 %8, %7
-  %10 = add nsw i32 %9, 3
+  %10 = add nsw i32 %9, 2
   %11 = and i32 %10, -4
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %3, i64 %12

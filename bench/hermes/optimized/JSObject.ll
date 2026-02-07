@@ -13683,7 +13683,7 @@ if.end:                                           ; preds = %entry
 
 if.end.i.i:                                       ; preds = %if.end
   %mul.i.i.i.i.i = shl nuw nsw i32 %sub, 2
-  %sub.i.i.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i.i, 15
+  %sub.i.i.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i.i, 12
   %div1.i.i.i.i.i.i = and i32 %sub.i.i.i.i.i.i, 8388600
   %level_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
   %0 = load ptr, ptr %level_.i.i.i.i.i.i.i.i, align 8

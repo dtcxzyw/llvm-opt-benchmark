@@ -2091,7 +2091,7 @@ define internal void @ioc_pd_stat(ptr noundef readonly captures(none) %0, ptr no
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 312
   %14 = load i64, ptr %13, align 8
   %15 = mul i64 %14, 10000
-  %16 = add i64 %15, 68719
+  %16 = add i64 %15, 68718
   %17 = udiv i64 %16, 137438
   %18 = trunc i64 %17 to i32
   %19 = udiv i32 %18, 100
@@ -6583,7 +6583,7 @@ define internal fastcc void @ioc_refresh_params_disk(ptr noundef %0, i1 noundef 
   %210 = load i32, ptr %209, align 8
   %211 = zext i32 %210 to i64
   %212 = mul nuw nsw i64 %211, 137438
-  %213 = add nuw nsw i64 %212, 999999
+  %213 = add nuw nsw i64 %212, 999998
   %214 = udiv i64 %213, 1000000
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 %214, ptr %215, align 8
@@ -6591,7 +6591,7 @@ define internal fastcc void @ioc_refresh_params_disk(ptr noundef %0, i1 noundef 
   %217 = load i32, ptr %216, align 4
   %218 = zext i32 %217 to i64
   %219 = mul nuw nsw i64 %218, 137438
-  %220 = add nuw nsw i64 %219, 999999
+  %220 = add nuw nsw i64 %219, 999998
   %221 = udiv i64 %220, 1000000
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i64 %221, ptr %222, align 8

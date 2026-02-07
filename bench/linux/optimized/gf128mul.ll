@@ -58,7 +58,7 @@ define dso_local void @gf128mul_lle(ptr noundef captures(none) %0, ptr noundef r
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(304) %3, i8 0, i64 304, i1 false)
   %4 = ptrtoint ptr %3 to i64
-  %5 = add i64 %4, 31
+  %5 = add i64 %4, 16
   %6 = and i64 %5, -32
   %7 = inttoptr i64 %6 to ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 32 dereferenceable(16) %7, ptr noundef align 8 dereferenceable(16) %0, i64 16, i1 false)

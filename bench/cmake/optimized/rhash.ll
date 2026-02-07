@@ -27,7 +27,7 @@ define dso_local i32 @rhash_count() local_unnamed_addr #2 {
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = shl i64 %0, 4
-  %4 = add i64 %3, 119
+  %4 = add i64 %3, 112
   %5 = and i64 %4, -64
   %6 = icmp eq i64 %0, 0
   br i1 %6, label %.loopexit.sink.split.i, label %.preheader.i

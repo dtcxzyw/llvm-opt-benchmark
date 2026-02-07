@@ -171,7 +171,7 @@ define dso_local void @memblock_discard() local_unnamed_addr #3 section ".init.t
   %15 = add i64 %9, %14
   %16 = load i64, ptr getelementptr inbounds nuw (i8, ptr @memblock, i64 64), align 8
   %17 = mul i64 %16, 24
-  %18 = add i64 %17, 4095
+  %18 = add i64 %17, 4088
   %19 = and i64 %18, -4096
   tail call void @memblock_free_late(i64 noundef %15, i64 noundef %19)
   br label %20
@@ -201,7 +201,7 @@ define dso_local void @memblock_discard() local_unnamed_addr #3 section ".init.t
   %35 = add i64 %29, %34
   %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @memblock, i64 24), align 8
   %37 = mul i64 %36, 24
-  %38 = add i64 %37, 4095
+  %38 = add i64 %37, 4088
   %39 = and i64 %38, -4096
   tail call void @memblock_free_late(i64 noundef %35, i64 noundef %39)
   br label %40
@@ -3023,9 +3023,9 @@ define internal fastcc noundef range(i32 -1, 1) i32 @memblock_double_array(ptr n
   %14 = load i64, ptr %13, align 8
   %15 = mul i64 %14, 24
   %16 = mul i64 %14, 48
-  %17 = add i64 %15, 4095
+  %17 = add i64 %15, 4088
   %18 = and i64 %17, -4096
-  %19 = add i64 %16, 4095
+  %19 = add i64 %16, 4080
   %20 = and i64 %19, -4096
   %21 = icmp eq ptr %0, getelementptr inbounds nuw (i8, ptr @memblock, i64 16)
   %22 = select i1 %21, ptr @memblock_memory_in_slab, ptr @memblock_reserved_in_slab

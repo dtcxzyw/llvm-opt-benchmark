@@ -201,7 +201,7 @@ define dso_local i32 @intel_engine_context_size(ptr noundef readonly captures(no
   %27 = and i32 %24, 63
   %28 = add nuw nsw i32 %26, %27
   %29 = shl nuw nsw i32 %28, 6
-  %30 = add nsw i32 %29, -1
+  %30 = add nsw i32 %29, -64
   %31 = or i32 %30, 4095
   %32 = add nsw i32 %31, 1
   br label %77
@@ -218,7 +218,7 @@ define dso_local i32 @intel_engine_context_size(ptr noundef readonly captures(no
   %42 = add nuw nsw i32 %40, %41
   %43 = add nuw nsw i32 %42, %38
   %44 = shl nuw nsw i32 %43, 6
-  %45 = add nsw i32 %44, -1
+  %45 = add nsw i32 %44, -64
   %46 = or i32 %45, 4095
   %47 = add nsw i32 %46, 1
   br label %77

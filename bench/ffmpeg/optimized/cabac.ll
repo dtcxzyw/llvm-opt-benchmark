@@ -238,9 +238,9 @@ define range(i32 0, 128) i32 @ff_vvc_sao_merge_flag_decode(ptr noundef readonly 
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -340,9 +340,9 @@ define range(i32 0, 3) i32 @ff_vvc_sao_type_idx_decode(ptr noundef readonly capt
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -837,9 +837,9 @@ define range(i32 0, 128) i32 @ff_vvc_alf_ctb_flag(ptr noundef readonly captures(
   br i1 %.not42.i, label %86, label %vvc_get_cabac.exit
 
 86:                                               ; preds = %48
-  %87 = add nsw i32 %84, -1
+  %87 = add nsw i32 %84, -32768
   %88 = xor i32 %87, %84
-  %89 = lshr i32 %88, 15
+  %89 = lshr exact i32 %88, 15
   %90 = zext nneg i32 %89 to i64
   %91 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %90
   %92 = load i8, ptr %91, align 1, !tbaa !97
@@ -939,9 +939,9 @@ define range(i32 0, 128) i32 @ff_vvc_alf_use_aps_flag(ptr noundef readonly captu
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -1230,9 +1230,9 @@ define i32 @ff_vvc_alf_ctb_filter_alt_idx(ptr noundef readonly captures(none) %0
   br i1 %.not42.i, label %48, label %vvc_get_cabac.exit
 
 48:                                               ; preds = %18
-  %49 = add nsw i32 %46, -1
+  %49 = add nsw i32 %46, -32768
   %50 = xor i32 %49, %46
-  %51 = lshr i32 %50, 15
+  %51 = lshr exact i32 %50, 15
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !97
@@ -1402,9 +1402,9 @@ define i32 @ff_vvc_alf_ctb_cc_idc(ptr noundef readonly captures(none) %0, i32 no
   br i1 %.not42.i, label %91, label %vvc_get_cabac.exit
 
 91:                                               ; preds = %53
-  %92 = add nsw i32 %89, -1
+  %92 = add nsw i32 %89, -32768
   %93 = xor i32 %92, %89
-  %94 = lshr i32 %93, 15
+  %94 = lshr exact i32 %93, 15
   %95 = zext nneg i32 %94 to i64
   %96 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !97
@@ -1704,9 +1704,9 @@ get_left_top.exit:                                ; preds = %75, %80
   br i1 %.not42.i, label %148, label %vvc_get_cabac.exit
 
 148:                                              ; preds = %get_left_top.exit
-  %149 = add nsw i32 %146, -1
+  %149 = add nsw i32 %146, -32768
   %150 = xor i32 %149, %146
-  %151 = lshr i32 %150, 15
+  %151 = lshr exact i32 %150, 15
   %152 = zext nneg i32 %151 to i64
   %153 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %152
   %154 = load i8, ptr %153, align 1, !tbaa !97
@@ -1915,9 +1915,9 @@ get_left_top.exit.i:                              ; preds = %63, %58
   br i1 %.not42.i.i, label %115, label %split_qt_flag_decode.exit
 
 115:                                              ; preds = %get_left_top.exit.i
-  %116 = add nsw i32 %113, -1
+  %116 = add nsw i32 %113, -32768
   %117 = xor i32 %116, %113
-  %118 = lshr i32 %117, 15
+  %118 = lshr exact i32 %117, 15
   %119 = zext nneg i32 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !97
@@ -2135,9 +2135,9 @@ split_qt_flag_decode.exit:                        ; preds = %get_left_top.exit.i
   br i1 %.not42.i.i58, label %282, label %mtt_split_cu_vertical_flag_decode.exit
 
 282:                                              ; preds = %245
-  %283 = add nsw i32 %280, -1
+  %283 = add nsw i32 %280, -32768
   %284 = xor i32 %283, %280
-  %285 = lshr i32 %284, 15
+  %285 = lshr exact i32 %284, 15
   %286 = zext nneg i32 %285 to i64
   %287 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %286
   %288 = load i8, ptr %287, align 1, !tbaa !97
@@ -2278,9 +2278,9 @@ mtt_split_cu_vertical_flag_decode.exit.thread.thread: ; preds = %.thread65
   br i1 %.not42.i.i61, label %379, label %mtt_split_cu_binary_flag_decode.exit
 
 379:                                              ; preds = %338
-  %380 = add nsw i32 %377, -1
+  %380 = add nsw i32 %377, -32768
   %381 = xor i32 %380, %377
-  %382 = lshr i32 %381, 15
+  %382 = lshr exact i32 %381, 15
   %383 = zext nneg i32 %382 to i64
   %384 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %383
   %385 = load i8, ptr %384, align 1, !tbaa !97
@@ -2486,9 +2486,9 @@ get_left_top.exit:                                ; preds = %40, %45
   br i1 %.not42.i, label %91, label %vvc_get_cabac.exit
 
 91:                                               ; preds = %get_left_top.exit
-  %92 = add nsw i32 %89, -1
+  %92 = add nsw i32 %89, -32768
   %93 = xor i32 %92, %89
-  %94 = lshr i32 %93, 15
+  %94 = lshr exact i32 %93, 15
   %95 = zext nneg i32 %94 to i64
   %96 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !97
@@ -2659,9 +2659,9 @@ get_left_top.exit:                                ; preds = %44, %49
   br i1 %.not42.i, label %95, label %vvc_get_cabac.exit
 
 95:                                               ; preds = %get_left_top.exit
-  %96 = add nsw i32 %93, -1
+  %96 = add nsw i32 %93, -32768
   %97 = xor i32 %96, %93
-  %98 = lshr i32 %97, 15
+  %98 = lshr exact i32 %97, 15
   %99 = zext nneg i32 %98 to i64
   %100 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %99
   %101 = load i8, ptr %100, align 1, !tbaa !97
@@ -2761,9 +2761,9 @@ define range(i32 0, 128) i32 @ff_vvc_pred_mode_plt_flag(ptr noundef readonly cap
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -2863,9 +2863,9 @@ define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_luma_flag(ptr noundef readonly 
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -2965,9 +2965,9 @@ define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_luma_dir_flag(ptr noundef reado
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -3067,9 +3067,9 @@ define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_chroma_flag(ptr noundef readonl
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -3169,9 +3169,9 @@ define range(i32 0, 128) i32 @ff_vvc_intra_bdpcm_chroma_dir_flag(ptr noundef rea
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -3336,9 +3336,9 @@ get_inc.exit:                                     ; preds = %39, %44
   br i1 %.not42.i, label %89, label %vvc_get_cabac.exit
 
 89:                                               ; preds = %get_inc.exit
-  %90 = add nsw i32 %87, -1
+  %90 = add nsw i32 %87, -32768
   %91 = xor i32 %90, %87
-  %92 = lshr i32 %91, 15
+  %92 = lshr exact i32 %91, 15
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !97
@@ -3510,9 +3510,9 @@ get_left_top.exit:                                ; preds = %45, %50
   br i1 %.not42.i, label %96, label %vvc_get_cabac.exit
 
 96:                                               ; preds = %get_left_top.exit
-  %97 = add nsw i32 %94, -1
+  %97 = add nsw i32 %94, -32768
   %98 = xor i32 %97, %94
-  %99 = lshr i32 %98, 15
+  %99 = lshr exact i32 %98, 15
   %100 = zext nneg i32 %99 to i64
   %101 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %100
   %102 = load i8, ptr %101, align 1, !tbaa !97
@@ -3696,9 +3696,9 @@ get_mip_inc.exit:                                 ; preds = %50, %55
   br i1 %.not42.i, label %102, label %vvc_get_cabac.exit
 
 102:                                              ; preds = %64
-  %103 = add nsw i32 %100, -1
+  %103 = add nsw i32 %100, -32768
   %104 = xor i32 %103, %100
-  %105 = lshr i32 %104, 15
+  %105 = lshr exact i32 %104, 15
   %106 = zext nneg i32 %105 to i64
   %107 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %106
   %108 = load i8, ptr %107, align 1, !tbaa !97
@@ -3890,9 +3890,9 @@ define range(i32 0, 3) i32 @ff_vvc_intra_luma_ref_idx(ptr noundef readonly captu
   br i1 %.not42.i, label %42, label %vvc_get_cabac.exit
 
 42:                                               ; preds = %8
-  %43 = add nsw i32 %40, -1
+  %43 = add nsw i32 %40, -32768
   %44 = xor i32 %43, %40
-  %45 = lshr i32 %44, 15
+  %45 = lshr exact i32 %44, 15
   %46 = zext nneg i32 %45 to i64
   %47 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %46
   %48 = load i8, ptr %47, align 1, !tbaa !97
@@ -4003,9 +4003,9 @@ define range(i32 0, 128) i32 @ff_vvc_intra_subpartitions_mode_flag(ptr noundef r
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -4109,9 +4109,9 @@ define range(i32 0, 129) i32 @ff_vvc_isp_split_type(ptr noundef readonly capture
   br i1 %.not42.i, label %39, label %vvc_get_cabac.exit
 
 39:                                               ; preds = %3
-  %40 = add nsw i32 %37, -1
+  %40 = add nsw i32 %37, -32768
   %41 = xor i32 %40, %37
-  %42 = lshr i32 %41, 15
+  %42 = lshr exact i32 %41, 15
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !97
@@ -4216,9 +4216,9 @@ define range(i32 0, 128) i32 @ff_vvc_intra_luma_mpm_flag(ptr noundef readonly ca
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -4321,9 +4321,9 @@ define range(i32 0, 128) i32 @ff_vvc_intra_luma_not_planar_flag(ptr noundef read
   br i1 %.not42.i, label %40, label %vvc_get_cabac.exit
 
 40:                                               ; preds = %2
-  %41 = add nsw i32 %38, -1
+  %41 = add nsw i32 %38, -32768
   %42 = xor i32 %41, %38
-  %43 = lshr i32 %42, 15
+  %43 = lshr exact i32 %42, 15
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !97
@@ -4490,9 +4490,9 @@ define range(i32 0, 128) i32 @ff_vvc_cclm_mode_flag(ptr noundef readonly capture
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -4592,9 +4592,9 @@ define range(i32 0, 3) i32 @ff_vvc_cclm_mode_idx(ptr noundef readonly captures(n
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -4742,9 +4742,9 @@ define range(i32 0, 5) i32 @ff_vvc_intra_chroma_pred_mode(ptr noundef readonly c
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -5191,9 +5191,9 @@ define zeroext i1 @ff_vvc_palette_transpose_flag(ptr noundef readonly captures(n
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -5315,9 +5315,9 @@ define zeroext i1 @ff_vvc_run_copy_flag(ptr noundef readonly captures(none) %0, 
   br i1 %.not42.i, label %55, label %vvc_get_cabac.exit
 
 55:                                               ; preds = %16
-  %56 = add nsw i32 %53, -1
+  %56 = add nsw i32 %53, -32768
   %57 = xor i32 %56, %53
-  %58 = lshr i32 %57, 15
+  %58 = lshr exact i32 %57, 15
   %59 = zext nneg i32 %58 to i64
   %60 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %59
   %61 = load i8, ptr %60, align 1, !tbaa !97
@@ -5418,9 +5418,9 @@ define zeroext i1 @ff_vvc_copy_above_palette_indices_flag(ptr noundef readonly c
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -5538,9 +5538,9 @@ define range(i32 0, 128) i32 @ff_vvc_general_merge_flag(ptr noundef readonly cap
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -5741,9 +5741,9 @@ get_inter_flag_inc.exit:                          ; preds = %64, %65
   br i1 %.not42.i, label %113, label %vvc_get_cabac.exit
 
 113:                                              ; preds = %get_inter_flag_inc.exit
-  %114 = add nsw i32 %111, -1
+  %114 = add nsw i32 %111, -32768
   %115 = xor i32 %114, %111
-  %116 = lshr i32 %115, 15
+  %116 = lshr exact i32 %115, 15
   %117 = zext nneg i32 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !97
@@ -5843,9 +5843,9 @@ define range(i32 -2147483648, 2147483647) i32 @ff_vvc_merge_subblock_idx(ptr nou
   br i1 %.not42.i, label %38, label %vvc_get_cabac.exit
 
 38:                                               ; preds = %2
-  %39 = add nsw i32 %36, -1
+  %39 = add nsw i32 %36, -32768
   %40 = xor i32 %39, %36
-  %41 = lshr i32 %40, 15
+  %41 = lshr exact i32 %40, 15
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !97
@@ -6008,9 +6008,9 @@ define range(i32 0, 128) i32 @ff_vvc_regular_merge_flag(ptr noundef readonly cap
   br i1 %.not42.i, label %40, label %vvc_get_cabac.exit
 
 40:                                               ; preds = %2
-  %41 = add nsw i32 %38, -1
+  %41 = add nsw i32 %38, -32768
   %42 = xor i32 %41, %38
-  %43 = lshr i32 %42, 15
+  %43 = lshr exact i32 %42, 15
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !97
@@ -6110,9 +6110,9 @@ define range(i32 0, 128) i32 @ff_vvc_mmvd_merge_flag(ptr noundef readonly captur
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -6212,9 +6212,9 @@ define range(i32 0, 128) i32 @ff_vvc_mmvd_cand_flag(ptr noundef readonly capture
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -6314,9 +6314,9 @@ define void @ff_vvc_mmvd_offset_coding(ptr noundef readonly captures(none) %0, p
   br i1 %.not42.i.i, label %38, label %vvc_get_cabac.exit.i
 
 38:                                               ; preds = %3
-  %39 = add nsw i32 %36, -1
+  %39 = add nsw i32 %36, -32768
   %40 = xor i32 %39, %36
-  %41 = lshr i32 %40, 15
+  %41 = lshr exact i32 %40, 15
   %42 = zext nneg i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !97
@@ -6610,9 +6610,9 @@ get_luma_pred_mode.exit:                          ; preds = %9, %12
   br i1 %.not42.i, label %73, label %vvc_get_cabac.exit
 
 73:                                               ; preds = %get_luma_pred_mode.exit
-  %74 = add nsw i32 %71, -1
+  %74 = add nsw i32 %71, -32768
   %75 = xor i32 %74, %71
-  %76 = lshr i32 %75, 15
+  %76 = lshr exact i32 %75, 15
   %77 = zext nneg i32 %76 to i64
   %78 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %77
   %79 = load i8, ptr %78, align 1, !tbaa !97
@@ -6848,9 +6848,9 @@ define i32 @ff_vvc_merge_gpm_idx(ptr noundef readonly captures(none) %0, i32 nou
   br i1 %.not42.i, label %47, label %vvc_get_cabac.exit
 
 47:                                               ; preds = %2
-  %48 = add nsw i32 %45, -1
+  %48 = add nsw i32 %45, -32768
   %49 = xor i32 %48, %45
-  %50 = lshr i32 %49, 15
+  %50 = lshr exact i32 %49, 15
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !97
@@ -7009,9 +7009,9 @@ define range(i32 0, 128) i32 @ff_vvc_ciip_flag(ptr noundef readonly captures(non
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -7168,9 +7168,9 @@ define range(i32 1, 129) i32 @ff_vvc_pred_flag(ptr noundef readonly captures(non
   br i1 %.not42.i, label %70, label %vvc_get_cabac.exit
 
 70:                                               ; preds = %12
-  %71 = add nsw i32 %68, -1
+  %71 = add nsw i32 %68, -32768
   %72 = xor i32 %71, %68
-  %73 = lshr i32 %72, 15
+  %73 = lshr exact i32 %72, 15
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %74
   %76 = load i8, ptr %75, align 1, !tbaa !97
@@ -7269,9 +7269,9 @@ vvc_get_cabac.exit:                               ; preds = %12, %70, %95
   br i1 %.not42.i24, label %153, label %vvc_get_cabac.exit25
 
 153:                                              ; preds = %118
-  %154 = add nsw i32 %151, -1
+  %154 = add nsw i32 %151, -32768
   %155 = xor i32 %154, %151
-  %156 = lshr i32 %155, 15
+  %156 = lshr exact i32 %155, 15
   %157 = zext nneg i32 %156 to i64
   %158 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %157
   %159 = load i8, ptr %158, align 1, !tbaa !97
@@ -7477,9 +7477,9 @@ get_inter_flag_inc.exit:                          ; preds = %64, %65
   br i1 %.not42.i, label %113, label %vvc_get_cabac.exit
 
 113:                                              ; preds = %get_inter_flag_inc.exit
-  %114 = add nsw i32 %111, -1
+  %114 = add nsw i32 %111, -32768
   %115 = xor i32 %114, %111
-  %116 = lshr i32 %115, 15
+  %116 = lshr exact i32 %115, 15
   %117 = zext nneg i32 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %117
   %119 = load i8, ptr %118, align 1, !tbaa !97
@@ -7579,9 +7579,9 @@ define range(i32 0, 128) i32 @ff_vvc_cu_affine_type_flag(ptr noundef readonly ca
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -7681,9 +7681,9 @@ define range(i32 0, 128) i32 @ff_vvc_sym_mvd_flag(ptr noundef readonly captures(
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -7800,9 +7800,9 @@ define i32 @ff_vvc_ref_idx_lx(ptr noundef readonly captures(none) %0, i8 noundef
   br i1 %.not42.i, label %46, label %vvc_get_cabac.exit
 
 46:                                               ; preds = %13
-  %47 = add nsw i32 %44, -1
+  %47 = add nsw i32 %44, -32768
   %48 = xor i32 %47, %44
-  %49 = lshr i32 %48, 15
+  %49 = lshr exact i32 %48, 15
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !97
@@ -7979,9 +7979,9 @@ define range(i32 0, 128) i32 @ff_vvc_abs_mvd_greater0_flag(ptr noundef readonly 
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -8081,9 +8081,9 @@ define range(i32 0, 128) i32 @ff_vvc_abs_mvd_greater1_flag(ptr noundef readonly 
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -8380,9 +8380,9 @@ define range(i32 0, 128) i32 @ff_vvc_mvp_lx_flag(ptr noundef readonly captures(n
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -8492,9 +8492,9 @@ define i32 @ff_vvc_amvr_shift(ptr noundef readonly captures(none) %0, i32 nounde
   br i1 %.not42.i.i, label %44, label %amvr_flag.exit
 
 44:                                               ; preds = %7
-  %45 = add nsw i32 %42, -1
+  %45 = add nsw i32 %42, -32768
   %46 = xor i32 %45, %42
-  %47 = lshr i32 %46, 15
+  %47 = lshr exact i32 %46, 15
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !97
@@ -8629,9 +8629,9 @@ define internal fastcc range(i32 0, 3) i32 @amvr_precision_idx(ptr captures(none
   br i1 %.not42.i, label %39, label %vvc_get_cabac.exit
 
 39:                                               ; preds = %2
-  %40 = add nsw i32 %37, -1
+  %40 = add nsw i32 %37, -32768
   %41 = xor i32 %40, %37
-  %42 = lshr i32 %41, 15
+  %42 = lshr exact i32 %41, 15
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !97
@@ -8729,9 +8729,9 @@ vvc_get_cabac.exit:                               ; preds = %2, %39, %64
   br i1 %.not42.i13, label %119, label %vvc_get_cabac.exit14
 
 119:                                              ; preds = %89
-  %120 = add nsw i32 %117, -1
+  %120 = add nsw i32 %117, -32768
   %121 = xor i32 %120, %117
-  %122 = lshr i32 %121, 15
+  %122 = lshr exact i32 %121, 15
   %123 = zext nneg i32 %122 to i64
   %124 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !97
@@ -8839,9 +8839,9 @@ define i32 @ff_vvc_bcw_idx(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %.not42.i, label %39, label %vvc_get_cabac.exit
 
 39:                                               ; preds = %2
-  %40 = add nsw i32 %37, -1
+  %40 = add nsw i32 %37, -32768
   %41 = xor i32 %40, %37
-  %42 = lshr i32 %41, 15
+  %42 = lshr exact i32 %41, 15
   %43 = zext nneg i32 %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %43
   %45 = load i8, ptr %44, align 1, !tbaa !97
@@ -9002,9 +9002,9 @@ define range(i32 0, 128) i32 @ff_vvc_tu_cb_coded_flag(ptr noundef readonly captu
   br i1 %.not42.i, label %43, label %vvc_get_cabac.exit
 
 43:                                               ; preds = %1
-  %44 = add nsw i32 %41, -1
+  %44 = add nsw i32 %41, -32768
   %45 = xor i32 %44, %41
-  %46 = lshr i32 %45, 15
+  %46 = lshr exact i32 %45, 15
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %47
   %49 = load i8, ptr %48, align 1, !tbaa !97
@@ -9113,9 +9113,9 @@ define range(i32 0, 128) i32 @ff_vvc_tu_cr_coded_flag(ptr noundef readonly captu
   br i1 %.not42.i, label %46, label %vvc_get_cabac.exit
 
 46:                                               ; preds = %2
-  %47 = add nsw i32 %44, -1
+  %47 = add nsw i32 %44, -32768
   %48 = xor i32 %47, %44
-  %49 = lshr i32 %48, 15
+  %49 = lshr exact i32 %48, 15
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !97
@@ -9238,9 +9238,9 @@ define range(i32 0, 128) i32 @ff_vvc_tu_y_coded_flag(ptr noundef captures(none) 
   br i1 %.not42.i, label %52, label %vvc_get_cabac.exit
 
 52:                                               ; preds = %15
-  %53 = add nsw i32 %50, -1
+  %53 = add nsw i32 %50, -32768
   %54 = xor i32 %53, %50
-  %55 = lshr i32 %54, 15
+  %55 = lshr exact i32 %54, 15
   %56 = zext nneg i32 %55 to i64
   %57 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %56
   %58 = load i8, ptr %57, align 1, !tbaa !97
@@ -9342,9 +9342,9 @@ define range(i32 0, 128) i32 @ff_vvc_cu_act_enabled_flag(ptr noundef readonly ca
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -9444,9 +9444,9 @@ define range(i32 -2147483643, -2147483648) i32 @ff_vvc_cu_qp_delta_abs(ptr nound
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -9556,9 +9556,9 @@ vvc_get_cabac.exit:                               ; preds = %1, %37, %62
   br i1 %.not42.i28, label %121, label %vvc_get_cabac.exit29
 
 121:                                              ; preds = %91
-  %122 = add nsw i32 %119, -1
+  %122 = add nsw i32 %119, -32768
   %123 = xor i32 %122, %119
-  %124 = lshr i32 %123, 15
+  %124 = lshr exact i32 %123, 15
   %125 = zext nneg i32 %124 to i64
   %126 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %125
   %127 = load i8, ptr %126, align 1, !tbaa !97
@@ -9829,9 +9829,9 @@ define range(i32 0, 128) i32 @ff_vvc_cu_chroma_qp_offset_flag(ptr noundef readon
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -9955,9 +9955,9 @@ define i32 @ff_vvc_cu_chroma_qp_offset_idx(ptr noundef readonly captures(none) %
   br i1 %.not42.i, label %50, label %vvc_get_cabac.exit
 
 50:                                               ; preds = %20
-  %51 = add nsw i32 %48, -1
+  %51 = add nsw i32 %48, -32768
   %52 = xor i32 %51, %48
-  %53 = lshr i32 %52, 15
+  %53 = lshr exact i32 %52, 15
   %54 = zext nneg i32 %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %54
   %56 = load i8, ptr %55, align 1, !tbaa !97
@@ -10069,9 +10069,9 @@ define range(i32 0, 128) i32 @ff_vvc_tu_joint_cbcr_residual_flag(ptr noundef rea
   br i1 %.not42.i, label %44, label %vvc_get_cabac.exit
 
 44:                                               ; preds = %3
-  %45 = add nsw i32 %42, -1
+  %45 = add nsw i32 %42, -32768
   %46 = xor i32 %45, %42
-  %47 = lshr i32 %46, 15
+  %47 = lshr exact i32 %46, 15
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !97
@@ -10173,9 +10173,9 @@ define range(i32 0, 128) i32 @ff_vvc_transform_skip_flag(ptr noundef readonly ca
   br i1 %.not42.i, label %40, label %vvc_get_cabac.exit
 
 40:                                               ; preds = %2
-  %41 = add nsw i32 %38, -1
+  %41 = add nsw i32 %38, -32768
   %42 = xor i32 %41, %38
-  %43 = lshr i32 %42, 15
+  %43 = lshr exact i32 %42, 15
   %44 = zext nneg i32 %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !97
@@ -10629,9 +10629,9 @@ define noundef i32 @ff_vvc_residual_coding(ptr noundef captures(none) %0, ptr no
   br i1 %.not42.i.i.i.i, label %255, label %coeff_sign_flag_ts_decode.exit.i.i
 
 255:                                              ; preds = %219
-  %256 = add nsw i32 %253, -1
+  %256 = add nsw i32 %253, -32768
   %257 = xor i32 %256, %253
-  %258 = lshr i32 %257, 15
+  %258 = lshr exact i32 %257, 15
   %259 = zext nneg i32 %258 to i64
   %260 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %259
   %261 = load i8, ptr %260, align 1, !tbaa !97
@@ -10766,9 +10766,9 @@ coeff_sign_flag_ts_decode.exit.i.i:               ; preds = %280, %255, %219
   br i1 %.not42.i.i262.i.i, label %362, label %abs_level_gt1_flag_ts_decode.exit.i.i
 
 362:                                              ; preds = %329
-  %363 = add nsw i32 %360, -1
+  %363 = add nsw i32 %360, -32768
   %364 = xor i32 %363, %360
-  %365 = lshr i32 %364, 15
+  %365 = lshr exact i32 %364, 15
   %366 = zext nneg i32 %365 to i64
   %367 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %366
   %368 = load i8, ptr %367, align 1, !tbaa !97
@@ -10866,9 +10866,9 @@ abs_level_gt1_flag_ts_decode.exit.i.i:            ; preds = %387, %362, %329
   br i1 %.not42.i.i264.i.i, label %442, label %par_level_flag_ts_decode.exit.i.i
 
 442:                                              ; preds = %412
-  %443 = add nsw i32 %440, -1
+  %443 = add nsw i32 %440, -32768
   %444 = xor i32 %443, %440
-  %445 = lshr i32 %444, 15
+  %445 = lshr exact i32 %444, 15
   %446 = zext nneg i32 %445 to i64
   %447 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %446
   %448 = load i8, ptr %447, align 1, !tbaa !97
@@ -11049,9 +11049,9 @@ par_level_flag_ts_decode.exit.i.i:                ; preds = %467, %442, %412
   br i1 %.not42.i.i266.i.i, label %567, label %abs_level_gtx_flag_ts_decode.exit.i.i
 
 567:                                              ; preds = %532
-  %568 = add nsw i32 %565, -1
+  %568 = add nsw i32 %565, -32768
   %569 = xor i32 %568, %565
-  %570 = lshr i32 %569, 15
+  %570 = lshr exact i32 %569, 15
   %571 = zext nneg i32 %570 to i64
   %572 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %571
   %573 = load i8, ptr %572, align 1, !tbaa !97
@@ -11740,9 +11740,9 @@ init_residual_coding.exit.i:                      ; preds = %874, %863
   br i1 %.not42.i.i.i, label %974, label %vvc_get_cabac.exit.i.i
 
 974:                                              ; preds = %939
-  %975 = add nsw i32 %972, -1
+  %975 = add nsw i32 %972, -32768
   %976 = xor i32 %975, %972
-  %977 = lshr i32 %976, 15
+  %977 = lshr exact i32 %976, 15
   %978 = zext nneg i32 %977 to i64
   %979 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %978
   %980 = load i8, ptr %979, align 1, !tbaa !97
@@ -11889,9 +11889,9 @@ last_significant_coeff_xy_prefix.exit48.i.i:      ; preds = %1020, %vvc_get_caba
   br i1 %.not42.i51.i.i, label %1080, label %vvc_get_cabac.exit52.i.i
 
 1080:                                             ; preds = %1045
-  %1081 = add nsw i32 %1078, -1
+  %1081 = add nsw i32 %1078, -32768
   %1082 = xor i32 %1081, %1078
-  %1083 = lshr i32 %1082, 15
+  %1083 = lshr exact i32 %1082, 15
   %1084 = zext nneg i32 %1083 to i64
   %1085 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %1084
   %1086 = load i8, ptr %1085, align 1, !tbaa !97
@@ -12755,9 +12755,9 @@ get_gtx_flag_inc.exit.i.i:                        ; preds = %1554, %1547, %1450
   br i1 %.not42.i.i143.i, label %1592, label %abs_level_gtx_flag_decode.exit145.i
 
 1592:                                             ; preds = %get_gtx_flag_inc.exit.i.i
-  %1593 = add nsw i32 %1590, -1
+  %1593 = add nsw i32 %1590, -32768
   %1594 = xor i32 %1593, %1590
-  %1595 = lshr i32 %1594, 15
+  %1595 = lshr exact i32 %1594, 15
   %1596 = zext nneg i32 %1595 to i64
   %1597 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %1596
   %1598 = load i8, ptr %1597, align 1, !tbaa !97
@@ -12854,9 +12854,9 @@ abs_level_gtx_flag_decode.exit145.i:              ; preds = %1617, %1592, %get_g
   br i1 %.not42.i.i.i.i41, label %1672, label %par_level_flag_decode.exit.i.i
 
 1672:                                             ; preds = %1642
-  %1673 = add nsw i32 %1670, -1
+  %1673 = add nsw i32 %1670, -32768
   %1674 = xor i32 %1673, %1670
-  %1675 = lshr i32 %1674, 15
+  %1675 = lshr exact i32 %1674, 15
   %1676 = zext nneg i32 %1675 to i64
   %1677 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %1676
   %1678 = load i8, ptr %1677, align 1, !tbaa !97
@@ -12946,9 +12946,9 @@ par_level_flag_decode.exit.i.i:                   ; preds = %1697, %1672, %1642
   br i1 %.not42.i.i140.i, label %1749, label %abs_level_gtx_flag_decode.exit.i
 
 1749:                                             ; preds = %par_level_flag_decode.exit.i.i
-  %1750 = add nsw i32 %1747, -1
+  %1750 = add nsw i32 %1747, -32768
   %1751 = xor i32 %1750, %1747
-  %1752 = lshr i32 %1751, 15
+  %1752 = lshr exact i32 %1751, 15
   %1753 = zext nneg i32 %1752 to i64
   %1754 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %1753
   %1755 = load i8, ptr %1754, align 1, !tbaa !97
@@ -14204,9 +14204,9 @@ define range(i32 0, 128) i32 @ff_vvc_cu_coded_flag(ptr noundef readonly captures
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -14316,9 +14316,9 @@ define range(i32 0, 128) i32 @ff_vvc_sbt_flag(ptr noundef readonly captures(none
   br i1 %.not42.i, label %47, label %vvc_get_cabac.exit
 
 47:                                               ; preds = %1
-  %48 = add nsw i32 %45, -1
+  %48 = add nsw i32 %45, -32768
   %49 = xor i32 %48, %45
-  %50 = lshr i32 %49, 15
+  %50 = lshr exact i32 %49, 15
   %51 = zext nneg i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !97
@@ -14418,9 +14418,9 @@ define range(i32 0, 128) i32 @ff_vvc_sbt_quad_flag(ptr noundef readonly captures
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -14531,9 +14531,9 @@ define range(i32 0, 128) i32 @ff_vvc_sbt_horizontal_flag(ptr noundef readonly ca
   br i1 %.not42.i, label %48, label %vvc_get_cabac.exit
 
 48:                                               ; preds = %1
-  %49 = add nsw i32 %46, -1
+  %49 = add nsw i32 %46, -32768
   %50 = xor i32 %49, %46
-  %51 = lshr i32 %50, 15
+  %51 = lshr exact i32 %50, 15
   %52 = zext nneg i32 %51 to i64
   %53 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !97
@@ -14633,9 +14633,9 @@ define range(i32 0, 128) i32 @ff_vvc_sbt_pos_flag(ptr noundef readonly captures(
   br i1 %.not42.i, label %37, label %vvc_get_cabac.exit
 
 37:                                               ; preds = %1
-  %38 = add nsw i32 %35, -1
+  %38 = add nsw i32 %35, -32768
   %39 = xor i32 %38, %35
-  %40 = lshr i32 %39, 15
+  %40 = lshr exact i32 %39, 15
   %41 = zext nneg i32 %40 to i64
   %42 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %41
   %43 = load i8, ptr %42, align 1, !tbaa !97
@@ -14738,9 +14738,9 @@ define range(i32 0, 3) i32 @ff_vvc_lfnst_idx(ptr noundef readonly captures(none)
   br i1 %.not42.i, label %41, label %vvc_get_cabac.exit
 
 41:                                               ; preds = %2
-  %42 = add nsw i32 %39, -1
+  %42 = add nsw i32 %39, -32768
   %43 = xor i32 %42, %39
-  %44 = lshr i32 %43, 15
+  %44 = lshr exact i32 %43, 15
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !97
@@ -14834,9 +14834,9 @@ vvc_get_cabac.exit:                               ; preds = %2, %41, %66
   br i1 %.not42.i7, label %119, label %vvc_get_cabac.exit8
 
 119:                                              ; preds = %89
-  %120 = add nsw i32 %117, -1
+  %120 = add nsw i32 %117, -32768
   %121 = xor i32 %120, %117
-  %122 = lshr i32 %121, 15
+  %122 = lshr exact i32 %121, 15
   %123 = zext nneg i32 %122 to i64
   %124 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %123
   %125 = load i8, ptr %124, align 1, !tbaa !97
@@ -14951,9 +14951,9 @@ define i32 @ff_vvc_mts_idx(ptr noundef readonly captures(none) %0) local_unnamed
   br i1 %.not42.i, label %41, label %vvc_get_cabac.exit
 
 41:                                               ; preds = %8
-  %42 = add nsw i32 %39, -1
+  %42 = add nsw i32 %39, -32768
   %43 = xor i32 %42, %39
-  %44 = lshr i32 %43, 15
+  %44 = lshr exact i32 %43, 15
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %45
   %47 = load i8, ptr %46, align 1, !tbaa !97
@@ -15351,9 +15351,9 @@ define internal fastcc range(i32 0, 128) i32 @sb_coded_flag_decode(ptr noundef r
   br i1 %.not42.i, label %97, label %vvc_get_cabac.exit
 
 97:                                               ; preds = %60
-  %98 = add nsw i32 %95, -1
+  %98 = add nsw i32 %95, -32768
   %99 = xor i32 %98, %95
-  %100 = lshr i32 %99, 15
+  %100 = lshr exact i32 %99, 15
   %101 = zext nneg i32 %100 to i64
   %102 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !97
@@ -15611,9 +15611,9 @@ get_local_sum.exit:                               ; preds = %58, %66, %68, %74
   br i1 %.not42.i, label %142, label %vvc_get_cabac.exit
 
 142:                                              ; preds = %104
-  %143 = add nsw i32 %140, -1
+  %143 = add nsw i32 %140, -32768
   %144 = xor i32 %143, %140
-  %145 = lshr i32 %144, 15
+  %145 = lshr exact i32 %144, 15
   %146 = zext nneg i32 %145 to i64
   %147 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %146
   %148 = load i8, ptr %147, align 1, !tbaa !97

@@ -961,7 +961,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %85 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %85, align 8, !noalias !91
   %86 = zext i32 %72 to i64
-  %87 = add nuw nsw i64 %86, 15
+  %87 = add nuw nsw i64 %86, 14
   %88 = lshr i64 %87, 4
   %89 = add nuw nsw i64 %88, 1
   %90 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h15c5e1416694c67aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4, i64 noundef 0, i64 noundef %89)

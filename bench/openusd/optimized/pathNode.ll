@@ -8983,7 +8983,7 @@ _ZNK3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPKN32pxrIntern
   br i1 %.not13.i.i.i.i, label %33, label %36, !llvm.loop !67
 
 36:                                               ; preds = %33
-  %37 = add i64 %35, -1
+  %37 = add i64 %35, -2
   %38 = and i64 %37, %4
   %39 = or disjoint i64 %38, 1
   %40 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %39, i1 true)
@@ -9153,7 +9153,7 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEE17upgrade_to_writerEv.exi
   br i1 %.not13.i.i34.i.i, label %105, label %108, !llvm.loop !67
 
 108:                                              ; preds = %105
-  %109 = add i64 %107, -1
+  %109 = add i64 %107, -2
   %110 = and i64 %109, %4
   %111 = or disjoint i64 %110, 1
   %112 = tail call noundef range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %111, i1 true)

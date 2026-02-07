@@ -21952,8 +21952,8 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_10HammingLUTEE29com
   br i1 %.not141, label %.lr.ph125.split, label %.lr.ph125.split.us.preheader
 
 .lr.ph125.split.us.preheader:                     ; preds = %.lr.ph125
-  %20 = add nsw i64 %13, -1
-  %21 = lshr i64 %20, 3
+  %20 = add nsw i64 %13, -8
+  %21 = lshr exact i64 %20, 3
   %wide.trip.count = zext i32 %3 to i64
   br label %.lr.ph125.split.us
 
@@ -22078,8 +22078,8 @@ _ZNK7cvflann10HammingLUTclEPKhNS_12ZeroIteratorIhEEm.exit114.thread: ; preds = %
   br i1 %.not142, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %._crit_edge126
-  %91 = add nsw i64 %13, -1
-  %92 = lshr i64 %91, 3
+  %91 = add nsw i64 %13, -8
+  %92 = lshr exact i64 %91, 3
   br label %.lr.ph
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.i.preheader.preheader, %_ZNK7cvflann10HammingLUTclEPKhNS_12ZeroIteratorIhEEm.exit.loopexit
@@ -22714,8 +22714,8 @@ _ZN2cv10AutoBufferIjLm264EEC2Em.exit:             ; preds = %._crit_edge, %26
   %53 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %54 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %55 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %56 = add nsw i64 %30, -1
-  %57 = lshr i64 %56, 3
+  %56 = add nsw i64 %30, -8
+  %57 = lshr exact i64 %56, 3
   %wide.trip.count267 = zext nneg i32 %3 to i64
   %wide.trip.count273 = zext nneg i32 %2 to i64
   %wide.trip.count279 = zext nneg i32 %3 to i64
@@ -23309,7 +23309,7 @@ _ZN2cv10AutoBufferIjLm264EED2Ev.exit202:          ; preds = %321, %.critedge
 define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_10HammingLUTEE31computeAnyBitfieldSubClusteringEPNS2_10KMeansNodeEPiiiiPPhRSt6vectorIiSaIiEES5_S5_(ptr noundef nonnull align 8 dereferenceable(212) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #7 comdat align 2 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %12 = shl i32 %4, 3
-  %13 = add i32 %12, 15
+  %13 = add i32 %12, 8
   %14 = and i32 %13, -16
   %15 = load i32, ptr %11, align 8, !tbaa !232
   %16 = icmp sgt i32 %14, %15
@@ -23918,7 +23918,7 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %49
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %68 = load i32, ptr %67, align 8, !tbaa !245
   %69 = shl i32 %68, 3
-  %70 = add i32 %69, 15
+  %70 = add i32 %69, 8
   %71 = and i32 %70, -16
   %72 = load i32, ptr %6, align 8, !tbaa !232
   %73 = icmp sgt i32 %71, %72
@@ -29020,7 +29020,7 @@ _ZSt4sortIPiEvT_S1_.exit129:                      ; preds = %_ZSt25__unguarded_l
   call void @_ZN7cvflann27HierarchicalClusteringIndexINS_10HammingLUTEE13computeLabelsEPiiS3_iS3_Ri(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %.sroa.0150.0, i32 noundef %90, ptr noundef nonnull %.sroa.0143.0, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %141 = shl i32 %4, 3
-  %142 = add i32 %141, 15
+  %142 = add i32 %141, 8
   %143 = and i32 %142, -16
   %144 = load i32, ptr %140, align 8, !tbaa !232
   %145 = icmp sgt i32 %143, %144
@@ -29569,7 +29569,7 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %38
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %57 = load i32, ptr %56, align 4, !tbaa !265
   %58 = shl i32 %57, 3
-  %59 = add i32 %58, 15
+  %59 = add i32 %58, 8
   %60 = and i32 %59, -16
   %61 = load i32, ptr %6, align 8, !tbaa !232
   %62 = icmp sgt i32 %60, %61
@@ -50956,7 +50956,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit148:          ; preds = %270, %267
 define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE20computeSubClusteringEPNS3_10KMeansNodeEPiiiiPPfRSt6vectorIfSaIfEES6_S6_(ptr noundef nonnull align 8 dereferenceable(212) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #7 comdat align 2 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %12 = shl i32 %4, 3
-  %13 = add i32 %12, 15
+  %13 = add i32 %12, 8
   %14 = and i32 %13, -16
   %15 = load i32, ptr %11, align 8, !tbaa !232
   %16 = icmp sgt i32 %14, %15
@@ -51678,7 +51678,7 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %52
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = load i32, ptr %70, align 8, !tbaa !729
   %72 = shl i32 %71, 3
-  %73 = add i32 %72, 15
+  %73 = add i32 %72, 8
   %74 = and i32 %73, -16
   %75 = load i32, ptr %6, align 8, !tbaa !232
   %76 = icmp sgt i32 %74, %75
@@ -64366,7 +64366,7 @@ _ZSt4sortIPiEvT_S1_.exit129:                      ; preds = %_ZSt25__unguarded_l
   call void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L2IfEEE13computeLabelsEPiiS4_iS4_Rf(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %.sroa.0150.0, i32 noundef %90, ptr noundef nonnull %.sroa.0143.0, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %141 = shl i32 %4, 3
-  %142 = add i32 %141, 15
+  %142 = add i32 %141, 8
   %143 = and i32 %142, -16
   %144 = load i32, ptr %140, align 8, !tbaa !232
   %145 = icmp sgt i32 %143, %144
@@ -64937,7 +64937,7 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %38
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %57 = load i32, ptr %56, align 4, !tbaa !759
   %58 = shl i32 %57, 3
-  %59 = add i32 %58, 15
+  %59 = add i32 %58, 8
   %60 = and i32 %59, -16
   %61 = load i32, ptr %6, align 8, !tbaa !232
   %62 = icmp sgt i32 %60, %61
@@ -83780,7 +83780,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit151:          ; preds = %274, %271
 define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L1IfEEE20computeSubClusteringEPNS3_10KMeansNodeEPiiiiPPfRSt6vectorIfSaIfEES6_S6_(ptr noundef nonnull align 8 dereferenceable(212) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #7 comdat align 2 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %12 = shl i32 %4, 3
-  %13 = add i32 %12, 15
+  %13 = add i32 %12, 8
   %14 = and i32 %13, -16
   %15 = load i32, ptr %11, align 8, !tbaa !232
   %16 = icmp sgt i32 %14, %15
@@ -84521,7 +84521,7 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %52
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %71 = load i32, ptr %70, align 8, !tbaa !1333
   %72 = shl i32 %71, 3
-  %73 = add i32 %72, 15
+  %73 = add i32 %72, 8
   %74 = and i32 %73, -16
   %75 = load i32, ptr %6, align 8, !tbaa !232
   %76 = icmp sgt i32 %74, %75
@@ -95488,7 +95488,7 @@ _ZSt4sortIPiEvT_S1_.exit129:                      ; preds = %_ZSt25__unguarded_l
   call void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L1IfEEE13computeLabelsEPiiS4_iS4_Rf(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %.sroa.0150.0, i32 noundef %90, ptr noundef nonnull %.sroa.0143.0, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %141 = shl i32 %4, 3
-  %142 = add i32 %141, 15
+  %142 = add i32 %141, 8
   %143 = and i32 %142, -16
   %144 = load i32, ptr %140, align 8, !tbaa !232
   %145 = icmp sgt i32 %143, %144
@@ -96067,7 +96067,7 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %38
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %57 = load i32, ptr %56, align 4, !tbaa !1362
   %58 = shl i32 %57, 3
-  %59 = add i32 %58, 15
+  %59 = add i32 %58, 8
   %60 = and i32 %59, -16
   %61 = load i32, ptr %6, align 8, !tbaa !232
   %62 = icmp sgt i32 %60, %61

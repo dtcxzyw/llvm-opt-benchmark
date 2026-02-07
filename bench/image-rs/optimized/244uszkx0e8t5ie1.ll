@@ -12762,7 +12762,7 @@ define void @_ZN5image6codecs4webp11loop_filter17macroblock_filter17hb86cdfb720c
 
 59:                                               ; preds = %50
   %60 = mul nsw i32 %.0.in.sroa.speculated.i23, 18
-  %61 = add nsw i32 %60, 63
+  %61 = add nsw i32 %60, 62
   %62 = ashr i32 %61, 7
   %63 = sub i32 %24, %62
   %64 = tail call i32 @llvm.smax.i32(i32 %63, i32 -128)

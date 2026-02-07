@@ -24208,7 +24208,7 @@ define internal fastcc void @zend_infer_ranges(ptr noundef %0, ptr noundef %1) u
   %14 = shl nuw nsw i64 %12, 3
   %15 = sext i32 %9 to i64
   %16 = shl nsw i64 %15, 2
-  %17 = add nsw i64 %16, 7
+  %17 = add nsw i64 %16, 4
   %18 = and i64 %17, -8
   %19 = add nsw i64 %18, %14
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -24233,7 +24233,7 @@ define internal fastcc void @zend_infer_ranges(ptr noundef %0, ptr noundef %1) u
   %33 = load i32, ptr %8, align 8, !tbaa !4
   %34 = sext i32 %33 to i64
   %35 = shl nsw i64 %34, 2
-  %36 = add nsw i64 %35, 7
+  %36 = add nsw i64 %35, 4
   %37 = and i64 %36, -8
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 %37
   %39 = load i32, ptr %20, align 4, !tbaa !18

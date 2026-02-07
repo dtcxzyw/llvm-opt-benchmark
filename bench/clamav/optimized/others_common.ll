@@ -1381,7 +1381,7 @@ cli_max_malloc.exit.tail.thread:                  ; preds = %sub_031, %cli_max_m
   %.0106.i = phi ptr [ %84, %88 ], [ null, %81 ]
   %90 = add i64 %.0107.i55, 1
   %91 = mul i64 %90, 40
-  %92 = add i64 %91, -1073741825
+  %92 = add i64 %91, -1073741832
   %or.cond.i12 = icmp ult i64 %92, -1073741824
   br i1 %or.cond.i12, label %93, label %94
 

@@ -68,8 +68,8 @@ define dso_local void @PHP_WHIRLPOOLUpdate(ptr noundef captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %.critedge
   %28 = sub nuw nsw i32 8, %8
-  %29 = add i64 %4, -9
-  %30 = lshr i64 %29, 3
+  %29 = add i64 %4, -16
+  %30 = lshr exact i64 %29, 3
   %.phi.trans.insert = sext i32 %11 to i64
   %.phi.trans.insert104 = getelementptr inbounds i8, ptr %9, i64 %.phi.trans.insert
   %.pre = load i8, ptr %.phi.trans.insert104, align 1, !tbaa !11

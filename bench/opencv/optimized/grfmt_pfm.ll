@@ -1281,7 +1281,7 @@ define hidden noundef zeroext i1 @_ZN2cv10PFMEncoder5writeERKNS_3MatERKSt6vector
   %26 = add nuw nsw i32 %25, 4
   %27 = zext nneg i32 %26 to i64
   %28 = mul i64 %22, %27
-  %29 = add i64 %28, 511
+  %29 = add i64 %28, 508
   %30 = and i64 %29, -256
   %31 = icmp slt i64 %29, 0
   br i1 %31, label %32, label %33

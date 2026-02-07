@@ -1847,7 +1847,7 @@ define linkonce_odr noundef i64 @_ZN3tbb6detail2r110arena_slot17prepare_task_poo
 9:                                                ; preds = %8
   %spec.select = tail call i64 @llvm.umax.i64(i64 %1, i64 64)
   %10 = shl i64 %spec.select, 3
-  %11 = add i64 %10, 127
+  %11 = add i64 %10, 120
   %12 = and i64 %11, -128
   %13 = lshr exact i64 %12, 3
   store i64 %13, ptr %6, align 8, !tbaa !204
@@ -1936,7 +1936,7 @@ _ZN3tbb6detail2r110arena_slot17acquire_task_poolEv.exit: ; preds = %23, %16
   %47 = shl i64 %39, 1
   %spec.select47 = tail call i64 @llvm.umax.i64(i64 %.137.lcssa, i64 %47)
   %48 = shl i64 %spec.select47, 3
-  %49 = add i64 %48, 127
+  %49 = add i64 %48, 120
   %50 = and i64 %49, -128
   %51 = lshr exact i64 %50, 3
   store i64 %51, ptr %6, align 8, !tbaa !204

@@ -623,7 +623,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_crash_elf64_headers(
   %47 = add nuw nsw i64 %46, 64
   store i64 %47, ptr @elfcorebuf_sz_orig, align 8
   store i64 %47, ptr @elfcorebuf_sz, align 8
-  %48 = add nuw nsw i64 %46, 63
+  %48 = add nuw nsw i64 %46, 56
   %49 = lshr i64 %48, 12
   %50 = call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %49, i32 -1) #14, !srcloc !16
   %51 = add i32 %50, 1
@@ -752,7 +752,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_crash_elf32_headers(
   %47 = add nuw nsw i64 %46, 52
   store i64 %47, ptr @elfcorebuf_sz_orig, align 8
   store i64 %47, ptr @elfcorebuf_sz, align 8
-  %48 = add nuw nsw i64 %46, 51
+  %48 = add nuw nsw i64 %46, 32
   %49 = lshr i64 %48, 12
   %50 = call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %49, i32 -1) #14, !srcloc !16
   %51 = add i32 %50, 1
@@ -887,7 +887,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @merge_note_headers_elf64(p
   %41 = add i32 %reass.sub, 1
   %42 = sext i32 %41 to i64
   %43 = mul nsw i64 %42, 56
-  %44 = add nsw i64 %43, 4159
+  %44 = add nsw i64 %43, 4152
   %45 = and i64 %44, -4096
   %46 = getelementptr i8, ptr %0, i64 64
   store i32 4, ptr %46, align 8
@@ -1238,7 +1238,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @merge_note_headers_elf32(p
   %41 = zext i16 %40 to i32
   %42 = sub i32 %41, %30
   %43 = shl i32 %42, 5
-  %44 = add i32 %43, 4179
+  %44 = add i32 %43, 4160
   %45 = and i32 %44, -4096
   %46 = trunc i64 %31 to i32
   %47 = getelementptr i8, ptr %0, i64 52

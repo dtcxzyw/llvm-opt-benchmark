@@ -234329,7 +234329,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
-  %20 = add i64 %.0.i, 127
+  %20 = add i64 %.0.i, 126
   %21 = lshr i64 %20, 7
   %22 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %21, i64 144)
   %23 = extractvalue { i64, i1 } %22, 1
@@ -234700,7 +234700,7 @@ define linkonce_odr noundef ptr @_ZN12QHashPrivate4DataINS_4NodeIN3QCP10MarginSi
 _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, %4
   %.0.i.i = phi i64 [ %14, %9 ], [ 16, %4 ], [ -9223372036854775808, %8 ]
   store i64 %.0.i.i, ptr %6, align 8
-  %15 = add i64 %.0.i.i, 127
+  %15 = add i64 %.0.i.i, 126
   %16 = lshr i64 %15, 7
   %17 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %16, i64 144)
   %18 = extractvalue { i64, i1 } %17, 1
@@ -236786,7 +236786,7 @@ define linkonce_odr noundef ptr @_ZN12QHashPrivate4DataINS_4NodeIN3QCP10MarginSi
 _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, %4
   %.0.i.i = phi i64 [ %14, %9 ], [ 16, %4 ], [ -9223372036854775808, %8 ]
   store i64 %.0.i.i, ptr %6, align 8
-  %15 = add i64 %.0.i.i, 127
+  %15 = add i64 %.0.i.i, 126
   %16 = lshr i64 %15, 7
   %17 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %16, i64 144)
   %18 = extractvalue { i64, i1 } %17, 1
@@ -237533,7 +237533,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
-  %20 = add i64 %.0.i, 127
+  %20 = add i64 %.0.i, 126
   %21 = lshr i64 %20, 7
   %22 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %21, i64 144)
   %23 = extractvalue { i64, i1 } %22, 1
@@ -244075,7 +244075,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
-  %20 = add i64 %.0.i, 127
+  %20 = add i64 %.0.i, 126
   %21 = lshr i64 %20, 7
   %22 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %21, i64 144)
   %23 = extractvalue { i64, i1 } %22, 1
@@ -245712,7 +245712,7 @@ define linkonce_odr noundef ptr @_ZN12QHashPrivate4DataINS_4NodeIN17QCPAxisTicke
 _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, %4
   %.0.i.i = phi i64 [ %14, %9 ], [ 16, %4 ], [ -9223372036854775808, %8 ]
   store i64 %.0.i.i, ptr %6, align 8
-  %15 = add i64 %.0.i.i, 127
+  %15 = add i64 %.0.i.i, 126
   %16 = lshr i64 %15, 7
   %17 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %16, i64 144)
   %18 = extractvalue { i64, i1 } %17, 1
@@ -246126,7 +246126,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
-  %20 = add i64 %.0.i, 127
+  %20 = add i64 %.0.i, 126
   %21 = lshr i64 %20, 7
   %22 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %21, i64 144)
   %23 = extractvalue { i64, i1 } %22, 1
@@ -246652,7 +246652,7 @@ define linkonce_odr noundef ptr @_ZN12QHashPrivate4DataINS_4NodeIN17QCPAxisTicke
 _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, %4
   %.0.i.i = phi i64 [ %14, %9 ], [ 16, %4 ], [ -9223372036854775808, %8 ]
   store i64 %.0.i.i, ptr %6, align 8
-  %15 = add i64 %.0.i.i, 127
+  %15 = add i64 %.0.i.i, 126
   %16 = lshr i64 %15, 7
   %17 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %16, i64 144)
   %18 = extractvalue { i64, i1 } %17, 1
@@ -247121,7 +247121,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
-  %20 = add i64 %.0.i, 127
+  %20 = add i64 %.0.i, 126
   %21 = lshr i64 %20, 7
   %22 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %21, i64 144)
   %23 = extractvalue { i64, i1 } %22, 1
@@ -251653,7 +251653,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
-  %20 = add i64 %.0.i, 127
+  %20 = add i64 %.0.i, 126
   %21 = lshr i64 %20, 7
   %22 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %21, i64 144)
   %23 = extractvalue { i64, i1 } %22, 1
@@ -253666,7 +253666,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
-  %20 = add i64 %.0.i, 127
+  %20 = add i64 %.0.i, 126
   %21 = lshr i64 %20, 7
   %22 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %21, i64 144)
   %23 = extractvalue { i64, i1 } %22, 1
@@ -253948,7 +253948,7 @@ define linkonce_odr noundef ptr @_ZN12QHashPrivate4DataINS_4NodeIP15QCPItemPosit
 _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, %4
   %.0.i.i = phi i64 [ %14, %9 ], [ 16, %4 ], [ -9223372036854775808, %8 ]
   store i64 %.0.i.i, ptr %6, align 8
-  %15 = add i64 %.0.i.i, 127
+  %15 = add i64 %.0.i.i, 126
   %16 = lshr i64 %15, 7
   %17 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %16, i64 144)
   %18 = extractvalue { i64, i1 } %17, 1
@@ -263402,7 +263402,7 @@ _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit: ; preds = %7, %9, %1
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8
-  %20 = add i64 %.0.i, 127
+  %20 = add i64 %.0.i, 126
   %21 = lshr i64 %20, 7
   %22 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %21, i64 144)
   %23 = extractvalue { i64, i1 } %22, 1
@@ -263773,7 +263773,7 @@ define linkonce_odr noundef ptr @_ZN12QHashPrivate4DataINS_4NodeIN7QCPAxis8AxisT
 _ZN12QHashPrivate12GrowthPolicy18bucketsForCapacityEm.exit.i: ; preds = %9, %8, %4
   %.0.i.i = phi i64 [ %14, %9 ], [ 16, %4 ], [ -9223372036854775808, %8 ]
   store i64 %.0.i.i, ptr %6, align 8
-  %15 = add i64 %.0.i.i, 127
+  %15 = add i64 %.0.i.i, 126
   %16 = lshr i64 %15, 7
   %17 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %16, i64 144)
   %18 = extractvalue { i64, i1 } %17, 1

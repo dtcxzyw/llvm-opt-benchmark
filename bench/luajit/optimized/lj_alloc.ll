@@ -2664,7 +2664,7 @@ define internal fastcc ptr @lj_alloc_realloc(ptr noundef %0, ptr noundef nonnull
   %26 = and i64 %17, -2
   %27 = add i64 %26, 32
   %28 = add i64 %27, %9
-  %29 = add i64 %14, 4150
+  %29 = add i64 %14, 4144
   %30 = and i64 %29, -4096
   %31 = sub i64 0, %26
   %32 = getelementptr inbounds i8, ptr %6, i64 %31

@@ -227,20 +227,20 @@ declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #2
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
-define hidden noundef range(i64 64, 17179869239) i64 @_ZN22CompactHashtableWriter13estimate_sizeEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+define hidden noundef range(i64 64, 17179869233) i64 @_ZN22CompactHashtableWriter13estimate_sizeEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
   %2 = load i32, ptr @SharedSymbolTableBucketSize, align 4
   %3 = udiv i32 %0, %2
   %4 = tail call noundef i32 @llvm.smax.i32(i32 %3, i32 1)
   %5 = zext nneg i32 %4 to i64
   %6 = shl nuw nsw i64 %5, 2
-  %7 = add nuw nsw i64 %6, 15
+  %7 = add nuw nsw i64 %6, 12
   %8 = and i64 %7, 17179869176
   %9 = shl nsw i32 %0, 1
   %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 1)
   %11 = add nsw i32 %10, -1
   %12 = zext nneg i32 %11 to i64
   %13 = shl nuw nsw i64 %12, 2
-  %14 = add nuw nsw i64 %13, 15
+  %14 = add nuw nsw i64 %13, 12
   %15 = and i64 %14, 17179869176
   %16 = add nuw nsw i64 %15, 40
   %17 = add nuw nsw i64 %16, %8
@@ -336,7 +336,7 @@ define hidden void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr noundef no
 
 7:                                                ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %.015 = phi i32 [ 0, %.lr.ph ], [ %.1, %19 ]
+  %.014 = phi i32 [ 0, %.lr.ph ], [ %.1, %19 ]
   %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 4
@@ -344,7 +344,7 @@ define hidden void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr noundef no
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %7
-  %13 = add nuw nsw i32 %.015, 1
+  %13 = add nuw nsw i32 %.014, 1
   br label %19
 
 14:                                               ; preds = %7
@@ -353,11 +353,11 @@ define hidden void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr noundef no
 
 16:                                               ; preds = %14
   %17 = shl nuw nsw i32 %10, 1
-  %18 = add nuw nsw i32 %17, %.015
+  %18 = add nuw nsw i32 %17, %.014
   br label %19
 
 19:                                               ; preds = %12, %16, %14
-  %.1 = phi i32 [ %13, %12 ], [ %18, %16 ], [ %.015, %14 ]
+  %.1 = phi i32 [ %13, %12 ], [ %18, %16 ], [ %.014, %14 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !10
@@ -372,7 +372,7 @@ define hidden void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr noundef no
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %1, %21, %._crit_edge
-  %.0.lcssa19 = phi i32 [ %.1, %21 ], [ %.1, %._crit_edge ], [ 0, %1 ]
+  %.0.lcssa18 = phi i32 [ %.1, %21 ], [ %.1, %._crit_edge ], [ 0, %1 ]
   %22 = phi i32 [ %.pre, %21 ], [ %3, %._crit_edge ], [ %3, %1 ]
   %23 = add nsw i32 %22, 1
   %24 = tail call i32 @llvm.smax.i32(i32 %23, i32 1)
@@ -386,7 +386,7 @@ define hidden void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr noundef no
   store i32 %23, ptr %31, align 4
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %31, ptr %32, align 8
-  %33 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa19, i32 1)
+  %33 = tail call i32 @llvm.smax.i32(i32 %.0.lcssa18, i32 1)
   %34 = add nsw i32 %33, -1
   %35 = zext nneg i32 %34 to i64
   %36 = shl nuw nsw i64 %35, 2
@@ -394,7 +394,7 @@ define hidden void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr noundef no
   %38 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 336
   %40 = tail call noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64) %39, i64 noundef %37) #14
-  store i32 %.0.lcssa19, ptr %40, align 4
+  store i32 %.0.lcssa18, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %40, ptr %41, align 8
   %42 = load i32, ptr %2, align 4
@@ -406,23 +406,23 @@ define hidden void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr noundef no
   %47 = load i32, ptr %46, align 4
   %48 = tail call i32 @llvm.smax.i32(i32 %47, i32 1)
   %49 = shl i32 %48, 2
-  %tr.sh.diff = add i32 %49, 11
-  %50 = and i32 %tr.sh.diff, -8
-  %51 = load ptr, ptr %43, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 12
-  store i32 %50, ptr %52, align 4
-  %53 = load i32, ptr %0, align 8
-  %54 = load ptr, ptr %43, align 8
-  store i32 %53, ptr %54, align 4
-  %55 = load ptr, ptr %41, align 8
-  %56 = load i32, ptr %55, align 4
-  %57 = tail call i32 @llvm.smax.i32(i32 %56, i32 1)
-  %58 = shl i32 %57, 2
-  %tr.sh.diff13 = add i32 %58, 11
-  %59 = and i32 %tr.sh.diff13, -8
-  %60 = load ptr, ptr %43, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  store i32 %59, ptr %61, align 4
+  %50 = and i32 %49, -8
+  %51 = add nuw nsw i32 %50, 8
+  %52 = load ptr, ptr %43, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
+  store i32 %51, ptr %53, align 4
+  %54 = load i32, ptr %0, align 8
+  %55 = load ptr, ptr %43, align 8
+  store i32 %54, ptr %55, align 4
+  %56 = load ptr, ptr %41, align 8
+  %57 = load i32, ptr %56, align 4
+  %58 = tail call i32 @llvm.smax.i32(i32 %57, i32 1)
+  %59 = shl i32 %58, 2
+  %60 = and i32 %59, -8
+  %61 = add nuw nsw i32 %60, 8
+  %62 = load ptr, ptr %43, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  store i32 %61, ptr %63, align 4
   ret void
 }
 

@@ -1524,94 +1524,93 @@ define dso_local void @_ZN5clang7CodeGen12EHScopeStack13popNullFixupsEv(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang7CodeGen12EHScopeStack10pushFilterEj(ptr noundef nonnull align 8 captures(none) dereferenceable(320) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull ptr @_ZN5clang7CodeGen12EHScopeStack10pushFilterEj(ptr noundef nonnull align 8 captures(none) dereferenceable(320) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = zext i32 %1 to i64
   %4 = shl nuw nsw i64 %3, 3
-  %5 = add nuw nsw i64 %4, 39
-  %6 = and i64 %5, 68719476728
-  %7 = load ptr, ptr %0, align 8, !tbaa !655
-  %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %.preheader.i, label %15
+  %5 = add nuw nsw i64 %4, 32
+  %6 = load ptr, ptr %0, align 8, !tbaa !655
+  %.not.i = icmp eq ptr %6, null
+  br i1 %.not.i, label %.preheader.i, label %14
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
-  %.0.i = phi i32 [ %10, %.preheader.i ], [ 1024, %2 ]
-  %8 = zext i32 %.0.i to i64
-  %9 = icmp samesign ugt i64 %6, %8
-  %10 = shl i32 %.0.i, 1
-  br i1 %9, label %.preheader.i, label %11, !llvm.loop !656
+  %.0.i = phi i32 [ %9, %.preheader.i ], [ 1024, %2 ]
+  %7 = zext i32 %.0.i to i64
+  %8 = icmp samesign ugt i64 %5, %7
+  %9 = shl i32 %.0.i, 1
+  br i1 %8, label %.preheader.i, label %10, !llvm.loop !656
 
-11:                                               ; preds = %.preheader.i
-  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
-  store ptr %12, ptr %0, align 8, !tbaa !655
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %13, ptr %14, align 8, !tbaa !658
+10:                                               ; preds = %.preheader.i
+  %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  store ptr %11, ptr %0, align 8, !tbaa !655
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %12, ptr %13, align 8, !tbaa !658
   br label %_ZN5clang7CodeGen12EHScopeStack8allocateEm.exit
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !659
-  %18 = ptrtoint ptr %17 to i64
-  %19 = ptrtoint ptr %7 to i64
-  %20 = sub i64 %18, %19
-  %21 = icmp ult i64 %20, %6
-  br i1 %21, label %22, label %_ZN5clang7CodeGen12EHScopeStack8allocateEm.exit
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !659
+  %17 = ptrtoint ptr %16 to i64
+  %18 = ptrtoint ptr %6 to i64
+  %19 = sub i64 %17, %18
+  %20 = icmp ult i64 %19, %5
+  br i1 %20, label %21, label %_ZN5clang7CodeGen12EHScopeStack8allocateEm.exit
 
-22:                                               ; preds = %15
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !658
-  %25 = ptrtoint ptr %24 to i64
-  %26 = sub i64 %25, %19
-  %27 = trunc i64 %26 to i32
-  %28 = sub i64 %26, %20
-  %29 = and i64 %28, 4294967295
-  %30 = add nuw nsw i64 %29, %6
-  br label %31
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !658
+  %24 = ptrtoint ptr %23 to i64
+  %25 = sub i64 %24, %18
+  %26 = trunc i64 %25 to i32
+  %27 = sub i64 %25, %19
+  %28 = and i64 %27, 4294967295
+  %29 = add nuw nsw i64 %28, %5
+  br label %30
 
-31:                                               ; preds = %31, %22
-  %.024.i = phi i32 [ %27, %22 ], [ %32, %31 ]
-  %32 = shl i32 %.024.i, 1
-  %33 = zext i32 %32 to i64
-  %34 = icmp samesign ugt i64 %30, %33
-  br i1 %34, label %31, label %35, !llvm.loop !660
+30:                                               ; preds = %30, %21
+  %.024.i = phi i32 [ %26, %21 ], [ %31, %30 ]
+  %31 = shl i32 %.024.i, 1
+  %32 = zext i32 %31 to i64
+  %33 = icmp samesign ugt i64 %29, %32
+  br i1 %33, label %30, label %34, !llvm.loop !660
 
-35:                                               ; preds = %31
-  %36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %33) #21
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %33
-  %38 = sub nsw i64 0, %29
-  %39 = getelementptr inbounds i8, ptr %37, i64 %38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %17, i64 %29, i1 false)
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #22
-  store ptr %36, ptr %0, align 8, !tbaa !655
-  store ptr %37, ptr %23, align 8, !tbaa !658
+34:                                               ; preds = %30
+  %35 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #21
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %32
+  %37 = sub nsw i64 0, %28
+  %38 = getelementptr inbounds i8, ptr %36, i64 %37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %16, i64 %28, i1 false)
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #22
+  store ptr %35, ptr %0, align 8, !tbaa !655
+  store ptr %36, ptr %22, align 8, !tbaa !658
   br label %_ZN5clang7CodeGen12EHScopeStack8allocateEm.exit
 
-_ZN5clang7CodeGen12EHScopeStack8allocateEm.exit:  ; preds = %11, %15, %35
-  %40 = phi ptr [ %17, %15 ], [ %39, %35 ], [ %13, %11 ]
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = sub nsw i64 0, %6
-  %43 = getelementptr inbounds i8, ptr %40, i64 %42
-  store ptr %43, ptr %41, align 8, !tbaa !659
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %43, i8 0, i64 24, i1 false)
-  %45 = load i8, ptr %44, align 8
-  %46 = and i8 %45, -8
-  %47 = or disjoint i8 %46, 3
-  store i8 %47, ptr %44, align 8
-  %48 = load i32, ptr %44, align 8
-  %49 = shl i32 %1, 3
-  %50 = and i32 %48, 7
-  %51 = or disjoint i32 %50, %49
-  store i32 %51, ptr %44, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !658
-  %54 = load ptr, ptr %41, align 8, !tbaa !659
+_ZN5clang7CodeGen12EHScopeStack8allocateEm.exit:  ; preds = %10, %14, %34
+  %39 = phi ptr [ %16, %14 ], [ %38, %34 ], [ %12, %10 ]
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = sub nuw nsw i64 -32, %4
+  %42 = getelementptr inbounds i8, ptr %39, i64 %41
+  store ptr %42, ptr %40, align 8, !tbaa !659
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %42, i8 0, i64 24, i1 false)
+  %44 = load i8, ptr %43, align 8
+  %45 = and i8 %44, -8
+  %46 = or disjoint i8 %45, 3
+  store i8 %46, ptr %43, align 8
+  %47 = load i32, ptr %43, align 8
+  %48 = shl i32 %1, 3
+  %49 = and i32 %47, 7
+  %50 = or disjoint i32 %49, %48
+  store i32 %50, ptr %43, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !658
+  %53 = load ptr, ptr %40, align 8, !tbaa !659
+  %54 = ptrtoint ptr %52 to i64
   %55 = ptrtoint ptr %53 to i64
-  %56 = ptrtoint ptr %54 to i64
-  %57 = sub i64 %55, %56
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %57, ptr %58, align 8, !tbaa !626
-  ret ptr %43
+  %56 = sub i64 %54, %55
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %56, ptr %57, align 8, !tbaa !626
+  ret ptr %42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
@@ -1620,111 +1619,109 @@ define dso_local void @_ZN5clang7CodeGen12EHScopeStack9popFilterEv(ptr noundef n
   %3 = load ptr, ptr %2, align 8, !tbaa !659
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i32, ptr %4, align 8
-  %6 = and i32 %5, -8
-  %7 = zext i32 %6 to i64
-  %8 = add nuw nsw i64 %7, 39
-  %9 = and i64 %8, 8589934584
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 %9
-  store ptr %10, ptr %2, align 8, !tbaa !659
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.0.0.copyload.i = load i64, ptr %11, align 8, !tbaa !626
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.0.0.copyload.i, ptr %12, align 8, !tbaa !626
+  %6 = zext i32 %5 to i64
+  %7 = add nuw nsw i64 %6, 32
+  %8 = and i64 %7, 8589934584
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
+  store ptr %9, ptr %2, align 8, !tbaa !659
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %.sroa.0.0.copyload.i = load i64, ptr %10, align 8, !tbaa !626
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %.sroa.0.0.copyload.i, ptr %11, align 8, !tbaa !626
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang7CodeGen12EHScopeStack9pushCatchEj(ptr noundef nonnull align 8 captures(none) dereferenceable(320) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull ptr @_ZN5clang7CodeGen12EHScopeStack9pushCatchEj(ptr noundef nonnull align 8 captures(none) dereferenceable(320) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = zext i32 %1 to i64
   %4 = mul nuw nsw i64 %3, 24
-  %5 = add nuw nsw i64 %4, 39
-  %6 = and i64 %5, 274877906936
-  %7 = load ptr, ptr %0, align 8, !tbaa !655
-  %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %.preheader.i, label %15
+  %5 = add nuw nsw i64 %4, 32
+  %6 = load ptr, ptr %0, align 8, !tbaa !655
+  %.not.i = icmp eq ptr %6, null
+  br i1 %.not.i, label %.preheader.i, label %14
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
-  %.0.i = phi i32 [ %10, %.preheader.i ], [ 1024, %2 ]
-  %8 = zext i32 %.0.i to i64
-  %9 = icmp samesign ugt i64 %6, %8
-  %10 = shl i32 %.0.i, 1
-  br i1 %9, label %.preheader.i, label %11, !llvm.loop !656
+  %.0.i = phi i32 [ %9, %.preheader.i ], [ 1024, %2 ]
+  %7 = zext i32 %.0.i to i64
+  %8 = icmp samesign ugt i64 %5, %7
+  %9 = shl i32 %.0.i, 1
+  br i1 %8, label %.preheader.i, label %10, !llvm.loop !656
 
-11:                                               ; preds = %.preheader.i
-  %12 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #21
-  store ptr %12, ptr %0, align 8, !tbaa !655
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 %8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %13, ptr %14, align 8, !tbaa !658
+10:                                               ; preds = %.preheader.i
+  %11 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %7) #21
+  store ptr %11, ptr %0, align 8, !tbaa !655
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %12, ptr %13, align 8, !tbaa !658
   br label %_ZN5clang7CodeGen12EHScopeStack8allocateEm.exit
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !659
-  %18 = ptrtoint ptr %17 to i64
-  %19 = ptrtoint ptr %7 to i64
-  %20 = sub i64 %18, %19
-  %21 = icmp ult i64 %20, %6
-  br i1 %21, label %22, label %_ZN5clang7CodeGen12EHScopeStack8allocateEm.exit
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !659
+  %17 = ptrtoint ptr %16 to i64
+  %18 = ptrtoint ptr %6 to i64
+  %19 = sub i64 %17, %18
+  %20 = icmp ult i64 %19, %5
+  br i1 %20, label %21, label %_ZN5clang7CodeGen12EHScopeStack8allocateEm.exit
 
-22:                                               ; preds = %15
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !658
-  %25 = ptrtoint ptr %24 to i64
-  %26 = sub i64 %25, %19
-  %27 = trunc i64 %26 to i32
-  %28 = sub i64 %26, %20
-  %29 = and i64 %28, 4294967295
-  %30 = add nuw nsw i64 %29, %6
-  br label %31
+21:                                               ; preds = %14
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !658
+  %24 = ptrtoint ptr %23 to i64
+  %25 = sub i64 %24, %18
+  %26 = trunc i64 %25 to i32
+  %27 = sub i64 %25, %19
+  %28 = and i64 %27, 4294967295
+  %29 = add nuw nsw i64 %28, %5
+  br label %30
 
-31:                                               ; preds = %31, %22
-  %.024.i = phi i32 [ %27, %22 ], [ %32, %31 ]
-  %32 = shl i32 %.024.i, 1
-  %33 = zext i32 %32 to i64
-  %34 = icmp samesign ugt i64 %30, %33
-  br i1 %34, label %31, label %35, !llvm.loop !660
+30:                                               ; preds = %30, %21
+  %.024.i = phi i32 [ %26, %21 ], [ %31, %30 ]
+  %31 = shl i32 %.024.i, 1
+  %32 = zext i32 %31 to i64
+  %33 = icmp samesign ugt i64 %29, %32
+  br i1 %33, label %30, label %34, !llvm.loop !660
 
-35:                                               ; preds = %31
-  %36 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %33) #21
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 %33
-  %38 = sub nsw i64 0, %29
-  %39 = getelementptr inbounds i8, ptr %37, i64 %38
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr align 1 %17, i64 %29, i1 false)
-  tail call void @_ZdaPv(ptr noundef nonnull %7) #22
-  store ptr %36, ptr %0, align 8, !tbaa !655
-  store ptr %37, ptr %23, align 8, !tbaa !658
+34:                                               ; preds = %30
+  %35 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %32) #21
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 %32
+  %37 = sub nsw i64 0, %28
+  %38 = getelementptr inbounds i8, ptr %36, i64 %37
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %16, i64 %28, i1 false)
+  tail call void @_ZdaPv(ptr noundef nonnull %6) #22
+  store ptr %35, ptr %0, align 8, !tbaa !655
+  store ptr %36, ptr %22, align 8, !tbaa !658
   br label %_ZN5clang7CodeGen12EHScopeStack8allocateEm.exit
 
-_ZN5clang7CodeGen12EHScopeStack8allocateEm.exit:  ; preds = %11, %15, %35
-  %40 = phi ptr [ %17, %15 ], [ %39, %35 ], [ %13, %11 ]
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = sub nsw i64 0, %6
-  %43 = getelementptr inbounds i8, ptr %40, i64 %42
-  store ptr %43, ptr %41, align 8, !tbaa !659
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.sroa.01.0.copyload = load i64, ptr %44, align 8, !tbaa !626
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %43, i8 0, i64 16, i1 false)
-  store i64 %.sroa.01.0.copyload, ptr %45, align 8, !tbaa !626
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %47 = load i8, ptr %46, align 8
-  %48 = and i8 %47, -8
-  %49 = or disjoint i8 %48, 1
-  store i8 %49, ptr %46, align 8
-  %50 = load i32, ptr %46, align 8
-  %51 = shl i32 %1, 3
-  %52 = and i32 %50, 7
-  %53 = or disjoint i32 %52, %51
-  store i32 %53, ptr %46, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !658
-  %56 = load ptr, ptr %41, align 8, !tbaa !659
+_ZN5clang7CodeGen12EHScopeStack8allocateEm.exit:  ; preds = %10, %14, %34
+  %39 = phi ptr [ %16, %14 ], [ %38, %34 ], [ %12, %10 ]
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %41 = sub nuw nsw i64 -32, %4
+  %42 = getelementptr inbounds i8, ptr %39, i64 %41
+  store ptr %42, ptr %40, align 8, !tbaa !659
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %.sroa.01.0.copyload = load i64, ptr %43, align 8, !tbaa !626
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %42, i8 0, i64 16, i1 false)
+  store i64 %.sroa.01.0.copyload, ptr %44, align 8, !tbaa !626
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %46 = load i8, ptr %45, align 8
+  %47 = and i8 %46, -8
+  %48 = or disjoint i8 %47, 1
+  store i8 %48, ptr %45, align 8
+  %49 = load i32, ptr %45, align 8
+  %50 = shl i32 %1, 3
+  %51 = and i32 %49, 7
+  %52 = or disjoint i32 %51, %50
+  store i32 %52, ptr %45, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %54 = load ptr, ptr %53, align 8, !tbaa !658
+  %55 = load ptr, ptr %40, align 8, !tbaa !659
+  %56 = ptrtoint ptr %54 to i64
   %57 = ptrtoint ptr %55 to i64
-  %58 = ptrtoint ptr %56 to i64
-  %59 = sub i64 %57, %58
-  store i64 %59, ptr %44, align 8, !tbaa !626
-  ret ptr %43
+  %58 = sub i64 %56, %57
+  store i64 %58, ptr %43, align 8, !tbaa !626
+  ret ptr %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

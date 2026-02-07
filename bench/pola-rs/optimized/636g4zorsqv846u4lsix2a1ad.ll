@@ -280,7 +280,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit.i.
   %15 = shl nuw i64 %14, 3
   %16 = icmp ne i64 %14, 2305843009213693951
   tail call void @llvm.assume(i1 %16)
-  %17 = add nuw i64 %15, 15
+  %17 = add nuw i64 %15, 8
   %18 = and i64 %17, -16
   %19 = add i64 %.sroa.65.0.copyload, 17
   %20 = add nuw i64 %19, %18
@@ -1366,7 +1366,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit.i.
   %15 = shl nuw i64 %14, 3
   %16 = icmp ne i64 %14, 2305843009213693951
   tail call void @llvm.assume(i1 %16)
-  %17 = add nuw i64 %15, 15
+  %17 = add nuw i64 %15, 8
   %18 = and i64 %17, -16
   %19 = add i64 %.sroa.65.0.copyload, 17
   %20 = add nuw i64 %19, %18

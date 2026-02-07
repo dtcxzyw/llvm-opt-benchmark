@@ -427,7 +427,7 @@ define internal void @dec_set_mb_mi(ptr noundef writeonly captures(none) initial
   %10 = and i32 %9, -2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %10, ptr %11, align 4
-  %12 = add nsw i32 %7, 31
+  %12 = add nsw i32 %6, 30
   %13 = and i32 %12, -32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %13, ptr %14, align 4

@@ -10804,7 +10804,7 @@ define internal fastcc range(i32 6, 65542) i32 @rtps_util_add_typecode(ptr nound
 
 rtps_util_typecode_id_to_string.exit.thread452:   ; preds = %14
   %36 = call i64 @g_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.426, i64 noundef 40)
-  %37 = add i32 %26, 9
+  %37 = add i32 %3, 11
   %38 = and i32 %37, -4
   %39 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %38, i32 noundef %4)
   %40 = add i32 %38, 4
@@ -10859,7 +10859,7 @@ rtps_util_typecode_id_to_string.exit.thread452:   ; preds = %14
 
 rtps_util_typecode_id_to_string.exit.thread454:   ; preds = %14
   %60 = call i64 @g_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.434, i64 noundef 40)
-  %61 = add i32 %26, 9
+  %61 = add i32 %3, 11
   %62 = and i32 %61, -4
   %63 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %62, i32 noundef %4)
   %64 = add i32 %62, 4
@@ -10869,7 +10869,7 @@ rtps_util_typecode_id_to_string.exit.thread454:   ; preds = %14
 rtps_util_typecode_id_to_string.exit.thread456:   ; preds = %14
   %66 = call i64 @g_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.436, i64 noundef 40)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %67 = add i32 %26, 9
+  %67 = add i32 %3, 11
   %68 = and i32 %67, -4
   %69 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %68, i32 noundef %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %16, i8 0, i64 40, i1 false)
@@ -10879,7 +10879,7 @@ rtps_util_typecode_id_to_string.exit.thread456:   ; preds = %14
 
 rtps_util_typecode_id_to_string.exit.thread458:   ; preds = %14
   %70 = call i64 @g_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull @.str.1212, i64 noundef 40)
-  %71 = add i32 %26, 9
+  %71 = add i32 %3, 11
   %72 = and i32 %71, -4
   %73 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %72, i32 noundef %4)
   %74 = add i32 %72, 4
@@ -10902,7 +10902,7 @@ rtps_util_typecode_id_to_string.exit.thread:      ; preds = %47, %48, %49, %50, 
 rtps_util_typecode_id_to_string.exit.thread446:   ; preds = %14, %46
   %.0.i.ph445 = phi ptr [ @.str.1182, %14 ], [ @.str.430, %46 ]
   %82 = call i64 @g_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull %.0.i.ph445, i64 noundef 40)
-  %83 = add i32 %26, 9
+  %83 = add i32 %3, 11
   %84 = and i32 %83, -4
   %85 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %84, i32 noundef %4)
   %86 = add i32 %84, 4
@@ -10916,7 +10916,7 @@ rtps_util_typecode_id_to_string.exit.thread446:   ; preds = %14, %46
 rtps_util_typecode_id_to_string.exit.thread450:   ; preds = %59, %14
   %.0.i.ph449 = phi ptr [ @.str.1187, %59 ], [ @.str.1188, %14 ]
   %92 = call i64 @g_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull %.0.i.ph449, i64 noundef 40)
-  %93 = add i32 %26, 9
+  %93 = add i32 %3, 11
   %94 = and i32 %93, -4
   %95 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %94, i32 noundef %4)
   %96 = add i32 %94, 4
@@ -11033,7 +11033,7 @@ rtps_util_typecode_id_to_string.exit437:          ; preds = %check_offset_additi
   br label %rtps_util_typecode_id_to_string.exit437.thread
 
 rtps_util_typecode_id_to_string.exit437.thread464: ; preds = %check_offset_addition.exit
-  %131 = add i32 %104, 13
+  %131 = add i32 %44, 15
   %132 = and i32 %131, -4
   %133 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %132, i32 noundef %4)
   %134 = load ptr, ptr %41, align 8
@@ -11075,7 +11075,7 @@ rtps_util_typecode_id_to_string.exit437.thread:   ; preds = %rtps_util_typecode_
   %153 = add i32 %151, 2
   %154 = zext i16 %152 to i32
   %155 = add i32 %153, %154
-  %156 = add i32 %151, 5
+  %156 = add i32 %.0413481, 5
   %157 = and i32 %156, -4
   %158 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %157, i32 noundef %4)
   %159 = add i32 %157, 4
@@ -11166,7 +11166,7 @@ check_offset_addition.exit439:                    ; preds = %rtps_util_typecode_
   %199 = add i32 %197, 2
   %200 = zext i16 %198 to i32
   %201 = add i32 %199, %200
-  %202 = add i32 %197, 5
+  %202 = add i32 %.0415488, 5
   %203 = and i32 %202, -4
   %204 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %203, i32 noundef %4)
   %205 = add i32 %203, 4
@@ -11246,7 +11246,7 @@ check_offset_addition.exit441:                    ; preds = %rtps_util_typecode_
   br label %252
 
 238:                                              ; preds = %rtps_util_typecode_id_to_string.exit, %rtps_util_typecode_id_to_string.exit.thread460
-  %239 = add i32 %26, 9
+  %239 = add i32 %3, 11
   %240 = and i32 %239, -4
   %241 = call i32 @tvb_get_uint32(ptr noundef %1, i32 noundef %240, i32 noundef %4)
   %242 = add i32 %240, 4
@@ -15280,7 +15280,7 @@ define internal fastcc void @dissect_RTPS_DATA(ptr noundef %0, ptr noundef %1, i
 
 67:                                               ; preds = %59
   %68 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %52, ptr noundef nonnull @ei_rtps_sm_octets_to_next_header_error, ptr noundef nonnull @.str.1102, i32 noundef %.3)
-  br label %743
+  br label %741
 
 69:                                               ; preds = %59
   %70 = add i32 %2, 4
@@ -15355,10 +15355,10 @@ define internal fastcc void @dissect_RTPS_DATA(ptr noundef %0, ptr noundef %1, i
   %.1 = phi i32 [ %120, %118 ], [ %117, %116 ]
   %122 = and i32 %60, 12
   %brmerge.not = icmp eq i32 %122, 0
-  br i1 %brmerge.not, label %716, label %123
+  br i1 %brmerge.not, label %714, label %123
 
 123:                                              ; preds = %121
-  switch i32 %89, label %709 [
+  switch i32 %89, label %707 [
     i32 131266, label %124
     i32 -16645437, label %170
     i32 131523, label %170
@@ -15452,7 +15452,7 @@ rtps_util_add_seq_octets.exit:                    ; preds = %166, %thread-pre-sp
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br label %716
+  br label %714
 
 170:                                              ; preds = %123, %123
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
@@ -15726,7 +15726,7 @@ rtps_util_add_data_holder_seq.exit:               ; preds = %rtps_util_add_data_
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  br label %716
+  br label %714
 
 344:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
@@ -15772,7 +15772,7 @@ get_encapsulation_endianness.exit284:             ; preds = %344, %switch.lookup
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  br label %716
+  br label %714
 
 371:                                              ; preds = %123
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
@@ -15827,9 +15827,9 @@ get_encapsulation_endianness.exit285:             ; preds = %371, %switch.lookup
   call void @p_add_proto_data(ptr noundef %404, ptr noundef %1, i32 noundef %405, i32 noundef 1, ptr noundef %403)
   switch i32 %400, label %rtps_util_add_rti_service_request.exit [
     i32 1, label %406
-    i32 2, label %630
-    i32 0, label %666
-    i32 3, label %679
+    i32 2, label %628
+    i32 0, label %664
+    i32 3, label %677
   ]
 
 406:                                              ; preds = %get_encapsulation_endianness.exit285
@@ -15962,217 +15962,215 @@ rtps_util_dissect_parameter_header.exit114.i.i:   ; preds = %475, %464
   %491 = add i32 %490, 3
   %492 = and i32 %491, -4
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %493 = add i32 %482, 5
+  %493 = add i32 %427, %482
   %494 = add i32 %493, %492
-  %495 = and i32 %494, -4
-  %496 = add i32 %495, %422
+  %495 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %494, i32 noundef range(i32 0, -2147483647) %417)
+  %496 = add i32 %494, 2
   %497 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %496, i32 noundef range(i32 0, -2147483647) %417)
-  %498 = add i32 %496, 2
-  %499 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %498, i32 noundef range(i32 0, -2147483647) %417)
-  %500 = add i32 %496, 4
-  %501 = and i16 %497, 16129
-  %502 = icmp eq i16 %501, 16129
-  br i1 %502, label %503, label %rtps_util_dissect_parameter_header.exit115.i.i
+  %498 = add i32 %494, 4
+  %499 = and i16 %495, 16129
+  %500 = icmp eq i16 %499, 16129
+  br i1 %500, label %501, label %rtps_util_dissect_parameter_header.exit115.i.i
 
-503:                                              ; preds = %rtps_util_dissect_parameter_header.exit114.i.i
-  %504 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %500, i32 noundef range(i32 0, -2147483647) %417)
-  %505 = add i32 %496, 8
-  %506 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %505, i32 noundef range(i32 0, -2147483647) %417)
-  %507 = add i32 %496, 12
+501:                                              ; preds = %rtps_util_dissect_parameter_header.exit114.i.i
+  %502 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %498, i32 noundef range(i32 0, -2147483647) %417)
+  %503 = add i32 %494, 8
+  %504 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %503, i32 noundef range(i32 0, -2147483647) %417)
+  %505 = add i32 %494, 12
   br label %rtps_util_dissect_parameter_header.exit115.i.i
 
-rtps_util_dissect_parameter_header.exit115.i.i:   ; preds = %503, %rtps_util_dissect_parameter_header.exit114.i.i
-  %.4.i.i = phi i32 [ %507, %503 ], [ %500, %rtps_util_dissect_parameter_header.exit114.i.i ]
-  %508 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.4.i.i, i32 noundef %417)
-  %509 = load i32, ptr @hf_rtps_topic_query_selection_num_parameters, align 4
-  %510 = call ptr @proto_tree_add_item(ptr noundef %436, i32 noundef %509, ptr noundef %0, i32 noundef %.4.i.i, i32 noundef 4, i32 noundef %417)
-  %511 = add i32 %.4.i.i, 4
-  %512 = load i32, ptr @ett_rtps_topic_query_filter_params_tree, align 4
-  %513 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %436, ptr noundef %0, i32 noundef %511, i32 noundef 0, i32 noundef %512, ptr noundef nonnull %16, ptr noundef nonnull @.str.1389, i32 noundef %508)
-  %.not212.i.i = icmp eq i32 %508, 0
+rtps_util_dissect_parameter_header.exit115.i.i:   ; preds = %501, %rtps_util_dissect_parameter_header.exit114.i.i
+  %.4.i.i = phi i32 [ %505, %501 ], [ %498, %rtps_util_dissect_parameter_header.exit114.i.i ]
+  %506 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.4.i.i, i32 noundef %417)
+  %507 = load i32, ptr @hf_rtps_topic_query_selection_num_parameters, align 4
+  %508 = call ptr @proto_tree_add_item(ptr noundef %436, i32 noundef %507, ptr noundef %0, i32 noundef %.4.i.i, i32 noundef 4, i32 noundef %417)
+  %509 = add i32 %.4.i.i, 4
+  %510 = load i32, ptr @ett_rtps_topic_query_filter_params_tree, align 4
+  %511 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %436, ptr noundef %0, i32 noundef %509, i32 noundef 0, i32 noundef %510, ptr noundef nonnull %16, ptr noundef nonnull @.str.1389, i32 noundef %506)
+  %.not212.i.i = icmp eq i32 %506, 0
   br i1 %.not212.i.i, label %._crit_edge.i.i290, label %.lr.ph.i.i288
 
 .lr.ph.i.i288:                                    ; preds = %rtps_util_dissect_parameter_header.exit115.i.i, %.lr.ph.i.i288
-  %.0210.i.i = phi i32 [ %525, %.lr.ph.i.i288 ], [ 0, %rtps_util_dissect_parameter_header.exit115.i.i ]
-  %.1209.i.i = phi i32 [ %524, %.lr.ph.i.i288 ], [ %511, %rtps_util_dissect_parameter_header.exit115.i.i ]
-  %514 = add i32 %.1209.i.i, %480
-  %515 = and i32 %514, -4
-  %516 = add i32 %515, %422
-  %517 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %516, i32 noundef %417)
-  %518 = load ptr, ptr %401, align 8
-  %519 = add i32 %516, 4
-  %520 = call ptr @tvb_get_string_enc(ptr noundef %518, ptr noundef %0, i32 noundef %519, i32 noundef %517, i32 noundef 0)
-  %521 = load i32, ptr @hf_rtps_topic_query_selection_filter_parameter, align 4
-  %522 = add i32 %517, 4
-  %523 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %513, i32 noundef %521, ptr noundef %0, i32 noundef %516, i32 noundef %522, ptr noundef %520, ptr noundef nonnull @.str.1169, ptr noundef nonnull @.str.797, i32 noundef %.0210.i.i, ptr noundef %520)
-  %524 = add i32 %516, %522
-  %525 = add nuw i32 %.0210.i.i, 1
-  %exitcond.not.i.i289 = icmp eq i32 %525, %508
+  %.0210.i.i = phi i32 [ %523, %.lr.ph.i.i288 ], [ 0, %rtps_util_dissect_parameter_header.exit115.i.i ]
+  %.1209.i.i = phi i32 [ %522, %.lr.ph.i.i288 ], [ %509, %rtps_util_dissect_parameter_header.exit115.i.i ]
+  %512 = add i32 %.1209.i.i, %480
+  %513 = and i32 %512, -4
+  %514 = add i32 %513, %422
+  %515 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %514, i32 noundef %417)
+  %516 = load ptr, ptr %401, align 8
+  %517 = add i32 %514, 4
+  %518 = call ptr @tvb_get_string_enc(ptr noundef %516, ptr noundef %0, i32 noundef %517, i32 noundef %515, i32 noundef 0)
+  %519 = load i32, ptr @hf_rtps_topic_query_selection_filter_parameter, align 4
+  %520 = add i32 %515, 4
+  %521 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %511, i32 noundef %519, ptr noundef %0, i32 noundef %514, i32 noundef %520, ptr noundef %518, ptr noundef nonnull @.str.1169, ptr noundef nonnull @.str.797, i32 noundef %.0210.i.i, ptr noundef %518)
+  %522 = add i32 %514, %520
+  %523 = add nuw i32 %.0210.i.i, 1
+  %exitcond.not.i.i289 = icmp eq i32 %523, %506
   br i1 %exitcond.not.i.i289, label %._crit_edge.i.i290, label %.lr.ph.i.i288, !llvm.loop !63
 
 ._crit_edge.i.i290:                               ; preds = %.lr.ph.i.i288, %rtps_util_dissect_parameter_header.exit115.i.i
-  %.1.lcssa.i.i291 = phi i32 [ %511, %rtps_util_dissect_parameter_header.exit115.i.i ], [ %524, %.lr.ph.i.i288 ]
+  %.1.lcssa.i.i291 = phi i32 [ %509, %rtps_util_dissect_parameter_header.exit115.i.i ], [ %522, %.lr.ph.i.i288 ]
   %reass.sub302 = sub i32 %.1.lcssa.i.i291, %.1
-  %526 = add i32 %reass.sub302, -31
-  %527 = and i32 %526, -2
-  %528 = add i32 %527, %427
-  %529 = load i32, ptr @hf_rtps_topic_query_selection_kind, align 4
-  %530 = call ptr @proto_tree_add_item(ptr noundef %436, i32 noundef %529, ptr noundef %0, i32 noundef %528, i32 noundef 4, i32 noundef %417)
-  %531 = add i32 %.0200.i.i, %.0205.i.i
-  %532 = icmp slt i32 %531, %.0205.i.i
-  br i1 %532, label %533, label %check_offset_addition.exit.i.i
+  %524 = add i32 %reass.sub302, -31
+  %525 = and i32 %524, -2
+  %526 = add i32 %525, %427
+  %527 = load i32, ptr @hf_rtps_topic_query_selection_kind, align 4
+  %528 = call ptr @proto_tree_add_item(ptr noundef %436, i32 noundef %527, ptr noundef %0, i32 noundef %526, i32 noundef 4, i32 noundef %417)
+  %529 = add i32 %.0200.i.i, %.0205.i.i
+  %530 = icmp slt i32 %529, %.0205.i.i
+  br i1 %530, label %531, label %check_offset_addition.exit.i.i
 
-533:                                              ; preds = %._crit_edge.i.i290
-  %534 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %377, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1214, i32 noundef %.0200.i.i)
+531:                                              ; preds = %._crit_edge.i.i290
+  %532 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %377, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1214, i32 noundef %.0200.i.i)
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #20
   unreachable
 
 check_offset_addition.exit.i.i:                   ; preds = %._crit_edge.i.i290
-  %reass.sub303 = sub i32 %531, %.1
-  %535 = add i32 %reass.sub303, -31
-  %536 = and i32 %535, -2
-  %537 = add i32 %536, %422
+  %reass.sub303 = sub i32 %529, %.1
+  %533 = add i32 %reass.sub303, -31
+  %534 = and i32 %533, -2
+  %535 = add i32 %534, %422
+  %536 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %535, i32 noundef range(i32 0, -2147483647) %417)
+  %537 = add i32 %535, 2
   %538 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %537, i32 noundef range(i32 0, -2147483647) %417)
-  %539 = add i32 %537, 2
-  %540 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %539, i32 noundef range(i32 0, -2147483647) %417)
-  %541 = zext i16 %540 to i32
-  %542 = add i32 %537, 4
-  %543 = and i16 %538, 16129
-  %544 = icmp eq i16 %543, 16129
-  br i1 %544, label %545, label %rtps_util_dissect_parameter_header.exit116.i.i
+  %539 = zext i16 %538 to i32
+  %540 = add i32 %535, 4
+  %541 = and i16 %536, 16129
+  %542 = icmp eq i16 %541, 16129
+  br i1 %542, label %543, label %rtps_util_dissect_parameter_header.exit116.i.i
 
-545:                                              ; preds = %check_offset_addition.exit.i.i
-  %546 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %542, i32 noundef range(i32 0, -2147483647) %417)
-  %547 = add i32 %537, 8
-  %548 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %547, i32 noundef range(i32 0, -2147483647) %417)
-  %549 = add i32 %537, 12
+543:                                              ; preds = %check_offset_addition.exit.i.i
+  %544 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %540, i32 noundef range(i32 0, -2147483647) %417)
+  %545 = add i32 %535, 8
+  %546 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %545, i32 noundef range(i32 0, -2147483647) %417)
+  %547 = add i32 %535, 12
   br label %rtps_util_dissect_parameter_header.exit116.i.i
 
-rtps_util_dissect_parameter_header.exit116.i.i:   ; preds = %545, %check_offset_addition.exit.i.i
-  %.1206.i.i = phi i32 [ %549, %545 ], [ %542, %check_offset_addition.exit.i.i ]
-  %.1201.i.i = phi i32 [ %548, %545 ], [ %541, %check_offset_addition.exit.i.i ]
-  %550 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.1206.i.i, i32 noundef range(i32 0, -2147483647) %417)
-  %551 = zext i32 %550 to i64
-  %552 = add i32 %.1206.i.i, 4
-  %553 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %552, i32 noundef range(i32 0, -2147483647) %417)
-  %554 = zext i32 %553 to i64
-  %555 = shl nuw i64 %551, 32
-  %556 = or disjoint i64 %555, %554
-  %557 = load i32, ptr @hf_rtps_sm_seq_number, align 4
-  %558 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_int64_format(ptr noundef %409, i32 noundef %557, ptr noundef %0, i32 noundef %.1206.i.i, i32 noundef 8, i64 noundef %556, ptr noundef nonnull @.str.1119, ptr noundef nonnull @.str.1390, i64 noundef %556)
-  %559 = add i32 %.1201.i.i, %.1206.i.i
-  %560 = icmp slt i32 %559, %.1206.i.i
-  br i1 %560, label %561, label %check_offset_addition.exit117.i.i
+rtps_util_dissect_parameter_header.exit116.i.i:   ; preds = %543, %check_offset_addition.exit.i.i
+  %.1206.i.i = phi i32 [ %547, %543 ], [ %540, %check_offset_addition.exit.i.i ]
+  %.1201.i.i = phi i32 [ %546, %543 ], [ %539, %check_offset_addition.exit.i.i ]
+  %548 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.1206.i.i, i32 noundef range(i32 0, -2147483647) %417)
+  %549 = zext i32 %548 to i64
+  %550 = add i32 %.1206.i.i, 4
+  %551 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %550, i32 noundef range(i32 0, -2147483647) %417)
+  %552 = zext i32 %551 to i64
+  %553 = shl nuw i64 %549, 32
+  %554 = or disjoint i64 %553, %552
+  %555 = load i32, ptr @hf_rtps_sm_seq_number, align 4
+  %556 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_int64_format(ptr noundef %409, i32 noundef %555, ptr noundef %0, i32 noundef %.1206.i.i, i32 noundef 8, i64 noundef %554, ptr noundef nonnull @.str.1119, ptr noundef nonnull @.str.1390, i64 noundef %554)
+  %557 = add i32 %.1201.i.i, %.1206.i.i
+  %558 = icmp slt i32 %557, %.1206.i.i
+  br i1 %558, label %559, label %check_offset_addition.exit117.i.i
 
-561:                                              ; preds = %rtps_util_dissect_parameter_header.exit116.i.i
-  %562 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %377, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1214, i32 noundef %.1201.i.i)
+559:                                              ; preds = %rtps_util_dissect_parameter_header.exit116.i.i
+  %560 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %377, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1214, i32 noundef %.1201.i.i)
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #20
   unreachable
 
 check_offset_addition.exit117.i.i:                ; preds = %rtps_util_dissect_parameter_header.exit116.i.i
-  %reass.sub304 = sub i32 %559, %.1
-  %563 = add i32 %reass.sub304, -31
-  %564 = and i32 %563, -2
-  %565 = add i32 %564, %422
+  %reass.sub304 = sub i32 %557, %.1
+  %561 = add i32 %reass.sub304, -31
+  %562 = and i32 %561, -2
+  %563 = add i32 %562, %422
+  %564 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %563, i32 noundef range(i32 0, -2147483647) %417)
+  %565 = add i32 %563, 2
   %566 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %565, i32 noundef range(i32 0, -2147483647) %417)
-  %567 = add i32 %565, 2
-  %568 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %567, i32 noundef range(i32 0, -2147483647) %417)
-  %569 = zext i16 %568 to i32
-  %570 = add i32 %565, 4
-  %571 = and i16 %566, 16129
-  %572 = icmp eq i16 %571, 16129
-  br i1 %572, label %573, label %rtps_util_dissect_parameter_header.exit118.i.i
+  %567 = zext i16 %566 to i32
+  %568 = add i32 %563, 4
+  %569 = and i16 %564, 16129
+  %570 = icmp eq i16 %569, 16129
+  br i1 %570, label %571, label %rtps_util_dissect_parameter_header.exit118.i.i
 
-573:                                              ; preds = %check_offset_addition.exit117.i.i
-  %574 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %570, i32 noundef range(i32 0, -2147483647) %417)
-  %575 = add i32 %565, 8
-  %576 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %575, i32 noundef range(i32 0, -2147483647) %417)
-  %577 = add i32 %565, 12
+571:                                              ; preds = %check_offset_addition.exit117.i.i
+  %572 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %568, i32 noundef range(i32 0, -2147483647) %417)
+  %573 = add i32 %563, 8
+  %574 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %573, i32 noundef range(i32 0, -2147483647) %417)
+  %575 = add i32 %563, 12
   br label %rtps_util_dissect_parameter_header.exit118.i.i
 
-rtps_util_dissect_parameter_header.exit118.i.i:   ; preds = %573, %check_offset_addition.exit117.i.i
-  %.2207.i.i = phi i32 [ %577, %573 ], [ %570, %check_offset_addition.exit117.i.i ]
-  %.2202.i.i = phi i32 [ %576, %573 ], [ %569, %check_offset_addition.exit117.i.i ]
-  %578 = add i32 %.2207.i.i, %480
-  %579 = and i32 %578, -4
-  %580 = add i32 %579, %422
-  %581 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %580, i32 noundef %417)
-  %582 = load ptr, ptr %401, align 8
-  %583 = add i32 %580, 4
-  %584 = call ptr @tvb_get_string_enc(ptr noundef %582, ptr noundef %0, i32 noundef %583, i32 noundef %581, i32 noundef 0)
-  %585 = load i32, ptr @hf_rtps_topic_query_topic_name, align 4
-  %586 = add i32 %581, 4
-  %587 = call ptr @proto_tree_add_string(ptr noundef %409, i32 noundef %585, ptr noundef %0, i32 noundef %580, i32 noundef %586, ptr noundef %584)
-  %.not.i.i292 = icmp eq ptr %584, null
-  br i1 %.not.i.i292, label %599, label %588
+rtps_util_dissect_parameter_header.exit118.i.i:   ; preds = %571, %check_offset_addition.exit117.i.i
+  %.2207.i.i = phi i32 [ %575, %571 ], [ %568, %check_offset_addition.exit117.i.i ]
+  %.2202.i.i = phi i32 [ %574, %571 ], [ %567, %check_offset_addition.exit117.i.i ]
+  %576 = add i32 %.2207.i.i, %480
+  %577 = and i32 %576, -4
+  %578 = add i32 %577, %422
+  %579 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %578, i32 noundef %417)
+  %580 = load ptr, ptr %401, align 8
+  %581 = add i32 %578, 4
+  %582 = call ptr @tvb_get_string_enc(ptr noundef %580, ptr noundef %0, i32 noundef %581, i32 noundef %579, i32 noundef 0)
+  %583 = load i32, ptr @hf_rtps_topic_query_topic_name, align 4
+  %584 = add i32 %579, 4
+  %585 = call ptr @proto_tree_add_string(ptr noundef %409, i32 noundef %583, ptr noundef %0, i32 noundef %578, i32 noundef %584, ptr noundef %582)
+  %.not.i.i292 = icmp eq ptr %582, null
+  br i1 %.not.i.i292, label %597, label %586
 
-588:                                              ; preds = %rtps_util_dissect_parameter_header.exit118.i.i
-  %589 = load ptr, ptr %401, align 8
-  %590 = load i32, ptr @proto_rtps, align 4
-  %591 = call ptr @p_get_proto_data(ptr noundef %589, ptr noundef %1, i32 noundef %590, i32 noundef 3)
-  %.not112.i.i = icmp eq ptr %591, null
-  br i1 %.not112.i.i, label %599, label %592
+586:                                              ; preds = %rtps_util_dissect_parameter_header.exit118.i.i
+  %587 = load ptr, ptr %401, align 8
+  %588 = load i32, ptr @proto_rtps, align 4
+  %589 = call ptr @p_get_proto_data(ptr noundef %587, ptr noundef %1, i32 noundef %588, i32 noundef 3)
+  %.not112.i.i = icmp eq ptr %589, null
+  br i1 %.not112.i.i, label %597, label %590
 
-592:                                              ; preds = %588
-  %593 = getelementptr inbounds nuw i8, ptr %591, i64 8
-  %594 = load ptr, ptr %593, align 8
-  %595 = icmp eq ptr %594, null
-  br i1 %595, label %596, label %599
+590:                                              ; preds = %586
+  %591 = getelementptr inbounds nuw i8, ptr %589, i64 8
+  %592 = load ptr, ptr %591, align 8
+  %593 = icmp eq ptr %592, null
+  br i1 %593, label %594, label %597
 
-596:                                              ; preds = %592
-  %597 = load ptr, ptr %401, align 8
-  %598 = call noalias ptr @wmem_strdup(ptr noundef %597, ptr noundef nonnull %584)
-  store ptr %598, ptr %593, align 8
-  br label %599
+594:                                              ; preds = %590
+  %595 = load ptr, ptr %401, align 8
+  %596 = call noalias ptr @wmem_strdup(ptr noundef %595, ptr noundef nonnull %582)
+  store ptr %596, ptr %591, align 8
+  br label %597
 
-599:                                              ; preds = %596, %592, %588, %rtps_util_dissect_parameter_header.exit118.i.i
-  %600 = add i32 %580, %.2202.i.i
-  %601 = icmp slt i32 %600, %580
-  br i1 %601, label %602, label %check_offset_addition.exit119.i.i
+597:                                              ; preds = %594, %590, %586, %rtps_util_dissect_parameter_header.exit118.i.i
+  %598 = add i32 %578, %.2202.i.i
+  %599 = icmp slt i32 %598, %578
+  br i1 %599, label %600, label %check_offset_addition.exit119.i.i
 
-602:                                              ; preds = %599
-  %603 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %377, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1214, i32 noundef %.2202.i.i)
+600:                                              ; preds = %597
+  %601 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %377, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1214, i32 noundef %.2202.i.i)
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #20
   unreachable
 
-check_offset_addition.exit119.i.i:                ; preds = %599
-  %reass.sub305 = sub i32 %600, %.1
-  %604 = add i32 %reass.sub305, -31
-  %605 = and i32 %604, -2
-  %606 = add i32 %605, %422
+check_offset_addition.exit119.i.i:                ; preds = %597
+  %reass.sub305 = sub i32 %598, %.1
+  %602 = add i32 %reass.sub305, -31
+  %603 = and i32 %602, -2
+  %604 = add i32 %603, %422
+  %605 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %604, i32 noundef range(i32 0, -2147483647) %417)
+  %606 = add i32 %604, 2
   %607 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %606, i32 noundef range(i32 0, -2147483647) %417)
-  %608 = add i32 %606, 2
-  %609 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %608, i32 noundef range(i32 0, -2147483647) %417)
-  %610 = zext i16 %609 to i32
-  %611 = add i32 %606, 4
-  %612 = and i16 %607, 16129
-  %613 = icmp eq i16 %612, 16129
-  br i1 %613, label %614, label %rtps_util_dissect_parameter_header.exit120.i.i
+  %608 = zext i16 %607 to i32
+  %609 = add i32 %604, 4
+  %610 = and i16 %605, 16129
+  %611 = icmp eq i16 %610, 16129
+  br i1 %611, label %612, label %rtps_util_dissect_parameter_header.exit120.i.i
 
-614:                                              ; preds = %check_offset_addition.exit119.i.i
-  %615 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %611, i32 noundef range(i32 0, -2147483647) %417)
-  %616 = add i32 %606, 8
-  %617 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %616, i32 noundef range(i32 0, -2147483647) %417)
-  %618 = add i32 %606, 12
+612:                                              ; preds = %check_offset_addition.exit119.i.i
+  %613 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %609, i32 noundef range(i32 0, -2147483647) %417)
+  %614 = add i32 %604, 8
+  %615 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %614, i32 noundef range(i32 0, -2147483647) %417)
+  %616 = add i32 %604, 12
   br label %rtps_util_dissect_parameter_header.exit120.i.i
 
-rtps_util_dissect_parameter_header.exit120.i.i:   ; preds = %614, %check_offset_addition.exit119.i.i
-  %.3208.i.i = phi i32 [ %618, %614 ], [ %611, %check_offset_addition.exit119.i.i ]
-  %.3203.i.i = phi i32 [ %617, %614 ], [ %610, %check_offset_addition.exit119.i.i ]
-  %619 = load i32, ptr @hf_rtps_topic_query_original_related_reader_guid, align 4
-  %620 = load i32, ptr @hf_rtps_param_host_id, align 4
-  %621 = load i32, ptr @hf_rtps_param_app_id, align 4
-  %622 = load i32, ptr @hf_rtps_param_instance_id, align 4
-  %623 = load i32, ptr @hf_rtps_param_entity, align 4
-  %624 = load i32, ptr @hf_rtps_param_entity_key, align 4
-  %625 = load i32, ptr @hf_rtps_param_entity_kind, align 4
-  call fastcc void @rtps_util_add_generic_guid_v2(ptr noundef %409, ptr noundef %0, i32 noundef %.3208.i.i, i32 noundef %619, i32 noundef %620, i32 noundef %621, i32 noundef %622, i32 noundef %623, i32 noundef %624, i32 noundef %625, ptr noundef null)
-  %626 = add i32 %.3203.i.i, %.3208.i.i
-  %627 = icmp slt i32 %626, %.3208.i.i
-  br i1 %627, label %628, label %rtps_util_add_rti_topic_query_service_request.exit.i
+rtps_util_dissect_parameter_header.exit120.i.i:   ; preds = %612, %check_offset_addition.exit119.i.i
+  %.3208.i.i = phi i32 [ %616, %612 ], [ %609, %check_offset_addition.exit119.i.i ]
+  %.3203.i.i = phi i32 [ %615, %612 ], [ %608, %check_offset_addition.exit119.i.i ]
+  %617 = load i32, ptr @hf_rtps_topic_query_original_related_reader_guid, align 4
+  %618 = load i32, ptr @hf_rtps_param_host_id, align 4
+  %619 = load i32, ptr @hf_rtps_param_app_id, align 4
+  %620 = load i32, ptr @hf_rtps_param_instance_id, align 4
+  %621 = load i32, ptr @hf_rtps_param_entity, align 4
+  %622 = load i32, ptr @hf_rtps_param_entity_key, align 4
+  %623 = load i32, ptr @hf_rtps_param_entity_kind, align 4
+  call fastcc void @rtps_util_add_generic_guid_v2(ptr noundef %409, ptr noundef %0, i32 noundef %.3208.i.i, i32 noundef %617, i32 noundef %618, i32 noundef %619, i32 noundef %620, i32 noundef %621, i32 noundef %622, i32 noundef %623, ptr noundef null)
+  %624 = add i32 %.3203.i.i, %.3208.i.i
+  %625 = icmp slt i32 %624, %.3208.i.i
+  br i1 %625, label %626, label %rtps_util_add_rti_topic_query_service_request.exit.i
 
-628:                                              ; preds = %rtps_util_dissect_parameter_header.exit120.i.i
-  %629 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %377, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1214, i32 noundef %.3203.i.i)
+626:                                              ; preds = %rtps_util_dissect_parameter_header.exit120.i.i
+  %627 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %377, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1214, i32 noundef %.3203.i.i)
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #20
   unreachable
 
@@ -16180,220 +16178,220 @@ rtps_util_add_rti_topic_query_service_request.exit.i: ; preds = %rtps_util_disse
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %rtps_util_add_rti_service_request.exit
 
-630:                                              ; preds = %get_encapsulation_endianness.exit285
-  %631 = add i32 %.1, 28
+628:                                              ; preds = %get_encapsulation_endianness.exit285
+  %629 = add i32 %.1, 28
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %632 = load i32, ptr @ett_rtps_locator_reachability_tree, align 4
-  %633 = call ptr @proto_tree_add_subtree(ptr noundef %377, ptr noundef %0, i32 noundef %631, i32 noundef 0, i32 noundef %632, ptr noundef nonnull %13, ptr noundef nonnull @.str.1391)
-  %634 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %631)
-  %635 = load i32, ptr @hf_rtps_encapsulation_id, align 4
-  %636 = zext i16 %634 to i32
-  %637 = call ptr @proto_tree_add_uint(ptr noundef %633, i32 noundef %635, ptr noundef %0, i32 noundef %631, i32 noundef 2, i32 noundef %636)
-  %638 = add i32 %.1, 30
-  %switch.tableidx345 = add i16 %634, -1
-  %639 = icmp ult i16 %switch.tableidx345, 11
-  br i1 %639, label %switch.lookup346, label %get_encapsulation_endianness.exit.i36.i
+  %630 = load i32, ptr @ett_rtps_locator_reachability_tree, align 4
+  %631 = call ptr @proto_tree_add_subtree(ptr noundef %377, ptr noundef %0, i32 noundef %629, i32 noundef 0, i32 noundef %630, ptr noundef nonnull %13, ptr noundef nonnull @.str.1391)
+  %632 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %629)
+  %633 = load i32, ptr @hf_rtps_encapsulation_id, align 4
+  %634 = zext i16 %632 to i32
+  %635 = call ptr @proto_tree_add_uint(ptr noundef %631, i32 noundef %633, ptr noundef %0, i32 noundef %629, i32 noundef 2, i32 noundef %634)
+  %636 = add i32 %.1, 30
+  %switch.tableidx345 = add i16 %632, -1
+  %637 = icmp ult i16 %switch.tableidx345, 11
+  br i1 %637, label %switch.lookup346, label %get_encapsulation_endianness.exit.i36.i
 
-switch.lookup346:                                 ; preds = %630
-  %640 = zext nneg i16 %switch.tableidx345 to i64
-  %switch.gep347 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_RTPS_DATA.28, i64 %640
+switch.lookup346:                                 ; preds = %628
+  %638 = zext nneg i16 %switch.tableidx345 to i64
+  %switch.gep347 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_RTPS_DATA.28, i64 %638
   %switch.load348 = load i32, ptr %switch.gep347, align 4
   br label %get_encapsulation_endianness.exit.i36.i
 
-get_encapsulation_endianness.exit.i36.i:          ; preds = %630, %switch.lookup346
-  %641 = phi i32 [ %switch.load348, %switch.lookup346 ], [ 0, %630 ]
-  %642 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %638)
-  %643 = load i32, ptr @hf_rtps_encapsulation_options, align 4
-  %644 = zext i16 %642 to i32
-  %645 = call ptr @proto_tree_add_uint(ptr noundef %633, i32 noundef %643, ptr noundef %0, i32 noundef %638, i32 noundef 2, i32 noundef %644)
-  %646 = add i32 %.1, 32
-  %647 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %646, i32 noundef range(i32 0, -2147483647) %641)
-  %648 = add i32 %.1, 34
-  %649 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %648, i32 noundef range(i32 0, -2147483647) %641)
-  %650 = zext i16 %649 to i32
-  %651 = add i32 %.1, 36
-  %652 = and i16 %647, 16129
-  %653 = icmp eq i16 %652, 16129
-  br i1 %653, label %654, label %rtps_util_dissect_parameter_header.exit.i37.i
+get_encapsulation_endianness.exit.i36.i:          ; preds = %628, %switch.lookup346
+  %639 = phi i32 [ %switch.load348, %switch.lookup346 ], [ 0, %628 ]
+  %640 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %636)
+  %641 = load i32, ptr @hf_rtps_encapsulation_options, align 4
+  %642 = zext i16 %640 to i32
+  %643 = call ptr @proto_tree_add_uint(ptr noundef %631, i32 noundef %641, ptr noundef %0, i32 noundef %636, i32 noundef 2, i32 noundef %642)
+  %644 = add i32 %.1, 32
+  %645 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %644, i32 noundef range(i32 0, -2147483647) %639)
+  %646 = add i32 %.1, 34
+  %647 = call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %646, i32 noundef range(i32 0, -2147483647) %639)
+  %648 = zext i16 %647 to i32
+  %649 = add i32 %.1, 36
+  %650 = and i16 %645, 16129
+  %651 = icmp eq i16 %650, 16129
+  br i1 %651, label %652, label %rtps_util_dissect_parameter_header.exit.i37.i
 
-654:                                              ; preds = %get_encapsulation_endianness.exit.i36.i
-  %655 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %651, i32 noundef range(i32 0, -2147483647) %641)
-  %656 = add i32 %.1, 40
-  %657 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %656, i32 noundef range(i32 0, -2147483647) %641)
-  %658 = add i32 %.1, 44
+652:                                              ; preds = %get_encapsulation_endianness.exit.i36.i
+  %653 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %649, i32 noundef range(i32 0, -2147483647) %639)
+  %654 = add i32 %.1, 40
+  %655 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %654, i32 noundef range(i32 0, -2147483647) %639)
+  %656 = add i32 %.1, 44
   br label %rtps_util_dissect_parameter_header.exit.i37.i
 
-rtps_util_dissect_parameter_header.exit.i37.i:    ; preds = %654, %get_encapsulation_endianness.exit.i36.i
-  %.1.i.i = phi i32 [ %658, %654 ], [ %651, %get_encapsulation_endianness.exit.i36.i ]
-  %.042.i.i = phi i32 [ %657, %654 ], [ %650, %get_encapsulation_endianness.exit.i36.i ]
-  %659 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.1.i.i, i32 noundef %641)
-  %660 = load i32, ptr @ett_rtps_locator_list_tree, align 4
-  %661 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %633, ptr noundef %0, i32 noundef %.1.i.i, i32 noundef %.042.i.i, i32 noundef %660, ptr noundef nonnull %13, ptr noundef nonnull @.str.1392, i32 noundef %659)
-  %.not.i38.i = icmp eq i32 %659, 0
+rtps_util_dissect_parameter_header.exit.i37.i:    ; preds = %652, %get_encapsulation_endianness.exit.i36.i
+  %.1.i.i = phi i32 [ %656, %652 ], [ %649, %get_encapsulation_endianness.exit.i36.i ]
+  %.042.i.i = phi i32 [ %655, %652 ], [ %648, %get_encapsulation_endianness.exit.i36.i ]
+  %657 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.1.i.i, i32 noundef %639)
+  %658 = load i32, ptr @ett_rtps_locator_list_tree, align 4
+  %659 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %631, ptr noundef %0, i32 noundef %.1.i.i, i32 noundef %.042.i.i, i32 noundef %658, ptr noundef nonnull %13, ptr noundef nonnull @.str.1392, i32 noundef %657)
+  %.not.i38.i = icmp eq i32 %657, 0
   br i1 %.not.i38.i, label %rtps_util_add_rti_locator_reachability_service_request.exit.i, label %.lr.ph.i39.i.preheader
 
 .lr.ph.i39.i.preheader:                           ; preds = %rtps_util_dissect_parameter_header.exit.i37.i
-  %662 = add i32 %.1.i.i, 4
+  %660 = add i32 %.1.i.i, 4
   br label %.lr.ph.i39.i
 
 .lr.ph.i39.i:                                     ; preds = %.lr.ph.i39.i.preheader, %.lr.ph.i39.i
-  %.045.i.i = phi i32 [ %665, %.lr.ph.i39.i ], [ 0, %.lr.ph.i39.i.preheader ]
-  %.04344.i.i = phi i32 [ %664, %.lr.ph.i39.i ], [ %662, %.lr.ph.i39.i.preheader ]
-  %663 = call fastcc i32 @rtps_util_add_locator_t(ptr noundef %661, ptr noundef %1, ptr noundef %0, i32 noundef %.04344.i.i, i32 noundef %641, ptr noundef nonnull @.str.1393)
-  %664 = add i32 %.04344.i.i, 24
-  %665 = add nuw i32 %.045.i.i, 1
-  %exitcond.not.i40.i = icmp eq i32 %665, %659
+  %.045.i.i = phi i32 [ %663, %.lr.ph.i39.i ], [ 0, %.lr.ph.i39.i.preheader ]
+  %.04344.i.i = phi i32 [ %662, %.lr.ph.i39.i ], [ %660, %.lr.ph.i39.i.preheader ]
+  %661 = call fastcc i32 @rtps_util_add_locator_t(ptr noundef %659, ptr noundef %1, ptr noundef %0, i32 noundef %.04344.i.i, i32 noundef %639, ptr noundef nonnull @.str.1393)
+  %662 = add i32 %.04344.i.i, 24
+  %663 = add nuw i32 %.045.i.i, 1
+  %exitcond.not.i40.i = icmp eq i32 %663, %657
   br i1 %exitcond.not.i40.i, label %rtps_util_add_rti_locator_reachability_service_request.exit.i, label %.lr.ph.i39.i, !llvm.loop !64
 
 rtps_util_add_rti_locator_reachability_service_request.exit.i: ; preds = %.lr.ph.i39.i, %rtps_util_dissect_parameter_header.exit.i37.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %rtps_util_add_rti_service_request.exit
 
-666:                                              ; preds = %get_encapsulation_endianness.exit285
-  %667 = add i32 %.1, 24
-  %668 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %667, i32 noundef range(i32 0, -2147483647) %384)
-  %669 = load i32, ptr @hf_rtps_srm_request_body, align 4
-  %670 = add i32 %.1, 28
-  %671 = call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %669, ptr noundef %0, i32 noundef %670, i32 noundef %668, i32 noundef 0)
-  %672 = add i32 %668, %667
-  %673 = icmp slt i32 %672, %667
-  br i1 %673, label %674, label %check_offset_addition.exit.i
+664:                                              ; preds = %get_encapsulation_endianness.exit285
+  %665 = add i32 %.1, 24
+  %666 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %665, i32 noundef range(i32 0, -2147483647) %384)
+  %667 = load i32, ptr @hf_rtps_srm_request_body, align 4
+  %668 = add i32 %.1, 28
+  %669 = call ptr @proto_tree_add_item(ptr noundef %377, i32 noundef %667, ptr noundef %0, i32 noundef %668, i32 noundef %666, i32 noundef 0)
+  %670 = add i32 %666, %665
+  %671 = icmp slt i32 %670, %665
+  br i1 %671, label %672, label %check_offset_addition.exit.i
 
-674:                                              ; preds = %666
-  %675 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %377, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1214, i32 noundef %668)
+672:                                              ; preds = %664
+  %673 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %377, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1214, i32 noundef %666)
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #20
   unreachable
 
-check_offset_addition.exit.i:                     ; preds = %666
-  %676 = icmp sgt i32 %672, 2147483643
-  br i1 %676, label %677, label %rtps_util_add_rti_service_request.exit
+check_offset_addition.exit.i:                     ; preds = %664
+  %674 = icmp sgt i32 %670, 2147483643
+  br i1 %674, label %675, label %rtps_util_add_rti_service_request.exit
 
-677:                                              ; preds = %check_offset_addition.exit.i
-  %678 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %377, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1214, i32 noundef 4)
+675:                                              ; preds = %check_offset_addition.exit.i
+  %676 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %377, ptr noundef null, ptr noundef nonnull @ei_rtps_value_too_large, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.1214, i32 noundef 4)
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #20
   unreachable
 
-679:                                              ; preds = %get_encapsulation_endianness.exit285
-  %680 = add i32 %.1, 32
+677:                                              ; preds = %get_encapsulation_endianness.exit285
+  %678 = add i32 %.1, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr null, ptr %12, align 8
-  %681 = load i32, ptr @ett_rtps_instance_transition_data, align 4
-  %682 = call ptr @proto_tree_add_subtree(ptr noundef %377, ptr noundef %0, i32 noundef %680, i32 noundef 36, i32 noundef %681, ptr noundef nonnull %12, ptr noundef nonnull @.str.1394)
-  %683 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %680, i32 noundef range(i32 0, -2147483647) %384)
-  %684 = zext i32 %683 to i64
-  %685 = add i32 %.1, 36
-  %686 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %685, i32 noundef range(i32 0, -2147483647) %384)
-  %687 = zext i32 %686 to i64
-  %688 = shl nuw i64 %684, 32
-  %689 = or disjoint i64 %688, %687
-  %690 = load i32, ptr @hf_rtps_sm_seq_number, align 4
-  %691 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_int64_format(ptr noundef %682, i32 noundef %690, ptr noundef %0, i32 noundef %680, i32 noundef 8, i64 noundef %689, ptr noundef nonnull @.str.1119, ptr noundef nonnull @.str.1395, i64 noundef %689)
-  %692 = add i32 %.1, 40
-  %693 = load i32, ptr @hf_rtps_pgm_dst_endpoint_guid, align 4
-  %694 = load i32, ptr @hf_rtps_param_host_id, align 4
-  %695 = load i32, ptr @hf_rtps_param_app_id, align 4
-  %696 = load i32, ptr @hf_rtps_param_instance_id, align 4
-  %697 = load i32, ptr @hf_rtps_param_entity, align 4
-  %698 = load i32, ptr @hf_rtps_param_entity_key, align 4
-  %699 = load i32, ptr @hf_rtps_param_entity_kind, align 4
-  call fastcc void @rtps_util_add_generic_guid_v2(ptr noundef %682, ptr noundef %0, i32 noundef %692, i32 noundef %693, i32 noundef %694, i32 noundef %695, i32 noundef %696, i32 noundef %697, i32 noundef %698, i32 noundef %699, ptr noundef null)
-  %700 = add i32 %.1, 56
-  %701 = load i32, ptr @hf_rtps_writer_group_oid, align 4
-  %702 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %701, ptr noundef %0, i32 noundef %700, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %384)
-  %703 = add i32 %.1, 60
-  %704 = load i32, ptr @hf_rtps_reader_group_oid, align 4
-  %705 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %704, ptr noundef %0, i32 noundef %703, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %384)
-  %706 = add i32 %.1, 64
-  %707 = load i32, ptr @hf_rtps_writer_session_id, align 4
-  %708 = call ptr @proto_tree_add_item(ptr noundef %682, i32 noundef %707, ptr noundef %0, i32 noundef %706, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %384)
+  %679 = load i32, ptr @ett_rtps_instance_transition_data, align 4
+  %680 = call ptr @proto_tree_add_subtree(ptr noundef %377, ptr noundef %0, i32 noundef %678, i32 noundef 36, i32 noundef %679, ptr noundef nonnull %12, ptr noundef nonnull @.str.1394)
+  %681 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %678, i32 noundef range(i32 0, -2147483647) %384)
+  %682 = zext i32 %681 to i64
+  %683 = add i32 %.1, 36
+  %684 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %683, i32 noundef range(i32 0, -2147483647) %384)
+  %685 = zext i32 %684 to i64
+  %686 = shl nuw i64 %682, 32
+  %687 = or disjoint i64 %686, %685
+  %688 = load i32, ptr @hf_rtps_sm_seq_number, align 4
+  %689 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_int64_format(ptr noundef %680, i32 noundef %688, ptr noundef %0, i32 noundef %678, i32 noundef 8, i64 noundef %687, ptr noundef nonnull @.str.1119, ptr noundef nonnull @.str.1395, i64 noundef %687)
+  %690 = add i32 %.1, 40
+  %691 = load i32, ptr @hf_rtps_pgm_dst_endpoint_guid, align 4
+  %692 = load i32, ptr @hf_rtps_param_host_id, align 4
+  %693 = load i32, ptr @hf_rtps_param_app_id, align 4
+  %694 = load i32, ptr @hf_rtps_param_instance_id, align 4
+  %695 = load i32, ptr @hf_rtps_param_entity, align 4
+  %696 = load i32, ptr @hf_rtps_param_entity_key, align 4
+  %697 = load i32, ptr @hf_rtps_param_entity_kind, align 4
+  call fastcc void @rtps_util_add_generic_guid_v2(ptr noundef %680, ptr noundef %0, i32 noundef %690, i32 noundef %691, i32 noundef %692, i32 noundef %693, i32 noundef %694, i32 noundef %695, i32 noundef %696, i32 noundef %697, ptr noundef null)
+  %698 = add i32 %.1, 56
+  %699 = load i32, ptr @hf_rtps_writer_group_oid, align 4
+  %700 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %699, ptr noundef %0, i32 noundef %698, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %384)
+  %701 = add i32 %.1, 60
+  %702 = load i32, ptr @hf_rtps_reader_group_oid, align 4
+  %703 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %702, ptr noundef %0, i32 noundef %701, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %384)
+  %704 = add i32 %.1, 64
+  %705 = load i32, ptr @hf_rtps_writer_session_id, align 4
+  %706 = call ptr @proto_tree_add_item(ptr noundef %680, i32 noundef %705, ptr noundef %0, i32 noundef %704, i32 noundef 4, i32 noundef range(i32 0, -2147483647) %384)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %rtps_util_add_rti_service_request.exit
 
-rtps_util_add_rti_service_request.exit:           ; preds = %get_encapsulation_endianness.exit285, %rtps_util_add_rti_topic_query_service_request.exit.i, %rtps_util_add_rti_locator_reachability_service_request.exit.i, %check_offset_addition.exit.i, %679
+rtps_util_add_rti_service_request.exit:           ; preds = %get_encapsulation_endianness.exit285, %rtps_util_add_rti_topic_query_service_request.exit.i, %rtps_util_add_rti_locator_reachability_service_request.exit.i, %check_offset_addition.exit.i, %677
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
-  br label %716
+  br label %714
 
-709:                                              ; preds = %123
+707:                                              ; preds = %123
   %or.cond.not = icmp eq i32 %122, 8
   %.0 = select i1 %or.cond.not, ptr @.str.449, ptr @.str.324
-  %710 = and i32 %89, 194
-  %711 = icmp eq i32 %710, 194
-  br i1 %711, label %switch.edge, label %switch.early.test
+  %708 = and i32 %89, 194
+  %709 = icmp eq i32 %708, 194
+  br i1 %709, label %switch.edge, label %switch.early.test
 
-switch.early.test:                                ; preds = %709
-  switch i32 %89, label %712 [
+switch.early.test:                                ; preds = %707
+  switch i32 %89, label %710 [
     i32 -16711294, label %switch.edge
     i32 65922, label %switch.edge
     i32 65666, label %switch.edge
     i32 -16711289, label %switch.edge
   ]
 
-712:                                              ; preds = %switch.early.test
+710:                                              ; preds = %switch.early.test
   br label %switch.edge
 
-switch.edge:                                      ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %712, %709
-  %713 = phi i1 [ true, %switch.early.test ], [ true, %709 ], [ false, %712 ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ]
+switch.edge:                                      ; preds = %switch.early.test, %switch.early.test, %switch.early.test, %switch.early.test, %710, %707
+  %711 = phi i1 [ true, %switch.early.test ], [ true, %707 ], [ false, %710 ], [ true, %switch.early.test ], [ true, %switch.early.test ], [ true, %switch.early.test ]
   %.neg274 = add nuw i32 %5, 4
-  %714 = add i32 %.neg274, %2
-  %715 = sub i32 %714, %.1
-  call fastcc void @dissect_serialized_data(ptr noundef %6, ptr noundef %1, ptr noundef %0, i32 noundef %.1, i32 noundef %715, ptr noundef nonnull %.0, i16 noundef zeroext %7, i1 noundef zeroext %713, ptr noundef %9, i32 noundef -1)
-  br label %716
+  %712 = add i32 %.neg274, %2
+  %713 = sub i32 %712, %.1
+  call fastcc void @dissect_serialized_data(ptr noundef %6, ptr noundef %1, ptr noundef %0, i32 noundef %.1, i32 noundef %713, ptr noundef nonnull %.0, i16 noundef zeroext %7, i1 noundef zeroext %711, ptr noundef %9, i32 noundef -1)
+  br label %714
 
-716:                                              ; preds = %121, %rtps_util_add_seq_octets.exit, %get_encapsulation_endianness.exit284, %switch.edge, %rtps_util_add_rti_service_request.exit, %rtps_util_add_data_holder_seq.exit
-  %717 = load ptr, ptr @coherent_set_tracking.0, align 8
-  %718 = call ptr @wmem_map_lookup(ptr noundef %717, ptr noundef nonnull %31)
-  %.not.i293 = icmp eq ptr %718, null
-  br i1 %.not.i293, label %rtps_util_detect_coherent_set_end_empty_data_case.exit, label %719
+714:                                              ; preds = %121, %rtps_util_add_seq_octets.exit, %get_encapsulation_endianness.exit284, %switch.edge, %rtps_util_add_rti_service_request.exit, %rtps_util_add_data_holder_seq.exit
+  %715 = load ptr, ptr @coherent_set_tracking.0, align 8
+  %716 = call ptr @wmem_map_lookup(ptr noundef %715, ptr noundef nonnull %31)
+  %.not.i293 = icmp eq ptr %716, null
+  br i1 %.not.i293, label %rtps_util_detect_coherent_set_end_empty_data_case.exit, label %717
 
-719:                                              ; preds = %716
+717:                                              ; preds = %714
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %720 = getelementptr inbounds nuw i8, ptr %11, i64 20
-  store i32 0, ptr %720, align 4
+  %718 = getelementptr inbounds nuw i8, ptr %11, i64 20
+  store i32 0, ptr %718, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %11, ptr noundef nonnull align 8 dereferenceable(20) %31, i64 20, i1 false)
-  %721 = getelementptr inbounds nuw i8, ptr %718, i64 32
-  %722 = load i64, ptr %721, align 8
-  %723 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 %722, ptr %723, align 8
-  %724 = load ptr, ptr @coherent_set_tracking.1, align 8
-  %725 = call ptr @wmem_map_lookup(ptr noundef %724, ptr noundef nonnull %11)
-  %.not12.i = icmp eq ptr %725, null
-  br i1 %.not12.i, label %740, label %726
+  %719 = getelementptr inbounds nuw i8, ptr %716, i64 32
+  %720 = load i64, ptr %719, align 8
+  %721 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i64 %720, ptr %721, align 8
+  %722 = load ptr, ptr @coherent_set_tracking.1, align 8
+  %723 = call ptr @wmem_map_lookup(ptr noundef %722, ptr noundef nonnull %11)
+  %.not12.i = icmp eq ptr %723, null
+  br i1 %.not12.i, label %738, label %724
 
-726:                                              ; preds = %719
-  %727 = getelementptr inbounds nuw i8, ptr %718, i64 40
+724:                                              ; preds = %717
+  %725 = getelementptr inbounds nuw i8, ptr %716, i64 40
+  %726 = load i64, ptr %725, align 8
+  %727 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %728 = load i64, ptr %727, align 8
-  %729 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %730 = load i64, ptr %729, align 8
-  %731 = icmp eq i64 %728, %730
-  br i1 %731, label %732, label %740
+  %729 = icmp eq i64 %726, %728
+  br i1 %729, label %730, label %738
 
-732:                                              ; preds = %726
-  %733 = getelementptr inbounds nuw i8, ptr %725, i64 16
-  %734 = load i8, ptr %733, align 8, !range !8, !noundef !9
-  %735 = trunc nuw i8 %734 to i1
-  br i1 %735, label %740, label %736
+730:                                              ; preds = %724
+  %731 = getelementptr inbounds nuw i8, ptr %723, i64 16
+  %732 = load i8, ptr %731, align 8, !range !8, !noundef !9
+  %733 = trunc nuw i8 %732 to i1
+  br i1 %733, label %738, label %734
 
-736:                                              ; preds = %732
-  store i8 1, ptr %733, align 8
-  %737 = load i64, ptr %727, align 8
-  %738 = add i64 %737, -1
-  %739 = getelementptr inbounds nuw i8, ptr %725, i64 8
-  store i64 %738, ptr %739, align 8
-  br label %740
+734:                                              ; preds = %730
+  store i8 1, ptr %731, align 8
+  %735 = load i64, ptr %725, align 8
+  %736 = add i64 %735, -1
+  %737 = getelementptr inbounds nuw i8, ptr %723, i64 8
+  store i64 %736, ptr %737, align 8
+  br label %738
 
-740:                                              ; preds = %736, %732, %726, %719
+738:                                              ; preds = %734, %730, %724, %717
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %rtps_util_detect_coherent_set_end_empty_data_case.exit
 
-rtps_util_detect_coherent_set_end_empty_data_case.exit: ; preds = %716, %740
-  %741 = load i32, ptr %28, align 4
-  %742 = load i32, ptr %30, align 4
-  call fastcc void @generate_status_info(ptr noundef %1, i32 noundef %741, i32 noundef %742)
-  br label %743
+rtps_util_detect_coherent_set_end_empty_data_case.exit: ; preds = %714, %738
+  %739 = load i32, ptr %28, align 4
+  %740 = load i32, ptr %30, align 4
+  call fastcc void @generate_status_info(ptr noundef %1, i32 noundef %739, i32 noundef %740)
+  br label %741
 
-743:                                              ; preds = %rtps_util_detect_coherent_set_end_empty_data_case.exit, %67
+741:                                              ; preds = %rtps_util_detect_coherent_set_end_empty_data_case.exit, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)

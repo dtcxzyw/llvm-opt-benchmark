@@ -331,7 +331,7 @@ define hidden void @_ZN16OopMapCacheEntry8set_maskEP13CellTypeStateS1_i(ptr noun
   br i1 %14, label %_ZN16OopMapCacheEntry17allocate_bit_maskEv.exit.thread, label %_ZN16OopMapCacheEntry17allocate_bit_maskEv.exit
 
 _ZN16OopMapCacheEntry17allocate_bit_maskEv.exit.thread: ; preds = %4
-  %15 = add nuw nsw i32 %12, 63
+  %15 = add nuw nsw i32 %12, 62
   %16 = lshr i32 %15, 3
   %17 = and i32 %16, 268435448
   %18 = zext nneg i32 %17 to i64
@@ -864,7 +864,7 @@ define hidden void @_ZN16OopMapCacheEntry15fill_for_nativeERK12methodHandle(ptr 
   br label %_ZN16OopMapCacheEntry17allocate_bit_maskEv.exit
 
 15:                                               ; preds = %2
-  %16 = add nuw nsw i32 %11, 63
+  %16 = add nuw nsw i32 %11, 62
   %17 = lshr i32 %16, 3
   %18 = and i32 %17, 32760
   %19 = zext nneg i32 %18 to i64

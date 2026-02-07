@@ -183,34 +183,33 @@ define dso_local void @TwoPhaseShmemInit() local_unnamed_addr #0 {
   %17 = load i32, ptr @max_prepared_xacts, align 4
   %18 = sext i32 %17 to i64
   %19 = shl nsw i64 %18, 3
-  %20 = add nsw i64 %19, 23
-  %21 = and i64 %20, -8
-  %22 = getelementptr inbounds nuw i8, ptr %12, i64 %21
-  %23 = icmp sgt i32 %17, 0
-  br i1 %23, label %.lr.ph, label %.loopexit
+  %20 = getelementptr i8, ptr %12, i64 %19
+  %21 = getelementptr i8, ptr %20, i64 16
+  %22 = icmp sgt i32 %17, 0
+  br i1 %22, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %15, %.lr.ph
-  %24 = phi ptr [ %25, %.lr.ph ], [ null, %15 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %15 ]
-  %25 = getelementptr inbounds nuw %struct.GlobalTransactionData, ptr %22, i64 %indvars.iv
-  store ptr %24, ptr %25, align 8
-  store ptr %25, ptr %12, align 8
-  %26 = load ptr, ptr @PreparedXactProcs, align 8
-  %27 = getelementptr inbounds nuw %struct.PGPROC, ptr %26, i64 %indvars.iv
-  %28 = load ptr, ptr @ProcGlobal, align 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = ptrtoint ptr %27 to i64
-  %31 = ptrtoint ptr %29 to i64
-  %32 = sub i64 %30, %31
-  %33 = sdiv exact i64 %32, 832
-  %34 = trunc i64 %33 to i32
-  %35 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i32 %34, ptr %35, align 8
+  %23 = load ptr, ptr %12, align 8
+  %24 = getelementptr inbounds nuw %struct.GlobalTransactionData, ptr %21, i64 %indvars.iv
+  store ptr %23, ptr %24, align 8
+  store ptr %24, ptr %12, align 8
+  %25 = load ptr, ptr @PreparedXactProcs, align 8
+  %26 = getelementptr inbounds nuw %struct.PGPROC, ptr %25, i64 %indvars.iv
+  %27 = load ptr, ptr @ProcGlobal, align 8
+  %28 = load ptr, ptr %27, align 8
+  %29 = ptrtoint ptr %26 to i64
+  %30 = ptrtoint ptr %28 to i64
+  %31 = sub i64 %29, %30
+  %32 = sdiv exact i64 %31, 832
+  %33 = trunc i64 %32 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i32 %33, ptr %34, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = load i32, ptr @max_prepared_xacts, align 4
-  %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next, %37
-  br i1 %38, label %.lr.ph, label %.loopexit, !llvm.loop !6
+  %35 = load i32, ptr @max_prepared_xacts, align 4
+  %36 = sext i32 %35 to i64
+  %37 = icmp slt i64 %indvars.iv.next, %36
+  br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %.lr.ph, %15, %0
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -1088,7 +1087,7 @@ save_state_data.exit17:                           ; preds = %._crit_edge.i13, %8
 106:                                              ; preds = %save_state_data.exit17
   %107 = load ptr, ptr %3, align 8
   %108 = shl i32 %104, 2
-  %109 = add i32 %108, 7
+  %109 = add i32 %108, 4
   %110 = and i32 %109, -8
   %111 = icmp ugt i32 %110, %102
   br i1 %111, label %112, label %._crit_edge.i18
@@ -1179,7 +1178,7 @@ GXactLoadSubxactData.exit:                        ; preds = %147, %145, %save_st
 157:                                              ; preds = %GXactLoadSubxactData.exit
   %158 = load ptr, ptr %4, align 8
   %159 = mul i32 %155, 12
-  %160 = add i32 %159, 7
+  %160 = add i32 %159, 4
   %161 = and i32 %160, -8
   %162 = icmp ugt i32 %161, %154
   br i1 %162, label %163, label %._crit_edge.i23
@@ -1242,7 +1241,7 @@ save_state_data.exit27:                           ; preds = %._crit_edge.i23, %1
 192:                                              ; preds = %189
   %193 = load ptr, ptr %5, align 8
   %194 = mul i32 %190, 12
-  %195 = add i32 %194, 7
+  %195 = add i32 %194, 4
   %196 = and i32 %195, -8
   %197 = load i32, ptr @records.3, align 4
   %198 = icmp ugt i32 %196, %197
@@ -2160,21 +2159,21 @@ LockGXact.exit:                                   ; preds = %48
   %91 = load i32, ptr %90, align 4
   %92 = sext i32 %91 to i64
   %93 = shl nsw i64 %92, 2
-  %94 = add nsw i64 %93, 7
+  %94 = add nsw i64 %93, 4
   %95 = and i64 %94, -8
   %96 = getelementptr inbounds nuw i8, ptr %89, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %98 = load i32, ptr %97, align 8
   %99 = sext i32 %98 to i64
   %100 = mul nsw i64 %99, 12
-  %101 = add nsw i64 %100, 7
+  %101 = add nsw i64 %100, 4
   %102 = and i64 %101, -8
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %82, i64 36
   %105 = load i32, ptr %104, align 4
   %106 = sext i32 %105 to i64
   %107 = mul nsw i64 %106, 12
-  %108 = add nsw i64 %107, 7
+  %108 = add nsw i64 %107, 4
   %109 = and i64 %108, -8
   %110 = getelementptr inbounds nuw i8, ptr %103, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %82, i64 40
@@ -3519,21 +3518,21 @@ define dso_local void @RecoverPreparedTransactions() local_unnamed_addr #0 {
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
   %35 = shl nsw i64 %34, 2
-  %36 = add nsw i64 %35, 7
+  %36 = add nsw i64 %35, 4
   %37 = and i64 %36, -8
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %40 = load i32, ptr %39, align 8
   %41 = sext i32 %40 to i64
   %42 = mul nsw i64 %41, 12
-  %43 = add nsw i64 %42, 7
+  %43 = add nsw i64 %42, 4
   %44 = and i64 %43, -8
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %19, i64 36
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
   %49 = mul nsw i64 %48, 12
-  %50 = add nsw i64 %49, 7
+  %50 = add nsw i64 %49, 4
   %51 = and i64 %50, -8
   %52 = getelementptr inbounds nuw i8, ptr %45, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %19, i64 40

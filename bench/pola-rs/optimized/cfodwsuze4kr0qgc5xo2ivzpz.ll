@@ -9482,24 +9482,20 @@ define internal fastcc void @"_ZN4core3ptr111drop_in_place$LT$hashbrown..raw..Ra
   br i1 %30, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17h9167650d51b4c451E.exit.i.i, label %15
 
 _ZN9hashbrown3raw13RawTableInner13drop_elements17h9167650d51b4c451E.exit.i.i: ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hcf4cdf0dd97977abE.exit.i.i.i", %5
-  %31 = mul i64 %3, 48
-  %32 = add i64 %31, 63
-  %33 = and i64 %32, -16
-  %34 = add i64 %3, 17
-  %35 = add nuw i64 %34, %33
-  %36 = icmp ult i64 %35, 9223372036854775793
-  tail call void @llvm.assume(i1 %36)
-  %37 = icmp eq i64 %35, 0
-  br i1 %37, label %"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf00d17e36b0dbda7E.exit", label %38
+  %31 = mul i64 %3, 49
+  %32 = add nsw i64 %31, 65
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf00d17e36b0dbda7E.exit", label %34
 
-38:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h9167650d51b4c451E.exit.i.i
-  %39 = load ptr, ptr %0, align 8, !alias.scope !1045, !nonnull !3, !noundef !3
-  %40 = sub nsw i64 0, %33
-  %41 = getelementptr inbounds i8, ptr %39, i64 %40
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %41, i64 noundef %35, i64 noundef range(i64 1, -9223372036854775807) 16) #33, !noalias !1045
+34:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h9167650d51b4c451E.exit.i.i
+  %.neg.i = mul i64 %3, -48
+  %35 = load ptr, ptr %0, align 8, !alias.scope !1045, !nonnull !3, !noundef !3
+  %36 = getelementptr i8, ptr %35, i64 %.neg.i
+  %37 = getelementptr i8, ptr %36, i64 -48
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %37, i64 noundef %32, i64 noundef range(i64 1, -9223372036854775807) 16) #33, !noalias !1045
   br label %"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf00d17e36b0dbda7E.exit"
 
-"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf00d17e36b0dbda7E.exit": ; preds = %1, %_ZN9hashbrown3raw13RawTableInner13drop_elements17h9167650d51b4c451E.exit.i.i, %38
+"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf00d17e36b0dbda7E.exit": ; preds = %1, %_ZN9hashbrown3raw13RawTableInner13drop_elements17h9167650d51b4c451E.exit.i.i, %34
   ret void
 }
 
@@ -11484,24 +11480,20 @@ define internal fastcc void @"_ZN4core3ptr257drop_in_place$LT$hashbrown..raw..Ra
   br i1 %30, label %_ZN9hashbrown3raw13RawTableInner13drop_elements17h177d9a135700037bE.exit.i.i, label %15
 
 _ZN9hashbrown3raw13RawTableInner13drop_elements17h177d9a135700037bE.exit.i.i: ; preds = %"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9next_impl17hb37e2cc46cd2e75dE.exit.i.i.i", %5
-  %31 = mul i64 %3, 160
-  %32 = add i64 %31, 175
-  %33 = and i64 %32, -32
-  %34 = add i64 %3, 17
-  %35 = add nuw i64 %34, %33
-  %36 = icmp ult i64 %35, 9223372036854775793
-  tail call void @llvm.assume(i1 %36)
-  %37 = icmp eq i64 %35, 0
-  br i1 %37, label %"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h43c4e8b88143684cE.exit", label %38
+  %31 = mul i64 %3, 161
+  %32 = add nsw i64 %31, 177
+  %33 = icmp eq i64 %32, 0
+  br i1 %33, label %"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h43c4e8b88143684cE.exit", label %34
 
-38:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h177d9a135700037bE.exit.i.i
-  %39 = load ptr, ptr %0, align 8, !alias.scope !1221, !nonnull !3, !noundef !3
-  %40 = sub nsw i64 0, %33
-  %41 = getelementptr inbounds i8, ptr %39, i64 %40
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %41, i64 noundef %35, i64 noundef range(i64 1, -9223372036854775807) 16) #33, !noalias !1221
+34:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner13drop_elements17h177d9a135700037bE.exit.i.i
+  %.neg.i = mul i64 %3, -160
+  %35 = load ptr, ptr %0, align 8, !alias.scope !1221, !nonnull !3, !noundef !3
+  %36 = getelementptr i8, ptr %35, i64 %.neg.i
+  %37 = getelementptr i8, ptr %36, i64 -160
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %37, i64 noundef %32, i64 noundef range(i64 1, -9223372036854775807) 16) #33, !noalias !1221
   br label %"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h43c4e8b88143684cE.exit"
 
-"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h43c4e8b88143684cE.exit": ; preds = %1, %_ZN9hashbrown3raw13RawTableInner13drop_elements17h177d9a135700037bE.exit.i.i, %38
+"_ZN79_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h43c4e8b88143684cE.exit": ; preds = %1, %_ZN9hashbrown3raw13RawTableInner13drop_elements17h177d9a135700037bE.exit.i.i, %34
   ret void
 }
 
@@ -32873,7 +32865,7 @@ define hidden void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   br i1 %or.cond.i.i, label %25, label %13, !prof !110
 
 13:                                               ; preds = %8
-  %14 = add nuw i64 %10, 15
+  %14 = add nuw i64 %10, 8
   %15 = and i64 %14, -16
   %16 = add nsw i64 %5, 17
   %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
@@ -33011,7 +33003,7 @@ define hidden void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   br i1 %or.cond.i.i, label %25, label %13, !prof !110
 
 13:                                               ; preds = %8
-  %14 = add nuw i64 %10, 15
+  %14 = add nuw i64 %10, 8
   %15 = and i64 %14, -16
   %16 = add nsw i64 %5, 17
   %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)

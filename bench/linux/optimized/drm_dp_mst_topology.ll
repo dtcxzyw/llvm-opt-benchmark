@@ -5400,7 +5400,7 @@ define dso_local range(i32 0, 42700797) i32 @drm_dp_calc_pbn_mode(i32 noundef %0
   %7 = zext i32 %4 to i64
   %8 = zext i32 %6 to i64
   %9 = mul nuw i64 %8, %7
-  %10 = add i64 %9, 431999999999
+  %10 = add i64 %9, 431999999996
   %11 = udiv i64 %10, 432000000000
   %12 = trunc nuw nsw i64 %11 to i32
   ret i32 %12

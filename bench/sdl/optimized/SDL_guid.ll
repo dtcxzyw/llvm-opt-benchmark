@@ -64,74 +64,73 @@ define hidden void @SDL_GUIDToString_REAL(i64 %0, i64 %1, ptr noundef writeonly 
 define hidden { i64, i64 } @SDL_StringToGUID_REAL(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.SDL_GUID, align 8
   %3 = tail call i64 @SDL_strlen_REAL(ptr noundef %0) #5
-  %4 = and i64 %3, -2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
-  %.not = icmp eq i64 %4, 0
+  %.not = icmp ult i64 %3, 2
   br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
-  %5 = add i64 %4, -1
-  %6 = lshr i64 %5, 1
-  %umin = tail call i64 @llvm.umin.i64(i64 %6, i64 15)
+  %4 = add i64 %3, -2
+  %5 = lshr i64 %4, 1
+  %umin = tail call i64 @llvm.umin.i64(i64 %5, i64 15)
   %scevgep = getelementptr i8, ptr %2, i64 %umin
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %nibble.exit18
-  %.020 = phi i64 [ %29, %nibble.exit18 ], [ 0, %.lr.ph.preheader ]
-  %.01219 = phi ptr [ %30, %nibble.exit18 ], [ %2, %.lr.ph.preheader ]
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.020
-  %8 = load i8, ptr %7, align 1
-  %9 = add i8 %8, -48
-  %or.cond.i = icmp ult i8 %9, 10
-  br i1 %or.cond.i, label %nibble.exit, label %10
+  %.020 = phi i64 [ %28, %nibble.exit18 ], [ 0, %.lr.ph.preheader ]
+  %.01219 = phi ptr [ %29, %nibble.exit18 ], [ %2, %.lr.ph.preheader ]
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.020
+  %7 = load i8, ptr %6, align 1
+  %8 = add i8 %7, -48
+  %or.cond.i = icmp ult i8 %8, 10
+  br i1 %or.cond.i, label %nibble.exit, label %9
 
-10:                                               ; preds = %.lr.ph
-  %11 = add i8 %8, -65
-  %or.cond5.i = icmp ult i8 %11, 6
-  br i1 %or.cond5.i, label %12, label %14
+9:                                                ; preds = %.lr.ph
+  %10 = add i8 %7, -65
+  %or.cond5.i = icmp ult i8 %10, 6
+  br i1 %or.cond5.i, label %11, label %13
 
-12:                                               ; preds = %10
-  %13 = add nsw i8 %8, -55
+11:                                               ; preds = %9
+  %12 = add nsw i8 %7, -55
   br label %nibble.exit
 
-14:                                               ; preds = %10
-  %15 = add i8 %8, -97
-  %or.cond8.i = icmp ult i8 %15, 6
-  %16 = add nsw i8 %8, -87
-  %spec.select.i = select i1 %or.cond8.i, i8 %16, i8 0
+13:                                               ; preds = %9
+  %14 = add i8 %7, -97
+  %or.cond8.i = icmp ult i8 %14, 6
+  %15 = add nsw i8 %7, -87
+  %spec.select.i = select i1 %or.cond8.i, i8 %15, i8 0
   br label %nibble.exit
 
-nibble.exit:                                      ; preds = %.lr.ph, %12, %14
-  %.0.i = phi i8 [ %spec.select.i, %14 ], [ %13, %12 ], [ %9, %.lr.ph ]
-  %17 = shl nuw i8 %.0.i, 4
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 1
-  %19 = load i8, ptr %18, align 1
-  %20 = add i8 %19, -48
-  %or.cond.i13 = icmp ult i8 %20, 10
-  br i1 %or.cond.i13, label %nibble.exit18, label %21
+nibble.exit:                                      ; preds = %.lr.ph, %11, %13
+  %.0.i = phi i8 [ %spec.select.i, %13 ], [ %12, %11 ], [ %8, %.lr.ph ]
+  %16 = shl nuw i8 %.0.i, 4
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %18 = load i8, ptr %17, align 1
+  %19 = add i8 %18, -48
+  %or.cond.i13 = icmp ult i8 %19, 10
+  br i1 %or.cond.i13, label %nibble.exit18, label %20
 
-21:                                               ; preds = %nibble.exit
-  %22 = add i8 %19, -65
-  %or.cond5.i14 = icmp ult i8 %22, 6
-  br i1 %or.cond5.i14, label %23, label %25
+20:                                               ; preds = %nibble.exit
+  %21 = add i8 %18, -65
+  %or.cond5.i14 = icmp ult i8 %21, 6
+  br i1 %or.cond5.i14, label %22, label %24
 
-23:                                               ; preds = %21
-  %24 = add nsw i8 %19, -55
+22:                                               ; preds = %20
+  %23 = add nsw i8 %18, -55
   br label %nibble.exit18
 
-25:                                               ; preds = %21
-  %26 = add i8 %19, -97
-  %or.cond8.i15 = icmp ult i8 %26, 6
-  %27 = add nsw i8 %19, -87
-  %spec.select.i16 = select i1 %or.cond8.i15, i8 %27, i8 0
+24:                                               ; preds = %20
+  %25 = add i8 %18, -97
+  %or.cond8.i15 = icmp ult i8 %25, 6
+  %26 = add nsw i8 %18, -87
+  %spec.select.i16 = select i1 %or.cond8.i15, i8 %26, i8 0
   br label %nibble.exit18
 
-nibble.exit18:                                    ; preds = %nibble.exit, %23, %25
-  %.0.i17 = phi i8 [ %spec.select.i16, %25 ], [ %24, %23 ], [ %20, %nibble.exit ]
-  %28 = add nuw nsw i8 %.0.i17, %17
-  store i8 %28, ptr %.01219, align 1
-  %29 = add nuw nsw i64 %.020, 2
-  %30 = getelementptr inbounds nuw i8, ptr %.01219, i64 1
+nibble.exit18:                                    ; preds = %nibble.exit, %22, %24
+  %.0.i17 = phi i8 [ %spec.select.i16, %24 ], [ %23, %22 ], [ %19, %nibble.exit ]
+  %27 = add nuw nsw i8 %.0.i17, %16
+  store i8 %27, ptr %.01219, align 1
+  %28 = add nuw nsw i64 %.020, 2
+  %29 = getelementptr inbounds nuw i8, ptr %.01219, i64 1
   %exitcond.not = icmp eq ptr %.01219, %scevgep
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !5
 

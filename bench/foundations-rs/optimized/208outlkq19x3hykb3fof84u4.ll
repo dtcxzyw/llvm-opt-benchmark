@@ -7267,7 +7267,7 @@ define hidden void @_ZN4time10formatting11formattable6sealed6Sealed6format17hbc0
   %.6.i.i = select i1 %.not.i.i, i32 %27, i32 0
   %28 = sub nsw i32 %25, %.6.i.i
   %29 = mul nsw i32 %28, 268
-  %30 = add nsw i32 %29, 8031
+  %30 = add nsw i32 %29, 8028
   %31 = lshr i32 %30, 13
   %32 = add nuw nsw i32 %31, %..i.i
   %33 = trunc i32 %32 to i8

@@ -1214,7 +1214,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
   br i1 %or.cond.i.i, label %56, label %45, !prof !124
 
 45:                                               ; preds = %41
-  %46 = add nuw i64 %42, 15
+  %46 = add nuw i64 %42, 8
   %47 = and i64 %46, -16
   %48 = add nuw nsw i64 %.sroa.4.0.i.ph.i, 16
   %49 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %47, i64 %48)
@@ -1766,7 +1766,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
   br i1 %or.cond.i.i, label %54, label %43, !prof !124
 
 43:                                               ; preds = %39
-  %44 = add nuw i64 %40, 15
+  %44 = add nuw i64 %40, 8
   %45 = and i64 %44, -16
   %46 = add nuw nsw i64 %.sroa.4.0.i.ph.i, 16
   %47 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %45, i64 %46)
@@ -2083,7 +2083,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 38:                                               ; preds = %.thread, %31
   %.sroa.4.0.i.ph.i47 = phi i64 [ %.sroa.03.0.i.i, %.thread ], [ %37, %31 ]
   %39 = mul nuw i64 %.sroa.4.0.i.ph.i47, 88
-  %40 = add nuw i64 %39, 15
+  %40 = add nuw i64 %39, 8
   %41 = and i64 %40, -16
   %42 = add nuw nsw i64 %.sroa.4.0.i.ph.i47, 16
   %43 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %41, i64 %42)
@@ -2722,7 +2722,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
   br i1 %or.cond.i.i, label %33, label %22, !prof !124
 
 22:                                               ; preds = %18
-  %23 = add nuw i64 %19, 15
+  %23 = add nuw i64 %19, 8
   %24 = and i64 %23, -16
   %25 = add nuw nsw i64 %.sroa.4.0.i.ph.i, 16
   %26 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %24, i64 %25)

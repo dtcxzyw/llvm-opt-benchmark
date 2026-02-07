@@ -3577,14 +3577,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %260 = or disjoint i32 %250, %259
   %261 = getelementptr inbounds nuw i8, ptr %.sroa.89.06292.i, i64 4
   store i32 %260, ptr %261, align 4, !tbaa !7
-  %262 = add i64 %257, -1
+  %262 = add i64 %257, -2
   %263 = and i64 %262, %257
   %264 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %263, i1 true)
   %265 = trunc nuw nsw i64 %264 to i32
   %266 = or disjoint i32 %250, %265
   %267 = getelementptr inbounds nuw i8, ptr %.sroa.89.06292.i, i64 8
   store i32 %266, ptr %267, align 4, !tbaa !7
-  %268 = add i64 %263, -1
+  %268 = add i64 %263, -2
   %269 = and i64 %268, %263
   %270 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %269, i1 true)
   %271 = trunc nuw nsw i64 %270 to i32
@@ -3595,14 +3595,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %274, label %.noexc138.i, label %.loopexit6274.i, !prof !127
 
 .noexc138.i:                                      ; preds = %.noexc112.i
-  %275 = add i64 %269, -1
+  %275 = add i64 %269, -2
   %276 = and i64 %275, %269
   %277 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %276, i1 true)
   %278 = trunc nuw nsw i64 %277 to i32
   %279 = or disjoint i32 %250, %278
   %280 = getelementptr inbounds nuw i8, ptr %.sroa.89.06292.i, i64 16
   store i32 %279, ptr %280, align 4, !tbaa !7
-  %281 = add i64 %276, -1
+  %281 = add i64 %276, -2
   %282 = and i64 %281, %276
   %283 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %282, i1 true)
   %284 = trunc nuw nsw i64 %283 to i32
@@ -3616,7 +3616,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %291 = or disjoint i32 %250, %290
   %292 = getelementptr inbounds nuw i8, ptr %.sroa.89.06292.i, i64 24
   store i32 %291, ptr %292, align 4, !tbaa !7
-  %293 = add i64 %288, -1
+  %293 = add i64 %288, -2
   %294 = and i64 %293, %288
   %295 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %294, i1 true)
   %296 = trunc nuw nsw i64 %295 to i32
@@ -3627,21 +3627,21 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %299, label %.noexc214.i, label %.loopexit6274.i, !prof !127
 
 .noexc214.i:                                      ; preds = %.noexc138.i
-  %300 = add i64 %294, -1
+  %300 = add i64 %294, -2
   %301 = and i64 %300, %294
   %302 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %301, i1 true)
   %303 = trunc nuw nsw i64 %302 to i32
   %304 = or disjoint i32 %250, %303
   %305 = getelementptr inbounds nuw i8, ptr %.sroa.89.06292.i, i64 32
   store i32 %304, ptr %305, align 4, !tbaa !7
-  %306 = add i64 %301, -1
+  %306 = add i64 %301, -2
   %307 = and i64 %306, %301
   %308 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %307, i1 true)
   %309 = trunc nuw nsw i64 %308 to i32
   %310 = or disjoint i32 %250, %309
   %311 = getelementptr inbounds nuw i8, ptr %.sroa.89.06292.i, i64 36
   store i32 %310, ptr %311, align 4, !tbaa !7
-  %312 = add i64 %307, -1
+  %312 = add i64 %307, -2
   %313 = and i64 %312, %307
   %314 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %313, i1 true)
   %315 = trunc nuw nsw i64 %314 to i32
@@ -3659,28 +3659,28 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %324, label %.noexc268.i, label %.loopexit6274.i, !prof !127
 
 .noexc268.i:                                      ; preds = %.noexc214.i
-  %325 = add i64 %319, -1
+  %325 = add i64 %319, -2
   %326 = and i64 %325, %319
   %327 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %326, i1 true)
   %328 = trunc nuw nsw i64 %327 to i32
   %329 = or disjoint i32 %250, %328
   %330 = getelementptr inbounds nuw i8, ptr %.sroa.89.06292.i, i64 48
   store i32 %329, ptr %330, align 4, !tbaa !7
-  %331 = add i64 %326, -1
+  %331 = add i64 %326, -2
   %332 = and i64 %331, %326
   %333 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %332, i1 true)
   %334 = trunc nuw nsw i64 %333 to i32
   %335 = or disjoint i32 %250, %334
   %336 = getelementptr inbounds nuw i8, ptr %.sroa.89.06292.i, i64 52
   store i32 %335, ptr %336, align 4, !tbaa !7
-  %337 = add i64 %332, -1
+  %337 = add i64 %332, -2
   %338 = and i64 %337, %332
   %339 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %338, i1 true)
   %340 = trunc nuw nsw i64 %339 to i32
   %341 = or disjoint i32 %250, %340
   %342 = getelementptr inbounds nuw i8, ptr %.sroa.89.06292.i, i64 56
   store i32 %341, ptr %342, align 4, !tbaa !7
-  %343 = add i64 %338, -1
+  %343 = add i64 %338, -2
   %344 = and i64 %343, %338
   %345 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %344, i1 true)
   %346 = trunc nuw nsw i64 %345 to i32
@@ -3698,21 +3698,21 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %354 = or disjoint i32 %250, %353
   %355 = getelementptr inbounds nuw i8, ptr %.sroa.89.06292.i, i64 64
   store i32 %354, ptr %355, align 4, !tbaa !7
-  %356 = add i64 %351, -1
+  %356 = add i64 %351, -2
   %357 = and i64 %356, %351
   %358 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %357, i1 true)
   %359 = trunc nuw nsw i64 %358 to i32
   %360 = or disjoint i32 %250, %359
   %361 = getelementptr inbounds nuw i8, ptr %.sroa.89.06292.i, i64 68
   store i32 %360, ptr %361, align 4, !tbaa !7
-  %362 = add i64 %357, -1
+  %362 = add i64 %357, -2
   %363 = and i64 %362, %357
   %364 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %363, i1 true)
   %365 = trunc nuw nsw i64 %364 to i32
   %366 = or disjoint i32 %250, %365
   %367 = getelementptr inbounds nuw i8, ptr %.sroa.89.06292.i, i64 72
   store i32 %366, ptr %367, align 4, !tbaa !7
-  %368 = add i64 %363, -1
+  %368 = add i64 %363, -2
   %369 = and i64 %368, %363
   %370 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %369, i1 true)
   %371 = trunc nuw nsw i64 %370 to i32
@@ -3723,7 +3723,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %374, label %.noexc68.i, label %.loopexit6274.i, !prof !127
 
 .noexc68.i:                                       ; preds = %.noexc344.i
-  %375 = add i64 %369, -1
+  %375 = add i64 %369, -2
   %376 = and i64 %375, %369
   %377 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %376, i1 true)
   %378 = trunc nuw nsw i64 %377 to i32
@@ -3737,14 +3737,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %385 = or disjoint i32 %250, %384
   %386 = getelementptr inbounds nuw i8, ptr %.sroa.89.06292.i, i64 84
   store i32 %385, ptr %386, align 4, !tbaa !7
-  %387 = add i64 %382, -1
+  %387 = add i64 %382, -2
   %388 = and i64 %387, %382
   %389 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %388, i1 true)
   %390 = trunc nuw nsw i64 %389 to i32
   %391 = or disjoint i32 %250, %390
   %392 = getelementptr inbounds nuw i8, ptr %.sroa.89.06292.i, i64 88
   store i32 %391, ptr %392, align 4, !tbaa !7
-  %393 = add i64 %388, -1
+  %393 = add i64 %388, -2
   %394 = and i64 %393, %388
   %395 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %394, i1 true)
   %396 = trunc nuw nsw i64 %395 to i32
@@ -3755,7 +3755,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %399, label %.noexc69.i.preheader, label %.loopexit6274.i, !prof !142
 
 .noexc69.i.preheader:                             ; preds = %.noexc68.i
-  %400 = add i64 %394, -1
+  %400 = add i64 %394, -2
   %401 = and i64 %400, %394
   br label %.noexc69.i
 
@@ -3877,14 +3877,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %486 = trunc i64 %485 to i32
   %487 = getelementptr inbounds nuw i8, ptr %.sroa.89.1.i, i64 4
   store i32 %486, ptr %487, align 4, !tbaa !7
-  %488 = add i64 %483, -1
+  %488 = add i64 %483, -2
   %489 = and i64 %488, %483
   %490 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %489, i1 true)
   %491 = or disjoint i64 %490, %.sroa.11.06285.i
   %492 = trunc i64 %491 to i32
   %493 = getelementptr inbounds nuw i8, ptr %.sroa.89.1.i, i64 8
   store i32 %492, ptr %493, align 4, !tbaa !7
-  %494 = add i64 %489, -1
+  %494 = add i64 %489, -2
   %495 = and i64 %494, %489
   %496 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %495, i1 true)
   %497 = or disjoint i64 %496, %.sroa.11.06285.i
@@ -3895,14 +3895,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %500, label %.noexc140.i, label %.loopexit6272.i, !prof !127
 
 .noexc140.i:                                      ; preds = %.noexc109.i
-  %501 = add i64 %495, -1
+  %501 = add i64 %495, -2
   %502 = and i64 %501, %495
   %503 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %502, i1 true)
   %504 = or disjoint i64 %503, %.sroa.11.06285.i
   %505 = trunc i64 %504 to i32
   %506 = getelementptr inbounds nuw i8, ptr %.sroa.89.1.i, i64 16
   store i32 %505, ptr %506, align 4, !tbaa !7
-  %507 = add i64 %502, -1
+  %507 = add i64 %502, -2
   %508 = and i64 %507, %502
   %509 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %508, i1 true)
   %510 = or disjoint i64 %509, %.sroa.11.06285.i
@@ -3916,7 +3916,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %517 = trunc i64 %516 to i32
   %518 = getelementptr inbounds nuw i8, ptr %.sroa.89.1.i, i64 24
   store i32 %517, ptr %518, align 4, !tbaa !7
-  %519 = add i64 %514, -1
+  %519 = add i64 %514, -2
   %520 = and i64 %519, %514
   %521 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %520, i1 true)
   %522 = or disjoint i64 %521, %.sroa.11.06285.i
@@ -3927,21 +3927,21 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %525, label %.noexc211.i, label %.loopexit6272.i, !prof !127
 
 .noexc211.i:                                      ; preds = %.noexc140.i
-  %526 = add i64 %520, -1
+  %526 = add i64 %520, -2
   %527 = and i64 %526, %520
   %528 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %527, i1 true)
   %529 = or disjoint i64 %528, %.sroa.11.06285.i
   %530 = trunc i64 %529 to i32
   %531 = getelementptr inbounds nuw i8, ptr %.sroa.89.1.i, i64 32
   store i32 %530, ptr %531, align 4, !tbaa !7
-  %532 = add i64 %527, -1
+  %532 = add i64 %527, -2
   %533 = and i64 %532, %527
   %534 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %533, i1 true)
   %535 = or disjoint i64 %534, %.sroa.11.06285.i
   %536 = trunc i64 %535 to i32
   %537 = getelementptr inbounds nuw i8, ptr %.sroa.89.1.i, i64 36
   store i32 %536, ptr %537, align 4, !tbaa !7
-  %538 = add i64 %533, -1
+  %538 = add i64 %533, -2
   %539 = and i64 %538, %533
   %540 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %539, i1 true)
   %541 = or disjoint i64 %540, %.sroa.11.06285.i
@@ -3959,28 +3959,28 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %550, label %.noexc270.i, label %.loopexit6272.i, !prof !127
 
 .noexc270.i:                                      ; preds = %.noexc211.i
-  %551 = add i64 %545, -1
+  %551 = add i64 %545, -2
   %552 = and i64 %551, %545
   %553 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %552, i1 true)
   %554 = or disjoint i64 %553, %.sroa.11.06285.i
   %555 = trunc i64 %554 to i32
   %556 = getelementptr inbounds nuw i8, ptr %.sroa.89.1.i, i64 48
   store i32 %555, ptr %556, align 4, !tbaa !7
-  %557 = add i64 %552, -1
+  %557 = add i64 %552, -2
   %558 = and i64 %557, %552
   %559 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %558, i1 true)
   %560 = or disjoint i64 %559, %.sroa.11.06285.i
   %561 = trunc i64 %560 to i32
   %562 = getelementptr inbounds nuw i8, ptr %.sroa.89.1.i, i64 52
   store i32 %561, ptr %562, align 4, !tbaa !7
-  %563 = add i64 %558, -1
+  %563 = add i64 %558, -2
   %564 = and i64 %563, %558
   %565 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %564, i1 true)
   %566 = or disjoint i64 %565, %.sroa.11.06285.i
   %567 = trunc i64 %566 to i32
   %568 = getelementptr inbounds nuw i8, ptr %.sroa.89.1.i, i64 56
   store i32 %567, ptr %568, align 4, !tbaa !7
-  %569 = add i64 %564, -1
+  %569 = add i64 %564, -2
   %570 = and i64 %569, %564
   %571 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %570, i1 true)
   %572 = or disjoint i64 %571, %.sroa.11.06285.i
@@ -3998,21 +3998,21 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %580 = trunc i64 %579 to i32
   %581 = getelementptr inbounds nuw i8, ptr %.sroa.89.1.i, i64 64
   store i32 %580, ptr %581, align 4, !tbaa !7
-  %582 = add i64 %577, -1
+  %582 = add i64 %577, -2
   %583 = and i64 %582, %577
   %584 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %583, i1 true)
   %585 = or disjoint i64 %584, %.sroa.11.06285.i
   %586 = trunc i64 %585 to i32
   %587 = getelementptr inbounds nuw i8, ptr %.sroa.89.1.i, i64 68
   store i32 %586, ptr %587, align 4, !tbaa !7
-  %588 = add i64 %583, -1
+  %588 = add i64 %583, -2
   %589 = and i64 %588, %583
   %590 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %589, i1 true)
   %591 = or disjoint i64 %590, %.sroa.11.06285.i
   %592 = trunc i64 %591 to i32
   %593 = getelementptr inbounds nuw i8, ptr %.sroa.89.1.i, i64 72
   store i32 %592, ptr %593, align 4, !tbaa !7
-  %594 = add i64 %589, -1
+  %594 = add i64 %589, -2
   %595 = and i64 %594, %589
   %596 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %595, i1 true)
   %597 = or disjoint i64 %596, %.sroa.11.06285.i
@@ -4023,7 +4023,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %600, label %.noexc71.i, label %.loopexit6272.i, !prof !127
 
 .noexc71.i:                                       ; preds = %.noexc341.i
-  %601 = add i64 %595, -1
+  %601 = add i64 %595, -2
   %602 = and i64 %601, %595
   %603 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %602, i1 true)
   %604 = or disjoint i64 %603, %.sroa.11.06285.i
@@ -4037,14 +4037,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %611 = trunc i64 %610 to i32
   %612 = getelementptr inbounds nuw i8, ptr %.sroa.89.1.i, i64 84
   store i32 %611, ptr %612, align 4, !tbaa !7
-  %613 = add i64 %608, -1
+  %613 = add i64 %608, -2
   %614 = and i64 %613, %608
   %615 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %614, i1 true)
   %616 = or disjoint i64 %615, %.sroa.11.06285.i
   %617 = trunc i64 %616 to i32
   %618 = getelementptr inbounds nuw i8, ptr %.sroa.89.1.i, i64 88
   store i32 %617, ptr %618, align 4, !tbaa !7
-  %619 = add i64 %614, -1
+  %619 = add i64 %614, -2
   %620 = and i64 %619, %614
   %621 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %620, i1 true)
   %622 = or disjoint i64 %621, %.sroa.11.06285.i
@@ -4055,7 +4055,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %625, label %.noexc72.i.preheader, label %.loopexit6272.i, !prof !142
 
 .noexc72.i.preheader:                             ; preds = %.noexc71.i
-  %626 = add i64 %620, -1
+  %626 = add i64 %620, -2
   %627 = and i64 %626, %620
   br label %.noexc72.i
 
@@ -4363,14 +4363,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %850 = or disjoint i32 %840, %849
   %851 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 4
   store i32 %850, ptr %851, align 4, !tbaa !7
-  %852 = add i64 %847, -1
+  %852 = add i64 %847, -2
   %853 = and i64 %852, %847
   %854 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %853, i1 true)
   %855 = trunc nuw nsw i64 %854 to i32
   %856 = or disjoint i32 %840, %855
   %857 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 8
   store i32 %856, ptr %857, align 4, !tbaa !7
-  %858 = add i64 %853, -1
+  %858 = add i64 %853, -2
   %859 = and i64 %858, %853
   %860 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %859, i1 true)
   %861 = trunc nuw nsw i64 %860 to i32
@@ -4381,14 +4381,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %864, label %.noexc143.i, label %.loopexit6270.i, !prof !127
 
 .noexc143.i:                                      ; preds = %.noexc106.i
-  %865 = add i64 %859, -1
+  %865 = add i64 %859, -2
   %866 = and i64 %865, %859
   %867 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %866, i1 true)
   %868 = trunc nuw nsw i64 %867 to i32
   %869 = or disjoint i32 %840, %868
   %870 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 16
   store i32 %869, ptr %870, align 4, !tbaa !7
-  %871 = add i64 %866, -1
+  %871 = add i64 %866, -2
   %872 = and i64 %871, %866
   %873 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %872, i1 true)
   %874 = trunc nuw nsw i64 %873 to i32
@@ -4402,7 +4402,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %881 = or disjoint i32 %840, %880
   %882 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 24
   store i32 %881, ptr %882, align 4, !tbaa !7
-  %883 = add i64 %878, -1
+  %883 = add i64 %878, -2
   %884 = and i64 %883, %878
   %885 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %884, i1 true)
   %886 = trunc nuw nsw i64 %885 to i32
@@ -4413,21 +4413,21 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %889, label %.noexc208.i, label %.loopexit6270.i, !prof !127
 
 .noexc208.i:                                      ; preds = %.noexc143.i
-  %890 = add i64 %884, -1
+  %890 = add i64 %884, -2
   %891 = and i64 %890, %884
   %892 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %891, i1 true)
   %893 = trunc nuw nsw i64 %892 to i32
   %894 = or disjoint i32 %840, %893
   %895 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 32
   store i32 %894, ptr %895, align 4, !tbaa !7
-  %896 = add i64 %891, -1
+  %896 = add i64 %891, -2
   %897 = and i64 %896, %891
   %898 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %897, i1 true)
   %899 = trunc nuw nsw i64 %898 to i32
   %900 = or disjoint i32 %840, %899
   %901 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 36
   store i32 %900, ptr %901, align 4, !tbaa !7
-  %902 = add i64 %897, -1
+  %902 = add i64 %897, -2
   %903 = and i64 %902, %897
   %904 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %903, i1 true)
   %905 = trunc nuw nsw i64 %904 to i32
@@ -4445,28 +4445,28 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %914, label %.noexc273.i, label %.loopexit6270.i, !prof !127
 
 .noexc273.i:                                      ; preds = %.noexc208.i
-  %915 = add i64 %909, -1
+  %915 = add i64 %909, -2
   %916 = and i64 %915, %909
   %917 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %916, i1 true)
   %918 = trunc nuw nsw i64 %917 to i32
   %919 = or disjoint i32 %840, %918
   %920 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 48
   store i32 %919, ptr %920, align 4, !tbaa !7
-  %921 = add i64 %916, -1
+  %921 = add i64 %916, -2
   %922 = and i64 %921, %916
   %923 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %922, i1 true)
   %924 = trunc nuw nsw i64 %923 to i32
   %925 = or disjoint i32 %840, %924
   %926 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 52
   store i32 %925, ptr %926, align 4, !tbaa !7
-  %927 = add i64 %922, -1
+  %927 = add i64 %922, -2
   %928 = and i64 %927, %922
   %929 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %928, i1 true)
   %930 = trunc nuw nsw i64 %929 to i32
   %931 = or disjoint i32 %840, %930
   %932 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 56
   store i32 %931, ptr %932, align 4, !tbaa !7
-  %933 = add i64 %928, -1
+  %933 = add i64 %928, -2
   %934 = and i64 %933, %928
   %935 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %934, i1 true)
   %936 = trunc nuw nsw i64 %935 to i32
@@ -4484,21 +4484,21 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %944 = or disjoint i32 %840, %943
   %945 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 64
   store i32 %944, ptr %945, align 4, !tbaa !7
-  %946 = add i64 %941, -1
+  %946 = add i64 %941, -2
   %947 = and i64 %946, %941
   %948 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %947, i1 true)
   %949 = trunc nuw nsw i64 %948 to i32
   %950 = or disjoint i32 %840, %949
   %951 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 68
   store i32 %950, ptr %951, align 4, !tbaa !7
-  %952 = add i64 %947, -1
+  %952 = add i64 %947, -2
   %953 = and i64 %952, %947
   %954 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %953, i1 true)
   %955 = trunc nuw nsw i64 %954 to i32
   %956 = or disjoint i32 %840, %955
   %957 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 72
   store i32 %956, ptr %957, align 4, !tbaa !7
-  %958 = add i64 %953, -1
+  %958 = add i64 %953, -2
   %959 = and i64 %958, %953
   %960 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %959, i1 true)
   %961 = trunc nuw nsw i64 %960 to i32
@@ -4509,7 +4509,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %964, label %.noexc75.i, label %.loopexit6270.i, !prof !127
 
 .noexc75.i:                                       ; preds = %.noexc338.i
-  %965 = add i64 %959, -1
+  %965 = add i64 %959, -2
   %966 = and i64 %965, %959
   %967 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %966, i1 true)
   %968 = trunc nuw nsw i64 %967 to i32
@@ -4523,14 +4523,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %975 = or disjoint i32 %840, %974
   %976 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 84
   store i32 %975, ptr %976, align 4, !tbaa !7
-  %977 = add i64 %972, -1
+  %977 = add i64 %972, -2
   %978 = and i64 %977, %972
   %979 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %978, i1 true)
   %980 = trunc nuw nsw i64 %979 to i32
   %981 = or disjoint i32 %840, %980
   %982 = getelementptr inbounds nuw i8, ptr %.sroa.89.0.lcssa6411.i, i64 88
   store i32 %981, ptr %982, align 4, !tbaa !7
-  %983 = add i64 %978, -1
+  %983 = add i64 %978, -2
   %984 = and i64 %983, %978
   %985 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %984, i1 true)
   %986 = trunc nuw nsw i64 %985 to i32
@@ -4541,7 +4541,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %989, label %.noexc76.i.preheader, label %.loopexit6270.i, !prof !142
 
 .noexc76.i.preheader:                             ; preds = %.noexc75.i
-  %990 = add i64 %984, -1
+  %990 = add i64 %984, -2
   %991 = and i64 %990, %984
   br label %.noexc76.i
 
@@ -4661,14 +4661,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %1075 = trunc i64 %1074 to i32
   %1076 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 4
   store i32 %1075, ptr %1076, align 4, !tbaa !7
-  %1077 = add i64 %1072, -1
+  %1077 = add i64 %1072, -2
   %1078 = and i64 %1077, %1072
   %1079 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1078, i1 true)
   %1080 = or disjoint i64 %1079, %.sroa.11.0.lcssa6406.i
   %1081 = trunc i64 %1080 to i32
   %1082 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 8
   store i32 %1081, ptr %1082, align 4, !tbaa !7
-  %1083 = add i64 %1078, -1
+  %1083 = add i64 %1078, -2
   %1084 = and i64 %1083, %1078
   %1085 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1084, i1 true)
   %1086 = or disjoint i64 %1085, %.sroa.11.0.lcssa6406.i
@@ -4679,14 +4679,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %1089, label %.noexc146.i, label %.loopexit6268.i, !prof !127
 
 .noexc146.i:                                      ; preds = %.noexc103.i
-  %1090 = add i64 %1084, -1
+  %1090 = add i64 %1084, -2
   %1091 = and i64 %1090, %1084
   %1092 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1091, i1 true)
   %1093 = or disjoint i64 %1092, %.sroa.11.0.lcssa6406.i
   %1094 = trunc i64 %1093 to i32
   %1095 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 16
   store i32 %1094, ptr %1095, align 4, !tbaa !7
-  %1096 = add i64 %1091, -1
+  %1096 = add i64 %1091, -2
   %1097 = and i64 %1096, %1091
   %1098 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1097, i1 true)
   %1099 = or disjoint i64 %1098, %.sroa.11.0.lcssa6406.i
@@ -4700,7 +4700,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %1106 = trunc i64 %1105 to i32
   %1107 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 24
   store i32 %1106, ptr %1107, align 4, !tbaa !7
-  %1108 = add i64 %1103, -1
+  %1108 = add i64 %1103, -2
   %1109 = and i64 %1108, %1103
   %1110 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1109, i1 true)
   %1111 = or disjoint i64 %1110, %.sroa.11.0.lcssa6406.i
@@ -4711,21 +4711,21 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %1114, label %.noexc205.i, label %.loopexit6268.i, !prof !127
 
 .noexc205.i:                                      ; preds = %.noexc146.i
-  %1115 = add i64 %1109, -1
+  %1115 = add i64 %1109, -2
   %1116 = and i64 %1115, %1109
   %1117 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1116, i1 true)
   %1118 = or disjoint i64 %1117, %.sroa.11.0.lcssa6406.i
   %1119 = trunc i64 %1118 to i32
   %1120 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 32
   store i32 %1119, ptr %1120, align 4, !tbaa !7
-  %1121 = add i64 %1116, -1
+  %1121 = add i64 %1116, -2
   %1122 = and i64 %1121, %1116
   %1123 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1122, i1 true)
   %1124 = or disjoint i64 %1123, %.sroa.11.0.lcssa6406.i
   %1125 = trunc i64 %1124 to i32
   %1126 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 36
   store i32 %1125, ptr %1126, align 4, !tbaa !7
-  %1127 = add i64 %1122, -1
+  %1127 = add i64 %1122, -2
   %1128 = and i64 %1127, %1122
   %1129 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1128, i1 true)
   %1130 = or disjoint i64 %1129, %.sroa.11.0.lcssa6406.i
@@ -4743,28 +4743,28 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %1139, label %.noexc276.i, label %.loopexit6268.i, !prof !127
 
 .noexc276.i:                                      ; preds = %.noexc205.i
-  %1140 = add i64 %1134, -1
+  %1140 = add i64 %1134, -2
   %1141 = and i64 %1140, %1134
   %1142 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1141, i1 true)
   %1143 = or disjoint i64 %1142, %.sroa.11.0.lcssa6406.i
   %1144 = trunc i64 %1143 to i32
   %1145 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 48
   store i32 %1144, ptr %1145, align 4, !tbaa !7
-  %1146 = add i64 %1141, -1
+  %1146 = add i64 %1141, -2
   %1147 = and i64 %1146, %1141
   %1148 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1147, i1 true)
   %1149 = or disjoint i64 %1148, %.sroa.11.0.lcssa6406.i
   %1150 = trunc i64 %1149 to i32
   %1151 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 52
   store i32 %1150, ptr %1151, align 4, !tbaa !7
-  %1152 = add i64 %1147, -1
+  %1152 = add i64 %1147, -2
   %1153 = and i64 %1152, %1147
   %1154 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1153, i1 true)
   %1155 = or disjoint i64 %1154, %.sroa.11.0.lcssa6406.i
   %1156 = trunc i64 %1155 to i32
   %1157 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 56
   store i32 %1156, ptr %1157, align 4, !tbaa !7
-  %1158 = add i64 %1153, -1
+  %1158 = add i64 %1153, -2
   %1159 = and i64 %1158, %1153
   %1160 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1159, i1 true)
   %1161 = or disjoint i64 %1160, %.sroa.11.0.lcssa6406.i
@@ -4782,21 +4782,21 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %1169 = trunc i64 %1168 to i32
   %1170 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 64
   store i32 %1169, ptr %1170, align 4, !tbaa !7
-  %1171 = add i64 %1166, -1
+  %1171 = add i64 %1166, -2
   %1172 = and i64 %1171, %1166
   %1173 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1172, i1 true)
   %1174 = or disjoint i64 %1173, %.sroa.11.0.lcssa6406.i
   %1175 = trunc i64 %1174 to i32
   %1176 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 68
   store i32 %1175, ptr %1176, align 4, !tbaa !7
-  %1177 = add i64 %1172, -1
+  %1177 = add i64 %1172, -2
   %1178 = and i64 %1177, %1172
   %1179 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1178, i1 true)
   %1180 = or disjoint i64 %1179, %.sroa.11.0.lcssa6406.i
   %1181 = trunc i64 %1180 to i32
   %1182 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 72
   store i32 %1181, ptr %1182, align 4, !tbaa !7
-  %1183 = add i64 %1178, -1
+  %1183 = add i64 %1178, -2
   %1184 = and i64 %1183, %1178
   %1185 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1184, i1 true)
   %1186 = or disjoint i64 %1185, %.sroa.11.0.lcssa6406.i
@@ -4807,7 +4807,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %1189, label %.noexc79.i, label %.loopexit6268.i, !prof !127
 
 .noexc79.i:                                       ; preds = %.noexc335.i
-  %1190 = add i64 %1184, -1
+  %1190 = add i64 %1184, -2
   %1191 = and i64 %1190, %1184
   %1192 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1191, i1 true)
   %1193 = or disjoint i64 %1192, %.sroa.11.0.lcssa6406.i
@@ -4821,14 +4821,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   %1200 = trunc i64 %1199 to i32
   %1201 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 84
   store i32 %1200, ptr %1201, align 4, !tbaa !7
-  %1202 = add i64 %1197, -1
+  %1202 = add i64 %1197, -2
   %1203 = and i64 %1202, %1197
   %1204 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1203, i1 true)
   %1205 = or disjoint i64 %1204, %.sroa.11.0.lcssa6406.i
   %1206 = trunc i64 %1205 to i32
   %1207 = getelementptr inbounds nuw i8, ptr %.sroa.89.3.i, i64 88
   store i32 %1206, ptr %1207, align 4, !tbaa !7
-  %1208 = add i64 %1203, -1
+  %1208 = add i64 %1203, -2
   %1209 = and i64 %1208, %1203
   %1210 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1209, i1 true)
   %1211 = or disjoint i64 %1210, %.sroa.11.0.lcssa6406.i
@@ -4839,7 +4839,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_in
   br i1 %1214, label %.noexc80.i.preheader, label %.loopexit6268.i, !prof !142
 
 .noexc80.i.preheader:                             ; preds = %.noexc79.i
-  %1215 = add i64 %1209, -1
+  %1215 = add i64 %1209, -2
   %1216 = and i64 %1215, %1209
   br label %.noexc80.i
 
@@ -4889,14 +4889,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   %1243 = or disjoint i32 %1233, %1242
   %1244 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 4
   store i32 %1243, ptr %1244, align 4, !tbaa !7
-  %1245 = add i64 %1240, -1
+  %1245 = add i64 %1240, -2
   %1246 = and i64 %1245, %1240
   %1247 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1246, i1 true)
   %1248 = trunc nuw nsw i64 %1247 to i32
   %1249 = or disjoint i32 %1233, %1248
   %1250 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 8
   store i32 %1249, ptr %1250, align 4, !tbaa !7
-  %1251 = add i64 %1246, -1
+  %1251 = add i64 %1246, -2
   %1252 = and i64 %1251, %1246
   %1253 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1252, i1 true)
   %1254 = trunc nuw nsw i64 %1253 to i32
@@ -4907,14 +4907,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   br i1 %1257, label %.noexc149.i, label %.loopexit.i, !prof !127
 
 .noexc149.i:                                      ; preds = %.noexc101.i
-  %1258 = add i64 %1252, -1
+  %1258 = add i64 %1252, -2
   %1259 = and i64 %1258, %1252
   %1260 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1259, i1 true)
   %1261 = trunc nuw nsw i64 %1260 to i32
   %1262 = or disjoint i32 %1233, %1261
   %1263 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 16
   store i32 %1262, ptr %1263, align 4, !tbaa !7
-  %1264 = add i64 %1259, -1
+  %1264 = add i64 %1259, -2
   %1265 = and i64 %1264, %1259
   %1266 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1265, i1 true)
   %1267 = trunc nuw nsw i64 %1266 to i32
@@ -4928,7 +4928,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   %1274 = or disjoint i32 %1233, %1273
   %1275 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 24
   store i32 %1274, ptr %1275, align 4, !tbaa !7
-  %1276 = add i64 %1271, -1
+  %1276 = add i64 %1271, -2
   %1277 = and i64 %1276, %1271
   %1278 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1277, i1 true)
   %1279 = trunc nuw nsw i64 %1278 to i32
@@ -4939,21 +4939,21 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   br i1 %1282, label %.noexc203.i, label %.loopexit.i, !prof !127
 
 .noexc203.i:                                      ; preds = %.noexc149.i
-  %1283 = add i64 %1277, -1
+  %1283 = add i64 %1277, -2
   %1284 = and i64 %1283, %1277
   %1285 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1284, i1 true)
   %1286 = trunc nuw nsw i64 %1285 to i32
   %1287 = or disjoint i32 %1233, %1286
   %1288 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 32
   store i32 %1287, ptr %1288, align 4, !tbaa !7
-  %1289 = add i64 %1284, -1
+  %1289 = add i64 %1284, -2
   %1290 = and i64 %1289, %1284
   %1291 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1290, i1 true)
   %1292 = trunc nuw nsw i64 %1291 to i32
   %1293 = or disjoint i32 %1233, %1292
   %1294 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 36
   store i32 %1293, ptr %1294, align 4, !tbaa !7
-  %1295 = add i64 %1290, -1
+  %1295 = add i64 %1290, -2
   %1296 = and i64 %1295, %1290
   %1297 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1296, i1 true)
   %1298 = trunc nuw nsw i64 %1297 to i32
@@ -4971,28 +4971,28 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   br i1 %1307, label %.noexc279.i, label %.loopexit.i, !prof !127
 
 .noexc279.i:                                      ; preds = %.noexc203.i
-  %1308 = add i64 %1302, -1
+  %1308 = add i64 %1302, -2
   %1309 = and i64 %1308, %1302
   %1310 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1309, i1 true)
   %1311 = trunc nuw nsw i64 %1310 to i32
   %1312 = or disjoint i32 %1233, %1311
   %1313 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 48
   store i32 %1312, ptr %1313, align 4, !tbaa !7
-  %1314 = add i64 %1309, -1
+  %1314 = add i64 %1309, -2
   %1315 = and i64 %1314, %1309
   %1316 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1315, i1 true)
   %1317 = trunc nuw nsw i64 %1316 to i32
   %1318 = or disjoint i32 %1233, %1317
   %1319 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 52
   store i32 %1318, ptr %1319, align 4, !tbaa !7
-  %1320 = add i64 %1315, -1
+  %1320 = add i64 %1315, -2
   %1321 = and i64 %1320, %1315
   %1322 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1321, i1 true)
   %1323 = trunc nuw nsw i64 %1322 to i32
   %1324 = or disjoint i32 %1233, %1323
   %1325 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 56
   store i32 %1324, ptr %1325, align 4, !tbaa !7
-  %1326 = add i64 %1321, -1
+  %1326 = add i64 %1321, -2
   %1327 = and i64 %1326, %1321
   %1328 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1327, i1 true)
   %1329 = trunc nuw nsw i64 %1328 to i32
@@ -5010,21 +5010,21 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   %1337 = or disjoint i32 %1233, %1336
   %1338 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 64
   store i32 %1337, ptr %1338, align 4, !tbaa !7
-  %1339 = add i64 %1334, -1
+  %1339 = add i64 %1334, -2
   %1340 = and i64 %1339, %1334
   %1341 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1340, i1 true)
   %1342 = trunc nuw nsw i64 %1341 to i32
   %1343 = or disjoint i32 %1233, %1342
   %1344 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 68
   store i32 %1343, ptr %1344, align 4, !tbaa !7
-  %1345 = add i64 %1340, -1
+  %1345 = add i64 %1340, -2
   %1346 = and i64 %1345, %1340
   %1347 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1346, i1 true)
   %1348 = trunc nuw nsw i64 %1347 to i32
   %1349 = or disjoint i32 %1233, %1348
   %1350 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 72
   store i32 %1349, ptr %1350, align 4, !tbaa !7
-  %1351 = add i64 %1346, -1
+  %1351 = add i64 %1346, -2
   %1352 = and i64 %1351, %1346
   %1353 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1352, i1 true)
   %1354 = trunc nuw nsw i64 %1353 to i32
@@ -5035,7 +5035,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   br i1 %1357, label %.noexc83.i, label %.loopexit.i, !prof !127
 
 .noexc83.i:                                       ; preds = %.noexc333.i
-  %1358 = add i64 %1352, -1
+  %1358 = add i64 %1352, -2
   %1359 = and i64 %1358, %1352
   %1360 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1359, i1 true)
   %1361 = trunc nuw nsw i64 %1360 to i32
@@ -5049,14 +5049,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   %1368 = or disjoint i32 %1233, %1367
   %1369 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 84
   store i32 %1368, ptr %1369, align 4, !tbaa !7
-  %1370 = add i64 %1365, -1
+  %1370 = add i64 %1365, -2
   %1371 = and i64 %1370, %1365
   %1372 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1371, i1 true)
   %1373 = trunc nuw nsw i64 %1372 to i32
   %1374 = or disjoint i32 %1233, %1373
   %1375 = getelementptr inbounds nuw i8, ptr %.sroa.89.4.i, i64 88
   store i32 %1374, ptr %1375, align 4, !tbaa !7
-  %1376 = add i64 %1371, -1
+  %1376 = add i64 %1371, -2
   %1377 = and i64 %1376, %1371
   %1378 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1377, i1 true)
   %1379 = trunc nuw nsw i64 %1378 to i32
@@ -5067,7 +5067,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage123json_structural_indexer4stepILm128EEE
   br i1 %1382, label %.noexc84.i.preheader, label %.loopexit.i, !prof !142
 
 .noexc84.i.preheader:                             ; preds = %.noexc83.i
-  %1383 = add i64 %1377, -1
+  %1383 = add i64 %1377, -2
   %1384 = and i64 %1383, %1377
   br label %.noexc84.i
 
@@ -22567,14 +22567,14 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   %280 = or disjoint i32 %270, %279
   %281 = getelementptr inbounds nuw i8, ptr %.sroa.59.01651.i, i64 4
   store i32 %280, ptr %281, align 4, !tbaa !7
-  %282 = add i64 %277, -1
+  %282 = add i64 %277, -2
   %283 = and i64 %282, %277
   %284 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %283, i1 true)
   %285 = trunc nuw nsw i64 %284 to i32
   %286 = or disjoint i32 %270, %285
   %287 = getelementptr inbounds nuw i8, ptr %.sroa.59.01651.i, i64 8
   store i32 %286, ptr %287, align 4, !tbaa !7
-  %288 = add i64 %283, -1
+  %288 = add i64 %283, -2
   %289 = and i64 %288, %283
   %290 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %289, i1 true)
   %291 = trunc nuw nsw i64 %290 to i32
@@ -22585,14 +22585,14 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   br i1 %294, label %.noexc152.i, label %.loopexit1637.i, !prof !127
 
 .noexc152.i:                                      ; preds = %.noexc144.i
-  %295 = add i64 %289, -1
+  %295 = add i64 %289, -2
   %296 = and i64 %295, %289
   %297 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %296, i1 true)
   %298 = trunc nuw nsw i64 %297 to i32
   %299 = or disjoint i32 %270, %298
   %300 = getelementptr inbounds nuw i8, ptr %.sroa.59.01651.i, i64 16
   store i32 %299, ptr %300, align 4, !tbaa !7
-  %301 = add i64 %296, -1
+  %301 = add i64 %296, -2
   %302 = and i64 %301, %296
   %303 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %302, i1 true)
   %304 = trunc nuw nsw i64 %303 to i32
@@ -22606,7 +22606,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   %311 = or disjoint i32 %270, %310
   %312 = getelementptr inbounds nuw i8, ptr %.sroa.59.01651.i, i64 24
   store i32 %311, ptr %312, align 4, !tbaa !7
-  %313 = add i64 %308, -1
+  %313 = add i64 %308, -2
   %314 = and i64 %313, %308
   %315 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %314, i1 true)
   %316 = trunc nuw nsw i64 %315 to i32
@@ -22617,21 +22617,21 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   br i1 %319, label %.noexc180.i, label %.loopexit1637.i, !prof !127
 
 .noexc180.i:                                      ; preds = %.noexc152.i
-  %320 = add i64 %314, -1
+  %320 = add i64 %314, -2
   %321 = and i64 %320, %314
   %322 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %321, i1 true)
   %323 = trunc nuw nsw i64 %322 to i32
   %324 = or disjoint i32 %270, %323
   %325 = getelementptr inbounds nuw i8, ptr %.sroa.59.01651.i, i64 32
   store i32 %324, ptr %325, align 4, !tbaa !7
-  %326 = add i64 %321, -1
+  %326 = add i64 %321, -2
   %327 = and i64 %326, %321
   %328 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %327, i1 true)
   %329 = trunc nuw nsw i64 %328 to i32
   %330 = or disjoint i32 %270, %329
   %331 = getelementptr inbounds nuw i8, ptr %.sroa.59.01651.i, i64 36
   store i32 %330, ptr %331, align 4, !tbaa !7
-  %332 = add i64 %327, -1
+  %332 = add i64 %327, -2
   %333 = and i64 %332, %327
   %334 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %333, i1 true)
   %335 = trunc nuw nsw i64 %334 to i32
@@ -22649,28 +22649,28 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   br i1 %344, label %.noexc198.i, label %.loopexit1637.i, !prof !127
 
 .noexc198.i:                                      ; preds = %.noexc180.i
-  %345 = add i64 %339, -1
+  %345 = add i64 %339, -2
   %346 = and i64 %345, %339
   %347 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %346, i1 true)
   %348 = trunc nuw nsw i64 %347 to i32
   %349 = or disjoint i32 %270, %348
   %350 = getelementptr inbounds nuw i8, ptr %.sroa.59.01651.i, i64 48
   store i32 %349, ptr %350, align 4, !tbaa !7
-  %351 = add i64 %346, -1
+  %351 = add i64 %346, -2
   %352 = and i64 %351, %346
   %353 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %352, i1 true)
   %354 = trunc nuw nsw i64 %353 to i32
   %355 = or disjoint i32 %270, %354
   %356 = getelementptr inbounds nuw i8, ptr %.sroa.59.01651.i, i64 52
   store i32 %355, ptr %356, align 4, !tbaa !7
-  %357 = add i64 %352, -1
+  %357 = add i64 %352, -2
   %358 = and i64 %357, %352
   %359 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %358, i1 true)
   %360 = trunc nuw nsw i64 %359 to i32
   %361 = or disjoint i32 %270, %360
   %362 = getelementptr inbounds nuw i8, ptr %.sroa.59.01651.i, i64 56
   store i32 %361, ptr %362, align 4, !tbaa !7
-  %363 = add i64 %358, -1
+  %363 = add i64 %358, -2
   %364 = and i64 %363, %358
   %365 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %364, i1 true)
   %366 = trunc nuw nsw i64 %365 to i32
@@ -22688,21 +22688,21 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   %374 = or disjoint i32 %270, %373
   %375 = getelementptr inbounds nuw i8, ptr %.sroa.59.01651.i, i64 64
   store i32 %374, ptr %375, align 4, !tbaa !7
-  %376 = add i64 %371, -1
+  %376 = add i64 %371, -2
   %377 = and i64 %376, %371
   %378 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %377, i1 true)
   %379 = trunc nuw nsw i64 %378 to i32
   %380 = or disjoint i32 %270, %379
   %381 = getelementptr inbounds nuw i8, ptr %.sroa.59.01651.i, i64 68
   store i32 %380, ptr %381, align 4, !tbaa !7
-  %382 = add i64 %377, -1
+  %382 = add i64 %377, -2
   %383 = and i64 %382, %377
   %384 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %383, i1 true)
   %385 = trunc nuw nsw i64 %384 to i32
   %386 = or disjoint i32 %270, %385
   %387 = getelementptr inbounds nuw i8, ptr %.sroa.59.01651.i, i64 72
   store i32 %386, ptr %387, align 4, !tbaa !7
-  %388 = add i64 %383, -1
+  %388 = add i64 %383, -2
   %389 = and i64 %388, %383
   %390 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %389, i1 true)
   %391 = trunc nuw nsw i64 %390 to i32
@@ -22713,7 +22713,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   br i1 %394, label %.noexc100.i, label %.loopexit1637.i, !prof !127
 
 .noexc100.i:                                      ; preds = %.noexc226.i
-  %395 = add i64 %389, -1
+  %395 = add i64 %389, -2
   %396 = and i64 %395, %389
   %397 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %396, i1 true)
   %398 = trunc nuw nsw i64 %397 to i32
@@ -22727,14 +22727,14 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   %405 = or disjoint i32 %270, %404
   %406 = getelementptr inbounds nuw i8, ptr %.sroa.59.01651.i, i64 84
   store i32 %405, ptr %406, align 4, !tbaa !7
-  %407 = add i64 %402, -1
+  %407 = add i64 %402, -2
   %408 = and i64 %407, %402
   %409 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %408, i1 true)
   %410 = trunc nuw nsw i64 %409 to i32
   %411 = or disjoint i32 %270, %410
   %412 = getelementptr inbounds nuw i8, ptr %.sroa.59.01651.i, i64 88
   store i32 %411, ptr %412, align 4, !tbaa !7
-  %413 = add i64 %408, -1
+  %413 = add i64 %408, -2
   %414 = and i64 %413, %408
   %415 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %414, i1 true)
   %416 = trunc nuw nsw i64 %415 to i32
@@ -22745,7 +22745,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   br i1 %419, label %.noexc101.i.preheader, label %.loopexit1637.i, !prof !142
 
 .noexc101.i.preheader:                            ; preds = %.noexc100.i
-  %420 = add i64 %414, -1
+  %420 = add i64 %414, -2
   %421 = and i64 %420, %414
   br label %.noexc101.i
 
@@ -23069,14 +23069,14 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   %662 = or disjoint i32 %652, %661
   %663 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 4
   store i32 %662, ptr %663, align 4, !tbaa !7
-  %664 = add i64 %659, -1
+  %664 = add i64 %659, -2
   %665 = and i64 %664, %659
   %666 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %665, i1 true)
   %667 = trunc nuw nsw i64 %666 to i32
   %668 = or disjoint i32 %652, %667
   %669 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 8
   store i32 %668, ptr %669, align 4, !tbaa !7
-  %670 = add i64 %665, -1
+  %670 = add i64 %665, -2
   %671 = and i64 %670, %665
   %672 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %671, i1 true)
   %673 = trunc nuw nsw i64 %672 to i32
@@ -23087,14 +23087,14 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   br i1 %676, label %.noexc154.i, label %.loopexit1635.i, !prof !127
 
 .noexc154.i:                                      ; preds = %.noexc141.i
-  %677 = add i64 %671, -1
+  %677 = add i64 %671, -2
   %678 = and i64 %677, %671
   %679 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %678, i1 true)
   %680 = trunc nuw nsw i64 %679 to i32
   %681 = or disjoint i32 %652, %680
   %682 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 16
   store i32 %681, ptr %682, align 4, !tbaa !7
-  %683 = add i64 %678, -1
+  %683 = add i64 %678, -2
   %684 = and i64 %683, %678
   %685 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %684, i1 true)
   %686 = trunc nuw nsw i64 %685 to i32
@@ -23108,7 +23108,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   %693 = or disjoint i32 %652, %692
   %694 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 24
   store i32 %693, ptr %694, align 4, !tbaa !7
-  %695 = add i64 %690, -1
+  %695 = add i64 %690, -2
   %696 = and i64 %695, %690
   %697 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %696, i1 true)
   %698 = trunc nuw nsw i64 %697 to i32
@@ -23119,21 +23119,21 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   br i1 %701, label %.noexc177.i, label %.loopexit1635.i, !prof !127
 
 .noexc177.i:                                      ; preds = %.noexc154.i
-  %702 = add i64 %696, -1
+  %702 = add i64 %696, -2
   %703 = and i64 %702, %696
   %704 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %703, i1 true)
   %705 = trunc nuw nsw i64 %704 to i32
   %706 = or disjoint i32 %652, %705
   %707 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 32
   store i32 %706, ptr %707, align 4, !tbaa !7
-  %708 = add i64 %703, -1
+  %708 = add i64 %703, -2
   %709 = and i64 %708, %703
   %710 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %709, i1 true)
   %711 = trunc nuw nsw i64 %710 to i32
   %712 = or disjoint i32 %652, %711
   %713 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 36
   store i32 %712, ptr %713, align 4, !tbaa !7
-  %714 = add i64 %709, -1
+  %714 = add i64 %709, -2
   %715 = and i64 %714, %709
   %716 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %715, i1 true)
   %717 = trunc nuw nsw i64 %716 to i32
@@ -23151,28 +23151,28 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   br i1 %726, label %.noexc200.i, label %.loopexit1635.i, !prof !127
 
 .noexc200.i:                                      ; preds = %.noexc177.i
-  %727 = add i64 %721, -1
+  %727 = add i64 %721, -2
   %728 = and i64 %727, %721
   %729 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %728, i1 true)
   %730 = trunc nuw nsw i64 %729 to i32
   %731 = or disjoint i32 %652, %730
   %732 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 48
   store i32 %731, ptr %732, align 4, !tbaa !7
-  %733 = add i64 %728, -1
+  %733 = add i64 %728, -2
   %734 = and i64 %733, %728
   %735 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %734, i1 true)
   %736 = trunc nuw nsw i64 %735 to i32
   %737 = or disjoint i32 %652, %736
   %738 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 52
   store i32 %737, ptr %738, align 4, !tbaa !7
-  %739 = add i64 %734, -1
+  %739 = add i64 %734, -2
   %740 = and i64 %739, %734
   %741 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %740, i1 true)
   %742 = trunc nuw nsw i64 %741 to i32
   %743 = or disjoint i32 %652, %742
   %744 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 56
   store i32 %743, ptr %744, align 4, !tbaa !7
-  %745 = add i64 %740, -1
+  %745 = add i64 %740, -2
   %746 = and i64 %745, %740
   %747 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %746, i1 true)
   %748 = trunc nuw nsw i64 %747 to i32
@@ -23190,21 +23190,21 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   %756 = or disjoint i32 %652, %755
   %757 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 64
   store i32 %756, ptr %757, align 4, !tbaa !7
-  %758 = add i64 %753, -1
+  %758 = add i64 %753, -2
   %759 = and i64 %758, %753
   %760 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %759, i1 true)
   %761 = trunc nuw nsw i64 %760 to i32
   %762 = or disjoint i32 %652, %761
   %763 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 68
   store i32 %762, ptr %763, align 4, !tbaa !7
-  %764 = add i64 %759, -1
+  %764 = add i64 %759, -2
   %765 = and i64 %764, %759
   %766 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %765, i1 true)
   %767 = trunc nuw nsw i64 %766 to i32
   %768 = or disjoint i32 %652, %767
   %769 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 72
   store i32 %768, ptr %769, align 4, !tbaa !7
-  %770 = add i64 %765, -1
+  %770 = add i64 %765, -2
   %771 = and i64 %770, %765
   %772 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %771, i1 true)
   %773 = trunc nuw nsw i64 %772 to i32
@@ -23215,7 +23215,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   br i1 %776, label %.noexc103.i, label %.loopexit1635.i, !prof !127
 
 .noexc103.i:                                      ; preds = %.noexc223.i
-  %777 = add i64 %771, -1
+  %777 = add i64 %771, -2
   %778 = and i64 %777, %771
   %779 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %778, i1 true)
   %780 = trunc nuw nsw i64 %779 to i32
@@ -23229,14 +23229,14 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   %787 = or disjoint i32 %652, %786
   %788 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 84
   store i32 %787, ptr %788, align 4, !tbaa !7
-  %789 = add i64 %784, -1
+  %789 = add i64 %784, -2
   %790 = and i64 %789, %784
   %791 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %790, i1 true)
   %792 = trunc nuw nsw i64 %791 to i32
   %793 = or disjoint i32 %652, %792
   %794 = getelementptr inbounds nuw i8, ptr %.sroa.59.0.lcssa1751.i, i64 88
   store i32 %793, ptr %794, align 4, !tbaa !7
-  %795 = add i64 %790, -1
+  %795 = add i64 %790, -2
   %796 = and i64 %795, %790
   %797 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %796, i1 true)
   %798 = trunc nuw nsw i64 %797 to i32
@@ -23247,7 +23247,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_115utf8_validation12utf8_checker16check_next_i
   br i1 %801, label %.noexc104.i.preheader, label %.loopexit1635.i, !prof !142
 
 .noexc104.i.preheader:                            ; preds = %.noexc103.i
-  %802 = add i64 %796, -1
+  %802 = add i64 %796, -2
   %803 = and i64 %802, %796
   br label %.noexc104.i
 
@@ -23295,14 +23295,14 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   %828 = trunc i64 %827 to i32
   %829 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 4
   store i32 %828, ptr %829, align 4, !tbaa !7
-  %830 = add i64 %825, -1
+  %830 = add i64 %825, -2
   %831 = and i64 %830, %825
   %832 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %831, i1 true)
   %833 = or disjoint i64 %832, %.sroa.11.0.lcssa1746.i
   %834 = trunc i64 %833 to i32
   %835 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 8
   store i32 %834, ptr %835, align 4, !tbaa !7
-  %836 = add i64 %831, -1
+  %836 = add i64 %831, -2
   %837 = and i64 %836, %831
   %838 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %837, i1 true)
   %839 = or disjoint i64 %838, %.sroa.11.0.lcssa1746.i
@@ -23313,14 +23313,14 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   br i1 %842, label %.noexc157.i, label %.loopexit.i, !prof !127
 
 .noexc157.i:                                      ; preds = %.noexc139.i
-  %843 = add i64 %837, -1
+  %843 = add i64 %837, -2
   %844 = and i64 %843, %837
   %845 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %844, i1 true)
   %846 = or disjoint i64 %845, %.sroa.11.0.lcssa1746.i
   %847 = trunc i64 %846 to i32
   %848 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 16
   store i32 %847, ptr %848, align 4, !tbaa !7
-  %849 = add i64 %844, -1
+  %849 = add i64 %844, -2
   %850 = and i64 %849, %844
   %851 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %850, i1 true)
   %852 = or disjoint i64 %851, %.sroa.11.0.lcssa1746.i
@@ -23334,7 +23334,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   %859 = trunc i64 %858 to i32
   %860 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 24
   store i32 %859, ptr %860, align 4, !tbaa !7
-  %861 = add i64 %856, -1
+  %861 = add i64 %856, -2
   %862 = and i64 %861, %856
   %863 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %862, i1 true)
   %864 = or disjoint i64 %863, %.sroa.11.0.lcssa1746.i
@@ -23345,21 +23345,21 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   br i1 %867, label %.noexc175.i, label %.loopexit.i, !prof !127
 
 .noexc175.i:                                      ; preds = %.noexc157.i
-  %868 = add i64 %862, -1
+  %868 = add i64 %862, -2
   %869 = and i64 %868, %862
   %870 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %869, i1 true)
   %871 = or disjoint i64 %870, %.sroa.11.0.lcssa1746.i
   %872 = trunc i64 %871 to i32
   %873 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 32
   store i32 %872, ptr %873, align 4, !tbaa !7
-  %874 = add i64 %869, -1
+  %874 = add i64 %869, -2
   %875 = and i64 %874, %869
   %876 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %875, i1 true)
   %877 = or disjoint i64 %876, %.sroa.11.0.lcssa1746.i
   %878 = trunc i64 %877 to i32
   %879 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 36
   store i32 %878, ptr %879, align 4, !tbaa !7
-  %880 = add i64 %875, -1
+  %880 = add i64 %875, -2
   %881 = and i64 %880, %875
   %882 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %881, i1 true)
   %883 = or disjoint i64 %882, %.sroa.11.0.lcssa1746.i
@@ -23377,28 +23377,28 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   br i1 %892, label %.noexc203.i, label %.loopexit.i, !prof !127
 
 .noexc203.i:                                      ; preds = %.noexc175.i
-  %893 = add i64 %887, -1
+  %893 = add i64 %887, -2
   %894 = and i64 %893, %887
   %895 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %894, i1 true)
   %896 = or disjoint i64 %895, %.sroa.11.0.lcssa1746.i
   %897 = trunc i64 %896 to i32
   %898 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 48
   store i32 %897, ptr %898, align 4, !tbaa !7
-  %899 = add i64 %894, -1
+  %899 = add i64 %894, -2
   %900 = and i64 %899, %894
   %901 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %900, i1 true)
   %902 = or disjoint i64 %901, %.sroa.11.0.lcssa1746.i
   %903 = trunc i64 %902 to i32
   %904 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 52
   store i32 %903, ptr %904, align 4, !tbaa !7
-  %905 = add i64 %900, -1
+  %905 = add i64 %900, -2
   %906 = and i64 %905, %900
   %907 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %906, i1 true)
   %908 = or disjoint i64 %907, %.sroa.11.0.lcssa1746.i
   %909 = trunc i64 %908 to i32
   %910 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 56
   store i32 %909, ptr %910, align 4, !tbaa !7
-  %911 = add i64 %906, -1
+  %911 = add i64 %906, -2
   %912 = and i64 %911, %906
   %913 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %912, i1 true)
   %914 = or disjoint i64 %913, %.sroa.11.0.lcssa1746.i
@@ -23416,21 +23416,21 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   %922 = trunc i64 %921 to i32
   %923 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 64
   store i32 %922, ptr %923, align 4, !tbaa !7
-  %924 = add i64 %919, -1
+  %924 = add i64 %919, -2
   %925 = and i64 %924, %919
   %926 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %925, i1 true)
   %927 = or disjoint i64 %926, %.sroa.11.0.lcssa1746.i
   %928 = trunc i64 %927 to i32
   %929 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 68
   store i32 %928, ptr %929, align 4, !tbaa !7
-  %930 = add i64 %925, -1
+  %930 = add i64 %925, -2
   %931 = and i64 %930, %925
   %932 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %931, i1 true)
   %933 = or disjoint i64 %932, %.sroa.11.0.lcssa1746.i
   %934 = trunc i64 %933 to i32
   %935 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 72
   store i32 %934, ptr %935, align 4, !tbaa !7
-  %936 = add i64 %931, -1
+  %936 = add i64 %931, -2
   %937 = and i64 %936, %931
   %938 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %937, i1 true)
   %939 = or disjoint i64 %938, %.sroa.11.0.lcssa1746.i
@@ -23441,7 +23441,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   br i1 %942, label %.noexc107.i, label %.loopexit.i, !prof !127
 
 .noexc107.i:                                      ; preds = %.noexc221.i
-  %943 = add i64 %937, -1
+  %943 = add i64 %937, -2
   %944 = and i64 %943, %937
   %945 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %944, i1 true)
   %946 = or disjoint i64 %945, %.sroa.11.0.lcssa1746.i
@@ -23455,14 +23455,14 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   %953 = trunc i64 %952 to i32
   %954 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 84
   store i32 %953, ptr %954, align 4, !tbaa !7
-  %955 = add i64 %950, -1
+  %955 = add i64 %950, -2
   %956 = and i64 %955, %950
   %957 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %956, i1 true)
   %958 = or disjoint i64 %957, %.sroa.11.0.lcssa1746.i
   %959 = trunc i64 %958 to i32
   %960 = getelementptr inbounds nuw i8, ptr %.sroa.59.2.i, i64 88
   store i32 %959, ptr %960, align 4, !tbaa !7
-  %961 = add i64 %956, -1
+  %961 = add i64 %956, -2
   %962 = and i64 %961, %956
   %963 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %962, i1 true)
   %964 = or disjoint i64 %963, %.sroa.11.0.lcssa1746.i
@@ -23473,7 +23473,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage123json_structural_indexer4stepILm64EEE
   br i1 %967, label %.noexc108.i.preheader, label %.loopexit.i, !prof !142
 
 .noexc108.i.preheader:                            ; preds = %.noexc107.i
-  %968 = add i64 %962, -1
+  %968 = add i64 %962, -2
   %969 = and i64 %968, %962
   br label %.noexc108.i
 

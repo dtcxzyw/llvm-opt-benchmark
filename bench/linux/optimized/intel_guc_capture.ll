@@ -406,8 +406,8 @@ define internal fastcc i32 @guc_capture_getlistsize(ptr noundef readonly capture
 160:                                              ; preds = %158
   %161 = sext i32 %156 to i64
   %162 = shl nsw i64 %161, 4
-  %163 = add nsw i64 %162, 4099
-  %164 = and i64 %163, -4096
+  %163 = and i64 %162, -4096
+  %164 = add nsw i64 %163, 4096
   store i64 %164, ptr %4, align 8
   br label %.thread17
 

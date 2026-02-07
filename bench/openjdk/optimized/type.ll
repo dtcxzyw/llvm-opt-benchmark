@@ -21158,14 +21158,14 @@ _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i.i: ; preds =
 21:                                               ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i.i, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i.i, %17
   %22 = phi i32 [ %15, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i.i ], [ %15, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i.i ], [ %18, %17 ]
   %.09 = phi i8 [ %0, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i.i ], [ %0, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i.i ], [ %.011, %17 ]
-  %narrow.i.i = add nuw nsw i32 %22, 7
+  %narrow.i.i = add nuw nsw i32 %22, 4
   %23 = and i32 %narrow.i.i, 24
   br label %_ZN12arrayOopDesc16max_array_lengthE9BasicType.exit
 
 _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit: ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i.i.thread, %17, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i.i, %21
   %.010 = phi i8 [ %.09, %21 ], [ %0, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i.i ], [ %.011, %17 ], [ 8, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i.i.thread ]
   %24 = phi i32 [ %23, %21 ], [ %15, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i.i ], [ %18, %17 ], [ %9, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i.i.thread ]
-  %narrow.i = add nuw nsw i32 %24, 7
+  %narrow.i = add nuw nsw i32 %24, 4
   %25 = lshr i32 %narrow.i, 3
   %26 = zext nneg i32 %25 to i64
   %27 = xor i64 %26, 2305843009213693951

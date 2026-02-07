@@ -1045,9 +1045,8 @@ _ZNK5nlsat9evaluator3imp7sign_atEPNS_9ineq_atomERKNS1_10sign_tableEj.exit: ; pre
 
 174:                                              ; preds = %172
   %175 = trunc i32 %.064143 to i1
-  %176 = or i32 %.064143, -2
-  %.neg = add nsw i32 %176, 1
-  %.sink = add i32 %.064143, %.neg
+  %176 = add i32 %.064143, -2
+  %.sink = select i1 %175, i32 %.064143, i32 %176
   %177 = lshr i32 %.sink, 1
   %178 = load ptr, ptr %17, align 8, !tbaa !81
   %179 = zext nneg i32 %177 to i64
@@ -1201,8 +1200,8 @@ _ZN7obj_refIN5nlsat12interval_setENS0_20interval_set_managerEEaSEPS1_.exit105: ;
   br label %249
 
 242:                                              ; preds = %234
-  %243 = add i32 %.064143, -1
-  %244 = lshr i32 %243, 1
+  %243 = add i32 %.064143, -2
+  %244 = lshr exact i32 %243, 1
   %245 = load ptr, ptr %17, align 8, !tbaa !81
   %246 = zext nneg i32 %244 to i64
   %247 = getelementptr inbounds nuw i32, ptr %245, i64 %246

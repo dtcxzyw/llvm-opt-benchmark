@@ -25326,7 +25326,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %106
   br i1 %111, label %115, label %_ZNK6HandleclEv.exit
 
 _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit.thread: ; preds = %106
-  %narrow.i = add nuw nsw i32 %107, 7
+  %narrow.i = add nuw nsw i32 %107, 4
   %112 = and i32 %narrow.i, 24
   %113 = zext nneg i32 %112 to i64
   %114 = icmp samesign ult i64 %1, %113
@@ -25557,7 +25557,7 @@ _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i: ; preds = %
   ]
 
 221:                                              ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %218
-  %narrow.i117 = add nuw nsw i32 %212, 7
+  %narrow.i117 = add nuw nsw i32 %212, 4
   %222 = and i32 %narrow.i117, 24
   br label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit118
 
@@ -28217,7 +28217,7 @@ _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i: ; preds = %
   ]
 
 60:                                               ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %57
-  %narrow.i = add nuw nsw i32 %55, 7
+  %narrow.i = add nuw nsw i32 %55, 4
   %61 = and i32 %narrow.i, 24
   br label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
 

@@ -8456,7 +8456,7 @@ define internal i64 @proc_getgroups(i64 %0) #1 {
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %14
   %17 = shl nuw nsw i64 %9, 2
-  %18 = add nuw nsw i64 %17, 7
+  %18 = add nuw nsw i64 %17, 4
   %19 = lshr i64 %18, 3
   %20 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %2, i64 noundef %17, i64 noundef %19) #31
   br label %21
@@ -8595,7 +8595,7 @@ maxgroups.exit:                                   ; preds = %RARRAY_LENINT.exit,
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %39
   %42 = lshr exact i64 %sext, 30
-  %43 = add nuw nsw i64 %42, 7
+  %43 = add nuw nsw i64 %42, 4
   %44 = lshr i64 %43, 3
   %45 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %3, i64 noundef %42, i64 noundef %44) #31
   br label %46

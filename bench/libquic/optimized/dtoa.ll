@@ -968,7 +968,7 @@ _ZN6dmg_fpL5matchEPPKcS1_.exit.thread:            ; preds = %11, %174, %156, %15
   %417 = add nsw i32 %416, -1
   %418 = zext nneg i32 %417 to i64
   %419 = shl nuw nsw i64 %418, 2
-  %420 = add nuw nsw i64 %419, 39
+  %420 = add nuw nsw i64 %419, 36
   br label %436
 
 421:                                              ; preds = %._crit_edge.thread.i
@@ -976,7 +976,7 @@ _ZN6dmg_fpL5matchEPPKcS1_.exit.thread:            ; preds = %11, %174, %156, %15
   %423 = add nsw i32 %422, -1
   %424 = zext nneg i32 %423 to i64
   %425 = shl nuw nsw i64 %424, 2
-  %426 = add nuw nsw i64 %425, 39
+  %426 = add nuw nsw i64 %425, 36
   %427 = lshr i64 %426, 3
   %428 = load ptr, ptr @_ZL9pmem_next, align 8, !tbaa !32
   %429 = ptrtoint ptr %428 to i64
@@ -1122,7 +1122,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit549:           ; preds = %_ZN6dmg_fpL5BfreeEP
   %494 = add nsw i32 %493, -1
   %495 = zext nneg i32 %494 to i64
   %496 = shl nuw nsw i64 %495, 2
-  %497 = add nuw nsw i64 %496, 39
+  %497 = add nuw nsw i64 %496, 36
   br label %513
 
 498:                                              ; preds = %486
@@ -1130,7 +1130,7 @@ _ZN6dmg_fpL5BfreeEPNS_6BigintE.exit549:           ; preds = %_ZN6dmg_fpL5BfreeEP
   %500 = add nsw i32 %499, -1
   %501 = zext nneg i32 %500 to i64
   %502 = shl nuw nsw i64 %501, 2
-  %503 = add nuw nsw i64 %502, 39
+  %503 = add nuw nsw i64 %502, 36
   %504 = lshr i64 %503, 3
   %505 = load ptr, ptr @_ZL9pmem_next, align 8, !tbaa !32
   %506 = ptrtoint ptr %505 to i64
@@ -3041,7 +3041,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL4multEPNS_6BigintES1_(ptr noundef
   %28 = add nsw i32 %27, -1
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 2
-  %31 = add nuw nsw i64 %30, 39
+  %31 = add nuw nsw i64 %30, 36
   br label %47
 
 32:                                               ; preds = %20
@@ -3049,7 +3049,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL4multEPNS_6BigintES1_(ptr noundef
   %34 = add nsw i32 %33, -1
   %35 = zext nneg i32 %34 to i64
   %36 = shl nuw nsw i64 %35, 2
-  %37 = add nuw nsw i64 %36, 39
+  %37 = add nuw nsw i64 %36, 36
   %38 = lshr i64 %37, 3
   %39 = load ptr, ptr @_ZL9pmem_next, align 8, !tbaa !32
   %40 = ptrtoint ptr %39 to i64
@@ -3223,7 +3223,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL6lshiftEPNS_6BigintEi(ptr noundef
   %22 = add nsw i32 %21, -1
   %23 = zext nneg i32 %22 to i64
   %24 = shl nuw nsw i64 %23, 2
-  %25 = add nuw nsw i64 %24, 39
+  %25 = add nuw nsw i64 %24, 36
   br label %41
 
 26:                                               ; preds = %14
@@ -3231,7 +3231,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL6lshiftEPNS_6BigintEi(ptr noundef
   %28 = add nsw i32 %27, -1
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 2
-  %31 = add nuw nsw i64 %30, 39
+  %31 = add nuw nsw i64 %30, 36
   %32 = lshr i64 %31, 3
   %33 = load ptr, ptr @_ZL9pmem_next, align 8, !tbaa !32
   %34 = ptrtoint ptr %33 to i64
@@ -3462,7 +3462,7 @@ _ZN6dmg_fpL6BallocEi.exit:                        ; preds = %21, %32
   %51 = add nsw i32 %50, -1
   %52 = zext nneg i32 %51 to i64
   %53 = shl nuw nsw i64 %52, 2
-  %54 = add nuw nsw i64 %53, 39
+  %54 = add nuw nsw i64 %53, 36
   br label %70
 
 55:                                               ; preds = %43
@@ -3470,7 +3470,7 @@ _ZN6dmg_fpL6BallocEi.exit:                        ; preds = %21, %32
   %57 = add nsw i32 %56, -1
   %58 = zext nneg i32 %57 to i64
   %59 = shl nuw nsw i64 %58, 2
-  %60 = add nuw nsw i64 %59, 39
+  %60 = add nuw nsw i64 %59, 36
   %61 = lshr i64 %60, 3
   %62 = load ptr, ptr @_ZL9pmem_next, align 8, !tbaa !32
   %63 = ptrtoint ptr %62 to i64
@@ -4049,7 +4049,7 @@ default.unreachable:                              ; preds = %162
   %185 = add nsw i32 %184, -1
   %186 = zext nneg i32 %185 to i64
   %187 = shl nuw nsw i64 %186, 2
-  %188 = add nuw nsw i64 %187, 39
+  %188 = add nuw nsw i64 %187, 36
   br label %204
 
 189:                                              ; preds = %._crit_edge.thread.i
@@ -4057,7 +4057,7 @@ default.unreachable:                              ; preds = %162
   %191 = add nsw i32 %190, -1
   %192 = zext nneg i32 %191 to i64
   %193 = shl nuw nsw i64 %192, 2
-  %194 = add nuw nsw i64 %193, 39
+  %194 = add nuw nsw i64 %193, 36
   %195 = lshr i64 %194, 3
   %196 = load ptr, ptr @_ZL9pmem_next, align 8, !tbaa !32
   %197 = ptrtoint ptr %196 to i64
@@ -4897,7 +4897,7 @@ _ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit600.thread688: ; preds = %538, %_ZN6dmg_fpL3
   %563 = add nsw i32 %562, -1
   %564 = zext nneg i32 %563 to i64
   %565 = shl nuw nsw i64 %564, 2
-  %566 = add nuw nsw i64 %565, 39
+  %566 = add nuw nsw i64 %565, 36
   br label %582
 
 567:                                              ; preds = %555
@@ -4905,7 +4905,7 @@ _ZN6dmg_fpL3cmpEPNS_6BigintES1_.exit600.thread688: ; preds = %538, %_ZN6dmg_fpL3
   %569 = add nsw i32 %568, -1
   %570 = zext nneg i32 %569 to i64
   %571 = shl nuw nsw i64 %570, 2
-  %572 = add nuw nsw i64 %571, 39
+  %572 = add nuw nsw i64 %571, 36
   %573 = lshr i64 %572, 3
   %574 = load ptr, ptr @_ZL9pmem_next, align 8, !tbaa !32
   %575 = ptrtoint ptr %574 to i64
@@ -5547,7 +5547,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL7multaddEPNS_6BigintEii(ptr nound
   %35 = add nsw i32 %34, -1
   %36 = zext nneg i32 %35 to i64
   %37 = shl nuw nsw i64 %36, 2
-  %38 = add nuw nsw i64 %37, 39
+  %38 = add nuw nsw i64 %37, 36
   br label %54
 
 39:                                               ; preds = %27
@@ -5555,7 +5555,7 @@ define internal fastcc noundef ptr @_ZN6dmg_fpL7multaddEPNS_6BigintEii(ptr nound
   %41 = add nsw i32 %40, -1
   %42 = zext nneg i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 2
-  %44 = add nuw nsw i64 %43, 39
+  %44 = add nuw nsw i64 %43, 36
   %45 = lshr i64 %44, 3
   %46 = load ptr, ptr @_ZL9pmem_next, align 8, !tbaa !32
   %47 = ptrtoint ptr %46 to i64

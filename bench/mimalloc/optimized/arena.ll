@@ -1908,7 +1908,7 @@ define internal fastcc noundef zeroext i1 @mi_manage_os_memory_ex2(ptr noundef %
   %36 = add nuw nsw i64 %35, 192
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %37 = add nsw i64 %35, -3905
+  %37 = add nsw i64 %35, -3912
   %or.cond.i.i = icmp ult i64 %37, -4096
   br i1 %or.cond.i.i, label %56, label %38
 

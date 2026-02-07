@@ -8592,7 +8592,7 @@ define linkonce_odr hidden noundef i32 @_ZNK16MetaspaceClosure8ArrayRefIiE4sizeE
   %7 = add nsw i32 %6, -1
   %8 = zext nneg i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 2
-  %10 = add nuw nsw i64 %9, 15
+  %10 = add nuw nsw i64 %9, 12
   %11 = lshr i64 %10, 3
   %12 = trunc nuw nsw i64 %11 to i32
   ret i32 %12
@@ -8695,7 +8695,7 @@ define linkonce_odr hidden noundef i32 @_ZNK16MetaspaceClosure8ArrayRefItE4sizeE
   %7 = add nsw i32 %6, -1
   %8 = zext nneg i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 1
-  %10 = add nuw nsw i64 %9, 15
+  %10 = add nuw nsw i64 %9, 14
   %11 = lshr i64 %10, 3
   %12 = trunc nuw nsw i64 %11 to i32
   ret i32 %12

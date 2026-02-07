@@ -2522,7 +2522,7 @@ define internal fastcc range(i32 0, 429496730) i32 @calculate_11n_duration(i32 n
   %.not16 = icmp eq i8 %30, 0
   %31 = select i1 %.not16, i32 40, i32 36
   %32 = mul i32 %27, %31
-  %33 = add i32 %32, 5
+  %33 = add i32 %32, 4
   %34 = udiv i32 %33, 10
   ret i32 %34
 }

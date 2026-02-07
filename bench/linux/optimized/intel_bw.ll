@@ -1248,7 +1248,7 @@ define dso_local i32 @intel_bw_calc_min_cdclk(ptr noundef %0, ptr noundef writeo
 160:                                              ; preds = %156
   %161 = zext i32 %157 to i64
   %162 = mul nuw nsw i64 %161, 10
-  %163 = add nuw nsw i64 %162, 511
+  %163 = add nuw nsw i64 %162, 510
   %164 = lshr i64 %163, 9
   %165 = trunc nuw nsw i64 %164 to i32
   br label %166
@@ -2589,7 +2589,7 @@ define internal fastcc i32 @icl_get_qgv_points(ptr noundef %0, ptr noundef captu
   %152 = select i1 %151, i32 8, i32 6
   %153 = mul nuw nsw i32 %149, 16667
   %154 = mul nuw nsw i32 %153, %152
-  %155 = add nuw nsw i32 %154, 1499
+  %155 = add nuw nsw i32 %154, 1498
   %156 = udiv i32 %155, 1000
   %157 = trunc nuw i32 %156 to i16
   store i16 %157, ptr %105, align 2

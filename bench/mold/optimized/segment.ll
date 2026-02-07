@@ -3142,7 +3142,7 @@ mi_segment_calculate_slices.exit:                 ; preds = %12, %15
   br i1 %.not.i, label %._crit_edge.i, label %37
 
 37:                                               ; preds = %33
-  %38 = add i64 %19, 33554431
+  %38 = add i64 %.0.i.i, 33554431
   %39 = and i64 %38, -33554432
   %40 = sub i64 %39, %19
   %41 = add i64 %40, %0

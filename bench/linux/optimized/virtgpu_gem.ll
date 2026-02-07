@@ -32,7 +32,7 @@ define dso_local i32 @virtio_gpu_mode_dumb_create(ptr noundef %0, ptr noundef re
   %18 = mul i32 %16, %17
   %19 = zext i32 %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %21 = add nuw nsw i64 %19, 4095
+  %21 = add nuw nsw i64 %19, 4092
   %22 = and i64 %21, 8589930496
   store i64 %22, ptr %20, align 8
   %23 = tail call i32 @virtio_gpu_translate_format(i32 noundef 875713112) #6

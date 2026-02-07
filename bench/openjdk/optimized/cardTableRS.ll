@@ -5480,7 +5480,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI26SerialCheckForUnma
   %6 = select i1 %5, i32 16, i32 20
   %7 = load i8, ptr @UseCompressedOops, align 1
   %8 = trunc i8 %7 to i1
-  %narrow.i.i.i.i.i = add nuw nsw i32 %6, 7
+  %narrow.i.i.i.i.i = add nuw nsw i32 %6, 4
   %9 = and i32 %narrow.i.i.i.i.i, 24
   %10 = select i1 %8, i32 %6, i32 %9
   %11 = ptrtoint ptr %1 to i64
@@ -5564,7 +5564,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI26SerialCheckForUnma
   %6 = select i1 %5, i32 16, i32 20
   %7 = load i8, ptr @UseCompressedOops, align 1
   %8 = trunc i8 %7 to i1
-  %narrow.i.i.i.i.i = add nuw nsw i32 %6, 7
+  %narrow.i.i.i.i.i = add nuw nsw i32 %6, 4
   %9 = and i32 %narrow.i.i.i.i.i, 24
   %10 = select i1 %8, i32 %6, i32 %9
   %11 = ptrtoint ptr %1 to i64
@@ -8407,7 +8407,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI17OldGenScanC
   %9 = select i1 %8, i32 16, i32 20
   %10 = load i8, ptr @UseCompressedOops, align 1
   %11 = trunc i8 %10 to i1
-  %narrow.i.i.i.i.i = add nuw nsw i32 %9, 7
+  %narrow.i.i.i.i.i = add nuw nsw i32 %9, 4
   %12 = and i32 %narrow.i.i.i.i.i, 24
   %13 = select i1 %11, i32 %9, i32 %12
   %14 = ptrtoint ptr %1 to i64
@@ -8514,7 +8514,7 @@ define linkonce_odr hidden void @_ZN28OopOopIterateBoundedDispatchI17OldGenScanC
   %9 = select i1 %8, i32 16, i32 20
   %10 = load i8, ptr @UseCompressedOops, align 1
   %11 = trunc i8 %10 to i1
-  %narrow.i.i.i.i.i = add nuw nsw i32 %9, 7
+  %narrow.i.i.i.i.i = add nuw nsw i32 %9, 4
   %12 = and i32 %narrow.i.i.i.i.i, 24
   %13 = select i1 %11, i32 %9, i32 %12
   %14 = ptrtoint ptr %1 to i64

@@ -2708,7 +2708,7 @@ define hidden void @_ZN13InstanceKlass20copy_method_orderingEPK13GrowableArrayIi
   %9 = add nsw i32 %8, -1
   %10 = zext nneg i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 2
-  %12 = add nuw nsw i64 %11, 15
+  %12 = add nuw nsw i64 %11, 12
   %13 = lshr i64 %12, 3
   %14 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %6, i64 noundef %13, i32 noundef 4, ptr noundef %2) #26
   %15 = icmp eq ptr %14, null
@@ -2768,7 +2768,7 @@ define hidden noundef ptr @_ZN13InstanceKlass33create_new_default_vtable_indices
   %7 = add nsw i32 %6, -1
   %8 = zext nneg i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 2
-  %10 = add nuw nsw i64 %9, 15
+  %10 = add nuw nsw i64 %9, 12
   %11 = lshr i64 %10, 3
   %12 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %5, i64 noundef %11, i32 noundef 4, ptr noundef %2) #26
   %13 = icmp eq ptr %12, null
@@ -3133,7 +3133,7 @@ _ZN15MetadataFactory10free_arrayIiEEvP15ClassLoaderDataP5ArrayIT_E.exit: ; preds
   %34 = add nsw i32 %33, -1
   %35 = zext nneg i32 %34 to i64
   %36 = shl nuw nsw i64 %35, 2
-  %37 = add nuw nsw i64 %36, 15
+  %37 = add nuw nsw i64 %36, 12
   %38 = lshr i64 %37, 3
   %39 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #26
   call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull %24, i64 noundef %38, i1 noundef zeroext false) #26
@@ -3187,7 +3187,7 @@ _ZN15MetadataFactory10free_arrayIiEEvP15ClassLoaderDataP5ArrayIT_E.exit38: ; pre
   %65 = add nsw i32 %64, -1
   %66 = zext nneg i32 %65 to i64
   %67 = shl nuw nsw i64 %66, 2
-  %68 = add nuw nsw i64 %67, 15
+  %68 = add nuw nsw i64 %67, 12
   %69 = lshr i64 %68, 3
   %70 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #26
   call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %70, ptr noundef nonnull %56, i64 noundef %69, i1 noundef zeroext false) #26
@@ -3340,7 +3340,7 @@ _ZN15MetadataFactory10free_arrayItEEvP15ClassLoaderDataP5ArrayIT_E.exit: ; preds
   %151 = add nsw i32 %150, -1
   %152 = zext nneg i32 %151 to i64
   %153 = shl nuw nsw i64 %152, 1
-  %154 = add nuw nsw i64 %153, 15
+  %154 = add nuw nsw i64 %153, 14
   %155 = lshr i64 %154, 3
   %156 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #26
   call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %156, ptr noundef nonnull %141, i64 noundef %155, i1 noundef zeroext false) #26
@@ -3371,7 +3371,7 @@ _ZN15MetadataFactory10free_arrayItEEvP15ClassLoaderDataP5ArrayIT_E.exit48: ; pre
   %169 = add nsw i32 %168, -1
   %170 = zext nneg i32 %169 to i64
   %171 = shl nuw nsw i64 %170, 1
-  %172 = add nuw nsw i64 %171, 15
+  %172 = add nuw nsw i64 %171, 14
   %173 = lshr i64 %172, 3
   %174 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #26
   call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %174, ptr noundef nonnull %160, i64 noundef %173, i1 noundef zeroext false) #26
@@ -3402,7 +3402,7 @@ _ZN15MetadataFactory10free_arrayItEEvP15ClassLoaderDataP5ArrayIT_E.exit50: ; pre
   %187 = add nsw i32 %186, -1
   %188 = zext nneg i32 %187 to i64
   %189 = shl nuw nsw i64 %188, 1
-  %190 = add nuw nsw i64 %189, 15
+  %190 = add nuw nsw i64 %189, 14
   %191 = lshr i64 %190, 3
   %192 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %1) #26
   call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %192, ptr noundef nonnull %178, i64 noundef %191, i1 noundef zeroext false) #26
@@ -6685,10 +6685,10 @@ _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit:
   %6 = select i1 %5, i32 16, i32 20
   %7 = load i8, ptr @UseCompressedOops, align 1
   %8 = trunc i8 %7 to i1
-  %narrow.i.i = add nuw nsw i32 %6, 7
+  %narrow.i.i = add nuw nsw i32 %6, 4
   %9 = and i32 %narrow.i.i, 24
   %10 = select i1 %8, i32 %6, i32 %9
-  %narrow.i = add nuw nsw i32 %10, 7
+  %narrow.i = add nuw nsw i32 %10, 4
   %11 = lshr i32 %narrow.i, 3
   %12 = zext nneg i32 %11 to i64
   %13 = xor i64 %12, 2305843009213693951
@@ -6732,7 +6732,7 @@ _ZN12arrayOopDesc16max_array_lengthE9BasicType.exit:
   %42 = trunc i8 %30 to i1
   %43 = trunc i8 %29 to i1
   %44 = select i1 %43, i32 16, i32 20
-  %narrow.i.i.i = add nuw nsw i32 %44, 7
+  %narrow.i.i.i = add nuw nsw i32 %44, 4
   %45 = and i32 %narrow.i.i.i, 24
   %46 = select i1 %42, i32 %44, i32 %45
   %47 = zext nneg i32 %46 to i64
@@ -22846,7 +22846,7 @@ define linkonce_odr hidden noundef i32 @_ZNK16MetaspaceClosure8ArrayRefItE4sizeE
   %7 = add nsw i32 %6, -1
   %8 = zext nneg i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 1
-  %10 = add nuw nsw i64 %9, 15
+  %10 = add nuw nsw i64 %9, 14
   %11 = lshr i64 %10, 3
   %12 = trunc nuw nsw i64 %11 to i32
   ret i32 %12
@@ -23202,7 +23202,7 @@ define linkonce_odr hidden noundef i32 @_ZNK16MetaspaceClosure8ArrayRefIiE4sizeE
   %7 = add nsw i32 %6, -1
   %8 = zext nneg i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 2
-  %10 = add nuw nsw i64 %9, 15
+  %10 = add nuw nsw i64 %9, 12
   %11 = lshr i64 %10, 3
   %12 = trunc nuw nsw i64 %11 to i32
   ret i32 %12
@@ -26332,7 +26332,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI18VerifyFieldClosure
   %6 = select i1 %5, i32 16, i32 20
   %7 = load i8, ptr @UseCompressedOops, align 1
   %8 = trunc i8 %7 to i1
-  %narrow.i.i.i.i.i = add nuw nsw i32 %6, 7
+  %narrow.i.i.i.i.i = add nuw nsw i32 %6, 4
   %9 = and i32 %narrow.i.i.i.i.i, 24
   %10 = select i1 %8, i32 %6, i32 %9
   %11 = ptrtoint ptr %1 to i64
@@ -26382,7 +26382,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass24oop_oop_iterate_elementsI9n
   %6 = select i1 %5, i32 16, i32 20
   %7 = load i8, ptr @UseCompressedOops, align 1
   %8 = trunc i8 %7 to i1
-  %narrow.i.i.i = add nuw nsw i32 %6, 7
+  %narrow.i.i.i = add nuw nsw i32 %6, 4
   %9 = and i32 %narrow.i.i.i, 24
   %10 = select i1 %8, i32 %6, i32 %9
   %11 = ptrtoint ptr %1 to i64

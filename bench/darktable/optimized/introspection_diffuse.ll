@@ -1180,8 +1180,8 @@ build_mask.exit:                                  ; preds = %137
   br i1 %.not59.i, label %inpaint_mask.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %build_mask.exit
-  %144 = add i64 %.pre126, -1
-  %145 = lshr i64 %144, 2
+  %144 = add i64 %.pre126, -4
+  %145 = lshr exact i64 %144, 2
   br label %.lr.ph.i99
 
 .lr.ph.i99:                                       ; preds = %.loopexit.i, %.lr.ph.preheader.i
@@ -1487,7 +1487,7 @@ inpaint_mask.exit:                                ; preds = %.loopexit.i, %build
   %375 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float 1.000000e+01, float %374)
   %376 = shl nsw i64 %351, 2
   %377 = shl nsw i64 %351, 4
-  %378 = add nsw i64 %377, 63
+  %378 = add nsw i64 %377, 48
   %379 = and i64 %378, -64
   %380 = call ptr @dt_alloc_aligned(i64 noundef %379) #21, !noalias !112
   call void @llvm.assume(i1 true) [ "align"(ptr %380, i64 64) ]

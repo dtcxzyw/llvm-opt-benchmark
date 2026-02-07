@@ -345,7 +345,7 @@ sha1_update.exit402:                              ; preds = %120, %.thread442
 143:                                              ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %144 = ptrtoint ptr %5 to i64
-  %145 = add i64 %144, 31
+  %145 = add i64 %144, 28
   %146 = and i64 %145, -32
   %147 = inttoptr i64 %146 to ptr
   %.not371 = icmp eq i64 %8, -1

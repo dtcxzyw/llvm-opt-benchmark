@@ -1486,7 +1486,7 @@ define dso_local noundef range(i32 -95, 1) i32 @rb_alloc_aux(ptr noundef %0, ptr
   %40 = phi i64 [ 0, %36 ], [ %31, %27 ]
   %41 = sext i32 %3 to i64
   %42 = shl nsw i64 %41, 3
-  %43 = add nsw i64 %42, -1
+  %43 = add nsw i64 %42, -8
   %44 = lshr i64 %43, 12
   %45 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %44, i32 -1) #14, !srcloc !43
   %46 = add i32 %45, 1

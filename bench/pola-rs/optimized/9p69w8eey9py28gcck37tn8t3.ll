@@ -2927,7 +2927,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit5.i
   br i1 %.not.i.not.us.i.us.i.i, label %._crit_edge.i.us.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h8ab794ba5e081ca7E.exit.us.i.us.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h8ab794ba5e081ca7E.exit.us.i.us.i.i": ; preds = %.backedge.us.i.us.i.i
-  %322 = add i16 %321, -1
+  %322 = add i16 %321, -2
   %323 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %321, i1 true)
   %324 = zext nneg i16 %323 to i64
   %325 = and i16 %322, %321
@@ -3740,7 +3740,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br i1 %.not.i.not.us.i.us.i.i96, label %._crit_edge.i.us.i.i161, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h8ab794ba5e081ca7E.exit.us.i.us.i.i97"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h8ab794ba5e081ca7E.exit.us.i.us.i.i97": ; preds = %.backedge.us.i.us.i.i95
-  %721 = add i16 %720, -1
+  %721 = add i16 %720, -2
   %722 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %720, i1 true)
   %723 = zext nneg i16 %722 to i64
   %724 = and i16 %721, %720
@@ -5154,7 +5154,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit5.i
   br i1 %.not.i.not.us.i.us.i.i, label %._crit_edge.i.us.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd68d9c0f191fbb06E.exit.us.i.us.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd68d9c0f191fbb06E.exit.us.i.us.i.i": ; preds = %.backedge.us.i.us.i.i
-  %322 = add i16 %321, -1
+  %322 = add i16 %321, -2
   %323 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %321, i1 true)
   %324 = zext nneg i16 %323 to i64
   %325 = and i16 %322, %321
@@ -5967,7 +5967,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br i1 %.not.i.not.us.i.us.i.i96, label %._crit_edge.i.us.i.i161, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd68d9c0f191fbb06E.exit.us.i.us.i.i97"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd68d9c0f191fbb06E.exit.us.i.us.i.i97": ; preds = %.backedge.us.i.us.i.i95
-  %721 = add i16 %720, -1
+  %721 = add i16 %720, -2
   %722 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %720, i1 true)
   %723 = zext nneg i16 %722 to i64
   %724 = and i16 %721, %720
@@ -9595,7 +9595,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit5.i
   br i1 %.not.i.not.us.i.us.i.i, label %._crit_edge.i.us.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7566d5e107c58a83E.exit.us.i.us.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7566d5e107c58a83E.exit.us.i.us.i.i": ; preds = %.backedge.us.i.us.i.i
-  %322 = add i16 %321, -1
+  %322 = add i16 %321, -2
   %323 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %321, i1 true)
   %324 = zext nneg i16 %323 to i64
   %325 = and i16 %322, %321
@@ -10409,7 +10409,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br i1 %.not.i.not.us.i.us.i.i96, label %._crit_edge.i.us.i.i161, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7566d5e107c58a83E.exit.us.i.us.i.i97"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7566d5e107c58a83E.exit.us.i.us.i.i97": ; preds = %.backedge.us.i.us.i.i95
-  %721 = add i16 %720, -1
+  %721 = add i16 %720, -2
   %722 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %720, i1 true)
   %723 = zext nneg i16 %722 to i64
   %724 = and i16 %721, %720
@@ -11824,7 +11824,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit5.i
   br i1 %.not.i.not.us.i.us.i.i, label %._crit_edge.i.us.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hca97d3860b077f18E.exit.us.i.us.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hca97d3860b077f18E.exit.us.i.us.i.i": ; preds = %.backedge.us.i.us.i.i
-  %322 = add i16 %321, -1
+  %322 = add i16 %321, -2
   %323 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %321, i1 true)
   %324 = zext nneg i16 %323 to i64
   %325 = and i16 %322, %321
@@ -12638,7 +12638,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i.
   br i1 %.not.i.not.us.i.us.i.i96, label %._crit_edge.i.us.i.i161, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hca97d3860b077f18E.exit.us.i.us.i.i97"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hca97d3860b077f18E.exit.us.i.us.i.i97": ; preds = %.backedge.us.i.us.i.i95
-  %721 = add i16 %720, -1
+  %721 = add i16 %720, -2
   %722 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %720, i1 true)
   %723 = zext nneg i16 %722 to i64
   %724 = and i16 %721, %720
@@ -21743,7 +21743,7 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   br i1 %.not.i.not.us.i.us.i.i.i.i.i.i, label %._crit_edge.i.us.i.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7566d5e107c58a83E.exit.us.i.us.i.i.i.i.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7566d5e107c58a83E.exit.us.i.us.i.i.i.i.i.i": ; preds = %.backedge.us.i.us.i.i.i.i.i.i
-  %60 = add i16 %59, -1
+  %60 = add i16 %59, -2
   %61 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %59, i1 true)
   %62 = zext nneg i16 %61 to i64
   %63 = and i16 %60, %59
@@ -22200,7 +22200,7 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   br i1 %.not.i.not.us.i.us.i.i.i.i.i.i, label %._crit_edge.i.us.i.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hca97d3860b077f18E.exit.us.i.us.i.i.i.i.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hca97d3860b077f18E.exit.us.i.us.i.i.i.i.i.i": ; preds = %.backedge.us.i.us.i.i.i.i.i.i
-  %60 = add i16 %59, -1
+  %60 = add i16 %59, -2
   %61 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %59, i1 true)
   %62 = zext nneg i16 %61 to i64
   %63 = and i16 %60, %59
@@ -23005,7 +23005,7 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   br i1 %.not.i.not.us.i.us.i.i.i.i.i.i, label %._crit_edge.i.us.i.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h8ab794ba5e081ca7E.exit.us.i.us.i.i.i.i.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h8ab794ba5e081ca7E.exit.us.i.us.i.i.i.i.i.i": ; preds = %.backedge.us.i.us.i.i.i.i.i.i
-  %60 = add i16 %59, -1
+  %60 = add i16 %59, -2
   %61 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %59, i1 true)
   %62 = zext nneg i16 %61 to i64
   %63 = and i16 %60, %59
@@ -23793,7 +23793,7 @@ define hidden void @"_ZN4core3ops8function5impls71_$LT$impl$u20$core..ops..funct
   br i1 %.not.i.not.us.i.us.i.i.i.i.i.i, label %._crit_edge.i.us.i.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd68d9c0f191fbb06E.exit.us.i.us.i.i.i.i.i.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hd68d9c0f191fbb06E.exit.us.i.us.i.i.i.i.i.i": ; preds = %.backedge.us.i.us.i.i.i.i.i.i
-  %60 = add i16 %59, -1
+  %60 = add i16 %59, -2
   %61 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %59, i1 true)
   %62 = zext nneg i16 %61 to i64
   %63 = and i16 %60, %59

@@ -3132,7 +3132,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
   %1227 = phi i32 [ %1198, %1205 ], [ %1249, %1224 ]
   %1228 = phi i32 [ %1192, %1205 ], [ %1250, %1224 ]
   %1229 = tail call noundef i32 @llvm.cttz.i32(i32 %1225, i1 true), !range !99
-  %1230 = add i32 %1225, -1
+  %1230 = add i32 %1225, -2
   %1231 = and i32 %1230, %1225
   %1232 = zext nneg i32 %1229 to i64
   %1233 = getelementptr inbounds nuw i32, ptr %1195, i64 %1232
@@ -3402,7 +3402,7 @@ define hidden noundef range(i32 0, 32) i32 @_ZNK6asmjit9_abi_1_1016RALocalAlloca
   %41 = phi i32 [ %15, %17 ], [ %63, %38 ]
   %42 = phi i32 [ %6, %17 ], [ %64, %38 ]
   %43 = tail call noundef i32 @llvm.cttz.i32(i32 %39, i1 true), !range !99
-  %44 = add i32 %39, -1
+  %44 = add i32 %39, -2
   %45 = and i32 %44, %39
   %46 = zext nneg i32 %43 to i64
   %47 = getelementptr inbounds nuw i32, ptr %12, i64 %46

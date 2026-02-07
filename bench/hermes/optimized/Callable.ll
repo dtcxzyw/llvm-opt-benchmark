@@ -2989,11 +2989,10 @@ entry:
 
 if.end.i:                                         ; preds = %entry
   %mul.i.i.i.i = shl nuw nsw i32 %add, 3
-  %sub.i.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i, 15
-  %div1.i.i.i.i.i = and i32 %sub.i.i.i.i.i, 8388600
+  %sub.i.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i, 8
   %level_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
   %0 = load ptr, ptr %level_.i.i.i.i.i.i.i, align 8
-  %idx.ext.i.i.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i.i to i64
+  %idx.ext.i.i.i.i.i.i.i = zext nneg i32 %sub.i.i.i.i.i to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %idx.ext.i.i.i.i.i.i.i
   %effectiveEnd_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1664
   %1 = load ptr, ptr %effectiveEnd_.i.i.i.i.i.i.i.i, align 8
@@ -3002,7 +3001,7 @@ if.end.i:                                         ; preds = %entry
 
 cond.true.i.i.i.i.i.i:                            ; preds = %if.end.i
   %heapStorage_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  %call3.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, i32 noundef %div1.i.i.i.i.i) #11
+  %call3.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, i32 noundef %sub.i.i.i.i.i) #11
   br label %_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE6createERNS0_7RuntimeEj.exit.thread
 
 cond.false.i.i.i.i.i.i:                           ; preds = %if.end.i
@@ -3012,7 +3011,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %if.end.i
 _ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE6createERNS0_7RuntimeEj.exit.thread: ; preds = %cond.true.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
   %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %0, %cond.false.i.i.i.i.i.i ]
   store i64 0, ptr %cond.i.i.i.i.i.i, align 8
-  %bf.set7.i.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i.i, 234881024
+  %bf.set7.i.i.i.i.i.i.i = or disjoint i32 %sub.i.i.i.i.i, 234881024
   store i32 %bf.set7.i.i.i.i.i.i.i, ptr %cond.i.i.i.i.i.i, align 8
   %2 = ptrtoint ptr %cond.i.i.i.i.i.i to i64
   %3 = or i64 %2, -281474976710656
@@ -3576,7 +3575,7 @@ if.end:                                           ; preds = %entry
 
 if.end.i.i:                                       ; preds = %if.end
   %mul.i.i.i.i.i = shl nuw nsw i32 %sub, 2
-  %sub.i.i.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i.i, 15
+  %sub.i.i.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i.i, 12
   %div1.i.i.i.i.i.i = and i32 %sub.i.i.i.i.i.i, 8388600
   %level_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
   %0 = load ptr, ptr %level_.i.i.i.i.i.i.i.i, align 8
@@ -4259,10 +4258,9 @@ _ZN6hermes2vm22GeneratorInnerFunction14getContextSizeEPNS0_9CodeBlockEj.exit: ; 
 
 if.end.i.i:                                       ; preds = %_ZN6hermes2vm22GeneratorInnerFunction14getContextSizeEPNS0_9CodeBlockEj.exit
   %mul.i.i.i.i.i = shl nuw nsw i32 %add2.i, 3
-  %sub.i.i.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i.i, 15
-  %div1.i.i.i.i.i.i = and i32 %sub.i.i.i.i.i.i, 8388600
+  %sub.i.i.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i.i, 8
   %23 = load ptr, ptr %level_.i.i.i.i.i.i, align 8
-  %idx.ext.i.i.i.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i.i.i to i64
+  %idx.ext.i.i.i.i.i.i.i.i = zext nneg i32 %sub.i.i.i.i.i.i to i64
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 %idx.ext.i.i.i.i.i.i.i.i
   %24 = load ptr, ptr %effectiveEnd_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i = icmp ugt ptr %add.ptr.i.i.i.i.i.i.i.i, %24
@@ -4270,7 +4268,7 @@ if.end.i.i:                                       ; preds = %_ZN6hermes2vm22Gene
 
 cond.true.i.i.i.i.i.i.i:                          ; preds = %if.end.i.i
   %heapStorage_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  %call3.i.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i, i32 noundef %div1.i.i.i.i.i.i) #11
+  %call3.i.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i.i, i32 noundef %sub.i.i.i.i.i.i) #11
   br label %_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE6createERNS0_7RuntimeEj.exit.thread.i
 
 cond.false.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i
@@ -4280,7 +4278,7 @@ cond.false.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i
 _ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE6createERNS0_7RuntimeEj.exit.thread.i: ; preds = %cond.false.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i
   %cond.i.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i.i ], [ %23, %cond.false.i.i.i.i.i.i.i ]
   store i64 0, ptr %cond.i.i.i.i.i.i.i, align 8
-  %bf.set7.i.i.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i.i.i, 234881024
+  %bf.set7.i.i.i.i.i.i.i.i = or disjoint i32 %sub.i.i.i.i.i.i, 234881024
   store i32 %bf.set7.i.i.i.i.i.i.i.i, ptr %cond.i.i.i.i.i.i.i, align 8
   %25 = ptrtoint ptr %cond.i.i.i.i.i.i.i to i64
   br label %if.end

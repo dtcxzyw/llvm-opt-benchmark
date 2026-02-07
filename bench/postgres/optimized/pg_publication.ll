@@ -158,7 +158,7 @@ define dso_local zeroext i1 @check_and_fetch_column_list(ptr noundef readonly ca
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i8, ptr %6, align 8, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %48, label %9
+  br i1 %8, label %47, label %9
 
 9:                                                ; preds = %4
   %10 = zext i32 %1 to i64
@@ -166,7 +166,7 @@ define dso_local zeroext i1 @check_and_fetch_column_list(ptr noundef readonly ca
   %12 = zext i32 %11 to i64
   %13 = tail call ptr @SearchSysCache2(i32 noundef 53, i64 noundef %10, i64 noundef %12) #5
   %.not = icmp eq ptr %13, null
-  br i1 %.not, label %48, label %14
+  br i1 %.not, label %47, label %14
 
 14:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -175,7 +175,7 @@ define dso_local zeroext i1 @check_and_fetch_column_list(ptr noundef readonly ca
   %17 = trunc nuw i8 %16 to i1
   %.not15 = icmp eq ptr %3, null
   %or.cond = or i1 %.not15, %17
-  br i1 %or.cond, label %47, label %18
+  br i1 %or.cond, label %46, label %18
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr %3, align 8
@@ -190,68 +190,67 @@ define dso_local zeroext i1 @check_and_fetch_column_list(ptr noundef readonly ca
 
 26:                                               ; preds = %18
   %27 = sext i32 %25 to i64
-  br label %35
+  br label %34
 
 28:                                               ; preds = %18
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %30 = load i32, ptr %29, align 4
   %31 = sext i32 %30 to i64
   %32 = shl nsw i64 %31, 3
-  %33 = add nsw i64 %32, 23
-  %34 = and i64 %33, -8
-  br label %35
+  %33 = add nsw i64 %32, 16
+  br label %34
 
-35:                                               ; preds = %28, %26
-  %36 = phi i64 [ %27, %26 ], [ %34, %28 ]
-  %37 = getelementptr inbounds nuw i8, ptr %21, i64 %36
+34:                                               ; preds = %28, %26
+  %35 = phi i64 [ %27, %26 ], [ %33, %28 ]
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 %35
   %.not21.i = icmp eq ptr %2, null
-  br i1 %.not21.i, label %40, label %38
+  br i1 %.not21.i, label %39, label %37
 
-38:                                               ; preds = %35
-  %39 = load ptr, ptr @CurrentMemoryContext, align 8
+37:                                               ; preds = %34
+  %38 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %2, ptr @CurrentMemoryContext, align 8
-  br label %40
+  br label %39
 
-40:                                               ; preds = %38, %35
-  %.017.i = phi ptr [ %39, %38 ], [ null, %35 ]
-  %41 = icmp sgt i32 %23, 0
-  br i1 %41, label %.lr.ph.preheader.i, label %._crit_edge.i
+39:                                               ; preds = %37, %34
+  %.017.i = phi ptr [ %38, %37 ], [ null, %34 ]
+  %40 = icmp sgt i32 %23, 0
+  br i1 %40, label %.lr.ph.preheader.i, label %._crit_edge.i
 
-.lr.ph.preheader.i:                               ; preds = %40
+.lr.ph.preheader.i:                               ; preds = %39
   %wide.trip.count.i = zext nneg i32 %23 to i64
   br label %.lr.ph.i
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i, %40
-  %.018.lcssa.i = phi ptr [ %19, %40 ], [ %45, %.lr.ph.i ]
-  br i1 %.not21.i, label %pub_collist_to_bitmapset.exit, label %46
+._crit_edge.i:                                    ; preds = %.lr.ph.i, %39
+  %.018.lcssa.i = phi ptr [ %19, %39 ], [ %44, %.lr.ph.i ]
+  br i1 %.not21.i, label %pub_collist_to_bitmapset.exit, label %45
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.01822.i = phi ptr [ %19, %.lr.ph.preheader.i ], [ %45, %.lr.ph.i ]
-  %42 = getelementptr inbounds nuw i16, ptr %37, i64 %indvars.iv.i
-  %43 = load i16, ptr %42, align 2
-  %44 = sext i16 %43 to i32
-  %45 = call ptr @bms_add_member(ptr noundef %.01822.i, i32 noundef %44) #5
+  %.01822.i = phi ptr [ %19, %.lr.ph.preheader.i ], [ %44, %.lr.ph.i ]
+  %41 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv.i
+  %42 = load i16, ptr %41, align 2
+  %43 = sext i16 %42 to i32
+  %44 = call ptr @bms_add_member(ptr noundef %.01822.i, i32 noundef %43) #5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !6
 
-46:                                               ; preds = %._crit_edge.i
+45:                                               ; preds = %._crit_edge.i
   store ptr %.017.i, ptr @CurrentMemoryContext, align 8
   br label %pub_collist_to_bitmapset.exit
 
-pub_collist_to_bitmapset.exit:                    ; preds = %._crit_edge.i, %46
+pub_collist_to_bitmapset.exit:                    ; preds = %._crit_edge.i, %45
   store ptr %.018.lcssa.i, ptr %3, align 8
-  br label %47
+  br label %46
 
-47:                                               ; preds = %pub_collist_to_bitmapset.exit, %14
+46:                                               ; preds = %pub_collist_to_bitmapset.exit, %14
   %.1 = xor i1 %17, true
   call void @ReleaseSysCache(ptr noundef nonnull %13) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %48
+  br label %47
 
-48:                                               ; preds = %9, %47, %4
-  %.0 = phi i1 [ false, %4 ], [ %.1, %47 ], [ false, %9 ]
+47:                                               ; preds = %9, %46, %4
+  %.0 = phi i1 [ false, %4 ], [ %.1, %46 ], [ false, %9 ]
   ret i1 %.0
 }
 
@@ -272,57 +271,56 @@ define dso_local ptr @pub_collist_to_bitmapset(ptr noundef %0, i64 noundef %1, p
 
 10:                                               ; preds = %3
   %11 = sext i32 %9 to i64
-  br label %19
+  br label %18
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
   %16 = shl nsw i64 %15, 3
-  %17 = add nsw i64 %16, 23
-  %18 = and i64 %17, -8
-  br label %19
+  %17 = add nsw i64 %16, 16
+  br label %18
 
-19:                                               ; preds = %12, %10
-  %20 = phi i64 [ %11, %10 ], [ %18, %12 ]
-  %21 = getelementptr inbounds nuw i8, ptr %5, i64 %20
+18:                                               ; preds = %12, %10
+  %19 = phi i64 [ %11, %10 ], [ %17, %12 ]
+  %20 = getelementptr inbounds nuw i8, ptr %5, i64 %19
   %.not21 = icmp eq ptr %2, null
-  br i1 %.not21, label %24, label %22
+  br i1 %.not21, label %23, label %21
 
-22:                                               ; preds = %19
-  %23 = load ptr, ptr @CurrentMemoryContext, align 8
+21:                                               ; preds = %18
+  %22 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %2, ptr @CurrentMemoryContext, align 8
-  br label %24
+  br label %23
 
-24:                                               ; preds = %22, %19
-  %.017 = phi ptr [ %23, %22 ], [ null, %19 ]
-  %25 = icmp sgt i32 %7, 0
-  br i1 %25, label %.lr.ph.preheader, label %._crit_edge
+23:                                               ; preds = %21, %18
+  %.017 = phi ptr [ %22, %21 ], [ null, %18 ]
+  %24 = icmp sgt i32 %7, 0
+  br i1 %24, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %24
+.lr.ph.preheader:                                 ; preds = %23
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %24
-  %.018.lcssa = phi ptr [ %0, %24 ], [ %29, %.lr.ph ]
-  br i1 %.not21, label %31, label %30
+._crit_edge:                                      ; preds = %.lr.ph, %23
+  %.018.lcssa = phi ptr [ %0, %23 ], [ %28, %.lr.ph ]
+  br i1 %.not21, label %30, label %29
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.01822 = phi ptr [ %0, %.lr.ph.preheader ], [ %29, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv
-  %27 = load i16, ptr %26, align 2
-  %28 = sext i16 %27 to i32
-  %29 = tail call ptr @bms_add_member(ptr noundef %.01822, i32 noundef %28) #5
+  %.01822 = phi ptr [ %0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
+  %25 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv
+  %26 = load i16, ptr %25, align 2
+  %27 = sext i16 %26 to i32
+  %28 = tail call ptr @bms_add_member(ptr noundef %.01822, i32 noundef %27) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-30:                                               ; preds = %._crit_edge
+29:                                               ; preds = %._crit_edge
   store ptr %.017, ptr @CurrentMemoryContext, align 8
-  br label %31
+  br label %30
 
-31:                                               ; preds = %30, %._crit_edge
+30:                                               ; preds = %29, %._crit_edge
   ret ptr %.018.lcssa
 }
 

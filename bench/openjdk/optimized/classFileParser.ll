@@ -10305,7 +10305,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit: ; preds = %11, %18
   %31 = load ptr, ptr %30, align 8
   %32 = tail call i32 @llvm.usub.sat.i32(i32 %29, i32 1)
   %33 = shl nuw nsw i32 %32, 1
-  %narrow = add nuw nsw i32 %33, 15
+  %narrow = add nuw nsw i32 %33, 14
   %34 = lshr i32 %narrow, 3
   %35 = zext nneg i32 %34 to i64
   %36 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %31, i64 noundef %35, i32 noundef 3, ptr noundef %7) #24
@@ -10771,7 +10771,7 @@ define linkonce_odr hidden void @_ZN15MetadataFactory10free_arrayItEEvP15ClassLo
   %6 = add nsw i32 %5, -1
   %7 = zext nneg i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 1
-  %9 = add nuw nsw i64 %8, 15
+  %9 = add nuw nsw i64 %8, 14
   %10 = lshr i64 %9, 3
   %11 = tail call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %0) #24
   tail call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %1, i64 noundef %10, i1 noundef zeroext false) #24
@@ -10823,7 +10823,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit: ; preds = %7, %14
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @llvm.usub.sat.i32(i32 %22, i32 1)
   %26 = shl nuw nsw i32 %25, 1
-  %narrow = add nuw nsw i32 %26, 15
+  %narrow = add nuw nsw i32 %26, 14
   %27 = lshr i32 %narrow, 3
   %28 = zext nneg i32 %27 to i64
   %29 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %24, i64 noundef %28, i32 noundef 3, ptr noundef %3) #24
@@ -10982,7 +10982,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit: ; preds = %7, %14
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @llvm.usub.sat.i32(i32 %22, i32 1)
   %26 = shl nuw nsw i32 %25, 1
-  %narrow = add nuw nsw i32 %26, 15
+  %narrow = add nuw nsw i32 %26, 14
   %27 = lshr i32 %narrow, 3
   %28 = zext nneg i32 %27 to i64
   %29 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %24, i64 noundef %28, i32 noundef 3, ptr noundef %3) #24
@@ -12065,7 +12065,7 @@ _ZNK15ClassFileParser18guarantee_propertyEbPKcP10JavaThread.exit: ; preds = %_ZN
   %39 = add nsw i32 %38, -1
   %40 = zext nneg i32 %39 to i64
   %41 = shl nuw nsw i64 %40, 1
-  %42 = add nuw nsw i64 %41, 15
+  %42 = add nuw nsw i64 %41, 14
   %43 = lshr i64 %42, 3
   %44 = tail call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %36, i64 noundef %43, i32 noundef 3, ptr noundef nonnull %4) #24
   %45 = icmp eq ptr %44, null
@@ -18092,7 +18092,7 @@ _ZN15MetadataFactory10free_arrayItEEvP15ClassLoaderDataP5ArrayIT_E.exit: ; preds
   %52 = add nsw i32 %51, -1
   %53 = zext nneg i32 %52 to i64
   %54 = shl nuw nsw i64 %53, 1
-  %55 = add nuw nsw i64 %54, 15
+  %55 = add nuw nsw i64 %54, 14
   %56 = lshr i64 %55, 3
   %57 = tail call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %49) #24
   tail call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %46, i64 noundef %56, i1 noundef zeroext false) #24
@@ -18116,7 +18116,7 @@ _ZN15MetadataFactory10free_arrayItEEvP15ClassLoaderDataP5ArrayIT_E.exit27: ; pre
   %66 = add nsw i32 %65, -1
   %67 = zext nneg i32 %66 to i64
   %68 = shl nuw nsw i64 %67, 1
-  %69 = add nuw nsw i64 %68, 15
+  %69 = add nuw nsw i64 %68, 14
   %70 = lshr i64 %69, 3
   %71 = tail call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %63) #24
   tail call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull %61, i64 noundef %70, i1 noundef zeroext false) #24
@@ -18151,7 +18151,7 @@ _ZN15MetadataFactory10free_arrayItEEvP15ClassLoaderDataP5ArrayIT_E.exit29: ; pre
   %86 = add nsw i32 %85, -1
   %87 = zext nneg i32 %86 to i64
   %88 = shl nuw nsw i64 %87, 1
-  %89 = add nuw nsw i64 %88, 15
+  %89 = add nuw nsw i64 %88, 14
   %90 = lshr i64 %89, 3
   %91 = tail call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %83) #24
   tail call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull %80, i64 noundef %90, i1 noundef zeroext false) #24

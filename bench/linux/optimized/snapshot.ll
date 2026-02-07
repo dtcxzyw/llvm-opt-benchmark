@@ -3547,7 +3547,7 @@ define dso_local range(i32 0, -1) i32 @snapshot_additional_pages(ptr noundef rea
   %5 = lshr i64 %4, 15
   %6 = and i64 %5, 4294967295
   %7 = mul nuw nsw i64 %6, 24
-  %8 = add nuw nsw i64 %7, 4087
+  %8 = add nuw nsw i64 %7, 4080
   %9 = udiv i64 %8, 4088
   %10 = add nuw nsw i64 %9, %5
   %11 = trunc i64 %10 to i32
@@ -4294,7 +4294,7 @@ define dso_local noundef range(i32 -12, 1) i32 @hibernate_preallocate_memory() l
   %71 = lshr i64 %70, 15
   %72 = and i64 %71, 4294967295
   %73 = mul nuw nsw i64 %72, 24
-  %74 = add nuw nsw i64 %73, 4087
+  %74 = add nuw nsw i64 %73, 4080
   %75 = udiv i64 %74, 4088
   %76 = add nuw nsw i64 %75, %71
   %77 = trunc i64 %76 to i32
@@ -5608,7 +5608,7 @@ define dso_local noundef range(i32 -12, 1) i32 @swsusp_save() local_unnamed_addr
   store i32 %472, ptr @nr_zero_pages, align 4
   %473 = zext i32 %29 to i64
   %474 = shl nuw nsw i64 %473, 3
-  %475 = add nuw nsw i64 %474, 4095
+  %475 = add nuw nsw i64 %474, 4088
   %476 = lshr i64 %475, 12
   %477 = trunc nuw nsw i64 %476 to i32
   store i32 %477, ptr @nr_meta_pages, align 4

@@ -21320,7 +21320,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %.not.i.not.us.i.us.i.i.i.i, label %._crit_edge.i.us.i.i.i.i, label %100
 
 100:                                              ; preds = %.backedge.us.i.us.i.i.i.i
-  %101 = add i16 %99, -1
+  %101 = add i16 %99, -2
   %102 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %99, i1 true)
   %103 = zext nneg i16 %102 to i64
   %104 = and i16 %101, %99
@@ -21377,7 +21377,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.backedge.i.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcdd1ca490b5052b8E.exit.i.i.i.i.i": ; preds = %.backedge.i.i.i.i.i
-  %132 = add i16 %142, -1
+  %132 = add i16 %142, -2
   %133 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %142, i1 true)
   %134 = zext nneg i16 %133 to i64
   %135 = and i16 %132, %142
@@ -21878,7 +21878,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %.not.i.not.us.i.us.i.i.i.i, label %._crit_edge.i.us.i.i.i.i, label %100
 
 100:                                              ; preds = %.backedge.us.i.us.i.i.i.i
-  %101 = add i16 %99, -1
+  %101 = add i16 %99, -2
   %102 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %99, i1 true)
   %103 = zext nneg i16 %102 to i64
   %104 = and i16 %101, %99
@@ -21935,7 +21935,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.backedge.i.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6e803e36d77e97f9E.exit.i.i.i.i.i": ; preds = %.backedge.i.i.i.i.i
-  %132 = add i16 %142, -1
+  %132 = add i16 %142, -2
   %133 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %142, i1 true)
   %134 = zext nneg i16 %133 to i64
   %135 = and i16 %132, %142
@@ -22436,7 +22436,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %.not.i.not.us.i.us.i.i.i.i, label %._crit_edge.i.us.i.i.i.i, label %100
 
 100:                                              ; preds = %.backedge.us.i.us.i.i.i.i
-  %101 = add i16 %99, -1
+  %101 = add i16 %99, -2
   %102 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %99, i1 true)
   %103 = zext nneg i16 %102 to i64
   %104 = and i16 %101, %99
@@ -22493,7 +22493,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.backedge.i.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6d78c535f2db1b1fE.exit.i.i.i.i.i": ; preds = %.backedge.i.i.i.i.i
-  %132 = add i16 %142, -1
+  %132 = add i16 %142, -2
   %133 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %142, i1 true)
   %134 = zext nneg i16 %133 to i64
   %135 = and i16 %132, %142
@@ -22994,7 +22994,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %.not.i.not.us.i.us.i.i.i.i, label %._crit_edge.i.us.i.i.i.i, label %100
 
 100:                                              ; preds = %.backedge.us.i.us.i.i.i.i
-  %101 = add i16 %99, -1
+  %101 = add i16 %99, -2
   %102 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %99, i1 true)
   %103 = zext nneg i16 %102 to i64
   %104 = and i16 %101, %99
@@ -23051,7 +23051,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.backedge.i.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hdd4392a2080cbc93E.exit.i.i.i.i.i": ; preds = %.backedge.i.i.i.i.i
-  %132 = add i16 %142, -1
+  %132 = add i16 %142, -2
   %133 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %142, i1 true)
   %134 = zext nneg i16 %133 to i64
   %135 = and i16 %132, %142
@@ -23552,7 +23552,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %.not.i.not.us.i.us.i.i.i.i, label %._crit_edge.i.us.i.i.i.i, label %100
 
 100:                                              ; preds = %.backedge.us.i.us.i.i.i.i
-  %101 = add i16 %99, -1
+  %101 = add i16 %99, -2
   %102 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %99, i1 true)
   %103 = zext nneg i16 %102 to i64
   %104 = and i16 %101, %99
@@ -23609,7 +23609,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.backedge.i.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h5043d816e0539fafE.exit.i.i.i.i.i": ; preds = %.backedge.i.i.i.i.i
-  %132 = add i16 %142, -1
+  %132 = add i16 %142, -2
   %133 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %142, i1 true)
   %134 = zext nneg i16 %133 to i64
   %135 = and i16 %132, %142
@@ -24110,7 +24110,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %.not.i.not.us.i.us.i.i.i.i, label %._crit_edge.i.us.i.i.i.i, label %100
 
 100:                                              ; preds = %.backedge.us.i.us.i.i.i.i
-  %101 = add i16 %99, -1
+  %101 = add i16 %99, -2
   %102 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %99, i1 true)
   %103 = zext nneg i16 %102 to i64
   %104 = and i16 %101, %99
@@ -24167,7 +24167,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.backedge.i.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hcaf9c090be2fe775E.exit.i.i.i.i.i": ; preds = %.backedge.i.i.i.i.i
-  %132 = add i16 %142, -1
+  %132 = add i16 %142, -2
   %133 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %142, i1 true)
   %134 = zext nneg i16 %133 to i64
   %135 = and i16 %132, %142
@@ -24668,7 +24668,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %.not.i.not.us.i.us.i.i.i.i, label %._crit_edge.i.us.i.i.i.i, label %100
 
 100:                                              ; preds = %.backedge.us.i.us.i.i.i.i
-  %101 = add i16 %99, -1
+  %101 = add i16 %99, -2
   %102 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %99, i1 true)
   %103 = zext nneg i16 %102 to i64
   %104 = and i16 %101, %99
@@ -24725,7 +24725,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.backedge.i.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h7e93b380601bd9e5E.exit.i.i.i.i.i": ; preds = %.backedge.i.i.i.i.i
-  %132 = add i16 %142, -1
+  %132 = add i16 %142, -2
   %133 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %142, i1 true)
   %134 = zext nneg i16 %133 to i64
   %135 = and i16 %132, %142
@@ -25226,7 +25226,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %.not.i.not.us.i.us.i.i.i.i, label %._crit_edge.i.us.i.i.i.i, label %100
 
 100:                                              ; preds = %.backedge.us.i.us.i.i.i.i
-  %101 = add i16 %99, -1
+  %101 = add i16 %99, -2
   %102 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %99, i1 true)
   %103 = zext nneg i16 %102 to i64
   %104 = and i16 %101, %99
@@ -25283,7 +25283,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.backedge.i.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hbb26118dbced8698E.exit.i.i.i.i.i": ; preds = %.backedge.i.i.i.i.i
-  %132 = add i16 %142, -1
+  %132 = add i16 %142, -2
   %133 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %142, i1 true)
   %134 = zext nneg i16 %133 to i64
   %135 = and i16 %132, %142
@@ -25784,7 +25784,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br i1 %.not.i.not.us.i.us.i.i.i.i, label %._crit_edge.i.us.i.i.i.i, label %100
 
 100:                                              ; preds = %.backedge.us.i.us.i.i.i.i
-  %101 = add i16 %99, -1
+  %101 = add i16 %99, -2
   %102 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %99, i1 true)
   %103 = zext nneg i16 %102 to i64
   %104 = and i16 %101, %99
@@ -25841,7 +25841,7 @@ define hidden void @"_ZN136_$LT$polars_pipe..executors..sinks..group_by..primiti
   br label %.backedge.i.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17hb4de578ce9ff7ee0E.exit.i.i.i.i.i": ; preds = %.backedge.i.i.i.i.i
-  %132 = add i16 %142, -1
+  %132 = add i16 %142, -2
   %133 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %142, i1 true)
   %134 = zext nneg i16 %133 to i64
   %135 = and i16 %132, %142

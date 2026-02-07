@@ -360,7 +360,7 @@ define dso_local zeroext i1 @intel_fbc_pre_update(ptr noundef readonly captures(
   br i1 %128, label %129, label %144
 
 129:                                              ; preds = %123
-  %130 = add i32 %125, 511
+  %130 = add i32 %125, 508
   %131 = and i32 %130, -512
   %132 = getelementptr inbounds nuw i8, ptr %49, i64 108
   %133 = getelementptr inbounds nuw i8, ptr %49, i64 116
@@ -401,7 +401,7 @@ define dso_local zeroext i1 @intel_fbc_pre_update(ptr noundef readonly captures(
   br i1 %161, label %162, label %177
 
 162:                                              ; preds = %156
-  %163 = add i32 %158, 511
+  %163 = add i32 %158, 508
   %164 = and i32 %163, -512
   %165 = getelementptr inbounds nuw i8, ptr %51, i64 108
   %166 = getelementptr inbounds nuw i8, ptr %51, i64 116
@@ -1685,7 +1685,7 @@ define dso_local void @intel_fbc_update(ptr noundef readonly captures(none) %0, 
   br i1 %94, label %151, label %165
 
 151:                                              ; preds = %148
-  %152 = add i32 %150, 511
+  %152 = add i32 %150, 508
   %153 = and i32 %152, -512
   %154 = getelementptr inbounds nuw i8, ptr %57, i64 116
   %155 = load i32, ptr %154, align 4
@@ -2551,7 +2551,7 @@ define internal fastcc zeroext i1 @intel_fbc_is_ok(ptr noundef readonly captures
   br i1 %10, label %70, label %84
 
 70:                                               ; preds = %67
-  %71 = add i32 %69, 511
+  %71 = add i32 %69, 508
   %72 = and i32 %71, -512
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %74 = load i32, ptr %73, align 4
@@ -2638,7 +2638,7 @@ define internal fastcc i32 @intel_fbc_cfb_size(ptr noundef readonly captures(non
   br i1 %40, label %41, label %55
 
 41:                                               ; preds = %37
-  %42 = add i32 %39, 511
+  %42 = add i32 %39, 508
   %43 = and i32 %42, -512
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %45 = load i32, ptr %44, align 4
@@ -2691,7 +2691,7 @@ define internal fastcc zeroext i16 @intel_fbc_override_cfb_stride(ptr noundef re
   br i1 %24, label %25, label %40
 
 25:                                               ; preds = %19
-  %26 = add i32 %21, 511
+  %26 = add i32 %21, 508
   %27 = and i32 %26, -512
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -3286,7 +3286,7 @@ define internal fastcc void @intel_fbc_update_state(ptr noundef readonly capture
   br i1 %95, label %96, label %111
 
 96:                                               ; preds = %90
-  %97 = add i32 %92, 511
+  %97 = add i32 %92, 508
   %98 = and i32 %97, -512
   %99 = getelementptr inbounds nuw i8, ptr %16, i64 108
   %100 = getelementptr inbounds nuw i8, ptr %16, i64 116
@@ -3358,7 +3358,7 @@ define internal fastcc void @intel_fbc_update_state(ptr noundef readonly capture
   br i1 %150, label %151, label %165
 
 151:                                              ; preds = %147
-  %152 = add i32 %149, 511
+  %152 = add i32 %149, 508
   %153 = and i32 %152, -512
   %154 = getelementptr inbounds nuw i8, ptr %16, i64 116
   %155 = load i32, ptr %154, align 4
@@ -3406,7 +3406,7 @@ define internal fastcc void @intel_fbc_update_state(ptr noundef readonly capture
   br i1 %189, label %190, label %204
 
 190:                                              ; preds = %184
-  %191 = add i32 %186, 511
+  %191 = add i32 %186, 508
   %192 = and i32 %191, -512
   %193 = getelementptr inbounds nuw i8, ptr %16, i64 116
   %194 = load i32, ptr %193, align 4

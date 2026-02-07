@@ -4400,8 +4400,8 @@ validate_xr_block_length.exit.i:                  ; preds = %.sink.split.i.i402,
   %1400 = add nuw nsw i32 %1398, %1399
   %1401 = and i32 %notmask.i, 65535
   %1402 = and i32 %1401, %1400
-  %1403 = add nsw i32 %.0475.i, -9
-  %1404 = lshr i32 %1403, 2
+  %1403 = add nsw i32 %.0475.i, -12
+  %1404 = lshr exact i32 %1403, 2
   br label %1405
 
 1405:                                             ; preds = %1405, %.lr.ph512.i
@@ -4434,8 +4434,8 @@ validate_xr_block_length.exit.i:                  ; preds = %.sink.split.i.i402,
   br i1 %1426, label %.lr.ph.preheader.i, label %.thread500.i
 
 .lr.ph.preheader.i:                               ; preds = %1414
-  %1427 = add nsw i32 %.0475.i, -9
-  %1428 = lshr i32 %1427, 1
+  %1427 = add nsw i32 %.0475.i, -10
+  %1428 = lshr exact i32 %1427, 1
   %1429 = add nuw nsw i32 %1428, 1
   br label %.lr.ph.i398
 

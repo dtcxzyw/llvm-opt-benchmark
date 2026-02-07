@@ -7449,7 +7449,7 @@ _ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %_ZN4llvm25trai
   %161 = load i32, ptr %1, align 8
   %162 = and i32 %161, 4194304
   %.not116 = icmp eq i32 %162, 0
-  br i1 %.not116, label %193, label %163
+  br i1 %.not116, label %191, label %163
 
 163:                                              ; preds = %.critedge91
   %164 = getelementptr inbounds nuw i8, ptr %52, i64 24
@@ -7464,7 +7464,7 @@ _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i: ; preds =
   %166 = load i64, ptr %90, align 16
   %167 = and i64 %166, 270215977642229760
   %.not.i.i.i.i.i = icmp eq i64 %167, 0
-  %168 = select i1 %.not.i.i.i.i.i, i64 15, i64 23
+  %168 = select i1 %.not.i.i.i.i.i, i64 16, i64 24
   br label %169
 
 _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i: ; preds = %163
@@ -7473,53 +7473,51 @@ _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i: ; pre
 
 169:                                              ; preds = %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i
   %170 = phi i64 [ %166, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i ], [ %.pre.i.i.i.i.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i ]
-  %spec.select.i2.i.i.i.i.i = phi i64 [ %168, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i ], [ 15, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i ]
+  %spec.select.i2.i.i.i.i.i = phi i64 [ %168, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i.i ], [ 16, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i.i ]
   %sh.diff.i.i.i.i.i = lshr i64 %170, 35
   %171 = and i64 %sh.diff.i.i.i.i.i, 524280
   %172 = add nuw nsw i64 %171, %spec.select.i2.i.i.i.i.i
-  %173 = and i64 %172, 1048568
-  %174 = add nuw nsw i64 %173, 8
   br label %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit
 
 _ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit: ; preds = %163, %169
-  %175 = phi i64 [ %174, %169 ], [ 16, %163 ]
-  %176 = ptrtoint ptr %53 to i64
-  %177 = add i64 %175, %176
-  %178 = call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i) #17
-  %179 = icmp ne i64 %177, 0
-  %180 = zext i1 %179 to i64
-  %181 = sub i64 %177, %180
-  %182 = zext i32 %178 to i64
-  %183 = udiv i64 %181, %182
-  %184 = add i64 %183, %180
-  %185 = mul i64 %184, %182
-  %186 = inttoptr i64 %185 to ptr
-  %187 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i to ptr
-  %188 = load ptr, ptr %0, align 8, !tbaa !45
-  %189 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %190 = load ptr, ptr %189, align 8, !tbaa !11
-  %191 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %192 = load ptr, ptr %191, align 8, !tbaa !21
-  call void @_ZN5clang5index15IndexingContext12indexTypeLocENS_7TypeLocEPKNS_9NamedDeclEPKNS_11DeclContextEbb(ptr noundef nonnull align 8 dereferenceable(64) %188, ptr %187, ptr %186, ptr noundef %190, ptr noundef %192, i1 noundef zeroext false, i1 noundef zeroext false) #17
-  br label %193
+  %173 = phi i64 [ %172, %169 ], [ 16, %163 ]
+  %174 = ptrtoint ptr %53 to i64
+  %175 = add i64 %173, %174
+  %176 = call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i) #17
+  %177 = icmp ne i64 %175, 0
+  %178 = zext i1 %177 to i64
+  %179 = sub i64 %175, %178
+  %180 = zext i32 %176 to i64
+  %181 = udiv i64 %179, %180
+  %182 = add i64 %181, %178
+  %183 = mul i64 %182, %180
+  %184 = inttoptr i64 %183 to ptr
+  %185 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i to ptr
+  %186 = load ptr, ptr %0, align 8, !tbaa !45
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %188 = load ptr, ptr %187, align 8, !tbaa !11
+  %189 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %190 = load ptr, ptr %189, align 8, !tbaa !21
+  call void @_ZN5clang5index15IndexingContext12indexTypeLocENS_7TypeLocEPKNS_9NamedDeclEPKNS_11DeclContextEbb(ptr noundef nonnull align 8 dereferenceable(64) %186, ptr %185, ptr %184, ptr noundef %188, ptr noundef %190, i1 noundef zeroext false, i1 noundef zeroext false) #17
+  br label %191
 
-193:                                              ; preds = %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit, %.critedge91
-  %194 = call noundef ptr @_ZNK5clang10LambdaExpr25getTrailingRequiresClauseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %195 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111BodyIndexerEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %194, ptr noundef %2)
-  br i1 %195, label %196, label %.critedge93
+191:                                              ; preds = %_ZNK5clang15FunctionTypeLoc12getReturnLocEv.exit, %.critedge91
+  %192 = call noundef ptr @_ZNK5clang10LambdaExpr25getTrailingRequiresClauseEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
+  %193 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111BodyIndexerEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %192, ptr noundef %2)
+  br i1 %193, label %194, label %.critedge93
 
-196:                                              ; preds = %193
-  %197 = call noundef ptr @_ZNK5clang10LambdaExpr7getBodyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %198 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111BodyIndexerEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %197, ptr noundef %2)
+194:                                              ; preds = %191
+  %195 = call noundef ptr @_ZNK5clang10LambdaExpr7getBodyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
+  %196 = call fastcc noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_111BodyIndexerEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %195, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-.critedge93:                                      ; preds = %.lr.ph.i, %85, %.lr.ph125, %71, %159, %193
+.critedge93:                                      ; preds = %.lr.ph.i, %85, %.lr.ph125, %71, %159, %191
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111BodyIndexer21TraverseLambdaCaptureEPN5clang10LambdaExprEPKNS1_13LambdaCaptureEPNS1_4ExprE.exit, %196, %_ZN12_GLOBAL__N_111BodyIndexer21TraverseLambdaCaptureEPN5clang10LambdaExprEPKNS1_13LambdaCaptureEPNS1_4ExprE.exit.thread111, %.critedge93
-  %.0 = phi i1 [ false, %.critedge93 ], [ false, %_ZN12_GLOBAL__N_111BodyIndexer21TraverseLambdaCaptureEPN5clang10LambdaExprEPKNS1_13LambdaCaptureEPNS1_4ExprE.exit.thread111 ], [ %198, %196 ], [ false, %_ZN12_GLOBAL__N_111BodyIndexer21TraverseLambdaCaptureEPN5clang10LambdaExprEPKNS1_13LambdaCaptureEPNS1_4ExprE.exit ]
+.loopexit:                                        ; preds = %_ZN12_GLOBAL__N_111BodyIndexer21TraverseLambdaCaptureEPN5clang10LambdaExprEPKNS1_13LambdaCaptureEPNS1_4ExprE.exit, %194, %_ZN12_GLOBAL__N_111BodyIndexer21TraverseLambdaCaptureEPN5clang10LambdaExprEPKNS1_13LambdaCaptureEPNS1_4ExprE.exit.thread111, %.critedge93
+  %.0 = phi i1 [ false, %.critedge93 ], [ false, %_ZN12_GLOBAL__N_111BodyIndexer21TraverseLambdaCaptureEPN5clang10LambdaExprEPKNS1_13LambdaCaptureEPNS1_4ExprE.exit.thread111 ], [ %196, %194 ], [ false, %_ZN12_GLOBAL__N_111BodyIndexer21TraverseLambdaCaptureEPN5clang10LambdaExprEPKNS1_13LambdaCaptureEPNS1_4ExprE.exit ]
   ret i1 %.0
 }
 

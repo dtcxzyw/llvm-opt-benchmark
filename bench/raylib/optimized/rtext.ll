@@ -1276,8 +1276,8 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
   %124 = shl nuw i32 %120, 1
   %125 = load ptr, ptr %108, align 8, !noalias !8
   %smax.i = call i32 @llvm.smax.i32(i32 %124, i32 2)
-  %126 = add nsw i32 %smax.i, -1
-  %127 = lshr i32 %126, 1
+  %126 = add nsw i32 %smax.i, -2
+  %127 = lshr exact i32 %126, 1
   %128 = add nuw nsw i32 %127, 1
   %wide.trip.count.i = zext nneg i32 %128 to i64
   br label %129

@@ -674,7 +674,7 @@ _ZN4llvm11SmallVectorINS_11RISCVMatInt4InstELj8EEaSERKS3_.exit185: ; preds = %.s
   br label %"_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0EiEEERS2_DpOT_.exit189"
 
 "_ZN4llvm15SmallVectorImplINS_11RISCVMatInt4InstEE12emplace_backIJNS_5RISCV3$_0EiEEERS2_DpOT_.exit189": ; preds = %276, %277
-  %283 = add i64 %.085, -1
+  %283 = add i64 %.085, -2
   %284 = and i64 %283, %.085
   %.not91 = icmp eq i64 %284, 0
   br i1 %.not91, label %285, label %.preheader314, !llvm.loop !17

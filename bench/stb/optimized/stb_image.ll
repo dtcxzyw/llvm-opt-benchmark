@@ -2930,13 +2930,13 @@ stbi__skip.exit475:                               ; preds = %.loopexit520, %901,
   %914 = load i32, ptr %0, align 8, !tbaa !41
   %915 = shl i32 %914, 2
   %916 = mul i32 %915, %910
-  %917 = add i32 %916, -1
+  %917 = add i32 %916, -4
   %918 = icmp sgt i32 %917, -1
   br i1 %918, label %.lr.ph563.preheader, label %.loopexit513
 
 .lr.ph563.preheader:                              ; preds = %913
   %919 = add i32 %916, -1
-  %920 = zext nneg i32 %919 to i64
+  %920 = zext i32 %919 to i64
   br label %.lr.ph563
 
 .lr.ph563:                                        ; preds = %.lr.ph563.preheader, %.lr.ph563

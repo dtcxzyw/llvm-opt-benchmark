@@ -6191,7 +6191,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1454: ; preds = %2
 ._crit_edge23843:                                 ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1459, %._crit_edge23836.._crit_edge23843_crit_edge
   %.pre-phi = phi i32 [ %.pre29648, %._crit_edge23836.._crit_edge23843_crit_edge ], [ %2344, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1459 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %116)
-  %2338 = add i32 %.pre-phi, 99
+  %2338 = add i32 %.pre-phi, 98
   %2339 = urem i32 %2338, 100
   %2340 = sub i32 %2338, %2339
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %116, ptr noundef nonnull @.str.63, i32 noundef %2340)
@@ -6408,11 +6408,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1486: ; preds = %2
 
 ._crit_edge23854.loopexit:                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1491
   %2416 = shl nuw i32 %2422, 1
-  %2417 = add i32 %2416, 99
+  %2417 = add i32 %2416, 98
   br label %._crit_edge23854
 
 ._crit_edge23854:                                 ; preds = %._crit_edge23848, %._crit_edge23854.loopexit
-  %.2435.lcssa = phi i32 [ %2417, %._crit_edge23854.loopexit ], [ 99, %._crit_edge23848 ]
+  %.2435.lcssa = phi i32 [ %2417, %._crit_edge23854.loopexit ], [ 98, %._crit_edge23848 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %120)
   %2418 = urem i32 %.2435.lcssa, 100
   %2419 = sub i32 %.2435.lcssa, %2418

@@ -565,7 +565,7 @@ define dso_local void @swiotlb_update_mem_attributes() local_unnamed_addr #3 sec
 
 6:                                                ; preds = %0
   %7 = shl i64 %1, 11
-  %8 = add i64 %7, 4095
+  %8 = add i64 %7, 2048
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 16), align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = lshr i64 %8, 12
@@ -661,7 +661,7 @@ define dso_local void @swiotlb_init_remap(i1 noundef zeroext %0, i32 noundef %1,
   %54 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %47, i64 24)
   %55 = extractvalue { i64, i1 } %54, 1
   %56 = extractvalue { i64, i1 } %54, 0
-  %57 = add i64 %56, 4095
+  %57 = add i64 %56, 4088
   %58 = and i64 %57, -4096
   %59 = select i1 %55, i64 0, i64 %58
   %60 = tail call ptr @memblock_alloc_try_nid(i64 noundef %59, i64 noundef 4096, i64 noundef 0, i64 noundef 0, i32 noundef -1) #21
@@ -842,7 +842,7 @@ define internal fastcc void @swiotlb_adjust_nareas(i32 noundef %0) unnamed_addr 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc ptr @swiotlb_memblock_alloc(i64 noundef range(i64 0, -127) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #3 section ".init.text" align 16 {
   %4 = shl i64 %0, 11
-  %5 = add i64 %4, 4095
+  %5 = add i64 %4, 2048
   %6 = and i64 %5, -4096
   %7 = and i32 %1, 4
   %8 = icmp eq i32 %7, 0
@@ -967,8 +967,8 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
 
 .split31.us:                                      ; preds = %56
   %59 = shl i64 %6, 11
-  %60 = add i64 %59, -1
-  %61 = lshr i64 %60, 12
+  %60 = add i64 %59, -4096
+  %61 = lshr exact i64 %60, 12
   %62 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %61, i32 -1) #22, !srcloc !16
   %63 = add i32 %62, 1
   %64 = shl i32 2, %63
@@ -1007,8 +1007,8 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %81 = phi ptr [ %110, %117 ], [ null, %56 ]
   %82 = phi i1 [ true, %117 ], [ false, %56 ]
   %83 = shl i64 %80, 11
-  %84 = add i64 %83, -1
-  %85 = lshr i64 %84, 12
+  %84 = add i64 %83, -4096
+  %85 = lshr exact i64 %84, 12
   %86 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %85, i32 -1) #22, !srcloc !16
   %87 = add i32 %86, 1
   %88 = shl i32 2, %87
@@ -1093,7 +1093,7 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   %135 = select i1 %133, i32 %134, i32 %130
   %136 = zext i32 %135 to i64
   %137 = shl nuw nsw i64 %136, 4
-  %138 = add nsw i64 %137, -1
+  %138 = add nsw i64 %137, -16
   %139 = lshr i64 %138, 12
   %140 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %139, i32 -1) #22, !srcloc !16
   %141 = add i32 %140, 1
@@ -1106,7 +1106,7 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
 145:                                              ; preds = %128
   %146 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.us-phi3571, i64 24)
   %147 = extractvalue { i64, i1 } %146, 0
-  %148 = add nsw i64 %147, -1
+  %148 = add nsw i64 %147, -8
   %149 = extractvalue { i64, i1 } %146, 1
   %150 = lshr i64 %148, 12
   %151 = select i1 %149, i64 4503599627370495, i64 %150
@@ -1252,47 +1252,47 @@ define dso_local void @swiotlb_exit() local_unnamed_addr #3 section ".init.text"
   %10 = load i64, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 8), align 8
   %11 = sub i64 %10, %7
   %12 = add i64 %11, 4095
-  %13 = and i64 %12, -4096
-  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 24), align 8
-  %15 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %14, i64 24)
-  %16 = extractvalue { i64, i1 } %15, 1
-  %17 = extractvalue { i64, i1 } %15, 0
-  %18 = add i64 %17, 4095
-  %19 = and i64 %18, -4096
-  %20 = select i1 %16, i64 0, i64 %19
-  %21 = lshr i64 %12, 12
-  %22 = trunc i64 %21 to i32
-  %23 = tail call i32 @set_memory_encrypted(i64 noundef %9, i32 noundef %22) #21
-  %24 = load i8, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 32), align 8, !range !12, !noundef !13
-  %25 = icmp eq i8 %24, 0
-  br i1 %25, label %46, label %26
+  %13 = load i64, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 24), align 8
+  %14 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %13, i64 24)
+  %15 = extractvalue { i64, i1 } %14, 1
+  %16 = extractvalue { i64, i1 } %14, 0
+  %17 = add i64 %16, 4088
+  %18 = and i64 %17, -4096
+  %19 = select i1 %15, i64 0, i64 %18
+  %20 = lshr i64 %12, 12
+  %21 = trunc i64 %20 to i32
+  %22 = tail call i32 @set_memory_encrypted(i64 noundef %9, i32 noundef %21) #21
+  %23 = load i8, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 32), align 8, !range !12, !noundef !13
+  %24 = icmp eq i8 %23, 0
+  br i1 %24, label %45, label %25
 
-26:                                               ; preds = %5
-  %27 = load i32, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 36), align 4
-  %28 = zext i32 %27 to i64
-  %29 = shl nuw nsw i64 %28, 4
-  %30 = add nsw i64 %29, -1
-  %31 = lshr i64 %30, 12
-  %32 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %31, i32 -1) #22, !srcloc !16
-  %33 = add i32 %32, 1
-  %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
-  %35 = ptrtoint ptr %34 to i64
-  tail call void @free_pages(i64 noundef %35, i32 noundef %33) #21
-  %36 = add i64 %13, -1
-  %37 = lshr i64 %36, 12
-  %38 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %37, i32 -1) #22, !srcloc !16
-  %39 = add i32 %38, 1
-  tail call void @free_pages(i64 noundef %9, i32 noundef %39) #21
-  %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 56), align 8
-  %41 = ptrtoint ptr %40 to i64
-  %42 = add i64 %20, -1
-  %43 = lshr i64 %42, 12
-  %44 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %43, i32 -1) #22, !srcloc !16
-  %45 = add i32 %44, 1
-  tail call void @free_pages(i64 noundef %41, i32 noundef %45) #21
+25:                                               ; preds = %5
+  %26 = load i32, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 36), align 4
+  %27 = zext i32 %26 to i64
+  %28 = shl nuw nsw i64 %27, 4
+  %29 = add nsw i64 %28, -16
+  %30 = lshr i64 %29, 12
+  %31 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %30, i32 -1) #22, !srcloc !16
+  %32 = add i32 %31, 1
+  %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
+  %34 = ptrtoint ptr %33 to i64
+  tail call void @free_pages(i64 noundef %34, i32 noundef %32) #21
+  %35 = add i64 %11, -1
+  %36 = lshr i64 %35, 12
+  %37 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %36, i32 -1) #22, !srcloc !16
+  %38 = add i32 %37, 1
+  tail call void @free_pages(i64 noundef %9, i32 noundef %38) #21
+  %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 56), align 8
+  %40 = ptrtoint ptr %39 to i64
+  %41 = add i64 %19, -4096
+  %42 = lshr exact i64 %41, 12
+  %43 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %42, i32 -1) #22, !srcloc !16
+  %44 = add i32 %43, 1
+  tail call void @free_pages(i64 noundef %40, i32 noundef %44) #21
   br label %69
 
-46:                                               ; preds = %5
+45:                                               ; preds = %5
+  %46 = and i64 %12, -4096
   %47 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 48), align 8
   %48 = ptrtoint ptr %47 to i64
   %49 = add i64 %48, 2147483648
@@ -1307,7 +1307,7 @@ define dso_local void @swiotlb_exit() local_unnamed_addr #3 section ".init.text"
   %58 = shl nuw nsw i64 %57, 4
   tail call void @memblock_free_late(i64 noundef %55, i64 noundef %58) #21
   %59 = load i64, ptr @io_tlb_default_mem, align 8
-  tail call void @memblock_free_late(i64 noundef %59, i64 noundef %13) #21
+  tail call void @memblock_free_late(i64 noundef %59, i64 noundef %46) #21
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @io_tlb_default_mem, i64 56), align 8
   %61 = ptrtoint ptr %60 to i64
   %62 = add i64 %61, 2147483648
@@ -1317,10 +1317,10 @@ define dso_local void @swiotlb_exit() local_unnamed_addr #3 section ".init.text"
   %66 = sub i64 -2147483648, %65
   %67 = select i1 %63, i64 %64, i64 %66
   %68 = add i64 %62, %67
-  tail call void @memblock_free_late(i64 noundef %68, i64 noundef %20) #21
+  tail call void @memblock_free_late(i64 noundef %68, i64 noundef %19) #21
   br label %69
 
-69:                                               ; preds = %46, %26
+69:                                               ; preds = %45, %25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) @io_tlb_default_mem, i8 0, i64 64, i1 false)
   br label %70
 

@@ -273,7 +273,7 @@ define internal fastcc void @try_to_generate_entropy() unnamed_addr #1 align 16 
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(119) %1, i8 0, i64 119, i1 false), !annotation !7
   %2 = ptrtoint ptr %1 to i64
-  %3 = add i64 %2, 63
+  %3 = add i64 %2, 48
   %4 = and i64 %3, -64
   %5 = inttoptr i64 %4 to ptr
   %6 = call { i64, i64 } asm sideeffect "rdtsc", "={ax},={dx},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !8

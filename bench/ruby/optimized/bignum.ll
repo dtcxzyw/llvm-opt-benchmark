@@ -882,7 +882,7 @@ define internal fastcc void @bary_mul_balance_with_mulfunc(ptr noundef %0, i64 n
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %26
   %29 = shl nuw i64 %3, 2
-  %30 = add i64 %29, 7
+  %30 = add i64 %29, 4
   %31 = lshr i64 %30, 3
   %32 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %10, i64 noundef %29, i64 noundef %31) #31
   br label %33
@@ -2790,7 +2790,7 @@ define internal fastcc void @bary_mul_toom3(ptr noundef %0, i64 noundef %1, ptr 
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %31
   %34 = shl nuw i64 %26, 2
-  %35 = add i64 %34, 7
+  %35 = add i64 %34, 4
   %36 = lshr i64 %35, 3
   %37 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %9, i64 noundef %34, i64 noundef %36) #31
   br label %38
@@ -6291,7 +6291,7 @@ define internal fastcc void @bary_divmod_normal(ptr noundef %0, i64 noundef %1, 
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %24
   %27 = shl nuw i64 %19, 2
-  %28 = add i64 %27, 7
+  %28 = add i64 %27, 4
   %29 = lshr i64 %28, 3
   %30 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %9, i64 noundef %27, i64 noundef %29) #31
   br label %31
@@ -6323,7 +6323,7 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %24
 
 rb_alloc_tmp_buffer2.exit113:                     ; preds = %40
   %43 = shl nuw i64 %7, 2
-  %44 = add i64 %43, 7
+  %44 = add i64 %43, 4
   %45 = lshr i64 %44, 3
   %46 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %9, i64 noundef %43, i64 noundef %45) #31
   br label %47
@@ -6352,7 +6352,7 @@ rb_alloc_tmp_buffer2.exit113:                     ; preds = %40
 
 .thread:                                          ; preds = %54
   %57 = shl nuw i64 %10, 2
-  %58 = add i64 %57, 7
+  %58 = add i64 %57, 4
   %59 = lshr i64 %58, 3
   %60 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %9, i64 noundef %57, i64 noundef %59) #31
   br label %.lr.ph.i
@@ -6447,7 +6447,7 @@ bary_small_lshift.exit:                           ; preds = %61, %._crit_edge.lo
 
 rbimpl_size_mul_or_raise.exit.thread:             ; preds = %92
   %95 = shl nuw i64 %10, 2
-  %96 = add i64 %95, 7
+  %96 = add i64 %95, 4
   %97 = lshr i64 %96, 3
   %98 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %9, i64 noundef %95, i64 noundef %97) #31
   br label %102
@@ -15301,7 +15301,7 @@ BIGNUM_LEN.exit69:                                ; preds = %143, %146
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %155
   %158 = shl nuw i64 %150, 2
-  %159 = add i64 %158, 7
+  %159 = add i64 %158, 4
   %160 = lshr i64 %159, 3
   %161 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %8, i64 noundef %158, i64 noundef %160) #31
   br label %rbimpl_size_mul_or_raise.exit

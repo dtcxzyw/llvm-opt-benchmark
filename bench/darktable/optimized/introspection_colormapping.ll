@@ -440,7 +440,7 @@ get_cluster_mapping.exit:                         ; preds = %._crit_edge.us.i
 
 181:                                              ; preds = %180, %._crit_edge215
   %.pre-phi233 = phi i64 [ %.pre232, %180 ], [ %72, %._crit_edge215 ]
-  %182 = add nsw i64 %.pre-phi233, 63
+  %182 = add nsw i64 %.pre-phi233, 60
   %183 = and i64 %182, -64
   %184 = tail call ptr @dt_alloc_aligned(i64 noundef %183) #20
   call void @llvm.assume(i1 true) [ "align"(ptr %184, i64 64) ]
@@ -2122,9 +2122,9 @@ define internal fastcc void @kmeans(ptr noundef nonnull readonly captures(none) 
 
 .preheader292:                                    ; preds = %.preheader293..preheader292_crit_edge, %..preheader292_crit_edge
   %wide.trip.count.i.pre-phi = phi i64 [ %.pre384, %.preheader293..preheader292_crit_edge ], [ %22, %..preheader292_crit_edge ]
-  %34 = add nsw i64 %12, 63
+  %34 = add nsw i64 %12, 60
   %35 = and i64 %34, -64
-  %36 = add nsw i64 %9, 63
+  %36 = add nsw i64 %9, 56
   %37 = and i64 %36, -64
   %.not339 = icmp eq i32 %3, 0
   %38 = shl nuw nsw i64 %wide.trip.count.i.pre-phi, 2

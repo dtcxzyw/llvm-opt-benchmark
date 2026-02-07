@@ -159,7 +159,7 @@ define hidden void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
 
 14:                                               ; preds = %12
   %15 = mul nuw i64 %13, 104
-  %16 = add nuw i64 %15, 15
+  %16 = add nuw i64 %15, 8
   %17 = and i64 %16, -16
   %18 = add nsw i64 %9, 17
   %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %18)

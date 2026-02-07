@@ -21043,7 +21043,7 @@ _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i: ; preds = %
   %9 = load i64, ptr %6, align 16
   %10 = and i64 %9, 270215977642229760
   %.not.i.i.i.i = icmp eq i64 %10, 0
-  %11 = select i1 %.not.i.i.i.i, i64 15, i64 23
+  %11 = select i1 %.not.i.i.i.i, i64 16, i64 24
   br label %13
 
 _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i: ; preds = %1
@@ -21056,30 +21056,28 @@ _ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i: ; preds
 
 13:                                               ; preds = %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i
   %14 = phi i64 [ %9, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i ], [ %.pre.i.i.i.i, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i ]
-  %spec.select.i2.i.i.i.i = phi i64 [ %11, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i ], [ 15, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i ]
+  %spec.select.i2.i.i.i.i = phi i64 [ %11, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.thread.i.i.i.i ], [ 16, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit._crit_edge.i.i.i.i ]
   %sh.diff.i.i.i.i = lshr i64 %14, 35
   %15 = and i64 %sh.diff.i.i.i.i, 524280
   %16 = add nuw nsw i64 %15, %spec.select.i2.i.i.i.i
-  %17 = and i64 %16, 1048568
-  %18 = add nuw nsw i64 %17, 8
   br label %_ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE15getInnerTypeLocEv.exit
 
 _ZNK5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_15FunctionTypeLocENS_12FunctionTypeENS_15FunctionLocInfoEE15getInnerTypeLocEv.exit: ; preds = %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i, %13
-  %19 = phi i64 [ %18, %13 ], [ 16, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i ]
-  %20 = ptrtoint ptr %5 to i64
-  %21 = add i64 %19, %20
-  %22 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i) #25
-  %23 = icmp ne i64 %21, 0
-  %24 = zext i1 %23 to i64
-  %25 = sub i64 %21, %24
-  %26 = zext i32 %22 to i64
-  %27 = udiv i64 %25, %26
-  %28 = add i64 %27, %24
-  %29 = mul i64 %28, %26
-  %30 = inttoptr i64 %29 to ptr
-  %31 = inttoptr i64 %.sroa.0.0.copyload.i.i.i to ptr
-  %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %31, 0
-  %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %30, 1
+  %17 = phi i64 [ %16, %13 ], [ 16, %_ZNK5clang15FunctionTypeLoc16hasExceptionSpecEv.exit.i.i.i.i ]
+  %18 = ptrtoint ptr %5 to i64
+  %19 = add i64 %17, %18
+  %20 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i) #25
+  %21 = icmp ne i64 %19, 0
+  %22 = zext i1 %21 to i64
+  %23 = sub i64 %19, %22
+  %24 = zext i32 %20 to i64
+  %25 = udiv i64 %23, %24
+  %26 = add i64 %25, %22
+  %27 = mul i64 %26, %24
+  %28 = inttoptr i64 %27 to ptr
+  %29 = inttoptr i64 %.sroa.0.0.copyload.i.i.i to ptr
+  %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %29, 0
+  %.fca.1.insert.i = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %28, 1
   ret { ptr, ptr } %.fca.1.insert.i
 }
 

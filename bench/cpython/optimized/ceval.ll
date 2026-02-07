@@ -4331,13 +4331,13 @@ Py_INCREF.exit10104:                              ; preds = %881, %887
   %941 = load ptr, ptr %937, align 8, !tbaa !136
   store ptr null, ptr %937, align 8, !tbaa !136
   %942 = shl i32 %.08890, 1
-  %943 = add i32 %942, -1
+  %943 = add i32 %942, -2
   %944 = icmp sgt i32 %943, -1
   br i1 %944, label %.lr.ph11542.preheader, label %._crit_edge11543
 
 .lr.ph11542.preheader:                            ; preds = %932
   %945 = add i32 %942, -1
-  %946 = zext nneg i32 %945 to i64
+  %946 = zext i32 %945 to i64
   br label %.lr.ph11542
 
 .lr.ph11542:                                      ; preds = %.lr.ph11542.preheader, %958

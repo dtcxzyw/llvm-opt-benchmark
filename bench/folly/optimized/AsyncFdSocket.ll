@@ -583,7 +583,7 @@ _ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11Asyn
   %58 = ptrtoint ptr %56 to i64
   %59 = sub i64 %57, %58
   %60 = ashr exact i64 %59, 2
-  %61 = add nsw i64 %60, 7
+  %61 = add nsw i64 %60, 4
   %62 = and i64 %61, -8
   %63 = add nsw i64 %62, 16
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -851,7 +851,7 @@ define noundef range(i32 16, 9) i32 @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCa
   %50 = sub i64 %48, %49
   %51 = lshr exact i64 %50, 2
   %52 = trunc i64 %51 to i32
-  %53 = add i32 %52, 7
+  %53 = add i32 %52, 4
   %54 = and i32 %53, -8
   %55 = add i32 %54, 16
   br label %_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgSizeAndFdsERKNS_11AsyncSocket15WriteRequestTagE.exit
@@ -5860,7 +5860,7 @@ define { i64, ptr } @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallback17getCmsgS
   %47 = ptrtoint ptr %45 to i64
   %48 = sub i64 %46, %47
   %49 = ashr exact i64 %48, 2
-  %50 = add nsw i64 %49, 7
+  %50 = add nsw i64 %49, 4
   %51 = and i64 %50, -8
   %52 = add nsw i64 %51, 16
   br label %.loopexit

@@ -16440,7 +16440,7 @@ while.end15:                                      ; preds = %_ZN6google8protobuf
   br label %if.end
 
 if.else.i:                                        ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeIiLi8EEEiii.exit
-  %sub.i.i = add nuw nsw i64 %mul, 15
+  %sub.i.i = add nuw nsw i64 %mul, 12
   %and.i.i = and i64 %sub.i.i, 17179869176
   %call2.i = tail call noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144) %cond.i, i64 noundef %and.i.i)
   br label %if.end
@@ -16588,17 +16588,15 @@ _ZN6google8protobuf8internal20CalculateReserveSizeIlLi8EEEiii.exit: ; preds = %e
   %conv = zext nneg i32 %retval.0.i to i64
   %mul = shl nuw nsw i64 %conv, 3
   %cmp = icmp eq ptr %cond.i, null
+  %add = add nuw nsw i64 %mul, 8
   br i1 %cmp, label %while.end15, label %if.else.i
 
 while.end15:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeIlLi8EEEiii.exit
-  %add = add nuw nsw i64 %mul, 8
   %call.i15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add) #35
   br label %if.end
 
 if.else.i:                                        ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeIlLi8EEEiii.exit
-  %sub.i.i = add nuw nsw i64 %mul, 15
-  %and.i.i = and i64 %sub.i.i, 34359738360
-  %call2.i = tail call noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144) %cond.i, i64 noundef %and.i.i)
+  %call2.i = tail call noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144) %cond.i, i64 noundef %add)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %while.end15
@@ -16740,7 +16738,7 @@ while.end15:                                      ; preds = %_ZN6google8protobuf
   br label %if.end
 
 if.else.i:                                        ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeIjLi8EEEiii.exit
-  %sub.i.i = add nuw nsw i64 %mul, 15
+  %sub.i.i = add nuw nsw i64 %mul, 12
   %and.i.i = and i64 %sub.i.i, 17179869176
   %call2.i = tail call noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144) %cond.i, i64 noundef %and.i.i)
   br label %if.end
@@ -16877,17 +16875,15 @@ _ZN6google8protobuf8internal20CalculateReserveSizeImLi8EEEiii.exit: ; preds = %e
   %conv = zext nneg i32 %retval.0.i to i64
   %mul = shl nuw nsw i64 %conv, 3
   %cmp = icmp eq ptr %cond.i, null
+  %add = add nuw nsw i64 %mul, 8
   br i1 %cmp, label %while.end15, label %if.else.i
 
 while.end15:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeImLi8EEEiii.exit
-  %add = add nuw nsw i64 %mul, 8
   %call.i15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add) #35
   br label %if.end
 
 if.else.i:                                        ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeImLi8EEEiii.exit
-  %sub.i.i = add nuw nsw i64 %mul, 15
-  %and.i.i = and i64 %sub.i.i, 34359738360
-  %call2.i = tail call noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144) %cond.i, i64 noundef %and.i.i)
+  %call2.i = tail call noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144) %cond.i, i64 noundef %add)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %while.end15
@@ -17029,7 +17025,7 @@ while.end15:                                      ; preds = %_ZN6google8protobuf
   br label %if.end
 
 if.else.i:                                        ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeIfLi8EEEiii.exit
-  %sub.i.i = add nuw nsw i64 %mul, 15
+  %sub.i.i = add nuw nsw i64 %mul, 12
   %and.i.i = and i64 %sub.i.i, 17179869176
   %call2.i = tail call noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144) %cond.i, i64 noundef %and.i.i)
   br label %if.end
@@ -17166,17 +17162,15 @@ _ZN6google8protobuf8internal20CalculateReserveSizeIdLi8EEEiii.exit: ; preds = %e
   %conv = zext nneg i32 %retval.0.i to i64
   %mul = shl nuw nsw i64 %conv, 3
   %cmp = icmp eq ptr %cond.i, null
+  %add = add nuw nsw i64 %mul, 8
   br i1 %cmp, label %while.end15, label %if.else.i
 
 while.end15:                                      ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeIdLi8EEEiii.exit
-  %add = add nuw nsw i64 %mul, 8
   %call.i15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add) #35
   br label %if.end
 
 if.else.i:                                        ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeIdLi8EEEiii.exit
-  %sub.i.i = add nuw nsw i64 %mul, 15
-  %and.i.i = and i64 %sub.i.i, 34359738360
-  %call2.i = tail call noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144) %cond.i, i64 noundef %and.i.i)
+  %call2.i = tail call noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144) %cond.i, i64 noundef %add)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %while.end15

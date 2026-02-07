@@ -1052,7 +1052,7 @@ define { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17
 37:                                               ; preds = %30, %.thread.i
   %.sroa.4.0.i.ph8.i = phi i64 [ %.sroa.03.0.i.i, %.thread.i ], [ %36, %30 ]
   %38 = mul nuw i64 %.sroa.4.0.i.ph8.i, 24
-  %39 = add nuw i64 %38, 15
+  %39 = add nuw i64 %38, 8
   %40 = and i64 %39, -16
   %41 = add nuw nsw i64 %.sroa.4.0.i.ph8.i, 16
   %42 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %40, i64 %41)

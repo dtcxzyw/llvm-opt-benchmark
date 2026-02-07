@@ -220,7 +220,7 @@ define internal i32 @gsm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %104 = lshr i32 %101, 18
   %105 = and i32 %104, 15360
   %106 = mul nuw nsw i32 %105, 19223
-  %107 = add nsw i32 %106, -161072356
+  %107 = add nsw i32 %106, -161073152
   %108 = ashr i32 %107, 14
   %109 = and i32 %108, -2
   %110 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -237,7 +237,7 @@ define internal i32 @gsm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %120 = lshr i32 %117, 18
   %121 = and i32 %120, 15360
   %122 = mul nuw nsw i32 %121, 17476
-  %123 = add nsw i32 %122, -80513024
+  %123 = add nsw i32 %122, -80515072
   %124 = ashr i32 %123, 14
   %125 = and i32 %124, -2
   %126 = getelementptr inbounds nuw i8, ptr %40, i64 20
@@ -254,7 +254,7 @@ define internal i32 @gsm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %136 = lshr i32 %133, 19
   %137 = and i32 %136, 7168
   %138 = mul nuw nsw i32 %137, 31454
-  %139 = add nsw i32 %138, -107367572
+  %139 = add nsw i32 %138, -107368448
   %140 = ashr i32 %139, 14
   %141 = and i32 %140, -2
   %142 = getelementptr inbounds nuw i8, ptr %40, i64 24
@@ -271,7 +271,7 @@ define internal i32 @gsm_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %152 = lshr i32 %149, 19
   %153 = and i32 %152, 7168
   %154 = mul nuw nsw i32 %153, 29708
-  %155 = add nsw i32 %154, -53695680
+  %155 = add nsw i32 %154, -53698560
   %156 = ashr i32 %155, 14
   %157 = and i32 %156, -2
   %158 = getelementptr inbounds nuw i8, ptr %40, i64 28

@@ -1753,111 +1753,109 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024011618container_internal10btr
   %3 = getelementptr i8, ptr %0, i64 11
   %4 = load i8, ptr %3, align 1, !tbaa !124
   %.not57 = icmp eq i8 %4, 0
-  br i1 %.not57, label %10, label %5
+  br i1 %.not57, label %9, label %5
 
 5:                                                ; preds = %2
   %6 = zext i8 %4 to i64
   %7 = shl nuw nsw i64 %6, 3
-  %8 = add nuw nsw i64 %7, 23
-  %9 = and i64 %8, 4088
+  %8 = add nuw nsw i64 %7, 16
   br label %.loopexit.sink.split
 
-10:                                               ; preds = %2
-  %11 = getelementptr i8, ptr %0, i64 10
-  %12 = load i8, ptr %11, align 1, !tbaa !124
-  %13 = icmp eq i8 %12, 0
-  br i1 %13, label %.loopexit.sink.split, label %.lr.ph.preheader
+9:                                                ; preds = %2
+  %10 = getelementptr i8, ptr %0, i64 10
+  %11 = load i8, ptr %10, align 1, !tbaa !124
+  %12 = icmp eq i8 %11, 0
+  br i1 %12, label %.loopexit.sink.split, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %10
-  %14 = load ptr, ptr %0, align 8, !tbaa !120
+.lr.ph.preheader:                                 ; preds = %9
+  %13 = load ptr, ptr %0, align 8, !tbaa !120
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.04963 = phi ptr [ %16, %.lr.ph ], [ %0, %.lr.ph.preheader ]
-  %15 = getelementptr inbounds nuw i8, ptr %.04963, i64 256
-  %16 = load ptr, ptr %15, align 8, !tbaa !120
-  %17 = getelementptr i8, ptr %16, i64 11
-  %18 = load i8, ptr %17, align 1, !tbaa !124
-  %.not.i = icmp eq i8 %18, 0
+  %.04963 = phi ptr [ %15, %.lr.ph ], [ %0, %.lr.ph.preheader ]
+  %14 = getelementptr inbounds nuw i8, ptr %.04963, i64 256
+  %15 = load ptr, ptr %14, align 8, !tbaa !120
+  %16 = getelementptr i8, ptr %15, i64 11
+  %17 = load i8, ptr %16, align 1, !tbaa !124
+  %.not.i = icmp eq i8 %17, 0
   br i1 %.not.i, label %.lr.ph, label %._crit_edge, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %19 = getelementptr i8, ptr %16, i64 8
-  %20 = load i8, ptr %19, align 1, !tbaa !124
-  %21 = zext i8 %20 to i64
-  %22 = load ptr, ptr %16, align 8, !tbaa !120
-  br label %23
+  %18 = getelementptr i8, ptr %15, i64 8
+  %19 = load i8, ptr %18, align 1, !tbaa !124
+  %20 = zext i8 %19 to i64
+  %21 = load ptr, ptr %15, align 8, !tbaa !120
+  br label %22
 
-23:                                               ; preds = %.backedge, %._crit_edge
-  %.147 = phi i64 [ %21, %._crit_edge ], [ %.147.be, %.backedge ]
-  %.1 = phi ptr [ %22, %._crit_edge ], [ %.1.be, %.backedge ]
-  %24 = getelementptr inbounds nuw i8, ptr %.1, i64 256
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.147
-  %26 = load ptr, ptr %25, align 8, !tbaa !120
-  %27 = getelementptr i8, ptr %26, i64 11
-  %28 = load i8, ptr %27, align 1, !tbaa !124
-  %.not.i55 = icmp eq i8 %28, 0
-  br i1 %.not.i55, label %.lr.ph66, label %37
+22:                                               ; preds = %.backedge, %._crit_edge
+  %.147 = phi i64 [ %20, %._crit_edge ], [ %.147.be, %.backedge ]
+  %.1 = phi ptr [ %21, %._crit_edge ], [ %.1.be, %.backedge ]
+  %23 = getelementptr inbounds nuw i8, ptr %.1, i64 256
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.147
+  %25 = load ptr, ptr %24, align 8, !tbaa !120
+  %26 = getelementptr i8, ptr %25, i64 11
+  %27 = load i8, ptr %26, align 1, !tbaa !124
+  %.not.i55 = icmp eq i8 %27, 0
+  br i1 %.not.i55, label %.lr.ph66, label %36
 
-.lr.ph66:                                         ; preds = %23, %.lr.ph66
-  %.25165 = phi ptr [ %30, %.lr.ph66 ], [ %26, %23 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.25165, i64 256
-  %30 = load ptr, ptr %29, align 8, !tbaa !120
-  %31 = getelementptr i8, ptr %30, i64 11
-  %32 = load i8, ptr %31, align 1, !tbaa !124
-  %.not.i56 = icmp eq i8 %32, 0
+.lr.ph66:                                         ; preds = %22, %.lr.ph66
+  %.25165 = phi ptr [ %29, %.lr.ph66 ], [ %25, %22 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.25165, i64 256
+  %29 = load ptr, ptr %28, align 8, !tbaa !120
+  %30 = getelementptr i8, ptr %29, i64 11
+  %31 = load i8, ptr %30, align 1, !tbaa !124
+  %.not.i56 = icmp eq i8 %31, 0
   br i1 %.not.i56, label %.lr.ph66, label %._crit_edge67, !llvm.loop !126
 
 ._crit_edge67:                                    ; preds = %.lr.ph66
-  %33 = getelementptr i8, ptr %30, i64 8
-  %34 = load i8, ptr %33, align 1, !tbaa !124
-  %35 = zext i8 %34 to i64
-  %36 = load ptr, ptr %30, align 8, !tbaa !120
-  br label %37
+  %32 = getelementptr i8, ptr %29, i64 8
+  %33 = load i8, ptr %32, align 1, !tbaa !124
+  %34 = zext i8 %33 to i64
+  %35 = load ptr, ptr %29, align 8, !tbaa !120
+  br label %36
 
-37:                                               ; preds = %._crit_edge67, %23
-  %38 = phi i8 [ %32, %._crit_edge67 ], [ %28, %23 ]
-  %.150 = phi ptr [ %30, %._crit_edge67 ], [ %26, %23 ]
-  %.248 = phi i64 [ %35, %._crit_edge67 ], [ %.147, %23 ]
-  %.2 = phi ptr [ %36, %._crit_edge67 ], [ %.1, %23 ]
-  %39 = zext i8 %38 to i64
-  %40 = shl nuw nsw i64 %39, 3
-  %41 = add nuw nsw i64 %40, 23
-  %42 = and i64 %41, 4088
-  tail call void @_ZdlPvm(ptr noundef nonnull %.150, i64 noundef %42) #21
-  %43 = getelementptr i8, ptr %.2, i64 10
-  %44 = load i8, ptr %43, align 1, !tbaa !124
-  %45 = zext i8 %44 to i64
-  %.not.not = icmp samesign ult i64 %.248, %45
+36:                                               ; preds = %._crit_edge67, %22
+  %37 = phi i8 [ %31, %._crit_edge67 ], [ %27, %22 ]
+  %.150 = phi ptr [ %29, %._crit_edge67 ], [ %25, %22 ]
+  %.248 = phi i64 [ %34, %._crit_edge67 ], [ %.147, %22 ]
+  %.2 = phi ptr [ %35, %._crit_edge67 ], [ %.1, %22 ]
+  %38 = zext i8 %37 to i64
+  %39 = shl nuw nsw i64 %38, 3
+  %40 = add nuw nsw i64 %39, 16
+  tail call void @_ZdlPvm(ptr noundef nonnull %.150, i64 noundef %40) #21
+  %41 = getelementptr i8, ptr %.2, i64 10
+  %42 = load i8, ptr %41, align 1, !tbaa !124
+  %43 = zext i8 %42 to i64
+  %.not.not = icmp samesign ult i64 %.248, %43
   br i1 %.not.not, label %.backedge, label %.preheader58
 
-.backedge:                                        ; preds = %37, %53
-  %.147.be.in = phi i64 [ %.248, %37 ], [ %54, %53 ]
-  %.1.be = phi ptr [ %.2, %37 ], [ %48, %53 ]
+.backedge:                                        ; preds = %36, %51
+  %.147.be.in = phi i64 [ %.248, %36 ], [ %52, %51 ]
+  %.1.be = phi ptr [ %.2, %36 ], [ %46, %51 ]
   %.147.be = add nuw nsw i64 %.147.be.in, 1
-  br label %23, !llvm.loop !127
+  br label %22, !llvm.loop !127
 
-.preheader58:                                     ; preds = %37, %50
-  %.3 = phi ptr [ %48, %50 ], [ %.2, %37 ]
-  %46 = getelementptr i8, ptr %.3, i64 8
-  %47 = load i8, ptr %46, align 1, !tbaa !124
-  %48 = load ptr, ptr %.3, align 8, !tbaa !120
+.preheader58:                                     ; preds = %36, %48
+  %.3 = phi ptr [ %46, %48 ], [ %.2, %36 ]
+  %44 = getelementptr i8, ptr %.3, i64 8
+  %45 = load i8, ptr %44, align 1, !tbaa !124
+  %46 = load ptr, ptr %.3, align 8, !tbaa !120
   tail call void @_ZdlPvm(ptr noundef nonnull %.3, i64 noundef 504) #21
-  %49 = icmp eq ptr %48, %14
-  br i1 %49, label %.loopexit, label %50
+  %47 = icmp eq ptr %46, %13
+  br i1 %47, label %.loopexit, label %48
 
-50:                                               ; preds = %.preheader58
-  %51 = getelementptr i8, ptr %48, i64 10
-  %52 = load i8, ptr %51, align 1, !tbaa !124
-  %.not = icmp ult i8 %47, %52
-  br i1 %.not, label %53, label %.preheader58, !llvm.loop !128
+48:                                               ; preds = %.preheader58
+  %49 = getelementptr i8, ptr %46, i64 10
+  %50 = load i8, ptr %49, align 1, !tbaa !124
+  %.not = icmp ult i8 %45, %50
+  br i1 %.not, label %51, label %.preheader58, !llvm.loop !128
 
-53:                                               ; preds = %50
-  %54 = zext i8 %47 to i64
+51:                                               ; preds = %48
+  %52 = zext i8 %45 to i64
   br label %.backedge
 
-.loopexit.sink.split:                             ; preds = %10, %5
-  %.sink = phi i64 [ %9, %5 ], [ 504, %10 ]
+.loopexit.sink.split:                             ; preds = %9, %5
+  %.sink = phi i64 [ %8, %5 ], [ 504, %9 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef %.sink) #21
   br label %.loopexit
 

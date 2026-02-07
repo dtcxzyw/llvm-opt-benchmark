@@ -2842,12 +2842,12 @@ define range(i32 -2, 1) i32 @ma_slot_allocator_get_heap_size(ptr noundef readonl
   %12 = zext i1 %.not.i.i to i32
   %spec.select.i.i = add nuw nsw i32 %10, %12
   %13 = shl nuw nsw i32 %spec.select.i.i, 2
-  %narrow.i = add nuw nsw i32 %13, 7
+  %narrow.i = add nuw nsw i32 %13, 4
   %14 = and i32 %narrow.i, 2147483640
   %15 = zext nneg i32 %14 to i64
   %16 = zext i32 %7 to i64
   %17 = shl nuw nsw i64 %16, 2
-  %18 = add nuw nsw i64 %17, 7
+  %18 = add nuw nsw i64 %17, 4
   %19 = and i64 %18, 34359738360
   %20 = add nuw nsw i64 %19, %15
   store i64 %20, ptr %1, align 8, !tbaa !52
@@ -2882,12 +2882,12 @@ ma_zero_memory_default.exit:                      ; preds = %7
   %12 = zext i1 %.not.i.i to i32
   %spec.select.i.i = add nuw nsw i32 %10, %12
   %13 = shl nuw nsw i32 %spec.select.i.i, 2
-  %narrow.i = add nuw nsw i32 %13, 7
+  %narrow.i = add nuw nsw i32 %13, 4
   %14 = and i32 %narrow.i, 2147483640
   %15 = zext nneg i32 %14 to i64
   %16 = zext i32 %8 to i64
   %17 = shl nuw nsw i64 %16, 2
-  %18 = add nuw nsw i64 %17, 7
+  %18 = add nuw nsw i64 %17, 4
   %19 = and i64 %18, 34359738360
   %20 = add nuw nsw i64 %19, %15
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -2924,12 +2924,12 @@ define range(i32 -4, 1) i32 @ma_slot_allocator_init(ptr noundef readonly capture
   %11 = zext i1 %.not.i.i.i to i32
   %spec.select.i.i.i = add nuw nsw i32 %9, %11
   %12 = shl nuw nsw i32 %spec.select.i.i.i, 2
-  %narrow.i.i = add nuw nsw i32 %12, 7
+  %narrow.i.i = add nuw nsw i32 %12, 4
   %13 = and i32 %narrow.i.i, 2147483640
   %14 = zext nneg i32 %13 to i64
   %15 = zext i32 %6 to i64
   %16 = shl nuw nsw i64 %15, 2
-  %17 = add nuw nsw i64 %16, 7
+  %17 = add nuw nsw i64 %16, 4
   %18 = and i64 %17, 34359738360
   %19 = add nuw nsw i64 %18, %14
   %.not.i = icmp eq ptr %1, null
@@ -2990,12 +2990,12 @@ ma_zero_memory_default.exit19.i:                  ; preds = %29
   %42 = zext i1 %.not.i.i.i21 to i32
   %spec.select.i.i.i22 = add nuw nsw i32 %40, %42
   %43 = shl nuw nsw i32 %spec.select.i.i.i22, 2
-  %narrow.i.i23 = add nuw nsw i32 %43, 7
+  %narrow.i.i23 = add nuw nsw i32 %43, 4
   %44 = and i32 %narrow.i.i23, 2147483640
   %45 = zext nneg i32 %44 to i64
   %46 = zext i32 %31 to i64
   %47 = shl nuw nsw i64 %46, 2
-  %48 = add nuw nsw i64 %47, 7
+  %48 = add nuw nsw i64 %47, 4
   %49 = and i64 %48, 34359738360
   %50 = add nuw nsw i64 %49, %45
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -3283,12 +3283,12 @@ define range(i32 -2, 1) i32 @ma_job_queue_get_heap_size(ptr noundef readonly cap
   %13 = zext i1 %.not.i.i.i.i to i32
   %spec.select.i.i.i.i = add nuw nsw i32 %11, %13
   %14 = shl nuw nsw i32 %spec.select.i.i.i.i, 2
-  %narrow.i.i.i = add nuw nsw i32 %14, 7
+  %narrow.i.i.i = add nuw nsw i32 %14, 4
   %15 = and i32 %narrow.i.i.i, 2147483640
   %16 = zext nneg i32 %15 to i64
   %17 = zext i32 %8 to i64
   %18 = shl nuw nsw i64 %17, 2
-  %19 = add nuw nsw i64 %18, 7
+  %19 = add nuw nsw i64 %18, 4
   %20 = and i64 %19, 34359738360
   %21 = mul nuw nsw i64 %17, 104
   %22 = add nuw nsw i64 %20, %21
@@ -3324,12 +3324,12 @@ ma_zero_memory_default.exit32:                    ; preds = %3
   %13 = zext i1 %.not.i.i.i.i to i32
   %spec.select.i.i.i.i = add nuw nsw i32 %11, %13
   %14 = shl nuw nsw i32 %spec.select.i.i.i.i, 2
-  %narrow.i.i.i = add nuw nsw i32 %14, 7
+  %narrow.i.i.i = add nuw nsw i32 %14, 4
   %15 = and i32 %narrow.i.i.i, 2147483640
   %16 = zext nneg i32 %15 to i64
   %17 = zext i32 %8 to i64
   %18 = shl nuw nsw i64 %17, 2
-  %19 = add nuw nsw i64 %18, 7
+  %19 = add nuw nsw i64 %18, 4
   %20 = and i64 %19, 34359738360
   %21 = add nuw nsw i64 %20, %16
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 176
@@ -3366,12 +3366,12 @@ ma_zero_memory_default.exit:                      ; preds = %10, %23
   %36 = zext i1 %.not.i.i.i to i32
   %spec.select.i.i.i = add nuw nsw i32 %34, %36
   %37 = shl nuw nsw i32 %spec.select.i.i.i, 2
-  %narrow.i.i = add nuw nsw i32 %37, 7
+  %narrow.i.i = add nuw nsw i32 %37, 4
   %38 = and i32 %narrow.i.i, 2147483640
   %39 = zext nneg i32 %38 to i64
   %40 = zext i32 %26 to i64
   %41 = shl nuw nsw i64 %40, 2
-  %42 = add nuw nsw i64 %41, 7
+  %42 = add nuw nsw i64 %41, 4
   %43 = and i64 %42, 34359738360
   %44 = add nuw nsw i64 %43, %39
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 152
@@ -3530,12 +3530,12 @@ define range(i32 -4, 1) i32 @ma_job_queue_init(ptr noundef readonly captures(add
   %12 = zext i1 %.not.i.i.i.i.i to i32
   %spec.select.i.i.i.i.i = add nuw nsw i32 %10, %12
   %13 = shl nuw nsw i32 %spec.select.i.i.i.i.i, 2
-  %narrow.i.i.i.i = add nuw nsw i32 %13, 7
+  %narrow.i.i.i.i = add nuw nsw i32 %13, 4
   %14 = and i32 %narrow.i.i.i.i, 2147483640
   %15 = zext nneg i32 %14 to i64
   %16 = zext i32 %7 to i64
   %17 = shl nuw nsw i64 %16, 2
-  %18 = add nuw nsw i64 %17, 7
+  %18 = add nuw nsw i64 %17, 4
   %19 = and i64 %18, 34359738360
   %20 = mul nuw nsw i64 %16, 104
   %21 = add nuw nsw i64 %19, %20
@@ -18613,7 +18613,7 @@ define range(i32 -2, 1) i32 @ma_lpf1_get_heap_size(ptr noundef readonly captures
 9:                                                ; preds = %5
   %10 = zext i32 %7 to i64
   %11 = shl nuw nsw i64 %10, 2
-  %12 = add nuw nsw i64 %11, 7
+  %12 = add nuw nsw i64 %11, 4
   %13 = and i64 %12, 34359738360
   store i64 %13, ptr %1, align 8, !tbaa !52
   br label %ma_lpf1_get_heap_layout.exit.thread
@@ -18648,7 +18648,7 @@ ma_zero_memory_default.exit15:                    ; preds = %3
 12:                                               ; preds = %10
   %13 = zext i32 %8 to i64
   %14 = shl nuw nsw i64 %13, 2
-  %15 = add nuw nsw i64 %14, 7
+  %15 = add nuw nsw i64 %14, 4
   %16 = and i64 %15, 34359738360
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 0, i64 %16, i1 false)
   br label %17
@@ -18795,7 +18795,7 @@ define range(i32 -4, 1) i32 @ma_lpf1_init(ptr noundef readonly captures(address_
 9:                                                ; preds = %5
   %10 = zext i32 %7 to i64
   %11 = shl nuw nsw i64 %10, 2
-  %12 = add nuw nsw i64 %11, 7
+  %12 = add nuw nsw i64 %11, 4
   %13 = and i64 %12, 34359738360
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %20, label %14
@@ -18835,7 +18835,7 @@ ma_malloc.exit:                                   ; preds = %17, %20
   store ptr %.0.i20, ptr %29, align 8, !tbaa !468
   %30 = zext i32 %26 to i64
   %31 = shl nuw nsw i64 %30, 2
-  %32 = add nuw nsw i64 %31, 7
+  %32 = add nuw nsw i64 %31, 4
   %33 = and i64 %32, 34359738360
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i20, i8 0, i64 %33, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -19637,7 +19637,7 @@ define range(i32 -2, 1) i32 @ma_lpf_get_heap_size(ptr noundef readonly captures(
   %.not.i = icmp eq i32 %15, 0
   %17 = zext i32 %8 to i64
   %18 = shl nuw nsw i64 %17, 2
-  %19 = add nuw nsw i64 %18, 7
+  %19 = add nuw nsw i64 %18, 4
   %20 = and i64 %19, 34359738360
   %21 = add nuw nsw i64 %20, 40
   %22 = select i1 %.not.i, i64 0, i64 %21
@@ -19784,7 +19784,7 @@ define internal fastcc range(i32 -3, 1) i32 @ma_lpf_reinit__internal(ptr noundef
   %.not.i = icmp eq i32 %23, 0
   %35 = zext i32 %32 to i64
   %36 = shl nuw nsw i64 %35, 2
-  %37 = add nuw nsw i64 %36, 7
+  %37 = add nuw nsw i64 %36, 4
   %38 = and i64 %37, 34359738360
   %39 = add nuw nsw i64 %38, 40
   %40 = select i1 %.not.i, i64 0, i64 %39
@@ -19973,7 +19973,7 @@ cdce.end10.i.i:                                   ; preds = %cdce.call189, %cdce
 125:                                              ; preds = %123
   %126 = zext i32 %81 to i64
   %127 = shl nuw nsw i64 %126, 2
-  %128 = add nuw nsw i64 %127, 7
+  %128 = add nuw nsw i64 %127, 4
   %129 = and i64 %128, 34359738360
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %76, i8 0, i64 %129, i1 false)
   br label %130
@@ -20223,7 +20223,7 @@ define range(i32 -4, 1) i32 @ma_lpf_init(ptr noundef readonly captures(address_i
   %.not.i.i = icmp eq i32 %14, 0
   %16 = zext i32 %7 to i64
   %17 = shl nuw nsw i64 %16, 2
-  %18 = add nuw nsw i64 %17, 7
+  %18 = add nuw nsw i64 %17, 4
   %19 = and i64 %18, 34359738360
   %20 = add nuw nsw i64 %19, 40
   %21 = select i1 %.not.i.i, i64 0, i64 %20
@@ -21169,7 +21169,7 @@ define range(i32 -2, 1) i32 @ma_hpf1_get_heap_size(ptr noundef readonly captures
 9:                                                ; preds = %5
   %10 = zext i32 %7 to i64
   %11 = shl nuw nsw i64 %10, 2
-  %12 = add nuw nsw i64 %11, 7
+  %12 = add nuw nsw i64 %11, 4
   %13 = and i64 %12, 34359738360
   store i64 %13, ptr %1, align 8, !tbaa !52
   br label %ma_hpf1_get_heap_layout.exit.thread
@@ -21204,7 +21204,7 @@ ma_zero_memory_default.exit15:                    ; preds = %3
 12:                                               ; preds = %10
   %13 = zext i32 %8 to i64
   %14 = shl nuw nsw i64 %13, 2
-  %15 = add nuw nsw i64 %14, 7
+  %15 = add nuw nsw i64 %14, 4
   %16 = and i64 %15, 34359738360
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 0, i64 %16, i1 false)
   br label %17
@@ -21351,7 +21351,7 @@ define range(i32 -4, 1) i32 @ma_hpf1_init(ptr noundef readonly captures(address_
 9:                                                ; preds = %5
   %10 = zext i32 %7 to i64
   %11 = shl nuw nsw i64 %10, 2
-  %12 = add nuw nsw i64 %11, 7
+  %12 = add nuw nsw i64 %11, 4
   %13 = and i64 %12, 34359738360
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %20, label %14
@@ -21391,7 +21391,7 @@ ma_malloc.exit:                                   ; preds = %17, %20
   store ptr %.0.i20, ptr %29, align 8, !tbaa !468
   %30 = zext i32 %26 to i64
   %31 = shl nuw nsw i64 %30, 2
-  %32 = add nuw nsw i64 %31, 7
+  %32 = add nuw nsw i64 %31, 4
   %33 = and i64 %32, 34359738360
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0.i20, i8 0, i64 %33, i1 false)
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -22143,7 +22143,7 @@ define range(i32 -2, 1) i32 @ma_hpf_get_heap_size(ptr noundef readonly captures(
   %.not.i = icmp eq i32 %15, 0
   %17 = zext i32 %8 to i64
   %18 = shl nuw nsw i64 %17, 2
-  %19 = add nuw nsw i64 %18, 7
+  %19 = add nuw nsw i64 %18, 4
   %20 = and i64 %19, 34359738360
   %21 = add nuw nsw i64 %20, 40
   %22 = select i1 %.not.i, i64 0, i64 %21
@@ -22290,7 +22290,7 @@ define internal fastcc range(i32 -3, 1) i32 @ma_hpf_reinit__internal(ptr noundef
   %.not.i = icmp eq i32 %23, 0
   %35 = zext i32 %32 to i64
   %36 = shl nuw nsw i64 %35, 2
-  %37 = add nuw nsw i64 %36, 7
+  %37 = add nuw nsw i64 %36, 4
   %38 = and i64 %37, 34359738360
   %39 = add nuw nsw i64 %38, 40
   %40 = select i1 %.not.i, i64 0, i64 %39
@@ -22479,7 +22479,7 @@ cdce.end10.i.i:                                   ; preds = %cdce.call190, %cdce
 125:                                              ; preds = %123
   %126 = zext i32 %81 to i64
   %127 = shl nuw nsw i64 %126, 2
-  %128 = add nuw nsw i64 %127, 7
+  %128 = add nuw nsw i64 %127, 4
   %129 = and i64 %128, 34359738360
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %76, i8 0, i64 %129, i1 false)
   br label %130
@@ -22729,7 +22729,7 @@ define range(i32 -4, 1) i32 @ma_hpf_init(ptr noundef readonly captures(address_i
   %.not.i.i = icmp eq i32 %14, 0
   %16 = zext i32 %7 to i64
   %17 = shl nuw nsw i64 %16, 2
-  %18 = add nuw nsw i64 %17, 7
+  %18 = add nuw nsw i64 %17, 4
   %19 = and i64 %18, 34359738360
   %20 = add nuw nsw i64 %19, 40
   %21 = select i1 %.not.i.i, i64 0, i64 %20
@@ -30187,7 +30187,7 @@ ma_spatializer_validate_config.exit.i:            ; preds = %9
   %18 = select i1 %.not26.i, i64 0, i64 %17
   %19 = zext i32 %11 to i64
   %20 = shl nuw nsw i64 %19, 2
-  %21 = add nuw nsw i64 %20, 7
+  %21 = add nuw nsw i64 %20, 4
   %22 = and i64 %21, 34359738360
   %23 = shl nuw nsw i64 %19, 3
   %24 = add nuw nsw i64 %22, %23
@@ -30234,7 +30234,7 @@ ma_spatializer_validate_config.exit.i:            ; preds = %10
   %19 = select i1 %.not26.i, i64 0, i64 %18
   %20 = zext i32 %12 to i64
   %21 = shl nuw nsw i64 %20, 2
-  %22 = add nuw nsw i64 %21, 7
+  %22 = add nuw nsw i64 %21, 4
   %23 = and i64 %22, 34359738360
   %24 = add nuw nsw i64 %19, %23
   %25 = shl nuw nsw i64 %20, 3
@@ -30551,7 +30551,7 @@ define range(i32 -4, 1) i32 @ma_spatializer_init(ptr noundef readonly captures(a
   %18 = select i1 %.not26.i.i, i64 0, i64 %17
   %19 = zext i32 %10 to i64
   %20 = shl nuw nsw i64 %19, 2
-  %21 = add nuw nsw i64 %20, 7
+  %21 = add nuw nsw i64 %20, 4
   %22 = and i64 %21, 34359738360
   %23 = shl nuw nsw i64 %19, 3
   %24 = add nuw nsw i64 %22, %23
@@ -34132,14 +34132,14 @@ define range(i32 -2, 1) i32 @ma_linear_resampler_get_heap_size(ptr noundef reado
   %15 = shl nuw nsw i64 %14, 2
   %16 = shl nuw nsw i64 %14, 3
   %storemerge35.i = select i1 %13, i64 %16, i64 %15
-  %17 = add nuw nsw i64 %storemerge35.i, 7
+  %17 = add nuw nsw i64 %storemerge35.i, 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8, !tbaa !861
   %20 = tail call i32 @llvm.umin.i32(i32 %19, i32 8)
   %21 = and i32 %20, 1
   %22 = lshr i32 %20, 1
   %.not.i.i.i = icmp eq i32 %21, 0
-  %23 = add nuw nsw i64 %15, 7
+  %23 = add nuw nsw i64 %15, 4
   %24 = and i64 %23, 34359738360
   %25 = add nuw nsw i64 %24, 40
   %26 = select i1 %.not.i.i.i, i64 0, i64 %25
@@ -34206,7 +34206,7 @@ ma_zero_memory_default.exit32:                    ; preds = %3
   %storemerge35.i = select i1 %14, i64 %19, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 %.sink41.i, ptr %20, align 8, !tbaa !863
-  %21 = add nuw nsw i64 %storemerge35.i, 7
+  %21 = add nuw nsw i64 %storemerge35.i, 6
   %22 = and i64 %21, 68719476728
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %22, ptr %23, align 8, !tbaa !865
@@ -34216,7 +34216,7 @@ ma_zero_memory_default.exit32:                    ; preds = %3
   %27 = and i32 %26, 1
   %28 = lshr i32 %26, 1
   %.not.i.i.i = icmp eq i32 %27, 0
-  %29 = add nuw nsw i64 %18, 7
+  %29 = add nuw nsw i64 %18, 4
   %30 = and i64 %29, 34359738360
   %31 = add nuw nsw i64 %30, 40
   %32 = select i1 %.not.i.i.i, i64 0, i64 %31
@@ -34414,14 +34414,14 @@ define range(i32 -4, 1) i32 @ma_linear_resampler_init(ptr noundef readonly captu
   %14 = shl nuw nsw i64 %13, 2
   %15 = shl nuw nsw i64 %13, 3
   %storemerge35.i.i = select i1 %12, i64 %15, i64 %14
-  %16 = add nuw nsw i64 %storemerge35.i.i, 7
+  %16 = add nuw nsw i64 %storemerge35.i.i, 4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !861
   %19 = tail call i32 @llvm.umin.i32(i32 %18, i32 8)
   %20 = and i32 %19, 1
   %21 = lshr i32 %19, 1
   %.not.i.i.i.i = icmp eq i32 %20, 0
-  %22 = add nuw nsw i64 %14, 7
+  %22 = add nuw nsw i64 %14, 4
   %23 = and i64 %22, 34359738360
   %24 = add nuw nsw i64 %23, 40
   %25 = select i1 %.not.i.i.i.i, i64 0, i64 %24
@@ -68805,7 +68805,7 @@ define range(i32 -2, 1) i32 @ma_noise_get_heap_size(ptr noundef readonly capture
 
 18:                                               ; preds = %15, %.thread.i, %10
   %19 = phi i64 [ 0, %10 ], [ %14, %.thread.i ], [ %17, %15 ]
-  %20 = add nuw nsw i64 %19, 7
+  %20 = add nuw nsw i64 %19, 4
   %21 = and i64 %20, 9223372036854775800
   store i64 %21, ptr %1, align 8, !tbaa !52
   br label %ma_noise_get_heap_layout.exit.thread
@@ -68866,7 +68866,7 @@ ma_zero_memory_default.exit49:                    ; preds = %3
   br i1 %.not, label %27, label %24
 
 24:                                               ; preds = %21
-  %25 = add nuw nsw i64 %22, 7
+  %25 = add nuw nsw i64 %22, 4
   %26 = and i64 %25, 9223372036854775800
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %1, i8 0, i64 %26, i1 false)
   br label %27
@@ -68997,7 +68997,7 @@ define range(i32 -4, 1) i32 @ma_noise_init(ptr noundef readonly captures(address
 
 17:                                               ; preds = %14, %.thread.i.i
   %18 = phi i64 [ %16, %14 ], [ %13, %.thread.i.i ]
-  %19 = add nuw nsw i64 %18, 7
+  %19 = add nuw nsw i64 %18, 4
   %20 = and i64 %19, 9223372036854775800
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %27, label %21
@@ -70664,7 +70664,7 @@ ma_default_vfs_init.exit:                         ; preds = %106, %102, %98, %97
 ma_malloc.exit.i:                                 ; preds = %128
   %131 = zext i32 %118 to i64
   %132 = shl nuw nsw i64 %131, 2
-  %133 = add nuw nsw i64 %132, 7
+  %133 = add nuw nsw i64 %132, 4
   %134 = and i64 %133, 34359738360
   %135 = mul nuw nsw i64 %131, 104
   %136 = add nuw nsw i64 %134, %135
@@ -70674,7 +70674,7 @@ ma_malloc.exit.i:                                 ; preds = %128
   %139 = zext i1 %.not.i.i.i.i.i.i to i32
   %spec.select.i.i.i.i.i.i = add nuw nsw i32 %137, %139
   %140 = shl nuw nsw i32 %spec.select.i.i.i.i.i.i, 2
-  %narrow.i.i.i.i.i = add nuw nsw i32 %140, 7
+  %narrow.i.i.i.i.i = add nuw nsw i32 %140, 4
   %141 = and i32 %narrow.i.i.i.i.i, 2147483640
   %142 = zext nneg i32 %141 to i64
   %143 = add nuw nsw i64 %136, %142
@@ -81187,7 +81187,7 @@ ma_node_get_heap_size.exit:                       ; preds = %ma_engine_get_chann
   %52 = select i1 %.not112, i64 8, i64 0
   %53 = zext i32 %33 to i64
   %54 = shl nuw nsw i64 %53, 2
-  %55 = add nuw nsw i64 %54, 7
+  %55 = add nuw nsw i64 %54, 4
   %56 = and i64 %55, 34359738360
   %57 = shl nuw nsw i64 %53, 3
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -120987,12 +120987,12 @@ define internal range(i32 -2, 1) i32 @ma_resampling_backend_get_heap_size__linea
   %16 = shl nuw nsw i64 %15, 2
   %17 = shl nuw nsw i64 %15, 3
   %storemerge35.i.i = select i1 %14, i64 %17, i64 %16
-  %18 = add nuw nsw i64 %storemerge35.i.i, 7
+  %18 = add nuw nsw i64 %storemerge35.i.i, 4
   %19 = tail call i32 @llvm.umin.i32(i32 %8, i32 8)
   %20 = and i32 %19, 1
   %21 = lshr i32 %19, 1
   %.not.i.i.i.i = icmp eq i32 %20, 0
-  %22 = add nuw nsw i64 %16, 7
+  %22 = add nuw nsw i64 %16, 4
   %23 = and i64 %22, 34359738360
   %24 = add nuw nsw i64 %23, 40
   %25 = select i1 %.not.i.i.i.i, i64 0, i64 %24

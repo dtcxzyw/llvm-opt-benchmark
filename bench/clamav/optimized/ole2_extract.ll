@@ -1464,8 +1464,8 @@ ole2_list_pop.exit:                               ; preds = %45
   br i1 %.not18.i, label %ole2_cmp_name.exit.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %113
-  %114 = add nsw i32 %109, -1
-  %115 = lshr i32 %114, 1
+  %114 = add nsw i32 %109, -2
+  %115 = lshr exact i32 %114, 1
   %116 = add nuw nsw i32 %115, 1
   %wide.trip.count.i = zext nneg i32 %116 to i64
   br label %.lr.ph.i
@@ -4720,8 +4720,8 @@ define internal fastcc i32 @ole2_cmp_name(ptr noundef nonnull readonly captures(
   br i1 %.not18, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %7
-  %8 = add nsw i32 %1, -1
-  %9 = lshr i32 %8, 1
+  %8 = add nsw i32 %1, -2
+  %9 = lshr exact i32 %8, 1
   %10 = add nuw nsw i32 %9, 1
   %wide.trip.count = zext nneg i32 %10 to i64
   br label %.lr.ph

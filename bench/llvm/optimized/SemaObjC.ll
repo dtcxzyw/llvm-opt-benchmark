@@ -3866,61 +3866,60 @@ define dso_local { ptr, i8 } @_ZN5clang8SemaObjC30actOnObjCProtocolQualifierType
   %32 = lshr i32 %31, 16
   %33 = and i32 %32, 1016
   %34 = lshr i32 %31, 24
-  %35 = and i32 %34, 252
-  %36 = add nuw nsw i32 %35, 23
-  %.lhs.trunc.i.i.i.i = add nuw nsw i32 %36, %33
+  %35 = add nuw nsw i32 %34, 20
+  %.lhs.trunc.i.i.i.i = add nuw nsw i32 %35, %33
   %.zext.i.i.i.i = and i32 %.lhs.trunc.i.i.i.i, 2040
-  %37 = add nuw nsw i32 %.zext.i.i.i.i, 8
-  %38 = zext nneg i32 %37 to i64
-  %39 = add i64 %25, %38
-  %40 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i34) #20
-  %41 = icmp ne i64 %39, 0
-  %42 = zext i1 %41 to i64
-  %43 = sub i64 %39, %42
-  %44 = zext i32 %40 to i64
-  %45 = udiv i64 %43, %44
-  %46 = add i64 %45, %42
-  %47 = mul i64 %46, %44
-  %48 = inttoptr i64 %47 to ptr
-  %49 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i34 to ptr
-  tail call void @_ZN5clang7TypeLoc14initializeImplERNS_10ASTContextES0_NS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %8, ptr %49, ptr %48, i32 0) #20
+  %36 = add nuw nsw i32 %.zext.i.i.i.i, 8
+  %37 = zext nneg i32 %36 to i64
+  %38 = add i64 %25, %37
+  %39 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i34) #20
+  %40 = icmp ne i64 %38, 0
+  %41 = zext i1 %40 to i64
+  %42 = sub i64 %38, %41
+  %43 = zext i32 %39 to i64
+  %44 = udiv i64 %42, %43
+  %45 = add i64 %44, %41
+  %46 = mul i64 %45, %43
+  %47 = inttoptr i64 %46 to ptr
+  %48 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i34 to ptr
+  tail call void @_ZN5clang7TypeLoc14initializeImplERNS_10ASTContextES0_NS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %8, ptr %48, ptr %47, i32 0) #20
   store i32 0, ptr %26, align 4, !tbaa !16
-  %50 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i32 0, ptr %50, align 4, !tbaa !16
-  %51 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i32 %1, ptr %51, align 4, !tbaa !16
-  %52 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  store i32 %6, ptr %52, align 4, !tbaa !16
-  %53 = and i64 %3, 4294967295
-  %.not65 = icmp eq i64 %53, 0
+  %49 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  store i32 0, ptr %49, align 4, !tbaa !16
+  %50 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store i32 %1, ptr %50, align 4, !tbaa !16
+  %51 = getelementptr inbounds nuw i8, ptr %26, i64 12
+  store i32 %6, ptr %51, align 4, !tbaa !16
+  %52 = and i64 %3, 4294967295
+  %.not65 = icmp eq i64 %52, 0
   br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %54 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %55 = and i64 %3, 4294967295
-  br label %58
+  %53 = getelementptr inbounds nuw i8, ptr %26, i64 24
+  %54 = and i64 %3, 4294967295
+  br label %57
 
-._crit_edge:                                      ; preds = %58, %7
-  %56 = load ptr, ptr %0, align 8, !tbaa !9
-  %57 = tail call ptr @_ZN5clang4Sema16CreateParsedTypeENS_8QualTypeEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(17504) %56, i64 %11, ptr noundef nonnull %12) #20
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %57, 0
+._crit_edge:                                      ; preds = %57, %7
+  %55 = load ptr, ptr %0, align 8, !tbaa !9
+  %56 = tail call ptr @_ZN5clang4Sema16CreateParsedTypeENS_8QualTypeEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(17504) %55, i64 %11, ptr noundef nonnull %12) #20
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %56, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 0, 1
   ret { ptr, i8 } %.fca.1.insert
 
-58:                                               ; preds = %.lr.ph, %58
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %4, i64 %indvars.iv
-  %.sroa.02.0.copyload = load i32, ptr %59, align 4, !tbaa !16
-  %60 = load i32, ptr %30, align 16
-  %61 = lshr i32 %60, 19
-  %62 = and i32 %61, 127
-  %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw ptr, ptr %54, i64 %63
-  %65 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %64, i64 %indvars.iv
-  store i32 %.sroa.02.0.copyload, ptr %65, align 4, !tbaa !16
+57:                                               ; preds = %.lr.ph, %57
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %57 ]
+  %58 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %4, i64 %indvars.iv
+  %.sroa.02.0.copyload = load i32, ptr %58, align 4, !tbaa !16
+  %59 = load i32, ptr %30, align 16
+  %60 = lshr i32 %59, 19
+  %61 = and i32 %60, 127
+  %62 = zext nneg i32 %61 to i64
+  %63 = getelementptr inbounds nuw ptr, ptr %53, i64 %62
+  %64 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %63, i64 %indvars.iv
+  store i32 %.sroa.02.0.copyload, ptr %64, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, %55
-  br i1 %.not, label %._crit_edge, label %58, !llvm.loop !1247
+  %.not = icmp eq i64 %indvars.iv.next, %54
+  br i1 %.not, label %._crit_edge, label %57, !llvm.loop !1247
 }
 
 declare i64 @_ZNK5clang10ASTContext17getObjCObjectTypeENS_8QualTypeEN4llvm8ArrayRefIS1_EENS3_IPNS_16ObjCProtocolDeclEEEb(ptr noundef nonnull align 8 dereferenceable(23216), i64, ptr, i64, ptr, i64, i1 noundef zeroext) local_unnamed_addr #1
@@ -3944,7 +3943,7 @@ define dso_local { ptr, i8 } @_ZN5clang8SemaObjC38actOnObjCTypeArgsAndProtocolQu
   store ptr null, ptr %12, align 8, !tbaa !1248
   %19 = call i64 @_ZN5clang4Sema17GetTypeFromParserENS_9OpaquePtrINS_8QualTypeEEEPPNS_14TypeSourceInfoE(ptr %3, ptr noundef nonnull %12) #20
   %.not.i.i = icmp ult i64 %19, 16
-  br i1 %.not.i.i, label %196, label %20
+  br i1 %.not.i.i, label %194, label %20
 
 20:                                               ; preds = %11
   %21 = load ptr, ptr %12, align 8, !tbaa !1248
@@ -4042,7 +4041,7 @@ define dso_local { ptr, i8 } @_ZN5clang8SemaObjC38actOnObjCTypeArgsAndProtocolQu
   %64 = call i64 @_ZN5clang8SemaObjC19BuildObjCObjectTypeENS_8QualTypeENS_14SourceLocationES2_N4llvm8ArrayRefIPNS_14TypeSourceInfoEEES2_S2_NS4_IPNS_16ObjCProtocolDeclEEENS4_IS2_EES2_bb(ptr noundef nonnull align 8 dereferenceable(328) %0, i64 %19, i32 %55, i32 %4, ptr %57, i64 %59, i32 %6, i32 %7, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1196") align 8 %16, ptr noundef nonnull byval(%"class.llvm::ArrayRef.1194") align 8 %9, i32 %10, i1 noundef zeroext false, i1 noundef zeroext false)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %65 = icmp eq i64 %64, %19
-  br i1 %65, label %192, label %66
+  br i1 %65, label %190, label %66
 
 66:                                               ; preds = %.loopexit169
   %67 = call noundef ptr @_ZNK5clang10ASTContext20CreateTypeSourceInfoENS_8QualTypeEj(ptr noundef nonnull align 8 dereferenceable(23216) %18, i64 %64, i32 noundef 0) #20
@@ -4205,7 +4204,7 @@ _ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_20ObjCTypeParamTypeLocENS_17Obj
   %140 = getelementptr inbounds nuw i8, ptr %.sroa.7.0, i64 16
   store i8 1, ptr %140, align 4, !tbaa !1245
   %141 = icmp eq i64 %19, %89
-  br i1 %141, label %142, label %168
+  br i1 %141, label %142, label %167
 
 142:                                              ; preds = %.loopexit167
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -4216,82 +4215,80 @@ _ZN5clang15ConcreteTypeLocINS_13UnqualTypeLocENS_20ObjCTypeParamTypeLocENS_17Obj
   %146 = lshr i32 %145, 16
   %147 = and i32 %146, 1016
   %148 = lshr i32 %145, 24
-  %149 = and i32 %148, 252
-  %150 = add nuw nsw i32 %149, 23
-  %.lhs.trunc.i.i.i.i = add nuw nsw i32 %150, %147
+  %149 = add nuw nsw i32 %148, 20
+  %.lhs.trunc.i.i.i.i = add nuw nsw i32 %149, %147
   %.zext.i.i.i.i = and i32 %.lhs.trunc.i.i.i.i, 2040
-  %151 = add nuw nsw i32 %.zext.i.i.i.i, 8
-  %152 = zext nneg i32 %151 to i64
-  %153 = add i64 %152, %144
-  %154 = call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i100) #20
-  %155 = icmp ne i64 %153, 0
-  %156 = zext i1 %155 to i64
-  %157 = sub i64 %153, %156
-  %158 = zext i32 %154 to i64
-  %159 = udiv i64 %157, %158
-  %160 = add i64 %159, %156
-  %161 = mul i64 %160, %158
-  %162 = inttoptr i64 %161 to ptr
-  %163 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i100 to ptr
-  store ptr %163, ptr %17, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr %162, ptr %164, align 8
-  %165 = load ptr, ptr %12, align 8, !tbaa !1248
-  %.sroa.0.0.copyload.i103 = load i64, ptr %165, align 8, !tbaa !17
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  %167 = inttoptr i64 %.sroa.0.0.copyload.i103 to ptr
-  call void @_ZN5clang7TypeLoc4copyES0_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr %167, ptr nonnull %166) #20
+  %150 = add nuw nsw i32 %.zext.i.i.i.i, 8
+  %151 = zext nneg i32 %150 to i64
+  %152 = add i64 %151, %144
+  %153 = call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i100) #20
+  %154 = icmp ne i64 %152, 0
+  %155 = zext i1 %154 to i64
+  %156 = sub i64 %152, %155
+  %157 = zext i32 %153 to i64
+  %158 = udiv i64 %156, %157
+  %159 = add i64 %158, %155
+  %160 = mul i64 %159, %157
+  %161 = inttoptr i64 %160 to ptr
+  %162 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i100 to ptr
+  store ptr %162, ptr %17, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %161, ptr %163, align 8
+  %164 = load ptr, ptr %12, align 8, !tbaa !1248
+  %.sroa.0.0.copyload.i103 = load i64, ptr %164, align 8, !tbaa !17
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  %166 = inttoptr i64 %.sroa.0.0.copyload.i103 to ptr
+  call void @_ZN5clang7TypeLoc4copyES0_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr %166, ptr nonnull %165) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.sink.split
 
-168:                                              ; preds = %.loopexit167
-  %169 = getelementptr inbounds nuw i8, ptr %.sroa.0142.0, i64 24
-  %.sroa.0.0.copyload.i.i.i.i106 = load i64, ptr %169, align 8, !tbaa !17
-  %170 = ptrtoint ptr %.sroa.7.0 to i64
-  %171 = load i32, ptr %109, align 16
-  %172 = lshr i32 %171, 16
-  %173 = and i32 %172, 1016
-  %174 = lshr i32 %171, 24
-  %175 = and i32 %174, 252
-  %176 = add nuw nsw i32 %175, 23
-  %.lhs.trunc.i.i.i.i107 = add nuw nsw i32 %176, %173
+167:                                              ; preds = %.loopexit167
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.0142.0, i64 24
+  %.sroa.0.0.copyload.i.i.i.i106 = load i64, ptr %168, align 8, !tbaa !17
+  %169 = ptrtoint ptr %.sroa.7.0 to i64
+  %170 = load i32, ptr %109, align 16
+  %171 = lshr i32 %170, 16
+  %172 = and i32 %171, 1016
+  %173 = lshr i32 %170, 24
+  %174 = add nuw nsw i32 %173, 20
+  %.lhs.trunc.i.i.i.i107 = add nuw nsw i32 %174, %172
   %.zext.i.i.i.i108 = and i32 %.lhs.trunc.i.i.i.i107, 2040
-  %177 = add nuw nsw i32 %.zext.i.i.i.i108, 8
-  %178 = zext nneg i32 %177 to i64
-  %179 = add i64 %178, %170
-  %180 = call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i106) #20
-  %181 = icmp ne i64 %179, 0
-  %182 = zext i1 %181 to i64
-  %183 = sub i64 %179, %182
-  %184 = zext i32 %180 to i64
-  %185 = udiv i64 %183, %184
-  %186 = add i64 %185, %182
-  %187 = mul i64 %186, %184
-  %188 = inttoptr i64 %187 to ptr
-  %189 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i106 to ptr
-  call void @_ZN5clang7TypeLoc14initializeImplERNS_10ASTContextES0_NS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %18, ptr %189, ptr %188, i32 %2) #20
+  %175 = add nuw nsw i32 %.zext.i.i.i.i108, 8
+  %176 = zext nneg i32 %175 to i64
+  %177 = add i64 %176, %169
+  %178 = call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i106) #20
+  %179 = icmp ne i64 %177, 0
+  %180 = zext i1 %179 to i64
+  %181 = sub i64 %177, %180
+  %182 = zext i32 %178 to i64
+  %183 = udiv i64 %181, %182
+  %184 = add i64 %183, %180
+  %185 = mul i64 %184, %182
+  %186 = inttoptr i64 %185 to ptr
+  %187 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i106 to ptr
+  call void @_ZN5clang7TypeLoc14initializeImplERNS_10ASTContextES0_NS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %18, ptr %187, ptr %186, i32 %2) #20
   br label %.sink.split
 
-.sink.split:                                      ; preds = %106, %142, %168, %95, %99
-  %190 = load ptr, ptr %0, align 8, !tbaa !9
-  %191 = call ptr @_ZN5clang4Sema16CreateParsedTypeENS_8QualTypeEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(17504) %190, i64 %64, ptr noundef nonnull %67) #20
-  br label %192
+.sink.split:                                      ; preds = %106, %142, %167, %95, %99
+  %188 = load ptr, ptr %0, align 8, !tbaa !9
+  %189 = call ptr @_ZN5clang4Sema16CreateParsedTypeENS_8QualTypeEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(17504) %188, i64 %64, ptr noundef nonnull %67) #20
+  br label %190
 
-192:                                              ; preds = %.sink.split, %.loopexit169
-  %.sroa.0157.1 = phi ptr [ %3, %.loopexit169 ], [ %191, %.sink.split ]
-  %193 = load ptr, ptr %13, align 8, !tbaa !3
-  %194 = icmp eq ptr %193, %25
-  br i1 %194, label %_ZN4llvm11SmallVectorIPN5clang14TypeSourceInfoELj4EED2Ev.exit, label %195
+190:                                              ; preds = %.sink.split, %.loopexit169
+  %.sroa.0157.1 = phi ptr [ %3, %.loopexit169 ], [ %189, %.sink.split ]
+  %191 = load ptr, ptr %13, align 8, !tbaa !3
+  %192 = icmp eq ptr %191, %25
+  br i1 %192, label %_ZN4llvm11SmallVectorIPN5clang14TypeSourceInfoELj4EED2Ev.exit, label %193
 
-195:                                              ; preds = %192
-  call void @free(ptr noundef %193) #20
+193:                                              ; preds = %190
+  call void @free(ptr noundef %191) #20
   br label %_ZN4llvm11SmallVectorIPN5clang14TypeSourceInfoELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPN5clang14TypeSourceInfoELj4EED2Ev.exit: ; preds = %192, %195
+_ZN4llvm11SmallVectorIPN5clang14TypeSourceInfoELj4EED2Ev.exit: ; preds = %190, %193
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %196
+  br label %194
 
-196:                                              ; preds = %11, %_ZN4llvm11SmallVectorIPN5clang14TypeSourceInfoELj4EED2Ev.exit
+194:                                              ; preds = %11, %_ZN4llvm11SmallVectorIPN5clang14TypeSourceInfoELj4EED2Ev.exit
   %.sroa.0157.0 = phi ptr [ %.sroa.0157.1, %_ZN4llvm11SmallVectorIPN5clang14TypeSourceInfoELj4EED2Ev.exit ], [ null, %11 ]
   %.sroa.5158.0 = phi i8 [ 0, %_ZN4llvm11SmallVectorIPN5clang14TypeSourceInfoELj4EED2Ev.exit ], [ 1, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

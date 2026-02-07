@@ -982,7 +982,7 @@ _ZN5clang6interpL19interp__builtin_infERNS0_11InterpStateENS0_7CodePtrEPKNS0_11I
   %284 = load ptr, ptr %281, align 8, !tbaa !108
   %285 = tail call noundef i64 @_ZN5clang6interp8primSizeENS0_8PrimTypeE(i32 noundef 12) #21
   %286 = shl i64 %285, 1
-  %287 = add i64 %286, 7
+  %287 = add i64 %286, 6
   %288 = and i64 %287, -8
   %289 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %284, i64 noundef %288) #21
   %290 = getelementptr inbounds nuw i8, ptr %2, i64 512

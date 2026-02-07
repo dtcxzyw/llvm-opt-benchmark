@@ -1311,7 +1311,7 @@ define internal fastcc ptr @ifs_alloc(ptr noundef readonly captures(none) %0, pt
   %27 = select i1 %26, i32 36160, i32 10496
   %28 = shl i64 %19, 1
   %29 = and i64 %28, 4294967294
-  %30 = add nuw nsw i64 %29, 63
+  %30 = add nuw nsw i64 %29, 62
   %31 = lshr i64 %30, 3
   %32 = and i64 %31, 1073741816
   %33 = add nuw nsw i64 %32, 16

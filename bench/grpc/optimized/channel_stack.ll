@@ -296,7 +296,7 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx
 
 56:                                               ; preds = %_ZNSt12__shared_ptrIN17grpc_event_engine12experimental11EventEngineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %57 = mul i64 %5, 24
-  %58 = add i64 %57, 15
+  %58 = add i64 %57, 8
   %59 = and i64 %58, 4294967280
   %60 = add nuw nsw i64 %59, 48
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 128
@@ -735,7 +735,7 @@ define void @_Z20grpc_call_stack_initP18grpc_channel_stackiPFvPvN4absl12lts_2024
 
 .lr.ph.preheader:                                 ; preds = %6
   %15 = mul i64 %10, 24
-  %16 = add i64 %15, 15
+  %16 = add i64 %15, 8
   %17 = and i64 %16, 4294967280
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 %17
   br label %.lr.ph

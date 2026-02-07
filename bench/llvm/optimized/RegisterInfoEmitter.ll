@@ -10862,7 +10862,7 @@ _ZN4llvm9BitVector15set_unused_bitsEb.exit.i.i:   ; preds = %1849, %._ZN4llvm9Bi
   %.pre-phi.i.i = phi i64 [ %.pre6.i.i, %._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i.i ], [ %1855, %1849 ]
   %1860 = phi i32 [ %.pre.i.i703, %._ZN4llvm9BitVector15set_unused_bitsEb.exit_crit_edge.i.i ], [ %1854, %1849 ]
   store i32 %1847, ptr %1520, align 8, !tbaa !677
-  %1861 = add i32 %1846, 71
+  %1861 = add i32 %1843, 64
   %1862 = lshr i32 %1861, 6
   %1863 = zext nneg i32 %1862 to i64
   %1864 = icmp eq i32 %1862, %1860

@@ -404,7 +404,7 @@ define internal fastcc void @_ZN9hashbrown3raw13RawTableInner22fallible_with_cap
   br i1 %or.cond.i, label %38, label %26, !prof !33
 
 26:                                               ; preds = %22
-  %27 = add nuw i64 %23, 15
+  %27 = add nuw i64 %23, 8
   %28 = and i64 %27, -16
   %29 = add nuw nsw i64 %.sroa.4.0.i.ph, 16
   %30 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %28, i64 %29)

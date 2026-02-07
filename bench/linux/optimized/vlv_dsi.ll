@@ -579,7 +579,7 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
   %282 = udiv i32 %281, 1000000
   %283 = shl nuw nsw i32 %282, 2
   %284 = select i1 %197, i32 1, i32 3
-  %285 = add nuw nsw i32 %283, 17
+  %285 = add nuw nsw i32 %283, 16
   %286 = add nuw nsw i32 %240, %218
   %287 = shl nuw nsw i32 %286, %284
   %288 = add nuw nsw i32 %285, %287
@@ -597,7 +597,7 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
   store i16 %299, ptr %297, align 2
   %300 = add nuw nsw i32 %254, %218
   %301 = shl nuw nsw i32 %300, 1
-  %302 = add nuw nsw i32 %283, 7
+  %302 = add nuw nsw i32 %283, 6
   %303 = add nuw nsw i32 %302, %301
   %304 = lshr i32 %303, 3
   %305 = getelementptr inbounds nuw i8, ptr %19, i64 620
@@ -606,7 +606,7 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
   store i16 %307, ptr %305, align 4
   %308 = add nuw nsw i32 %273, %282
   %309 = shl nuw nsw i32 %308, 1
-  %310 = add nuw nsw i32 %309, 15
+  %310 = add nuw nsw i32 %309, 14
   %311 = lshr i32 %310, 3
   %312 = getelementptr inbounds nuw i8, ptr %19, i64 622
   %313 = add nuw nsw i32 %311, %181

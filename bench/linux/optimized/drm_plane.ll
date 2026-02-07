@@ -492,7 +492,7 @@ define internal fastcc i32 @__drm_universal_plane_init(ptr noundef %0, ptr nound
   %231 = load i32, ptr %99, align 8
   %232 = zext i32 %231 to i64
   %233 = mul nuw nsw i64 %232, 24
-  %234 = add nuw nsw i64 %227, 7
+  %234 = add nuw nsw i64 %227, 4
   %235 = and i64 %234, 34359738360
   %236 = add nuw nsw i64 %235, 24
   %237 = add nuw nsw i64 %236, %233
@@ -513,7 +513,7 @@ define internal fastcc i32 @__drm_universal_plane_init(ptr noundef %0, ptr nound
   %247 = getelementptr inbounds nuw i8, ptr %242, i64 16
   store i32 %246, ptr %247, align 4
   %248 = trunc i64 %227 to i32
-  %249 = add i32 %248, 31
+  %249 = add i32 %248, 28
   %250 = and i32 %249, -8
   %251 = getelementptr inbounds nuw i8, ptr %242, i64 20
   store i32 %250, ptr %251, align 4

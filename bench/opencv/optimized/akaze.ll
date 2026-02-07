@@ -2031,7 +2031,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv10AKAZE_Impl14descriptorSizeEv(pt
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !23
   %11 = mul nsw i32 %10, 162
-  %12 = add i32 %11, 7
+  %12 = add i32 %11, 6
   %13 = lshr i32 %12, 3
   br label %18
 

@@ -1099,7 +1099,7 @@ define dso_local noalias noundef ptr @drm_gtf_mode_complex(ptr readnone captures
 
 51:                                               ; preds = %31
   %52 = mul i32 %20, 144
-  %53 = add i32 %52, 500
+  %53 = add i32 %52, 496
   %54 = udiv i32 %53, 1000
   %55 = shl nuw nsw i32 %54, 1
   br label %56

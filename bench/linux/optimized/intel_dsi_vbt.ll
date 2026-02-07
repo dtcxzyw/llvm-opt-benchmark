@@ -828,7 +828,7 @@ define dso_local noundef zeroext i1 @intel_dsi_vbt_init(ptr noundef initializes(
   %109 = zext nneg i8 %50 to i32
   %110 = mul nuw nsw i32 %109, 60
   %111 = mul nuw nsw i32 %110, %108
-  %112 = add nuw nsw i32 %111, 999
+  %112 = add nuw nsw i32 %111, 996
   %113 = udiv i32 %112, 1000
   %114 = add nuw i32 %113, %103
   store i32 %114, ptr %100, align 4

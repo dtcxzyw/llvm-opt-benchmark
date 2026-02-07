@@ -483,7 +483,7 @@ _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i: ; preds = %
   ]
 
 19:                                               ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %16
-  %narrow.i = add nuw nsw i32 %14, 7
+  %narrow.i = add nuw nsw i32 %14, 4
   %20 = and i32 %narrow.i, 24
   br label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
 

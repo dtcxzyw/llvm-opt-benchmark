@@ -829,7 +829,7 @@ define void @_ZN5faiss15ScalarQuantizerC2EmNS0_13QuantizerTypeE(ptr noundef nonn
 
 13:                                               ; preds = %3
   %14 = mul i64 %1, 6
-  %15 = add i64 %14, 7
+  %15 = add i64 %14, 6
   %16 = lshr i64 %15, 3
   br label %.sink.split.i
 
@@ -884,7 +884,7 @@ define void @_ZN5faiss15ScalarQuantizer17set_derived_sizesEv(ptr noundef nonnull
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !21
   %15 = mul i64 %14, 6
-  %16 = add i64 %15, 7
+  %16 = add i64 %15, 6
   %17 = lshr i64 %16, 3
   br label %.sink.split
 

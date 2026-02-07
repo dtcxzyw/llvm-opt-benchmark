@@ -2730,7 +2730,7 @@ write_section_info.exit.i:                        ; preds = %387, %386, %385
   %.0223.i = phi i32 [ 12, %404 ], [ %spec.select267.i, %421 ]
   %.0221.i = phi i32 [ 4095, %404 ], [ %420, %421 ]
   %425 = mul i32 %399, %.0223.i
-  %426 = add i32 %425, 7
+  %426 = add i32 %425, 6
   %427 = lshr i32 %426, 3
   %428 = load i32, ptr @hf_oran_iq_user_data, align 4
   %429 = call ptr @proto_tree_add_item(ptr noundef %409, i32 noundef %428, ptr noundef %0, i32 noundef %410, i32 noundef %427, i32 noundef 0)
@@ -7122,7 +7122,7 @@ dissect_csf.exit1599:                             ; preds = %757, %769
   %787 = fmul double %783, %786
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %775, ptr noundef nonnull @.str.1287, double noundef %787)
   %788 = add i32 %.014551845, 28
-  %789 = add i32 %.014551845, 35
+  %789 = add i32 %.014551845, 32
   %790 = lshr i32 %789, 3
   %791 = sub nsw i32 %790, %758
   call void @proto_item_set_len(ptr noundef %760, i32 noundef %791)
@@ -8099,7 +8099,7 @@ dissect_frame_structure.exit:                     ; preds = %1243, %1250, %1256,
 
 1272:                                             ; preds = %502
   %1273 = shl i32 %499, 2
-  %1274 = add i32 %1273, -2
+  %1274 = add i32 %1273, -4
   %1275 = lshr i32 %1274, 3
   %.not1883 = icmp eq i32 %1275, 0
   br i1 %.not1883, label %.loopexit1689, label %.lr.ph1780

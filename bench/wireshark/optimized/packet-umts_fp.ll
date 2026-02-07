@@ -6268,7 +6268,7 @@ dissect_e_dch_t2_or_common_channel_info.exit:     ; preds = %._crit_edge228.i, %
   br i1 %.not340, label %320, label %.thread345.loopexit, !llvm.loop !41
 
 .thread345.loopexit:                              ; preds = %352
-  %358 = add nuw i32 %.0304414, 19
+  %358 = add nuw i32 %.0304414, 16
   %359 = lshr i32 %358, 3
   br label %.thread345
 
@@ -8317,7 +8317,7 @@ define internal fastcc noundef zeroext i1 @heur_dissect_fp_edch_type_1(ptr nound
 
 70:                                               ; preds = %63
   %71 = add i32 %.01148, %59
-  %72 = add nuw i32 %.01086, 19
+  %72 = add nuw i32 %.01086, 16
   %73 = lshr i32 %72, 3
   %74 = add i32 %73, %49
   %75 = add nuw nsw i32 %.010511, 1

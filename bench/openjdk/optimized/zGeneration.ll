@@ -5989,7 +5989,7 @@ define linkonce_odr hidden void @_ZN17ZIndexDistributor10do_indicesIZN26ZPageTab
 .preheader17.lr.ph.i:                             ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %18 = ptrtoint ptr %17 to i64
-  %19 = add i64 %18, 63
+  %19 = add i64 %18, 60
   %20 = and i64 %19, -64
   %21 = inttoptr i64 %20 to ptr
   br label %.preheader17.i
@@ -6010,7 +6010,7 @@ define linkonce_odr hidden void @_ZN17ZIndexDistributor10do_indicesIZN26ZPageTab
 .preheader15.i:                                   ; preds = %.loopexit18.i, %9
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %30 = ptrtoint ptr %29 to i64
-  %31 = add i64 %30, 63
+  %31 = add i64 %30, 60
   %32 = and i64 %31, -64
   %33 = inttoptr i64 %32 to ptr
   br label %.preheader.i

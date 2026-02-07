@@ -5252,14 +5252,13 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$12free_bucket
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !alias.scope !1353, !noundef !12
   %4 = shl i64 %3, 3
-  %5 = add i64 %4, 23
-  %6 = and i64 %5, -16
-  %7 = add i64 %3, 17
-  %8 = add nuw i64 %7, %6
-  %9 = load ptr, ptr %0, align 8, !alias.scope !1353, !nonnull !12, !noundef !12
-  %10 = sub nsw i64 0, %6
-  %11 = getelementptr inbounds i8, ptr %9, i64 %10
-  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef %8, i64 noundef 16) #47, !noalias !1353
+  %5 = and i64 %4, -16
+  %6 = add i64 %3, 33
+  %7 = add i64 %6, %5
+  %8 = load ptr, ptr %0, align 8, !alias.scope !1353, !nonnull !12, !noundef !12
+  %9 = sub nuw nsw i64 -16, %5
+  %10 = getelementptr inbounds i8, ptr %8, i64 %9
+  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef %7, i64 noundef 16) #47, !noalias !1353
   ret void
 }
 
@@ -5329,7 +5328,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 36:                                               ; preds = %28, %.thread
   %.sroa.4.0.i.ph41.i.i73 = phi i64 [ %..i.i.i, %.thread ], [ %34, %28 ]
   %37 = shl nuw i64 %.sroa.4.0.i.ph41.i.i73, 3
-  %38 = add nuw i64 %37, 15
+  %38 = add nuw i64 %37, 8
   %39 = and i64 %38, -16
   %40 = add nuw nsw i64 %.sroa.4.0.i.ph41.i.i73, 16
   %41 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %39, i64 %40)
@@ -5807,7 +5806,7 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22fallible_wi
 20:                                               ; preds = %12, %.thread
   %.sroa.4.0.i.ph41.i41 = phi i64 [ %..i.i, %.thread ], [ %18, %12 ]
   %21 = shl nuw i64 %.sroa.4.0.i.ph41.i41, 3
-  %22 = add nuw i64 %21, 15
+  %22 = add nuw i64 %21, 8
   %23 = and i64 %22, -16
   %24 = add nuw nsw i64 %.sroa.4.0.i.ph41.i41, 16
   %25 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %23, i64 %24)

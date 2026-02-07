@@ -2109,7 +2109,7 @@ _ZN15MetadataFactory9new_arrayIP6MethodEEP5ArrayIT_EP15ClassLoaderDataiS4_P10Jav
   %836 = add nsw i32 %817, -1
   %837 = zext nneg i32 %836 to i64
   %838 = shl nuw nsw i64 %837, 2
-  %839 = add nuw nsw i64 %838, 15
+  %839 = add nuw nsw i64 %838, 12
   %840 = lshr i64 %839, 3
   %841 = call noundef ptr @_ZN9Metaspace8allocateEP15ClassLoaderDatamN12MetaspaceObj4TypeEP10JavaThread(ptr noundef %835, i64 noundef %840, i32 noundef 4, ptr noundef nonnull %2) #12
   %842 = icmp eq ptr %841, null
@@ -2353,7 +2353,7 @@ _ZN15MetadataFactory10free_arrayIiEEvP15ClassLoaderDataP5ArrayIT_E.exit.i.i: ; p
   %962 = add nsw i32 %960, -1
   %963 = zext nneg i32 %962 to i64
   %964 = shl nuw nsw i64 %963, 2
-  %965 = add nuw nsw i64 %964, 15
+  %965 = add nuw nsw i64 %964, 12
   %966 = lshr i64 %965, 3
   %967 = call noundef ptr @_ZN15ClassLoaderData18metaspace_non_nullEv(ptr noundef nonnull align 8 dereferenceable(160) %953) #12
   call void @_ZN20ClassLoaderMetaspace10deallocateEPP12MetaWordImplmb(ptr noundef nonnull align 8 dereferenceable(32) %967, ptr noundef nonnull %806, i64 noundef %966, i1 noundef zeroext false) #12

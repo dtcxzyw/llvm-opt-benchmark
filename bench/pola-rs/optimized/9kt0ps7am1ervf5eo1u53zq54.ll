@@ -31597,7 +31597,7 @@ define internal fastcc i64 @_ZN6chrono10time_delta9TimeDelta4days17h5637aabeb8e0
   br i1 %5, label %8, label %6, !prof !979
 
 6:                                                ; preds = %1
-  %7 = add i64 %4, -9223372036854776
+  %7 = add i64 %4, -9223372036854784
   %or.cond = icmp ult i64 %7, -18446744073709552
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %or.cond, label %10, label %9, !prof !4471
@@ -31627,7 +31627,7 @@ define internal fastcc i64 @_ZN6chrono10time_delta9TimeDelta5hours17hb4502c50b1c
   br i1 %5, label %8, label %6, !prof !979
 
 6:                                                ; preds = %1
-  %7 = add i64 %4, -9223372036854776
+  %7 = add i64 %4, -9223372036854784
   %or.cond = icmp ult i64 %7, -18446744073709552
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %or.cond, label %10, label %9, !prof !4471
@@ -31657,7 +31657,7 @@ define internal fastcc i64 @_ZN6chrono10time_delta9TimeDelta5weeks17h2b1c66aac87
   br i1 %5, label %8, label %6, !prof !979
 
 6:                                                ; preds = %1
-  %7 = add i64 %4, -9223372036854776
+  %7 = add i64 %4, -9223372036854784
   %or.cond = icmp ult i64 %7, -18446744073709552
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br i1 %or.cond, label %10, label %9, !prof !4471

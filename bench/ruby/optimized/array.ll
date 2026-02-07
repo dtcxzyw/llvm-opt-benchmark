@@ -19799,7 +19799,7 @@ RARRAY_PTR.exit:                                  ; preds = %12, %14
 
 rb_alloc_tmp_buffer2.exit:                        ; preds = %21
   %24 = shl nuw nsw i64 %7, 2
-  %25 = add nuw nsw i64 %24, 7
+  %25 = add nuw nsw i64 %24, 4
   %26 = lshr i64 %25, 3
   %27 = call noalias nonnull ptr @rb_alloc_tmp_buffer_with_count(ptr noundef nonnull %5, i64 noundef %24, i64 noundef %26) #28
   br label %28

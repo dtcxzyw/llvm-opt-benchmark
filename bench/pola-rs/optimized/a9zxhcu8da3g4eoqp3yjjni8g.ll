@@ -18408,7 +18408,7 @@ define hidden void @"_ZN76_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$
   br i1 %or.cond.i.i, label %25, label %13, !prof !2634
 
 13:                                               ; preds = %8
-  %14 = add nuw i64 %10, 15
+  %14 = add nuw i64 %10, 8
   %15 = and i64 %14, -16
   %16 = add nsw i64 %5, 17
   %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)
@@ -18648,7 +18648,7 @@ define hidden void @"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$
   br i1 %or.cond.i.i.i, label %25, label %13, !prof !2634
 
 13:                                               ; preds = %8
-  %14 = add nuw i64 %10, 15
+  %14 = add nuw i64 %10, 8
   %15 = and i64 %14, -16
   %16 = add nsw i64 %6, 17
   %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %15, i64 %16)

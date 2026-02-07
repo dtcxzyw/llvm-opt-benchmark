@@ -3735,8 +3735,8 @@ switch.lookup:
   br i1 %.not, label %.preheader.preheader, label %11
 
 .preheader.preheader:                             ; preds = %switch.lookup
-  %9 = add nsw i64 %switch.load, -1
-  %10 = lshr i64 %9, 1
+  %9 = add nsw i64 %switch.load, -2
+  %10 = lshr exact i64 %9, 1
   br label %.preheader
 
 11:                                               ; preds = %switch.lookup

@@ -1697,7 +1697,7 @@ _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie3getEi.exit.i.i: ; preds = %105, 
 _ZNK6icu_7712_GLOBAL__N_120MutableCodePointTrie13findHighStartEv.exit.i.i: ; preds = %135, %132
   %.2.i.in.i.i = trunc i64 %indvars.iv32.i.i.i to i32
   %.2.i.i.i = shl nuw nsw i32 %.2.i.in.i.i, 4
-  %138 = add nuw nsw i32 %.2.i.i.i, 511
+  %138 = add nuw nsw i32 %.2.i.i.i, 496
   %139 = and i32 %138, 2147483136
   %140 = icmp eq i32 %139, 1114112
   br i1 %140, label %141, label %144

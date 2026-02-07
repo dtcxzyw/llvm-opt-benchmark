@@ -645,7 +645,7 @@ define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initi
   %62 = phi ptr [ %.pre122, %._crit_edge.loopexit ], [ %.pre123, %53 ]
   %63 = sext i32 %57 to i64
   %64 = shl nsw i64 %63, 3
-  %65 = add nsw i64 %64, 23
+  %65 = add nsw i64 %64, 16
   %66 = udiv i64 %65, 24
   %67 = getelementptr inbounds nuw %struct.TCell_, ptr %3, i64 %66
   store ptr %67, ptr %35, align 8, !tbaa !110

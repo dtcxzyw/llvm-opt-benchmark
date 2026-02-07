@@ -1604,7 +1604,7 @@ define i32 @DeriveKeys(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %17 = zext i16 %16 to i32
   %18 = add nuw nsw i32 %14, %17
   %19 = shl nuw nsw i32 %18, 1
-  %20 = add nuw nsw i32 %19, 15
+  %20 = add nuw nsw i32 %19, 14
   %21 = lshr i32 %20, 4
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

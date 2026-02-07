@@ -337,7 +337,7 @@ define internal fastcc void @show_trace_log_lvl(ptr noundef %0, ptr noundef %1, 
   br i1 %69, label %76, label %70
 
 70:                                               ; preds = %60
-  %71 = add i64 %66, 4095
+  %71 = add i64 %64, 4095
   %72 = and i64 %71, -4096
   %73 = inttoptr i64 %72 to ptr
   %74 = call i32 @get_stack_info(ptr noundef %73, ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7) #14

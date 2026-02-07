@@ -2135,7 +2135,7 @@ define dso_local void @calc_global_load() local_unnamed_addr #0 align 16 {
   %21 = mul i64 %17, 335872
   %22 = add i64 %21, %20
   %23 = icmp ult i64 %18, %19
-  %24 = add i64 %22, 2047
+  %24 = add i64 %22, 2044
   %25 = select i1 %23, i64 %22, i64 %24
   %26 = lshr i64 %25, 11
   store i64 %26, ptr @avenrun, align 16
@@ -2144,7 +2144,7 @@ define dso_local void @calc_global_load() local_unnamed_addr #0 align 16 {
   %29 = mul i64 %17, 69632
   %30 = add i64 %28, %29
   %31 = icmp ult i64 %18, %27
-  %32 = add i64 %30, 2047
+  %32 = add i64 %30, 2046
   %33 = select i1 %31, i64 %30, i64 %32
   %34 = lshr i64 %33, 11
   store i64 %34, ptr getelementptr inbounds nuw (i8, ptr @avenrun, i64 8), align 8

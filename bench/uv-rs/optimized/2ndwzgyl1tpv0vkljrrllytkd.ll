@@ -30673,9 +30673,8 @@ define void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h6ffd48df118cf4c6E"(pt
 10:                                               ; preds = %6
   fence acquire
   %11 = shl nuw nsw i64 %4, 3
-  %12 = add nuw i64 %11, 23
-  %13 = and i64 %12, -8
-  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %13, i64 noundef range(i64 1, -9223372036854775807) 8) #42, !noalias !7881
+  %12 = add nuw i64 %11, 16
+  tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef %12, i64 noundef range(i64 1, -9223372036854775807) 8) #42, !noalias !7881
   br label %"_ZN4core3ptr118drop_in_place$LT$alloc..sync..Weak$LT$$u5b$uv_pep508..marker..tree..MarkerTree$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h35aa107d351468c4E.exit"
 
 "_ZN4core3ptr118drop_in_place$LT$alloc..sync..Weak$LT$$u5b$uv_pep508..marker..tree..MarkerTree$u5d$$C$$RF$alloc..alloc..Global$GT$$GT$17h35aa107d351468c4E.exit": ; preds = %1, %6, %10

@@ -1342,7 +1342,7 @@ common.resume.sink.split.i:                       ; preds = %143, %60
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 0, ptr %91, align 8, !noalias !200
   %92 = zext i32 %78 to i64
-  %93 = add nuw nsw i64 %92, 15
+  %93 = add nuw nsw i64 %92, 14
   %94 = lshr i64 %93, 4
   %95 = add nuw nsw i64 %94, 1
   %96 = invoke { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17h4150f83d9d746094E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3, i64 noundef 0, i64 noundef %95)

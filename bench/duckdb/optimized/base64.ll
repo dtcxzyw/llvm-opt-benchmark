@@ -251,7 +251,7 @@ define hidden range(i32 -44, 1) i32 @mbedtls_base64_decode(ptr noundef %0, i64 n
   %47 = mul nuw i64 %46, 6
   %48 = and i64 %.072.lcssa.ph, 7
   %49 = mul nuw nsw i64 %48, 6
-  %50 = add nuw nsw i64 %49, 7
+  %50 = add nuw nsw i64 %49, 6
   %51 = lshr i64 %50, 3
   %52 = sub i64 %47, %45
   %53 = add i64 %52, %51

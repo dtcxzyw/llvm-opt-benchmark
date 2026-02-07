@@ -970,72 +970,71 @@ define i32 @ossl_curve448_point_decode_like_eddsa_and_mul_by_ratio(ptr noundef %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(57) %4, ptr noundef nonnull align 1 dereferenceable(57) %1, i64 57, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %10 = load i8, ptr %9, align 8, !tbaa !16
-  %11 = and i8 %10, -128
-  %12 = zext i8 %11 to i64
-  %13 = add nsw i64 %12, -1
-  %.neg.i.i = ashr i64 %13, 63
-  %14 = and i8 %10, 127
-  store i8 %14, ptr %9, align 8, !tbaa !16
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %16 = call i64 @gf_deserialize(ptr noundef nonnull %15, ptr noundef nonnull %4, i32 noundef 1, i8 noundef zeroext 0) #7
-  %17 = load i8, ptr %9, align 8, !tbaa !16
-  call void @ossl_gf_sqr(ptr noundef %0, ptr noundef nonnull %15) #7
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  call void @gf_sub(ptr noundef nonnull %18, ptr noundef nonnull @ONE, ptr noundef %0) #7
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  call void @ossl_gf_mulw_unsigned(ptr noundef nonnull %19, ptr noundef %0, i32 noundef 39081) #7
-  call void @gf_sub(ptr noundef nonnull %19, ptr noundef nonnull @ZERO, ptr noundef nonnull %19) #7
-  call void @gf_sub(ptr noundef nonnull %19, ptr noundef nonnull @ONE, ptr noundef nonnull %19) #7
-  call void @ossl_gf_mul(ptr noundef %0, ptr noundef nonnull %18, ptr noundef nonnull %19) #7
-  %20 = call i64 @gf_isr(ptr noundef nonnull %19, ptr noundef %0) #7
-  call void @ossl_gf_mul(ptr noundef %0, ptr noundef nonnull %19, ptr noundef nonnull %18) #7
-  %21 = call i64 @gf_lobit(ptr noundef %0) #7
-  %22 = xor i64 %21, %.neg.i.i
-  %23 = xor i64 %22, -1
+  %11 = zext i8 %10 to i64
+  %12 = add nsw i64 %11, -128
+  %.neg.i.i = ashr i64 %12, 63
+  %13 = and i8 %10, 127
+  store i8 %13, ptr %9, align 8, !tbaa !16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %15 = call i64 @gf_deserialize(ptr noundef nonnull %14, ptr noundef nonnull %4, i32 noundef 1, i8 noundef zeroext 0) #7
+  %16 = load i8, ptr %9, align 8, !tbaa !16
+  call void @ossl_gf_sqr(ptr noundef %0, ptr noundef nonnull %14) #7
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  call void @gf_sub(ptr noundef nonnull %17, ptr noundef nonnull @ONE, ptr noundef %0) #7
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  call void @ossl_gf_mulw_unsigned(ptr noundef nonnull %18, ptr noundef %0, i32 noundef 39081) #7
+  call void @gf_sub(ptr noundef nonnull %18, ptr noundef nonnull @ZERO, ptr noundef nonnull %18) #7
+  call void @gf_sub(ptr noundef nonnull %18, ptr noundef nonnull @ONE, ptr noundef nonnull %18) #7
+  call void @ossl_gf_mul(ptr noundef %0, ptr noundef nonnull %17, ptr noundef nonnull %18) #7
+  %19 = call i64 @gf_isr(ptr noundef nonnull %18, ptr noundef %0) #7
+  call void @ossl_gf_mul(ptr noundef %0, ptr noundef nonnull %18, ptr noundef nonnull %17) #7
+  %20 = call i64 @gf_lobit(ptr noundef %0) #7
+  %21 = xor i64 %20, %.neg.i.i
+  %22 = xor i64 %21, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @gf_sub(ptr noundef nonnull %3, ptr noundef nonnull @ZERO, ptr noundef %0) #7
-  %24 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %23) #8, !srcloc !23
-  %25 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %22) #8, !srcloc !23
-  br label %26
+  %23 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %22) #8, !srcloc !23
+  %24 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %21) #8, !srcloc !23
+  br label %25
 
-26:                                               ; preds = %26, %2
-  %.08.i.i = phi i64 [ 0, %2 ], [ %34, %26 ]
-  %27 = getelementptr inbounds nuw i64, ptr %3, i64 %.08.i.i
-  %28 = load i64, ptr %27, align 8, !tbaa !3
-  %29 = getelementptr inbounds nuw i64, ptr %0, i64 %.08.i.i
-  %30 = load i64, ptr %29, align 8, !tbaa !3
-  %31 = and i64 %28, %24
-  %32 = and i64 %30, %25
-  %33 = or i64 %32, %31
-  store i64 %33, ptr %29, align 8, !tbaa !3
-  %34 = add nuw nsw i64 %.08.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %34, 8
-  br i1 %exitcond.not.i.i, label %gf_cond_neg.exit, label %26, !llvm.loop !24
+25:                                               ; preds = %25, %2
+  %.08.i.i = phi i64 [ 0, %2 ], [ %33, %25 ]
+  %26 = getelementptr inbounds nuw i64, ptr %3, i64 %.08.i.i
+  %27 = load i64, ptr %26, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw i64, ptr %0, i64 %.08.i.i
+  %29 = load i64, ptr %28, align 8, !tbaa !3
+  %30 = and i64 %27, %23
+  %31 = and i64 %29, %24
+  %32 = or i64 %31, %30
+  store i64 %32, ptr %28, align 8, !tbaa !3
+  %33 = add nuw nsw i64 %.08.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %33, 8
+  br i1 %exitcond.not.i.i, label %gf_cond_neg.exit, label %25, !llvm.loop !24
 
-gf_cond_neg.exit:                                 ; preds = %26
-  %isneg = icmp eq i8 %17, 0
-  %35 = select i1 %isneg, i64 %16, i64 0
-  %36 = and i64 %20, %35
+gf_cond_neg.exit:                                 ; preds = %25
+  %isneg = icmp eq i8 %16, 0
+  %34 = select i1 %isneg, i64 %15, i64 0
+  %35 = and i64 %19, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %18, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false), !tbaa.struct !25
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %17, ptr noundef nonnull align 16 dereferenceable(64) @ONE, i64 64, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @ossl_gf_sqr(ptr noundef nonnull %7, ptr noundef nonnull %0) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %5, ptr noundef nonnull %15) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %5, ptr noundef nonnull %14) #7
   call void @gf_add(ptr noundef nonnull %8, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
-  call void @gf_add(ptr noundef nonnull %19, ptr noundef nonnull %15, ptr noundef nonnull %0) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %6, ptr noundef nonnull %19) #7
+  call void @gf_add(ptr noundef nonnull %18, ptr noundef nonnull %14, ptr noundef nonnull %0) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %6, ptr noundef nonnull %18) #7
   call void @gf_sub(ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noundef nonnull %8) #7
-  call void @gf_sub(ptr noundef nonnull %19, ptr noundef nonnull %5, ptr noundef nonnull %7) #7
-  call void @ossl_gf_sqr(ptr noundef nonnull %0, ptr noundef nonnull %18) #7
-  call void @gf_add(ptr noundef nonnull %18, ptr noundef nonnull %0, ptr noundef nonnull %0) #7
-  call void @gf_sub(ptr noundef nonnull %5, ptr noundef nonnull %18, ptr noundef nonnull %8) #7
+  call void @gf_sub(ptr noundef nonnull %18, ptr noundef nonnull %5, ptr noundef nonnull %7) #7
+  call void @ossl_gf_sqr(ptr noundef nonnull %0, ptr noundef nonnull %17) #7
+  call void @gf_add(ptr noundef nonnull %17, ptr noundef nonnull %0, ptr noundef nonnull %0) #7
+  call void @gf_sub(ptr noundef nonnull %5, ptr noundef nonnull %17, ptr noundef nonnull %8) #7
   call void @ossl_gf_mul(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %6) #7
-  call void @ossl_gf_mul(ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %5) #7
-  call void @ossl_gf_mul(ptr noundef nonnull %15, ptr noundef nonnull %19, ptr noundef nonnull %8) #7
-  call void @ossl_gf_mul(ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %8) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef nonnull %5) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %14, ptr noundef nonnull %18, ptr noundef nonnull %8) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %18, ptr noundef nonnull %6, ptr noundef nonnull %8) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %5, i64 noundef 64) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %6, i64 noundef 64) #7
   call void @OPENSSL_cleanse(ptr noundef nonnull %7, i64 noundef 64) #7
@@ -1045,9 +1044,9 @@ gf_cond_neg.exit:                                 ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @OPENSSL_cleanse(ptr noundef nonnull %4, i64 noundef 57) #7
-  %37 = trunc i64 %36 to i32
+  %36 = trunc i64 %35 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %37
+  ret i32 %36
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

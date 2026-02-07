@@ -2161,7 +2161,7 @@ _ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i: ; preds = %
   ]
 
 51:                                               ; preds = %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %_ZN12arrayOopDesc30element_type_should_be_alignedE9BasicType.exit.i, %48
-  %narrow.i = add nuw nsw i32 %46, 7
+  %narrow.i = add nuw nsw i32 %46, 4
   %52 = and i32 %narrow.i, 24
   br label %_ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit
 
@@ -7007,7 +7007,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %111
   %125 = select i1 %124, i32 16, i32 20
   %126 = load i8, ptr @UseCompressedOops, align 1
   %127 = trunc i8 %126 to i1
-  %narrow.i = add nuw nsw i32 %125, 7
+  %narrow.i = add nuw nsw i32 %125, 4
   %128 = and i32 %narrow.i, 24
   %129 = select i1 %127, i32 %125, i32 %128
   %130 = zext nneg i32 %129 to i64

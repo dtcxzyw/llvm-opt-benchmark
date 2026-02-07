@@ -1536,7 +1536,7 @@ define dso_local i64 @bringetbitmap(ptr noundef readonly captures(none) %0, ptr 
   %43 = sext i32 %42 to i64
   %44 = shl nsw i64 %43, 3
   %45 = shl nsw i64 %39, 2
-  %46 = add nsw i64 %45, 7
+  %46 = add nsw i64 %45, 4
   %47 = and i64 %46, 9223372036854775800
   %factor208 = mul i64 %44, %39
   %reass.add = add i64 %47, %40
@@ -1550,7 +1550,7 @@ define dso_local i64 @bringetbitmap(ptr noundef readonly captures(none) %0, ptr 
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %52
   %55 = shl nsw i64 %51, 2
-  %56 = add nsw i64 %55, 7
+  %56 = add nsw i64 %55, 4
   %57 = and i64 %56, -8
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 %57
   %59 = icmp sgt i32 %50, 0

@@ -1052,7 +1052,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$16with_capacity_in1
 16:                                               ; preds = %9, %.thread.i
   %.sroa.4.0.i.ph8.i = phi i64 [ %..i.i, %.thread.i ], [ %15, %9 ]
   %17 = mul nuw i64 %.sroa.4.0.i.ph8.i, 72
-  %18 = add nuw i64 %17, 15
+  %18 = add nuw i64 %17, 8
   %19 = and i64 %18, -16
   %20 = add nuw nsw i64 %.sroa.4.0.i.ph8.i, 16
   %21 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %19, i64 %20)

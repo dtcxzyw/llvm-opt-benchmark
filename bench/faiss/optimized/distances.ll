@@ -1336,7 +1336,7 @@ _ZN5faiss12_GLOBAL__N_124Run_search_inner_product1fINS_27ReservoirBlockResultHan
   store i64 %5, ptr %109, align 8, !tbaa !61
   %110 = getelementptr inbounds nuw i8, ptr %60, i64 72
   %111 = shl i64 %5, 1
-  %112 = add i64 %111, 15
+  %112 = add i64 %111, 14
   %113 = and i64 %112, -16
   %114 = getelementptr inbounds nuw i8, ptr %60, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %110, i8 0, i64 72, i1 false)
@@ -1896,7 +1896,7 @@ _ZN5faiss12_GLOBAL__N_124Run_search_inner_product1fINS_22HeapBlockResultHandlerI
   store i64 %5, ptr %304, align 8, !tbaa !95
   %305 = getelementptr inbounds nuw i8, ptr %63, i64 72
   %306 = shl i64 %5, 1
-  %307 = add i64 %306, 15
+  %307 = add i64 %306, 14
   %308 = and i64 %307, -16
   %309 = getelementptr inbounds nuw i8, ptr %63, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %305, i8 0, i64 72, i1 false)
@@ -11576,7 +11576,7 @@ _ZN5faiss12_GLOBAL__N_116Run_search_L2sqr1fINS_27ReservoirBlockResultHandlerINS_
   store i64 %5, ptr %131, align 8, !tbaa !230
   %132 = getelementptr inbounds nuw i8, ptr %82, i64 72
   %133 = shl i64 %5, 1
-  %134 = add i64 %133, 15
+  %134 = add i64 %133, 14
   %135 = and i64 %134, -16
   %136 = getelementptr inbounds nuw i8, ptr %82, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %132, i8 0, i64 72, i1 false)
@@ -12387,7 +12387,7 @@ _ZN5faiss12_GLOBAL__N_116Run_search_L2sqr1fINS_22HeapBlockResultHandlerINS_4CMax
   store i64 %5, ptr %381, align 8, !tbaa !278
   %382 = getelementptr inbounds nuw i8, ptr %85, i64 72
   %383 = shl i64 %5, 1
-  %384 = add i64 %383, 15
+  %384 = add i64 %383, 14
   %385 = and i64 %384, -16
   %386 = getelementptr inbounds nuw i8, ptr %85, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %382, i8 0, i64 72, i1 false)

@@ -19423,7 +19423,7 @@ define noundef range(i32 -1, 1) i32 @_Z19crxSetupSubbandDataP8CrxImageP12CrxPlan
   br i1 %exitcond.not, label %12, label %13, !llvm.loop !151
 
 22:                                               ; preds = %12
-  %23 = add nuw nsw i64 %21, 7
+  %23 = add nuw nsw i64 %21, 4
   %24 = and i64 %23, 9223372036854775800
   %25 = zext i8 %6 to i64
   %26 = mul nuw nsw i64 %25, 112

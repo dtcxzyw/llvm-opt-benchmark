@@ -2300,7 +2300,7 @@ define dso_local void @zend_cfg_identify_loops(ptr noundef readnone captures(non
 7:                                                ; preds = %2
   %8 = sext i32 %5 to i64
   %9 = shl nsw i64 %8, 2
-  %10 = add nsw i64 %9, 7
+  %10 = add nsw i64 %9, 4
   %11 = and i64 %10, -8
   %12 = zext i32 %5 to i64
   %13 = add nuw nsw i64 %12, 63
@@ -2315,7 +2315,7 @@ define dso_local void @zend_cfg_identify_loops(ptr noundef readnone captures(non
   %.pre = load i32, ptr %1, align 8, !tbaa !12
   %.pre328 = sext i32 %.pre to i64
   %.pre329 = shl nsw i64 %.pre328, 2
-  %.pre331 = add nsw i64 %.pre329, 7
+  %.pre331 = add nsw i64 %.pre329, 4
   %.pre333 = and i64 %.pre331, -8
   %.pre335 = zext i32 %.pre to i64
   %.pre337 = add nuw nsw i64 %.pre335, 63
@@ -2827,7 +2827,7 @@ define internal fastcc void @zend_mark_reachable(ptr noundef readonly captures(n
   %6 = load i32, ptr %1, align 8, !tbaa !12
   %7 = sext i32 %6 to i64
   %8 = shl nsw i64 %7, 2
-  %9 = add nsw i64 %8, 7
+  %9 = add nsw i64 %8, 4
   %10 = and i64 %9, -8
   %11 = zext i32 %6 to i64
   %12 = add nuw nsw i64 %11, 63
@@ -2843,7 +2843,7 @@ define internal fastcc void @zend_mark_reachable(ptr noundef readonly captures(n
   %.pre107 = load ptr, ptr %4, align 8, !tbaa !4
   %.pre109 = sext i32 %.pre to i64
   %.pre110 = shl nsw i64 %.pre109, 2
-  %.pre112 = add nsw i64 %.pre110, 7
+  %.pre112 = add nsw i64 %.pre110, 4
   %.pre114 = and i64 %.pre112, -8
   %.pre116 = zext i32 %.pre to i64
   %.pre118 = add nuw nsw i64 %.pre116, 63

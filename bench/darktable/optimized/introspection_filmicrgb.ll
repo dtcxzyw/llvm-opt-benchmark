@@ -4374,7 +4374,7 @@ define internal fastcc range(i32 0, 2) i32 @reconstruct_highlights(ptr noalias n
   %59 = shl nsw i32 %58, 2
   %60 = sext i32 %59 to i64
   %61 = shl nsw i64 %60, 2
-  %62 = add nsw i64 %61, 63
+  %62 = add nsw i64 %61, 48
   %63 = and i64 %62, -64
   %64 = tail call ptr @dt_alloc_aligned(i64 noundef %63) #21
   call void @llvm.assume(i1 true) [ "align"(ptr %64, i64 64) ]
@@ -4657,8 +4657,8 @@ init_reconstruct.exit:                            ; preds = %81, %71
 
 .lr.ph.i121:                                      ; preds = %208
   %211 = icmp eq i64 %102, %indvars.iv
-  %212 = add i64 %210, -1
-  %213 = lshr i64 %212, 2
+  %212 = add i64 %210, -4
+  %213 = lshr exact i64 %212, 2
   br label %214
 
 214:                                              ; preds = %254, %.lr.ph.i121

@@ -197,7 +197,7 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %104 = trunc i64 %97 to i32
   %.tr = add i32 %20, %104
   %105 = shl i32 %.tr, 1
-  %106 = add i32 %105, 19
+  %106 = add i32 %105, 18
   %107 = and i32 %106, -4
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store volatile i32 %107, ptr %15, align 4, !tbaa !3
@@ -302,7 +302,7 @@ define void @dgemmt_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %145 = trunc i64 %indvars.iv.next277 to i32
   %.tr295 = add i32 %20, %145
   %146 = shl i32 %.tr295, 1
-  %147 = add i32 %146, 19
+  %147 = add i32 %146, 18
   %148 = and i32 %147, -4
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   store volatile i32 %148, ptr %17, align 4, !tbaa !3

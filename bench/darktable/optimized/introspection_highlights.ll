@@ -11755,7 +11755,7 @@ define internal fastcc void @wavelets_process(ptr noalias noundef %0, ptr noalia
   %29 = alloca [64 x i8], align 16
   %30 = shl nuw i64 %3, 2
   %31 = shl i64 %3, 4
-  %32 = add i64 %31, 63
+  %32 = add i64 %31, 48
   %33 = and i64 %32, -64
   %34 = tail call ptr @dt_alloc_aligned(i64 noundef %33) #30
   call void @llvm.assume(i1 true) [ "align"(ptr %34, i64 64) ]

@@ -147,7 +147,7 @@ define hidden void @_ZN3ue214setupFullConfsERKSt6vectorINS_11hwlmLiteralESaIS1_E
   %.lcssa100 = phi i32 [ 0, %5 ], [ %23, %.lr.ph150 ], [ %377, %_ZN3ue28containsISt3mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIKjS4_EEEEEbRKT_RKNSC_8key_typeE.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %39 = shl i32 %.lcssa100, 2
-  %40 = add i32 %39, 63
+  %40 = add i32 %39, 60
   %41 = and i32 %40, -64
   %42 = add i32 %41, %.0.lcssa
   %43 = zext i32 %42 to i64
@@ -504,7 +504,7 @@ _ZL3lg2j.exit67.i:                                ; preds = %_ZN3ue2L11fillLitIn
   %174 = shl nuw i32 1, %.053.i
   %175 = zext i32 %174 to i64
   %176 = shl nuw nsw i64 %175, 2
-  %177 = add nuw nsw i64 %176, 7
+  %177 = add nuw nsw i64 %176, 4
   %178 = and i64 %177, 34359738360
   %179 = add nuw nsw i64 %178, 32
   %180 = add nuw nsw i64 %179, %.lcssa121.i
@@ -738,7 +738,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit.i:        ; preds = %_ZNSt6vectorIjSaIjE
   %271 = inttoptr i64 %270 to ptr
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 %176
   %273 = ptrtoint ptr %272 to i64
-  %274 = add i64 %273, 7
+  %274 = add i64 %273, 4
   %275 = and i64 %274, -8
   %276 = load ptr, ptr %32, align 8, !noalias !7
   %.not137.i = icmp eq ptr %276, %30

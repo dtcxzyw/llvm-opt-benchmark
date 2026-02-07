@@ -29567,7 +29567,7 @@ define linkonce_odr hidden noundef i64 @_ZN6evmone11grow_memoryElRNS_6MemoryEm(i
 22:                                               ; preds = %16
   %23 = shl nuw i64 %20, 1
   %24 = icmp ult i64 %23, %17
-  %25 = add nuw i64 %17, 4095
+  %25 = add i64 %2, 4095
   %26 = and i64 %25, -4096
   %storemerge.i = select i1 %24, i64 %26, i64 %23
   store i64 %storemerge.i, ptr %19, align 8, !tbaa !1253

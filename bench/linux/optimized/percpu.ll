@@ -1174,7 +1174,7 @@ define internal fastcc ptr @pcpu_alloc(i64 noundef %0, i64 noundef %1, i1 nounde
   %39 = and i64 %38, -4
   %40 = lshr i64 %38, 2
   %41 = lshr i64 %37, 2
-  %42 = add i64 %39, -32769
+  %42 = add i64 %0, -32769
   %43 = icmp ult i64 %42, -32768
   %44 = icmp ugt i64 %37, 4096
   %45 = or i1 %43, %44
@@ -1220,12 +1220,12 @@ define internal fastcc ptr @pcpu_alloc(i64 noundef %0, i64 noundef %1, i1 nounde
   br i1 %63, label %67, label %64
 
 64:                                               ; preds = %59
-  %65 = trunc nuw nsw i64 %39 to i32
-  %66 = trunc i64 %40 to i32
+  %65 = trunc nuw i64 %39 to i32
+  %66 = trunc nuw i64 %40 to i32
   br label %74
 
 67:                                               ; preds = %59
-  %68 = trunc i64 %40 to i32
+  %68 = trunc nuw i64 %40 to i32
   %69 = tail call fastcc i32 @pcpu_find_block_fit(ptr noundef nonnull %61, i32 noundef %68, i64 noundef %41, i1 noundef zeroext %31)
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %365, label %71
@@ -1534,7 +1534,7 @@ pcpu_reintegrate_chunk.exit:                      ; preds = %171, %150, %.split3
   %245 = add nuw nsw i64 %39, 4095
   %246 = add nuw nsw i64 %245, %244
   %247 = lshr i64 %246, 12
-  %248 = trunc nuw i64 %247 to i32
+  %248 = trunc i64 %247 to i32
   %249 = getelementptr inbounds nuw i8, ptr %241, i64 120
   %250 = getelementptr inbounds nuw i8, ptr %241, i64 96
   %251 = getelementptr inbounds nuw i8, ptr %241, i64 112
@@ -2918,7 +2918,7 @@ define dso_local ptr @pcpu_alloc_alloc_info(i32 noundef %0, i32 noundef %1) loca
   %10 = select i1 %5, i64 0, i64 %9
   %11 = sext i32 %1 to i64
   %12 = shl nsw i64 %11, 2
-  %13 = add nsw i64 %12, 4095
+  %13 = add nsw i64 %12, 4092
   %14 = add i64 %13, %10
   %15 = and i64 %14, -4096
   %16 = tail call ptr @memblock_alloc_try_nid(i64 noundef %15, i64 noundef 4096, i64 noundef 0, i64 noundef 0, i32 noundef -1) #23
@@ -4002,7 +4002,7 @@ define dso_local i32 @pcpu_embed_first_chunk(i64 noundef %0, i64 noundef %1, i64
   %20 = load i32, ptr %19, align 8
   %21 = sext i32 %20 to i64
   %22 = shl nsw i64 %21, 3
-  %23 = add nsw i64 %22, 4095
+  %23 = add nsw i64 %22, 4088
   %24 = and i64 %23, -4096
   %25 = tail call ptr @memblock_alloc_try_nid(i64 noundef %24, i64 noundef 64, i64 noundef 0, i64 noundef 0, i32 noundef -1) #23
   %26 = icmp eq ptr %25, null
@@ -4500,7 +4500,7 @@ define internal fastcc ptr @pcpu_build_alloc_info(i64 noundef %0, i64 noundef %1
   %145 = select i1 %140, i64 0, i64 %144
   %146 = sext i32 %137 to i64
   %147 = shl nsw i64 %146, 2
-  %148 = add i64 %145, 4095
+  %148 = add i64 %145, 4092
   %149 = add i64 %148, %147
   %150 = and i64 %149, -4096
   %151 = tail call ptr @memblock_alloc_try_nid(i64 noundef %150, i64 noundef 4096, i64 noundef 0, i64 noundef 0, i32 noundef -1) #23
@@ -4983,7 +4983,7 @@ define dso_local i32 @pcpu_page_first_chunk(i64 noundef %0, ptr noundef readonly
   %38 = shl nuw nsw i64 %36, 3
   %39 = mul i64 %38, %.fr10
   %40 = and i64 %39, 34359738360
-  %41 = add nuw nsw i64 %40, 4095
+  %41 = add nuw nsw i64 %40, 4088
   %42 = and i64 %41, 68719472640
   %43 = tail call ptr @memblock_alloc_try_nid(i64 noundef %42, i64 noundef 64, i64 noundef 0, i64 noundef 0, i32 noundef -1) #23
   %44 = icmp eq ptr %43, null
@@ -5555,7 +5555,7 @@ pcpu_next_fit_region.exit:                        ; preds = %51, %92, %86, %.loo
   %115 = add i32 %114, %.0
   %116 = shl i32 %115, 2
   %117 = sext i32 %116 to i64
-  %118 = add nsw i64 %117, 4095
+  %118 = add nsw i64 %117, 4092
   %119 = lshr i64 %118, 12
   %120 = trunc i64 %119 to i32
   %121 = and i64 %119, 4294967295

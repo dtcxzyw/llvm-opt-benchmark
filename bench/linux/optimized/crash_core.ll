@@ -432,7 +432,7 @@ define dso_local noundef range(i32 -12, 1) i32 @crash_prepare_elf64_headers(ptr 
   %11 = zext i32 %10 to i64
   %12 = add nuw nsw i64 %8, %11
   %13 = mul nuw nsw i64 %12, 56
-  %14 = add nuw nsw i64 %13, 4215
+  %14 = add nuw nsw i64 %13, 4208
   %15 = and i64 %14, 2199023251456
   %16 = tail call noalias ptr @vzalloc(i64 noundef %15) #22
   %17 = icmp eq ptr %16, null

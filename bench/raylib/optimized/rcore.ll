@@ -21608,7 +21608,7 @@ define void @rlLoadRenderBatch(ptr dead_on_unwind noalias writable writeonly sre
   %smax126 = tail call i32 @llvm.smax.i32(i32 %12, i32 1)
   %smax138 = tail call i32 @llvm.smax.i32(i32 %15, i32 1)
   %smax144 = tail call i32 @llvm.smax.i32(i32 %17, i32 6)
-  %21 = add nsw i32 %smax144, -1
+  %21 = add nsw i32 %smax144, -2
   %22 = udiv i32 %21, 6
   %wide.trip.count149 = zext nneg i32 %1 to i64
   %wide.trip.count = zext nneg i32 %smax to i64

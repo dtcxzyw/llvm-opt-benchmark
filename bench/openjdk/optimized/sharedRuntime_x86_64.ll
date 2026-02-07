@@ -2288,7 +2288,7 @@ define hidden noundef ptr @_ZN13SharedRuntime23generate_i2c2i_adaptersEP14MacroA
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @_ZN17AbstractAssembler4bindER5Label(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(33) %31) #14
   %137 = shl nsw i32 %1, 3
-  %138 = add i32 %137, 15
+  %138 = add i32 %137, 8
   %139 = and i32 %138, -16
   store i32 4, ptr %18, align 8
   %140 = getelementptr inbounds nuw i8, ptr %18, i64 4
@@ -2320,7 +2320,7 @@ define hidden noundef ptr @_ZN13SharedRuntime23generate_i2c2i_adaptersEP14MacroA
   call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0) #14
   call void @_ZN14MacroAssembler6subptrE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 4, i32 noundef %139) #14
   call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 0) #14
-  %151 = or disjoint i32 %139, 8
+  %151 = or i32 %138, 8
   br label %152
 
 152:                                              ; preds = %150, %6

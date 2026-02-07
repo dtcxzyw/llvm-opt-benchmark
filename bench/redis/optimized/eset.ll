@@ -592,7 +592,7 @@ sz_psz2ind.exit.i20:                              ; preds = %119, %sz_psz2ind.ex
 
 fb_ffs.exit.i25:                                  ; preds = %.lr.ph.i.i27, %._crit_edge.i.i
   %.0.i.i.i = phi i64 [ %148, %._crit_edge.i.i ], [ 200, %.lr.ph.i.i27 ]
-  %149 = add i64 %7, -1
+  %149 = add i64 %2, -1
   %.02855.i = trunc nuw nsw i64 %.0.i.i.i to i32
   %.not3556.i = icmp ugt i32 %.0.i.i21, %.02855.i
   br i1 %.not3556.i, label %.lr.ph.i26, label %eset_fit_alignment.exit

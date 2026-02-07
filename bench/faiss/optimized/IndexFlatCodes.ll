@@ -9599,7 +9599,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i112: ; preds =
   store i64 %3, ptr %598, align 8, !tbaa !197
   %599 = getelementptr inbounds nuw i8, ptr %429, i64 72
   %600 = shl i64 %3, 1
-  %601 = add i64 %600, 15
+  %601 = add i64 %600, 14
   %602 = and i64 %601, -16
   %603 = getelementptr inbounds nuw i8, ptr %429, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %599, i8 0, i64 72, i1 false)
@@ -10608,7 +10608,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i134: ; preds =
   store i64 %3, ptr %902, align 8, !tbaa !208
   %903 = getelementptr inbounds nuw i8, ptr %430, i64 72
   %904 = shl i64 %3, 1
-  %905 = add i64 %904, 15
+  %905 = add i64 %904, 14
   %906 = and i64 %905, -16
   %907 = getelementptr inbounds nuw i8, ptr %430, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %903, i8 0, i64 72, i1 false)
@@ -11622,7 +11622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i180: ; preds =
   store i64 %3, ptr %1208, align 8, !tbaa !218
   %1209 = getelementptr inbounds nuw i8, ptr %431, i64 72
   %1210 = shl i64 %3, 1
-  %1211 = add i64 %1210, 15
+  %1211 = add i64 %1210, 14
   %1212 = and i64 %1211, -16
   %1213 = getelementptr inbounds nuw i8, ptr %431, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1209, i8 0, i64 72, i1 false)
@@ -12631,7 +12631,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i220: ; preds =
   store i64 %3, ptr %1512, align 8, !tbaa !227
   %1513 = getelementptr inbounds nuw i8, ptr %432, i64 72
   %1514 = shl i64 %3, 1
-  %1515 = add i64 %1514, 15
+  %1515 = add i64 %1514, 14
   %1516 = and i64 %1515, -16
   %1517 = getelementptr inbounds nuw i8, ptr %432, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1513, i8 0, i64 72, i1 false)

@@ -9905,7 +9905,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %mul.i.i.i = shl nuw nsw i32 %capacity, 2
-  %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 15
+  %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 12
   %div1.i.i.i.i = and i32 %sub.i.i.i.i, 8388600
   %level_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
   %0 = load ptr, ptr %level_.i.i.i.i.i.i, align 8

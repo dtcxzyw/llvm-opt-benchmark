@@ -30,8 +30,8 @@ define range(i64 0, 2147483657) i64 @CRYPTO_128_wrap(ptr noundef %0, ptr noundef
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %19 = add nsw i64 %4, -1
-  %20 = lshr i64 %19, 3
+  %19 = add nsw i64 %4, -8
+  %20 = lshr exact i64 %19, 3
   %21 = add nuw nsw i64 %20, 1
   br label %.preheader.us
 
@@ -278,7 +278,7 @@ define range(i64 -2147483648, 2147483648) i64 @CRYPTO_128_wrap_pad(ptr noundef %
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 5
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %34 = add nsw i64 %9, -1
+  %34 = add nsw i64 %4, -1
   %35 = lshr i64 %34, 3
   %36 = add nuw nsw i64 %35, 1
   br label %.preheader.us.i

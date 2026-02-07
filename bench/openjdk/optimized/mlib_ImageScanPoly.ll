@@ -70,7 +70,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
 
 56:                                               ; preds = %51
   %57 = shl i32 %.val998, 2
-  %58 = add i32 %57, 7
+  %58 = add i32 %57, 4
   %59 = and i32 %58, -8
   %60 = icmp eq ptr %16, null
   %61 = shl i32 %6, 5

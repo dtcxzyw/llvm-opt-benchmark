@@ -7634,7 +7634,7 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theory
 define hidden noundef i32 @_ZN4cvc58internal6theory2eq14EqualityEngine17newTriggerTermSetEjPjj(ptr noundef nonnull align 8 dereferenceable(1784) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = zext i32 %3 to i64
   %6 = shl nuw nsw i64 %5, 2
-  %7 = add nuw nsw i64 %6, 11
+  %7 = add nuw nsw i64 %6, 8
   %8 = and i64 %7, 34359738360
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1336
@@ -14197,7 +14197,7 @@ _ZNSt6vectorIN4cvc58internal6theory2eq14EqualityEngine16TriggerSetUpdateESaIS5_E
   store i32 %694, ptr %692, align 8, !tbaa !231
   %706 = zext i32 %.0126.lcssa to i64
   %707 = shl nuw nsw i64 %706, 2
-  %708 = add nuw nsw i64 %707, 11
+  %708 = add nuw nsw i64 %707, 8
   %709 = and i64 %708, 34359738360
   %710 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %711 = getelementptr inbounds nuw i8, ptr %0, i64 1336
@@ -28752,7 +28752,7 @@ _ZNSt6vectorIN4cvc58internal6theory2eq14EqualityEngine16TriggerSetUpdateESaIS5_E
   store i32 %200, ptr %198, align 8, !tbaa !231
   %212 = zext i32 %.144 to i64
   %213 = shl nuw nsw i64 %212, 2
-  %214 = add nuw nsw i64 %213, 11
+  %214 = add nuw nsw i64 %213, 8
   %215 = and i64 %214, 34359738360
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 1296
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 1336

@@ -1248,7 +1248,7 @@ bytestream2_get_le16.exit.i:                      ; preds = %bytestream2_init.ex
   %17 = load i16, ptr %2, align 1, !tbaa !16
   %18 = zext i16 %17 to i32
   %19 = shl nuw nsw i32 %18, 2
-  %20 = add nuw nsw i32 %19, 17
+  %20 = add nuw nsw i32 %19, 16
   %21 = and i32 %20, 524272
   %22 = icmp samesign ult i32 %3, %21
   br i1 %22, label %bytestream2_get_le16.exit.i.thread, label %23

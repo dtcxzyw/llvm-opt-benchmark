@@ -129,73 +129,71 @@ saxpy_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   %.idx70 = mul i64 %7, 12
   %82 = shl nsw i64 %5, 2
   %83 = shl nsw i64 %7, 2
-  br label %88
+  br label %86
 
-.preheader.loopexit:                              ; preds = %88
-  %84 = add nsw i64 %81, -1
-  %85 = and i64 %84, -4
-  %86 = add nuw nsw i64 %85, 4
+.preheader.loopexit:                              ; preds = %86
+  %84 = and i64 %0, 9223372036854775804
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.loopexit, %80
-  %.065.lcssa = phi i64 [ 0, %80 ], [ %114, %.preheader.loopexit ]
-  %.063.lcssa = phi i64 [ 0, %80 ], [ %113, %.preheader.loopexit ]
-  %.1.lcssa = phi i64 [ 0, %80 ], [ %86, %.preheader.loopexit ]
-  %87 = icmp samesign ult i64 %.1.lcssa, %0
-  br i1 %87, label %.lr.ph82, label %.loopexit
+  %.065.lcssa = phi i64 [ 0, %80 ], [ %112, %.preheader.loopexit ]
+  %.063.lcssa = phi i64 [ 0, %80 ], [ %111, %.preheader.loopexit ]
+  %.1.lcssa = phi i64 [ 0, %80 ], [ %84, %.preheader.loopexit ]
+  %85 = icmp samesign ult i64 %.1.lcssa, %0
+  br i1 %85, label %.lr.ph82, label %.loopexit
 
-88:                                               ; preds = %.lr.ph, %88
-  %.176 = phi i64 [ 0, %.lr.ph ], [ %115, %88 ]
-  %.06375 = phi i64 [ 0, %.lr.ph ], [ %113, %88 ]
-  %.06574 = phi i64 [ 0, %.lr.ph ], [ %114, %88 ]
-  %89 = getelementptr inbounds float, ptr %4, i64 %.06375
-  %90 = load float, ptr %89, align 4, !tbaa !9
-  %91 = fmul float %3, %90
-  %92 = getelementptr float, ptr %89, i64 %5
-  %93 = load float, ptr %92, align 4, !tbaa !9
-  %94 = fmul float %3, %93
-  %95 = getelementptr i8, ptr %89, i64 %.idx
-  %96 = load float, ptr %95, align 4, !tbaa !9
-  %97 = fmul float %3, %96
-  %98 = getelementptr i8, ptr %89, i64 %.idx68
-  %99 = load float, ptr %98, align 4, !tbaa !9
-  %100 = fmul float %3, %99
-  %101 = getelementptr inbounds float, ptr %6, i64 %.06574
-  %102 = load float, ptr %101, align 4, !tbaa !9
-  %103 = fadd float %91, %102
-  store float %103, ptr %101, align 4, !tbaa !9
-  %104 = getelementptr float, ptr %101, i64 %7
-  %105 = load float, ptr %104, align 4, !tbaa !9
-  %106 = fadd float %94, %105
-  store float %106, ptr %104, align 4, !tbaa !9
-  %107 = getelementptr i8, ptr %101, i64 %.idx69
-  %108 = load float, ptr %107, align 4, !tbaa !9
-  %109 = fadd float %97, %108
-  store float %109, ptr %107, align 4, !tbaa !9
-  %110 = getelementptr i8, ptr %101, i64 %.idx70
-  %111 = load float, ptr %110, align 4, !tbaa !9
-  %112 = fadd float %100, %111
-  store float %112, ptr %110, align 4, !tbaa !9
-  %113 = add nsw i64 %.06375, %82
-  %114 = add nsw i64 %.06574, %83
-  %115 = add nuw nsw i64 %.176, 4
-  %116 = icmp samesign ult i64 %115, %81
-  br i1 %116, label %88, label %.preheader.loopexit, !llvm.loop !12
+86:                                               ; preds = %.lr.ph, %86
+  %.176 = phi i64 [ 0, %.lr.ph ], [ %113, %86 ]
+  %.06375 = phi i64 [ 0, %.lr.ph ], [ %111, %86 ]
+  %.06574 = phi i64 [ 0, %.lr.ph ], [ %112, %86 ]
+  %87 = getelementptr inbounds float, ptr %4, i64 %.06375
+  %88 = load float, ptr %87, align 4, !tbaa !9
+  %89 = fmul float %3, %88
+  %90 = getelementptr float, ptr %87, i64 %5
+  %91 = load float, ptr %90, align 4, !tbaa !9
+  %92 = fmul float %3, %91
+  %93 = getelementptr i8, ptr %87, i64 %.idx
+  %94 = load float, ptr %93, align 4, !tbaa !9
+  %95 = fmul float %3, %94
+  %96 = getelementptr i8, ptr %87, i64 %.idx68
+  %97 = load float, ptr %96, align 4, !tbaa !9
+  %98 = fmul float %3, %97
+  %99 = getelementptr inbounds float, ptr %6, i64 %.06574
+  %100 = load float, ptr %99, align 4, !tbaa !9
+  %101 = fadd float %89, %100
+  store float %101, ptr %99, align 4, !tbaa !9
+  %102 = getelementptr float, ptr %99, i64 %7
+  %103 = load float, ptr %102, align 4, !tbaa !9
+  %104 = fadd float %92, %103
+  store float %104, ptr %102, align 4, !tbaa !9
+  %105 = getelementptr i8, ptr %99, i64 %.idx69
+  %106 = load float, ptr %105, align 4, !tbaa !9
+  %107 = fadd float %95, %106
+  store float %107, ptr %105, align 4, !tbaa !9
+  %108 = getelementptr i8, ptr %99, i64 %.idx70
+  %109 = load float, ptr %108, align 4, !tbaa !9
+  %110 = fadd float %98, %109
+  store float %110, ptr %108, align 4, !tbaa !9
+  %111 = add nsw i64 %.06375, %82
+  %112 = add nsw i64 %.06574, %83
+  %113 = add nuw nsw i64 %.176, 4
+  %114 = icmp samesign ult i64 %113, %81
+  br i1 %114, label %86, label %.preheader.loopexit, !llvm.loop !12
 
 .lr.ph82:                                         ; preds = %.preheader, %.lr.ph82
-  %.281 = phi i64 [ %124, %.lr.ph82 ], [ %.1.lcssa, %.preheader ]
-  %.16480 = phi i64 [ %122, %.lr.ph82 ], [ %.063.lcssa, %.preheader ]
-  %.16679 = phi i64 [ %123, %.lr.ph82 ], [ %.065.lcssa, %.preheader ]
-  %117 = getelementptr inbounds float, ptr %4, i64 %.16480
+  %.281 = phi i64 [ %122, %.lr.ph82 ], [ %.1.lcssa, %.preheader ]
+  %.16480 = phi i64 [ %120, %.lr.ph82 ], [ %.063.lcssa, %.preheader ]
+  %.16679 = phi i64 [ %121, %.lr.ph82 ], [ %.065.lcssa, %.preheader ]
+  %115 = getelementptr inbounds float, ptr %4, i64 %.16480
+  %116 = load float, ptr %115, align 4, !tbaa !9
+  %117 = getelementptr inbounds float, ptr %6, i64 %.16679
   %118 = load float, ptr %117, align 4, !tbaa !9
-  %119 = getelementptr inbounds float, ptr %6, i64 %.16679
-  %120 = load float, ptr %119, align 4, !tbaa !9
-  %121 = tail call float @llvm.fmuladd.f32(float %3, float %118, float %120)
-  store float %121, ptr %119, align 4, !tbaa !9
-  %122 = add nsw i64 %.16480, %5
-  %123 = add nsw i64 %.16679, %7
-  %124 = add nuw nsw i64 %.281, 1
-  %exitcond.not = icmp eq i64 %124, %0
+  %119 = tail call float @llvm.fmuladd.f32(float %3, float %116, float %118)
+  store float %119, ptr %117, align 4, !tbaa !9
+  %120 = add nsw i64 %.16480, %5
+  %121 = add nsw i64 %.16679, %7
+  %122 = add nuw nsw i64 %.281, 1
+  %exitcond.not = icmp eq i64 %122, %0
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph82, !llvm.loop !13
 
 .loopexit:                                        ; preds = %.lr.ph82, %.lr.ph84, %.preheader, %saxpy_kernel_16.exit, %10

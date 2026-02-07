@@ -142,7 +142,7 @@ define internal range(i32 -22, 1) i32 @init(ptr noundef %0) #0 {
   %40 = mul nuw nsw i32 %24, 261992
   %.neg = mul nuw nsw i32 %28, 261846
   %41 = mul nuw nsw i32 %32, 450
-  %42 = add nuw nsw i32 %40, 511
+  %42 = add nuw nsw i32 %40, 510
   %43 = add nuw nsw i32 %42, %.neg
   %44 = add nuw nsw i32 %43, %41
   %45 = lshr i32 %44, 10

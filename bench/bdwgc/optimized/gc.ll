@@ -12511,7 +12511,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
   br i1 %.b57, label %70, label %73
 
 70:                                               ; preds = %69
-  %71 = add i64 %.042, 4095
+  %71 = add i64 %.042, 4080
   %72 = and i64 %71, -4096
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %67, i8 0, i64 %72, i1 false)
   br label %76
@@ -12541,7 +12541,7 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 .thread65:                                        ; preds = %79
   %81 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  %82 = add i64 %.042, 4095
+  %82 = add i64 %.042, 4080
   %83 = and i64 %82, -4096
   %84 = add i64 %83, -16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %81, i8 0, i64 %84, i1 false)

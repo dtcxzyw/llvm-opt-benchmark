@@ -263,7 +263,7 @@ define range(i32 0, 2) i32 @dt_iop_alloc_image_buffers(ptr noundef %0, ptr nound
   br i1 %.not96, label %154, label %145
 
 145:                                              ; preds = %143
-  %146 = add i64 %144, 63
+  %146 = add i64 %144, 60
   %147 = and i64 %146, -64
   %148 = lshr exact i64 %147, 2
   store i64 %148, ptr %95, align 8, !tbaa !21

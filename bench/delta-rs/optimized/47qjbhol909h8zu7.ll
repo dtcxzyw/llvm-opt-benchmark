@@ -23840,7 +23840,7 @@ define hidden void @"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$G
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %18 = shl nuw nsw i64 %.sroa.5.0.copyload.i, 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4177)
-  %19 = add nuw nsw i64 %18, 67
+  %19 = add nuw nsw i64 %18, 64
   %20 = and i64 %19, 9223372036854775744
   %21 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4177
   %22 = tail call noundef align 128 ptr @__rust_alloc(i64 noundef %20, i64 noundef 128) #51, !noalias !4177
@@ -24248,7 +24248,7 @@ define hidden void @"_ZN11arrow_array5array10byte_array25GenericByteArray$LT$T$G
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %19 = shl nuw nsw i64 %.sroa.5.0.copyload.i, 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4235)
-  %20 = add nuw nsw i64 %19, 67
+  %20 = add nuw nsw i64 %19, 64
   %21 = and i64 %20, 9223372036854775744
   %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !4235
   %23 = tail call noundef align 128 ptr @__rust_alloc(i64 noundef %21, i64 noundef 128) #51, !noalias !4235
@@ -41562,8 +41562,8 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
   %5 = alloca { { { i64, i64 }, ptr, i64 }, i64, {} }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = shl i64 %1, 2
-  %7 = add i64 %6, 67
-  %8 = and i64 %7, -64
+  %7 = and i64 %6, -64
+  %8 = add i64 %7, 64
   %9 = icmp ugt i64 %8, 9223372036854775680
   br i1 %9, label %10, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
 
@@ -41717,8 +41717,8 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
   %5 = alloca { { { i64, i64 }, ptr, i64 }, i64, {} }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = shl i64 %1, 3
-  %7 = add i64 %6, 71
-  %8 = and i64 %7, -64
+  %7 = and i64 %6, -64
+  %8 = add i64 %7, 64
   %9 = icmp ugt i64 %8, 9223372036854775680
   br i1 %9, label %10, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
 
@@ -41872,8 +41872,8 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
   %5 = alloca { { { i64, i64 }, ptr, i64 }, i64, {} }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = shl i64 %1, 2
-  %7 = add i64 %6, 67
-  %8 = and i64 %7, -64
+  %7 = and i64 %6, -64
+  %8 = add i64 %7, 64
   %9 = icmp ugt i64 %8, 9223372036854775680
   br i1 %9, label %10, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
 
@@ -42027,8 +42027,8 @@ define hidden void @"_ZN11arrow_array7builder21generic_bytes_builder27GenericByt
   %5 = alloca { { { i64, i64 }, ptr, i64 }, i64, {} }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = shl i64 %1, 3
-  %7 = add i64 %6, 71
-  %8 = and i64 %7, -64
+  %7 = and i64 %6, -64
+  %8 = add i64 %7, 64
   %9 = icmp ugt i64 %8, 9223372036854775680
   br i1 %9, label %10, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
 
@@ -48667,7 +48667,7 @@ define hidden void @_ZN12arrow_buffer6buffer7mutable13MutableBuffer21from_truste
   store i64 %10, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8213)
-  %11 = add i64 %10, 63
+  %11 = add i64 %10, 60
   %12 = and i64 %11, -64
   %13 = icmp ugt i64 %12, 9223372036854775680
   br i1 %13, label %14, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
@@ -48791,7 +48791,7 @@ define hidden void @_ZN12arrow_buffer6buffer7mutable13MutableBuffer21from_truste
   store i64 %10, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8219)
-  %11 = add i64 %10, 63
+  %11 = add i64 %10, 56
   %12 = and i64 %11, -64
   %13 = icmp ugt i64 %12, 9223372036854775680
   br i1 %13, label %14, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
@@ -48915,7 +48915,7 @@ define hidden void @_ZN12arrow_buffer6buffer7mutable13MutableBuffer21from_truste
   store i64 %10, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8225)
-  %11 = add i64 %10, 63
+  %11 = add i64 %10, 48
   %12 = and i64 %11, -64
   %13 = icmp ugt i64 %12, 9223372036854775680
   br i1 %13, label %14, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
@@ -49037,7 +49037,7 @@ define hidden void @_ZN12arrow_buffer6buffer7mutable13MutableBuffer21from_truste
   store i64 %10, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8231)
-  %11 = add i64 %10, 63
+  %11 = add i64 %10, 56
   %12 = and i64 %11, -64
   %13 = icmp ugt i64 %12, 9223372036854775680
   br i1 %13, label %14, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
@@ -49161,7 +49161,7 @@ define hidden void @_ZN12arrow_buffer6buffer7mutable13MutableBuffer21from_truste
   store i64 %10, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8237)
-  %11 = add i64 %10, 63
+  %11 = add i64 %10, 56
   %12 = and i64 %11, -64
   %13 = icmp ugt i64 %12, 9223372036854775680
   br i1 %13, label %14, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
@@ -49285,7 +49285,7 @@ define hidden void @_ZN12arrow_buffer6buffer7mutable13MutableBuffer21from_truste
   store i64 %10, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8243)
-  %11 = add i64 %10, 63
+  %11 = add i64 %10, 60
   %12 = and i64 %11, -64
   %13 = icmp ugt i64 %12, 9223372036854775680
   br i1 %13, label %14, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
@@ -49530,7 +49530,7 @@ define hidden void @_ZN12arrow_buffer6buffer7mutable13MutableBuffer21from_truste
   store i64 %10, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8255)
-  %11 = add i64 %10, 63
+  %11 = add i64 %10, 62
   %12 = and i64 %11, -64
   %13 = icmp ugt i64 %12, 9223372036854775680
   br i1 %13, label %14, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"
@@ -49654,7 +49654,7 @@ define hidden void @_ZN12arrow_buffer6buffer7mutable13MutableBuffer21from_truste
   store i64 %10, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8261)
-  %11 = add i64 %10, 63
+  %11 = add i64 %10, 60
   %12 = and i64 %11, -64
   %13 = icmp ugt i64 %12, 9223372036854775680
   br i1 %13, label %14, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h29b70314f0df8dcaE.exit.i"

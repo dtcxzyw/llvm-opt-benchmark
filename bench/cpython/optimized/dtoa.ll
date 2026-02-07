@@ -788,7 +788,7 @@ thread-pre-split:                                 ; preds = %273, %283, %284, %2
   %347 = add i32 %346, -1
   %348 = zext nneg i32 %347 to i64
   %349 = shl nuw nsw i64 %348, 2
-  %350 = add nuw nsw i64 %349, 39
+  %350 = add nuw nsw i64 %349, 36
   br label %369
 
 351:                                              ; preds = %337
@@ -796,7 +796,7 @@ thread-pre-split:                                 ; preds = %273, %283, %284, %2
   %353 = add nsw i32 %352, -1
   %354 = zext nneg i32 %353 to i64
   %355 = shl nuw nsw i64 %354, 2
-  %356 = add nuw nsw i64 %355, 39
+  %356 = add nuw nsw i64 %355, 36
   %357 = lshr i64 %356, 3
   %358 = getelementptr inbounds nuw i8, ptr %338, i64 14096
   %359 = load ptr, ptr %358, align 8, !tbaa !50
@@ -962,7 +962,7 @@ Bfree.exit643:                                    ; preds = %Bfree.exit643.backe
   %440 = add i32 %439, -1
   %441 = zext nneg i32 %440 to i64
   %442 = shl nuw nsw i64 %441, 2
-  %443 = add nuw nsw i64 %442, 39
+  %443 = add nuw nsw i64 %442, 36
   br label %462
 
 444:                                              ; preds = %431
@@ -970,7 +970,7 @@ Bfree.exit643:                                    ; preds = %Bfree.exit643.backe
   %446 = add nsw i32 %445, -1
   %447 = zext nneg i32 %446 to i64
   %448 = shl nuw nsw i64 %447, 2
-  %449 = add nuw nsw i64 %448, 39
+  %449 = add nuw nsw i64 %448, 36
   %450 = lshr i64 %449, 3
   %451 = getelementptr inbounds nuw i8, ptr %429, i64 14096
   %452 = load ptr, ptr %451, align 8, !tbaa !50
@@ -2280,7 +2280,7 @@ define internal fastcc ptr @Balloc(i32 noundef %0) unnamed_addr #0 {
   %16 = add i32 %15, -1
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 2
-  %19 = add nuw nsw i64 %18, 39
+  %19 = add nuw nsw i64 %18, 36
   br label %38
 
 20:                                               ; preds = %7
@@ -2288,7 +2288,7 @@ define internal fastcc ptr @Balloc(i32 noundef %0) unnamed_addr #0 {
   %22 = add nsw i32 %21, -1
   %23 = zext nneg i32 %22 to i64
   %24 = shl nuw nsw i64 %23, 2
-  %25 = add nuw nsw i64 %24, 39
+  %25 = add nuw nsw i64 %24, 36
   %26 = lshr i64 %25, 3
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 14096
   %28 = load ptr, ptr %27, align 8, !tbaa !50
@@ -2683,7 +2683,7 @@ define internal fastcc ptr @mult(ptr noundef readonly captures(address) %0, ptr 
   %72 = add i32 %71, -1
   %73 = zext nneg i32 %72 to i64
   %74 = shl nuw nsw i64 %73, 2
-  %75 = add nuw nsw i64 %74, 39
+  %75 = add nuw nsw i64 %74, 36
   br label %94
 
 76:                                               ; preds = %63
@@ -2691,7 +2691,7 @@ define internal fastcc ptr @mult(ptr noundef readonly captures(address) %0, ptr 
   %78 = add nsw i32 %77, -1
   %79 = zext nneg i32 %78 to i64
   %80 = shl nuw nsw i64 %79, 2
-  %81 = add nuw nsw i64 %80, 39
+  %81 = add nuw nsw i64 %80, 36
   %82 = lshr i64 %81, 3
   %83 = getelementptr inbounds nuw i8, ptr %61, i64 14096
   %84 = load ptr, ptr %83, align 8, !tbaa !50
@@ -2888,7 +2888,7 @@ define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef range(i32 1, -214
   %34 = add i32 %33, -1
   %35 = zext nneg i32 %34 to i64
   %36 = shl nuw nsw i64 %35, 2
-  %37 = add nuw nsw i64 %36, 39
+  %37 = add nuw nsw i64 %36, 36
   br label %56
 
 38:                                               ; preds = %25
@@ -2896,7 +2896,7 @@ define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef range(i32 1, -214
   %40 = add nsw i32 %39, -1
   %41 = zext nneg i32 %40 to i64
   %42 = shl nuw nsw i64 %41, 2
-  %43 = add nuw nsw i64 %42, 39
+  %43 = add nuw nsw i64 %42, 36
   %44 = lshr i64 %43, 3
   %45 = getelementptr inbounds nuw i8, ptr %23, i64 14096
   %46 = load ptr, ptr %45, align 8, !tbaa !50
@@ -3169,7 +3169,7 @@ cmp.exit:                                         ; preds = %22
   %69 = add i32 %68, -1
   %70 = zext nneg i32 %69 to i64
   %71 = shl nuw nsw i64 %70, 2
-  %72 = add nuw nsw i64 %71, 39
+  %72 = add nuw nsw i64 %71, 36
   br label %91
 
 73:                                               ; preds = %60
@@ -3177,7 +3177,7 @@ cmp.exit:                                         ; preds = %22
   %75 = add nsw i32 %74, -1
   %76 = zext nneg i32 %75 to i64
   %77 = shl nuw nsw i64 %76, 2
-  %78 = add nuw nsw i64 %77, 39
+  %78 = add nuw nsw i64 %77, 36
   %79 = lshr i64 %78, 3
   %80 = getelementptr inbounds nuw i8, ptr %58, i64 14096
   %81 = load ptr, ptr %80, align 8, !tbaa !50
@@ -4604,7 +4604,7 @@ default.unreachable:                              ; preds = %263
   %288 = add i32 %287, -1
   %289 = zext nneg i32 %288 to i64
   %290 = shl nuw nsw i64 %289, 2
-  %291 = add nuw nsw i64 %290, 39
+  %291 = add nuw nsw i64 %290, 36
   br label %310
 
 292:                                              ; preds = %._crit_edge.thread.i
@@ -4612,7 +4612,7 @@ default.unreachable:                              ; preds = %263
   %294 = add nsw i32 %293, -1
   %295 = zext nneg i32 %294 to i64
   %296 = shl nuw nsw i64 %295, 2
-  %297 = add nuw nsw i64 %296, 39
+  %297 = add nuw nsw i64 %296, 36
   %298 = lshr i64 %297, 3
   %299 = getelementptr inbounds nuw i8, ptr %279, i64 14096
   %300 = load ptr, ptr %299, align 8, !tbaa !50
@@ -6246,7 +6246,7 @@ define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef 
   %40 = add i32 %39, -1
   %41 = zext nneg i32 %40 to i64
   %42 = shl nuw nsw i64 %41, 2
-  %43 = add nuw nsw i64 %42, 39
+  %43 = add nuw nsw i64 %42, 36
   br label %62
 
 44:                                               ; preds = %31
@@ -6254,7 +6254,7 @@ define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef 
   %46 = add nsw i32 %45, -1
   %47 = zext nneg i32 %46 to i64
   %48 = shl nuw nsw i64 %47, 2
-  %49 = add nuw nsw i64 %48, 39
+  %49 = add nuw nsw i64 %48, 36
   %50 = lshr i64 %49, 3
   %51 = getelementptr inbounds nuw i8, ptr %29, i64 14096
   %52 = load ptr, ptr %51, align 8, !tbaa !50

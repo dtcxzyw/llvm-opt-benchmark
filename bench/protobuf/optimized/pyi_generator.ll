@@ -12516,7 +12516,7 @@ while.end15:                                      ; preds = %_ZN6google8protobuf
   br label %if.end
 
 if.else.i:                                        ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeIiLi8EEEiii.exit
-  %sub.i.i = add nuw nsw i64 %mul, 15
+  %sub.i.i = add nuw nsw i64 %mul, 12
   %and.i.i = and i64 %sub.i.i, 17179869176
   %call2.i = tail call noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144) %cond.i, i64 noundef %and.i.i)
   br label %if.end

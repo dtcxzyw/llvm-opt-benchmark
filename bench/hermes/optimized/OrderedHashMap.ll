@@ -450,7 +450,7 @@ if.end31:                                         ; preds = %if.end26
 
 if.end.i.i:                                       ; preds = %if.end31
   %mul.i.i.i.i.i = shl nuw nsw i32 %newCapacity.0, 2
-  %sub.i.i.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i.i, 15
+  %sub.i.i.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i.i, 12
   %div1.i.i.i.i.i.i = and i32 %sub.i.i.i.i.i.i, 8388600
   %level_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
   %3 = load ptr, ptr %level_.i.i.i.i.i.i.i.i, align 8

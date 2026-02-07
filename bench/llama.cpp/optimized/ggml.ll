@@ -15530,24 +15530,21 @@ ggml_graph_nbytes.exit:                           ; preds = %14, %17
   %19 = phi i64 [ %16, %14 ], [ %18, %17 ]
   %20 = shl i64 %0, 4
   %21 = shl i64 %19, 3
-  %22 = add i64 %20, 87
-  %23 = and i64 %22, -16
-  %24 = inttoptr i64 %23 to ptr
+  %22 = add i64 %20, 80
+  %23 = inttoptr i64 %22 to ptr
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %21
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %21
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %21
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %21
-  %.0.i = select i1 %1, ptr %27, ptr %25
-  %28 = add i64 %19, 31
-  %29 = lshr i64 %28, 3
-  %30 = and i64 %29, 2305843009213693948
-  %31 = ptrtoint ptr %.0.i to i64
-  %32 = add i64 %31, 3
-  %33 = and i64 %32, -4
-  %34 = add nuw nsw i64 %30, 15
-  %35 = add i64 %34, %33
-  %36 = and i64 %35, -16
-  %37 = add i64 %36, 32
-  ret i64 %37
+  %.0.i = select i1 %1, ptr %26, ptr %24
+  %27 = add i64 %19, 31
+  %28 = lshr i64 %27, 3
+  %29 = and i64 %28, 2305843009213693948
+  %30 = ptrtoint ptr %.0.i to i64
+  %31 = add nuw nsw i64 %29, 12
+  %32 = add i64 %31, %30
+  %33 = and i64 %32, -16
+  %34 = add i64 %33, 32
+  ret i64 %34
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
@@ -15580,14 +15577,11 @@ ggml_graph_overhead_custom.exit:                  ; preds = %7, %9
   %13 = shl i64 %12, 3
   %14 = add i64 %12, 31
   %15 = lshr i64 %14, 3
-  %16 = and i64 %15, 2305843009213693948
-  %17 = add i64 %13, 32851
-  %18 = and i64 %17, -8
-  %19 = add nuw nsw i64 %16, 15
-  %20 = add i64 %19, %18
-  %21 = and i64 %20, -16
-  %22 = add i64 %21, 32
-  ret i64 %22
+  %16 = add i64 %13, 32860
+  %17 = add i64 %16, %15
+  %18 = and i64 %17, -16
+  %19 = add i64 %18, 32
+  ret i64 %19
 }
 
 ; Function Attrs: nounwind uwtable
@@ -15626,177 +15620,174 @@ ggml_graph_nbytes.exit:                           ; preds = %15, %18
   %20 = phi i64 [ %17, %15 ], [ %19, %18 ]
   %21 = shl i64 %1, 4
   %22 = shl i64 %20, 3
-  %23 = add i64 %21, 87
-  %24 = and i64 %23, -16
-  %25 = inttoptr i64 %24 to ptr
+  %23 = add i64 %21, 80
+  %24 = inttoptr i64 %23 to ptr
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %22
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %22
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %22
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 %22
-  %.0.i = select i1 %2, ptr %28, ptr %26
-  %29 = add i64 %20, 31
-  %30 = lshr i64 %29, 3
-  %31 = and i64 %30, 2305843009213693948
-  %32 = ptrtoint ptr %.0.i to i64
-  %33 = add i64 %32, 3
-  %34 = and i64 %33, -4
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = load ptr, ptr %35, align 8, !tbaa !67
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %.thread.i, label %38
+  %.0.i = select i1 %2, ptr %27, ptr %25
+  %28 = add i64 %20, 31
+  %29 = lshr i64 %28, 3
+  %30 = and i64 %29, 2305843009213693948
+  %31 = ptrtoint ptr %.0.i to i64
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %33 = load ptr, ptr %32, align 8, !tbaa !67
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %.thread.i, label %35
 
-38:                                               ; preds = %ggml_graph_nbytes.exit
-  %39 = load i64, ptr %36, align 8, !tbaa !32
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %41 = load i64, ptr %40, align 8, !tbaa !33
-  %42 = add i64 %41, %39
+35:                                               ; preds = %ggml_graph_nbytes.exit
+  %36 = load i64, ptr %33, align 8, !tbaa !32
+  %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  %38 = load i64, ptr %37, align 8, !tbaa !33
+  %39 = add i64 %38, %36
   br label %.thread.i
 
-.thread.i:                                        ; preds = %38, %ggml_graph_nbytes.exit
-  %43 = phi i64 [ %42, %38 ], [ 0, %ggml_graph_nbytes.exit ]
-  %44 = add nuw nsw i64 %31, 15
-  %45 = add i64 %44, %34
-  %46 = and i64 %45, -16
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !66
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %43
-  %50 = add i64 %43, 32
-  %51 = add i64 %50, %46
-  %52 = load i64, ptr %0, align 8, !tbaa !69
-  %53 = icmp ugt i64 %51, %52
-  br i1 %53, label %54, label %55
+.thread.i:                                        ; preds = %35, %ggml_graph_nbytes.exit
+  %40 = phi i64 [ %39, %35 ], [ 0, %ggml_graph_nbytes.exit ]
+  %41 = add nuw nsw i64 %30, 12
+  %42 = add i64 %41, %31
+  %43 = and i64 %42, -16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !66
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %40
+  %47 = add i64 %40, 32
+  %48 = add i64 %47, %43
+  %49 = load i64, ptr %0, align 8, !tbaa !69
+  %50 = icmp ugt i64 %48, %49
+  br i1 %50, label %51, label %52
 
-54:                                               ; preds = %.thread.i
-  tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 3, ptr noundef nonnull @.str.455, ptr noundef nonnull @__func__.ggml_new_object, i64 noundef %51, i64 noundef %52)
+51:                                               ; preds = %.thread.i
+  tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 3, ptr noundef nonnull @.str.455, ptr noundef nonnull @__func__.ggml_new_object, i64 noundef %48, i64 noundef %49)
   unreachable
 
-55:                                               ; preds = %.thread.i
-  store i64 %50, ptr %49, align 8, !tbaa !39
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 %46, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !39
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 16
+52:                                               ; preds = %.thread.i
+  store i64 %47, ptr %46, align 8, !tbaa !39
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store i64 %43, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !39
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr null, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !70
-  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 24
   store i32 1, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !8
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 28
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 28
   store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !13
-  %56 = getelementptr inbounds nuw i8, ptr %48, i64 %50
-  %57 = ptrtoint ptr %56 to i64
-  %58 = and i64 %57, 15
-  %59 = icmp eq i64 %58, 0
-  br i1 %59, label %61, label %60
+  %53 = getelementptr inbounds nuw i8, ptr %45, i64 %47
+  %54 = ptrtoint ptr %53 to i64
+  %55 = and i64 %54, 15
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %58, label %57
 
-60:                                               ; preds = %55
+57:                                               ; preds = %52
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.12, i32 noundef 1544, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.456) #47
   unreachable
 
-61:                                               ; preds = %55
-  br i1 %37, label %64, label %62
+58:                                               ; preds = %52
+  br i1 %34, label %61, label %59
 
-62:                                               ; preds = %61
-  %63 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store ptr %49, ptr %63, align 8, !tbaa !34
+59:                                               ; preds = %58
+  %60 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store ptr %46, ptr %60, align 8, !tbaa !34
   br label %ggml_new_object.exit
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %49, ptr %65, align 8, !tbaa !35
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %46, ptr %62, align 8, !tbaa !35
   br label %ggml_new_object.exit
 
-ggml_new_object.exit:                             ; preds = %64, %62
-  store ptr %49, ptr %35, align 8, !tbaa !67
-  %66 = load ptr, ptr %47, align 8, !tbaa !66
-  br label %67
+ggml_new_object.exit:                             ; preds = %61, %59
+  store ptr %46, ptr %32, align 8, !tbaa !67
+  %63 = load ptr, ptr %44, align 8, !tbaa !66
+  br label %64
 
-67:                                               ; preds = %67, %ggml_new_object.exit
-  %.015.i = phi i64 [ 0, %ggml_new_object.exit ], [ %.1.i, %67 ]
-  %.01214.i = phi i64 [ 32, %ggml_new_object.exit ], [ %.113.i, %67 ]
-  %68 = add i64 %.01214.i, %.015.i
-  %69 = lshr i64 %68, 1
-  %70 = getelementptr inbounds nuw i64, ptr @ggml_hash_size.primes, i64 %69
-  %71 = load i64, ptr %70, align 8, !tbaa !39
-  %72 = icmp ult i64 %71, %4
-  %73 = add nuw i64 %69, 1
-  %.113.i = select i1 %72, i64 %.01214.i, i64 %69
-  %.1.i = select i1 %72, i64 %73, i64 %.015.i
-  %74 = icmp ult i64 %.1.i, %.113.i
-  br i1 %74, label %67, label %75, !llvm.loop !90
+64:                                               ; preds = %64, %ggml_new_object.exit
+  %.015.i = phi i64 [ 0, %ggml_new_object.exit ], [ %.1.i, %64 ]
+  %.01214.i = phi i64 [ 32, %ggml_new_object.exit ], [ %.113.i, %64 ]
+  %65 = add i64 %.01214.i, %.015.i
+  %66 = lshr i64 %65, 1
+  %67 = getelementptr inbounds nuw i64, ptr @ggml_hash_size.primes, i64 %66
+  %68 = load i64, ptr %67, align 8, !tbaa !39
+  %69 = icmp ult i64 %68, %4
+  %70 = add nuw i64 %66, 1
+  %.113.i = select i1 %69, i64 %.01214.i, i64 %66
+  %.1.i = select i1 %69, i64 %70, i64 %.015.i
+  %71 = icmp ult i64 %.1.i, %.113.i
+  br i1 %71, label %64, label %72, !llvm.loop !90
 
-75:                                               ; preds = %67
-  %76 = getelementptr inbounds nuw i8, ptr %66, i64 %50
-  %77 = icmp ult i64 %.1.i, 32
-  br i1 %77, label %78, label %81
+72:                                               ; preds = %64
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 %47
+  %74 = icmp ult i64 %.1.i, 32
+  br i1 %74, label %75, label %78
 
-78:                                               ; preds = %75
-  %79 = getelementptr inbounds nuw i64, ptr @ggml_hash_size.primes, i64 %.1.i
-  %80 = load i64, ptr %79, align 8, !tbaa !39
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i64, ptr @ggml_hash_size.primes, i64 %.1.i
+  %77 = load i64, ptr %76, align 8, !tbaa !39
   br label %ggml_hash_size.exit
 
-81:                                               ; preds = %75
-  %82 = or disjoint i64 %4, 1
+78:                                               ; preds = %72
+  %79 = or disjoint i64 %4, 1
   br label %ggml_hash_size.exit
 
-ggml_hash_size.exit:                              ; preds = %78, %81
-  %83 = phi i64 [ %80, %78 ], [ %82, %81 ]
-  %84 = getelementptr inbounds nuw i8, ptr %76, i64 80
-  %85 = shl i64 %1, 3
-  %86 = ptrtoint ptr %84 to i64
-  %87 = add i64 %86, 7
-  %88 = and i64 %87, -8
-  %89 = inttoptr i64 %88 to ptr
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %85
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %85
-  %92 = shl i64 %83, 3
-  %93 = getelementptr inbounds nuw i8, ptr %91, i64 %92
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %92
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %92
-  %96 = select i1 %2, ptr %93, ptr null
-  %.1 = select i1 %2, ptr %95, ptr %93
-  %97 = select i1 %2, ptr %94, ptr null
-  %98 = add i64 %83, 31
-  %99 = ptrtoint ptr %.1 to i64
-  %100 = add i64 %99, 3
-  %101 = and i64 %100, -4
-  %102 = inttoptr i64 %101 to ptr
-  %103 = trunc i64 %1 to i32
-  store i32 %103, ptr %76, align 8, !tbaa !8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 4
+ggml_hash_size.exit:                              ; preds = %75, %78
+  %80 = phi i64 [ %77, %75 ], [ %79, %78 ]
+  %81 = getelementptr inbounds nuw i8, ptr %73, i64 80
+  %82 = shl i64 %1, 3
+  %83 = ptrtoint ptr %81 to i64
+  %84 = add i64 %83, 7
+  %85 = and i64 %84, -8
+  %86 = inttoptr i64 %85 to ptr
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 %82
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 %82
+  %89 = shl i64 %80, 3
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 %89
+  %91 = getelementptr inbounds nuw i8, ptr %90, i64 %89
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %89
+  %93 = select i1 %2, ptr %90, ptr null
+  %.1 = select i1 %2, ptr %92, ptr %90
+  %94 = select i1 %2, ptr %91, ptr null
+  %95 = add i64 %80, 31
+  %96 = ptrtoint ptr %.1 to i64
+  %97 = add i64 %96, 3
+  %98 = and i64 %97, -4
+  %99 = inttoptr i64 %98 to ptr
+  %100 = trunc i64 %1 to i32
+  store i32 %100, ptr %73, align 8, !tbaa !8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i32 0, ptr %.sroa.2.0..sroa_idx, align 4, !tbaa !8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 0, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 12
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 12
   store i32 0, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 16
-  store ptr %89, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !110
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 24
-  store ptr %96, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !110
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 32
-  store ptr %97, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !110
-  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 40
-  store ptr %90, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !110
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 48
-  store i64 %83, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !39
-  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 56
-  store ptr %102, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !111
-  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 64
-  store ptr %91, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !110
-  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 72
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 16
+  store ptr %86, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !110
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 24
+  store ptr %93, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !110
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 32
+  store ptr %94, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !110
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 40
+  store ptr %87, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !110
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 48
+  store i64 %80, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !39
+  %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 56
+  store ptr %99, ptr %.sroa.10.0..sroa_idx, align 8, !tbaa !111
+  %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 64
+  store ptr %88, ptr %.sroa.11.0..sroa_idx, align 8, !tbaa !110
+  %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 72
   store i32 0, ptr %.sroa.12.0..sroa_idx, align 8, !tbaa !8
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %76, i64 76
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %73, i64 76
   store i32 0, ptr %.sroa.13.0..sroa_idx, align 4
-  %104 = lshr i64 %98, 3
-  %105 = and i64 %104, 2305843009213693948
-  tail call void @llvm.memset.p0.i64(ptr align 4 %102, i8 0, i64 %105, i1 false)
-  br i1 %2, label %106, label %109
+  %101 = lshr i64 %95, 3
+  %102 = and i64 %101, 2305843009213693948
+  tail call void @llvm.memset.p0.i64(ptr align 4 %99, i8 0, i64 %102, i1 false)
+  br i1 %2, label %103, label %106
 
-106:                                              ; preds = %ggml_hash_size.exit
-  %107 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !101
-  tail call void @llvm.memset.p0.i64(ptr align 8 %107, i8 0, i64 %92, i1 false)
-  %108 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !102
-  tail call void @llvm.memset.p0.i64(ptr align 8 %108, i8 0, i64 %92, i1 false)
-  br label %109
+103:                                              ; preds = %ggml_hash_size.exit
+  %104 = load ptr, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !101
+  tail call void @llvm.memset.p0.i64(ptr align 8 %104, i8 0, i64 %89, i1 false)
+  %105 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !102
+  tail call void @llvm.memset.p0.i64(ptr align 8 %105, i8 0, i64 %89, i1 false)
+  br label %106
 
-109:                                              ; preds = %106, %ggml_hash_size.exit
-  ret ptr %76
+106:                                              ; preds = %103, %ggml_hash_size.exit
+  ret ptr %73
 }
 
 ; Function Attrs: nounwind uwtable

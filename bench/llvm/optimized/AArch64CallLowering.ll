@@ -1610,7 +1610,7 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %_ZNK4ll
 88:                                               ; preds = %83
   %89 = sub nuw nsw i32 16, %87
   %90 = zext nneg i32 %89 to i64
-  %91 = and i32 %84, -16
+  %91 = sub nuw nsw i32 -8, %80
   %92 = sext i32 %91 to i64
   %93 = tail call noundef i32 @_ZN4llvm16MachineFrameInfo17CreateFixedObjectEmlbb(ptr noundef nonnull align 8 dereferenceable(696) %38, i64 noundef %90, i64 noundef %92, i1 noundef zeroext false, i1 noundef zeroext false) #16
   br label %96
@@ -1658,9 +1658,9 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %_ZNK4ll
 116:                                              ; preds = %.lr.ph, %139
   %117 = phi i64 [ %104, %.lr.ph ], [ %149, %139 ]
   %.pn = phi { ptr, ptr } [ %98, %.lr.ph ], [ %147, %139 ]
-  %.0120191 = phi i32 [ %.1.i, %.lr.ph ], [ %148, %139 ]
-  %.sroa.5171.0192 = extractvalue { ptr, ptr } %.pn, 1
-  %.sroa.0170.0193 = extractvalue { ptr, ptr } %.pn, 0
+  %.0120190 = phi i32 [ %.1.i, %.lr.ph ], [ %148, %139 ]
+  %.sroa.5171.0191 = extractvalue { ptr, ptr } %.pn, 1
+  %.sroa.0170.0192 = extractvalue { ptr, ptr } %.pn, 0
   %118 = call i32 @_ZN4llvm19MachineRegisterInfo28createGenericVirtualRegisterENS_3LLTENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(504) %36, i64 274877906945, ptr nonnull @.str, i64 0) #16
   %119 = getelementptr inbounds nuw i16, ptr %28, i64 %117
   %120 = load i16, ptr %119, align 2, !tbaa !502
@@ -1670,7 +1670,7 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %_ZNK4ll
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %124 = load i32, ptr %123, align 4
   %125 = and i32 %124, 134217727
-  %126 = add i32 %125, %.0120191
+  %126 = add i32 %125, %.0120190
   store i8 0, ptr %106, align 8, !tbaa !504, !alias.scope !506
   store i32 %126, ptr %107, align 8, !tbaa !509, !alias.scope !506
   %127 = load i8, ptr %108, align 4, !alias.scope !506
@@ -1688,14 +1688,14 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %_ZNK4ll
   br i1 %.0.i, label %132, label %136
 
 132:                                              ; preds = %116
-  %133 = sub i32 %.0120191, %.1.i
+  %133 = sub i32 %.0120190, %.1.i
   %134 = shl i32 %133, 3
   %135 = zext i32 %134 to i64
   call void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachinePointerInfo") align 8 %8, ptr noundef nonnull align 8 dereferenceable(1065) %34, i32 noundef %.1, i64 noundef %135) #16
   br label %139
 
 136:                                              ; preds = %116
-  %137 = shl i32 %.0120191, 3
+  %137 = shl i32 %.0120190, 3
   %138 = zext i32 %137 to i64
   call void @_ZN4llvm18MachinePointerInfo8getStackERNS_15MachineFunctionElh(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachinePointerInfo") align 8 %8, ptr noundef nonnull align 8 dereferenceable(1065) %34, i64 noundef %138, i8 noundef zeroext 0) #16
   br label %139
@@ -1705,8 +1705,8 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %_ZNK4ll
   store i32 %118, ptr %9, align 8, !tbaa !98
   store i32 0, ptr %111, align 8, !tbaa !237
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  store ptr %.sroa.0170.0193, ptr %10, align 8, !tbaa !287
-  store ptr %.sroa.5171.0192, ptr %.sroa.5171.0..sroa_idx, align 8, !tbaa !288
+  store ptr %.sroa.0170.0192, ptr %10, align 8, !tbaa !287
+  store ptr %.sroa.5171.0191, ptr %.sroa.5171.0..sroa_idx, align 8, !tbaa !288
   store i32 1, ptr %112, align 8, !tbaa !237
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   %140 = call i8 @_ZN4llvm21inferAlignFromPtrInfoERNS_15MachineFunctionERKNS_18MachinePointerInfoE(ptr noundef nonnull align 8 dereferenceable(1065) %34, ptr noundef nonnull align 8 dereferenceable(21) %8) #16
@@ -1721,7 +1721,7 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %_ZNK4ll
   store i32 %142, ptr %13, align 8, !tbaa !98
   store i32 1, ptr %113, align 8, !tbaa !234
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %143 = getelementptr inbounds nuw i8, ptr %.sroa.5171.0192, i64 32
+  %143 = getelementptr inbounds nuw i8, ptr %.sroa.5171.0191, i64 32
   %144 = load ptr, ptr %143, align 8, !tbaa !240
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 4
   %146 = load i32, ptr %145, align 4, !tbaa !233
@@ -1736,16 +1736,16 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %_ZNK4ll
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %148 = add i32 %.0120191, 1
+  %148 = add i32 %.0120190, 1
   %149 = zext i32 %148 to i64
   %150 = icmp ugt i64 %29, %149
   br i1 %150, label %116, label %.split, !llvm.loop !518
 
 .split:                                           ; preds = %139, %96, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit
-  %.sink216 = phi i32 [ 0, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit ], [ %.1, %96 ], [ %.1, %139 ]
+  %.sink215 = phi i32 [ 0, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit ], [ %.1, %96 ], [ %.1, %139 ]
   %.sink = phi i32 [ 0, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit ], [ %80, %96 ], [ %80, %139 ]
   %151 = getelementptr inbounds nuw i8, ptr %40, i64 64
-  store i32 %.sink216, ptr %151, align 8, !tbaa !519
+  store i32 %.sink215, ptr %151, align 8, !tbaa !519
   %152 = getelementptr inbounds nuw i8, ptr %40, i64 68
   store i32 %.sink, ptr %152, align 4, !tbaa !554
   %153 = getelementptr inbounds nuw i8, ptr %42, i64 368
@@ -1791,13 +1791,13 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %_ZNK4ll
   br label %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142
 
 _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142.loopexit: ; preds = %159
-  %.pre200 = trunc i64 %32 to i32
+  %.pre199 = trunc i64 %32 to i32
   br label %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142
 
 _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142: ; preds = %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142.loopexit, %._crit_edge.i140
-  %.pre-phi201 = phi i32 [ %.pre200, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142.loopexit ], [ %175, %._crit_edge.i140 ]
+  %.pre-phi200 = phi i32 [ %.pre199, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142.loopexit ], [ %175, %._crit_edge.i140 ]
   %.1.i141 = phi i32 [ %.0613.i138, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142.loopexit ], [ %175, %._crit_edge.i140 ]
-  %.tr134 = sub i32 %.pre-phi201, %.1.i141
+  %.tr134 = sub i32 %.pre-phi200, %.1.i141
   %176 = shl i32 %.tr134, 4
   %.not135 = icmp eq i32 %176, 0
   br i1 %.not135, label %.sink.split, label %177
@@ -1822,9 +1822,9 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142: ; preds = %_ZNK
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %187 = zext i32 %.1.i141 to i64
   %188 = icmp ugt i64 %32, %187
-  br i1 %188, label %.lr.ph196, label %.sink.split
+  br i1 %188, label %.lr.ph195, label %.sink.split
 
-.lr.ph196:                                        ; preds = %177
+.lr.ph195:                                        ; preds = %177
   %189 = add i32 %79, 1
   %190 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %191 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -1840,12 +1840,12 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142: ; preds = %_ZNK
   %199 = getelementptr inbounds nuw i8, ptr %26, i64 16
   br label %200
 
-200:                                              ; preds = %.lr.ph196, %200
-  %201 = phi i64 [ %187, %.lr.ph196 ], [ %228, %200 ]
-  %.0122195 = phi i32 [ %.1.i141, %.lr.ph196 ], [ %227, %200 ]
-  %.pn185194 = phi { ptr, ptr } [ %181, %.lr.ph196 ], [ %226, %200 ]
-  %.sroa.5.0 = extractvalue { ptr, ptr } %.pn185194, 1
-  %.sroa.0153.0 = extractvalue { ptr, ptr } %.pn185194, 0
+200:                                              ; preds = %.lr.ph195, %200
+  %201 = phi i64 [ %187, %.lr.ph195 ], [ %228, %200 ]
+  %.0122194 = phi i32 [ %.1.i141, %.lr.ph195 ], [ %227, %200 ]
+  %.pn184193 = phi { ptr, ptr } [ %181, %.lr.ph195 ], [ %226, %200 ]
+  %.sroa.5.0 = extractvalue { ptr, ptr } %.pn184193, 1
+  %.sroa.0153.0 = extractvalue { ptr, ptr } %.pn184193, 0
   %202 = call i32 @_ZN4llvm19MachineRegisterInfo28createGenericVirtualRegisterENS_3LLTENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(504) %36, i64 549755813889, ptr nonnull @.str, i64 0) #16
   %203 = getelementptr inbounds nuw i16, ptr %31, i64 %201
   %204 = load i16, ptr %203, align 2, !tbaa !502
@@ -1855,7 +1855,7 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142: ; preds = %_ZNK
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 4
   %208 = load i32, ptr %207, align 4
   %209 = and i32 %208, 134217727
-  %210 = add i32 %189, %.0122195
+  %210 = add i32 %189, %.0122194
   %211 = add i32 %210, %209
   store i8 0, ptr %190, align 8, !tbaa !504, !alias.scope !555
   store i32 %211, ptr %191, align 8, !tbaa !509, !alias.scope !555
@@ -1871,7 +1871,7 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142: ; preds = %_ZNK
   call void %216(ptr noundef nonnull align 8 dereferenceable(25) %2, i32 %202, i32 %205, ptr noundef nonnull align 8 dereferenceable(26) %18) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %217 = shl i32 %.0122195, 4
+  %217 = shl i32 %.0122194, 4
   %218 = zext i32 %217 to i64
   call void @_ZN4llvm18MachinePointerInfo8getStackERNS_15MachineFunctionElh(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::MachinePointerInfo") align 8 %19, ptr noundef nonnull align 8 dereferenceable(1065) %34, i64 noundef %218, i8 noundef zeroext 0) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -1909,18 +1909,18 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142: ; preds = %_ZNK
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  %227 = add i32 %.0122195, 1
+  %227 = add i32 %.0122194, 1
   %228 = zext i32 %227 to i64
   %229 = icmp ugt i64 %32, %228
   br i1 %229, label %200, label %.sink.split, !llvm.loop !558
 
 .sink.split:                                      ; preds = %200, %177, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142
-  %.sink220 = phi i32 [ 0, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142 ], [ %179, %177 ], [ %179, %200 ]
-  %.sink218 = phi i32 [ 0, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142 ], [ %176, %177 ], [ %176, %200 ]
+  %.sink219 = phi i32 [ 0, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142 ], [ %179, %177 ], [ %179, %200 ]
+  %.sink217 = phi i32 [ 0, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit142 ], [ %176, %177 ], [ %176, %200 ]
   %230 = getelementptr inbounds nuw i8, ptr %40, i64 72
-  store i32 %.sink220, ptr %230, align 8, !tbaa !559
+  store i32 %.sink219, ptr %230, align 8, !tbaa !559
   %231 = getelementptr inbounds nuw i8, ptr %40, i64 76
-  store i32 %.sink218, ptr %231, align 4, !tbaa !560
+  store i32 %.sink217, ptr %231, align 4, !tbaa !560
   br label %232
 
 232:                                              ; preds = %.sink.split, %.split

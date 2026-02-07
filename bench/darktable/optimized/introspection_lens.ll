@@ -1369,7 +1369,7 @@ _ZL20_preprocess_vignetteP15dt_iop_module_tP22dt_dev_pixelpipe_iop_tPKfPfPK12dt_
 
 251:                                              ; preds = %245
   %252 = mul nsw i64 %250, 24
-  %253 = add nsw i64 %252, 63
+  %253 = add nsw i64 %252, 56
   %254 = and i64 %253, -64
   %255 = call noundef ptr @dt_alloc_aligned(i64 noundef %254)
   call void @llvm.assume(i1 true) [ "align"(ptr %255, i64 64) ]
@@ -1652,7 +1652,7 @@ _ZL20_preprocess_vignetteP15dt_iop_module_tP22dt_dev_pixelpipe_iop_tPKfPfPK12dt_
   %420 = load i32, ptr %419, align 4, !tbaa !224
   %421 = sext i32 %420 to i64
   %422 = mul nsw i64 %421, 24
-  %423 = add nsw i64 %422, 63
+  %423 = add nsw i64 %422, 56
   %424 = and i64 %423, -64
   %425 = call noundef ptr @dt_alloc_aligned(i64 noundef %424)
   call void @llvm.assume(i1 true) [ "align"(ptr %425, i64 64) ]
@@ -2974,7 +2974,7 @@ define void @distort_mask(ptr noundef readnone captures(none) %0, ptr noundef re
   %57 = load i32, ptr %56, align 4, !tbaa !224
   %58 = sext i32 %57 to i64
   %59 = mul nsw i64 %58, 24
-  %60 = add nsw i64 %59, 63
+  %60 = add nsw i64 %59, 56
   %61 = and i64 %60, -64
   %62 = call noundef ptr @dt_alloc_aligned(i64 noundef %61)
   call void @llvm.assume(i1 true) [ "align"(ptr %62, i64 64) ]

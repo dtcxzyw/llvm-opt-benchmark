@@ -107,7 +107,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitwriter_get_write_crc16(ptr noundef c
   br i1 %12, label %13, label %bitwriter_grow_.exit.i
 
 13:                                               ; preds = %7
-  %14 = add i32 %4, 127
+  %14 = add i32 %4, 120
   %15 = lshr i32 %14, 6
   %16 = add i32 %9, %15
   %.not.i.i = icmp ult i32 %9, %16
@@ -199,7 +199,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitwriter_get_buffer(ptr noundef captur
   br i1 %13, label %14, label %bitwriter_grow_.exit
 
 14:                                               ; preds = %8
-  %15 = add i32 %5, 127
+  %15 = add i32 %5, 120
   %16 = lshr i32 %15, 6
   %17 = add i32 %10, %16
   %.not.i = icmp ult i32 %10, %17
@@ -299,7 +299,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitwriter_get_write_crc8(ptr noundef ca
   br i1 %12, label %13, label %bitwriter_grow_.exit.i
 
 13:                                               ; preds = %7
-  %14 = add i32 %4, 127
+  %14 = add i32 %4, 120
   %15 = lshr i32 %14, 6
   %16 = add i32 %9, %15
   %.not.i.i = icmp ult i32 %9, %16
@@ -4854,8 +4854,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr
   br i1 %.not.i, label %bitwriter_grow_.exit.i.thread, label %12
 
 12:                                               ; preds = %5
-  %reass.sub = and i32 %3, -8
-  %13 = add i32 %reass.sub, 71
+  %13 = add i32 %3, 64
   %14 = lshr i32 %13, 6
   %15 = add i32 %10, %14
   %.not.i.i = icmp ult i32 %8, %15

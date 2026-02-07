@@ -14894,7 +14894,7 @@ define internal fastcc i32 @io_allocate_scq_urings(ptr noundef nonnull captures(
   %14 = and i32 %13, 1
   %15 = zext nneg i32 %14 to i64
   %16 = shl nuw nsw i64 %11, %15
-  %17 = add nuw nsw i64 %16, 63
+  %17 = add nuw nsw i64 %16, 48
   %18 = and i64 %17, 549755813824
   %19 = and i32 %12, 65536
   %20 = icmp eq i32 %19, 0
@@ -14908,7 +14908,7 @@ define internal fastcc i32 @io_allocate_scq_urings(ptr noundef nonnull captures(
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %2
-  %29 = add nsw i64 %25, -1
+  %29 = add nsw i64 %25, -4
   %30 = lshr i64 %29, 12
   %31 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %30, i32 -1) #25, !srcloc !137
   %32 = add i32 %31, 1
@@ -14979,7 +14979,7 @@ define internal fastcc i32 @io_allocate_scq_urings(ptr noundef nonnull captures(
   br i1 %77, label %78, label %86
 
 78:                                               ; preds = %56
-  %79 = add nsw i64 %74, -1
+  %79 = add nsw i64 %74, -64
   %80 = lshr i64 %79, 12
   %81 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %80, i32 -1) #25, !srcloc !137
   %82 = add i32 %81, 1

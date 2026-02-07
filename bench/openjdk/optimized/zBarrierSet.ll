@@ -328,7 +328,7 @@ define hidden void @_ZN11ZBarrierSet15clone_obj_arrayEP15objArrayOopDescS1_(ptr 
   %5 = select i1 %4, i32 16, i32 20
   %6 = load i8, ptr @UseCompressedOops, align 1
   %7 = trunc i8 %6 to i1
-  %narrow.i.i.i = add nuw nsw i32 %5, 7
+  %narrow.i.i.i = add nuw nsw i32 %5, 4
   %8 = and i32 %narrow.i.i.i, 24
   %9 = select i1 %7, i32 %5, i32 %8
   %10 = ptrtoint ptr %0 to i64

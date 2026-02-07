@@ -342,7 +342,7 @@ init_rangecoder3.exit.i:                          ; preds = %134, %133
   store i16 %152, ptr %153, align 2, !tbaa !70
   %154 = getelementptr inbounds nuw i16, ptr %148, i64 %indvar.i.i.i
   store i16 8, ptr %154, align 2, !tbaa !70
-  %155 = add nuw nsw i32 %.033.i.i.i, 127
+  %155 = add nuw nsw i32 %.033.i.i.i, 112
   %156 = lshr i32 %155, 7
   %157 = add nuw nsw i32 %.033.i.i.i, 16
   %158 = lshr i32 %.033.i.i.i, 7
@@ -352,7 +352,7 @@ init_rangecoder3.exit.i:                          ; preds = %134, %133
 .lr.ph.i.i.i:                                     ; preds = %150
   %159 = trunc i64 %indvar.i.i.i to i8
   %160 = shl nuw nsw i64 %indvar.i.i.i, 4
-  %161 = add nuw nsw i64 %160, 127
+  %161 = add nuw nsw i64 %160, 112
   %162 = lshr i64 %161, 7
   %scevgep.i.i.i = getelementptr i8, ptr %149, i64 %162
   %163 = add nuw nsw i32 %158, 1
@@ -429,7 +429,7 @@ renew_table3.exit84.i.i:                          ; preds = %._crit_edge.i81.i.i
   store i16 %192, ptr %193, align 2, !tbaa !70
   %194 = getelementptr inbounds nuw i16, ptr %188, i64 %indvar.i85.i.i
   store i16 8, ptr %194, align 2, !tbaa !70
-  %195 = add nuw nsw i32 %.033.i86.i.i, 127
+  %195 = add nuw nsw i32 %.033.i86.i.i, 112
   %196 = lshr i32 %195, 7
   %197 = add nuw nsw i32 %.033.i86.i.i, 16
   %198 = lshr i32 %.033.i86.i.i, 7
@@ -439,7 +439,7 @@ renew_table3.exit84.i.i:                          ; preds = %._crit_edge.i81.i.i
 .lr.ph.i88.i.i:                                   ; preds = %190
   %199 = trunc i64 %indvar.i85.i.i to i8
   %200 = shl nuw nsw i64 %indvar.i85.i.i, 4
-  %201 = add nuw nsw i64 %200, 127
+  %201 = add nuw nsw i64 %200, 112
   %202 = lshr i64 %201, 7
   %scevgep.i89.i.i = getelementptr i8, ptr %189, i64 %202
   %203 = add nuw nsw i32 %198, 1
@@ -477,7 +477,7 @@ renew_table3.exit94.preheader.i.i:                ; preds = %._crit_edge.i91.i.i
   store i16 %214, ptr %215, align 2, !tbaa !70
   %216 = getelementptr inbounds nuw i16, ptr %210, i64 %indvar.i95.i.i
   store i16 8, ptr %216, align 2, !tbaa !70
-  %217 = add nuw nsw i32 %.033.i96.i.i, 127
+  %217 = add nuw nsw i32 %.033.i96.i.i, 112
   %218 = lshr i32 %217, 7
   %219 = add nuw nsw i32 %.033.i96.i.i, 16
   %220 = lshr i32 %.033.i96.i.i, 7
@@ -487,7 +487,7 @@ renew_table3.exit94.preheader.i.i:                ; preds = %._crit_edge.i91.i.i
 .lr.ph.i98.i.i:                                   ; preds = %212
   %221 = trunc i64 %indvar.i95.i.i to i8
   %222 = shl nuw nsw i64 %indvar.i95.i.i, 4
-  %223 = add nuw nsw i64 %222, 127
+  %223 = add nuw nsw i64 %222, 112
   %224 = lshr i64 %223, 7
   %scevgep.i99.i.i = getelementptr i8, ptr %211, i64 %224
   %225 = add nuw nsw i32 %220, 1
@@ -568,7 +568,7 @@ renew_table3.exit114.i.i:                         ; preds = %._crit_edge.i111.i.
   store i16 %250, ptr %251, align 2, !tbaa !70
   %252 = getelementptr inbounds nuw i16, ptr %246, i64 %indvar.i115.i.i
   store i16 4, ptr %252, align 2, !tbaa !70
-  %253 = add nuw nsw i32 %.033.i116.i.i, 127
+  %253 = add nuw nsw i32 %.033.i116.i.i, 120
   %254 = lshr i32 %253, 7
   %255 = add nuw nsw i32 %.033.i116.i.i, 8
   %256 = lshr i32 %.033.i116.i.i, 7
@@ -578,7 +578,7 @@ renew_table3.exit114.i.i:                         ; preds = %._crit_edge.i111.i.
 .lr.ph.i118.i.i:                                  ; preds = %248
   %257 = trunc i64 %indvar.i115.i.i to i8
   %258 = shl nuw nsw i64 %indvar.i115.i.i, 3
-  %259 = add nuw nsw i64 %258, 127
+  %259 = add nuw nsw i64 %258, 120
   %260 = lshr i64 %259, 7
   %scevgep.i119.i.i = getelementptr i8, ptr %247, i64 %260
   %261 = add nuw nsw i32 %256, 1
@@ -615,10 +615,10 @@ renew_table3.exit124.i.i:                         ; preds = %._crit_edge.i121.i.
   store i16 %271, ptr %272, align 2, !tbaa !70
   %273 = getelementptr inbounds nuw i16, ptr %267, i64 %indvar.i125.i.i
   store i16 341, ptr %273, align 2, !tbaa !70
-  %274 = add nuw nsw i32 %.033.i126.i.i, 127
+  %274 = add nuw nsw i32 %.033.i126.i.i, 126
   %275 = lshr i32 %274, 7
   %276 = add nuw nsw i32 %.033.i126.i.i, 682
-  %277 = add nuw nsw i32 %.033.i126.i.i, 681
+  %277 = add nuw nsw i32 %.033.i126.i.i, 680
   %278 = lshr i32 %277, 7
   %.not30.i127.i.i = icmp samesign ugt i32 %275, %278
   br i1 %.not30.i127.i.i, label %._crit_edge.i131.i.i, label %.lr.ph.i128.i.i
@@ -626,7 +626,7 @@ renew_table3.exit124.i.i:                         ; preds = %._crit_edge.i121.i.
 .lr.ph.i128.i.i:                                  ; preds = %269
   %279 = trunc i64 %indvar.i125.i.i to i8
   %280 = mul nuw nsw i64 %indvar.i125.i.i, 682
-  %281 = add nuw nsw i64 %280, 127
+  %281 = add nuw nsw i64 %280, 126
   %282 = lshr i64 %281, 7
   %scevgep.i129.i.i = getelementptr i8, ptr %268, i64 %282
   %reass.sub307 = sub nuw nsw i32 %278, %275

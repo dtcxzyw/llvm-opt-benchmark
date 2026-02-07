@@ -324,11 +324,10 @@ if.end24:                                         ; preds = %if.then11
 
 if.end.i:                                         ; preds = %if.end24
   %mul.i.i.i.i = shl nuw nsw i32 %conv25, 3
-  %sub.i.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i, 15
-  %div1.i.i.i.i.i = and i32 %sub.i.i.i.i.i, 8388600
+  %sub.i.i.i.i.i = add nuw nsw i32 %mul.i.i.i.i, 8
   %level_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
   %8 = load ptr, ptr %level_.i.i.i.i.i.i.i, align 8
-  %idx.ext.i.i.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i.i to i64
+  %idx.ext.i.i.i.i.i.i.i = zext nneg i32 %sub.i.i.i.i.i to i64
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %idx.ext.i.i.i.i.i.i.i
   %effectiveEnd_.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1664
   %9 = load ptr, ptr %effectiveEnd_.i.i.i.i.i.i.i.i, align 8
@@ -337,7 +336,7 @@ if.end.i:                                         ; preds = %if.end24
 
 cond.true.i.i.i.i.i.i:                            ; preds = %if.end.i
   %heapStorage_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  %call3.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, i32 noundef %div1.i.i.i.i.i) #13
+  %call3.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, i32 noundef %sub.i.i.i.i.i) #13
   br label %_ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE6createERNS0_7RuntimeEj.exit.thread
 
 cond.false.i.i.i.i.i.i:                           ; preds = %if.end.i
@@ -347,7 +346,7 @@ cond.false.i.i.i.i.i.i:                           ; preds = %if.end.i
 _ZN6hermes2vm16ArrayStorageBaseINS0_11HermesValueEE6createERNS0_7RuntimeEj.exit.thread: ; preds = %cond.true.i.i.i.i.i.i, %cond.false.i.i.i.i.i.i
   %cond.i.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i.i, %cond.true.i.i.i.i.i.i ], [ %8, %cond.false.i.i.i.i.i.i ]
   store i64 0, ptr %cond.i.i.i.i.i.i, align 8
-  %bf.set7.i.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i.i, 234881024
+  %bf.set7.i.i.i.i.i.i.i = or disjoint i32 %sub.i.i.i.i.i, 234881024
   store i32 %bf.set7.i.i.i.i.i.i.i, ptr %cond.i.i.i.i.i.i, align 8
   %10 = ptrtoint ptr %cond.i.i.i.i.i.i to i64
   %11 = or i64 %10, -281474976710656

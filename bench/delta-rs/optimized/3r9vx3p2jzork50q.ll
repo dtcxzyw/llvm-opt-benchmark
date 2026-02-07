@@ -613,7 +613,7 @@ define internal fastcc void @_ZN9hashbrown3raw5inner13RawTableInner14prepare_res
 
 32:                                               ; preds = %29
   %33 = extractvalue { i64, i1 } %30, 0
-  %34 = add nuw i64 %33, 15
+  %34 = add nuw i64 %33, 8
   %35 = and i64 %34, -16
   %36 = add nuw nsw i64 %.sroa.6.09.ph.i, 16
   %37 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %35, i64 %36)

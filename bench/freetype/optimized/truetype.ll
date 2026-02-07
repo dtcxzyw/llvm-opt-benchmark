@@ -11014,7 +11014,7 @@ define internal i32 @TT_Get_MM_Var(ptr noundef %0, ptr noundef writeonly capture
   %.0217 = phi i64 [ %24, %38 ], [ 0, %46 ]
   %50 = zext i32 %.0236 to i64
   %51 = shl nuw nsw i64 %50, 1
-  %52 = add nuw nsw i64 %51, 7
+  %52 = add nuw nsw i64 %51, 6
   %53 = and i64 %52, 17179869176
   %54 = mul nuw nsw i64 %50, 48
   %55 = shl nuw nsw i32 %16, 4

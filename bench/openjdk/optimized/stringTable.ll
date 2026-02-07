@@ -3702,7 +3702,7 @@ define hidden void @_ZN11StringTable29allocate_shared_strings_arrayEP10JavaThrea
   %18 = select i1 %17, i32 16, i32 20
   %19 = load i8, ptr @UseCompressedOops, align 1
   %20 = trunc i8 %19 to i1
-  %narrow.i.i.i = add nuw nsw i32 %18, 7
+  %narrow.i.i.i = add nuw nsw i32 %18, 4
   %21 = and i32 %narrow.i.i.i, 24
   %22 = select i1 %20, i32 %18, i32 %21
   %23 = zext nneg i32 %22 to i64
@@ -3768,7 +3768,7 @@ _ZN9OopHandleC2EP10OopStorageP7oopDesc.exit:      ; preds = %43
   %58 = select i1 %57, i32 16, i32 20
   %59 = load i8, ptr @UseCompressedOops, align 1
   %60 = trunc i8 %59 to i1
-  %narrow.i.i.i33 = add nuw nsw i32 %58, 7
+  %narrow.i.i.i33 = add nuw nsw i32 %58, 4
   %61 = and i32 %narrow.i.i.i33, 24
   %62 = select i1 %60, i32 %58, i32 %61
   %63 = zext nneg i32 %62 to i64

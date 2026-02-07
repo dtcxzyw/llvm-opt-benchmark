@@ -5245,7 +5245,7 @@ if.then:                                          ; preds = %entry
 
 if.then.i:                                        ; preds = %if.then
   %mul.i.i.i.i.i = shl nuw nsw i32 %and.i, 1
-  %sub.i.i.i.i.i10.i = add nuw nsw i32 %mul.i.i.i.i.i, 15
+  %sub.i.i.i.i.i10.i = add nuw nsw i32 %mul.i.i.i.i.i, 14
   %div1.i.i.i.i.i11.i = and i32 %sub.i.i.i.i.i10.i, 262136
   %level_.i.i.i.i.i.i.i12.i = getelementptr inbounds nuw i8, ptr %3, i64 1656
   %5 = load ptr, ptr %level_.i.i.i.i.i.i.i12.i, align 8
@@ -6127,7 +6127,7 @@ _ZN6hermes2vm22DynamicStringPrimitiveIcLb0EE6createERNS0_7RuntimeEj.exit: ; pred
 
 if.else:                                          ; preds = %if.then
   %mul.i.i.i.i = shl nuw nsw i32 %length, 1
-  %sub.i.i.i.i.i10 = add nuw nsw i32 %mul.i.i.i.i, 15
+  %sub.i.i.i.i.i10 = add nuw nsw i32 %mul.i.i.i.i, 14
   %div1.i.i.i.i.i11 = and i32 %sub.i.i.i.i.i10, 262136
   %level_.i.i.i.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
   %3 = load ptr, ptr %level_.i.i.i.i.i.i.i12, align 8
@@ -6379,7 +6379,7 @@ if.else13:                                        ; preds = %if.else
 
 if.then.i39:                                      ; preds = %if.else13
   %mul.i.i.i.i.i = shl nuw nsw i32 %and.i, 1
-  %sub.i.i.i.i.i10.i = add nuw nsw i32 %mul.i.i.i.i.i, 15
+  %sub.i.i.i.i.i10.i = add nuw nsw i32 %mul.i.i.i.i.i, 14
   %div1.i.i.i.i.i11.i = and i32 %sub.i.i.i.i.i10.i, 262136
   %level_.i.i.i.i.i.i.i12.i = getelementptr inbounds nuw i8, ptr %17, i64 1656
   %19 = load ptr, ptr %level_.i.i.i.i.i.i.i12.i, align 8

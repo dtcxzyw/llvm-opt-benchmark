@@ -56,7 +56,7 @@ define hidden ptr @lj_bcread_proto(ptr noundef %0) local_unnamed_addr #0 {
   %.0 = phi i32 [ 0, %1 ], [ %23, %24 ], [ 0, %22 ]
   %28 = shl i32 %18, 2
   %29 = shl i32 %15, 3
-  %30 = add i32 %29, 111
+  %30 = add i32 %29, 108
   %31 = add i32 %30, %28
   %32 = and i32 %31, -8
   %33 = shl i32 %16, 3

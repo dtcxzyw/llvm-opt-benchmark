@@ -4454,7 +4454,7 @@ aligned_usize_get.exit.i.thread231:               ; preds = %sz_size2index.exit.
   br i1 %69, label %70, label %sz_s2u_compute.exit.i107, !prof !9
 
 70:                                               ; preds = %64
-  %71 = add nuw nsw i64 %68, 7
+  %71 = add nuw nsw i64 %68, 6
   %72 = lshr i64 %71, 3
   %73 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !10
@@ -4510,10 +4510,10 @@ sz_s2u_compute.exit29.i99:                        ; preds = %92, %90
 .thread227:                                       ; preds = %sz_s2u.exit25.i109, %sz_s2u_compute.exit29.i99, %88
   %.0.i103 = phi i64 [ %.0.i28.i100, %sz_s2u_compute.exit29.i99 ], [ 16384, %88 ], [ 16384, %sz_s2u.exit25.i109 ]
   %101 = load i64, ptr @duckdb_je_sz_large_pad, align 8, !tbaa !30
-  %102 = add nuw nsw i64 %.sroa.32.0, 4095
+  %102 = add nuw nsw i64 %.sroa.32.0, 4094
   %103 = and i64 %102, 9223372036854771712
   %104 = add nsw i64 %103, -4096
-  %105 = add nuw i64 %104, %.0.i103
+  %105 = add i64 %104, %.0.i103
   %106 = add i64 %105, %101
   %107 = icmp ult i64 %106, %.0.i103
   %..0.i104 = select i1 %107, i64 0, i64 %.0.i103
@@ -4896,7 +4896,7 @@ aligned_usize_get.exit.i21.thread262:             ; preds = %sz_size2index.exit.
   br i1 %287, label %288, label %sz_s2u_compute.exit.i95, !prof !9
 
 288:                                              ; preds = %282
-  %289 = add nuw nsw i64 %286, 7
+  %289 = add nuw nsw i64 %286, 6
   %290 = lshr i64 %289, 3
   %291 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %290
   %292 = load i8, ptr %291, align 1, !tbaa !10
@@ -4952,10 +4952,10 @@ sz_s2u_compute.exit29.i:                          ; preds = %310, %308
 .thread258:                                       ; preds = %sz_s2u.exit25.i, %sz_s2u_compute.exit29.i, %306
   %.0.i93 = phi i64 [ %.0.i28.i, %sz_s2u_compute.exit29.i ], [ 16384, %306 ], [ 16384, %sz_s2u.exit25.i ]
   %319 = load i64, ptr @duckdb_je_sz_large_pad, align 8, !tbaa !30
-  %320 = add nuw nsw i64 %.sroa.32.0, 4095
+  %320 = add nuw nsw i64 %.sroa.32.0, 4094
   %321 = and i64 %320, 9223372036854771712
   %322 = add nsw i64 %321, -4096
-  %323 = add nuw i64 %322, %.0.i93
+  %323 = add i64 %322, %.0.i93
   %324 = add i64 %323, %319
   %325 = icmp ult i64 %324, %.0.i93
   %..0.i = select i1 %325, i64 0, i64 %.0.i93
@@ -5550,7 +5550,7 @@ rtree_metadata_read.exit:                         ; preds = %62, %72, %84, %96
   br i1 %131, label %132, label %sz_s2u_compute.exit.i70, !prof !9
 
 132:                                              ; preds = %126
-  %133 = add nuw nsw i64 %130, 7
+  %133 = add nuw nsw i64 %130, 6
   %134 = lshr i64 %133, 3
   %135 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !10
@@ -5606,10 +5606,10 @@ sz_s2u_compute.exit29.i63:                        ; preds = %154, %152
 .thread107:                                       ; preds = %sz_s2u.exit25.i72, %sz_s2u_compute.exit29.i63, %150
   %.0.i66 = phi i64 [ %.0.i28.i64, %sz_s2u_compute.exit29.i63 ], [ 16384, %150 ], [ 16384, %sz_s2u.exit25.i72 ]
   %163 = load i64, ptr @duckdb_je_sz_large_pad, align 8, !tbaa !30
-  %164 = add nuw nsw i64 %15, 4095
+  %164 = add nuw i64 %14, 4094
   %165 = and i64 %164, 9223372036854771712
   %166 = add nsw i64 %165, -4096
-  %167 = add nuw i64 %166, %.0.i66
+  %167 = add i64 %166, %.0.i66
   %168 = add i64 %167, %163
   %169 = icmp ult i64 %168, %.0.i66
   %..0.i67 = select i1 %169, i64 0, i64 %.0.i66
@@ -5657,7 +5657,7 @@ tsdn_witness_tsdp_get.exit.i56:                   ; preds = %178
   br i1 %187, label %188, label %sz_s2u_compute.exit.i, !prof !9
 
 188:                                              ; preds = %183
-  %189 = add nuw nsw i64 %186, 7
+  %189 = add nuw nsw i64 %186, 6
   %190 = lshr i64 %189, 3
   %191 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %190
   %192 = load i8, ptr %191, align 1, !tbaa !10
@@ -5709,10 +5709,10 @@ sz_s2u_compute.exit29.i:                          ; preds = %208, %206
 .thread110:                                       ; preds = %sz_s2u.exit25.i, %sz_s2u_compute.exit29.i, %204
   %.0.i60 = phi i64 [ %.0.i28.i, %sz_s2u_compute.exit29.i ], [ 16384, %204 ], [ 16384, %sz_s2u.exit25.i ]
   %217 = load i64, ptr @duckdb_je_sz_large_pad, align 8, !tbaa !30
-  %218 = add nuw nsw i64 %15, 4095
+  %218 = add nuw i64 %14, 4094
   %219 = and i64 %218, 9223372036854771712
   %220 = add nsw i64 %219, -4096
-  %221 = add nuw i64 %220, %.0.i60
+  %221 = add i64 %220, %.0.i60
   %222 = add i64 %221, %217
   %223 = icmp ult i64 %222, %.0.i60
   %..0.i = select i1 %223, i64 0, i64 %.0.i60
@@ -7941,7 +7941,7 @@ tsd_fetch_impl.exit:                              ; preds = %3, %12
   br i1 %48, label %49, label %sz_s2u_compute.exit.i, !prof !9
 
 49:                                               ; preds = %43
-  %50 = add nuw nsw i64 %47, 7
+  %50 = add nuw nsw i64 %47, 6
   %51 = lshr i64 %50, 3
   %52 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !10
@@ -7997,10 +7997,10 @@ sz_s2u_compute.exit29.i:                          ; preds = %71, %69
 .thread81:                                        ; preds = %sz_s2u.exit25.i, %sz_s2u_compute.exit29.i, %67
   %.0.i32 = phi i64 [ %.0.i28.i, %sz_s2u_compute.exit29.i ], [ 16384, %67 ], [ 16384, %sz_s2u.exit25.i ]
   %80 = load i64, ptr @duckdb_je_sz_large_pad, align 8, !tbaa !30
-  %81 = add nuw nsw i64 %18, 4095
+  %81 = add nuw i64 %17, 4094
   %82 = and i64 %81, 9223372036854771712
   %83 = add nsw i64 %82, -4096
-  %84 = add nuw i64 %83, %.0.i32
+  %84 = add i64 %83, %.0.i32
   %85 = add i64 %84, %80
   %86 = icmp ult i64 %85, %.0.i32
   %..0.i = select i1 %86, i64 0, i64 %.0.i32
@@ -8542,7 +8542,7 @@ tsdn_fetch.exit:                                  ; preds = %13, %9, %malloc_ini
   br i1 %48, label %49, label %sz_s2u_compute.exit.i, !prof !9
 
 49:                                               ; preds = %43
-  %50 = add nuw nsw i64 %47, 7
+  %50 = add nuw nsw i64 %47, 6
   %51 = lshr i64 %50, 3
   %52 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !10
@@ -8598,10 +8598,10 @@ sz_s2u_compute.exit29.i:                          ; preds = %71, %69
 .thread15:                                        ; preds = %sz_s2u.exit25.i, %sz_s2u_compute.exit29.i, %67
   %.0.i13 = phi i64 [ %.0.i28.i, %sz_s2u_compute.exit29.i ], [ 16384, %67 ], [ 16384, %sz_s2u.exit25.i ]
   %80 = load i64, ptr @duckdb_je_sz_large_pad, align 8, !tbaa !30
-  %81 = add nuw nsw i64 %18, 4095
+  %81 = add nuw i64 %17, 4094
   %82 = and i64 %81, 9223372036854771712
   %83 = add nsw i64 %82, -4096
-  %84 = add nuw i64 %83, %.0.i13
+  %84 = add i64 %83, %.0.i13
   %85 = add i64 %84, %80
   %86 = icmp ult i64 %85, %.0.i13
   br i1 %86, label %malloc_init.exit.thread, label %aligned_usize_get.exit
@@ -8959,7 +8959,7 @@ tsd_fetch_impl.exit.thread:                       ; preds = %4, %tsd_fetch_impl.
   br i1 %48, label %49, label %sz_s2u_compute.exit.i, !prof !9
 
 49:                                               ; preds = %43
-  %50 = add nuw nsw i64 %47, 7
+  %50 = add nuw nsw i64 %47, 6
   %51 = lshr i64 %50, 3
   %52 = getelementptr inbounds nuw i8, ptr @duckdb_je_sz_size2index_tab, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !10
@@ -9015,10 +9015,10 @@ sz_s2u_compute.exit29.i:                          ; preds = %71, %69
 .thread155:                                       ; preds = %sz_s2u.exit25.i, %sz_s2u_compute.exit29.i, %67
   %.0.i135 = phi i64 [ %.0.i28.i, %sz_s2u_compute.exit29.i ], [ 16384, %67 ], [ 16384, %sz_s2u.exit25.i ]
   %80 = load i64, ptr @duckdb_je_sz_large_pad, align 8, !tbaa !30
-  %81 = add nuw nsw i64 %18, 4095
+  %81 = add nuw i64 %17, 4094
   %82 = and i64 %81, 9223372036854771712
   %83 = add nsw i64 %82, -4096
-  %84 = add nuw i64 %83, %.0.i135
+  %84 = add i64 %83, %.0.i135
   %85 = add i64 %84, %80
   %86 = icmp ult i64 %85, %.0.i135
   %..0.i = select i1 %86, i64 0, i64 %.0.i135

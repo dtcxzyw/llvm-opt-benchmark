@@ -329,7 +329,7 @@ define i32 @BN_hex2bn(ptr noundef captures(address_is_null) %0, ptr noundef read
 
 31:                                               ; preds = %29
   %32 = shl nuw nsw i32 %15, 2
-  %33 = add nuw nsw i32 %32, 63
+  %33 = add nuw nsw i32 %32, 60
   %34 = lshr i32 %33, 6
   %35 = getelementptr inbounds nuw i8, ptr %.049, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !23
@@ -487,7 +487,7 @@ define i32 @BN_dec2bn(ptr noundef captures(address_is_null) %0, ptr noundef read
 
 28:                                               ; preds = %26
   %29 = shl nuw nsw i32 %15, 2
-  %30 = add nuw nsw i32 %29, 63
+  %30 = add nuw nsw i32 %29, 60
   %31 = lshr i32 %30, 6
   %32 = getelementptr inbounds nuw i8, ptr %.147, i64 12
   %33 = load i32, ptr %32, align 4, !tbaa !23

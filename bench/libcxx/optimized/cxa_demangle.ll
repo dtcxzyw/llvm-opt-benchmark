@@ -14524,7 +14524,7 @@ define internal fastcc { ptr, i64 } @_ZN12_GLOBAL__N_116itanium_demangle22Abstra
   %11 = getelementptr inbounds ptr, ptr %.val, i64 %1
   %12 = ptrtoint ptr %11 to i64
   %13 = sub i64 %5, %12
-  %14 = add i64 %13, 15
+  %14 = add i64 %13, 8
   %15 = and i64 %14, 4294967280
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %17 = load ptr, ptr %16, align 16, !tbaa !209

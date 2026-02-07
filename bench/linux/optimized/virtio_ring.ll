@@ -5036,7 +5036,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @vring_alloc_queue_packed(p
   br i1 %13, label %14, label %27
 
 14:                                               ; preds = %4
-  %15 = add nuw nsw i64 %9, 4095
+  %15 = add nuw nsw i64 %9, 4080
   %16 = and i64 %15, 137438949376
   %17 = tail call noalias ptr @alloc_pages_exact(i64 noundef %16, i32 noundef 11712) #18
   %18 = icmp eq ptr %17, null

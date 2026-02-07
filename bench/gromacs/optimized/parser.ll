@@ -561,7 +561,7 @@ define noundef range(i32 0, 5) i32 @_Z21_gmx_sel_yypush_parseP17_gmx_sel_yypstat
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %218, ptr align 2 %202, i64 %220, i1 false)
   store ptr %218, ptr %201, align 8, !tbaa !13
   %221 = shl nuw nsw i64 %215, 2
-  %222 = add nuw nsw i64 %221, 7
+  %222 = add nuw nsw i64 %221, 4
   %223 = lshr i64 %222, 3
   %224 = getelementptr inbounds nuw %union.yyalloc, ptr %218, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 2032

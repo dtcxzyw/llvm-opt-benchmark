@@ -9259,7 +9259,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_bclEPKhPhi(ptr noundef nonnull 
   %79 = load i16, ptr %78, align 2, !tbaa !293
   %80 = zext i16 %79 to i32
   %81 = mul nuw nsw i32 %69, 296
-  %82 = add nsw i32 %81, -1320550
+  %82 = add nsw i32 %81, -1320552
   %83 = ashr i32 %82, 15
   %84 = sub nsw i32 %58, %69
   %85 = mul nsw i32 %84, 500

@@ -527,7 +527,7 @@ bytestream2_get_be32.exit230.thread:              ; preds = %bytestream2_get_be3
   %217 = mul nsw i32 %216, 3
   store i32 %217, ptr %59, align 8, !tbaa !64
   %218 = shl nsw i32 %214, 2
-  %219 = add nsw i32 %218, 15
+  %219 = add nsw i32 %218, 12
   %220 = and i32 %219, -16
   store i32 %220, ptr %60, align 4, !tbaa !65
   %221 = load i32, ptr %48, align 16, !tbaa !52

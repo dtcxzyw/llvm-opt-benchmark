@@ -626,7 +626,7 @@ dt_get_perf_times.exit:                           ; preds = %9, %44
   %83 = shl nsw i32 %82, 2
   %84 = sext i32 %83 to i64
   %85 = shl nsw i64 %84, 2
-  %86 = add nsw i64 %85, 63
+  %86 = add nsw i64 %85, 48
   %87 = and i64 %86, -64
   %88 = call ptr @dt_alloc_aligned(i64 noundef %87) #15
   call void @llvm.assume(i1 true) [ "align"(ptr %88, i64 64) ]

@@ -9283,7 +9283,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc23
   %28 = select i1 %27, i32 16, i32 20
   %29 = load i8, ptr @UseCompressedOops, align 1
   %30 = trunc i8 %29 to i1
-  %narrow.i.i.i.i = add nuw nsw i32 %28, 7
+  %narrow.i.i.i.i = add nuw nsw i32 %28, 4
   %31 = and i32 %narrow.i.i.i.i, 24
   %32 = select i1 %30, i32 %28, i32 %31
   %33 = ptrtoint ptr %1 to i64
@@ -12395,7 +12395,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass15oop_oop_iterateIP7oopDesc23
   %28 = select i1 %27, i32 16, i32 20
   %29 = load i8, ptr @UseCompressedOops, align 1
   %30 = trunc i8 %29 to i1
-  %narrow.i.i.i.i = add nuw nsw i32 %28, 7
+  %narrow.i.i.i.i = add nuw nsw i32 %28, 4
   %31 = and i32 %narrow.i.i.i.i, 24
   %32 = select i1 %30, i32 %28, i32 %31
   %33 = ptrtoint ptr %1 to i64

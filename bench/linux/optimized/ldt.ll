@@ -424,7 +424,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @map_ldt_struct(ptr noundef
   %53 = load i32, ptr %52, align 8
   %54 = shl i32 %53, 3
   %55 = zext i32 %54 to i64
-  %56 = add nuw nsw i64 %55, 4095
+  %56 = add nuw nsw i64 %55, 4088
   %57 = lshr i64 %56, 12
   %58 = icmp eq i32 %54, 0
   br i1 %58, label %.loopexit3, label %59

@@ -1644,9 +1644,9 @@ decode_cabac_mb_chroma_pre_mode.exit:             ; preds = %917, %923, %927
   br i1 %.not.i.i.i, label %991, label %get_cabac.exit.i
 
 991:                                              ; preds = %961
-  %992 = add nsw i32 %989, -1
+  %992 = add nsw i32 %989, -32768
   %993 = xor i32 %992, %989
-  %994 = lshr i32 %993, 15
+  %994 = lshr exact i32 %993, 15
   %995 = zext nneg i32 %994 to i64
   %996 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %995
   %997 = load i8, ptr %996, align 1, !tbaa !77
@@ -1710,9 +1710,9 @@ get_cabac.exit.i:                                 ; preds = %991, %961
   br i1 %.not.i.i24.i, label %1043, label %get_cabac.exit25.i
 
 1043:                                             ; preds = %1015
-  %1044 = add nsw i32 %1041, -1
+  %1044 = add nsw i32 %1041, -32768
   %1045 = xor i32 %1044, %1041
-  %1046 = lshr i32 %1045, 15
+  %1046 = lshr exact i32 %1045, 15
   %1047 = zext nneg i32 %1046 to i64
   %1048 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %1047
   %1049 = load i8, ptr %1048, align 1, !tbaa !77
@@ -1775,9 +1775,9 @@ get_cabac.exit25.i:                               ; preds = %1043, %1015
   br i1 %.not.i.i26.i, label %1095, label %get_cabac.exit27.i
 
 1095:                                             ; preds = %1069
-  %1096 = add nsw i32 %1093, -1
+  %1096 = add nsw i32 %1093, -32768
   %1097 = xor i32 %1096, %1093
-  %1098 = lshr i32 %1097, 15
+  %1098 = lshr exact i32 %1097, 15
   %1099 = zext nneg i32 %1098 to i64
   %1100 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %1099
   %1101 = load i8, ptr %1100, align 1, !tbaa !77
@@ -1839,9 +1839,9 @@ get_cabac.exit27.i:                               ; preds = %1095, %1069
   br i1 %.not.i.i28.i, label %1146, label %get_cabac.exit29.i
 
 1146:                                             ; preds = %1120
-  %1147 = add nsw i32 %1144, -1
+  %1147 = add nsw i32 %1144, -32768
   %1148 = xor i32 %1147, %1144
-  %1149 = lshr i32 %1148, 15
+  %1149 = lshr exact i32 %1148, 15
   %1150 = zext nneg i32 %1149 to i64
   %1151 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %1150
   %1152 = load i8, ptr %1151, align 1, !tbaa !77
@@ -1904,9 +1904,9 @@ get_cabac.exit29.i:                               ; preds = %1146, %1120
   br i1 %.not.i.i30.i, label %1197, label %get_cabac.exit31.i
 
 1197:                                             ; preds = %1170
-  %1198 = add nsw i32 %1195, -1
+  %1198 = add nsw i32 %1195, -32768
   %1199 = xor i32 %1198, %1195
-  %1200 = lshr i32 %1199, 15
+  %1200 = lshr exact i32 %1199, 15
   %1201 = zext nneg i32 %1200 to i64
   %1202 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %1201
   %1203 = load i8, ptr %1202, align 1, !tbaa !77
@@ -1968,9 +1968,9 @@ get_cabac.exit31.i:                               ; preds = %1197, %1170
   br i1 %.not.i.i32.i, label %1248, label %get_cabac.exit33.i
 
 1248:                                             ; preds = %1221
-  %1249 = add nsw i32 %1246, -1
+  %1249 = add nsw i32 %1246, -32768
   %1250 = xor i32 %1249, %1246
-  %1251 = lshr i32 %1250, 15
+  %1251 = lshr exact i32 %1250, 15
   %1252 = zext nneg i32 %1251 to i64
   %1253 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %1252
   %1254 = load i8, ptr %1253, align 1, !tbaa !77
@@ -2037,9 +2037,9 @@ get_cabac.exit29._crit_edge.i:                    ; preds = %get_cabac.exit31.i,
   br i1 %.not.i.i34.i, label %1302, label %get_cabac.exit35.i
 
 1302:                                             ; preds = %get_cabac.exit29._crit_edge.i
-  %1303 = add nsw i32 %1300, -1
+  %1303 = add nsw i32 %1300, -32768
   %1304 = xor i32 %1303, %1300
-  %1305 = lshr i32 %1304, 15
+  %1305 = lshr exact i32 %1304, 15
   %1306 = zext nneg i32 %1305 to i64
   %1307 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %1306
   %1308 = load i8, ptr %1307, align 1, !tbaa !77
@@ -2099,9 +2099,9 @@ get_cabac.exit35.i:                               ; preds = %1302, %get_cabac.ex
   br i1 %.not.i.i36.i, label %1354, label %get_cabac.exit37.i
 
 1354:                                             ; preds = %get_cabac.exit35.i
-  %1355 = add nsw i32 %1352, -1
+  %1355 = add nsw i32 %1352, -32768
   %1356 = xor i32 %1355, %1352
-  %1357 = lshr i32 %1356, 15
+  %1357 = lshr exact i32 %1356, 15
   %1358 = zext nneg i32 %1357 to i64
   %1359 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %1358
   %1360 = load i8, ptr %1359, align 1, !tbaa !77
@@ -2235,9 +2235,9 @@ decode_cabac_b_mb_sub_type.exit:                  ; preds = %get_cabac.exit.i, %
   br i1 %.not.i.i.i1215, label %1450, label %get_cabac.exit.i1216
 
 1450:                                             ; preds = %1420
-  %1451 = add nsw i32 %1448, -1
+  %1451 = add nsw i32 %1448, -32768
   %1452 = xor i32 %1451, %1448
-  %1453 = lshr i32 %1452, 15
+  %1453 = lshr exact i32 %1452, 15
   %1454 = zext nneg i32 %1453 to i64
   %1455 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %1454
   %1456 = load i8, ptr %1455, align 1, !tbaa !77
@@ -2301,9 +2301,9 @@ get_cabac.exit.i1216:                             ; preds = %1450, %1420
   br i1 %.not.i.i8.i, label %1502, label %get_cabac.exit9.i
 
 1502:                                             ; preds = %1474
-  %1503 = add nsw i32 %1500, -1
+  %1503 = add nsw i32 %1500, -32768
   %1504 = xor i32 %1503, %1500
-  %1505 = lshr i32 %1504, 15
+  %1505 = lshr exact i32 %1504, 15
   %1506 = zext nneg i32 %1505 to i64
   %1507 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %1506
   %1508 = load i8, ptr %1507, align 1, !tbaa !77
@@ -2367,9 +2367,9 @@ get_cabac.exit9.i:                                ; preds = %1502, %1474
   br i1 %.not.i.i10.i, label %1554, label %get_cabac.exit11.i
 
 1554:                                             ; preds = %1526
-  %1555 = add nsw i32 %1552, -1
+  %1555 = add nsw i32 %1552, -32768
   %1556 = xor i32 %1555, %1552
-  %1557 = lshr i32 %1556, 15
+  %1557 = lshr exact i32 %1556, 15
   %1558 = zext nneg i32 %1557 to i64
   %1559 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %1558
   %1560 = load i8, ptr %1559, align 1, !tbaa !77
@@ -5362,9 +5362,9 @@ decode_cabac_mb_cbp_chroma.exit:                  ; preds = %3167, %3155, %3177,
   br i1 %.not.i.i1287, label %3363, label %get_cabac.exit
 
 3363:                                             ; preds = %3321
-  %3364 = add nsw i32 %3361, -1
+  %3364 = add nsw i32 %3361, -32768
   %3365 = xor i32 %3364, %3361
-  %3366 = lshr i32 %3365, 15
+  %3366 = lshr exact i32 %3365, 15
   %3367 = zext nneg i32 %3366 to i64
   %3368 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %3367
   %3369 = load i8, ptr %3368, align 1, !tbaa !77
@@ -5478,9 +5478,9 @@ decode_cabac_residual_dc.exit1101:                ; preds = %3388, %3390
   br i1 %.not.i.i1288, label %3447, label %get_cabac.exit1289
 
 3447:                                             ; preds = %3401
-  %3448 = add nsw i32 %3445, -1
+  %3448 = add nsw i32 %3445, -32768
   %3449 = xor i32 %3448, %3445
-  %3450 = lshr i32 %3449, 15
+  %3450 = lshr exact i32 %3449, 15
   %3451 = zext nneg i32 %3450 to i64
   %3452 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %3451
   %3453 = load i8, ptr %3452, align 1, !tbaa !77
@@ -5631,9 +5631,9 @@ decode_cabac_residual_nondc.exit1095:             ; preds = %.split22.i1094, %34
   br i1 %.not.i.i1290, label %3548, label %get_cabac.exit1291
 
 3548:                                             ; preds = %.split20.i
-  %3549 = add nsw i32 %3546, -1
+  %3549 = add nsw i32 %3546, -32768
   %3550 = xor i32 %3549, %3546
-  %3551 = lshr i32 %3550, 15
+  %3551 = lshr exact i32 %3550, 15
   %3552 = zext nneg i32 %3551 to i64
   %3553 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %3552
   %3554 = load i8, ptr %3553, align 1, !tbaa !77
@@ -5741,9 +5741,9 @@ get_cabac.exit1291:                               ; preds = %.split20.i, %3548
   br i1 %.not.i.i1292, label %3629, label %get_cabac.exit1293
 
 3629:                                             ; preds = %3582
-  %3630 = add nsw i32 %3627, -1
+  %3630 = add nsw i32 %3627, -32768
   %3631 = xor i32 %3630, %3627
-  %3632 = lshr i32 %3631, 15
+  %3632 = lshr exact i32 %3631, 15
   %3633 = zext nneg i32 %3632 to i64
   %3634 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %3633
   %3635 = load i8, ptr %3634, align 1, !tbaa !77
@@ -5922,9 +5922,9 @@ decode_cabac_residual_dc.exit1100:                ; preds = %3683, %3685
   br i1 %.not.i.i1294, label %3743, label %get_cabac.exit1295
 
 3743:                                             ; preds = %3697
-  %3744 = add nsw i32 %3741, -1
+  %3744 = add nsw i32 %3741, -32768
   %3745 = xor i32 %3744, %3741
-  %3746 = lshr i32 %3745, 15
+  %3746 = lshr exact i32 %3745, 15
   %3747 = zext nneg i32 %3746 to i64
   %3748 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %3747
   %3749 = load i8, ptr %3748, align 1, !tbaa !77
@@ -6064,9 +6064,9 @@ decode_cabac_residual_nondc.exit1089:             ; preds = %.split22.i1088, %37
   br i1 %.not.i.i1296, label %3840, label %get_cabac.exit1297
 
 3840:                                             ; preds = %3788
-  %3841 = add nsw i32 %3838, -1
+  %3841 = add nsw i32 %3838, -32768
   %3842 = xor i32 %3841, %3838
-  %3843 = lshr i32 %3842, 15
+  %3843 = lshr exact i32 %3842, 15
   %3844 = zext nneg i32 %3843 to i64
   %3845 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %3844
   %3846 = load i8, ptr %3845, align 1, !tbaa !77
@@ -6173,9 +6173,9 @@ get_cabac.exit1297:                               ; preds = %3788, %3840
   br i1 %.not.i.i1298, label %3921, label %get_cabac.exit1299
 
 3921:                                             ; preds = %3875
-  %3922 = add nsw i32 %3919, -1
+  %3922 = add nsw i32 %3919, -32768
   %3923 = xor i32 %3922, %3919
-  %3924 = lshr i32 %3923, 15
+  %3924 = lshr exact i32 %3923, 15
   %3925 = zext nneg i32 %3924 to i64
   %3926 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %3925
   %3927 = load i8, ptr %3926, align 1, !tbaa !77
@@ -6346,9 +6346,9 @@ decode_cabac_residual_dc.exit:                    ; preds = %3972, %3974
   br i1 %.not.i.i1300, label %4032, label %get_cabac.exit1301
 
 4032:                                             ; preds = %3986
-  %4033 = add nsw i32 %4030, -1
+  %4033 = add nsw i32 %4030, -32768
   %4034 = xor i32 %4033, %4030
-  %4035 = lshr i32 %4034, 15
+  %4035 = lshr exact i32 %4034, 15
   %4036 = zext nneg i32 %4035 to i64
   %4037 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %4036
   %4038 = load i8, ptr %4037, align 1, !tbaa !77
@@ -6488,9 +6488,9 @@ decode_cabac_residual_nondc.exit1083:             ; preds = %.split22.i1082, %40
   br i1 %.not.i.i1302, label %4129, label %get_cabac.exit1303
 
 4129:                                             ; preds = %4077
-  %4130 = add nsw i32 %4127, -1
+  %4130 = add nsw i32 %4127, -32768
   %4131 = xor i32 %4130, %4127
-  %4132 = lshr i32 %4131, 15
+  %4132 = lshr exact i32 %4131, 15
   %4133 = zext nneg i32 %4132 to i64
   %4134 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %4133
   %4135 = load i8, ptr %4134, align 1, !tbaa !77
@@ -6597,9 +6597,9 @@ get_cabac.exit1303:                               ; preds = %4077, %4129
   br i1 %.not.i.i1304, label %4210, label %get_cabac.exit1305
 
 4210:                                             ; preds = %4164
-  %4211 = add nsw i32 %4208, -1
+  %4211 = add nsw i32 %4208, -32768
   %4212 = xor i32 %4211, %4208
-  %4213 = lshr i32 %4212, 15
+  %4213 = lshr exact i32 %4212, 15
   %4214 = zext nneg i32 %4213 to i64
   %4215 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %4214
   %4216 = load i8, ptr %4215, align 1, !tbaa !77
@@ -6732,9 +6732,9 @@ decode_cabac_residual_nondc.exit1081:             ; preds = %decode_cabac_residu
   br i1 %.not.i.i1306, label %4299, label %get_cabac.exit1307
 
 4299:                                             ; preds = %4252
-  %4300 = add nsw i32 %4297, -1
+  %4300 = add nsw i32 %4297, -32768
   %4301 = xor i32 %4300, %4297
-  %4302 = lshr i32 %4301, 15
+  %4302 = lshr exact i32 %4301, 15
   %4303 = zext nneg i32 %4302 to i64
   %4304 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %4303
   %4305 = load i8, ptr %4304, align 1, !tbaa !77
@@ -6885,9 +6885,9 @@ decode_cabac_residual_dc_422.exit:                ; preds = %4323, %4328
   br i1 %.not.i.i1308, label %4404, label %get_cabac.exit1309
 
 4404:                                             ; preds = %4361
-  %4405 = add nsw i32 %4402, -1
+  %4405 = add nsw i32 %4402, -32768
   %4406 = xor i32 %4405, %4402
-  %4407 = lshr i32 %4406, 15
+  %4407 = lshr exact i32 %4406, 15
   %4408 = zext nneg i32 %4407 to i64
   %4409 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %4408
   %4410 = load i8, ptr %4409, align 1, !tbaa !77
@@ -7026,9 +7026,9 @@ decode_cabac_residual_nondc.exit1097:             ; preds = %.split22.i1096, %44
   br i1 %.not.i.i1310, label %4496, label %get_cabac.exit1311
 
 4496:                                             ; preds = %4449
-  %4497 = add nsw i32 %4494, -1
+  %4497 = add nsw i32 %4494, -32768
   %4498 = xor i32 %4497, %4494
-  %4499 = lshr i32 %4498, 15
+  %4499 = lshr exact i32 %4498, 15
   %4500 = zext nneg i32 %4499 to i64
   %4501 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %4500
   %4502 = load i8, ptr %4501, align 1, !tbaa !77
@@ -7169,9 +7169,9 @@ decode_cabac_residual_dc.exit1102:                ; preds = %4520, %4525
   br i1 %.not.i.i1312, label %4597, label %get_cabac.exit1313
 
 4597:                                             ; preds = %4550
-  %4598 = add nsw i32 %4595, -1
+  %4598 = add nsw i32 %4595, -32768
   %4599 = xor i32 %4598, %4595
-  %4600 = lshr i32 %4599, 15
+  %4600 = lshr exact i32 %4599, 15
   %4601 = zext nneg i32 %4600 to i64
   %4602 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %4601
   %4603 = load i8, ptr %4602, align 1, !tbaa !77
@@ -7736,9 +7736,9 @@ define internal fastcc range(i32 0, 2) i32 @get_cabac_noinline(ptr noundef captu
   br i1 %.not.i, label %35, label %get_cabac_inline.exit
 
 35:                                               ; preds = %2
-  %36 = add nsw i32 %33, -1
+  %36 = add nsw i32 %33, -32768
   %37 = xor i32 %36, %33
-  %38 = lshr i32 %37, 15
+  %38 = lshr exact i32 %37, 15
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !77
@@ -9431,9 +9431,9 @@ define internal fastcc range(i32 0, 128) i32 @decode_cabac_mb_intra4x4_pred_mode
   br i1 %.not.i.i, label %35, label %get_cabac.exit
 
 35:                                               ; preds = %2
-  %36 = add nsw i32 %33, -1
+  %36 = add nsw i32 %33, -32768
   %37 = xor i32 %36, %33
-  %38 = lshr i32 %37, 15
+  %38 = lshr exact i32 %37, 15
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !77
@@ -9499,9 +9499,9 @@ get_cabac.exit:                                   ; preds = %2, %35
   br i1 %.not.i.i15, label %89, label %get_cabac.exit16
 
 89:                                               ; preds = %60
-  %90 = add nsw i32 %87, -1
+  %90 = add nsw i32 %87, -32768
   %91 = xor i32 %90, %87
-  %92 = lshr i32 %91, 15
+  %92 = lshr exact i32 %91, 15
   %93 = zext nneg i32 %92 to i64
   %94 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %93
   %95 = load i8, ptr %94, align 1, !tbaa !77
@@ -9560,9 +9560,9 @@ get_cabac.exit16:                                 ; preds = %60, %89
   br i1 %.not.i.i17, label %140, label %get_cabac.exit18
 
 140:                                              ; preds = %get_cabac.exit16
-  %141 = add nsw i32 %138, -1
+  %141 = add nsw i32 %138, -32768
   %142 = xor i32 %141, %138
-  %143 = lshr i32 %142, 15
+  %143 = lshr exact i32 %142, 15
   %144 = zext nneg i32 %143 to i64
   %145 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %144
   %146 = load i8, ptr %145, align 1, !tbaa !77
@@ -9623,9 +9623,9 @@ get_cabac.exit18:                                 ; preds = %get_cabac.exit16, %
   br i1 %.not.i.i19, label %193, label %get_cabac.exit20
 
 193:                                              ; preds = %get_cabac.exit18
-  %194 = add nsw i32 %191, -1
+  %194 = add nsw i32 %191, -32768
   %195 = xor i32 %194, %191
-  %196 = lshr i32 %195, 15
+  %196 = lshr exact i32 %195, 15
   %197 = zext nneg i32 %196 to i64
   %198 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %197
   %199 = load i8, ptr %198, align 1, !tbaa !77
@@ -9773,9 +9773,9 @@ define internal fastcc range(i32 -1, 32) i32 @decode_cabac_mb_ref(ptr noundef ca
   br i1 %.not.i.i, label %73, label %get_cabac.exit
 
 73:                                               ; preds = %40
-  %74 = add nsw i32 %71, -1
+  %74 = add nsw i32 %71, -32768
   %75 = xor i32 %74, %71
-  %76 = lshr i32 %75, 15
+  %76 = lshr exact i32 %75, 15
   %77 = zext nneg i32 %76 to i64
   %78 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %77
   %79 = load i8, ptr %78, align 1, !tbaa !77
@@ -9868,9 +9868,9 @@ define internal fastcc i32 @decode_cabac_mb_mvd(ptr noundef captures(none) %0, i
   br i1 %.not.i.i, label %46, label %get_cabac.exit
 
 46:                                               ; preds = %4
-  %47 = add nsw i32 %44, -1
+  %47 = add nsw i32 %44, -32768
   %48 = xor i32 %47, %44
-  %49 = lshr i32 %48, 15
+  %49 = lshr exact i32 %48, 15
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %50
   %52 = load i8, ptr %51, align 1, !tbaa !77
@@ -9954,9 +9954,9 @@ get_cabac.exit:                                   ; preds = %4, %46
   br i1 %.not.i.i44, label %107, label %get_cabac.exit45
 
 107:                                              ; preds = %75
-  %108 = add nsw i32 %105, -1
+  %108 = add nsw i32 %105, -32768
   %109 = xor i32 %108, %105
-  %110 = lshr i32 %109, 15
+  %110 = lshr exact i32 %109, 15
   %111 = zext nneg i32 %110 to i64
   %112 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %111
   %113 = load i8, ptr %112, align 1, !tbaa !77
@@ -10179,9 +10179,9 @@ define internal fastcc range(i32 0, 2) i32 @get_cabac(ptr noundef captures(none)
   br i1 %.not.i, label %35, label %get_cabac_inline.exit
 
 35:                                               ; preds = %2
-  %36 = add nsw i32 %33, -1
+  %36 = add nsw i32 %33, -32768
   %37 = xor i32 %36, %33
-  %38 = lshr i32 %37, 15
+  %38 = lshr exact i32 %37, 15
   %39 = zext nneg i32 %38 to i64
   %40 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !77
@@ -10279,9 +10279,9 @@ define internal fastcc void @decode_cabac_residual_dc_internal_422(ptr noundef r
   br i1 %.not.i.i, label %59, label %get_cabac.exit
 
 59:                                               ; preds = %27
-  %60 = add nsw i32 %57, -1
+  %60 = add nsw i32 %57, -32768
   %61 = xor i32 %60, %57
-  %62 = lshr i32 %61, 15
+  %62 = lshr exact i32 %61, 15
   %63 = zext nneg i32 %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %63
   %65 = load i8, ptr %64, align 1, !tbaa !77
@@ -10347,9 +10347,9 @@ get_cabac.exit:                                   ; preds = %27, %59
   br i1 %.not.i.i6, label %114, label %get_cabac.exit7
 
 114:                                              ; preds = %81
-  %115 = add nsw i32 %112, -1
+  %115 = add nsw i32 %112, -32768
   %116 = xor i32 %115, %112
-  %117 = lshr i32 %116, 15
+  %117 = lshr exact i32 %116, 15
   %118 = zext nneg i32 %117 to i64
   %119 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %118
   %120 = load i8, ptr %119, align 1, !tbaa !77
@@ -10471,9 +10471,9 @@ select.unfold:                                    ; preds = %get_cabac.exit7, %g
   br i1 %.not.i.i8, label %197, label %get_cabac.exit9
 
 197:                                              ; preds = %.preheader92
-  %198 = add nsw i32 %195, -1
+  %198 = add nsw i32 %195, -32768
   %199 = xor i32 %198, %195
-  %200 = lshr i32 %199, 15
+  %200 = lshr exact i32 %199, 15
   %201 = zext nneg i32 %200 to i64
   %202 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %201
   %203 = load i8, ptr %202, align 1, !tbaa !77
@@ -10559,9 +10559,9 @@ get_cabac.exit9:                                  ; preds = %.preheader92, %197
   br i1 %.not.i.i10, label %261, label %get_cabac.exit11
 
 261:                                              ; preds = %233
-  %262 = add nsw i32 %259, -1
+  %262 = add nsw i32 %259, -32768
   %263 = xor i32 %262, %259
-  %264 = lshr i32 %263, 15
+  %264 = lshr exact i32 %263, 15
   %265 = zext nneg i32 %264 to i64
   %266 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %265
   %267 = load i8, ptr %266, align 1, !tbaa !77
@@ -10769,9 +10769,9 @@ get_cabac_bypass_sign.exit243.i:                  ; preds = %get_cabac_bypass_si
   br i1 %.not.i.i16, label %382, label %get_cabac.exit17
 
 382:                                              ; preds = %.preheader90
-  %383 = add nsw i32 %380, -1
+  %383 = add nsw i32 %380, -32768
   %384 = xor i32 %383, %380
-  %385 = lshr i32 %384, 15
+  %385 = lshr exact i32 %384, 15
   %386 = zext nneg i32 %385 to i64
   %387 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %386
   %388 = load i8, ptr %387, align 1, !tbaa !77
@@ -10857,9 +10857,9 @@ get_cabac.exit17:                                 ; preds = %.preheader90, %382
   br i1 %.not.i.i18, label %446, label %get_cabac.exit19
 
 446:                                              ; preds = %418
-  %447 = add nsw i32 %444, -1
+  %447 = add nsw i32 %444, -32768
   %448 = xor i32 %447, %444
-  %449 = lshr i32 %448, 15
+  %449 = lshr exact i32 %448, 15
   %450 = zext nneg i32 %449 to i64
   %451 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %450
   %452 = load i8, ptr %451, align 1, !tbaa !77
@@ -11114,9 +11114,9 @@ define internal fastcc void @decode_cabac_residual_nondc_internal(ptr noundef re
   br i1 %.not.i.i7, label %71, label %get_cabac.exit
 
 71:                                               ; preds = %39
-  %72 = add nsw i32 %69, -1
+  %72 = add nsw i32 %69, -32768
   %73 = xor i32 %72, %69
-  %74 = lshr i32 %73, 15
+  %74 = lshr exact i32 %73, 15
   %75 = zext nneg i32 %74 to i64
   %76 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %75
   %77 = load i8, ptr %76, align 1, !tbaa !77
@@ -11185,9 +11185,9 @@ get_cabac.exit:                                   ; preds = %39, %71
   br i1 %.not.i.i8, label %129, label %get_cabac.exit9
 
 129:                                              ; preds = %93
-  %130 = add nsw i32 %127, -1
+  %130 = add nsw i32 %127, -32768
   %131 = xor i32 %130, %127
-  %132 = lshr i32 %131, 15
+  %132 = lshr exact i32 %131, 15
   %133 = zext nneg i32 %132 to i64
   %134 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %133
   %135 = load i8, ptr %134, align 1, !tbaa !77
@@ -11262,9 +11262,9 @@ select.unfold:                                    ; preds = %get_cabac.exit9, %g
   br i1 %.not.i.i10, label %179, label %get_cabac.exit11
 
 179:                                              ; preds = %.lr.ph
-  %180 = add nsw i32 %177, -1
+  %180 = add nsw i32 %177, -32768
   %181 = xor i32 %180, %177
-  %182 = lshr i32 %181, 15
+  %182 = lshr exact i32 %181, 15
   %183 = zext nneg i32 %182 to i64
   %184 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %183
   %185 = load i8, ptr %184, align 1, !tbaa !77
@@ -11330,9 +11330,9 @@ get_cabac.exit11:                                 ; preds = %.lr.ph, %179
   br i1 %.not.i.i12, label %234, label %get_cabac.exit13
 
 234:                                              ; preds = %201
-  %235 = add nsw i32 %232, -1
+  %235 = add nsw i32 %232, -32768
   %236 = xor i32 %235, %232
-  %237 = lshr i32 %236, 15
+  %237 = lshr exact i32 %236, 15
   %238 = zext nneg i32 %237 to i64
   %239 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %238
   %240 = load i8, ptr %239, align 1, !tbaa !77
@@ -11467,9 +11467,9 @@ get_cabac.exit13._crit_edge:                      ; preds = %get_cabac.exit13, %
   br i1 %.not.i.i14, label %317, label %get_cabac.exit15
 
 317:                                              ; preds = %.preheader149
-  %318 = add nsw i32 %315, -1
+  %318 = add nsw i32 %315, -32768
   %319 = xor i32 %318, %315
-  %320 = lshr i32 %319, 15
+  %320 = lshr exact i32 %319, 15
   %321 = zext nneg i32 %320 to i64
   %322 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %321
   %323 = load i8, ptr %322, align 1, !tbaa !77
@@ -11587,9 +11587,9 @@ get_cabac_bypass_sign.exit241.i:                  ; preds = %349, %340
   br i1 %.not.i.i16, label %405, label %get_cabac.exit17
 
 405:                                              ; preds = %377
-  %406 = add nsw i32 %403, -1
+  %406 = add nsw i32 %403, -32768
   %407 = xor i32 %406, %403
-  %408 = lshr i32 %407, 15
+  %408 = lshr exact i32 %407, 15
   %409 = zext nneg i32 %408 to i64
   %410 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %409
   %411 = load i8, ptr %410, align 1, !tbaa !77
@@ -11803,9 +11803,9 @@ get_cabac_bypass_sign.exit237.i:                  ; preds = %470, %.critedge.i.t
   br i1 %.not.i.i23, label %533, label %get_cabac.exit24
 
 533:                                              ; preds = %.preheader147
-  %534 = add nsw i32 %531, -1
+  %534 = add nsw i32 %531, -32768
   %535 = xor i32 %534, %531
-  %536 = lshr i32 %535, 15
+  %536 = lshr exact i32 %535, 15
   %537 = zext nneg i32 %536 to i64
   %538 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %537
   %539 = load i8, ptr %538, align 1, !tbaa !77
@@ -11923,9 +11923,9 @@ get_cabac_bypass_sign.exit233.i:                  ; preds = %565, %556
   br i1 %.not.i.i25, label %621, label %get_cabac.exit26
 
 621:                                              ; preds = %593
-  %622 = add nsw i32 %619, -1
+  %622 = add nsw i32 %619, -32768
   %623 = xor i32 %622, %619
-  %624 = lshr i32 %623, 15
+  %624 = lshr exact i32 %623, 15
   %625 = zext nneg i32 %624 to i64
   %626 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %625
   %627 = load i8, ptr %626, align 1, !tbaa !77
@@ -12176,9 +12176,9 @@ define internal fastcc void @decode_cabac_residual_dc_internal(ptr noundef reado
   br i1 %.not.i.i, label %62, label %get_cabac.exit
 
 62:                                               ; preds = %.lr.ph
-  %63 = add nsw i32 %60, -1
+  %63 = add nsw i32 %60, -32768
   %64 = xor i32 %63, %60
-  %65 = lshr i32 %64, 15
+  %65 = lshr exact i32 %64, 15
   %66 = zext nneg i32 %65 to i64
   %67 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !77
@@ -12244,9 +12244,9 @@ get_cabac.exit:                                   ; preds = %.lr.ph, %62
   br i1 %.not.i.i6, label %117, label %get_cabac.exit7
 
 117:                                              ; preds = %84
-  %118 = add nsw i32 %115, -1
+  %118 = add nsw i32 %115, -32768
   %119 = xor i32 %118, %115
-  %120 = lshr i32 %119, 15
+  %120 = lshr exact i32 %119, 15
   %121 = zext nneg i32 %120 to i64
   %122 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %121
   %123 = load i8, ptr %122, align 1, !tbaa !77
@@ -12371,9 +12371,9 @@ get_cabac.exit7._crit_edge:                       ; preds = %get_cabac.exit7, %1
   br i1 %.not.i.i8, label %201, label %get_cabac.exit9
 
 201:                                              ; preds = %.preheader118
-  %202 = add nsw i32 %199, -1
+  %202 = add nsw i32 %199, -32768
   %203 = xor i32 %202, %199
-  %204 = lshr i32 %203, 15
+  %204 = lshr exact i32 %203, 15
   %205 = zext nneg i32 %204 to i64
   %206 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %205
   %207 = load i8, ptr %206, align 1, !tbaa !77
@@ -12459,9 +12459,9 @@ get_cabac.exit9:                                  ; preds = %.preheader118, %201
   br i1 %.not.i.i10, label %265, label %get_cabac.exit11
 
 265:                                              ; preds = %237
-  %266 = add nsw i32 %263, -1
+  %266 = add nsw i32 %263, -32768
   %267 = xor i32 %266, %263
-  %268 = lshr i32 %267, 15
+  %268 = lshr exact i32 %267, 15
   %269 = zext nneg i32 %268 to i64
   %270 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %269
   %271 = load i8, ptr %270, align 1, !tbaa !77
@@ -12669,9 +12669,9 @@ get_cabac_bypass_sign.exit243.i:                  ; preds = %get_cabac_bypass_si
   br i1 %.not.i.i17, label %386, label %get_cabac.exit18
 
 386:                                              ; preds = %.preheader116
-  %387 = add nsw i32 %384, -1
+  %387 = add nsw i32 %384, -32768
   %388 = xor i32 %387, %384
-  %389 = lshr i32 %388, 15
+  %389 = lshr exact i32 %388, 15
   %390 = zext nneg i32 %389 to i64
   %391 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %390
   %392 = load i8, ptr %391, align 1, !tbaa !77
@@ -12757,9 +12757,9 @@ get_cabac.exit18:                                 ; preds = %.preheader116, %386
   br i1 %.not.i.i19, label %450, label %get_cabac.exit20
 
 450:                                              ; preds = %422
-  %451 = add nsw i32 %448, -1
+  %451 = add nsw i32 %448, -32768
   %452 = xor i32 %451, %448
-  %453 = lshr i32 %452, 15
+  %453 = lshr exact i32 %452, 15
   %454 = zext nneg i32 %453 to i64
   %455 = getelementptr inbounds nuw i8, ptr @ff_h264_cabac_tables, i64 %454
   %456 = load i8, ptr %455, align 1, !tbaa !77

@@ -2576,7 +2576,7 @@ _ZL22checkARM64PackedEpilogRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEPNS3_7Segmen
   %846 = add nuw nsw i32 %845, 8
   %spec.select.i143.i = select i1 %839, i32 %846, i32 %845
   %847 = shl nuw nsw i32 %.0185.lcssa.i.i, 3
-  %848 = add nuw nsw i32 %847, 15
+  %848 = add nuw nsw i32 %847, 8
   %849 = add nuw nsw i32 %848, %spec.select.i143.i
   %850 = and i32 %849, 496
   %.not249.i.i = icmp ne i32 %.0190.lcssa.i.i, %850

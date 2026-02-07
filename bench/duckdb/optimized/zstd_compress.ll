@@ -2785,7 +2785,7 @@ _ZN11duckdb_zstdL23ZSTD_allocateChainTableENS_13ZSTD_strategyENS_18ZSTD_paramSwi
   %34 = select i1 %33, i64 3, i64 4
   %35 = udiv i64 %30, %34
   %36 = shl i64 %35, 3
-  %37 = add i64 %36, 63
+  %37 = add i64 %36, 56
   %38 = and i64 %37, -64
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i32, ptr %39, align 4, !tbaa !95
@@ -2814,7 +2814,7 @@ _ZN11duckdb_zstdL23ZSTD_allocateChainTableENS_13ZSTD_strategyENS_18ZSTD_paramSwi
   %57 = load i32, ptr %1, align 4, !tbaa !149
   %58 = icmp eq i32 %57, 1
   %59 = mul i64 %56, 12
-  %60 = add i64 %59, 63
+  %60 = add i64 %59, 60
   %61 = and i64 %60, -64
   %62 = select i1 %58, i64 %61, i64 0
   %.not = icmp eq i32 %2, 0
@@ -2824,7 +2824,7 @@ _ZN11duckdb_zstdL23ZSTD_allocateChainTableENS_13ZSTD_strategyENS_18ZSTD_paramSwi
   %66 = add nuw nsw i64 %65, %63
   %.not43 = icmp eq i32 %7, 0
   %67 = shl i64 %66, 4
-  %68 = add i64 %67, 63
+  %68 = add i64 %67, 48
   %69 = and i64 %68, -64
   %70 = select i1 %.not43, i64 0, i64 %69
   %71 = mul nuw nsw i64 %35, 3
@@ -11850,7 +11850,7 @@ _ZN11duckdb_zstdL16ZSTD_cwksp_clearEPNS_10ZSTD_cwkspE.exit: ; preds = %.thread29
 
 174:                                              ; preds = %159
   %175 = shl i64 %30, 3
-  %176 = add i64 %175, 63
+  %176 = add i64 %175, 56
   %177 = and i64 %176, -64
   %178 = load i32, ptr %144, align 8, !tbaa !336
   %179 = icmp slt i32 %178, 2
@@ -11936,7 +11936,7 @@ _ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit: ; preds =
   %216 = load i32, ptr %215, align 4, !tbaa !115
   %217 = zext nneg i32 %216 to i64
   %218 = shl i64 8, %217
-  %219 = add nuw i64 %218, 63
+  %219 = add nuw i64 %218, 56
   %220 = and i64 %219, -64
   %221 = icmp slt i32 %210, 2
   br i1 %221, label %222, label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i210
@@ -12009,7 +12009,7 @@ _ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit216: ; pred
   store ptr %.0.i.i211, ptr %251, align 8, !tbaa !396
   tail call void @llvm.memset.p0.i64(ptr align 4 %.0.i.i211, i8 0, i64 %218, i1 false)
   %252 = mul i64 %54, 12
-  %253 = add i64 %252, 63
+  %253 = add i64 %252, 60
   %254 = and i64 %253, -64
   %255 = load i32, ptr %144, align 8, !tbaa !336
   %256 = icmp slt i32 %255, 2
@@ -12117,7 +12117,7 @@ _ZN11duckdb_zstdL26ZSTD_cwksp_reserve_alignedEPNS_10ZSTD_cwkspEm.exit223: ; pred
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 5240
   store i64 %302, ptr %303, align 8, !tbaa !400
   %304 = shl i64 %302, 4
-  %305 = add i64 %304, 63
+  %305 = add i64 %304, 48
   %306 = and i64 %305, -64
   %307 = icmp slt i32 %297, 2
   br i1 %307, label %308, label %_ZN11duckdb_zstdL33ZSTD_cwksp_internal_advance_phaseEPNS_10ZSTD_cwkspENS_24ZSTD_cwksp_alloc_phase_eE.exit.i.i224

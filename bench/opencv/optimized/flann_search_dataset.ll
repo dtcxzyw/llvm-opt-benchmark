@@ -16449,8 +16449,8 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_7HammingIhEEE29comp
   %.not17.i = icmp samesign eq i64 %.idx.i, 0
   %.not16.i = icmp eq i64 %24, 0
   %.not147 = icmp eq i64 %17, 0
-  %25 = add nsw i64 %17, -1
-  %26 = lshr i64 %25, 3
+  %25 = add nsw i64 %17, -8
+  %26 = lshr exact i64 %25, 3
   %wide.trip.count = zext i32 %3 to i64
   br label %31
 
@@ -16465,8 +16465,8 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_7HammingIhEEE29comp
   br i1 %.not148, label %._crit_edge141, label %.lr.ph140.preheader
 
 .lr.ph140.preheader:                              ; preds = %._crit_edge136
-  %29 = add nsw i64 %17, -1
-  %30 = lshr i64 %29, 3
+  %29 = add nsw i64 %17, -8
+  %30 = lshr exact i64 %29, 3
   br label %.lr.ph140
 
 31:                                               ; preds = %.lr.ph135, %._crit_edge
@@ -17218,8 +17218,8 @@ _ZN2cv10AutoBufferIjLm264EEC2Em.exit:             ; preds = %._crit_edge, %28
   %55 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %56 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %57 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %58 = add nsw i64 %32, -1
-  %59 = lshr i64 %58, 3
+  %58 = add nsw i64 %32, -8
+  %59 = lshr exact i64 %58, 3
   %wide.trip.count262 = zext nneg i32 %3 to i64
   %wide.trip.count268 = zext nneg i32 %2 to i64
   %wide.trip.count274 = zext nneg i32 %3 to i64
@@ -17825,7 +17825,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_7HammingIhEEE31comp
   %12 = alloca i64, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %14 = shl i32 %4, 3
-  %15 = add i32 %14, 15
+  %15 = add i32 %14, 8
   %16 = and i32 %15, -16
   %17 = load i32, ptr %13, align 8, !tbaa !260
   %18 = icmp sgt i32 %16, %17
@@ -18519,7 +18519,7 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %49
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %68 = load i32, ptr %67, align 8, !tbaa !274
   %69 = shl i32 %68, 3
-  %70 = add i32 %69, 15
+  %70 = add i32 %69, 8
   %71 = and i32 %70, -16
   %72 = load i32, ptr %6, align 8, !tbaa !260
   %73 = icmp sgt i32 %71, %72
@@ -24265,7 +24265,7 @@ _ZSt4sortIPiEvT_S1_.exit129:                      ; preds = %_ZSt25__unguarded_l
   call void @_ZN7cvflann27HierarchicalClusteringIndexINS_7HammingIhEEE13computeLabelsEPiiS4_iS4_Ri(ptr noundef nonnull align 8 dereferenceable(204) %0, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %.sroa.0150.0, i32 noundef %90, ptr noundef nonnull %.sroa.0143.0, ptr noundef nonnull align 4 dereferenceable(4) %8)
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %141 = shl i32 %4, 3
-  %142 = add i32 %141, 15
+  %142 = add i32 %141, 8
   %143 = and i32 %142, -16
   %144 = load i32, ptr %140, align 8, !tbaa !260
   %145 = icmp sgt i32 %143, %144
@@ -24821,7 +24821,7 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %38
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %57 = load i32, ptr %56, align 4, !tbaa !295
   %58 = shl i32 %57, 3
-  %59 = add i32 %58, 15
+  %59 = add i32 %58, 8
   %60 = and i32 %59, -16
   %61 = load i32, ptr %6, align 8, !tbaa !260
   %62 = icmp sgt i32 %60, %61

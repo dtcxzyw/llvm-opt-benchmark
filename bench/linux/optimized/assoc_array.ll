@@ -1553,7 +1553,7 @@ define dso_local noundef ptr @assoc_array_insert(ptr noundef %0, ptr noundef %1,
   br i1 %439, label %440, label %471
 
 440:                                              ; preds = %432
-  %441 = add nsw i32 %404, -1
+  %441 = add i32 %404, -4
   %442 = or i32 %441, 63
   %443 = add i32 %442, 1
   %444 = sext i32 %443 to i64

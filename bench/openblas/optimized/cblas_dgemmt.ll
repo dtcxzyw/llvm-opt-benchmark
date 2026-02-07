@@ -254,7 +254,7 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %132 = trunc i64 %124 to i32
   %.tr347 = add i32 %5, %132
   %133 = shl i32 %.tr347, 1
-  %134 = add i32 %133, 19
+  %134 = add i32 %133, 18
   %135 = and i32 %134, -4
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store volatile i32 %135, ptr %16, align 4, !tbaa !3
@@ -362,7 +362,7 @@ define void @cblas_dgemmt(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %174 = trunc i64 %indvars.iv.next to i32
   %.tr = add i32 %5, %174
   %175 = shl i32 %.tr, 1
-  %176 = add i32 %175, 19
+  %176 = add i32 %175, 18
   %177 = and i32 %176, -4
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store volatile i32 %177, ptr %18, align 4, !tbaa !3

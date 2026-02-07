@@ -2398,8 +2398,8 @@ define dso_local void @vm_unmap_ram(ptr noundef %0, i32 noundef %1) #1 align 16 
 
 27:                                               ; preds = %25
   %28 = add i64 %4, %5
-  %29 = add nsw i64 %4, -1
-  %30 = lshr i64 %29, 12
+  %29 = add nsw i64 %4, -4096
+  %30 = lshr exact i64 %29, 12
   %31 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %30, i32 -1) #21, !srcloc !96
   %32 = add i32 %31, 1
   %33 = lshr exact i64 %5, 12
@@ -2578,8 +2578,8 @@ define dso_local ptr @vm_map_ram(ptr noundef readonly captures(none) %0, i32 nou
   br label %428
 
 9:                                                ; preds = %7
-  %10 = add nsw i64 %5, -1
-  %11 = lshr i64 %10, 12
+  %10 = add nsw i64 %5, -4096
+  %11 = lshr exact i64 %10, 12
   %12 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %11, i32 -1) #21, !srcloc !96
   %13 = add i32 %12, 1
   tail call void @__rcu_read_lock() #20

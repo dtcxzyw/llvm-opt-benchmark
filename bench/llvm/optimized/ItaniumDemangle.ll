@@ -7130,7 +7130,7 @@ define internal fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglin
   %8 = ptrtoint ptr %7 to i64
   %9 = ptrtoint ptr %5 to i64
   %10 = sub i64 %8, %9
-  %11 = add i64 %10, 15
+  %11 = add i64 %10, 8
   %12 = and i64 %11, 4294967280
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %14 = load ptr, ptr %13, align 16, !tbaa !50

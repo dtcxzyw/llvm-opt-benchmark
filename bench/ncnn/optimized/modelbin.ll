@@ -664,7 +664,7 @@ define hidden void @_ZNK4ncnn22ModelBinFromDataReader4loadEii(ptr dead_on_unwind
 44:                                               ; preds = %42
   %45 = sext i32 %2 to i64
   %46 = shl nsw i64 %45, 1
-  %47 = add nsw i64 %46, 3
+  %47 = add nsw i64 %46, 2
   %48 = and i64 %47, -4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !34

@@ -9203,8 +9203,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPKNS_10BasicBlockEjENS_17BranchProba
   %56 = xor i32 %54, %55
   %57 = zext nneg i32 %56 to i64
   %58 = mul i64 %57, 2082041510483722240
-  %59 = add i64 %58, 2864943319779455933
-  %60 = lshr i64 %59, 31
+  %59 = add i64 %58, 2864943319023091712
+  %60 = lshr exact i64 %59, 31
   %61 = trunc i64 %60 to i32
   %62 = xor i32 %61, 756364221
   %63 = add i32 %6, -1

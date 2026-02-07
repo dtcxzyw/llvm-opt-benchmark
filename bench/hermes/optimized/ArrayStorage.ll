@@ -244,11 +244,10 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %mul.i.i.i = shl nuw nsw i32 %capacity, 3
-  %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 15
-  %div1.i.i.i.i = and i32 %sub.i.i.i.i, 8388600
+  %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 8
   %level_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
   %3 = load ptr, ptr %level_.i.i.i.i.i.i, align 8
-  %idx.ext.i.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i to i64
+  %idx.ext.i.i.i.i.i.i = zext nneg i32 %sub.i.i.i.i to i64
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %idx.ext.i.i.i.i.i.i
   %effectiveEnd_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1664
   %4 = load ptr, ptr %effectiveEnd_.i.i.i.i.i.i.i, align 8
@@ -257,7 +256,7 @@ if.end:                                           ; preds = %entry
 
 cond.true.i.i.i.i.i:                              ; preds = %if.end
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  %call3.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #7
+  %call3.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %sub.i.i.i.i) #7
   br label %_ZN6hermes2vm7Runtime13makeAVariableINS0_16ArrayStorageBaseINS0_11HermesValueEEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJEEEPT_jDpOT2_.exit
 
 cond.false.i.i.i.i.i:                             ; preds = %if.end
@@ -267,7 +266,7 @@ cond.false.i.i.i.i.i:                             ; preds = %if.end
 _ZN6hermes2vm7Runtime13makeAVariableINS0_16ArrayStorageBaseINS0_11HermesValueEEELNS0_12HasFinalizerE0ELNS0_9LongLivedE0EJEEEPT_jDpOT2_.exit: ; preds = %cond.true.i.i.i.i.i, %cond.false.i.i.i.i.i
   %cond.i.i.i.i.i = phi ptr [ %call3.i.i.i.i.i, %cond.true.i.i.i.i.i ], [ %3, %cond.false.i.i.i.i.i ]
   store i64 0, ptr %cond.i.i.i.i.i, align 8
-  %bf.set7.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i, 234881024
+  %bf.set7.i.i.i.i.i.i = or disjoint i32 %sub.i.i.i.i, 234881024
   store i32 %bf.set7.i.i.i.i.i.i, ptr %cond.i.i.i.i.i, align 8
   %5 = ptrtoint ptr %cond.i.i.i.i.i to i64
   %or.i.i.i = or i64 %5, -281474976710656
@@ -408,13 +407,12 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %mul.i.i.i = shl nuw nsw i32 %capacity, 3
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 15
-  %div1.i.i.i.i = and i32 %sub.i.i.i.i, 8388600
+  %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 8
   call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #7
-  %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %div1.i.i.i.i) #7
+  %call.i.i.i.i = call noundef ptr @_ZN6hermes2vm7HadesGC14allocLongLivedEj(ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i, i32 noundef %sub.i.i.i.i) #7
   store i64 0, ptr %call.i.i.i.i, align 8
-  %bf.set7.i.i.i.i.i.i = or disjoint i32 %div1.i.i.i.i, 234881024
+  %bf.set7.i.i.i.i.i.i = or disjoint i32 %sub.i.i.i.i, 234881024
   store i32 %bf.set7.i.i.i.i.i.i, ptr %call.i.i.i.i, align 8
   %3 = load ptr, ptr %lk.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i.i = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
@@ -1565,7 +1563,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %mul.i.i.i = shl nuw nsw i32 %capacity, 2
-  %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 15
+  %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 12
   %div1.i.i.i.i = and i32 %sub.i.i.i.i, 8388600
   %level_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1656
   %3 = load ptr, ptr %level_.i.i.i.i.i.i, align 8
@@ -1729,7 +1727,7 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %mul.i.i.i = shl nuw nsw i32 %capacity, 2
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
-  %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 15
+  %sub.i.i.i.i = add nuw nsw i32 %mul.i.i.i, 12
   %div1.i.i.i.i = and i32 %sub.i.i.i.i, 8388600
   call void @llvm.lifetime.start.p0(ptr nonnull %lk.i.i.i.i)
   call void @_ZN6hermes2vm7HadesGC19pauseBackgroundTaskEv(ptr nonnull sret(%"class.std::lock_guard") align 8 %lk.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i) #7

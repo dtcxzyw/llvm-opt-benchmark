@@ -952,7 +952,7 @@ define dso_local range(i32 -22, 1) i32 @drm_gem_fb_afbc_init(ptr noundef %0, ptr
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 212
   %73 = shl i32 %63, 5
   %74 = and i32 %73, 536870880
-  %75 = add nuw nsw i32 %74, 127
+  %75 = add nuw nsw i32 %74, 96
   %76 = and i32 %75, 1073741696
   %77 = mul i32 %67, %76
   %78 = add i32 %71, %77

@@ -24319,8 +24319,8 @@ define internal void @tg3_self_test(ptr noundef %0, ptr noundef captures(none) %
   br i1 %67, label %.sink.split, label %68
 
 68:                                               ; preds = %62
-  %69 = add nsw i32 %64, -1
-  %70 = lshr i32 %69, 2
+  %69 = add nsw i32 %64, -4
+  %70 = lshr exact i32 %69, 2
   %71 = add nuw nsw i32 %70, 1
   %72 = zext nneg i32 %71 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

@@ -2881,9 +2881,9 @@ define hidden noundef zeroext i1 @_ZN2cv10BmpEncoder5writeERKNS_3MatERKSt6vector
   br i1 %.not45, label %_ZNSt6vectorIhSaIhEE7reserveEm.exit, label %37
 
 37:                                               ; preds = %29
-  %38 = add nsw i64 %35, 271
+  %38 = add nsw i64 %35, 270
   %39 = and i64 %38, -256
-  %40 = icmp slt i64 %35, -271
+  %40 = icmp slt i64 %35, -270
   br i1 %40, label %41, label %42
 
 41:                                               ; preds = %37

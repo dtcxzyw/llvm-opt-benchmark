@@ -2881,7 +2881,7 @@ _ZN6hermes2vm9GCPointerINS0_16ArrayStorageBaseINS0_13HermesValue32EEEE3setERNS0_
 
 if.end.i.i:                                       ; preds = %_ZN6hermes2vm9GCPointerINS0_16ArrayStorageBaseINS0_13HermesValue32EEEE3setERNS0_11PointerBaseEPS4_RNS0_7HadesGCE.exit
   %mul.i.i.i.i.i193 = shl nuw nsw i32 %conv.i191, 2
-  %sub.i.i.i.i.i.i194 = add nuw nsw i32 %mul.i.i.i.i.i193, 15
+  %sub.i.i.i.i.i.i194 = add nuw nsw i32 %mul.i.i.i.i.i193, 12
   %div1.i.i.i.i.i.i = and i32 %sub.i.i.i.i.i.i194, 8388600
   %60 = load ptr, ptr %level_.i.i.i.i.i.i.i, align 8
   %idx.ext.i.i.i.i.i.i.i.i = zext nneg i32 %div1.i.i.i.i.i.i to i64

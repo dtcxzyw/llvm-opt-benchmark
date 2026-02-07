@@ -346,7 +346,7 @@ put_frame.exit:                                   ; preds = %.outer.i, %32
   %115 = load i8, ptr %114, align 4, !tbaa !66
   %116 = add i8 %115, 1
   store i8 %116, ptr %114, align 4, !tbaa !66
-  %117 = add nsw i64 %33, 40999999
+  %117 = add nsw i64 %33, 40999984
   %118 = udiv i64 %117, 10000000
   %119 = trunc i64 %118 to i32
   %120 = getelementptr inbounds nuw i8, ptr %4, i64 12

@@ -287,7 +287,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_2(ptr noundef %0, i32
   br i1 %13, label %14, label %20
 
 14:                                               ; preds = %9
-  %15 = add nuw nsw i32 %12, 7
+  %15 = add nuw nsw i32 %12, 6
   %16 = lshr i32 %15, 3
   %17 = add nuw nsw i32 %16, %12
   %18 = tail call ptr @mlib_malloc(i32 noundef %17) #3
@@ -992,7 +992,7 @@ define hidden range(i32 0, 2) i32 @mlib_ImageLookUp_Bit_U8_4(ptr noundef %0, i32
   br i1 %14, label %15, label %21
 
 15:                                               ; preds = %9
-  %16 = add nuw nsw i32 %13, 7
+  %16 = add nuw nsw i32 %13, 4
   %17 = lshr i32 %16, 3
   %18 = add nuw nsw i32 %17, %13
   %19 = tail call ptr @mlib_malloc(i32 noundef %18) #3

@@ -272,8 +272,8 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
 
 142:                                              ; preds = %140
   %143 = mul nuw nsw i32 %90, 3584
-  %144 = add nuw nsw i32 %143, 95233
-  %145 = lshr i32 %144, 1
+  %144 = add nuw nsw i32 %143, 95232
+  %145 = lshr exact i32 %144, 1
   %146 = trunc i32 %145 to i16
   %147 = sub i16 5632, %146
   br label %156
@@ -284,8 +284,8 @@ define dso_local i32 @intel_dsc_compute_params(ptr noundef initializes((4766, 47
 
 150:                                              ; preds = %148
   %151 = shl nuw nsw i32 %90, 9
-  %152 = add nuw nsw i32 %151, 126977
-  %153 = lshr i32 %152, 1
+  %152 = add nuw nsw i32 %151, 126976
+  %153 = lshr exact i32 %152, 1
   %154 = trunc i32 %153 to i16
   %155 = sub i16 6144, %154
   br label %156

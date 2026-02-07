@@ -87,7 +87,7 @@ select.unfold.preheader:
   %4 = load i32, ptr %3, align 8, !tbaa !39
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 10
-  %7 = add nsw i64 %6, 4095
+  %7 = add nsw i64 %6, 3072
   %8 = and i64 %7, -4096
   %9 = and i64 ptrtoint (ptr @lj_vm_exit_handler to i64), -65536
   %.not.i = icmp eq ptr %2, null
@@ -396,7 +396,7 @@ lj_mcode_abort.exit:                              ; preds = %2, %5, %13
   %15 = load i32, ptr %14, align 4, !tbaa !39
   %16 = sext i32 %15 to i64
   %17 = shl nsw i64 %16, 10
-  %18 = add nsw i64 %17, 4095
+  %18 = add nsw i64 %17, 3072
   %19 = and i64 %18, -4096
   %20 = icmp ugt i64 %1, %19
   br i1 %20, label %21, label %22

@@ -14876,7 +14876,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %26
   %29 = select i1 %28, i32 16, i32 20
   %30 = load i8, ptr @UseCompressedOops, align 1
   %31 = trunc i8 %30 to i1
-  %narrow.i = add nuw nsw i32 %29, 7
+  %narrow.i = add nuw nsw i32 %29, 4
   %32 = and i32 %narrow.i, 24
   %33 = select i1 %31, i32 %29, i32 %32
   store i32 %33, ptr %0, align 4

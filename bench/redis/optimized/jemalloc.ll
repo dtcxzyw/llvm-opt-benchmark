@@ -4717,7 +4717,7 @@ aligned_usize_get.exit.i.thread218:               ; preds = %sz_size2index.exit.
   br i1 %69, label %70, label %sz_s2u_compute.exit.i106, !prof !10
 
 70:                                               ; preds = %64
-  %71 = add nuw nsw i64 %68, 7
+  %71 = add nuw nsw i64 %68, 6
   %72 = lshr i64 %71, 3
   %73 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !11
@@ -4773,10 +4773,10 @@ sz_s2u_compute.exit29.i98:                        ; preds = %92, %90
 .thread214:                                       ; preds = %sz_s2u.exit25.i108, %sz_s2u_compute.exit29.i98, %88
   %.0.i102 = phi i64 [ %.0.i28.i99, %sz_s2u_compute.exit29.i98 ], [ 16384, %88 ], [ 16384, %sz_s2u.exit25.i108 ]
   %101 = load i64, ptr @je_sz_large_pad, align 8, !tbaa !33
-  %102 = add nuw nsw i64 %.sroa.32.0, 4095
+  %102 = add nuw nsw i64 %.sroa.32.0, 4094
   %103 = and i64 %102, 9223372036854771712
   %104 = add nsw i64 %103, -4096
-  %105 = add nuw i64 %104, %.0.i102
+  %105 = add i64 %104, %.0.i102
   %106 = add i64 %105, %101
   %107 = icmp ult i64 %106, %.0.i102
   %..0.i103 = select i1 %107, i64 0, i64 %.0.i102
@@ -5141,7 +5141,7 @@ aligned_usize_get.exit.i21.thread249:             ; preds = %sz_size2index.exit.
   br i1 %278, label %279, label %sz_s2u_compute.exit.i95, !prof !10
 
 279:                                              ; preds = %273
-  %280 = add nuw nsw i64 %277, 7
+  %280 = add nuw nsw i64 %277, 6
   %281 = lshr i64 %280, 3
   %282 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %281
   %283 = load i8, ptr %282, align 1, !tbaa !11
@@ -5197,10 +5197,10 @@ sz_s2u_compute.exit29.i:                          ; preds = %301, %299
 .thread245:                                       ; preds = %sz_s2u.exit25.i, %sz_s2u_compute.exit29.i, %297
   %.0.i93 = phi i64 [ %.0.i28.i, %sz_s2u_compute.exit29.i ], [ 16384, %297 ], [ 16384, %sz_s2u.exit25.i ]
   %310 = load i64, ptr @je_sz_large_pad, align 8, !tbaa !33
-  %311 = add nuw nsw i64 %.sroa.32.0, 4095
+  %311 = add nuw nsw i64 %.sroa.32.0, 4094
   %312 = and i64 %311, 9223372036854771712
   %313 = add nsw i64 %312, -4096
-  %314 = add nuw i64 %313, %.0.i93
+  %314 = add i64 %313, %.0.i93
   %315 = add i64 %314, %310
   %316 = icmp ult i64 %315, %.0.i93
   %..0.i = select i1 %316, i64 0, i64 %.0.i93
@@ -5778,7 +5778,7 @@ rtree_metadata_read.exit:                         ; preds = %62, %72, %84, %96
   br i1 %131, label %132, label %sz_s2u_compute.exit.i69, !prof !10
 
 132:                                              ; preds = %126
-  %133 = add nuw nsw i64 %130, 7
+  %133 = add nuw nsw i64 %130, 6
   %134 = lshr i64 %133, 3
   %135 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %134
   %136 = load i8, ptr %135, align 1, !tbaa !11
@@ -5834,10 +5834,10 @@ sz_s2u_compute.exit29.i62:                        ; preds = %154, %152
 .thread99:                                        ; preds = %sz_s2u.exit25.i71, %sz_s2u_compute.exit29.i62, %150
   %.0.i65 = phi i64 [ %.0.i28.i63, %sz_s2u_compute.exit29.i62 ], [ 16384, %150 ], [ 16384, %sz_s2u.exit25.i71 ]
   %163 = load i64, ptr @je_sz_large_pad, align 8, !tbaa !33
-  %164 = add nuw nsw i64 %15, 4095
+  %164 = add nuw i64 %14, 4094
   %165 = and i64 %164, 9223372036854771712
   %166 = add nsw i64 %165, -4096
-  %167 = add nuw i64 %166, %.0.i65
+  %167 = add i64 %166, %.0.i65
   %168 = add i64 %167, %163
   %169 = icmp ult i64 %168, %.0.i65
   %..0.i66 = select i1 %169, i64 0, i64 %.0.i65
@@ -5884,7 +5884,7 @@ tsdn_witness_tsdp_get.exit.i55:                   ; preds = %177
   br i1 %186, label %187, label %sz_s2u_compute.exit.i, !prof !10
 
 187:                                              ; preds = %182
-  %188 = add nuw nsw i64 %185, 7
+  %188 = add nuw nsw i64 %185, 6
   %189 = lshr i64 %188, 3
   %190 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %189
   %191 = load i8, ptr %190, align 1, !tbaa !11
@@ -5936,10 +5936,10 @@ sz_s2u_compute.exit29.i:                          ; preds = %207, %205
 .thread102:                                       ; preds = %sz_s2u.exit25.i, %sz_s2u_compute.exit29.i, %203
   %.0.i59 = phi i64 [ %.0.i28.i, %sz_s2u_compute.exit29.i ], [ 16384, %203 ], [ 16384, %sz_s2u.exit25.i ]
   %216 = load i64, ptr @je_sz_large_pad, align 8, !tbaa !33
-  %217 = add nuw nsw i64 %15, 4095
+  %217 = add nuw i64 %14, 4094
   %218 = and i64 %217, 9223372036854771712
   %219 = add nsw i64 %218, -4096
-  %220 = add nuw i64 %219, %.0.i59
+  %220 = add i64 %219, %.0.i59
   %221 = add i64 %220, %216
   %222 = icmp ult i64 %221, %.0.i59
   %..0.i = select i1 %222, i64 0, i64 %.0.i59
@@ -8104,7 +8104,7 @@ tsd_fetch_impl.exit:                              ; preds = %3, %12
   br i1 %48, label %49, label %sz_s2u_compute.exit.i, !prof !10
 
 49:                                               ; preds = %43
-  %50 = add nuw nsw i64 %47, 7
+  %50 = add nuw nsw i64 %47, 6
   %51 = lshr i64 %50, 3
   %52 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !11
@@ -8160,10 +8160,10 @@ sz_s2u_compute.exit29.i:                          ; preds = %71, %69
 .thread69:                                        ; preds = %sz_s2u.exit25.i, %sz_s2u_compute.exit29.i, %67
   %.0.i32 = phi i64 [ %.0.i28.i, %sz_s2u_compute.exit29.i ], [ 16384, %67 ], [ 16384, %sz_s2u.exit25.i ]
   %80 = load i64, ptr @je_sz_large_pad, align 8, !tbaa !33
-  %81 = add nuw nsw i64 %18, 4095
+  %81 = add nuw i64 %17, 4094
   %82 = and i64 %81, 9223372036854771712
   %83 = add nsw i64 %82, -4096
-  %84 = add nuw i64 %83, %.0.i32
+  %84 = add i64 %83, %.0.i32
   %85 = add i64 %84, %80
   %86 = icmp ult i64 %85, %.0.i32
   %..0.i = select i1 %86, i64 0, i64 %.0.i32
@@ -8802,7 +8802,7 @@ tsdn_fetch.exit:                                  ; preds = %13, %9, %malloc_ini
   br i1 %48, label %49, label %sz_s2u_compute.exit.i, !prof !10
 
 49:                                               ; preds = %43
-  %50 = add nuw nsw i64 %47, 7
+  %50 = add nuw nsw i64 %47, 6
   %51 = lshr i64 %50, 3
   %52 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !11
@@ -8858,10 +8858,10 @@ sz_s2u_compute.exit29.i:                          ; preds = %71, %69
 .thread15:                                        ; preds = %sz_s2u.exit25.i, %sz_s2u_compute.exit29.i, %67
   %.0.i13 = phi i64 [ %.0.i28.i, %sz_s2u_compute.exit29.i ], [ 16384, %67 ], [ 16384, %sz_s2u.exit25.i ]
   %80 = load i64, ptr @je_sz_large_pad, align 8, !tbaa !33
-  %81 = add nuw nsw i64 %18, 4095
+  %81 = add nuw i64 %17, 4094
   %82 = and i64 %81, 9223372036854771712
   %83 = add nsw i64 %82, -4096
-  %84 = add nuw i64 %83, %.0.i13
+  %84 = add i64 %83, %.0.i13
   %85 = add i64 %84, %80
   %86 = icmp ult i64 %85, %.0.i13
   br i1 %86, label %malloc_init.exit.thread, label %aligned_usize_get.exit
@@ -9219,7 +9219,7 @@ tsd_fetch_impl.exit.thread:                       ; preds = %4, %tsd_fetch_impl.
   br i1 %48, label %49, label %sz_s2u_compute.exit.i, !prof !10
 
 49:                                               ; preds = %43
-  %50 = add nuw nsw i64 %47, 7
+  %50 = add nuw nsw i64 %47, 6
   %51 = lshr i64 %50, 3
   %52 = getelementptr inbounds nuw i8, ptr @je_sz_size2index_tab, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !11
@@ -9275,10 +9275,10 @@ sz_s2u_compute.exit29.i:                          ; preds = %71, %69
 .thread143:                                       ; preds = %sz_s2u.exit25.i, %sz_s2u_compute.exit29.i, %67
   %.0.i127 = phi i64 [ %.0.i28.i, %sz_s2u_compute.exit29.i ], [ 16384, %67 ], [ 16384, %sz_s2u.exit25.i ]
   %80 = load i64, ptr @je_sz_large_pad, align 8, !tbaa !33
-  %81 = add nuw nsw i64 %18, 4095
+  %81 = add nuw i64 %17, 4094
   %82 = and i64 %81, 9223372036854771712
   %83 = add nsw i64 %82, -4096
-  %84 = add nuw i64 %83, %.0.i127
+  %84 = add i64 %83, %.0.i127
   %85 = add i64 %84, %80
   %86 = icmp ult i64 %85, %.0.i127
   %..0.i = select i1 %86, i64 0, i64 %.0.i127

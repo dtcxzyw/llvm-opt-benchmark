@@ -70,17 +70,15 @@ while.end:                                        ; preds = %entry, %if.end.i, %
   %conv = zext nneg i32 %retval.0.i to i64
   %mul = shl nuw nsw i64 %conv, 3
   %cmp = icmp eq ptr %1, null
+  %add15 = add nuw nsw i64 %mul, 8
   br i1 %cmp, label %if.then, label %if.else.i
 
 if.then:                                          ; preds = %while.end
-  %add15 = add nuw nsw i64 %mul, 8
   %call.i29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %add15) #15
   br label %if.end
 
 if.else.i:                                        ; preds = %while.end
-  %sub.i.i = add nuw nsw i64 %mul, 15
-  %and.i.i = and i64 %sub.i.i, 34359738360
-  %call2.i = tail call noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144) %1, i64 noundef %and.i.i)
+  %call2.i = tail call noundef ptr @_ZN6google8protobuf5Arena16AllocateForArrayEm(ptr noundef nonnull align 8 dereferenceable(144) %1, i64 noundef %add15)
   br label %if.end
 
 if.end:                                           ; preds = %if.else.i, %if.then

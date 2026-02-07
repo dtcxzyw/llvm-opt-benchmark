@@ -1962,7 +1962,7 @@ define hidden void @_ZN17ArchiveHeapWriter20copy_roots_to_bufferEP18GrowableArra
   %11 = select i1 %10, i32 16, i32 20
   %12 = load i8, ptr @UseCompressedOops, align 1
   %13 = trunc i8 %12 to i1
-  %narrow.i.i.i = add nuw nsw i32 %11, 7
+  %narrow.i.i.i = add nuw nsw i32 %11, 4
   %14 = and i32 %narrow.i.i.i, 24
   %15 = select i1 %13, i32 %11, i32 %14
   %16 = zext nneg i32 %15 to i64
@@ -2140,10 +2140,10 @@ define hidden void @_ZN17ArchiveHeapWriter24maybe_fill_gc_region_gapEm(i64 nound
   %5 = select i1 %4, i32 16, i32 20
   %6 = load i8, ptr @UseCompressedOops, align 1
   %7 = trunc i8 %6 to i1
-  %narrow.i.i.i.i = add nuw nsw i32 %5, 7
+  %narrow.i.i.i.i = add nuw nsw i32 %5, 4
   %8 = and i32 %narrow.i.i.i.i, 24
   %9 = select i1 %7, i32 %5, i32 %8
-  %narrow = add nuw nsw i32 %9, 7
+  %narrow = add nuw nsw i32 %9, 4
   %10 = lshr i32 %narrow, 3
   %11 = zext nneg i32 %10 to i64
   %12 = load i32, ptr @MinObjAlignment, align 4
@@ -2194,7 +2194,7 @@ _ZN17ArchiveHeapWriter19ensure_buffer_spaceEm.exit: ; preds = %25
   %41 = load i8, ptr @UseCompressedClassPointers, align 1
   %42 = trunc i8 %41 to i1
   %43 = select i1 %42, i32 16, i32 20
-  %narrow.i.i.i.i.i = add nuw nsw i32 %43, 7
+  %narrow.i.i.i.i.i = add nuw nsw i32 %43, 4
   %44 = and i32 %narrow.i.i.i.i.i, 24
   %45 = select i1 %34, i32 %43, i32 %44
   %narrow.i = add nuw nsw i32 %45, 7
@@ -2749,7 +2749,7 @@ define hidden noundef range(i64 0, -7) i64 @_ZN17ArchiveHeapWriter22filler_array
   %8 = select i1 %7, i32 16, i32 20
   %9 = load i8, ptr @UseCompressedOops, align 1
   %10 = trunc i8 %9 to i1
-  %narrow.i.i.i = add nuw nsw i32 %8, 7
+  %narrow.i.i.i = add nuw nsw i32 %8, 4
   %11 = and i32 %narrow.i.i.i, 24
   %12 = select i1 %10, i32 %8, i32 %11
   %13 = zext nneg i32 %12 to i64
@@ -2783,7 +2783,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN17ArchiveHeapWriter19fil
   %10 = load i8, ptr @UseCompressedClassPointers, align 1
   %11 = trunc i8 %10 to i1
   %12 = select i1 %11, i32 16, i32 20
-  %narrow.i.i.i.i = add nuw nsw i32 %12, 7
+  %narrow.i.i.i.i = add nuw nsw i32 %12, 4
   %13 = and i32 %narrow.i.i.i.i, 24
   %14 = select i1 %3, i32 %12, i32 %13
   %narrow = add nuw nsw i32 %14, 7
@@ -2998,7 +2998,7 @@ define linkonce_odr hidden void @_ZN17ArchiveHeapWriter16relocate_root_atI9narro
   %7 = select i1 %6, i32 16, i32 20
   %8 = load i8, ptr @UseCompressedOops, align 1
   %9 = trunc i8 %8 to i1
-  %narrow.i.i.i = add nuw nsw i32 %7, 7
+  %narrow.i.i.i = add nuw nsw i32 %7, 4
   %10 = and i32 %narrow.i.i.i, 24
   %11 = select i1 %9, i32 %7, i32 %10
   %12 = zext nneg i32 %11 to i64
@@ -9102,7 +9102,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass24oop_oop_iterate_elementsI9n
   %7 = select i1 %6, i32 16, i32 20
   %8 = load i8, ptr @UseCompressedOops, align 1
   %9 = trunc i8 %8 to i1
-  %narrow.i.i.i = add nuw nsw i32 %7, 7
+  %narrow.i.i.i = add nuw nsw i32 %7, 4
   %10 = and i32 %narrow.i.i.i, 24
   %11 = select i1 %9, i32 %7, i32 %10
   %12 = ptrtoint ptr %1 to i64
@@ -9243,7 +9243,7 @@ define linkonce_odr hidden void @_ZN13ObjArrayKlass24oop_oop_iterate_elementsIP7
   %7 = select i1 %6, i32 16, i32 20
   %8 = load i8, ptr @UseCompressedOops, align 1
   %9 = trunc i8 %8 to i1
-  %narrow.i.i.i = add nuw nsw i32 %7, 7
+  %narrow.i.i.i = add nuw nsw i32 %7, 4
   %10 = and i32 %narrow.i.i.i, 24
   %11 = select i1 %9, i32 %7, i32 %10
   %12 = ptrtoint ptr %1 to i64

@@ -737,105 +737,104 @@ define hidden noundef zeroext i1 @_ZN8FrameMap14finalize_frameEi(ptr noundef non
   %6 = add i32 %5, 7
   %7 = and i32 %6, -8
   %8 = shl nsw i32 %1, 2
-  %9 = add i32 %8, 7
+  %9 = add i32 %8, 4
   %10 = add i32 %9, %7
-  %11 = and i32 %10, -8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8
-  %14 = shl nsw i32 %13, 4
-  %15 = add i32 %14, 39
-  %16 = add i32 %15, %11
-  %17 = ashr i32 %16, 2
-  %18 = and i32 %17, -4
-  store i32 %18, ptr %0, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %12 = load i32, ptr %11, align 8
+  %13 = shl nsw i32 %12, 4
+  %14 = add nsw i32 %10, %13
+  %15 = and i32 %14, -16
+  %16 = add i32 %15, 32
+  %17 = ashr exact i32 %16, 2
+  store i32 %17, ptr %0, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %20, align 8
-  %22 = load i32, ptr %21, align 4
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph, label %._crit_edge
+  %21 = load i32, ptr %20, align 4
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %25
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  br label %24
 
-25:                                               ; preds = %.lr.ph, %_ZNK7LIR_Opr4typeEv.exit
+24:                                               ; preds = %.lr.ph, %_ZNK7LIR_Opr4typeEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK7LIR_Opr4typeEv.exit ]
-  %26 = phi ptr [ %21, %.lr.ph ], [ %66, %_ZNK7LIR_Opr4typeEv.exit ]
-  %.079 = phi i32 [ 0, %.lr.ph ], [ %64, %_ZNK7LIR_Opr4typeEv.exit ]
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw %class.LIR_Opr, ptr %28, i64 %indvars.iv
-  %.sroa.0.0.copyload.i = load i64, ptr %29, align 8
-  %30 = and i64 %.sroa.0.0.copyload.i, 7
-  %31 = icmp eq i64 %30, 1
-  br i1 %31, label %32, label %42
+  %25 = phi ptr [ %20, %.lr.ph ], [ %65, %_ZNK7LIR_Opr4typeEv.exit ]
+  %.079 = phi i32 [ 0, %.lr.ph ], [ %63, %_ZNK7LIR_Opr4typeEv.exit ]
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %28 = getelementptr inbounds nuw %class.LIR_Opr, ptr %27, i64 %indvars.iv
+  %.sroa.0.0.copyload.i = load i64, ptr %28, align 8
+  %29 = and i64 %.sroa.0.0.copyload.i, 7
+  %30 = icmp eq i64 %29, 1
+  br i1 %30, label %31, label %41
 
-32:                                               ; preds = %25
-  %33 = load ptr, ptr %24, align 8
-  %34 = load i32, ptr %0, align 8
-  %35 = shl nsw i32 %34, 2
-  %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = sext i32 %.079 to i64
-  %39 = getelementptr inbounds i32, ptr %37, i64 %38
-  %40 = load i32, ptr %39, align 4
-  %41 = add nsw i32 %40, %35
-  store i32 %41, ptr %39, align 4
-  br label %42
+31:                                               ; preds = %24
+  %32 = load ptr, ptr %23, align 8
+  %33 = load i32, ptr %0, align 8
+  %34 = shl nsw i32 %33, 2
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %36 = load ptr, ptr %35, align 8
+  %37 = sext i32 %.079 to i64
+  %38 = getelementptr inbounds i32, ptr %36, i64 %37
+  %39 = load i32, ptr %38, align 4
+  %40 = add nsw i32 %39, %34
+  store i32 %40, ptr %38, align 4
+  br label %41
 
-42:                                               ; preds = %32, %25
-  %43 = and i64 %.sroa.0.0.copyload.i, 1
-  %44 = icmp eq i64 %43, 0
-  br i1 %44, label %45, label %52
+41:                                               ; preds = %31, %24
+  %42 = and i64 %.sroa.0.0.copyload.i, 1
+  %43 = icmp eq i64 %42, 0
+  br i1 %43, label %44, label %51
 
-45:                                               ; preds = %42
-  %46 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  %50 = tail call noundef zeroext i8 %49(ptr noundef nonnull align 8 dereferenceable(8) %46) #9
-  %51 = zext i8 %50 to i64
+44:                                               ; preds = %41
+  %45 = inttoptr i64 %.sroa.0.0.copyload.i to ptr
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef zeroext i8 %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #9
+  %50 = zext i8 %49 to i64
   br label %_ZNK7LIR_Opr4typeEv.exit
 
-52:                                               ; preds = %42
-  %53 = icmp eq i64 %30, 7
-  %54 = trunc i64 %.sroa.0.0.copyload.i to i32
-  %55 = lshr i32 %54, 3
-  %56 = and i32 %55, 15
-  %57 = add nsw i32 %56, -1
-  %switch.tableidx = select i1 %53, i32 -1, i32 %57
-  %58 = icmp ult i32 %switch.tableidx, 7
-  br i1 %58, label %switch.lookup, label %59
+51:                                               ; preds = %41
+  %52 = icmp eq i64 %29, 7
+  %53 = trunc i64 %.sroa.0.0.copyload.i to i32
+  %54 = lshr i32 %53, 3
+  %55 = and i32 %54, 15
+  %56 = add nsw i32 %55, -1
+  %switch.tableidx = select i1 %52, i32 -1, i32 %56
+  %57 = icmp ult i32 %switch.tableidx, 7
+  br i1 %57, label %switch.lookup, label %58
 
-59:                                               ; preds = %52
-  %60 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %60, align 1
+58:                                               ; preds = %51
+  %59 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %59, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.4, i32 noundef 508) #10
   unreachable
 
-switch.lookup:                                    ; preds = %52
-  %61 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN8FrameMap14finalize_frameEi, i64 %61
+switch.lookup:                                    ; preds = %51
+  %60 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN8FrameMap14finalize_frameEi, i64 %60
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK7LIR_Opr4typeEv.exit
 
-_ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %45
-  %.0.i = phi i64 [ %51, %45 ], [ %switch.load, %switch.lookup ]
-  %62 = getelementptr inbounds nuw i32, ptr @type2size, i64 %.0.i
-  %63 = load i32, ptr %62, align 4
-  %64 = add nsw i32 %63, %.079
+_ZNK7LIR_Opr4typeEv.exit:                         ; preds = %switch.lookup, %44
+  %.0.i = phi i64 [ %50, %44 ], [ %switch.load, %switch.lookup ]
+  %61 = getelementptr inbounds nuw i32, ptr @type2size, i64 %.0.i
+  %62 = load i32, ptr %61, align 4
+  %63 = add nsw i32 %62, %.079
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %65 = load ptr, ptr %19, align 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = load i32, ptr %66, align 4
-  %68 = sext i32 %67 to i64
-  %69 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %69, label %25, label %._crit_edge, !llvm.loop !15
+  %64 = load ptr, ptr %18, align 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = load i32, ptr %65, align 4
+  %67 = sext i32 %66 to i64
+  %68 = icmp slt i64 %indvars.iv.next, %67
+  br i1 %68, label %24, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %_ZNK7LIR_Opr4typeEv.exit, %2
-  %70 = tail call noundef zeroext i1 @_ZN8FrameMap14validate_frameEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #9
-  ret i1 %70
+  %69 = tail call noundef zeroext i1 @_ZN8FrameMap14validate_frameEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #9
+  ret i1 %69
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -847,7 +846,7 @@ define hidden noundef i32 @_ZNK8FrameMap26sp_offset_for_monitor_baseEi(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = shl nsw i32 %8, 2
-  %10 = add i32 %9, 7
+  %10 = add i32 %9, 4
   %11 = add i32 %10, %6
   %12 = and i32 %11, -8
   %13 = shl nsw i32 %1, 4
@@ -1024,7 +1023,7 @@ define hidden noundef i32 @_ZNK8FrameMap26sp_offset_for_monitor_lockEi(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = shl nsw i32 %8, 2
-  %10 = add i32 %9, 7
+  %10 = add i32 %9, 4
   %11 = add i32 %10, %6
   %12 = and i32 %11, -8
   %13 = shl nsw i32 %1, 4
@@ -1041,7 +1040,7 @@ define hidden noundef range(i32 -2147483640, -2147483648) i32 @_ZNK8FrameMap28sp
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = shl nsw i32 %8, 2
-  %10 = add i32 %9, 7
+  %10 = add i32 %9, 4
   %11 = add i32 %10, %6
   %12 = and i32 %11, -8
   %13 = shl nsw i32 %1, 4

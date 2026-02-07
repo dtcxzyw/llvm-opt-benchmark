@@ -2117,9 +2117,9 @@ select_pcr_streams.exit:                          ; preds = %._crit_edge.thread.
 
 .thread.i:                                        ; preds = %.preheader.i
   %380 = shl i32 %.044.i, 1
-  %381 = add i32 %380, -1
+  %381 = add i32 %380, -128
   %382 = and i32 %381, %.147.i
-  %383 = icmp ugt i32 %382, 127
+  %383 = icmp ne i32 %382, 0
   %384 = zext i1 %383 to i32
   %385 = or i32 %.04993.i, %384
   %.pr.i = load i8, ptr %.253.i, align 1, !tbaa !21
@@ -5533,9 +5533,9 @@ define internal fastcc ptr @mpegts_add_service(ptr noundef %0, i32 noundef %1, p
 
 .thread.i:                                        ; preds = %.preheader.i
   %54 = shl i32 %.044.i, 1
-  %55 = add i32 %54, -1
+  %55 = add i32 %54, -128
   %56 = and i32 %55, %.147.i
-  %57 = icmp ugt i32 %56, 127
+  %57 = icmp ne i32 %56, 0
   %58 = zext i1 %57 to i32
   %59 = or i32 %.04993.i, %58
   %.pr.i = load i8, ptr %.253.i, align 1, !tbaa !21
@@ -5616,9 +5616,9 @@ define internal fastcc ptr @mpegts_add_service(ptr noundef %0, i32 noundef %1, p
 
 .thread.i60:                                      ; preds = %.preheader.i53
   %91 = shl i32 %.044.i56, 1
-  %92 = add i32 %91, -1
+  %92 = add i32 %91, -128
   %93 = and i32 %92, %.147.i55
-  %94 = icmp ugt i32 %93, 127
+  %94 = icmp ne i32 %93, 0
   %95 = zext i1 %94 to i32
   %96 = or i32 %.04993.i49, %95
   %.pr.i61 = load i8, ptr %.253.i57, align 1, !tbaa !21

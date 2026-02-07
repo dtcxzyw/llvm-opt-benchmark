@@ -110,7 +110,7 @@ define range(i32 -22, 1) i32 @ff_vmafmotion_init(ptr noundef writeonly captures(
   store i32 %2, ptr %10, align 8, !tbaa !18
   %11 = shl nuw i32 %1, 1
   %12 = zext i32 %11 to i64
-  %13 = add nuw nsw i64 %12, 31
+  %13 = add nuw nsw i64 %12, 30
   %14 = and i64 %13, 8589934560
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %14, ptr %15, align 8, !tbaa !20

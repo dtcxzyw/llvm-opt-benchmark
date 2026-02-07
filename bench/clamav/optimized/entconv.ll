@@ -1934,8 +1934,7 @@ define ptr @cli_utf16toascii(ptr noundef readonly captures(none) %0, i32 noundef
   br i1 %.not22, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %5
-  %spec.select = and i32 %1, -2
-  %10 = add i32 %spec.select, -1
+  %10 = add i32 %1, -2
   %11 = lshr i32 %10, 1
   %12 = add nuw nsw i32 %11, 1
   %wide.trip.count = zext nneg i32 %12 to i64

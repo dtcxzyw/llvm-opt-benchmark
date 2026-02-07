@@ -3043,7 +3043,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %
   br label %26
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %23 = add nuw nsw i64 %18, 15
+  %23 = add nuw nsw i64 %18, 12
   %24 = and i64 %23, 17179869176
   %25 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %24, ptr noundef nonnull @_ZTIc)
   br label %26
@@ -3223,7 +3223,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %18,
   br label %29
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %26 = add nuw nsw i64 %21, 15
+  %26 = add nuw nsw i64 %21, 12
   %27 = and i64 %26, 17179869176
   %28 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %27, ptr noundef nonnull @_ZTIc)
   br label %29
@@ -3325,7 +3325,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %19, %
   br label %30
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %27 = add nuw nsw i64 %22, 15
+  %27 = add nuw nsw i64 %22, 12
   %28 = and i64 %27, 17179869176
   %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
   br label %30
@@ -3536,7 +3536,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %26,
           to label %.noexc unwind label %57
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %34 = add nuw nsw i64 %29, 15
+  %34 = add nuw nsw i64 %29, 12
   %35 = and i64 %34, 17179869176
   %36 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %35, ptr noundef nonnull @_ZTIc)
           to label %.noexc unwind label %57
@@ -3879,7 +3879,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %2
   br label %26
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %23 = add nuw nsw i64 %18, 15
+  %23 = add nuw nsw i64 %18, 12
   %24 = and i64 %23, 17179869176
   %25 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %24, ptr noundef nonnull @_ZTIc)
   br label %26
@@ -3959,7 +3959,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %1
   br label %24
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %21 = add nuw nsw i64 %16, 15
+  %21 = add nuw nsw i64 %16, 12
   %22 = and i64 %21, 17179869176
   %23 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %22, ptr noundef nonnull @_ZTIc)
   br label %24
@@ -4145,7 +4145,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17
   br label %30
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %27 = add nuw nsw i64 %22, 15
+  %27 = add nuw nsw i64 %22, 12
   %28 = and i64 %27, 17179869176
   %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
   br label %30
@@ -4292,7 +4292,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17
   br label %30
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %27 = add nuw nsw i64 %22, 15
+  %27 = add nuw nsw i64 %22, 12
   %28 = and i64 %27, 17179869176
   %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
   br label %30
@@ -4446,7 +4446,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %39, %
           to label %.noexc unwind label %115
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %47 = add nuw nsw i64 %42, 15
+  %47 = add nuw nsw i64 %42, 12
   %48 = and i64 %47, 17179869176
   %49 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %48, ptr noundef nonnull @_ZTIc)
           to label %.noexc unwind label %115
@@ -4538,7 +4538,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %83,
           to label %.noexc13 unwind label %115
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %91 = add nuw nsw i64 %86, 15
+  %91 = add nuw nsw i64 %86, 12
   %92 = and i64 %91, 17179869176
   %93 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %79, i64 noundef %92, ptr noundef nonnull @_ZTIc)
           to label %.noexc13 unwind label %115
@@ -4959,7 +4959,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %
   br label %26
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %23 = add nuw nsw i64 %18, 15
+  %23 = add nuw nsw i64 %18, 12
   %24 = and i64 %23, 17179869176
   %25 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %24, ptr noundef nonnull @_ZTIc)
   br label %26
@@ -5139,7 +5139,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %18,
   br label %29
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %26 = add nuw nsw i64 %21, 15
+  %26 = add nuw nsw i64 %21, 12
   %27 = and i64 %26, 17179869176
   %28 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %27, ptr noundef nonnull @_ZTIc)
   br label %29
@@ -5241,7 +5241,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %19, %
   br label %30
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %27 = add nuw nsw i64 %22, 15
+  %27 = add nuw nsw i64 %22, 12
   %28 = and i64 %27, 17179869176
   %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
   br label %30
@@ -5452,7 +5452,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %26,
           to label %.noexc unwind label %57
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %34 = add nuw nsw i64 %29, 15
+  %34 = add nuw nsw i64 %29, 12
   %35 = and i64 %34, 17179869176
   %36 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %35, ptr noundef nonnull @_ZTIc)
           to label %.noexc unwind label %57
@@ -5795,7 +5795,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %2
   br label %26
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %23 = add nuw nsw i64 %18, 15
+  %23 = add nuw nsw i64 %18, 12
   %24 = and i64 %23, 17179869176
   %25 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %24, ptr noundef nonnull @_ZTIc)
   br label %26
@@ -5875,7 +5875,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %1
   br label %24
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %21 = add nuw nsw i64 %16, 15
+  %21 = add nuw nsw i64 %16, 12
   %22 = and i64 %21, 17179869176
   %23 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %22, ptr noundef nonnull @_ZTIc)
   br label %24
@@ -6061,7 +6061,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17
   br label %30
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %27 = add nuw nsw i64 %22, 15
+  %27 = add nuw nsw i64 %22, 12
   %28 = and i64 %27, 17179869176
   %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
   br label %30
@@ -6208,7 +6208,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17
   br label %30
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %27 = add nuw nsw i64 %22, 15
+  %27 = add nuw nsw i64 %22, 12
   %28 = and i64 %27, 17179869176
   %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
   br label %30
@@ -6362,7 +6362,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %39, %
           to label %.noexc unwind label %115
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %47 = add nuw nsw i64 %42, 15
+  %47 = add nuw nsw i64 %42, 12
   %48 = and i64 %47, 17179869176
   %49 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %48, ptr noundef nonnull @_ZTIc)
           to label %.noexc unwind label %115
@@ -6454,7 +6454,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %83,
           to label %.noexc13 unwind label %115
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %91 = add nuw nsw i64 %86, 15
+  %91 = add nuw nsw i64 %86, 12
   %92 = and i64 %91, 17179869176
   %93 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %79, i64 noundef %92, ptr noundef nonnull @_ZTIc)
           to label %.noexc13 unwind label %115
@@ -6867,48 +6867,46 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %
   %17 = zext nneg i32 %.0.i to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = icmp eq ptr %11, null
-  br i1 %19, label %20, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit
+  %20 = add nuw nsw i64 %18, 8
+  br i1 %19, label %21, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit
 
-20:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %21 = add nuw nsw i64 %18, 8
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #18
-  br label %26
+21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #18
+  br label %24
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %23 = add nuw nsw i64 %18, 15
-  %24 = and i64 %23, 34359738360
-  %25 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %24, ptr noundef nonnull @_ZTIc)
-  br label %26
+  %23 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %20, ptr noundef nonnull @_ZTIc)
+  br label %24
 
-26:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit, %20
-  %.018 = phi ptr [ %22, %20 ], [ %25, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit ]
+24:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit, %21
+  %.018 = phi ptr [ %22, %21 ], [ %23, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit ]
   store ptr %11, ptr %.018, align 8, !tbaa !59
   store i32 %.0.i, ptr %3, align 4, !tbaa !57
-  %27 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  store ptr %27, ptr %7, align 8, !tbaa !58
-  %28 = load i32, ptr %0, align 8, !tbaa !55
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %30, label %33
+  %25 = getelementptr inbounds nuw i8, ptr %.018, i64 8
+  store ptr %25, ptr %7, align 8, !tbaa !58
+  %26 = load i32, ptr %0, align 8, !tbaa !55
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %28, label %31
 
-30:                                               ; preds = %26
-  %31 = zext nneg i32 %28 to i64
-  %32 = shl nuw nsw i64 %31, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 8 %8, i64 %32, i1 false)
-  br label %33
+28:                                               ; preds = %24
+  %29 = zext nneg i32 %26 to i64
+  %30 = shl nuw nsw i64 %29, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 8 %8, i64 %30, i1 false)
+  br label %31
 
-33:                                               ; preds = %30, %26
-  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit, label %34
+31:                                               ; preds = %28, %24
+  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit, label %32
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr %9, align 8, !tbaa !59
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %9, align 8, !tbaa !59
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit
 
-37:                                               ; preds = %34
+35:                                               ; preds = %32
   tail call void @_ZdlPv(ptr noundef nonnull %9) #19
   br label %_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %37, %34, %33, %2
+_ZN6google8protobuf13RepeatedFieldIlE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %35, %32, %31, %2
   ret void
 }
 
@@ -7047,60 +7045,58 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %18,
   %20 = zext nneg i32 %.0.i.i.i.i to i64
   %21 = shl nuw nsw i64 %20, 3
   %22 = icmp eq ptr %14, null
-  br i1 %22, label %23, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
+  %23 = add nuw nsw i64 %21, 8
+  br i1 %22, label %24, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
 
-23:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %24 = add nuw nsw i64 %21, 8
-  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #18
-  br label %29
+24:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
+  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #18
+  br label %27
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %26 = add nuw nsw i64 %21, 15
-  %27 = and i64 %26, 34359738360
-  %28 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %27, ptr noundef nonnull @_ZTIc)
-  br label %29
+  %26 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %23, ptr noundef nonnull @_ZTIc)
+  br label %27
 
-29:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %23
-  %.018.i.i.i = phi ptr [ %25, %23 ], [ %28, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
+27:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %24
+  %.018.i.i.i = phi ptr [ %25, %24 ], [ %26, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
   store ptr %14, ptr %.018.i.i.i, align 8, !tbaa !59
   store i32 %.0.i.i.i.i, ptr %6, align 4, !tbaa !57
-  %30 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
-  store ptr %30, ptr %10, align 8, !tbaa !58
-  %31 = load i32, ptr %0, align 8, !tbaa !55
-  %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %36
+  %28 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
+  store ptr %28, ptr %10, align 8, !tbaa !58
+  %29 = load i32, ptr %0, align 8, !tbaa !55
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %31, label %34
 
-33:                                               ; preds = %29
-  %34 = zext nneg i32 %31 to i64
-  %35 = shl nuw nsw i64 %34, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr nonnull align 8 %11, i64 %35, i1 false)
-  br label %36
+31:                                               ; preds = %27
+  %32 = zext nneg i32 %29 to i64
+  %33 = shl nuw nsw i64 %32, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 8 %11, i64 %33, i1 false)
+  br label %34
 
-36:                                               ; preds = %33, %29
-  br i1 %9, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i, label %37
+34:                                               ; preds = %31, %27
+  br i1 %9, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i, label %35
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %12, align 8, !tbaa !59
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %12, align 8, !tbaa !59
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i
 
-40:                                               ; preds = %37
+38:                                               ; preds = %35
   tail call void @_ZdlPv(ptr noundef nonnull %12) #19
   br label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i
 
-_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i: ; preds = %40, %37, %36, %5
-  %41 = load i32, ptr %1, align 8, !tbaa !55
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !58
-  %44 = load i32, ptr %0, align 8, !tbaa !55
-  %45 = add nsw i32 %44, %41
-  store i32 %45, ptr %0, align 8, !tbaa !55
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !58
-  %48 = load i32, ptr %1, align 8, !tbaa !55
-  %49 = sext i32 %48 to i64
-  %50 = shl nsw i64 %49, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %43, ptr nonnull align 8 %47, i64 %50, i1 false)
+_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i: ; preds = %38, %35, %34, %5
+  %39 = load i32, ptr %1, align 8, !tbaa !55
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !58
+  %42 = load i32, ptr %0, align 8, !tbaa !55
+  %43 = add nsw i32 %42, %39
+  store i32 %43, ptr %0, align 8, !tbaa !55
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !58
+  %46 = load i32, ptr %1, align 8, !tbaa !55
+  %47 = sext i32 %46 to i64
+  %48 = shl nsw i64 %47, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr nonnull align 8 %45, i64 %48, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i, %3, %2
@@ -7149,60 +7145,58 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %19, %
   %21 = zext nneg i32 %.0.i.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
-  br i1 %23, label %24, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
+  %24 = add nuw nsw i64 %22, 8
+  br i1 %23, label %25, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
 
-24:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %25 = add nuw nsw i64 %22, 8
-  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #18
-  br label %30
+25:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
+  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #18
+  br label %28
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %27 = add nuw nsw i64 %22, 15
-  %28 = and i64 %27, 34359738360
-  %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
-  br label %30
+  %27 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %24, ptr noundef nonnull @_ZTIc)
+  br label %28
 
-30:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %24
-  %.018.i.i = phi ptr [ %26, %24 ], [ %29, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i ]
+28:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %25
+  %.018.i.i = phi ptr [ %26, %25 ], [ %27, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i ]
   store ptr %15, ptr %.018.i.i, align 8, !tbaa !59
   store i32 %.0.i.i.i, ptr %7, align 4, !tbaa !57
-  %31 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
-  store ptr %31, ptr %11, align 8, !tbaa !58
-  %32 = load i32, ptr %0, align 8, !tbaa !55
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %37
+  %29 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
+  store ptr %29, ptr %11, align 8, !tbaa !58
+  %30 = load i32, ptr %0, align 8, !tbaa !55
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %35
 
-34:                                               ; preds = %30
-  %35 = zext nneg i32 %32 to i64
-  %36 = shl nuw nsw i64 %35, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 8 %12, i64 %36, i1 false)
-  br label %37
+32:                                               ; preds = %28
+  %33 = zext nneg i32 %30 to i64
+  %34 = shl nuw nsw i64 %33, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %12, i64 %34, i1 false)
+  br label %35
 
-37:                                               ; preds = %34, %30
-  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i, label %38
+35:                                               ; preds = %32, %28
+  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i, label %36
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %13, align 8, !tbaa !59
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %13, align 8, !tbaa !59
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i
 
-41:                                               ; preds = %38
+39:                                               ; preds = %36
   tail call void @_ZdlPv(ptr noundef nonnull %13) #19
   br label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i
 
-_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i: ; preds = %41, %38, %37, %6
-  %42 = load i32, ptr %1, align 8, !tbaa !55
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !58
-  %45 = load i32, ptr %0, align 8, !tbaa !55
-  %46 = add nsw i32 %45, %42
-  store i32 %46, ptr %0, align 8, !tbaa !55
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !58
-  %49 = load i32, ptr %1, align 8, !tbaa !55
-  %50 = sext i32 %49 to i64
-  %51 = shl nsw i64 %50, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr nonnull align 8 %48, i64 %51, i1 false)
+_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i: ; preds = %39, %36, %35, %6
+  %40 = load i32, ptr %1, align 8, !tbaa !55
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !58
+  %43 = load i32, ptr %0, align 8, !tbaa !55
+  %44 = add nsw i32 %43, %40
+  store i32 %44, ptr %0, align 8, !tbaa !55
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !58
+  %47 = load i32, ptr %1, align 8, !tbaa !55
+  %48 = sext i32 %47 to i64
+  %49 = shl nsw i64 %48, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr nonnull align 8 %46, i64 %49, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i, %4, %2
@@ -7329,7 +7323,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   %.in.i7 = select i1 %13, ptr %14, ptr %16
   %17 = load ptr, ptr %.in.i7, align 8, !tbaa !14
   %.not6 = icmp eq ptr %10, %17
-  br i1 %.not6, label %56, label %18
+  br i1 %.not6, label %54, label %18
 
 18:                                               ; preds = %3
   store i32 0, ptr %0, align 8, !tbaa !55
@@ -7360,74 +7354,72 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %26,
   %28 = zext nneg i32 %.0.i.i.i.i to i64
   %29 = shl nuw nsw i64 %28, 3
   %30 = icmp eq ptr %10, null
-  br i1 %30, label %31, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
+  %31 = add nuw nsw i64 %29, 8
+  br i1 %30, label %32, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
 
-31:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %32 = add nuw nsw i64 %29, 8
-  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #18
-          to label %.noexc unwind label %57
+32:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
+  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #18
+          to label %.noexc unwind label %55
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %34 = add nuw nsw i64 %29, 15
-  %35 = and i64 %34, 34359738360
-  %36 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %35, ptr noundef nonnull @_ZTIc)
-          to label %.noexc unwind label %57
+  %34 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %31, ptr noundef nonnull @_ZTIc)
+          to label %.noexc unwind label %55
 
-.noexc:                                           ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %31
-  %.018.i.i.i = phi ptr [ %33, %31 ], [ %36, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
+.noexc:                                           ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %32
+  %.018.i.i.i = phi ptr [ %33, %32 ], [ %34, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
   store ptr %10, ptr %.018.i.i.i, align 8, !tbaa !59
   store i32 %.0.i.i.i.i, ptr %4, align 4, !tbaa !57
-  %37 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
-  store ptr %37, ptr %7, align 8, !tbaa !58
-  %38 = load i32, ptr %0, align 8, !tbaa !55
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %40, label %43
+  %35 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
+  store ptr %35, ptr %7, align 8, !tbaa !58
+  %36 = load i32, ptr %0, align 8, !tbaa !55
+  %37 = icmp sgt i32 %36, 0
+  br i1 %37, label %38, label %41
 
-40:                                               ; preds = %.noexc
-  %41 = zext nneg i32 %38 to i64
-  %42 = shl nuw nsw i64 %41, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull align 8 %8, i64 %42, i1 false)
-  br label %43
+38:                                               ; preds = %.noexc
+  %39 = zext nneg i32 %36 to i64
+  %40 = shl nuw nsw i64 %39, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull align 8 %8, i64 %40, i1 false)
+  br label %41
 
-43:                                               ; preds = %40, %.noexc
-  br i1 %22, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i, label %44
+41:                                               ; preds = %38, %.noexc
+  br i1 %22, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i, label %42
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %9, align 8, !tbaa !59
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %9, align 8, !tbaa !59
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i
 
-47:                                               ; preds = %44
+45:                                               ; preds = %42
   tail call void @_ZdlPv(ptr noundef nonnull %9) #19
   br label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i
 
-_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i: ; preds = %47, %44, %43, %20
-  %48 = load i32, ptr %1, align 8, !tbaa !55
-  %49 = load ptr, ptr %7, align 8, !tbaa !58
-  %50 = load i32, ptr %0, align 8, !tbaa !55
-  %51 = add nsw i32 %50, %48
-  store i32 %51, ptr %0, align 8, !tbaa !55
-  %52 = load ptr, ptr %14, align 8, !tbaa !58
-  %53 = load i32, ptr %1, align 8, !tbaa !55
-  %54 = sext i32 %53 to i64
-  %55 = shl nsw i64 %54, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr nonnull align 8 %52, i64 %55, i1 false)
+_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i: ; preds = %45, %42, %41, %20
+  %46 = load i32, ptr %1, align 8, !tbaa !55
+  %47 = load ptr, ptr %7, align 8, !tbaa !58
+  %48 = load i32, ptr %0, align 8, !tbaa !55
+  %49 = add nsw i32 %48, %46
+  store i32 %49, ptr %0, align 8, !tbaa !55
+  %50 = load ptr, ptr %14, align 8, !tbaa !58
+  %51 = load i32, ptr %1, align 8, !tbaa !55
+  %52 = sext i32 %51 to i64
+  %53 = shl nsw i64 %52, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %47, ptr nonnull align 8 %50, i64 %53, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit
 
-56:                                               ; preds = %3
+54:                                               ; preds = %3
   %.0.copyload.i.i.i = load i128, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   store i128 %.0.copyload.i.i.i, ptr %1, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit
 
-_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i, %18, %56, %2
+_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i, %18, %54, %2
   ret ptr %0
 
-57:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %31
-  %58 = landingpad { ptr, i32 }
+55:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %32
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  tail call void @__clang_call_terminate(ptr %59) #20
+  %57 = extractvalue { ptr, i32 } %56, 0
+  tail call void @__clang_call_terminate(ptr %57) #20
   unreachable
 }
 
@@ -7685,7 +7677,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIlE3AddERKl(ptr n
   %5 = load i32, ptr %4, align 4, !tbaa !57
   %6 = icmp eq i32 %3, %5
   %7 = load i64, ptr %1, align 8, !tbaa !61
-  br i1 %6, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i, label %38
+  br i1 %6, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i, label %36
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %2
   %8 = icmp slt i32 %3, 1
@@ -7703,59 +7695,57 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %2
   %17 = zext nneg i32 %.0.i.i to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = icmp eq ptr %13, null
-  br i1 %19, label %20, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
+  %20 = add nuw nsw i64 %18, 8
+  br i1 %19, label %21, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
 
-20:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %21 = add nuw nsw i64 %18, 8
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #18
-  br label %26
+21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #18
+  br label %24
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %23 = add nuw nsw i64 %18, 15
-  %24 = and i64 %23, 34359738360
-  %25 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %24, ptr noundef nonnull @_ZTIc)
-  br label %26
+  %23 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %20, ptr noundef nonnull @_ZTIc)
+  br label %24
 
-26:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %20
-  %.018.i = phi ptr [ %22, %20 ], [ %25, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
+24:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %21
+  %.018.i = phi ptr [ %22, %21 ], [ %23, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
   store ptr %13, ptr %.018.i, align 8, !tbaa !59
   store i32 %.0.i.i, ptr %4, align 4, !tbaa !57
-  %27 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  store ptr %27, ptr %9, align 8, !tbaa !58
-  %28 = load i32, ptr %0, align 8, !tbaa !55
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %30, label %33
+  %25 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  store ptr %25, ptr %9, align 8, !tbaa !58
+  %26 = load i32, ptr %0, align 8, !tbaa !55
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %28, label %31
 
-30:                                               ; preds = %26
-  %31 = zext nneg i32 %28 to i64
-  %32 = shl nuw nsw i64 %31, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 8 %10, i64 %32, i1 false)
-  br label %33
+28:                                               ; preds = %24
+  %29 = zext nneg i32 %26 to i64
+  %30 = shl nuw nsw i64 %29, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 8 %10, i64 %30, i1 false)
+  br label %31
 
-33:                                               ; preds = %30, %26
-  br i1 %8, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit, label %34
+31:                                               ; preds = %28, %24
+  br i1 %8, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit, label %32
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr %11, align 8, !tbaa !59
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %11, align 8, !tbaa !59
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
 
-37:                                               ; preds = %34
+35:                                               ; preds = %32
   tail call void @_ZdlPv(ptr noundef nonnull %11) #19
   br label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
 
-38:                                               ; preds = %2
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+36:                                               ; preds = %2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit: ; preds = %37, %34, %33, %38
-  %.sink10.in = phi ptr [ %39, %38 ], [ %9, %33 ], [ %9, %34 ], [ %9, %37 ]
+_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit: ; preds = %35, %32, %31, %36
+  %.sink10.in = phi ptr [ %37, %36 ], [ %9, %31 ], [ %9, %32 ], [ %9, %35 ]
   %.sink10 = load ptr, ptr %.sink10.in, align 8, !tbaa !58
-  %40 = zext i32 %3 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %.sink10, i64 %40
-  store i64 %7, ptr %41, align 8, !tbaa !61
-  %42 = add i32 %3, 1
-  store i32 %42, ptr %0, align 8, !tbaa !55
+  %38 = zext i32 %3 to i64
+  %39 = getelementptr inbounds nuw i64, ptr %.sink10, i64 %38
+  store i64 %7, ptr %39, align 8, !tbaa !61
+  %40 = add i32 %3, 1
+  store i32 %40, ptr %0, align 8, !tbaa !55
   ret void
 }
 
@@ -7783,55 +7773,53 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %1
   %15 = zext nneg i32 %.0.i.i to i64
   %16 = shl nuw nsw i64 %15, 3
   %17 = icmp eq ptr %11, null
-  br i1 %17, label %18, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
+  %18 = add nuw nsw i64 %16, 8
+  br i1 %17, label %19, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
 
-18:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %19 = add nuw nsw i64 %16, 8
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #18
-  br label %24
+19:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #18
+  br label %22
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %21 = add nuw nsw i64 %16, 15
-  %22 = and i64 %21, 34359738360
-  %23 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %22, ptr noundef nonnull @_ZTIc)
-  br label %24
+  %21 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %18, ptr noundef nonnull @_ZTIc)
+  br label %22
 
-24:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %18
-  %.018.i = phi ptr [ %20, %18 ], [ %23, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
+22:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %19
+  %.018.i = phi ptr [ %20, %19 ], [ %21, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
   store ptr %11, ptr %.018.i, align 8, !tbaa !59
   store i32 %.0.i.i, ptr %3, align 4, !tbaa !57
-  %25 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  store ptr %25, ptr %7, align 8, !tbaa !58
-  %26 = load i32, ptr %0, align 8, !tbaa !55
-  %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %28, label %31
+  %23 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  store ptr %23, ptr %7, align 8, !tbaa !58
+  %24 = load i32, ptr %0, align 8, !tbaa !55
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %26, label %29
 
-28:                                               ; preds = %24
-  %29 = zext nneg i32 %26 to i64
-  %30 = shl nuw nsw i64 %29, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 8 %8, i64 %30, i1 false)
-  br label %31
+26:                                               ; preds = %22
+  %27 = zext nneg i32 %24 to i64
+  %28 = shl nuw nsw i64 %27, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %8, i64 %28, i1 false)
+  br label %29
 
-31:                                               ; preds = %28, %24
-  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit, label %32
+29:                                               ; preds = %26, %22
+  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit, label %30
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %9, align 8, !tbaa !59
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %9, align 8, !tbaa !59
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
 
-35:                                               ; preds = %32
+33:                                               ; preds = %30
   tail call void @_ZdlPv(ptr noundef nonnull %9) #19
   br label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit: ; preds = %35, %32, %31, %1
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !58
-  %38 = zext i32 %2 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
-  %40 = add i32 %2, 1
-  store i32 %40, ptr %0, align 8, !tbaa !55
-  ret ptr %39
+_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit: ; preds = %33, %30, %29, %1
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !58
+  %36 = zext i32 %2 to i64
+  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %36
+  %38 = add i32 %2, 1
+  store i32 %38, ptr %0, align 8, !tbaa !55
+  ret ptr %37
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -7932,7 +7920,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIlE5ClearEv(ptr n
 define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8, !tbaa !55
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %54, label %4
+  br i1 %.not, label %52, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 8, !tbaa !55
@@ -7967,65 +7955,63 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
-  br i1 %23, label %24, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
+  %24 = add nuw nsw i64 %22, 8
+  br i1 %23, label %25, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
 
-24:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %25 = add nuw nsw i64 %22, 8
-  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #18
-  br label %30
+25:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
+  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #18
+  br label %28
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %27 = add nuw nsw i64 %22, 15
-  %28 = and i64 %27, 34359738360
-  %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
-  br label %30
+  %27 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %24, ptr noundef nonnull @_ZTIc)
+  br label %28
 
-30:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %24
-  %.018.i = phi ptr [ %26, %24 ], [ %29, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
+28:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %25
+  %.018.i = phi ptr [ %26, %25 ], [ %27, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
   store ptr %15, ptr %.018.i, align 8, !tbaa !59
   store i32 %.0.i.i, ptr %7, align 4, !tbaa !57
-  %31 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  store ptr %31, ptr %11, align 8, !tbaa !58
-  %32 = load i32, ptr %0, align 8, !tbaa !55
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %37
+  %29 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  store ptr %29, ptr %11, align 8, !tbaa !58
+  %30 = load i32, ptr %0, align 8, !tbaa !55
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %35
 
-34:                                               ; preds = %30
-  %35 = zext nneg i32 %32 to i64
-  %36 = shl nuw nsw i64 %35, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 8 %12, i64 %36, i1 false)
-  br label %37
+32:                                               ; preds = %28
+  %33 = zext nneg i32 %30 to i64
+  %34 = shl nuw nsw i64 %33, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %12, i64 %34, i1 false)
+  br label %35
 
-37:                                               ; preds = %34, %30
-  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit, label %38
+35:                                               ; preds = %32, %28
+  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit, label %36
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %13, align 8, !tbaa !59
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %13, align 8, !tbaa !59
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
 
-41:                                               ; preds = %38
+39:                                               ; preds = %36
   tail call void @_ZdlPv(ptr noundef nonnull %13) #19
   br label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit: ; preds = %4, %37, %38, %41
-  %42 = load i32, ptr %1, align 8, !tbaa !55
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !58
-  %45 = load i32, ptr %0, align 8, !tbaa !55
-  %46 = add nsw i32 %45, %42
-  store i32 %46, ptr %0, align 8, !tbaa !55
-  %47 = sext i32 %5 to i64
-  %48 = getelementptr inbounds i64, ptr %44, i64 %47
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !58
-  %51 = load i32, ptr %1, align 8, !tbaa !55
-  %52 = sext i32 %51 to i64
-  %53 = shl nsw i64 %52, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr nonnull align 8 %50, i64 %53, i1 false)
-  br label %54
+_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit: ; preds = %4, %35, %36, %39
+  %40 = load i32, ptr %1, align 8, !tbaa !55
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !58
+  %43 = load i32, ptr %0, align 8, !tbaa !55
+  %44 = add nsw i32 %43, %40
+  store i32 %44, ptr %0, align 8, !tbaa !55
+  %45 = sext i32 %5 to i64
+  %46 = getelementptr inbounds i64, ptr %42, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !58
+  %49 = load i32, ptr %1, align 8, !tbaa !55
+  %50 = sext i32 %49 to i64
+  %51 = shl nsw i64 %50, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr nonnull align 8 %48, i64 %51, i1 false)
+  br label %52
 
-54:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit, %2
+52:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit, %2
   ret void
 }
 
@@ -8114,67 +8100,65 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
-  br i1 %23, label %24, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
+  %24 = add nuw nsw i64 %22, 8
+  br i1 %23, label %25, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
 
-24:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %25 = add nuw nsw i64 %22, 8
-  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #18
-  br label %30
+25:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
+  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #18
+  br label %28
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %27 = add nuw nsw i64 %22, 15
-  %28 = and i64 %27, 34359738360
-  %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
-  br label %30
+  %27 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %24, ptr noundef nonnull @_ZTIc)
+  br label %28
 
-30:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %24
-  %.018.i = phi ptr [ %26, %24 ], [ %29, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
+28:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %25
+  %.018.i = phi ptr [ %26, %25 ], [ %27, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
   store ptr %15, ptr %.018.i, align 8, !tbaa !59
   store i32 %.0.i.i, ptr %7, align 4, !tbaa !57
-  %31 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  store ptr %31, ptr %11, align 8, !tbaa !58
-  %32 = load i32, ptr %0, align 8, !tbaa !55
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %37
+  %29 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  store ptr %29, ptr %11, align 8, !tbaa !58
+  %30 = load i32, ptr %0, align 8, !tbaa !55
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %35
 
-34:                                               ; preds = %30
-  %35 = zext nneg i32 %32 to i64
-  %36 = shl nuw nsw i64 %35, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 8 %12, i64 %36, i1 false)
-  br label %37
+32:                                               ; preds = %28
+  %33 = zext nneg i32 %30 to i64
+  %34 = shl nuw nsw i64 %33, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %12, i64 %34, i1 false)
+  br label %35
 
-37:                                               ; preds = %34, %30
-  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit, label %38
+35:                                               ; preds = %32, %28
+  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit, label %36
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %13, align 8, !tbaa !59
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %13, align 8, !tbaa !59
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
 
-41:                                               ; preds = %38
+39:                                               ; preds = %36
   tail call void @_ZdlPv(ptr noundef nonnull %13) #19
   br label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit: ; preds = %6, %37, %38, %41
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !58
-  %44 = load i32, ptr %0, align 8, !tbaa !55
-  %45 = sext i32 %1 to i64
-  %46 = getelementptr inbounds i64, ptr %43, i64 %45
-  %47 = load i64, ptr %2, align 8, !tbaa !61
-  %.not5.i.i.i = icmp eq i32 %44, %1
+_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit: ; preds = %6, %35, %36, %39
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !58
+  %42 = load i32, ptr %0, align 8, !tbaa !55
+  %43 = sext i32 %1 to i64
+  %44 = getelementptr inbounds i64, ptr %41, i64 %43
+  %45 = load i64, ptr %2, align 8, !tbaa !61
+  %.not5.i.i.i = icmp eq i32 %42, %1
   br i1 %.not5.i.i.i, label %_ZSt4fillIPllEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit
-  %48 = sext i32 %44 to i64
-  %49 = getelementptr inbounds i64, ptr %43, i64 %48
+  %46 = sext i32 %42 to i64
+  %47 = getelementptr inbounds i64, ptr %41, i64 %46
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i ], [ %49, %.lr.ph.i.i.i.preheader ]
-  store i64 %47, ptr %.06.i.i.i, align 8, !tbaa !61
-  %50 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %50, %46
+  %.06.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i ], [ %47, %.lr.ph.i.i.i.preheader ]
+  store i64 %45, ptr %.06.i.i.i, align 8, !tbaa !61
+  %48 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %48, %44
   br i1 %.not.i.i.i, label %_ZSt4fillIPllEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !65
 
 _ZSt4fillIPllEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i, %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit, %3
@@ -8200,7 +8184,7 @@ define weak_odr hidden noundef ptr @_ZNK6google8protobuf13RepeatedFieldIlE4dataE
 define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIlE4SwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::protobuf::RepeatedField.14", align 16
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %117, label %5
+  br i1 %4, label %113, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -8226,7 +8210,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIlE4SwapEPS2_(ptr
   %.0.copyload.i.i.i = load i128, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
   store i128 %.0.copyload.i.i.i, ptr %1, align 1
-  br label %117
+  br label %113
 
 22:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -8268,175 +8252,171 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %39, %
   %41 = zext nneg i32 %.0.i.i.i to i64
   %42 = shl nuw nsw i64 %41, 3
   %43 = icmp eq ptr %35, null
-  br i1 %43, label %44, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
+  %44 = add nuw nsw i64 %42, 8
+  br i1 %43, label %45, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
 
-44:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %45 = add nuw nsw i64 %42, 8
-  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #18
-          to label %.noexc unwind label %115
+45:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
+  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #18
+          to label %.noexc unwind label %111
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %47 = add nuw nsw i64 %42, 15
-  %48 = and i64 %47, 34359738360
-  %49 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %48, ptr noundef nonnull @_ZTIc)
-          to label %.noexc unwind label %115
+  %47 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %44, ptr noundef nonnull @_ZTIc)
+          to label %.noexc unwind label %111
 
-.noexc:                                           ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %44
-  %.018.i.i = phi ptr [ %46, %44 ], [ %49, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i ]
+.noexc:                                           ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %45
+  %.018.i.i = phi ptr [ %46, %45 ], [ %47, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i ]
   store ptr %35, ptr %.018.i.i, align 8, !tbaa !59
   store i32 %.0.i.i.i, ptr %27, align 4, !tbaa !57
-  %50 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
-  store ptr %50, ptr %31, align 8, !tbaa !58
-  %51 = load i32, ptr %3, align 16, !tbaa !55
-  %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %53, label %56
+  %48 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
+  store ptr %48, ptr %31, align 8, !tbaa !58
+  %49 = load i32, ptr %3, align 16, !tbaa !55
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %51, label %54
 
-53:                                               ; preds = %.noexc
-  %54 = zext nneg i32 %51 to i64
-  %55 = shl nuw nsw i64 %54, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr nonnull align 8 %32, i64 %55, i1 false)
-  br label %56
+51:                                               ; preds = %.noexc
+  %52 = zext nneg i32 %49 to i64
+  %53 = shl nuw nsw i64 %52, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 8 %32, i64 %53, i1 false)
+  br label %54
 
-56:                                               ; preds = %53, %.noexc
-  br i1 %30, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i, label %57
+54:                                               ; preds = %51, %.noexc
+  br i1 %30, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i, label %55
 
-57:                                               ; preds = %56
-  %58 = load ptr, ptr %33, align 8, !tbaa !59
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %33, align 8, !tbaa !59
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i
 
-60:                                               ; preds = %57
+58:                                               ; preds = %55
   call void @_ZdlPv(ptr noundef nonnull %33) #19
   %.pre = load i32, ptr %3, align 16, !tbaa !55
   br label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i
 
-_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i: ; preds = %60, %57, %56, %24
-  %61 = phi i32 [ %.pre, %60 ], [ %51, %57 ], [ %51, %56 ], [ %25, %24 ]
-  %62 = load i32, ptr %0, align 8, !tbaa !55
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !58
-  %65 = add nsw i32 %61, %62
-  store i32 %65, ptr %3, align 16, !tbaa !55
-  %66 = sext i32 %25 to i64
-  %67 = getelementptr inbounds i64, ptr %64, i64 %66
-  %68 = load ptr, ptr %9, align 8, !tbaa !58
-  %69 = sext i32 %62 to i64
-  %70 = shl nsw i64 %69, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %67, ptr nonnull align 8 %68, i64 %70, i1 false)
+_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i: ; preds = %58, %55, %54, %24
+  %59 = phi i32 [ %.pre, %58 ], [ %49, %55 ], [ %49, %54 ], [ %25, %24 ]
+  %60 = load i32, ptr %0, align 8, !tbaa !55
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !58
+  %63 = add nsw i32 %59, %60
+  store i32 %63, ptr %3, align 16, !tbaa !55
+  %64 = sext i32 %25 to i64
+  %65 = getelementptr inbounds i64, ptr %62, i64 %64
+  %66 = load ptr, ptr %9, align 8, !tbaa !58
+  %67 = sext i32 %60 to i64
+  %68 = shl nsw i64 %67, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %65, ptr nonnull align 8 %66, i64 %68, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit: ; preds = %22, %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i
   store i32 0, ptr %0, align 8, !tbaa !55
-  %71 = load i32, ptr %1, align 8, !tbaa !55
-  %.not.i.i12 = icmp eq i32 %71, 0
-  br i1 %.not.i.i12, label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit, label %72
+  %69 = load i32, ptr %1, align 8, !tbaa !55
+  %.not.i.i12 = icmp eq i32 %69, 0
+  br i1 %.not.i.i12, label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit, label %70
 
-72:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit
-  %73 = load i32, ptr %6, align 4, !tbaa !57
-  %.not.i.i.i = icmp slt i32 %73, %71
-  br i1 %.not.i.i.i, label %74, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i
+70:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit
+  %71 = load i32, ptr %6, align 4, !tbaa !57
+  %.not.i.i.i = icmp slt i32 %71, %69
+  br i1 %.not.i.i.i, label %72, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i
 
-74:                                               ; preds = %72
-  %75 = icmp slt i32 %73, 1
-  %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 -8
-  %78 = icmp eq i32 %73, 0
-  %.in.i.i.i.i = select i1 %78, ptr %9, ptr %77
-  %79 = load ptr, ptr %.in.i.i.i.i, align 8, !tbaa !14
-  %80 = icmp slt i32 %71, 4
-  br i1 %80, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i, label %81
+72:                                               ; preds = %70
+  %73 = icmp slt i32 %71, 1
+  %74 = load ptr, ptr %9, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 -8
+  %76 = icmp eq i32 %71, 0
+  %.in.i.i.i.i = select i1 %76, ptr %9, ptr %75
+  %77 = load ptr, ptr %.in.i.i.i.i, align 8, !tbaa !14
+  %78 = icmp slt i32 %69, 4
+  br i1 %78, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i, label %79
 
-81:                                               ; preds = %74
-  %82 = icmp slt i32 %73, 1073741824
-  br i1 %82, label %83, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
+79:                                               ; preds = %72
+  %80 = icmp slt i32 %71, 1073741824
+  br i1 %80, label %81, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
-83:                                               ; preds = %81
-  %84 = shl nsw i32 %73, 1
-  %.sroa.speculated.i.i.i.i = call i32 @llvm.smax.i32(i32 %84, i32 %71)
+81:                                               ; preds = %79
+  %82 = shl nsw i32 %71, 1
+  %.sroa.speculated.i.i.i.i = call i32 @llvm.smax.i32(i32 %82, i32 %69)
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
-_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %83, %81, %74
-  %.0.i.i.i.i = phi i32 [ 4, %74 ], [ %.sroa.speculated.i.i.i.i, %83 ], [ 2147483647, %81 ]
-  %85 = zext nneg i32 %.0.i.i.i.i to i64
-  %86 = shl nuw nsw i64 %85, 3
-  %87 = icmp eq ptr %79, null
-  br i1 %87, label %88, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
+_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %81, %79, %72
+  %.0.i.i.i.i = phi i32 [ 4, %72 ], [ %.sroa.speculated.i.i.i.i, %81 ], [ 2147483647, %79 ]
+  %83 = zext nneg i32 %.0.i.i.i.i to i64
+  %84 = shl nuw nsw i64 %83, 3
+  %85 = icmp eq ptr %77, null
+  %86 = add nuw nsw i64 %84, 8
+  br i1 %85, label %87, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
 
-88:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %89 = add nuw nsw i64 %86, 8
-  %90 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %89) #18
-          to label %.noexc13 unwind label %115
+87:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
+  %88 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %86) #18
+          to label %.noexc13 unwind label %111
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %91 = add nuw nsw i64 %86, 15
-  %92 = and i64 %91, 34359738360
-  %93 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %79, i64 noundef %92, ptr noundef nonnull @_ZTIc)
-          to label %.noexc13 unwind label %115
+  %89 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %77, i64 noundef %86, ptr noundef nonnull @_ZTIc)
+          to label %.noexc13 unwind label %111
 
-.noexc13:                                         ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %88
-  %.018.i.i.i = phi ptr [ %90, %88 ], [ %93, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
-  store ptr %79, ptr %.018.i.i.i, align 8, !tbaa !59
+.noexc13:                                         ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %87
+  %.018.i.i.i = phi ptr [ %88, %87 ], [ %89, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
+  store ptr %77, ptr %.018.i.i.i, align 8, !tbaa !59
   store i32 %.0.i.i.i.i, ptr %6, align 4, !tbaa !57
-  %94 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
-  store ptr %94, ptr %9, align 8, !tbaa !58
-  %95 = load i32, ptr %0, align 8, !tbaa !55
-  %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %97, label %100
+  %90 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
+  store ptr %90, ptr %9, align 8, !tbaa !58
+  %91 = load i32, ptr %0, align 8, !tbaa !55
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %93, label %96
 
-97:                                               ; preds = %.noexc13
-  %98 = zext nneg i32 %95 to i64
-  %99 = shl nuw nsw i64 %98, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %94, ptr nonnull align 8 %76, i64 %99, i1 false)
-  br label %100
+93:                                               ; preds = %.noexc13
+  %94 = zext nneg i32 %91 to i64
+  %95 = shl nuw nsw i64 %94, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %90, ptr nonnull align 8 %74, i64 %95, i1 false)
+  br label %96
 
-100:                                              ; preds = %97, %.noexc13
-  br i1 %75, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i, label %101
+96:                                               ; preds = %93, %.noexc13
+  br i1 %73, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i, label %97
 
-101:                                              ; preds = %100
-  %102 = load ptr, ptr %77, align 8, !tbaa !59
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %104, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i
+97:                                               ; preds = %96
+  %98 = load ptr, ptr %75, align 8, !tbaa !59
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %100, label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i
 
-104:                                              ; preds = %101
-  call void @_ZdlPv(ptr noundef nonnull %77) #19
+100:                                              ; preds = %97
+  call void @_ZdlPv(ptr noundef nonnull %75) #19
   br label %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i
 
-_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i: ; preds = %104, %101, %100, %72
-  %105 = load i32, ptr %1, align 8, !tbaa !55
-  %106 = load ptr, ptr %9, align 8, !tbaa !58
-  %107 = load i32, ptr %0, align 8, !tbaa !55
-  %108 = add nsw i32 %107, %105
-  store i32 %108, ptr %0, align 8, !tbaa !55
-  %109 = load ptr, ptr %16, align 8, !tbaa !58
-  %110 = load i32, ptr %1, align 8, !tbaa !55
-  %111 = sext i32 %110 to i64
-  %112 = shl nsw i64 %111, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %106, ptr nonnull align 8 %109, i64 %112, i1 false)
+_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i: ; preds = %100, %97, %96, %70
+  %101 = load i32, ptr %1, align 8, !tbaa !55
+  %102 = load ptr, ptr %9, align 8, !tbaa !58
+  %103 = load i32, ptr %0, align 8, !tbaa !55
+  %104 = add nsw i32 %103, %101
+  store i32 %104, ptr %0, align 8, !tbaa !55
+  %105 = load ptr, ptr %16, align 8, !tbaa !58
+  %106 = load i32, ptr %1, align 8, !tbaa !55
+  %107 = sext i32 %106 to i64
+  %108 = shl nsw i64 %107, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %102, ptr nonnull align 8 %105, i64 %108, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit.i.i, %_ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit
-  %113 = icmp eq ptr %1, %3
-  br i1 %113, label %_ZN6google8protobuf13RepeatedFieldIlE15UnsafeArenaSwapEPS2_.exit, label %114
+  %109 = icmp eq ptr %1, %3
+  br i1 %109, label %_ZN6google8protobuf13RepeatedFieldIlE15UnsafeArenaSwapEPS2_.exit, label %110
 
-114:                                              ; preds = %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit
+110:                                              ; preds = %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit
   %.0.copyload.i.i.i.i = load i128, ptr %1, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 16, i1 false)
   store i128 %.0.copyload.i.i.i.i, ptr %3, align 16
   br label %_ZN6google8protobuf13RepeatedFieldIlE15UnsafeArenaSwapEPS2_.exit
 
-_ZN6google8protobuf13RepeatedFieldIlE15UnsafeArenaSwapEPS2_.exit: ; preds = %114, %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit
+_ZN6google8protobuf13RepeatedFieldIlE15UnsafeArenaSwapEPS2_.exit: ; preds = %110, %_ZN6google8protobuf13RepeatedFieldIlE8CopyFromERKS2_.exit
   call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %117
+  br label %113
 
-115:                                              ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %88, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %44
-  %116 = landingpad { ptr, i32 }
+111:                                              ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %87, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %45
+  %112 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf13RepeatedFieldIlED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %116
+  resume { ptr, i32 } %112
 
-117:                                              ; preds = %2, %_ZN6google8protobuf13RepeatedFieldIlE15UnsafeArenaSwapEPS2_.exit, %21
+113:                                              ; preds = %2, %_ZN6google8protobuf13RepeatedFieldIlE15UnsafeArenaSwapEPS2_.exit, %21
   ret void
 }
 
@@ -8781,48 +8761,46 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %
   %17 = zext nneg i32 %.0.i to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = icmp eq ptr %11, null
-  br i1 %19, label %20, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit
+  %20 = add nuw nsw i64 %18, 8
+  br i1 %19, label %21, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit
 
-20:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %21 = add nuw nsw i64 %18, 8
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #18
-  br label %26
+21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #18
+  br label %24
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %23 = add nuw nsw i64 %18, 15
-  %24 = and i64 %23, 34359738360
-  %25 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %24, ptr noundef nonnull @_ZTIc)
-  br label %26
+  %23 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %20, ptr noundef nonnull @_ZTIc)
+  br label %24
 
-26:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit, %20
-  %.018 = phi ptr [ %22, %20 ], [ %25, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit ]
+24:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit, %21
+  %.018 = phi ptr [ %22, %21 ], [ %23, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit ]
   store ptr %11, ptr %.018, align 8, !tbaa !75
   store i32 %.0.i, ptr %3, align 4, !tbaa !73
-  %27 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  store ptr %27, ptr %7, align 8, !tbaa !74
-  %28 = load i32, ptr %0, align 8, !tbaa !71
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %30, label %33
+  %25 = getelementptr inbounds nuw i8, ptr %.018, i64 8
+  store ptr %25, ptr %7, align 8, !tbaa !74
+  %26 = load i32, ptr %0, align 8, !tbaa !71
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %28, label %31
 
-30:                                               ; preds = %26
-  %31 = zext nneg i32 %28 to i64
-  %32 = shl nuw nsw i64 %31, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 8 %8, i64 %32, i1 false)
-  br label %33
+28:                                               ; preds = %24
+  %29 = zext nneg i32 %26 to i64
+  %30 = shl nuw nsw i64 %29, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 8 %8, i64 %30, i1 false)
+  br label %31
 
-33:                                               ; preds = %30, %26
-  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit, label %34
+31:                                               ; preds = %28, %24
+  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit, label %32
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr %9, align 8, !tbaa !75
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %9, align 8, !tbaa !75
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit
 
-37:                                               ; preds = %34
+35:                                               ; preds = %32
   tail call void @_ZdlPv(ptr noundef nonnull %9) #19
   br label %_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit
 
-_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %37, %34, %33, %2
+_ZN6google8protobuf13RepeatedFieldImE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %35, %32, %31, %2
   ret void
 }
 
@@ -8961,60 +8939,58 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %18,
   %20 = zext nneg i32 %.0.i.i.i.i to i64
   %21 = shl nuw nsw i64 %20, 3
   %22 = icmp eq ptr %14, null
-  br i1 %22, label %23, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
+  %23 = add nuw nsw i64 %21, 8
+  br i1 %22, label %24, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
 
-23:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %24 = add nuw nsw i64 %21, 8
-  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #18
-  br label %29
+24:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
+  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #18
+  br label %27
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %26 = add nuw nsw i64 %21, 15
-  %27 = and i64 %26, 34359738360
-  %28 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %27, ptr noundef nonnull @_ZTIc)
-  br label %29
+  %26 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %23, ptr noundef nonnull @_ZTIc)
+  br label %27
 
-29:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %23
-  %.018.i.i.i = phi ptr [ %25, %23 ], [ %28, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
+27:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %24
+  %.018.i.i.i = phi ptr [ %25, %24 ], [ %26, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
   store ptr %14, ptr %.018.i.i.i, align 8, !tbaa !75
   store i32 %.0.i.i.i.i, ptr %6, align 4, !tbaa !73
-  %30 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
-  store ptr %30, ptr %10, align 8, !tbaa !74
-  %31 = load i32, ptr %0, align 8, !tbaa !71
-  %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %36
+  %28 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
+  store ptr %28, ptr %10, align 8, !tbaa !74
+  %29 = load i32, ptr %0, align 8, !tbaa !71
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %31, label %34
 
-33:                                               ; preds = %29
-  %34 = zext nneg i32 %31 to i64
-  %35 = shl nuw nsw i64 %34, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr nonnull align 8 %11, i64 %35, i1 false)
-  br label %36
+31:                                               ; preds = %27
+  %32 = zext nneg i32 %29 to i64
+  %33 = shl nuw nsw i64 %32, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 8 %11, i64 %33, i1 false)
+  br label %34
 
-36:                                               ; preds = %33, %29
-  br i1 %9, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i, label %37
+34:                                               ; preds = %31, %27
+  br i1 %9, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i, label %35
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %12, align 8, !tbaa !75
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %12, align 8, !tbaa !75
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i
 
-40:                                               ; preds = %37
+38:                                               ; preds = %35
   tail call void @_ZdlPv(ptr noundef nonnull %12) #19
   br label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i
 
-_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i: ; preds = %40, %37, %36, %5
-  %41 = load i32, ptr %1, align 8, !tbaa !71
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !74
-  %44 = load i32, ptr %0, align 8, !tbaa !71
-  %45 = add nsw i32 %44, %41
-  store i32 %45, ptr %0, align 8, !tbaa !71
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !74
-  %48 = load i32, ptr %1, align 8, !tbaa !71
-  %49 = sext i32 %48 to i64
-  %50 = shl nsw i64 %49, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %43, ptr nonnull align 8 %47, i64 %50, i1 false)
+_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i: ; preds = %38, %35, %34, %5
+  %39 = load i32, ptr %1, align 8, !tbaa !71
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !74
+  %42 = load i32, ptr %0, align 8, !tbaa !71
+  %43 = add nsw i32 %42, %39
+  store i32 %43, ptr %0, align 8, !tbaa !71
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !74
+  %46 = load i32, ptr %1, align 8, !tbaa !71
+  %47 = sext i32 %46 to i64
+  %48 = shl nsw i64 %47, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr nonnull align 8 %45, i64 %48, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i, %3, %2
@@ -9063,60 +9039,58 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %19, %
   %21 = zext nneg i32 %.0.i.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
-  br i1 %23, label %24, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
+  %24 = add nuw nsw i64 %22, 8
+  br i1 %23, label %25, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
 
-24:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %25 = add nuw nsw i64 %22, 8
-  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #18
-  br label %30
+25:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
+  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #18
+  br label %28
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %27 = add nuw nsw i64 %22, 15
-  %28 = and i64 %27, 34359738360
-  %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
-  br label %30
+  %27 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %24, ptr noundef nonnull @_ZTIc)
+  br label %28
 
-30:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %24
-  %.018.i.i = phi ptr [ %26, %24 ], [ %29, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i ]
+28:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %25
+  %.018.i.i = phi ptr [ %26, %25 ], [ %27, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i ]
   store ptr %15, ptr %.018.i.i, align 8, !tbaa !75
   store i32 %.0.i.i.i, ptr %7, align 4, !tbaa !73
-  %31 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
-  store ptr %31, ptr %11, align 8, !tbaa !74
-  %32 = load i32, ptr %0, align 8, !tbaa !71
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %37
+  %29 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
+  store ptr %29, ptr %11, align 8, !tbaa !74
+  %30 = load i32, ptr %0, align 8, !tbaa !71
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %35
 
-34:                                               ; preds = %30
-  %35 = zext nneg i32 %32 to i64
-  %36 = shl nuw nsw i64 %35, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 8 %12, i64 %36, i1 false)
-  br label %37
+32:                                               ; preds = %28
+  %33 = zext nneg i32 %30 to i64
+  %34 = shl nuw nsw i64 %33, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %12, i64 %34, i1 false)
+  br label %35
 
-37:                                               ; preds = %34, %30
-  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i, label %38
+35:                                               ; preds = %32, %28
+  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i, label %36
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %13, align 8, !tbaa !75
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %13, align 8, !tbaa !75
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i
 
-41:                                               ; preds = %38
+39:                                               ; preds = %36
   tail call void @_ZdlPv(ptr noundef nonnull %13) #19
   br label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i
 
-_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i: ; preds = %41, %38, %37, %6
-  %42 = load i32, ptr %1, align 8, !tbaa !71
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !74
-  %45 = load i32, ptr %0, align 8, !tbaa !71
-  %46 = add nsw i32 %45, %42
-  store i32 %46, ptr %0, align 8, !tbaa !71
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !74
-  %49 = load i32, ptr %1, align 8, !tbaa !71
-  %50 = sext i32 %49 to i64
-  %51 = shl nsw i64 %50, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr nonnull align 8 %48, i64 %51, i1 false)
+_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i: ; preds = %39, %36, %35, %6
+  %40 = load i32, ptr %1, align 8, !tbaa !71
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !74
+  %43 = load i32, ptr %0, align 8, !tbaa !71
+  %44 = add nsw i32 %43, %40
+  store i32 %44, ptr %0, align 8, !tbaa !71
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !74
+  %47 = load i32, ptr %1, align 8, !tbaa !71
+  %48 = sext i32 %47 to i64
+  %49 = shl nsw i64 %48, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr nonnull align 8 %46, i64 %49, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i, %4, %2
@@ -9243,7 +9217,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   %.in.i7 = select i1 %13, ptr %14, ptr %16
   %17 = load ptr, ptr %.in.i7, align 8, !tbaa !14
   %.not6 = icmp eq ptr %10, %17
-  br i1 %.not6, label %56, label %18
+  br i1 %.not6, label %54, label %18
 
 18:                                               ; preds = %3
   store i32 0, ptr %0, align 8, !tbaa !71
@@ -9274,74 +9248,72 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %26,
   %28 = zext nneg i32 %.0.i.i.i.i to i64
   %29 = shl nuw nsw i64 %28, 3
   %30 = icmp eq ptr %10, null
-  br i1 %30, label %31, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
+  %31 = add nuw nsw i64 %29, 8
+  br i1 %30, label %32, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
 
-31:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %32 = add nuw nsw i64 %29, 8
-  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #18
-          to label %.noexc unwind label %57
+32:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
+  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #18
+          to label %.noexc unwind label %55
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %34 = add nuw nsw i64 %29, 15
-  %35 = and i64 %34, 34359738360
-  %36 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %35, ptr noundef nonnull @_ZTIc)
-          to label %.noexc unwind label %57
+  %34 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %31, ptr noundef nonnull @_ZTIc)
+          to label %.noexc unwind label %55
 
-.noexc:                                           ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %31
-  %.018.i.i.i = phi ptr [ %33, %31 ], [ %36, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
+.noexc:                                           ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %32
+  %.018.i.i.i = phi ptr [ %33, %32 ], [ %34, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
   store ptr %10, ptr %.018.i.i.i, align 8, !tbaa !75
   store i32 %.0.i.i.i.i, ptr %4, align 4, !tbaa !73
-  %37 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
-  store ptr %37, ptr %7, align 8, !tbaa !74
-  %38 = load i32, ptr %0, align 8, !tbaa !71
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %40, label %43
+  %35 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
+  store ptr %35, ptr %7, align 8, !tbaa !74
+  %36 = load i32, ptr %0, align 8, !tbaa !71
+  %37 = icmp sgt i32 %36, 0
+  br i1 %37, label %38, label %41
 
-40:                                               ; preds = %.noexc
-  %41 = zext nneg i32 %38 to i64
-  %42 = shl nuw nsw i64 %41, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull align 8 %8, i64 %42, i1 false)
-  br label %43
+38:                                               ; preds = %.noexc
+  %39 = zext nneg i32 %36 to i64
+  %40 = shl nuw nsw i64 %39, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull align 8 %8, i64 %40, i1 false)
+  br label %41
 
-43:                                               ; preds = %40, %.noexc
-  br i1 %22, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i, label %44
+41:                                               ; preds = %38, %.noexc
+  br i1 %22, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i, label %42
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %9, align 8, !tbaa !75
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %9, align 8, !tbaa !75
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i
 
-47:                                               ; preds = %44
+45:                                               ; preds = %42
   tail call void @_ZdlPv(ptr noundef nonnull %9) #19
   br label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i
 
-_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i: ; preds = %47, %44, %43, %20
-  %48 = load i32, ptr %1, align 8, !tbaa !71
-  %49 = load ptr, ptr %7, align 8, !tbaa !74
-  %50 = load i32, ptr %0, align 8, !tbaa !71
-  %51 = add nsw i32 %50, %48
-  store i32 %51, ptr %0, align 8, !tbaa !71
-  %52 = load ptr, ptr %14, align 8, !tbaa !74
-  %53 = load i32, ptr %1, align 8, !tbaa !71
-  %54 = sext i32 %53 to i64
-  %55 = shl nsw i64 %54, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr nonnull align 8 %52, i64 %55, i1 false)
+_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i: ; preds = %45, %42, %41, %20
+  %46 = load i32, ptr %1, align 8, !tbaa !71
+  %47 = load ptr, ptr %7, align 8, !tbaa !74
+  %48 = load i32, ptr %0, align 8, !tbaa !71
+  %49 = add nsw i32 %48, %46
+  store i32 %49, ptr %0, align 8, !tbaa !71
+  %50 = load ptr, ptr %14, align 8, !tbaa !74
+  %51 = load i32, ptr %1, align 8, !tbaa !71
+  %52 = sext i32 %51 to i64
+  %53 = shl nsw i64 %52, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %47, ptr nonnull align 8 %50, i64 %53, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit
 
-56:                                               ; preds = %3
+54:                                               ; preds = %3
   %.0.copyload.i.i.i = load i128, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   store i128 %.0.copyload.i.i.i, ptr %1, align 8
   br label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit
 
-_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i, %18, %56, %2
+_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i, %18, %54, %2
   ret ptr %0
 
-57:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %31
-  %58 = landingpad { ptr, i32 }
+55:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %32
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  tail call void @__clang_call_terminate(ptr %59) #20
+  %57 = extractvalue { ptr, i32 } %56, 0
+  tail call void @__clang_call_terminate(ptr %57) #20
   unreachable
 }
 
@@ -9599,7 +9571,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldImE3AddERKm(ptr n
   %5 = load i32, ptr %4, align 4, !tbaa !73
   %6 = icmp eq i32 %3, %5
   %7 = load i64, ptr %1, align 8, !tbaa !61
-  br i1 %6, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i, label %38
+  br i1 %6, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i, label %36
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %2
   %8 = icmp slt i32 %3, 1
@@ -9617,59 +9589,57 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %2
   %17 = zext nneg i32 %.0.i.i to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = icmp eq ptr %13, null
-  br i1 %19, label %20, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
+  %20 = add nuw nsw i64 %18, 8
+  br i1 %19, label %21, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
 
-20:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %21 = add nuw nsw i64 %18, 8
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #18
-  br label %26
+21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #18
+  br label %24
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %23 = add nuw nsw i64 %18, 15
-  %24 = and i64 %23, 34359738360
-  %25 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %24, ptr noundef nonnull @_ZTIc)
-  br label %26
+  %23 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %20, ptr noundef nonnull @_ZTIc)
+  br label %24
 
-26:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %20
-  %.018.i = phi ptr [ %22, %20 ], [ %25, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
+24:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %21
+  %.018.i = phi ptr [ %22, %21 ], [ %23, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
   store ptr %13, ptr %.018.i, align 8, !tbaa !75
   store i32 %.0.i.i, ptr %4, align 4, !tbaa !73
-  %27 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  store ptr %27, ptr %9, align 8, !tbaa !74
-  %28 = load i32, ptr %0, align 8, !tbaa !71
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %30, label %33
+  %25 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  store ptr %25, ptr %9, align 8, !tbaa !74
+  %26 = load i32, ptr %0, align 8, !tbaa !71
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %28, label %31
 
-30:                                               ; preds = %26
-  %31 = zext nneg i32 %28 to i64
-  %32 = shl nuw nsw i64 %31, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 8 %10, i64 %32, i1 false)
-  br label %33
+28:                                               ; preds = %24
+  %29 = zext nneg i32 %26 to i64
+  %30 = shl nuw nsw i64 %29, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 8 %10, i64 %30, i1 false)
+  br label %31
 
-33:                                               ; preds = %30, %26
-  br i1 %8, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit, label %34
+31:                                               ; preds = %28, %24
+  br i1 %8, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit, label %32
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr %11, align 8, !tbaa !75
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %11, align 8, !tbaa !75
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
 
-37:                                               ; preds = %34
+35:                                               ; preds = %32
   tail call void @_ZdlPv(ptr noundef nonnull %11) #19
   br label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
 
-38:                                               ; preds = %2
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+36:                                               ; preds = %2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
 
-_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit: ; preds = %37, %34, %33, %38
-  %.sink10.in = phi ptr [ %39, %38 ], [ %9, %33 ], [ %9, %34 ], [ %9, %37 ]
+_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit: ; preds = %35, %32, %31, %36
+  %.sink10.in = phi ptr [ %37, %36 ], [ %9, %31 ], [ %9, %32 ], [ %9, %35 ]
   %.sink10 = load ptr, ptr %.sink10.in, align 8, !tbaa !74
-  %40 = zext i32 %3 to i64
-  %41 = getelementptr inbounds nuw i64, ptr %.sink10, i64 %40
-  store i64 %7, ptr %41, align 8, !tbaa !61
-  %42 = add i32 %3, 1
-  store i32 %42, ptr %0, align 8, !tbaa !71
+  %38 = zext i32 %3 to i64
+  %39 = getelementptr inbounds nuw i64, ptr %.sink10, i64 %38
+  store i64 %7, ptr %39, align 8, !tbaa !61
+  %40 = add i32 %3, 1
+  store i32 %40, ptr %0, align 8, !tbaa !71
   ret void
 }
 
@@ -9697,55 +9667,53 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %1
   %15 = zext nneg i32 %.0.i.i to i64
   %16 = shl nuw nsw i64 %15, 3
   %17 = icmp eq ptr %11, null
-  br i1 %17, label %18, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
+  %18 = add nuw nsw i64 %16, 8
+  br i1 %17, label %19, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
 
-18:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %19 = add nuw nsw i64 %16, 8
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #18
-  br label %24
+19:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #18
+  br label %22
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %21 = add nuw nsw i64 %16, 15
-  %22 = and i64 %21, 34359738360
-  %23 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %22, ptr noundef nonnull @_ZTIc)
-  br label %24
+  %21 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %18, ptr noundef nonnull @_ZTIc)
+  br label %22
 
-24:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %18
-  %.018.i = phi ptr [ %20, %18 ], [ %23, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
+22:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %19
+  %.018.i = phi ptr [ %20, %19 ], [ %21, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
   store ptr %11, ptr %.018.i, align 8, !tbaa !75
   store i32 %.0.i.i, ptr %3, align 4, !tbaa !73
-  %25 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  store ptr %25, ptr %7, align 8, !tbaa !74
-  %26 = load i32, ptr %0, align 8, !tbaa !71
-  %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %28, label %31
+  %23 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  store ptr %23, ptr %7, align 8, !tbaa !74
+  %24 = load i32, ptr %0, align 8, !tbaa !71
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %26, label %29
 
-28:                                               ; preds = %24
-  %29 = zext nneg i32 %26 to i64
-  %30 = shl nuw nsw i64 %29, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 8 %8, i64 %30, i1 false)
-  br label %31
+26:                                               ; preds = %22
+  %27 = zext nneg i32 %24 to i64
+  %28 = shl nuw nsw i64 %27, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %8, i64 %28, i1 false)
+  br label %29
 
-31:                                               ; preds = %28, %24
-  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit, label %32
+29:                                               ; preds = %26, %22
+  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit, label %30
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %9, align 8, !tbaa !75
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %9, align 8, !tbaa !75
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
 
-35:                                               ; preds = %32
+33:                                               ; preds = %30
   tail call void @_ZdlPv(ptr noundef nonnull %9) #19
   br label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
 
-_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit: ; preds = %35, %32, %31, %1
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !74
-  %38 = zext i32 %2 to i64
-  %39 = getelementptr inbounds nuw i64, ptr %37, i64 %38
-  %40 = add i32 %2, 1
-  store i32 %40, ptr %0, align 8, !tbaa !71
-  ret ptr %39
+_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit: ; preds = %33, %30, %29, %1
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !74
+  %36 = zext i32 %2 to i64
+  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %36
+  %38 = add i32 %2, 1
+  store i32 %38, ptr %0, align 8, !tbaa !71
+  ret ptr %37
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -9846,7 +9814,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldImE5ClearEv(ptr n
 define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8, !tbaa !71
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %54, label %4
+  br i1 %.not, label %52, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 8, !tbaa !71
@@ -9881,65 +9849,63 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
-  br i1 %23, label %24, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
+  %24 = add nuw nsw i64 %22, 8
+  br i1 %23, label %25, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
 
-24:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %25 = add nuw nsw i64 %22, 8
-  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #18
-  br label %30
+25:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
+  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #18
+  br label %28
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %27 = add nuw nsw i64 %22, 15
-  %28 = and i64 %27, 34359738360
-  %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
-  br label %30
+  %27 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %24, ptr noundef nonnull @_ZTIc)
+  br label %28
 
-30:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %24
-  %.018.i = phi ptr [ %26, %24 ], [ %29, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
+28:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %25
+  %.018.i = phi ptr [ %26, %25 ], [ %27, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
   store ptr %15, ptr %.018.i, align 8, !tbaa !75
   store i32 %.0.i.i, ptr %7, align 4, !tbaa !73
-  %31 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  store ptr %31, ptr %11, align 8, !tbaa !74
-  %32 = load i32, ptr %0, align 8, !tbaa !71
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %37
+  %29 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  store ptr %29, ptr %11, align 8, !tbaa !74
+  %30 = load i32, ptr %0, align 8, !tbaa !71
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %35
 
-34:                                               ; preds = %30
-  %35 = zext nneg i32 %32 to i64
-  %36 = shl nuw nsw i64 %35, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 8 %12, i64 %36, i1 false)
-  br label %37
+32:                                               ; preds = %28
+  %33 = zext nneg i32 %30 to i64
+  %34 = shl nuw nsw i64 %33, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %12, i64 %34, i1 false)
+  br label %35
 
-37:                                               ; preds = %34, %30
-  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit, label %38
+35:                                               ; preds = %32, %28
+  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit, label %36
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %13, align 8, !tbaa !75
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %13, align 8, !tbaa !75
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
 
-41:                                               ; preds = %38
+39:                                               ; preds = %36
   tail call void @_ZdlPv(ptr noundef nonnull %13) #19
   br label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
 
-_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit: ; preds = %4, %37, %38, %41
-  %42 = load i32, ptr %1, align 8, !tbaa !71
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !74
-  %45 = load i32, ptr %0, align 8, !tbaa !71
-  %46 = add nsw i32 %45, %42
-  store i32 %46, ptr %0, align 8, !tbaa !71
-  %47 = sext i32 %5 to i64
-  %48 = getelementptr inbounds i64, ptr %44, i64 %47
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !74
-  %51 = load i32, ptr %1, align 8, !tbaa !71
-  %52 = sext i32 %51 to i64
-  %53 = shl nsw i64 %52, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr nonnull align 8 %50, i64 %53, i1 false)
-  br label %54
+_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit: ; preds = %4, %35, %36, %39
+  %40 = load i32, ptr %1, align 8, !tbaa !71
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !74
+  %43 = load i32, ptr %0, align 8, !tbaa !71
+  %44 = add nsw i32 %43, %40
+  store i32 %44, ptr %0, align 8, !tbaa !71
+  %45 = sext i32 %5 to i64
+  %46 = getelementptr inbounds i64, ptr %42, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !74
+  %49 = load i32, ptr %1, align 8, !tbaa !71
+  %50 = sext i32 %49 to i64
+  %51 = shl nsw i64 %50, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr nonnull align 8 %48, i64 %51, i1 false)
+  br label %52
 
-54:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit, %2
+52:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit, %2
   ret void
 }
 
@@ -10028,67 +9994,65 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
-  br i1 %23, label %24, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
+  %24 = add nuw nsw i64 %22, 8
+  br i1 %23, label %25, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
 
-24:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %25 = add nuw nsw i64 %22, 8
-  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #18
-  br label %30
+25:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
+  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #18
+  br label %28
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %27 = add nuw nsw i64 %22, 15
-  %28 = and i64 %27, 34359738360
-  %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
-  br label %30
+  %27 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %24, ptr noundef nonnull @_ZTIc)
+  br label %28
 
-30:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %24
-  %.018.i = phi ptr [ %26, %24 ], [ %29, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
+28:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %25
+  %.018.i = phi ptr [ %26, %25 ], [ %27, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
   store ptr %15, ptr %.018.i, align 8, !tbaa !75
   store i32 %.0.i.i, ptr %7, align 4, !tbaa !73
-  %31 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  store ptr %31, ptr %11, align 8, !tbaa !74
-  %32 = load i32, ptr %0, align 8, !tbaa !71
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %37
+  %29 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  store ptr %29, ptr %11, align 8, !tbaa !74
+  %30 = load i32, ptr %0, align 8, !tbaa !71
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %35
 
-34:                                               ; preds = %30
-  %35 = zext nneg i32 %32 to i64
-  %36 = shl nuw nsw i64 %35, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 8 %12, i64 %36, i1 false)
-  br label %37
+32:                                               ; preds = %28
+  %33 = zext nneg i32 %30 to i64
+  %34 = shl nuw nsw i64 %33, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %12, i64 %34, i1 false)
+  br label %35
 
-37:                                               ; preds = %34, %30
-  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit, label %38
+35:                                               ; preds = %32, %28
+  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit, label %36
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %13, align 8, !tbaa !75
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %13, align 8, !tbaa !75
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
 
-41:                                               ; preds = %38
+39:                                               ; preds = %36
   tail call void @_ZdlPv(ptr noundef nonnull %13) #19
   br label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
 
-_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit: ; preds = %6, %37, %38, %41
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !74
-  %44 = load i32, ptr %0, align 8, !tbaa !71
-  %45 = sext i32 %1 to i64
-  %46 = getelementptr inbounds i64, ptr %43, i64 %45
-  %47 = load i64, ptr %2, align 8, !tbaa !61
-  %.not5.i.i.i = icmp eq i32 %44, %1
+_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit: ; preds = %6, %35, %36, %39
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !74
+  %42 = load i32, ptr %0, align 8, !tbaa !71
+  %43 = sext i32 %1 to i64
+  %44 = getelementptr inbounds i64, ptr %41, i64 %43
+  %45 = load i64, ptr %2, align 8, !tbaa !61
+  %.not5.i.i.i = icmp eq i32 %42, %1
   br i1 %.not5.i.i.i, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit
-  %48 = sext i32 %44 to i64
-  %49 = getelementptr inbounds i64, ptr %43, i64 %48
+  %46 = sext i32 %42 to i64
+  %47 = getelementptr inbounds i64, ptr %41, i64 %46
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
-  %.06.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i ], [ %49, %.lr.ph.i.i.i.preheader ]
-  store i64 %47, ptr %.06.i.i.i, align 8, !tbaa !61
-  %50 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %50, %46
+  %.06.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i ], [ %47, %.lr.ph.i.i.i.preheader ]
+  store i64 %45, ptr %.06.i.i.i, align 8, !tbaa !61
+  %48 = getelementptr inbounds nuw i8, ptr %.06.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %48, %44
   br i1 %.not.i.i.i, label %_ZSt4fillIPmmEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !79
 
 _ZSt4fillIPmmEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i, %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit, %3
@@ -10114,7 +10078,7 @@ define weak_odr hidden noundef ptr @_ZNK6google8protobuf13RepeatedFieldImE4dataE
 define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldImE4SwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::protobuf::RepeatedField.20", align 16
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %117, label %5
+  br i1 %4, label %113, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -10140,7 +10104,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldImE4SwapEPS2_(ptr
   %.0.copyload.i.i.i = load i128, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
   store i128 %.0.copyload.i.i.i, ptr %1, align 1
-  br label %117
+  br label %113
 
 22:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -10182,175 +10146,171 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %39, %
   %41 = zext nneg i32 %.0.i.i.i to i64
   %42 = shl nuw nsw i64 %41, 3
   %43 = icmp eq ptr %35, null
-  br i1 %43, label %44, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
+  %44 = add nuw nsw i64 %42, 8
+  br i1 %43, label %45, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
 
-44:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %45 = add nuw nsw i64 %42, 8
-  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #18
-          to label %.noexc unwind label %115
+45:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
+  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #18
+          to label %.noexc unwind label %111
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %47 = add nuw nsw i64 %42, 15
-  %48 = and i64 %47, 34359738360
-  %49 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %48, ptr noundef nonnull @_ZTIc)
-          to label %.noexc unwind label %115
+  %47 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %44, ptr noundef nonnull @_ZTIc)
+          to label %.noexc unwind label %111
 
-.noexc:                                           ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %44
-  %.018.i.i = phi ptr [ %46, %44 ], [ %49, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i ]
+.noexc:                                           ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %45
+  %.018.i.i = phi ptr [ %46, %45 ], [ %47, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i ]
   store ptr %35, ptr %.018.i.i, align 8, !tbaa !75
   store i32 %.0.i.i.i, ptr %27, align 4, !tbaa !73
-  %50 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
-  store ptr %50, ptr %31, align 8, !tbaa !74
-  %51 = load i32, ptr %3, align 16, !tbaa !71
-  %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %53, label %56
+  %48 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
+  store ptr %48, ptr %31, align 8, !tbaa !74
+  %49 = load i32, ptr %3, align 16, !tbaa !71
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %51, label %54
 
-53:                                               ; preds = %.noexc
-  %54 = zext nneg i32 %51 to i64
-  %55 = shl nuw nsw i64 %54, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr nonnull align 8 %32, i64 %55, i1 false)
-  br label %56
+51:                                               ; preds = %.noexc
+  %52 = zext nneg i32 %49 to i64
+  %53 = shl nuw nsw i64 %52, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 8 %32, i64 %53, i1 false)
+  br label %54
 
-56:                                               ; preds = %53, %.noexc
-  br i1 %30, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i, label %57
+54:                                               ; preds = %51, %.noexc
+  br i1 %30, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i, label %55
 
-57:                                               ; preds = %56
-  %58 = load ptr, ptr %33, align 8, !tbaa !75
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %33, align 8, !tbaa !75
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i
 
-60:                                               ; preds = %57
+58:                                               ; preds = %55
   call void @_ZdlPv(ptr noundef nonnull %33) #19
   %.pre = load i32, ptr %3, align 16, !tbaa !71
   br label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i
 
-_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i: ; preds = %60, %57, %56, %24
-  %61 = phi i32 [ %.pre, %60 ], [ %51, %57 ], [ %51, %56 ], [ %25, %24 ]
-  %62 = load i32, ptr %0, align 8, !tbaa !71
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !74
-  %65 = add nsw i32 %61, %62
-  store i32 %65, ptr %3, align 16, !tbaa !71
-  %66 = sext i32 %25 to i64
-  %67 = getelementptr inbounds i64, ptr %64, i64 %66
-  %68 = load ptr, ptr %9, align 8, !tbaa !74
-  %69 = sext i32 %62 to i64
-  %70 = shl nsw i64 %69, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %67, ptr nonnull align 8 %68, i64 %70, i1 false)
+_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i: ; preds = %58, %55, %54, %24
+  %59 = phi i32 [ %.pre, %58 ], [ %49, %55 ], [ %49, %54 ], [ %25, %24 ]
+  %60 = load i32, ptr %0, align 8, !tbaa !71
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !74
+  %63 = add nsw i32 %59, %60
+  store i32 %63, ptr %3, align 16, !tbaa !71
+  %64 = sext i32 %25 to i64
+  %65 = getelementptr inbounds i64, ptr %62, i64 %64
+  %66 = load ptr, ptr %9, align 8, !tbaa !74
+  %67 = sext i32 %60 to i64
+  %68 = shl nsw i64 %67, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %65, ptr nonnull align 8 %66, i64 %68, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit: ; preds = %22, %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i
   store i32 0, ptr %0, align 8, !tbaa !71
-  %71 = load i32, ptr %1, align 8, !tbaa !71
-  %.not.i.i12 = icmp eq i32 %71, 0
-  br i1 %.not.i.i12, label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit, label %72
+  %69 = load i32, ptr %1, align 8, !tbaa !71
+  %.not.i.i12 = icmp eq i32 %69, 0
+  br i1 %.not.i.i12, label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit, label %70
 
-72:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit
-  %73 = load i32, ptr %6, align 4, !tbaa !73
-  %.not.i.i.i = icmp slt i32 %73, %71
-  br i1 %.not.i.i.i, label %74, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i
+70:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit
+  %71 = load i32, ptr %6, align 4, !tbaa !73
+  %.not.i.i.i = icmp slt i32 %71, %69
+  br i1 %.not.i.i.i, label %72, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i
 
-74:                                               ; preds = %72
-  %75 = icmp slt i32 %73, 1
-  %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 -8
-  %78 = icmp eq i32 %73, 0
-  %.in.i.i.i.i = select i1 %78, ptr %9, ptr %77
-  %79 = load ptr, ptr %.in.i.i.i.i, align 8, !tbaa !14
-  %80 = icmp slt i32 %71, 4
-  br i1 %80, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i, label %81
+72:                                               ; preds = %70
+  %73 = icmp slt i32 %71, 1
+  %74 = load ptr, ptr %9, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 -8
+  %76 = icmp eq i32 %71, 0
+  %.in.i.i.i.i = select i1 %76, ptr %9, ptr %75
+  %77 = load ptr, ptr %.in.i.i.i.i, align 8, !tbaa !14
+  %78 = icmp slt i32 %69, 4
+  br i1 %78, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i, label %79
 
-81:                                               ; preds = %74
-  %82 = icmp slt i32 %73, 1073741824
-  br i1 %82, label %83, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
+79:                                               ; preds = %72
+  %80 = icmp slt i32 %71, 1073741824
+  br i1 %80, label %81, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
-83:                                               ; preds = %81
-  %84 = shl nsw i32 %73, 1
-  %.sroa.speculated.i.i.i.i = call i32 @llvm.smax.i32(i32 %84, i32 %71)
+81:                                               ; preds = %79
+  %82 = shl nsw i32 %71, 1
+  %.sroa.speculated.i.i.i.i = call i32 @llvm.smax.i32(i32 %82, i32 %69)
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
-_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %83, %81, %74
-  %.0.i.i.i.i = phi i32 [ 4, %74 ], [ %.sroa.speculated.i.i.i.i, %83 ], [ 2147483647, %81 ]
-  %85 = zext nneg i32 %.0.i.i.i.i to i64
-  %86 = shl nuw nsw i64 %85, 3
-  %87 = icmp eq ptr %79, null
-  br i1 %87, label %88, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
+_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %81, %79, %72
+  %.0.i.i.i.i = phi i32 [ 4, %72 ], [ %.sroa.speculated.i.i.i.i, %81 ], [ 2147483647, %79 ]
+  %83 = zext nneg i32 %.0.i.i.i.i to i64
+  %84 = shl nuw nsw i64 %83, 3
+  %85 = icmp eq ptr %77, null
+  %86 = add nuw nsw i64 %84, 8
+  br i1 %85, label %87, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
 
-88:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %89 = add nuw nsw i64 %86, 8
-  %90 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %89) #18
-          to label %.noexc13 unwind label %115
+87:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
+  %88 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %86) #18
+          to label %.noexc13 unwind label %111
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %91 = add nuw nsw i64 %86, 15
-  %92 = and i64 %91, 34359738360
-  %93 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %79, i64 noundef %92, ptr noundef nonnull @_ZTIc)
-          to label %.noexc13 unwind label %115
+  %89 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %77, i64 noundef %86, ptr noundef nonnull @_ZTIc)
+          to label %.noexc13 unwind label %111
 
-.noexc13:                                         ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %88
-  %.018.i.i.i = phi ptr [ %90, %88 ], [ %93, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
-  store ptr %79, ptr %.018.i.i.i, align 8, !tbaa !75
+.noexc13:                                         ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %87
+  %.018.i.i.i = phi ptr [ %88, %87 ], [ %89, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
+  store ptr %77, ptr %.018.i.i.i, align 8, !tbaa !75
   store i32 %.0.i.i.i.i, ptr %6, align 4, !tbaa !73
-  %94 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
-  store ptr %94, ptr %9, align 8, !tbaa !74
-  %95 = load i32, ptr %0, align 8, !tbaa !71
-  %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %97, label %100
+  %90 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
+  store ptr %90, ptr %9, align 8, !tbaa !74
+  %91 = load i32, ptr %0, align 8, !tbaa !71
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %93, label %96
 
-97:                                               ; preds = %.noexc13
-  %98 = zext nneg i32 %95 to i64
-  %99 = shl nuw nsw i64 %98, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %94, ptr nonnull align 8 %76, i64 %99, i1 false)
-  br label %100
+93:                                               ; preds = %.noexc13
+  %94 = zext nneg i32 %91 to i64
+  %95 = shl nuw nsw i64 %94, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %90, ptr nonnull align 8 %74, i64 %95, i1 false)
+  br label %96
 
-100:                                              ; preds = %97, %.noexc13
-  br i1 %75, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i, label %101
+96:                                               ; preds = %93, %.noexc13
+  br i1 %73, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i, label %97
 
-101:                                              ; preds = %100
-  %102 = load ptr, ptr %77, align 8, !tbaa !75
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %104, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i
+97:                                               ; preds = %96
+  %98 = load ptr, ptr %75, align 8, !tbaa !75
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %100, label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i
 
-104:                                              ; preds = %101
-  call void @_ZdlPv(ptr noundef nonnull %77) #19
+100:                                              ; preds = %97
+  call void @_ZdlPv(ptr noundef nonnull %75) #19
   br label %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i
 
-_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i: ; preds = %104, %101, %100, %72
-  %105 = load i32, ptr %1, align 8, !tbaa !71
-  %106 = load ptr, ptr %9, align 8, !tbaa !74
-  %107 = load i32, ptr %0, align 8, !tbaa !71
-  %108 = add nsw i32 %107, %105
-  store i32 %108, ptr %0, align 8, !tbaa !71
-  %109 = load ptr, ptr %16, align 8, !tbaa !74
-  %110 = load i32, ptr %1, align 8, !tbaa !71
-  %111 = sext i32 %110 to i64
-  %112 = shl nsw i64 %111, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %106, ptr nonnull align 8 %109, i64 %112, i1 false)
+_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i: ; preds = %100, %97, %96, %70
+  %101 = load i32, ptr %1, align 8, !tbaa !71
+  %102 = load ptr, ptr %9, align 8, !tbaa !74
+  %103 = load i32, ptr %0, align 8, !tbaa !71
+  %104 = add nsw i32 %103, %101
+  store i32 %104, ptr %0, align 8, !tbaa !71
+  %105 = load ptr, ptr %16, align 8, !tbaa !74
+  %106 = load i32, ptr %1, align 8, !tbaa !71
+  %107 = sext i32 %106 to i64
+  %108 = shl nsw i64 %107, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %102, ptr nonnull align 8 %105, i64 %108, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit.i.i, %_ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit
-  %113 = icmp eq ptr %1, %3
-  br i1 %113, label %_ZN6google8protobuf13RepeatedFieldImE15UnsafeArenaSwapEPS2_.exit, label %114
+  %109 = icmp eq ptr %1, %3
+  br i1 %109, label %_ZN6google8protobuf13RepeatedFieldImE15UnsafeArenaSwapEPS2_.exit, label %110
 
-114:                                              ; preds = %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit
+110:                                              ; preds = %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit
   %.0.copyload.i.i.i.i = load i128, ptr %1, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 16, i1 false)
   store i128 %.0.copyload.i.i.i.i, ptr %3, align 16
   br label %_ZN6google8protobuf13RepeatedFieldImE15UnsafeArenaSwapEPS2_.exit
 
-_ZN6google8protobuf13RepeatedFieldImE15UnsafeArenaSwapEPS2_.exit: ; preds = %114, %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit
+_ZN6google8protobuf13RepeatedFieldImE15UnsafeArenaSwapEPS2_.exit: ; preds = %110, %_ZN6google8protobuf13RepeatedFieldImE8CopyFromERKS2_.exit
   call void @_ZN6google8protobuf13RepeatedFieldImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %117
+  br label %113
 
-115:                                              ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %88, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %44
-  %116 = landingpad { ptr, i32 }
+111:                                              ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %87, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %45
+  %112 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf13RepeatedFieldImED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %116
+  resume { ptr, i32 } %112
 
-117:                                              ; preds = %2, %_ZN6google8protobuf13RepeatedFieldImE15UnsafeArenaSwapEPS2_.exit, %21
+113:                                              ; preds = %2, %_ZN6google8protobuf13RepeatedFieldImE15UnsafeArenaSwapEPS2_.exit, %21
   ret void
 }
 
@@ -10703,7 +10663,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %
   br label %26
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %23 = add nuw nsw i64 %18, 15
+  %23 = add nuw nsw i64 %18, 12
   %24 = and i64 %23, 17179869176
   %25 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %24, ptr noundef nonnull @_ZTIc)
   br label %26
@@ -10883,7 +10843,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %18,
   br label %29
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %26 = add nuw nsw i64 %21, 15
+  %26 = add nuw nsw i64 %21, 12
   %27 = and i64 %26, 17179869176
   %28 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %27, ptr noundef nonnull @_ZTIc)
   br label %29
@@ -10985,7 +10945,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %19, %
   br label %30
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %27 = add nuw nsw i64 %22, 15
+  %27 = add nuw nsw i64 %22, 12
   %28 = and i64 %27, 17179869176
   %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
   br label %30
@@ -11196,7 +11156,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %26,
           to label %.noexc unwind label %57
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %34 = add nuw nsw i64 %29, 15
+  %34 = add nuw nsw i64 %29, 12
   %35 = and i64 %34, 17179869176
   %36 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %35, ptr noundef nonnull @_ZTIc)
           to label %.noexc unwind label %57
@@ -11539,7 +11499,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %2
   br label %26
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %23 = add nuw nsw i64 %18, 15
+  %23 = add nuw nsw i64 %18, 12
   %24 = and i64 %23, 17179869176
   %25 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %24, ptr noundef nonnull @_ZTIc)
   br label %26
@@ -11619,7 +11579,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %1
   br label %24
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %21 = add nuw nsw i64 %16, 15
+  %21 = add nuw nsw i64 %16, 12
   %22 = and i64 %21, 17179869176
   %23 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %22, ptr noundef nonnull @_ZTIc)
   br label %24
@@ -11803,7 +11763,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17
   br label %30
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %27 = add nuw nsw i64 %22, 15
+  %27 = add nuw nsw i64 %22, 12
   %28 = and i64 %27, 17179869176
   %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
   br label %30
@@ -11950,7 +11910,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17
   br label %30
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %27 = add nuw nsw i64 %22, 15
+  %27 = add nuw nsw i64 %22, 12
   %28 = and i64 %27, 17179869176
   %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
   br label %30
@@ -12104,7 +12064,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %39, %
           to label %.noexc unwind label %115
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %47 = add nuw nsw i64 %42, 15
+  %47 = add nuw nsw i64 %42, 12
   %48 = and i64 %47, 17179869176
   %49 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %48, ptr noundef nonnull @_ZTIc)
           to label %.noexc unwind label %115
@@ -12196,7 +12156,7 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %83,
           to label %.noexc13 unwind label %115
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %91 = add nuw nsw i64 %86, 15
+  %91 = add nuw nsw i64 %86, 12
   %92 = and i64 %91, 17179869176
   %93 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %79, i64 noundef %92, ptr noundef nonnull @_ZTIc)
           to label %.noexc13 unwind label %115
@@ -12609,48 +12569,46 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit: ; preds = %5, %13, %
   %17 = zext nneg i32 %.0.i to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = icmp eq ptr %11, null
-  br i1 %19, label %20, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit
+  %20 = add nuw nsw i64 %18, 8
+  br i1 %19, label %21, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit
 
-20:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %21 = add nuw nsw i64 %18, 8
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #18
-  br label %26
+21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #18
+  br label %24
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit
-  %23 = add nuw nsw i64 %18, 15
-  %24 = and i64 %23, 34359738360
-  %25 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %24, ptr noundef nonnull @_ZTIc)
-  br label %26
+  %23 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %20, ptr noundef nonnull @_ZTIc)
+  br label %24
 
-26:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit, %20
-  %.018 = phi ptr [ %22, %20 ], [ %25, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit ]
+24:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit, %21
+  %.018 = phi ptr [ %22, %21 ], [ %23, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit ]
   store ptr %11, ptr %.018, align 8, !tbaa !104
   store i32 %.0.i, ptr %3, align 4, !tbaa !102
-  %27 = getelementptr inbounds nuw i8, ptr %.018, i64 8
-  store ptr %27, ptr %7, align 8, !tbaa !103
-  %28 = load i32, ptr %0, align 8, !tbaa !100
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %30, label %33
+  %25 = getelementptr inbounds nuw i8, ptr %.018, i64 8
+  store ptr %25, ptr %7, align 8, !tbaa !103
+  %26 = load i32, ptr %0, align 8, !tbaa !100
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %28, label %31
 
-30:                                               ; preds = %26
-  %31 = zext nneg i32 %28 to i64
-  %32 = shl nuw nsw i64 %31, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 8 %8, i64 %32, i1 false)
-  br label %33
+28:                                               ; preds = %24
+  %29 = zext nneg i32 %26 to i64
+  %30 = shl nuw nsw i64 %29, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 8 %8, i64 %30, i1 false)
+  br label %31
 
-33:                                               ; preds = %30, %26
-  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit, label %34
+31:                                               ; preds = %28, %24
+  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit, label %32
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr %9, align 8, !tbaa !104
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %9, align 8, !tbaa !104
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit
 
-37:                                               ; preds = %34
+35:                                               ; preds = %32
   tail call void @_ZdlPv(ptr noundef nonnull %9) #19
   br label %_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %37, %34, %33, %2
+_ZN6google8protobuf13RepeatedFieldIdE18InternalDeallocateEPNS2_3RepEi.exit: ; preds = %35, %32, %31, %2
   ret void
 }
 
@@ -12789,60 +12747,58 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %18,
   %20 = zext nneg i32 %.0.i.i.i.i to i64
   %21 = shl nuw nsw i64 %20, 3
   %22 = icmp eq ptr %14, null
-  br i1 %22, label %23, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
+  %23 = add nuw nsw i64 %21, 8
+  br i1 %22, label %24, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
 
-23:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %24 = add nuw nsw i64 %21, 8
-  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #18
-  br label %29
+24:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
+  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #18
+  br label %27
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %26 = add nuw nsw i64 %21, 15
-  %27 = and i64 %26, 34359738360
-  %28 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %27, ptr noundef nonnull @_ZTIc)
-  br label %29
+  %26 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %14, i64 noundef %23, ptr noundef nonnull @_ZTIc)
+  br label %27
 
-29:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %23
-  %.018.i.i.i = phi ptr [ %25, %23 ], [ %28, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
+27:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %24
+  %.018.i.i.i = phi ptr [ %25, %24 ], [ %26, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
   store ptr %14, ptr %.018.i.i.i, align 8, !tbaa !104
   store i32 %.0.i.i.i.i, ptr %6, align 4, !tbaa !102
-  %30 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
-  store ptr %30, ptr %10, align 8, !tbaa !103
-  %31 = load i32, ptr %0, align 8, !tbaa !100
-  %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %36
+  %28 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
+  store ptr %28, ptr %10, align 8, !tbaa !103
+  %29 = load i32, ptr %0, align 8, !tbaa !100
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %31, label %34
 
-33:                                               ; preds = %29
-  %34 = zext nneg i32 %31 to i64
-  %35 = shl nuw nsw i64 %34, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr nonnull align 8 %11, i64 %35, i1 false)
-  br label %36
+31:                                               ; preds = %27
+  %32 = zext nneg i32 %29 to i64
+  %33 = shl nuw nsw i64 %32, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 8 %11, i64 %33, i1 false)
+  br label %34
 
-36:                                               ; preds = %33, %29
-  br i1 %9, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i, label %37
+34:                                               ; preds = %31, %27
+  br i1 %9, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i, label %35
 
-37:                                               ; preds = %36
-  %38 = load ptr, ptr %12, align 8, !tbaa !104
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %40, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i
+35:                                               ; preds = %34
+  %36 = load ptr, ptr %12, align 8, !tbaa !104
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %38, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i
 
-40:                                               ; preds = %37
+38:                                               ; preds = %35
   tail call void @_ZdlPv(ptr noundef nonnull %12) #19
   br label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i
 
-_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i: ; preds = %40, %37, %36, %5
-  %41 = load i32, ptr %1, align 8, !tbaa !100
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !103
-  %44 = load i32, ptr %0, align 8, !tbaa !100
-  %45 = add nsw i32 %44, %41
-  store i32 %45, ptr %0, align 8, !tbaa !100
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %47 = load ptr, ptr %46, align 8, !tbaa !103
-  %48 = load i32, ptr %1, align 8, !tbaa !100
-  %49 = sext i32 %48 to i64
-  %50 = shl nsw i64 %49, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %43, ptr nonnull align 8 %47, i64 %50, i1 false)
+_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i: ; preds = %38, %35, %34, %5
+  %39 = load i32, ptr %1, align 8, !tbaa !100
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !103
+  %42 = load i32, ptr %0, align 8, !tbaa !100
+  %43 = add nsw i32 %42, %39
+  store i32 %43, ptr %0, align 8, !tbaa !100
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !103
+  %46 = load i32, ptr %1, align 8, !tbaa !100
+  %47 = sext i32 %46 to i64
+  %48 = shl nsw i64 %47, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %41, ptr nonnull align 8 %45, i64 %48, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i, %3, %2
@@ -12891,60 +12847,58 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %19, %
   %21 = zext nneg i32 %.0.i.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
-  br i1 %23, label %24, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
+  %24 = add nuw nsw i64 %22, 8
+  br i1 %23, label %25, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
 
-24:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %25 = add nuw nsw i64 %22, 8
-  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #18
-  br label %30
+25:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
+  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #18
+  br label %28
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %27 = add nuw nsw i64 %22, 15
-  %28 = and i64 %27, 34359738360
-  %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
-  br label %30
+  %27 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %24, ptr noundef nonnull @_ZTIc)
+  br label %28
 
-30:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %24
-  %.018.i.i = phi ptr [ %26, %24 ], [ %29, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i ]
+28:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %25
+  %.018.i.i = phi ptr [ %26, %25 ], [ %27, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i ]
   store ptr %15, ptr %.018.i.i, align 8, !tbaa !104
   store i32 %.0.i.i.i, ptr %7, align 4, !tbaa !102
-  %31 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
-  store ptr %31, ptr %11, align 8, !tbaa !103
-  %32 = load i32, ptr %0, align 8, !tbaa !100
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %37
+  %29 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
+  store ptr %29, ptr %11, align 8, !tbaa !103
+  %30 = load i32, ptr %0, align 8, !tbaa !100
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %35
 
-34:                                               ; preds = %30
-  %35 = zext nneg i32 %32 to i64
-  %36 = shl nuw nsw i64 %35, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 8 %12, i64 %36, i1 false)
-  br label %37
+32:                                               ; preds = %28
+  %33 = zext nneg i32 %30 to i64
+  %34 = shl nuw nsw i64 %33, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %12, i64 %34, i1 false)
+  br label %35
 
-37:                                               ; preds = %34, %30
-  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i, label %38
+35:                                               ; preds = %32, %28
+  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i, label %36
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %13, align 8, !tbaa !104
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %13, align 8, !tbaa !104
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i
 
-41:                                               ; preds = %38
+39:                                               ; preds = %36
   tail call void @_ZdlPv(ptr noundef nonnull %13) #19
   br label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i
 
-_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i: ; preds = %41, %38, %37, %6
-  %42 = load i32, ptr %1, align 8, !tbaa !100
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !103
-  %45 = load i32, ptr %0, align 8, !tbaa !100
-  %46 = add nsw i32 %45, %42
-  store i32 %46, ptr %0, align 8, !tbaa !100
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %48 = load ptr, ptr %47, align 8, !tbaa !103
-  %49 = load i32, ptr %1, align 8, !tbaa !100
-  %50 = sext i32 %49 to i64
-  %51 = shl nsw i64 %50, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %44, ptr nonnull align 8 %48, i64 %51, i1 false)
+_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i: ; preds = %39, %36, %35, %6
+  %40 = load i32, ptr %1, align 8, !tbaa !100
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !103
+  %43 = load i32, ptr %0, align 8, !tbaa !100
+  %44 = add nsw i32 %43, %40
+  store i32 %44, ptr %0, align 8, !tbaa !100
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !103
+  %47 = load i32, ptr %1, align 8, !tbaa !100
+  %48 = sext i32 %47 to i64
+  %49 = shl nsw i64 %48, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %42, ptr nonnull align 8 %46, i64 %49, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i, %4, %2
@@ -13071,7 +13025,7 @@ define weak_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN6goog
   %.in.i7 = select i1 %13, ptr %14, ptr %16
   %17 = load ptr, ptr %.in.i7, align 8, !tbaa !14
   %.not6 = icmp eq ptr %10, %17
-  br i1 %.not6, label %56, label %18
+  br i1 %.not6, label %54, label %18
 
 18:                                               ; preds = %3
   store i32 0, ptr %0, align 8, !tbaa !100
@@ -13102,74 +13056,72 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %26,
   %28 = zext nneg i32 %.0.i.i.i.i to i64
   %29 = shl nuw nsw i64 %28, 3
   %30 = icmp eq ptr %10, null
-  br i1 %30, label %31, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
+  %31 = add nuw nsw i64 %29, 8
+  br i1 %30, label %32, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
 
-31:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %32 = add nuw nsw i64 %29, 8
-  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #18
-          to label %.noexc unwind label %57
+32:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
+  %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #18
+          to label %.noexc unwind label %55
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %34 = add nuw nsw i64 %29, 15
-  %35 = and i64 %34, 34359738360
-  %36 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %35, ptr noundef nonnull @_ZTIc)
-          to label %.noexc unwind label %57
+  %34 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %31, ptr noundef nonnull @_ZTIc)
+          to label %.noexc unwind label %55
 
-.noexc:                                           ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %31
-  %.018.i.i.i = phi ptr [ %33, %31 ], [ %36, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
+.noexc:                                           ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %32
+  %.018.i.i.i = phi ptr [ %33, %32 ], [ %34, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
   store ptr %10, ptr %.018.i.i.i, align 8, !tbaa !104
   store i32 %.0.i.i.i.i, ptr %4, align 4, !tbaa !102
-  %37 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
-  store ptr %37, ptr %7, align 8, !tbaa !103
-  %38 = load i32, ptr %0, align 8, !tbaa !100
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %40, label %43
+  %35 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
+  store ptr %35, ptr %7, align 8, !tbaa !103
+  %36 = load i32, ptr %0, align 8, !tbaa !100
+  %37 = icmp sgt i32 %36, 0
+  br i1 %37, label %38, label %41
 
-40:                                               ; preds = %.noexc
-  %41 = zext nneg i32 %38 to i64
-  %42 = shl nuw nsw i64 %41, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %37, ptr nonnull align 8 %8, i64 %42, i1 false)
-  br label %43
+38:                                               ; preds = %.noexc
+  %39 = zext nneg i32 %36 to i64
+  %40 = shl nuw nsw i64 %39, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %35, ptr nonnull align 8 %8, i64 %40, i1 false)
+  br label %41
 
-43:                                               ; preds = %40, %.noexc
-  br i1 %22, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i, label %44
+41:                                               ; preds = %38, %.noexc
+  br i1 %22, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i, label %42
 
-44:                                               ; preds = %43
-  %45 = load ptr, ptr %9, align 8, !tbaa !104
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %47, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i
+42:                                               ; preds = %41
+  %43 = load ptr, ptr %9, align 8, !tbaa !104
+  %44 = icmp eq ptr %43, null
+  br i1 %44, label %45, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i
 
-47:                                               ; preds = %44
+45:                                               ; preds = %42
   tail call void @_ZdlPv(ptr noundef nonnull %9) #19
   br label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i
 
-_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i: ; preds = %47, %44, %43, %20
-  %48 = load i32, ptr %1, align 8, !tbaa !100
-  %49 = load ptr, ptr %7, align 8, !tbaa !103
-  %50 = load i32, ptr %0, align 8, !tbaa !100
-  %51 = add nsw i32 %50, %48
-  store i32 %51, ptr %0, align 8, !tbaa !100
-  %52 = load ptr, ptr %14, align 8, !tbaa !103
-  %53 = load i32, ptr %1, align 8, !tbaa !100
-  %54 = sext i32 %53 to i64
-  %55 = shl nsw i64 %54, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %49, ptr nonnull align 8 %52, i64 %55, i1 false)
+_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i: ; preds = %45, %42, %41, %20
+  %46 = load i32, ptr %1, align 8, !tbaa !100
+  %47 = load ptr, ptr %7, align 8, !tbaa !103
+  %48 = load i32, ptr %0, align 8, !tbaa !100
+  %49 = add nsw i32 %48, %46
+  store i32 %49, ptr %0, align 8, !tbaa !100
+  %50 = load ptr, ptr %14, align 8, !tbaa !103
+  %51 = load i32, ptr %1, align 8, !tbaa !100
+  %52 = sext i32 %51 to i64
+  %53 = shl nsw i64 %52, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %47, ptr nonnull align 8 %50, i64 %53, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit
 
-56:                                               ; preds = %3
+54:                                               ; preds = %3
   %.0.copyload.i.i.i = load i128, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   store i128 %.0.copyload.i.i.i, ptr %1, align 8
   br label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit
 
-_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i, %18, %56, %2
+_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i, %18, %54, %2
   ret ptr %0
 
-57:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %31
-  %58 = landingpad { ptr, i32 }
+55:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %32
+  %56 = landingpad { ptr, i32 }
           catch ptr null
-  %59 = extractvalue { ptr, i32 } %58, 0
-  tail call void @__clang_call_terminate(ptr %59) #20
+  %57 = extractvalue { ptr, i32 } %56, 0
+  tail call void @__clang_call_terminate(ptr %57) #20
   unreachable
 }
 
@@ -13427,7 +13379,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIdE3AddERKd(ptr n
   %5 = load i32, ptr %4, align 4, !tbaa !102
   %6 = icmp eq i32 %3, %5
   %7 = load double, ptr %1, align 8, !tbaa !106
-  br i1 %6, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i, label %38
+  br i1 %6, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i, label %36
 
 _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %2
   %8 = icmp slt i32 %3, 1
@@ -13445,59 +13397,57 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %2
   %17 = zext nneg i32 %.0.i.i to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = icmp eq ptr %13, null
-  br i1 %19, label %20, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
+  %20 = add nuw nsw i64 %18, 8
+  br i1 %19, label %21, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
 
-20:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %21 = add nuw nsw i64 %18, 8
-  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #18
-  br label %26
+21:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #18
+  br label %24
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %23 = add nuw nsw i64 %18, 15
-  %24 = and i64 %23, 34359738360
-  %25 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %24, ptr noundef nonnull @_ZTIc)
-  br label %26
+  %23 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %13, i64 noundef %20, ptr noundef nonnull @_ZTIc)
+  br label %24
 
-26:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %20
-  %.018.i = phi ptr [ %22, %20 ], [ %25, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
+24:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %21
+  %.018.i = phi ptr [ %22, %21 ], [ %23, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
   store ptr %13, ptr %.018.i, align 8, !tbaa !104
   store i32 %.0.i.i, ptr %4, align 4, !tbaa !102
-  %27 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  store ptr %27, ptr %9, align 8, !tbaa !103
-  %28 = load i32, ptr %0, align 8, !tbaa !100
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %30, label %33
+  %25 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  store ptr %25, ptr %9, align 8, !tbaa !103
+  %26 = load i32, ptr %0, align 8, !tbaa !100
+  %27 = icmp sgt i32 %26, 0
+  br i1 %27, label %28, label %31
 
-30:                                               ; preds = %26
-  %31 = zext nneg i32 %28 to i64
-  %32 = shl nuw nsw i64 %31, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 8 %10, i64 %32, i1 false)
-  br label %33
+28:                                               ; preds = %24
+  %29 = zext nneg i32 %26 to i64
+  %30 = shl nuw nsw i64 %29, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 8 %10, i64 %30, i1 false)
+  br label %31
 
-33:                                               ; preds = %30, %26
-  br i1 %8, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit, label %34
+31:                                               ; preds = %28, %24
+  br i1 %8, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit, label %32
 
-34:                                               ; preds = %33
-  %35 = load ptr, ptr %11, align 8, !tbaa !104
-  %36 = icmp eq ptr %35, null
-  br i1 %36, label %37, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
+32:                                               ; preds = %31
+  %33 = load ptr, ptr %11, align 8, !tbaa !104
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
 
-37:                                               ; preds = %34
+35:                                               ; preds = %32
   tail call void @_ZdlPv(ptr noundef nonnull %11) #19
   br label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
 
-38:                                               ; preds = %2
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+36:                                               ; preds = %2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit: ; preds = %37, %34, %33, %38
-  %.sink10.in = phi ptr [ %39, %38 ], [ %9, %33 ], [ %9, %34 ], [ %9, %37 ]
+_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit: ; preds = %35, %32, %31, %36
+  %.sink10.in = phi ptr [ %37, %36 ], [ %9, %31 ], [ %9, %32 ], [ %9, %35 ]
   %.sink10 = load ptr, ptr %.sink10.in, align 8, !tbaa !103
-  %40 = zext i32 %3 to i64
-  %41 = getelementptr inbounds nuw double, ptr %.sink10, i64 %40
-  store double %7, ptr %41, align 8, !tbaa !106
-  %42 = add i32 %3, 1
-  store i32 %42, ptr %0, align 8, !tbaa !100
+  %38 = zext i32 %3 to i64
+  %39 = getelementptr inbounds nuw double, ptr %.sink10, i64 %38
+  store double %7, ptr %39, align 8, !tbaa !106
+  %40 = add i32 %3, 1
+  store i32 %40, ptr %0, align 8, !tbaa !100
   ret void
 }
 
@@ -13525,55 +13475,53 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %1
   %15 = zext nneg i32 %.0.i.i to i64
   %16 = shl nuw nsw i64 %15, 3
   %17 = icmp eq ptr %11, null
-  br i1 %17, label %18, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
+  %18 = add nuw nsw i64 %16, 8
+  br i1 %17, label %19, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
 
-18:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %19 = add nuw nsw i64 %16, 8
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #18
-  br label %24
+19:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #18
+  br label %22
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %21 = add nuw nsw i64 %16, 15
-  %22 = and i64 %21, 34359738360
-  %23 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %22, ptr noundef nonnull @_ZTIc)
-  br label %24
+  %21 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %18, ptr noundef nonnull @_ZTIc)
+  br label %22
 
-24:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %18
-  %.018.i = phi ptr [ %20, %18 ], [ %23, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
+22:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %19
+  %.018.i = phi ptr [ %20, %19 ], [ %21, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
   store ptr %11, ptr %.018.i, align 8, !tbaa !104
   store i32 %.0.i.i, ptr %3, align 4, !tbaa !102
-  %25 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  store ptr %25, ptr %7, align 8, !tbaa !103
-  %26 = load i32, ptr %0, align 8, !tbaa !100
-  %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %28, label %31
+  %23 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  store ptr %23, ptr %7, align 8, !tbaa !103
+  %24 = load i32, ptr %0, align 8, !tbaa !100
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %26, label %29
 
-28:                                               ; preds = %24
-  %29 = zext nneg i32 %26 to i64
-  %30 = shl nuw nsw i64 %29, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 8 %8, i64 %30, i1 false)
-  br label %31
+26:                                               ; preds = %22
+  %27 = zext nneg i32 %24 to i64
+  %28 = shl nuw nsw i64 %27, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %8, i64 %28, i1 false)
+  br label %29
 
-31:                                               ; preds = %28, %24
-  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit, label %32
+29:                                               ; preds = %26, %22
+  br i1 %6, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit, label %30
 
-32:                                               ; preds = %31
-  %33 = load ptr, ptr %9, align 8, !tbaa !104
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
+30:                                               ; preds = %29
+  %31 = load ptr, ptr %9, align 8, !tbaa !104
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
 
-35:                                               ; preds = %32
+33:                                               ; preds = %30
   tail call void @_ZdlPv(ptr noundef nonnull %9) #19
   br label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit: ; preds = %35, %32, %31, %1
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load ptr, ptr %36, align 8, !tbaa !103
-  %38 = zext i32 %2 to i64
-  %39 = getelementptr inbounds nuw double, ptr %37, i64 %38
-  %40 = add i32 %2, 1
-  store i32 %40, ptr %0, align 8, !tbaa !100
-  ret ptr %39
+_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit: ; preds = %33, %30, %29, %1
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !103
+  %36 = zext i32 %2 to i64
+  %37 = getelementptr inbounds nuw double, ptr %35, i64 %36
+  %38 = add i32 %2, 1
+  store i32 %38, ptr %0, align 8, !tbaa !100
+  ret ptr %37
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
@@ -13674,7 +13622,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIdE5ClearEv(ptr n
 define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8, !tbaa !100
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %54, label %4
+  br i1 %.not, label %52, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 8, !tbaa !100
@@ -13709,65 +13657,63 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
-  br i1 %23, label %24, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
+  %24 = add nuw nsw i64 %22, 8
+  br i1 %23, label %25, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
 
-24:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %25 = add nuw nsw i64 %22, 8
-  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #18
-  br label %30
+25:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
+  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #18
+  br label %28
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %27 = add nuw nsw i64 %22, 15
-  %28 = and i64 %27, 34359738360
-  %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
-  br label %30
+  %27 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %24, ptr noundef nonnull @_ZTIc)
+  br label %28
 
-30:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %24
-  %.018.i = phi ptr [ %26, %24 ], [ %29, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
+28:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %25
+  %.018.i = phi ptr [ %26, %25 ], [ %27, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
   store ptr %15, ptr %.018.i, align 8, !tbaa !104
   store i32 %.0.i.i, ptr %7, align 4, !tbaa !102
-  %31 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  store ptr %31, ptr %11, align 8, !tbaa !103
-  %32 = load i32, ptr %0, align 8, !tbaa !100
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %37
+  %29 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  store ptr %29, ptr %11, align 8, !tbaa !103
+  %30 = load i32, ptr %0, align 8, !tbaa !100
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %35
 
-34:                                               ; preds = %30
-  %35 = zext nneg i32 %32 to i64
-  %36 = shl nuw nsw i64 %35, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 8 %12, i64 %36, i1 false)
-  br label %37
+32:                                               ; preds = %28
+  %33 = zext nneg i32 %30 to i64
+  %34 = shl nuw nsw i64 %33, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %12, i64 %34, i1 false)
+  br label %35
 
-37:                                               ; preds = %34, %30
-  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit, label %38
+35:                                               ; preds = %32, %28
+  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit, label %36
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %13, align 8, !tbaa !104
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %13, align 8, !tbaa !104
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
 
-41:                                               ; preds = %38
+39:                                               ; preds = %36
   tail call void @_ZdlPv(ptr noundef nonnull %13) #19
   br label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit: ; preds = %4, %37, %38, %41
-  %42 = load i32, ptr %1, align 8, !tbaa !100
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !103
-  %45 = load i32, ptr %0, align 8, !tbaa !100
-  %46 = add nsw i32 %45, %42
-  store i32 %46, ptr %0, align 8, !tbaa !100
-  %47 = sext i32 %5 to i64
-  %48 = getelementptr inbounds double, ptr %44, i64 %47
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %50 = load ptr, ptr %49, align 8, !tbaa !103
-  %51 = load i32, ptr %1, align 8, !tbaa !100
-  %52 = sext i32 %51 to i64
-  %53 = shl nsw i64 %52, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %48, ptr nonnull align 8 %50, i64 %53, i1 false)
-  br label %54
+_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit: ; preds = %4, %35, %36, %39
+  %40 = load i32, ptr %1, align 8, !tbaa !100
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !103
+  %43 = load i32, ptr %0, align 8, !tbaa !100
+  %44 = add nsw i32 %43, %40
+  store i32 %44, ptr %0, align 8, !tbaa !100
+  %45 = sext i32 %5 to i64
+  %46 = getelementptr inbounds double, ptr %42, i64 %45
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !103
+  %49 = load i32, ptr %1, align 8, !tbaa !100
+  %50 = sext i32 %49 to i64
+  %51 = shl nsw i64 %50, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %46, ptr nonnull align 8 %48, i64 %51, i1 false)
+  br label %52
 
-54:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit, %2
+52:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit, %2
   ret void
 }
 
@@ -13856,67 +13802,65 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i: ; preds = %19, %17
   %21 = zext nneg i32 %.0.i.i to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = icmp eq ptr %15, null
-  br i1 %23, label %24, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
+  %24 = add nuw nsw i64 %22, 8
+  br i1 %23, label %25, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
 
-24:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %25 = add nuw nsw i64 %22, 8
-  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #18
-  br label %30
+25:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
+  %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #18
+  br label %28
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i
-  %27 = add nuw nsw i64 %22, 15
-  %28 = and i64 %27, 34359738360
-  %29 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %28, ptr noundef nonnull @_ZTIc)
-  br label %30
+  %27 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %15, i64 noundef %24, ptr noundef nonnull @_ZTIc)
+  br label %28
 
-30:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %24
-  %.018.i = phi ptr [ %26, %24 ], [ %29, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
+28:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %25
+  %.018.i = phi ptr [ %26, %25 ], [ %27, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ]
   store ptr %15, ptr %.018.i, align 8, !tbaa !104
   store i32 %.0.i.i, ptr %7, align 4, !tbaa !102
-  %31 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
-  store ptr %31, ptr %11, align 8, !tbaa !103
-  %32 = load i32, ptr %0, align 8, !tbaa !100
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %34, label %37
+  %29 = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  store ptr %29, ptr %11, align 8, !tbaa !103
+  %30 = load i32, ptr %0, align 8, !tbaa !100
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %32, label %35
 
-34:                                               ; preds = %30
-  %35 = zext nneg i32 %32 to i64
-  %36 = shl nuw nsw i64 %35, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr nonnull align 8 %12, i64 %36, i1 false)
-  br label %37
+32:                                               ; preds = %28
+  %33 = zext nneg i32 %30 to i64
+  %34 = shl nuw nsw i64 %33, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %12, i64 %34, i1 false)
+  br label %35
 
-37:                                               ; preds = %34, %30
-  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit, label %38
+35:                                               ; preds = %32, %28
+  br i1 %10, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit, label %36
 
-38:                                               ; preds = %37
-  %39 = load ptr, ptr %13, align 8, !tbaa !104
-  %40 = icmp eq ptr %39, null
-  br i1 %40, label %41, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
+36:                                               ; preds = %35
+  %37 = load ptr, ptr %13, align 8, !tbaa !104
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
 
-41:                                               ; preds = %38
+39:                                               ; preds = %36
   tail call void @_ZdlPv(ptr noundef nonnull %13) #19
   br label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
 
-_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit: ; preds = %6, %37, %38, %41
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !103
-  %44 = load i32, ptr %0, align 8, !tbaa !100
-  %45 = sext i32 %1 to i64
-  %46 = getelementptr inbounds double, ptr %43, i64 %45
-  %47 = load double, ptr %2, align 8, !tbaa !106
-  %.not6.i.i.i = icmp eq i32 %44, %1
+_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit: ; preds = %6, %35, %36, %39
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !103
+  %42 = load i32, ptr %0, align 8, !tbaa !100
+  %43 = sext i32 %1 to i64
+  %44 = getelementptr inbounds double, ptr %41, i64 %43
+  %45 = load double, ptr %2, align 8, !tbaa !106
+  %.not6.i.i.i = icmp eq i32 %42, %1
   br i1 %.not6.i.i.i, label %_ZSt4fillIPddEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i.preheader
 
 .lr.ph.i.i.i.preheader:                           ; preds = %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit
-  %48 = sext i32 %44 to i64
-  %49 = getelementptr inbounds double, ptr %43, i64 %48
+  %46 = sext i32 %42 to i64
+  %47 = getelementptr inbounds double, ptr %41, i64 %46
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
-  %.07.i.i.i = phi ptr [ %50, %.lr.ph.i.i.i ], [ %49, %.lr.ph.i.i.i.preheader ]
-  store double %47, ptr %.07.i.i.i, align 8, !tbaa !106
-  %50 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 8
-  %.not.i.i.i = icmp eq ptr %50, %46
+  %.07.i.i.i = phi ptr [ %48, %.lr.ph.i.i.i ], [ %47, %.lr.ph.i.i.i.preheader ]
+  store double %45, ptr %.07.i.i.i, align 8, !tbaa !106
+  %48 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 8
+  %.not.i.i.i = icmp eq ptr %48, %44
   br i1 %.not.i.i.i, label %_ZSt4fillIPddEvT_S1_RKT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !110
 
 _ZSt4fillIPddEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i, %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit, %3
@@ -13942,7 +13886,7 @@ define weak_odr hidden noundef ptr @_ZNK6google8protobuf13RepeatedFieldIdE4dataE
 define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIdE4SwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::protobuf::RepeatedField.32", align 16
   %4 = icmp eq ptr %0, %1
-  br i1 %4, label %117, label %5
+  br i1 %4, label %113, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -13968,7 +13912,7 @@ define weak_odr hidden void @_ZN6google8protobuf13RepeatedFieldIdE4SwapEPS2_(ptr
   %.0.copyload.i.i.i = load i128, ptr %0, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
   store i128 %.0.copyload.i.i.i, ptr %1, align 1
-  br label %117
+  br label %113
 
 22:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -14010,175 +13954,171 @@ _ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i: ; preds = %39, %
   %41 = zext nneg i32 %.0.i.i.i to i64
   %42 = shl nuw nsw i64 %41, 3
   %43 = icmp eq ptr %35, null
-  br i1 %43, label %44, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
+  %44 = add nuw nsw i64 %42, 8
+  br i1 %43, label %45, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
 
-44:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %45 = add nuw nsw i64 %42, 8
-  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #18
-          to label %.noexc unwind label %115
+45:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
+  %46 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %44) #18
+          to label %.noexc unwind label %111
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i
-  %47 = add nuw nsw i64 %42, 15
-  %48 = and i64 %47, 34359738360
-  %49 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %48, ptr noundef nonnull @_ZTIc)
-          to label %.noexc unwind label %115
+  %47 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef %44, ptr noundef nonnull @_ZTIc)
+          to label %.noexc unwind label %111
 
-.noexc:                                           ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %44
-  %.018.i.i = phi ptr [ %46, %44 ], [ %49, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i ]
+.noexc:                                           ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %45
+  %.018.i.i = phi ptr [ %46, %45 ], [ %47, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i ]
   store ptr %35, ptr %.018.i.i, align 8, !tbaa !104
   store i32 %.0.i.i.i, ptr %27, align 4, !tbaa !102
-  %50 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
-  store ptr %50, ptr %31, align 8, !tbaa !103
-  %51 = load i32, ptr %3, align 16, !tbaa !100
-  %52 = icmp sgt i32 %51, 0
-  br i1 %52, label %53, label %56
+  %48 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 8
+  store ptr %48, ptr %31, align 8, !tbaa !103
+  %49 = load i32, ptr %3, align 16, !tbaa !100
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %51, label %54
 
-53:                                               ; preds = %.noexc
-  %54 = zext nneg i32 %51 to i64
-  %55 = shl nuw nsw i64 %54, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %50, ptr nonnull align 8 %32, i64 %55, i1 false)
-  br label %56
+51:                                               ; preds = %.noexc
+  %52 = zext nneg i32 %49 to i64
+  %53 = shl nuw nsw i64 %52, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %48, ptr nonnull align 8 %32, i64 %53, i1 false)
+  br label %54
 
-56:                                               ; preds = %53, %.noexc
-  br i1 %30, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i, label %57
+54:                                               ; preds = %51, %.noexc
+  br i1 %30, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i, label %55
 
-57:                                               ; preds = %56
-  %58 = load ptr, ptr %33, align 8, !tbaa !104
-  %59 = icmp eq ptr %58, null
-  br i1 %59, label %60, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i
+55:                                               ; preds = %54
+  %56 = load ptr, ptr %33, align 8, !tbaa !104
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %58, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i
 
-60:                                               ; preds = %57
+58:                                               ; preds = %55
   call void @_ZdlPv(ptr noundef nonnull %33) #19
   %.pre = load i32, ptr %3, align 16, !tbaa !100
   br label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i
 
-_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i: ; preds = %60, %57, %56, %24
-  %61 = phi i32 [ %.pre, %60 ], [ %51, %57 ], [ %51, %56 ], [ %25, %24 ]
-  %62 = load i32, ptr %0, align 8, !tbaa !100
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !103
-  %65 = add nsw i32 %61, %62
-  store i32 %65, ptr %3, align 16, !tbaa !100
-  %66 = sext i32 %25 to i64
-  %67 = getelementptr inbounds double, ptr %64, i64 %66
-  %68 = load ptr, ptr %9, align 8, !tbaa !103
-  %69 = sext i32 %62 to i64
-  %70 = shl nsw i64 %69, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %67, ptr nonnull align 8 %68, i64 %70, i1 false)
+_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i: ; preds = %58, %55, %54, %24
+  %59 = phi i32 [ %.pre, %58 ], [ %49, %55 ], [ %49, %54 ], [ %25, %24 ]
+  %60 = load i32, ptr %0, align 8, !tbaa !100
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !103
+  %63 = add nsw i32 %59, %60
+  store i32 %63, ptr %3, align 16, !tbaa !100
+  %64 = sext i32 %25 to i64
+  %65 = getelementptr inbounds double, ptr %62, i64 %64
+  %66 = load ptr, ptr %9, align 8, !tbaa !103
+  %67 = sext i32 %60 to i64
+  %68 = shl nsw i64 %67, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %65, ptr nonnull align 8 %66, i64 %68, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit: ; preds = %22, %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i
   store i32 0, ptr %0, align 8, !tbaa !100
-  %71 = load i32, ptr %1, align 8, !tbaa !100
-  %.not.i.i12 = icmp eq i32 %71, 0
-  br i1 %.not.i.i12, label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit, label %72
+  %69 = load i32, ptr %1, align 8, !tbaa !100
+  %.not.i.i12 = icmp eq i32 %69, 0
+  br i1 %.not.i.i12, label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit, label %70
 
-72:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit
-  %73 = load i32, ptr %6, align 4, !tbaa !102
-  %.not.i.i.i = icmp slt i32 %73, %71
-  br i1 %.not.i.i.i, label %74, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i
+70:                                               ; preds = %_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit
+  %71 = load i32, ptr %6, align 4, !tbaa !102
+  %.not.i.i.i = icmp slt i32 %71, %69
+  br i1 %.not.i.i.i, label %72, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i
 
-74:                                               ; preds = %72
-  %75 = icmp slt i32 %73, 1
-  %76 = load ptr, ptr %9, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 -8
-  %78 = icmp eq i32 %73, 0
-  %.in.i.i.i.i = select i1 %78, ptr %9, ptr %77
-  %79 = load ptr, ptr %.in.i.i.i.i, align 8, !tbaa !14
-  %80 = icmp slt i32 %71, 4
-  br i1 %80, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i, label %81
+72:                                               ; preds = %70
+  %73 = icmp slt i32 %71, 1
+  %74 = load ptr, ptr %9, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 -8
+  %76 = icmp eq i32 %71, 0
+  %.in.i.i.i.i = select i1 %76, ptr %9, ptr %75
+  %77 = load ptr, ptr %.in.i.i.i.i, align 8, !tbaa !14
+  %78 = icmp slt i32 %69, 4
+  br i1 %78, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i, label %79
 
-81:                                               ; preds = %74
-  %82 = icmp slt i32 %73, 1073741824
-  br i1 %82, label %83, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
+79:                                               ; preds = %72
+  %80 = icmp slt i32 %71, 1073741824
+  br i1 %80, label %81, label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
-83:                                               ; preds = %81
-  %84 = shl nsw i32 %73, 1
-  %.sroa.speculated.i.i.i.i = call i32 @llvm.smax.i32(i32 %84, i32 %71)
+81:                                               ; preds = %79
+  %82 = shl nsw i32 %71, 1
+  %.sroa.speculated.i.i.i.i = call i32 @llvm.smax.i32(i32 %82, i32 %69)
   br label %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
 
-_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %83, %81, %74
-  %.0.i.i.i.i = phi i32 [ 4, %74 ], [ %.sroa.speculated.i.i.i.i, %83 ], [ 2147483647, %81 ]
-  %85 = zext nneg i32 %.0.i.i.i.i to i64
-  %86 = shl nuw nsw i64 %85, 3
-  %87 = icmp eq ptr %79, null
-  br i1 %87, label %88, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
+_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i: ; preds = %81, %79, %72
+  %.0.i.i.i.i = phi i32 [ 4, %72 ], [ %.sroa.speculated.i.i.i.i, %81 ], [ 2147483647, %79 ]
+  %83 = zext nneg i32 %.0.i.i.i.i to i64
+  %84 = shl nuw nsw i64 %83, 3
+  %85 = icmp eq ptr %77, null
+  %86 = add nuw nsw i64 %84, 8
+  br i1 %85, label %87, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i
 
-88:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %89 = add nuw nsw i64 %86, 8
-  %90 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %89) #18
-          to label %.noexc13 unwind label %115
+87:                                               ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
+  %88 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %86) #18
+          to label %.noexc13 unwind label %111
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i: ; preds = %_ZN6google8protobuf8internal20CalculateReserveSizeEii.exit.i.i.i
-  %91 = add nuw nsw i64 %86, 15
-  %92 = and i64 %91, 34359738360
-  %93 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %79, i64 noundef %92, ptr noundef nonnull @_ZTIc)
-          to label %.noexc13 unwind label %115
+  %89 = invoke noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %77, i64 noundef %86, ptr noundef nonnull @_ZTIc)
+          to label %.noexc13 unwind label %111
 
-.noexc13:                                         ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %88
-  %.018.i.i.i = phi ptr [ %90, %88 ], [ %93, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
-  store ptr %79, ptr %.018.i.i.i, align 8, !tbaa !104
+.noexc13:                                         ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %87
+  %.018.i.i.i = phi ptr [ %88, %87 ], [ %89, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i ]
+  store ptr %77, ptr %.018.i.i.i, align 8, !tbaa !104
   store i32 %.0.i.i.i.i, ptr %6, align 4, !tbaa !102
-  %94 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
-  store ptr %94, ptr %9, align 8, !tbaa !103
-  %95 = load i32, ptr %0, align 8, !tbaa !100
-  %96 = icmp sgt i32 %95, 0
-  br i1 %96, label %97, label %100
+  %90 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
+  store ptr %90, ptr %9, align 8, !tbaa !103
+  %91 = load i32, ptr %0, align 8, !tbaa !100
+  %92 = icmp sgt i32 %91, 0
+  br i1 %92, label %93, label %96
 
-97:                                               ; preds = %.noexc13
-  %98 = zext nneg i32 %95 to i64
-  %99 = shl nuw nsw i64 %98, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %94, ptr nonnull align 8 %76, i64 %99, i1 false)
-  br label %100
+93:                                               ; preds = %.noexc13
+  %94 = zext nneg i32 %91 to i64
+  %95 = shl nuw nsw i64 %94, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %90, ptr nonnull align 8 %74, i64 %95, i1 false)
+  br label %96
 
-100:                                              ; preds = %97, %.noexc13
-  br i1 %75, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i, label %101
+96:                                               ; preds = %93, %.noexc13
+  br i1 %73, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i, label %97
 
-101:                                              ; preds = %100
-  %102 = load ptr, ptr %77, align 8, !tbaa !104
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %104, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i
+97:                                               ; preds = %96
+  %98 = load ptr, ptr %75, align 8, !tbaa !104
+  %99 = icmp eq ptr %98, null
+  br i1 %99, label %100, label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i
 
-104:                                              ; preds = %101
-  call void @_ZdlPv(ptr noundef nonnull %77) #19
+100:                                              ; preds = %97
+  call void @_ZdlPv(ptr noundef nonnull %75) #19
   br label %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i
 
-_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i: ; preds = %104, %101, %100, %72
-  %105 = load i32, ptr %1, align 8, !tbaa !100
-  %106 = load ptr, ptr %9, align 8, !tbaa !103
-  %107 = load i32, ptr %0, align 8, !tbaa !100
-  %108 = add nsw i32 %107, %105
-  store i32 %108, ptr %0, align 8, !tbaa !100
-  %109 = load ptr, ptr %16, align 8, !tbaa !103
-  %110 = load i32, ptr %1, align 8, !tbaa !100
-  %111 = sext i32 %110 to i64
-  %112 = shl nsw i64 %111, 3
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %106, ptr nonnull align 8 %109, i64 %112, i1 false)
+_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i: ; preds = %100, %97, %96, %70
+  %101 = load i32, ptr %1, align 8, !tbaa !100
+  %102 = load ptr, ptr %9, align 8, !tbaa !103
+  %103 = load i32, ptr %0, align 8, !tbaa !100
+  %104 = add nsw i32 %103, %101
+  store i32 %104, ptr %0, align 8, !tbaa !100
+  %105 = load ptr, ptr %16, align 8, !tbaa !103
+  %106 = load i32, ptr %1, align 8, !tbaa !100
+  %107 = sext i32 %106 to i64
+  %108 = shl nsw i64 %107, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %102, ptr nonnull align 8 %105, i64 %108, i1 false)
   br label %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit
 
 _ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit: ; preds = %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit.i.i, %_ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit
-  %113 = icmp eq ptr %1, %3
-  br i1 %113, label %_ZN6google8protobuf13RepeatedFieldIdE15UnsafeArenaSwapEPS2_.exit, label %114
+  %109 = icmp eq ptr %1, %3
+  br i1 %109, label %_ZN6google8protobuf13RepeatedFieldIdE15UnsafeArenaSwapEPS2_.exit, label %110
 
-114:                                              ; preds = %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit
+110:                                              ; preds = %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit
   %.0.copyload.i.i.i.i = load i128, ptr %1, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 16, i1 false)
   store i128 %.0.copyload.i.i.i.i, ptr %3, align 16
   br label %_ZN6google8protobuf13RepeatedFieldIdE15UnsafeArenaSwapEPS2_.exit
 
-_ZN6google8protobuf13RepeatedFieldIdE15UnsafeArenaSwapEPS2_.exit: ; preds = %114, %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit
+_ZN6google8protobuf13RepeatedFieldIdE15UnsafeArenaSwapEPS2_.exit: ; preds = %110, %_ZN6google8protobuf13RepeatedFieldIdE8CopyFromERKS2_.exit
   call void @_ZN6google8protobuf13RepeatedFieldIdED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %117
+  br label %113
 
-115:                                              ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %88, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %44
-  %116 = landingpad { ptr, i32 }
+111:                                              ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i.i, %87, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %45
+  %112 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google8protobuf13RepeatedFieldIdED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  resume { ptr, i32 } %116
+  resume { ptr, i32 } %112
 
-117:                                              ; preds = %2, %_ZN6google8protobuf13RepeatedFieldIdE15UnsafeArenaSwapEPS2_.exit, %21
+113:                                              ; preds = %2, %_ZN6google8protobuf13RepeatedFieldIdE15UnsafeArenaSwapEPS2_.exit, %21
   ret void
 }
 

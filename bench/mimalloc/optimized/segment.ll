@@ -2036,7 +2036,7 @@ define internal fastcc ptr @mi_segment_alloc(i64 noundef %0, i32 noundef range(i
   %9 = lshr i64 4194304, %2
   %.051 = select i1 %8, i64 1, i64 %9
   %10 = mul nuw nsw i64 %.051, 80
-  %11 = add nuw nsw i64 %10, 431
+  %11 = add nuw nsw i64 %10, 416
   %12 = and i64 %11, 32512
   %13 = icmp eq i64 %0, 0
   %14 = add i64 %0, 262143

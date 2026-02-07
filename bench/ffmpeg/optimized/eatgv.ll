@@ -476,7 +476,7 @@ unpack.exit:                                      ; preds = %181, %197, %210, %1
 
 283:                                              ; preds = %277, %273
   %284 = mul nuw nsw i32 %250, 20
-  %285 = add nuw nsw i32 %284, 31
+  %285 = add nuw nsw i32 %284, 28
   %286 = and i32 %285, 4194272
   %287 = ptrtoint ptr %260 to i64
   %288 = sub i64 %14, %287

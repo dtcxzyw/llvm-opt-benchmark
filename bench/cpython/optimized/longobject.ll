@@ -2505,7 +2505,7 @@ define dso_local ptr @_PyLong_FromByteArray(ptr noundef readonly captures(none) 
 
 26:                                               ; preds = %19
   %27 = shl nuw nsw i64 %.080, 3
-  %28 = add nuw nsw i64 %27, 29
+  %28 = add nuw nsw i64 %27, 28
   %29 = udiv i64 %28, 30
   %30 = tail call fastcc ptr @long_alloc(i64 noundef %29)
   %31 = icmp eq ptr %30, null

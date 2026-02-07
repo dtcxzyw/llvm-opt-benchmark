@@ -8433,7 +8433,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23XHeapIteratorOopCl
   %26 = select i1 %25, i32 16, i32 20
   %27 = load i8, ptr @UseCompressedOops, align 1
   %28 = trunc i8 %27 to i1
-  %narrow.i.i.i.i.i = add nuw nsw i32 %26, 7
+  %narrow.i.i.i.i.i = add nuw nsw i32 %26, 4
   %29 = and i32 %narrow.i.i.i.i.i, 24
   %30 = select i1 %28, i32 %26, i32 %29
   %31 = ptrtoint ptr %1 to i64
@@ -11120,7 +11120,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI23XHeapIteratorOopCl
   %26 = select i1 %25, i32 16, i32 20
   %27 = load i8, ptr @UseCompressedOops, align 1
   %28 = trunc i8 %27 to i1
-  %narrow.i.i.i.i.i = add nuw nsw i32 %26, 7
+  %narrow.i.i.i.i.i = add nuw nsw i32 %26, 4
   %29 = and i32 %narrow.i.i.i.i.i, 24
   %30 = select i1 %28, i32 %26, i32 %29
   %31 = ptrtoint ptr %1 to i64

@@ -5578,7 +5578,7 @@ bf_set_nan.exit83:                                ; preds = %54, %57
 
 65:                                               ; preds = %51
   %66 = shl i64 %2, 1
-  %67 = add i64 %66, 131
+  %67 = add i64 %66, 130
   %68 = lshr i64 %67, 7
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %70 = load i64, ptr %69, align 8, !tbaa !32

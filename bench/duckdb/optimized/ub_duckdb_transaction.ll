@@ -6913,7 +6913,7 @@ define void @_ZN6duckdb15DuckTransaction10PushDeleteERNS_9DataTableERNS_17RowVer
 
 14:                                               ; preds = %.lr.ph
   %15 = shl i64 %5, 1
-  %16 = add i64 %15, 63
+  %16 = add i64 %15, 62
   %17 = and i64 %16, -8
   br label %.critedge
 

@@ -13638,9 +13638,8 @@ define hidden void @"_ZN4core3ptr122drop_in_place$LT$alloc..sync..Weak$LT$$u5b$p
 8:                                                ; preds = %4
   fence acquire
   %9 = mul nuw nsw i64 %.val1, 48
-  %10 = add nuw i64 %9, 31
-  %11 = and i64 %10, -16
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef %11, i64 noundef range(i64 1, -9223372036854775807) 16) #21
+  %10 = add nuw i64 %9, 16
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef %10, i64 noundef range(i64 1, -9223372036854775807) 16) #21
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha5c9c8bdf2d9282cE.exit"
 
 "_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha5c9c8bdf2d9282cE.exit": ; preds = %1, %4, %8
@@ -57107,9 +57106,8 @@ define hidden void @"_ZN4core3ptr88drop_in_place$LT$alloc..sync..Weak$LT$$u5b$us
 8:                                                ; preds = %4
   fence acquire
   %9 = shl nuw nsw i64 %.val1, 3
-  %10 = add nuw i64 %9, 23
-  %11 = and i64 %10, -8
-  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef %11, i64 noundef range(i64 1, -9223372036854775807) 8) #21
+  %10 = add nuw i64 %9, 16
+  tail call void @_RNvCsjH7bwORMyv9_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef %10, i64 noundef range(i64 1, -9223372036854775807) 8) #21
   br label %"_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b5dba60eafd73b0E.exit"
 
 "_ZN72_$LT$alloc..sync..Weak$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h3b5dba60eafd73b0E.exit": ; preds = %1, %4, %8

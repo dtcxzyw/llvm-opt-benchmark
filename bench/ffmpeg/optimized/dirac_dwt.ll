@@ -3131,7 +3131,7 @@ define internal void @horizontal_compose_daub97i_8bit(ptr noundef captures(none)
   %93 = load i16, ptr %58, align 2, !tbaa !39
   %94 = sext i16 %93 to i32
   %.neg = mul i32 %.075.lcssa, 536857918
-  %95 = add i32 %.neg, 536868863
+  %95 = add i32 %.neg, 536868862
   %96 = lshr i32 %95, 12
   %97 = sub nsw i32 %96, %94
   %98 = lshr i32 %97, 1
@@ -4881,7 +4881,7 @@ define internal void @horizontal_compose_daub97i_10bit(ptr noundef captures(none
   %.075.lcssa = phi i32 [ %54, %._crit_edge ], [ %66, %.lr.ph84 ]
   %75 = load i32, ptr %48, align 4, !tbaa !70
   %.neg = mul i32 %.075.lcssa, -12994
-  %76 = add i32 %.neg, -2049
+  %76 = add i32 %.neg, -2050
   %77 = ashr i32 %76, 12
   %78 = sub i32 %77, %75
   %79 = lshr i32 %78, 1
@@ -6630,7 +6630,7 @@ define internal void @horizontal_compose_daub97i_12bit(ptr noundef captures(none
   %.075.lcssa = phi i32 [ %54, %._crit_edge ], [ %66, %.lr.ph84 ]
   %75 = load i32, ptr %48, align 4, !tbaa !70
   %.neg = mul i32 %.075.lcssa, -12994
-  %76 = add i32 %.neg, -2049
+  %76 = add i32 %.neg, -2050
   %77 = ashr i32 %76, 12
   %78 = sub i32 %77, %75
   %79 = lshr i32 %78, 1

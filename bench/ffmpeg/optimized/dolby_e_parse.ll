@@ -293,7 +293,7 @@ define range(i32 -1094995529, 1) i32 @ff_dolby_e_parse_header(ptr noundef %0, pt
   %.sink = phi i32 [ 24, %6 ], [ 20, %21 ], [ 16, %24 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 %.sink, ptr %31, align 4, !tbaa !15
-  %32 = add nuw nsw i32 %.sink, 7
+  %32 = add nuw nsw i32 %.sink, 4
   %33 = lshr i32 %32, 3
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %33, ptr %34, align 8, !tbaa !27

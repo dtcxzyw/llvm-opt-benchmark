@@ -378,7 +378,7 @@ define dso_local void @ParsePrepareRecord(i8 noundef zeroext %0, ptr noundef %1,
   %42 = load i32, ptr %19, align 4
   %43 = sext i32 %42 to i64
   %44 = shl nsw i64 %43, 2
-  %45 = add nsw i64 %44, 7
+  %45 = add nsw i64 %44, 4
   %46 = and i64 %45, -8
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -386,7 +386,7 @@ define dso_local void @ParsePrepareRecord(i8 noundef zeroext %0, ptr noundef %1,
   %49 = load i32, ptr %22, align 8
   %50 = sext i32 %49 to i64
   %51 = mul nsw i64 %50, 12
-  %52 = add nsw i64 %51, 7
+  %52 = add nsw i64 %51, 4
   %53 = and i64 %52, -8
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 288
@@ -394,7 +394,7 @@ define dso_local void @ParsePrepareRecord(i8 noundef zeroext %0, ptr noundef %1,
   %56 = load i32, ptr %25, align 4
   %57 = sext i32 %56 to i64
   %58 = mul nsw i64 %57, 12
-  %59 = add nsw i64 %58, 7
+  %59 = add nsw i64 %58, 4
   %60 = and i64 %59, -8
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -764,21 +764,21 @@ xact_desc_abort.exit:                             ; preds = %142, %135
   store ptr %187, ptr %188, align 8
   %189 = sext i32 %169 to i64
   %190 = shl nsw i64 %189, 2
-  %191 = add nsw i64 %190, 7
+  %191 = add nsw i64 %190, 4
   %192 = and i64 %191, -8
   %193 = getelementptr inbounds nuw i8, ptr %187, i64 %192
   %194 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store ptr %193, ptr %194, align 8
   %195 = sext i32 %172 to i64
   %196 = mul nsw i64 %195, 12
-  %197 = add nsw i64 %196, 7
+  %197 = add nsw i64 %196, 4
   %198 = and i64 %197, -8
   %199 = getelementptr inbounds nuw i8, ptr %193, i64 %198
   %200 = getelementptr inbounds nuw i8, ptr %3, i64 288
   store ptr %199, ptr %200, align 8
   %201 = sext i32 %175 to i64
   %202 = mul nsw i64 %201, 12
-  %203 = add nsw i64 %202, 7
+  %203 = add nsw i64 %202, 4
   %204 = and i64 %203, -8
   %205 = getelementptr inbounds nuw i8, ptr %199, i64 %204
   %206 = getelementptr inbounds nuw i8, ptr %3, i64 56

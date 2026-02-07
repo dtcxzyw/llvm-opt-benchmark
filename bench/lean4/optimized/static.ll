@@ -5322,7 +5322,7 @@ define noalias ptr @mi_wcsdup(ptr noundef readonly captures(address_is_null) %0)
   br i1 %11, label %12, label %mi_malloc.exit, !prof !24
 
 12:                                               ; preds = %6
-  %13 = add nsw i64 %7, 9
+  %13 = add nsw i64 %7, 8
   %14 = lshr i64 %13, 3
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 248
   %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
@@ -7273,7 +7273,7 @@ mi_option_get_size.exit.i:                        ; preds = %34, %31
   %41 = trunc nuw i8 %40 to i1
   %42 = lshr exact i64 %37, 2
   %spec.select.i = select i1 %41, i64 %37, i64 %42
-  %43 = add i64 %spec.select.i, 33554431
+  %43 = add i64 %spec.select.i, 33554176
   %44 = and i64 %43, -33554432
   %45 = icmp samesign ugt i64 %29, 7
   br i1 %45, label %46, label %52
@@ -34178,7 +34178,7 @@ mi_option_is_enabled.exit:                        ; preds = %.thread, %39
   br i1 %.not.i, label %._crit_edge.i, label %46
 
 46:                                               ; preds = %42
-  %47 = add i64 %20, 33554431
+  %47 = add i64 %.0.i.i, 33554431
   %48 = and i64 %47, -33554432
   %49 = sub i64 %48, %20
   %50 = add i64 %49, %0

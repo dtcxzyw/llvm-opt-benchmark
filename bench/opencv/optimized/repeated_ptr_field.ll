@@ -32,7 +32,7 @@ define hidden noundef nonnull ptr @_ZN6google8protobuf8internal20RepeatedPtrFiel
   %.not = icmp slt i32 %7, %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !12
-  br i1 %.not, label %.critedge30, label %41
+  br i1 %.not, label %.critedge30, label %39
 
 .critedge30:                                      ; preds = %2
   %10 = load ptr, ptr %0, align 8, !tbaa !13
@@ -42,67 +42,65 @@ define hidden noundef nonnull ptr @_ZN6google8protobuf8internal20RepeatedPtrFiel
   %14 = zext nneg i32 %13 to i64
   %15 = shl nuw nsw i64 %14, 3
   %16 = icmp eq ptr %10, null
-  br i1 %16, label %17, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit
+  %17 = add nuw nsw i64 %15, 8
+  br i1 %16, label %18, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit
 
-17:                                               ; preds = %.critedge30
-  %18 = add nuw nsw i64 %15, 8
-  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #11
-  br label %23
+18:                                               ; preds = %.critedge30
+  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #11
+  br label %21
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit: ; preds = %.critedge30
-  %20 = add nuw nsw i64 %15, 15
-  %21 = and i64 %20, 34359738360
-  %22 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %21, ptr noundef nonnull @_ZTIc)
-  br label %23
+  %20 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef %17, ptr noundef nonnull @_ZTIc)
+  br label %21
 
-23:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit, %17
-  %storemerge = phi ptr [ %22, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit ], [ %19, %17 ]
+21:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit, %18
+  %storemerge = phi ptr [ %20, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit ], [ %19, %18 ]
   store ptr %storemerge, ptr %8, align 8, !tbaa !12
   store i32 %13, ptr %6, align 4, !tbaa !11
   %.not28 = icmp eq ptr %9, null
-  br i1 %.not28, label %34, label %24
+  br i1 %.not28, label %32, label %22
 
-24:                                               ; preds = %23
-  %25 = load i32, ptr %9, align 8, !tbaa !14
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %27, label %34
+22:                                               ; preds = %21
+  %23 = load i32, ptr %9, align 8, !tbaa !14
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %25, label %32
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %storemerge, i64 8
-  %29 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %30 = zext nneg i32 %25 to i64
-  %31 = shl nuw nsw i64 %30, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 8 %29, i64 %31, i1 false)
-  %32 = load i32, ptr %9, align 8, !tbaa !14
-  %33 = load ptr, ptr %8, align 8, !tbaa !12
-  store i32 %32, ptr %33, align 8, !tbaa !14
-  br label %35
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %storemerge, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %28 = zext nneg i32 %23 to i64
+  %29 = shl nuw nsw i64 %28, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 8 %27, i64 %29, i1 false)
+  %30 = load i32, ptr %9, align 8, !tbaa !14
+  %31 = load ptr, ptr %8, align 8, !tbaa !12
+  store i32 %30, ptr %31, align 8, !tbaa !14
+  br label %33
 
-34:                                               ; preds = %24, %23
+32:                                               ; preds = %22, %21
   store i32 0, ptr %storemerge, align 8, !tbaa !14
-  br label %35
+  br label %33
 
-35:                                               ; preds = %34, %27
-  %36 = phi ptr [ %storemerge, %34 ], [ %33, %27 ]
-  br i1 %16, label %37, label %38
+33:                                               ; preds = %32, %25
+  %34 = phi ptr [ %storemerge, %32 ], [ %31, %25 ]
+  br i1 %16, label %35, label %36
 
-37:                                               ; preds = %35
+35:                                               ; preds = %33
   tail call void @_ZdlPv(ptr noundef %9) #12
   %.pre = load ptr, ptr %8, align 8, !tbaa !12
-  br label %38
+  br label %36
 
-38:                                               ; preds = %37, %35
-  %39 = phi ptr [ %.pre, %37 ], [ %36, %35 ]
-  %40 = load i32, ptr %3, align 8, !tbaa !3
-  br label %41
+36:                                               ; preds = %35, %33
+  %37 = phi ptr [ %.pre, %35 ], [ %34, %33 ]
+  %38 = load i32, ptr %3, align 8, !tbaa !3
+  br label %39
 
-41:                                               ; preds = %2, %38
-  %.sink45 = phi i32 [ %40, %38 ], [ %4, %2 ]
-  %.pn = phi ptr [ %39, %38 ], [ %9, %2 ]
+39:                                               ; preds = %2, %36
+  %.sink45 = phi i32 [ %38, %36 ], [ %4, %2 ]
+  %.pn = phi ptr [ %37, %36 ], [ %9, %2 ]
   %.sink = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %42 = sext i32 %.sink45 to i64
-  %43 = getelementptr inbounds ptr, ptr %.sink, i64 %42
-  ret ptr %43
+  %40 = sext i32 %.sink45 to i64
+  %41 = getelementptr inbounds ptr, ptr %.sink, i64 %40
+  ret ptr %41
 }
 
 declare i32 @__gxx_personality_v0(...)
@@ -139,54 +137,52 @@ define hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi
   %15 = zext nneg i32 %14 to i64
   %16 = shl nuw nsw i64 %15, 3
   %17 = icmp eq ptr %11, null
-  br i1 %17, label %18, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
+  %18 = add nuw nsw i64 %16, 8
+  br i1 %17, label %19, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
 
-18:                                               ; preds = %.critedge30.i
-  %19 = add nuw nsw i64 %16, 8
-  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #11
-  br label %24
+19:                                               ; preds = %.critedge30.i
+  %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #11
+  br label %22
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %.critedge30.i
-  %21 = add nuw nsw i64 %16, 15
-  %22 = and i64 %21, 34359738360
-  %23 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %22, ptr noundef nonnull @_ZTIc)
-  br label %24
+  %21 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %18, ptr noundef nonnull @_ZTIc)
+  br label %22
 
-24:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %18
-  %storemerge.i = phi ptr [ %23, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ], [ %20, %18 ]
+22:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %19
+  %storemerge.i = phi ptr [ %21, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ], [ %20, %19 ]
   store ptr %storemerge.i, ptr %9, align 8, !tbaa !12
   store i32 %14, ptr %7, align 4, !tbaa !11
   %.not28.i = icmp eq ptr %10, null
-  br i1 %.not28.i, label %35, label %25
+  br i1 %.not28.i, label %33, label %23
 
-25:                                               ; preds = %24
-  %26 = load i32, ptr %10, align 8, !tbaa !14
-  %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %28, label %35
+23:                                               ; preds = %22
+  %24 = load i32, ptr %10, align 8, !tbaa !14
+  %25 = icmp sgt i32 %24, 0
+  br i1 %25, label %26, label %33
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 8
-  %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %31 = zext nneg i32 %26 to i64
-  %32 = shl nuw nsw i64 %31, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %30, i64 %32, i1 false)
-  %33 = load i32, ptr %10, align 8, !tbaa !14
-  %34 = load ptr, ptr %9, align 8, !tbaa !12
-  store i32 %33, ptr %34, align 8, !tbaa !14
-  br label %36
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %29 = zext nneg i32 %24 to i64
+  %30 = shl nuw nsw i64 %29, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 8 %28, i64 %30, i1 false)
+  %31 = load i32, ptr %10, align 8, !tbaa !14
+  %32 = load ptr, ptr %9, align 8, !tbaa !12
+  store i32 %31, ptr %32, align 8, !tbaa !14
+  br label %34
 
-35:                                               ; preds = %25, %24
+33:                                               ; preds = %23, %22
   store i32 0, ptr %storemerge.i, align 8, !tbaa !14
-  br label %36
+  br label %34
 
-36:                                               ; preds = %35, %28
-  br i1 %17, label %37, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi.exit
+34:                                               ; preds = %33, %26
+  br i1 %17, label %35, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi.exit
 
-37:                                               ; preds = %36
+35:                                               ; preds = %34
   tail call void @_ZdlPv(ptr noundef %10) #12
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi.exit
 
-_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi.exit: ; preds = %6, %37, %36, %2
+_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi.exit: ; preds = %6, %35, %34, %2
   ret void
 }
 
@@ -269,67 +265,65 @@ define hidden noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase18A
   %20 = zext nneg i32 %19 to i64
   %21 = shl nuw nsw i64 %20, 3
   %22 = icmp eq ptr %16, null
-  br i1 %22, label %23, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
+  %23 = add nuw nsw i64 %21, 8
+  br i1 %22, label %24, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i
 
-23:                                               ; preds = %.critedge30.i
-  %24 = add nuw nsw i64 %21, 8
-  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #11
-  br label %29
+24:                                               ; preds = %.critedge30.i
+  %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #11
+  br label %27
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i: ; preds = %.critedge30.i
-  %26 = add nuw nsw i64 %21, 15
-  %27 = and i64 %26, 34359738360
-  %28 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %27, ptr noundef nonnull @_ZTIc)
-  br label %29
+  %26 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %16, i64 noundef %23, ptr noundef nonnull @_ZTIc)
+  br label %27
 
-29:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %23
-  %storemerge.i = phi ptr [ %28, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ], [ %25, %23 ]
+27:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i, %24
+  %storemerge.i = phi ptr [ %26, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i ], [ %25, %24 ]
   store ptr %storemerge.i, ptr %3, align 8, !tbaa !12
   store i32 %19, ptr %14, align 4, !tbaa !11
-  br i1 %.not, label %40, label %30
+  br i1 %.not, label %38, label %28
 
-30:                                               ; preds = %29
-  %31 = load i32, ptr %4, align 8, !tbaa !14
-  %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %33, label %40
+28:                                               ; preds = %27
+  %29 = load i32, ptr %4, align 8, !tbaa !14
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %31, label %38
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %36 = zext nneg i32 %31 to i64
-  %37 = shl nuw nsw i64 %36, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %34, ptr nonnull align 8 %35, i64 %37, i1 false)
-  %38 = load i32, ptr %4, align 8, !tbaa !14
-  %39 = load ptr, ptr %3, align 8, !tbaa !12
-  store i32 %38, ptr %39, align 8, !tbaa !14
-  br label %41
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds nuw i8, ptr %storemerge.i, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %34 = zext nneg i32 %29 to i64
+  %35 = shl nuw nsw i64 %34, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 %33, i64 %35, i1 false)
+  %36 = load i32, ptr %4, align 8, !tbaa !14
+  %37 = load ptr, ptr %3, align 8, !tbaa !12
+  store i32 %36, ptr %37, align 8, !tbaa !14
+  br label %39
 
-40:                                               ; preds = %30, %29
+38:                                               ; preds = %28, %27
   store i32 0, ptr %storemerge.i, align 8, !tbaa !14
-  br label %41
+  br label %39
 
-41:                                               ; preds = %40, %33
-  %42 = phi ptr [ %storemerge.i, %40 ], [ %39, %33 ]
-  br i1 %22, label %43, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi.exit
+39:                                               ; preds = %38, %31
+  %40 = phi ptr [ %storemerge.i, %38 ], [ %37, %31 ]
+  br i1 %22, label %41, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi.exit
 
-43:                                               ; preds = %41
+41:                                               ; preds = %39
   tail call void @_ZdlPv(ptr noundef %4) #12
   %.pre3 = load ptr, ptr %3, align 8, !tbaa !12
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi.exit
 
-_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi.exit: ; preds = %10, %43, %41, %5
-  %44 = phi ptr [ %4, %10 ], [ %.pre3, %43 ], [ %42, %41 ], [ %4, %5 ]
-  %45 = load i32, ptr %44, align 8, !tbaa !14
-  %46 = add nsw i32 %45, 1
-  store i32 %46, ptr %44, align 8, !tbaa !14
-  %47 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = load i32, ptr %48, align 8, !tbaa !3
-  %50 = add nsw i32 %49, 1
-  store i32 %50, ptr %48, align 8, !tbaa !3
-  %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds ptr, ptr %47, i64 %51
-  store ptr %1, ptr %52, align 8, !tbaa !16
+_ZN6google8protobuf8internal20RepeatedPtrFieldBase14InternalExtendEi.exit: ; preds = %10, %41, %39, %5
+  %42 = phi ptr [ %4, %10 ], [ %.pre3, %41 ], [ %40, %39 ], [ %4, %5 ]
+  %43 = load i32, ptr %42, align 8, !tbaa !14
+  %44 = add nsw i32 %43, 1
+  store i32 %44, ptr %42, align 8, !tbaa !14
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %47 = load i32, ptr %46, align 8, !tbaa !3
+  %48 = add nsw i32 %47, 1
+  store i32 %48, ptr %46, align 8, !tbaa !3
+  %49 = sext i32 %47 to i64
+  %50 = getelementptr inbounds ptr, ptr %45, i64 %49
+  store ptr %1, ptr %50, align 8, !tbaa !16
   ret ptr %1
 }
 
@@ -410,7 +404,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7Ad
   %13 = sext i32 %7 to i64
   %14 = getelementptr inbounds ptr, ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !16
-  br label %86
+  br label %84
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -434,121 +428,119 @@ define hidden noundef ptr @_ZN6google8protobuf8internal20RepeatedPtrFieldBase7Ad
   %28 = zext nneg i32 %27 to i64
   %29 = shl nuw nsw i64 %28, 3
   %30 = icmp eq ptr %24, null
-  br i1 %30, label %31, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
+  %31 = add nuw nsw i64 %29, 8
+  br i1 %30, label %32, label %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i
 
-31:                                               ; preds = %.critedge30.i.i
-  %32 = add nuw nsw i64 %29, 8
-  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %32) #11
-  br label %37
+32:                                               ; preds = %.critedge30.i.i
+  %33 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #11
+  br label %35
 
 _ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i: ; preds = %.critedge30.i.i
-  %34 = add nuw nsw i64 %29, 15
-  %35 = and i64 %34, 34359738360
-  %36 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef %35, ptr noundef nonnull @_ZTIc)
-  br label %37
+  %34 = tail call noundef ptr @_ZN6google8protobuf5Arena23AllocateAlignedWithHookEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %24, i64 noundef %31, ptr noundef nonnull @_ZTIc)
+  br label %35
 
-37:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %31
-  %storemerge.i.i = phi ptr [ %36, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i ], [ %33, %31 ]
+35:                                               ; preds = %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i, %32
+  %storemerge.i.i = phi ptr [ %34, %_ZN6google8protobuf5Arena11CreateArrayIcEEPT_PS1_m.exit.i.i ], [ %33, %32 ]
   store ptr %storemerge.i.i, ptr %3, align 8, !tbaa !12
   store i32 %27, ptr %22, align 4, !tbaa !11
-  br i1 %.not, label %48, label %38
+  br i1 %.not, label %46, label %36
 
-38:                                               ; preds = %37
-  %39 = load i32, ptr %4, align 8, !tbaa !14
-  %40 = icmp sgt i32 %39, 0
-  br i1 %40, label %41, label %48
+36:                                               ; preds = %35
+  %37 = load i32, ptr %4, align 8, !tbaa !14
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %39, label %46
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i8, ptr %storemerge.i.i, i64 8
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %44 = zext nneg i32 %39 to i64
-  %45 = shl nuw nsw i64 %44, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull align 8 %43, i64 %45, i1 false)
-  %46 = load i32, ptr %4, align 8, !tbaa !14
-  %47 = load ptr, ptr %3, align 8, !tbaa !12
-  store i32 %46, ptr %47, align 8, !tbaa !14
-  br label %49
+39:                                               ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %storemerge.i.i, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %42 = zext nneg i32 %37 to i64
+  %43 = shl nuw nsw i64 %42, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 8 %41, i64 %43, i1 false)
+  %44 = load i32, ptr %4, align 8, !tbaa !14
+  %45 = load ptr, ptr %3, align 8, !tbaa !12
+  store i32 %44, ptr %45, align 8, !tbaa !14
+  br label %47
 
-48:                                               ; preds = %38, %37
+46:                                               ; preds = %36, %35
   store i32 0, ptr %storemerge.i.i, align 8, !tbaa !14
-  br label %49
+  br label %47
 
-49:                                               ; preds = %48, %41
-  %50 = phi ptr [ %storemerge.i.i, %48 ], [ %47, %41 ]
-  br i1 %30, label %51, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
+47:                                               ; preds = %46, %39
+  %48 = phi ptr [ %storemerge.i.i, %46 ], [ %45, %39 ]
+  br i1 %30, label %49, label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
 
-51:                                               ; preds = %49
+49:                                               ; preds = %47
   tail call void @_ZdlPv(ptr noundef %4) #12
   %.pre16 = load ptr, ptr %3, align 8, !tbaa !12
   br label %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
 
-_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit: ; preds = %51, %49, %.thread, %16
-  %52 = phi ptr [ %.pre16, %51 ], [ %50, %49 ], [ %4, %.thread ], [ %4, %16 ]
-  %53 = load i32, ptr %52, align 8, !tbaa !14
-  %54 = add nsw i32 %53, 1
-  store i32 %54, ptr %52, align 8, !tbaa !14
+_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit: ; preds = %49, %47, %.thread, %16
+  %50 = phi ptr [ %.pre16, %49 ], [ %48, %47 ], [ %4, %.thread ], [ %4, %16 ]
+  %51 = load i32, ptr %50, align 8, !tbaa !14
+  %52 = add nsw i32 %51, 1
+  store i32 %52, ptr %50, align 8, !tbaa !14
   %.not11 = icmp eq ptr %1, null
-  %55 = load ptr, ptr %0, align 8, !tbaa !13
-  br i1 %.not11, label %61, label %56
+  %53 = load ptr, ptr %0, align 8, !tbaa !13
+  br i1 %.not11, label %59, label %54
 
-56:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
-  %57 = load ptr, ptr %1, align 8, !tbaa !17
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call noundef ptr %59(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %55)
+54:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
+  %55 = load ptr, ptr %1, align 8, !tbaa !17
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call noundef ptr %57(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %53)
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit
 
-61:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
-  %62 = icmp eq ptr %55, null
-  br i1 %62, label %_ZN6google8protobuf5Arena14InternalHelperINS0_8internal19ImplicitWeakMessageEE3NewEv.exit, label %68
+59:                                               ; preds = %_ZN6google8protobuf8internal20RepeatedPtrFieldBase7ReserveEi.exit
+  %60 = icmp eq ptr %53, null
+  br i1 %60, label %_ZN6google8protobuf5Arena14InternalHelperINS0_8internal19ImplicitWeakMessageEE3NewEv.exit, label %66
 
-_ZN6google8protobuf5Arena14InternalHelperINS0_8internal19ImplicitWeakMessageEE3NewEv.exit: ; preds = %61
-  %63 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #13
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i64 0, ptr %64, align 8, !tbaa !22
-  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %63, align 8, !tbaa !17
-  %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 32
-  store ptr %66, ptr %65, align 8, !tbaa !25
-  %67 = getelementptr inbounds nuw i8, ptr %63, i64 24
-  store i64 0, ptr %67, align 8, !tbaa !28
-  store i8 0, ptr %66, align 8, !tbaa !30
+_ZN6google8protobuf5Arena14InternalHelperINS0_8internal19ImplicitWeakMessageEE3NewEv.exit: ; preds = %59
+  %61 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #13
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store i64 0, ptr %62, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %61, align 8, !tbaa !17
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %61, i64 32
+  store ptr %64, ptr %63, align 8, !tbaa !25
+  %65 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  store i64 0, ptr %65, align 8, !tbaa !28
+  store i8 0, ptr %64, align 8, !tbaa !30
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit
 
-68:                                               ; preds = %61
-  %69 = tail call { ptr, ptr } @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %55, i64 noundef 48, ptr noundef nonnull @_ZTIN6google8protobuf8internal19ImplicitWeakMessageE)
-  %70 = extractvalue { ptr, ptr } %69, 0
-  %71 = extractvalue { ptr, ptr } %69, 1
-  store ptr %70, ptr %71, align 8, !tbaa !31
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_19ImplicitWeakMessageEEEvPv, ptr %72, align 8, !tbaa !33
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %74 = ptrtoint ptr %55 to i64
-  store i64 %74, ptr %73, align 8, !tbaa !22
-  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %70, align 8, !tbaa !17
-  %75 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %76 = getelementptr inbounds nuw i8, ptr %70, i64 32
-  store ptr %76, ptr %75, align 8, !tbaa !25
-  %77 = getelementptr inbounds nuw i8, ptr %70, i64 24
-  store i64 0, ptr %77, align 8, !tbaa !28
-  store i8 0, ptr %76, align 8, !tbaa !30
+66:                                               ; preds = %59
+  %67 = tail call { ptr, ptr } @_ZN6google8protobuf5Arena26AllocateAlignedWithCleanupEmPKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %53, i64 noundef 48, ptr noundef nonnull @_ZTIN6google8protobuf8internal19ImplicitWeakMessageE)
+  %68 = extractvalue { ptr, ptr } %67, 0
+  %69 = extractvalue { ptr, ptr } %67, 1
+  store ptr %68, ptr %69, align 8, !tbaa !31
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store ptr @_ZN6google8protobuf8internal21arena_destruct_objectINS1_19ImplicitWeakMessageEEEvPv, ptr %70, align 8, !tbaa !33
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %72 = ptrtoint ptr %53 to i64
+  store i64 %72, ptr %71, align 8, !tbaa !22
+  store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %68, align 8, !tbaa !17
+  %73 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  store ptr %74, ptr %73, align 8, !tbaa !25
+  %75 = getelementptr inbounds nuw i8, ptr %68, i64 24
+  store i64 0, ptr %75, align 8, !tbaa !28
+  store i8 0, ptr %74, align 8, !tbaa !30
   br label %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit
 
-_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit: ; preds = %68, %_ZN6google8protobuf5Arena14InternalHelperINS0_8internal19ImplicitWeakMessageEE3NewEv.exit, %56
-  %78 = phi ptr [ %60, %56 ], [ %63, %_ZN6google8protobuf5Arena14InternalHelperINS0_8internal19ImplicitWeakMessageEE3NewEv.exit ], [ %70, %68 ]
-  %79 = load ptr, ptr %3, align 8, !tbaa !12
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %82 = load i32, ptr %81, align 8, !tbaa !3
-  %83 = add nsw i32 %82, 1
-  store i32 %83, ptr %81, align 8, !tbaa !3
-  %84 = sext i32 %82 to i64
-  %85 = getelementptr inbounds ptr, ptr %80, i64 %84
-  store ptr %78, ptr %85, align 8, !tbaa !16
-  br label %86
+_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit: ; preds = %66, %_ZN6google8protobuf5Arena14InternalHelperINS0_8internal19ImplicitWeakMessageEE3NewEv.exit, %54
+  %76 = phi ptr [ %58, %54 ], [ %61, %_ZN6google8protobuf5Arena14InternalHelperINS0_8internal19ImplicitWeakMessageEE3NewEv.exit ], [ %68, %66 ]
+  %77 = load ptr, ptr %3, align 8, !tbaa !12
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %80 = load i32, ptr %79, align 8, !tbaa !3
+  %81 = add nsw i32 %80, 1
+  store i32 %81, ptr %79, align 8, !tbaa !3
+  %82 = sext i32 %80 to i64
+  %83 = getelementptr inbounds ptr, ptr %78, i64 %82
+  store ptr %76, ptr %83, align 8, !tbaa !16
+  br label %84
 
-86:                                               ; preds = %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit, %10
-  %.0 = phi ptr [ %15, %10 ], [ %78, %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit ]
+84:                                               ; preds = %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit, %10
+  %.0 = phi ptr [ %15, %10 ], [ %76, %_ZN6google8protobuf5Arena21CreateMessageInternalINS0_8internal19ImplicitWeakMessageEEEPT_PS1_.exit ]
   ret ptr %.0
 }
 

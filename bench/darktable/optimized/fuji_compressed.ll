@@ -3966,7 +3966,7 @@ define void @_ZN6LibRaw24fuji_compressed_load_rawEv(ptr noundef nonnull align 8 
   %31 = load i32, ptr %4, align 8, !tbaa !147
   %32 = sext i32 %31 to i64
   %33 = shl nsw i64 %32, 2
-  %34 = add nsw i64 %33, 15
+  %34 = add nsw i64 %33, 12
   %35 = and i64 %34, -16
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 381728
   %37 = load i32, ptr %36, align 8, !tbaa !87

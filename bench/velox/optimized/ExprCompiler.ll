@@ -19552,7 +19552,7 @@ _ZN5folly6detail18rawOverAlignedImplISaIhELm16ELb1EEEvRKT_mRPv.exit.i.i.i.i: ; p
   %and.i.i.i.i.i = and i64 %sub.i.i.i.i.i, -8
   %sub1.i.i.i.i = sub nsw i64 0, %and.i.i.i.i.i
   %reass.sub = sub nsw i64 %mul.i.i.i.i, %and.i.i.i.i.i
-  %sub.i.i6.i.i.i = add nuw nsw i64 %reass.sub, 15
+  %sub.i.i6.i.i.i = add nuw nsw i64 %reass.sub, 8
   %div1.i.i.i.i.i = and i64 %sub.i.i6.i.i.i, 9223372036854775792
   %call5.i.i2.i.i7.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %div1.i.i.i.i.i) #32
   store ptr %call5.i.i2.i.i7.i.i.i, ptr %rawAllocation.i.i, align 8

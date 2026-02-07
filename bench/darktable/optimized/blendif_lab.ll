@@ -920,8 +920,8 @@ define void @dt_develop_blendif_lab_blend(ptr noundef readonly captures(none) %0
   %84 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %85 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %86 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %87 = add i64 %60, -1
-  %88 = lshr i64 %87, 2
+  %87 = add i64 %60, -4
+  %88 = lshr exact i64 %87, 2
   br label %310
 
 .preheader155:                                    ; preds = %._crit_edge

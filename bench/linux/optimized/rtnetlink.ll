@@ -2523,25 +2523,23 @@ define internal fastcc i64 @if_nlmsg_size(ptr noundef %0, i32 noundef %1) unname
 144:                                              ; preds = %138
   %145 = shl i32 %1, 2
   %146 = and i32 %145, 4
-  %147 = add nuw nsw i32 %146, 7
-  %148 = and i32 %147, 12
-  %149 = icmp eq i32 %134, 0
-  %150 = select i1 %149, i64 8, i64 20
+  %147 = icmp eq i32 %134, 0
+  %148 = select i1 %147, i64 8, i64 20
   tail call void @__rcu_read_unlock() #19
-  %151 = icmp eq i32 %139, 0
-  %152 = mul i32 %139, 132
-  %153 = add i32 %152, 4
-  %154 = select i1 %151, i32 0, i32 %153
-  %155 = zext i32 %154 to i64
-  %156 = add nuw nsw i32 %148, 1132
-  %157 = zext nneg i32 %156 to i64
-  %158 = add nsw i64 %30, %157
-  %159 = add nsw i64 %158, %66
-  %160 = add i64 %159, %116
-  %161 = add i64 %160, %132
-  %162 = add i64 %161, %150
-  %163 = add i64 %162, %155
-  ret i64 %163
+  %149 = icmp eq i32 %139, 0
+  %150 = mul i32 %139, 132
+  %151 = add i32 %150, 4
+  %152 = select i1 %149, i32 0, i32 %151
+  %153 = zext i32 %152 to i64
+  %154 = or disjoint i32 %146, 1136
+  %155 = zext nneg i32 %154 to i64
+  %156 = add nsw i64 %30, %155
+  %157 = add nsw i64 %156, %66
+  %158 = add i64 %157, %116
+  %159 = add i64 %158, %132
+  %160 = add i64 %159, %148
+  %161 = add i64 %160, %153
+  ret i64 %161
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -14526,37 +14524,35 @@ define internal fastcc void @rtnl_fdb_notify(ptr noundef nonnull readonly captur
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 813
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
-  %11 = add nuw nsw i32 %10, 7
+  %11 = add nuw nsw i32 %10, 43
   %12 = and i32 %11, 508
-  %13 = add nuw nsw i32 %12, 39
-  %14 = and i32 %13, 1020
-  %15 = tail call ptr @__alloc_skb(i32 noundef %14, i32 noundef 2080, i32 noundef 0, i32 noundef -1) #19
-  %16 = icmp eq ptr %15, null
-  br i1 %16, label %25, label %17
+  %13 = tail call ptr @__alloc_skb(i32 noundef %12, i32 noundef 2080, i32 noundef 0, i32 noundef -1) #19
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %23, label %15
 
-17:                                               ; preds = %5
-  %18 = tail call fastcc i32 @nlmsg_populate_fdb_fill(ptr noundef nonnull %15, ptr noundef nonnull %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef 0, i32 noundef 0, i32 noundef %3, i32 noundef 0, i16 noundef zeroext %4)
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %21
+15:                                               ; preds = %5
+  %16 = tail call fastcc i32 @nlmsg_populate_fdb_fill(ptr noundef nonnull %13, ptr noundef nonnull %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef 0, i32 noundef 0, i32 noundef %3, i32 noundef 0, i16 noundef zeroext %4)
+  %17 = icmp slt i32 %16, 0
+  br i1 %17, label %18, label %19
 
-20:                                               ; preds = %17
-  tail call void @kfree_skb_reason(ptr noundef nonnull %15, i32 noundef 2) #19
-  br label %25
+18:                                               ; preds = %15
+  tail call void @kfree_skb_reason(ptr noundef nonnull %13, i32 noundef 2) #19
+  br label %23
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 272
-  %23 = load ptr, ptr %22, align 16
-  %24 = tail call i32 @nlmsg_notify(ptr noundef %23, ptr noundef nonnull %15, i32 noundef 0, i32 noundef 3, i32 noundef 0, i32 noundef 2080) #19
-  br label %30
+19:                                               ; preds = %15
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 272
+  %21 = load ptr, ptr %20, align 16
+  %22 = tail call i32 @nlmsg_notify(ptr noundef %21, ptr noundef nonnull %13, i32 noundef 0, i32 noundef 3, i32 noundef 0, i32 noundef 2080) #19
+  br label %28
 
-25:                                               ; preds = %20, %5
-  %26 = phi i32 [ %18, %20 ], [ -105, %5 ]
-  %27 = getelementptr inbounds nuw i8, ptr %7, i64 272
-  %28 = load ptr, ptr %27, align 16
-  %29 = tail call i32 @netlink_set_err(ptr noundef %28, i32 noundef 0, i32 noundef 3, i32 noundef %26) #19
-  br label %30
+23:                                               ; preds = %18, %5
+  %24 = phi i32 [ %16, %18 ], [ -105, %5 ]
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 272
+  %26 = load ptr, ptr %25, align 16
+  %27 = tail call i32 @netlink_set_err(ptr noundef %26, i32 noundef 0, i32 noundef 3, i32 noundef %24) #19
+  br label %28
 
-30:                                               ; preds = %25, %21
+28:                                               ; preds = %23, %19
   ret void
 }
 

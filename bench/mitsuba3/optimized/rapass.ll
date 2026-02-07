@@ -5830,12 +5830,12 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_1010ZoneVectorIjE7releaseEPNS
   br i1 %12, label %13, label %16
 
 13:                                               ; preds = %11
-  %14 = add nuw nsw i64 %9, 137438953471
+  %14 = add nuw nsw i64 %9, 137438953468
   %15 = lshr i64 %14, 5
   br label %20
 
 16:                                               ; preds = %11
-  %17 = add nuw nsw i64 %9, 274877906815
+  %17 = add nuw nsw i64 %9, 274877906812
   %18 = lshr i64 %17, 6
   %19 = add nuw nsw i64 %18, 4
   br label %20

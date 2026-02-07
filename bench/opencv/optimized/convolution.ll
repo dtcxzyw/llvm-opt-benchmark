@@ -3242,13 +3242,13 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc271, %_ZNSt6v
   %647 = mul nuw nsw i32 %540, 24
   %648 = mul nsw i32 %647, %511
   %649 = sext i32 %648 to i64
-  %650 = add nsw i64 %649, 31
+  %650 = add nsw i64 %649, 24
   %651 = and i64 %650, -32
   store i64 %651, ptr %87, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(ptr nonnull %88)
   %652 = select i1 %623, i32 24, i32 768
   %653 = mul nuw nsw i32 %643, %652
-  %narrow516 = add nuw nsw i32 %653, 31
+  %narrow516 = add nuw nsw i32 %653, 24
   %654 = and i32 %narrow516, 8160
   %655 = zext nneg i32 %654 to i64
   store i64 %655, ptr %88, align 8, !tbaa !38

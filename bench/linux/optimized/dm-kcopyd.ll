@@ -434,7 +434,7 @@ define dso_local ptr @dm_kcopyd_client_create(ptr noundef %0) #2 align 16 {
   store i32 %30, ptr %31, align 8
   %32 = shl i32 %29, 10
   %33 = zext i32 %32 to i64
-  %34 = add nuw nsw i64 %33, 4095
+  %34 = add nuw nsw i64 %33, 3072
   %35 = lshr i64 %34, 12
   %36 = trunc nuw nsw i64 %35 to i32
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 12

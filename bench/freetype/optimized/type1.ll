@@ -4406,7 +4406,7 @@ define internal i32 @T1_Get_MM_Var(ptr noundef readonly captures(none) %0, ptr n
   %.pre-phi = phi i64 [ 0, %10 ], [ %wide.trip.count.i, %17 ]
   store i32 0, ptr %4, align 4, !tbaa !19
   %32 = shl nuw nsw i64 %.pre-phi, 1
-  %33 = add nuw nsw i64 %32, 7
+  %33 = add nuw nsw i64 %32, 6
   %34 = and i64 %33, 17179869176
   %35 = mul nuw nsw i64 %.pre-phi, 48
   %36 = add nuw nsw i64 %35, 32

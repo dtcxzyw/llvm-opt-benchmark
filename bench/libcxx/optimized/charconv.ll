@@ -2614,7 +2614,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__132_Floating_to_chars_hex_preci
   %33 = shl nuw nsw i32 %spec.store.select, 2
   %34 = sub nuw nsw i32 24, %33
   %35 = shl nuw nsw i32 %.068, 1
-  %36 = add nuw nsw i32 %35, 33554431
+  %36 = add nuw nsw i32 %35, 33554430
   %37 = or i32 %36, %.068
   %38 = shl nuw nsw i32 1, %34
   %39 = and i32 %38, %37
@@ -3011,7 +3011,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__132_Floating_to_chars_hex_preci
   %37 = shl nuw nsw i32 %spec.store.select, 2
   %38 = sub nuw nsw i32 52, %37
   %39 = shl nuw nsw i64 %.069, 1
-  %40 = add nuw nsw i64 %39, 9007199254740991
+  %40 = add nuw nsw i64 %39, 9007199254740990
   %41 = or i64 %40, %.069
   %42 = zext nneg i32 %38 to i64
   %43 = shl nuw nsw i64 1, %42

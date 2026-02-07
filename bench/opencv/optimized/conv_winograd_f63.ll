@@ -1734,7 +1734,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13runWi
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = ptrtoint ptr %12 to i64
-  %15 = add i64 %14, 31
+  %15 = add i64 %14, 24
   %16 = and i64 %15, -32
   %17 = inttoptr i64 %16 to ptr
   %18 = getelementptr inbounds nuw i8, ptr %.val, i64 16

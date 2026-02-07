@@ -7173,7 +7173,7 @@ define dso_local noundef ptr @_ZN5clang12OMPMapClause11CreateEmptyERKNS_10ASTCon
   %17 = add nuw nsw i64 %6, %9
   %18 = shl nuw nsw i64 %17, 3
   %19 = shl nuw nsw i64 %13, 2
-  %20 = add nuw nsw i64 %19, 7
+  %20 = add nuw nsw i64 %19, 4
   %21 = add nuw nsw i64 %20, %18
   %22 = and i64 %21, 137438953464
   %23 = shl nuw nsw i64 %16, 4
