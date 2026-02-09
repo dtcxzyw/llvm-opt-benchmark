@@ -41,6 +41,7 @@ define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$tendril..tendril..T
   %15 = add nuw nsw i64 %14, 15
   %16 = lshr i64 %15, 4
   %17 = add nuw nsw i64 %16, 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   store i64 %17, ptr %5, align 8, !noalias !4
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %9, ptr %18, align 8, !noalias !4
@@ -623,7 +624,7 @@ define noundef range(i32 0, 1114113) i32 @_ZN11markup5ever4util12buffer_queue11B
   %63 = icmp eq i32 %62, 1114112
   br i1 %63, label %.thread.i, label %"_ZN11markup5ever4util12buffer_queue11BufferQueue4peek28_$u7b$$u7b$closure$u7d$$u7d$17hb8321746d227a486E.exit"
 
-.thread.i:                                        ; preds = %53, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i", %4
+.thread.i:                                        ; preds = %4, %53, %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h65075c9713482be0E.exit.i"
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.d211918ee87746d75600bd815b17425b.8, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d211918ee87746d75600bd815b17425b.10) #11
   unreachable
 

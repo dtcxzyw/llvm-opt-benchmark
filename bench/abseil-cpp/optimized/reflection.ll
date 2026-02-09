@@ -390,6 +390,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i14: ; preds = %.lr.p
   %.us-phi = phi i64 [ %33, %.lr.ph.i.us.us ], [ %46, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i14 ]
   %.us-phi19 = phi ptr [ %34, %.lr.ph.i.us.us ], [ %47, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i14 ]
   %50 = getelementptr inbounds nuw i8, ptr %9, i64 %.us-phi
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %50) ]
   br label %.loopexit
 
 51:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i.i14, %.lr.ph.i
@@ -3522,7 +3523,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %33
   %41 = add i64 %.sroa.7.0, %40
   %42 = and i64 %41, %11
   %43 = tail call noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooERNS0_12CommonFieldsEmNS0_8FindInfoERKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %9, i64 %42, i64 %.sroa.14.0, ptr noundef nonnull align 8 dereferenceable(56) @_ZZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEEPNS_15CommandLineFlagEEENS0_10StringHashENS0_8StringEqESaISt4pairIKS6_S8_EEE18GetPolicyFunctionsEvE5value)
-  %44 = load ptr, ptr %4, align 8, !tbaa !22, !nonnull !62, !noundef !62
+  %44 = load ptr, ptr %4, align 8, !tbaa !22
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %43
   %.sroa.0.0.copyload.i.i.i.i24 = load ptr, ptr %20, align 8, !tbaa !22
   %46 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i24, i64 %43
@@ -3538,10 +3539,11 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %33
   br label %51
 
 51:                                               ; preds = %.thread, %.critedge23
-  %.sink76 = phi ptr [ %45, %.thread ], [ %50, %.critedge23 ]
+  %.sink77 = phi ptr [ %45, %.thread ], [ %50, %.critedge23 ]
   %.sink75 = phi ptr [ %46, %.thread ], [ %31, %.critedge23 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge23 ]
-  store ptr %.sink76, ptr %0, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink77) ]
+  store ptr %.sink77, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink75, ptr %.sroa.4.0..sroa_idx, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16

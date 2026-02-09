@@ -957,41 +957,40 @@ define { ptr, i32 } @_ZN14anki_proto_gen6Method5input17h365368cd04bdfe87E(ptr al
   %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$prost_reflect..descriptor..MessageDescriptor$GT$17habfa65a83341daf6E"(ptr nonnull align 8 %2) #9
-          to label %20 unwind label %18
+          to label %19 unwind label %17
 
 11:                                               ; preds = %1
   %.fca.0.extract.i = extractvalue { ptr, i64 } %8, 0
   %.fca.1.extract.i = extractvalue { ptr, i64 } %8, 1
-  %12 = icmp ne ptr %.fca.0.extract.i, null
-  call void @llvm.assume(i1 %12)
-  %13 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c52537241f0de7E"(ptr nonnull align 1 %.fca.0.extract.i, i64 %.fca.1.extract.i, ptr nonnull align 1 @anon.c2c254bac7312232f49bd554ba5b0ae2.5, i64 18)
-          to label %14 unwind label %9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.0.extract.i) ]
+  %12 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c52537241f0de7E"(ptr nonnull align 1 %.fca.0.extract.i, i64 %.fca.1.extract.i, ptr nonnull align 1 @anon.c2c254bac7312232f49bd554ba5b0ae2.5, i64 18)
+          to label %13 unwind label %9
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr %2, align 8, !nonnull !3
-  %16 = load i32, ptr %7, align 8
-  br i1 %13, label %17, label %_ZN14anki_proto_gen16msg_if_not_empty17h17e6a436681bb54fE.exit
+13:                                               ; preds = %11
+  %14 = load ptr, ptr %2, align 8, !nonnull !3
+  %15 = load i32, ptr %7, align 8
+  br i1 %12, label %16, label %_ZN14anki_proto_gen16msg_if_not_empty17h17e6a436681bb54fE.exit
 
-17:                                               ; preds = %14
+16:                                               ; preds = %13
   call void @"_ZN4core3ptr65drop_in_place$LT$prost_reflect..descriptor..MessageDescriptor$GT$17habfa65a83341daf6E"(ptr nonnull align 8 %2)
   br label %_ZN14anki_proto_gen16msg_if_not_empty17h17e6a436681bb54fE.exit
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #10
   unreachable
 
-20:                                               ; preds = %9
+19:                                               ; preds = %9
   resume { ptr, i32 } %10
 
-_ZN14anki_proto_gen16msg_if_not_empty17h17e6a436681bb54fE.exit: ; preds = %14, %17
-  %.sroa.0.0.i = phi ptr [ null, %17 ], [ %15, %14 ]
-  %.sroa.3.0.i = phi i32 [ undef, %17 ], [ %16, %14 ]
-  %21 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0.i, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %.sroa.3.0.i, 1
+_ZN14anki_proto_gen16msg_if_not_empty17h17e6a436681bb54fE.exit: ; preds = %13, %16
+  %.sroa.0.0.i = phi ptr [ null, %16 ], [ %14, %13 ]
+  %.sroa.3.0.i = phi i32 [ undef, %16 ], [ %15, %13 ]
+  %20 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0.i, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %.sroa.3.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret { ptr, i32 } %22
+  ret { ptr, i32 } %21
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1012,41 +1011,40 @@ define { ptr, i32 } @_ZN14anki_proto_gen6Method6output17hc1049834832083d4E(ptr a
   %10 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr65drop_in_place$LT$prost_reflect..descriptor..MessageDescriptor$GT$17habfa65a83341daf6E"(ptr nonnull align 8 %2) #9
-          to label %20 unwind label %18
+          to label %19 unwind label %17
 
 11:                                               ; preds = %1
   %.fca.0.extract.i = extractvalue { ptr, i64 } %8, 0
   %.fca.1.extract.i = extractvalue { ptr, i64 } %8, 1
-  %12 = icmp ne ptr %.fca.0.extract.i, null
-  call void @llvm.assume(i1 %12)
-  %13 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c52537241f0de7E"(ptr nonnull align 1 %.fca.0.extract.i, i64 %.fca.1.extract.i, ptr nonnull align 1 @anon.c2c254bac7312232f49bd554ba5b0ae2.5, i64 18)
-          to label %14 unwind label %9
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.0.extract.i) ]
+  %12 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h06c52537241f0de7E"(ptr nonnull align 1 %.fca.0.extract.i, i64 %.fca.1.extract.i, ptr nonnull align 1 @anon.c2c254bac7312232f49bd554ba5b0ae2.5, i64 18)
+          to label %13 unwind label %9
 
-14:                                               ; preds = %11
-  %15 = load ptr, ptr %2, align 8, !nonnull !3
-  %16 = load i32, ptr %7, align 8
-  br i1 %13, label %17, label %_ZN14anki_proto_gen16msg_if_not_empty17h17e6a436681bb54fE.exit
+13:                                               ; preds = %11
+  %14 = load ptr, ptr %2, align 8, !nonnull !3
+  %15 = load i32, ptr %7, align 8
+  br i1 %12, label %16, label %_ZN14anki_proto_gen16msg_if_not_empty17h17e6a436681bb54fE.exit
 
-17:                                               ; preds = %14
+16:                                               ; preds = %13
   call void @"_ZN4core3ptr65drop_in_place$LT$prost_reflect..descriptor..MessageDescriptor$GT$17habfa65a83341daf6E"(ptr nonnull align 8 %2)
   br label %_ZN14anki_proto_gen16msg_if_not_empty17h17e6a436681bb54fE.exit
 
-18:                                               ; preds = %9
-  %19 = landingpad { ptr, i32 }
+17:                                               ; preds = %9
+  %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #10
   unreachable
 
-20:                                               ; preds = %9
+19:                                               ; preds = %9
   resume { ptr, i32 } %10
 
-_ZN14anki_proto_gen16msg_if_not_empty17h17e6a436681bb54fE.exit: ; preds = %14, %17
-  %.sroa.0.0.i = phi ptr [ null, %17 ], [ %15, %14 ]
-  %.sroa.3.0.i = phi i32 [ undef, %17 ], [ %16, %14 ]
-  %21 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0.i, 0
-  %22 = insertvalue { ptr, i32 } %21, i32 %.sroa.3.0.i, 1
+_ZN14anki_proto_gen16msg_if_not_empty17h17e6a436681bb54fE.exit: ; preds = %13, %16
+  %.sroa.0.0.i = phi ptr [ null, %16 ], [ %14, %13 ]
+  %.sroa.3.0.i = phi i32 [ undef, %16 ], [ %15, %13 ]
+  %20 = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0.i, 0
+  %21 = insertvalue { ptr, i32 } %20, i32 %.sroa.3.0.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret { ptr, i32 } %22
+  ret { ptr, i32 } %21
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1270,7 +1268,7 @@ define hidden void @"_ZN61_$LT$anki_proto_gen..Method$u20$as$u20$core..clone..Cl
 16:                                               ; preds = %20, %17
   %.pn = phi { ptr, i32 } [ %21, %20 ], [ %18, %17 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h5bdedbe70fbef286E"(ptr nonnull align 8 %5) #9
-          to label %33 unwind label %31
+          to label %32 unwind label %30
 
 17:                                               ; preds = %12
   %18 = landingpad { ptr, i32 }
@@ -1285,35 +1283,34 @@ define hidden void @"_ZN61_$LT$anki_proto_gen..Method$u20$as$u20$core..clone..Cl
   %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h8a51ae078d990a19E"(ptr nonnull align 8 %4) #9
-          to label %16 unwind label %31
+          to label %16 unwind label %30
 
 22:                                               ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %24 = load i32, ptr %23, align 8, !noundef !3
-  %25 = icmp ne ptr %15, null
-  call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %27 = load i32, ptr %26, align 8, !noundef !3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %26 = load i32, ptr %25, align 8, !noundef !3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %7, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %15, ptr %30, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %7, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %15, ptr %29, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %24, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.31.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %27, ptr %.sroa.31.0..sroa_idx, align 8
+  store i32 %26, ptr %.sroa.31.0..sroa_idx, align 8
   ret void
 
-31:                                               ; preds = %20, %16
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %20, %16
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd44bb2114362504eE() #10
   unreachable
 
-33:                                               ; preds = %16
+32:                                               ; preds = %16
   resume { ptr, i32 } %.pn
 }
 

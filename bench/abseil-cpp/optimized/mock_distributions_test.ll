@@ -18012,6 +18012,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 %45
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 50:                                               ; preds = %.lr.ph.i.i.i
@@ -18321,7 +18322,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 9:                                                ; preds = %6
   store i64 2, ptr %7, align 8, !tbaa !99, !noalias !407
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %73
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE22find_or_prepare_insertIS4_EESG_INSK_8iteratorEbERKT_.exit.i.i.thread
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -18344,7 +18345,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load ptr, ptr %26, align 8, !tbaa !14, !noalias !407
   %27 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %25
-  br label %73
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE22find_or_prepare_insertIS4_EESG_INSK_8iteratorEbERKT_.exit.i.i.thread
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -18402,9 +18403,9 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %62 = icmp eq <16 x i8> %50, splat (i8 -128)
   %63 = bitcast <16 x i1> %62 to i16
   %.not51.i = icmp eq i16 %63, 0
-  br i1 %.not51.i, label %70, label %.thread.i, !prof !60
+  br i1 %.not51.i, label %70, label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE22find_or_prepare_insertIS4_EESG_INSK_8iteratorEbERKT_.exit.i.i.thread7, !prof !60
 
-.thread.i:                                        ; preds = %.critedge19.i
+_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE22find_or_prepare_insertIS4_EESG_INSK_8iteratorEbERKT_.exit.i.i.thread7: ; preds = %.critedge19.i
   %64 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %63, i1 true)
   %65 = zext nneg i16 %64 to i64
   %66 = add i64 %.sroa.7.0.i, %65
@@ -18412,25 +18413,25 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %68 = tail call noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooERNS0_12CommonFieldsEmNS0_8FindInfoERKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %38, i64 %67, i64 %.sroa.14.0.i, ptr noundef nonnull align 8 dereferenceable(56) @_ZZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE18GetPolicyFunctionsEvE5value), !noalias !410
   %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %47, align 8, !tbaa !14, !noalias !410
   %69 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %68
-  br label %73
+  br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE22find_or_prepare_insertIS4_EESG_INSK_8iteratorEbERKT_.exit.i.i.thread
 
 70:                                               ; preds = %.critedge19.i
   %71 = add i64 %.sroa.14.0.i, 16
   %72 = add i64 %71, %.sroa.7.0.i
   br label %48
 
-73:                                               ; preds = %16, %9, %.thread.i
-  %.sroa.5.0.ph = phi ptr [ %69, %.thread.i ], [ %10, %9 ], [ %27, %16 ]
-  %74 = load ptr, ptr %1, align 8, !tbaa !105, !noalias !413
-  store ptr %74, ptr %.sroa.5.0.ph, align 8, !tbaa !414
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.ph, i64 8
-  store ptr null, ptr %75, align 8, !tbaa !422
+_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE22find_or_prepare_insertIS4_EESG_INSK_8iteratorEbERKT_.exit.i.i.thread: ; preds = %9, %16, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE22find_or_prepare_insertIS4_EESG_INSK_8iteratorEbERKT_.exit.i.i.thread7
+  %.sroa.5.03 = phi ptr [ %69, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE22find_or_prepare_insertIS4_EESG_INSK_8iteratorEbERKT_.exit.i.i.thread7 ], [ %10, %9 ], [ %27, %16 ]
+  %73 = load ptr, ptr %1, align 8, !tbaa !105, !noalias !413
+  store ptr %73, ptr %.sroa.5.03, align 8, !tbaa !414
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.5.03, i64 8
+  store ptr null, ptr %74, align 8, !tbaa !422
   br label %_ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE11try_emplaceIS4_JETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS0_12raw_hash_setISB_SE_SF_SJ_E14const_iteratorEEE5valueEiE4typeELi0EEESG_INSP_8iteratorEbERKSN_DpOT0_.exit
 
-_ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE11try_emplaceIS4_JETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS0_12raw_hash_setISB_SE_SF_SJ_E14const_iteratorEEE5valueEiE4typeELi0EEESG_INSP_8iteratorEbERKSN_DpOT0_.exit: ; preds = %.lr.ph.i, %11, %73
-  %.sroa.5.04 = phi ptr [ %.sroa.5.0.ph, %73 ], [ %12, %11 ], [ %57, %.lr.ph.i ]
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.5.04, i64 8
-  ret ptr %76
+_ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE11try_emplaceIS4_JETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS0_12raw_hash_setISB_SE_SF_SJ_E14const_iteratorEEE5valueEiE4typeELi0EEESG_INSP_8iteratorEbERKSN_DpOT0_.exit: ; preds = %.lr.ph.i, %11, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE22find_or_prepare_insertIS4_EESG_INSK_8iteratorEbERKT_.exit.i.i.thread
+  %.sroa.5.04 = phi ptr [ %12, %11 ], [ %.sroa.5.03, %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE22find_or_prepare_insertIS4_EESG_INSK_8iteratorEbERKT_.exit.i.i.thread ], [ %57, %.lr.ph.i ]
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.5.04, i64 8
+  ret ptr %75
 }
 
 declare noundef i64 @_ZN4absl18container_internal21PrepareInsertAfterSooEmmRNS0_12CommonFieldsE(i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
@@ -27193,6 +27194,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 %44
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %48) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 49:                                               ; preds = %.lr.ph.i.i.i
@@ -34231,6 +34233,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 %41
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %45) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 46:                                               ; preds = %.lr.ph.i.i.i
@@ -39576,6 +39579,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %19, i64 %42
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %46) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 47:                                               ; preds = %.lr.ph.i.i.i
@@ -45163,6 +45167,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4absl15random_internal18Dis
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %45 = getelementptr inbounds nuw i8, ptr %18, i64 %41
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %45) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 46:                                               ; preds = %.lr.ph.i.i.i
@@ -49965,6 +49970,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 %45
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 50:                                               ; preds = %.lr.ph.i.i.i
@@ -50613,6 +50619,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %25, i64 %48
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %52) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 53:                                               ; preds = %.lr.ph.i.i.i
@@ -57185,6 +57192,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 %45
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 50:                                               ; preds = %.lr.ph.i.i.i
@@ -57549,6 +57557,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %52 = getelementptr inbounds nuw i8, ptr %25, i64 %48
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %52) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 53:                                               ; preds = %.lr.ph.i.i.i
@@ -69675,6 +69684,7 @@ define linkonce_odr dso_local { i64, i64 } @_ZN4absl15random_internal18Distribut
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %44 = getelementptr inbounds nuw i8, ptr %17, i64 %40
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %44) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 45:                                               ; preds = %.lr.ph.i.i.i
@@ -79208,6 +79218,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 %45
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 50:                                               ; preds = %.lr.ph.i.i.i
@@ -89697,6 +89708,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 %45
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 50:                                               ; preds = %.lr.ph.i.i.i
@@ -95125,6 +95137,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal18Distrib
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 %45
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %49) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 50:                                               ; preds = %.lr.ph.i.i.i
@@ -104921,6 +104934,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %23, i64 %46
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %50) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 51:                                               ; preds = %.lr.ph.i.i.i
@@ -110324,6 +110338,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %23, i64 %46
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %50) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 51:                                               ; preds = %.lr.ph.i.i.i
@@ -137845,6 +137860,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl15random_internal18Distributi
 
 .thread29.i.i.i:                                  ; preds = %.lr.ph.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %23, i64 %46
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %50) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyIPKvSt10unique_ptrINS_13MockingBitGen14FunctionHolderESt14default_deleteIS7_EEEENS0_6HashEqIS4_vE4HashENSD_2EqESaISt4pairIKS4_SA_EEE12find_non_sooIS4_EENSK_8iteratorERKT_m.exit.i.i
 
 51:                                               ; preds = %.lr.ph.i.i.i

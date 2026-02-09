@@ -558,20 +558,24 @@ zval_get_long.exit:                               ; preds = %220, %222
   %237 = load i32, ptr %236, align 4, !tbaa !39
   %238 = and i32 %237, 64
   %.not.i353 = icmp eq i32 %238, 0
-  br i1 %.not.i353, label %239, label %zval_try_get_string.exit
+  br i1 %.not.i353, label %239, label %zend_string_copy.exit
 
 239:                                              ; preds = %234
   %240 = load i32, ptr %235, align 4, !tbaa !57
   %241 = add i32 %240, 1
   store i32 %241, ptr %235, align 4, !tbaa !57
+  br label %zend_string_copy.exit
+
+zend_string_copy.exit:                            ; preds = %234, %239
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %235) ]
   br label %zval_try_get_string.exit
 
 242:                                              ; preds = %232
   %243 = call ptr @zval_try_get_string_func(ptr noundef nonnull %.0257) #12
   br label %zval_try_get_string.exit
 
-zval_try_get_string.exit:                         ; preds = %239, %234, %242
-  %.0.i352 = phi ptr [ %243, %242 ], [ %235, %234 ], [ %235, %239 ]
+zval_try_get_string.exit:                         ; preds = %zend_string_copy.exit, %242
+  %.0.i352 = phi ptr [ %235, %zend_string_copy.exit ], [ %243, %242 ]
   %244 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !61
   %.not325 = icmp eq ptr %244, null
   br i1 %.not325, label %245, label %zend_string_release_ex.exit349

@@ -1146,6 +1146,7 @@ define internal void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diese
 20:                                               ; preds = %16
   %21 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
   %22 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 8
   %23 = load i64, ptr %22, align 8, !range !326, !invariant.load !10
   %24 = getelementptr inbounds nuw i8, ptr %.val1.i, i64 16
@@ -1185,6 +1186,7 @@ define internal void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diese
 41:                                               ; preds = %37
   %42 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val6.i) ]
   %43 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 8
   %44 = load i64, ptr %43, align 8, !range !326, !invariant.load !10
   %45 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 16
@@ -1224,6 +1226,7 @@ define internal void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diese
 62:                                               ; preds = %58
   %63 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val4.i) ]
   %64 = getelementptr inbounds nuw i8, ptr %.val5.i, i64 8
   %65 = load i64, ptr %64, align 8, !range !326, !invariant.load !10
   %66 = getelementptr inbounds nuw i8, ptr %.val5.i, i64 16
@@ -1263,6 +1266,7 @@ define internal void @"_ZN4core3ptr67drop_in_place$LT$alloc..boxed..Box$LT$diese
 83:                                               ; preds = %79
   %84 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val2.i) ]
   %85 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 8
   %86 = load i64, ptr %85, align 8, !range !326, !invariant.load !10
   %87 = getelementptr inbounds nuw i8, ptr %.val3.i, i64 16

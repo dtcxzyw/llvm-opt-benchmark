@@ -62,16 +62,15 @@ define hidden void @"_ZN136_$LT$protobuf..reflect..map..generated..GeneratedMapI
 
 6:                                                ; preds = %2
   %7 = extractvalue { ptr, ptr } %3, 1
-  %8 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr i8, ptr %4, i64 8
-  %.val4 = load ptr, ptr %9, align 8, !nonnull !6, !noundef !6
-  %10 = getelementptr i8, ptr %4, i64 16
-  %.val5 = load i64, ptr %10, align 8, !noundef !6
-  %11 = getelementptr i8, ptr %7, i64 8
-  %.val = load ptr, ptr %11, align 8, !nonnull !6, !noundef !6
-  %12 = getelementptr i8, ptr %7, i64 16
-  %.val3 = load i64, ptr %12, align 8, !noundef !6
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  %8 = getelementptr i8, ptr %4, i64 8
+  %.val4 = load ptr, ptr %8, align 8, !nonnull !6, !noundef !6
+  %9 = getelementptr i8, ptr %4, i64 16
+  %.val5 = load i64, ptr %9, align 8, !noundef !6
+  %10 = getelementptr i8, ptr %7, i64 8
+  %.val = load ptr, ptr %10, align 8, !nonnull !6, !noundef !6
+  %11 = getelementptr i8, ptr %7, i64 16
+  %.val3 = load i64, ptr %11, align 8, !noundef !6
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.val4, ptr %.sroa.06.sroa.4.0..sroa_idx, align 8
   %.sroa.06.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

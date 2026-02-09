@@ -1529,6 +1529,7 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_
 
 ._crit_edge:                                      ; preds = %44, %2
   %.012.lcssa = phi ptr [ %5, %2 ], [ %.0, %44 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.012.lcssa) ]
   ret ptr %.012.lcssa
 
 19:                                               ; preds = %14
@@ -1629,6 +1630,7 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_
 
 ._crit_edge:                                      ; preds = %44, %2
   %.012.lcssa = phi ptr [ %5, %2 ], [ %.0, %44 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.012.lcssa) ]
   ret ptr %.012.lcssa
 
 19:                                               ; preds = %14
@@ -1729,6 +1731,7 @@ define hidden noundef nonnull ptr @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$10find_
 
 ._crit_edge:                                      ; preds = %44, %2
   %.012.lcssa = phi ptr [ %5, %2 ], [ %.0, %44 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.012.lcssa) ]
   ret ptr %.012.lcssa
 
 19:                                               ; preds = %14

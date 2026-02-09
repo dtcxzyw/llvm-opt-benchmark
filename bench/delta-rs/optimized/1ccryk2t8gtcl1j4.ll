@@ -6015,6 +6015,7 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..Cop
 23:                                               ; preds = %21
   %24 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %22) ], !noalias !2753
   tail call void @__rust_dealloc(ptr noundef nonnull %22, i64 noundef 720, i64 noundef 8) #15, !noalias !2753
   resume { ptr, i32 } %24
 
@@ -7054,6 +7055,7 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$sqlparser..ast..que
 .body:                                            ; preds = %"_ZN4core3ptr54drop_in_place$LT$sqlparser..ast..query..TableAlias$GT$17h0e1215e43a58d75eE.exit"
   %25 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %24) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef 720, i64 noundef 8) #15, !noalias !3329
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3332)
@@ -8531,6 +8533,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$sqlparser..ast..query..Query
 33:                                               ; preds = %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..With$GT$$GT$17h242c12efd53e3085E.exit"
   %34 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ], !noalias !4354
   tail call void @__rust_dealloc(ptr noundef nonnull %32, i64 noundef 936, i64 noundef 8) #15, !noalias !4354
   br label %.body
 
@@ -10252,6 +10255,7 @@ common.resume:                                    ; preds = %.body, %325, %329, 
 312:                                              ; preds = %310
   %313 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %311) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %311, i64 noundef 720, i64 noundef 8) #15, !noalias !5153
   br label %common.resume
 
@@ -10268,6 +10272,7 @@ common.resume:                                    ; preds = %.body, %325, %329, 
 .body:                                            ; preds = %314
   %316 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %315) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %315, i64 noundef 936, i64 noundef 8) #15, !noalias !5156
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 16
   invoke fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..boxed..Box$LT$sqlparser..ast..query..SetExpr$GT$$GT$17h8edf978a235d4225E"(ptr noalias noundef align 8 dereferenceable(8) %317) #13
@@ -10330,6 +10335,7 @@ common.resume:                                    ; preds = %.body, %325, %329, 
 338:                                              ; preds = %335
   %339 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %337) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %337, i64 noundef 936, i64 noundef 8) #15, !noalias !5189
   br label %common.resume
 
@@ -12730,6 +12736,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..Table
 .body:                                            ; preds = %4
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ], !noalias !6461
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 328, i64 noundef 8) #15, !noalias !6461
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6464)
@@ -12799,6 +12806,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..Table
 .body31:                                          ; preds = %29
   %32 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %31) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %31, i64 noundef 720, i64 noundef 8) #15, !noalias !6530
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..TableAlias$GT$$GT$17hd9031c524cf0a32fE"(ptr noalias noundef align 8 dereferenceable(56) %33) #13
@@ -12942,6 +12950,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..Table
 .body41:                                          ; preds = %81
   %84 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %83) ], !noalias !6649
   tail call void @__rust_dealloc(ptr noundef nonnull %83, i64 noundef 352, i64 noundef 8) #15, !noalias !6649
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call fastcc void @"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$sqlparser..ast..query..TableAlias$GT$$GT$17hd9031c524cf0a32fE"(ptr noalias noundef align 8 dereferenceable(56) %85) #13
@@ -12957,6 +12966,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$sqlparser..ast..query..Table
 .body45:                                          ; preds = %86
   %89 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %88) ], !noalias !6652
   tail call void @__rust_dealloc(ptr noundef nonnull %88, i64 noundef 328, i64 noundef 8) #15, !noalias !6652
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @"_ZN4core3ptr41drop_in_place$LT$sqlparser..ast..Expr$GT$17h14dd2b24c8e83047E.llvm.11705908289436625823"(ptr noalias noundef nonnull align 8 dereferenceable(176) %90) #13
@@ -14466,6 +14476,7 @@ common.resume:                                    ; preds = %.body, %97, %34, %2
 29:                                               ; preds = %26
   %30 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %28) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %28, i64 noundef 48, i64 noundef 8) #15, !noalias !7737
   br label %common.resume
 
@@ -14483,6 +14494,7 @@ common.resume:                                    ; preds = %.body, %97, %34, %2
 34:                                               ; preds = %31
   %35 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %33) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %33, i64 noundef 48, i64 noundef 8) #15, !noalias !7740
   br label %common.resume
 
@@ -21203,6 +21215,7 @@ define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$sqlparser..ast..que
   br label %"_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit15"
 
 "_ZN4core3ptr42drop_in_place$LT$sqlparser..ast..Ident$GT$17h477ac3bb38cb1249E.exit15": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11705908289436625823.exit.i.i1.i.i.i14", %96
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %95) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %95, i64 noundef 216, i64 noundef 8) #15, !noalias !11473
   br label %109
 
@@ -22234,6 +22247,7 @@ define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$L
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 720, i64 noundef 8) #15
   resume { ptr, i32 } %5
 }
@@ -22689,6 +22703,7 @@ define internal fastcc void @"_ZN4core3ptr76drop_in_place$LT$alloc..boxed..Box$L
 4:                                                ; preds = %1
   %5 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 936, i64 noundef 8) #15
   resume { ptr, i32 } %5
 }
@@ -26184,6 +26199,7 @@ define internal fastcc void @"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$L
   ret void
 
 15:                                               ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h611556c63980c062E.llvm.11705908289436625823.exit.i.i1.i.i.i2", %3
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 216, i64 noundef 8) #15
   resume { ptr, i32 } %4
 }

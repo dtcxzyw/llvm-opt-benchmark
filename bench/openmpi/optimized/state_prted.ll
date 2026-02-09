@@ -2030,17 +2030,17 @@ pmix_obj_update.exit318:                          ; preds = %._crit_edge386
 
 615:                                              ; preds = %pmix_obj_update.exit318
   call fastcc void @pmix_obj_run_destructors(ptr noundef nonnull %504)
-  %616 = getelementptr inbounds nuw i8, ptr %504, i64 96
-  %617 = load ptr, ptr %616, align 8, !tbaa !38, !nonnull !100, !noundef !100
-  %618 = getelementptr inbounds nuw i8, ptr %504, i64 56
-  call void %617(ptr noundef nonnull %618, ptr noundef nonnull %504) #11
+  %616 = getelementptr inbounds nuw i8, ptr %504, i64 56
+  %617 = getelementptr inbounds nuw i8, ptr %504, i64 96
+  %618 = load ptr, ptr %617, align 8, !tbaa !127
+  call void %618(ptr noundef nonnull %616, ptr noundef nonnull %504) #11
   unreachable
 
 619:                                              ; preds = %pmix_obj_update.exit318
   %620 = getelementptr inbounds nuw i8, ptr %504, i64 248
-  %621 = load i8, ptr %620, align 8, !tbaa !127
+  %621 = load i8, ptr %620, align 8, !tbaa !128
   %622 = and i8 %621, -9
-  store i8 %622, ptr %620, align 8, !tbaa !127
+  store i8 %622, ptr %620, align 8, !tbaa !128
   %.pre = load ptr, ptr %493, align 8, !tbaa !111
   br label %623
 
@@ -2051,7 +2051,7 @@ pmix_obj_update.exit318:                          ; preds = %._crit_edge386
   %626 = load i32, ptr %625, align 8, !tbaa !59
   %627 = sext i32 %626 to i64
   %628 = icmp slt i64 %indvars.iv.next405, %627
-  br i1 %628, label %pmix_pointer_array_get_item.exit343, label %._crit_edge388, !llvm.loop !128
+  br i1 %628, label %pmix_pointer_array_get_item.exit343, label %._crit_edge388, !llvm.loop !129
 
 ._crit_edge388:                                   ; preds = %623, %.preheader377
   %629 = call i32 @pthread_mutex_lock(ptr noundef nonnull %492) #11
@@ -2112,7 +2112,7 @@ pmix_obj_run_destructors.exit361:                 ; preds = %.lr.ph.i358, %638
   br label %653
 
 653:                                              ; preds = %652, %490
-  %654 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 5), align 1, !tbaa !129, !range !99, !noundef !100
+  %654 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_state_base, i64 5), align 1, !tbaa !130, !range !99, !noundef !100
   %655 = trunc nuw i8 %654 to i1
   br i1 %655, label %656, label %657
 
@@ -2121,7 +2121,7 @@ pmix_obj_run_destructors.exit361:                 ; preds = %.lr.ph.i358, %638
   br label %657
 
 657:                                              ; preds = %656, %653
-  %658 = load ptr, ptr @prte_data_server_uri, align 8, !tbaa !131
+  %658 = load ptr, ptr @prte_data_server_uri, align 8, !tbaa !132
   %.not289 = icmp eq ptr %658, null
   br i1 %.not289, label %660, label %659
 
@@ -2133,7 +2133,7 @@ pmix_obj_run_destructors.exit361:                 ; preds = %.lr.ph.i358, %638
 660:                                              ; preds = %659, %657
   %661 = load ptr, ptr @prte_job_data, align 8, !tbaa !57
   %662 = getelementptr inbounds nuw i8, ptr %27, i64 432
-  %663 = load i32, ptr %662, align 8, !tbaa !132
+  %663 = load i32, ptr %662, align 8, !tbaa !133
   %664 = call i32 @pmix_pointer_array_set_item(ptr noundef %661, i32 noundef %663, ptr noundef null) #11
   %665 = call i32 @pthread_mutex_lock(ptr noundef nonnull %27) #11
   %666 = icmp eq i32 %665, 35
@@ -2367,7 +2367,7 @@ pack_state_for_proc.exit.thread37:                ; preds = %34, %pack_state_for
   %44 = load i32, ptr %43, align 8, !tbaa !59
   %45 = sext i32 %44 to i64
   %46 = icmp slt i64 %indvars.iv.next, %45
-  br i1 %46, label %pmix_pointer_array_get_item.exit, label %._crit_edge, !llvm.loop !133
+  br i1 %46, label %pmix_pointer_array_get_item.exit, label %._crit_edge, !llvm.loop !134
 
 ._crit_edge:                                      ; preds = %41, %.preheader
   %47 = call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1, i16 noundef zeroext 40) #11
@@ -2586,10 +2586,11 @@ attributes #14 = { noreturn nounwind }
 !124 = !{!114, !4, i64 228}
 !125 = !{!114, !48, i64 200}
 !126 = distinct !{!126, !20}
-!127 = !{!114, !5, i64 248}
-!128 = distinct !{!128, !20}
-!129 = !{!130, !54, i64 5}
-!130 = !{!"", !4, i64 0, !54, i64 4, !54, i64 5, !54, i64 6, !4, i64 8, !54, i64 12, !54, i64 13, !54, i64 14, !54, i64 15, !54, i64 16}
-!131 = !{!9, !9, i64 0}
-!132 = !{!76, !4, i64 432}
-!133 = distinct !{!133, !20}
+!127 = !{!15, !10, i64 40}
+!128 = !{!114, !5, i64 248}
+!129 = distinct !{!129, !20}
+!130 = !{!131, !54, i64 5}
+!131 = !{!"", !4, i64 0, !54, i64 4, !54, i64 5, !54, i64 6, !4, i64 8, !54, i64 12, !54, i64 13, !54, i64 14, !54, i64 15, !54, i64 16}
+!132 = !{!9, !9, i64 0}
+!133 = !{!76, !4, i64 432}
+!134 = distinct !{!134, !20}

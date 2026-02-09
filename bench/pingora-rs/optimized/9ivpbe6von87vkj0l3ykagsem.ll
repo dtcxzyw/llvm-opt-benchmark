@@ -145,10 +145,9 @@ define hidden { i64, ptr } @_ZN5tokio2io11async_write10AsyncWrite19poll_write_ve
 "_ZN4core6option15Option$LT$T$GT$6map_or17h1a055a8159305d80E.exit": ; preds = %6, %13
   %.sroa.3.0.i = phi i64 [ %12, %13 ], [ 0, %6 ]
   %.sroa.02.0.i = phi ptr [ %.val.i, %13 ], [ inttoptr (i64 1 to ptr), %6 ]
-  %14 = icmp ne ptr %.sroa.02.0.i, null
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call { i64, ptr } @"_ZN89_$LT$pingora_proxy..subrequest..DummyIO$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_write17hf05cd47417d7183cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i, i64 noundef %.sroa.3.0.i)
-  ret { i64, ptr } %15
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.02.0.i) ]
+  %14 = tail call { i64, ptr } @"_ZN89_$LT$pingora_proxy..subrequest..DummyIO$u20$as$u20$tokio..io..async_write..AsyncWrite$GT$10poll_write17hf05cd47417d7183cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.02.0.i, i64 noundef %.sroa.3.0.i)
+  ret { i64, ptr } %14
 }
 
 ; Function Attrs: nonlazybind uwtable

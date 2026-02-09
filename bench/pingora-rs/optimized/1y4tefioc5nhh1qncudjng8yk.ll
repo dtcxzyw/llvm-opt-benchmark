@@ -5406,11 +5406,10 @@ _ZN4core3ops8function6FnOnce9call_once17h6cb910c13bd2981dE.exit.thread2.i: ; pre
   %.pn = phi { ptr, ptr } [ %.merged.i.i, %"_ZN8arc_swap4debt4list9LocalNode4with28_$u7b$$u7b$closure$u7d$$u7d$17hb5af4afe11628c42E.exit" ], [ %.merged.i.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h206838244889b149E.exit" ]
   %.sroa.0.0 = phi ptr [ %72, %"_ZN8arc_swap4debt4list9LocalNode4with28_$u7b$$u7b$closure$u7d$$u7d$17hb5af4afe11628c42E.exit" ], [ %37, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h206838244889b149E.exit" ]
   %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %74 = icmp ne ptr %.sroa.0.0, null
-  call void @llvm.assume(i1 %74)
-  %75 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %76 = insertvalue { ptr, ptr } %75, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %76
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0) ]
+  %74 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %75 = insertvalue { ptr, ptr } %74, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %75
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5687,11 +5686,10 @@ _ZN4core3ops8function6FnOnce9call_once17h6cb910c13bd2981dE.exit.thread2.i: ; pre
   %.pn = phi { ptr, ptr } [ %.merged.i.i, %"_ZN8arc_swap4debt4list9LocalNode4with28_$u7b$$u7b$closure$u7d$$u7d$17he1e3e995f5a01f4eE.exit" ], [ %.merged.i.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6e78567cdbed957aE.exit" ]
   %.sroa.0.0 = phi ptr [ %72, %"_ZN8arc_swap4debt4list9LocalNode4with28_$u7b$$u7b$closure$u7d$$u7d$17he1e3e995f5a01f4eE.exit" ], [ %37, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h6e78567cdbed957aE.exit" ]
   %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %74 = icmp ne ptr %.sroa.0.0, null
-  call void @llvm.assume(i1 %74)
-  %75 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %76 = insertvalue { ptr, ptr } %75, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %76
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0) ]
+  %74 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %75 = insertvalue { ptr, ptr } %74, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %75
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -5869,11 +5867,10 @@ _ZN4core3ops8function6FnOnce9call_once17h6cb910c13bd2981dE.exit.thread2.i: ; pre
   %.pn = phi { ptr, ptr } [ %.merged.i.i, %"_ZN8arc_swap4debt4list9LocalNode4with28_$u7b$$u7b$closure$u7d$$u7d$17hb3b446ecf12a5522E.exit" ], [ %.merged.i.i.i, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5ac9c0fa93f49a1eE.exit" ]
   %.sroa.0.0 = phi ptr [ %72, %"_ZN8arc_swap4debt4list9LocalNode4with28_$u7b$$u7b$closure$u7d$$u7d$17hb3b446ecf12a5522E.exit" ], [ %37, %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5ac9c0fa93f49a1eE.exit" ]
   %.sroa.3.0 = extractvalue { ptr, ptr } %.pn, 1
-  %74 = icmp ne ptr %.sroa.0.0, null
-  call void @llvm.assume(i1 %74)
-  %75 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %76 = insertvalue { ptr, ptr } %75, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %76
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0) ]
+  %74 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %75 = insertvalue { ptr, ptr } %74, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %75
 }
 
 ; Function Attrs: nonlazybind uwtable

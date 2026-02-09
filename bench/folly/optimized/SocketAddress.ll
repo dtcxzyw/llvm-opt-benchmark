@@ -395,8 +395,7 @@ define void @_ZN5folly13SocketAddress16setFromLocalPortEt(ptr noundef nonnull al
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 6, ptr noundef nonnull @.str.34, i32 noundef %4) #27
   %6 = call noundef ptr @_ZN5folly13SocketAddress11getAddrInfoEPKcS2_i(ptr nonnull readnone align 8 poison, ptr noundef null, ptr noundef nonnull %3, i32 noundef 32)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not12.i = icmp ne ptr %6, null
-  call void @llvm.assume(i1 %.not12.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %6) ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %10
@@ -463,8 +462,7 @@ define void @_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly13SocketAddress16setFromLocalPortEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef ptr @_ZN5folly13SocketAddress11getAddrInfoEPKcS2_i(ptr nonnull align 8 poison, ptr noundef null, ptr noundef %1, i32 noundef 32)
-  %.not12.i = icmp ne ptr %3, null
-  tail call void @llvm.assume(i1 %.not12.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %7
@@ -627,8 +625,7 @@ _ZN12_GLOBAL__N_111HostAndPortC2EPKcb.exit:       ; preds = %2, %9, %17, %21
           to label %24 unwind label %35
 
 24:                                               ; preds = %_ZN12_GLOBAL__N_111HostAndPortC2EPKcb.exit
-  %.not12.i = icmp ne ptr %23, null
-  tail call void @llvm.assume(i1 %.not12.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %23) ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %24, %28

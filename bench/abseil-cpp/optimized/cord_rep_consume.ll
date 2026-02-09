@@ -26,21 +26,20 @@ define dso_local void @_ZN4absl13cord_internal7ConsumeEPNS0_7CordRepENS_11Functi
   br label %_ZN4absl13cord_internal12_GLOBAL__N_113ClipSubstringEPNS0_16CordRepSubstringE.exit
 
 17:                                               ; preds = %8
-  %18 = icmp ne ptr %12, null
-  tail call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %20 = atomicrmw add ptr %19, i32 2 monotonic, align 4
-  %21 = atomicrmw sub ptr %13, i32 2 acq_rel, align 4
-  %.not.i.i = icmp eq i32 %21, 2
-  br i1 %.not.i.i, label %22, label %_ZN4absl13cord_internal12_GLOBAL__N_113ClipSubstringEPNS0_16CordRepSubstringE.exit, !prof !19
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %19 = atomicrmw add ptr %18, i32 2 monotonic, align 4
+  %20 = atomicrmw sub ptr %13, i32 2 acq_rel, align 4
+  %.not.i.i = icmp eq i32 %20, 2
+  br i1 %.not.i.i, label %21, label %_ZN4absl13cord_internal12_GLOBAL__N_113ClipSubstringEPNS0_16CordRepSubstringE.exit, !prof !19
 
-22:                                               ; preds = %17
+21:                                               ; preds = %17
   tail call void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef nonnull %0)
   br label %_ZN4absl13cord_internal12_GLOBAL__N_113ClipSubstringEPNS0_16CordRepSubstringE.exit
 
-_ZN4absl13cord_internal12_GLOBAL__N_113ClipSubstringEPNS0_16CordRepSubstringE.exit: ; preds = %22, %17, %16, %3
-  %.07 = phi i64 [ 0, %3 ], [ %10, %16 ], [ %10, %17 ], [ %10, %22 ]
-  %.0 = phi ptr [ %0, %3 ], [ %12, %16 ], [ %12, %17 ], [ %12, %22 ]
+_ZN4absl13cord_internal12_GLOBAL__N_113ClipSubstringEPNS0_16CordRepSubstringE.exit: ; preds = %21, %17, %16, %3
+  %.07 = phi i64 [ 0, %3 ], [ %10, %16 ], [ %10, %17 ], [ %10, %21 ]
+  %.0 = phi ptr [ %0, %3 ], [ %12, %16 ], [ %12, %17 ], [ %12, %21 ]
   tail call void %2(ptr %1, ptr noundef %.0, i64 noundef %.07, i64 noundef %4)
   ret void
 }
@@ -68,21 +67,20 @@ define dso_local void @_ZN4absl13cord_internal14ReverseConsumeEPNS0_7CordRepENS_
   br label %_ZN4absl13cord_internal7ConsumeEPNS0_7CordRepENS_11FunctionRefIFvS2_mmEEE.exit
 
 17:                                               ; preds = %8
-  %18 = icmp ne ptr %12, null
-  tail call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %20 = atomicrmw add ptr %19, i32 2 monotonic, align 4
-  %21 = atomicrmw sub ptr %13, i32 2 acq_rel, align 4
-  %.not.i.i.i = icmp eq i32 %21, 2
-  br i1 %.not.i.i.i, label %22, label %_ZN4absl13cord_internal7ConsumeEPNS0_7CordRepENS_11FunctionRefIFvS2_mmEEE.exit, !prof !19
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %19 = atomicrmw add ptr %18, i32 2 monotonic, align 4
+  %20 = atomicrmw sub ptr %13, i32 2 acq_rel, align 4
+  %.not.i.i.i = icmp eq i32 %20, 2
+  br i1 %.not.i.i.i, label %21, label %_ZN4absl13cord_internal7ConsumeEPNS0_7CordRepENS_11FunctionRefIFvS2_mmEEE.exit, !prof !19
 
-22:                                               ; preds = %17
+21:                                               ; preds = %17
   tail call void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef nonnull %0)
   br label %_ZN4absl13cord_internal7ConsumeEPNS0_7CordRepENS_11FunctionRefIFvS2_mmEEE.exit
 
-_ZN4absl13cord_internal7ConsumeEPNS0_7CordRepENS_11FunctionRefIFvS2_mmEEE.exit: ; preds = %3, %16, %17, %22
-  %.07.i = phi i64 [ 0, %3 ], [ %10, %16 ], [ %10, %17 ], [ %10, %22 ]
-  %.0.i = phi ptr [ %0, %3 ], [ %12, %16 ], [ %12, %17 ], [ %12, %22 ]
+_ZN4absl13cord_internal7ConsumeEPNS0_7CordRepENS_11FunctionRefIFvS2_mmEEE.exit: ; preds = %3, %16, %17, %21
+  %.07.i = phi i64 [ 0, %3 ], [ %10, %16 ], [ %10, %17 ], [ %10, %21 ]
+  %.0.i = phi ptr [ %0, %3 ], [ %12, %16 ], [ %12, %17 ], [ %12, %21 ]
   tail call void %2(ptr %1, ptr noundef %.0.i, i64 noundef %.07.i, i64 noundef %4)
   ret void
 }

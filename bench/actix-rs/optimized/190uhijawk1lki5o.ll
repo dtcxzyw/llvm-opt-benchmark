@@ -126,6 +126,7 @@ define hidden void @"_ZN4core3ptr114drop_in_place$LT$alloc..boxed..Box$LT$dyn$u2
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !34, !invariant.load !14
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -206,6 +207,7 @@ define hidden void @"_ZN4core3ptr142drop_in_place$LT$$LP$core..any..TypeId$C$all
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i64, ptr %9, align 8, !range !34, !invariant.load !14, !noalias !50
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -287,6 +289,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
 6:                                                ; preds = %1
   %7 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load i64, ptr %8, align 8, !range !34, !invariant.load !14
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -387,6 +390,7 @@ define hidden void @"_ZN4core3ptr96drop_in_place$LT$$LP$core..any..TypeId$C$allo
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %3) ]
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i64, ptr %9, align 8, !range !34, !invariant.load !14, !noalias !80
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1670,6 +1674,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17h07e67f333c
 29:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15412992da91028eE.llvm.17787265185908177030.exit"
   %30 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %25) ]
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = load i64, ptr %31, align 8, !range !34, !invariant.load !14, !noalias !241
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -2129,6 +2134,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hd42dc9b01a
 29:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2b237aa6969a35bE.llvm.17787265185908177030.exit"
   %30 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %25) ]
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = load i64, ptr %31, align 8, !range !34, !invariant.load !14, !noalias !398
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -2357,6 +2363,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h444b4a0
 36:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc2b237aa6969a35bE.llvm.17787265185908177030.exit.i"
   %37 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = load i64, ptr %38, align 8, !range !34, !invariant.load !14, !noalias !469
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -2892,6 +2899,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hcc88a2c
 36:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h15412992da91028eE.llvm.17787265185908177030.exit.i"
   %37 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %32) ]
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %39 = load i64, ptr %38, align 8, !range !34, !invariant.load !14, !noalias !617
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -3057,6 +3065,7 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17h8889643584086f38E
 8:                                                ; preds = %1
   %9 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8, !range !34, !invariant.load !14, !noalias !644
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -3157,6 +3166,7 @@ define hidden void @"_ZN9hashbrown3raw15Bucket$LT$T$GT$4drop17heb34882374d44a4aE
 8:                                                ; preds = %1
   %9 = landingpad { ptr, i32 }
           cleanup
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %4) ]
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load i64, ptr %10, align 8, !range !34, !invariant.load !14, !noalias !665
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16

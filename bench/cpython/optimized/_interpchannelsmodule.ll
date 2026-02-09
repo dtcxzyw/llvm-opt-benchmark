@@ -2714,49 +2714,48 @@ define internal ptr @channelsmod__channel_id(ptr noundef %0, ptr noundef %1, ptr
   %9 = alloca ptr, align 8
   %10 = tail call ptr @PyModule_GetState(ptr noundef %0) #7
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %52, label %12
+  br i1 %11, label %51, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %15 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str) #7
-  %16 = icmp ne ptr %15, null
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call ptr @PyImport_GetModule(ptr noundef nonnull %15) #7
-  %18 = load i32, ptr %15, align 8, !tbaa !68
-  %.not.i.i.i = icmp sgt i32 %18, -1
-  br i1 %.not.i.i.i, label %19, label %get_module_from_owned_type.exit
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
+  %16 = tail call ptr @PyImport_GetModule(ptr noundef nonnull %15) #7
+  %17 = load i32, ptr %15, align 8, !tbaa !68
+  %.not.i.i.i = icmp sgt i32 %17, -1
+  br i1 %.not.i.i.i, label %18, label %get_module_from_owned_type.exit
 
-19:                                               ; preds = %12
-  %20 = add nsw i32 %18, -1
-  store i32 %20, ptr %15, align 8, !tbaa !68
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %22, label %get_module_from_owned_type.exit
+18:                                               ; preds = %12
+  %19 = add nsw i32 %17, -1
+  store i32 %19, ptr %15, align 8, !tbaa !68
+  %20 = icmp eq i32 %19, 0
+  br i1 %20, label %21, label %get_module_from_owned_type.exit
 
-22:                                               ; preds = %19
+21:                                               ; preds = %18
   tail call void @_Py_Dealloc(ptr noundef nonnull %15) #7
   br label %get_module_from_owned_type.exit
 
-get_module_from_owned_type.exit:                  ; preds = %12, %19, %22
-  %23 = load i32, ptr %17, align 8, !tbaa !68
-  %.not.i = icmp sgt i32 %23, -1
-  br i1 %.not.i, label %24, label %Py_DECREF.exit
+get_module_from_owned_type.exit:                  ; preds = %12, %18, %21
+  %22 = load i32, ptr %16, align 8, !tbaa !68
+  %.not.i = icmp sgt i32 %22, -1
+  br i1 %.not.i, label %23, label %Py_DECREF.exit
 
-24:                                               ; preds = %get_module_from_owned_type.exit
-  %25 = add nsw i32 %23, -1
-  store i32 %25, ptr %17, align 8, !tbaa !68
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %Py_DECREF.exit
+23:                                               ; preds = %get_module_from_owned_type.exit
+  %24 = add nsw i32 %22, -1
+  store i32 %24, ptr %16, align 8, !tbaa !68
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %Py_DECREF.exit
 
-27:                                               ; preds = %24
-  tail call void @_Py_Dealloc(ptr noundef nonnull %17) #7
+26:                                               ; preds = %23
+  tail call void @_Py_Dealloc(ptr noundef nonnull %16) #7
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %get_module_from_owned_type.exit, %24, %27
+Py_DECREF.exit:                                   ; preds = %get_module_from_owned_type.exit, %23, %26
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !62
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %5, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2765,64 +2764,64 @@ Py_DECREF.exit:                                   ; preds = %get_module_from_own
   store i32 0, ptr %7, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 0, ptr %8, align 4, !tbaa !26
-  %29 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.53, ptr noundef nonnull @_channelid_new.kwlist, ptr noundef nonnull @channel_id_converter, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
-  %.not.i11 = icmp eq i32 %29, 0
-  br i1 %.not.i11, label %_channelid_new.exit, label %30
+  %28 = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.53, ptr noundef nonnull @_channelid_new.kwlist, ptr noundef nonnull @channel_id_converter, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
+  %.not.i11 = icmp eq i32 %28, 0
+  br i1 %.not.i11, label %_channelid_new.exit, label %29
 
-30:                                               ; preds = %Py_DECREF.exit
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %32 = load i64, ptr %28, align 8, !tbaa !64
-  %33 = load i32, ptr %31, align 8, !tbaa !103
-  %34 = load i32, ptr %5, align 4, !tbaa !26
-  %35 = icmp eq i32 %34, 0
-  %36 = load i32, ptr %6, align 4
-  %37 = icmp eq i32 %36, 0
-  %or.cond.i = select i1 %35, i1 %37, i1 false
-  br i1 %or.cond.i, label %38, label %40
+29:                                               ; preds = %Py_DECREF.exit
+  %30 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %31 = load i64, ptr %27, align 8, !tbaa !64
+  %32 = load i32, ptr %30, align 8, !tbaa !103
+  %33 = load i32, ptr %5, align 4, !tbaa !26
+  %34 = icmp eq i32 %33, 0
+  %35 = load i32, ptr %6, align 4
+  %36 = icmp eq i32 %35, 0
+  %or.cond.i = select i1 %34, i1 %36, i1 false
+  br i1 %or.cond.i, label %37, label %39
 
-38:                                               ; preds = %30
-  %39 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !27
-  call void @PyErr_SetString(ptr noundef %39, ptr noundef nonnull @.str.54) #7
+37:                                               ; preds = %29
+  %38 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !27
+  call void @PyErr_SetString(ptr noundef %38, ptr noundef nonnull @.str.54) #7
   br label %_channelid_new.exit
 
-40:                                               ; preds = %30
-  %41 = icmp eq i32 %34, 1
-  br i1 %41, label %42, label %44
+39:                                               ; preds = %29
+  %40 = icmp eq i32 %33, 1
+  br i1 %40, label %41, label %43
 
-42:                                               ; preds = %40
-  %43 = add i32 %36, 1
-  %or.cond3.i = icmp ult i32 %43, 2
+41:                                               ; preds = %39
+  %42 = add i32 %35, 1
+  %or.cond3.i = icmp ult i32 %42, 2
   %..i = zext i1 %or.cond3.i to i32
-  br label %46
+  br label %45
 
-44:                                               ; preds = %40
-  %45 = icmp eq i32 %36, 1
-  %spec.select.i = select i1 %45, i32 -1, i32 %33
-  br label %46
+43:                                               ; preds = %39
+  %44 = icmp eq i32 %35, 1
+  %spec.select.i = select i1 %44, i32 -1, i32 %32
+  br label %45
 
-46:                                               ; preds = %44, %42
-  %.012.i = phi i32 [ %..i, %42 ], [ %spec.select.i, %44 ]
+45:                                               ; preds = %43, %41
+  %.012.i = phi i32 [ %..i, %41 ], [ %spec.select.i, %43 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %47 = load i32, ptr %7, align 4, !tbaa !26
-  %48 = load i32, ptr %8, align 4, !tbaa !26
-  %49 = call fastcc i32 @newchannelid(ptr noundef %14, i64 noundef %32, i32 noundef %.012.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_globals, i64 8), i32 noundef %47, i32 noundef %48, ptr noundef %9)
-  %50 = call fastcc i32 @handle_channel_error(i32 noundef %49, ptr noundef %0, i64 noundef %32)
-  %.not13.i = icmp eq i32 %50, 0
-  %51 = load ptr, ptr %9, align 8
-  %.1.i = select i1 %.not13.i, ptr %51, ptr null
+  %46 = load i32, ptr %7, align 4, !tbaa !26
+  %47 = load i32, ptr %8, align 4, !tbaa !26
+  %48 = call fastcc i32 @newchannelid(ptr noundef %14, i64 noundef %31, i32 noundef %.012.i, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_globals, i64 8), i32 noundef %46, i32 noundef %47, ptr noundef %9)
+  %49 = call fastcc i32 @handle_channel_error(i32 noundef %48, ptr noundef %0, i64 noundef %31)
+  %.not13.i = icmp eq i32 %49, 0
+  %50 = load ptr, ptr %9, align 8
+  %.1.i = select i1 %.not13.i, ptr %50, ptr null
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_channelid_new.exit
 
-_channelid_new.exit:                              ; preds = %Py_DECREF.exit, %38, %46
-  %.0.i = phi ptr [ null, %38 ], [ %.1.i, %46 ], [ null, %Py_DECREF.exit ]
+_channelid_new.exit:                              ; preds = %Py_DECREF.exit, %37, %45
+  %.0.i = phi ptr [ null, %37 ], [ %.1.i, %45 ], [ null, %Py_DECREF.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %52
+  br label %51
 
-52:                                               ; preds = %3, %_channelid_new.exit
+51:                                               ; preds = %3, %_channelid_new.exit
   %.0 = phi ptr [ %.0.i, %_channelid_new.exit ], [ null, %3 ]
   ret ptr %.0
 }
