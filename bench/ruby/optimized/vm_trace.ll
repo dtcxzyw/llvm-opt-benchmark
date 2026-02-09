@@ -2696,10 +2696,10 @@ rb_add_event_hook2.exit:                          ; preds = %29
   br label %42
 
 42:                                               ; preds = %rb_add_event_hook2.exit, %rb_thread_add_event_hook2.exit
-  %.sink27 = phi ptr [ %41, %rb_add_event_hook2.exit ], [ %18, %rb_thread_add_event_hook2.exit ]
+  %.sink26 = phi ptr [ %41, %rb_add_event_hook2.exit ], [ %18, %rb_thread_add_event_hook2.exit ]
   %.sink21 = phi ptr [ %34, %rb_add_event_hook2.exit ], [ %23, %rb_thread_add_event_hook2.exit ]
   %.sink16 = phi i32 [ %30, %rb_add_event_hook2.exit ], [ %16, %rb_thread_add_event_hook2.exit ]
-  %43 = getelementptr i8, ptr %.sink27, i64 48
+  %43 = getelementptr i8, ptr %.sink26, i64 48
   %.val.i = load ptr, ptr %43, align 8, !tbaa !39
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
   %44 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24

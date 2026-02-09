@@ -152,7 +152,7 @@ define void @"_ZN100_$LT$deku..error..DekuError$u20$as$u20$core..convert..From$L
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 define void @"_ZN95_$LT$deku..error..DekuError$u20$as$u20$core..convert..From$LT$core..convert..Infallible$GT$$GT$4from17h79e10a334d81ad71E"(ptr dead_on_unwind noalias noundef readnone sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0) unnamed_addr #3 {
-  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.add384122a720165492a0d3fd8ad951f.9, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.add384122a720165492a0d3fd8ad951f.11) #7
+  tail call void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.add384122a720165492a0d3fd8ad951f.9, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.add384122a720165492a0d3fd8ad951f.11) #6
   unreachable
 }
 
@@ -503,17 +503,17 @@ declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$
 declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef align 8 dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #4 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { noreturn }
 

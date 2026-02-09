@@ -59,7 +59,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN75_$LT$usize$
   ret ptr %7
 
 8:                                                ; preds = %4
-  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %0, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #10
+  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %0, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #9
   unreachable
 }
 
@@ -394,7 +394,7 @@ define hidden noundef i64 @"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$4pus
 
 94:                                               ; preds = %85
   %95 = extractvalue { i64, i64 } %91, 1
-  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %92, i64 %95) #10
+  tail call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %92, i64 %95) #9
   unreachable
 
 "_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17hfae4154e33df6f43E.exit": ; preds = %"._ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$15reserve_entries17hfae4154e33df6f43E.exit_crit_edge", %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$6insert17h8e7011f60e000c6fE.exit"
@@ -781,22 +781,22 @@ declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h9506d886
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #6
+declare void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #5
 
 ; Function Attrs: cold nonlazybind uwtable
-declare hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17he90108699cdaeac1E"(ptr noalias noundef align 8 dereferenceable(32), i64 noundef, ptr noalias noundef nonnull readonly align 8, i64 noundef, i1 noundef zeroext) unnamed_addr #7
+declare hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14reserve_rehash17he90108699cdaeac1E"(ptr noalias noundef align 8 dereferenceable(32), i64 noundef, ptr noalias noundef nonnull readonly align 8, i64 noundef, i1 noundef zeroext) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.cttz.i16(i16, i1 immarg) #8
+declare i16 @llvm.cttz.i16(i16, i1 immarg) #7
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17try_reserve_exact17hcc4054ae12036942E.llvm.14841418887450666567"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef, i64 noundef) unnamed_addr #2
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef, i64) unnamed_addr #6
+declare void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef, i64) unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #9
+declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

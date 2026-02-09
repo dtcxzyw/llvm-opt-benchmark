@@ -76,7 +76,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN75_$LT$usize$
   ret ptr %7
 
 8:                                                ; preds = %4
-  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %0, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #11
+  tail call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %0, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #10
   unreachable
 }
 
@@ -140,7 +140,7 @@ define void @_ZN3egg8language11FromOpError3new17h6c02f6cbcfb14b51E(ptr dead_on_u
 
 10:                                               ; preds = %.noexc
   %11 = load i64, ptr %9, align 8, !noalias !22
-  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %8, i64 %11) #11
+  invoke void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 noundef %8, i64 %11) #10
           to label %.noexc1 unwind label %12
 
 .noexc1:                                          ; preds = %10
@@ -149,7 +149,7 @@ define void @_ZN3egg8language11FromOpError3new17h6c02f6cbcfb14b51E(ptr dead_on_u
 12:                                               ; preds = %10, %4
   %13 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$egg..Id$GT$$GT$17ha0565d47927e56acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #12
+  invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$egg..Id$GT$$GT$17ha0565d47927e56acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #11
           to label %19 unwind label %17
 
 14:                                               ; preds = %.noexc
@@ -168,7 +168,7 @@ define void @_ZN3egg8language11FromOpError3new17h6c02f6cbcfb14b51E(ptr dead_on_u
 17:                                               ; preds = %12
   %18 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
 19:                                               ; preds = %12
@@ -273,7 +273,7 @@ define void @"_ZN67_$LT$egg..language..SymbolLang$u20$as$u20$egg..language..From
 6:                                                ; preds = %4
   %7 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$egg..Id$GT$$GT$17ha0565d47927e56acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #12
+  invoke void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$egg..Id$GT$$GT$17ha0565d47927e56acE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3) #11
           to label %11 unwind label %9
 
 8:                                                ; preds = %4
@@ -285,7 +285,7 @@ define void @"_ZN67_$LT$egg..language..SymbolLang$u20$as$u20$egg..language..From
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #13
+  tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
 11:                                               ; preds = %6
@@ -394,13 +394,13 @@ declare hidden void @"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$egg..Id$
 declare hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd8330d2ca1b0577aE.llvm.13994044477760586293"(ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(8), ptr noalias noundef nonnull align 1) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #10
+declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -410,8 +410,8 @@ attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
+attributes #9 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #11 = { noreturn }
 attributes #12 = { cold }

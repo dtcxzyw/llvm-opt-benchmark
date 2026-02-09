@@ -174,7 +174,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %75
-  call void @_ZN4core6option13unwrap_failed17hf59153bb1e2fc334E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4540a05e70eb433947f08bd653635aa8.3) #9
+  call void @_ZN4core6option13unwrap_failed17hf59153bb1e2fc334E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4540a05e70eb433947f08bd653635aa8.3) #8
   unreachable
 
 78:                                               ; preds = %75
@@ -613,7 +613,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #6
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -622,7 +622,7 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #9 = { noreturn }
 

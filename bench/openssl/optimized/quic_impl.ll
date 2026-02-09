@@ -7391,7 +7391,7 @@ define ptr @ossl_quic_accept_connection(ptr noundef %0, i64 noundef %1) local_un
   %.not = icmp eq i64 %4, 0
   %5 = call fastcc range(i32 0, 2) i32 @expect_quic_as(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 4)
   %.not25 = icmp eq i32 %5, 0
-  br i1 %.not25, label %112, label %6
+  br i1 %.not25, label %113, label %6
 
 6:                                                ; preds = %2
   %.val.i = load ptr, ptr %3, align 8, !tbaa !157
@@ -7556,7 +7556,7 @@ qctx_maybe_autotick.exit:                         ; preds = %54, %qctx_should_au
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %90) ]
   %91 = load i32, ptr %90, align 8, !tbaa !31
   %92 = icmp eq i32 %91, 0
-  br i1 %92, label %97, label %93
+  br i1 %92, label %110, label %93
 
 93:                                               ; preds = %.thread35
   %94 = and i32 %91, 128
@@ -7565,8 +7565,8 @@ qctx_maybe_autotick.exit:                         ; preds = %54, %qctx_should_au
   %96 = call ptr @ossl_quic_obj_get0_handshake_layer(ptr noundef nonnull %90) #12
   br label %97
 
-97:                                               ; preds = %.thread35, %93
-  %98 = phi ptr [ %96, %93 ], [ %90, %.thread35 ]
+110:                                              ; preds = %.thread35, %93
+  %.019 = phi ptr [ %96, %93 ], [ %90, %.thread35 ]
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 64
   %100 = load ptr, ptr %99, align 8, !tbaa !235
   %101 = load ptr, ptr %22, align 8, !tbaa !163
@@ -7589,13 +7589,13 @@ qctx_maybe_autotick.exit:                         ; preds = %54, %qctx_should_au
 109:                                              ; preds = %97, %107, %79, %qctx_maybe_autotick.exit, %45
   %.019 = phi ptr [ null, %79 ], [ %100, %97 ], [ null, %107 ], [ null, %qctx_maybe_autotick.exit ], [ null, %45 ]
   %.val33 = load ptr, ptr %3, align 8, !tbaa !157
-  %110 = getelementptr i8, ptr %.val33, i64 88
-  %.val33.val = load ptr, ptr %110, align 8, !tbaa !143
-  %111 = call ptr @ossl_quic_engine_get0_mutex(ptr noundef %.val33.val) #12
-  call void @ossl_crypto_mutex_unlock(ptr noundef %111) #12
-  br label %112
+  %111 = getelementptr i8, ptr %.val33, i64 88
+  %.val33.val = load ptr, ptr %111, align 8, !tbaa !143
+  %112 = call ptr @ossl_quic_engine_get0_mutex(ptr noundef %.val33.val) #12
+  call void @ossl_crypto_mutex_unlock(ptr noundef %112) #12
+  br label %113
 
-112:                                              ; preds = %2, %109
+113:                                              ; preds = %2, %109
   %.0 = phi ptr [ %.019, %109 ], [ null, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0

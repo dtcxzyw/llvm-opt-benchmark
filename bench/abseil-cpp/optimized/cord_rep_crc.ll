@@ -40,7 +40,7 @@ define dso_local noundef nonnull ptr @_ZN4absl13cord_internal10CordRepCrc3NewEPN
 
 _ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit:  ; preds = %19, %13, %3, %2
   %.019 = phi ptr [ null, %2 ], [ %0, %3 ], [ %15, %13 ], [ %15, %19 ]
-  %20 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #6
+  %20 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #5
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 2, ptr %21, align 4, !tbaa !20
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -67,7 +67,7 @@ _ZN4absl13cord_internal10CordRepCrcC2Ev.exit:     ; preds = %_ZN4absl13cord_inte
 29:                                               ; preds = %_ZN4absl13cord_internal7CordRep5UnrefEPS1_.exit
   %30 = landingpad { ptr, i32 }
           cleanup
-  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 32) #7
+  tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 32) #6
   resume { ptr, i32 } %30
 
 31:                                               ; preds = %25, %11
@@ -106,8 +106,8 @@ define dso_local void @_ZN4absl13cord_internal10CordRepCrc7DestroyEPS1_(ptr noun
 
 8:                                                ; preds = %7, %4, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @_ZN4absl12crc_internal12CrcCordStateD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #8
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #7
+  tail call void @_ZN4absl12crc_internal12CrcCordStateD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #7
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 32) #6
   ret void
 }
 
@@ -119,7 +119,7 @@ declare void @_ZN4absl13cord_internal7CordRep7DestroyEPS1_(ptr noundef) local_un
 declare void @_ZN4absl12crc_internal12CrcCordStateC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare void @_ZN4absl12crc_internal12CrcCordStateD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
+declare void @_ZN4absl12crc_internal12CrcCordStateD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -345,7 +345,7 @@ define noundef align 8 dereferenceable_or_null(32) ptr @"_ZN73_$LT$alloc..string
   call void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h03e0c3cb68d088edE"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noundef nonnull %13, i64 noundef %17, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %8), !noalias !46
   %18 = load i64, ptr %4, align 8, !range !50, !noalias !49, !noundef !13
   %trunc.i.i = trunc nuw i64 %18 to i1
-  br i1 %trunc.i.i, label %22, label %19
+  br i1 %trunc.i.i, label %23, label %19
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -355,12 +355,12 @@ define noundef align 8 dereferenceable_or_null(32) ptr @"_ZN73_$LT$alloc..string
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.1.extract.i.i) ]
   br label %22
 
-22:                                               ; preds = %19, %15
+23:                                               ; preds = %19, %15
   %.1.i.i = phi ptr [ %.fca.1.extract.i.i, %19 ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !49
   br label %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6c60ddd5564b8f49E.exit.i"
 
-"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6c60ddd5564b8f49E.exit.i": ; preds = %22, %11
+"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$3get17h6c60ddd5564b8f49E.exit.i": ; preds = %23, %11
   %.0.i.i = phi ptr [ %.1.i.i, %22 ], [ null, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !45
   br label %"_ZN55_$LT$str$u20$as$u20$serde_json..value..index..Index$GT$10index_into17h111be33034785bb5E.exit"

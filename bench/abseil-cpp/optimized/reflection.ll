@@ -3541,10 +3541,10 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i.i: ; preds = %33
   br label %51
 
 51:                                               ; preds = %.thread, %.critedge23
-  %.sink77 = phi ptr [ %45, %.thread ], [ %50, %.critedge23 ]
+  %.sink76 = phi ptr [ %45, %.thread ], [ %50, %.critedge23 ]
   %.sink75 = phi ptr [ %46, %.thread ], [ %31, %.critedge23 ]
   %.sink = phi i8 [ 1, %.thread ], [ 0, %.critedge23 ]
-  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink77) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink76) ]
   store ptr %.sink77, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink75, ptr %.sroa.4.0..sroa_idx, align 8

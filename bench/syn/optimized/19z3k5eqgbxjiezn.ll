@@ -4497,19 +4497,19 @@ default.unreachable1.i:                           ; preds = %2
   store i32 %.sroa.0.0.copyload, ptr %1, align 8
   br label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.858133952616893155.exit"
 
-12:                                               ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %.sroa.6.0.copyload, ptr %13, align 8, !alias.scope !631, !noalias !634
+13:                                               ; preds = %6
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %.sroa.6.0.copyload, ptr %14, align 8, !alias.scope !631, !noalias !634
   %.sroa.02.0.copyload.pre = load i32, ptr %1, align 8
   %.sroa.44.0.copyload.pre = load ptr, ptr %.sroa.6.0..sroa_idx, align 8
-  %14 = icmp samesign ult i32 %.sroa.02.0.copyload.pre, 2
+  %15 = icmp samesign ult i32 %.sroa.02.0.copyload.pre, 2
   store i32 %.sroa.0.0.copyload, ptr %3, align 8, !alias.scope !631, !noalias !634
   store i32 %.sroa.0.0.copyload, ptr %1, align 8
   store i32 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx, align 4
   store ptr %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8
-  br i1 %14, label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.858133952616893155.exit", label %15
+  br i1 %15, label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.858133952616893155.exit", label %16
 
-15:                                               ; preds = %12
+16:                                               ; preds = %13
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.44.0.copyload.pre) ]
   %16 = load i64, ptr %.sroa.44.0.copyload.pre, align 8, !noalias !637, !noundef !4
   %17 = add i64 %16, -1
@@ -4517,7 +4517,7 @@ default.unreachable1.i:                           ; preds = %2
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %19, label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.858133952616893155.exit"
 
-19:                                               ; preds = %15
+27:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.44.0.copyload.pre, i64 16
   invoke void @"_ZN4core3ptr67drop_in_place$LT$core..cell..Cell$LT$syn..parse..Unexpected$GT$$GT$17haf2750eab111b2d0E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
           to label %.noexc unwind label %26
@@ -4534,25 +4534,25 @@ default.unreachable1.i:                           ; preds = %2
   tail call void @__rust_dealloc(ptr noundef nonnull %.sroa.44.0.copyload.pre, i64 noundef 32, i64 noundef 8) #22, !noalias !644
   br label %"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.858133952616893155.exit"
 
-26:                                               ; preds = %19
-  %27 = landingpad { ptr, i32 }
+28:                                               ; preds = %19
+  %29 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.858133952616893155"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3) #25
-          to label %30 unwind label %28
+          to label %30 unwind label %30
 
-"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.858133952616893155.exit": ; preds = %.thread, %25, %.noexc, %15, %12
+"_ZN4core3ptr43drop_in_place$LT$syn..parse..Unexpected$GT$17h5bf2b0fced757446E.llvm.858133952616893155.exit": ; preds = %.thread, %25, %.noexc, %16, %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 
-28:                                               ; preds = %26
-  %29 = landingpad { ptr, i32 }
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
 
-30:                                               ; preds = %26
-  resume { ptr, i32 } %27
+32:                                               ; preds = %28
+  resume { ptr, i32 } %29
 }
 
 ; Function Attrs: nonlazybind uwtable

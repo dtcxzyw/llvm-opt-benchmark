@@ -2696,7 +2696,7 @@ _ZN4core3ops5range11RangeBounds8contains17hb4eac75a74a25f7dE.llvm.13986783010576
   store ptr %3, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 1, ptr %11, align 8
-  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26f4206a9fc8a8c6d289e2be3cec11c9.28) #18
+  call void @_ZN4core9panicking9panic_fmt17hdc63834ffaaefae5E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.26f4206a9fc8a8c6d289e2be3cec11c9.28) #17
   unreachable
 
 12:                                               ; preds = %2
@@ -2961,16 +2961,16 @@ declare void @_ZN6statrs8function5gamma16checked_gamma_lr17haeb1295c98ca9646E(pt
 declare void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr dead_on_unwind noalias noundef writable sret([40 x i8]) align 8 captures(none) dereferenceable(40), double noundef, double noundef, double noundef) unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #15
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #16
+declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #17
+declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -2986,7 +2986,7 @@ attributes #10 = { nofree norecurse nosync nounwind nonlazybind memory(none) uwt
 attributes #11 = { mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #13 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: write) }
 attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }

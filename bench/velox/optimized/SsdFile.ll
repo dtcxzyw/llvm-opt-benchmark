@@ -2049,7 +2049,7 @@ invoke.cont4:                                     ; preds = %entry
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %cleanup27.critedge, label %if.end
 
-lpad:                                             ; preds = %if.then.i.i.i, %invoke.cont13
+lpad:                                             ; preds = %if.then.i.i.i, %cleanup
   %1 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
@@ -2130,7 +2130,7 @@ call11.i.noexc:                                   ; preds = %while.cond.i
   %16 = load i64, ptr %id_.i2.i.i.i, align 8
   %cmp5.i.i.i = icmp eq i64 %key.coerce0, %16
   %17 = select i1 %cmp.i.i.i23, i1 %cmp5.i.i.i, i1 false
-  br i1 %17, label %invoke.cont13, label %while.cond.i, !llvm.loop !14
+  br i1 %17, label %cleanup, label %while.cond.i, !llvm.loop !14
 
 while.end.i:                                      ; preds = %while.cond.i
   %cmp17.i = icmp eq i8 %12, 0
@@ -2142,7 +2142,7 @@ if.end20.i:                                       ; preds = %while.end.i
   %exitcond.not = icmp eq i64 %tries.i.047, %conv.i
   br i1 %exitcond.not, label %cleanup27.critedge, label %call6.i.noexc, !llvm.loop !15
 
-invoke.cont13:                                    ; preds = %call11.i.noexc
+cleanup:                                          ; preds = %call11.i.noexc
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   %second = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
   %18 = load i64, ptr %second, align 8
@@ -2162,7 +2162,7 @@ cleanup27.critedge:                               ; preds = %if.end20.i, %while.
   %call1.i.i.i.i31 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %mutex_) #36
   br label %if.then.i.i.i32
 
-if.then.i.i.i32:                                  ; preds = %cleanup27.critedge, %invoke.cont13
+if.then.i.i.i32:                                  ; preds = %cleanup27.critedge, %cleanup
   invoke void @_ZN8facebook5velox11StringIdMap7releaseEm(ptr noundef nonnull align 8 dereferenceable(104) %call, i64 noundef %key.coerce0)
           to label %_ZN8facebook5velox5cache12FileCacheKeyD2Ev.exit unwind label %terminate.lpad.i.i
 

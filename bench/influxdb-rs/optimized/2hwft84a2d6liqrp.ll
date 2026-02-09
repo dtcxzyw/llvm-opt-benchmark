@@ -112,8 +112,8 @@ define hidden void @_ZN3std9panicking3try8do_catch17h3deb9dd2b5bfb964E.llvm.9308
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   store ptr %7, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %8, ptr %11, align 8
   ret void
 }
 

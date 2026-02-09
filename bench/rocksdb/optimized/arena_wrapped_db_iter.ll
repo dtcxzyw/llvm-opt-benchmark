@@ -2267,33 +2267,33 @@ define linkonce_odr void @_ZN7rocksdb18ArenaWrappedDBIter18SetIterUnderDBIterEPN
   %11 = zext i1 %9 to i8
   store i8 %11, ptr %10, align 8, !tbaa !361
   %.pre2.i = load ptr, ptr %5, align 8, !tbaa !290
-  br i1 %9, label %12, label %_ZN7rocksdb6DBIter7SetIterEPNS_20InternalIteratorBaseINS_5SliceEEE.exit
+  br i1 %9, label %13, label %_ZN7rocksdb6DBIter7SetIterEPNS_20InternalIteratorBaseINS_5SliceEEE.exit
 
-12:                                               ; preds = %2
-  %13 = load ptr, ptr %.pre2.i, align 8, !tbaa !95
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 88
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call { ptr, i64 } %15(ptr noundef nonnull align 8 dereferenceable(40) %.pre2.i)
-  %17 = extractvalue { ptr, i64 } %16, 0
-  %18 = extractvalue { ptr, i64 } %16, 1
-  %19 = getelementptr inbounds nuw i8, ptr %4, i64 96
-  store ptr %17, ptr %19, align 8, !tbaa !73
+13:                                               ; preds = %2
+  %14 = load ptr, ptr %.pre2.i, align 8, !tbaa !95
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 88
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call { ptr, i64 } %15(ptr noundef nonnull align 8 dereferenceable(40) %.pre2.i)
+  %18 = extractvalue { ptr, i64 } %17, 0
+  %19 = extractvalue { ptr, i64 } %17, 1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 96
+  store ptr %18, ptr %20, align 8, !tbaa !73
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 104
-  store i64 %18, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !61
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 112
-  store i8 0, ptr %20, align 8, !tbaa !362
-  %21 = getelementptr inbounds nuw i8, ptr %4, i64 113
-  store i8 0, ptr %21, align 1, !tbaa !363
+  store i64 %19, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !tbaa !61
+  %21 = getelementptr inbounds nuw i8, ptr %4, i64 112
+  store i8 0, ptr %21, align 8, !tbaa !362
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 113
+  store i8 0, ptr %22, align 1, !tbaa !363
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !290
   br label %_ZN7rocksdb6DBIter7SetIterEPNS_20InternalIteratorBaseINS_5SliceEEE.exit
 
-_ZN7rocksdb6DBIter7SetIterEPNS_20InternalIteratorBaseINS_5SliceEEE.exit: ; preds = %2, %12
-  %22 = phi ptr [ %.pre.i, %12 ], [ %.pre2.i, %2 ]
-  %23 = getelementptr inbounds nuw i8, ptr %4, i64 984
-  %24 = load ptr, ptr %22, align 8, !tbaa !95
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 152
-  %26 = load ptr, ptr %25, align 8
-  tail call void %26(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull %23)
+_ZN7rocksdb6DBIter7SetIterEPNS_20InternalIteratorBaseINS_5SliceEEE.exit: ; preds = %2, %13
+  %23 = phi ptr [ %.pre.i, %12 ], [ %.pre2.i, %2 ]
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 984
+  %25 = load ptr, ptr %23, align 8, !tbaa !95
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 152
+  %27 = load ptr, ptr %26, align 8
+  tail call void %26(ptr noundef nonnull align 8 dereferenceable(40) %23, ptr noundef nonnull %24)
   ret void
 }
 

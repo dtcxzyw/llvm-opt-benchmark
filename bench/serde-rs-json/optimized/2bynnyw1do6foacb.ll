@@ -336,38 +336,38 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
   store ptr %11, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %5, ptr %.sroa.5.0..sroa_idx, align 8
-  %12 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb83f000fce34cba8E"(i64 noundef %6, i1 noundef zeroext false)
-          to label %15 unwind label %13
+  %13 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb83f000fce34cba8E"(i64 noundef %6, i1 noundef zeroext false)
+          to label %16 unwind label %14
 
-13:                                               ; preds = %7
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %7
+  %15 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h9caea5b8ca0babb1E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8) #15
-          to label %20 unwind label %18
+          to label %20 unwind label %19
 
-15:                                               ; preds = %7
-  %16 = extractvalue { i64, ptr } %12, 0
-  %17 = extractvalue { i64, ptr } %12, 1
+16:                                               ; preds = %7
+  %17 = extractvalue { i64, ptr } %13, 0
+  %18 = extractvalue { i64, ptr } %13, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.01, i64 24, i1 false)
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %16, ptr %.sroa.42.0..sroa_idx, align 8
+  store i64 %17, ptr %.sroa.42.0..sroa_idx, align 8
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store ptr %17, ptr %.sroa.53.0..sroa_idx, align 8
+  store ptr %18, ptr %.sroa.53.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 0, ptr %.sroa.6.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.01)
   ret void
 
-18:                                               ; preds = %13
-  %19 = landingpad { ptr, i32 }
+19:                                               ; preds = %14
+  %20 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #16
   unreachable
 
-20:                                               ; preds = %13
-  resume { ptr, i32 } %14
+21:                                               ; preds = %14
+  resume { ptr, i32 } %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -1271,7 +1271,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
   store i64 19, ptr %3, align 8
   %8 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h923767d9ec04bba7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, i64 noundef 0, i64 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1284,13 +1284,13 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %10, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %14
+  br label %15
 
-14:                                               ; preds = %9, %7
+15:                                               ; preds = %9, %7
   %.sink5 = phi ptr [ %8, %7 ], [ %13, %9 ]
   %.sink = phi i64 [ -9223372036854775808, %7 ], [ %12, %9 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink5, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink5, ptr %16, align 8
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -1308,7 +1308,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
   store i64 19, ptr %3, align 8
   %8 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error6syntax17h923767d9ec04bba7E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, i64 noundef 0, i64 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %14
+  br label %15
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1321,13 +1321,13 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %10, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %14
+  br label %15
 
-14:                                               ; preds = %9, %7
+15:                                               ; preds = %9, %7
   %.sink5 = phi ptr [ %8, %7 ], [ %13, %9 ]
   %.sink = phi i64 [ -9223372036854775808, %7 ], [ %12, %9 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink5, ptr %15, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink5, ptr %16, align 8
   store i64 %.sink, ptr %0, align 8
   ret void
 }

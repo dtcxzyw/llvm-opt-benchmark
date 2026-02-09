@@ -79,20 +79,20 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.fca.0.extract6 = phi ptr [ %.fca.0.extract, %.lr.ph ], [ %.fca.0.extract5, %2 ]
-  %8 = phi { ptr, ptr } [ %10, %.lr.ph ], [ %6, %2 ]
+  %8 = phi { ptr, ptr } [ %11, %.lr.ph ], [ %6, %2 ]
   %.fca.1.extract = extractvalue { ptr, ptr } %8, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.fca.0.extract6, ptr %4, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.fca.1.extract) ]
   store ptr %.fca.1.extract, ptr %3, align 8
-  %9 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugMap5entry17h21a6ff5a03673b25E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.2.llvm.17788874430417167, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.3.llvm.17788874430417167)
+  %10 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders8DebugMap5entry17h21a6ff5a03673b25E(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.2.llvm.17788874430417167, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.3.llvm.17788874430417167)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %10 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5dfe3002ec99e99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5)
-  %.fca.0.extract = extractvalue { ptr, ptr } %10, 0
-  %11 = icmp eq ptr %.fca.0.extract, null
-  br i1 %11, label %._crit_edge, label %.lr.ph
+  %11 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha5dfe3002ec99e99E"(ptr noalias noundef nonnull align 8 dereferenceable(72) %5)
+  %.fca.0.extract = extractvalue { ptr, ptr } %11, 0
+  %12 = icmp eq ptr %.fca.0.extract, null
+  br i1 %12, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -106,14 +106,14 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   ret ptr %0
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.05 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.05, i64 32
+  %.sroa.0.05 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.05, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.05, ptr %4, align 8
-  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h2ed5a4f4153b90ddE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.3.llvm.17788874430417167)
+  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h2ed5a4f4153b90ddE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.f288aba1288e7a615443dffa1f18fa93.3.llvm.17788874430417167)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %8 = icmp eq ptr %6, %2
-  br i1 %8, label %._crit_edge, label %.lr.ph
+  %9 = icmp eq ptr %7, %2
+  br i1 %9, label %._crit_edge, label %.lr.ph
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
