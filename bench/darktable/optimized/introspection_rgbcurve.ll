@@ -2917,8 +2917,8 @@ dt_draw_grid_zoomed.exit485:                      ; preds = %236
   %432 = fpext reassoc nsz arcp contract afn float %431 to double
   %433 = load float, ptr %410, align 4, !tbaa !13
   %434 = fsub reassoc nsz arcp contract afn float %433, %430
-  %435 = fpext reassoc nsz arcp contract afn float %434 to double
-  %436 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %435, double 0.000000e+00)
+  %435 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %434, float 0.000000e+00)
+  %436 = fpext float %435 to double
   %437 = fmul reassoc nsz arcp contract afn double %436, %184
   call void @cairo_rectangle(ptr noundef %176, double noundef %432, double noundef 0.000000e+00, double noundef %437, double noundef %412) #26
   call void @cairo_fill(ptr noundef %176) #26
@@ -3010,8 +3010,8 @@ dt_draw_grid_zoomed.exit485:                      ; preds = %236
   %489 = fpext reassoc nsz arcp contract afn float %488 to double
   %490 = load float, ptr %479, align 4, !tbaa !13
   %491 = fsub reassoc nsz arcp contract afn float %490, %487
-  %492 = fpext reassoc nsz arcp contract afn float %491 to double
-  %493 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %492, double 0.000000e+00)
+  %492 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %491, float 0.000000e+00)
+  %493 = fpext float %492 to double
   %494 = fmul reassoc nsz arcp contract afn double %493, %184
   %495 = sitofp i32 %254 to double
   call void @cairo_rectangle(ptr noundef %176, double noundef %489, double noundef 0.000000e+00, double noundef %494, double noundef %495) #26
@@ -5896,9 +5896,6 @@ dt_ioppr_get_rgb_matrix_luminance.exit:           ; preds = %89, %dt_ioppr_apply
 }
 
 declare void @cairo_set_source_rgba(ptr noundef, double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.maxnum.f64(double, double) #6
 
 declare ptr @pango_font_description_copy_static(ptr noundef) local_unnamed_addr #3
 

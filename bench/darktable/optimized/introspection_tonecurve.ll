@@ -4644,8 +4644,8 @@ to_log.exit476:                                   ; preds = %.thread552, %to_log
   %559 = fmul reassoc nsz arcp contract afn float %.0.i469543548, %441
   %560 = fpext reassoc nsz arcp contract afn float %559 to double
   %561 = fsub reassoc nsz arcp contract afn float %.0.i472550, %.0.i469543548
-  %562 = fpext reassoc nsz arcp contract afn float %561 to double
-  %563 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %562, double 0.000000e+00)
+  %562 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %561, float 0.000000e+00)
+  %563 = fpext float %562 to double
   %564 = fmul reassoc nsz arcp contract afn double %563, %194
   call void @cairo_rectangle(ptr noundef %183, double noundef %560, double noundef 0.000000e+00, double noundef %564, double noundef %443) #22
   call void @cairo_fill(ptr noundef %183) #22
@@ -4893,8 +4893,8 @@ to_log.exit488:                                   ; preds = %.thread567, %to_log
   %703 = fmul reassoc nsz arcp contract afn float %.0.i481557563, %702
   %704 = fpext reassoc nsz arcp contract afn float %703 to double
   %705 = fsub reassoc nsz arcp contract afn float %.0.i484565, %.0.i481557563
-  %706 = fpext reassoc nsz arcp contract afn float %705 to double
-  %707 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %706, double 0.000000e+00)
+  %706 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %705, float 0.000000e+00)
+  %707 = fpext float %706 to double
   %708 = fmul reassoc nsz arcp contract afn double %707, %194
   %709 = sub nsw i32 0, %187
   %710 = sitofp i32 %709 to double
@@ -6826,9 +6826,6 @@ declare i32 @gtk_toggle_button_get_active(ptr noundef) local_unnamed_addr #3
 declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #11
 
 declare void @cairo_set_source_rgba(ptr noundef, double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.maxnum.f64(double, double) #8
 
 declare ptr @pango_font_description_copy_static(ptr noundef) local_unnamed_addr #3
 

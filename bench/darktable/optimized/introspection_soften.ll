@@ -130,8 +130,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %46 = sitofp i32 %45 to double
   %47 = load float, ptr %8, align 4, !tbaa !35
   %48 = fadd reassoc nsz arcp contract afn float %47, 1.000000e+00
-  %49 = fpext reassoc nsz arcp contract afn float %48 to double
-  %50 = tail call reassoc nsz arcp contract afn double @llvm.minnum.f64(double %49, double 1.000000e+02)
+  %49 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %48, float 1.000000e+02)
+  %50 = fpext float %49 to double
   %51 = fmul reassoc nsz arcp contract afn double %50, 1.000000e-02
   %52 = fmul reassoc nsz arcp contract afn double %51, %46
   %53 = fptosi double %52 to i32
@@ -393,9 +393,6 @@ declare float @llvm.exp2.f32(float) #4
 declare double @llvm.sqrt.f64(double) #4
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.minnum.f64(double, double) #4
-
-; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #4
 
 declare void @dt_box_mean(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
@@ -426,8 +423,8 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %25 = sitofp i32 %24 to double
   %26 = load float, ptr %7, align 4, !tbaa !35
   %27 = fadd reassoc nsz arcp contract afn float %26, 1.000000e+00
-  %28 = fpext reassoc nsz arcp contract afn float %27 to double
-  %29 = tail call reassoc nsz arcp contract afn double @llvm.minnum.f64(double %28, double 1.000000e+02)
+  %28 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %27, float 1.000000e+02)
+  %29 = fpext float %28 to double
   %30 = fmul reassoc nsz arcp contract afn double %29, 1.000000e-02
   %31 = fmul reassoc nsz arcp contract afn double %30, %25
   %32 = fptosi double %31 to i32

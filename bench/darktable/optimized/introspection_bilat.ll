@@ -256,7 +256,7 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %7 = load ptr, ptr %6, align 16, !tbaa !46
   %8 = load i32, ptr %7, align 4, !tbaa !34
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %10, label %47
+  br i1 %9, label %10, label %46
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -291,64 +291,61 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %39 = tail call i64 @dt_bilateral_singlebuffer_size(i32 noundef %23, i32 noundef %25, float noundef %21, float noundef %18) #19
   %40 = uitofp i64 %39 to float
   %41 = fdiv reassoc nsz arcp contract afn float %40, %36
-  %42 = fpext reassoc nsz arcp contract afn float %41 to double
-  %43 = tail call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %42, double 1.000000e+00)
-  %44 = fmul reassoc nsz arcp contract afn float %21, 4.000000e+00
-  %45 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %44)
-  %46 = fptoui float %45 to i32
-  br label %80
+  %42 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %41, float 1.000000e+00)
+  %43 = fmul reassoc nsz arcp contract afn float %21, 4.000000e+00
+  %44 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %43)
+  %45 = fptoui float %44 to i32
+  br label %78
 
-47:                                               ; preds = %5
-  %48 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %49 = load i32, ptr %48, align 4, !tbaa !63
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %51 = load i32, ptr %50, align 4, !tbaa !64
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 132
-  %53 = load i32, ptr %52, align 4, !tbaa !65
-  %54 = sext i32 %53 to i64
-  %55 = sext i32 %49 to i64
-  %56 = sext i32 %51 to i64
-  %57 = shl nsw i64 %55, 2
-  %58 = mul i64 %57, %56
-  %59 = mul i64 %58, %54
-  %60 = sitofp i32 %49 to float
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %62 = load float, ptr %61, align 4, !tbaa !62
-  %63 = fmul reassoc nsz arcp contract afn float %62, 2.560000e+02
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %65 = load float, ptr %64, align 8, !tbaa !61
-  %66 = fdiv reassoc nsz arcp contract afn float %63, %65
-  %67 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %66)
-  %68 = fcmp reassoc nsz arcp contract afn ogt float %67, %60
-  %. = select reassoc nsz arcp contract afn i1 %68, float %60, float %67
-  %69 = fptosi float %. to i32
-  %70 = tail call i64 @local_laplacian_memory_use(i32 noundef %49, i32 noundef %51) #19
-  %71 = uitofp i64 %70 to float
-  %72 = uitofp i64 %59 to float
-  %73 = fdiv reassoc nsz arcp contract afn float %71, %72
-  %74 = fadd reassoc nsz arcp contract afn float %73, 2.000000e+00
-  store float %74, ptr %4, align 4, !tbaa !66
-  %75 = tail call i64 @local_laplacian_singlebuffer_size(i32 noundef %49, i32 noundef %51) #19
-  %76 = uitofp i64 %75 to float
-  %77 = fdiv reassoc nsz arcp contract afn float %76, %72
-  %78 = fpext reassoc nsz arcp contract afn float %77 to double
-  %79 = tail call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %78, double 1.000000e+00)
-  br label %80
+46:                                               ; preds = %5
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %48 = load i32, ptr %47, align 4, !tbaa !63
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %50 = load i32, ptr %49, align 4, !tbaa !64
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 132
+  %52 = load i32, ptr %51, align 4, !tbaa !65
+  %53 = sext i32 %52 to i64
+  %54 = sext i32 %48 to i64
+  %55 = sext i32 %50 to i64
+  %56 = shl nsw i64 %54, 2
+  %57 = mul i64 %56, %55
+  %58 = mul i64 %57, %53
+  %59 = sitofp i32 %48 to float
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %61 = load float, ptr %60, align 4, !tbaa !62
+  %62 = fmul reassoc nsz arcp contract afn float %61, 2.560000e+02
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %64 = load float, ptr %63, align 8, !tbaa !61
+  %65 = fdiv reassoc nsz arcp contract afn float %62, %64
+  %66 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %65)
+  %67 = fcmp reassoc nsz arcp contract afn ogt float %66, %59
+  %. = select reassoc nsz arcp contract afn i1 %67, float %59, float %66
+  %68 = fptosi float %. to i32
+  %69 = tail call i64 @local_laplacian_memory_use(i32 noundef %48, i32 noundef %50) #19
+  %70 = uitofp i64 %69 to float
+  %71 = uitofp i64 %58 to float
+  %72 = fdiv reassoc nsz arcp contract afn float %70, %71
+  %73 = fadd reassoc nsz arcp contract afn float %72, 2.000000e+00
+  store float %73, ptr %4, align 4, !tbaa !66
+  %74 = tail call i64 @local_laplacian_singlebuffer_size(i32 noundef %48, i32 noundef %50) #19
+  %75 = uitofp i64 %74 to float
+  %76 = fdiv reassoc nsz arcp contract afn float %75, %71
+  %77 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %76, float 1.000000e+00)
+  br label %78
 
-80:                                               ; preds = %47, %10
-  %.sink55.in = phi double [ %43, %10 ], [ %79, %47 ]
-  %.sink = phi i32 [ %46, %10 ], [ %69, %47 ]
-  %.sink55 = fptrunc double %.sink55.in to float
-  %81 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store float %.sink55, ptr %81, align 4, !tbaa !68
-  %82 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %82, align 4, !tbaa !69
-  %83 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %.sink, ptr %83, align 4, !tbaa !70
-  %84 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 1, ptr %84, align 4, !tbaa !71
-  %85 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 1, ptr %85, align 4, !tbaa !72
+78:                                               ; preds = %46, %10
+  %.sink55 = phi float [ %42, %10 ], [ %77, %46 ]
+  %.sink = phi i32 [ %45, %10 ], [ %68, %46 ]
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store float %.sink55, ptr %79, align 4, !tbaa !68
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 0, ptr %80, align 4, !tbaa !69
+  %81 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 %.sink, ptr %81, align 4, !tbaa !70
+  %82 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 1, ptr %82, align 4, !tbaa !71
+  %83 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i32 1, ptr %83, align 4, !tbaa !72
   ret void
 }
 
@@ -358,9 +355,6 @@ declare float @llvm.maxnum.f32(float, float) #9
 declare i64 @dt_bilateral_memory_use(i32 noundef, i32 noundef, float noundef, float noundef) local_unnamed_addr #4
 
 declare i64 @dt_bilateral_singlebuffer_size(i32 noundef, i32 noundef, float noundef, float noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.maxnum.f64(double, double) #9
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #9

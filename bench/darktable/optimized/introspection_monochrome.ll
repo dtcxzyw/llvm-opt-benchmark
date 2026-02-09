@@ -334,33 +334,28 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %31 = tail call i64 @dt_bilateral_singlebuffer_size(i32 noundef %13, i32 noundef %15, float noundef %11, float noundef 2.500000e+02) #21
   %32 = uitofp i64 %31 to float
   %33 = fdiv reassoc nsz arcp contract afn float %32, %26
-  %34 = fpext reassoc nsz arcp contract afn float %33 to double
-  %35 = tail call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %34, double 1.000000e+00)
-  %36 = fptrunc reassoc nsz arcp contract afn double %35 to float
-  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store float %36, ptr %37, align 4, !tbaa !55
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store float %36, ptr %38, align 4, !tbaa !56
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %39, align 4, !tbaa !57
-  %40 = fmul reassoc nsz arcp contract afn float %11, 4.000000e+00
-  %41 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %40)
-  %42 = fptoui float %41 to i32
-  %43 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %42, ptr %43, align 4, !tbaa !58
-  %44 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i32 1, ptr %44, align 4, !tbaa !59
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 28
-  store i32 1, ptr %45, align 4, !tbaa !60
+  %34 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %33, float 1.000000e+00)
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store float %34, ptr %35, align 4, !tbaa !55
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  store float %34, ptr %36, align 4, !tbaa !56
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 0, ptr %37, align 4, !tbaa !57
+  %38 = fmul reassoc nsz arcp contract afn float %11, 4.000000e+00
+  %39 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %38)
+  %40 = fptoui float %39 to i32
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 20
+  store i32 %40, ptr %41, align 4, !tbaa !58
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i32 1, ptr %42, align 4, !tbaa !59
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 28
+  store i32 1, ptr %43, align 4, !tbaa !60
   ret void
 }
 
 declare i64 @dt_bilateral_memory_use(i32 noundef, i32 noundef, float noundef, float noundef) local_unnamed_addr #3
 
 declare i64 @dt_bilateral_singlebuffer_size(i32 noundef, i32 noundef, float noundef, float noundef) local_unnamed_addr #3
-
-; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.maxnum.f64(double, double) #7
 
 ; Function Attrs: mustprogress nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.ceil.f32(float) #7
