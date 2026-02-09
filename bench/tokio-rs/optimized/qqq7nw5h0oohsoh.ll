@@ -57,13 +57,11 @@ define hidden void @_ZN3std9panicking3try8do_catch17hb076c4d88da89025E.llvm.5480
 6:                                                ; preds = %2
   %7 = extractvalue { ptr, ptr } %3, 0
   %8 = extractvalue { ptr, ptr } %3, 1
-  %9 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %10)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   store ptr %7, ptr %0, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %11, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %8, ptr %9, align 8
   ret void
 }
 
@@ -81,13 +79,11 @@ define hidden void @_ZN3std9panicking3try8do_catch17hb08f865dce84a07fE.llvm.5480
 6:                                                ; preds = %2
   %7 = extractvalue { ptr, ptr } %3, 0
   %8 = extractvalue { ptr, ptr } %3, 1
-  %9 = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %9)
-  %10 = icmp ne ptr %8, null
-  tail call void @llvm.assume(i1 %10)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   store ptr %7, ptr %0, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %11, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %8, ptr %9, align 8
   ret void
 }
 

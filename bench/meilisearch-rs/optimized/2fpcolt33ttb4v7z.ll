@@ -3862,9 +3862,11 @@ define void @"_ZN17meilisearch_types5tasks164_$LT$impl$u20$core..convert..From$L
 define noundef zeroext i1 @"_ZN71_$LT$meilisearch_types..tasks..Status$u20$as$u20$core..fmt..Display$GT$3fmt17h9ab42d0807e7ee1cE"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load i8, ptr %0, align 1, !range !241, !noundef !14
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val8 = load ptr, ptr %4, align 8, !nonnull !14, !noundef !14
+  %.val8 = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val9 = load ptr, ptr %5, align 8, !nonnull !14, !noundef !14
+  %.val9 = load ptr, ptr %5, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val8) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val9) ]
   %6 = getelementptr inbounds nuw i8, ptr %.val9, i64 24
   %7 = load ptr, ptr %6, align 8, !invariant.load !14, !noalias !14, !nonnull !14
   switch i8 %3, label %default.unreachable58 [
@@ -4165,9 +4167,11 @@ define noundef zeroext i1 @"_ZN85_$LT$meilisearch_types..tasks..ParseTaskStatusE
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h3dc9dfed4e9792baE", ptr %.sroa.48.0..sroa_idx, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val = load ptr, ptr %18, align 8, !nonnull !14, !noundef !14
+  %.val = load ptr, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val11 = load ptr, ptr %19, align 8, !nonnull !14, !noundef !14
+  %.val11 = load ptr, ptr %19, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val11) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !477
   store ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.40, ptr %4, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4239,9 +4243,11 @@ define noundef zeroext i1 @_ZN17meilisearch_types5tasks4Kind20related_to_one_ind
 define noundef zeroext i1 @"_ZN69_$LT$meilisearch_types..tasks..Kind$u20$as$u20$core..fmt..Display$GT$3fmt17he2e42e90f5239643E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #1 {
   %3 = load i8, ptr %0, align 1, !range !489, !noundef !14
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val20 = load ptr, ptr %4, align 8, !nonnull !14, !noundef !14
+  %.val20 = load ptr, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val21 = load ptr, ptr %5, align 8, !nonnull !14, !noundef !14
+  %.val21 = load ptr, ptr %5, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val20) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val21) ]
   %6 = getelementptr inbounds nuw i8, ptr %.val21, i64 24
   %7 = load ptr, ptr %6, align 8, !invariant.load !14, !noalias !14, !nonnull !14
   switch i8 %3, label %default.unreachable142 [
@@ -4637,9 +4643,11 @@ define noundef zeroext i1 @"_ZN83_$LT$meilisearch_types..tasks..ParseTaskKindErr
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h3dc9dfed4e9792baE", ptr %.sroa.48.0..sroa_idx, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.val = load ptr, ptr %18, align 8, !nonnull !14, !noundef !14
+  %.val = load ptr, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.val11 = load ptr, ptr %19, align 8, !nonnull !14, !noundef !14
+  %.val11 = load ptr, ptr %19, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val11) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !619
   store ptr @anon.eb4b09fcd0b9d0b1d99ed199e636ac98.65, ptr %4, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8

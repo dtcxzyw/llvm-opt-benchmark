@@ -16445,7 +16445,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7712RegexMatche
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !76
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %5, label %30
+  br i1 %.not, label %5, label %29
 
 5:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -16473,32 +16473,31 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7712RegexMatche
 19:                                               ; preds = %17, %15
   %.0 = phi i32 [ %16, %15 ], [ %18, %17 ]
   %20 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 64) #21
-  %21 = icmp ne ptr %20, null
-  call void @llvm.assume(i1 %21)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %20) ]
   invoke void @_ZN6icu_7713UnicodeStringC1Eiii(ptr noundef nonnull align 8 dereferenceable(64) %20, i32 noundef %.0, i32 noundef 0, i32 noundef 0)
-          to label %22 unwind label %28
+          to label %21 unwind label %27
 
-22:                                               ; preds = %19
-  %23 = call noundef ptr @_ZN6icu_7713UnicodeString9getBufferEi(ptr noundef nonnull align 8 dereferenceable(64) %20, i32 noundef %.0)
-  %24 = load ptr, ptr %6, align 8, !tbaa !77
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %26 = load i64, ptr %25, align 8, !tbaa !66
-  %27 = call i32 @utext_extract_77(ptr noundef %24, i64 noundef 0, i64 noundef %26, ptr noundef %23, i32 noundef %.0, ptr noundef nonnull %2)
+21:                                               ; preds = %19
+  %22 = call noundef ptr @_ZN6icu_7713UnicodeString9getBufferEi(ptr noundef nonnull align 8 dereferenceable(64) %20, i32 noundef %.0)
+  %23 = load ptr, ptr %6, align 8, !tbaa !77
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %25 = load i64, ptr %24, align 8, !tbaa !66
+  %26 = call i32 @utext_extract_77(ptr noundef %23, i64 noundef 0, i64 noundef %25, ptr noundef %22, i32 noundef %.0, ptr noundef nonnull %2)
   call void @_ZN6icu_7713UnicodeString13releaseBufferEi(ptr noundef nonnull align 8 dereferenceable(64) %20, i32 noundef %.0)
   store ptr %20, ptr %3, align 8, !tbaa !154
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %30
+  br label %29
 
-28:                                               ; preds = %19
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %19
+  %28 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %20) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %29
+  resume { ptr, i32 } %28
 
-30:                                               ; preds = %22, %1
-  %31 = phi ptr [ %20, %22 ], [ %4, %1 ]
-  ret ptr %31
+29:                                               ; preds = %21, %1
+  %30 = phi ptr [ %20, %21 ], [ %4, %1 ]
+  ret ptr %30
 }
 
 declare void @_ZN6icu_7713UnicodeStringC1Eiii(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, i32 noundef) unnamed_addr #8

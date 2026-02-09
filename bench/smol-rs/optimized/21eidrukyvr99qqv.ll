@@ -244,10 +244,9 @@ define hidden void @"_ZN16concurrent_queue9unbounded18Unbounded$LT$T$GT$3pop17h4
   br label %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0d81b4a9a06c8c79E.exit"
 
 "_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0d81b4a9a06c8c79E.exit": ; preds = %89, %76, %"_ZN16concurrent_queue9unbounded14Block$LT$T$GT$7destroy17h0d81b4a9a06c8c79E.exit.sink.split", %66
-  %94 = icmp ne ptr %65, null
-  call void @llvm.assume(i1 %94)
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %65, ptr %95, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %65) ]
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %65, ptr %94, align 8
   br label %33
 }
 

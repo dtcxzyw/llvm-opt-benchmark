@@ -59415,6 +59415,7 @@ _ZN4absl12log_internal10LogMessagelsILi20EEERS1_RAT__Kc.exit: ; preds = %14
 26:                                               ; preds = %17, %23
   %27 = phi i8 [ %.pre, %23 ], [ %21, %17 ]
   %.0.i23 = phi ptr [ %25, %23 ], [ %19, %17 ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.0.i23) ]
   %28 = getelementptr inbounds nuw i8, ptr %.0.i23, i64 8
   %29 = atomicrmw add ptr %28, i32 2 monotonic, align 4
   %or.cond.i = icmp ult i8 %27, 5

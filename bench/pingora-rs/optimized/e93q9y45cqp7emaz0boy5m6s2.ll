@@ -202,8 +202,9 @@ switch.lookup:                                    ; preds = %10
 "_ZN12pingora_http16case_header_name18titled_header_name28_$u7b$$u7b$closure$u7d$$u7d$17h412fc4d1c747f322E.exit.i": ; preds = %switch.lookup, %13
   %.sroa.3.0.i.i.in = phi ptr [ %14, %13 ], [ %switch.gep, %switch.lookup ]
   %.sroa.0.0.i.i.in = phi ptr [ %12, %13 ], [ %switch.gep1, %switch.lookup ]
-  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.i.i.in, align 8, !nonnull !3, !noundef !3
+  %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.i.i.in, align 8
   %.sroa.3.0.i.i = load i64, ptr %.sroa.3.0.i.i.in, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.i.i) ]
   tail call void @_ZN5bytes5bytes5Bytes15copy_from_slice17h8538a77de2500018E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %.sroa.3.0.i.i), !noalias !17
   br label %"_ZN4core6option15Option$LT$T$GT$11map_or_else17h9fa920550db9e6faE.exit"
 
@@ -293,8 +294,11 @@ declare void @"_ZN88_$LT$bytes..bytes..Bytes$u20$as$u20$core..convert..From$LT$a
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN5bytes5bytes5Bytes15copy_from_slice17h8538a77de2500018E(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #2
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #7
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #7
+declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -303,7 +307,8 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind nonlazybind will
 attributes #4 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #5 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 
 !llvm.module.flags = !{!0, !1}
 !llvm.ident = !{!2}

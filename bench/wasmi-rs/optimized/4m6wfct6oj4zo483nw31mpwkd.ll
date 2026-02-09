@@ -797,8 +797,7 @@ define internal void @"_ZN145_$LT$wasmi..module..init_expr..ConstExpr..eval_with
   store i32 %7, ptr %4, align 4, !noalias !5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %8, ptr %9, align 4, !noalias !5
-  %10 = icmp ne ptr %.val1, null
-  tail call void @llvm.assume(i1 %10)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val1) ]
   call void @_ZN5wasmi6global6Global3get17h3534a01282cc003cE(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val1)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !5
   ret void
@@ -818,8 +817,7 @@ define internal void @"_ZN145_$LT$wasmi..module..init_expr..ConstExpr..eval_with
   store i32 %7, ptr %4, align 4, !noalias !8
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %8, ptr %9, align 4, !noalias !8
-  %10 = icmp ne ptr %.val1, null
-  tail call void @llvm.assume(i1 %10)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val1) ]
   call void @_ZN5wasmi6global6Global3get17h8c045997016d95b9E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val1)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !8
   ret void
@@ -838,8 +836,7 @@ define internal void @"_ZN145_$LT$wasmi..module..init_expr..ConstExpr..eval_with
   store i32 %7, ptr %4, align 4, !noalias !11
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 %8, ptr %9, align 4, !noalias !11
-  %10 = icmp ne ptr %.val1, null
-  tail call void @llvm.assume(i1 %10)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val1) ]
   call void @_ZN5wasmi6global6Global3get17h8c045997016d95b9E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val1)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !11
   ret void
@@ -1864,8 +1861,9 @@ define internal void @"_ZN4core3ptr84drop_in_place$LT$alloc..boxed..Box$LT$$u5b$
   br i1 %3, label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6d048680836a00deE.exit", label %4
 
 4:                                                ; preds = %1
-  %.val = load ptr, ptr %0, align 8, !nonnull !3, !noundef !3
+  %.val = load ptr, ptr %0, align 8
   %5 = shl nuw nsw i64 %.val1, 4
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   tail call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull %.val, i64 noundef range(i64 1, -9223372036854775808) %5, i64 noundef 8) #9
   br label %"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h6d048680836a00deE.exit"
 

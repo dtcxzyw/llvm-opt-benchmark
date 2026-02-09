@@ -353,7 +353,8 @@ rb_threadptr_add_event_hook.exit:                 ; preds = %4
   store i32 0, ptr %16, align 8, !tbaa !37
   store ptr %7, ptr %15, align 8, !tbaa !38
   %17 = getelementptr i8, ptr %6, i64 48
-  %.val.i = load ptr, ptr %17, align 8, !tbaa !39, !nonnull !32, !noundef !32
+  %.val.i = load ptr, ptr %17, align 8, !tbaa !39
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
   %18 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !48
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -398,7 +399,8 @@ rb_add_event_hook2.exit:                          ; preds = %3
   %13 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %14 = load ptr, ptr %13, align 8, !tbaa !33
   %15 = getelementptr i8, ptr %14, i64 48
-  %.val.i = load ptr, ptr %15, align 8, !tbaa !39, !nonnull !32, !noundef !32
+  %.val.i = load ptr, ptr %15, align 8, !tbaa !39
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
   %16 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !48
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -443,7 +445,8 @@ alloc_event_hook.exit:                            ; preds = %4
   %14 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   %16 = getelementptr i8, ptr %15, i64 48
-  %.val = load ptr, ptr %16, align 8, !tbaa !39, !nonnull !32, !noundef !32
+  %.val = load ptr, ptr %16, align 8, !tbaa !39
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !48
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
@@ -489,7 +492,8 @@ rb_threadptr_add_event_hook.exit:                 ; preds = %5
   store i32 0, ptr %17, align 8, !tbaa !37
   store ptr %8, ptr %16, align 8, !tbaa !38
   %18 = getelementptr i8, ptr %7, i64 48
-  %.val.i = load ptr, ptr %18, align 8, !tbaa !39, !nonnull !32, !noundef !32
+  %.val.i = load ptr, ptr %18, align 8, !tbaa !39
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
   %19 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !48
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -2692,11 +2696,12 @@ rb_add_event_hook2.exit:                          ; preds = %29
   br label %42
 
 42:                                               ; preds = %rb_add_event_hook2.exit, %rb_thread_add_event_hook2.exit
-  %.sink26 = phi ptr [ %41, %rb_add_event_hook2.exit ], [ %18, %rb_thread_add_event_hook2.exit ]
+  %.sink27 = phi ptr [ %41, %rb_add_event_hook2.exit ], [ %18, %rb_thread_add_event_hook2.exit ]
   %.sink21 = phi ptr [ %34, %rb_add_event_hook2.exit ], [ %23, %rb_thread_add_event_hook2.exit ]
   %.sink16 = phi i32 [ %30, %rb_add_event_hook2.exit ], [ %16, %rb_thread_add_event_hook2.exit ]
-  %43 = getelementptr i8, ptr %.sink26, i64 48
-  %.val.i = load ptr, ptr %43, align 8, !tbaa !39, !nonnull !32, !noundef !32
+  %43 = getelementptr i8, ptr %.sink27, i64 48
+  %.val.i = load ptr, ptr %43, align 8, !tbaa !39
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
   %44 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %45 = load ptr, ptr %44, align 8, !tbaa !48
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -5147,7 +5152,8 @@ rb_remove_event_hook.exit:                        ; preds = %._crit_edge.i.i, %2
   store i32 0, ptr %42, align 8, !tbaa !37
   %43 = load ptr, ptr %3, align 8, !tbaa !33
   %44 = getelementptr i8, ptr %43, i64 48
-  %.val.i.i = load ptr, ptr %44, align 8, !tbaa !39, !nonnull !32, !noundef !32
+  %.val.i.i = load ptr, ptr %44, align 8, !tbaa !39
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i.i) ]
   %45 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !48
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
@@ -5284,7 +5290,8 @@ thread_add_trace_func.exit:                       ; preds = %42
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 40
   store i32 0, ptr %51, align 8, !tbaa !37
   store ptr %5, ptr %50, align 8, !tbaa !38
-  %.val.i.i = load ptr, ptr %6, align 8, !tbaa !39, !nonnull !32, !noundef !32
+  %.val.i.i = load ptr, ptr %6, align 8, !tbaa !39
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i.i) ]
   %52 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
   %53 = load ptr, ptr %52, align 8, !tbaa !48
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
@@ -5331,7 +5338,8 @@ thread_add_trace_func.exit:                       ; preds = %2
   store i32 0, ptr %14, align 8, !tbaa !37
   store ptr %5, ptr %13, align 8, !tbaa !38
   %15 = getelementptr i8, ptr %4, i64 48
-  %.val.i.i = load ptr, ptr %15, align 8, !tbaa !39, !nonnull !32, !noundef !32
+  %.val.i.i = load ptr, ptr %15, align 8, !tbaa !39
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i.i) ]
   %16 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !48
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16

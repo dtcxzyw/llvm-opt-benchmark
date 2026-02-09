@@ -32,9 +32,11 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit:
   store ptr %3, ptr %4, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h46f9cd2d8e237319E", ptr %.sroa.42.0..sroa_idx, align 8
-  %.val = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %.val = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val3 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
+  %.val3 = load ptr, ptr %6, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val3) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !5
   store ptr @anon.fa6cdb27709eec1d453d91b23a4d5fda.1, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -71,12 +73,11 @@ define void @"_ZN103_$LT$pingora_error..immut_str..ImmutStr$u20$as$u20$core..con
   %5 = extractvalue { ptr, i64 } %4, 0
   %6 = extractvalue { ptr, i64 } %4, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %7 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %5, ptr %8, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %6, ptr %9, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %5, ptr %7, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %6, ptr %8, align 8
   store i64 1, ptr %0, align 8
   ret void
 }

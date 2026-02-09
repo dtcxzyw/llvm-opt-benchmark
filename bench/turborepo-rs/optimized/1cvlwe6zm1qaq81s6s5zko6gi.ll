@@ -30,8 +30,10 @@ _ZN4core3fmt9Formatter9write_fmt17h7b1b66abcbe56eabE.exit: ; preds = %2
   store ptr %7, ptr %8, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @_RNvXsR_NtCs1LoaDTb72WA_4core3fmtRNtNtCs68wO5nsWeTG_5alloc6string6StringNtB5_7Display3fmtCseUVAjF3xvPC_21turborepo_graph_utils, ptr %.sroa.43.0..sroa_idx, align 8
-  %.val9 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
-  %.val10 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
+  %.val9 = load ptr, ptr %11, align 8
+  %.val10 = load ptr, ptr %12, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val9) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val10) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !6
   store ptr @anon.b7d3d09f27a26dab8dbe7cd191086f5d.2, ptr %4, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -55,8 +57,10 @@ _ZN4core3fmt9Formatter9write_fmt17h7b1b66abcbe56eabE.exit15: ; preds = %2
   store ptr %5, ptr %6, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @_RNvXsR_NtCs1LoaDTb72WA_4core3fmtRNtNtCs68wO5nsWeTG_5alloc6string6StringNtB5_7Display3fmtCseUVAjF3xvPC_21turborepo_graph_utils, ptr %.sroa.47.0..sroa_idx, align 8
-  %.val = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
-  %.val8 = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
+  %.val = load ptr, ptr %11, align 8
+  %.val8 = load ptr, ptr %12, align 8
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val8) ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !9
   store ptr @anon.b7d3d09f27a26dab8dbe7cd191086f5d.4, ptr %3, align 8
   %.sroa.517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -90,8 +94,12 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #1
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #1
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
+declare void @llvm.assume(i1 noundef) #2
+
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

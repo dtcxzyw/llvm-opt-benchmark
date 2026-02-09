@@ -592,8 +592,8 @@ entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %literal.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %literal.coerce0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
-  %cmp36.not = icmp eq ptr %literal.coerce1, %literal.coerce0
-  br i1 %cmp36.not, label %if.end57, label %for.body.lr.ph
+  %cmp35.not = icmp eq ptr %literal.coerce1, %literal.coerce0
+  br i1 %cmp35.not, label %if.end57, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %entry
   %codes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -605,11 +605,11 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %wbits.040 = phi i8 [ 0, %for.body.lr.ph ], [ %wbits.1, %for.inc ]
-  %totalBytes.039 = phi i32 [ 0, %for.body.lr.ph ], [ %totalBytes.1, %for.inc ]
-  %i.038 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %and3437 = phi i32 [ 0, %for.body.lr.ph ], [ %and35, %for.inc ]
-  %arrayidx.i = getelementptr inbounds i8, ptr %literal.coerce0, i64 %i.038
+  %wbits.039 = phi i8 [ 0, %for.body.lr.ph ], [ %wbits.1, %for.inc ]
+  %totalBytes.038 = phi i32 [ 0, %for.body.lr.ph ], [ %totalBytes.1, %for.inc ]
+  %i.037 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %and3336 = phi i32 [ 0, %for.body.lr.ph ], [ %and34, %for.inc ]
+  %arrayidx.i = getelementptr inbounds i8, ptr %literal.coerce0, i64 %i.037
   %0 = load i8, ptr %arrayidx.i, align 1
   %1 = load ptr, ptr %codes_, align 8
   %idxprom = zext i8 %0 to i64
@@ -618,14 +618,14 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %3 = load ptr, ptr %bits_, align 8
   %arrayidx4 = getelementptr inbounds nuw i8, ptr %3, i64 %idxprom
   %4 = load i8, ptr %arrayidx4, align 1
-  %conv = zext i8 %wbits.040 to i32
+  %conv = zext i8 %wbits.039 to i32
   %conv5 = zext i8 %4 to i32
   %add = add nuw nsw i32 %conv5, %conv
   %cmp6 = icmp samesign ult i32 %add, 32
   br i1 %cmp6, label %if.then, label %if.else
 
 if.then:                                          ; preds = %for.body
-  %shl = shl i32 %and3437, %conv5
+  %shl = shl i32 %and3336, %conv5
   %or = or i32 %shl, %2
   %conv11 = trunc nuw nsw i32 %add to i8
   br label %for.inc
@@ -635,7 +635,7 @@ if.else:                                          ; preds = %for.body
   %conv15 = add i8 %5, -32
   %conv17 = zext i8 %conv15 to i32
   %sub18 = sub nsw i32 %conv5, %conv17
-  %shl19 = shl i32 %and3437, %sub18
+  %shl19 = shl i32 %and3336, %sub18
   %shr = lshr i32 %2, %conv17
   %or21 = or i32 %shl19, %shr
   %6 = load ptr, ptr %second.i.i.i.i, align 8
@@ -644,12 +644,7 @@ if.else:                                          ; preds = %for.body
   %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %cmp.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, 3
-  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
-
-if.then.i.i:                                      ; preds = %if.else
-  %cmp.i.i.i = icmp ne ptr %7, null
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
-  br label %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit
+  br i1 %cmp.i.i, label %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit, label %if.else.i.i
 
 if.else.i.i:                                      ; preds = %if.else
   %8 = load ptr, ptr %queue_.i.i.i.i, align 8
@@ -698,29 +693,30 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly10IOBufQue
   br label %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
 
 _ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i: ; preds = %if.then.i.i.i.i.i, %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i.i
-  %18 = load ptr, ptr %buf, align 8, !nonnull !8, !noundef !8
+  %18 = load ptr, ptr %buf, align 8
   br label %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit
 
-_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit: ; preds = %if.then.i.i, %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
-  %.sink.i.i = phi ptr [ %18, %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i ], [ %7, %if.then.i.i ]
+_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit: ; preds = %if.else, %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i
+  %.sink4.i.i = phi ptr [ %18, %_ZN5folly2io13QueueAppender9writeSlowIjEENSt9enable_ifIXsr3std13is_arithmeticIT_EE5valueEvE4typeES4_m.exit.i.i ], [ %7, %if.else ]
   %19 = tail call noundef i32 @llvm.bswap.i32(i32 %or21)
-  store i32 %19, ptr %.sink.i.i, align 1
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sink4.i.i) ]
+  store i32 %19, ptr %.sink4.i.i, align 1
   %.pn.i.i = load ptr, ptr %buf, align 8
   %storemerge.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 4
   store ptr %storemerge.i.i, ptr %buf, align 8
-  %add22 = add i32 %totalBytes.039, 4
+  %add22 = add i32 %totalBytes.038, 4
   %notmask27 = shl nsw i32 -1, %conv17
   %sub25 = xor i32 %notmask27, -1
   %and = and i32 %2, %sub25
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then, %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit
-  %and35 = phi i32 [ %or, %if.then ], [ %and, %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit ]
-  %totalBytes.1 = phi i32 [ %totalBytes.039, %if.then ], [ %add22, %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit ]
+  %and34 = phi i32 [ %or, %if.then ], [ %and, %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit ]
+  %totalBytes.1 = phi i32 [ %totalBytes.038, %if.then ], [ %add22, %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit ]
   %wbits.1 = phi i8 [ %conv11, %if.then ], [ %conv15, %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE7writeBEIjEEvT_.exit ]
-  %inc = add nuw i64 %i.038, 1
+  %inc = add nuw i64 %i.037, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.sub.i
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !9
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.end:                                          ; preds = %for.inc
   %20 = and i8 %wbits.1, 7
@@ -730,7 +726,7 @@ for.end:                                          ; preds = %for.inc
 if.then28:                                        ; preds = %for.end
   %narrow = sub nuw nsw i8 8, %20
   %conv32 = zext nneg i8 %narrow to i32
-  %shl34 = shl i32 %and35, %conv32
+  %shl34 = shl i32 %and34, %conv32
   %notmask = shl nsw i32 -1, %conv32
   %sub37 = xor i32 %notmask, -1
   %or38 = or i32 %shl34, %sub37
@@ -738,7 +734,7 @@ if.then28:                                        ; preds = %for.end
   br label %if.end43
 
 if.end43:                                         ; preds = %if.then28, %for.end
-  %21 = phi i32 [ %or38, %if.then28 ], [ %and35, %for.end ]
+  %21 = phi i32 [ %or38, %if.then28 ], [ %and34, %for.end ]
   %wbits.2 = phi i8 [ %conv42, %if.then28 ], [ %wbits.1, %for.end ]
   %cmp45.not = icmp eq i8 %wbits.2, 0
   br i1 %cmp45.not, label %if.end57, label %if.then46
@@ -759,9 +755,9 @@ if.then46:                                        ; preds = %if.end43
   %sub.ptr.sub.i.i.i.i31 = sub i64 %sub.ptr.lhs.cast.i.i.i.i29, %sub.ptr.rhs.cast.i.i.i.i30
   %.sroa.speculated24.i.i = tail call i64 @llvm.umin.i64(i64 %sub.ptr.sub.i.i.i.i31, i64 %conv54)
   %cmp.not.i.i = icmp eq i64 %.sroa.speculated24.i.i, 0
-  br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i32
+  br i1 %cmp.not.i.i, label %if.end.i.i, label %if.then.i.i
 
-if.then.i.i32:                                    ; preds = %if.then46
+if.then.i.i:                                      ; preds = %if.then46
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr nonnull align 4 %w, i64 %.sroa.speculated24.i.i, i1 false)
   %24 = load ptr, ptr %buf, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %24, i64 %.sroa.speculated24.i.i
@@ -769,8 +765,8 @@ if.then.i.i32:                                    ; preds = %if.then46
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %w, i64 %.sroa.speculated24.i.i
   br label %if.end.i.i
 
-if.end.i.i:                                       ; preds = %if.then.i.i32, %if.then46
-  %buf.addr.0.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i32 ], [ %w, %if.then46 ]
+if.end.i.i:                                       ; preds = %if.then.i.i, %if.then46
+  %buf.addr.0.i.i = phi ptr [ %add.ptr.i.i, %if.then.i.i ], [ %w, %if.then46 ]
   %sub.i.i = sub nsw i64 %conv54, %.sroa.speculated24.i.i
   %cmp4.not29.i.i = icmp eq i64 %sub.i.i, 0
   br i1 %cmp4.not29.i.i, label %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE4pushEPKhm.exit, label %while.body.lr.ph.i.i
@@ -825,7 +821,7 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i:  ; preds = %if.end.i.i.i, %if.t
   %add.ptr14.i.i = getelementptr inbounds i8, ptr %buf.addr.131.i.i, i64 %31
   %sub16.i.i = sub i64 %storemerge30.i.i, %31
   %cmp4.not.i.i = icmp eq i64 %sub16.i.i, 0
-  br i1 %cmp4.not.i.i, label %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE4pushEPKhm.exit, label %while.body.i.i, !llvm.loop !10
+  br i1 %cmp4.not.i.i, label %_ZN5folly2io6detail8WritableINS0_13QueueAppenderEE4pushEPKhm.exit, label %while.body.i.i, !llvm.loop !9
 
 _ZN5folly2io6detail8WritableINS0_13QueueAppenderEE4pushEPKhm.exit: ; preds = %_ZN5folly10IOBufQueue11preallocateEmmm.exit.i.i, %if.end.i.i
   %conv55 = zext nneg i8 %shr48 to i32
@@ -866,7 +862,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add = add i32 %totalBits.09, %conv
   %inc = add nuw i64 %i.08, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.sub.i
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
+  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !10
 
 for.end:                                          ; preds = %for.body, %entry
   %totalBits.0.lcssa = phi i32 [ 0, %entry ], [ %add, %for.body ]
@@ -903,7 +899,7 @@ entry:
   %ref.tmp = alloca %"class.proxygen::huffman::HuffTree", align 8
   %0 = load atomic i8, ptr @_ZGVZN8proxygen7huffman8huffTreeEvE8huffTree acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !12
+  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !11
 
 init.check:                                       ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN8proxygen7huffman8huffTreeEvE8huffTree) #27
@@ -1113,7 +1109,7 @@ if.then3:                                         ; preds = %if.else
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %0 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %guard.uninitialized.i.i.i.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i.i.i.i, label %init.check.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, !prof !12
+  br i1 %guard.uninitialized.i.i.i.i, label %init.check.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, !prof !11
 
 init.check.i.i.i.i:                               ; preds = %if.then3
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #27
@@ -1241,7 +1237,7 @@ if.end.i:                                         ; preds = %if.end7
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %9 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %guard.uninitialized.i.i.i.i = icmp eq i8 %9, 0
-  br i1 %guard.uninitialized.i.i.i.i, label %init.check.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, !prof !12
+  br i1 %guard.uninitialized.i.i.i.i, label %init.check.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, !prof !11
 
 init.check.i.i.i.i:                               ; preds = %if.end.i
   %10 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #27
@@ -1301,7 +1297,7 @@ entry:
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
   %0 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS_13usingJEMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN5folly13usingJEMallocEv.exit, !prof !12
+  br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN5folly13usingJEMallocEv.exit, !prof !11
 
 init.check.i.i:                                   ; preds = %entry
   %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS_13usingJEMallocEvE11InitializerE3getESt12memory_orderE2rv) #27
@@ -1325,7 +1321,7 @@ lor.rhs:                                          ; preds = %_ZN5folly13usingJEM
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i1)
   %3 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS_13usingTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %guard.uninitialized.i.i2 = icmp eq i8 %3, 0
-  br i1 %guard.uninitialized.i.i2, label %init.check.i.i4, label %_ZN5folly13usingTCMallocEv.exit, !prof !12
+  br i1 %guard.uninitialized.i.i2, label %init.check.i.i4, label %_ZN5folly13usingTCMallocEv.exit, !prof !11
 
 init.check.i.i4:                                  ; preds = %lor.rhs
   %4 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS_13usingTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #27
@@ -1402,7 +1398,7 @@ if.end14:                                         ; preds = %if.end
   %12 = load volatile i64, ptr %11, align 8
   %13 = load atomic i8, ptr @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr acquire, align 8
   %guard.uninitialized = icmp eq i8 %13, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !12
+  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !11
 
 init.check:                                       ; preds = %if.end14
   %14 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN5folly13usingJEMallocEvENK11InitializerclEvE3ptr) #27
@@ -1493,7 +1489,7 @@ terminate.lpad.i:                                 ; preds = %if.end
 _ZN5folly26getTCMallocNumericPropertyEPKcPm.exit: ; preds = %if.end
   %5 = load atomic i8, ptr @_ZGVZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr acquire, align 8
   %guard.uninitialized = icmp eq i8 %5, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !12
+  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !11
 
 init.check:                                       ; preds = %_ZN5folly26getTCMallocNumericPropertyEPKcPm.exit
   %6 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr) #27
@@ -1622,7 +1618,7 @@ if.then3:                                         ; preds = %if.end
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %1 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %guard.uninitialized.i.i.i.i = icmp eq i8 %1, 0
-  br i1 %guard.uninitialized.i.i.i.i, label %init.check.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, !prof !12
+  br i1 %guard.uninitialized.i.i.i.i, label %init.check.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, !prof !11
 
 init.check.i.i.i.i:                               ; preds = %if.then3
   %2 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #27
@@ -1886,7 +1882,7 @@ if.end.i:                                         ; preds = %if.end7
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i)
   %9 = load atomic i8, ptr @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv acquire, align 8
   %guard.uninitialized.i.i.i.i = icmp eq i8 %9, 0
-  br i1 %guard.uninitialized.i.i.i.i, label %init.check.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, !prof !12
+  br i1 %guard.uninitialized.i.i.i.i, label %init.check.i.i.i.i, label %_ZN5folly10canNallocxEv.exit.i, !prof !11
 
 init.check.i.i.i.i:                               ; preds = %if.end.i
   %10 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5folly6detail14FastStaticBoolIZNS0_23usingJEMallocOrTCMallocEvE11InitializerE3getESt12memory_orderE2rv) #27
@@ -2024,8 +2020,7 @@ attributes #32 = { nounwind allocsize(1) }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = !{}
+!8 = distinct !{!8, !5}
 !9 = distinct !{!9, !5}
 !10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = !{!"branch_weights", i32 1, i32 1048575}
+!11 = !{!"branch_weights", i32 1, i32 1048575}

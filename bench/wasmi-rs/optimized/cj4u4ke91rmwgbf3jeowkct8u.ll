@@ -235,7 +235,7 @@ switch.lookup:
   ret i1 %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
 define hidden { ptr, i64 } @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$8as_slice17h7e130510a82b7404E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
@@ -442,6 +442,7 @@ define hidden void @_ZN5wasmi4func2ty8FuncType3new17h290989b8929d6290E(ptr dead_
 75:                                               ; preds = %71
   %76 = load i8, ptr %73, align 1, !range !11, !alias.scope !97, !noalias !100, !noundef !3
   call void @_RNvCshjvJWTf7CV5_7___rustc14___rust_dealloc(ptr noundef nonnull align 1 %73, i64 noundef 1, i64 noundef 1) #16, !noalias !100
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.039.056.i.i.i) ]
   store i8 %76, ptr %.sroa.039.056.i.i.i, align 1, !noalias !69
   %77 = icmp eq ptr %69, %62
   br i1 %77, label %.loopexit.i.i, label %67
@@ -1108,7 +1109,7 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #13
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #4 = { cold minsize noreturn nounwind nonlazybind optsize uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -140,8 +140,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
     i32 0, label %9
     i32 1, label %10
     i32 2, label %46
-    i32 3, label %64
-    i32 4, label %69
+    i32 3, label %63
+    i32 4, label %68
   ]
 
 9:                                                ; preds = %tailrecurse
@@ -234,46 +234,45 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %27, %24
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 208
   %58 = load ptr, ptr %57, align 8, !tbaa !60
   %59 = tail call noundef ptr @_Z30get_return_fact_for_invocationPK22FunctionInvocationUserPK8Variable13eFactCategory(ptr noundef nonnull %54, ptr noundef %58, i32 noundef 2)
-  %60 = icmp ne ptr %59, null
-  tail call void @llvm.assume(i1 %60)
-  %61 = tail call ptr @__dynamic_cast(ptr nonnull %59, ptr nonnull @_ZTI4Fact, ptr nonnull @_ZTI9FactUnion, i64 0) #16
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %63 = load i32, ptr %62, align 8, !tbaa !15
-  tail call void @_ZN9FactUnion10make_factsERKSt6vectorIPK8VariableSaIS3_EEi(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %63)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %59) ]
+  %60 = tail call ptr @__dynamic_cast(ptr nonnull %59, ptr nonnull @_ZTI4Fact, ptr nonnull @_ZTI9FactUnion, i64 0) #16
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 24
+  %62 = load i32, ptr %61, align 8, !tbaa !15
+  tail call void @_ZN9FactUnion10make_factsERKSt6vectorIPK8VariableSaIS3_EEi(ptr dead_on_unwind writable sret(%"class.std::vector.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %62)
   br label %_ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit
 
-64:                                               ; preds = %tailrecurse
-  %65 = tail call ptr @__dynamic_cast(ptr nonnull %.tr76, ptr nonnull @_ZTI10Expression, ptr nonnull @_ZTI16ExpressionAssign, i64 0) #16
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %67 = load ptr, ptr %66, align 8, !tbaa !74
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
+63:                                               ; preds = %tailrecurse
+  %64 = tail call ptr @__dynamic_cast(ptr nonnull %.tr76, ptr nonnull @_ZTI10Expression, ptr nonnull @_ZTI16ExpressionAssign, i64 0) #16
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  %66 = load ptr, ptr %65, align 8, !tbaa !74
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 48
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %64, %69
-  %.tr76.be.in = phi ptr [ %68, %64 ], [ %71, %69 ]
+tailrecurse.backedge:                             ; preds = %63, %68
+  %.tr76.be.in = phi ptr [ %67, %63 ], [ %70, %68 ]
   %.tr76.be = load ptr, ptr %.tr76.be.in, align 8, !tbaa !77
   br label %tailrecurse
 
-69:                                               ; preds = %tailrecurse
-  %70 = tail call ptr @__dynamic_cast(ptr nonnull %.tr76, ptr nonnull @_ZTI10Expression, ptr nonnull @_ZTI15ExpressionComma, i64 0) #16
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
+68:                                               ; preds = %tailrecurse
+  %69 = tail call ptr @__dynamic_cast(ptr nonnull %.tr76, ptr nonnull @_ZTI10Expression, ptr nonnull @_ZTI15ExpressionComma, i64 0) #16
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
   br label %tailrecurse.backedge
 
 .critedge:                                        ; preds = %22, %33
-  %72 = load ptr, ptr %6, align 8, !tbaa !45
-  %.not.i.i.i63 = icmp eq ptr %72, null
-  br i1 %.not.i.i.i63, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit64, label %73
+  %71 = load ptr, ptr %6, align 8, !tbaa !45
+  %.not.i.i.i63 = icmp eq ptr %71, null
+  br i1 %.not.i.i.i63, label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit64, label %72
 
-73:                                               ; preds = %.critedge
-  %74 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %75 = load ptr, ptr %74, align 8, !tbaa !47
-  %76 = ptrtoint ptr %75 to i64
-  %77 = ptrtoint ptr %72 to i64
-  %78 = sub i64 %76, %77
-  call void @_ZdlPvm(ptr noundef nonnull %72, i64 noundef %78) #15
+72:                                               ; preds = %.critedge
+  %73 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %74 = load ptr, ptr %73, align 8, !tbaa !47
+  %75 = ptrtoint ptr %74 to i64
+  %76 = ptrtoint ptr %71 to i64
+  %77 = sub i64 %75, %76
+  call void @_ZdlPvm(ptr noundef nonnull %71, i64 noundef %77) #15
   br label %_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit64
 
-_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit64:      ; preds = %.critedge, %73
+_ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit64:      ; preds = %.critedge, %72
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge60
 
@@ -934,8 +933,7 @@ _ZNK8Variable14is_union_fieldEv.exit.i:           ; preds = %tailrecurse.i
   br i1 %9, label %_ZNK8Variable21is_inside_union_fieldEv.exit.preheader, label %tailrecurse.i
 
 _ZNK8Variable21is_inside_union_fieldEv.exit.preheader: ; preds = %_ZNK8Variable14is_union_fieldEv.exit.i
-  %.not23 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not23)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %0) ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK8Variable21is_inside_union_fieldEv.exit.preheader, %.lr.ph

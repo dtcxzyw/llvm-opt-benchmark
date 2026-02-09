@@ -3482,8 +3482,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %183, %
   %190 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN19OpenColorIO_v2_5devL28CTF_PROCESS_LIST_VERSION_2_0E, i64 8), align 4, !tbaa !22, !noalias !111
   %191 = load ptr, ptr %.sroa.01.015.i, align 8, !tbaa !65, !noalias !136, !nonnull !90, !noundef !90
   %192 = call ptr @__dynamic_cast(ptr nonnull %191, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev19FixedFunctionOpDataE, i64 0) #29, !noalias !136
-  %.not.not.i20.i.i = icmp ne ptr %192, null
-  call void @llvm.assume(i1 %.not.not.i20.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %192) ]
   %193 = getelementptr inbounds nuw i8, ptr %.sroa.01.015.i, i64 8
   %194 = load ptr, ptr %193, align 8, !tbaa !36, !noalias !136
   %.not.i.i.i.i21.i.i = icmp eq ptr %194, null
@@ -3589,8 +3588,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i29.i.i: ; preds = %226,
 234:                                              ; preds = %.noexc79
   %235 = load ptr, ptr %.sroa.01.015.i, align 8, !tbaa !65, !noalias !147, !nonnull !90, !noundef !90
   %236 = call ptr @__dynamic_cast(ptr nonnull %235, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev14ExponentOpDataE, i64 0) #29, !noalias !147
-  %.not.not.i33.i.i = icmp ne ptr %236, null
-  call void @llvm.assume(i1 %.not.not.i33.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %236) ]
   %237 = getelementptr inbounds nuw i8, ptr %.sroa.01.015.i, i64 8
   %238 = load ptr, ptr %237, align 8, !tbaa !36, !noalias !147
   %.not.i.i.i.i34.i.i = icmp eq ptr %238, null
@@ -3677,8 +3675,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i40.i.i: ; preds = %270,
   call void @llvm.experimental.noalias.scope.decl(metadata !151)
   %275 = load ptr, ptr %.sroa.01.015.i, align 8, !tbaa !65, !noalias !154, !nonnull !90, !noundef !90
   %276 = call ptr @__dynamic_cast(ptr nonnull %275, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11GammaOpDataE, i64 0) #29, !noalias !154
-  %.not.not.i42.i.i = icmp ne ptr %276, null
-  call void @llvm.assume(i1 %.not.not.i42.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %276) ]
   store ptr %276, ptr %4, align 8, !tbaa !155, !alias.scope !151, !noalias !111
   %277 = getelementptr inbounds nuw i8, ptr %.sroa.01.015.i, i64 8
   %278 = load ptr, ptr %277, align 8, !tbaa !36, !noalias !154
@@ -3940,8 +3937,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i62.i.i: ; preds = %379,
 383:                                              ; preds = %.noexc79
   %384 = load ptr, ptr %.sroa.01.015.i, align 8, !tbaa !65, !noalias !181, !nonnull !90, !noundef !90
   %385 = call ptr @__dynamic_cast(ptr nonnull %384, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11Lut3DOpDataE, i64 0) #29, !noalias !181
-  %.not.not.i64.i.i = icmp ne ptr %385, null
-  call void @llvm.assume(i1 %.not.not.i64.i.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %385) ]
   %386 = getelementptr inbounds nuw i8, ptr %.sroa.01.015.i, i64 8
   %387 = load ptr, ptr %386, align 8, !tbaa !36, !noalias !181
   %.not.i.i.i.i65.i.i = icmp eq ptr %387, null
@@ -11497,8 +11493,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12MatrixOpDataELN9__gnu_cxx12_Lock_po
   call void @llvm.experimental.noalias.scope.decl(metadata !291)
   %1887 = load ptr, ptr %223, align 8, !tbaa !65, !noalias !291, !nonnull !90, !noundef !90
   %1888 = call ptr @__dynamic_cast(ptr nonnull %1887, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11RangeOpDataE, i64 0) #29, !noalias !291
-  %.not.not.i582 = icmp ne ptr %1888, null
-  call void @llvm.assume(i1 %.not.not.i582)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %1888) ]
   store ptr %1888, ptr %62, align 8, !tbaa !294, !alias.scope !291
   %1889 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %1890 = load ptr, ptr %1889, align 8, !tbaa !36, !noalias !291
@@ -12395,8 +12390,7 @@ define internal fastcc noundef i32 @_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_114GetI
   tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
   %12 = load ptr, ptr %0, align 8, !tbaa !65, !noalias !307, !nonnull !90, !noundef !90
   %13 = tail call ptr @__dynamic_cast(ptr nonnull %12, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev12MatrixOpDataE, i64 0) #29, !noalias !307
-  %.not.not.i = icmp ne ptr %13, null
-  tail call void @llvm.assume(i1 %.not.not.i)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %13) ]
   store ptr %13, ptr %2, align 8, !tbaa !281, !alias.scope !307
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12495,8 +12489,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev12MatrixOpDataELN9__gnu_cxx12_Lock_po
   tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
   %56 = load ptr, ptr %0, align 8, !tbaa !65, !noalias !311, !nonnull !90, !noundef !90
   %57 = tail call ptr @__dynamic_cast(ptr nonnull %56, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11RangeOpDataE, i64 0) #29, !noalias !311
-  %.not.not.i25 = icmp ne ptr %57, null
-  tail call void @llvm.assume(i1 %.not.not.i25)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %57) ]
   store ptr %57, ptr %3, align 8, !tbaa !294, !alias.scope !311
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12595,8 +12588,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11RangeOpDataELN9__gnu_cxx12_Lock_pol
   tail call void @llvm.experimental.noalias.scope.decl(metadata !315)
   %100 = load ptr, ptr %0, align 8, !tbaa !65, !noalias !315, !nonnull !90, !noundef !90
   %101 = tail call ptr @__dynamic_cast(ptr nonnull %100, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11Lut1DOpDataE, i64 0) #29, !noalias !315
-  %.not.not.i32 = icmp ne ptr %101, null
-  tail call void @llvm.assume(i1 %.not.not.i32)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %101) ]
   store ptr %101, ptr %4, align 8, !tbaa !267, !alias.scope !315
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12702,8 +12694,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_pol
   tail call void @llvm.experimental.noalias.scope.decl(metadata !318)
   %147 = load ptr, ptr %0, align 8, !tbaa !65, !noalias !318, !nonnull !90, !noundef !90
   %148 = tail call ptr @__dynamic_cast(ptr nonnull %147, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev6OpDataE, ptr nonnull @_ZTIN19OpenColorIO_v2_5dev11Lut3DOpDataE, i64 0) #29, !noalias !318
-  %.not.not.i39 = icmp ne ptr %148, null
-  tail call void @llvm.assume(i1 %.not.not.i39)
+  call void @llvm.assume(i1 true) [ "nonnull"(ptr %148) ]
   store ptr %148, ptr %5, align 8, !tbaa !274, !alias.scope !318
   %149 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 8
