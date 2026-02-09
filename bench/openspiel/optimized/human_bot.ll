@@ -204,7 +204,7 @@ define noundef i64 @_ZN10open_spiel8HumanBot4StepERKNS_5StateE(ptr nonnull readn
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 32, i1 false)
   br label %46
 
-.preheader:                                       ; preds = %67
+.preheader:                                       ; preds = %66
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -216,7 +216,7 @@ define noundef i64 @_ZN10open_spiel8HumanBot4StepERKNS_5StateE(ptr nonnull readn
   %45 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %75
 
-46:                                               ; preds = %35, %67
+46:                                               ; preds = %35, %66
   %.sroa.0117.0150 = phi ptr [ %31, %35 ], [ %70, %67 ]
   %47 = load i64, ptr %.sroa.0117.0150, align 8
   %48 = load ptr, ptr %1, align 8, !noalias !4
@@ -263,7 +263,7 @@ _ZNK10open_spiel5State14ActionToStringB5cxx11El.exit: ; preds = %.noexc
   call void @llvm.trap()
   unreachable
 
-67:                                               ; preds = %61
+66:                                               ; preds = %61
   %68 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %64, i64 %.fca.0.extract.i.i.i
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 32
   store i64 %47, ptr %69, align 8
@@ -1015,7 +1015,7 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   call void @llvm.trap()
   unreachable
 
-319:                                              ; preds = %313
+318:                                              ; preds = %313
   %320 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %316, i64 %.fca.0.extract.i.i.i84
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 32
   %322 = load i64, ptr %321, align 8
@@ -1080,7 +1080,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   br label %361
 
-.loopexit134:                                     ; preds = %.lr.ph, %319
+.loopexit134:                                     ; preds = %.lr.ph, %318
   %.2.ph = phi i64 [ %322, %319 ], [ %330, %.lr.ph ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #21
   %343 = getelementptr inbounds nuw i8, ptr %8, i64 24

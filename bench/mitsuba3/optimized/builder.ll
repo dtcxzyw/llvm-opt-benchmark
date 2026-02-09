@@ -2227,21 +2227,21 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5alignENS0_9Align
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %33
 
-31:                                               ; preds = %27
+28:                                               ; preds = %27
   store ptr %10, ptr %28, align 8, !tbaa !64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 400
   br label %43
 
-33:                                               ; preds = %27
+32:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %29, ptr %34, align 8, !tbaa !16
   %35 = load ptr, ptr %28, align 8, !tbaa !64
   store ptr %10, ptr %35, align 8, !tbaa !16
   br label %43
 
-36:                                               ; preds = %23
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %38 = load ptr, ptr %37, align 8, !tbaa !16
+34:                                               ; preds = %23
+  %35 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %38 = load ptr, ptr %35, align 8, !tbaa !16
   store ptr %25, ptr %10, align 8, !tbaa !16
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %38, ptr %39, align 8, !tbaa !16
@@ -2251,7 +2251,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5alignENS0_9Align
   %42 = select i1 %40, ptr %41, ptr %38
   br label %43
 
-43:                                               ; preds = %36, %33, %31
+37:                                               ; preds = %36, %33, %31
   %44 = phi ptr [ %32, %31 ], [ %28, %33 ], [ %42, %36 ]
   store ptr %10, ptr %44, align 8, !tbaa !16
   %45 = getelementptr inbounds nuw i8, ptr %10, i64 17
@@ -2261,14 +2261,14 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder5alignENS0_9Align
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %49 = load i8, ptr %48, align 8, !tbaa !16
   %50 = icmp eq i8 %49, 2
-  br i1 %50, label %51, label %53
+  br i1 %50, label %51, label %44
 
 51:                                               ; preds = %43
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 409
   store i8 1, ptr %52, align 1, !tbaa !65
   br label %53
 
-53:                                               ; preds = %51, %43
+44:                                               ; preds = %51, %43
   store ptr %10, ptr %24, align 8, !tbaa !63
   br label %54
 

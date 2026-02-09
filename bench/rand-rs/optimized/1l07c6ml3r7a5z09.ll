@@ -17,18 +17,18 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %13 = lshr exact i64 %12, 2
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %13)
   store ptr %1, ptr %0, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %3, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.0.sroa.speculated.i, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %9, ptr %19, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %3, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %4, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 0, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %.0.sroa.speculated.i, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %11, ptr %21, align 8
   ret void
 }
 
@@ -46,18 +46,18 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   %13 = lshr exact i64 %12, 3
   %.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %13)
   store ptr %1, ptr %0, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr %14, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %3, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %4, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 0, ptr %17, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %.0.sroa.speculated.i, ptr %18, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i64 %9, ptr %19, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %16, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %3, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %4, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 0, ptr %19, align 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %.0.sroa.speculated.i, ptr %20, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i64 %11, ptr %21, align 8
   ret void
 }
 
@@ -145,8 +145,8 @@ define hidden void @_ZN3std9panicking3try8do_catch17ha011cd346e9a9ea0E.llvm.5094
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   store ptr %7, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %8, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %8, ptr %11, align 8
   ret void
 }
 

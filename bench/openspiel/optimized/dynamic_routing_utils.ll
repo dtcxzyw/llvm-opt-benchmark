@@ -1723,14 +1723,14 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7
           to label %.noexc.i unwind label %387
 
 .noexc.i:                                         ; preds = %_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEENS1_10StringHashENS1_12StringHashEq2EqESaISt4pairIKS9_iEEE14const_iteratordeEv.exit.i
-  %.fca.1.extract.i.i.i.i.i.i88 = extractvalue { i64, i8 } %360, 1
-  %361 = trunc i8 %.fca.1.extract.i.i.i.i.i.i88 to i1
+  %.fca.1.extract.i.i.i.i.i.i87 = extractvalue { i64, i8 } %360, 1
+  %361 = trunc i8 %.fca.1.extract.i.i.i.i.i.i87 to i1
   br i1 %361, label %362, label %365
 
 362:                                              ; preds = %.noexc.i
-  %.fca.0.extract.i.i.i.i.i.i87 = extractvalue { i64, i8 } %360, 0
+  %.fca.0.extract.i.i.i.i.i.i88 = extractvalue { i64, i8 } %360, 0
   %363 = load ptr, ptr %343, align 8, !alias.scope !51, !noalias !55
-  %364 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %363, i64 %.fca.0.extract.i.i.i.i.i.i87
+  %364 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %363, i64 %.fca.0.extract.i.i.i.i.i.i88
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %364, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.013.i)
           to label %365 unwind label %387
 

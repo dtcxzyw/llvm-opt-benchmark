@@ -907,10 +907,10 @@ _ZN5alloc11collections5btree3mem7replace17ha955f20bf239a92fE.exit.i: ; preds = %
   %.sroa.472.0.copyload.i.sink = phi i64 [ %.sroa.472.0.copyload.i, %129 ], [ %.sroa.8.0.i, %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert28_$u7b$$u7b$closure$u7d$$u7d$17h2788e6f50e4a264bE.exit" ], [ %.sroa.8.0.i, %"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$6insert17h49f95f56033beca8E.exit.thread" ], [ %.sroa.8.0.i, %"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$6insert17h49f95f56033beca8E.exit" ]
   %.sroa.5.0.copyload.i.sink = phi i64 [ %.sroa.5.0.copyload.i, %129 ], [ %.sroa.10.0.i, %"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert28_$u7b$$u7b$closure$u7d$$u7d$17h2788e6f50e4a264bE.exit" ], [ %.sroa.10.0.i, %"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$6insert17h49f95f56033beca8E.exit.thread" ], [ %.sroa.10.0.i, %"_ZN5alloc11collections5btree4node214Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..Edge$GT$6insert17h49f95f56033beca8E.exit" ]
   store ptr %.sink, ptr %0, align 8
-  %293 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.472.0.copyload.i.sink, ptr %293, align 8
-  %294 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.5.0.copyload.i.sink, ptr %294, align 8
+  %294 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.472.0.copyload.i.sink, ptr %294, align 8
+  %295 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.5.0.copyload.i.sink, ptr %295, align 8
   ret void
 }
 
@@ -951,22 +951,22 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
 
 23:                                               ; preds = %"_ZN5alloc11collections5btree4node25InternalNode$LT$K$C$V$GT$3new17h0be88ef804756912E.exit"
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef %14, i64 noundef 11, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a535fe7ef364fcb4762aa7ab38aa75fd.21) #20
-          to label %.noexc unwind label %24
+          to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %23
   unreachable
 
-24:                                               ; preds = %23
-  %25 = landingpad { ptr, i32 }
+18:                                               ; preds = %23
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %66
 
-26:                                               ; preds = %48, %45
-  %27 = landingpad { ptr, i32 }
+20:                                               ; preds = %48, %45
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %66
 
-28:                                               ; preds = %"_ZN5alloc11collections5btree4node25InternalNode$LT$K$C$V$GT$3new17h0be88ef804756912E.exit"
+22:                                               ; preds = %"_ZN5alloc11collections5btree4node25InternalNode$LT$K$C$V$GT$3new17h0be88ef804756912E.exit"
   %29 = add i64 %.val6, 1
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %31 = getelementptr inbounds double, ptr %16, i64 %29
@@ -988,20 +988,20 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %44 = icmp ugt i16 %37, 11
   br i1 %44, label %45, label %46
 
-45:                                               ; preds = %28
+45:                                               ; preds = %22
   invoke void @_ZN4core5slice5index24slice_end_index_len_fail17h70ffde91723d2a46E(i64 noundef range(i64 1, 65537) %43, i64 noundef 12, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a535fe7ef364fcb4762aa7ab38aa75fd.23) #20
-          to label %.noexc9 unwind label %26
+          to label %.noexc9 unwind label %20
 
 .noexc9:                                          ; preds = %45
   unreachable
 
-46:                                               ; preds = %28
+46:                                               ; preds = %22
   %47 = icmp eq i64 %39, %43
   br i1 %47, label %49, label %48
 
 48:                                               ; preds = %46
   invoke void @_ZN4core9panicking5panic17h75b3c9209f97d725E(ptr noalias noundef nonnull readonly align 1 @anon.a535fe7ef364fcb4762aa7ab38aa75fd.19, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a535fe7ef364fcb4762aa7ab38aa75fd.20) #20
-          to label %.noexc10 unwind label %26
+          to label %.noexc10 unwind label %20
 
 .noexc10:                                         ; preds = %48
   unreachable
@@ -1044,8 +1044,8 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   store i64 %52, ptr %65, align 8
   ret void
 
-66:                                               ; preds = %26, %24
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %25, %24 ]
+66:                                               ; preds = %20, %18
+  %.pn = phi { ptr, i32 } [ %21, %26 ], [ %19, %24 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %6, i64 noundef 288, i64 noundef 8) #21
   resume { ptr, i32 } %.pn
 }

@@ -18,7 +18,7 @@ define internal void @"_ZN3std4sync6poison4once4Once15call_once_force28_$u7b$$u7
   %.sroa.5.sroa.0.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8
   store ptr null, ptr %3, align 8
   %.not = icmp eq ptr %.sroa.0.0.copyload, null
-  br i1 %.not, label %10, label %4, !prof !5
+  br i1 %.not, label %12, label %4, !prof !5
 
 4:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
@@ -38,11 +38,11 @@ define internal void @"_ZN3std4sync6poison4once4Once15call_once_force28_$u7b$$u7
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.5.sroa.0.0.copyload) ]
   store ptr %5, ptr %.sroa.5.sroa.0.0.copyload, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.5.sroa.0.0.copyload, i64 8
-  store ptr %7, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.5.sroa.0.0.copyload, i64 8
+  store ptr %7, ptr %11, align 8
   ret void
 
-10:                                               ; preds = %2
+12:                                               ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17h4c7f35545a6d0c7eE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5f52548b160c067b79d02fbbd8f74cbf.3) #8
   unreachable
 }
@@ -108,8 +108,8 @@ _ZN4core3ops8function6FnOnce9call_once17h056f857c880df310E.exit: ; preds = %4
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %7) ]
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.5.sroa.0.0.copyload.i.i) ]
   store ptr %5, ptr %.sroa.5.sroa.0.0.copyload.i.i, align 8, !noalias !30
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.5.sroa.0.0.copyload.i.i, i64 8
-  store ptr %7, ptr %10, align 8, !noalias !30
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.5.sroa.0.0.copyload.i.i, i64 8
+  store ptr %7, ptr %12, align 8, !noalias !30
   ret void
 }
 

@@ -712,62 +712,62 @@ define void @_ZN6icu_7711Formattable16setDecimalNumberENS_11StringPieceER10UErro
   %8 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 72) #20
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %8) ]
   invoke void @_ZN6icu_776number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %8)
-          to label %9 unwind label %33
+          to label %9 unwind label %34
 
-9:                                                ; preds = %7
-  %10 = tail call noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %8, ptr %1, i32 %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %12 = load ptr, ptr %11, align 8, !tbaa !26
-  %13 = icmp eq ptr %12, null
-  br i1 %13, label %18, label %14
+10:                                               ; preds = %7
+  %11 = tail call noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(66) %8, ptr %1, i32 %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %13 = load ptr, ptr %12, align 8, !tbaa !26
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %19, label %15
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr %12, align 8, !tbaa !24
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %17 = load ptr, ptr %16, align 8
-  tail call void %17(ptr noundef nonnull align 8 dereferenceable(66) %12) #20
-  br label %18
+15:                                               ; preds = %10
+  %16 = load ptr, ptr %13, align 8, !tbaa !24
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %18 = load ptr, ptr %17, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(66) %13) #20
+  br label %19
 
-18:                                               ; preds = %9, %14
-  store ptr %8, ptr %11, align 8, !tbaa !26
-  %19 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity10fitsInLongEb(ptr noundef nonnull align 8 dereferenceable(66) %8, i1 noundef zeroext false)
-  br i1 %19, label %20, label %28
+19:                                               ; preds = %10, %15
+  store ptr %8, ptr %12, align 8, !tbaa !26
+  %20 = tail call noundef zeroext i1 @_ZNK6icu_776number4impl15DecimalQuantity10fitsInLongEb(ptr noundef nonnull align 8 dereferenceable(66) %8, i1 noundef zeroext false)
+  br i1 %20, label %21, label %29
 
-20:                                               ; preds = %18
-  %21 = load ptr, ptr %11, align 8, !tbaa !26
-  %22 = tail call noundef i64 @_ZNK6icu_776number4impl15DecimalQuantity6toLongEb(ptr noundef nonnull align 8 dereferenceable(66) %21, i1 noundef zeroext false)
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %22, ptr %23, align 8, !tbaa !15
-  %24 = add i64 %22, 2147483648
-  %or.cond.i = icmp ult i64 %24, 4294967296
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br i1 %or.cond.i, label %26, label %27
+21:                                               ; preds = %19
+  %22 = load ptr, ptr %12, align 8, !tbaa !26
+  %23 = tail call noundef i64 @_ZNK6icu_776number4impl15DecimalQuantity6toLongEb(ptr noundef nonnull align 8 dereferenceable(66) %22, i1 noundef zeroext false)
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %23, ptr %24, align 8, !tbaa !15
+  %25 = add i64 %23, 2147483648
+  %or.cond.i = icmp ult i64 %25, 4294967296
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br i1 %or.cond.i, label %27, label %28
 
-26:                                               ; preds = %20
-  store i32 2, ptr %25, align 8, !tbaa !16
+27:                                               ; preds = %21
+  store i32 2, ptr %26, align 8, !tbaa !16
   br label %_ZN6icu_7711Formattable20adoptDecimalQuantityEPNS_6number4impl15DecimalQuantityE.exit
 
-27:                                               ; preds = %20
-  store i32 5, ptr %25, align 8, !tbaa !16
+28:                                               ; preds = %21
+  store i32 5, ptr %26, align 8, !tbaa !16
   br label %_ZN6icu_7711Formattable20adoptDecimalQuantityEPNS_6number4impl15DecimalQuantityE.exit
 
-28:                                               ; preds = %18
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 1, ptr %29, align 8, !tbaa !16
-  %30 = load ptr, ptr %11, align 8, !tbaa !26
-  %31 = tail call noundef double @_ZNK6icu_776number4impl15DecimalQuantity8toDoubleEv(ptr noundef nonnull align 8 dereferenceable(66) %30)
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %31, ptr %32, align 8, !tbaa !15
+29:                                               ; preds = %19
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 1, ptr %210, align 8, !tbaa !16
+  %31 = load ptr, ptr %12, align 8, !tbaa !26
+  %32 = tail call noundef double @_ZNK6icu_776number4impl15DecimalQuantity8toDoubleEv(ptr noundef nonnull align 8 dereferenceable(66) %31)
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store double %32, ptr %33, align 8, !tbaa !15
   br label %_ZN6icu_7711Formattable20adoptDecimalQuantityEPNS_6number4impl15DecimalQuantityE.exit
 
-_ZN6icu_7711Formattable20adoptDecimalQuantityEPNS_6number4impl15DecimalQuantityE.exit: ; preds = %28, %27, %26, %4
+_ZN6icu_7711Formattable20adoptDecimalQuantityEPNS_6number4impl15DecimalQuantityE.exit: ; preds = %29, %28, %27, %4
   ret void
 
-33:                                               ; preds = %7
-  %34 = landingpad { ptr, i32 }
+34:                                               ; preds = %7
+  %35 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %8) #20
-  resume { ptr, i32 } %34
+  resume { ptr, i32 } %35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2648,21 +2648,21 @@ declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_776number4impl1
 define noundef ptr @ufmt_open_77(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 4, !tbaa !13
   %3 = icmp slt i32 %2, 1
-  br i1 %3, label %4, label %8
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %1
   %5 = tail call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 112) #20
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %5) ]
   invoke void @_ZN6icu_7711FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %5)
-          to label %8 unwind label %6
+          to label %8 unwind label %7
 
-6:                                                ; preds = %4
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %4
+  %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %5) #20
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %8
 
-8:                                                ; preds = %4, %1
+9:                                                ; preds = %4, %1
   %.0 = phi ptr [ null, %1 ], [ %5, %4 ]
   ret ptr %.0
 }

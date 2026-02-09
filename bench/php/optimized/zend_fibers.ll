@@ -210,7 +210,7 @@ zend_fiber_get_page_size.exit.i:                  ; preds = %6, %4
 zend_fiber_stack_allocate.exit.thread:            ; preds = %12, %22, %34
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %41, align 8, !tbaa !47
-  br label %54
+  br label %55
 
 42:                                               ; preds = %28
   %43 = tail call noalias ptr @_emalloc_16() #22
@@ -233,9 +233,9 @@ zend_fiber_stack_allocate.exit.thread:            ; preds = %12, %22, %34
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %53, align 8, !tbaa !53
   tail call void @zend_observer_fiber_init_notify(ptr noundef nonnull %0) #22
-  br label %54
+  br label %55
 
-54:                                               ; preds = %zend_fiber_stack_allocate.exit.thread, %42
+55:                                               ; preds = %zend_fiber_stack_allocate.exit.thread, %42
   %.0 = phi i32 [ 0, %42 ], [ -1, %zend_fiber_stack_allocate.exit.thread ]
   ret i32 %.0
 }

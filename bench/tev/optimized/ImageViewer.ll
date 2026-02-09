@@ -9541,7 +9541,7 @@ define dso_local noundef zeroext i1 @_ZN3tev11ImageViewer18mouse_motion_eventERK
   %.06.i.i.sroa.gep113 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %.05.i80.sroa.gep169 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %.05.i.sroa.gep178 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  br i1 %11, label %229, label %12
+  br i1 %11, label %230, label %12
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 90
@@ -9611,7 +9611,7 @@ _ZN3tev11ImageViewer18canDragSidebarFromERKN7nanogui5ArrayIiLm2EEE.exit.thread: 
   store i32 %48, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 521
   store i8 1, ptr %50, align 1
-  br label %229
+  br label %230
 
 .preheader:                                       ; preds = %32
   %51 = load i32, ptr %2, align 4
@@ -9677,7 +9677,7 @@ _ZN7nanogui5ArrayIfLm2EEdVERKS1_.exit:            ; preds = %_ZN7nanogui5ArrayIf
 75:                                               ; preds = %72, %_ZN7nanogui5ArrayIfLm2EEdVERKS1_.exit
   %76 = and i32 %3, 4
   %.not74 = icmp eq i32 %76, 0
-  br i1 %.not74, label %229, label %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit81.critedge
+  br i1 %.not74, label %230, label %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit81.critedge
 
 _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit81.critedge: ; preds = %75
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 872
@@ -9693,7 +9693,7 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit81.critedge: ; preds = %75
   store float %85, ptr %.05.i80.sroa.gep169, align 4
   %86 = fdiv float %79, 1.000000e+01
   call void @_ZN3tev11ImageCanvas5scaleEfRKN7nanogui5ArrayIfLm2EEE(ptr noundef nonnull align 8 dereferenceable(376) %78, float noundef %86, ptr noundef nonnull align 4 dereferenceable(8) %8)
-  br label %229
+  br label %230
 
 _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %32
   %87 = tail call i64 @_ZNK7nanogui6Widget17absolute_positionEv(ptr noundef nonnull align 8 dereferenceable(132) %0)
@@ -9739,7 +9739,7 @@ _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge: ; preds = %32
   %sqrt.i = tail call double @llvm.sqrt.f64(double %114)
   %115 = fptosi double %sqrt.i to i32
   %116 = icmp slt i32 %115, 3
-  br i1 %116, label %229, label %_ZNSt3__16vectorIN7nanogui5ArrayIiLm2EEENS_9allocatorIS3_EEEC2B8ne190000ESt16initializer_listIS3_E.exit
+  br i1 %116, label %230, label %_ZNSt3__16vectorIN7nanogui5ArrayIiLm2EEENS_9allocatorIS3_EEEC2B8ne190000ESt16initializer_listIS3_E.exit
 
 _ZNSt3__16vectorIN7nanogui5ArrayIiLm2EEENS_9allocatorIS3_EEEC2B8ne190000ESt16initializer_listIS3_E.exit: ; preds = %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge
   %117 = load ptr, ptr %94, align 8
@@ -9800,7 +9800,7 @@ _ZNSt3__16vectorIN7nanogui5ArrayIiLm2EEENS_9allocatorIS3_EEED2B8ne190000Ev.exit:
   store i32 %133, ptr %.sroa.12.0..sroa_idx, align 4
   %.sroa.2116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %134, i64 320
   store i8 1, ptr %.sroa.2116.0..sroa_idx, align 8
-  br label %229
+  br label %230
 
 _ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit94.critedge: ; preds = %32
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 848
@@ -9977,12 +9977,12 @@ _ZNK7nanogui6Widget8containsERKNS_5ArrayIiLm2EEE.exit.thread: ; preds = %_ZN7nan
   %.sroa.0.sroa.0.0.insert.ext = zext i32 %223 to i64
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.2.0.insert.shift, %.sroa.0.sroa.0.0.insert.ext
   store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %228, align 8
-  br label %229
+  br label %230
 
-229:                                              ; preds = %32, %40, %_ZNSt3__16vectorIN7nanogui5ArrayIiLm2EEENS_9allocatorIS3_EEED2B8ne190000Ev.exit, %.loopexit, %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit81.critedge, %75, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge, %5
+230:                                              ; preds = %32, %40, %_ZNSt3__16vectorIN7nanogui5ArrayIiLm2EEENS_9allocatorIS3_EEED2B8ne190000Ev.exit, %.loopexit, %_ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit81.critedge, %75, %_ZN7nanoguiplERKNS_5ArrayIiLm2EEES3_.exit.critedge, %5
   ret i1 %11
 
-230:                                              ; preds = %162
+231:                                              ; preds = %162
   unreachable
 }
 

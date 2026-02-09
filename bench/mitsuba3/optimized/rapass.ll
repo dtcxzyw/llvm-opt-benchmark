@@ -1471,7 +1471,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass18buildCFGDominatorsE
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %14 = load i32, ptr %13, align 8, !tbaa !3
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %105, label %16
+  br i1 %15, label %106, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -1483,30 +1483,30 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass18buildCFGDominatorsE
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 216
   br label %25
 
-23:                                               ; preds = %99
-  %24 = icmp eq i8 %100, 0
-  br i1 %24, label %102, label %25, !llvm.loop !169
+23:                                               ; preds = %100
+  %24 = icmp eq i8 %101, 0
+  br i1 %24, label %103, label %25, !llvm.loop !169
 
 25:                                               ; preds = %23, %16
   %26 = phi i32 [ 0, %16 ], [ %27, %23 ]
   %27 = add i32 %26, 1
   %28 = load i32, ptr %22, align 8, !tbaa !3
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %102, label %30
+  br i1 %29, label %103, label %30
 
 30:                                               ; preds = %25
   %31 = zext i32 %28 to i64
   br label %32
 
-32:                                               ; preds = %99, %30
+32:                                               ; preds = %100, %30
   %33 = phi i64 [ %31, %30 ], [ %35, %99 ]
-  %34 = phi i8 [ 0, %30 ], [ %100, %99 ]
+  %34 = phi i8 [ 0, %30 ], [ %101, %99 ]
   %35 = add nsw i64 %33, -1
   %36 = load ptr, ptr %21, align 8, !tbaa !9
   %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %35
   %38 = load ptr, ptr %37, align 8, !tbaa !10
   %39 = icmp eq ptr %38, %19
-  br i1 %39, label %99, label %40, !llvm.loop !170
+  br i1 %39, label %100, label %40, !llvm.loop !170
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 96
@@ -1588,7 +1588,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass18buildCFGDominatorsE
   %88 = getelementptr inbounds nuw i8, ptr %38, i64 80
   %89 = load ptr, ptr %88, align 8, !tbaa !168
   %90 = icmp eq ptr %89, %87
-  br i1 %90, label %99, label %91
+  br i1 %90, label %100, label %91
 
 91:                                               ; preds = %.loopexit18
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %87) ]
@@ -1602,23 +1602,23 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass18buildCFGDominatorsE
   %97 = tail call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull @.str.6, i32 noundef %94, i32 noundef %96) #17
   br label %98
 
-98:                                               ; preds = %92, %91
+99:                                               ; preds = %92, %91
   store ptr %87, ptr %88, align 8, !tbaa !168
-  br label %99
+  br label %100
 
-99:                                               ; preds = %98, %.loopexit18, %32
-  %100 = phi i8 [ %34, %32 ], [ 1, %98 ], [ %34, %.loopexit18 ]
-  %101 = icmp eq i64 %35, 0
-  br i1 %101, label %23, label %32
+100:                                              ; preds = %99, %.loopexit18, %32
+  %101 = phi i8 [ %34, %32 ], [ 1, %98 ], [ %34, %.loopexit18 ]
+  %102 = icmp eq i64 %35, 0
+  br i1 %102, label %23, label %32
 
-102:                                              ; preds = %25, %23
-  br i1 %9, label %105, label %103
+103:                                              ; preds = %25, %23
+  br i1 %9, label %106, label %104
 
-103:                                              ; preds = %102
-  %104 = tail call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull @.str.7, i32 noundef %27) #17
-  br label %105
+104:                                              ; preds = %103
+  %105 = tail call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %7, ptr noundef nonnull @.str.7, i32 noundef %27) #17
+  br label %106
 
-105:                                              ; preds = %103, %102, %12
+106:                                              ; preds = %104, %103, %12
   ret i32 0
 }
 

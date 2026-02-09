@@ -388,14 +388,14 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   br i1 %5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.0.07 = phi ptr [ %6, %.lr.ph ], [ %1, %3 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 1
+  %.sroa.0.07 = phi ptr [ %7, %.lr.ph ], [ %1, %3 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %.sroa.0.07, ptr %4, align 8
-  %7 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h475b7311ccc2adbfE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.cfe99184cf4cf3d5fcc1f691f01e1203.0)
+  %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList5entry17h475b7311ccc2adbfE(ptr noalias noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.cfe99184cf4cf3d5fcc1f691f01e1203.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %8 = icmp eq ptr %6, %2
-  br i1 %8, label %._crit_edge, label %.lr.ph
+  %9 = icmp eq ptr %7, %2
+  br i1 %9, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
   ret ptr %0

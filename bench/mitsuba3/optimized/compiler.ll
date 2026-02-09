@@ -366,7 +366,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14newFuncRetNode
 25:                                               ; preds = %4
   %26 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef 1, ptr noundef null)
   %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %45
+  br i1 %27, label %28, label %46
 
 28:                                               ; preds = %25
   %29 = load i8, ptr inttoptr (i64 19 to ptr), align 1, !tbaa !44
@@ -395,13 +395,13 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14newFuncRetNode
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %39, i8 0, i64 %43, i1 false)
   br label %44
 
-44:                                               ; preds = %37, %30
+45:                                               ; preds = %37, %30
   store ptr %12, ptr %1, align 8, !tbaa !42
-  br label %45
+  br label %46
 
-45:                                               ; preds = %44, %25
-  %46 = phi i32 [ 0, %44 ], [ %26, %25 ]
-  ret i32 %46
+46:                                               ; preds = %45, %25
+  %47 = phi i32 [ 0, %44 ], [ %26, %25 ]
+  ret i32 %47
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -448,7 +448,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14addFuncRetNode
 28:                                               ; preds = %4
   %29 = call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef 1, ptr noundef null)
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %58
+  br i1 %30, label %31, label %59
 
 31:                                               ; preds = %28
   %32 = load i8, ptr inttoptr (i64 19 to ptr), align 1, !tbaa !44
@@ -479,26 +479,26 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1012BaseCompiler14addFuncRetNode
 
 47:                                               ; preds = %40, %33
   store ptr %15, ptr %1, align 8, !tbaa !42
-  %48 = icmp eq ptr %8, null
-  br i1 %48, label %55, label %49
+  %49 = icmp eq ptr %8, null
+  br i1 %49, label %56, label %50
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
-  %52 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull %8, i64 noundef %51, i1 noundef zeroext true) #17
-  %53 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  store ptr %52, ptr %53, align 8, !tbaa !73
-  %54 = load ptr, ptr %1, align 8, !tbaa !42
-  br label %55
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #19
+  %53 = call noundef ptr @_ZN6asmjit9_abi_1_104Zone3dupEPKvmb(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull %8, i64 noundef %52, i1 noundef zeroext true) #17
+  %54 = getelementptr inbounds nuw i8, ptr %15, i64 40
+  store ptr %53, ptr %54, align 8, !tbaa !73
+  %55 = load ptr, ptr %1, align 8, !tbaa !42
+  br label %56
 
-55:                                               ; preds = %49, %47
-  %56 = phi ptr [ %15, %47 ], [ %54, %49 ]
-  %57 = call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder7addNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %56) #17
-  br label %58
+56:                                               ; preds = %50, %47
+  %57 = phi ptr [ %15, %47 ], [ %55, %49 ]
+  %58 = call noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder7addNodeEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr noundef %57) #17
+  br label %59
 
-58:                                               ; preds = %55, %28
-  %59 = phi i32 [ 0, %55 ], [ %29, %28 ]
-  ret i32 %59
+59:                                               ; preds = %56, %28
+  %60 = phi i32 [ 0, %55 ], [ %29, %28 ]
+  ret i32 %60
 }
 
 ; Function Attrs: nounwind
