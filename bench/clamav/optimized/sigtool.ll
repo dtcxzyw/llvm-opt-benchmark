@@ -7976,7 +7976,7 @@ define internal fastcc noalias noundef ptr @decodehexspecial(ptr noundef %0, ptr
 
 5:                                                ; preds = %2
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.403) #24
-  br label %183
+  br label %181
 
 6:                                                ; preds = %2
   %7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 40) #30
@@ -7986,7 +7986,7 @@ define internal fastcc noalias noundef ptr @decodehexspecial(ptr noundef %0, ptr
 8:                                                ; preds = %6
   tail call void @free(ptr noundef nonnull %4) #24
   %9 = tail call fastcc ptr @decodehexstr(ptr noundef %0, ptr noundef %1)
-  br label %183
+  br label %181
 
 10:                                               ; preds = %6
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
@@ -8002,12 +8002,12 @@ define internal fastcc noalias noundef ptr @decodehexspecial(ptr noundef %0, ptr
 15:                                               ; preds = %10
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.404) #24
   tail call void @free(ptr noundef nonnull %4) #24
-  br label %183
+  br label %181
 
-16:                                               ; preds = %.preheader, %172
-  %.0181 = phi ptr [ %173, %172 ], [ %7, %.preheader ]
-  %.0180 = phi ptr [ %42, %172 ], [ %4, %.preheader ]
-  %.0175 = phi i32 [ %.1176, %172 ], [ 0, %.preheader ]
+16:                                               ; preds = %.preheader, %170
+  %.0181 = phi ptr [ %171, %170 ], [ %7, %.preheader ]
+  %.0180 = phi ptr [ %42, %170 ], [ %4, %.preheader ]
+  %.0175 = phi i32 [ %.1176, %170 ], [ 0, %.preheader ]
   %17 = getelementptr inbounds nuw i8, ptr %.0181, i64 1
   store i8 0, ptr %.0181, align 1, !tbaa !82
   %.not197 = icmp ult ptr %17, %14
@@ -8033,7 +8033,7 @@ define internal fastcc noalias noundef ptr @decodehexspecial(ptr noundef %0, ptr
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.406, ptr noundef nonnull %17) #24
   tail call void @free(ptr noundef %4) #24
   tail call void @free(ptr noundef %13) #24
-  br label %183
+  br label %181
 
 26:                                               ; preds = %23
   %27 = zext i32 %.0175 to i64
@@ -8076,7 +8076,7 @@ define internal fastcc noalias noundef ptr @decodehexspecial(ptr noundef %0, ptr
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.407) #24
   tail call void @free(ptr noundef %4) #24
   tail call void @free(ptr noundef %13) #24
-  br label %183
+  br label %181
 
 get_paren_end.exit:                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %.09.i, i64 1
@@ -8093,7 +8093,7 @@ get_paren_end.exit:                               ; preds = %36
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.408) #24
   tail call void @free(ptr noundef %4) #24
   tail call void @free(ptr noundef %13) #24
-  br label %183
+  br label %181
 
 .tail:                                            ; preds = %get_paren_end.exit
   %44 = getelementptr inbounds nuw i8, ptr %.0181, i64 2
@@ -8114,16 +8114,16 @@ get_paren_end.exit:                               ; preds = %36
 52:                                               ; preds = %49
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(21) %51, ptr noundef nonnull align 1 dereferenceable(21) @.str.410, i64 21, i1 false)
   %53 = add i32 %31, 20
-  br label %172
+  br label %170
 
 54:                                               ; preds = %49
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %51, ptr noundef nonnull align 1 dereferenceable(17) @.str.411, i64 17, i1 false)
   %55 = add i32 %31, 16
-  br label %172
+  br label %170
 
 56:                                               ; preds = %47
   %57 = icmp eq ptr %.0181, %4
-  br i1 %57, label %58, label %172
+  br i1 %57, label %58, label %170
 
 58:                                               ; preds = %56
   %59 = zext i32 %31 to i64
@@ -8133,12 +8133,12 @@ get_paren_end.exit:                               ; preds = %36
 61:                                               ; preds = %58
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %60, ptr noundef nonnull align 1 dereferenceable(20) @.str.412, i64 20, i1 false)
   %62 = add i32 %31, 19
-  br label %172
+  br label %170
 
 63:                                               ; preds = %58
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %60, ptr noundef nonnull align 1 dereferenceable(16) @.str.413, i64 16, i1 false)
   %64 = add i32 %31, 15
-  br label %172
+  br label %170
 
 .tail228:                                         ; preds = %get_paren_end.exit
   %65 = getelementptr inbounds nuw i8, ptr %.0181, i64 2
@@ -8159,16 +8159,16 @@ get_paren_end.exit:                               ; preds = %36
 73:                                               ; preds = %70
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %72, ptr noundef nonnull align 1 dereferenceable(24) @.str.415, i64 24, i1 false)
   %74 = add i32 %31, 23
-  br label %172
+  br label %170
 
 75:                                               ; preds = %70
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %72, ptr noundef nonnull align 1 dereferenceable(20) @.str.416, i64 20, i1 false)
   %76 = add i32 %31, 19
-  br label %172
+  br label %170
 
 77:                                               ; preds = %68
   %78 = icmp eq ptr %.0181, %4
-  br i1 %78, label %79, label %172
+  br i1 %78, label %79, label %170
 
 79:                                               ; preds = %77
   %80 = zext i32 %31 to i64
@@ -8178,12 +8178,12 @@ get_paren_end.exit:                               ; preds = %36
 82:                                               ; preds = %79
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %81, ptr noundef nonnull align 1 dereferenceable(23) @.str.417, i64 23, i1 false)
   %83 = add i32 %31, 22
-  br label %172
+  br label %170
 
 84:                                               ; preds = %79
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %81, ptr noundef nonnull align 1 dereferenceable(19) @.str.418, i64 19, i1 false)
   %85 = add i32 %31, 18
-  br label %172
+  br label %170
 
 .tail232:                                         ; preds = %get_paren_end.exit
   %86 = getelementptr inbounds nuw i8, ptr %.0181, i64 2
@@ -8204,16 +8204,16 @@ get_paren_end.exit:                               ; preds = %36
 94:                                               ; preds = %91
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %93, ptr noundef nonnull align 1 dereferenceable(24) @.str.420, i64 24, i1 false)
   %95 = add i32 %31, 23
-  br label %172
+  br label %170
 
 96:                                               ; preds = %91
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %93, ptr noundef nonnull align 1 dereferenceable(20) @.str.421, i64 20, i1 false)
   %97 = add i32 %31, 19
-  br label %172
+  br label %170
 
 98:                                               ; preds = %89
   %99 = icmp eq ptr %.0181, %4
-  br i1 %99, label %100, label %172
+  br i1 %99, label %100, label %170
 
 100:                                              ; preds = %98
   %101 = zext i32 %31 to i64
@@ -8223,12 +8223,12 @@ get_paren_end.exit:                               ; preds = %36
 103:                                              ; preds = %100
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %102, ptr noundef nonnull align 1 dereferenceable(23) @.str.422, i64 23, i1 false)
   %104 = add i32 %31, 22
-  br label %172
+  br label %170
 
 105:                                              ; preds = %100
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %102, ptr noundef nonnull align 1 dereferenceable(19) @.str.423, i64 19, i1 false)
   %106 = add i32 %31, 18
-  br label %172
+  br label %170
 
 .tail232.thread:                                  ; preds = %get_paren_end.exit, %.tail228, %.tail, %.tail232
   %107 = zext i32 %31 to i64
@@ -8276,7 +8276,7 @@ get_paren_end.exit:                               ; preds = %36
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.427) #24
   tail call void @free(ptr noundef %4) #24
   tail call void @free(ptr noundef %13) #24
-  br label %183
+  br label %181
 
 123:                                              ; preds = %121, %116
   %124 = tail call ptr @cli_hex2str(ptr noundef nonnull %.0179257) #24
@@ -8287,7 +8287,7 @@ get_paren_end.exit:                               ; preds = %36
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.428, ptr noundef nonnull %.0179257) #24
   tail call void @free(ptr noundef %4) #24
   tail call void @free(ptr noundef %13) #24
-  br label %183
+  br label %181
 
 126:                                              ; preds = %123
   %127 = zext i32 %.3259 to i64
@@ -8363,7 +8363,7 @@ get_paren_end.exit:                               ; preds = %36
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.429, ptr noundef nonnull %.0179.lcssa) #24
   tail call void @free(ptr noundef %4) #24
   tail call void @free(ptr noundef %13) #24
-  br label %183
+  br label %181
 
 159:                                              ; preds = %.critedge
   %160 = zext i32 %.3.lcssa to i64
@@ -8371,55 +8371,53 @@ get_paren_end.exit:                               ; preds = %36
   %162 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0179.lcssa) #30
   %163 = lshr i64 %162, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %161, ptr nonnull align 1 %157, i64 %163, i1 false)
-  %164 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0179.lcssa) #30
-  %165 = lshr i64 %164, 1
-  %166 = trunc i64 %165 to i32
-  %167 = add i32 %.3.lcssa, %166
+  %164 = trunc i64 %163 to i32
+  %165 = add i32 %.3.lcssa, %164
   tail call void @free(ptr noundef nonnull %157) #24
-  %168 = add i32 %167, 1
-  %169 = zext i32 %167 to i64
-  %170 = getelementptr inbounds nuw i8, ptr %13, i64 %169
-  store i8 125, ptr %170, align 1, !tbaa !82
+  %166 = add i32 %165, 1
+  %167 = zext i32 %165 to i64
+  %168 = getelementptr inbounds nuw i8, ptr %13, i64 %167
+  store i8 125, ptr %168, align 1, !tbaa !82
   %.not216 = icmp eq i32 %.0.lcssa, 0
-  br i1 %.not216, label %172, label %171
+  br i1 %.not216, label %170, label %169
 
-171:                                              ; preds = %159
+169:                                              ; preds = %159
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.430) #24
   tail call void @free(ptr noundef %4) #24
   tail call void @free(ptr noundef nonnull %13) #24
-  br label %183
+  br label %181
 
-172:                                              ; preds = %56, %98, %159, %77, %103, %105, %94, %96, %82, %84, %73, %75, %61, %63, %52, %54
-  %.1176 = phi i32 [ %168, %159 ], [ %104, %103 ], [ %106, %105 ], [ %31, %98 ], [ %95, %94 ], [ %97, %96 ], [ %83, %82 ], [ %85, %84 ], [ %31, %77 ], [ %74, %73 ], [ %76, %75 ], [ %62, %61 ], [ %64, %63 ], [ %31, %56 ], [ %53, %52 ], [ %55, %54 ]
-  %173 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %42, i32 noundef 40) #30
-  %.not217 = icmp eq ptr %173, null
-  br i1 %.not217, label %174, label %16
+170:                                              ; preds = %56, %98, %159, %77, %103, %105, %94, %96, %82, %84, %73, %75, %61, %63, %52, %54
+  %.1176 = phi i32 [ %166, %159 ], [ %104, %103 ], [ %106, %105 ], [ %31, %98 ], [ %95, %94 ], [ %97, %96 ], [ %83, %82 ], [ %85, %84 ], [ %31, %77 ], [ %74, %73 ], [ %76, %75 ], [ %62, %61 ], [ %64, %63 ], [ %31, %56 ], [ %53, %52 ], [ %55, %54 ]
+  %171 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %42, i32 noundef 40) #30
+  %.not217 = icmp eq ptr %171, null
+  br i1 %.not217, label %172, label %16
+
+172:                                              ; preds = %170
+  %173 = call fastcc ptr @decodehexstr(ptr noundef nonnull %42, ptr noundef %3)
+  %.not218 = icmp eq ptr %173, null
+  br i1 %.not218, label %174, label %175
 
 174:                                              ; preds = %172
-  %175 = call fastcc ptr @decodehexstr(ptr noundef nonnull %42, ptr noundef %3)
-  %.not218 = icmp eq ptr %175, null
-  br i1 %.not218, label %176, label %177
-
-176:                                              ; preds = %174
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.431) #24
   tail call void @free(ptr noundef %13) #24
   tail call void @free(ptr noundef %4) #24
-  br label %183
+  br label %181
 
-177:                                              ; preds = %174
-  %178 = zext i32 %.1176 to i64
-  %179 = getelementptr inbounds nuw i8, ptr %13, i64 %178
-  %180 = load i32, ptr %3, align 4, !tbaa !81
-  %181 = zext i32 %180 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %179, ptr nonnull align 1 %175, i64 %181, i1 false)
-  %182 = add i32 %180, %.1176
-  tail call void @free(ptr noundef nonnull %175) #24
+175:                                              ; preds = %172
+  %176 = zext i32 %.1176 to i64
+  %177 = getelementptr inbounds nuw i8, ptr %13, i64 %176
+  %178 = load i32, ptr %3, align 4, !tbaa !81
+  %179 = zext i32 %178 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %177, ptr nonnull align 1 %173, i64 %179, i1 false)
+  %180 = add i32 %178, %.1176
+  tail call void @free(ptr noundef nonnull %173) #24
   tail call void @free(ptr noundef %4) #24
-  store i32 %182, ptr %1, align 4, !tbaa !81
-  br label %183
+  store i32 %180, ptr %1, align 4, !tbaa !81
+  br label %181
 
-183:                                              ; preds = %177, %176, %171, %158, %125, %122, %43, %41, %25, %15, %8, %5
-  %.0177 = phi ptr [ null, %125 ], [ null, %122 ], [ null, %171 ], [ %13, %177 ], [ null, %176 ], [ null, %158 ], [ %9, %8 ], [ null, %43 ], [ null, %41 ], [ null, %25 ], [ null, %5 ], [ null, %15 ]
+181:                                              ; preds = %175, %174, %169, %158, %125, %122, %43, %41, %25, %15, %8, %5
+  %.0177 = phi ptr [ null, %125 ], [ null, %122 ], [ null, %169 ], [ %13, %175 ], [ null, %174 ], [ null, %158 ], [ %9, %8 ], [ null, %43 ], [ null, %41 ], [ null, %25 ], [ null, %5 ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0177
 }

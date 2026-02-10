@@ -1426,6 +1426,7 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyra
 .preheader:                                       ; preds = %10
   store i32 -2147483648, ptr %5, align 8, !tbaa !7
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %18, i8 0, i64 28, i1 false)
   br label %28
 
 19:                                               ; preds = %32
@@ -1455,7 +1456,6 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyra
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %32 ]
   %29 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageBuf", ptr %0, i64 %indvars.iv
   %30 = getelementptr i8, ptr %29, i64 -16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %18, i8 0, i64 28, i1 false)
   %31 = invoke noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo8convolveERNS0_8ImageBufERKS2_S5_bNS0_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext true, ptr noundef nonnull byval(%"struct.OpenImageIO::v3_1_0::ROI") align 8 %5, i32 noundef 0)
           to label %32 unwind label %33
 

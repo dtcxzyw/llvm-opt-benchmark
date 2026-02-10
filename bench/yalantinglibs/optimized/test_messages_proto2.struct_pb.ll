@@ -1226,12 +1226,15 @@ for.end449:                                       ; preds = %_ZN9struct_pb8inter
   %_M_finish.i.i1050 = getelementptr inbounds nuw i8, ptr %t, i64 736
   %81 = load ptr, ptr %_M_finish.i.i1050, align 8
   %cmp.i.i1051 = icmp eq ptr %80, %81
-  br i1 %cmp.i.i1051, label %if.end479, label %for.body463
+  br i1 %cmp.i.i1051, label %if.end479, label %for.body463.preheader
 
-for.body463:                                      ; preds = %for.end449, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2949
-  %total.381942 = phi i64 [ %add475, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2949 ], [ %total.36.lcssa, %for.end449 ]
-  %__begin3454.sroa.0.01941 = phi ptr [ %incdec.ptr.i1057, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2949 ], [ %80, %for.end449 ]
+for.body463.preheader:                            ; preds = %for.end449
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp467, i8 0, i64 24, i1 false)
+  br label %for.body463
+
+for.body463:                                      ; preds = %for.body463.preheader, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2949
+  %total.381942 = phi i64 [ %add475, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2949 ], [ %total.36.lcssa, %for.body463.preheader ]
+  %__begin3454.sroa.0.01941 = phi ptr [ %incdec.ptr.i1057, %_ZN9struct_pb8internal21calculate_varint_sizeEm.exit2949 ], [ %80, %for.body463.preheader ]
   %call471 = call noundef i64 @_ZN9struct_pb8internal15get_needed_sizeIN22protobuf_test_messages6proto218TestAllTypesProto213NestedMessageEEEmRKT_RKNS_13UnknownFieldsE(ptr noundef nonnull align 8 dereferenceable(16) %__begin3454.sroa.0.01941, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp467)
   br label %do.body.i2945
 

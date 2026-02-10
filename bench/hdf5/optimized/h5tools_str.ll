@@ -3077,52 +3077,55 @@ define ptr @h5tools_str_replace(ptr noundef readonly captures(none) %0, ptr noun
 
 7:                                                ; preds = %3
   %8 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %1) #26
-  %.not58 = icmp eq ptr %8, null
-  br i1 %.not58, label %.loopexit, label %.lr.ph
+  %.not56 = icmp eq ptr %8, null
+  br i1 %.not56, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %7, %17
-  %9 = phi ptr [ %32, %17 ], [ %8, %7 ]
-  %.04759 = phi ptr [ %16, %17 ], [ %6, %7 ]
-  %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.04759) #26
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
-  %13 = add i64 %10, 1
-  %14 = sub i64 %13, %11
-  %15 = add i64 %14, %12
-  %16 = tail call noalias ptr @malloc(i64 noundef %15) #24
-  %.not52 = icmp eq ptr %16, null
-  br i1 %.not52, label %.thread, label %17
+.lr.ph:                                           ; preds = %7
+  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
+  %10 = sub i64 0, %9
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
+  %reass.sub = sub i64 %11, %9
+  %invariant.op58 = add i64 %reass.sub, 1
+  br label %12
 
-.thread:                                          ; preds = %.lr.ph
-  tail call void @free(ptr noundef nonnull %.04759) #23
+12:                                               ; preds = %.lr.ph, %16
+  %13 = phi ptr [ %8, %.lr.ph ], [ %30, %16 ]
+  %.04757 = phi ptr [ %6, %.lr.ph ], [ %15, %16 ]
+  %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.04757) #26
+  %.reass59 = add i64 %14, %invariant.op58
+  %15 = tail call noalias ptr @malloc(i64 noundef %.reass59) #24
+  %.not52 = icmp eq ptr %15, null
+  br i1 %.not52, label %.thread, label %16
+
+.thread:                                          ; preds = %12
+  tail call void @free(ptr noundef nonnull %.04757) #23
   br label %.loopexit
 
-17:                                               ; preds = %.lr.ph
-  %18 = ptrtoint ptr %9 to i64
-  %19 = ptrtoint ptr %.04759 to i64
-  %20 = sub i64 %18, %19
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 1 %.04759, i64 %20, i1 false)
-  %21 = getelementptr inbounds i8, ptr %16, i64 %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %2, i64 %12, i1 false)
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %12
-  %23 = getelementptr inbounds nuw i8, ptr %9, i64 %11
-  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.04759) #26
-  %25 = add i64 %11, %20
-  %26 = sub i64 %24, %25
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %22, ptr nonnull align 1 %23, i64 %26, i1 false)
-  %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.04759) #26
-  %28 = getelementptr inbounds nuw i8, ptr %16, i64 %27
-  %29 = sub i64 0, %11
-  %30 = getelementptr inbounds i8, ptr %28, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %12
-  store i8 0, ptr %31, align 1
-  tail call void @free(ptr noundef nonnull %.04759) #23
-  %32 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %1) #26
-  %.not = icmp eq ptr %32, null
-  br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !122
+16:                                               ; preds = %12
+  %17 = ptrtoint ptr %13 to i64
+  %18 = ptrtoint ptr %.04757 to i64
+  %19 = sub i64 %17, %18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %15, ptr nonnull align 1 %.04757, i64 %19, i1 false)
+  %20 = getelementptr inbounds i8, ptr %15, i64 %19
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr nonnull align 1 %2, i64 %11, i1 false)
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 %11
+  %22 = getelementptr inbounds nuw i8, ptr %13, i64 %9
+  %23 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.04757) #26
+  %24 = add i64 %9, %19
+  %25 = sub i64 %23, %24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull align 1 %22, i64 %25, i1 false)
+  %26 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.04757) #26
+  %27 = getelementptr inbounds nuw i8, ptr %15, i64 %26
+  %28 = getelementptr inbounds i8, ptr %27, i64 %10
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 %11
+  store i8 0, ptr %29, align 1
+  tail call void @free(ptr noundef nonnull %.04757) #23
+  %30 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(1) %1) #26
+  %.not = icmp eq ptr %30, null
+  br i1 %.not, label %.loopexit, label %12, !llvm.loop !122
 
-.loopexit:                                        ; preds = %17, %3, %7, %.thread
-  %.0 = phi ptr [ %6, %3 ], [ null, %.thread ], [ %6, %7 ], [ %16, %17 ]
+.loopexit:                                        ; preds = %16, %3, %7, %.thread
+  %.0 = phi ptr [ %6, %3 ], [ null, %.thread ], [ %6, %7 ], [ %15, %16 ]
   ret ptr %.0
 }
 

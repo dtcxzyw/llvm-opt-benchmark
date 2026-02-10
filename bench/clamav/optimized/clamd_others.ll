@@ -174,9 +174,9 @@ xfree.exit:                                       ; preds = %54, %52, %51
 xfree.exit93:                                     ; preds = %xfree.exit, %55
   br i1 %.not86, label %xfree.exit95, label %xfree.exit95.sink.split
 
-.lr.ph114:                                        ; preds = %.preheader, %72
-  %.2113 = phi i64 [ %.3, %72 ], [ 0, %.preheader ]
-  %.071112 = phi i64 [ %73, %72 ], [ 0, %.preheader ]
+.lr.ph114:                                        ; preds = %.preheader, %71
+  %.2113 = phi i64 [ %.3, %71 ], [ 0, %.preheader ]
+  %.071112 = phi i64 [ %72, %71 ], [ 0, %.preheader ]
   %56 = add nuw i64 %.071112, 1
   %57 = icmp ult i64 %56, %45
   br i1 %57, label %58, label %.critedge91
@@ -192,87 +192,86 @@ xfree.exit93:                                     ; preds = %xfree.exit, %55
   %64 = load i8, ptr %63, align 1, !tbaa !16
   switch i8 %64, label %.critedge91 [
     i8 118, label %65
-    i8 102, label %68
+    i8 102, label %67
   ]
 
 65:                                               ; preds = %62
   %66 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %50, ptr noundef nonnull dereferenceable(1) %1) #21
-  %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
-  br label %72
+  br label %71
 
-68:                                               ; preds = %62
+67:                                               ; preds = %62
   %strlen = call i64 @strlen(ptr nonnull dereferenceable(1) %50)
   %endptr = getelementptr inbounds i8, ptr %50, i64 %strlen
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(139) %endptr, ptr noundef nonnull align 1 dereferenceable(139) @.str.7, i64 139, i1 false)
-  br label %72
+  br label %71
 
 .critedge91:                                      ; preds = %62, %58, %.lr.ph114
-  %69 = getelementptr inbounds nuw i8, ptr %32, i64 %.071112
-  %70 = load i8, ptr %69, align 1, !tbaa !16
-  %71 = getelementptr inbounds nuw i8, ptr %50, i64 %.2113
-  store i8 %70, ptr %71, align 1, !tbaa !16
-  br label %72
+  %68 = getelementptr inbounds nuw i8, ptr %32, i64 %.071112
+  %69 = load i8, ptr %68, align 1, !tbaa !16
+  %70 = getelementptr inbounds nuw i8, ptr %50, i64 %.2113
+  store i8 %69, ptr %70, align 1, !tbaa !16
+  br label %71
 
-72:                                               ; preds = %65, %.critedge91, %68
-  %.172 = phi i64 [ %56, %65 ], [ %56, %68 ], [ %.071112, %.critedge91 ]
-  %.pn = phi i64 [ %67, %65 ], [ 138, %68 ], [ 1, %.critedge91 ]
+71:                                               ; preds = %65, %.critedge91, %67
+  %.172 = phi i64 [ %56, %65 ], [ %56, %67 ], [ %.071112, %.critedge91 ]
+  %.pn = phi i64 [ %46, %65 ], [ 138, %67 ], [ 1, %.critedge91 ]
   %.3 = add i64 %.pn, %.2113
-  %73 = add nuw i64 %.172, 1
-  %74 = icmp ult i64 %73, %45
-  br i1 %74, label %.lr.ph114, label %._crit_edge115
+  %72 = add nuw i64 %.172, 1
+  %73 = icmp ult i64 %72, %45
+  br i1 %73, label %.lr.ph114, label %._crit_edge115
 
-._crit_edge115:                                   ; preds = %72, %.preheader
-  %75 = call i32 @pthread_mutex_lock(ptr noundef nonnull @virusaction_lock) #21
-  %76 = call i32 @vfork() #25
-  %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %80
+._crit_edge115:                                   ; preds = %71, %.preheader
+  %74 = call i32 @pthread_mutex_lock(ptr noundef nonnull @virusaction_lock) #21
+  %75 = call i32 @vfork() #25
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %79
 
-78:                                               ; preds = %._crit_edge115
-  %79 = call i32 (ptr, ptr, ...) @execle(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull %50, ptr noundef null, ptr noundef nonnull %4) #21
-  call void @_exit(i32 noundef %79) #26
+77:                                               ; preds = %._crit_edge115
+  %78 = call i32 (ptr, ptr, ...) @execle(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull %50, ptr noundef null, ptr noundef nonnull %4) #21
+  call void @_exit(i32 noundef %78) #26
   unreachable
 
-80:                                               ; preds = %._crit_edge115
-  %81 = icmp sgt i32 %76, 0
-  %82 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @virusaction_lock) #21
-  br i1 %81, label %.preheader134, label %89
+79:                                               ; preds = %._crit_edge115
+  %80 = icmp sgt i32 %75, 0
+  %81 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @virusaction_lock) #21
+  br i1 %80, label %.preheader134, label %88
 
-.preheader134:                                    ; preds = %80, %85
-  %83 = call i32 @waitpid(i32 noundef %76, ptr noundef null, i32 noundef 0) #21
-  %84 = icmp eq i32 %83, -1
-  br i1 %84, label %85, label %.critedge
+.preheader134:                                    ; preds = %79, %84
+  %82 = call i32 @waitpid(i32 noundef %75, ptr noundef null, i32 noundef 0) #21
+  %83 = icmp eq i32 %82, -1
+  br i1 %83, label %84, label %.critedge
 
-85:                                               ; preds = %.preheader134
-  %86 = call ptr @__errno_location() #27
-  %87 = load i32, ptr %86, align 4, !tbaa !17
-  %88 = icmp eq i32 %87, 4
-  br i1 %88, label %.preheader134, label %.critedge
+84:                                               ; preds = %.preheader134
+  %85 = call ptr @__errno_location() #27
+  %86 = load i32, ptr %85, align 4, !tbaa !17
+  %87 = icmp eq i32 %86, 4
+  br i1 %87, label %.preheader134, label %.critedge
 
-89:                                               ; preds = %80
-  %90 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.11) #21
+88:                                               ; preds = %79
+  %89 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.11) #21
   br label %.critedge
 
-.critedge:                                        ; preds = %.preheader134, %85, %89
-  br i1 %.not83, label %xfree.exit99, label %91
+.critedge:                                        ; preds = %.preheader134, %84, %88
+  br i1 %.not83, label %xfree.exit99, label %90
 
-91:                                               ; preds = %.critedge
-  %92 = load ptr, ptr %4, align 16, !tbaa !14
-  %.not.i96 = icmp eq ptr %92, null
-  br i1 %.not.i96, label %xfree.exit99, label %93
+90:                                               ; preds = %.critedge
+  %91 = load ptr, ptr %4, align 16, !tbaa !14
+  %.not.i96 = icmp eq ptr %91, null
+  br i1 %.not.i96, label %xfree.exit99, label %92
 
-93:                                               ; preds = %91
-  call void @free(ptr noundef nonnull %92) #21
+92:                                               ; preds = %90
+  call void @free(ptr noundef nonnull %91) #21
   br label %xfree.exit99
 
-xfree.exit99:                                     ; preds = %93, %91, %.critedge
+xfree.exit99:                                     ; preds = %92, %90, %.critedge
   call void @free(ptr noundef nonnull %50) #21
-  br i1 %.not85, label %xfree.exit101, label %94
+  br i1 %.not85, label %xfree.exit101, label %93
 
-94:                                               ; preds = %xfree.exit99
+93:                                               ; preds = %xfree.exit99
   call void @free(ptr noundef nonnull %17) #21
   br label %xfree.exit101
 
-xfree.exit101:                                    ; preds = %xfree.exit99, %94
+xfree.exit101:                                    ; preds = %xfree.exit99, %93
   br i1 %.not86, label %xfree.exit95, label %xfree.exit95.sink.split
 
 xfree.exit95.sink.split:                          ; preds = %xfree.exit101, %xfree.exit93

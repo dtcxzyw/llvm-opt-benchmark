@@ -3591,7 +3591,7 @@ define noalias noundef ptr @get_params(ptr noundef readonly captures(none) %0, p
   %93 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select177) #21
   %94 = add i64 %93, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %92, ptr nonnull align 1 %spec.select177, i64 %94, i1 false)
-  %95 = add i64 %94, %91
+  %95 = add i64 %91, %94
   %sext173 = shl i64 %95, 32
   %96 = ashr exact i64 %sext173, 32
   %97 = getelementptr inbounds i8, ptr %78, i64 %96

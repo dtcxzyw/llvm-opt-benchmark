@@ -6260,126 +6260,148 @@ safe_send.exit37:                                 ; preds = %80
 
 safe_recv_packet.exit41:                          ; preds = %safe_send.exit37, %86
   call fastcc void @validate_response_header(ptr noundef %4, i8 noundef zeroext 2, i16 noundef zeroext 0)
-  %97 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %98 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %99 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %100 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %101 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %102 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %103 = getelementptr inbounds nuw i8, ptr %6, i64 %10
-  br label %104
+  %97 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
+  %98 = add i64 %97, %10
+  %99 = icmp ult i64 %98, 1024
+  %100 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %102 = trunc i64 %97 to i16
+  %rev.i.i42 = call i16 @llvm.bswap.i16(i16 %102)
+  %103 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %104 = add i64 %97, %spec.store.select
+  %105 = trunc i64 %104 to i32
+  %106 = call i32 @llvm.bswap.i32(i32 %105)
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %110 = getelementptr inbounds nuw i8, ptr %6, i64 %10
+  br i1 %99, label %safe_recv_packet.exit41.split.us, label %safe_recv_packet.exit41.split
 
-104:                                              ; preds = %safe_recv_packet.exit41, %ext_command.exit45
-  %.061 = phi i32 [ 0, %safe_recv_packet.exit41 ], [ %117, %ext_command.exit45 ]
-  %.02960 = phi i64 [ 0, %safe_recv_packet.exit41 ], [ %116, %ext_command.exit45 ]
+safe_recv_packet.exit41.split.us:                 ; preds = %safe_recv_packet.exit41
+  switch i8 %1, label %ext_command.exit45.us [
+    i8 35, label %ext_command.exit45.us.us.preheader
+    i8 29, label %ext_command.exit45.us.us.preheader
+  ]
+
+ext_command.exit45.us.us.preheader:               ; preds = %safe_recv_packet.exit41.split.us, %safe_recv_packet.exit41.split.us
+  br label %ext_command.exit45.us.us
+
+ext_command.exit45.us.us:                         ; preds = %ext_command.exit45.us.us.preheader, %ext_command.exit45.us.us
+  %.061.us.us = phi i32 [ %113, %ext_command.exit45.us.us ], [ 0, %ext_command.exit45.us.us.preheader ]
+  %.02960.us.us = phi i64 [ %112, %ext_command.exit45.us.us ], [ 0, %ext_command.exit45.us.us.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
-  %106 = add i64 %105, %10
-  %107 = icmp ult i64 %106, 1024
-  br i1 %107, label %109, label %108
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  store i8 -128, ptr %6, align 8, !tbaa !6
+  store i8 %1, ptr %100, align 1, !tbaa !6
+  store i8 %16, ptr %101, align 4, !tbaa !6
+  store i16 %rev.i.i42, ptr %103, align 2, !tbaa !6
+  store i32 %106, ptr %107, align 8, !tbaa !6
+  store i32 -559038737, ptr %108, align 4, !tbaa !6
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %109, ptr nonnull readonly align 4 %5, i64 range(i64 0, 5) %spec.store.select, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %110, ptr nonnull readonly align 1 %0, i64 %97, i1 false)
+  %111 = getelementptr inbounds nuw i8, ptr %3, i64 %.02960.us.us
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr nonnull align 8 %6, i64 %98, i1 false)
+  %112 = add i64 %98, %.02960.us.us
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %113 = add nuw nsw i32 %.061.us.us, 1
+  %exitcond.not = icmp eq i32 %113, 10
+  br i1 %exitcond.not, label %.split.us.i46.preheader, label %ext_command.exit45.us.us, !llvm.loop !80
 
-108:                                              ; preds = %104
+ext_command.exit45.us:                            ; preds = %safe_recv_packet.exit41.split.us, %ext_command.exit45.us
+  %.061.us = phi i32 [ %116, %ext_command.exit45.us ], [ 0, %safe_recv_packet.exit41.split.us ]
+  %.02960.us = phi i64 [ %115, %ext_command.exit45.us ], [ 0, %safe_recv_packet.exit41.split.us ]
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
+  store i8 -128, ptr %6, align 8, !tbaa !6
+  store i8 %1, ptr %100, align 1, !tbaa !6
+  store i8 %16, ptr %101, align 4, !tbaa !6
+  store i16 %rev.i.i42, ptr %103, align 2, !tbaa !6
+  store i32 %106, ptr %107, align 8, !tbaa !6
+  store i32 -559038737, ptr %108, align 4, !tbaa !6
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %110, ptr nonnull readonly align 1 %0, i64 %97, i1 false)
+  %114 = getelementptr inbounds nuw i8, ptr %3, i64 %.02960.us
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %114, ptr nonnull align 8 %6, i64 %98, i1 false)
+  %115 = add i64 %98, %.02960.us
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %116 = add nuw nsw i32 %.061.us, 1
+  %exitcond68.not = icmp eq i32 %116, 10
+  br i1 %exitcond68.not, label %.split.us.i46.preheader, label %ext_command.exit45.us, !llvm.loop !80
+
+.split.us.i46.preheader:                          ; preds = %ext_command.exit45.us.us, %ext_command.exit45.us
+  %.us-phi = phi i64 [ %115, %ext_command.exit45.us ], [ %112, %ext_command.exit45.us.us ]
+  br label %.split.us.i46
+
+safe_recv_packet.exit41.split:                    ; preds = %safe_recv_packet.exit41
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @__assert_fail(ptr noundef nonnull @.str.248, ptr noundef nonnull @.str.62, i32 noundef 1117, ptr noundef nonnull @__PRETTY_FUNCTION__.ext_command) #22
   unreachable
 
-109:                                              ; preds = %104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
-  store i8 -128, ptr %6, align 8, !tbaa !6
-  store i8 %1, ptr %97, align 1, !tbaa !6
-  store i8 %16, ptr %98, align 4, !tbaa !6
-  %110 = trunc i64 %105 to i16
-  %rev.i.i42 = call noundef i16 @llvm.bswap.i16(i16 %110)
-  store i16 %rev.i.i42, ptr %99, align 2, !tbaa !6
-  %111 = add i64 %105, %spec.store.select
-  %112 = trunc i64 %111 to i32
-  %113 = call noundef i32 @llvm.bswap.i32(i32 %112)
-  store i32 %113, ptr %100, align 8, !tbaa !6
-  store i32 -559038737, ptr %101, align 4, !tbaa !6
-  switch i8 %1, label %ext_command.exit45 [
-    i8 35, label %114
-    i8 29, label %114
-  ]
+.split.us.i46:                                    ; preds = %.split.us.i46.preheader, %129
+  %.0.us.i47 = phi i64 [ %.1.us.i48, %129 ], [ 0, %.split.us.i46.preheader ]
+  %117 = sub i64 %.us-phi, %.0.us.i47
+  %118 = load ptr, ptr @con, align 8, !tbaa !35
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %120 = load ptr, ptr %119, align 8, !tbaa !39
+  %121 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i47
+  %122 = call i64 %120(ptr noundef %118, ptr noundef nonnull %121, i64 noundef %117) #21
+  %123 = icmp eq i64 %122, -1
+  br i1 %123, label %126, label %124
 
-114:                                              ; preds = %109, %109
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %102, ptr nonnull readonly align 4 %5, i64 range(i64 0, 5) %spec.store.select, i1 false)
-  br label %ext_command.exit45
+124:                                              ; preds = %.split.us.i46
+  %125 = add nsw i64 %122, %.0.us.i47
+  br label %129
 
-ext_command.exit45:                               ; preds = %109, %114
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %103, ptr nonnull readonly align 1 %0, i64 %105, i1 false)
-  %115 = getelementptr inbounds nuw i8, ptr %3, i64 %.02960
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %115, ptr nonnull align 8 %6, i64 %106, i1 false)
-  %116 = add i64 %106, %.02960
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %117 = add nuw nsw i32 %.061, 1
-  %exitcond.not = icmp eq i32 %117, 10
-  br i1 %exitcond.not, label %.split.us.i46, label %104, !llvm.loop !80
+126:                                              ; preds = %.split.us.i46
+  %127 = tail call ptr @__errno_location() #25
+  %128 = load i32, ptr %127, align 4, !tbaa !9
+  %.not.us.i49 = icmp eq i32 %128, 4
+  br i1 %.not.us.i49, label %129, label %.split18.us.i50
 
-.split.us.i46:                                    ; preds = %ext_command.exit45, %130
-  %.0.us.i47 = phi i64 [ %.1.us.i48, %130 ], [ 0, %ext_command.exit45 ]
-  %118 = sub i64 %116, %.0.us.i47
-  %119 = load ptr, ptr @con, align 8, !tbaa !35
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %121 = load ptr, ptr %120, align 8, !tbaa !39
-  %122 = getelementptr inbounds i8, ptr %3, i64 %.0.us.i47
-  %123 = call i64 %121(ptr noundef %119, ptr noundef nonnull %122, i64 noundef %118) #21
-  %124 = icmp eq i64 %123, -1
-  br i1 %124, label %127, label %125
+129:                                              ; preds = %126, %124
+  %.1.us.i48 = phi i64 [ %.0.us.i47, %126 ], [ %125, %124 ]
+  %130 = icmp ult i64 %.1.us.i48, %.us-phi
+  br i1 %130, label %.split.us.i46, label %safe_send.exit51.preheader, !llvm.loop !49
 
-125:                                              ; preds = %.split.us.i46
-  %126 = add nsw i64 %123, %.0.us.i47
-  br label %130
+safe_send.exit51.preheader:                       ; preds = %129
+  %131 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  %132 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  br label %138
 
-127:                                              ; preds = %.split.us.i46
-  %128 = tail call ptr @__errno_location() #25
-  %129 = load i32, ptr %128, align 4, !tbaa !9
-  %.not.us.i49 = icmp eq i32 %129, 4
-  br i1 %.not.us.i49, label %130, label %.split18.us.i50
-
-130:                                              ; preds = %127, %125
-  %.1.us.i48 = phi i64 [ %.0.us.i47, %127 ], [ %126, %125 ]
-  %131 = icmp ult i64 %.1.us.i48, %116
-  br i1 %131, label %.split.us.i46, label %safe_send.exit51.preheader, !llvm.loop !49
-
-safe_send.exit51.preheader:                       ; preds = %130
-  %132 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  %133 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  %134 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %135 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  br label %139
-
-.split18.us.i50:                                  ; preds = %127
-  %136 = load ptr, ptr @stderr, align 8, !tbaa !44
-  %137 = call ptr @strerror(i32 noundef %129) #21
-  %138 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %136, ptr noundef nonnull @.str.238, ptr noundef %137) #26
+.split18.us.i50:                                  ; preds = %126
+  %135 = load ptr, ptr @stderr, align 8, !tbaa !44
+  %136 = call ptr @strerror(i32 noundef %128) #21
+  %137 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %135, ptr noundef nonnull @.str.238, ptr noundef %136) #26
   call void @abort() #22
   unreachable
 
-139:                                              ; preds = %safe_send.exit51.preheader, %safe_recv_packet.exit55
-  %.162 = phi i32 [ 0, %safe_send.exit51.preheader ], [ %148, %safe_recv_packet.exit55 ]
-  %140 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %4, i64 noundef 24)
-  br i1 %140, label %141, label %safe_recv_packet.exit55
+138:                                              ; preds = %safe_send.exit51.preheader, %safe_recv_packet.exit55
+  %.162 = phi i32 [ 0, %safe_send.exit51.preheader ], [ %147, %safe_recv_packet.exit55 ]
+  %139 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %4, i64 noundef 24)
+  br i1 %139, label %140, label %safe_recv_packet.exit55
 
-141:                                              ; preds = %139
+140:                                              ; preds = %138
+  %141 = load i16, ptr %131, align 2, !tbaa !6
+  %rev.i.i53 = call noundef i16 @llvm.bswap.i16(i16 %141)
+  store i16 %rev.i.i53, ptr %131, align 2, !tbaa !6
   %142 = load i16, ptr %132, align 2, !tbaa !6
-  %rev.i.i53 = call noundef i16 @llvm.bswap.i16(i16 %142)
-  store i16 %rev.i.i53, ptr %132, align 2, !tbaa !6
-  %143 = load i16, ptr %133, align 2, !tbaa !6
-  %rev.i14.i54 = call noundef i16 @llvm.bswap.i16(i16 %143)
-  store i16 %rev.i14.i54, ptr %133, align 2, !tbaa !6
-  %144 = load i32, ptr %134, align 8, !tbaa !6
-  %145 = call noundef i32 @llvm.bswap.i32(i32 %144)
-  store i32 %145, ptr %134, align 8, !tbaa !6
-  %146 = zext i32 %145 to i64
-  %147 = call fastcc zeroext i1 @safe_recv(ptr noundef %135, i64 noundef %146)
+  %rev.i14.i54 = call noundef i16 @llvm.bswap.i16(i16 %142)
+  store i16 %rev.i14.i54, ptr %132, align 2, !tbaa !6
+  %143 = load i32, ptr %133, align 8, !tbaa !6
+  %144 = call noundef i32 @llvm.bswap.i32(i32 %143)
+  store i32 %144, ptr %133, align 8, !tbaa !6
+  %145 = zext i32 %144 to i64
+  %146 = call fastcc zeroext i1 @safe_recv(ptr noundef %134, i64 noundef %145)
   br label %safe_recv_packet.exit55
 
-safe_recv_packet.exit55:                          ; preds = %139, %141
+safe_recv_packet.exit55:                          ; preds = %138, %140
   call fastcc void @validate_response_header(ptr noundef %4, i8 noundef zeroext %1, i16 noundef zeroext 0)
-  %148 = add nuw nsw i32 %.162, 1
-  %exitcond66.not = icmp eq i32 %148, 10
-  br i1 %exitcond66.not, label %149, label %139, !llvm.loop !81
+  %147 = add nuw nsw i32 %.162, 1
+  %exitcond69.not = icmp eq i32 %147, 10
+  br i1 %exitcond69.not, label %148, label %138, !llvm.loop !81
 
-149:                                              ; preds = %safe_recv_packet.exit55
+148:                                              ; preds = %safe_recv_packet.exit55
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -6501,7 +6523,7 @@ ext_command.exit27:                               ; preds = %44, %48
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %38, ptr nonnull readonly align 1 %0, i64 %9, i1 false)
   %50 = getelementptr inbounds nuw i8, ptr %3, i64 %40
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %50, ptr nonnull align 8 %4, i64 %41, i1 false)
-  %51 = add nuw nsw i64 %41, %40
+  %51 = add nuw nsw i64 %40, %41
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %64, %ext_command.exit27
