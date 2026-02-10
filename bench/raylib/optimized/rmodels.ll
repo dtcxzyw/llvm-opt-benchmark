@@ -901,22 +901,22 @@ hash_table_find.exit.thread.i:                    ; preds = %87
   store i64 %93, ptr %94, align 8
   br label %hash_table_set.exit
 
-hash_table_insert.exit.i:                         ; preds = %.lr.ph.i.i18.i, %hash_table_insert.exit.preheader.i
-  %.val8.i67.i = phi i32 [ %.val11.i, %hash_table_insert.exit.preheader.i ], [ %.val8.i.i, %.lr.ph.i.i18.i ]
-  %.val.i65.i = phi ptr [ %.val.i, %hash_table_insert.exit.preheader.i ], [ %.val.i.i, %.lr.ph.i.i18.i ]
-  %95 = phi i32 [ %.pre.i, %hash_table_insert.exit.preheader.i ], [ %174, %.lr.ph.i.i18.i ]
+hash_table_insert.exit.i:                         ; preds = %.lr.ph.i.i17.i, %hash_table_insert.exit.preheader.i
+  %.val8.i66.i = phi i32 [ %.val11.i, %hash_table_insert.exit.preheader.i ], [ %.val8.i.i, %.lr.ph.i.i17.i ]
+  %.val.i64.i = phi ptr [ %.val.i, %hash_table_insert.exit.preheader.i ], [ %.val.i.i, %.lr.ph.i.i17.i ]
+  %95 = phi i32 [ %.pre.i, %hash_table_insert.exit.preheader.i ], [ %174, %.lr.ph.i.i17.i ]
   %96 = add i32 %95, 1
-  %.not.i14.i = icmp ugt i32 %96, %.val8.i67.i
+  %.not.i14.i = icmp ugt i32 %96, %.val8.i66.i
   br i1 %.not.i14.i, label %97, label %hash_table_insert.exit.hash_table_maybe_grow.exit_crit_edge.i
 
 hash_table_insert.exit.hash_table_maybe_grow.exit_crit_edge.i: ; preds = %hash_table_insert.exit.i
-  %.pre69.i = zext i32 %.val8.i67.i to i64
+  %.pre68.i = zext i32 %.val8.i66.i to i64
   br label %hash_table_maybe_grow.exit.i
 
 97:                                               ; preds = %hash_table_insert.exit.i
-  %98 = shl i32 %.val8.i67.i, 1
+  %98 = shl i32 %.val8.i66.i, 1
   %99 = icmp ugt i32 %98, %96
-  %..i.i = select i1 %99, i32 %.val8.i67.i, i32 %96
+  %..i.i = select i1 %99, i32 %.val8.i66.i, i32 %96
   %100 = shl i32 %..i.i, 1
   %101 = load ptr, ptr %3, align 8
   %102 = zext i32 %100 to i64
@@ -933,7 +933,6 @@ hash_table_insert.exit.hash_table_maybe_grow.exit_crit_edge.i: ; preds = %hash_t
 .lr.ph.i15.i:                                     ; preds = %97
   %108 = zext i32 %107 to i64
   %.not1.i.i.i = icmp eq ptr %.pre.i.i, null
-  %umax.i.i.i = call i32 @llvm.umax.i32(i32 %100, i32 1)
   br i1 %.not1.i.i.i, label %hash_table_find.exit.us.i.i, label %.lr.ph.i.preheader.i.i
 
 hash_table_find.exit.us.i.i:                      ; preds = %.lr.ph.i15.i, %hash_table_insert_value.exit.us.i.i
@@ -954,14 +953,14 @@ hash_table_find.exit.us.i.i:                      ; preds = %.lr.ph.i15.i, %hash
 
 .lr.ph.i27.us.i.i:                                ; preds = %hash_table_find.exit.us.i.i, %120
   %.0277.i.us.i.i = phi i32 [ %124, %120 ], [ 1, %hash_table_find.exit.us.i.i ]
-  %exitcond.not.i.us.i.i = icmp eq i32 %.0277.i.us.i.i, %umax.i.i.i
+  %exitcond.not.i.us.i.i = icmp eq i32 %.0277.i.us.i.i, %100
   br i1 %exitcond.not.i.us.i.i, label %hash_table_insert_value.exit.us.i.i, label %120
 
 120:                                              ; preds = %.lr.ph.i27.us.i.i
   %121 = mul i32 %.0277.i.us.i.i, %.0277.i.us.i.i
   %122 = add i32 %121, %116
   %123 = urem i32 %122, %100
-  %124 = add nuw i32 %.0277.i.us.i.i, 1
+  %124 = add i32 %.0277.i.us.i.i, 1
   %125 = zext i32 %123 to i64
   %126 = getelementptr inbounds nuw %struct.hash_table_entry_t, ptr %105, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
@@ -1043,14 +1042,14 @@ hash_table_find.exit.loopexit.i.i:                ; preds = %143
 
 .lr.ph.i27.i.i:                                   ; preds = %hash_table_find.exit.loopexit.i.i, %157
   %.0277.i.i.i = phi i32 [ %161, %157 ], [ 1, %hash_table_find.exit.loopexit.i.i ]
-  %exitcond.not.i.i.i = icmp eq i32 %.0277.i.i.i, %umax.i.i.i
+  %exitcond.not.i.i.i = icmp eq i32 %.0277.i.i.i, %100
   br i1 %exitcond.not.i.i.i, label %hash_table_insert_value.exit.i.i, label %157
 
 157:                                              ; preds = %.lr.ph.i27.i.i
   %158 = mul i32 %.0277.i.i.i, %.0277.i.i.i
   %159 = add i32 %158, %152
   %160 = urem i32 %159, %100
-  %161 = add nuw i32 %.0277.i.i.i, 1
+  %161 = add i32 %.0277.i.i.i, 1
   %162 = zext i32 %160 to i64
   %163 = getelementptr inbounds nuw %struct.hash_table_entry_t, ptr %105, i64 %162
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 8
@@ -1090,9 +1089,9 @@ hash_table_insert_value.exit.i.i:                 ; preds = %.lr.ph.i27.i.i, %16
   br label %hash_table_maybe_grow.exit.i
 
 hash_table_maybe_grow.exit.i:                     ; preds = %._crit_edge.i.i, %hash_table_insert.exit.hash_table_maybe_grow.exit_crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre69.i, %hash_table_insert.exit.hash_table_maybe_grow.exit_crit_edge.i ], [ %102, %._crit_edge.i.i ]
-  %.val8.i.i = phi i32 [ %.val8.i67.i, %hash_table_insert.exit.hash_table_maybe_grow.exit_crit_edge.i ], [ %100, %._crit_edge.i.i ]
-  %.val.i.i = phi ptr [ %.val.i65.i, %hash_table_insert.exit.hash_table_maybe_grow.exit_crit_edge.i ], [ %105, %._crit_edge.i.i ]
+  %.pre-phi.i = phi i64 [ %.pre68.i, %hash_table_insert.exit.hash_table_maybe_grow.exit_crit_edge.i ], [ %102, %._crit_edge.i.i ]
+  %.val8.i.i = phi i32 [ %.val8.i66.i, %hash_table_insert.exit.hash_table_maybe_grow.exit_crit_edge.i ], [ %100, %._crit_edge.i.i ]
+  %.val.i.i = phi ptr [ %.val.i64.i, %hash_table_insert.exit.hash_table_maybe_grow.exit_crit_edge.i ], [ %105, %._crit_edge.i.i ]
   %174 = phi i32 [ %95, %hash_table_insert.exit.hash_table_maybe_grow.exit_crit_edge.i ], [ %106, %._crit_edge.i.i ]
   %175 = urem i64 %.04.lcssa.i.i, %.pre-phi.i
   %176 = trunc nuw i64 %175 to i32
@@ -1100,9 +1099,9 @@ hash_table_maybe_grow.exit.i:                     ; preds = %._crit_edge.i.i, %h
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %179 = load i32, ptr %178, align 8
   %.not6.i.i16.i = icmp eq i32 %179, 0
-  br i1 %.not6.i.i16.i, label %._crit_edge.thread.i.i23.i, label %.lr.ph.preheader.i.i.i
+  br i1 %.not6.i.i16.i, label %._crit_edge.thread.i.i22.i, label %.lr.ph.i.i17.i
 
-._crit_edge.thread.i.i23.i:                       ; preds = %hash_table_maybe_grow.exit.i
+._crit_edge.thread.i.i22.i:                       ; preds = %hash_table_maybe_grow.exit.i
   %180 = getelementptr inbounds nuw i8, ptr %177, i64 8
   %181 = zext i32 %.237 to i64
   store i64 %.04.lcssa.i.i, ptr %177, align 8
@@ -1111,28 +1110,24 @@ hash_table_maybe_grow.exit.i:                     ; preds = %._crit_edge.i.i, %h
   store i64 %181, ptr %182, align 8
   br label %hash_table_insert.exit.thread.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %hash_table_maybe_grow.exit.i
-  %umax.i.i17.i = call i32 @llvm.umax.i32(i32 %.val8.i.i, i32 1)
-  br label %.lr.ph.i.i18.i
+.lr.ph.i.i17.i:                                   ; preds = %hash_table_maybe_grow.exit.i, %183
+  %.0277.i.i18.i = phi i32 [ %187, %183 ], [ 1, %hash_table_maybe_grow.exit.i ]
+  %exitcond.not.i.i19.i = icmp eq i32 %.0277.i.i18.i, %.val8.i.i
+  br i1 %exitcond.not.i.i19.i, label %hash_table_insert.exit.i, label %183
 
-.lr.ph.i.i18.i:                                   ; preds = %183, %.lr.ph.preheader.i.i.i
-  %.0277.i.i19.i = phi i32 [ %187, %183 ], [ 1, %.lr.ph.preheader.i.i.i ]
-  %exitcond.not.i.i20.i = icmp eq i32 %.0277.i.i19.i, %umax.i.i17.i
-  br i1 %exitcond.not.i.i20.i, label %hash_table_insert.exit.i, label %183
-
-183:                                              ; preds = %.lr.ph.i.i18.i
-  %184 = mul i32 %.0277.i.i19.i, %.0277.i.i19.i
+183:                                              ; preds = %.lr.ph.i.i17.i
+  %184 = mul i32 %.0277.i.i18.i, %.0277.i.i18.i
   %185 = add i32 %184, %176
   %186 = urem i32 %185, %.val8.i.i
-  %187 = add i32 %.0277.i.i19.i, 1
+  %187 = add i32 %.0277.i.i18.i, 1
   %188 = zext i32 %186 to i64
   %189 = getelementptr inbounds nuw %struct.hash_table_entry_t, ptr %.val.i.i, i64 %188
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load i32, ptr %190, align 8
   %.not.i.i.i = icmp eq i32 %191, 0
-  br i1 %.not.i.i.i, label %._crit_edge.i.i21.i, label %.lr.ph.i.i18.i
+  br i1 %.not.i.i.i, label %._crit_edge.i.i20.i, label %.lr.ph.i.i17.i
 
-._crit_edge.i.i21.i:                              ; preds = %183
+._crit_edge.i.i20.i:                              ; preds = %183
   %192 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %193 = zext i32 %.237 to i64
   %194 = icmp eq i32 %186, %176
@@ -1142,7 +1137,7 @@ hash_table_maybe_grow.exit.i:                     ; preds = %._crit_edge.i.i, %h
   store i64 %193, ptr %195, align 8
   br i1 %194, label %hash_table_insert.exit.thread.i, label %196
 
-196:                                              ; preds = %._crit_edge.i.i21.i
+196:                                              ; preds = %._crit_edge.i.i20.i
   %197 = getelementptr inbounds nuw i8, ptr %177, i64 24
   %198 = load ptr, ptr %197, align 8
   %199 = getelementptr inbounds nuw i8, ptr %189, i64 24
@@ -1150,7 +1145,7 @@ hash_table_maybe_grow.exit.i:                     ; preds = %._crit_edge.i.i, %h
   store ptr %189, ptr %197, align 8
   br label %hash_table_insert.exit.thread.i
 
-hash_table_insert.exit.thread.i:                  ; preds = %196, %._crit_edge.i.i21.i, %._crit_edge.thread.i.i23.i
+hash_table_insert.exit.thread.i:                  ; preds = %196, %._crit_edge.i.i20.i, %._crit_edge.thread.i.i22.i
   %200 = load ptr, ptr %3, align 8
   %201 = load i32, ptr %24, align 4
   %202 = zext i32 %201 to i64
@@ -1922,16 +1917,16 @@ parseInt.exit:                                    ; preds = %281, %281, %281, %2
   br label %437
 
 437:                                              ; preds = %.loopexit258.thread, %430, %.loopexit258
-  %.2.ph529 = phi ptr [ %.2.ph, %430 ], [ %.2.ph, %.loopexit258 ], [ %19, %.loopexit258.thread ]
+  %.2.ph531 = phi ptr [ %.2.ph, %430 ], [ %.2.ph, %.loopexit258 ], [ %19, %.loopexit258.thread ]
   %.338 = phi i32 [ %431, %430 ], [ %.035295, %.loopexit258 ], [ 0, %.loopexit258.thread ]
   %.3 = phi ptr [ %434, %430 ], [ %.032293, %.loopexit258 ], [ null, %.loopexit258.thread ]
   store i32 %.338, ptr %1, align 4
   store ptr %.3, ptr %0, align 8
-  %.not67 = icmp eq ptr %.2.ph529, null
+  %.not67 = icmp eq ptr %.2.ph531, null
   br i1 %.not67, label %439, label %438
 
 438:                                              ; preds = %437
-  call void @free(ptr noundef nonnull %.2.ph529) #63
+  call void @free(ptr noundef nonnull %.2.ph531) #63
   br label %439
 
 439:                                              ; preds = %437, %438, %4, %11
