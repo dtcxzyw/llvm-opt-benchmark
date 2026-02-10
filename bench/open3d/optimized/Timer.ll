@@ -30127,7 +30127,7 @@ define void @_ZN6open3d7utility8FPSTimer6SignalEv(ptr noundef nonnull align 8 de
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %44 = load i32, ptr %9, align 8, !tbaa !637
   %45 = sitofp i32 %44 to double
-  %46 = fmul double %45, 1.000000e+02
+  %46 = fmul nnan double %45, 1.000000e+02
   %47 = sitofp i32 %27 to double
   %48 = fdiv double %46, %47
   store double %48, ptr %5, align 8, !tbaa !20

@@ -2444,7 +2444,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %212, %215
   %273 = icmp samesign ult i32 %272, 5
   %274 = shl nuw nsw i32 1, %.
   %275 = uitofp nneg i32 %274 to double
-  %276 = fdiv double 1.000000e+00, %275
+  %276 = fdiv nnan double 1.000000e+00, %275
   %277 = select i1 %273, double 1.000000e+00, double %276
   %278 = fmul double %277, %270
   store double %278, ptr %33, align 8, !tbaa !99, !alias.scope !101
@@ -2551,7 +2551,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %212, %215
   %325 = fdiv double %322, %324
   %326 = add nsw i32 %319, -1
   %327 = sitofp i32 %326 to double
-  %328 = fmul double %327, 1.000000e+01
+  %328 = fmul nnan double %327, 1.000000e+01
   %329 = fcmp olt double %325, %328
   %330 = sitofp i32 %261 to double
   %.sroa.speculated249 = select i1 %329, double %328, double %325

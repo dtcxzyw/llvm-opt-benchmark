@@ -373,7 +373,7 @@ define internal float @avifToGamma709(float noundef %0) #5 {
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = fmul float %0, 4.500000e+00
+  %6 = fmul nnan float %0, 4.500000e+00
   br label %12
 
 7:                                                ; preds = %3
@@ -541,7 +541,7 @@ define internal float @avifToLinearSMPTE240(float noundef %0) #5 {
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = fmul float %0, 2.500000e-01
+  %6 = fmul nnan float %0, 2.500000e-01
   br label %13
 
 7:                                                ; preds = %3
@@ -569,7 +569,7 @@ define internal float @avifToGammaSMPTE240(float noundef %0) #5 {
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = fmul float %0, 4.000000e+00
+  %6 = fmul nnan float %0, 4.000000e+00
   br label %12
 
 7:                                                ; preds = %3
@@ -603,8 +603,8 @@ define internal float @avifToLinearLog100(float noundef %0) #5 {
 3:                                                ; preds = %1
   %4 = fcmp olt float %0, 1.000000e+00
   %5 = select i1 %4, float %0, float 1.000000e+00
-  %6 = fadd float %5, -1.000000e+00
-  %7 = fmul float %6, 2.000000e+00
+  %6 = fadd nnan float %5, -1.000000e+00
+  %7 = fmul nnan float %6, 2.000000e+00
   %8 = tail call float @powf(float noundef 1.000000e+01, float noundef %7) #10
   br label %9
 
@@ -621,8 +621,8 @@ define internal float @avifToGammaLog100(float noundef %0) #3 {
 3:                                                ; preds = %1
   %4 = fcmp olt float %0, 1.000000e+00
   %5 = select i1 %4, float %0, float 1.000000e+00
-  %6 = tail call float @llvm.log10.f32(float %5)
-  %7 = fmul float %6, 5.000000e-01
+  %6 = tail call nnan ninf float @llvm.log10.f32(float %5)
+  %7 = fmul nnan float %6, 5.000000e-01
   %8 = fadd float %7, 1.000000e+00
   br label %9
 
@@ -639,8 +639,8 @@ define internal float @avifToLinearLog100Sqrt10(float noundef %0) #5 {
 3:                                                ; preds = %1
   %4 = fcmp olt float %0, 1.000000e+00
   %5 = select i1 %4, float %0, float 1.000000e+00
-  %6 = fadd float %5, -1.000000e+00
-  %7 = fmul float %6, 2.500000e+00
+  %6 = fadd nnan float %5, -1.000000e+00
+  %7 = fmul nnan float %6, 2.500000e+00
   %8 = tail call float @powf(float noundef 1.000000e+01, float noundef %7) #10
   br label %9
 
@@ -713,7 +713,7 @@ define internal float @avifToGammaIEC61966(float noundef %0) #5 {
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = fmul float %0, 4.500000e+00
+  %10 = fmul nnan float %0, 4.500000e+00
   br label %14
 
 11:                                               ; preds = %7
@@ -775,7 +775,7 @@ define internal float @avifToGammaBT1361(float noundef %0) #5 {
   br i1 %4, label %5, label %9
 
 5:                                                ; preds = %3
-  %6 = fmul float %0, -4.000000e+00
+  %6 = fmul nnan float %0, -4.000000e+00
   %7 = tail call float @powf(float noundef %6, float noundef 0x3FDCCCCCC0000000) #10
   %8 = tail call float @llvm.fmuladd.f32(float %7, float 0xBFD196B840000000, float 0x3F996B8440000000)
   br label %18
@@ -785,7 +785,7 @@ define internal float @avifToGammaBT1361(float noundef %0) #5 {
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %9
-  %12 = fmul float %0, 4.500000e+00
+  %12 = fmul nnan float %0, 4.500000e+00
   br label %18
 
 13:                                               ; preds = %9
@@ -840,7 +840,7 @@ define internal float @avifToGammaSRGB(float noundef %0) #5 {
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = fmul float %0, 0x4029D70A40000000
+  %6 = fmul nnan float %0, 0x4029D70A40000000
   br label %12
 
 7:                                                ; preds = %3
@@ -887,7 +887,7 @@ define internal float @avifToGammaPQ(float noundef %0) #5 {
   br i1 %2, label %3, label %14
 
 3:                                                ; preds = %1
-  %4 = fmul float %0, 2.030000e+02
+  %4 = fmul nnan float %0, 2.030000e+02
   %5 = fdiv float %4, 1.000000e+04
   %6 = fcmp ogt float %5, 1.000000e+00
   %7 = select i1 %6, float 1.000000e+00, float %5
@@ -917,7 +917,7 @@ define internal float @avifToLinearSMPTE428(float noundef %0) #5 {
 define internal float @avifToGammaSMPTE428(float noundef %0) #5 {
   %2 = fcmp ogt float %0, 0.000000e+00
   %3 = select i1 %2, float %0, float 0.000000e+00
-  %4 = fmul float %3, 0x3FED546BC0000000
+  %4 = fmul nnan float %3, 0x3FED546BC0000000
   %5 = tail call float @powf(float noundef %4, float noundef 0x3FD89D89E0000000) #10
   ret float %5
 }
@@ -933,7 +933,7 @@ define internal float @avifToLinearHLG(float noundef %0) #5 {
 
 5:                                                ; preds = %3
   %6 = fmul float %0, %0
-  %7 = fmul float %6, 0x3FD5555560000000
+  %7 = fmul nnan float %6, 0x3FD5555560000000
   br label %14
 
 8:                                                ; preds = %3
@@ -973,7 +973,7 @@ define internal float @avifToGammaHLG(float noundef %0) #5 {
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %10
-  %13 = fmul float %8, 3.000000e+00
+  %13 = fmul nnan float %8, 3.000000e+00
   %14 = tail call float @sqrtf(float noundef %13) #10
   br label %19
 

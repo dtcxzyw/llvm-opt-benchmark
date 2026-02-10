@@ -1760,7 +1760,7 @@ define void @Aig_ManReportImprovement(ptr noundef readonly captures(none) %0, pt
 5:                                                ; preds = %2
   %6 = sub nsw i32 %.val29, %.val28
   %7 = sitofp i32 %6 to double
-  %8 = fmul double %7, 1.000000e+02
+  %8 = fmul nnan double %7, 1.000000e+02
   %9 = sitofp i32 %.val29 to double
   %10 = fdiv double %8, %9
   br label %11
@@ -1784,7 +1784,7 @@ define void @Aig_ManReportImprovement(ptr noundef readonly captures(none) %0, pt
 20:                                               ; preds = %11
   %21 = sub nsw i32 %16, %19
   %22 = sitofp i32 %21 to double
-  %23 = fmul double %22, 1.000000e+02
+  %23 = fmul nnan double %22, 1.000000e+02
   %24 = sitofp i32 %16 to double
   %25 = fdiv double %23, %24
   br label %26

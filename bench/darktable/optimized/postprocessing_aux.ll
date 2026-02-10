@@ -258,7 +258,7 @@ define void @_ZN6LibRaw15wavelet_denoiseEv(ptr noundef nonnull align 8 dereferen
   %64 = zext i16 %63 to i32
   %65 = shl i32 %64, %20
   %66 = sitofp i32 %65 to double
-  %67 = tail call reassoc nsz arcp contract afn double @llvm.sqrt.f64(double %66)
+  %67 = tail call reassoc ninf nsz arcp contract afn double @llvm.sqrt.f64(double %66)
   %68 = fmul reassoc nsz arcp contract afn double %67, 2.560000e+02
   %69 = fptrunc reassoc nsz arcp contract afn double %68 to float
   %70 = getelementptr inbounds nuw float, ptr %.0231, i64 %indvars.iv351
@@ -853,7 +853,7 @@ _ZN6LibRaw13hat_transformEPfS0_iii.exit282:       ; preds = %176, %.preheader.i2
   %391 = zext i16 %390 to i32
   %392 = add nsw i32 %356, %391
   %393 = sitofp i32 %392 to double
-  %394 = fmul reassoc nsz arcp contract afn double %393, 5.000000e-01
+  %394 = fmul reassoc nnan nsz arcp contract afn double %393, 5.000000e-01
   %395 = fadd reassoc nsz arcp contract afn double %394, %388
   %396 = fcmp reassoc nsz arcp contract afn olt double %395, 0xB690000000000000
   %397 = fptrunc reassoc nsz arcp contract afn double %395 to float

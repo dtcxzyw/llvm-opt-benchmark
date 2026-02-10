@@ -2716,7 +2716,7 @@ _ZNSt6vectorIN8rawspeed18AbstractPrefixCodeINS0_10VC5CodeTagEE10CodeSymbolESaIS4
   %43 = getelementptr inbounds nuw i8, ptr %.016113, i64 10
   %44 = load i16, ptr %43, align 2, !tbaa !257
   %45 = sitofp i16 %44 to double
-  %46 = fmul double %45, %45
+  %46 = fmul nnan double %45, %45
   %47 = fmul double %46, %45
   %48 = fmul double %47, 7.680000e+02
   %49 = fdiv double %48, 0x416FA05FE0000000

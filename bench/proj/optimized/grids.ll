@@ -11280,10 +11280,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   %156 = fptosi double %155 to i32
   %spec.select = call i32 @llvm.smax.i32(i32 %.077302, i32 %151)
   %157 = load ptr, ptr %9, align 8, !tbaa !25
-  %158 = fmul double %118, 0x404CA5DC1A63C1F8
-  %159 = fmul double %112, 0x404CA5DC1A63C1F8
-  %160 = fmul double %116, 0x404CA5DC1A63C1F8
-  %161 = fmul double %114, 0x404CA5DC1A63C1F8
+  %158 = fmul nnan double %118, 0x404CA5DC1A63C1F8
+  %159 = fmul nnan double %112, 0x404CA5DC1A63C1F8
+  %160 = fmul nnan double %116, 0x404CA5DC1A63C1F8
+  %161 = fmul nnan double %114, 0x404CA5DC1A63C1F8
   invoke void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %1, i32 noundef 3, ptr noundef nonnull @.str.59, ptr noundef %157, i32 noundef %151, i32 noundef %156, double noundef %158, double noundef %159, double noundef %160, double noundef %161)
           to label %162 unwind label %166
 

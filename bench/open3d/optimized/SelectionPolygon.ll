@@ -3358,11 +3358,11 @@ define void @_ZN6open3d13visualization16SelectionPolygon15CropInRectangleERKSt6v
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load i32, ptr %21, align 8, !tbaa !169
   %23 = sitofp i32 %22 to double
-  %24 = fmul double %23, 5.000000e-01
+  %24 = fmul nnan double %23, 5.000000e-01
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %26 = load i32, ptr %25, align 4, !tbaa !170
   %27 = sitofp i32 %26 to double
-  %28 = fmul double %27, 5.000000e-01
+  %28 = fmul nnan double %27, 5.000000e-01
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %30 = load ptr, ptr %29, align 8, !tbaa !39, !noalias !184
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -3813,11 +3813,11 @@ define void @_ZN6open3d13visualization16SelectionPolygon13CropInPolygonERKSt6vec
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load i32, ptr %20, align 8, !tbaa !169
   %22 = sitofp i32 %21 to double
-  %23 = fmul double %22, 5.000000e-01
+  %23 = fmul nnan double %22, 5.000000e-01
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !170
   %26 = sitofp i32 %25 to double
-  %27 = fmul double %26, 5.000000e-01
+  %27 = fmul nnan double %26, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !130

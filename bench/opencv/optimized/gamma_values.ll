@@ -231,7 +231,7 @@ define linkonce_odr hidden void @_ZN2cv4usac15GammaValuesImplC2Eii(ptr noundef n
   %13 = fdiv double %12, 7.500000e+00
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double %13, ptr %14, align 8, !tbaa !38
-  %15 = fmul double %12, 3.040000e+00
+  %15 = fmul nnan double %12, 3.040000e+00
   %16 = fdiv double %15, 7.500000e+00
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double %16, ptr %17, align 8, !tbaa !39
@@ -272,7 +272,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit87:                  ; preds = %_ZNSt6vectorIdSaIdE
   %29 = fdiv double %28, 2.500000e+00
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store double %29, ptr %30, align 8, !tbaa !38
-  %31 = fmul double %28, 3.640000e+00
+  %31 = fmul nnan double %28, 3.640000e+00
   %32 = fdiv double %31, 2.500000e+00
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store double %32, ptr %33, align 8, !tbaa !39

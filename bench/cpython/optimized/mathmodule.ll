@@ -5593,7 +5593,7 @@ Py_DECREF.exit274.i:                              ; preds = %Py_DECREF.exit274.i
   %79 = mul i64 %76, %73
   %80 = sitofp i64 %73 to double
   %81 = sitofp i64 %76 to double
-  %82 = fmul double %80, %81
+  %82 = fmul nnan double %80, %81
   %83 = sitofp i64 %79 to double
   %84 = fcmp oeq double %82, %83
   br i1 %84, label %_check_long_mult_overflow.exit.thread.i, label %_check_long_mult_overflow.exit.i
@@ -5604,7 +5604,7 @@ _check_long_mult_overflow.exit.i:                 ; preds = %78
   %87 = fneg double %85
   %88 = select i1 %86, double %85, double %87
   %89 = call double @llvm.fabs.f64(double %82)
-  %90 = fmul double %88, 3.200000e+01
+  %90 = fmul nnan double %88, 3.200000e+01
   %91 = fcmp ugt double %90, %89
   br i1 %91, label %Py_DECREF.exit282.thread.i, label %_check_long_mult_overflow.exit.thread.i
 
@@ -6351,7 +6351,7 @@ Py_DECREF.exit162.i:                              ; preds = %51, %48, %46
 61:                                               ; preds = %57
   %62 = mul i64 %58, %.066.ph.i
   %63 = sitofp i64 %58 to double
-  %64 = fmul double %41, %63
+  %64 = fmul nnan double %41, %63
   %65 = sitofp i64 %62 to double
   %66 = fcmp oeq double %64, %65
   br i1 %66, label %_check_long_mult_overflow.exit.thread.i, label %_check_long_mult_overflow.exit.i
@@ -6362,7 +6362,7 @@ _check_long_mult_overflow.exit.i:                 ; preds = %61
   %69 = fneg double %67
   %70 = select i1 %68, double %67, double %69
   %71 = call double @llvm.fabs.f64(double %64)
-  %72 = fmul double %70, 3.200000e+01
+  %72 = fmul nnan double %70, 3.200000e+01
   %73 = fcmp ugt double %72, %71
   br i1 %73, label %Py_DECREF.exit160.thread.i, label %_check_long_mult_overflow.exit.thread.i
 
@@ -8238,12 +8238,12 @@ define internal double @m_tgamma(double noundef %0) #11 {
 44:                                               ; preds = %35
   %45 = fadd double %2, 0x40161945B9800000
   %46 = fcmp ogt double %2, 0x40161945B9800000
-  %47 = fsub double %45, %2
-  %48 = fadd double %47, 0xC0161945B9800000
-  %49 = fadd double %45, 0xC0161945B9800000
-  %50 = fsub double %49, %2
+  %47 = fsub nnan double %45, %2
+  %48 = fadd nnan double %47, 0xC0161945B9800000
+  %49 = fadd nnan double %45, 0xC0161945B9800000
+  %50 = fsub nnan double %49, %2
   %.067 = select i1 %46, double %48, double %50
-  %51 = fmul double %.067, 0x40181945B9800000
+  %51 = fmul nnan double %.067, 0x40181945B9800000
   %52 = fdiv double %51, %45
   %53 = fcmp olt double %0, 0.000000e+00
   br i1 %53, label %54, label %75
@@ -8268,7 +8268,7 @@ define internal double @m_tgamma(double noundef %0) #11 {
   br label %91
 
 69:                                               ; preds = %54
-  %70 = fmul double %2, 5.000000e-01
+  %70 = fmul nnan double %2, 5.000000e-01
   %71 = fadd double %70, -2.500000e-01
   %72 = tail call double @pow(double noundef %45, double noundef %71) #17, !tbaa !14
   %73 = fdiv double %63, %72
@@ -8290,7 +8290,7 @@ define internal double @m_tgamma(double noundef %0) #11 {
   br label %91
 
 85:                                               ; preds = %75
-  %86 = fmul double %2, 5.000000e-01
+  %86 = fmul nnan double %0, 5.000000e-01
   %87 = fadd double %86, -2.500000e-01
   %88 = tail call double @pow(double noundef %45, double noundef %87) #17, !tbaa !14
   %89 = fmul double %79, %88
@@ -8538,7 +8538,7 @@ lanczos_sum.exit:                                 ; preds = %.preheader25.i, %.p
 
 45:                                               ; preds = %lanczos_sum.exit
   %46 = frem nnan double %2, 2.000000e+00
-  %47 = fmul double %46, 2.000000e+00
+  %47 = fmul nnan double %46, 2.000000e+00
   %48 = tail call double @llvm.round.f64(double %47)
   %49 = fptosi double %48 to i32
   switch i32 %49, label %70 [
@@ -8550,32 +8550,32 @@ lanczos_sum.exit:                                 ; preds = %.preheader25.i, %.p
   ]
 
 50:                                               ; preds = %45
-  %51 = fmul double %46, 0x400921FB54442D18
+  %51 = fmul nnan double %46, 0x400921FB54442D18
   %52 = tail call double @sin(double noundef %51) #17, !tbaa !14
   br label %m_sinpi.exit
 
 53:                                               ; preds = %45
-  %54 = fadd double %46, -5.000000e-01
-  %55 = fmul double %54, 0x400921FB54442D18
+  %54 = fadd nnan double %46, -5.000000e-01
+  %55 = fmul nnan double %54, 0x400921FB54442D18
   %56 = tail call double @cos(double noundef %55) #17, !tbaa !14
   br label %m_sinpi.exit
 
 57:                                               ; preds = %45
-  %58 = fsub double 1.000000e+00, %46
-  %59 = fmul double %58, 0x400921FB54442D18
+  %58 = fsub nnan double 1.000000e+00, %46
+  %59 = fmul nnan double %58, 0x400921FB54442D18
   %60 = tail call double @sin(double noundef %59) #17, !tbaa !14
   br label %m_sinpi.exit
 
 61:                                               ; preds = %45
-  %62 = fadd double %46, -1.500000e+00
-  %63 = fmul double %62, 0x400921FB54442D18
+  %62 = fadd nnan double %46, -1.500000e+00
+  %63 = fmul nnan double %62, 0x400921FB54442D18
   %64 = tail call double @cos(double noundef %63) #17, !tbaa !14
   %65 = fneg double %64
   br label %m_sinpi.exit
 
 66:                                               ; preds = %45
-  %67 = fadd double %46, -2.000000e+00
-  %68 = fmul double %67, 0x400921FB54442D18
+  %67 = fadd nnan double %46, -2.000000e+00
+  %68 = fmul nnan double %67, 0x400921FB54442D18
   %69 = tail call double @sin(double noundef %68) #17, !tbaa !14
   br label %m_sinpi.exit
 
@@ -8772,8 +8772,8 @@ define internal double @m_remainder(double noundef %0, double noundef %1) #12 {
   br label %22
 
 17:                                               ; preds = %13
-  %18 = fsub double %3, %10
-  %19 = fmul double %18, 5.000000e-01
+  %18 = fsub nnan double %3, %10
+  %19 = fmul nnan double %18, 5.000000e-01
   %20 = tail call double @fmod(double noundef %19, double noundef %5) #17, !tbaa !14
   %21 = tail call double @llvm.fmuladd.f64(double %20, double -2.000000e+00, double %10)
   br label %22

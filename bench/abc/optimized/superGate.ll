@@ -107,7 +107,7 @@ Vec_StrFree.exit:                                 ; preds = %17, %23
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %9)
   %28 = tail call i32 @Extra_FileSize(ptr noundef %9) #20
   %29 = sitofp i32 %28 to double
-  %30 = fmul double %29, 0x3EB0000000000000
+  %30 = fmul nnan double %29, 0x3EB0000000000000
   %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, double noundef %30)
   br label %32
 
@@ -2656,7 +2656,7 @@ Abc_Clock.exit50.i:                               ; preds = %1022, %1019
   %1146 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.60, ptr noundef nonnull %1029)
   %1147 = call i32 @Extra_FileSize(ptr noundef nonnull %1029) #20
   %1148 = sitofp i32 %1147 to double
-  %1149 = fmul double %1148, 0x3EB0000000000000
+  %1149 = fmul nnan double %1148, 0x3EB0000000000000
   %1150 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, double noundef %1149)
   br label %Super_WriteLibrary.exit.i
 
@@ -5371,7 +5371,7 @@ Vec_StrFree.exit:                                 ; preds = %8, %16
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %3)
   %21 = tail call i32 @Extra_FileSize(ptr noundef %3) #20
   %22 = sitofp i32 %21 to double
-  %23 = fmul double %22, 0x3EB0000000000000
+  %23 = fmul nnan double %22, 0x3EB0000000000000
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, double noundef %23)
   br label %25
 

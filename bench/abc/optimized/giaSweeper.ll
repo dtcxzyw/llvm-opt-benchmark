@@ -435,7 +435,7 @@ define void @Gia_SweeperPrintStats(ptr noundef %0) local_unnamed_addr #0 {
   %34 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %34, align 8, !tbaa !50
   %35 = sitofp i32 %.val to double
-  %36 = fmul double %35, 1.600000e+01
+  %36 = fmul nnan double %35, 1.600000e+01
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %38 = load ptr, ptr %37, align 8, !tbaa !42
   %39 = tail call double @sat_solver_memory(ptr noundef %38) #24
@@ -451,8 +451,8 @@ define void @Gia_SweeperPrintStats(ptr noundef %0) local_unnamed_addr #0 {
   %46 = select i1 %43, double %45, double 0.000000e+00
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %42, double noundef %46)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5)
-  %47 = fmul double %36, 0x3EB0000000000000
-  %48 = fmul double %36, 1.000000e+02
+  %47 = fmul nnan double %36, 0x3EB0000000000000
+  %48 = fmul nnan double %36, 1.000000e+02
   %49 = fdiv double %48, %41
   %50 = select i1 %43, double %49, double 0.000000e+00
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %47, double noundef %50)
@@ -499,7 +499,7 @@ Abc_Clock.exit:                                   ; preds = %1, %61
   %76 = load i64, ptr %71, align 8, !tbaa !51
   %.not = icmp eq i64 %76, 0
   %77 = sitofp i64 %76 to double
-  %78 = fmul double %74, 1.000000e+02
+  %78 = fmul nnan double %74, 1.000000e+02
   %79 = fdiv double %78, %77
   %80 = select i1 %.not, double 0.000000e+00, double %79
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %75, double noundef %80)
@@ -511,7 +511,7 @@ Abc_Clock.exit:                                   ; preds = %1, %61
   %85 = load i64, ptr %71, align 8, !tbaa !51
   %.not63 = icmp eq i64 %85, 0
   %86 = sitofp i64 %85 to double
-  %87 = fmul double %83, 1.000000e+02
+  %87 = fmul nnan double %83, 1.000000e+02
   %88 = fdiv double %87, %86
   %89 = select i1 %.not63, double 0.000000e+00, double %88
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %84, double noundef %89)
@@ -523,7 +523,7 @@ Abc_Clock.exit:                                   ; preds = %1, %61
   %94 = load i64, ptr %71, align 8, !tbaa !51
   %.not64 = icmp eq i64 %94, 0
   %95 = sitofp i64 %94 to double
-  %96 = fmul double %92, 1.000000e+02
+  %96 = fmul nnan double %92, 1.000000e+02
   %97 = fdiv double %96, %95
   %98 = select i1 %.not64, double 0.000000e+00, double %97
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %93, double noundef %98)
@@ -535,7 +535,7 @@ Abc_Clock.exit:                                   ; preds = %1, %61
   %103 = load i64, ptr %71, align 8, !tbaa !51
   %.not65 = icmp eq i64 %103, 0
   %104 = sitofp i64 %103 to double
-  %105 = fmul double %101, 1.000000e+02
+  %105 = fmul nnan double %101, 1.000000e+02
   %106 = fdiv double %105, %104
   %107 = select i1 %.not65, double 0.000000e+00, double %106
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %102, double noundef %107)
@@ -547,7 +547,7 @@ Abc_Clock.exit:                                   ; preds = %1, %61
   %112 = load i64, ptr %71, align 8, !tbaa !51
   %.not66 = icmp eq i64 %112, 0
   %113 = sitofp i64 %112 to double
-  %114 = fmul double %110, 1.000000e+02
+  %114 = fmul nnan double %110, 1.000000e+02
   %115 = fdiv double %114, %113
   %116 = select i1 %.not66, double 0.000000e+00, double %115
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %111, double noundef %116)
@@ -555,7 +555,7 @@ Abc_Clock.exit:                                   ; preds = %1, %61
   %117 = load i64, ptr %71, align 8, !tbaa !51
   %118 = sitofp i64 %117 to double
   %.not67 = icmp eq i64 %117, 0
-  %119 = fmul double %118, 1.000000e+02
+  %119 = fmul nnan double %118, 1.000000e+02
   %120 = fdiv double %119, %118
   %121 = select i1 %.not67, double 0.000000e+00, double %120
   %122 = fdiv double %118, 1.000000e+06

@@ -36023,7 +36023,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN6open3d1t2io12_GLOBAL__N_121Read
 
 48:                                               ; preds = %46
   %49 = sitofp i64 %29 to double
-  %50 = fmul double %49, 1.000000e+02
+  %50 = fmul nnan double %49, 1.000000e+02
   %51 = uitofp nneg i64 %44 to double
   %52 = fdiv double %50, %51
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -36119,7 +36119,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN6open3d1t2io12_GLOBAL__N_121Read
 
 47:                                               ; preds = %45
   %48 = sitofp i64 %28 to double
-  %49 = fmul double %48, 1.000000e+02
+  %49 = fmul nnan double %48, 1.000000e+02
   %50 = uitofp nneg i64 %43 to double
   %51 = fdiv double %49, %50
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -36212,7 +36212,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN6open3d1t2io12_GLOBAL__N_121Read
 
 48:                                               ; preds = %46
   %49 = sitofp i64 %29 to double
-  %50 = fmul double %49, 1.000000e+02
+  %50 = fmul nnan double %49, 1.000000e+02
   %51 = uitofp nneg i64 %44 to double
   %52 = fdiv double %50, %51
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -36305,7 +36305,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN6open3d1t2io12_GLOBAL__N_121Read
 
 48:                                               ; preds = %46
   %49 = sitofp i64 %29 to double
-  %50 = fmul double %49, 1.000000e+02
+  %50 = fmul nnan double %49, 1.000000e+02
   %51 = uitofp nneg i64 %44 to double
   %52 = fdiv double %50, %51
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -36398,7 +36398,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN6open3d1t2io12_GLOBAL__N_121Read
 
 48:                                               ; preds = %46
   %49 = sitofp i64 %29 to double
-  %50 = fmul double %49, 1.000000e+02
+  %50 = fmul nnan double %49, 1.000000e+02
   %51 = uitofp nneg i64 %44 to double
   %52 = fdiv double %50, %51
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -36491,7 +36491,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN6open3d1t2io12_GLOBAL__N_121Read
 
 48:                                               ; preds = %46
   %49 = sitofp i64 %29 to double
-  %50 = fmul double %49, 1.000000e+02
+  %50 = fmul nnan double %49, 1.000000e+02
   %51 = uitofp nneg i64 %44 to double
   %52 = fdiv double %50, %51
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -36584,7 +36584,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN6open3d1t2io12_GLOBAL__N_121Read
 
 48:                                               ; preds = %46
   %49 = sitofp i64 %29 to double
-  %50 = fmul double %49, 1.000000e+02
+  %50 = fmul nnan double %49, 1.000000e+02
   %51 = uitofp nneg i64 %44 to double
   %52 = fdiv double %50, %51
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -36677,7 +36677,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN6open3d1t2io12_GLOBAL__N_121Read
 
 48:                                               ; preds = %46
   %49 = sitofp i64 %29 to double
-  %50 = fmul double %49, 1.000000e+02
+  %50 = fmul nnan double %49, 1.000000e+02
   %51 = uitofp nneg i64 %44 to double
   %52 = fdiv double %50, %51
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -36770,7 +36770,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN6open3d1t2io12_GLOBAL__N_121Read
 
 48:                                               ; preds = %46
   %49 = sitofp i64 %29 to double
-  %50 = fmul double %49, 1.000000e+02
+  %50 = fmul nnan double %49, 1.000000e+02
   %51 = uitofp nneg i64 %44 to double
   %52 = fdiv double %50, %51
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -36863,7 +36863,7 @@ define internal noundef range(i32 0, 2) i32 @_ZN6open3d1t2io12_GLOBAL__N_121Read
 
 48:                                               ; preds = %46
   %49 = sitofp i64 %29 to double
-  %50 = fmul double %49, 1.000000e+02
+  %50 = fmul nnan double %49, 1.000000e+02
   %51 = uitofp nneg i64 %44 to double
   %52 = fdiv double %50, %51
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -41033,7 +41033,7 @@ _ZNKSt8functionIFbdEEclEd.exit.i.i:               ; preds = %._crit_edge867
 
 960:                                              ; preds = %958
   %961 = uitofp nneg i64 %storemerge865 to double
-  %962 = fmul double %961, 1.000000e+02
+  %962 = fmul nnan double %961, 1.000000e+02
   %963 = uitofp nneg i64 %956 to double
   %964 = fdiv double %962, %963
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i

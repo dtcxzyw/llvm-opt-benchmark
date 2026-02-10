@@ -1771,7 +1771,7 @@ if.then776.i:                                     ; preds = %if.then769.i
 
 if.else784.i:                                     ; preds = %lor.lhs.false765.i
   %cmp785.i = fcmp olt double %div.i500.i, 1.000000e+00
-  %mul789.i = fmul double %div.i500.i, 5.000000e-01
+  %mul789.i = fmul nnan double %div.i500.i, 5.000000e-01
   %aadj.0.i = select i1 %cmp785.i, double 5.000000e-01, double %mul789.i
   %fneg.i = fneg double %aadj.0.i
   br label %if.end807.i
@@ -3353,7 +3353,7 @@ if.then174:                                       ; preds = %if.end166
 
 if.end178:                                        ; preds = %if.then174
   %dec179 = add nsw i32 %k.1, -1
-  %mul180 = fmul double %46, 1.000000e+01
+  %mul180 = fmul nnan double %46, 1.000000e+01
   %inc181 = add nsw i32 %ieps.3, 1
   br label %if.end182
 
@@ -6670,7 +6670,7 @@ if.then174:                                       ; preds = %if.end166
 
 if.end178:                                        ; preds = %if.then174
   %dec179 = add nsw i32 %k.1, -1
-  %mul180 = fmul double %46, 1.000000e+01
+  %mul180 = fmul nnan double %46, 1.000000e+01
   %inc181 = add nsw i32 %ieps.3, 1
   br label %if.end182
 

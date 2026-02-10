@@ -5497,7 +5497,7 @@ _ZN21BluetoothDeviceDialog2trEPKcS1_i.exit736:    ; preds = %1040
   %1041 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %1042 = load i16, ptr %1041, align 8
   %1043 = uitofp i16 %1042 to double
-  %1044 = fmul double %1043, 6.250000e-01
+  %1044 = fmul nnan double %1043, 6.250000e-01
   invoke void @_ZNK7QString3argEdici5QChar(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %63, ptr noundef nonnull align 8 dereferenceable_or_null(24) %64, double noundef %1044, i32 noundef 0, i8 noundef signext 103, i32 noundef -1, i16 32)
           to label %1045 unwind label %1085
 

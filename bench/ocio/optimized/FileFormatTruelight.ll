@@ -2228,7 +2228,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut1DOpDataELN9__gnu_cxx12_Lock_poli
   %752 = load i32, ptr %14, align 4
   %753 = add nsw i32 %752, -1
   %754 = sitofp i32 %753 to float
-  %755 = fdiv float 1.000000e+00, %754
+  %755 = fdiv nnan float 1.000000e+00, %754
   %.041 = select i1 %706, float %755, float 1.000000e+00
   %756 = load ptr, ptr %751, align 8, !tbaa !3
   %757 = getelementptr inbounds nuw i8, ptr %756, i64 48

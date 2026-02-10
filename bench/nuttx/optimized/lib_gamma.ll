@@ -128,8 +128,8 @@ s.exit:                                           ; preds = %.preheader25.i, %.p
   br i1 %67, label %68, label %96
 
 68:                                               ; preds = %s.exit
-  %69 = fmul double %40, 5.000000e-01
-  %70 = tail call double @llvm.floor.f64(double %69)
+  %69 = fmul nnan double %40, 5.000000e-01
+  %70 = tail call nnan double @llvm.floor.f64(double %69)
   %71 = fsub double %69, %70
   %72 = fmul double %71, 2.000000e+00
   %73 = fmul double %72, 4.000000e+00

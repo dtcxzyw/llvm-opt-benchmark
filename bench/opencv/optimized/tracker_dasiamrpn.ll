@@ -1193,7 +1193,7 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit:                ; preds = %2, %20
   %26 = sitofp i32 %25 to float
   %27 = fneg float %26
   %28 = sitofp i32 %6 to float
-  %29 = fmul float %28, %27
+  %29 = fmul nnan float %28, %27
   %30 = icmp sgt i32 %24, 0
   br i1 %30, label %.lr.ph, label %._crit_edge
 
@@ -1401,9 +1401,9 @@ _ZN2cv3Mat2atIfEERT_PKi.exit61.loopexit.us.us.us.us.us: ; preds = %73
   %109 = sitofp i32 %108 to float
   %110 = fmul float %105, %109
   %111 = fptosi float %110 to i32
-  %112 = fmul float %33, %109
+  %112 = fmul nnan float %33, %109
   %113 = sitofp i32 %111 to float
-  %114 = fmul float %33, %113
+  %114 = fmul nnan float %33, %113
   %.not.i = icmp eq ptr %.sroa.10.0116, %.sroa.14.0117
   br i1 %.not.i, label %116, label %115
 

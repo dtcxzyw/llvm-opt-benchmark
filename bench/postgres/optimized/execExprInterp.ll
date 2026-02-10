@@ -6801,7 +6801,7 @@ saophash_create.exit:                             ; preds = %saophash_compute_si
   store i32 %90, ptr %91, align 4
   %92 = icmp eq i64 %.0.i.i.i.i, 4294967296
   %93 = uitofp i64 %.0.i.i.i.i to double
-  %94 = fmul double %93, 9.000000e-01
+  %94 = fmul nnan double %93, 9.000000e-01
   %95 = fptoui double %94 to i32
   %.sink.i.i = select i1 %92, i32 -85899346, i32 %95
   %96 = getelementptr inbounds nuw i8, ptr %58, i64 16
@@ -9766,7 +9766,7 @@ saophash_update_parameters.exit:                  ; preds = %saophash_compute_si
   store i32 %30, ptr %31, align 4
   %32 = icmp eq i64 %.0.i.i.i, 4294967296
   %33 = uitofp i64 %.0.i.i.i to double
-  %34 = fmul double %33, 9.000000e-01
+  %34 = fmul nnan double %33, 9.000000e-01
   %35 = fptoui double %34 to i32
   %.sink.i = select i1 %32, i32 -85899346, i32 %35
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16

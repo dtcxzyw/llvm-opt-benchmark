@@ -12255,7 +12255,7 @@ if.then22.i:                                      ; preds = %if.else.i
   %71 = call double @llvm.fmuladd.f64(double %sub.i, double %68, double %t0.1.i.i.i)
   %arrayidx.i.i53.i = getelementptr inbounds nuw double, ptr %mNext55.i, i64 %indvars.iv.i
   store double %71, ptr %arrayidx.i.i53.i, align 8
-  %mul.i339 = fmul double %68, 4.096000e+03
+  %mul.i339 = fmul nnan double %68, 4.096000e+03
   br label %for.inc.i
 
 if.else42.i:                                      ; preds = %if.else.i
@@ -12507,7 +12507,7 @@ if.then22.i1483:                                  ; preds = %if.else.i1467
   %112 = call double @llvm.fmuladd.f64(double %sub.i1487, double %109, double %76)
   %arrayidx.i.i53.i1488 = getelementptr inbounds nuw double, ptr %mNext55.i1461, i64 %indvars.iv.i1464
   store double %112, ptr %arrayidx.i.i53.i1488, align 8
-  %mul.i1489 = fmul double %109, 1.280000e+02
+  %mul.i1489 = fmul nnan double %109, 1.280000e+02
   br label %for.inc.i1478
 
 if.else42.i1472:                                  ; preds = %if.else.i1467
@@ -12852,7 +12852,7 @@ if.then22.i3357:                                  ; preds = %if.else.i3341
   %165 = call double @llvm.fmuladd.f64(double %sub.i3361, double %162, double %117)
   %arrayidx.i.i53.i3362 = getelementptr inbounds nuw double, ptr %mNext55.i3335, i64 %indvars.iv.i3338
   store double %165, ptr %arrayidx.i.i53.i3362, align 8
-  %mul.i3363 = fmul double %162, 8.000000e+00
+  %mul.i3363 = fmul nnan double %162, 8.000000e+00
   br label %for.inc.i3352
 
 if.else42.i3346:                                  ; preds = %if.else.i3341
@@ -27296,7 +27296,7 @@ if.then22.i671:                                   ; preds = %if.else.i655
   %2105 = call double @llvm.fmuladd.f64(double %sub.i675, double %2102, double %t0.1.i.i.i42)
   %arrayidx.i.i53.i676 = getelementptr inbounds nuw double, ptr %mNext55.i649, i64 %indvars.iv.i652
   store double %2105, ptr %arrayidx.i.i53.i676, align 8
-  %mul.i677 = fmul double %2102, 4.096000e+03
+  %mul.i677 = fmul nnan double %2102, 4.096000e+03
   br label %for.inc.i666
 
 if.else42.i660:                                   ; preds = %if.else.i655
@@ -27548,7 +27548,7 @@ if.then22.i2494:                                  ; preds = %if.else.i2478
   %2146 = call double @llvm.fmuladd.f64(double %sub.i2498, double %2143, double %2110)
   %arrayidx.i.i53.i2499 = getelementptr inbounds nuw double, ptr %mNext55.i2472, i64 %indvars.iv.i2475
   store double %2146, ptr %arrayidx.i.i53.i2499, align 8
-  %mul.i2500 = fmul double %2143, 1.280000e+02
+  %mul.i2500 = fmul nnan double %2143, 1.280000e+02
   br label %for.inc.i2489
 
 if.else42.i2483:                                  ; preds = %if.else.i2478
@@ -27893,7 +27893,7 @@ if.then22.i5555:                                  ; preds = %if.else.i5539
   %2199 = call double @llvm.fmuladd.f64(double %sub.i5559, double %2196, double %2151)
   %arrayidx.i.i53.i5560 = getelementptr inbounds nuw double, ptr %mNext55.i5533, i64 %indvars.iv.i5536
   store double %2199, ptr %arrayidx.i.i53.i5560, align 8
-  %mul.i5561 = fmul double %2196, 8.000000e+00
+  %mul.i5561 = fmul nnan double %2196, 8.000000e+00
   br label %for.inc.i5550
 
 if.else42.i5544:                                  ; preds = %if.else.i5539
@@ -51575,7 +51575,7 @@ if.then22.i:                                      ; preds = %if.else.i
   %71 = call double @llvm.fmuladd.f64(double %sub.i, double %68, double %t0.1.i.i.i)
   %arrayidx.i.i53.i = getelementptr inbounds nuw double, ptr %mNext55.i, i64 %indvars.iv.i
   store double %71, ptr %arrayidx.i.i53.i, align 8
-  %mul.i325 = fmul double %68, 4.096000e+03
+  %mul.i325 = fmul nnan double %68, 4.096000e+03
   br label %for.inc.i
 
 if.else42.i:                                      ; preds = %if.else.i
@@ -51827,7 +51827,7 @@ if.then22.i1469:                                  ; preds = %if.else.i1453
   %112 = call double @llvm.fmuladd.f64(double %sub.i1473, double %109, double %76)
   %arrayidx.i.i53.i1474 = getelementptr inbounds nuw double, ptr %mNext55.i1447, i64 %indvars.iv.i1450
   store double %112, ptr %arrayidx.i.i53.i1474, align 8
-  %mul.i1475 = fmul double %109, 1.280000e+02
+  %mul.i1475 = fmul nnan double %109, 1.280000e+02
   br label %for.inc.i1464
 
 if.else42.i1458:                                  ; preds = %if.else.i1453
@@ -52172,7 +52172,7 @@ if.then22.i3342:                                  ; preds = %if.else.i3326
   %165 = call double @llvm.fmuladd.f64(double %sub.i3346, double %162, double %117)
   %arrayidx.i.i53.i3347 = getelementptr inbounds nuw double, ptr %mNext55.i3320, i64 %indvars.iv.i3323
   store double %165, ptr %arrayidx.i.i53.i3347, align 8
-  %mul.i3348 = fmul double %162, 8.000000e+00
+  %mul.i3348 = fmul nnan double %162, 8.000000e+00
   br label %for.inc.i3337
 
 if.else42.i3331:                                  ; preds = %if.else.i3326
@@ -66589,7 +66589,7 @@ if.then22.i657:                                   ; preds = %if.else.i641
   %2105 = call double @llvm.fmuladd.f64(double %sub.i661, double %2102, double %t0.1.i.i.i42)
   %arrayidx.i.i53.i662 = getelementptr inbounds nuw double, ptr %mNext55.i635, i64 %indvars.iv.i638
   store double %2105, ptr %arrayidx.i.i53.i662, align 8
-  %mul.i663 = fmul double %2102, 4.096000e+03
+  %mul.i663 = fmul nnan double %2102, 4.096000e+03
   br label %for.inc.i652
 
 if.else42.i646:                                   ; preds = %if.else.i641
@@ -66841,7 +66841,7 @@ if.then22.i2480:                                  ; preds = %if.else.i2464
   %2146 = call double @llvm.fmuladd.f64(double %sub.i2484, double %2143, double %2110)
   %arrayidx.i.i53.i2485 = getelementptr inbounds nuw double, ptr %mNext55.i2458, i64 %indvars.iv.i2461
   store double %2146, ptr %arrayidx.i.i53.i2485, align 8
-  %mul.i2486 = fmul double %2143, 1.280000e+02
+  %mul.i2486 = fmul nnan double %2143, 1.280000e+02
   br label %for.inc.i2475
 
 if.else42.i2469:                                  ; preds = %if.else.i2464
@@ -67186,7 +67186,7 @@ if.then22.i5536:                                  ; preds = %if.else.i5520
   %2199 = call double @llvm.fmuladd.f64(double %sub.i5540, double %2196, double %2151)
   %arrayidx.i.i53.i5541 = getelementptr inbounds nuw double, ptr %mNext55.i5514, i64 %indvars.iv.i5517
   store double %2199, ptr %arrayidx.i.i53.i5541, align 8
-  %mul.i5542 = fmul double %2196, 8.000000e+00
+  %mul.i5542 = fmul nnan double %2196, 8.000000e+00
   br label %for.inc.i5531
 
 if.else42.i5525:                                  ; preds = %if.else.i5520

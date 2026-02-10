@@ -3660,8 +3660,8 @@ _ZNSt6vectorISt10unique_ptrI19ggml_backend_buffer27ggml_backend_buffer_deleterES
 
 834:                                              ; preds = %832
   %835 = uitofp i64 %833 to double
-  %836 = fmul double %835, 0x3F50000000000000
-  %837 = fmul double %836, 0x3F50000000000000
+  %836 = fmul nnan double %835, 0x3F50000000000000
+  %837 = fmul nnan double %836, 0x3F50000000000000
   invoke void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__._ZL28llama_adapter_lora_init_implR11llama_modelPKcR18llama_adapter_lora, ptr noundef %831, double noundef %837)
           to label %838 unwind label %.loopexit.i
 

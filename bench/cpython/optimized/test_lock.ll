@@ -1020,7 +1020,7 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
 
 69:                                               ; preds = %._crit_edge12
   %70 = sitofp i64 %65 to double
-  %71 = fmul double %70, 1.000000e+09
+  %71 = fmul nnan double %70, 1.000000e+09
   %72 = sub i64 %66, %67
   %73 = sitofp i64 %72 to double
   %74 = fdiv double %71, %73

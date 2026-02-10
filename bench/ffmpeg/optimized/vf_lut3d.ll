@@ -179,7 +179,7 @@ allocate_3dlut.exit.i:                            ; preds = %26
   %indvars.iv11.i = phi i64 [ 0, %allocate_3dlut.exit.i ], [ %indvars.iv.next12.i, %44 ]
   %31 = trunc nuw nsw i64 %indvars.iv11.i to i32
   %32 = uitofp nneg i32 %31 to float
-  %33 = fmul nsz float %32, 0x3FA0842100000000
+  %33 = fmul nnan nsz float %32, 0x3FA0842100000000
   %.idx15.i = mul nuw nsw i64 %indvars.iv11.i, 12288
   %invariant.gep18.i = getelementptr inbounds nuw i8, ptr %30, i64 %.idx15.i
   br label %.preheader.i
@@ -188,7 +188,7 @@ allocate_3dlut.exit.i:                            ; preds = %26
   %indvars.iv7.i = phi i64 [ 0, %.preheader2.i ], [ %indvars.iv.next8.i, %43 ]
   %34 = trunc nuw nsw i64 %indvars.iv7.i to i32
   %35 = uitofp nneg i32 %34 to float
-  %36 = fmul nsz float %35, 0x3FA0842100000000
+  %36 = fmul nnan nsz float %35, 0x3FA0842100000000
   %.idx.i = mul nuw nsw i64 %indvars.iv7.i, 384
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep18.i, i64 %.idx.i
   br label %37
@@ -201,7 +201,7 @@ allocate_3dlut.exit.i:                            ; preds = %26
   store float %36, ptr %38, align 4, !tbaa !41
   %39 = trunc nuw nsw i64 %indvars.iv.i to i32
   %40 = uitofp nneg i32 %39 to float
-  %41 = fmul nsz float %40, 0x3FA0842100000000
+  %41 = fmul nnan nsz float %40, 0x3FA0842100000000
   %42 = getelementptr inbounds nuw i8, ptr %gep17.i, i64 8
   store float %41, ptr %42, align 4, !tbaa !42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -595,16 +595,16 @@ av_isspace.exit.thread.i36.i:                     ; preds = %.lr.ph.i34.i, %.lr.
 148:                                              ; preds = %146
   %149 = load i32, ptr %8, align 4, !tbaa !46
   %150 = sitofp i32 %149 to float
-  %151 = fmul nsz float %150, 0x3F30000000000000
+  %151 = fmul nnan nsz float %150, 0x3F30000000000000
   store float %151, ptr %139, align 4, !tbaa !40
   %152 = load i32, ptr %9, align 4, !tbaa !46
   %153 = sitofp i32 %152 to float
-  %154 = fmul nsz float %153, 0x3F30000000000000
+  %154 = fmul nnan nsz float %153, 0x3F30000000000000
   %155 = getelementptr inbounds nuw i8, ptr %139, i64 4
   store float %154, ptr %155, align 4, !tbaa !41
   %156 = load i32, ptr %10, align 4, !tbaa !46
   %157 = sitofp i32 %156 to float
-  %158 = fmul nsz float %157, 0x3F30000000000000
+  %158 = fmul nnan nsz float %157, 0x3F30000000000000
   %159 = getelementptr inbounds nuw i8, ptr %139, i64 8
   store float %158, ptr %159, align 4, !tbaa !42
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1366,7 +1366,7 @@ define internal range(i32 -2147483647, -2147483648) i32 @lut1d_init(ptr noundef 
   %indvars.iv.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i, %23 ]
   %24 = trunc nuw nsw i64 %indvars.iv.i to i32
   %25 = uitofp nneg i32 %24 to float
-  %26 = fmul nsz float %25, 0x3FA0842100000000
+  %26 = fmul nnan nsz float %25, 0x3FA0842100000000
   %27 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv.i
   store float %26, ptr %27, align 4, !tbaa !62
   %28 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i
@@ -2136,7 +2136,7 @@ define internal range(i32 -2147483648, 1) i32 @lut1d_process_command(ptr noundef
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %19 ]
   %20 = trunc nuw nsw i64 %indvars.iv.i to i32
   %21 = uitofp nneg i32 %20 to float
-  %22 = fmul nsz float %21, 0x3FA0842100000000
+  %22 = fmul nnan nsz float %21, 0x3FA0842100000000
   %23 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i
   store float %22, ptr %23, align 4, !tbaa !62
   %24 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv.i
@@ -2761,17 +2761,17 @@ define internal noundef i32 @interp_8_nearest_p8(ptr noundef readonly captures(n
   %111 = getelementptr inbounds nuw i8, ptr %.0114132, i64 %indvars.iv
   %112 = load i8, ptr %111, align 1, !tbaa !47
   %113 = uitofp i8 %112 to float
-  %114 = fmul nsz float %113, 0x3F70101020000000
+  %114 = fmul nnan nsz float %113, 0x3F70101020000000
   %.sroa.0126.0.vec.insert = insertelement <2 x float> poison, float %114, i64 0
   %115 = getelementptr inbounds nuw i8, ptr %.0112134, i64 %indvars.iv
   %116 = load i8, ptr %115, align 1, !tbaa !47
   %117 = uitofp i8 %116 to float
-  %118 = fmul nsz float %117, 0x3F70101020000000
+  %118 = fmul nnan nsz float %117, 0x3F70101020000000
   %.sroa.0126.4.vec.insert = insertelement <2 x float> %.sroa.0126.0.vec.insert, float %118, i64 1
   %119 = getelementptr inbounds nuw i8, ptr %.0113133, i64 %indvars.iv
   %120 = load i8, ptr %119, align 1, !tbaa !47
   %121 = uitofp i8 %120 to float
-  %122 = fmul nsz float %121, 0x3F70101020000000
+  %122 = fmul nnan nsz float %121, 0x3F70101020000000
   %123 = load i32, ptr %7, align 8, !tbaa !130
   %124 = icmp slt i32 %123, 1
   br i1 %124, label %apply_prelut.exit, label %125
@@ -3119,17 +3119,17 @@ define internal noundef i32 @interp_16_nearest_p9(ptr noundef readonly captures(
   %116 = getelementptr inbounds nuw i16, ptr %.0114132.us, i64 %indvars.iv
   %117 = load i16, ptr %116, align 2, !tbaa !136
   %118 = uitofp i16 %117 to float
-  %119 = fmul nsz float %118, 0x3F60080400000000
+  %119 = fmul nnan nsz float %118, 0x3F60080400000000
   %.sroa.0126.0.vec.insert.us = insertelement <2 x float> poison, float %119, i64 0
   %120 = getelementptr inbounds nuw i16, ptr %.0112134.us, i64 %indvars.iv
   %121 = load i16, ptr %120, align 2, !tbaa !136
   %122 = uitofp i16 %121 to float
-  %123 = fmul nsz float %122, 0x3F60080400000000
+  %123 = fmul nnan nsz float %122, 0x3F60080400000000
   %.sroa.0126.4.vec.insert.us = insertelement <2 x float> %.sroa.0126.0.vec.insert.us, float %123, i64 1
   %124 = getelementptr inbounds nuw i16, ptr %.0113133.us, i64 %indvars.iv
   %125 = load i16, ptr %124, align 2, !tbaa !136
   %126 = uitofp i16 %125 to float
-  %127 = fmul nsz float %126, 0x3F60080400000000
+  %127 = fmul nnan nsz float %126, 0x3F60080400000000
   br i1 %110, label %apply_prelut.exit.us, label %128
 
 128:                                              ; preds = %115
@@ -3435,17 +3435,17 @@ define internal noundef i32 @interp_16_nearest_p10(ptr noundef readonly captures
   %116 = getelementptr inbounds nuw i16, ptr %.0114132.us, i64 %indvars.iv
   %117 = load i16, ptr %116, align 2, !tbaa !136
   %118 = uitofp i16 %117 to float
-  %119 = fmul nsz float %118, 0x3F50040100000000
+  %119 = fmul nnan nsz float %118, 0x3F50040100000000
   %.sroa.0126.0.vec.insert.us = insertelement <2 x float> poison, float %119, i64 0
   %120 = getelementptr inbounds nuw i16, ptr %.0112134.us, i64 %indvars.iv
   %121 = load i16, ptr %120, align 2, !tbaa !136
   %122 = uitofp i16 %121 to float
-  %123 = fmul nsz float %122, 0x3F50040100000000
+  %123 = fmul nnan nsz float %122, 0x3F50040100000000
   %.sroa.0126.4.vec.insert.us = insertelement <2 x float> %.sroa.0126.0.vec.insert.us, float %123, i64 1
   %124 = getelementptr inbounds nuw i16, ptr %.0113133.us, i64 %indvars.iv
   %125 = load i16, ptr %124, align 2, !tbaa !136
   %126 = uitofp i16 %125 to float
-  %127 = fmul nsz float %126, 0x3F50040100000000
+  %127 = fmul nnan nsz float %126, 0x3F50040100000000
   br i1 %110, label %apply_prelut.exit.us, label %128
 
 128:                                              ; preds = %115
@@ -3751,17 +3751,17 @@ define internal noundef i32 @interp_16_nearest_p12(ptr noundef readonly captures
   %116 = getelementptr inbounds nuw i16, ptr %.0114132.us, i64 %indvars.iv
   %117 = load i16, ptr %116, align 2, !tbaa !136
   %118 = uitofp i16 %117 to float
-  %119 = fmul nsz float %118, 0x3F30010020000000
+  %119 = fmul nnan nsz float %118, 0x3F30010020000000
   %.sroa.0126.0.vec.insert.us = insertelement <2 x float> poison, float %119, i64 0
   %120 = getelementptr inbounds nuw i16, ptr %.0112134.us, i64 %indvars.iv
   %121 = load i16, ptr %120, align 2, !tbaa !136
   %122 = uitofp i16 %121 to float
-  %123 = fmul nsz float %122, 0x3F30010020000000
+  %123 = fmul nnan nsz float %122, 0x3F30010020000000
   %.sroa.0126.4.vec.insert.us = insertelement <2 x float> %.sroa.0126.0.vec.insert.us, float %123, i64 1
   %124 = getelementptr inbounds nuw i16, ptr %.0113133.us, i64 %indvars.iv
   %125 = load i16, ptr %124, align 2, !tbaa !136
   %126 = uitofp i16 %125 to float
-  %127 = fmul nsz float %126, 0x3F30010020000000
+  %127 = fmul nnan nsz float %126, 0x3F30010020000000
   br i1 %110, label %apply_prelut.exit.us, label %128
 
 128:                                              ; preds = %115
@@ -4067,17 +4067,17 @@ define internal noundef i32 @interp_16_nearest_p14(ptr noundef readonly captures
   %116 = getelementptr inbounds nuw i16, ptr %.0114132.us, i64 %indvars.iv
   %117 = load i16, ptr %116, align 2, !tbaa !136
   %118 = uitofp i16 %117 to float
-  %119 = fmul nsz float %118, 0x3F10004000000000
+  %119 = fmul nnan nsz float %118, 0x3F10004000000000
   %.sroa.0126.0.vec.insert.us = insertelement <2 x float> poison, float %119, i64 0
   %120 = getelementptr inbounds nuw i16, ptr %.0112134.us, i64 %indvars.iv
   %121 = load i16, ptr %120, align 2, !tbaa !136
   %122 = uitofp i16 %121 to float
-  %123 = fmul nsz float %122, 0x3F10004000000000
+  %123 = fmul nnan nsz float %122, 0x3F10004000000000
   %.sroa.0126.4.vec.insert.us = insertelement <2 x float> %.sroa.0126.0.vec.insert.us, float %123, i64 1
   %124 = getelementptr inbounds nuw i16, ptr %.0113133.us, i64 %indvars.iv
   %125 = load i16, ptr %124, align 2, !tbaa !136
   %126 = uitofp i16 %125 to float
-  %127 = fmul nsz float %126, 0x3F10004000000000
+  %127 = fmul nnan nsz float %126, 0x3F10004000000000
   br i1 %110, label %apply_prelut.exit.us, label %128
 
 128:                                              ; preds = %115
@@ -4383,17 +4383,17 @@ define internal noundef i32 @interp_16_nearest_p16(ptr noundef readonly captures
   %116 = getelementptr inbounds nuw i16, ptr %.0114132.us, i64 %indvars.iv
   %117 = load i16, ptr %116, align 2, !tbaa !136
   %118 = uitofp i16 %117 to float
-  %119 = fmul nsz float %118, 0x3EF0001000000000
+  %119 = fmul nnan nsz float %118, 0x3EF0001000000000
   %.sroa.0126.0.vec.insert.us = insertelement <2 x float> poison, float %119, i64 0
   %120 = getelementptr inbounds nuw i16, ptr %.0112134.us, i64 %indvars.iv
   %121 = load i16, ptr %120, align 2, !tbaa !136
   %122 = uitofp i16 %121 to float
-  %123 = fmul nsz float %122, 0x3EF0001000000000
+  %123 = fmul nnan nsz float %122, 0x3EF0001000000000
   %.sroa.0126.4.vec.insert.us = insertelement <2 x float> %.sroa.0126.0.vec.insert.us, float %123, i64 1
   %124 = getelementptr inbounds nuw i16, ptr %.0113133.us, i64 %indvars.iv
   %125 = load i16, ptr %124, align 2, !tbaa !136
   %126 = uitofp i16 %125 to float
-  %127 = fmul nsz float %126, 0x3EF0001000000000
+  %127 = fmul nnan nsz float %126, 0x3EF0001000000000
   br i1 %110, label %apply_prelut.exit.us, label %128
 
 128:                                              ; preds = %115
@@ -5005,19 +5005,19 @@ define internal noundef i32 @interp_16_nearest(ptr noundef readonly captures(non
   %87 = getelementptr inbounds i16, ptr %.089105.us, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !136
   %89 = uitofp i16 %88 to float
-  %90 = fmul nsz float %89, 0x3EF0001000000000
+  %90 = fmul nnan nsz float %89, 0x3EF0001000000000
   %.sroa.0100.0.vec.insert.us = insertelement <2 x float> poison, float %90, i64 0
   %91 = add nsw i64 %indvars.iv, %81
   %92 = getelementptr inbounds i16, ptr %.089105.us, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !136
   %94 = uitofp i16 %93 to float
-  %95 = fmul nsz float %94, 0x3EF0001000000000
+  %95 = fmul nnan nsz float %94, 0x3EF0001000000000
   %.sroa.0100.4.vec.insert.us = insertelement <2 x float> %.sroa.0100.0.vec.insert.us, float %95, i64 1
   %96 = add nsw i64 %indvars.iv, %82
   %97 = getelementptr inbounds i16, ptr %.089105.us, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !136
   %99 = uitofp i16 %98 to float
-  %100 = fmul nsz float %99, 0x3EF0001000000000
+  %100 = fmul nnan nsz float %99, 0x3EF0001000000000
   br i1 %74, label %apply_prelut.exit.us, label %101
 
 101:                                              ; preds = %85
@@ -5278,19 +5278,19 @@ define internal noundef i32 @interp_8_nearest(ptr noundef readonly captures(none
   %79 = getelementptr inbounds i8, ptr %.089105, i64 %78
   %80 = load i8, ptr %79, align 1, !tbaa !47
   %81 = uitofp i8 %80 to float
-  %82 = fmul nsz float %81, 0x3F70101020000000
+  %82 = fmul nnan nsz float %81, 0x3F70101020000000
   %.sroa.0100.0.vec.insert = insertelement <2 x float> poison, float %82, i64 0
   %83 = add nsw i64 %indvars.iv, %70
   %84 = getelementptr inbounds i8, ptr %.089105, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !47
   %86 = uitofp i8 %85 to float
-  %87 = fmul nsz float %86, 0x3F70101020000000
+  %87 = fmul nnan nsz float %86, 0x3F70101020000000
   %.sroa.0100.4.vec.insert = insertelement <2 x float> %.sroa.0100.0.vec.insert, float %87, i64 1
   %88 = add nsw i64 %indvars.iv, %71
   %89 = getelementptr inbounds i8, ptr %.089105, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !47
   %91 = uitofp i8 %90 to float
-  %92 = fmul nsz float %91, 0x3F70101020000000
+  %92 = fmul nnan nsz float %91, 0x3F70101020000000
   %93 = load i32, ptr %7, align 8, !tbaa !130
   %94 = icmp slt i32 %93, 1
   br i1 %94, label %apply_prelut.exit, label %95
@@ -5610,17 +5610,17 @@ define internal noundef i32 @interp_8_trilinear_p8(ptr noundef readonly captures
   %111 = getelementptr inbounds nuw i8, ptr %.0114131, i64 %indvars.iv
   %112 = load i8, ptr %111, align 1, !tbaa !47
   %113 = uitofp i8 %112 to float
-  %114 = fmul nsz float %113, 0x3F70101020000000
+  %114 = fmul nnan nsz float %113, 0x3F70101020000000
   %.sroa.0125.0.vec.insert = insertelement <2 x float> poison, float %114, i64 0
   %115 = getelementptr inbounds nuw i8, ptr %.0112133, i64 %indvars.iv
   %116 = load i8, ptr %115, align 1, !tbaa !47
   %117 = uitofp i8 %116 to float
-  %118 = fmul nsz float %117, 0x3F70101020000000
+  %118 = fmul nnan nsz float %117, 0x3F70101020000000
   %.sroa.0125.4.vec.insert = insertelement <2 x float> %.sroa.0125.0.vec.insert, float %118, i64 1
   %119 = getelementptr inbounds nuw i8, ptr %.0113132, i64 %indvars.iv
   %120 = load i8, ptr %119, align 1, !tbaa !47
   %121 = uitofp i8 %120 to float
-  %122 = fmul nsz float %121, 0x3F70101020000000
+  %122 = fmul nnan nsz float %121, 0x3F70101020000000
   %123 = load i32, ptr %7, align 8, !tbaa !130
   %124 = icmp slt i32 %123, 1
   br i1 %124, label %apply_prelut.exit, label %125
@@ -6081,17 +6081,17 @@ define internal noundef i32 @interp_16_trilinear_p9(ptr noundef readonly capture
   %116 = getelementptr inbounds nuw i16, ptr %.0114131.us, i64 %indvars.iv
   %117 = load i16, ptr %116, align 2, !tbaa !136
   %118 = uitofp i16 %117 to float
-  %119 = fmul nsz float %118, 0x3F60080400000000
+  %119 = fmul nnan nsz float %118, 0x3F60080400000000
   %.sroa.0125.0.vec.insert.us = insertelement <2 x float> poison, float %119, i64 0
   %120 = getelementptr inbounds nuw i16, ptr %.0112133.us, i64 %indvars.iv
   %121 = load i16, ptr %120, align 2, !tbaa !136
   %122 = uitofp i16 %121 to float
-  %123 = fmul nsz float %122, 0x3F60080400000000
+  %123 = fmul nnan nsz float %122, 0x3F60080400000000
   %.sroa.0125.4.vec.insert.us = insertelement <2 x float> %.sroa.0125.0.vec.insert.us, float %123, i64 1
   %124 = getelementptr inbounds nuw i16, ptr %.0113132.us, i64 %indvars.iv
   %125 = load i16, ptr %124, align 2, !tbaa !136
   %126 = uitofp i16 %125 to float
-  %127 = fmul nsz float %126, 0x3F60080400000000
+  %127 = fmul nnan nsz float %126, 0x3F60080400000000
   br i1 %110, label %apply_prelut.exit.us, label %128
 
 128:                                              ; preds = %115
@@ -6509,17 +6509,17 @@ define internal noundef i32 @interp_16_trilinear_p10(ptr noundef readonly captur
   %116 = getelementptr inbounds nuw i16, ptr %.0114131.us, i64 %indvars.iv
   %117 = load i16, ptr %116, align 2, !tbaa !136
   %118 = uitofp i16 %117 to float
-  %119 = fmul nsz float %118, 0x3F50040100000000
+  %119 = fmul nnan nsz float %118, 0x3F50040100000000
   %.sroa.0125.0.vec.insert.us = insertelement <2 x float> poison, float %119, i64 0
   %120 = getelementptr inbounds nuw i16, ptr %.0112133.us, i64 %indvars.iv
   %121 = load i16, ptr %120, align 2, !tbaa !136
   %122 = uitofp i16 %121 to float
-  %123 = fmul nsz float %122, 0x3F50040100000000
+  %123 = fmul nnan nsz float %122, 0x3F50040100000000
   %.sroa.0125.4.vec.insert.us = insertelement <2 x float> %.sroa.0125.0.vec.insert.us, float %123, i64 1
   %124 = getelementptr inbounds nuw i16, ptr %.0113132.us, i64 %indvars.iv
   %125 = load i16, ptr %124, align 2, !tbaa !136
   %126 = uitofp i16 %125 to float
-  %127 = fmul nsz float %126, 0x3F50040100000000
+  %127 = fmul nnan nsz float %126, 0x3F50040100000000
   br i1 %110, label %apply_prelut.exit.us, label %128
 
 128:                                              ; preds = %115
@@ -6937,17 +6937,17 @@ define internal noundef i32 @interp_16_trilinear_p12(ptr noundef readonly captur
   %116 = getelementptr inbounds nuw i16, ptr %.0114131.us, i64 %indvars.iv
   %117 = load i16, ptr %116, align 2, !tbaa !136
   %118 = uitofp i16 %117 to float
-  %119 = fmul nsz float %118, 0x3F30010020000000
+  %119 = fmul nnan nsz float %118, 0x3F30010020000000
   %.sroa.0125.0.vec.insert.us = insertelement <2 x float> poison, float %119, i64 0
   %120 = getelementptr inbounds nuw i16, ptr %.0112133.us, i64 %indvars.iv
   %121 = load i16, ptr %120, align 2, !tbaa !136
   %122 = uitofp i16 %121 to float
-  %123 = fmul nsz float %122, 0x3F30010020000000
+  %123 = fmul nnan nsz float %122, 0x3F30010020000000
   %.sroa.0125.4.vec.insert.us = insertelement <2 x float> %.sroa.0125.0.vec.insert.us, float %123, i64 1
   %124 = getelementptr inbounds nuw i16, ptr %.0113132.us, i64 %indvars.iv
   %125 = load i16, ptr %124, align 2, !tbaa !136
   %126 = uitofp i16 %125 to float
-  %127 = fmul nsz float %126, 0x3F30010020000000
+  %127 = fmul nnan nsz float %126, 0x3F30010020000000
   br i1 %110, label %apply_prelut.exit.us, label %128
 
 128:                                              ; preds = %115
@@ -7365,17 +7365,17 @@ define internal noundef i32 @interp_16_trilinear_p14(ptr noundef readonly captur
   %116 = getelementptr inbounds nuw i16, ptr %.0114131.us, i64 %indvars.iv
   %117 = load i16, ptr %116, align 2, !tbaa !136
   %118 = uitofp i16 %117 to float
-  %119 = fmul nsz float %118, 0x3F10004000000000
+  %119 = fmul nnan nsz float %118, 0x3F10004000000000
   %.sroa.0125.0.vec.insert.us = insertelement <2 x float> poison, float %119, i64 0
   %120 = getelementptr inbounds nuw i16, ptr %.0112133.us, i64 %indvars.iv
   %121 = load i16, ptr %120, align 2, !tbaa !136
   %122 = uitofp i16 %121 to float
-  %123 = fmul nsz float %122, 0x3F10004000000000
+  %123 = fmul nnan nsz float %122, 0x3F10004000000000
   %.sroa.0125.4.vec.insert.us = insertelement <2 x float> %.sroa.0125.0.vec.insert.us, float %123, i64 1
   %124 = getelementptr inbounds nuw i16, ptr %.0113132.us, i64 %indvars.iv
   %125 = load i16, ptr %124, align 2, !tbaa !136
   %126 = uitofp i16 %125 to float
-  %127 = fmul nsz float %126, 0x3F10004000000000
+  %127 = fmul nnan nsz float %126, 0x3F10004000000000
   br i1 %110, label %apply_prelut.exit.us, label %128
 
 128:                                              ; preds = %115
@@ -7793,17 +7793,17 @@ define internal noundef i32 @interp_16_trilinear_p16(ptr noundef readonly captur
   %116 = getelementptr inbounds nuw i16, ptr %.0114131.us, i64 %indvars.iv
   %117 = load i16, ptr %116, align 2, !tbaa !136
   %118 = uitofp i16 %117 to float
-  %119 = fmul nsz float %118, 0x3EF0001000000000
+  %119 = fmul nnan nsz float %118, 0x3EF0001000000000
   %.sroa.0125.0.vec.insert.us = insertelement <2 x float> poison, float %119, i64 0
   %120 = getelementptr inbounds nuw i16, ptr %.0112133.us, i64 %indvars.iv
   %121 = load i16, ptr %120, align 2, !tbaa !136
   %122 = uitofp i16 %121 to float
-  %123 = fmul nsz float %122, 0x3EF0001000000000
+  %123 = fmul nnan nsz float %122, 0x3EF0001000000000
   %.sroa.0125.4.vec.insert.us = insertelement <2 x float> %.sroa.0125.0.vec.insert.us, float %123, i64 1
   %124 = getelementptr inbounds nuw i16, ptr %.0113132.us, i64 %indvars.iv
   %125 = load i16, ptr %124, align 2, !tbaa !136
   %126 = uitofp i16 %125 to float
-  %127 = fmul nsz float %126, 0x3EF0001000000000
+  %127 = fmul nnan nsz float %126, 0x3EF0001000000000
   br i1 %110, label %apply_prelut.exit.us, label %128
 
 128:                                              ; preds = %115
@@ -8639,19 +8639,19 @@ define internal noundef i32 @interp_16_trilinear(ptr noundef readonly captures(n
   %87 = getelementptr inbounds i16, ptr %.089104.us, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !136
   %89 = uitofp i16 %88 to float
-  %90 = fmul nsz float %89, 0x3EF0001000000000
+  %90 = fmul nnan nsz float %89, 0x3EF0001000000000
   %.sroa.099.0.vec.insert.us = insertelement <2 x float> poison, float %90, i64 0
   %91 = add nsw i64 %indvars.iv, %81
   %92 = getelementptr inbounds i16, ptr %.089104.us, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !136
   %94 = uitofp i16 %93 to float
-  %95 = fmul nsz float %94, 0x3EF0001000000000
+  %95 = fmul nnan nsz float %94, 0x3EF0001000000000
   %.sroa.099.4.vec.insert.us = insertelement <2 x float> %.sroa.099.0.vec.insert.us, float %95, i64 1
   %96 = add nsw i64 %indvars.iv, %82
   %97 = getelementptr inbounds i16, ptr %.089104.us, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !136
   %99 = uitofp i16 %98 to float
-  %100 = fmul nsz float %99, 0x3EF0001000000000
+  %100 = fmul nnan nsz float %99, 0x3EF0001000000000
   br i1 %74, label %apply_prelut.exit.us, label %101
 
 101:                                              ; preds = %85
@@ -9024,19 +9024,19 @@ define internal noundef i32 @interp_8_trilinear(ptr noundef readonly captures(no
   %79 = getelementptr inbounds i8, ptr %.089104, i64 %78
   %80 = load i8, ptr %79, align 1, !tbaa !47
   %81 = uitofp i8 %80 to float
-  %82 = fmul nsz float %81, 0x3F70101020000000
+  %82 = fmul nnan nsz float %81, 0x3F70101020000000
   %.sroa.099.0.vec.insert = insertelement <2 x float> poison, float %82, i64 0
   %83 = add nsw i64 %indvars.iv, %70
   %84 = getelementptr inbounds i8, ptr %.089104, i64 %83
   %85 = load i8, ptr %84, align 1, !tbaa !47
   %86 = uitofp i8 %85 to float
-  %87 = fmul nsz float %86, 0x3F70101020000000
+  %87 = fmul nnan nsz float %86, 0x3F70101020000000
   %.sroa.099.4.vec.insert = insertelement <2 x float> %.sroa.099.0.vec.insert, float %87, i64 1
   %88 = add nsw i64 %indvars.iv, %71
   %89 = getelementptr inbounds i8, ptr %.089104, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !47
   %91 = uitofp i8 %90 to float
-  %92 = fmul nsz float %91, 0x3F70101020000000
+  %92 = fmul nnan nsz float %91, 0x3F70101020000000
   %93 = load i32, ptr %7, align 8, !tbaa !130
   %94 = icmp slt i32 %93, 1
   br i1 %94, label %apply_prelut.exit, label %95
@@ -9470,17 +9470,17 @@ define internal noundef i32 @interp_8_tetrahedral_p8(ptr noundef readonly captur
   %112 = getelementptr inbounds nuw i8, ptr %.0114129, i64 %indvars.iv
   %113 = load i8, ptr %112, align 1, !tbaa !47
   %114 = uitofp i8 %113 to float
-  %115 = fmul nsz float %114, 0x3F70101020000000
+  %115 = fmul nnan nsz float %114, 0x3F70101020000000
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %115, i64 0
   %116 = getelementptr inbounds nuw i8, ptr %.0112131, i64 %indvars.iv
   %117 = load i8, ptr %116, align 1, !tbaa !47
   %118 = uitofp i8 %117 to float
-  %119 = fmul nsz float %118, 0x3F70101020000000
+  %119 = fmul nnan nsz float %118, 0x3F70101020000000
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %119, i64 1
   %120 = getelementptr inbounds nuw i8, ptr %.0113130, i64 %indvars.iv
   %121 = load i8, ptr %120, align 1, !tbaa !47
   %122 = uitofp i8 %121 to float
-  %123 = fmul nsz float %122, 0x3F70101020000000
+  %123 = fmul nnan nsz float %122, 0x3F70101020000000
   %124 = load i32, ptr %8, align 8, !tbaa !130
   %125 = icmp slt i32 %124, 1
   br i1 %125, label %apply_prelut.exit, label %126
@@ -9814,17 +9814,17 @@ define internal noundef i32 @interp_16_tetrahedral_p9(ptr noundef readonly captu
   %115 = getelementptr inbounds nuw i16, ptr %.0114129.us, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !136
   %117 = uitofp i16 %116 to float
-  %118 = fmul nsz float %117, 0x3F60080400000000
+  %118 = fmul nnan nsz float %117, 0x3F60080400000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %118, i64 0
   %119 = getelementptr inbounds nuw i16, ptr %.0112131.us, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2, !tbaa !136
   %121 = uitofp i16 %120 to float
-  %122 = fmul nsz float %121, 0x3F60080400000000
+  %122 = fmul nnan nsz float %121, 0x3F60080400000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %122, i64 1
   %123 = getelementptr inbounds nuw i16, ptr %.0113130.us, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !136
   %125 = uitofp i16 %124 to float
-  %126 = fmul nsz float %125, 0x3F60080400000000
+  %126 = fmul nnan nsz float %125, 0x3F60080400000000
   br i1 %111, label %apply_prelut.exit.us, label %127
 
 127:                                              ; preds = %114
@@ -10119,17 +10119,17 @@ define internal noundef i32 @interp_16_tetrahedral_p10(ptr noundef readonly capt
   %115 = getelementptr inbounds nuw i16, ptr %.0114129.us, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !136
   %117 = uitofp i16 %116 to float
-  %118 = fmul nsz float %117, 0x3F50040100000000
+  %118 = fmul nnan nsz float %117, 0x3F50040100000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %118, i64 0
   %119 = getelementptr inbounds nuw i16, ptr %.0112131.us, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2, !tbaa !136
   %121 = uitofp i16 %120 to float
-  %122 = fmul nsz float %121, 0x3F50040100000000
+  %122 = fmul nnan nsz float %121, 0x3F50040100000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %122, i64 1
   %123 = getelementptr inbounds nuw i16, ptr %.0113130.us, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !136
   %125 = uitofp i16 %124 to float
-  %126 = fmul nsz float %125, 0x3F50040100000000
+  %126 = fmul nnan nsz float %125, 0x3F50040100000000
   br i1 %111, label %apply_prelut.exit.us, label %127
 
 127:                                              ; preds = %114
@@ -10424,17 +10424,17 @@ define internal noundef i32 @interp_16_tetrahedral_p12(ptr noundef readonly capt
   %115 = getelementptr inbounds nuw i16, ptr %.0114129.us, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !136
   %117 = uitofp i16 %116 to float
-  %118 = fmul nsz float %117, 0x3F30010020000000
+  %118 = fmul nnan nsz float %117, 0x3F30010020000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %118, i64 0
   %119 = getelementptr inbounds nuw i16, ptr %.0112131.us, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2, !tbaa !136
   %121 = uitofp i16 %120 to float
-  %122 = fmul nsz float %121, 0x3F30010020000000
+  %122 = fmul nnan nsz float %121, 0x3F30010020000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %122, i64 1
   %123 = getelementptr inbounds nuw i16, ptr %.0113130.us, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !136
   %125 = uitofp i16 %124 to float
-  %126 = fmul nsz float %125, 0x3F30010020000000
+  %126 = fmul nnan nsz float %125, 0x3F30010020000000
   br i1 %111, label %apply_prelut.exit.us, label %127
 
 127:                                              ; preds = %114
@@ -10729,17 +10729,17 @@ define internal noundef i32 @interp_16_tetrahedral_p14(ptr noundef readonly capt
   %115 = getelementptr inbounds nuw i16, ptr %.0114129.us, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !136
   %117 = uitofp i16 %116 to float
-  %118 = fmul nsz float %117, 0x3F10004000000000
+  %118 = fmul nnan nsz float %117, 0x3F10004000000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %118, i64 0
   %119 = getelementptr inbounds nuw i16, ptr %.0112131.us, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2, !tbaa !136
   %121 = uitofp i16 %120 to float
-  %122 = fmul nsz float %121, 0x3F10004000000000
+  %122 = fmul nnan nsz float %121, 0x3F10004000000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %122, i64 1
   %123 = getelementptr inbounds nuw i16, ptr %.0113130.us, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !136
   %125 = uitofp i16 %124 to float
-  %126 = fmul nsz float %125, 0x3F10004000000000
+  %126 = fmul nnan nsz float %125, 0x3F10004000000000
   br i1 %111, label %apply_prelut.exit.us, label %127
 
 127:                                              ; preds = %114
@@ -11034,17 +11034,17 @@ define internal noundef i32 @interp_16_tetrahedral_p16(ptr noundef readonly capt
   %115 = getelementptr inbounds nuw i16, ptr %.0114129.us, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !136
   %117 = uitofp i16 %116 to float
-  %118 = fmul nsz float %117, 0x3EF0001000000000
+  %118 = fmul nnan nsz float %117, 0x3EF0001000000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %118, i64 0
   %119 = getelementptr inbounds nuw i16, ptr %.0112131.us, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2, !tbaa !136
   %121 = uitofp i16 %120 to float
-  %122 = fmul nsz float %121, 0x3EF0001000000000
+  %122 = fmul nnan nsz float %121, 0x3EF0001000000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %122, i64 1
   %123 = getelementptr inbounds nuw i16, ptr %.0113130.us, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !136
   %125 = uitofp i16 %124 to float
-  %126 = fmul nsz float %125, 0x3EF0001000000000
+  %126 = fmul nnan nsz float %125, 0x3EF0001000000000
   br i1 %111, label %apply_prelut.exit.us, label %127
 
 127:                                              ; preds = %114
@@ -11634,19 +11634,19 @@ define internal noundef i32 @interp_16_tetrahedral(ptr noundef readonly captures
   %86 = getelementptr inbounds i16, ptr %.089102.us, i64 %85
   %87 = load i16, ptr %86, align 2, !tbaa !136
   %88 = uitofp i16 %87 to float
-  %89 = fmul nsz float %88, 0x3EF0001000000000
+  %89 = fmul nnan nsz float %88, 0x3EF0001000000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %89, i64 0
   %90 = add nsw i64 %indvars.iv, %80
   %91 = getelementptr inbounds i16, ptr %.089102.us, i64 %90
   %92 = load i16, ptr %91, align 2, !tbaa !136
   %93 = uitofp i16 %92 to float
-  %94 = fmul nsz float %93, 0x3EF0001000000000
+  %94 = fmul nnan nsz float %93, 0x3EF0001000000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %94, i64 1
   %95 = add nsw i64 %indvars.iv, %81
   %96 = getelementptr inbounds i16, ptr %.089102.us, i64 %95
   %97 = load i16, ptr %96, align 2, !tbaa !136
   %98 = uitofp i16 %97 to float
-  %99 = fmul nsz float %98, 0x3EF0001000000000
+  %99 = fmul nnan nsz float %98, 0x3EF0001000000000
   br i1 %75, label %apply_prelut.exit.us, label %100
 
 100:                                              ; preds = %84
@@ -11898,19 +11898,19 @@ define internal noundef i32 @interp_8_tetrahedral(ptr noundef readonly captures(
   %80 = getelementptr inbounds i8, ptr %.089102, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !47
   %82 = uitofp i8 %81 to float
-  %83 = fmul nsz float %82, 0x3F70101020000000
+  %83 = fmul nnan nsz float %82, 0x3F70101020000000
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %83, i64 0
   %84 = add nsw i64 %indvars.iv, %71
   %85 = getelementptr inbounds i8, ptr %.089102, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !47
   %87 = uitofp i8 %86 to float
-  %88 = fmul nsz float %87, 0x3F70101020000000
+  %88 = fmul nnan nsz float %87, 0x3F70101020000000
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %88, i64 1
   %89 = add nsw i64 %indvars.iv, %72
   %90 = getelementptr inbounds i8, ptr %.089102, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !47
   %92 = uitofp i8 %91 to float
-  %93 = fmul nsz float %92, 0x3F70101020000000
+  %93 = fmul nnan nsz float %92, 0x3F70101020000000
   %94 = load i32, ptr %8, align 8, !tbaa !130
   %95 = icmp slt i32 %94, 1
   br i1 %95, label %apply_prelut.exit, label %96
@@ -12218,17 +12218,17 @@ define internal noundef i32 @interp_8_pyramid_p8(ptr noundef readonly captures(n
   %112 = getelementptr inbounds nuw i8, ptr %.0114129, i64 %indvars.iv
   %113 = load i8, ptr %112, align 1, !tbaa !47
   %114 = uitofp i8 %113 to float
-  %115 = fmul nsz float %114, 0x3F70101020000000
+  %115 = fmul nnan nsz float %114, 0x3F70101020000000
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %115, i64 0
   %116 = getelementptr inbounds nuw i8, ptr %.0112131, i64 %indvars.iv
   %117 = load i8, ptr %116, align 1, !tbaa !47
   %118 = uitofp i8 %117 to float
-  %119 = fmul nsz float %118, 0x3F70101020000000
+  %119 = fmul nnan nsz float %118, 0x3F70101020000000
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %119, i64 1
   %120 = getelementptr inbounds nuw i8, ptr %.0113130, i64 %indvars.iv
   %121 = load i8, ptr %120, align 1, !tbaa !47
   %122 = uitofp i8 %121 to float
-  %123 = fmul nsz float %122, 0x3F70101020000000
+  %123 = fmul nnan nsz float %122, 0x3F70101020000000
   %124 = load i32, ptr %8, align 8, !tbaa !130
   %125 = icmp slt i32 %124, 1
   br i1 %125, label %apply_prelut.exit, label %126
@@ -12562,17 +12562,17 @@ define internal noundef i32 @interp_16_pyramid_p9(ptr noundef readonly captures(
   %115 = getelementptr inbounds nuw i16, ptr %.0114129.us, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !136
   %117 = uitofp i16 %116 to float
-  %118 = fmul nsz float %117, 0x3F60080400000000
+  %118 = fmul nnan nsz float %117, 0x3F60080400000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %118, i64 0
   %119 = getelementptr inbounds nuw i16, ptr %.0112131.us, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2, !tbaa !136
   %121 = uitofp i16 %120 to float
-  %122 = fmul nsz float %121, 0x3F60080400000000
+  %122 = fmul nnan nsz float %121, 0x3F60080400000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %122, i64 1
   %123 = getelementptr inbounds nuw i16, ptr %.0113130.us, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !136
   %125 = uitofp i16 %124 to float
-  %126 = fmul nsz float %125, 0x3F60080400000000
+  %126 = fmul nnan nsz float %125, 0x3F60080400000000
   br i1 %111, label %apply_prelut.exit.us, label %127
 
 127:                                              ; preds = %114
@@ -12867,17 +12867,17 @@ define internal noundef i32 @interp_16_pyramid_p10(ptr noundef readonly captures
   %115 = getelementptr inbounds nuw i16, ptr %.0114129.us, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !136
   %117 = uitofp i16 %116 to float
-  %118 = fmul nsz float %117, 0x3F50040100000000
+  %118 = fmul nnan nsz float %117, 0x3F50040100000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %118, i64 0
   %119 = getelementptr inbounds nuw i16, ptr %.0112131.us, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2, !tbaa !136
   %121 = uitofp i16 %120 to float
-  %122 = fmul nsz float %121, 0x3F50040100000000
+  %122 = fmul nnan nsz float %121, 0x3F50040100000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %122, i64 1
   %123 = getelementptr inbounds nuw i16, ptr %.0113130.us, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !136
   %125 = uitofp i16 %124 to float
-  %126 = fmul nsz float %125, 0x3F50040100000000
+  %126 = fmul nnan nsz float %125, 0x3F50040100000000
   br i1 %111, label %apply_prelut.exit.us, label %127
 
 127:                                              ; preds = %114
@@ -13172,17 +13172,17 @@ define internal noundef i32 @interp_16_pyramid_p12(ptr noundef readonly captures
   %115 = getelementptr inbounds nuw i16, ptr %.0114129.us, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !136
   %117 = uitofp i16 %116 to float
-  %118 = fmul nsz float %117, 0x3F30010020000000
+  %118 = fmul nnan nsz float %117, 0x3F30010020000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %118, i64 0
   %119 = getelementptr inbounds nuw i16, ptr %.0112131.us, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2, !tbaa !136
   %121 = uitofp i16 %120 to float
-  %122 = fmul nsz float %121, 0x3F30010020000000
+  %122 = fmul nnan nsz float %121, 0x3F30010020000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %122, i64 1
   %123 = getelementptr inbounds nuw i16, ptr %.0113130.us, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !136
   %125 = uitofp i16 %124 to float
-  %126 = fmul nsz float %125, 0x3F30010020000000
+  %126 = fmul nnan nsz float %125, 0x3F30010020000000
   br i1 %111, label %apply_prelut.exit.us, label %127
 
 127:                                              ; preds = %114
@@ -13477,17 +13477,17 @@ define internal noundef i32 @interp_16_pyramid_p14(ptr noundef readonly captures
   %115 = getelementptr inbounds nuw i16, ptr %.0114129.us, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !136
   %117 = uitofp i16 %116 to float
-  %118 = fmul nsz float %117, 0x3F10004000000000
+  %118 = fmul nnan nsz float %117, 0x3F10004000000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %118, i64 0
   %119 = getelementptr inbounds nuw i16, ptr %.0112131.us, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2, !tbaa !136
   %121 = uitofp i16 %120 to float
-  %122 = fmul nsz float %121, 0x3F10004000000000
+  %122 = fmul nnan nsz float %121, 0x3F10004000000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %122, i64 1
   %123 = getelementptr inbounds nuw i16, ptr %.0113130.us, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !136
   %125 = uitofp i16 %124 to float
-  %126 = fmul nsz float %125, 0x3F10004000000000
+  %126 = fmul nnan nsz float %125, 0x3F10004000000000
   br i1 %111, label %apply_prelut.exit.us, label %127
 
 127:                                              ; preds = %114
@@ -13782,17 +13782,17 @@ define internal noundef i32 @interp_16_pyramid_p16(ptr noundef readonly captures
   %115 = getelementptr inbounds nuw i16, ptr %.0114129.us, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !136
   %117 = uitofp i16 %116 to float
-  %118 = fmul nsz float %117, 0x3EF0001000000000
+  %118 = fmul nnan nsz float %117, 0x3EF0001000000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %118, i64 0
   %119 = getelementptr inbounds nuw i16, ptr %.0112131.us, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2, !tbaa !136
   %121 = uitofp i16 %120 to float
-  %122 = fmul nsz float %121, 0x3EF0001000000000
+  %122 = fmul nnan nsz float %121, 0x3EF0001000000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %122, i64 1
   %123 = getelementptr inbounds nuw i16, ptr %.0113130.us, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !136
   %125 = uitofp i16 %124 to float
-  %126 = fmul nsz float %125, 0x3EF0001000000000
+  %126 = fmul nnan nsz float %125, 0x3EF0001000000000
   br i1 %111, label %apply_prelut.exit.us, label %127
 
 127:                                              ; preds = %114
@@ -14382,19 +14382,19 @@ define internal noundef i32 @interp_16_pyramid(ptr noundef readonly captures(non
   %86 = getelementptr inbounds i16, ptr %.089102.us, i64 %85
   %87 = load i16, ptr %86, align 2, !tbaa !136
   %88 = uitofp i16 %87 to float
-  %89 = fmul nsz float %88, 0x3EF0001000000000
+  %89 = fmul nnan nsz float %88, 0x3EF0001000000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %89, i64 0
   %90 = add nsw i64 %indvars.iv, %80
   %91 = getelementptr inbounds i16, ptr %.089102.us, i64 %90
   %92 = load i16, ptr %91, align 2, !tbaa !136
   %93 = uitofp i16 %92 to float
-  %94 = fmul nsz float %93, 0x3EF0001000000000
+  %94 = fmul nnan nsz float %93, 0x3EF0001000000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %94, i64 1
   %95 = add nsw i64 %indvars.iv, %81
   %96 = getelementptr inbounds i16, ptr %.089102.us, i64 %95
   %97 = load i16, ptr %96, align 2, !tbaa !136
   %98 = uitofp i16 %97 to float
-  %99 = fmul nsz float %98, 0x3EF0001000000000
+  %99 = fmul nnan nsz float %98, 0x3EF0001000000000
   br i1 %75, label %apply_prelut.exit.us, label %100
 
 100:                                              ; preds = %84
@@ -14646,19 +14646,19 @@ define internal noundef i32 @interp_8_pyramid(ptr noundef readonly captures(none
   %80 = getelementptr inbounds i8, ptr %.089102, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !47
   %82 = uitofp i8 %81 to float
-  %83 = fmul nsz float %82, 0x3F70101020000000
+  %83 = fmul nnan nsz float %82, 0x3F70101020000000
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %83, i64 0
   %84 = add nsw i64 %indvars.iv, %71
   %85 = getelementptr inbounds i8, ptr %.089102, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !47
   %87 = uitofp i8 %86 to float
-  %88 = fmul nsz float %87, 0x3F70101020000000
+  %88 = fmul nnan nsz float %87, 0x3F70101020000000
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %88, i64 1
   %89 = add nsw i64 %indvars.iv, %72
   %90 = getelementptr inbounds i8, ptr %.089102, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !47
   %92 = uitofp i8 %91 to float
-  %93 = fmul nsz float %92, 0x3F70101020000000
+  %93 = fmul nnan nsz float %92, 0x3F70101020000000
   %94 = load i32, ptr %8, align 8, !tbaa !130
   %95 = icmp slt i32 %94, 1
   br i1 %95, label %apply_prelut.exit, label %96
@@ -14966,17 +14966,17 @@ define internal noundef i32 @interp_8_prism_p8(ptr noundef readonly captures(non
   %112 = getelementptr inbounds nuw i8, ptr %.0114129, i64 %indvars.iv
   %113 = load i8, ptr %112, align 1, !tbaa !47
   %114 = uitofp i8 %113 to float
-  %115 = fmul nsz float %114, 0x3F70101020000000
+  %115 = fmul nnan nsz float %114, 0x3F70101020000000
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %115, i64 0
   %116 = getelementptr inbounds nuw i8, ptr %.0112131, i64 %indvars.iv
   %117 = load i8, ptr %116, align 1, !tbaa !47
   %118 = uitofp i8 %117 to float
-  %119 = fmul nsz float %118, 0x3F70101020000000
+  %119 = fmul nnan nsz float %118, 0x3F70101020000000
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %119, i64 1
   %120 = getelementptr inbounds nuw i8, ptr %.0113130, i64 %indvars.iv
   %121 = load i8, ptr %120, align 1, !tbaa !47
   %122 = uitofp i8 %121 to float
-  %123 = fmul nsz float %122, 0x3F70101020000000
+  %123 = fmul nnan nsz float %122, 0x3F70101020000000
   %124 = load i32, ptr %8, align 8, !tbaa !130
   %125 = icmp slt i32 %124, 1
   br i1 %125, label %apply_prelut.exit, label %126
@@ -15310,17 +15310,17 @@ define internal noundef i32 @interp_16_prism_p9(ptr noundef readonly captures(no
   %115 = getelementptr inbounds nuw i16, ptr %.0114129.us, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !136
   %117 = uitofp i16 %116 to float
-  %118 = fmul nsz float %117, 0x3F60080400000000
+  %118 = fmul nnan nsz float %117, 0x3F60080400000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %118, i64 0
   %119 = getelementptr inbounds nuw i16, ptr %.0112131.us, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2, !tbaa !136
   %121 = uitofp i16 %120 to float
-  %122 = fmul nsz float %121, 0x3F60080400000000
+  %122 = fmul nnan nsz float %121, 0x3F60080400000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %122, i64 1
   %123 = getelementptr inbounds nuw i16, ptr %.0113130.us, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !136
   %125 = uitofp i16 %124 to float
-  %126 = fmul nsz float %125, 0x3F60080400000000
+  %126 = fmul nnan nsz float %125, 0x3F60080400000000
   br i1 %111, label %apply_prelut.exit.us, label %127
 
 127:                                              ; preds = %114
@@ -15615,17 +15615,17 @@ define internal noundef i32 @interp_16_prism_p10(ptr noundef readonly captures(n
   %115 = getelementptr inbounds nuw i16, ptr %.0114129.us, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !136
   %117 = uitofp i16 %116 to float
-  %118 = fmul nsz float %117, 0x3F50040100000000
+  %118 = fmul nnan nsz float %117, 0x3F50040100000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %118, i64 0
   %119 = getelementptr inbounds nuw i16, ptr %.0112131.us, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2, !tbaa !136
   %121 = uitofp i16 %120 to float
-  %122 = fmul nsz float %121, 0x3F50040100000000
+  %122 = fmul nnan nsz float %121, 0x3F50040100000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %122, i64 1
   %123 = getelementptr inbounds nuw i16, ptr %.0113130.us, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !136
   %125 = uitofp i16 %124 to float
-  %126 = fmul nsz float %125, 0x3F50040100000000
+  %126 = fmul nnan nsz float %125, 0x3F50040100000000
   br i1 %111, label %apply_prelut.exit.us, label %127
 
 127:                                              ; preds = %114
@@ -15920,17 +15920,17 @@ define internal noundef i32 @interp_16_prism_p12(ptr noundef readonly captures(n
   %115 = getelementptr inbounds nuw i16, ptr %.0114129.us, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !136
   %117 = uitofp i16 %116 to float
-  %118 = fmul nsz float %117, 0x3F30010020000000
+  %118 = fmul nnan nsz float %117, 0x3F30010020000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %118, i64 0
   %119 = getelementptr inbounds nuw i16, ptr %.0112131.us, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2, !tbaa !136
   %121 = uitofp i16 %120 to float
-  %122 = fmul nsz float %121, 0x3F30010020000000
+  %122 = fmul nnan nsz float %121, 0x3F30010020000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %122, i64 1
   %123 = getelementptr inbounds nuw i16, ptr %.0113130.us, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !136
   %125 = uitofp i16 %124 to float
-  %126 = fmul nsz float %125, 0x3F30010020000000
+  %126 = fmul nnan nsz float %125, 0x3F30010020000000
   br i1 %111, label %apply_prelut.exit.us, label %127
 
 127:                                              ; preds = %114
@@ -16225,17 +16225,17 @@ define internal noundef i32 @interp_16_prism_p14(ptr noundef readonly captures(n
   %115 = getelementptr inbounds nuw i16, ptr %.0114129.us, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !136
   %117 = uitofp i16 %116 to float
-  %118 = fmul nsz float %117, 0x3F10004000000000
+  %118 = fmul nnan nsz float %117, 0x3F10004000000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %118, i64 0
   %119 = getelementptr inbounds nuw i16, ptr %.0112131.us, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2, !tbaa !136
   %121 = uitofp i16 %120 to float
-  %122 = fmul nsz float %121, 0x3F10004000000000
+  %122 = fmul nnan nsz float %121, 0x3F10004000000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %122, i64 1
   %123 = getelementptr inbounds nuw i16, ptr %.0113130.us, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !136
   %125 = uitofp i16 %124 to float
-  %126 = fmul nsz float %125, 0x3F10004000000000
+  %126 = fmul nnan nsz float %125, 0x3F10004000000000
   br i1 %111, label %apply_prelut.exit.us, label %127
 
 127:                                              ; preds = %114
@@ -16530,17 +16530,17 @@ define internal noundef i32 @interp_16_prism_p16(ptr noundef readonly captures(n
   %115 = getelementptr inbounds nuw i16, ptr %.0114129.us, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2, !tbaa !136
   %117 = uitofp i16 %116 to float
-  %118 = fmul nsz float %117, 0x3EF0001000000000
+  %118 = fmul nnan nsz float %117, 0x3EF0001000000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %118, i64 0
   %119 = getelementptr inbounds nuw i16, ptr %.0112131.us, i64 %indvars.iv
   %120 = load i16, ptr %119, align 2, !tbaa !136
   %121 = uitofp i16 %120 to float
-  %122 = fmul nsz float %121, 0x3EF0001000000000
+  %122 = fmul nnan nsz float %121, 0x3EF0001000000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %122, i64 1
   %123 = getelementptr inbounds nuw i16, ptr %.0113130.us, i64 %indvars.iv
   %124 = load i16, ptr %123, align 2, !tbaa !136
   %125 = uitofp i16 %124 to float
-  %126 = fmul nsz float %125, 0x3EF0001000000000
+  %126 = fmul nnan nsz float %125, 0x3EF0001000000000
   br i1 %111, label %apply_prelut.exit.us, label %127
 
 127:                                              ; preds = %114
@@ -17130,19 +17130,19 @@ define internal noundef i32 @interp_16_prism(ptr noundef readonly captures(none)
   %86 = getelementptr inbounds i16, ptr %.089102.us, i64 %85
   %87 = load i16, ptr %86, align 2, !tbaa !136
   %88 = uitofp i16 %87 to float
-  %89 = fmul nsz float %88, 0x3EF0001000000000
+  %89 = fmul nnan nsz float %88, 0x3EF0001000000000
   %.sroa.0.0.vec.insert.us = insertelement <2 x float> poison, float %89, i64 0
   %90 = add nsw i64 %indvars.iv, %80
   %91 = getelementptr inbounds i16, ptr %.089102.us, i64 %90
   %92 = load i16, ptr %91, align 2, !tbaa !136
   %93 = uitofp i16 %92 to float
-  %94 = fmul nsz float %93, 0x3EF0001000000000
+  %94 = fmul nnan nsz float %93, 0x3EF0001000000000
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert.us, float %94, i64 1
   %95 = add nsw i64 %indvars.iv, %81
   %96 = getelementptr inbounds i16, ptr %.089102.us, i64 %95
   %97 = load i16, ptr %96, align 2, !tbaa !136
   %98 = uitofp i16 %97 to float
-  %99 = fmul nsz float %98, 0x3EF0001000000000
+  %99 = fmul nnan nsz float %98, 0x3EF0001000000000
   br i1 %75, label %apply_prelut.exit.us, label %100
 
 100:                                              ; preds = %84
@@ -17394,19 +17394,19 @@ define internal noundef i32 @interp_8_prism(ptr noundef readonly captures(none) 
   %80 = getelementptr inbounds i8, ptr %.089102, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !47
   %82 = uitofp i8 %81 to float
-  %83 = fmul nsz float %82, 0x3F70101020000000
+  %83 = fmul nnan nsz float %82, 0x3F70101020000000
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %83, i64 0
   %84 = add nsw i64 %indvars.iv, %71
   %85 = getelementptr inbounds i8, ptr %.089102, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !47
   %87 = uitofp i8 %86 to float
-  %88 = fmul nsz float %87, 0x3F70101020000000
+  %88 = fmul nnan nsz float %87, 0x3F70101020000000
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %88, i64 1
   %89 = add nsw i64 %indvars.iv, %72
   %90 = getelementptr inbounds i8, ptr %.089102, i64 %89
   %91 = load i8, ptr %90, align 1, !tbaa !47
   %92 = uitofp i8 %91 to float
-  %93 = fmul nsz float %92, 0x3F70101020000000
+  %93 = fmul nnan nsz float %92, 0x3F70101020000000
   %94 = load i32, ptr %8, align 8, !tbaa !130
   %95 = icmp slt i32 %94, 1
   br i1 %95, label %apply_prelut.exit, label %96

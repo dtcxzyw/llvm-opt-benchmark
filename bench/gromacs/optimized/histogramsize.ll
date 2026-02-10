@@ -215,9 +215,9 @@ define noundef double @_ZN3gmx13HistogramSize16newHistogramSizeERKNS_10BiasParam
 
 29:                                               ; preds = %._crit_edge.i
   %30 = sitofp i32 %.132.i to double
-  %31 = fdiv double 1.000000e+00, %.1.i
-  %32 = fdiv double 1.000000e+00, %30
-  %33 = fmul double %32, 5.000000e-02
+  %31 = fdiv nnan double 1.000000e+00, %.1.i
+  %32 = fdiv nnan double 1.000000e+00, %30
+  %33 = fmul nnan double %32, 5.000000e-02
   br label %.lr.ph60.i
 
 .lr.ph60.i:                                       ; preds = %48, %29

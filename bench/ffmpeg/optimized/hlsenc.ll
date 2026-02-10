@@ -727,7 +727,7 @@ define internal i32 @hls_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %123 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %124 = load i32, ptr %123, align 8, !tbaa !53
   %125 = sitofp i32 %124 to double
-  %126 = fmul nsz double %122, %125
+  %126 = fmul nnan nsz double %122, %125
   %127 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %128 = load i32, ptr %127, align 4, !tbaa !54
   %129 = sitofp i32 %128 to double
@@ -737,7 +737,7 @@ define internal i32 @hls_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %133 = load i64, ptr %132, align 8, !tbaa !86
   %134 = sitofp i64 %133 to double
-  %135 = fmul nsz double %125, %134
+  %135 = fmul nnan nsz double %125, %134
   %136 = fdiv nsz double %135, %129
   %137 = getelementptr inbounds nuw i8, ptr %23, i64 104
   store double %136, ptr %137, align 8, !tbaa !87
@@ -754,7 +754,7 @@ define internal i32 @hls_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %143 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %144 = load i32, ptr %143, align 8, !tbaa !53
   %145 = sitofp i32 %144 to double
-  %146 = fmul nsz double %142, %145
+  %146 = fmul nnan nsz double %142, %145
   %147 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %148 = load i32, ptr %147, align 4, !tbaa !54
   %149 = sitofp i32 %148 to double
@@ -774,7 +774,7 @@ define internal i32 @hls_write_packet(ptr noundef %0, ptr noundef %1) #0 {
   %159 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %160 = load i32, ptr %159, align 8, !tbaa !53
   %161 = sitofp i32 %160 to double
-  %162 = fmul nsz double %158, %161
+  %162 = fmul nnan nsz double %158, %161
   %163 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %164 = load i32, ptr %163, align 4, !tbaa !54
   %165 = sitofp i32 %164 to double
@@ -1177,7 +1177,7 @@ hls_rename_temp_file.exit:                        ; preds = %347, %351
   %367 = sitofp i64 %366 to double
   %368 = load i32, ptr %181, align 8, !tbaa !53
   %369 = sitofp i32 %368 to double
-  %370 = fmul nsz double %367, %369
+  %370 = fmul nnan nsz double %367, %369
   %371 = getelementptr inbounds nuw i8, ptr %16, i64 36
   %372 = load i32, ptr %371, align 4, !tbaa !54
   %373 = sitofp i32 %372 to double

@@ -928,7 +928,7 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
   %31 = icmp eq i64 %indvars.iv, %29
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = uitofp nneg i32 %32 to float
-  %34 = fmul float %33, 0x401921FB40000000
+  %34 = fmul nnan float %33, 0x401921FB40000000
   %35 = fdiv float %34, %27
   %36 = fpext float %35 to double
   %37 = fmul float %35, 2.000000e+00
@@ -938,7 +938,7 @@ define void @hexwave_init(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_
   %41 = trunc i64 %indvars.iv to i32
   %42 = sub i32 %41, %5
   %43 = sitofp i32 %42 to float
-  %44 = fmul float %43, 0x400921FB00000000
+  %44 = fmul nnan float %43, 0x400921FB00000000
   %45 = fdiv float %44, %28
   %46 = fpext float %45 to double
   br i1 %31, label %.preheader142.split.us, label %.preheader142.split

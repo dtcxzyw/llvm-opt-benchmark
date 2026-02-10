@@ -626,7 +626,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit.i:          ; preds = %.noexc133, %165
 
 220:                                              ; preds = %._crit_edge.i
   %221 = uitofp i64 %219 to double
-  %222 = fmul double %221, 0x3EF0000000000000
+  %222 = fmul nnan double %221, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15, double noundef %222)
           to label %223 unwind label %236
 
@@ -1058,7 +1058,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i:        ; preds = %341, %295
 406:                                              ; preds = %392, %388
   %.0.us.i = phi i32 [ %.4.us.i, %392 ], [ %390, %388 ]
   %407 = uitofp i32 %.0.us.i to float
-  %408 = fmul float %407, 0x3EF0000000000000
+  %408 = fmul nnan float %407, 0x3EF0000000000000
   %409 = getelementptr inbounds nuw float, ptr %.011312.us.i, i64 %indvars.iv.next24.i
   store float %408, ptr %409, align 4, !tbaa !54
   %410 = icmp sgt i64 %indvars.iv23.i, 1
@@ -1361,7 +1361,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i151:     ; preds = %._crit_edge.us.i.i,
 569:                                              ; preds = %540, %536
   %.0.us.i159 = phi i32 [ %.8.us.i, %540 ], [ %538, %536 ]
   %570 = uitofp i32 %.0.us.i159 to float
-  %571 = fmul float %570, 0x3EF0000000000000
+  %571 = fmul nnan float %570, 0x3EF0000000000000
   %572 = getelementptr inbounds nuw float, ptr %.0170221.us.i, i64 %indvars.iv.next239.i
   store float %571, ptr %572, align 4, !tbaa !54
   %573 = icmp sgt i64 %indvars.iv238.i, 1
@@ -1991,7 +1991,7 @@ _ZN2cvL13initTopBottomERNS_3MatEij.exit.i174:     ; preds = %._crit_edge.us.i.i1
 892:                                              ; preds = %843, %839
   %.0232.us.i = phi i32 [ %.8.us.i183, %843 ], [ %841, %839 ]
   %893 = uitofp i32 %.0232.us.i to float
-  %894 = fmul float %893, 0x3EF0000000000000
+  %894 = fmul nnan float %893, 0x3EF0000000000000
   %895 = getelementptr inbounds nuw float, ptr %.0240308.us.i, i64 %indvars.iv.next328.i
   store float %894, ptr %895, align 4, !tbaa !54
   %896 = icmp sgt i64 %indvars.iv327.i, 1

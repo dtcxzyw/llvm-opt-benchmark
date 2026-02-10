@@ -1079,9 +1079,9 @@ if.end.i155:                                      ; preds = %if.else197
   br i1 %cmp2.i, label %_ZN8QuantLib5closeEdd.exit159, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i155
-  %mul.i = fmul double %19, 0x3D05000000000000
+  %mul.i = fmul nnan double %19, 0x3D05000000000000
   %cmp6.i = fcmp ole double %89, %mul.i
-  %mul7.i = fmul double %0, 0x3D05000000000000
+  %mul7.i = fmul nnan double %0, 0x3D05000000000000
   %cmp8.i = fcmp ole double %89, %mul7.i
   %90 = and i1 %cmp6.i, %cmp8.i
   br i1 %90, label %if.then201, label %if.else208

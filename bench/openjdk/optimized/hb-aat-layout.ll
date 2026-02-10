@@ -3781,7 +3781,7 @@ define linkonce_odr hidden noundef i32 @_ZNK3AAT9TrackData12get_trackingEPKvf(pt
   %30 = zext i8 %29 to i32
   %31 = or disjoint i32 %27, %30
   %32 = sitofp i32 %31 to float
-  %33 = fmul float %32, 0x3EF0000000000000
+  %33 = fmul nnan float %32, 0x3EF0000000000000
   %34 = fcmp oeq float %33, 0.000000e+00
   br i1 %34, label %35, label %12
 
@@ -3872,7 +3872,7 @@ define linkonce_odr hidden noundef i32 @_ZNK3AAT9TrackData12get_trackingEPKvf(pt
   %100 = zext i8 %99 to i32
   %101 = or disjoint i32 %97, %100
   %102 = sitofp i32 %101 to float
-  %103 = fmul float %102, 0x3EF0000000000000
+  %103 = fmul nnan float %102, 0x3EF0000000000000
   %104 = fcmp ult float %103, %2
   br i1 %104, label %105, label %._crit_edge.loopexit.split.loop.exit
 
@@ -3914,7 +3914,7 @@ define linkonce_odr hidden noundef i32 @_ZNK3AAT9TrackData12get_trackingEPKvf(pt
   %125 = zext i8 %124 to i32
   %126 = or disjoint i32 %122, %125
   %127 = sitofp i32 %126 to float
-  %128 = fmul float %127, 0x3EF0000000000000
+  %128 = fmul nnan float %127, 0x3EF0000000000000
   %129 = add nuw i32 %.0.lcssa, 1
   %.not.i.i18.i = icmp ult i32 %129, %43
   %130 = zext i32 %129 to i64
@@ -3938,7 +3938,7 @@ define linkonce_odr hidden noundef i32 @_ZNK3AAT9TrackData12get_trackingEPKvf(pt
   %147 = zext i8 %146 to i32
   %148 = or disjoint i32 %144, %147
   %149 = sitofp i32 %148 to float
-  %150 = fmul float %149, 0x3EF0000000000000
+  %150 = fmul nnan float %149, 0x3EF0000000000000
   %151 = fcmp oeq float %128, %150
   %152 = fsub float %2, %128
   %153 = fsub float %150, %128
@@ -32258,7 +32258,7 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %55 = load i32, ptr %54, align 4
   %56 = sitofp i32 %55 to double
-  %57 = fmul double %56, 8.000000e-01
+  %57 = fmul nnan double %56, 8.000000e-01
   %58 = fptosi double %57 to i32
   br label %_ZN9hb_font_t29guess_v_origin_minus_h_originEjPiS0_.exit
 
@@ -32375,7 +32375,7 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %56 = load i32, ptr %55, align 4
   %57 = sitofp i32 %56 to double
-  %58 = fmul double %57, 8.000000e-01
+  %58 = fmul nnan double %57, 8.000000e-01
   %59 = fptosi double %58 to i32
   br label %_ZN9hb_font_t29guess_v_origin_minus_h_originEjPiS0_.exit
 

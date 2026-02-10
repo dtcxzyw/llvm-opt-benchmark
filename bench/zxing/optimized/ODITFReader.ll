@@ -1495,7 +1495,7 @@ define linkonce_odr void @_ZN5ZXing13FindLeftGuardILi4EZNS_13FindLeftGuardILi4EL
 
 _ZNK5ZXing11PatternView3sumEi.exit.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   %20 = uitofp i16 %19 to double
-  %21 = fmul double %20, 2.500000e-01
+  %21 = fmul nnan double %20, 2.500000e-01
   %22 = fcmp une double %4, 0.000000e+00
   %23 = tail call double @llvm.fmuladd.f64(double %4, double %21, double -1.000000e+00)
   %24 = fcmp ogt double %23, 0x41DFFFFFFFC00000
@@ -1570,7 +1570,7 @@ _ZZN5ZXing13FindLeftGuardILi4ELi4ELb0EEENS_11PatternViewERKS1_iRKNS_12FixedPatte
 
 _ZNK5ZXing11PatternView3sumEi.exit.i.i13.us:      ; preds = %.lr.ph.i.i.i.i.i7.us
   %51 = uitofp i16 %50 to double
-  %52 = fmul double %51, 2.500000e-01
+  %52 = fmul nnan double %51, 2.500000e-01
   %53 = uitofp i16 %48 to double
   %54 = tail call double @llvm.fmuladd.f64(double %4, double %52, double -1.000000e+00)
   %55 = fcmp ogt double %54, %53
@@ -1624,7 +1624,7 @@ _ZN5ZXing11PatternView8skipPairEv.exit.us:        ; preds = %58, %_ZNK5ZXing11Pa
 
 _ZNK5ZXing11PatternView3sumEi.exit.i.i13:         ; preds = %.lr.ph.i.i.i.i.i7
   %74 = uitofp i16 %73 to double
-  %75 = fmul double %74, 2.500000e-01
+  %75 = fmul nnan double %74, 2.500000e-01
   %76 = tail call double @llvm.fmuladd.f64(double %75, double 5.000000e-01, double 5.000000e-01)
   br label %78
 

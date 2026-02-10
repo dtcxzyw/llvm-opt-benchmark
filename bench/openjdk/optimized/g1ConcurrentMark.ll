@@ -9882,11 +9882,11 @@ define hidden void @_ZN32G1PrintRegionLivenessInfoClosureD2Ev(ptr noundef nonnul
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8
   %20 = uitofp i64 %19 to double
-  %21 = fmul double %20, 0x3EB0000000000000
+  %21 = fmul nnan double %20, 0x3EB0000000000000
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load i64, ptr %22, align 8
   %24 = uitofp i64 %23 to double
-  %25 = fmul double %24, 0x3EB0000000000000
+  %25 = fmul nnan double %24, 0x3EB0000000000000
   %.not.i = icmp eq i64 %19, 0
   %26 = fdiv double %24, %20
   %27 = fmul double %26, 1.000000e+02
@@ -9894,17 +9894,17 @@ define hidden void @_ZN32G1PrintRegionLivenessInfoClosureD2Ev(ptr noundef nonnul
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load i64, ptr %29, align 8
   %31 = uitofp i64 %30 to double
-  %32 = fmul double %31, 0x3EB0000000000000
+  %32 = fmul nnan double %31, 0x3EB0000000000000
   %33 = fdiv double %31, %20
   %34 = fmul double %33, 1.000000e+02
   %35 = select i1 %.not.i, double 0.000000e+00, double %34
   %36 = load i64, ptr %7, align 8
   %37 = uitofp i64 %36 to double
-  %38 = fmul double %37, 0x3EB0000000000000
+  %38 = fmul nnan double %37, 0x3EB0000000000000
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %40 = load i64, ptr %39, align 8
   %41 = uitofp i64 %40 to double
-  %42 = fmul double %41, 0x3EB0000000000000
+  %42 = fmul nnan double %41, 0x3EB0000000000000
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_73ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.101, double noundef %21, double noundef %25, double noundef %28, double noundef %32, double noundef %35, double noundef %38, double noundef %42)
   br label %43
 

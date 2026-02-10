@@ -1093,7 +1093,7 @@ define noundef double @_ZNK11TransTableS11MemoryInUseEv(ptr noundef nonnull read
   %4 = trunc i64 %3 to i32
   %5 = add nsw i32 %4, 262144
   %6 = sitofp i32 %5 to double
-  %7 = fmul double %6, 0x3F50000000000000
+  %7 = fmul nnan double %6, 0x3F50000000000000
   ret double %7
 }
 

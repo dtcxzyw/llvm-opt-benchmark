@@ -957,7 +957,7 @@ thread-pre-split:                                 ; preds = %378
   %420 = getelementptr inbounds nuw float, ptr %413, i64 %indvars.iv814
   %421 = load float, ptr %420, align 4, !tbaa !44
   %422 = fcmp reassoc nsz arcp contract afn ult float %421, 0.000000e+00
-  %423 = fmul reassoc nsz arcp contract afn float %421, 6.553500e+04
+  %423 = fmul reassoc nnan nsz arcp contract afn float %421, 6.553500e+04
   %424 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %423)
   %425 = fptoui float %424 to i16
   br i1 %422, label %.lr.ph687.split.us.us, label %.lr.ph687.split.us701
@@ -1059,7 +1059,7 @@ thread-pre-split:                                 ; preds = %378
   br i1 %452, label %457, label %453
 
 453:                                              ; preds = %451
-  %454 = fmul reassoc nsz arcp contract afn float %449, 2.550000e+02
+  %454 = fmul reassoc nnan nsz arcp contract afn float %449, 2.550000e+02
   %455 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %454)
   %456 = fptoui float %455 to i8
   br label %457

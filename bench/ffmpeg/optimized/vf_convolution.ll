@@ -1758,7 +1758,7 @@ define internal void @filter_prewitt(ptr noundef writeonly captures(none) %0, i3
   %61 = sub nsw i32 %59, %60
   %62 = add nsw i32 %61, %57
   %63 = sitofp i32 %62 to float
-  %64 = fmul nsz float %63, %63
+  %64 = fmul nnan nsz float %63, %63
   %65 = tail call nsz float @llvm.fmuladd.f32(float %51, float %51, float %64)
   %66 = tail call nsz float @llvm.sqrt.f32(float %65)
   %67 = tail call nsz float @llvm.fmuladd.f32(float %66, float %2, float %3)
@@ -1812,7 +1812,7 @@ define internal void @filter_roberts(ptr noundef writeonly captures(none) %0, i3
   %34 = zext i8 %33 to i32
   %35 = sub nsw i32 %30, %34
   %36 = sitofp i32 %35 to float
-  %37 = fmul nsz float %36, %36
+  %37 = fmul nnan nsz float %36, %36
   %38 = tail call nsz float @llvm.fmuladd.f32(float %26, float %26, float %37)
   %39 = tail call nsz float @llvm.sqrt.f32(float %38)
   %40 = tail call nsz float @llvm.fmuladd.f32(float %39, float %2, float %3)
@@ -2028,8 +2028,8 @@ define internal void @filter_scharr(ptr noundef writeonly captures(none) %0, i32
   %58 = add nsw i32 %48, %reass.mul52
   %59 = add nsw i32 %58, %reass.mul49
   %60 = sitofp i32 %59 to float
-  %61 = fmul nsz float %51, 3.906250e-03
-  %62 = fmul nsz float %60, 3.906250e-03
+  %61 = fmul nnan nsz float %51, 3.906250e-03
+  %62 = fmul nnan nsz float %60, 3.906250e-03
   %63 = fmul nsz float %62, %62
   %64 = tail call nsz float @llvm.fmuladd.f32(float %61, float %61, float %63)
   %65 = tail call nsz float @llvm.sqrt.f32(float %64)
@@ -2527,7 +2527,7 @@ define internal void @filter16_prewitt(ptr noundef writeonly captures(none) %0, 
   %63 = sub nsw i32 %61, %62
   %64 = add nsw i32 %63, %59
   %65 = sitofp i32 %64 to float
-  %66 = fmul nsz float %65, %65
+  %66 = fmul nnan nsz float %65, %65
   %67 = tail call nsz float @llvm.fmuladd.f32(float %53, float %53, float %66)
   %68 = tail call nsz float @llvm.sqrt.f32(float %67)
   %69 = tail call nsz float @llvm.fmuladd.f32(float %68, float %2, float %3)
@@ -2581,7 +2581,7 @@ define internal void @filter16_roberts(ptr noundef writeonly captures(none) %0, 
   %35 = zext i16 %34 to i32
   %36 = sub nsw i32 %32, %35
   %37 = sitofp i32 %36 to float
-  %38 = fmul nsz float %37, %37
+  %38 = fmul nnan nsz float %37, %37
   %39 = tail call nsz float @llvm.fmuladd.f32(float %29, float %29, float %38)
   %40 = tail call nsz float @llvm.sqrt.f32(float %39)
   %41 = tail call nsz float @llvm.fmuladd.f32(float %40, float %2, float %3)
@@ -2796,8 +2796,8 @@ define internal void @filter16_scharr(ptr noundef writeonly captures(none) %0, i
   %60 = add nsw i32 %50, %reass.mul46
   %61 = add nsw i32 %60, %reass.mul43
   %62 = sitofp i32 %61 to float
-  %63 = fmul nsz float %53, 3.906250e-03
-  %64 = fmul nsz float %62, 3.906250e-03
+  %63 = fmul nnan nsz float %53, 3.906250e-03
+  %64 = fmul nnan nsz float %62, 3.906250e-03
   %65 = fmul nsz float %64, %64
   %66 = tail call nsz float @llvm.fmuladd.f32(float %63, float %63, float %65)
   %67 = tail call nsz float @llvm.sqrt.f32(float %66)
@@ -2890,7 +2890,7 @@ define internal void @filter_sobel(ptr noundef writeonly captures(none) %0, i32 
   %59 = add nsw i32 %58, %45
   %60 = add nsw i32 %59, %reass.mul50
   %61 = sitofp i32 %60 to float
-  %62 = fmul nsz float %61, %61
+  %62 = fmul nnan nsz float %61, %61
   %63 = tail call nsz float @llvm.fmuladd.f32(float %50, float %50, float %62)
   %64 = tail call nsz float @llvm.sqrt.f32(float %63)
   %65 = tail call nsz float @llvm.fmuladd.f32(float %64, float %2, float %3)
@@ -2975,7 +2975,7 @@ define internal void @filter16_sobel(ptr noundef writeonly captures(none) %0, i3
   %61 = add nsw i32 %60, %47
   %62 = add nsw i32 %61, %reass.mul44
   %63 = sitofp i32 %62 to float
-  %64 = fmul nsz float %63, %63
+  %64 = fmul nnan nsz float %63, %63
   %65 = tail call nsz float @llvm.fmuladd.f32(float %52, float %52, float %64)
   %66 = tail call nsz float @llvm.sqrt.f32(float %65)
   %67 = tail call nsz float @llvm.fmuladd.f32(float %66, float %2, float %3)

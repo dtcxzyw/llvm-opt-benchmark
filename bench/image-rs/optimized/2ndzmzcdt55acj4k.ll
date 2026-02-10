@@ -1073,7 +1073,7 @@ define internal noundef float @_ZN4core3ops8function2Fn4call17hafcf5210240485c9E
   br i1 %6, label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i.i, label %7
 
 7:                                                ; preds = %5
-  %8 = fmul float %1, 0x400921FB60000000
+  %8 = fmul nnan float %1, 0x400921FB60000000
   %9 = tail call float @llvm.sin.f32(float %8)
   %10 = fdiv float %9, %8
   br label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i.i
@@ -1085,7 +1085,7 @@ _ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exi
   br i1 %12, label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4.i.i, label %13
 
 13:                                               ; preds = %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i.i
-  %14 = fmul float %11, 0x400921FB60000000
+  %14 = fmul nnan float %11, 0x400921FB60000000
   %15 = tail call float @llvm.sin.f32(float %14)
   %16 = fdiv float %15, %14
   br label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4.i.i
@@ -1130,7 +1130,7 @@ define internal noundef float @_ZN4core3ops8function5FnMut8call_mut17h7374a6cb4e
   br i1 %6, label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i.i, label %7
 
 7:                                                ; preds = %5
-  %8 = fmul float %1, 0x400921FB60000000
+  %8 = fmul nnan float %1, 0x400921FB60000000
   %9 = tail call float @llvm.sin.f32(float %8)
   %10 = fdiv float %9, %8
   br label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i.i
@@ -1142,7 +1142,7 @@ _ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exi
   br i1 %12, label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4.i.i, label %13
 
 13:                                               ; preds = %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i.i
-  %14 = fmul float %11, 0x400921FB60000000
+  %14 = fmul nnan float %11, 0x400921FB60000000
   %15 = tail call float @llvm.sin.f32(float %14)
   %16 = fdiv float %15, %14
   br label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4.i.i
@@ -1353,7 +1353,7 @@ define internal noundef float @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b
   br i1 %6, label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i.i.i, label %7
 
 7:                                                ; preds = %5
-  %8 = fmul float %1, 0x400921FB60000000
+  %8 = fmul nnan float %1, 0x400921FB60000000
   %9 = tail call float @llvm.sin.f32(float %8)
   %10 = fdiv float %9, %8
   br label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i.i.i
@@ -1365,7 +1365,7 @@ _ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exi
   br i1 %12, label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4.i.i.i, label %13
 
 13:                                               ; preds = %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit.i.i.i
-  %14 = fmul float %11, 0x400921FB60000000
+  %14 = fmul nnan float %11, 0x400921FB60000000
   %15 = tail call float @llvm.sin.f32(float %14)
   %16 = fdiv float %15, %14
   br label %_ZN5image8imageops6sample4sinc17h0af2f3844d11f191E.llvm.15109044229312055141.exit4.i.i.i
@@ -4884,7 +4884,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h0317d3b220d87
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %66 = trunc nuw i64 %indvars.iv279 to i32
   %67 = uitofp i32 %66 to float
-  %68 = fadd float %67, 5.000000e-01
+  %68 = fadd nnan float %67, 5.000000e-01
   %69 = fmul float %40, %68
   %70 = fsub float %69, %44
   %71 = call float @llvm.floor.f32(float %70)
@@ -5377,7 +5377,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h15129f9eef9b8
   %indvars.iv.next255 = add nuw nsw i64 %indvars.iv254, 1
   %65 = trunc nuw i64 %indvars.iv254 to i32
   %66 = uitofp i32 %65 to float
-  %67 = fadd float %66, 5.000000e-01
+  %67 = fadd nnan float %66, 5.000000e-01
   %68 = fmul float %40, %67
   %69 = fsub float %68, %44
   %70 = call float @llvm.floor.f32(float %69)
@@ -5839,7 +5839,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h1e3e5fe145459
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %66 = trunc nuw i64 %indvars.iv295 to i32
   %67 = uitofp i32 %66 to float
-  %68 = fadd float %67, 5.000000e-01
+  %68 = fadd nnan float %67, 5.000000e-01
   %69 = fmul float %42, %68
   %70 = fsub float %69, %46
   %71 = call float @llvm.floor.f32(float %70)
@@ -6349,7 +6349,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h31f7764591547
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %66 = trunc nuw i64 %indvars.iv291 to i32
   %67 = uitofp i32 %66 to float
-  %68 = fadd float %67, 5.000000e-01
+  %68 = fadd nnan float %67, 5.000000e-01
   %69 = fmul float %42, %68
   %70 = fsub float %69, %46
   %71 = call float @llvm.floor.f32(float %70)
@@ -6862,7 +6862,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h41d01de9455b1
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %66 = trunc nuw i64 %indvars.iv291 to i32
   %67 = uitofp i32 %66 to float
-  %68 = fadd float %67, 5.000000e-01
+  %68 = fadd nnan float %67, 5.000000e-01
   %69 = fmul float %42, %68
   %70 = fsub float %69, %46
   %71 = call float @llvm.floor.f32(float %70)
@@ -7368,7 +7368,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h66d8c9163afae
   %indvars.iv.next280 = add nuw nsw i64 %indvars.iv279, 1
   %66 = trunc nuw i64 %indvars.iv279 to i32
   %67 = uitofp i32 %66 to float
-  %68 = fadd float %67, 5.000000e-01
+  %68 = fadd nnan float %67, 5.000000e-01
   %69 = fmul float %42, %68
   %70 = fsub float %69, %46
   %71 = call float @llvm.floor.f32(float %70)
@@ -7859,7 +7859,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17h7032cb7be23e1
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %66 = trunc nuw i64 %indvars.iv291 to i32
   %67 = uitofp i32 %66 to float
-  %68 = fadd float %67, 5.000000e-01
+  %68 = fadd nnan float %67, 5.000000e-01
   %69 = fmul float %40, %68
   %70 = fsub float %69, %44
   %71 = call float @llvm.floor.f32(float %70)
@@ -8363,7 +8363,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17haa59e50452639
   %indvars.iv.next296 = add nuw nsw i64 %indvars.iv295, 1
   %66 = trunc nuw i64 %indvars.iv295 to i32
   %67 = uitofp i32 %66 to float
-  %68 = fadd float %67, 5.000000e-01
+  %68 = fadd nnan float %67, 5.000000e-01
   %69 = fmul float %40, %68
   %70 = fsub float %69, %44
   %71 = call float @llvm.floor.f32(float %70)
@@ -8871,7 +8871,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hb62c94970eb0b
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %66 = trunc nuw i64 %indvars.iv291 to i32
   %67 = uitofp i32 %66 to float
-  %68 = fadd float %67, 5.000000e-01
+  %68 = fadd nnan float %67, 5.000000e-01
   %69 = fmul float %40, %68
   %70 = fsub float %69, %44
   %71 = call float @llvm.floor.f32(float %70)
@@ -9382,7 +9382,7 @@ define hidden void @_ZN5image8imageops6sample17horizontal_sample17hf5dbeee462c9a
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %66 = trunc nuw i64 %indvars.iv256 to i32
   %67 = uitofp i32 %66 to float
-  %68 = fadd float %67, 5.000000e-01
+  %68 = fadd nnan float %67, 5.000000e-01
   %69 = fmul float %40, %68
   %70 = fsub float %69, %44
   %71 = call float @llvm.floor.f32(float %70)
@@ -9828,7 +9828,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h097e3aabf883e12
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %54 = trunc nuw i64 %indvars.iv202 to i32
   %55 = uitofp i32 %54 to float
-  %56 = fadd float %55, 5.000000e-01
+  %56 = fadd nnan float %55, 5.000000e-01
   %57 = fmul float %27, %56
   %58 = fsub float %57, %31
   %59 = call float @llvm.floor.f32(float %58)
@@ -10211,7 +10211,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h1762744e95230fb
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %58 = trunc nuw i64 %indvars.iv194 to i32
   %59 = uitofp i32 %58 to float
-  %60 = fadd float %59, 5.000000e-01
+  %60 = fadd nnan float %59, 5.000000e-01
   %61 = fmul float %28, %60
   %62 = fsub float %61, %32
   %63 = call float @llvm.floor.f32(float %62)
@@ -10598,7 +10598,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h2e2f258310cc52e
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
   %54 = trunc nuw i64 %indvars.iv202 to i32
   %55 = uitofp i32 %54 to float
-  %56 = fadd float %55, 5.000000e-01
+  %56 = fadd nnan float %55, 5.000000e-01
   %57 = fmul float %27, %56
   %58 = fsub float %57, %31
   %59 = call float @llvm.floor.f32(float %58)
@@ -10977,7 +10977,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h3878542d63973fa
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %54 = trunc nuw i64 %indvars.iv200 to i32
   %55 = uitofp i32 %54 to float
-  %56 = fadd float %55, 5.000000e-01
+  %56 = fadd nnan float %55, 5.000000e-01
   %57 = fmul float %27, %56
   %58 = fsub float %57, %31
   %59 = call float @llvm.floor.f32(float %58)
@@ -11350,7 +11350,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h4d8a995c3aaba83
   %indvars.iv.next195 = add nuw nsw i64 %indvars.iv194, 1
   %58 = trunc nuw i64 %indvars.iv194 to i32
   %59 = uitofp i32 %58 to float
-  %60 = fadd float %59, 5.000000e-01
+  %60 = fadd nnan float %59, 5.000000e-01
   %61 = fmul float %28, %60
   %62 = fsub float %61, %32
   %63 = call float @llvm.floor.f32(float %62)
@@ -11737,7 +11737,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h4fecdf41759844d
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %54 = trunc nuw i64 %indvars.iv200 to i32
   %55 = uitofp i32 %54 to float
-  %56 = fadd float %55, 5.000000e-01
+  %56 = fadd nnan float %55, 5.000000e-01
   %57 = fmul float %27, %56
   %58 = fsub float %57, %31
   %59 = call float @llvm.floor.f32(float %58)
@@ -12111,7 +12111,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17h61e8135335dc229
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %54 = trunc nuw i64 %indvars.iv200 to i32
   %55 = uitofp i32 %54 to float
-  %56 = fadd float %55, 5.000000e-01
+  %56 = fadd nnan float %55, 5.000000e-01
   %57 = fmul float %27, %56
   %58 = fsub float %57, %31
   %59 = call float @llvm.floor.f32(float %58)
@@ -12492,7 +12492,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17hb1ac84f2b92540e
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %54 = trunc nuw i64 %indvars.iv200 to i32
   %55 = uitofp i32 %54 to float
-  %56 = fadd float %55, 5.000000e-01
+  %56 = fadd nnan float %55, 5.000000e-01
   %57 = fmul float %27, %56
   %58 = fsub float %57, %31
   %59 = call float @llvm.floor.f32(float %58)
@@ -12873,7 +12873,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17hef6a0e2ed107b33
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %54 = trunc nuw i64 %indvars.iv200 to i32
   %55 = uitofp i32 %54 to float
-  %56 = fadd float %55, 5.000000e-01
+  %56 = fadd nnan float %55, 5.000000e-01
   %57 = fmul float %27, %56
   %58 = fsub float %57, %31
   %59 = call float @llvm.floor.f32(float %58)
@@ -13242,7 +13242,7 @@ define hidden void @_ZN5image8imageops6sample15vertical_sample17hf5a387b683ecef2
   %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
   %54 = trunc nuw i64 %indvars.iv200 to i32
   %55 = uitofp i32 %54 to float
-  %56 = fadd float %55, 5.000000e-01
+  %56 = fadd nnan float %55, 5.000000e-01
   %57 = fmul float %27, %56
   %58 = fsub float %57, %31
   %59 = call float @llvm.floor.f32(float %58)
@@ -16133,7 +16133,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h7991f3748439b3
   %330 = sub i32 %.0.in.sroa.speculated.i39.us, %.0.in.sroa.speculate.load.3.sroa.speculated.i36.us
   %331 = mul i32 %330, %87
   %332 = uitofp i32 %331 to double
-  %333 = fmul double %332, 5.000000e-01
+  %333 = fmul nnan double %332, 5.000000e-01
   %334 = fadd double %333, %.sroa.0.0.lcssa.i.us
   %335 = fdiv double %334, %332
   %336 = fcmp ogt double %335, 0x47EFFFFFE0000000
@@ -16850,7 +16850,7 @@ _ZN5image8imageops6sample36thumbnail_sample_fraction_horizontal17h6da9c5f9b59f02
   %285 = sub i32 %.0.in.sroa.speculated.i39.us, %.0.in.sroa.speculate.load.3.sroa.speculated.i36.us
   %286 = mul i32 %285, %78
   %287 = uitofp i32 %286 to double
-  %288 = fmul double %287, 5.000000e-01
+  %288 = fmul nnan double %287, 5.000000e-01
   %289 = fadd double %288, %.sroa.0.0.lcssa.i.us
   %290 = fdiv double %289, %287
   %291 = fcmp ogt double %290, 0x47EFFFFFE0000000

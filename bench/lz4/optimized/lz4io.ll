@@ -454,9 +454,9 @@ define dso_local range(i32 0, 2) i32 @LZ4IO_compressFilename_Legacy(ptr noundef 
 
 14:                                               ; preds = %4
   %15 = sitofp i64 %7 to double
-  %16 = fdiv double %15, 1.000000e+06
+  %16 = fdiv nnan double %15, 1.000000e+06
   %17 = sitofp i64 %11 to double
-  %18 = fdiv double %17, 1.000000e+06
+  %18 = fdiv nnan double %17, 1.000000e+06
   %19 = fsub double %18, %16
   %20 = tail call i64 @llvm.umax.i64(i64 %10, i64 1)
   %21 = uitofp i64 %20 to double
@@ -831,7 +831,7 @@ define dso_local i32 @LZ4IO_compressMultipleFilenames_Legacy(ptr noundef readonl
   %7 = tail call i64 @TIME_getTime() #24
   %8 = tail call i64 @clock() #24
   %9 = sitofp i64 %8 to double
-  %10 = fdiv double %9, 1.000000e+06
+  %10 = fdiv nnan double %9, 1.000000e+06
   %11 = tail call noalias dereferenceable_or_null(30) ptr @malloc(i64 noundef 30) #25
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #30
   %13 = icmp eq ptr %11, null
@@ -923,7 +923,7 @@ LZ4IO_isStdout.exit:                              ; preds = %LZ4IO_isStdout.exit
 
 41:                                               ; preds = %._crit_edge
   %42 = sitofp i64 %38 to double
-  %43 = fdiv double %42, 1.000000e+06
+  %43 = fdiv nnan double %42, 1.000000e+06
   %44 = fsub double %43, %10
   %45 = tail call i64 @llvm.umax.i64(i64 %37, i64 1)
   %46 = uitofp i64 %45 to double
@@ -4093,9 +4093,9 @@ define dso_local range(i32 0, 2) i32 @LZ4IO_compressFilename(ptr noundef %0, ptr
 
 15:                                               ; preds = %4
   %16 = sitofp i64 %8 to double
-  %17 = fdiv double %16, 1.000000e+06
+  %17 = fdiv nnan double %16, 1.000000e+06
   %18 = sitofp i64 %12 to double
-  %19 = fdiv double %18, 1.000000e+06
+  %19 = fdiv nnan double %18, 1.000000e+06
   %20 = fsub double %19, %17
   %21 = call i64 @llvm.umax.i64(i64 %11, i64 1)
   %22 = uitofp i64 %21 to double
@@ -4411,7 +4411,7 @@ define dso_local i32 @LZ4IO_compressMultipleFilenames(ptr noundef readonly captu
   %10 = tail call i64 @TIME_getTime() #24
   %11 = tail call i64 @clock() #24
   %12 = sitofp i64 %11 to double
-  %13 = fdiv double %12, 1.000000e+06
+  %13 = fdiv nnan double %12, 1.000000e+06
   %14 = icmp eq ptr %8, null
   br i1 %14, label %LZ4IO_finalTimeDisplay.exit, label %15
 
@@ -4504,7 +4504,7 @@ LZ4IO_isStdout.exit:                              ; preds = %LZ4IO_isStdout.exit
 
 43:                                               ; preds = %._crit_edge
   %44 = sitofp i64 %40 to double
-  %45 = fdiv double %44, 1.000000e+06
+  %45 = fdiv nnan double %44, 1.000000e+06
   %46 = fsub double %45, %13
   %47 = call i64 @llvm.umax.i64(i64 %39, i64 1)
   %48 = uitofp i64 %47 to double
@@ -4540,7 +4540,7 @@ define dso_local range(i32 0, 2) i32 @LZ4IO_decompressFilename(ptr noundef %0, p
   %6 = call i64 @TIME_getTime() #24
   %7 = call i64 @clock() #24
   %8 = sitofp i64 %7 to double
-  %9 = fdiv double %8, 1.000000e+06
+  %9 = fdiv nnan double %8, 1.000000e+06
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !32
   %10 = call fastcc i32 @LZ4IO_decompressDstFile(ptr noundef %5, ptr noundef nonnull byval(%struct.dRess_t) align 8 %4, ptr noundef %0, ptr noundef %1, ptr noundef %2)
@@ -4557,7 +4557,7 @@ define dso_local range(i32 0, 2) i32 @LZ4IO_decompressFilename(ptr noundef %0, p
 
 17:                                               ; preds = %11
   %18 = sitofp i64 %14 to double
-  %19 = fdiv double %18, 1.000000e+06
+  %19 = fdiv nnan double %18, 1.000000e+06
   %20 = fsub double %19, %9
   %21 = call i64 @llvm.umax.i64(i64 %13, i64 1)
   %22 = uitofp i64 %21 to double
@@ -4935,7 +4935,7 @@ define dso_local i32 @LZ4IO_decompressMultipleFilenames(ptr noundef readonly cap
   %9 = call i64 @TIME_getTime() #24
   %10 = call i64 @clock() #24
   %11 = sitofp i64 %10 to double
-  %12 = fdiv double %11, 1.000000e+06
+  %12 = fdiv nnan double %11, 1.000000e+06
   %13 = icmp eq ptr %7, null
   br i1 %13, label %14, label %47
 
@@ -5212,7 +5212,7 @@ UTIL_sameString.exit:                             ; preds = %122
 
 152:                                              ; preds = %._crit_edge
   %153 = sitofp i64 %149 to double
-  %154 = fdiv double %153, 1.000000e+06
+  %154 = fdiv nnan double %153, 1.000000e+06
   %155 = fsub double %154, %12
   %156 = call i64 @llvm.umax.i64(i64 %148, i64 1)
   %157 = uitofp i64 %156 to double
@@ -6457,7 +6457,7 @@ LZ4IO_getCompressedFileInfo.exit:                 ; preds = %.lr.ph.i
 .lr.ph.i45:                                       ; preds = %518, %.lr.ph.i45
   %.08.i = phi i64 [ %523, %.lr.ph.i45 ], [ 0, %518 ]
   %.067.i = phi x86_fp80 [ %522, %.lr.ph.i45 ], [ %520, %518 ]
-  %522 = fmul x86_fp80 %.067.i, 0xK3FF58000000000000000
+  %522 = fmul nnan x86_fp80 %.067.i, 0xK3FF58000000000000000
   %523 = add i64 %.08.i, 1
   %524 = fcmp ult x86_fp80 %522, 0xK40098000000000000000
   br i1 %524, label %LZ4IO_toHuman.exit, label %.lr.ph.i45, !llvm.loop !143
@@ -6480,7 +6480,7 @@ LZ4IO_toHuman.exit:                               ; preds = %.lr.ph.i45, %518
 .lr.ph.i46:                                       ; preds = %529, %.lr.ph.i46
   %.08.i47 = phi i64 [ %533, %.lr.ph.i46 ], [ 0, %529 ]
   %.067.i48 = phi x86_fp80 [ %532, %.lr.ph.i46 ], [ %530, %529 ]
-  %532 = fmul x86_fp80 %.067.i48, 0xK3FF58000000000000000
+  %532 = fmul nnan x86_fp80 %.067.i48, 0xK3FF58000000000000000
   %533 = add i64 %.08.i47, 1
   %534 = fcmp ult x86_fp80 %532, 0xK40098000000000000000
   br i1 %534, label %.loopexit, label %.lr.ph.i46, !llvm.loop !143

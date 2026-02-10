@@ -878,7 +878,7 @@ define range(i32 -1094995529, 1) i32 @ff_evc_derive_poc(ptr noundef readonly cap
   %114 = phi i32 [ %83, %88 ], [ %101, %103 ]
   %115 = sitofp i32 %57 to double
   %116 = sitofp i32 %114 to double
-  %117 = tail call nsz double @llvm.fmuladd.f64(double %116, double 2.000000e+00, double 1.000000e+00)
+  %117 = tail call nnan nsz double @llvm.fmuladd.f64(double %116, double 2.000000e+00, double 1.000000e+00)
   %118 = shl nuw i32 1, %4
   %119 = sitofp i32 %118 to double
   %120 = fdiv nsz double %117, %119

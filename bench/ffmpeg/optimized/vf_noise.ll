@@ -680,7 +680,7 @@ define internal fastcc range(i32 -12, 1) i32 @init_noise(ptr noundef %0, i32 nou
   %19 = sitofp i32 %8 to double
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %.neg93 = sdiv i32 %8, -2
-  %21 = fdiv nsz double %19, 0x3FFBB67AE8584CAA
+  %21 = fdiv nnan nsz double %19, 0x3FFBB67AE8584CAA
   %.promoted100 = load i32, ptr %20, align 4, !tbaa !63
   br label %23
 
@@ -712,8 +712,8 @@ define internal fastcc range(i32 -12, 1) i32 @init_noise(ptr noundef %0, i32 nou
   store i32 %36, ptr %39, align 4, !tbaa !64
   %40 = add i32 %24, 1
   %41 = uitofp i32 %36 to double
-  %42 = fmul nsz double %19, %41
-  %43 = fmul nsz double %42, 0x3DF0000000000000
+  %42 = fmul nnan nsz double %19, %41
+  %43 = fmul nnan nsz double %42, 0x3DF0000000000000
   %44 = fptosi double %43 to i32
   %45 = add i32 %.neg93, %44
   br i1 %.not88, label %64, label %46
@@ -731,7 +731,7 @@ define internal fastcc range(i32 -12, 1) i32 @init_noise(ptr noundef %0, i32 nou
   %54 = sext i8 %53 to i32
   %55 = mul nsw i32 %8, %54
   %56 = sitofp i32 %55 to double
-  %57 = fmul nsz double %56, 2.500000e-01
+  %57 = fmul nnan nsz double %56, 2.500000e-01
   %58 = fdiv nsz double %57, 3.000000e+00
   %59 = fadd nsz double %58, %49
   %60 = fptosi double %59 to i8
@@ -782,8 +782,8 @@ define internal fastcc range(i32 -12, 1) i32 @init_noise(ptr noundef %0, i32 nou
   store i32 %90, ptr %93, align 4, !tbaa !64
   %94 = add i32 %79, 1
   %95 = uitofp i32 %90 to double
-  %96 = fmul nsz double %95, 2.000000e+00
-  %97 = fmul nsz double %96, 0x3DF0000000000000
+  %96 = fmul nnan nsz double %95, 2.000000e+00
+  %97 = fmul nnan nsz double %96, 0x3DF0000000000000
   %98 = fadd nsz double %97, -1.000000e+00
   %99 = add i32 %79, 41
   %100 = and i32 %99, 63
@@ -802,8 +802,8 @@ define internal fastcc range(i32 -12, 1) i32 @init_noise(ptr noundef %0, i32 nou
   store i32 %109, ptr %112, align 4, !tbaa !64
   %113 = add i32 %79, 2
   %114 = uitofp i32 %109 to double
-  %115 = fmul nsz double %114, 2.000000e+00
-  %116 = fmul nsz double %115, 0x3DF0000000000000
+  %115 = fmul nnan nsz double %114, 2.000000e+00
+  %116 = fmul nnan nsz double %115, 0x3DF0000000000000
   %117 = fadd nsz double %116, -1.000000e+00
   %118 = fmul nsz double %117, %117
   %119 = tail call nsz double @llvm.fmuladd.f64(double %98, double %98, double %118)
@@ -811,8 +811,8 @@ define internal fastcc range(i32 -12, 1) i32 @init_noise(ptr noundef %0, i32 nou
   br i1 %120, label %121, label %.preheader95, !llvm.loop !77
 
 121:                                              ; preds = %.preheader95
-  %122 = tail call nsz double @llvm.log.f64(double %119)
-  %123 = fmul nsz double %122, -2.000000e+00
+  %122 = tail call nnan nsz double @llvm.log.f64(double %119)
+  %123 = fmul nnan nsz double %122, -2.000000e+00
   %124 = fdiv nsz double %123, %119
   %125 = tail call nsz double @llvm.sqrt.f64(double %124)
   %126 = fmul nsz double %98, %125
@@ -867,8 +867,8 @@ define internal fastcc range(i32 -12, 1) i32 @init_noise(ptr noundef %0, i32 nou
   store i32 %160, ptr %163, align 4, !tbaa !64
   %164 = add i32 %148, 1
   %165 = uitofp i32 %160 to double
-  %166 = fmul nsz double %165, 6.000000e+00
-  %167 = fmul nsz double %166, 0x3DF0000000000000
+  %166 = fmul nnan nsz double %165, 6.000000e+00
+  %167 = fmul nnan nsz double %166, 0x3DF0000000000000
   %168 = fptosi double %167 to i32
   %169 = icmp eq i32 %168, 0
   %170 = sext i1 %169 to i32

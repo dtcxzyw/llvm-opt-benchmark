@@ -2600,15 +2600,15 @@ _ZN7testing8internal11CmpHelperLEIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
   br label %_ZN4absl17beta_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i
 
 129:                                              ; preds = %125
-  %130 = call double @llvm.log.f64(double %108), !tbaa !81
+  %130 = call nnan double @llvm.log.f64(double %108)
   %131 = fmul double %95, %130
-  %132 = call double @llvm.log.f64(double %120), !tbaa !81
+  %132 = call nnan double @llvm.log.f64(double %120)
   %133 = fmul double %96, %132
   %134 = call double @llvm.fabs.f64(double %131)
   %135 = fcmp one double %134, 0x7FF0000000000000
   %136 = call double @llvm.fabs.f64(double %133)
   %137 = fcmp one double %136, 0x7FF0000000000000
-  %or.cond.i76 = and i1 %135, %137
+  %or.cond.i76 = select i1 %135, i1 %137, i1 false
   br i1 %or.cond.i76, label %138, label %.backedge.i.backedge
 
 138:                                              ; preds = %129
@@ -2704,7 +2704,7 @@ _ZN7testing8internal11CmpHelperLEIiiEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
   %191 = call double @llvm.fmuladd.f64(double %155, double %186, double 0xBFF62E42FEFA39EF)
   %192 = fadd double %153, %191
   %193 = fsub double %192, %188
-  %194 = fmul double %170, %170
+  %194 = fmul nnan double %170, %170
   %195 = fmul double %194, %182
   br i1 %151, label %.thread.i53, label %197
 
@@ -3542,7 +3542,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit140.i:               ; preds = %475, %369
   %.sroa.12.0275.i = phi ptr [ %.sroa.12.2.ph.i, %546 ], [ null, %.preheader1680 ]
   %.sroa.19.0274.i = phi ptr [ %.sroa.19.2.ph.i, %546 ], [ null, %.preheader1680 ]
   %484 = uitofp nneg i32 %.044281.i to double
-  %485 = fmul double %484, 1.000000e-02
+  %485 = fmul nnan double %484, 1.000000e-02
   %486 = load double, ptr %48, align 8, !tbaa !85
   %487 = load double, ptr %49, align 16, !tbaa !88
   %488 = invoke noundef double @_ZN4absl15random_internal17BetaIncompleteInvEddd(double noundef %486, double noundef %487, double noundef %485)
@@ -3646,8 +3646,8 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit.i39:      ; preds = %_ZNSt6vectorIdSaIdE
   %.sroa.19200.3.i = getelementptr inbounds nuw i8, ptr %.pn229.i, i64 8
   %521 = add nsw i32 %.045280.i, 1
   %522 = sitofp i32 %521 to double
-  %523 = fmul double %522, 1.000000e-02
-  %524 = fmul double %523, 1.000000e+04
+  %523 = fmul nnan double %522, 1.000000e-02
+  %524 = fmul nnan double %523, 1.000000e+04
   %.not.i.i.i40 = icmp eq ptr %.sroa.12.0275.i, %.sroa.19.0274.i
   br i1 %.not.i.i.i40, label %527, label %525
 
@@ -3800,8 +3800,8 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit92.i:       ; preds = %_ZNSt6vectorIdSaIdE
   %.sroa.19200.4.i = getelementptr inbounds nuw i8, ptr %.pn.i13, i64 8
   %568 = sub nsw i64 101, %548
   %569 = uitofp i64 %568 to double
-  %570 = fmul double %569, 1.000000e-02
-  %571 = fmul double %570, 1.000000e+04
+  %570 = fmul nnan double %569, 1.000000e-02
+  %571 = fmul nnan double %570, 1.000000e+04
   %.not.i.i93.i = icmp eq ptr %.sroa.12.0.lcssa.i, %.sroa.19.0.lcssa.i
   br i1 %.not.i.i93.i, label %573, label %572
 
@@ -4233,15 +4233,15 @@ _ZN4absl15random_internal9ChiSquareIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIi
   br label %_ZN4absl17beta_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit.i20
 
 724:                                              ; preds = %720
-  %725 = call double @llvm.log.f64(double %703), !tbaa !81
+  %725 = call nnan double @llvm.log.f64(double %703)
   %726 = fmul double %663, %725
-  %727 = call double @llvm.log.f64(double %715), !tbaa !81
+  %727 = call nnan double @llvm.log.f64(double %715)
   %728 = fmul double %664, %727
   %729 = call double @llvm.fabs.f64(double %726)
   %730 = fcmp one double %729, 0x7FF0000000000000
   %731 = call double @llvm.fabs.f64(double %728)
   %732 = fcmp one double %731, 0x7FF0000000000000
-  %or.cond.i129 = and i1 %730, %732
+  %or.cond.i129 = select i1 %730, i1 %732, i1 false
   br i1 %or.cond.i129, label %733, label %.preheader.backedge
 
 733:                                              ; preds = %724
@@ -4325,7 +4325,7 @@ _ZN4absl15random_internal9ChiSquareIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIi
   %778 = call double @llvm.fmuladd.f64(double %665, double %773, double 0xBFF62E42FEFA39EF)
   %779 = fadd double %663, %778
   %780 = fsub double %779, %775
-  %781 = fmul double %757, %757
+  %781 = fmul nnan double %757, %757
   %782 = fmul double %781, %769
   br i1 %661, label %.thread.i102, label %784
 
@@ -6050,7 +6050,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %.0.i.i, %55
+  %56 = fmul nnan double %.0.i.i, %55
   %57 = fcmp une double %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 
@@ -18869,15 +18869,15 @@ define linkonce_odr dso_local noundef double @_ZN4absl17beta_distributionIdE15Al
   br label %70
 
 49:                                               ; preds = %45
-  %50 = tail call double @llvm.log.f64(double %28), !tbaa !81
+  %50 = tail call nnan double @llvm.log.f64(double %28)
   %51 = fmul double %13, %50
-  %52 = tail call double @llvm.log.f64(double %40), !tbaa !81
+  %52 = tail call nnan double @llvm.log.f64(double %40)
   %53 = fmul double %15, %52
   %54 = tail call double @llvm.fabs.f64(double %51)
   %55 = fcmp one double %54, 0x7FF0000000000000
   %56 = tail call double @llvm.fabs.f64(double %53)
   %57 = fcmp one double %56, 0x7FF0000000000000
-  %or.cond = and i1 %55, %57
+  %or.cond = select i1 %55, i1 %57, i1 false
   br i1 %or.cond, label %58, label %.backedge.backedge
 
 58:                                               ; preds = %49
@@ -18972,7 +18972,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl17beta_distributionIdE14Al
   %61 = tail call double @llvm.fmuladd.f64(double %22, double %56, double 0xBFF62E42FEFA39EF)
   %62 = fadd double %18, %61
   %63 = fsub double %62, %58
-  %64 = fmul double %40, %40
+  %64 = fmul nnan double %40, %40
   %65 = fmul double %64, %52
   br i1 %6, label %.thread, label %67
 
@@ -25507,7 +25507,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIfE5Pr
   %53 = fadd float %52, 5.000000e-01
   %54 = fptosi float %53 to i32
   %55 = sitofp i32 %54 to float
-  %56 = fmul float %.0.i.i, %55
+  %56 = fmul nnan float %.0.i.i, %55
   %57 = fcmp une float %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEfPSo.exit
 
@@ -29033,15 +29033,15 @@ _ZN7testing15AssertionResultD2Ev.exit195:         ; preds = %368, %_ZNKSt14defau
   br label %_ZN4absl17beta_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
 
 416:                                              ; preds = %412
-  %417 = call double @llvm.log.f64(double %395), !tbaa !81
+  %417 = call nnan double @llvm.log.f64(double %395)
   %418 = fmul double %382, %417
-  %419 = call double @llvm.log.f64(double %407), !tbaa !81
+  %419 = call nnan double @llvm.log.f64(double %407)
   %420 = fmul double %383, %419
   %421 = call double @llvm.fabs.f64(double %418)
   %422 = fcmp one double %421, 0x7FF0000000000000
   %423 = call double @llvm.fabs.f64(double %420)
   %424 = fcmp one double %423, 0x7FF0000000000000
-  %or.cond.i = and i1 %422, %424
+  %or.cond.i = select i1 %422, i1 %424, i1 false
   br i1 %or.cond.i, label %425, label %.backedge.i.backedge
 
 425:                                              ; preds = %416
@@ -29133,7 +29133,7 @@ _ZN7testing15AssertionResultD2Ev.exit195:         ; preds = %368, %_ZNKSt14defau
   %478 = call double @llvm.fmuladd.f64(double %442, double %473, double 0xBFF62E42FEFA39EF)
   %479 = fadd double %440, %478
   %480 = fsub double %479, %475
-  %481 = fmul double %457, %457
+  %481 = fmul nnan double %457, %457
   %482 = fmul double %481, %469
   br i1 %438, label %.thread.i, label %484
 
@@ -36836,15 +36836,15 @@ _ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us: ; preds = %_ZN4ab
   br i1 %143, label %165, label %144
 
 144:                                              ; preds = %142
-  %145 = call double @llvm.log.f64(double %125), !tbaa !81
+  %145 = call nnan double @llvm.log.f64(double %125)
   %146 = fmul double %65, %145
-  %147 = call double @llvm.log.f64(double %137), !tbaa !81
+  %147 = call nnan double @llvm.log.f64(double %137)
   %148 = fmul double %87, %147
   %149 = call double @llvm.fabs.f64(double %146)
   %150 = fcmp one double %149, 0x7FF0000000000000
   %151 = call double @llvm.fabs.f64(double %148)
   %152 = fcmp one double %151, 0x7FF0000000000000
-  %or.cond.i309.us = and i1 %150, %152
+  %or.cond.i309.us = select i1 %150, i1 %152, i1 false
   br i1 %or.cond.i309.us, label %153, label %.backedge.i.us.backedge
 
 153:                                              ; preds = %144
@@ -36977,7 +36977,7 @@ _ZN4absl17beta_distributionIdE10param_typeC2Edd.exit.split.us566: ; preds = %98,
   %216 = call double @llvm.fmuladd.f64(double %178, double %211, double 0xBFF62E42FEFA39EF)
   %217 = fadd double %.23.i, %216
   %218 = fsub double %217, %213
-  %219 = fmul double %195, %195
+  %219 = fmul nnan double %195, %195
   %220 = fmul double %219, %207
   br i1 %77, label %221, label %.thread.i.us
 
@@ -37781,15 +37781,15 @@ _ZN4absl17beta_distributionIdE10param_typeC2Edd.exit318: ; preds = %428, %435, %
   br label %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit167
 
 510:                                              ; preds = %506
-  %511 = call double @llvm.log.f64(double %489), !tbaa !81
+  %511 = call nnan double @llvm.log.f64(double %489)
   %512 = fmul double %.sroa.7486.0, %511
-  %513 = call double @llvm.log.f64(double %501), !tbaa !81
+  %513 = call nnan double @llvm.log.f64(double %501)
   %514 = fmul double %.sroa.12488.0, %513
   %515 = call double @llvm.fabs.f64(double %512)
   %516 = fcmp one double %515, 0x7FF0000000000000
   %517 = call double @llvm.fabs.f64(double %514)
   %518 = fcmp one double %517, 0x7FF0000000000000
-  %or.cond.i371 = and i1 %516, %518
+  %or.cond.i371 = select i1 %516, i1 %518, i1 false
   br i1 %or.cond.i371, label %519, label %.backedge.i372.backedge
 
 519:                                              ; preds = %510
@@ -37878,7 +37878,7 @@ _ZN4absl17beta_distributionIdE10param_typeC2Edd.exit318: ; preds = %428, %435, %
   %565 = call double @llvm.fmuladd.f64(double %.sroa.28494.0, double %560, double 0xBFF62E42FEFA39EF)
   %566 = fadd double %.sroa.7486.0, %565
   %567 = fsub double %566, %562
-  %568 = fmul double %544, %544
+  %568 = fmul nnan double %544, %544
   %569 = fmul double %568, %556
   br i1 %473, label %.thread.i344, label %571
 
@@ -38370,15 +38370,15 @@ _ZN4absl17beta_distributionIdE10param_typeC2Edd.exit397: ; preds = %680, %687, %
   br label %_ZN4absl17beta_distributionIdEclINS_15random_internal10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEEEEdRT_.exit199
 
 762:                                              ; preds = %758
-  %763 = call double @llvm.log.f64(double %741), !tbaa !81
+  %763 = call nnan double @llvm.log.f64(double %741)
   %764 = fmul double %.sroa.7.0, %763
-  %765 = call double @llvm.log.f64(double %753), !tbaa !81
+  %765 = call nnan double @llvm.log.f64(double %753)
   %766 = fmul double %.sroa.12.0, %765
   %767 = call double @llvm.fabs.f64(double %764)
   %768 = fcmp one double %767, 0x7FF0000000000000
   %769 = call double @llvm.fabs.f64(double %766)
   %770 = fcmp one double %769, 0x7FF0000000000000
-  %or.cond.i450 = and i1 %768, %770
+  %or.cond.i450 = select i1 %768, i1 %770, i1 false
   br i1 %or.cond.i450, label %771, label %.backedge.i451.backedge
 
 771:                                              ; preds = %762
@@ -38467,7 +38467,7 @@ _ZN4absl17beta_distributionIdE10param_typeC2Edd.exit397: ; preds = %680, %687, %
   %817 = call double @llvm.fmuladd.f64(double %.sroa.28.0, double %812, double 0xBFF62E42FEFA39EF)
   %818 = fadd double %.sroa.7.0, %817
   %819 = fsub double %818, %814
-  %820 = fmul double %796, %796
+  %820 = fmul nnan double %796, %796
   %821 = fmul double %820, %808
   br i1 %725, label %.thread.i423, label %823
 
@@ -39351,15 +39351,15 @@ define linkonce_odr dso_local noundef double @_ZN4absl17beta_distributionIdE15Al
   br label %61
 
 40:                                               ; preds = %36
-  %41 = tail call double @llvm.log.f64(double %19), !tbaa !81
+  %41 = tail call nnan double @llvm.log.f64(double %19)
   %42 = fmul double %5, %41
-  %43 = tail call double @llvm.log.f64(double %31), !tbaa !81
+  %43 = tail call nnan double @llvm.log.f64(double %31)
   %44 = fmul double %7, %43
   %45 = tail call double @llvm.fabs.f64(double %42)
   %46 = fcmp one double %45, 0x7FF0000000000000
   %47 = tail call double @llvm.fabs.f64(double %44)
   %48 = fcmp one double %47, 0x7FF0000000000000
-  %or.cond = and i1 %46, %48
+  %or.cond = select i1 %46, i1 %48, i1 false
   br i1 %or.cond, label %49, label %.backedge.backedge
 
 49:                                               ; preds = %40
@@ -39467,7 +39467,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl17beta_distributionIdE14Al
   %52 = tail call double @llvm.fmuladd.f64(double %14, double %47, double 0xBFF62E42FEFA39EF)
   %53 = fadd double %10, %52
   %54 = fsub double %53, %49
-  %55 = fmul double %31, %31
+  %55 = fmul nnan double %31, %31
   %56 = fmul double %55, %43
   br i1 %6, label %.thread, label %58
 

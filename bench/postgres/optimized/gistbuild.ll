@@ -808,8 +808,8 @@ RelationGetSmgr.exit._crit_edge:                  ; preds = %RelationGetSmgr.exi
 149:                                              ; preds = %137
   %150 = load i32, ptr @maintenance_work_mem, align 4
   %151 = sitofp i32 %150 to double
-  %152 = fmul double %151, 1.024000e+03
-  %153 = fmul double %152, 0x3F20000000000000
+  %152 = fmul nnan double %151, 1.024000e+03
+  %153 = fmul nnan double %152, 0x3F20000000000000
   %154 = fcmp ogt double %144, %153
   br i1 %154, label %select.unfold.i, label %137
 

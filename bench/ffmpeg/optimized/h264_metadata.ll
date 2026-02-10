@@ -1065,8 +1065,8 @@ h264_metadata_update_sps.exit:                    ; preds = %369, %368, %73
 
 431:                                              ; preds = %424
   %432 = uitofp i16 %429 to double
-  %433 = fmul nsz double %432, 1.800000e+02
-  %434 = fmul nsz double %433, 0xBEF0000000000000
+  %433 = fmul nnan nsz double %432, 1.800000e+02
+  %434 = fmul nnan nsz double %433, 0xBEF0000000000000
   %435 = getelementptr inbounds nuw i8, ptr %427, i64 1
   %436 = load i8, ptr %435, align 1, !tbaa !131
   %.not102.i = icmp eq i8 %436, 0
@@ -1127,7 +1127,7 @@ h264_metadata_update_sps.exit:                    ; preds = %369, %368, %73
   %464 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i82
   %465 = load i32, ptr %464, align 4, !tbaa !45
   %466 = sitofp i32 %465 to double
-  %467 = fmul nsz double %466, 0x3EF0000000000000
+  %467 = fmul nnan nsz double %466, 0x3EF0000000000000
   %468 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i82
   store double %467, ptr %468, align 8, !tbaa !134
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
@@ -1202,9 +1202,9 @@ h264_metadata_update_sps.exit:                    ; preds = %369, %368, %73
   %509 = getelementptr inbounds nuw i8, ptr %418, i64 230
   store i8 %508, ptr %509, align 2, !tbaa !132
   %510 = fcmp nsz oge double %494, 0.000000e+00
-  %511 = fadd nsz double %494, 0x401921FB54442D18
+  %511 = fadd nnan nsz double %494, 0x401921FB54442D18
   %512 = select nsz i1 %510, double %494, double %511
-  %513 = fmul nsz double %512, 3.276800e+04
+  %513 = fmul nnan nsz double %512, 3.276800e+04
   %514 = fdiv nsz double %513, 0x400921FB54442D18
   %515 = call nsz double @llvm.rint.f64(double %514)
   %516 = fptoui double %515 to i16
@@ -1231,9 +1231,9 @@ h264_metadata_update_sps.exit:                    ; preds = %369, %368, %73
 
 524:                                              ; preds = %520
   %525 = fcmp nsz ult double %522, 0.000000e+00
-  %526 = fadd nsz double %522, 3.600000e+02
+  %526 = fadd nnan nsz double %522, 3.600000e+02
   %527 = select nsz i1 %525, double %526, double %522
-  %528 = fmul nsz double %527, 6.553600e+04
+  %528 = fmul nnan nsz double %527, 6.553600e+04
   %529 = fdiv nsz double %528, 3.600000e+02
   %530 = call nsz double @llvm.rint.f64(double %529)
   %531 = fptoui double %530 to i16

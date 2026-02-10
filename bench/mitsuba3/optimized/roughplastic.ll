@@ -2396,7 +2396,7 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit105:           ; preds = %195, %203
 _ZNK5drjit9ArrayBaseIfLb0ENS_12DynamicArrayIfEEE4sum_Ev.exit: ; preds = %.lr.ph.split.i106, %206, %210
   %.019.i = phi float [ 0.000000e+00, %206 ], [ %212, %210 ], [ %215, %.lr.ph.split.i106 ]
   %217 = uitofp i64 %208 to float
-  %218 = fdiv contract float 1.000000e+00, %217
+  %218 = fdiv nnan contract float 1.000000e+00, %217
   %219 = fmul contract float %218, %.019.i
   %220 = fmul contract float %219, 2.000000e+00
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -4212,7 +4212,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %70 = load i64, ptr %69, align 8
   %71 = icmp eq i64 %70, 1
-  %72 = fmul contract float %35, 6.300000e+01
+  %72 = fmul nnan contract float %35, 6.300000e+01
   %73 = fptoui float %72 to i32
   %..i.i = tail call noundef i32 @llvm.umin.i32(i32 %73, i32 62)
   %74 = add nuw nsw i32 %..i.i, 1
@@ -4301,11 +4301,11 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %134 = and i32 %133, -2
   %135 = sitofp i32 %134 to float
   %136 = bitcast float %.1 to i32
-  %137 = fmul contract float %135, 0x3FE9200000000000
+  %137 = fmul nnan contract float %135, 0x3FE9200000000000
   %138 = fsub contract float %130, %137
-  %139 = fmul contract float %135, 0x3F2FB40000000000
+  %139 = fmul nnan contract float %135, 0x3F2FB40000000000
   %140 = fsub contract float %138, %139
-  %141 = fmul contract float %135, 0x3E64442D20000000
+  %141 = fmul nnan contract float %135, 0x3E64442D20000000
   %142 = fsub contract float %140, %141
   %143 = fmul contract float %142, %142
   %144 = fcmp contract oeq float %130, 0x7FF0000000000000
@@ -4549,11 +4549,11 @@ define linkonce_odr hidden void @_ZNK7mitsuba22MicrofacetDistributionIfN5drjit6M
   %23 = and i32 %22, -2
   %24 = sitofp i32 %23 to float
   %25 = bitcast float %18 to i32
-  %26 = fmul contract float %24, 0x3FE9200000000000
+  %26 = fmul nnan contract float %24, 0x3FE9200000000000
   %27 = fsub contract float %19, %26
-  %28 = fmul contract float %24, 0x3F2FB40000000000
+  %28 = fmul nnan contract float %24, 0x3F2FB40000000000
   %29 = fsub contract float %27, %28
-  %30 = fmul contract float %24, 0x3E64442D20000000
+  %30 = fmul nnan contract float %24, 0x3E64442D20000000
   %31 = fsub contract float %29, %30
   %32 = fmul contract float %31, %31
   %33 = fcmp contract oeq float %19, 0x7FF0000000000000
@@ -4597,11 +4597,11 @@ define linkonce_odr hidden void @_ZNK7mitsuba22MicrofacetDistributionIfN5drjit6M
   %68 = add nsw i32 %67, 1
   %69 = and i32 %68, -2
   %70 = sitofp i32 %69 to float
-  %71 = fmul contract float %70, 0x3FE9200000000000
+  %71 = fmul nnan contract float %70, 0x3FE9200000000000
   %72 = fsub contract float %65, %71
-  %73 = fmul contract float %70, 0x3F2FB40000000000
+  %73 = fmul nnan contract float %70, 0x3F2FB40000000000
   %74 = fsub contract float %72, %73
-  %75 = fmul contract float %70, 0x3E64442D20000000
+  %75 = fmul nnan contract float %70, 0x3E64442D20000000
   %76 = fsub contract float %74, %75
   %77 = fmul contract float %76, %76
   %78 = fcmp contract oeq float %65, 0x7FF0000000000000
@@ -4990,7 +4990,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit:
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %35 = load i64, ptr %34, align 8
   %36 = icmp eq i64 %35, 1
-  %37 = fmul contract float %22, 6.300000e+01
+  %37 = fmul nnan contract float %22, 6.300000e+01
   %38 = fptoui float %37 to i32
   %..i.i = tail call noundef i32 @llvm.umin.i32(i32 %38, i32 62)
   %39 = add nuw nsw i32 %..i.i, 1
@@ -5121,7 +5121,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit:
   %138 = fmul contract float %..i.i.i, %85
   %139 = fmul contract float %138, %138
   %140 = fadd contract float %137, %139
-  %141 = fmul contract float %22, %22
+  %141 = fmul nnan contract float %22, %22
   %142 = fdiv contract float %140, %141
   br i1 %91, label %143, label %157
 
@@ -5160,7 +5160,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit:
   %167 = fcmp contract ole float %166, 0.000000e+00
   %.1.i = select i1 %167, float 0.000000e+00, float %spec.select.i111
   %168 = fmul contract float %.0..i, %.1.i
-  %169 = fmul contract float %22, 4.000000e+00
+  %169 = fmul nnan contract float %22, 4.000000e+00
   %170 = fdiv contract float %168, %169
   br label %180
 
@@ -5406,7 +5406,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %153 = call noundef float @_ZNK7mitsuba22MicrofacetDistributionIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE1GERKNS_6VectorIfLm3EEESA_SA_(ptr noundef nonnull align 4 dereferenceable(13) %12, ptr noundef nonnull align 16 dereferenceable(16) %28, ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 16 dereferenceable(16) %13)
   %154 = fmul contract float %.0..i, %spec.select.i224
   %155 = fmul contract float %153, %154
-  %156 = fmul contract float %30, 4.000000e+00
+  %156 = fmul nnan contract float %30, 4.000000e+00
   %157 = fdiv contract float %155, %156
   %158 = insertelement <4 x float> poison, float %157, i64 0
   %159 = shufflevector <4 x float> %158, <4 x float> poison, <4 x i32> zeroinitializer
@@ -5429,7 +5429,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
 
 169:                                              ; preds = %168
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %171 = fmul contract float %30, 6.300000e+01
+  %171 = fmul nnan contract float %30, 6.300000e+01
   %172 = fptoui float %171 to i32
   %..i.i225 = call noundef i32 @llvm.umin.i32(i32 %172, i32 62)
   %173 = zext nneg i32 %..i.i225 to i64
@@ -5450,7 +5450,7 @@ _ZN5drjit15StaticArrayImplINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELm4ELb0ENS_
   %186 = fneg contract float %179
   %187 = call contract noundef float @llvm.fma.f32(float %186, float %185, float %179)
   %188 = call contract noundef float @llvm.fma.f32(float %183, float %185, float %187)
-  %189 = fmul contract float %32, 6.300000e+01
+  %189 = fmul nnan contract float %32, 6.300000e+01
   %190 = fptoui float %189 to i32
   %..i.i226 = call noundef i32 @llvm.umin.i32(i32 %190, i32 62)
   %191 = zext nneg i32 %..i.i226 to i64
@@ -5927,7 +5927,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
 
 53:                                               ; preds = %34
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %55 = fmul contract float %31, 6.300000e+01
+  %55 = fmul nnan contract float %31, 6.300000e+01
   %56 = fptoui float %55 to i32
   %..i.i = tail call noundef i32 @llvm.umin.i32(i32 %56, i32 62)
   %57 = zext nneg i32 %..i.i to i64
@@ -6069,7 +6069,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %165 = fmul contract float %..i.i.i, %120
   %166 = fmul contract float %165, %165
   %167 = fadd contract float %164, %166
-  %168 = fmul contract float %31, %31
+  %168 = fmul nnan contract float %31, %31
   %169 = fdiv contract float %167, %168
   br i1 %111, label %170, label %184
 
@@ -6111,7 +6111,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
 
 195:                                              ; preds = %189
   %196 = fmul contract float %.0..i, %.1.i
-  %197 = fmul contract float %31, 4.000000e+00
+  %197 = fmul nnan contract float %31, 4.000000e+00
   %198 = fdiv contract float %196, %197
   br label %210
 
@@ -6225,7 +6225,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   %288 = fmul contract float %.1.i, %.1.i241
   %289 = fmul contract float %.0..i, %spec.select.i238
   %290 = fmul contract float %289, %288
-  %291 = fmul contract float %31, 4.000000e+00
+  %291 = fmul nnan contract float %31, 4.000000e+00
   %292 = fdiv contract float %290, %291
   %293 = insertelement <4 x float> poison, float %292, i64 0
   %294 = shufflevector <4 x float> %293, <4 x float> poison, <4 x i32> zeroinitializer
@@ -6247,7 +6247,7 @@ _ZNSt3__14pairIN5drjit6MatrixIN7mitsuba8SpectrumIfLm4EEELm4EEEfEC2B8ne190000IffT
   br i1 %28, label %304, label %348
 
 304:                                              ; preds = %303
-  %305 = fmul contract float %33, 6.300000e+01
+  %305 = fmul nnan contract float %33, 6.300000e+01
   %306 = fptoui float %305 to i32
   %..i.i243 = call noundef i32 @llvm.umin.i32(i32 %306, i32 62)
   %307 = zext nneg i32 %..i.i243 to i64
@@ -10317,11 +10317,11 @@ _ZNSt3__128__exception_guard_exceptionsINS_6vectorIfNS_9allocatorIfEEE16__destro
   %41 = add nsw i64 %40, 1
   %42 = and i64 %41, 4294967294
   %43 = uitofp nneg i64 %42 to double
-  %44 = fmul contract double %43, 0x3FE921FB40000000
+  %44 = fmul nnan contract double %43, 0x3FE921FB40000000
   %45 = fsub contract double %38, %44
-  %46 = fmul contract double %43, 0x3E64442D00000000
+  %46 = fmul nnan contract double %43, 0x3E64442D00000000
   %47 = fsub contract double %45, %46
-  %48 = fmul contract double %43, 0x3CE8469898CC5170
+  %48 = fmul nnan contract double %43, 0x3CE8469898CC5170
   %49 = fsub contract double %47, %48
   %50 = fmul contract double %49, %49
   %51 = fcmp contract oeq double %38, 0x7FF0000000000000
@@ -11768,11 +11768,11 @@ define linkonce_odr hidden void @_ZNK7mitsuba22MicrofacetDistributionIN5drjit6Pa
   %33 = add <16 x i32> %32, splat (i32 1)
   %34 = and <16 x i32> %33, splat (i32 -2)
   %35 = sitofp <16 x i32> %34 to <16 x float>
-  %36 = fmul contract <16 x float> %35, splat (float 0x3FE9200000000000)
+  %36 = fmul nnan contract <16 x float> %35, splat (float 0x3FE9200000000000)
   %37 = fsub contract <16 x float> %30, %36
-  %38 = fmul contract <16 x float> %35, splat (float 0x3F2FB40000000000)
+  %38 = fmul nnan contract <16 x float> %35, splat (float 0x3F2FB40000000000)
   %39 = fsub contract <16 x float> %37, %38
-  %40 = fmul contract <16 x float> %35, splat (float 0x3E64442D20000000)
+  %40 = fmul nnan contract <16 x float> %35, splat (float 0x3E64442D20000000)
   %41 = fsub contract <16 x float> %39, %40
   %42 = fmul contract <16 x float> %41, %41
   %43 = fcmp contract oeq <16 x float> %30, splat (float 0x7FF0000000000000)
@@ -11816,11 +11816,11 @@ define linkonce_odr hidden void @_ZNK7mitsuba22MicrofacetDistributionIN5drjit6Pa
   %78 = add <16 x i32> %77, splat (i32 1)
   %79 = and <16 x i32> %78, splat (i32 -2)
   %80 = sitofp <16 x i32> %79 to <16 x float>
-  %81 = fmul contract <16 x float> %80, splat (float 0x3FE9200000000000)
+  %81 = fmul nnan contract <16 x float> %80, splat (float 0x3FE9200000000000)
   %82 = fsub contract <16 x float> %75, %81
-  %83 = fmul contract <16 x float> %80, splat (float 0x3F2FB40000000000)
+  %83 = fmul nnan contract <16 x float> %80, splat (float 0x3F2FB40000000000)
   %84 = fsub contract <16 x float> %82, %83
-  %85 = fmul contract <16 x float> %80, splat (float 0x3E64442D20000000)
+  %85 = fmul nnan contract <16 x float> %80, splat (float 0x3E64442D20000000)
   %86 = fsub contract <16 x float> %84, %85
   %87 = fmul contract <16 x float> %86, %86
   %88 = fcmp contract oeq <16 x float> %75, splat (float 0x7FF0000000000000)
@@ -14025,11 +14025,11 @@ _ZN7mitsuba6VectorIN5drjit6PacketIfLm16EEELm2EECI2NS1_15StaticArrayImplIS3_Lm2EL
   %315 = add <16 x i32> %314, splat (i32 1)
   %316 = and <16 x i32> %315, splat (i32 -2)
   %317 = sitofp <16 x i32> %316 to <16 x float>
-  %318 = fmul contract <16 x float> %317, splat (float 0x3FE9200000000000)
+  %318 = fmul nnan contract <16 x float> %317, splat (float 0x3FE9200000000000)
   %319 = fsub contract <16 x float> %312, %318
-  %320 = fmul contract <16 x float> %317, splat (float 0x3F2FB40000000000)
+  %320 = fmul nnan contract <16 x float> %317, splat (float 0x3F2FB40000000000)
   %321 = fsub contract <16 x float> %319, %320
-  %322 = fmul contract <16 x float> %317, splat (float 0x3E64442D20000000)
+  %322 = fmul nnan contract <16 x float> %317, splat (float 0x3E64442D20000000)
   %323 = fsub contract <16 x float> %321, %322
   %324 = fmul contract <16 x float> %323, %323
   %325 = fcmp contract oeq <16 x float> %312, splat (float 0x7FF0000000000000)
@@ -14648,11 +14648,11 @@ _ZNK5drjit9ArrayBaseIfLb0EN7mitsuba5PointIfLm2EEEE4mul_ERKS3_.exit.critedge: ; p
   %297 = and i32 %296, -2
   %298 = sitofp i32 %297 to float
   %299 = bitcast float %.1 to i32
-  %300 = fmul contract float %298, 0x3FE9200000000000
+  %300 = fmul nnan contract float %298, 0x3FE9200000000000
   %301 = fsub contract float %293, %300
-  %302 = fmul contract float %298, 0x3F2FB40000000000
+  %302 = fmul nnan contract float %298, 0x3F2FB40000000000
   %303 = fsub contract float %301, %302
-  %304 = fmul contract float %298, 0x3E64442D20000000
+  %304 = fmul nnan contract float %298, 0x3E64442D20000000
   %305 = fsub contract float %303, %304
   %306 = fmul contract float %305, %305
   %307 = fcmp contract oeq float %293, 0x7FF0000000000000

@@ -1254,7 +1254,7 @@ define hidden float @SDL_sRGBfromLinear(float noundef %0) local_unnamed_addr #1 
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = fmul float %0, 0x4029D70A40000000
+  %4 = fmul nnan float %0, 0x4029D70A40000000
   br label %8
 
 5:                                                ; preds = %1

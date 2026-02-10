@@ -2434,7 +2434,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36: ; preds = %59
 
 .noexc:                                           ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit36
   %62 = uitofp i64 %61 to double
-  %63 = fmul double %62, 0x3EB0000000000000
+  %63 = fmul nnan double %62, 0x3EB0000000000000
   %64 = load ptr, ptr %58, align 8, !tbaa !277
   %65 = getelementptr i8, ptr %64, i64 -24
   %66 = load i64, ptr %65, align 8
@@ -2596,7 +2596,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61: ; preds = %134
 
 .noexc62:                                         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit61
   %137 = uitofp i64 %136 to double
-  %138 = fmul double %137, 0x3EB0000000000000
+  %138 = fmul nnan double %137, 0x3EB0000000000000
   %139 = load ptr, ptr %133, align 8, !tbaa !277
   %140 = getelementptr i8, ptr %139, i64 -24
   %141 = load i64, ptr %140, align 8

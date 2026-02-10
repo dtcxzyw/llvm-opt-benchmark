@@ -14218,7 +14218,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 
 52:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i
   %53 = uitofp nneg i64 %39 to double
-  %54 = fmul double %53, 0x3DF0000000000000
+  %54 = fmul nnan double %53, 0x3DF0000000000000
   %55 = fsub double %.013.i.i.i.i.i.i, %54
   %56 = fmul double %55, 0x41F0000000000000
   %57 = fcmp une double %56, 0.000000e+00
@@ -14431,7 +14431,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 
 124:                                              ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i45
   %125 = uitofp nneg i64 %111 to double
-  %126 = fmul double %125, 0x3DF0000000000000
+  %126 = fmul nnan double %125, 0x3DF0000000000000
   %127 = fsub double %.013.i.i.i.i.i.i44, %126
   %128 = fmul double %127, 0x41F0000000000000
   %129 = fcmp une double %128, 0.000000e+00
@@ -14644,7 +14644,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 
 195:                                              ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i73
   %196 = uitofp nneg i64 %182 to double
-  %197 = fmul double %196, 0x3DF0000000000000
+  %197 = fmul nnan double %196, 0x3DF0000000000000
   %198 = fsub double %.013.i.i.i.i.i.i72, %197
   %199 = fmul double %198, 0x41F0000000000000
   %200 = fcmp une double %199, 0.000000e+00
@@ -14854,7 +14854,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
 
 264:                                              ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i.i99
   %265 = uitofp nneg i64 %251 to double
-  %266 = fmul double %265, 0x3DF0000000000000
+  %266 = fmul nnan double %265, 0x3DF0000000000000
   %267 = fsub double %.013.i.i.i.i.i.i98, %266
   %268 = fmul double %267, 0x41F0000000000000
   %269 = fcmp une double %268, 0.000000e+00

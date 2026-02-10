@@ -406,7 +406,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iIhEC2Eiib.exit: ; preds = %23
   store ptr %18, ptr %37, align 8, !tbaa !28
   %38 = mul nsw i32 %5, %4
   %39 = sitofp i32 %38 to double
-  %40 = fmul double %39, 0x3EF0000000000000
+  %40 = fmul nnan double %39, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, double noundef %40)
           to label %42 unwind label %.body
 
@@ -467,7 +467,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_iItEC2Eiib.exit: ; preds = %43
   store ptr %19, ptr %57, align 8, !tbaa !40
   %58 = mul nsw i32 %5, %4
   %59 = sitofp i32 %58 to double
-  %60 = fmul double %59, 0x3EF0000000000000
+  %60 = fmul nnan double %59, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, double noundef %60)
           to label %62 unwind label %.body39
 
@@ -528,7 +528,7 @@ _ZN2cv3hal12cpu_baseline12_GLOBAL__N_111RGB2YCrCb_fIfEC2Eiib.exit: ; preds = %63
   store ptr %20, ptr %77, align 8, !tbaa !54
   %78 = mul nsw i32 %5, %4
   %79 = sitofp i32 %78 to double
-  %80 = fmul double %79, 0x3EF0000000000000
+  %80 = fmul nnan double %79, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, double noundef %80)
           to label %82 unwind label %.body46
 
@@ -653,7 +653,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline11cvtYUVtoBGREPKhmPhmiiiibb(ptr noun
   store ptr %18, ptr %33, align 8, !tbaa !69
   %34 = mul nsw i32 %5, %4
   %35 = sitofp i32 %34 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, double noundef %36)
           to label %38 unwind label %.body
 
@@ -703,7 +703,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline11cvtYUVtoBGREPKhmPhmiiiibb(ptr noun
   store ptr %19, ptr %49, align 8, !tbaa !81
   %50 = mul nsw i32 %5, %4
   %51 = sitofp i32 %50 to double
-  %52 = fmul double %51, 0x3EF0000000000000
+  %52 = fmul nnan double %51, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14, double noundef %52)
           to label %54 unwind label %.body35
 
@@ -753,7 +753,7 @@ define hidden void @_ZN2cv3hal12cpu_baseline11cvtYUVtoBGREPKhmPhmiiiibb(ptr noun
   store ptr %20, ptr %65, align 8, !tbaa !93
   %66 = mul nsw i32 %5, %4
   %67 = sitofp i32 %66 to double
-  %68 = fmul double %67, 0x3EF0000000000000
+  %68 = fmul nnan double %67, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12, double noundef %68)
           to label %70 unwind label %.body38
 

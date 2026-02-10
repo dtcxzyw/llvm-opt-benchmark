@@ -7195,8 +7195,8 @@ if.else41:                                        ; preds = %entry
   br i1 %cmp47, label %if.then48, label %if.end157
 
 if.then48:                                        ; preds = %if.else41
-  %sub = fsub double 1.000000e+00, %rho
-  %add49 = fadd double %rho, 1.000000e+00
+  %sub = fsub nnan double 1.000000e+00, %rho
+  %add49 = fadd nnan double %rho, 1.000000e+00
   %mul50 = fmul double %sub, %add49
   %call51 = tail call double @pow(double noundef %mul50, double noundef 5.000000e-01) #30, !tbaa !108
   %sub52 = fsub double %a, %40
@@ -7237,7 +7237,7 @@ if.end80:                                         ; preds = %if.then63, %if.then
 
 if.then83:                                        ; preds = %if.end80
   %call84 = tail call double @pow(double noundef %square, double noundef 5.000000e-01) #30, !tbaa !108
-  %div86 = fmul double %39, -5.000000e-01
+  %div86 = fmul nnan double %39, -5.000000e-01
   %call87 = tail call double @exp(double noundef %div86) #30, !tbaa !108
   %mul89 = fmul double %call87, 0x40040D931FF62705
   %fneg90 = fneg double %call84
@@ -7958,8 +7958,8 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %entry
-  %div.i = fdiv double %square.i, 1.200000e+01
-  %sub1.i = fsub double 1.000000e+00, %div.i
+  %div.i = fdiv nnan double %square.i, 1.200000e+01
+  %sub1.i = fsub nnan double 1.000000e+00, %div.i
   %mul.i = fmul double %square.i, %sub1.i
   %div2.i = fmul double %mul.i, 5.000000e-01
   %sub3.i = fsub double 1.000000e+00, %div2.i
@@ -7967,9 +7967,9 @@ if.then.i:                                        ; preds = %entry
   %1 = tail call double @llvm.fabs.f64(double %sub3.i)
   %fneg.i.i = fneg double %1
   %retval.0.i.i = select i1 %cmp.i.i, double %1, double %fneg.i.i
-  %mul5.i = fmul double %square.i, 2.000000e+00
-  %div6.i = fdiv double %mul5.i, 1.500000e+01
-  %sub7.i = fsub double 1.000000e+00, %div6.i
+  %mul5.i = fmul nnan double %square.i, 2.000000e+00
+  %div6.i = fdiv nnan double %mul5.i, 1.500000e+01
+  %sub7.i = fsub nnan double 1.000000e+00, %div6.i
   %mul8.i = fmul double %square.i, %sub7.i
   %div9.i = fdiv double %mul8.i, 3.000000e+00
   %sub10.i = fsub double 1.000000e+00, %div9.i
@@ -7993,8 +7993,8 @@ _ZN8QuantLib12_GLOBAL__N_15SINCSEdRdS1_.exit:     ; preds = %if.then.i, %if.else
   br i1 %cmp.i23, label %if.then.i29, label %if.else.i24
 
 if.then.i29:                                      ; preds = %_ZN8QuantLib12_GLOBAL__N_15SINCSEdRdS1_.exit
-  %div.i30 = fdiv double %square.i22, 1.200000e+01
-  %sub1.i31 = fsub double 1.000000e+00, %div.i30
+  %div.i30 = fdiv nnan double %square.i22, 1.200000e+01
+  %sub1.i31 = fsub nnan double 1.000000e+00, %div.i30
   %mul.i32 = fmul double %square.i22, %sub1.i31
   %div2.i33 = fmul double %mul.i32, 5.000000e-01
   %sub3.i34 = fsub double 1.000000e+00, %div2.i33
@@ -8002,9 +8002,9 @@ if.then.i29:                                      ; preds = %_ZN8QuantLib12_GLOB
   %4 = tail call double @llvm.fabs.f64(double %sub3.i34)
   %fneg.i.i36 = fneg double %4
   %retval.0.i.i37 = select i1 %cmp.i.i35, double %4, double %fneg.i.i36
-  %mul5.i38 = fmul double %square.i22, 2.000000e+00
-  %div6.i39 = fdiv double %mul5.i38, 1.500000e+01
-  %sub7.i40 = fsub double 1.000000e+00, %div6.i39
+  %mul5.i38 = fmul nnan double %square.i22, 2.000000e+00
+  %div6.i39 = fdiv nnan double %mul5.i38, 1.500000e+01
+  %sub7.i40 = fsub nnan double 1.000000e+00, %div6.i39
   %mul8.i41 = fmul double %square.i22, %sub7.i40
   %div9.i42 = fdiv double %mul8.i41, 3.000000e+00
   %sub10.i43 = fsub double 1.000000e+00, %div9.i42
@@ -8052,8 +8052,8 @@ if.then9:                                         ; preds = %if.end7
   br i1 %cmp.i48, label %if.then.i54, label %if.else.i49
 
 if.then.i54:                                      ; preds = %if.then9
-  %div.i55 = fdiv double %square.i47, 1.200000e+01
-  %sub1.i56 = fsub double 1.000000e+00, %div.i55
+  %div.i55 = fdiv nnan double %square.i47, 1.200000e+01
+  %sub1.i56 = fsub nnan double 1.000000e+00, %div.i55
   %mul.i57 = fmul double %square.i47, %sub1.i56
   %div2.i58 = fmul double %mul.i57, 5.000000e-01
   %sub3.i59 = fsub double 1.000000e+00, %div2.i58
@@ -8061,9 +8061,9 @@ if.then.i54:                                      ; preds = %if.then9
   %10 = tail call double @llvm.fabs.f64(double %sub3.i59)
   %fneg.i.i61 = fneg double %10
   %retval.0.i.i62 = select i1 %cmp.i.i60, double %10, double %fneg.i.i61
-  %mul5.i63 = fmul double %square.i47, 2.000000e+00
-  %div6.i64 = fdiv double %mul5.i63, 1.500000e+01
-  %sub7.i65 = fsub double 1.000000e+00, %div6.i64
+  %mul5.i63 = fmul nnan double %square.i47, 2.000000e+00
+  %div6.i64 = fdiv nnan double %mul5.i63, 1.500000e+01
+  %sub7.i65 = fsub nnan double 1.000000e+00, %div6.i64
   %mul8.i66 = fmul double %square.i47, %sub7.i65
   %div9.i67 = fdiv double %mul8.i66, 3.000000e+00
   %sub10.i68 = fsub double 1.000000e+00, %div9.i67
@@ -8239,7 +8239,7 @@ if.then20:                                        ; preds = %if.then
   br i1 %or.cond, label %if.then23, label %if.else
 
 if.then23:                                        ; preds = %if.then20
-  %div24 = fmul double %7, -5.000000e-01
+  %div24 = fmul nnan double %7, -5.000000e-01
   %call25 = tail call double @exp(double noundef %div24) #30, !tbaa !108
   %cmp26 = fcmp olt double %div, 1.000000e+01
   br i1 %cmp26, label %if.then27, label %if.end38
@@ -8251,8 +8251,8 @@ if.then27:                                        ; preds = %if.then23
 
 if.else.i:                                        ; preds = %if.then27
   %fneg.i = fneg double %8
-  %mul.i = fmul double %8, %fneg.i
-  %div.i = fmul double %mul.i, 5.000000e-01
+  %mul.i = fmul nnan double %8, %fneg.i
+  %div.i = fmul nnan double %mul.i, 5.000000e-01
   %call.i21 = tail call double @exp(double noundef %div.i) #30, !tbaa !108
   %cmp1.i = fcmp olt double %8, 0x401C48C6001F0ABF
   br i1 %cmp1.i, label %if.then2.i, label %if.else18.i

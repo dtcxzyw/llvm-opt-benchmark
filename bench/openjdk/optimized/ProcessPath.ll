@@ -2099,12 +2099,12 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
 
 115:                                              ; preds = %111
   %116 = sitofp i32 %98 to double
-  %117 = fmul double %116, 1.024000e+03
+  %117 = fmul nnan double %116, 1.024000e+03
   %118 = sitofp i32 %99 to double
   %119 = fdiv double %117, %118
   %120 = fptosi double %119 to i32
   %121 = sitofp i32 %.0293 to double
-  %122 = fmul double %116, %121
+  %122 = fmul nnan double %116, %121
   %123 = fdiv double %122, %118
   %124 = fptosi double %123 to i32
   br label %130
@@ -2229,12 +2229,12 @@ define hidden void @FillPolygon(ptr noundef readonly captures(none) %0, i32 noun
 
 178:                                              ; preds = %168
   %179 = sitofp i32 %171 to double
-  %180 = fmul double %179, 1.024000e+03
+  %180 = fmul nnan double %179, 1.024000e+03
   %181 = sitofp i32 %172 to double
   %182 = fdiv double %180, %181
   %183 = fptosi double %182 to i32
   %184 = sitofp i32 %.0281 to double
-  %185 = fmul double %179, %184
+  %185 = fmul nnan double %179, %184
   %186 = fdiv double %185, %181
   %187 = fptosi double %186 to i32
   br label %193
@@ -2504,7 +2504,7 @@ define hidden void @StoreFixedLine(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.0236 = sitofp i32 %.0236.in to double
   %35 = sitofp i32 %1 to double
   %36 = sitofp i32 %2 to double
-  %37 = fsub double %.0236, %36
+  %37 = fsub nnan double %.0236, %36
   %38 = sub nsw i32 %3, %1
   %39 = sitofp i32 %38 to double
   %40 = fmul double %37, %39
@@ -2539,7 +2539,7 @@ define hidden void @StoreFixedLine(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.0235 = sitofp i32 %.0235.in to double
   %55 = sitofp i32 %3 to double
   %56 = sitofp i32 %4 to double
-  %57 = fsub double %.0235, %56
+  %57 = fsub nnan double %.0235, %56
   %58 = sub nsw i32 %.0, %3
   %59 = sitofp i32 %58 to double
   %60 = fmul double %57, %59
@@ -2575,7 +2575,7 @@ define hidden void @StoreFixedLine(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.0234 = sitofp i32 %.0234.in to double
   %76 = sitofp i32 %.0223 to double
   %77 = sitofp i32 %.0 to double
-  %78 = fsub double %.0234, %77
+  %78 = fsub nnan double %.0234, %77
   %79 = sub nsw i32 %.0230, %.0223
   %80 = sitofp i32 %79 to double
   %81 = fmul double %78, %80
@@ -2618,7 +2618,7 @@ define hidden void @StoreFixedLine(ptr noundef %0, i32 noundef %1, i32 noundef %
   %.0233 = sitofp i32 %.0233.in to double
   %96 = sitofp i32 %.0230 to double
   %97 = sitofp i32 %.1227307 to double
-  %98 = fsub double %.0233, %97
+  %98 = fsub nnan double %.0233, %97
   %99 = sub nsw i32 %.1224291305, %.0230
   %100 = sitofp i32 %99 to double
   %101 = fmul double %98, %100

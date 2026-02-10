@@ -1202,7 +1202,7 @@ _ZN22HashTablePermutohedralILi3ELi2EE12lookupOffsetERKNS0_3KeyEb.exit.i: ; preds
   %133 = load i64, ptr %0, align 8, !tbaa !52
   %134 = mul i64 %133, 36
   %135 = uitofp i64 %34 to float
-  %136 = fmul reassoc nsz arcp contract afn float %135, 1.000000e+02
+  %136 = fmul reassoc nnan nsz arcp contract afn float %135, 1.000000e+02
   %137 = uitofp i64 %31 to float
   %138 = fdiv reassoc nsz arcp contract afn float %136, %137
   %139 = fpext reassoc nsz arcp contract afn float %138 to double

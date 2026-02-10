@@ -2919,7 +2919,7 @@ define internal void @decode_power_conf_frequency(ptr noundef %0, i32 noundef %1
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @decode_power_conf_percentage(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 5.000000e-01
+  %4 = fmul nnan double %3, 5.000000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1215, double noundef %4)
   ret void
 }

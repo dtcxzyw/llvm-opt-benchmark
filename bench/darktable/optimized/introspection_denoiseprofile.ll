@@ -220,7 +220,7 @@ define hidden range(i32 0, 2) i32 @legacy_params_to11(ptr noundef %0, ptr nounde
   %indvars.iv516 = phi i64 [ 0, %20 ], [ %indvars.iv.next517, %38 ]
   %32 = trunc nuw nsw i64 %indvars.iv516 to i32
   %33 = uitofp nneg i32 %32 to float
-  %34 = fmul reassoc nsz arcp contract afn float %33, 2.500000e-01
+  %34 = fmul reassoc nnan nsz arcp contract afn float %33, 2.500000e-01
   %invariant.gep429 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv516
   %invariant.gep431 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv516
   br label %39
@@ -709,7 +709,7 @@ dt_iop_denoiseprofile_get_auto_profile.exit:      ; preds = %60, %40, %51, %58
   %indvars.iv456 = phi i64 [ 0, %.preheader350 ], [ %indvars.iv.next457, %231 ]
   %227 = trunc nuw nsw i64 %indvars.iv456 to i32
   %228 = uitofp nneg i32 %227 to float
-  %229 = fmul reassoc nsz arcp contract afn float %228, 0x3FC5555560000000
+  %229 = fmul reassoc nnan nsz arcp contract afn float %228, 0x3FC5555560000000
   %invariant.gep373 = getelementptr inbounds nuw float, ptr %225, i64 %indvars.iv456
   %invariant.gep375 = getelementptr inbounds nuw float, ptr %226, i64 %indvars.iv456
   br label %232
@@ -887,7 +887,7 @@ dt_iop_denoiseprofile_get_auto_profile.exit:      ; preds = %60, %40, %51, %58
 .preheader351:                                    ; preds = %317
   %314 = trunc nuw nsw i64 %indvars.iv445 to i32
   %315 = uitofp nneg i32 %314 to float
-  %316 = fmul reassoc nsz arcp contract afn float %315, 0x3FC5555560000000
+  %316 = fmul reassoc nnan nsz arcp contract afn float %315, 0x3FC5555560000000
   br label %321
 
 317:                                              ; preds = %.preheader352, %317
@@ -1028,7 +1028,7 @@ define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv18 = phi i64 [ 0, %1 ], [ %indvars.iv.next19, %26 ]
   %20 = trunc nuw nsw i64 %indvars.iv18 to i32
   %21 = uitofp nneg i32 %20 to float
-  %22 = fmul reassoc nsz arcp contract afn float %21, 0x3FC5555560000000
+  %22 = fmul reassoc nnan nsz arcp contract afn float %21, 0x3FC5555560000000
   %invariant.gep = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv18
   %invariant.gep13 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv18
   br label %29
@@ -1138,8 +1138,8 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %32 = mul nsw i32 %31, %27
   %33 = sitofp i32 %32 to double
   %34 = sitofp i32 %27 to double
-  %35 = fmul reassoc nsz arcp contract afn double %34, 7.000000e+00
-  %36 = tail call reassoc nsz arcp contract afn double @llvm.sqrt.f64(double %34)
+  %35 = fmul reassoc nnan nsz arcp contract afn double %34, 7.000000e+00
+  %36 = tail call reassoc ninf nsz arcp contract afn double @llvm.sqrt.f64(double %34)
   %37 = fmul reassoc nsz arcp contract afn double %35, %36
   %38 = fadd reassoc nsz arcp contract afn double %37, %33
   %39 = fmul reassoc nsz arcp contract afn double %30, 0x3FC5555555555555
@@ -1177,7 +1177,7 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %65 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %60, float %64)
   %66 = fmul reassoc nsz arcp contract afn float %65, 0x3FC99999A0000000
   %67 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %66, float 2.570000e+02)
-  %68 = fmul reassoc nsz arcp contract afn float %67, 5.000000e-01
+  %68 = fmul reassoc nnan nsz arcp contract afn float %67, 5.000000e-01
   %69 = fadd reassoc nsz arcp contract afn float %68, -5.000000e-01
   %70 = tail call reassoc nsz arcp contract afn noundef float @llvm.log2.f32(float %69)
   %71 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %56
@@ -1189,7 +1189,7 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %74 = shl nuw nsw i32 4, %.054
   %75 = or disjoint i32 %74, 1
   %76 = uitofp nneg i32 %75 to float
-  %77 = fmul reassoc nsz arcp contract afn float %76, 5.000000e-01
+  %77 = fmul reassoc nnan nsz arcp contract afn float %76, 5.000000e-01
   %78 = fmul reassoc nsz arcp contract afn float %77, %71
   %79 = fadd reassoc nsz arcp contract afn float %78, -5.000000e-01
   %80 = tail call reassoc nsz arcp contract afn noundef float @llvm.log2.f32(float %79)
@@ -1363,8 +1363,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %101 = mul nsw i32 %100, %94
   %102 = sitofp i32 %101 to double
   %103 = sitofp i32 %94 to double
-  %104 = fmul reassoc nsz arcp contract afn double %103, 7.000000e+00
-  %105 = call reassoc nsz arcp contract afn double @llvm.sqrt.f64(double %103)
+  %104 = fmul reassoc nnan nsz arcp contract afn double %103, 7.000000e+00
+  %105 = call reassoc ninf nsz arcp contract afn double @llvm.sqrt.f64(double %103)
   %106 = fmul reassoc nsz arcp contract afn double %104, %105
   %107 = fadd reassoc nsz arcp contract afn double %106, %102
   %108 = fpext reassoc nsz arcp contract afn float %.val.i to double
@@ -1375,13 +1375,13 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %113 = call i32 @llvm.smin.i32(i32 %94, i32 3)
   %114 = sub nsw i32 %112, %113
   %115 = sitofp i32 %114 to double
-  %116 = fmul reassoc nsz arcp contract afn double %115, 6.000000e+00
+  %116 = fmul reassoc nnan nsz arcp contract afn double %115, 6.000000e+00
   %117 = mul nsw i32 %113, %113
   %118 = mul nsw i32 %117, %113
   %119 = sitofp i32 %118 to double
   %120 = sitofp i32 %113 to double
-  %121 = fmul reassoc nsz arcp contract afn double %120, 7.000000e+00
-  %122 = call reassoc nsz arcp contract afn double @llvm.sqrt.f64(double %120)
+  %121 = fmul reassoc nnan nsz arcp contract afn double %120, 7.000000e+00
+  %122 = call reassoc ninf nsz arcp contract afn double @llvm.sqrt.f64(double %120)
   %123 = fmul reassoc nsz arcp contract afn double %121, %122
   %124 = fadd reassoc nsz arcp contract afn double %123, %119
   %125 = fdiv reassoc nsz arcp contract afn double %116, %124
@@ -1400,8 +1400,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %131 = mul nsw i32 %130, %.0.i.i
   %132 = sitofp i32 %131 to double
   %133 = sitofp i32 %.0.i.i to double
-  %134 = fmul reassoc nsz arcp contract afn double %133, 7.000000e+00
-  %135 = call reassoc nsz arcp contract afn double @llvm.sqrt.f64(double %133)
+  %134 = fmul reassoc nnan nsz arcp contract afn double %133, 7.000000e+00
+  %135 = call reassoc ninf nsz arcp contract afn double @llvm.sqrt.f64(double %133)
   %136 = fmul reassoc nsz arcp contract afn double %134, %135
   %137 = fadd reassoc nsz arcp contract afn double %136, %132
   %138 = fpext reassoc nsz arcp contract afn float %.044.i.i to double
@@ -1418,13 +1418,13 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %148 = fptosi float %..i.i to i32
   %149 = sub nsw i32 %142, %148
   %150 = sitofp i32 %149 to double
-  %151 = fmul reassoc nsz arcp contract afn double %150, 6.000000e+00
+  %151 = fmul reassoc nnan nsz arcp contract afn double %150, 6.000000e+00
   %152 = mul nsw i32 %148, %148
   %153 = mul nsw i32 %152, %148
   %154 = sitofp i32 %153 to double
   %155 = sitofp i32 %148 to double
-  %156 = fmul reassoc nsz arcp contract afn double %155, 7.000000e+00
-  %157 = call reassoc nsz arcp contract afn double @llvm.sqrt.f64(double %155)
+  %156 = fmul reassoc nnan nsz arcp contract afn double %155, 7.000000e+00
+  %157 = call reassoc ninf nsz arcp contract afn double @llvm.sqrt.f64(double %155)
   %158 = fmul reassoc nsz arcp contract afn double %156, %157
   %159 = fadd reassoc nsz arcp contract afn double %158, %154
   %160 = fdiv reassoc nsz arcp contract afn double %151, %159
@@ -1637,8 +1637,8 @@ compute_wb_factors.exit.i.i:                      ; preds = %.preheader1.i.i.i, 
   %297 = load float, ptr %296, align 4, !tbaa !36
   %298 = fadd reassoc nsz arcp contract afn float %295, %297
   %299 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %298, float 0.000000e+00)
-  %300 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %299)
-  %301 = fmul reassoc nsz arcp contract afn float %300, 2.000000e+00
+  %300 = call reassoc nnan nsz arcp contract afn float @llvm.sqrt.f32(float %299)
+  %301 = fmul reassoc nnan nsz arcp contract afn float %300, 2.000000e+00
   %302 = getelementptr inbounds nuw float, ptr %173, i64 %290
   store float %301, ptr %302, align 4, !tbaa !36
   %303 = add nuw nsw i64 %.02829.i.i.i, 1
@@ -2042,7 +2042,7 @@ nlmeans_backtransform.exit.i:                     ; preds = %backtransform_v2.ex
   %533 = shl nuw nsw i32 4, %.017820.i
   %534 = or disjoint i32 %533, 1
   %535 = uitofp nneg i32 %534 to float
-  %536 = fmul reassoc nsz arcp contract afn float %535, 5.000000e-01
+  %536 = fmul reassoc nnan nsz arcp contract afn float %535, 5.000000e-01
   %537 = fmul reassoc nsz arcp contract afn float %536, %531
   %538 = fadd reassoc nsz arcp contract afn float %537, -5.000000e-01
   %539 = tail call reassoc nsz arcp contract afn noundef float @llvm.log2.f32(float %538)
@@ -2543,8 +2543,8 @@ dt_colormatrix_transpose.exit204.i:               ; preds = %781, %dt_colormatri
   %855 = load float, ptr %854, align 4, !tbaa !36
   %856 = fadd reassoc nsz arcp contract afn float %853, %855
   %857 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %856, float 0.000000e+00)
-  %858 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %857)
-  %859 = fmul reassoc nsz arcp contract afn float %858, 2.000000e+00
+  %858 = call reassoc nnan nsz arcp contract afn float @llvm.sqrt.f32(float %857)
+  %859 = fmul reassoc nnan nsz arcp contract afn float %858, 2.000000e+00
   %860 = getelementptr inbounds nuw float, ptr %824, i64 %848
   store float %859, ptr %860, align 4, !tbaa !36
   %861 = add nuw nsw i64 %.02829.i.i, 1
@@ -2828,7 +2828,7 @@ debug_dump_PFM.exit.i:                            ; preds = %982, %976, %973
   %1008 = uitofp nneg i32 %1007 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   %1009 = load ptr, ptr %39, align 8, !tbaa !164
-  %1010 = fmul reassoc nsz arcp contract afn float %1008, -2.000000e+00
+  %1010 = fmul reassoc nnan nsz arcp contract afn float %1008, -2.000000e+00
   %1011 = call reassoc nsz arcp contract afn float @llvm.pow.f32(float 0x3FE0BBB300000000, float %1010)
   call void @eaw_dn_decompose(ptr noundef %.018325.i, ptr noundef %.018424.i, ptr noundef %1009, ptr noundef nonnull %48, i32 noundef %1007, float noundef %1011, i32 noundef %548, i32 noundef %550) #21
   %1012 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3056), align 8, !tbaa !194, !noalias !228
@@ -3700,7 +3700,7 @@ define void @init(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv13 = phi i64 [ 0, %1 ], [ %indvars.iv.next14, %9 ]
   %5 = trunc nuw nsw i64 %indvars.iv13 to i32
   %6 = uitofp nneg i32 %5 to float
-  %7 = fmul reassoc nsz arcp contract afn float %6, 0x3FC5555560000000
+  %7 = fmul reassoc nnan nsz arcp contract afn float %6, 0x3FC5555560000000
   %invariant.gep = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv13
   br label %10
 
@@ -4346,7 +4346,7 @@ dt_iop_denoiseprofile_get_auto_profile.exit:      ; preds = %62, %40, %53, %60
   %157 = getelementptr inbounds nuw i16, ptr %155, i64 %indvars.iv28.i.i
   %158 = load i16, ptr %157, align 2, !tbaa !278
   %159 = uitofp i16 %158 to float
-  %160 = fmul reassoc nsz arcp contract afn float %159, 0x3EF0000000000000
+  %160 = fmul reassoc nnan nsz arcp contract afn float %159, 0x3EF0000000000000
   %161 = getelementptr inbounds nuw float, ptr %150, i64 %indvars.iv28.i.i
   store float %160, ptr %161, align 4, !tbaa !36
   %indvars.iv.next29.i.i = add nuw nsw i64 %indvars.iv28.i.i, 1
@@ -5452,8 +5452,8 @@ define internal noundef i32 @denoiseprofile_draw(ptr noundef %0, ptr noundef %1,
   call void @cairo_set_source_rgb(ptr noundef %56, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01) #21
   %70 = sitofp i32 %59 to float
   %71 = sitofp i32 %60 to float
-  %invariant.op.i = fmul reassoc nsz arcp contract afn float %70, 1.250000e-01
-  %factor.op.fmul.i = fmul reassoc nsz arcp contract afn float %71, 1.250000e-01
+  %invariant.op.i = fmul reassoc nnan nsz arcp contract afn float %70, 1.250000e-01
+  %factor.op.fmul.i = fmul reassoc nnan nsz arcp contract afn float %71, 1.250000e-01
   %72 = fpext reassoc nsz arcp contract afn float %71 to double
   %73 = fpext reassoc nsz arcp contract afn float %70 to double
   br label %74
@@ -5461,7 +5461,7 @@ define internal noundef i32 @denoiseprofile_draw(ptr noundef %0, ptr noundef %1,
 74:                                               ; preds = %74, %26
   %.032.i = phi i32 [ 1, %26 ], [ %78, %74 ]
   %75 = uitofp nneg i32 %.032.i to float
-  %.reass31.i = fmul reassoc nsz arcp contract afn float %factor.op.fmul.i, %75
+  %.reass31.i = fmul reassoc nnan nsz arcp contract afn float %factor.op.fmul.i, %75
   %.reass.i = fmul reassoc nsz arcp contract afn float %invariant.op.i, %75
   %76 = fpext reassoc nsz arcp contract afn float %.reass.i to double
   call void @cairo_move_to(ptr noundef %56, double noundef %76, double noundef 0.000000e+00) #21
@@ -5567,7 +5567,7 @@ dt_iop_denoiseprofile_get_params.exit:            ; preds = %104
   %indvars.iv.i.i = phi i64 [ 0, %125 ], [ %indvars.iv.next.i.i, %135 ]
   %136 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %137 = uitofp nneg i32 %136 to float
-  %138 = fmul reassoc nsz arcp contract afn float %137, 1.562500e-02
+  %138 = fmul reassoc nnan nsz arcp contract afn float %137, 1.562500e-02
   %139 = getelementptr inbounds nuw float, ptr %131, i64 %indvars.iv.i.i
   store float %138, ptr %139, align 4, !tbaa !36
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -5585,7 +5585,7 @@ dt_iop_denoiseprofile_get_params.exit:            ; preds = %104
   %144 = getelementptr inbounds nuw i16, ptr %142, i64 %indvars.iv28.i.i
   %145 = load i16, ptr %144, align 2, !tbaa !278
   %146 = uitofp i16 %145 to float
-  %147 = fmul reassoc nsz arcp contract afn float %146, 0x3EF0000000000000
+  %147 = fmul reassoc nnan nsz arcp contract afn float %146, 0x3EF0000000000000
   %148 = getelementptr inbounds nuw float, ptr %140, i64 %indvars.iv28.i.i
   store float %147, ptr %148, align 4, !tbaa !36
   %indvars.iv.next29.i.i = add nuw nsw i64 %indvars.iv28.i.i, 1
@@ -5676,7 +5676,7 @@ dt_iop_denoiseprofile_get_params.exit269:         ; preds = %159
   %indvars.iv.i.i270 = phi i64 [ 0, %191 ], [ %indvars.iv.next.i.i271, %201 ]
   %202 = trunc nuw nsw i64 %indvars.iv.i.i270 to i32
   %203 = uitofp nneg i32 %202 to float
-  %204 = fmul reassoc nsz arcp contract afn float %203, 1.562500e-02
+  %204 = fmul reassoc nnan nsz arcp contract afn float %203, 1.562500e-02
   %205 = getelementptr inbounds nuw float, ptr %197, i64 %indvars.iv.i.i270
   store float %204, ptr %205, align 4, !tbaa !36
   %indvars.iv.next.i.i271 = add nuw nsw i64 %indvars.iv.i.i270, 1
@@ -5694,7 +5694,7 @@ dt_iop_denoiseprofile_get_params.exit269:         ; preds = %159
   %210 = getelementptr inbounds nuw i16, ptr %208, i64 %indvars.iv28.i.i274
   %211 = load i16, ptr %210, align 2, !tbaa !278
   %212 = uitofp i16 %211 to float
-  %213 = fmul reassoc nsz arcp contract afn float %212, 0x3EF0000000000000
+  %213 = fmul reassoc nnan nsz arcp contract afn float %212, 0x3EF0000000000000
   %214 = getelementptr inbounds nuw float, ptr %206, i64 %indvars.iv28.i.i274
   store float %213, ptr %214, align 4, !tbaa !36
   %indvars.iv.next29.i.i275 = add nuw nsw i64 %indvars.iv28.i.i274, 1
@@ -5846,7 +5846,7 @@ dt_draw_curve_calc_values.exit277:                ; preds = %209, %89
   %indvars.iv.i.i278 = phi i64 [ 0, %276 ], [ %indvars.iv.next.i.i279, %287 ]
   %288 = trunc nuw nsw i64 %indvars.iv.i.i278 to i32
   %289 = uitofp nneg i32 %288 to float
-  %290 = fmul reassoc nsz arcp contract afn float %289, 1.562500e-02
+  %290 = fmul reassoc nnan nsz arcp contract afn float %289, 1.562500e-02
   %291 = getelementptr inbounds nuw float, ptr %227, i64 %indvars.iv.i.i278
   store float %290, ptr %291, align 4, !tbaa !36
   %indvars.iv.next.i.i279 = add nuw nsw i64 %indvars.iv.i.i278, 1
@@ -5863,7 +5863,7 @@ dt_draw_curve_calc_values.exit277:                ; preds = %209, %89
   %295 = getelementptr inbounds nuw i16, ptr %293, i64 %indvars.iv28.i.i282
   %296 = load i16, ptr %295, align 2, !tbaa !278
   %297 = uitofp i16 %296 to float
-  %298 = fmul reassoc nsz arcp contract afn float %297, 0x3EF0000000000000
+  %298 = fmul reassoc nnan nsz arcp contract afn float %297, 0x3EF0000000000000
   %299 = getelementptr inbounds nuw float, ptr %228, i64 %indvars.iv28.i.i282
   store float %298, ptr %299, align 4, !tbaa !36
   %indvars.iv.next29.i.i283 = add nuw nsw i64 %indvars.iv28.i.i282, 1
@@ -5901,7 +5901,7 @@ dt_draw_curve_calc_values.exit285:                ; preds = %294
   %312 = trunc nuw nsw i64 %indvars.iv308 to i32
   %313 = mul nsw i32 %59, %312
   %314 = sitofp i32 %313 to float
-  %315 = fmul reassoc nsz arcp contract afn float %314, 0x3F90410420000000
+  %315 = fmul reassoc nnan nsz arcp contract afn float %314, 0x3F90410420000000
   %316 = fpext reassoc nsz arcp contract afn float %315 to double
   %317 = getelementptr inbounds nuw float, ptr %228, i64 %indvars.iv308
   %318 = load float, ptr %317, align 4, !tbaa !36
@@ -5974,7 +5974,7 @@ dt_draw_curve_calc_values.exit285:                ; preds = %294
   %353 = trunc nuw nsw i64 %indvars.iv317 to i32
   %354 = mul nsw i32 %59, %353
   %355 = sitofp i32 %354 to float
-  %356 = fmul reassoc nsz arcp contract afn float %355, 0x3F90410420000000
+  %356 = fmul reassoc nnan nsz arcp contract afn float %355, 0x3F90410420000000
   %357 = fpext reassoc nsz arcp contract afn float %356 to double
   %358 = getelementptr inbounds nuw float, ptr %347, i64 %indvars.iv317
   %359 = load float, ptr %358, align 4, !tbaa !36
@@ -6021,7 +6021,7 @@ dt_draw_curve_calc_values.exit285:                ; preds = %294
   %386 = trunc nuw nsw i64 %indvars.iv321 to i32
   %387 = mul nsw i32 %59, %386
   %388 = sitofp i32 %387 to float
-  %389 = fmul reassoc nsz arcp contract afn float %388, 0x3F90410420000000
+  %389 = fmul reassoc nnan nsz arcp contract afn float %388, 0x3F90410420000000
   %390 = fpext reassoc nsz arcp contract afn float %389 to double
   %391 = getelementptr inbounds nuw float, ptr %351, i64 %indvars.iv321
   %392 = load float, ptr %391, align 4, !tbaa !36
@@ -6041,8 +6041,8 @@ dt_draw_curve_calc_values.exit285:                ; preds = %294
   %398 = load ptr, ptr %397, align 8, !tbaa !326
   %399 = call ptr @pango_font_description_copy_static(ptr noundef %398) #21
   call void @pango_font_description_set_weight(ptr noundef %399, i32 noundef 700) #21
-  %400 = fmul reassoc nsz arcp contract afn double %65, 8.000000e-02
-  %401 = fmul reassoc nsz arcp contract afn double %65, 8.192000e+01
+  %400 = fmul reassoc nnan nsz arcp contract afn double %65, 8.000000e-02
+  %401 = fmul reassoc nnan nsz arcp contract afn double %65, 8.192000e+01
   call void @pango_font_description_set_absolute_size(ptr noundef %399, double noundef %401) #21
   %402 = call ptr @pango_cairo_create_layout(ptr noundef %56) #21
   call void @pango_layout_set_font_description(ptr noundef %402, ptr noundef %399) #21
@@ -6050,7 +6050,7 @@ dt_draw_curve_calc_values.exit285:                ; preds = %294
   %403 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.108, i32 noundef 5) #21
   call void @pango_layout_set_text(ptr noundef %402, ptr noundef %403, i32 noundef -1) #21
   call void @pango_layout_get_pixel_extents(ptr noundef %402, ptr noundef nonnull %6, ptr noundef null) #21
-  %404 = fmul reassoc nsz arcp contract afn double %64, 2.000000e-02
+  %404 = fmul reassoc nnan nsz arcp contract afn double %64, 2.000000e-02
   %405 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %406 = load i32, ptr %405, align 4, !tbaa !333
   %407 = sitofp i32 %406 to double
@@ -6059,7 +6059,7 @@ dt_draw_curve_calc_values.exit285:                ; preds = %294
   %410 = load i32, ptr %409, align 4, !tbaa !335
   %411 = add nsw i32 %410, %60
   %412 = sitofp i32 %411 to double
-  %413 = fmul reassoc nsz arcp contract afn double %412, 5.000000e-01
+  %413 = fmul reassoc nnan nsz arcp contract afn double %412, 5.000000e-01
   call void @cairo_move_to(ptr noundef %56, double noundef %408, double noundef %413) #21
   call void @cairo_save(ptr noundef %56) #21
   call void @cairo_rotate(ptr noundef %56, double noundef 0xBFF921FB54442D18) #21
@@ -6068,7 +6068,7 @@ dt_draw_curve_calc_values.exit285:                ; preds = %294
   %414 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.109, i32 noundef 5) #21
   call void @pango_layout_set_text(ptr noundef %402, ptr noundef %414, i32 noundef -1) #21
   call void @pango_layout_get_pixel_extents(ptr noundef %402, ptr noundef nonnull %6, ptr noundef null) #21
-  %415 = fmul reassoc nsz arcp contract afn double %64, 0x3FEF5C28F5C28F5C
+  %415 = fmul reassoc nnan nsz arcp contract afn double %64, 0x3FEF5C28F5C28F5C
   %416 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %417 = load i32, ptr %416, align 4, !tbaa !336
   %418 = sitofp i32 %417 to double
@@ -6076,7 +6076,7 @@ dt_draw_curve_calc_values.exit285:                ; preds = %294
   %420 = load i32, ptr %409, align 4, !tbaa !335
   %421 = add nsw i32 %420, %60
   %422 = sitofp i32 %421 to double
-  %423 = fmul reassoc nsz arcp contract afn double %422, 5.000000e-01
+  %423 = fmul reassoc nnan nsz arcp contract afn double %422, 5.000000e-01
   call void @cairo_move_to(ptr noundef %56, double noundef %419, double noundef %423) #21
   call void @cairo_save(ptr noundef %56) #21
   call void @cairo_rotate(ptr noundef %56, double noundef 0xBFF921FB54442D18) #21
@@ -6088,7 +6088,7 @@ dt_draw_curve_calc_values.exit285:                ; preds = %294
   %425 = load i32, ptr %409, align 4, !tbaa !335
   %426 = sub nsw i32 %59, %425
   %427 = sitofp i32 %426 to double
-  %428 = fmul reassoc nsz arcp contract afn double %427, 5.000000e-01
+  %428 = fmul reassoc nnan nsz arcp contract afn double %427, 5.000000e-01
   %429 = load i32, ptr %416, align 4, !tbaa !336
   %430 = sitofp i32 %429 to double
   %431 = fsub reassoc nsz arcp contract afn double %400, %430
@@ -6100,8 +6100,8 @@ dt_draw_curve_calc_values.exit285:                ; preds = %294
   %433 = load i32, ptr %409, align 4, !tbaa !335
   %434 = sub nsw i32 %59, %433
   %435 = sitofp i32 %434 to double
-  %436 = fmul reassoc nsz arcp contract afn double %435, 5.000000e-01
-  %437 = fmul reassoc nsz arcp contract afn double %65, 0x3FEF0A3D70A3D70A
+  %436 = fmul reassoc nnan nsz arcp contract afn double %435, 5.000000e-01
+  %437 = fmul reassoc nnan nsz arcp contract afn double %65, 0x3FEF0A3D70A3D70A
   %438 = load i32, ptr %416, align 4, !tbaa !336
   %439 = sitofp i32 %438 to double
   %440 = fsub reassoc nsz arcp contract afn double %437, %439
@@ -6538,8 +6538,8 @@ define internal i32 @denoiseprofile_scrolled(ptr noundef %0, ptr noundef %1, ptr
   %27 = load float, ptr %26, align 8, !tbaa !307
   %28 = load i32, ptr %4, align 4, !tbaa !43
   %29 = sitofp i32 %28 to float
-  %30 = fmul reassoc nsz arcp contract afn float %29, 0x3FB99999A0000000
-  %31 = fadd reassoc nsz arcp contract afn float %30, 1.000000e+00
+  %30 = fmul reassoc nnan nsz arcp contract afn float %29, 0x3FB99999A0000000
+  %31 = fadd reassoc nnan nsz arcp contract afn float %30, 1.000000e+00
   %32 = fmul reassoc nsz arcp contract afn float %31, %27
   %33 = fcmp reassoc nsz arcp contract afn ogt float %32, 1.000000e+00
   br i1 %33, label %37, label %34

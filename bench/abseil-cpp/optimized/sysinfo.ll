@@ -216,7 +216,7 @@ _ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread4.i.i.i.i.i: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = sitofp i64 %19 to double
-  %27 = fmul double %26, 1.000000e+03
+  %27 = fmul nnan double %26, 1.000000e+03
   br label %.loopexit
 
 _ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread.i.i.i.i.i: ; preds = %_ZN4absl13base_internalL16ReadLongFromFileEPKcPl.exit.thread4.i.i.i.i.i, %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.thread
@@ -297,7 +297,7 @@ _ZN4absl13base_internalL28MeasureTscFrequencyWithSleepEi.exit.i.i.i.i.i.i: ; pre
   %56 = sitofp i64 %55 to double
   %57 = sub nsw i64 %.sroa.0.1.i9.i.i.i.i.i.i.i, %.sroa.0.1.i.i.i.i.i.i.i.i
   %58 = sitofp i64 %57 to double
-  %59 = fmul double %58, 1.000000e-09
+  %59 = fmul nnan double %58, 1.000000e-09
   %60 = fdiv double %56, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %61 = fmul double %60, 0x3FEFAE147AE147AE

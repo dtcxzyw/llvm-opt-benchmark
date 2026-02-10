@@ -2030,7 +2030,7 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit3
 
 207:                                              ; preds = %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit391
   %208 = sitofp i32 %201 to float
-  %209 = fmul float %202, %208
+  %209 = fmul nnan float %202, %208
   %210 = sitofp i32 %187 to float
   %211 = fdiv float %209, %210
   %212 = sitofp i32 %191 to float
@@ -3714,7 +3714,7 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit5
 
 .noexc277:                                        ; preds = %780
   %786 = sitofp <4 x i32> %773 to <4 x float>
-  %787 = fmul <4 x float> %786, splat (float 0x3FC99999A0000000)
+  %787 = fmul nnan <4 x float> %786, splat (float 0x3FC99999A0000000)
   %788 = fsub <4 x float> %762, %787
   %.fca.0.load.i303 = load i64, ptr %36, align 16
   %.fca.1.load.i306 = load i64, ptr %.fca.1.gep.i305, align 8

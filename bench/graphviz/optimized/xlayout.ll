@@ -374,7 +374,7 @@ xinit_params.exit.i:                              ; preds = %126, %125
   %190 = srem i32 %189, 10
   %191 = sub nsw i32 5, %190
   %192 = sitofp i32 %191 to double
-  %193 = fmul double %192, %192
+  %193 = fmul nnan double %192, %192
   %194 = call double @llvm.fmuladd.f64(double %188, double %188, double %193)
   %195 = fcmp oeq double %194, 0.000000e+00
   br i1 %195, label %.lr.ph.i.i.i.i, label %._crit_edge.i.loopexit.i.i.i, !llvm.loop !55

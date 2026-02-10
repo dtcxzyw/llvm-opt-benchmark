@@ -676,13 +676,13 @@ define void @Sdm_ManPrintDsdStats(ptr noundef readonly captures(none) %0, i32 no
 .split20.us:                                      ; preds = %23, %.split.us
   %.us-phi = phi i32 [ %.1.us, %.split.us ], [ %.1, %23 ]
   %24 = sitofp i32 %.us-phi to double
-  %25 = fmul double %24, 1.000000e+02
+  %25 = fmul nnan double %24, 1.000000e+02
   %26 = fdiv double %25, 5.950000e+02
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.us-phi, double noundef %26)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 6740
   %29 = load i32, ptr %28, align 4, !tbaa !20
   %30 = sitofp i32 %29 to double
-  %31 = fmul double %30, 1.000000e+02
+  %31 = fmul nnan double %30, 1.000000e+02
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 6744
   %33 = load i32, ptr %32, align 8, !tbaa !21
   %34 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %33, i32 1)

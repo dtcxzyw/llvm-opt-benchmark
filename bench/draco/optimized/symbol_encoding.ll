@@ -2337,7 +2337,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 4.096000e+03, %77
+  %78 = fdiv nnan double 4.096000e+03, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -2438,7 +2438,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3F30000000000000
+  %126 = fmul nnan double %125, 0x3F30000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -8208,7 +8208,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 4.096000e+03, %77
+  %78 = fdiv nnan double 4.096000e+03, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -8309,7 +8309,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3F30000000000000
+  %126 = fmul nnan double %125, 0x3F30000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -10181,7 +10181,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 4.096000e+03, %77
+  %78 = fdiv nnan double 4.096000e+03, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -10282,7 +10282,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3F30000000000000
+  %126 = fmul nnan double %125, 0x3F30000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -12154,7 +12154,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 4.096000e+03, %77
+  %78 = fdiv nnan double 4.096000e+03, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -12255,7 +12255,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3F30000000000000
+  %126 = fmul nnan double %125, 0x3F30000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -14127,7 +14127,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 4.096000e+03, %77
+  %78 = fdiv nnan double 4.096000e+03, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -14228,7 +14228,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3F30000000000000
+  %126 = fmul nnan double %125, 0x3F30000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -16100,7 +16100,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 4.096000e+03, %77
+  %78 = fdiv nnan double 4.096000e+03, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -16201,7 +16201,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3F30000000000000
+  %126 = fmul nnan double %125, 0x3F30000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -18073,7 +18073,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 4.096000e+03, %77
+  %78 = fdiv nnan double 4.096000e+03, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -18174,7 +18174,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3F30000000000000
+  %126 = fmul nnan double %125, 0x3F30000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -20046,7 +20046,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 4.096000e+03, %77
+  %78 = fdiv nnan double 4.096000e+03, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -20147,7 +20147,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3F30000000000000
+  %126 = fmul nnan double %125, 0x3F30000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -22019,7 +22019,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 8.192000e+03, %77
+  %78 = fdiv nnan double 8.192000e+03, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -22120,7 +22120,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3F20000000000000
+  %126 = fmul nnan double %125, 0x3F20000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -23993,7 +23993,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 3.276800e+04, %77
+  %78 = fdiv nnan double 3.276800e+04, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -24094,7 +24094,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3F00000000000000
+  %126 = fmul nnan double %125, 0x3F00000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -25967,7 +25967,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 6.553600e+04, %77
+  %78 = fdiv nnan double 6.553600e+04, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -26068,7 +26068,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3EF0000000000000
+  %126 = fmul nnan double %125, 0x3EF0000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -27941,7 +27941,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 2.621440e+05, %77
+  %78 = fdiv nnan double 2.621440e+05, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -28042,7 +28042,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3ED0000000000000
+  %126 = fmul nnan double %125, 0x3ED0000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -29915,7 +29915,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 5.242880e+05, %77
+  %78 = fdiv nnan double 5.242880e+05, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -30016,7 +30016,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3EC0000000000000
+  %126 = fmul nnan double %125, 0x3EC0000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -31889,7 +31889,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 0x4130000000000000, %77
+  %78 = fdiv nnan double 0x4130000000000000, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -31990,7 +31990,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3EB0000000000000
+  %126 = fmul nnan double %125, 0x3EB0000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -33863,7 +33863,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 0x4130000000000000, %77
+  %78 = fdiv nnan double 0x4130000000000000, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -33964,7 +33964,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3EB0000000000000
+  %126 = fmul nnan double %125, 0x3EB0000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -35837,7 +35837,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 0x4130000000000000, %77
+  %78 = fdiv nnan double 0x4130000000000000, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -35938,7 +35938,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3EB0000000000000
+  %126 = fmul nnan double %125, 0x3EB0000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -37811,7 +37811,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 0x4130000000000000, %77
+  %78 = fdiv nnan double 0x4130000000000000, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -37912,7 +37912,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3EB0000000000000
+  %126 = fmul nnan double %125, 0x3EB0000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double
@@ -39785,7 +39785,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN5draco17R
   %.0117192.us = phi i32 [ %.2119.us, %.thread.us ], [ %76, %.lr.ph194 ]
   %.1122191.us = phi i32 [ %.3124.us, %.thread.us ], [ %41, %.lr.ph194 ]
   %77 = sitofp i32 %.1122191.us to double
-  %78 = fdiv double 0x4130000000000000, %77
+  %78 = fdiv nnan double 0x4130000000000000, %77
   br label %79
 
 79:                                               ; preds = %.lr.ph185.us, %99
@@ -39886,7 +39886,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit146:                 ; preds = %.thread.us, %66
 
 124:                                              ; preds = %120
   %125 = uitofp i32 %122 to double
-  %126 = fmul double %125, 0x3EB0000000000000
+  %126 = fmul nnan double %125, 0x3EB0000000000000
   %127 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv225
   %128 = load i64, ptr %127, align 8, !tbaa !9
   %129 = uitofp i64 %128 to double

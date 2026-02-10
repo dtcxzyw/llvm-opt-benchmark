@@ -480,7 +480,7 @@ define void @Au_NtkPrintStats(ptr noundef readonly captures(none) %0) local_unna
   %.val22 = load i32, ptr %14, align 4, !tbaa !45
   %21 = sub nsw i32 %20, %.val22
   %22 = sitofp i32 %21 to double
-  %23 = fmul double %22, 1.000000e+02
+  %23 = fmul nnan double %22, 1.000000e+02
   %24 = sitofp i32 %20 to double
   %25 = fdiv double %23, %24
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %25)
@@ -499,14 +499,14 @@ define void @Au_NtkPrintStats(ptr noundef readonly captures(none) %0) local_unna
   %39 = shl nsw i32 %38, 4
   %40 = add nsw i32 %36, %39
   %41 = sitofp i32 %40 to double
-  %42 = fmul double %41, 0x3EB0000000000000
+  %42 = fmul nnan double %41, 0x3EB0000000000000
   %43 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %42)
   %44 = load i32, ptr %37, align 4, !tbaa !43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %46 = load i32, ptr %45, align 8, !tbaa !47
   %47 = sub nsw i32 %44, %46
   %48 = sitofp i32 %47 to double
-  %49 = fmul double %48, 1.000000e+02
+  %49 = fmul nnan double %48, 1.000000e+02
   %50 = sitofp i32 %44 to double
   %51 = fdiv double %49, %50
   %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %51)
@@ -896,7 +896,7 @@ define void @Au_ManPrintStats(ptr noundef readonly captures(none) %0) local_unna
 
 Au_ManMemUsage.exit.loopexit:                     ; preds = %23
   %30 = sitofp i32 %29 to double
-  %31 = fmul double %30, 0x3EB0000000000000
+  %31 = fmul nnan double %30, 0x3EB0000000000000
   br label %Au_ManMemUsage.exit
 
 Au_ManMemUsage.exit:                              ; preds = %Au_ManMemUsage.exit.loopexit, %18
@@ -954,7 +954,7 @@ Au_ManMemUsage.exit:                              ; preds = %Au_ManMemUsage.exit
 Au_ManMemUsage.exit45.loopexit:                   ; preds = %.lr.ph.i38
   %54 = sub nsw i32 %41, %47
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %55, 1.000000e+02
+  %56 = fmul nnan double %55, 1.000000e+02
   %57 = sitofp i32 %53 to double
   %58 = fdiv double %56, %57
   br label %Au_ManMemUsage.exit45

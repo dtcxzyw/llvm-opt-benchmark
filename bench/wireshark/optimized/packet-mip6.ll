@@ -1321,7 +1321,7 @@ define internal void @degrees_base_custom(ptr noundef %0, i32 noundef %1) #2 {
   %5 = or i32 %1, -16777216
   %spec.select.i = select i1 %.not6.i, i32 %1, i32 %5
   %6 = sitofp i32 %spec.select.i to float
-  %7 = fmul float %6, 0x3F00000000000000
+  %7 = fmul nnan float %6, 0x3F00000000000000
   %8 = fpext float %7 to double
   br label %degrees_convert_fixed_to_float.exit
 

@@ -2704,7 +2704,7 @@ define void @CbsP_ManSatPrintStats(ptr noundef readonly captures(none) %0) local
   %28 = load i32, ptr %27, align 4, !tbaa !137
   %.not = icmp eq i32 %28, 0
   %29 = sitofp i32 %26 to double
-  %30 = fmul double %29, 1.000000e+02
+  %30 = fmul nnan double %29, 1.000000e+02
   %31 = sitofp i32 %28 to double
   %32 = fdiv double %30, %31
   %33 = select i1 %.not, double 0.000000e+00, double %32
@@ -2730,7 +2730,7 @@ define void @CbsP_ManSatPrintStats(ptr noundef readonly captures(none) %0) local
   %47 = load i64, ptr %46, align 8, !tbaa !138
   %.not47 = icmp eq i64 %47, 0
   %48 = sitofp i64 %47 to double
-  %49 = fmul double %44, 1.000000e+02
+  %49 = fmul nnan double %44, 1.000000e+02
   %50 = fdiv double %49, %48
   %51 = select i1 %.not47, double 0.000000e+00, double %50
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.16, double noundef %45, double noundef %51)
@@ -2739,7 +2739,7 @@ define void @CbsP_ManSatPrintStats(ptr noundef readonly captures(none) %0) local
   %54 = load i32, ptr %27, align 4, !tbaa !137
   %.not48 = icmp eq i32 %54, 0
   %55 = sitofp i32 %53 to double
-  %56 = fmul double %55, 1.000000e+02
+  %56 = fmul nnan double %55, 1.000000e+02
   %57 = sitofp i32 %54 to double
   %58 = fdiv double %56, %57
   %59 = select i1 %.not48, double 0.000000e+00, double %58
@@ -2764,7 +2764,7 @@ define void @CbsP_ManSatPrintStats(ptr noundef readonly captures(none) %0) local
   %72 = load i64, ptr %46, align 8, !tbaa !138
   %.not50 = icmp eq i64 %72, 0
   %73 = sitofp i64 %72 to double
-  %74 = fmul double %70, 1.000000e+02
+  %74 = fmul nnan double %70, 1.000000e+02
   %75 = fdiv double %74, %73
   %76 = select i1 %.not50, double 0.000000e+00, double %75
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.16, double noundef %71, double noundef %76)
@@ -2785,7 +2785,7 @@ define void @CbsP_ManSatPrintStats(ptr noundef readonly captures(none) %0) local
 86:                                               ; preds = %65, %81
   %87 = phi double [ %85, %81 ], [ 0.000000e+00, %65 ]
   %.not51 = icmp eq i32 %79, 0
-  %88 = fmul double %80, 1.000000e+02
+  %88 = fmul nnan double %80, 1.000000e+02
   %89 = sitofp i32 %79 to double
   %90 = fdiv double %88, %89
   %91 = select i1 %.not51, double 0.000000e+00, double %90
@@ -2797,7 +2797,7 @@ define void @CbsP_ManSatPrintStats(ptr noundef readonly captures(none) %0) local
   %96 = load i64, ptr %46, align 8, !tbaa !138
   %.not53 = icmp eq i64 %96, 0
   %97 = sitofp i64 %96 to double
-  %98 = fmul double %95, 1.000000e+02
+  %98 = fmul nnan double %95, 1.000000e+02
   %99 = fdiv double %98, %97
   %100 = select i1 %.not53, double 0.000000e+00, double %99
   %101 = fdiv double %95, 1.000000e+06

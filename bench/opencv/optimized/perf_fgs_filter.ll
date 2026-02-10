@@ -2146,7 +2146,7 @@ _ZNK7testing18WithParamInterfaceISt5tupleIJN11opencv_test12_GLOBAL__N_112_GLOBAL
   %60 = and i64 %59, 4294967295
   %61 = or disjoint i64 %60, %55
   %62 = uitofp i64 %61 to double
-  %63 = fmul double %62, 0x3BF0000000000000
+  %63 = fmul nnan double %62, 0x3BF0000000000000
   %64 = call noundef double @llvm.fmuladd.f64(double %63, double 9.500000e+03, double 5.000000e+02)
   %65 = mul nuw i64 %60, 4164903690
   %66 = lshr i64 %59, 32
@@ -2159,7 +2159,7 @@ _ZNK7testing18WithParamInterfaceISt5tupleIJN11opencv_test12_GLOBAL__N_112_GLOBAL
   %73 = and i64 %72, 4294967295
   %74 = or disjoint i64 %73, %68
   %75 = uitofp i64 %74 to double
-  %76 = fmul double %75, 0x3BF0000000000000
+  %76 = fmul nnan double %75, 0x3BF0000000000000
   %77 = call noundef double @llvm.fmuladd.f64(double %76, double 9.900000e+01, double 1.000000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %36, align 8, !tbaa !157

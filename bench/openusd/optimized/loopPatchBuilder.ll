@@ -1116,7 +1116,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i69:           ; preds = %185, %183, %181, %.
 257:                                              ; preds = %247
   %258 = uitofp i16 %220 to double
   %259 = fdiv double 1.000000e+00, %258
-  %260 = fmul double %259, 0x401921FB54442D18
+  %260 = fmul nnan double %259, 0x401921FB54442D18
   %261 = call double @cos(double noundef %260) #16
   %262 = call double @llvm.fmuladd.f64(double %261, double 2.500000e-01, double 3.750000e-01)
   %263 = fneg double %262
@@ -1979,8 +1979,8 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIfE27ComputeBoun
 
 55:                                               ; preds = %46
   %56 = sitofp i32 %14 to double
-  %57 = fdiv double 0x400921FB54442D18, %56
-  %58 = fptrunc double %57 to float
+  %57 = fdiv nnan double 0x400921FB54442D18, %56
+  %58 = fptrunc nnan double %57 to float
   %59 = sitofp i32 %1 to float
   %60 = fmul float %59, %58
   %61 = call noundef float @cosf(float noundef %60) #16
@@ -2042,8 +2042,8 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIfE27ComputeBoun
   %90 = add nsw i32 %1, 1
   %91 = srem i32 %90, %0
   %92 = sitofp i32 %14 to double
-  %93 = fdiv double 0x400921FB54442D18, %92
-  %94 = fptrunc double %93 to float
+  %93 = fdiv nnan double 0x400921FB54442D18, %92
+  %94 = fptrunc nnan double %93 to float
   %95 = sitofp i32 %91 to float
   %96 = fmul float %94, %95
   %97 = call noundef float @cosf(float noundef %96) #16
@@ -2137,7 +2137,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIfE27ComputeInte
 25:                                               ; preds = %16
   %26 = sitofp i32 %0 to double
   %27 = fdiv double 1.000000e+00, %26
-  %28 = fmul double %27, 0x401921FB54442D18
+  %28 = fmul nnan double %27, 0x401921FB54442D18
   %29 = tail call double @cos(double noundef %28) #16
   %30 = tail call double @llvm.fmuladd.f64(double %29, double 2.500000e-01, double 3.750000e-01)
   %31 = fneg double %30
@@ -2220,7 +2220,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIfE27ComputeInte
   %70 = fdiv double 0x401921FB54442D18, %69
   %71 = call double @cos(double noundef %70) #16
   %72 = call double @llvm.fmuladd.f64(double %71, double 2.000000e+00, double 3.000000e+00)
-  %73 = fmul double %69, 6.000000e+00
+  %73 = fmul nnan double %69, 6.000000e+00
   %74 = fdiv double %72, %73
   %75 = fptrunc double %74 to float
   %.not69 = icmp slt i32 %0, 0
@@ -2857,7 +2857,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
 24:                                               ; preds = %6
   %25 = sitofp i32 %7 to double
   %26 = fdiv double 1.000000e+00, %25
-  %27 = fmul double %26, 0x401921FB54442D18
+  %27 = fmul nnan double %26, 0x401921FB54442D18
   %28 = tail call double @cos(double noundef %27) #16
   %29 = tail call double @llvm.fmuladd.f64(double %28, double 2.500000e-01, double 3.750000e-01)
   %30 = fneg double %29
@@ -3037,7 +3037,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
 27:                                               ; preds = %9
   %28 = sitofp i32 %10 to double
   %29 = fdiv double 1.000000e+00, %28
-  %30 = fmul double %29, 0x401921FB54442D18
+  %30 = fmul nnan double %29, 0x401921FB54442D18
   %31 = tail call double @cos(double noundef %30) #16
   %32 = tail call double @llvm.fmuladd.f64(double %31, double 2.500000e-01, double 3.750000e-01)
   %33 = fneg double %32
@@ -3125,7 +3125,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskI
 
 81:                                               ; preds = %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_.exit
   %82 = sitofp i32 %50 to double
-  %83 = fdiv double 0x401921FB54442D18, %82
+  %83 = fdiv nnan double 0x401921FB54442D18, %82
   %84 = icmp sgt i32 %50, 0
   br i1 %84, label %.lr.ph.preheader.i26, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE29assignSmoothLimitTangentMasksINS0_3Far10LoopLimitsIfE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_.exit
 
@@ -6992,7 +6992,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit.i69:           ; preds = %185, %183, %181, %.
 257:                                              ; preds = %247
   %258 = uitofp i16 %220 to double
   %259 = fdiv double 1.000000e+00, %258
-  %260 = fmul double %259, 0x401921FB54442D18
+  %260 = fmul nnan double %259, 0x401921FB54442D18
   %261 = call double @cos(double noundef %260) #16
   %262 = call double @llvm.fmuladd.f64(double %261, double 2.500000e-01, double 3.750000e-01)
   %263 = fneg double %262
@@ -7542,7 +7542,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeBoun
 
 55:                                               ; preds = %46
   %56 = sitofp i32 %14 to double
-  %57 = fdiv double 0x400921FB54442D18, %56
+  %57 = fdiv nnan double 0x400921FB54442D18, %56
   %58 = sitofp i32 %1 to double
   %59 = fmul double %57, %58
   %60 = call double @cos(double noundef %59) #16
@@ -7604,7 +7604,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeBoun
   %89 = add nsw i32 %1, 1
   %90 = srem i32 %89, %0
   %91 = sitofp i32 %14 to double
-  %92 = fdiv double 0x400921FB54442D18, %91
+  %92 = fdiv nnan double 0x400921FB54442D18, %91
   %93 = sitofp i32 %90 to double
   %94 = fmul double %92, %93
   %95 = call double @cos(double noundef %94) #16
@@ -7690,7 +7690,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeInte
 19:                                               ; preds = %10
   %20 = sitofp i32 %0 to double
   %21 = fdiv double 1.000000e+00, %20
-  %22 = fmul double %21, 0x401921FB54442D18
+  %22 = fmul nnan double %21, 0x401921FB54442D18
   %23 = tail call double @cos(double noundef %22) #16
   %24 = tail call double @llvm.fmuladd.f64(double %23, double 2.500000e-01, double 3.750000e-01)
   %25 = fneg double %24
@@ -7752,7 +7752,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeInte
 54:                                               ; preds = %49
   %55 = sitofp i32 %0 to double
   %56 = fdiv double 1.000000e+00, %55
-  %57 = fmul double %56, 0x401921FB54442D18
+  %57 = fmul nnan double %56, 0x401921FB54442D18
   %58 = call double @cos(double noundef %57) #16
   %59 = call double @llvm.fmuladd.f64(double %58, double 2.500000e-01, double 3.750000e-01)
   %60 = fneg double %59
@@ -7832,7 +7832,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far10LoopLimitsIdE27ComputeInte
   store double 0.000000e+00, ptr %50, align 8
   store double 0.000000e+00, ptr %52, align 8
   %92 = uitofp nneg i32 %0 to double
-  %93 = fdiv double 0x401921FB54442D18, %92
+  %93 = fdiv nnan double 0x401921FB54442D18, %92
   br label %.lr.ph.i28.i
 
 .lr.ph.i28.i:                                     ; preds = %.lr.ph.i28.i, %.lr.ph.preheader.i26.i
@@ -7857,7 +7857,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE22ComputeVertexLimitMask
   %103 = fdiv double 0x401921FB54442D18, %.pre-phi
   %104 = call double @cos(double noundef %103) #16
   %105 = call double @llvm.fmuladd.f64(double %104, double 2.000000e+00, double 3.000000e+00)
-  %106 = fmul double %.pre-phi, 6.000000e+00
+  %106 = fmul nnan double %.pre-phi, 6.000000e+00
   %107 = fdiv double %105, %106
   %.not109 = icmp slt i32 %0, 0
   br i1 %.not109, label %._crit_edge, label %.lr.ph.preheader
@@ -8487,7 +8487,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
 24:                                               ; preds = %6
   %25 = sitofp i32 %7 to double
   %26 = fdiv double 1.000000e+00, %25
-  %27 = fmul double %26, 0x401921FB54442D18
+  %27 = fmul nnan double %26, 0x401921FB54442D18
   %28 = tail call double @cos(double noundef %27) #16
   %29 = tail call double @llvm.fmuladd.f64(double %28, double 2.500000e-01, double 3.750000e-01)
   %30 = fneg double %29
@@ -8664,7 +8664,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
 27:                                               ; preds = %9
   %28 = sitofp i32 %10 to double
   %29 = fdiv double 1.000000e+00, %28
-  %30 = fmul double %29, 0x401921FB54442D18
+  %30 = fmul nnan double %29, 0x401921FB54442D18
   %31 = tail call double @cos(double noundef %30) #16
   %32 = tail call double @llvm.fmuladd.f64(double %31, double 2.500000e-01, double 3.750000e-01)
   %33 = fneg double %32
@@ -8749,7 +8749,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskI
 
 78:                                               ; preds = %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE21assignSmoothLimitMaskINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_.exit
   %79 = sitofp i32 %47 to double
-  %80 = fdiv double 0x401921FB54442D18, %79
+  %80 = fdiv nnan double 0x401921FB54442D18, %79
   %81 = icmp sgt i32 %47, 0
   br i1 %81, label %.lr.ph.preheader.i26, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE29assignSmoothLimitTangentMasksINS0_3Far10LoopLimitsIdE11LimitVertexENS8_9LimitMaskEEEvRKT_RT0_SF_.exit
 

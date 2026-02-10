@@ -1028,15 +1028,15 @@ define internal fastcc ptr @pov_color_as_str(ptr noundef readonly byval(%struct.
 21:                                               ; preds = %2
   %22 = load i8, ptr %0, align 8, !tbaa !30
   %23 = uitofp i8 %22 to double
-  %24 = fmul double %23, 3.906250e-03
+  %24 = fmul nnan double %23, 3.906250e-03
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %26 = load i8, ptr %25, align 1, !tbaa !30
   %27 = uitofp i8 %26 to double
-  %28 = fmul double %27, 3.906250e-03
+  %28 = fmul nnan double %27, 3.906250e-03
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %30 = load i8, ptr %29, align 2, !tbaa !30
   %31 = uitofp i8 %30 to double
-  %32 = fmul double %31, 3.906250e-03
+  %32 = fmul nnan double %31, 3.906250e-03
   %33 = fpext float %1 to double
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %3, ptr noundef nonnull @.str.39, double noundef %24, double noundef %28, double noundef %32, double noundef %33)
   br label %38

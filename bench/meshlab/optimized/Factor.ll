@@ -717,7 +717,7 @@ _Z4SqrtPKdPd.exit73:                              ; preds = %_Z4SqrtPKdPd.exit68
   %123 = fmul double %sqrt132, %122
   %124 = tail call double @sin(double noundef %121) #14
   %125 = fmul double %sqrt132, %124
-  %126 = fmul double %44, 5.000000e-01
+  %126 = fmul nnan double %44, 5.000000e-01
   br label %203
 
 127:                                              ; preds = %_Z4SqrtPKdPd.exit

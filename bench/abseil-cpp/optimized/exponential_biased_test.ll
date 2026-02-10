@@ -487,7 +487,7 @@ define internal void @_ZN4absl18profiling_internal12_GLOBAL__N_155ExponentialBia
 
 10:                                               ; preds = %.preheader
   %11 = uitofp nneg i32 %15 to double
-  %12 = fmul double %11, 1.000000e+02
+  %12 = fmul nnan double %11, 1.000000e+02
   %13 = fdiv double %12, 1.000000e+07
   %14 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, i32 noundef %15, double noundef %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -555,7 +555,7 @@ define internal void @_ZN4absl18profiling_internal12_GLOBAL__N_147ExponentialBia
 
 4:                                                ; preds = %15
   %5 = sitofp i32 %.1 to double
-  %6 = fmul double %5, 1.000000e+02
+  %6 = fmul nnan double %5, 1.000000e+02
   %7 = fdiv double %6, 1.000000e+07
   %8 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %.1, double noundef %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -963,8 +963,8 @@ _ZN4absl18profiling_internal12_GLOBAL__N_118AndersonDarlingInfEd.exit.i.i: ; pre
   %153 = fmul double %152, %151
   %154 = mul nsw i32 %101, %101
   %155 = uitofp nneg i32 %154 to double
-  %156 = fdiv double 3.700000e-03, %155
-  %157 = fdiv double 7.800000e-04, %143
+  %156 = fdiv nnan double 3.700000e-03, %155
+  %157 = fdiv nnan double 7.800000e-04, %143
   %158 = fadd double %157, %156
   %159 = fadd double %158, 6.000000e-05
   %160 = fmul double %159, %153
@@ -982,8 +982,8 @@ _ZN4absl18profiling_internal12_GLOBAL__N_118AndersonDarlingInfEd.exit.i.i: ; pre
   %170 = fneg double %169
   %171 = call double @llvm.fmuladd.f64(double %170, double %164, double 6.540340e+00)
   %172 = call double @llvm.fmuladd.f64(double %171, double %164, double -2.263300e-04)
-  %173 = fdiv double 1.365000e-02, %143
-  %174 = fadd double %173, 4.213000e-02
+  %173 = fdiv nnan double 1.365000e-02, %143
+  %174 = fadd nnan double %173, 4.213000e-02
   %175 = fmul double %174, %172
   br label %176
 
@@ -1007,7 +1007,7 @@ _ZN4absl18profiling_internal12_GLOBAL__N_118AndersonDarlingInfEd.exit.i.i: ; pre
   %181 = getelementptr inbounds nuw i64, ptr %16, i64 %.0145
   %182 = load i64, ptr %181, align 8, !tbaa !25
   %183 = uitofp i64 %182 to double
-  %184 = fmul double %183, 0x3CF0000000000000
+  %184 = fmul nnan double %183, 0x3CF0000000000000
   %185 = getelementptr inbounds nuw double, ptr %70, i64 %.0145
   store double %184, ptr %185, align 8, !tbaa !30
   %186 = add nuw i64 %.0145, 1
@@ -2798,7 +2798,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %.0.i.i, %55
+  %56 = fmul nnan double %.0.i.i, %55
   %57 = fcmp une double %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 

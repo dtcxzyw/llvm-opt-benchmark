@@ -296,7 +296,7 @@ define hidden void @_ZN7nanogui10ColorWheel4drawEP10NVGcontext(ptr noundef nonnu
   %29 = fcmp olt float %21, %24
   %30 = select i1 %29, float %21, float %24
   %31 = tail call float @llvm.fmuladd.f32(float %30, float 5.000000e-01, float -5.000000e+00)
-  %32 = fmul float %31, 7.500000e-01
+  %32 = fmul nnan float %31, 7.500000e-01
   %33 = fdiv float 5.000000e-01, %31
   %34 = fneg float %33
   %35 = fadd float %31, %32
@@ -305,12 +305,12 @@ define hidden void @_ZN7nanogui10ColorWheel4drawEP10NVGcontext(ptr noundef nonnu
 36:                                               ; preds = %12, %36
   %.0176 = phi i32 [ 0, %12 ], [ %65, %36 ]
   %37 = uitofp nneg i32 %.0176 to float
-  %38 = fdiv float %37, 6.000000e+00
-  %39 = fmul float %38, 0x400921FB60000000
+  %38 = fdiv nnan float %37, 6.000000e+00
+  %39 = fmul nnan float %38, 0x400921FB60000000
   %40 = call float @llvm.fmuladd.f32(float %39, float 2.000000e+00, float %34)
-  %41 = fadd float %37, 1.000000e+00
-  %42 = fdiv float %41, 6.000000e+00
-  %43 = fmul float %42, 0x400921FB60000000
+  %41 = fadd nnan float %37, 1.000000e+00
+  %42 = fdiv nnan float %41, 6.000000e+00
+  %43 = fmul nnan float %42, 0x400921FB60000000
   %44 = call float @llvm.fmuladd.f32(float %43, float 2.000000e+00, float %33)
   call void @nvgBeginPath(ptr noundef %1)
   call void @nvgArc(ptr noundef %1, float noundef %27, float noundef %28, float noundef %32, float noundef %40, float noundef %44, i32 noundef 2)
@@ -402,9 +402,9 @@ define hidden void @_ZN7nanogui10ColorWheel4drawEP10NVGcontext(ptr noundef nonnu
   call void @nvgFillPaint(ptr noundef %1, ptr noundef nonnull byval(%struct.NVGpaint) align 8 %3)
   call void @nvgFill(ptr noundef %1)
   %98 = fadd float %32, -6.000000e+00
-  %99 = fmul float %98, -5.000000e-01
-  %100 = fmul float %98, 0x3FEBB67AE0000000
-  %101 = fmul float %98, 0xBFEBB67AE0000000
+  %99 = fmul nnan float %98, -5.000000e-01
+  %100 = fmul nnan float %98, 0x3FEBB67AE0000000
+  %101 = fmul nnan float %98, 0xBFEBB67AE0000000
   call void @nvgBeginPath(ptr noundef %1)
   call void @nvgMoveTo(ptr noundef %1, float noundef %98, float noundef 0.000000e+00)
   call void @nvgLineTo(ptr noundef %1, float noundef %99, float noundef %100)
@@ -421,8 +421,8 @@ define hidden void @_ZN7nanogui10ColorWheel4drawEP10NVGcontext(ptr noundef nonnu
   call void @nvgFill(ptr noundef %1)
   %108 = fadd float %98, %99
   %109 = fmul float %108, 5.000000e-01
-  %110 = fadd float %100, 0.000000e+00
-  %111 = fmul float %110, 5.000000e-01
+  %110 = fadd nnan float %100, 0.000000e+00
+  %111 = fmul nnan float %110, 5.000000e-01
   %112 = call { <2 x float>, <2 x float> } @nvgRGBA(i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0, i8 noundef zeroext 0)
   %113 = extractvalue { <2 x float>, <2 x float> } %112, 0
   %114 = extractvalue { <2 x float>, <2 x float> } %112, 1
@@ -574,12 +574,12 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_posit
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %21 = load i32, ptr %20, align 4
   %22 = sitofp i32 %21 to float
-  %23 = fmul float %19, 5.000000e-01
-  %24 = fmul float %22, 5.000000e-01
+  %23 = fmul nnan float %19, 5.000000e-01
+  %24 = fmul nnan float %22, 5.000000e-01
   %25 = fcmp olt float %19, %22
   %26 = select i1 %25, float %19, float %22
   %27 = tail call float @llvm.fmuladd.f32(float %26, float 5.000000e-01, float -5.000000e+00)
-  %28 = fmul float %27, 7.500000e-01
+  %28 = fmul nnan float %27, 7.500000e-01
   %29 = fsub float %10, %23
   %30 = fsub float %16, %24
   %31 = fmul float %30, %30
@@ -636,7 +636,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui10ColorWheel15adjust_posit
   %63 = fpext float %62 to double
   %64 = fpext float %60 to double
   %65 = tail call double @llvm.fmuladd.f64(double %64, double 0x3FFBB67AE8584CAA, double %63)
-  %66 = fmul float %61, 3.000000e+00
+  %66 = fmul nnan float %61, 3.000000e+00
   %67 = fpext float %66 to double
   %68 = fdiv double %65, %67
   %69 = fptrunc double %68 to float

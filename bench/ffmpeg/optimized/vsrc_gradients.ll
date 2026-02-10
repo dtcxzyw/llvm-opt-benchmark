@@ -116,10 +116,10 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %27 = frem nsz float %26, 0x401921FB60000000
   %28 = load i32, ptr %20, align 8, !tbaa !30
   %29 = sitofp i32 %28 to float
-  %30 = fmul nsz float %29, 5.000000e-01
+  %30 = fmul nnan nsz float %29, 5.000000e-01
   %31 = load i32, ptr %22, align 4, !tbaa !31
   %32 = sitofp i32 %31 to float
-  %33 = fmul nsz float %32, 5.000000e-01
+  %33 = fmul nnan nsz float %32, 5.000000e-01
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %35 = load float, ptr %34, align 8, !tbaa !33
   %36 = fadd nsz float %27, %35
@@ -132,7 +132,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 224
   %43 = load i32, ptr %42, align 8, !tbaa !35
   %44 = sitofp i32 %43 to float
-  %45 = fsub nsz float %44, %33
+  %45 = fsub nnan nsz float %44, %33
   %46 = tail call nsz float @llvm.sin.f32(float %27)
   %47 = fneg nsz float %46
   %48 = fmul nsz float %45, %47
@@ -152,7 +152,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %60 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %61 = load i32, ptr %60, align 8, !tbaa !39
   %62 = sitofp i32 %61 to float
-  %63 = fsub nsz float %62, %33
+  %63 = fsub nnan nsz float %62, %33
   %64 = fmul nsz float %63, %47
   %65 = tail call nsz float @llvm.fmuladd.f32(float %59, float %41, float %64)
   %66 = fadd nsz float %30, %65

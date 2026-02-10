@@ -140,7 +140,7 @@ define void @_ZNK5ZXing4OneD12Code93Reader13decodePatternEiRNS_11PatternViewERSt
 
 _ZNK5ZXing11PatternView3sumEi.exit.i.i122:        ; preds = %.lr.ph.i.i.i.i.i116
   %41 = uitofp i16 %40 to double
-  %42 = fmul double %41, 2.500000e-01
+  %42 = fmul nnan double %41, 2.500000e-01
   %43 = tail call double @llvm.fmuladd.f64(double %42, double 6.000000e+00, double -1.000000e+00)
   %44 = fcmp ogt double %43, 0x41DFFFFFFFC00000
   br i1 %44, label %_ZN5ZXing4OneDL12IsStartGuardERKNS_11PatternViewEi.exit127.thread, label %45
@@ -243,7 +243,7 @@ _ZN5ZXing4OneDL12IsStartGuardERKNS_11PatternViewEi.exit127.._crit_edge.i_crit_ed
 
 _ZNK5ZXing11PatternView3sumEi.exit.i.i:           ; preds = %.lr.ph.i.i.i.i.i
   %87 = uitofp i16 %86 to double
-  %88 = fmul double %87, 2.500000e-01
+  %88 = fmul nnan double %87, 2.500000e-01
   %89 = uitofp i16 %84 to double
   %90 = call double @llvm.fmuladd.f64(double %88, double 6.000000e+00, double -1.000000e+00)
   %91 = fcmp ogt double %90, %89
@@ -755,7 +755,7 @@ _ZN5ZXing6ResultC2Ev.exit49:                      ; preds = %262
 _ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit: ; preds = %.lr.ph.i.i.i.i
   %305 = uitofp i16 %302 to float
   %306 = uitofp i16 %304 to float
-  %307 = fmul float %306, 5.000000e-01
+  %307 = fmul nnan float %306, 5.000000e-01
   %308 = fcmp ugt float %307, %305
   br i1 %308, label %_ZNK5ZXing11PatternView7isValidEv.exit54.thread, label %_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit.thread
 

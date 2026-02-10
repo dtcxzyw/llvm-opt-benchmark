@@ -1009,8 +1009,8 @@ thread-pre-split:                                 ; preds = %42
   br i1 %344, label %392, label %345
 
 345:                                              ; preds = %341
-  %346 = fadd nsz double %328, 7.000000e+01
-  %347 = fmul nsz double %346, 1.000000e+02
+  %346 = fadd nnan nsz double %328, 7.000000e+01
+  %347 = fmul nnan nsz double %346, 1.000000e+02
   %348 = fptosi double %347 to i32
   %349 = call i32 @llvm.smax.i32(i32 %348, i32 0)
   %350 = call i32 @llvm.umin.i32(i32 %349, i32 8000)
@@ -1086,8 +1086,8 @@ thread-pre-split:                                 ; preds = %42
   br i1 %393, label %460, label %394
 
 394:                                              ; preds = %392
-  %395 = fadd nsz double %343, 7.000000e+01
-  %396 = fmul nsz double %395, 1.000000e+02
+  %395 = fadd nnan nsz double %343, 7.000000e+01
+  %396 = fmul nnan nsz double %395, 1.000000e+02
   %397 = fptosi double %396 to i32
   %398 = call i32 @llvm.smax.i32(i32 %397, i32 0)
   %399 = call i32 @llvm.umin.i32(i32 %398, i32 8000)
@@ -2092,9 +2092,9 @@ define internal range(i32 -22, 1) i32 @config_video_output(ptr noundef %0) #1 {
   %104 = select nsz i1 %103, float %99, float 0.000000e+00
   %105 = fcmp nsz ogt float %104, %102
   %..i.i172 = select nsz i1 %105, float %102, float %104
-  %106 = fpext nsz float %..i.i172 to double
+  %106 = fpext nnan ninf nsz float %..i.i172 to double
   %107 = sitofp i32 %101 to double
-  %108 = fsub nsz double %107, %106
+  %108 = fsub nnan nsz double %107, %106
   %109 = load i32, ptr %31, align 4, !tbaa !123
   %110 = sitofp i32 %109 to double
   %111 = fmul nsz double %108, %110
@@ -2108,8 +2108,8 @@ define internal range(i32 -22, 1) i32 @config_video_output(ptr noundef %0) #1 {
   %118 = select nsz i1 %117, float %116, float 0.000000e+00
   %119 = fcmp nsz ogt float %118, %102
   %..i.i173 = select nsz i1 %119, float %102, float %118
-  %120 = fpext nsz float %..i.i173 to double
-  %121 = fsub nsz double %107, %120
+  %120 = fpext nnan ninf nsz float %..i.i173 to double
+  %121 = fsub nnan nsz double %107, %120
   %122 = fmul nsz double %121, %110
   %123 = fdiv nsz double %122, %107
   %124 = fptosi double %123 to i32

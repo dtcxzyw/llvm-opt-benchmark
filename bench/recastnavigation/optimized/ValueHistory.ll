@@ -208,7 +208,7 @@ define dso_local void @_Z9drawGraphPK11GraphParamsPK12ValueHistoryiPKcj(ptr noun
   %11 = shl nsw i32 %10, 1
   %12 = sub nsw i32 %8, %11
   %13 = sitofp i32 %12 to float
-  %14 = fmul float %13, 3.906250e-03
+  %14 = fmul nnan float %13, 3.906250e-03
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %16 = load i32, ptr %15, align 4
   %17 = sub nsw i32 %16, %11

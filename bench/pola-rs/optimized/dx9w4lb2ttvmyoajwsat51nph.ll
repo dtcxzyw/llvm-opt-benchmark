@@ -15202,8 +15202,8 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 204
   %23 = load i32, ptr %22, align 4, !noundef !3
   %24 = uitofp i32 %23 to double
-  %25 = fsub double 1.638400e+04, %24
-  %26 = fmul double %25, 0x3F10000000000000
+  %25 = fsub nnan double 1.638400e+04, %24
+  %26 = fmul nnan double %25, 0x3F10000000000000
   %27 = fcmp oeq double %26, 0.000000e+00
   %28 = fcmp oeq double %26, 1.000000e+00
   %or.cond.i = or i1 %27, %28
@@ -15250,7 +15250,7 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
 47:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf27630c74eb754c9E.exit"
   %48 = load i32, ptr %3, align 4, !noundef !3
   %49 = uitofp i32 %48 to double
-  %50 = fmul double %49, 0x3F10000000000000
+  %50 = fmul nnan double %49, 0x3F10000000000000
   %51 = fcmp oeq double %50, 1.000000e+00
   br i1 %51, label %59, label %.preheader
 
@@ -15342,8 +15342,8 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 204
   %23 = load i32, ptr %22, align 4, !noundef !3
   %24 = uitofp i32 %23 to double
-  %25 = fsub double 1.638400e+04, %24
-  %26 = fmul double %25, 0x3F10000000000000
+  %25 = fsub nnan double 1.638400e+04, %24
+  %26 = fmul nnan double %25, 0x3F10000000000000
   %27 = fcmp oeq double %26, 0.000000e+00
   %28 = fcmp oeq double %26, 1.000000e+00
   %or.cond.i = or i1 %27, %28
@@ -15390,7 +15390,7 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
 47:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf27630c74eb754c9E.exit"
   %48 = load i32, ptr %3, align 4, !noundef !3
   %49 = uitofp i32 %48 to double
-  %50 = fmul double %49, 0x3F10000000000000
+  %50 = fmul nnan double %49, 0x3F10000000000000
   %51 = fcmp oeq double %50, 1.000000e+00
   br i1 %51, label %59, label %.preheader
 
@@ -15482,8 +15482,8 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 204
   %23 = load i32, ptr %22, align 4, !noundef !3
   %24 = uitofp i32 %23 to double
-  %25 = fsub double 1.638400e+04, %24
-  %26 = fmul double %25, 0x3F10000000000000
+  %25 = fsub nnan double 1.638400e+04, %24
+  %26 = fmul nnan double %25, 0x3F10000000000000
   %27 = fcmp oeq double %26, 0.000000e+00
   %28 = fcmp oeq double %26, 1.000000e+00
   %or.cond.i = or i1 %27, %28
@@ -15530,7 +15530,7 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
 47:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf27630c74eb754c9E.exit"
   %48 = load i32, ptr %3, align 4, !noundef !3
   %49 = uitofp i32 %48 to double
-  %50 = fmul double %49, 0x3F10000000000000
+  %50 = fmul nnan double %49, 0x3F10000000000000
   %51 = fcmp oeq double %50, 1.000000e+00
   br i1 %51, label %59, label %.preheader
 
@@ -15622,8 +15622,8 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 204
   %23 = load i32, ptr %22, align 4, !noundef !3
   %24 = uitofp i32 %23 to double
-  %25 = fsub double 1.638400e+04, %24
-  %26 = fmul double %25, 0x3F10000000000000
+  %25 = fsub nnan double 1.638400e+04, %24
+  %26 = fmul nnan double %25, 0x3F10000000000000
   %27 = fcmp oeq double %26, 0.000000e+00
   %28 = fcmp oeq double %26, 1.000000e+00
   %or.cond.i = or i1 %27, %28
@@ -15670,7 +15670,7 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
 47:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf27630c74eb754c9E.exit"
   %48 = load i32, ptr %3, align 4, !noundef !3
   %49 = uitofp i32 %48 to double
-  %50 = fmul double %49, 0x3F10000000000000
+  %50 = fmul nnan double %49, 0x3F10000000000000
   %51 = fcmp oeq double %50, 1.000000e+00
   br i1 %51, label %59, label %.preheader
 
@@ -15762,8 +15762,8 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 204
   %23 = load i32, ptr %22, align 4, !noundef !3
   %24 = uitofp i32 %23 to double
-  %25 = fsub double 1.638400e+04, %24
-  %26 = fmul double %25, 0x3F10000000000000
+  %25 = fsub nnan double 1.638400e+04, %24
+  %26 = fmul nnan double %25, 0x3F10000000000000
   %27 = fcmp oeq double %26, 0.000000e+00
   %28 = fcmp oeq double %26, 1.000000e+00
   %or.cond.i = or i1 %27, %28
@@ -15810,7 +15810,7 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
 47:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf27630c74eb754c9E.exit"
   %48 = load i32, ptr %3, align 4, !noundef !3
   %49 = uitofp i32 %48 to double
-  %50 = fmul double %49, 0x3F10000000000000
+  %50 = fmul nnan double %49, 0x3F10000000000000
   %51 = fcmp oeq double %50, 1.000000e+00
   br i1 %51, label %59, label %.preheader
 
@@ -15902,8 +15902,8 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 204
   %23 = load i32, ptr %22, align 4, !noundef !3
   %24 = uitofp i32 %23 to double
-  %25 = fsub double 1.638400e+04, %24
-  %26 = fmul double %25, 0x3F10000000000000
+  %25 = fsub nnan double 1.638400e+04, %24
+  %26 = fmul nnan double %25, 0x3F10000000000000
   %27 = fcmp oeq double %26, 0.000000e+00
   %28 = fcmp oeq double %26, 1.000000e+00
   %or.cond.i = or i1 %27, %28
@@ -15950,7 +15950,7 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
 47:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf27630c74eb754c9E.exit"
   %48 = load i32, ptr %3, align 4, !noundef !3
   %49 = uitofp i32 %48 to double
-  %50 = fmul double %49, 0x3F10000000000000
+  %50 = fmul nnan double %49, 0x3F10000000000000
   %51 = fcmp oeq double %50, 1.000000e+00
   br i1 %51, label %59, label %.preheader
 
@@ -16042,8 +16042,8 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 204
   %23 = load i32, ptr %22, align 4, !noundef !3
   %24 = uitofp i32 %23 to double
-  %25 = fsub double 1.638400e+04, %24
-  %26 = fmul double %25, 0x3F10000000000000
+  %25 = fsub nnan double 1.638400e+04, %24
+  %26 = fmul nnan double %25, 0x3F10000000000000
   %27 = fcmp oeq double %26, 0.000000e+00
   %28 = fcmp oeq double %26, 1.000000e+00
   %or.cond.i = or i1 %27, %28
@@ -16090,7 +16090,7 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
 47:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf27630c74eb754c9E.exit"
   %48 = load i32, ptr %3, align 4, !noundef !3
   %49 = uitofp i32 %48 to double
-  %50 = fmul double %49, 0x3F10000000000000
+  %50 = fmul nnan double %49, 0x3F10000000000000
   %51 = fcmp oeq double %50, 1.000000e+00
   br i1 %51, label %59, label %.preheader
 
@@ -16182,8 +16182,8 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 204
   %23 = load i32, ptr %22, align 4, !noundef !3
   %24 = uitofp i32 %23 to double
-  %25 = fsub double 1.638400e+04, %24
-  %26 = fmul double %25, 0x3F10000000000000
+  %25 = fsub nnan double 1.638400e+04, %24
+  %26 = fmul nnan double %25, 0x3F10000000000000
   %27 = fcmp oeq double %26, 0.000000e+00
   %28 = fcmp oeq double %26, 1.000000e+00
   %or.cond.i = or i1 %27, %28
@@ -16230,7 +16230,7 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
 47:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf27630c74eb754c9E.exit"
   %48 = load i32, ptr %3, align 4, !noundef !3
   %49 = uitofp i32 %48 to double
-  %50 = fmul double %49, 0x3F10000000000000
+  %50 = fmul nnan double %49, 0x3F10000000000000
   %51 = fcmp oeq double %50, 1.000000e+00
   br i1 %51, label %59, label %.preheader
 
@@ -16322,8 +16322,8 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 204
   %23 = load i32, ptr %22, align 4, !noundef !3
   %24 = uitofp i32 %23 to double
-  %25 = fsub double 1.638400e+04, %24
-  %26 = fmul double %25, 0x3F10000000000000
+  %25 = fsub nnan double 1.638400e+04, %24
+  %26 = fmul nnan double %25, 0x3F10000000000000
   %27 = fcmp oeq double %26, 0.000000e+00
   %28 = fcmp oeq double %26, 1.000000e+00
   %or.cond.i = or i1 %27, %28
@@ -16370,7 +16370,7 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
 47:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf27630c74eb754c9E.exit"
   %48 = load i32, ptr %3, align 4, !noundef !3
   %49 = uitofp i32 %48 to double
-  %50 = fmul double %49, 0x3F10000000000000
+  %50 = fmul nnan double %49, 0x3F10000000000000
   %51 = fcmp oeq double %50, 1.000000e+00
   br i1 %51, label %59, label %.preheader
 
@@ -16462,8 +16462,8 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 204
   %23 = load i32, ptr %22, align 4, !noundef !3
   %24 = uitofp i32 %23 to double
-  %25 = fsub double 1.638400e+04, %24
-  %26 = fmul double %25, 0x3F10000000000000
+  %25 = fsub nnan double 1.638400e+04, %24
+  %26 = fmul nnan double %25, 0x3F10000000000000
   %27 = fcmp oeq double %26, 0.000000e+00
   %28 = fcmp oeq double %26, 1.000000e+00
   %or.cond.i = or i1 %27, %28
@@ -16510,7 +16510,7 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
 47:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf27630c74eb754c9E.exit"
   %48 = load i32, ptr %3, align 4, !noundef !3
   %49 = uitofp i32 %48 to double
-  %50 = fmul double %49, 0x3F10000000000000
+  %50 = fmul nnan double %49, 0x3F10000000000000
   %51 = fcmp oeq double %50, 1.000000e+00
   br i1 %51, label %59, label %.preheader
 
@@ -16602,8 +16602,8 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 204
   %23 = load i32, ptr %22, align 4, !noundef !3
   %24 = uitofp i32 %23 to double
-  %25 = fsub double 1.638400e+04, %24
-  %26 = fmul double %25, 0x3F10000000000000
+  %25 = fsub nnan double 1.638400e+04, %24
+  %26 = fmul nnan double %25, 0x3F10000000000000
   %27 = fcmp oeq double %26, 0.000000e+00
   %28 = fcmp oeq double %26, 1.000000e+00
   %or.cond.i = or i1 %27, %28
@@ -16650,7 +16650,7 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
 47:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf27630c74eb754c9E.exit"
   %48 = load i32, ptr %3, align 4, !noundef !3
   %49 = uitofp i32 %48 to double
-  %50 = fmul double %49, 0x3F10000000000000
+  %50 = fmul nnan double %49, 0x3F10000000000000
   %51 = fcmp oeq double %50, 1.000000e+00
   br i1 %51, label %59, label %.preheader
 
@@ -16742,8 +16742,8 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 204
   %23 = load i32, ptr %22, align 4, !noundef !3
   %24 = uitofp i32 %23 to double
-  %25 = fsub double 1.638400e+04, %24
-  %26 = fmul double %25, 0x3F10000000000000
+  %25 = fsub nnan double 1.638400e+04, %24
+  %26 = fmul nnan double %25, 0x3F10000000000000
   %27 = fcmp oeq double %26, 0.000000e+00
   %28 = fcmp oeq double %26, 1.000000e+00
   %or.cond.i = or i1 %27, %28
@@ -16790,7 +16790,7 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
 47:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf27630c74eb754c9E.exit"
   %48 = load i32, ptr %3, align 4, !noundef !3
   %49 = uitofp i32 %48 to double
-  %50 = fmul double %49, 0x3F10000000000000
+  %50 = fmul nnan double %49, 0x3F10000000000000
   %51 = fcmp oeq double %50, 1.000000e+00
   br i1 %51, label %59, label %.preheader
 
@@ -16882,8 +16882,8 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 204
   %23 = load i32, ptr %22, align 4, !noundef !3
   %24 = uitofp i32 %23 to double
-  %25 = fsub double 1.638400e+04, %24
-  %26 = fmul double %25, 0x3F10000000000000
+  %25 = fsub nnan double 1.638400e+04, %24
+  %26 = fmul nnan double %25, 0x3F10000000000000
   %27 = fcmp oeq double %26, 0.000000e+00
   %28 = fcmp oeq double %26, 1.000000e+00
   %or.cond.i = or i1 %27, %28
@@ -16930,7 +16930,7 @@ define hidden noundef i64 @"_ZN14polars_compute15hyperloglogplus20HyperLogLog$LT
 47:                                               ; preds = %"_ZN115_$LT$core..ops..range..RangeInclusive$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf27630c74eb754c9E.exit"
   %48 = load i32, ptr %3, align 4, !noundef !3
   %49 = uitofp i32 %48 to double
-  %50 = fmul double %49, 0x3F10000000000000
+  %50 = fmul nnan double %49, 0x3F10000000000000
   %51 = fcmp oeq double %50, 1.000000e+00
   br i1 %51, label %59, label %.preheader
 

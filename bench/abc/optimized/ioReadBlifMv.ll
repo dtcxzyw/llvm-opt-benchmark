@@ -5738,7 +5738,7 @@ Vec_PtrPush.exit.i132:                            ; preds = %2405, %Vec_PtrGrow.
 
 Vec_VecSizeSize.exit398.loopexit.i:               ; preds = %.lr.ph.i391.i
   %2460 = sitofp i32 %2459 to double
-  %2461 = fmul double %2460, 1.000000e+02
+  %2461 = fmul nnan double %2460, 1.000000e+02
   br label %Io_MvParseLineOnehot.exit.thread.i
 
 Io_MvParseLineOnehot.exit.thread.i:               ; preds = %Vec_VecSizeSize.exit398.loopexit.i, %.critedge24.i

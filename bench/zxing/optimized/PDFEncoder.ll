@@ -135,7 +135,7 @@ define void @_ZNK5ZXing6Pdf4177Encoder20generateBarcodeLogicERKNSt7__cxx1112basi
   %47 = add nsw i32 %46, 69
   %48 = sdiv i32 %47, %spec.select.i.i
   %49 = sitofp i32 %48 to float
-  %50 = fmul float %49, 2.500000e-01
+  %50 = fmul nnan float %49, 2.500000e-01
   %51 = trunc nuw i8 %.03350.i to i1
   br i1 %51, label %52, label %58
 

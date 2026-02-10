@@ -857,7 +857,7 @@ ehcleanup81:                                      ; preds = %if.then.i.i70, %ehc
 
 do.end84:                                         ; preds = %if.else
   %sub85 = fsub double %call44, %call41
-  %mul = fmul double %.sroa.speculated, 2.000000e+00
+  %mul = fmul nnan double %.sroa.speculated, 2.000000e+00
   %div86 = fdiv double %sub85, %mul
   br label %return
 

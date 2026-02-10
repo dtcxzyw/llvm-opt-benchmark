@@ -5531,21 +5531,21 @@ Abc_Clock.exit233:                                ; preds = %347, %350
   %361 = fdiv double %360, 1.000000e+06
   %362 = sitofp i64 %359 to double
   %.not184 = icmp eq i64 %.0.i232, %.0.i
-  %363 = fmul double %360, 1.000000e+02
+  %363 = fmul nnan double %360, 1.000000e+02
   %364 = fdiv double %363, %362
   %365 = select i1 %.not184, double 0.000000e+00, double %364
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.17, double noundef %361, double noundef %365)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.18)
   %366 = sitofp i64 %.1157 to double
   %367 = fdiv double %366, 1.000000e+06
-  %368 = fmul double %366, 1.000000e+02
+  %368 = fmul nnan double %366, 1.000000e+02
   %369 = fdiv double %368, %362
   %370 = select i1 %.not184, double 0.000000e+00, double %369
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.17, double noundef %367, double noundef %370)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.19)
   %371 = sitofp i64 %.0155266 to double
   %372 = fdiv double %371, 1.000000e+06
-  %373 = fmul double %371, 1.000000e+02
+  %373 = fmul nnan double %371, 1.000000e+02
   %374 = fdiv double %373, %362
   %375 = select i1 %.not184, double 0.000000e+00, double %374
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.17, double noundef %372, double noundef %375)
@@ -5555,7 +5555,7 @@ Abc_Clock.exit233:                                ; preds = %347, %350
   %378 = sub i64 %359, %377
   %379 = sitofp i64 %378 to double
   %380 = fdiv double %379, 1.000000e+06
-  %381 = fmul double %379, 1.000000e+02
+  %381 = fmul nnan double %379, 1.000000e+02
   %382 = fdiv double %381, %362
   %383 = select i1 %.not184, double 0.000000e+00, double %382
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.17, double noundef %380, double noundef %383)
@@ -6125,7 +6125,7 @@ define ptr @Cec_ManLSCorrespondence(ptr noundef %0, ptr noundef captures(none) %
   %67 = add i32 %58, %66
   %68 = sub nsw i32 %56, %67
   %69 = sitofp i32 %68 to double
-  %70 = fmul double %69, 1.000000e+02
+  %70 = fmul nnan double %69, 1.000000e+02
   %.not103 = icmp eq i32 %56, 0
   %71 = sitofp i32 %56 to double
   %72 = select i1 %.not103, double 1.000000e+00, double %71
@@ -6136,7 +6136,7 @@ define ptr @Cec_ManLSCorrespondence(ptr noundef %0, ptr noundef captures(none) %
   %.089.val115 = load i32, ptr %75, align 8, !tbaa !34
   %76 = sub nsw i32 %.val116, %.089.val115
   %77 = sitofp i32 %76 to double
-  %78 = fmul double %77, 1.000000e+02
+  %78 = fmul nnan double %77, 1.000000e+02
   %.not104 = icmp eq i32 %.val116, 0
   %79 = sitofp i32 %.val116 to double
   %80 = select i1 %.not104, double 1.000000e+00, double %79

@@ -20823,7 +20823,7 @@ _ZNSolsEPFRSoS_E.exit138:                         ; preds = %.noexc185
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit140: ; preds = %_ZNSolsEPFRSoS_E.exit138
   %404 = uitofp nneg i64 %319 to double
-  %405 = fmul double %404, 1.000000e-09
+  %405 = fmul nnan double %404, 1.000000e-09
   %406 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %405)
           to label %_ZNSolsEd.exit unwind label %.loopexit.split-lp
 

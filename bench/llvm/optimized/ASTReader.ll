@@ -94229,7 +94229,7 @@ _ZN4llvm5countIRNS_11SmallVectorIN5clang8SelectorELj16EEES3_EEDaOT_RKT0_.exit: ;
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 9328
   %312 = load i32, ptr %311, align 8, !tbaa !3732
   %313 = uitofp i32 %308 to double
-  %314 = fmul double %313, 1.000000e+02
+  %314 = fmul nnan double %313, 1.000000e+02
   %315 = uitofp i32 %312 to double
   %316 = fdiv double %314, %315
   %317 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %310, ptr noundef nonnull @.str.73, i32 noundef %308, i32 noundef %312, double noundef %316) #46

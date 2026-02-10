@@ -1468,11 +1468,11 @@ _ZN5drjitmlIffLm4EEENS_6MatrixINS_6detail14replace_scalarINS2_7deepestIJT_T0_EE4
   %282 = add nsw i32 %281, 1
   %283 = and i32 %282, -2
   %284 = sitofp i32 %283 to float
-  %285 = fmul contract float %284, 0x3FE9200000000000
+  %285 = fmul nnan contract float %284, 0x3FE9200000000000
   %286 = fsub contract float %279, %285
-  %287 = fmul contract float %284, 0x3F2FB40000000000
+  %287 = fmul nnan contract float %284, 0x3F2FB40000000000
   %288 = fsub contract float %286, %287
-  %289 = fmul contract float %284, 0x3E64442D20000000
+  %289 = fmul nnan contract float %284, 0x3E64442D20000000
   %290 = fsub contract float %288, %289
   %291 = fmul contract float %290, %290
   %292 = fcmp contract oeq float %279, 0x7FF0000000000000

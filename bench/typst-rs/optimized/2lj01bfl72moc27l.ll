@@ -291,7 +291,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i180.i = load i16, ptr %111, align 1, !alias.scope !57, !noalias !19
   %112 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i180.i)
   %113 = sitofp i16 %112 to float
-  %114 = fmul float %113, 0x3F10000000000000
+  %114 = fmul nnan float %113, 0x3F10000000000000
   br label %128
 
 115:                                              ; preds = %102
@@ -306,12 +306,12 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i183.i = load i16, ptr %120, align 1, !alias.scope !66, !noalias !19
   %121 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i183.i)
   %122 = sitofp i16 %121 to float
-  %123 = fmul float %122, 0x3F10000000000000
+  %123 = fmul nnan float %122, 0x3F10000000000000
   %124 = getelementptr inbounds i8, ptr %25, i64 %103
   %.val.i.i.i.i190.i = load i16, ptr %124, align 1, !alias.scope !75, !noalias !19
   %125 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i190.i)
   %126 = sitofp i16 %125 to float
-  %127 = fmul float %126, 0x3F10000000000000
+  %127 = fmul nnan float %126, 0x3F10000000000000
   br label %128
 
 128:                                              ; preds = %152, %119, %110, %99
@@ -331,7 +331,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i194.i = load i16, ptr %133, align 1, !alias.scope !84, !noalias !19
   %134 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i194.i)
   %135 = sitofp i16 %134 to float
-  %136 = fmul float %135, 0x3F10000000000000
+  %136 = fmul nnan float %135, 0x3F10000000000000
   %137 = add i64 %.sroa.7113.1, 4
   %138 = icmp ugt i64 %96, -3
   %139 = icmp ugt i64 %137, %24
@@ -343,7 +343,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i201.i = load i16, ptr %141, align 1, !alias.scope !93, !noalias !19
   %142 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i201.i)
   %143 = sitofp i16 %142 to float
-  %144 = fmul float %143, 0x3F10000000000000
+  %144 = fmul nnan float %143, 0x3F10000000000000
   %145 = add i64 %.sroa.7113.1, 6
   %146 = icmp ugt i64 %137, -3
   %147 = icmp ugt i64 %145, %24
@@ -362,12 +362,12 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i208.i = load i16, ptr %153, align 1, !alias.scope !102, !noalias !19
   %154 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i208.i)
   %155 = sitofp i16 %154 to float
-  %156 = fmul float %155, 0x3F10000000000000
+  %156 = fmul nnan float %155, 0x3F10000000000000
   %157 = getelementptr inbounds i8, ptr %25, i64 %145
   %.val.i.i.i.i215.i = load i16, ptr %157, align 1, !alias.scope !111, !noalias !19
   %158 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i215.i)
   %159 = sitofp i16 %158 to float
-  %160 = fmul float %159, 0x3F10000000000000
+  %160 = fmul nnan float %159, 0x3F10000000000000
   br label %128
 
 161:                                              ; preds = %128

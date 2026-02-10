@@ -1893,11 +1893,11 @@ define linkonce_odr noundef i32 @_ZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6v
   store float -1.000000e+00, ptr %34, align 4
   %35 = sitofp i32 %0 to float
   %36 = sitofp i32 %4 to float
-  %37 = fmul float %36, 5.000000e-01
+  %37 = fmul nnan float %36, 5.000000e-01
   %38 = fsub float %35, %37
   %39 = sitofp i32 %1 to float
   %40 = sitofp i32 %5 to float
-  %41 = fmul float %40, 5.000000e-01
+  %41 = fmul nnan float %40, 5.000000e-01
   %42 = fsub float %39, %41
   store float %38, ptr %30, align 4
   store float %42, ptr %32, align 4

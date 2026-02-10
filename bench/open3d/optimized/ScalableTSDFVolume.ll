@@ -2090,7 +2090,7 @@ define void @_ZN6open3d9pipelines11integration18ScalableTSDFVolume17ExtractPoint
   %122 = fadd double %109, %121
   store double %122, ptr %30, align 8, !tbaa !75
   %123 = tail call float @llvm.fabs.f32(float %87)
-  %124 = fpext float %123 to double
+  %124 = fpext nnan ninf float %123 to double
   br label %126
 
 125:                                              ; preds = %417
@@ -2310,7 +2310,7 @@ _ZNSt13unordered_mapIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEEN6open3d9pipelines11i
   %241 = fcmp oge float %.064, 0xBFEF5C2900000000
   %242 = and i1 %240, %241
   %or.cond7 = select i1 %239, i1 %242, i1 false
-  %243 = fmul float %87, %.064
+  %243 = fmul nnan float %87, %.064
   %244 = fcmp olt float %243, 0.000000e+00
   %or.cond = select i1 %or.cond7, i1 %244, i1 false
   br i1 %or.cond, label %245, label %417

@@ -3373,7 +3373,7 @@ _ZN3gmxL13nonlocal_vol2ERKNS_11DomdecZonesEPKff.exit.i: ; preds = %181, %120
   %214 = fmul float %213, %212
   %215 = fdiv float %214, %108
   %216 = fsub float %215, %.0.i
-  %217 = fmul float %211, 1.400000e+01
+  %217 = fmul nnan float %211, 1.400000e+01
   %218 = fcmp olt float %216, %217
   %.sroa.speculated54.i = select i1 %218, float %217, float %216
   %.not46.i = icmp eq ptr %.pre65.i, null
@@ -4199,7 +4199,7 @@ _ZN3gmxL25checkRebalanceSimpleListsENS_8ArrayRefIKNS_16NbnxnPairlistCpuEEE.exit:
   %619 = mul nsw i32 %.018.lcssa.i, %610
   %620 = sitofp i32 %619 to float
   %621 = sitofp i32 %.0.lcssa.i to float
-  %622 = fmul float %621, 0x3FF07AE140000000
+  %622 = fmul nnan float %621, 0x3FF07AE140000000
   %623 = fcmp olt float %622, %620
   br i1 %623, label %624, label %681
 
@@ -12100,7 +12100,7 @@ define internal fastcc void @_ZN3gmxL23print_nblist_statisticsILNS_12PairlistTyp
   %47 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %29, double noundef %30, i32 noundef %22, double noundef %25, double noundef %27, double noundef %46) #14
   %48 = load i32, ptr %13, align 8, !tbaa !178
   %49 = sitofp i32 %48 to double
-  %50 = fmul double %49, 2.500000e-01
+  %50 = fmul nnan double %49, 2.500000e-01
   %51 = load ptr, ptr %6, align 8, !tbaa !176
   %52 = load ptr, ptr %5, align 8, !tbaa !38
   %53 = ptrtoint ptr %51 to i64
@@ -12382,7 +12382,7 @@ define internal fastcc void @_ZN3gmxL23print_nblist_statisticsILNS_12PairlistTyp
   %109 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv39
   %110 = load i32, ptr %109, align 4, !tbaa !101
   %111 = sitofp i32 %110 to double
-  %112 = fmul double %111, 1.000000e+02
+  %112 = fmul nnan double %111, 1.000000e+02
   %113 = load ptr, ptr %14, align 8, !tbaa !151
   %114 = load ptr, ptr %13, align 8, !tbaa !98
   %115 = ptrtoint ptr %113 to i64

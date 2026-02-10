@@ -3508,7 +3508,7 @@ _ZN6asmjit9_abi_1_109ZoneStackIPNS0_7RABlockEE8popFirstEv.exit: ; preds = %505, 
   %1371 = getelementptr inbounds nuw i8, ptr %1370, i64 14
   %1372 = load i8, ptr %1371, align 2, !tbaa !256
   %1373 = uitofp i8 %1372 to float
-  %1374 = fmul contract float %1373, 0x3F847AE140000000
+  %1374 = fmul nnan contract float %1373, 0x3F847AE140000000
   %1375 = fadd contract float %1366, %1374
   %1376 = getelementptr inbounds nuw i8, ptr %1284, i64 104
   store float %1375, ptr %1376, align 8, !tbaa !257

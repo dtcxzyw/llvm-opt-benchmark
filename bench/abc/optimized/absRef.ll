@@ -162,7 +162,7 @@ define void @Rnm_ManStop(ptr noundef captures(address_is_null) %0, i32 noundef %
   %44 = load i64, ptr %30, align 8, !tbaa !47
   %.not54 = icmp eq i64 %44, 0
   %45 = sitofp i64 %44 to double
-  %46 = fmul double %42, 1.000000e+02
+  %46 = fmul nnan double %42, 1.000000e+02
   %47 = fdiv double %46, %45
   %48 = select i1 %.not54, double 0.000000e+00, double %47
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, double noundef %43, double noundef %48)
@@ -173,7 +173,7 @@ define void @Rnm_ManStop(ptr noundef captures(address_is_null) %0, i32 noundef %
   %52 = load i64, ptr %30, align 8, !tbaa !47
   %.not55 = icmp eq i64 %52, 0
   %53 = sitofp i64 %52 to double
-  %54 = fmul double %50, 1.000000e+02
+  %54 = fmul nnan double %50, 1.000000e+02
   %55 = fdiv double %54, %53
   %56 = select i1 %.not55, double 0.000000e+00, double %55
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, double noundef %51, double noundef %56)
@@ -184,7 +184,7 @@ define void @Rnm_ManStop(ptr noundef captures(address_is_null) %0, i32 noundef %
   %60 = load i64, ptr %30, align 8, !tbaa !47
   %.not56 = icmp eq i64 %60, 0
   %61 = sitofp i64 %60 to double
-  %62 = fmul double %58, 1.000000e+02
+  %62 = fmul nnan double %58, 1.000000e+02
   %63 = fdiv double %62, %61
   %64 = select i1 %.not56, double 0.000000e+00, double %63
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, double noundef %59, double noundef %64)
@@ -194,7 +194,7 @@ define void @Rnm_ManStop(ptr noundef captures(address_is_null) %0, i32 noundef %
   %67 = load i64, ptr %30, align 8, !tbaa !47
   %.not57 = icmp eq i64 %67, 0
   %68 = sitofp i64 %67 to double
-  %69 = fmul double %65, 1.000000e+02
+  %69 = fmul nnan double %65, 1.000000e+02
   %70 = fdiv double %69, %68
   %71 = select i1 %.not57, double 0.000000e+00, double %70
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, double noundef %66, double noundef %71)
@@ -203,7 +203,7 @@ define void @Rnm_ManStop(ptr noundef captures(address_is_null) %0, i32 noundef %
   %73 = sitofp i64 %72 to double
   %74 = fdiv double %73, 1.000000e+06
   %.not58 = icmp eq i64 %72, 0
-  %75 = fmul double %73, 1.000000e+02
+  %75 = fmul nnan double %73, 1.000000e+02
   %76 = fdiv double %75, %73
   %77 = select i1 %.not58, double 0.000000e+00, double %76
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, double noundef %74, double noundef %77)
@@ -213,8 +213,8 @@ define void @Rnm_ManStop(ptr noundef captures(address_is_null) %0, i32 noundef %
   %81 = sitofp i32 %80 to double
   %82 = sitofp i32 %78 to double
   %83 = fdiv double %81, %82
-  %84 = fmul double %19, 0x3EB0000000000000
-  %85 = fmul double %29, 0x3EB0000000000000
+  %84 = fmul nnan double %19, 0x3EB0000000000000
+  %85 = fmul nnan double %29, 0x3EB0000000000000
   %86 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %78, double noundef %83, double noundef %84, double noundef %85)
   br label %87
 

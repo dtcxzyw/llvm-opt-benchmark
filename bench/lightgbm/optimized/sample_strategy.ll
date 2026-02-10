@@ -2523,7 +2523,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %._crit_edge114, %63
   %99 = lshr i32 %98, 16
   %100 = and i32 %99, 32767
   %101 = uitofp nneg i32 %100 to float
-  %102 = fmul float %101, 0x3F00000000000000
+  %102 = fmul nnan float %101, 0x3F00000000000000
   %.neg = add i32 %.082109, %46
   %103 = sub i32 %.neg, %.079111
   %104 = sitofp i32 %103 to double
@@ -4444,7 +4444,7 @@ define linkonce_odr noundef i32 @_ZSt13__invoke_implIiRZN8LightGBM21BaggingSampl
   %42 = lshr i32 %41, 16
   %43 = and i32 %42, 32767
   %44 = uitofp nneg i32 %43 to float
-  %45 = fmul float %44, 0x3F00000000000000
+  %45 = fmul nnan float %44, 0x3F00000000000000
   %46 = fpext float %45 to double
   br i1 %33, label %47, label %50
 
@@ -4506,7 +4506,7 @@ define linkonce_odr noundef i32 @_ZSt13__invoke_implIiRZN8LightGBM21BaggingSampl
   %77 = lshr i32 %76, 16
   %78 = and i32 %77, 32767
   %79 = uitofp nneg i32 %78 to float
-  %80 = fmul float %79, 0x3F00000000000000
+  %80 = fmul nnan float %79, 0x3F00000000000000
   %81 = fpext float %80 to double
   %82 = fcmp ogt double %67, %81
   %83 = add nsw i32 %.01722.i.i, -1
@@ -4561,7 +4561,7 @@ define linkonce_odr noundef i32 @_ZNSt17_Function_handlerIFiiiiPiS0_EZN8LightGBM
   %28 = lshr i32 %27, 16
   %29 = and i32 %28, 32767
   %30 = uitofp nneg i32 %29 to float
-  %31 = fmul float %30, 0x3F00000000000000
+  %31 = fmul nnan float %30, 0x3F00000000000000
   %32 = fpext float %31 to double
   %33 = fcmp ogt double %18, %32
   %34 = add nsw i32 %.01722.i.i.i.i, -1

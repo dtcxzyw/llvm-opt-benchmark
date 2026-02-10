@@ -34468,7 +34468,7 @@ define linkonce_odr void @_ZN6casadi11finite_diffIdEEvNS_6FdModeEPPKT_PS2_S2_xS2
   br i1 %48, label %53, label %50
 
 50:                                               ; preds = %49
-  %51 = fsub double %46, %42
+  %51 = fsub nnan double %46, %42
   %52 = fmul double %39, %51
   br label %64
 
@@ -34547,7 +34547,7 @@ define linkonce_odr void @_ZN6casadi11finite_diffIdEEvNS_6FdModeEPPKT_PS2_S2_xS2
   ]
 
 95:                                               ; preds = %94
-  %96 = fmul double %83, -4.000000e+00
+  %96 = fmul nnan double %83, -4.000000e+00
   %97 = tail call double @llvm.fmuladd.f64(double %87, double 3.000000e+00, double %96)
   %98 = fadd double %78, %97
   br label %_ZN6casadi29casadi_smoothing_diff_weightsIdEET_xS1_S1_S1_PS1_.exit.i
@@ -34557,7 +34557,7 @@ define linkonce_odr void @_ZN6casadi11finite_diffIdEEvNS_6FdModeEPPKT_PS2_S2_xS2
   br label %_ZN6casadi29casadi_smoothing_diff_weightsIdEET_xS1_S1_S1_PS1_.exit.i
 
 101:                                              ; preds = %94
-  %102 = fmul double %83, 4.000000e+00
+  %102 = fmul nnan double %83, 4.000000e+00
   %103 = tail call double @llvm.fmuladd.f64(double %78, double -3.000000e+00, double %102)
   %104 = fsub double %103, %87
   br label %_ZN6casadi29casadi_smoothing_diff_weightsIdEET_xS1_S1_S1_PS1_.exit.i

@@ -2845,7 +2845,7 @@ define internal void @_ZN8QuantNet11quantize_KLEv.omp_outlined.14(ptr noalias no
 51:                                               ; preds = %.lr.ph114
   %52 = load ptr, ptr @stderr, align 8, !tbaa !137
   %53 = sitofp i32 %48 to float
-  %54 = fmul float %53, 1.000000e+02
+  %54 = fmul nnan float %53, 1.000000e+02
   %55 = load i32, ptr %2, align 4, !tbaa !100
   %56 = sitofp i32 %55 to float
   %57 = fdiv float %54, %56
@@ -3477,7 +3477,7 @@ define internal void @_ZN8QuantNet11quantize_KLEv.omp_outlined.17(ptr noalias no
 51:                                               ; preds = %.lr.ph125
   %52 = load ptr, ptr @stderr, align 8, !tbaa !137
   %53 = sitofp i32 %48 to float
-  %54 = fmul float %53, 1.000000e+02
+  %54 = fmul nnan float %53, 1.000000e+02
   %55 = load i32, ptr %2, align 4, !tbaa !100
   %56 = sitofp i32 %55 to float
   %57 = fdiv float %54, %56
@@ -3984,7 +3984,7 @@ define internal void @_ZN8QuantNet11quantize_KLEv.omp_outlined.19(ptr noalias no
 
 39:                                               ; preds = %_ZNSt6vectorIfSaIfEED2Ev.exit211
   %40 = uitofp nneg i32 %.1 to float
-  %41 = fadd float %40, 5.000000e-01
+  %41 = fadd nnan float %40, 5.000000e-01
   %42 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %43 = load float, ptr %42, align 4, !tbaa !113
   %44 = fmul float %41, %43
@@ -4039,7 +4039,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %_ZNSt6vectorIfSaIfE
 ._crit_edge:                                      ; preds = %69
   %60 = trunc nuw nsw i64 %indvars.iv299 to i32
   %61 = uitofp nneg i32 %60 to float
-  %62 = fmul float %61, 7.812500e-03
+  %62 = fmul nnan float %61, 7.812500e-03
   %63 = invoke noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #35
           to label %.lr.ph.i.i.i.i.i.i.i.i.i198.preheader unwind label %.loopexit247
 
@@ -5448,7 +5448,7 @@ define internal void @_ZN8QuantNet13quantize_ACIQEv.omp_outlined.22(ptr noalias 
 51:                                               ; preds = %.lr.ph118
   %52 = load ptr, ptr @stderr, align 8, !tbaa !137
   %53 = sitofp i32 %48 to float
-  %54 = fmul float %53, 1.000000e+02
+  %54 = fmul nnan float %53, 1.000000e+02
   %55 = load i32, ptr %2, align 4, !tbaa !100
   %56 = sitofp i32 %55 to float
   %57 = fdiv float %54, %56
@@ -6527,7 +6527,7 @@ define internal void @_ZN8QuantNet11quantize_EQEv.omp_outlined(ptr noalias nound
 97:                                               ; preds = %.lr.ph140
   %98 = load ptr, ptr @stderr, align 8, !tbaa !137
   %99 = sitofp i32 %94 to float
-  %100 = fmul float %99, 1.000000e+02
+  %100 = fmul nnan float %99, 1.000000e+02
   %101 = load i32, ptr %2, align 4, !tbaa !100
   %102 = sitofp i32 %101 to float
   %103 = fdiv float %100, %102
@@ -8134,7 +8134,7 @@ define internal void @_ZN8QuantNet11quantize_EQEv.omp_outlined.26(ptr noalias no
 97:                                               ; preds = %.lr.ph140
   %98 = load ptr, ptr @stderr, align 8, !tbaa !137
   %99 = sitofp i32 %94 to float
-  %100 = fmul float %99, 1.000000e+02
+  %100 = fmul nnan float %99, 1.000000e+02
   %101 = load i32, ptr %2, align 4, !tbaa !100
   %102 = sitofp i32 %101 to float
   %103 = fdiv float %100, %102

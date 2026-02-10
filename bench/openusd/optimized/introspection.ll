@@ -1433,7 +1433,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28UsdUtilsComputeUsdStageStats
 8:                                                ; preds = %3
   %9 = tail call noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag13GetTotalBytesEv()
   %10 = uitofp i64 %9 to double
-  %11 = fmul double %10, 0x3EB0000000000000
+  %11 = fmul nnan double %10, 0x3EB0000000000000
   br label %12
 
 12:                                               ; preds = %8, %3
@@ -1459,7 +1459,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28UsdUtilsComputeUsdStageStats
 
 22:                                               ; preds = %20
   %23 = uitofp i64 %21 to double
-  %24 = fmul double %23, 0x3EB0000000000000
+  %24 = fmul nnan double %23, 0x3EB0000000000000
   %25 = fsub double %24, %.07
   %26 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__25UsdUtilsUsdStageStatsKeysE seq_cst, align 8
   %27 = inttoptr i64 %26 to ptr

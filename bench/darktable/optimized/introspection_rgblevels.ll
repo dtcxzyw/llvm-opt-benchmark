@@ -760,7 +760,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %indvars.iv16.i = phi i64 [ 0, %32 ], [ %indvars.iv.next17.i, %53 ]
   %54 = trunc nuw nsw i64 %indvars.iv16.i to i32
   %55 = uitofp nneg i32 %54 to float
-  %56 = fmul reassoc nsz arcp contract afn float %55, 0x3EF0000000000000
+  %56 = fmul reassoc nnan nsz arcp contract afn float %55, 0x3EF0000000000000
   %57 = fpext reassoc nsz arcp contract afn float %56 to double
   %58 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double %57, double %49)
   %59 = fptrunc reassoc nsz arcp contract afn double %58 to float
@@ -805,7 +805,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %indvars.iv.i = phi i64 [ 0, %63 ], [ %indvars.iv.next.i, %82 ]
   %83 = trunc nuw nsw i64 %indvars.iv.i to i32
   %84 = uitofp nneg i32 %83 to float
-  %85 = fmul reassoc nsz arcp contract afn float %84, 0x3EF0000000000000
+  %85 = fmul reassoc nnan nsz arcp contract afn float %84, 0x3EF0000000000000
   %86 = fpext reassoc nsz arcp contract afn float %85 to double
   %87 = tail call reassoc nsz arcp contract afn double @llvm.pow.f64(double %86, double %80)
   %88 = fptrunc reassoc nsz arcp contract afn double %87 to float
@@ -1481,7 +1481,7 @@ define internal noundef i32 @_area_draw_callback(ptr readnone captures(none) %0,
   call void @cairo_set_line_width(ptr noundef %41, double noundef %54) #20
   call void @cairo_set_source_rgb(ptr noundef %41, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01) #20
   %55 = sitofp i32 %44 to float
-  %56 = fmul reassoc nsz arcp contract afn float %55, 2.500000e-01
+  %56 = fmul reassoc nnan nsz arcp contract afn float %55, 2.500000e-01
   br label %57
 
 57:                                               ; preds = %57, %3
@@ -1681,7 +1681,7 @@ dt_draw_vertical_lines.exit:                      ; preds = %57
 
 166:                                              ; preds = %163
   call void @cairo_push_group_with_content(ptr noundef %41, i32 noundef 4096) #20
-  %167 = fmul reassoc nsz arcp contract afn double %49, 0x3F70101010101010
+  %167 = fmul reassoc nnan nsz arcp contract afn double %49, 0x3F70101010101010
   %168 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !155
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 1424
   %170 = load double, ptr %169, align 8, !tbaa !161
@@ -3088,7 +3088,7 @@ define internal fastcc float @dt_rgb_norm(ptr noundef readonly captures(none) %0
   %33 = select reassoc nsz arcp contract afn i1 %32, float %31, float %17
   %34 = fptosi float %33 to i32
   %35 = sitofp i32 %34 to float
-  %36 = fsub reassoc nsz arcp contract afn float %31, %35
+  %36 = fsub reassoc nnan nsz arcp contract afn float %31, %35
   %37 = sext i32 %34 to i64
   %38 = getelementptr inbounds float, ptr %20, i64 %37
   %39 = load float, ptr %38, align 4, !tbaa !37

@@ -11792,8 +11792,8 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge: ; preds = %598, %59
   %612 = getelementptr inbounds nuw i8, ptr %602, i64 52
   %613 = load i32, ptr %612, align 4
   %614 = sitofp i32 %613 to float
-  %615 = fmul float %611, 5.000000e-01
-  %616 = fmul float %614, 5.000000e-01
+  %615 = fmul nnan float %611, 5.000000e-01
+  %616 = fmul nnan float %614, 5.000000e-01
   %617 = fadd float %615, %605
   %618 = fadd float %616, %608
   store float %617, ptr %37, align 4
@@ -15749,8 +15749,8 @@ _ZN3tev11ImageViewer18sizeToFitAllImagesEv.exit:  ; preds = %.lr.ph.i, %32
   %68 = call i32 @llvm.smax.i32(i32 %63, i32 1)
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %68, i32 1000)
   %69 = uitofp nneg i32 %.sroa.speculated to float
-  %70 = fdiv float 1.000000e+00, %69
-  %71 = fmul float %70, 1.000000e+09
+  %70 = fdiv nnan float 1.000000e+00, %69
+  %71 = fmul nnan float %70, 1.000000e+09
   %72 = sitofp i64 %66 to float
   %73 = fcmp ugt float %71, %72
   br i1 %73, label %_ZNSt3__110shared_ptrIN3tev5ImageEED2B8ne190000Ev.exit, label %.lr.ph
@@ -19438,7 +19438,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   br i1 %288, label %291, label %289
 
 289:                                              ; preds = %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread
-  %290 = fmul float %287, 0x4029D70A40000000
+  %290 = fmul nnan float %287, 0x4029D70A40000000
   br label %294
 
 291:                                              ; preds = %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread
@@ -23692,17 +23692,17 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
   %31 = fdiv double %1, 8.640000e+10
   %32 = fptosi double %31 to i64
   %33 = sitofp i64 %32 to double
-  %34 = fmul double %33, 8.640000e+10
+  %34 = fmul nnan double %33, 8.640000e+10
   %35 = fsub double %1, %34
   %36 = fdiv double %35, 3.600000e+09
   %37 = fptosi double %36 to i64
   %38 = sitofp i64 %37 to double
-  %39 = fmul double %38, 3.600000e+09
+  %39 = fmul nnan double %38, 3.600000e+09
   %40 = fsub double %35, %39
   %41 = fdiv double %40, 6.000000e+07
   %42 = fptosi double %41 to i64
   %43 = sitofp i64 %42 to double
-  %44 = fmul double %43, 6.000000e+07
+  %44 = fmul nnan double %43, 6.000000e+07
   %45 = fsub double %40, %44
   %46 = fdiv double %45, 1.000000e+06
   %47 = fptosi double %46 to i64

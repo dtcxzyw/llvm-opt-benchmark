@@ -590,7 +590,7 @@ define void @dlatrs_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %292, label %293, label %307
 
 293:                                              ; preds = %286
-  %294 = fmul double %287, 5.000000e-01
+  %294 = fmul nnan double %287, 5.000000e-01
   store double %294, ptr %17, align 8, !tbaa !7
   call void @dscal_(ptr noundef nonnull %4, ptr noundef nonnull %17, ptr noundef nonnull %7, ptr noundef nonnull @c__1) #6
   %295 = load double, ptr %17, align 8, !tbaa !7

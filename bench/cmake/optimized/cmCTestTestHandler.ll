@@ -7415,12 +7415,12 @@ define dso_local void @_ZN18cmCTestTestHandler14LogTestSummaryERKSt6vectorINSt7_
   %30 = ashr exact i64 %29, 5
   %31 = add nsw i64 %30, %23
   %32 = uitofp i64 %23 to float
-  %33 = fmul float %32, 1.000000e+02
+  %33 = fmul nnan float %32, 1.000000e+02
   %34 = uitofp i64 %31 to float
   %35 = fdiv float %33, %34
   %36 = icmp eq ptr %26, %25
   %37 = fcmp ule float %35, 9.900000e+01
-  %or.cond.not = or i1 %36, %37
+  %or.cond.not = select i1 %36, i1 true, i1 %37
   %spec.store.select = select i1 %or.cond.not, float %35, float 9.900000e+01
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 16

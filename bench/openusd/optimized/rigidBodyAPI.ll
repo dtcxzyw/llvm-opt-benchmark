@@ -2688,7 +2688,7 @@ define { <2 x float>, float } @_ZN32pxrInternal_v0_24__pxrReserved__21UsdPhysics
   br i1 %74, label %75, label %83
 
 75:                                               ; preds = %70
-  %76 = fmul float %72, 4.000000e+00
+  %76 = fmul nnan float %72, 4.000000e+00
   %77 = fdiv float 1.000000e+00, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false)
@@ -5494,7 +5494,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__24UsdPhysicsMassProperties19GetMassSpaceIne
 557:                                              ; preds = %555
   %558 = fptrunc double %556 to float
   %559 = fdiv float 0x3FB99999A0000000, %558
-  %560 = fmul float %57, 0x3FD99999A0000000
+  %560 = fmul nnan float %57, 0x3FD99999A0000000
   %561 = fmul float %560, %559
   %562 = fmul float %559, %561
   %.sroa.0203.0.vec.insert = insertelement <2 x float> poison, float %562, i64 0

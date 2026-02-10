@@ -856,7 +856,7 @@ _ZNK4pbrt6MIPMap15LevelResolutionEi.exit:         ; preds = %21
   br i1 %100, label %101, label %221
 
 101:                                              ; preds = %91
-  %102 = fmul float %99, 1.280000e+02
+  %102 = fmul nnan float %99, 1.280000e+02
   %103 = fptosi float %102 to i32
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %103, i32 127)
   %104 = sext i32 %.sroa.speculated to i64
@@ -1798,7 +1798,7 @@ _ZNK4pbrt6MIPMap15LevelResolutionEi.exit:         ; preds = %20
   br i1 %101, label %102, label %554
 
 102:                                              ; preds = %92
-  %103 = fmul float %100, 1.280000e+02
+  %103 = fmul nnan float %100, 1.280000e+02
   %104 = fptosi float %103 to i32
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %104, i32 127)
   %105 = sext i32 %.sroa.speculated to i64

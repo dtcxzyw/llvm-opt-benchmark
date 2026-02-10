@@ -1602,7 +1602,7 @@ define void @_ZN9CvLevMarq4stepEv(ptr noundef nonnull align 8 dereferenceable(21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %24 = load i32, ptr %23, align 8, !tbaa !3
   %25 = sitofp i32 %24 to double
-  %26 = fmul double %25, 0x40026BB1BBB55516
+  %26 = fmul nnan double %25, 0x40026BB1BBB55516
   %27 = tail call double @exp(double noundef %26) #20, !tbaa !39
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !21

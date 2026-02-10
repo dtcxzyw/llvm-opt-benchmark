@@ -3668,7 +3668,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %13, %16
   %indvars.iv.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i, %53 ]
   %54 = trunc nuw nsw i64 %indvars.iv.i to i32
   %55 = uitofp nneg i32 %54 to double
-  %56 = fdiv double %55, 3.600000e+02
+  %56 = fdiv nnan double %55, 3.600000e+02
   %57 = fmul double %56, %50
   %58 = getelementptr inbounds nuw double, ptr %51, i64 %indvars.iv.i
   store double %57, ptr %58, align 8, !tbaa !43
@@ -4354,7 +4354,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %44,
   %indvars.iv.i = phi i64 [ 0, %49 ], [ %indvars.iv.next.i, %64 ]
   %65 = trunc nuw nsw i64 %indvars.iv.i to i32
   %66 = uitofp nneg i32 %65 to double
-  %67 = fdiv double %66, 3.600000e+02
+  %67 = fdiv nnan double %66, 3.600000e+02
   %68 = fmul double %67, %62
   %69 = getelementptr inbounds nuw double, ptr %63, i64 %indvars.iv.i
   store double %68, ptr %69, align 8, !tbaa !43
@@ -4777,7 +4777,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %42,
   %indvars.iv.i = phi i64 [ 0, %47 ], [ %indvars.iv.next.i, %66 ]
   %67 = trunc nuw nsw i64 %indvars.iv.i to i32
   %68 = uitofp nneg i32 %67 to double
-  %69 = fdiv double %68, 3.600000e+02
+  %69 = fdiv nnan double %68, 3.600000e+02
   %70 = fmul double %69, %64
   %71 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv.i
   store double %70, ptr %71, align 8, !tbaa !43
@@ -7351,7 +7351,7 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d10DAISY_Impl19compute_grid_p
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !3
   %12 = sitofp i32 %11 to double
-  %13 = fdiv double 0x401921FB54442D18, %12
+  %13 = fdiv nnan double 0x401921FB54442D18, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 664
   tail call void @_ZN2cv3Mat7releaseEv(ptr noundef nonnull align 8 dereferenceable(96) %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -7514,8 +7514,8 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d10DAISY_Impl28compute_orient
   %.028 = phi i32 [ 0, %11 ], [ %30, %._crit_edge ]
   %23 = sub nsw i32 0, %.028
   %24 = sitofp i32 %23 to double
-  %25 = fmul double %24, 2.000000e+00
-  %26 = fmul double %25, 0x400921FB54442D18
+  %25 = fmul nnan double %24, 2.000000e+00
+  %26 = fmul nnan double %25, 0x400921FB54442D18
   %27 = fdiv double %26, 3.600000e+02
   %28 = call double @cos(double noundef %27) #29, !tbaa !38
   %29 = call double @sin(double noundef %27) #29, !tbaa !38
@@ -8569,7 +8569,7 @@ define linkonce_odr hidden void @_ZNK2cv11xfeatures2d22LayeredGradientInvokerclE
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %38 = shl i32 %indvars.iv.tr, 1
   %39 = sitofp i32 %38 to float
-  %40 = fmul float %39, 0x400921FB60000000
+  %40 = fmul nnan float %39, 0x400921FB60000000
   %41 = load i32, ptr %15, align 8, !tbaa !220
   %42 = sitofp i32 %41 to float
   %43 = fdiv float %40, %42

@@ -484,7 +484,7 @@ setFill.exit:                                     ; preds = %89, %95
 
 105:                                              ; preds = %98
   %106 = uitofp i8 %100 to double
-  %107 = fmul double %106, 5.000000e-01
+  %107 = fmul nnan double %106, 5.000000e-01
   %108 = fadd double %107, %104
   store double %108, ptr %15, align 16, !tbaa !95
   %109 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -673,7 +673,7 @@ setFill.exit108:                                  ; preds = %186, %191
 
 199:                                              ; preds = %194
   %200 = uitofp i8 %196 to double
-  %201 = fmul double %200, 5.000000e-01
+  %201 = fmul nnan double %200, 5.000000e-01
   %202 = fadd double %201, %198
   store double %202, ptr %10, align 16, !tbaa !95
   %203 = load double, ptr %.phi.trans.insert.i99, align 8, !tbaa !96
@@ -1000,7 +1000,7 @@ emit_html_cell.exit:                              ; preds = %241, %242, %245, %2
   br i1 %376, label %377, label %379
 
 377:                                              ; preds = %358
-  %378 = fmul double %367, 2.000000e+00
+  %378 = fmul nnan double %367, 2.000000e+00
   br label %427
 
 379:                                              ; preds = %358
@@ -3732,7 +3732,7 @@ gv_strdup.exit:                                   ; preds = %15
   br label %58
 
 54:                                               ; preds = %47
-  %55 = fmul double %31, 5.000000e-01
+  %55 = fmul nnan double %31, 5.000000e-01
   %56 = fadd double %28, %55
   store double %56, ptr %1, align 8, !tbaa !265
   %57 = fsub double %27, %55
@@ -3763,7 +3763,7 @@ gv_strdup.exit:                                   ; preds = %15
   br label %.sink.split
 
 68:                                               ; preds = %61
-  %69 = fmul double %40, 5.000000e-01
+  %69 = fmul nnan double %40, 5.000000e-01
   %70 = fadd double %37, %69
   store double %70, ptr %36, align 8, !tbaa !266
   %71 = fsub double %35, %69
@@ -4005,7 +4005,7 @@ gv_strdup.exit141:                                ; preds = %184
   br label %213
 
 209:                                              ; preds = %202
-  %210 = fmul double %200, 5.000000e-01
+  %210 = fmul nnan double %200, 5.000000e-01
   %211 = fadd double %165, %210
   %212 = fsub double %170, %210
   br label %213
@@ -4035,7 +4035,7 @@ gv_strdup.exit141:                                ; preds = %184
   br label %228
 
 224:                                              ; preds = %217
-  %225 = fmul double %215, 5.000000e-01
+  %225 = fmul nnan double %215, 5.000000e-01
   %226 = fadd double %176, %225
   %227 = fsub double %173, %225
   br label %228
@@ -4173,7 +4173,7 @@ gv_strdup.exit141:                                ; preds = %184
   unreachable
 
 283:                                              ; preds = %277
-  %284 = fmul double %275, 5.000000e-01
+  %284 = fmul nnan double %275, 5.000000e-01
   %285 = fadd double %238, %284
   store double %285, ptr %4, align 8
   %286 = fsub double %242, %284
@@ -4204,7 +4204,7 @@ gv_strdup.exit141:                                ; preds = %184
   br label %301
 
 297:                                              ; preds = %291
-  %298 = fmul double %289, 5.000000e-01
+  %298 = fmul nnan double %289, 5.000000e-01
   %299 = fadd double %240, %298
   store double %299, ptr %122, align 8
   %300 = fsub double %244, %298
@@ -4889,7 +4889,7 @@ define internal fastcc void @doBorder(ptr noundef %0, ptr noundef readonly captu
 
 31:                                               ; preds = %25
   %32 = uitofp i8 %26 to double
-  %33 = fmul double %32, 5.000000e-01
+  %33 = fmul nnan double %32, 5.000000e-01
   %34 = fadd double %33, %30
   store double %34, ptr %4, align 16, !tbaa !95
   %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4948,7 +4948,7 @@ mkPts.exit:                                       ; preds = %._crit_edge.i, %31
 
 61:                                               ; preds = %54
   %62 = uitofp i8 %56 to double
-  %63 = fmul double %62, 5.000000e-01
+  %63 = fmul nnan double %62, 5.000000e-01
   %64 = fadd double %63, %60
   store double %64, ptr %55, align 16, !tbaa !95
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -5073,7 +5073,7 @@ mkPts.exit68:                                     ; preds = %._crit_edge.i63, %6
 
 104:                                              ; preds = %101
   %105 = uitofp i8 %102 to double
-  %106 = fmul double %105, 5.000000e-01
+  %106 = fmul nnan double %105, 5.000000e-01
   %107 = load double, ptr %2, align 8, !tbaa !265
   %108 = fadd double %106, %107
   store double %108, ptr %2, align 8, !tbaa !265

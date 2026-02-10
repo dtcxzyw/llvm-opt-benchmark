@@ -3818,15 +3818,15 @@ _ZNSt19_Optional_base_implIN3gmx20AffineTransformationESt14_Optional_baseIS1_Lb0
   %424 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %425 = load i64, ptr %424, align 8, !tbaa !243
   %426 = sitofp i64 %425 to float
-  %427 = fmul float %426, 5.000000e-01
+  %427 = fmul nnan float %426, 5.000000e-01
   %428 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %429 = load i64, ptr %428, align 8
   %430 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %431 = sitofp i64 %429 to float
-  %432 = fmul float %431, 5.000000e-01
+  %432 = fmul nnan float %431, 5.000000e-01
   %433 = load i64, ptr %430, align 8
   %434 = sitofp i64 %433 to float
-  %435 = fmul float %434, 5.000000e-01
+  %435 = fmul nnan float %434, 5.000000e-01
   store float %427, ptr %91, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 188
   store float %432, ptr %.sroa.4.0..sroa_idx, align 4

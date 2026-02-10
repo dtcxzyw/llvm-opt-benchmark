@@ -2324,8 +2324,8 @@ define void @Emb_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %24 = load i32, ptr %23, align 8, !tbaa !46
   %25 = sitofp i32 %24 to double
-  %26 = fmul double %25, 4.000000e+00
-  %27 = fmul double %26, 0x3EB0000000000000
+  %26 = fmul nnan double %25, 4.000000e+00
+  %27 = fmul nnan double %26, 0x3EB0000000000000
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %27)
   %putchar = tail call i32 @putchar(i32 10)
   ret void
@@ -5383,8 +5383,8 @@ define void @Emb_ManDerivePlacement(ptr noundef captures(none) %0, i32 noundef %
   br i1 %exitcond.not, label %.lr.ph89.preheader, label %.lr.ph, !llvm.loop !138
 
 .lr.ph89.preheader:                               ; preds = %.lr.ph
-  %17 = fsub float %16, %13
-  %18 = fdiv float 3.276700e+04, %17
+  %17 = fsub nnan float %16, %13
+  %18 = fdiv nnan float 3.276700e+04, %17
   %wide.trip.count114 = zext nneg i32 %6 to i64
   br label %.lr.ph89
 
@@ -5430,8 +5430,8 @@ define void @Emb_ManDerivePlacement(ptr noundef captures(none) %0, i32 noundef %
   br label %._crit_edge102
 
 .lr.ph101.preheader:                              ; preds = %.lr.ph95
-  %38 = fsub float %35, %32
-  %39 = fdiv float 3.276700e+04, %38
+  %38 = fsub nnan float %35, %32
+  %39 = fdiv nnan float 3.276700e+04, %38
   %wide.trip.count124 = zext nneg i32 %6 to i64
   br label %.lr.ph101
 
@@ -5472,7 +5472,7 @@ define void @Emb_ManDerivePlacement(ptr noundef captures(none) %0, i32 noundef %
   %indvars.iv126 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next127, %58 ]
   %59 = trunc nuw nsw i64 %indvars.iv126 to i32
   %60 = uitofp nneg i32 %59 to double
-  %61 = fmul double %60, 3.276700e+04
+  %61 = fmul nnan double %60, 3.276700e+04
   %62 = fdiv double %61, %57
   %63 = fptosi double %62 to i32
   %64 = trunc i32 %63 to i16
@@ -5754,14 +5754,14 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %.0.lcssa = phi i32 [ %45, %..critedge2_crit_edge ], [ %71, %52 ]
   %72 = add nuw nsw i32 %.0116.lcssa, %.0117.lcssa
   %73 = uitofp nneg i32 %72 to double
-  %74 = fmul double %73, 5.000000e-01
+  %74 = fmul nnan double %73, 5.000000e-01
   %75 = fptrunc double %74 to float
   %76 = zext i32 %35 to i64
   %77 = getelementptr inbounds nuw float, ptr %20, i64 %76
   store float %75, ptr %77, align 4, !tbaa !106
   %78 = add nuw nsw i32 %.0.lcssa, %.0115.lcssa
   %79 = uitofp nneg i32 %78 to double
-  %80 = fmul double %79, 5.000000e-01
+  %80 = fmul nnan double %79, 5.000000e-01
   %81 = fptrunc double %80 to float
   %82 = getelementptr inbounds nuw float, ptr %21, i64 %76
   store float %81, ptr %82, align 4, !tbaa !106
@@ -5871,7 +5871,7 @@ Abc_Clock.exit:                                   ; preds = %3, %8
   %indvars.iv205 = phi i64 [ 0, %.lr.ph189 ], [ %indvars.iv.next206, %142 ]
   %143 = trunc nuw nsw i64 %indvars.iv205 to i32
   %144 = uitofp nneg i32 %143 to double
-  %145 = fmul double %144, 3.276700e+04
+  %145 = fmul nnan double %144, 3.276700e+04
   %146 = fdiv double %145, %140
   %147 = fptosi double %146 to i32
   %148 = trunc i32 %147 to i16

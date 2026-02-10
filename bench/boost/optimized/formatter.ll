@@ -7113,7 +7113,7 @@ _ZNK5boost6locale8impl_icu11date_formatIwE9do_formatB5cxx11EdRm.exit: ; preds = 
 define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu11date_formatIwE6formatB5cxx11ElRm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.31") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_70::UnicodeString", align 8
   %6 = sitofp i64 %2 to double
-  %7 = fmul double %6, 1.000000e+03
+  %7 = fmul nnan double %6, 1.000000e+03
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !147
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20, !noalias !147
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -7151,7 +7151,7 @@ _ZNK5boost6locale8impl_icu11date_formatIwE9do_formatB5cxx11EdRm.exit: ; preds = 
 define linkonce_odr hidden void @_ZNK5boost6locale8impl_icu11date_formatIwE6formatB5cxx11EiRm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.31") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.icu_70::UnicodeString", align 8
   %6 = sitofp i32 %2 to double
-  %7 = fmul double %6, 1.000000e+03
+  %7 = fmul nnan double %6, 1.000000e+03
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !150
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7013UnicodeStringE, i64 16), ptr %5, align 8, !tbaa !20, !noalias !150
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8

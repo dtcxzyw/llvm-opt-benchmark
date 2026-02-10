@@ -44534,11 +44534,11 @@ define internal void @lte_rrc_RS_SINR_Range_r13_fmt(ptr noundef %0, i32 noundef 
 
 7:                                                ; preds = %2
   %8 = uitofp i32 %1 to float
-  %9 = fadd float %8, -1.000000e+00
-  %10 = fmul float %9, 5.000000e-01
+  %9 = fadd nnan float %8, -1.000000e+00
+  %10 = fmul nnan float %9, 5.000000e-01
   %11 = fadd float %10, -2.300000e+01
   %12 = fpext float %11 to double
-  %13 = fmul float %8, 5.000000e-01
+  %13 = fmul nnan float %8, 5.000000e-01
   %14 = fadd float %13, -2.300000e+01
   %15 = fpext float %14 to double
   %16 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.19201, double noundef %12, double noundef %15, i32 noundef %1)
@@ -44667,11 +44667,11 @@ define internal void @lte_rrc_RSRQ_RangeNR_r15_fmt(ptr noundef %0, i32 noundef %
 
 7:                                                ; preds = %2
   %8 = uitofp i32 %1 to float
-  %9 = fadd float %8, -1.000000e+00
-  %10 = fmul float %9, 5.000000e-01
+  %9 = fadd nnan float %8, -1.000000e+00
+  %10 = fmul nnan float %9, 5.000000e-01
   %11 = fadd float %10, -4.300000e+01
   %12 = fpext float %11 to double
-  %13 = fmul float %8, 5.000000e-01
+  %13 = fmul nnan float %8, 5.000000e-01
   %14 = fadd float %13, -4.300000e+01
   %15 = fpext float %14 to double
   %16 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.22234, double noundef %12, double noundef %15, i32 noundef %1)
@@ -44698,11 +44698,11 @@ define internal void @lte_rrc_RS_SINR_RangeNR_r15_fmt(ptr noundef %0, i32 nounde
 
 7:                                                ; preds = %2
   %8 = uitofp i32 %1 to float
-  %9 = fadd float %8, -1.000000e+00
-  %10 = fmul float %9, 5.000000e-01
+  %9 = fadd nnan float %8, -1.000000e+00
+  %10 = fmul nnan float %9, 5.000000e-01
   %11 = fadd float %10, -2.300000e+01
   %12 = fpext float %11 to double
-  %13 = fmul float %8, 5.000000e-01
+  %13 = fmul nnan float %8, 5.000000e-01
   %14 = fadd float %13, -2.300000e+01
   %15 = fpext float %14 to double
   %16 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.22237, double noundef %12, double noundef %15, i32 noundef %1)
@@ -44945,11 +44945,11 @@ define internal void @lte_rrc_NRSRQ_Range_NB_r14_fmt(ptr noundef %0, i32 noundef
 
 8:                                                ; preds = %6
   %9 = sitofp i32 %1 to float
-  %10 = fadd float %9, -1.000000e+00
-  %11 = fmul float %10, 5.000000e-01
+  %10 = fadd nnan float %9, -1.000000e+00
+  %11 = fmul nnan float %10, 5.000000e-01
   %12 = fadd float %11, -1.900000e+01
   %13 = fpext float %12 to double
-  %14 = fmul float %9, 5.000000e-01
+  %14 = fmul nnan float %9, 5.000000e-01
   %15 = fadd float %14, -1.900000e+01
   %16 = fpext float %15 to double
   %17 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.24000, double noundef %13, double noundef %16, i32 noundef %1)
@@ -44969,11 +44969,11 @@ define internal void @lte_rrc_NRSRQ_Range_NB_r14_fmt(ptr noundef %0, i32 noundef
 
 24:                                               ; preds = %22
   %25 = uitofp nneg i32 %1 to float
-  %26 = fadd float %25, -1.000000e+00
-  %27 = fmul float %26, 5.000000e-01
+  %26 = fadd nnan float %25, -1.000000e+00
+  %27 = fmul nnan float %26, 5.000000e-01
   %28 = fpext float %27 to double
   %29 = fadd double %28, -1.950000e+01
-  %30 = fmul float %25, 5.000000e-01
+  %30 = fmul nnan float %25, 5.000000e-01
   %31 = fpext float %30 to double
   %32 = fadd double %31, -1.950000e+01
   %33 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.24000, double noundef %29, double noundef %32, i32 noundef %1)
@@ -44993,11 +44993,11 @@ define internal void @lte_rrc_NRSRQ_Range_NB_r14_fmt(ptr noundef %0, i32 noundef
 
 40:                                               ; preds = %38
   %41 = uitofp nneg i32 %1 to float
-  %42 = fadd float %41, -1.000000e+00
-  %43 = fmul float %42, 5.000000e-01
+  %42 = fadd nnan float %41, -1.000000e+00
+  %43 = fmul nnan float %42, 5.000000e-01
   %44 = fadd float %43, -2.000000e+01
   %45 = fpext float %44 to double
-  %46 = fmul float %41, 5.000000e-01
+  %46 = fmul nnan float %41, 5.000000e-01
   %47 = fadd float %46, -2.000000e+01
   %48 = fpext float %47 to double
   %49 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.24000, double noundef %45, double noundef %48, i32 noundef %1)

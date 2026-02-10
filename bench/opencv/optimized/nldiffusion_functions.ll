@@ -1717,8 +1717,8 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %22, %25
 
 _ZNK2cv11_InputArray6getMatEi.exit56:             ; preds = %28, %31
   %32 = sitofp i32 %4 to float
-  %33 = fmul float %32, 2.000000e+00
-  %34 = fmul float %33, 0x4015555540000000
+  %33 = fmul nnan float %32, 2.000000e+00
+  %34 = fmul nnan float %33, 0x4015555540000000
   %35 = fdiv float 1.000000e+00, %34
   %36 = sext i32 %12 to i64
   %.idx.i.i.i = shl nsw i64 %36, 2
@@ -1726,7 +1726,7 @@ _ZNK2cv11_InputArray6getMatEi.exit56:             ; preds = %28, %31
   %38 = sdiv i32 %12, 2
   %39 = sext i32 %38 to i64
   %40 = sext i32 %11 to i64
-  %41 = fmul float %35, 0x400AAAAAA0000000
+  %41 = fmul nnan float %35, 0x400AAAAAA0000000
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %44 = shl nsw i64 %40, 2
@@ -1996,7 +1996,7 @@ define hidden void @_ZN2cv15nld_step_scalarERNS_3MatERKS0_S1_f(ptr noundef nonnu
 
 20:                                               ; preds = %4
   %21 = uitofp i64 %19 to double
-  %22 = fmul double %21, 0x3EF0000000000000
+  %22 = fmul nnan double %21, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10, double noundef %22)
           to label %23 unwind label %62
 

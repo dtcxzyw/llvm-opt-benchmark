@@ -1166,7 +1166,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263: ; preds = %33
   %349 = load i32, ptr @_ZN4pbrt6PrimesE, align 16
   %350 = zext i32 %349 to i64
   %351 = uitofp i32 %349 to float
-  %352 = fdiv float 1.000000e+00, %351
+  %352 = fdiv nnan float 1.000000e+00, %351
   %353 = add i32 %349, -1
   %354 = uitofp i32 %353 to float
   %355 = fsub float 1.000000e+00, %354
@@ -1175,7 +1175,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit263: ; preds = %33
   %358 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN4pbrt6PrimesE, i64 4), align 4
   %359 = zext i32 %358 to i64
   %360 = uitofp i32 %358 to float
-  %361 = fdiv float 1.000000e+00, %360
+  %361 = fdiv nnan float 1.000000e+00, %360
   %362 = add i32 %358, -1
   %363 = uitofp i32 %362 to float
   %364 = fsub float 1.000000e+00, %363
@@ -2124,7 +2124,7 @@ _ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE9push_backEOS2_.exit213.us.i: ; preds = %_
   %679 = trunc nuw nsw i64 %678 to i32
   %680 = call noundef i32 @llvm.fshr.i32(i32 %677, i32 %677, i32 %679)
   %681 = uitofp i32 %680 to float
-  %682 = fmul float %681, 0x3DF0000000000000
+  %682 = fmul nnan float %681, 0x3DF0000000000000
   %683 = fcmp olt float %682, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i = select i1 %683, float %682, float 0x3FEFFFFFE0000000
   %684 = lshr i64 %673, 45
@@ -2135,7 +2135,7 @@ _ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE9push_backEOS2_.exit213.us.i: ; preds = %_
   %689 = trunc nuw nsw i64 %688 to i32
   %690 = call noundef i32 @llvm.fshr.i32(i32 %687, i32 %687, i32 %689)
   %691 = uitofp i32 %690 to float
-  %692 = fmul float %691, 0x3DF0000000000000
+  %692 = fmul nnan float %691, 0x3DF0000000000000
   %693 = fcmp olt float %692, 0x3FEFFFFFE0000000
   %.sroa.speculated.i214.i = select i1 %693, float %692, float 0x3FEFFFFFE0000000
   %694 = fadd float %.sroa.speculated.i.i, %671
@@ -2795,7 +2795,7 @@ _ZNSt6vectorIN4pbrt6Point2IfEESaIS2_EE9push_backEOS2_.exit285.i: ; preds = %_ZNS
 
 973:                                              ; preds = %._crit_edge.i.i268
   %974 = uitofp i32 %.2.i.i.i to float
-  %975 = fmul float %974, 0x3DF0000000000000
+  %975 = fmul nnan float %974, 0x3DF0000000000000
   %976 = fcmp ogt float %975, 0x3FEFFFFFE0000000
   %.sroa.speculated.i288.i = select i1 %976, float 0x3FEFFFFFE0000000, float %975
   %977 = call noundef float @_ZN4pbrt27OwenScrambledRadicalInverseEimj(i32 noundef 1, i64 noundef %indvars.iv1056.i, i32 noundef %942), !noalias !66
@@ -8521,7 +8521,7 @@ define linkonce_odr dso_local void @_ZN4pbrt16DigitPermutationC2EijN4pstd3pmr21p
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %10, align 4, !tbaa !358
   %11 = sitofp i32 %1 to float
-  %12 = fdiv float 1.000000e+00, %11
+  %12 = fdiv nnan float 1.000000e+00, %11
   %13 = add nsw i32 %1, -1
   %14 = sitofp i32 %13 to float
   %15 = fsub float 1.000000e+00, %14
@@ -8681,7 +8681,7 @@ define linkonce_odr dso_local noundef float @_ZN4pbrt27OwenScrambledRadicalInver
   %7 = udiv i64 -1, %6
   %8 = sub nuw i64 %7, %6
   %9 = uitofp i32 %5 to float
-  %10 = fdiv float 1.000000e+00, %9
+  %10 = fdiv nnan float 1.000000e+00, %9
   %11 = zext i32 %2 to i64
   %12 = add i32 %5, -1
   %13 = lshr i32 %12, 1
@@ -9029,11 +9029,11 @@ _ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %._crit_edge.i._ZNK4
 
 ._crit_edge.loopexit.i30:                         ; preds = %98
   %88 = uitofp i32 %.1.i16 to float
-  %89 = fmul float %88, 0x3DF0000000000000
+  %89 = fmul nnan float %88, 0x3DF0000000000000
   %90 = fcmp ogt float %89, 0x3FEFFFFFE0000000
   %.sroa.speculated.i = select i1 %90, float 0x3FEFFFFFE0000000, float %89
   %91 = uitofp i32 %.1.i27 to float
-  %92 = fmul float %91, 0x3DF0000000000000
+  %92 = fmul nnan float %91, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit34
 
 .lr.ph.i22:                                       ; preds = %86, %98
@@ -9062,7 +9062,7 @@ _ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit:  ; preds = %._crit_edge.i._ZNK4
 
 _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread: ; preds = %100
   %101 = uitofp i32 %76 to float
-  %102 = fmul float %101, 0x3DF0000000000000
+  %102 = fmul nnan float %101, 0x3DF0000000000000
   %103 = fcmp ogt float %102, 0x3FEFFFFFE0000000
   %.sroa.speculated.i48149 = select i1 %103, float 0x3FEFFFFFE0000000, float %102
   br label %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit63
@@ -9091,7 +9091,7 @@ _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread: ; preds =
 ._crit_edge.loopexit.i59:                         ; preds = %121
   %111 = xor i32 %.1.i42, %76
   %112 = uitofp i32 %111 to float
-  %113 = fmul float %112, 0x3DF0000000000000
+  %113 = fmul nnan float %112, 0x3DF0000000000000
   %114 = fcmp ogt float %113, 0x3FEFFFFFE0000000
   %.sroa.speculated.i48 = select i1 %114, float 0x3FEFFFFFE0000000, float %113
   %115 = xor i32 %.1.i56, %78
@@ -9122,7 +9122,7 @@ _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit63: ; preds = %_ZN
   %.sroa.speculated.i48150 = phi float [ %.sroa.speculated.i48149, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread ], [ %.sroa.speculated.i48, %._crit_edge.loopexit.i59 ]
   %.09.lcssa.i61 = phi i32 [ %78, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit.thread ], [ %115, %._crit_edge.loopexit.i59 ]
   %123 = uitofp i32 %.09.lcssa.i61 to float
-  %124 = fmul float %123, 0x3DF0000000000000
+  %124 = fmul nnan float %123, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit34
 
 125:                                              ; preds = %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
@@ -9167,7 +9167,7 @@ _ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit: ; preds = %125, %._cr
   %143 = xor i32 %142, %141
   %144 = tail call noundef i32 @llvm.bitreverse.i32(i32 %143)
   %145 = uitofp i32 %144 to float
-  %146 = fmul float %145, 0x3DF0000000000000
+  %146 = fmul nnan float %145, 0x3DF0000000000000
   %147 = fcmp ogt float %146, 0x3FEFFFFFE0000000
   %.sroa.speculated.i77 = select i1 %147, float 0x3FEFFFFFE0000000, float %146
   br i1 %.not12.i93, label %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit92, label %.lr.ph.i80
@@ -9211,7 +9211,7 @@ _ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit92: ; preds = %_ZN4pbrt
   %165 = xor i32 %164, %163
   %166 = tail call noundef i32 @llvm.bitreverse.i32(i32 %165)
   %167 = uitofp i32 %166 to float
-  %168 = fmul float %167, 0x3DF0000000000000
+  %168 = fmul nnan float %167, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit34
 
 169:                                              ; preds = %_ZNK4pbrt13ZSobolSampler14GetSampleIndexEv.exit
@@ -9273,7 +9273,7 @@ _ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit92: ; preds = %_ZN4pbrt
 
 _ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit: ; preds = %171
   %198 = uitofp i32 %.2.i.i to float
-  %199 = fmul float %198, 0x3DF0000000000000
+  %199 = fmul nnan float %198, 0x3DF0000000000000
   %200 = fcmp ogt float %199, 0x3FEFFFFFE0000000
   %.sroa.speculated.i105 = select i1 %200, float 0x3FEFFFFFE0000000, float %199
   br i1 %.not12.i93, label %._crit_edge.i116, label %.lr.ph.i108
@@ -9334,7 +9334,7 @@ _ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit: ; preds = %171
 
 _ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit125: ; preds = %202
   %229 = uitofp i32 %.2.i.i122 to float
-  %230 = fmul float %229, 0x3DF0000000000000
+  %230 = fmul nnan float %229, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit34
 
 _ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit34: ; preds = %._crit_edge.loopexit.i30, %80, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit125, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit92, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit63
@@ -13021,7 +13021,7 @@ define linkonce_odr dso_local <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sample
   %18 = trunc nuw nsw i64 %17 to i32
   %19 = tail call noundef i32 @llvm.fshr.i32(i32 %16, i32 %16, i32 %18)
   %20 = uitofp i32 %19 to float
-  %21 = fmul float %20, 0x3DF0000000000000
+  %21 = fmul nnan float %20, 0x3DF0000000000000
   %22 = fcmp olt float %21, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i = select i1 %22, float %21, float 0x3FEFFFFFE0000000
   %23 = mul i64 %12, 6364136223846793005
@@ -13035,7 +13035,7 @@ define linkonce_odr dso_local <2 x float> @_ZN4pbrt6detail8DispatchIRZNS_7Sample
   %30 = trunc nuw nsw i64 %29 to i32
   %31 = tail call noundef i32 @llvm.fshr.i32(i32 %28, i32 %28, i32 %30)
   %32 = uitofp i32 %31 to float
-  %33 = fmul float %32, 0x3DF0000000000000
+  %33 = fmul nnan float %32, 0x3DF0000000000000
   %34 = fcmp olt float %33, 0x3FEFFFFFE0000000
   %.sroa.speculated.i1.i.i = select i1 %34, float %33, float 0x3FEFFFFFE0000000
   %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> poison, float %.sroa.speculated.i.i.i, i64 0
@@ -13252,12 +13252,12 @@ _ZN4pbrt9BlueNoiseEiNS_6Point2IiEE.exit10:        ; preds = %._crit_edge
   %85 = getelementptr inbounds [2 x i32], ptr %82, i64 %84
   %86 = load i32, ptr %85, align 8, !tbaa !15
   %87 = uitofp i32 %86 to double
-  %88 = fmul double %87, 0x3DF0000000000000
+  %88 = fmul nnan double %87, 0x3DF0000000000000
   %89 = fptrunc double %88 to float
   %90 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %91 = load i32, ptr %90, align 4, !tbaa !15
   %92 = uitofp i32 %91 to double
-  %93 = fmul double %92, 0x3DF0000000000000
+  %93 = fmul nnan double %92, 0x3DF0000000000000
   %94 = fptrunc double %93 to float
   %.sroa.3.0.extract.shift.i = lshr i64 %.sroa.02.0.copyload, 32
   %95 = urem i32 %6, 48
@@ -13887,7 +13887,7 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %45
   %90 = trunc nuw nsw i64 %89 to i32
   %91 = tail call noundef i32 @llvm.fshr.i32(i32 %88, i32 %88, i32 %90)
   %92 = uitofp i32 %91 to float
-  %93 = fmul float %92, 0x3DF0000000000000
+  %93 = fmul nnan float %92, 0x3DF0000000000000
   %94 = fcmp olt float %93, 0x3FEFFFFFE0000000
   %.sroa.speculated.i = select i1 %94, float %93, float 0x3FEFFFFFE0000000
   %95 = mul i64 %84, 6364136223846793005
@@ -13901,7 +13901,7 @@ _ZN4pbrt18PermutationElementEjjj.exit:            ; preds = %45
   %102 = trunc nuw nsw i64 %101 to i32
   %103 = tail call noundef i32 @llvm.fshr.i32(i32 %100, i32 %100, i32 %102)
   %104 = uitofp i32 %103 to float
-  %105 = fmul float %104, 0x3DF0000000000000
+  %105 = fmul nnan float %104, 0x3DF0000000000000
   %106 = fcmp olt float %105, 0x3FEFFFFFE0000000
   %.sroa.speculated.i7 = select i1 %106, float %105, float 0x3FEFFFFFE0000000
   br label %107
@@ -13945,7 +13945,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt13HaltonSampler15SampleDim
   %12 = udiv i64 -1, %11
   %13 = sub nuw i64 %12, %11
   %14 = uitofp i32 %10 to float
-  %15 = fdiv float 1.000000e+00, %14
+  %15 = fdiv nnan float 1.000000e+00, %14
   %.not.i = icmp eq i64 %7, 0
   br i1 %.not.i, label %_ZN4pbrt14RadicalInverseEim.exit, label %.lr.ph.i
 
@@ -13982,7 +13982,7 @@ _ZN4pbrt14RadicalInverseEim.exit:                 ; preds = %5, %._crit_edge.loo
   %31 = udiv i64 -1, %30
   %32 = sub nuw i64 %31, %30
   %33 = uitofp i32 %29 to float
-  %34 = fdiv float 1.000000e+00, %33
+  %34 = fdiv nnan float 1.000000e+00, %33
   %35 = add i32 %29, -1
   %36 = uitofp i32 %35 to float
   %37 = fsub float 1.000000e+00, %36
@@ -14193,7 +14193,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18PaddedSobolSampler15Samp
 
 ._crit_edge.loopexit.i:                           ; preds = %18
   %11 = uitofp i32 %.1.i to float
-  %12 = fmul float %11, 0x3DF0000000000000
+  %12 = fmul nnan float %11, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
@@ -14254,7 +14254,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18PaddedSobolSampler15Samp
 _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit: ; preds = %20, %._crit_edge.loopexit.i23
   %.09.lcssa.i24 = phi i32 [ %3, %20 ], [ %24, %._crit_edge.loopexit.i23 ]
   %32 = uitofp i32 %.09.lcssa.i24 to float
-  %33 = fmul float %32, 0x3DF0000000000000
+  %33 = fmul nnan float %32, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit
 
 34:                                               ; preds = %4
@@ -14305,7 +14305,7 @@ _ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit: ; preds = %34, %._cri
   %55 = xor i32 %54, %53
   %56 = tail call noundef i32 @llvm.bitreverse.i32(i32 %55)
   %57 = uitofp i32 %56 to float
-  %58 = fmul float %57, 0x3DF0000000000000
+  %58 = fmul nnan float %57, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit
 
 59:                                               ; preds = %4
@@ -14373,7 +14373,7 @@ _ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit: ; preds = %34, %._cri
 
 _ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit: ; preds = %64
   %91 = uitofp i32 %.2.i.i to float
-  %92 = fmul float %91, 0x3DF0000000000000
+  %92 = fmul nnan float %91, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit
 
 _ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit: ; preds = %._crit_edge.loopexit.i, %7, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit
@@ -14403,7 +14403,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt12SobolSampler15SampleDime
 
 ._crit_edge.loopexit.i:                           ; preds = %18
   %11 = uitofp i32 %.1.i to float
-  %12 = fmul float %11, 0x3DF0000000000000
+  %12 = fmul nnan float %11, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit
 
 .lr.ph.i:                                         ; preds = %18, %.lr.ph.preheader.i
@@ -14490,7 +14490,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt12SobolSampler15SampleDime
 _ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit: ; preds = %37, %._crit_edge.loopexit.i20
   %.09.lcssa.i21 = phi i32 [ %34, %37 ], [ %40, %._crit_edge.loopexit.i20 ]
   %48 = uitofp i32 %.09.lcssa.i21 to float
-  %49 = fmul float %48, 0x3DF0000000000000
+  %49 = fmul nnan float %48, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit
 
 50:                                               ; preds = %20
@@ -14540,7 +14540,7 @@ _ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit: ; preds = %50, %._cri
   %70 = xor i32 %69, %68
   %71 = tail call noundef i32 @llvm.bitreverse.i32(i32 %70)
   %72 = uitofp i32 %71 to float
-  %73 = fmul float %72, 0x3DF0000000000000
+  %73 = fmul nnan float %72, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit
 
 74:                                               ; preds = %20
@@ -14607,7 +14607,7 @@ _ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit: ; preds = %50, %._cri
 
 _ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit: ; preds = %78
   %105 = uitofp i32 %.2.i.i to float
-  %106 = fmul float %105, 0x3DF0000000000000
+  %106 = fmul nnan float %105, 0x3DF0000000000000
   br label %_ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit
 
 _ZN4pbrt11SobolSampleINS_12NoRandomizerEEEfliT_.exit: ; preds = %._crit_edge.loopexit.i, %6, %_ZN4pbrt11SobolSampleINS_22BinaryPermuteScramblerEEEfliT_.exit, %_ZN4pbrt11SobolSampleINS_17FastOwenScramblerEEEfliT_.exit, %_ZN4pbrt11SobolSampleINS_13OwenScramblerEEEfliT_.exit
@@ -19724,7 +19724,7 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZ4mainE3$_2E9_M_invokeERKSt9
   %16 = load ptr, ptr %8, align 8, !tbaa !687
   %17 = load i32, ptr %16, align 4, !tbaa !15
   %18 = sitofp i32 %17 to float
-  %19 = fmul float %15, %18
+  %19 = fmul nnan float %15, %18
   %20 = fdiv float %12, %19
   tail call void @_ZN4pbrt5Image10SetChannelENS_6Point2IiEEif(ptr noundef nonnull align 8 dereferenceable(152) %11, i64 %.sroa.06.0.insert.insert.i.i.i, i32 noundef 0, float noundef %20)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1

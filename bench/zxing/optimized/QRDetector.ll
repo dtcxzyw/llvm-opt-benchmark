@@ -630,7 +630,7 @@ _ZNK5ZXing11PatternView13pixelsInFrontEv.exit:    ; preds = %_ZN5ZXing6ReduceIPK
   %176 = getelementptr inbounds nuw i8, ptr %.sroa.0128.0, i64 4
   %177 = load i16, ptr %176, align 2, !tbaa !20
   %178 = uitofp i16 %177 to double
-  %179 = fmul double %178, 5.000000e-01
+  %179 = fmul nnan double %178, 5.000000e-01
   %180 = fadd double %179, %175
   %181 = ptrtoint ptr %.val48 to i64
   %182 = ptrtoint ptr %62 to i64
@@ -4580,7 +4580,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9Bit
   %7 = alloca %"class.std::optional.29", align 8
   %8 = alloca %"class.std::optional.29", align 8
   %9 = sitofp i32 %2 to double
-  %10 = fmul double %9, 2.250000e+00
+  %10 = fmul nnan double %9, 2.250000e+00
   %11 = mul nsw i32 %2, 3
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -5632,7 +5632,7 @@ _ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit: ; preds = %.lr.
 60:                                               ; preds = %_ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit
   %61 = load i32, ptr %3, align 4, !tbaa !24
   %62 = sitofp i32 %61 to float
-  %63 = fmul float %51, 5.000000e-01
+  %63 = fmul nnan float %51, 5.000000e-01
   %64 = fadd float %63, %62
   %65 = add nsw i32 %56, -1
   %66 = uitofp nneg i32 %65 to float
@@ -5854,7 +5854,7 @@ _ZN5ZXing9IsPatternILb0ELi5ELi7EEEdRKNS_11PatternViewERKNS_12FixedPatternIXT0_EX
 
 _ZNK5ZXing11PatternView3sumEi.exit.i52:           ; preds = %.lr.ph.i.i.i.i46
   %57 = uitofp i16 %56 to double
-  %58 = fmul double %57, 2.500000e-01
+  %58 = fmul nnan double %57, 2.500000e-01
   %59 = call double @llvm.fmuladd.f64(double %58, double 5.000000e-01, double 5.000000e-01)
   br label %61
 
@@ -8708,7 +8708,7 @@ _ZN5ZXing6ReduceISt5arrayItLm5EEtSt4plusItEEET0_RKT_S5_T1_.exit: ; preds = %.lr.
   %33 = add nuw nsw i32 %30, %32
   %34 = sub nsw i32 %28, %33
   %35 = sitofp i32 %34 to double
-  %36 = fdiv double %35, 1.200000e+01
+  %36 = fdiv nnan double %35, 1.200000e+01
   %.sroa.0.0.copyload = load double, ptr %9, align 8, !tbaa !46
   %.sroa.2.0.copyload = load double, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !46
   %37 = fmul double %.sroa.2.0.copyload, %.sroa.2.0.copyload

@@ -6958,7 +6958,7 @@ define internal { i64, double } @_ZN4core3ops8function2Fn4call17ha39911641700b48
   %31 = uitofp nneg i64 %.sroa.7.016.i.i to double
   %32 = load i64, ptr %.sroa.0.09.ptr.i.i, align 8, !noalias !694, !noundef !3
   %33 = uitofp i64 %32 to double
-  %34 = fmul double %31, %33
+  %34 = fmul nnan double %31, %33
   %35 = fadd double %.sroa.06.018.i.i, %34
   %36 = icmp eq i64 %.sroa.0.09.add.i.i, 2048
   br i1 %36, label %37, label %.preheader.i.i
@@ -7316,7 +7316,7 @@ define internal { i64, double } @_ZN4core3ops8function5FnMut8call_mut17h1720aa44
   %31 = uitofp nneg i64 %.sroa.7.016.i.i to double
   %32 = load i64, ptr %.sroa.0.09.ptr.i.i, align 8, !noalias !747, !noundef !3
   %33 = uitofp i64 %32 to double
-  %34 = fmul double %31, %33
+  %34 = fmul nnan double %31, %33
   %35 = fadd double %.sroa.06.018.i.i, %34
   %36 = icmp eq i64 %.sroa.0.09.add.i.i, 2048
   br i1 %36, label %37, label %.preheader.i.i
@@ -8202,7 +8202,7 @@ define internal { i64, double } @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u
   %30 = uitofp nneg i64 %.sroa.7.016.i.i.i to double
   %31 = load i64, ptr %.sroa.0.09.ptr.i.i.i, align 8, !noalias !900, !noundef !3
   %32 = uitofp i64 %31 to double
-  %33 = fmul double %30, %32
+  %33 = fmul nnan double %30, %32
   %34 = fadd double %.sroa.06.018.i.i.i, %33
   %35 = icmp eq i64 %.sroa.0.09.add.i.i.i, 2048
   br i1 %35, label %36, label %.preheader.i.i.i
@@ -66821,7 +66821,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17ha8151e9cd7204c1dE.exit: ; preds = 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.09.0.i8
   %.val.i9 = load i8, ptr %25, align 1, !noundef !3
   %26 = uitofp i8 %.val.i9 to double
-  %27 = fmul double %26, %26
+  %27 = fmul nnan double %26, %26
   %28 = fadd double %.sroa.07.0.i7, %27
   %29 = add nuw i64 %.sroa.09.0.i8, 1
   %30 = icmp eq i64 %29, %1
@@ -66834,7 +66834,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17ha8151e9cd7204c1dE.exit: ; preds = 
   %35 = uitofp i8 %34 to double
   %36 = load i8, ptr %33, align 1, !noundef !3
   %37 = uitofp i8 %36 to double
-  %38 = fmul double %35, %37
+  %38 = fmul nnan double %35, %37
   %39 = fadd double %.sroa.0.0.lcssa.i, %38
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he778288b30eedc40E.exit.thread"
 
@@ -67285,7 +67285,7 @@ define { i64, double } @_ZN6yara_x7modules4math11mean_string17hdba761534014e03dE
   %21 = uitofp nneg i64 %.sroa.7.016.i to double
   %22 = load i64, ptr %.sroa.0.09.ptr.i, align 8, !noalias !8127, !noundef !3
   %23 = uitofp i64 %22 to double
-  %24 = fmul double %21, %23
+  %24 = fmul nnan double %21, %23
   %25 = fadd double %.sroa.06.018.i, %24
   %26 = icmp eq i64 %.sroa.0.09.add.i, 2048
   br i1 %26, label %27, label %.preheader.i
@@ -67422,7 +67422,7 @@ _ZN6yara_x7modules4math4mean17hdbbbf7a971348602E.exit: ; preds = %36, %15, %8, %
   %30 = uitofp nneg i64 %.sroa.7.016.i to double
   %31 = load i64, ptr %.sroa.0.09.ptr.i, align 8, !noalias !8143, !noundef !3
   %32 = uitofp i64 %31 to double
-  %33 = fmul double %30, %32
+  %33 = fmul nnan double %30, %32
   %34 = fadd double %.sroa.06.018.i, %33
   %35 = icmp eq i64 %.sroa.0.09.add.i, 2048
   br i1 %35, label %36, label %.preheader.i

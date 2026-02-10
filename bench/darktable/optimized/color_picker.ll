@@ -563,7 +563,7 @@ define void @dt_color_picker_helper(ptr noundef readonly captures(none) %0, ptr 
   %49 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %50 = load i64, ptr %49, align 8, !tbaa !115
   %51 = sitofp i64 %50 to double
-  %52 = fmul reassoc nsz arcp contract afn double %51, 0x3EB0C6F7A0B5ED8D
+  %52 = fmul reassoc nnan nsz arcp contract afn double %51, 0x3EB0C6F7A0B5ED8D
   %53 = fadd reassoc nsz arcp contract afn double %52, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
@@ -573,7 +573,7 @@ define void @dt_color_picker_helper(ptr noundef readonly captures(none) %0, ptr 
   %57 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !118
   %59 = sitofp i64 %58 to double
-  %60 = fmul reassoc nsz arcp contract afn double %59, 0x3EB0C6F7A0B5ED8D
+  %60 = fmul reassoc nnan nsz arcp contract afn double %59, 0x3EB0C6F7A0B5ED8D
   %61 = fadd reassoc nsz arcp contract afn double %60, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %dt_get_perf_times.exit
@@ -873,7 +873,7 @@ blur_2D_Bspline.exit:                             ; preds = %_bspline_horizontal
   br i1 %221, label %222, label %224
 
 222:                                              ; preds = %.lr.ph.i142
-  %223 = fmul reassoc nsz arcp contract afn float %220, 0x3FC45F3060000000
+  %223 = fmul reassoc nnan nsz arcp contract afn float %220, 0x3FC45F3060000000
   br label %dt_Lab_2_LCH.exit.i
 
 224:                                              ; preds = %.lr.ph.i142
@@ -1265,7 +1265,7 @@ _color_picker_work_4ch.exit112:                   ; preds = %352
   %435 = select reassoc nsz arcp contract afn i1 %434, float %433, float %419
   %436 = fptosi float %435 to i32
   %437 = sitofp i32 %436 to float
-  %438 = fsub reassoc nsz arcp contract afn float %433, %437
+  %438 = fsub reassoc nnan nsz arcp contract afn float %433, %437
   %439 = sext i32 %436 to i64
   %440 = getelementptr inbounds float, ptr %422, i64 %439
   %441 = load float, ptr %440, align 4, !tbaa !58
@@ -1992,7 +1992,7 @@ _color_picker_work_1ch.exit140:                   ; preds = %830
   %857 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %858 = load i64, ptr %857, align 8, !tbaa !115
   %859 = sitofp i64 %858 to double
-  %860 = fmul reassoc nsz arcp contract afn double %859, 0x3EB0C6F7A0B5ED8D
+  %860 = fmul reassoc nnan nsz arcp contract afn double %859, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %861 = fsub reassoc nsz arcp contract afn double %856, %.sroa.0.0
   %862 = fadd reassoc nsz arcp contract afn double %861, %860
@@ -2003,7 +2003,7 @@ _color_picker_work_1ch.exit140:                   ; preds = %830
   %866 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %867 = load i64, ptr %866, align 8, !tbaa !118
   %868 = sitofp i64 %867 to double
-  %869 = fmul reassoc nsz arcp contract afn double %868, 0x3EB0C6F7A0B5ED8D
+  %869 = fmul reassoc nnan nsz arcp contract afn double %868, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %870 = fsub reassoc nsz arcp contract afn double %865, %.sroa.6.0
   %871 = fadd reassoc nsz arcp contract afn double %870, %869

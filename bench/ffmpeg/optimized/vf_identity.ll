@@ -902,7 +902,7 @@ define internal i32 @do_identity(ptr noundef %0) #0 {
   %96 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv154
   %97 = load i32, ptr %96, align 4, !tbaa !61
   %98 = sitofp i32 %97 to double
-  %99 = fmul nsz double %95, %98
+  %99 = fmul nnan nsz double %95, %98
   %100 = fdiv nsz double %92, %99
   %101 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv154
   store double %100, ptr %101, align 8, !tbaa !39

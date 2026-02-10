@@ -2822,7 +2822,7 @@ gtk2_get_arrow.exit:                              ; preds = %11, %14
   %55 = tail call i32 @llvm.smin.i32(i32 %6, i32 %7)
   %. = tail call i32 @llvm.smin.i32(i32 %54, i32 %55)
   %56 = sitofp i32 %. to double
-  %57 = fmul double %56, 0x3FE6666666666666
+  %57 = fmul nnan double %56, 0x3FE6666666666666
   %58 = fptosi double %57 to i32
   store i32 %58, ptr @gtk2_paint_arrow.h, align 4
   store i32 %58, ptr @gtk2_paint_arrow.w, align 4

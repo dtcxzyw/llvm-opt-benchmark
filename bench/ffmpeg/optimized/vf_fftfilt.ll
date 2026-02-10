@@ -1693,7 +1693,7 @@ define internal noundef i32 @irdft_horizontal8(ptr noundef readonly captures(non
   %47 = load i64, ptr %39, align 8, !tbaa !56
   %48 = mul i64 %47, %46
   %49 = uitofp i64 %48 to float
-  %50 = fdiv nsz float 1.000000e+00, %49
+  %50 = fdiv nnan nsz float 1.000000e+00, %49
   %51 = load ptr, ptr %40, align 8, !tbaa !63
   %52 = load i64, ptr %41, align 8, !tbaa !56
   %53 = mul i64 %52, %indvars.iv76
@@ -1982,7 +1982,7 @@ define internal noundef i32 @irdft_horizontal16(ptr noundef readonly captures(no
   %44 = load i64, ptr %43, align 8, !tbaa !56
   %45 = mul i64 %44, %42
   %46 = uitofp i64 %45 to float
-  %47 = fdiv nsz float 1.000000e+00, %46
+  %47 = fdiv nnan nsz float 1.000000e+00, %46
   %48 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv83
   %49 = load ptr, ptr %48, align 8, !tbaa !63
   %50 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv83

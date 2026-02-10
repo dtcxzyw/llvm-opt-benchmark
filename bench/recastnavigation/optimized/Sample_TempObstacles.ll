@@ -1427,7 +1427,7 @@ define dso_local void @_Z17drawDetailOverlayPK11dtTileCacheiiPdS2_Pi(ptr noundef
   %19 = mul i32 %16, %18
   %20 = add nsw i32 %19, 56
   %21 = sitofp i32 %20 to float
-  %22 = fmul float %21, 0x3F50000000000000
+  %22 = fmul nnan float %21, 0x3F50000000000000
   %23 = fpext float %22 to double
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %24
@@ -1478,7 +1478,7 @@ define dso_local void @_Z17drawDetailOverlayPK11dtTileCacheiiPdS2_Pi(ptr noundef
   %62 = getelementptr inbounds nuw i8, ptr %27, i64 40
   %63 = load i32, ptr %62, align 8
   %64 = sitofp i32 %63 to float
-  %65 = fmul float %64, 0x3F50000000000000
+  %65 = fmul nnan float %64, 0x3F50000000000000
   %66 = fpext float %65 to double
   %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 128, ptr noundef nonnull @.str.10, double noundef %66) #15
   %68 = load double, ptr %9, align 8
@@ -2037,11 +2037,11 @@ define dso_local void @_ZN20Sample_TempObstacles14handleSettingsEv(ptr noundef n
   call void @_Z10imguiValuePKc(ptr noundef nonnull %5)
   %98 = load i32, ptr %82, align 4
   %99 = sitofp i32 %98 to float
-  %100 = fmul float %99, 0x3F50000000000000
+  %100 = fmul nnan float %99, 0x3F50000000000000
   %101 = fpext float %100 to double
   %102 = load i32, ptr %85, align 8
   %103 = sitofp i32 %102 to float
-  %104 = fmul float %103, 0x3F50000000000000
+  %104 = fmul nnan float %103, 0x3F50000000000000
   %105 = fpext float %104 to double
   %106 = fmul float %89, 1.000000e+02
   %107 = fpext float %106 to double
@@ -2055,7 +2055,7 @@ define dso_local void @_ZN20Sample_TempObstacles14handleSettingsEv(ptr noundef n
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %114 = load i32, ptr %113, align 8
   %115 = uitofp i32 %114 to float
-  %116 = fmul float %115, 0x3F50000000000000
+  %116 = fmul nnan float %115, 0x3F50000000000000
   %117 = fpext float %116 to double
   %118 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.23, double noundef %117) #15
   call void @_Z10imguiValuePKc(ptr noundef nonnull %5)
@@ -3635,7 +3635,7 @@ _ZNK9rcContext18getAccumulatedTimeE12rcTimerLabel.exit: ; preds = %_ZN9rcContext
 
 ._crit_edge.loopexit:                             ; preds = %279
   %283 = sitofp i32 %.1 to float
-  %284 = fmul float %283, 0x3F50000000000000
+  %284 = fmul nnan float %283, 0x3F50000000000000
   %285 = fpext float %284 to double
   br label %._crit_edge
 
@@ -3775,7 +3775,7 @@ declare noundef i32 @_ZN11dtTileCache16buildNavMeshTileEjP9dtNavMesh(ptr noundef
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN16FastLZCompressor17maxCompressedSizeEi(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = sitofp i32 %1 to float
-  %4 = fmul float %3, 0x3FF0CCCCC0000000
+  %4 = fmul nnan float %3, 0x3FF0CCCCC0000000
   %5 = fptosi float %4 to i32
   ret i32 %5
 }

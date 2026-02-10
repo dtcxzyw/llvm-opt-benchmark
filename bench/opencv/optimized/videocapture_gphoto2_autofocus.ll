@@ -1600,7 +1600,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit.i102: ; preds = 
 508:                                              ; preds = %506
   %509 = sub nsw i32 0, %.sroa.16.0
   %510 = sitofp i32 %.sroa.0297.0 to double
-  %511 = fmul double %510, 7.500000e-01
+  %511 = fmul nnan double %510, 7.500000e-01
   %512 = fptosi double %511 to i32
   br label %._crit_edge48.i
 
@@ -1616,7 +1616,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit.i102: ; preds = 
 
 518:                                              ; preds = %516
   %519 = sitofp i32 %.sroa.26.1 to double
-  %520 = fmul double %519, 1.500000e+00
+  %520 = fmul nnan double %519, 1.500000e+00
   %521 = fcmp ogt double %520, %.pre50.i
   %522 = icmp sgt i32 %.sroa.45.3, %.sroa.0297.0
   %or.cond.i = select i1 %521, i1 %522, i1 false
@@ -1625,7 +1625,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit.i102: ; preds = 
 ._crit_edge.i:                                    ; preds = %516, %518
   %523 = icmp sgt i32 %.sroa.45.3, -1
   %524 = select i1 %523, i32 1, i32 -1
-  %525 = fmul double %.pre50.i, 7.500000e-01
+  %525 = fmul nnan double %.pre50.i, 7.500000e-01
   %526 = fptosi double %525 to i32
   %527 = call i32 @llvm.abs.i32(i32 %.sroa.45.3, i1 true)
   br label %_ZL12correctFocusbR10FocusStated.exit

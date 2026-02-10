@@ -163,7 +163,7 @@ declare double @log(double noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define dso_local double @reservoir_get_next_S(ptr noundef %0, double noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sitofp i32 %2 to double
-  %5 = fmul double %4, 2.200000e+01
+  %5 = fmul nnan double %4, 2.200000e+01
   %6 = fcmp ugt double %1, %5
   br i1 %6, label %22, label %7
 

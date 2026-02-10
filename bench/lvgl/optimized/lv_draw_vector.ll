@@ -495,8 +495,8 @@ define void @lv_vector_path_append_rect(ptr noundef %0, ptr noundef %1, float no
   %16 = sitofp i32 %15 to float
   %17 = tail call i32 @lv_area_get_height(ptr noundef nonnull %1) #10
   %18 = sitofp i32 %17 to float
-  %19 = fmul float %16, 5.000000e-01
-  %20 = fmul float %18, 5.000000e-01
+  %19 = fmul nnan float %16, 5.000000e-01
+  %20 = fmul nnan float %18, 5.000000e-01
   %21 = fcmp ogt float %2, %19
   %.0 = select i1 %21, float %19, float %2
   %22 = fcmp ogt float %3, %20

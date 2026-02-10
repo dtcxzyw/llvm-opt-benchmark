@@ -6755,7 +6755,7 @@ define hidden void @_ZN11opencv_test31Size_MatType_NormType_normalize12PerfTestB
   %22 = and i32 %21, 511
   %23 = add nuw nsw i32 %22, 1
   %24 = uitofp nneg i32 %23 to double
-  %25 = fmul double %19, %24
+  %25 = fmul nnan double %19, %24
   br label %33
 
 26:                                               ; preds = %1
@@ -7980,7 +7980,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %21
   %35 = and i32 %34, 511
   %36 = add nuw nsw i32 %35, 1
   %37 = uitofp nneg i32 %36 to double
-  %38 = fmul double %32, %37
+  %38 = fmul nnan double %32, %37
   br label %49
 
 39:                                               ; preds = %1
@@ -8929,7 +8929,7 @@ define hidden void @_ZN11opencv_test35Size_MatType_NormType_normalize_32f12PerfT
   %22 = and i32 %21, 511
   %23 = add nuw nsw i32 %22, 1
   %24 = uitofp nneg i32 %23 to double
-  %25 = fmul double %19, %24
+  %25 = fmul nnan double %19, %24
   br label %33
 
 26:                                               ; preds = %1

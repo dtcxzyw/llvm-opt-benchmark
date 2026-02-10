@@ -519,7 +519,7 @@ manifest_files_create.exit.i:                     ; preds = %manifest_files_comp
   store i32 %171, ptr %172, align 4
   %173 = icmp eq i64 %.0.i.i.i.i.i, 4294967296
   %174 = uitofp i64 %.0.i.i.i.i.i to double
-  %175 = fmul double %174, 9.000000e-01
+  %175 = fmul nnan double %174, 9.000000e-01
   %176 = fptoui double %175 to i32
   %.sink.i.i.i = select i1 %173, i32 -85899346, i32 %176
   %177 = getelementptr inbounds nuw i8, ptr %144, i64 16
@@ -2585,7 +2585,7 @@ manifest_files_update_parameters.exit:            ; preds = %manifest_files_comp
   store i32 %25, ptr %26, align 4
   %27 = icmp eq i64 %.0.i.i.i, 4294967296
   %28 = uitofp i64 %.0.i.i.i to double
-  %29 = fmul double %28, 9.000000e-01
+  %29 = fmul nnan double %28, 9.000000e-01
   %30 = fptoui double %29 to i32
   %.sink.i = select i1 %27, i32 -85899346, i32 %30
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16

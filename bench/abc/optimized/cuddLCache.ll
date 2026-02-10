@@ -1165,7 +1165,7 @@ define internal fastcc noundef ptr @cuddHashTableAlloc(ptr noundef captures(none
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 224
   %39 = load i32, ptr %38, align 8, !tbaa !30
   %40 = uitofp i32 %39 to double
-  %41 = fmul double %40, 2.000000e-01
+  %41 = fmul nnan double %40, 2.000000e-01
   %42 = fptoui double %41 to i32
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 248
   store i32 %42, ptr %43, align 8, !tbaa !96

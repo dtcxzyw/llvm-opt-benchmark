@@ -25,11 +25,11 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20applyTetrahedralSSE2EPKfiS1_Pfi(pt
   %9 = fadd float %8, -1.000000e+00
   %10 = insertelement <4 x float> poison, float %9, i64 0
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> zeroinitializer
-  %12 = fmul float %8, 4.000000e+00
+  %12 = fmul nnan float %8, 4.000000e+00
   %13 = insertelement <4 x float> poison, float %12, i64 0
   %14 = shufflevector <4 x float> %13, <4 x float> poison, <4 x i32> zeroinitializer
   %15 = fmul float %8, %8
-  %16 = fmul float %15, 4.000000e+00
+  %16 = fmul nnan float %15, 4.000000e+00
   %17 = insertelement <4 x float> poison, float %16, i64 0
   %18 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> zeroinitializer
   %19 = sdiv i32 %4, 4
@@ -90,7 +90,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20applyTetrahedralSSE2EPKfiS1_Pfi(pt
   %62 = fmul <4 x float> %18, %56
   %63 = fmul <4 x float> %14, %49
   %64 = fmul <4 x float> %14, %58
-  %65 = fmul <4 x float> %51, splat (float 4.000000e+00)
+  %65 = fmul nnan <4 x float> %51, splat (float 4.000000e+00)
   %66 = fmul <4 x float> %60, splat (float 4.000000e+00)
   %67 = fcmp uge <4 x float> %53, %52
   %68 = fcmp olt <4 x float> %54, %53
@@ -346,7 +346,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20applyTetrahedralSSE2EPKfiS1_Pfi(pt
   %275 = fmul <4 x float> %18, %269
   %276 = fmul <4 x float> %14, %262
   %277 = fmul <4 x float> %14, %271
-  %278 = fmul <4 x float> %264, splat (float 4.000000e+00)
+  %278 = fmul nnan <4 x float> %264, splat (float 4.000000e+00)
   %279 = fmul <4 x float> %273, splat (float 4.000000e+00)
   %280 = fcmp uge <4 x float> %266, %265
   %281 = fcmp olt <4 x float> %267, %266

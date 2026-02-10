@@ -1626,7 +1626,7 @@ define dso_local float @thinplate_color_pos(float noundef %0, float noundef %1, 
   %6 = fadd reassoc nsz arcp contract afn float %5, 2.000000e+00
   %7 = fptosi float %6 to i32
   %8 = sitofp i32 %7 to double
-  %9 = fmul reassoc nsz arcp contract afn double %8, 2.560000e+02
+  %9 = fmul reassoc nnan nsz arcp contract afn double %8, 2.560000e+02
   %10 = fpext reassoc nsz arcp contract afn float %0 to double
   %11 = fadd reassoc nsz arcp contract afn double %9, %10
   %12 = fptrunc reassoc nsz arcp contract afn double %11 to float

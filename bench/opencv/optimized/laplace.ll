@@ -1127,7 +1127,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit246: ; preds = %_Z
   %377 = load i32, ptr @sigma, align 4, !tbaa !46
   %378 = add nsw i32 %377, 1
   %379 = sitofp i32 %378 to double
-  %380 = fmul double %379, 2.500000e-01
+  %380 = fmul nnan double %379, 2.500000e-01
   invoke void @_ZN2cv15convertScaleAbsERKNS_11_InputArrayERKNS_12_OutputArrayEdd(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %32, double noundef %380, double noundef 0.000000e+00)
           to label %._crit_edge.i.i247 unwind label %395
 

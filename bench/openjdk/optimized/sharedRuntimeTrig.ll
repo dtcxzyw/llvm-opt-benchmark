@@ -369,9 +369,9 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   %48 = fadd double %47, 5.000000e-01
   %49 = fptosi double %48 to i32
   %50 = sitofp i32 %49 to double
-  %51 = fmul double %50, 0x3FF921FB54400000
+  %51 = fmul nnan double %50, 0x3FF921FB54400000
   %52 = fsub double %46, %51
-  %53 = fmul double %50, 0x3DD0B4611A626331
+  %53 = fmul nnan double %50, 0x3DD0B4611A626331
   %54 = icmp slt i32 %49, 32
   br i1 %54, label %55, label %62
 
@@ -400,9 +400,9 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   br i1 %69, label %70, label %91
 
 70:                                               ; preds = %62
-  %71 = fmul double %50, 0x3DD0B4611A600000
+  %71 = fmul nnan double %50, 0x3DD0B4611A600000
   %72 = fsub double %52, %71
-  %73 = fmul double %50, 0x3BA3198A2E037073
+  %73 = fmul nnan double %50, 0x3BA3198A2E037073
   %74 = fsub double %52, %72
   %75 = fsub double %74, %71
   %76 = fsub double %73, %75
@@ -417,9 +417,9 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   br i1 %82, label %83, label %91
 
 83:                                               ; preds = %70
-  %84 = fmul double %50, 0x3BA3198A2E000000
+  %84 = fmul nnan double %50, 0x3BA3198A2E000000
   %85 = fsub double %72, %84
-  %86 = fmul double %50, 0x397B839A252049C1
+  %86 = fmul nnan double %50, 0x397B839A252049C1
   %87 = fsub double %72, %85
   %88 = fsub double %87, %84
   %89 = fsub double %86, %88
@@ -624,7 +624,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
   %169 = fmul double %.022638.i, 0x3E70000000000000
   %170 = fptosi double %169 to i32
   %171 = sitofp i32 %170 to double
-  %172 = fmul double %171, 0x4170000000000000
+  %172 = fmul nnan double %171, 0x4170000000000000
   %173 = fsub double %.022638.i, %172
   %174 = fptosi double %173 to i32
   %175 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv109.i
@@ -680,7 +680,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
 
 197:                                              ; preds = %.thread.i.i
   %198 = tail call noundef double @llvm.copysign.f64(double 1.000000e+300, double %.03842.i.i)
-  %199 = fmul double %198, 1.000000e+300
+  %199 = fmul nnan double %198, 1.000000e+300
   br label %_ZL7scalbnAdi.exit.i
 
 200:                                              ; preds = %.thread.i.i
@@ -705,7 +705,7 @@ define internal fastcc noundef i32 @_ZL18__ieee754_rem_pio2dPd(double noundef %0
 
 210:                                              ; preds = %208
   %211 = tail call noundef double @llvm.copysign.f64(double 1.000000e-300, double %.03842.i.i)
-  %212 = fmul double %211, 1.000000e-300
+  %212 = fmul nnan double %211, 1.000000e-300
   br label %_ZL7scalbnAdi.exit.i
 
 213:                                              ; preds = %208
@@ -963,7 +963,7 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %264
 
 318:                                              ; preds = %.thread.i292.i
   %319 = tail call noundef double @llvm.copysign.f64(double 1.000000e+300, double %.03842.i295.i)
-  %320 = fmul double %319, 1.000000e+300
+  %320 = fmul nnan double %319, 1.000000e+300
   br label %_ZL7scalbnAdi.exit304.i
 
 321:                                              ; preds = %.thread.i292.i
@@ -988,7 +988,7 @@ _ZL7scalbnAdi.exit285.i:                          ; preds = %264
 
 331:                                              ; preds = %329
   %332 = tail call noundef double @llvm.copysign.f64(double 1.000000e-300, double %.03842.i295.i)
-  %333 = fmul double %332, 1.000000e-300
+  %333 = fmul nnan double %332, 1.000000e-300
   br label %_ZL7scalbnAdi.exit304.i
 
 334:                                              ; preds = %329
@@ -1011,10 +1011,10 @@ _ZL7scalbnAdi.exit304.i:                          ; preds = %334, %331, %323, %3
   br i1 %342, label %354, label %343
 
 343:                                              ; preds = %_ZL7scalbnAdi.exit304.i
-  %344 = fmul double %.0.i288.i, 0x3E70000000000000
+  %344 = fmul nnan double %.0.i288.i, 0x3E70000000000000
   %345 = fptosi double %344 to i32
   %346 = sitofp i32 %345 to double
-  %347 = fmul double %346, 0x4170000000000000
+  %347 = fmul nnan double %346, 0x4170000000000000
   %348 = fsub double %.0.i288.i, %347
   %349 = fptosi double %348 to i32
   %350 = getelementptr inbounds nuw i32, ptr %3, i64 %165

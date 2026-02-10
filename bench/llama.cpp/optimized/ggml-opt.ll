@@ -2766,7 +2766,7 @@ define void @ggml_opt_fit(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   unreachable
 
 36:                                               ; preds = %33
-  %37 = fsub float 1.000000e+00, %9
+  %37 = fsub nnan float 1.000000e+00, %9
   %38 = sitofp i64 %22 to float
   %39 = fmul float %37, %38
   %40 = fptosi float %39 to i64

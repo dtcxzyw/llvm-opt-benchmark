@@ -427,7 +427,7 @@ define dso_local void @heap_vacuum_rel(ptr noundef %0, ptr noundef %1, ptr nound
   %187 = load i32, ptr %26, align 4
   %188 = sub i32 %186, %187
   %189 = uitofp i32 %188 to double
-  %190 = fmul double %189, 2.000000e-01
+  %190 = fmul nnan double %189, 2.000000e-01
   %191 = fptoui double %190 to i32
   store i32 %191, ptr %162, align 4
   %192 = icmp eq i32 %191, 0
@@ -442,8 +442,8 @@ define dso_local void @heap_vacuum_rel(ptr noundef %0, ptr noundef %1, ptr nound
   %198 = fptoui double %197 to i32
   store i32 %198, ptr %160, align 8
   %199 = uitofp nneg i32 %195 to float
-  %200 = fmul float %199, 0x3F30000000000000
-  %201 = fsub float 1.000000e+00, %200
+  %200 = fmul nnan float %199, 0x3F30000000000000
+  %201 = fsub nnan float 1.000000e+00, %200
   %202 = uitofp i32 %198 to float
   %203 = fmul float %201, %202
   %204 = fptoui float %203 to i32
@@ -2057,7 +2057,7 @@ lazy_truncate_heap.exit:                          ; preds = %926, %796, %799, %u
   %995 = load i32, ptr %114, align 4
   %996 = icmp eq i32 %138, 0
   %997 = uitofp i32 %995 to double
-  %998 = fmul double %997, 1.000000e+02
+  %998 = fmul nnan double %997, 1.000000e+02
   %999 = uitofp i32 %138 to double
   %1000 = fdiv double %998, %999
   %1001 = select i1 %996, double 1.000000e+02, double %1000
@@ -2110,7 +2110,7 @@ lazy_truncate_heap.exit:                          ; preds = %926, %796, %799, %u
 1030:                                             ; preds = %1025, %1022
   %1031 = load i32, ptr %117, align 8
   %1032 = uitofp i32 %1031 to double
-  %1033 = fmul double %1032, 1.000000e+02
+  %1033 = fmul nnan double %1032, 1.000000e+02
   %1034 = fdiv double %1033, %999
   %1035 = select i1 %996, double 1.000000e+02, double %1034
   %1036 = load i64, ptr %130, align 8
@@ -2147,7 +2147,7 @@ lazy_truncate_heap.exit:                          ; preds = %926, %796, %799, %u
   call void @appendStringInfoString(ptr noundef nonnull %38, ptr noundef nonnull %.str.19.sink) #9
   %1053 = load i32, ptr %118, align 8
   %1054 = uitofp i32 %1053 to double
-  %1055 = fmul double %1054, 1.000000e+02
+  %1055 = fmul nnan double %1054, 1.000000e+02
   %1056 = fdiv double %1055, %999
   %1057 = select i1 %996, double 1.000000e+02, double %1056
   %1058 = load i64, ptr %131, align 8
@@ -2227,16 +2227,16 @@ lazy_truncate_heap.exit:                          ; preds = %926, %796, %799, %u
 
 1104:                                             ; preds = %1099
   %1105 = sitofp i64 %975 to double
-  %1106 = fmul double %1105, 8.192000e+03
-  %1107 = fmul double %1106, 0x3EB0000000000000
+  %1106 = fmul nnan double %1105, 8.192000e+03
+  %1107 = fmul nnan double %1106, 0x3EB0000000000000
   %1108 = sitofp i64 %1100 to double
   %1109 = sitofp i32 %1102 to double
   %1110 = fdiv double %1109, 1.000000e+06
   %1111 = fadd double %1110, %1108
   %1112 = fdiv double %1107, %1111
   %1113 = sitofp i64 %980 to double
-  %1114 = fmul double %1113, 8.192000e+03
-  %1115 = fmul double %1114, 0x3EB0000000000000
+  %1114 = fmul nnan double %1113, 8.192000e+03
+  %1115 = fmul nnan double %1114, 0x3EB0000000000000
   %1116 = fdiv double %1115, %1111
   br label %1117
 
@@ -2826,7 +2826,7 @@ define internal fastcc void @lazy_vacuum(ptr noundef %0) unnamed_addr #0 {
 
 35:                                               ; preds = %32
   %36 = uitofp i32 %34 to double
-  %37 = fmul double %36, 2.000000e-02
+  %37 = fmul nnan double %36, 2.000000e-02
   %38 = fptoui double %37 to i32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %40 = load i32, ptr %39, align 8

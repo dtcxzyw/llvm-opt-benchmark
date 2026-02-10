@@ -1101,7 +1101,7 @@ define noundef ptr @Abc_NtkSparsifyInternalOne(ptr noundef %0, ptr noundef %1, i
   %5 = tail call double @Cudd_CountMinterm(ptr noundef %0, ptr noundef %1, i32 noundef %2) #10
   %6 = fptosi double %5 to i32
   %7 = sitofp i32 %3 to double
-  %8 = fmul double %7, 1.000000e-02
+  %8 = fmul nnan double %7, 1.000000e-02
   %9 = sitofp i32 %6 to double
   %10 = fmul double %8, %9
   %11 = fptosi double %10 to i32

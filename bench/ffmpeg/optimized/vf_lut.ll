@@ -1354,7 +1354,7 @@ define internal double @compute_gammaval709(ptr noundef readonly captures(none) 
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %2
-  %14 = fmul nsz double %11, 4.500000e+00
+  %14 = fmul nnan nsz double %11, 4.500000e+00
   br label %19
 
 15:                                               ; preds = %2

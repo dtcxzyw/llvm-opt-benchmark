@@ -1802,7 +1802,7 @@ ratio.exit:                                       ; preds = %817, %828, %840
 
 865:                                              ; preds = %857
   %866 = fcmp olt double %852, 1.000000e+00
-  %867 = fmul double %852, 5.000000e-01
+  %867 = fmul nnan double %852, 5.000000e-01
   %.0424 = select i1 %866, double 5.000000e-01, double %867
   %868 = fneg double %.0424
   br label %.thread671
@@ -4783,7 +4783,7 @@ rv_alloc.exit:                                    ; preds = %284, %316
 
 368:                                              ; preds = %366
   %369 = add i32 %.1473, -1
-  %370 = fmul double %.sroa.0.3, 1.000000e+01
+  %370 = fmul nnan double %.sroa.0.3, 1.000000e+01
   %371 = add i32 %.3499, 1
   br label %372
 

@@ -1239,10 +1239,10 @@ define dso_local { double, double } @_Py_c_quot(double %0, double %1, double %2,
   %47 = tail call double @llvm.copysign.f64(double %46, double %0)
   %48 = select i1 %40, double 0.000000e+00, double 1.000000e+00
   %49 = tail call double @llvm.copysign.f64(double %48, double %1)
-  %50 = fmul double %3, %49
+  %50 = fmul nnan double %3, %49
   %51 = tail call double @llvm.fmuladd.f64(double %47, double %2, double %50)
   %52 = fmul double %51, 0x7FF0000000000000
-  %53 = fmul double %47, %9
+  %53 = fmul nnan double %47, %9
   %54 = tail call double @llvm.fmuladd.f64(double %49, double %2, double %53)
   %55 = fmul double %54, 0x7FF0000000000000
   br label %73
@@ -1262,11 +1262,11 @@ define dso_local { double, double } @_Py_c_quot(double %0, double %1, double %2,
   %63 = tail call double @llvm.copysign.f64(double %62, double %2)
   %64 = select i1 %58, double 0.000000e+00, double 1.000000e+00
   %65 = tail call double @llvm.copysign.f64(double %64, double %3)
-  %66 = fmul double %1, %65
+  %66 = fmul nnan double %1, %65
   %67 = tail call double @llvm.fmuladd.f64(double %0, double %63, double %66)
   %68 = fmul double %67, 0.000000e+00
   %69 = fneg double %65
-  %70 = fmul double %0, %69
+  %70 = fmul nnan double %0, %69
   %71 = tail call double @llvm.fmuladd.f64(double %1, double %63, double %70)
   %72 = fmul double %71, 0.000000e+00
   br label %73
@@ -1371,10 +1371,10 @@ define dso_local { double, double } @_Py_rc_quot(double noundef %0, double %1, d
   %43 = tail call double @llvm.copysign.f64(double %42, double %1)
   %44 = select i1 %40, double 1.000000e+00, double 0.000000e+00
   %45 = tail call double @llvm.copysign.f64(double %44, double %2)
-  %46 = fmul double %0, %43
+  %46 = fmul nnan double %0, %43
   %47 = fmul double %46, 0.000000e+00
   %48 = fneg double %0
-  %49 = fmul double %45, %48
+  %49 = fmul nnan double %45, %48
   %50 = fmul double %49, 0.000000e+00
   br label %51
 
@@ -3570,10 +3570,10 @@ real_to_double.exit:                              ; preds = %23, %PyObject_TypeC
   %65 = call double @llvm.copysign.f64(double %64, double %.sroa.07.0.copyload)
   %66 = select i1 %62, double 1.000000e+00, double 0.000000e+00
   %67 = call double @llvm.copysign.f64(double %66, double %.sroa.5.0.copyload)
-  %68 = fmul double %65, %26
+  %68 = fmul nnan double %65, %26
   %69 = fmul double %68, 0.000000e+00
   %70 = fneg double %26
-  %71 = fmul double %67, %70
+  %71 = fmul nnan double %67, %70
   %72 = fmul double %71, 0.000000e+00
   br label %_Py_rc_quot.exit
 

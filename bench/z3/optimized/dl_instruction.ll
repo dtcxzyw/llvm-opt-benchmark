@@ -1493,8 +1493,8 @@ _ZNK9stopwatch19get_current_secondsEv.exit:       ; preds = %13, %_ZN9stopwatch4
   %24 = load i64, ptr %23, align 8, !tbaa !261
   %25 = sdiv i64 %24, 1000000
   %26 = sitofp i64 %25 to double
-  %27 = fdiv double %26, 1.000000e+03
-  %28 = fmul double %27, 1.000000e+03
+  %27 = fdiv nnan double %26, 1.000000e+03
+  %28 = fmul nnan double %27, 1.000000e+03
   %29 = fptoui double %28 to i32
   %30 = icmp ult i32 %12, %29
   br label %31
@@ -4169,8 +4169,8 @@ _ZN7datalog17execution_context16should_terminateEv.exit: ; preds = %29, %_ZN9sto
   %40 = load i64, ptr %39, align 8, !tbaa !261
   %41 = sdiv i64 %40, 1000000
   %42 = sitofp i64 %41 to double
-  %43 = fdiv double %42, 1.000000e+03
-  %44 = fmul double %43, 1.000000e+03
+  %43 = fdiv nnan double %42, 1.000000e+03
+  %44 = fmul nnan double %43, 1.000000e+03
   %45 = fptoui double %44 to i32
   %46 = icmp ult i32 %28, %45
   br i1 %46, label %.critedge20, label %_ZN7datalog17execution_context16should_terminateEv.exit.thread23

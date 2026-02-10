@@ -4218,7 +4218,7 @@ IDAQuadSensWrmsNormUpdate.exit:                   ; preds = %.lr.ph.i, %484, %48
   br i1 %500, label %501, label %510
 
 501:                                              ; preds = %IDAQuadSensWrmsNormUpdate.exit
-  %502 = fmul double %499, 1.000000e+01
+  %502 = fmul nnan double %499, 1.000000e+01
   store double %502, ptr %311, align 8, !tbaa !105
   %503 = load double, ptr %313, align 8, !tbaa !98
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, ptr noundef nonnull @.str, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.71, double noundef %503)

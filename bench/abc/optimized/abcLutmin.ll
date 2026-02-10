@@ -465,13 +465,13 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %65
 .critedge4:                                       ; preds = %85, %Vec_PtrFree.exit
   %.0.lcssa = phi i32 [ 0, %Vec_PtrFree.exit ], [ %.1, %85 ]
   %86 = sitofp i32 %.044.lcssa to double
-  %87 = fmul double %86, 1.000000e+02
+  %87 = fmul nnan double %86, 1.000000e+02
   %88 = getelementptr i8, ptr %0, i64 124
   %.val69 = load i32, ptr %88, align 4, !tbaa !32
   %89 = sitofp i32 %.val69 to double
   %90 = fdiv double %87, %89
   %91 = sitofp i32 %.0.lcssa to double
-  %92 = fmul double %91, 1.000000e+02
+  %92 = fmul nnan double %91, 1.000000e+02
   %93 = fdiv double %92, %89
   %94 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.044.lcssa, double noundef %90, i32 noundef %.0.lcssa, double noundef %93)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

@@ -25,9 +25,9 @@ define dso_local void @_ZN3igl10random_dirEv(ptr dead_on_unwind noalias writable
   %5 = tail call double @llvm.fmuladd.f64(double %4, double 2.000000e+00, double -1.000000e+00)
   %6 = tail call i32 @rand() #11
   %7 = sitofp i32 %6 to double
-  %8 = fdiv double %7, 0x41DFFFFFFFC00000
-  %9 = fmul double %8, 2.000000e+00
-  %10 = fmul double %9, 0x400921FB54442D18
+  %8 = fdiv nnan double %7, 0x41DFFFFFFFC00000
+  %9 = fmul nnan double %8, 2.000000e+00
+  %10 = fmul nnan double %9, 0x400921FB54442D18
   %11 = fneg double %5
   %12 = tail call double @llvm.fmuladd.f64(double %11, double %5, double 1.000000e+00)
   %13 = tail call double @sqrt(double noundef %12) #11, !tbaa !4
@@ -169,9 +169,9 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2IiiEERKT_RKT0_.exit.preheader: ; pr
   %62 = tail call double @llvm.fmuladd.f64(double %61, double 2.000000e+00, double -1.000000e+00)
   %63 = tail call i32 @rand() #11, !noalias !19
   %64 = sitofp i32 %63 to double
-  %65 = fdiv double %64, 0x41DFFFFFFFC00000
-  %66 = fmul double %65, 2.000000e+00
-  %67 = fmul double %66, 0x400921FB54442D18
+  %65 = fdiv nnan double %64, 0x41DFFFFFFFC00000
+  %66 = fmul nnan double %65, 2.000000e+00
+  %67 = fmul nnan double %66, 0x400921FB54442D18
   %68 = fneg double %62
   %69 = tail call double @llvm.fmuladd.f64(double %68, double %62, double 1.000000e+00)
   %70 = tail call double @sqrt(double noundef %69) #11, !tbaa !4, !noalias !19

@@ -5295,7 +5295,7 @@ define internal fastcc void @dissect_hytec_tlv(ptr noundef %0, ptr noundef %1, p
 79:                                               ; preds = %77
   %80 = tail call i32 @tvb_get_ntohil(ptr noundef %0, i32 noundef 2)
   %81 = sitofp i32 %80 to float
-  %82 = fmul float %81, 0x3FB99999A0000000
+  %82 = fmul nnan float %81, 0x3FB99999A0000000
   %83 = load i32, ptr @hf_hytec_tx_current_output_power, align 4
   %84 = tail call ptr @proto_tree_add_float(ptr noundef %2, i32 noundef %83, ptr noundef %0, i32 noundef 2, i32 noundef 4, float noundef %82)
   br label %291
@@ -5318,7 +5318,7 @@ define internal fastcc void @dissect_hytec_tlv(ptr noundef %0, ptr noundef %1, p
 93:                                               ; preds = %91
   %94 = tail call i32 @tvb_get_ntohil(ptr noundef %0, i32 noundef 2)
   %95 = sitofp i32 %94 to float
-  %96 = fmul float %95, 0x3FB99999A0000000
+  %96 = fmul nnan float %95, 0x3FB99999A0000000
   %97 = load i32, ptr @hf_hytec_rx_current_input_power, align 4
   %98 = tail call ptr @proto_tree_add_float(ptr noundef %2, i32 noundef %97, ptr noundef %0, i32 noundef 2, i32 noundef 4, float noundef %96)
   br label %291

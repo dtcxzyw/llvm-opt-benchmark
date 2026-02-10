@@ -22845,7 +22845,7 @@ define linkonce_odr hidden void @_ZNK5Eigen9FullPivLUINS_6MatrixIdLin1ELin1ELi1E
 25:                                               ; preds = %3
   %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smin.i64(i64 %15, i64 %13)
   %26 = sitofp i64 %.sroa.speculated.i.i.i to double
-  %27 = fmul double %26, 0x3CB0000000000000
+  %27 = fmul nnan double %26, 0x3CB0000000000000
   br label %_ZNK5Eigen9FullPivLUINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE9thresholdEv.exit.i
 
 _ZNK5Eigen9FullPivLUINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE9thresholdEv.exit.i: ; preds = %25, %22

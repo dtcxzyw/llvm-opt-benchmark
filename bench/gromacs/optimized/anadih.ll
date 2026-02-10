@@ -2611,8 +2611,8 @@ define void @_Z23calc_distribution_propsiPKifiP9t_karplusPf(i32 noundef %0, ptr 
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %21 = sitofp i32 %20 to double
-  %22 = fdiv double 1.000000e+00, %21
-  %23 = fptrunc double %22 to float
+  %22 = fdiv nnan double 1.000000e+00, %21
+  %23 = fptrunc nnan double %22 to float
   %24 = icmp sgt i32 %3, 0
   br i1 %24, label %.lr.ph91.preheader, label %.lr.ph99.split.preheader
 

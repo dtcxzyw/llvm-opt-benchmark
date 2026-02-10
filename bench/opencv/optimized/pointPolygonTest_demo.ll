@@ -430,7 +430,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit125:              ; preds = %134
 
 172:                                              ; preds = %.lr.ph178
   %173 = call noundef float @llvm.fabs.f32(float %170)
-  %174 = fmul float %173, 2.550000e+02
+  %174 = fmul nnan float %173, 2.550000e+02
   %175 = fpext float %174 to double
   %176 = load double, ptr %11, align 8, !tbaa !36
   %177 = fdiv double %175, %176
@@ -450,7 +450,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit125:              ; preds = %134
   br i1 %187, label %188, label %202
 
 188:                                              ; preds = %186
-  %189 = fmul float %170, 2.550000e+02
+  %189 = fmul nnan float %170, 2.550000e+02
   %190 = fpext float %189 to double
   %191 = load double, ptr %12, align 8, !tbaa !36
   %192 = fdiv double %190, %191

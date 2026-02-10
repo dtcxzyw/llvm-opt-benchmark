@@ -1180,7 +1180,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %73
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %.06.i.i.sroa.phi.sroa.speculated.in.c = sitofp i32 %.0247 to float
-  %.06.i.i.sroa.phi.sroa.speculated.c = fadd float %.06.i.i.sroa.phi.sroa.speculated.in.c, 5.000000e-01
+  %.06.i.i.sroa.phi.sroa.speculated.c = fadd nnan float %.06.i.i.sroa.phi.sroa.speculated.in.c, 5.000000e-01
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %201
@@ -1189,7 +1189,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %73
   %155 = fdiv float %154, 5.000000e+00
   %exp2f.i.i121 = call noundef float @exp2f(float %155)
   %.06.i.i.sroa.phi.sroa.speculated.in = sitofp i32 %.045245 to float
-  %.06.i.i.sroa.phi.sroa.speculated = fadd float %.06.i.i.sroa.phi.sroa.speculated.in, 5.000000e-01
+  %.06.i.i.sroa.phi.sroa.speculated = fadd nnan float %.06.i.i.sroa.phi.sroa.speculated.in, 5.000000e-01
   %156 = fmul float %exp2f.i.i121, %.06.i.i.sroa.phi.sroa.speculated
   %157 = fmul float %exp2f.i.i121, %.06.i.i.sroa.phi.sroa.speculated.c
   %158 = load float, ptr %93, align 4
@@ -1500,9 +1500,9 @@ _ZN7nanogui6MatrixIfLm4EE5orthoILm4ETnNSt9enable_ifIXeqT_Li4EEiE4typeELi0EEES1_f
   %113 = fsub float 0.000000e+00, %112
   %114 = fdiv float 1.000000e+00, %113
   %115 = fdiv float 1.000000e+00, %111
-  %116 = fmul float %115, 2.000000e+00
+  %116 = fmul nnan float %115, 2.000000e+00
   store float %116, ptr %9, align 4, !alias.scope !14
-  %117 = fmul float %114, 2.000000e+00
+  %117 = fmul nnan float %114, 2.000000e+00
   %118 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store float %117, ptr %118, align 4, !alias.scope !14
   %119 = getelementptr inbounds nuw i8, ptr %9, i64 40

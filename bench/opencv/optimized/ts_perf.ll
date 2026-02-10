@@ -18725,7 +18725,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %140,
 165:                                              ; preds = %159
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %167 = load double, ptr %166, align 8, !tbaa !318
-  %168 = fmul double %163, 3.000000e-02
+  %168 = fmul nnan double %163, 3.000000e-02
   %169 = fcmp ogt double %167, %168
   br label %170
 
@@ -19848,7 +19848,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %19
   %262 = load i64, ptr %261, align 8, !tbaa !64
   %263 = add nsw i64 %262, %255
   %264 = sitofp i64 %263 to double
-  %265 = fmul double %264, 5.000000e-01
+  %265 = fmul nnan double %264, 5.000000e-01
   br label %266
 
 266:                                              ; preds = %258, %256

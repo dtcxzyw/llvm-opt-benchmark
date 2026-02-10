@@ -845,7 +845,7 @@ _ZL13center_coordsPK7t_atomsPKiiPA3_fS5_.exit.i:  ; preds = %.lr.ph44.i.i, %.noe
   %334 = fpext float %331 to double
   %335 = fmul double %332, 5.000000e-01
   %336 = sitofp i32 %329 to double
-  %337 = fmul double %336, 5.000000e-01
+  %337 = fmul nnan double %336, 5.000000e-01
   br i1 %190, label %.lr.ph26.split.us.i, label %.lr.ph26.split.i
 
 .lr.ph26.split.us.i:                              ; preds = %.lr.ph26.i, %._crit_edge22.split.us.us.i
@@ -1087,7 +1087,7 @@ _ZL13center_coordsPK7t_atomsPKiiPA3_fS5_.exit.i:  ; preds = %.lr.ph44.i.i, %.noe
   %460 = mul nuw nsw i64 %indvars.iv129.i, %indvars.iv129.i
   %461 = trunc nuw i64 %460 to i32
   %462 = uitofp nneg i32 %461 to double
-  %463 = fmul double %462, 0x402921FB54442D18
+  %463 = fmul nnan double %462, 0x402921FB54442D18
   %464 = fmul double %457, %463
   %465 = fmul double %449, %464
   %466 = fcmp oeq double %465, 0.000000e+00
@@ -1325,7 +1325,7 @@ _ZL13center_coordsPK7t_atomsPKiiPA3_fS5_.exit.i:  ; preds = %.lr.ph44.i.i, %.noe
   %553 = fmul double %552, -1.000000e+09
   %554 = trunc nuw nsw i64 %indvars.iv189.i to i32
   %555 = uitofp nneg i32 %554 to double
-  %556 = fmul double %555, 8.854190e-12
+  %556 = fmul nnan double %555, 8.854190e-12
   %557 = fmul double %449, %556
   %558 = fdiv double %553, %557
   store double %558, ptr %550, align 8, !tbaa !80
@@ -1777,7 +1777,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit151.i:     ; preds = %_ZNSt10filesystem7_
 
 .lr.ph13.i:                                       ; preds = %.noexc56
   %722 = sitofp i32 %613 to double
-  %723 = fmul double %722, 5.000000e-01
+  %723 = fmul nnan double %722, 5.000000e-01
   %724 = icmp sgt i32 %614, 0
   br i1 %724, label %.lr.ph13.split.us.i, label %.lr.ph13.split.i
 
@@ -1792,7 +1792,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit151.i:     ; preds = %_ZNSt10filesystem7_
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %._crit_edge.split.us.us.us.i ], [ %725, %.lr.ph13.split.us.i ]
   %728 = trunc nsw i64 %indvars.iv40.i to i32
   %729 = sitofp i32 %728 to double
-  %.pn27.i = fsub double %729, %727
+  %.pn27.i = fsub nnan double %729, %727
   %.085.in.us.us.i = fmul double %449, %.pn27.i
   %.085.us.us.i = fptrunc double %.085.in.us.us.i to float
   %730 = fpext float %.085.us.us.i to double
@@ -1856,7 +1856,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit151.i:     ; preds = %_ZNSt10filesystem7_
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %._crit_edge.split.us19.i ], [ %725, %.lr.ph13.split.us.i ]
   %770 = trunc nsw i64 %indvars.iv32.i to i32
   %771 = sitofp i32 %770 to double
-  %.pn.i45 = fsub double %771, %727
+  %.pn.i45 = fsub nnan double %771, %727
   %.085.in.us.i = fmul double %449, %.pn.i45
   %.085.us.i = fptrunc double %.085.in.us.i to float
   %772 = fpext float %.085.us.i to double
@@ -1907,7 +1907,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit151.i:     ; preds = %_ZNSt10filesystem7_
 .lr.ph13.split.split.us.i:                        ; preds = %.lr.ph13.split.i, %.lr.ph13.split.split.us.i
   %.09512.us21.i = phi i32 [ %804, %.lr.ph13.split.split.us.i ], [ %625, %.lr.ph13.split.i ]
   %797 = sitofp i32 %.09512.us21.i to double
-  %798 = fsub double %797, %723
+  %798 = fsub nnan double %797, %723
   %799 = fmul double %449, %798
   %.085.us23.i = fptrunc double %799 to float
   %800 = fpext float %.085.us23.i to double

@@ -287,8 +287,8 @@ HIDAPI_DriverLuna_HandleUSBStatePacket.exit:      ; preds = %114, %118
 136:                                              ; preds = %131
   %137 = load i8, ptr %17, align 1
   %138 = uitofp i8 %137 to float
-  %139 = fdiv float %138, 2.550000e+02
-  %140 = fmul float %139, 1.000000e+02
+  %139 = fdiv nnan float %138, 2.550000e+02
+  %140 = fmul nnan float %139, 1.000000e+02
   %141 = call float @SDL_roundf_REAL(float noundef %140) #9
   %142 = fptosi float %141 to i32
   call void @SDL_SendJoystickPowerInfo(ptr noundef nonnull %12, i32 noundef 1, i32 noundef %142) #9

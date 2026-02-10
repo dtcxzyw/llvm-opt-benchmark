@@ -1498,7 +1498,7 @@ define void @Gia_ParTest(ptr noundef initializes((768, 776), (784, 788)) %0, i32
   %7 = alloca %struct.timespec, align 8
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %1, i32 noundef %2)
   %9 = sitofp i32 %1 to double
-  %10 = fmul double %9, 8.000000e+00
+  %10 = fmul nnan double %9, 8.000000e+00
   %11 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %11, align 8, !tbaa !50
   %12 = sitofp i32 %.val to double

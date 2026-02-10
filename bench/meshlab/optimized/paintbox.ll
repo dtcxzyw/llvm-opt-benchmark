@@ -12978,7 +12978,7 @@ define void @_ZN8Paintbox16resetPixmapDeltaEv(ptr noundef nonnull align 8 captur
 
 9:                                                ; preds = %1
   %10 = sitofp i32 %8 to double
-  %11 = fmul double %10, 5.000000e-01
+  %11 = fmul nnan double %10, 5.000000e-01
   %12 = load ptr, ptr %6, align 8
   invoke void @_ZNK19QGraphicsPixmapItem6pixmapEv(ptr dead_on_unwind nonnull writable sret(%class.QPixmap) align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %12)
           to label %13 unwind label %31
@@ -12989,7 +12989,7 @@ define void @_ZN8Paintbox16resetPixmapDeltaEv(ptr noundef nonnull align 8 captur
 
 15:                                               ; preds = %13
   %16 = sitofp i32 %14 to double
-  %17 = fmul double %16, 5.000000e-01
+  %17 = fmul nnan double %16, 5.000000e-01
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 836
   %19 = fptosi double %11 to i32
   store i32 %19, ptr %18, align 4
@@ -13375,9 +13375,9 @@ _ZN8Paintbox13getCloneSceneEv.exit34:             ; preds = %_ZN5QListIP13QGraph
 
 121:                                              ; preds = %119
   %122 = sitofp i32 %118 to double
-  %123 = fmul double %122, 5.000000e-01
+  %123 = fmul nnan double %122, 5.000000e-01
   %124 = sitofp i32 %120 to double
-  %125 = fmul double %124, 5.000000e-01
+  %125 = fmul nnan double %124, 5.000000e-01
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 836
   %127 = fptosi double %123 to i32
   store i32 %127, ptr %126, align 4
@@ -13417,14 +13417,14 @@ _ZN8Paintbox13getCloneSceneEv.exit37:             ; preds = %137
 141:                                              ; preds = %_ZN8Paintbox13getCloneSceneEv.exit37
   %142 = sub nsw i32 0, %140
   %143 = sitofp i32 %142 to double
-  %144 = fmul double %143, 5.000000e-01
+  %144 = fmul nnan double %143, 5.000000e-01
   %145 = invoke noundef i32 @_ZNK7QPixmap6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %146 unwind label %107
 
 146:                                              ; preds = %141
   %147 = sub nsw i32 0, %145
   %148 = sitofp i32 %147 to double
-  %149 = fmul double %148, 5.000000e-01
+  %149 = fmul nnan double %148, 5.000000e-01
   %150 = invoke noundef i32 @_ZNK7QPixmap5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %151 unwind label %107
 
@@ -13757,11 +13757,11 @@ declare void @_ZN15QAbstractButton6toggleEv(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_Z6raster5Brushiif(ptr dead_on_unwind noalias writable sret(%class.QImage) align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
   %6 = sitofp i32 %2 to double
-  %7 = fmul double %6, 5.000000e-01
-  %8 = fptrunc double %7 to float
+  %7 = fmul nnan double %6, 5.000000e-01
+  %8 = fptrunc nnan double %7 to float
   %9 = sitofp i32 %3 to double
-  %10 = fmul double %9, 5.000000e-01
-  %11 = fptrunc double %10 to float
+  %10 = fmul nnan double %9, 5.000000e-01
+  %11 = fptrunc nnan double %10 to float
   tail call void @_ZN6QImageC1EiiNS_6FormatE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %2, i32 noundef %3, i32 noundef 4)
   %12 = sitofp i32 %2 to float
   %13 = icmp sgt i32 %2, 0

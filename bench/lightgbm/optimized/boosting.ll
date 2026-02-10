@@ -1501,8 +1501,8 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %20, %17, %15
   %25 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
   %26 = sub nsw i64 %25, %6
   %27 = sitofp i64 %26 to double
-  %28 = fdiv double %27, 1.000000e+06
-  %29 = fmul double %28, 1.000000e-03
+  %28 = fdiv nnan double %27, 1.000000e+06
+  %29 = fmul nnan double %28, 1.000000e-03
   call void (ptr, ...) @_ZN8LightGBM3Log5DebugEPKcz(ptr noundef nonnull @.str.11, double %29)
   br label %30
 
@@ -4596,7 +4596,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232.i: ; preds = %
   br i1 %.ph.i, label %335, label %341
 
 335:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i231.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i231.thread.i
-  %336 = fmul double %.0129.i, 1.000000e+308
+  %336 = fmul nnan double %.0129.i, 1.000000e+308
   br label %.sink.split.i
 
 337:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit224.thread257.i
@@ -7820,7 +7820,7 @@ define linkonce_odr void @_ZN8LightGBM4DART9NormalizeEv(ptr noundef nonnull alig
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %27 = fdiv double %10, %18
+  %27 = fdiv nnan double %10, %18
   %28 = load i32, ptr %16, align 8, !tbaa !211
   %29 = icmp sgt i32 %28, 0
   br i1 %29, label %.lr.ph74.split, label %.lr.ph74.split.us
@@ -8096,7 +8096,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %12 = lshr i32 %11, 16
   %13 = and i32 %12, 32767
   %14 = uitofp nneg i32 %13 to float
-  %15 = fmul float %14, 0x3F00000000000000
+  %15 = fmul nnan float %14, 0x3F00000000000000
   %16 = fpext float %15 to double
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !194
@@ -8166,7 +8166,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit:                ; preds = %1, %6
   %64 = lshr i32 %63, 16
   %65 = and i32 %64, 32767
   %66 = uitofp nneg i32 %65 to float
-  %67 = fmul float %66, 0x3F00000000000000
+  %67 = fmul nnan float %66, 0x3F00000000000000
   %68 = fpext float %67 to double
   %69 = load ptr, ptr %29, align 8, !tbaa !82
   %70 = getelementptr inbounds nuw double, ptr %69, i64 %indvars.iv
@@ -8318,7 +8318,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit._crit_edge: ; preds = %_ZNSt6vectorIiSaIi
   %145 = lshr i32 %144, 16
   %146 = and i32 %145, 32767
   %147 = uitofp nneg i32 %146 to float
-  %148 = fmul float %147, 0x3F00000000000000
+  %148 = fmul nnan float %147, 0x3F00000000000000
   %149 = fpext float %148 to double
   %150 = fcmp ogt double %.1, %149
   br i1 %150, label %151, label %186

@@ -166,8 +166,8 @@ define internal void @BicubicInterp(ptr noundef captures(none) %0, i32 noundef %
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %6 ]
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %8 = uitofp nneg i32 %7 to double
-  %9 = fmul double %8, 3.906250e-03
-  %10 = tail call double @llvm.fmuladd.f64(double %9, double 1.500000e+00, double -2.500000e+00)
+  %9 = fmul nnan double %8, 3.906250e-03
+  %10 = tail call nnan double @llvm.fmuladd.f64(double %9, double 1.500000e+00, double -2.500000e+00)
   %11 = fmul double %9, %10
   %12 = tail call double @llvm.fmuladd.f64(double %11, double %9, double 1.000000e+00)
   %13 = fmul double %12, 2.560000e+02
@@ -182,8 +182,8 @@ define internal void @BicubicInterp(ptr noundef captures(none) %0, i32 noundef %
   %indvars.iv40.i = phi i64 [ %indvars.iv.next41.i, %.lr.ph.i ], [ 256, %.preheader ]
   %16 = trunc nuw nsw i64 %indvars.iv40.i to i32
   %17 = uitofp nneg i32 %16 to double
-  %18 = fmul double %17, 3.906250e-03
-  %19 = tail call double @llvm.fmuladd.f64(double %18, double -5.000000e-01, double 2.500000e+00)
+  %18 = fmul nnan double %17, 3.906250e-03
+  %19 = tail call nnan double @llvm.fmuladd.f64(double %18, double -5.000000e-01, double 2.500000e+00)
   %20 = tail call double @llvm.fmuladd.f64(double %19, double %18, double -4.000000e+00)
   %21 = tail call double @llvm.fmuladd.f64(double %20, double %18, double 2.000000e+00)
   %22 = fmul double %21, 2.560000e+02

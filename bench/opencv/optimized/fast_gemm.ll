@@ -566,7 +566,7 @@ define hidden void @_ZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKciiS3_iifPcii
   %88 = sext i32 %86 to i64
   %89 = mul nsw i64 %88, %87
   %90 = uitofp i64 %89 to double
-  %91 = fmul double %90, 0x3F50000000000000
+  %91 = fmul nnan double %90, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   store i32 0, ptr %37, align 4, !tbaa !34
   %92 = getelementptr inbounds nuw i8, ptr %37, i64 4
@@ -1818,7 +1818,7 @@ define hidden void @_ZN2cv3dnn12cpu_baseline14fastGemmKernelEiiifPKciiS3_fPciib(
   %80 = sext i32 %78 to i64
   %81 = mul nsw i64 %80, %79
   %82 = uitofp i64 %81 to double
-  %83 = fmul double %82, 0x3F50000000000000
+  %83 = fmul nnan double %82, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   store i32 0, ptr %34, align 4, !tbaa !34
   %84 = getelementptr inbounds nuw i8, ptr %34, i64 4
@@ -2656,7 +2656,7 @@ define hidden void @_ZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPKmS3_S3_iiif
   %73 = sext i32 %71 to i64
   %74 = mul nsw i64 %73, %72
   %75 = uitofp i64 %74 to double
-  %76 = fmul double %75, 0x3F50000000000000
+  %76 = fmul nnan double %75, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   store i32 0, ptr %43, align 4, !tbaa !34
   %77 = getelementptr inbounds nuw i8, ptr %43, i64 4
@@ -2865,7 +2865,7 @@ define hidden void @_ZN2cv3dnn12cpu_baseline19fastGemmBatchKernelEmPKmS3_S3_iiif
   %69 = sext i32 %67 to i64
   %70 = mul nsw i64 %69, %68
   %71 = uitofp i64 %70 to double
-  %72 = fmul double %71, 0x3F50000000000000
+  %72 = fmul nnan double %71, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store i32 0, ptr %40, align 4, !tbaa !34
   %73 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -3303,7 +3303,7 @@ define hidden void @_ZN2cv3dnn8fastGemmEbbiiiifPKfiiS2_iifPfiRNS0_11FastGemmOptE
   %62 = sext i32 %60 to i64
   %63 = mul nsw i64 %62, %61
   %64 = uitofp i64 %63 to double
-  %65 = fmul double %64, 0x3F50000000000000
+  %65 = fmul nnan double %64, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 0, ptr %30, align 4, !tbaa !34
   %66 = getelementptr inbounds nuw i8, ptr %30, i64 4

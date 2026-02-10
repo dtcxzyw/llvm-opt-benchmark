@@ -51345,7 +51345,7 @@ define linkonce_odr hidden void @_ZN2cv6detail15OCVStCallHelperIN9DummyCall9GCPU
   %8 = load double, ptr %2, align 8, !tbaa !81
   %9 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #38
   %10 = sitofp i64 %9 to double
-  %11 = fdiv double %10, 1.000000e+06
+  %11 = fdiv nnan double %10, 1.000000e+06
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -51356,7 +51356,7 @@ define linkonce_odr hidden void @_ZN2cv6detail15OCVStCallHelperIN9DummyCall9GCPU
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #38
   %15 = sitofp i64 %14 to double
-  %16 = fdiv double %15, 1.000000e+06
+  %16 = fdiv nnan double %15, 1.000000e+06
   %17 = fsub double %16, %11
   %18 = fsub double %8, %17
   %19 = fmul double %18, 1.000000e+03

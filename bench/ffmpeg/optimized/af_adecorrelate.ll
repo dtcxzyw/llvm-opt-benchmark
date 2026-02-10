@@ -217,8 +217,8 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %49 = add i32 %34, 1
   store i32 %49, ptr %25, align 8, !tbaa !55
   %50 = uitofp i32 %45 to double
-  %51 = fdiv nsz double %50, 0x41EFFFFFFFE00000
-  %52 = tail call nsz double @llvm.fmuladd.f64(double %51, double 2.291700e-03, double 8.333300e-04)
+  %51 = fdiv nnan nsz double %50, 0x41EFFFFFFFE00000
+  %52 = tail call nnan nsz double @llvm.fmuladd.f64(double %51, double 2.291700e-03, double 8.333300e-04)
   %53 = sitofp i32 %33 to double
   %54 = fmul nsz double %52, %53
   %55 = tail call nsz double @llvm.round.f64(double %54)
@@ -244,12 +244,12 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   br i1 %or.cond.i, label %.loopexit, label %68
 
 68:                                               ; preds = %.lr.ph
-  %69 = fmul nsz double %53, 1.000000e-01
-  %70 = fdiv nsz double -6.000000e+01, %69
+  %69 = fmul nnan nsz double %53, 1.000000e-01
+  %70 = fdiv nnan nsz double -6.000000e+01, %69
   %71 = sitofp i32 %57 to double
   %72 = fmul nsz double %70, %71
-  %73 = fmul nsz double %53, 8.000000e-03
-  %74 = fdiv nsz double -6.000000e+01, %73
+  %73 = fmul nnan nsz double %53, 8.000000e-03
+  %74 = fdiv nnan nsz double -6.000000e+01, %73
   %75 = fmul nsz double %74, %71
   %76 = fsub nsz double %72, %75
   %77 = fdiv nsz double %76, 2.000000e+01
@@ -259,8 +259,8 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %81 = fdiv nsz double %75, 2.000000e+01
   %82 = fmul nsz double %81, 0x400A934F0979A371
   %83 = tail call nsz double @llvm.exp2.f64(double %82)
-  %84 = fdiv nsz double 0x40BAFF80FB853C71, %53
-  %85 = fmul nsz double %84, 5.000000e-01
+  %84 = fdiv nnan nsz double 0x40BAFF80FB853C71, %53
+  %85 = fmul nnan nsz double %84, 5.000000e-01
   %86 = tail call nsz double @llvm.tan.f64(double %85)
   %87 = fadd nsz double %86, %80
   %88 = getelementptr inbounds nuw i8, ptr %32, i64 40

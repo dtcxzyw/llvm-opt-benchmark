@@ -1146,7 +1146,7 @@ ff_sfc64_init.exit:                               ; preds = %294, %._crit_edge44
   %323 = uitofp i64 %316 to double
   %324 = getelementptr inbounds nuw double, ptr %308, i64 %282
   store double %323, ptr %324, align 8, !tbaa !48
-  %325 = fmul nsz double %323, 0x3BF0000000000000
+  %325 = fmul nnan nsz double %323, 0x3BF0000000000000
   br label %common.ret534
 
 326:                                              ; preds = %2
@@ -2958,7 +2958,7 @@ declare double @fabs(double noundef) #10
 define internal double @etime(double %0) #2 {
   %2 = tail call i64 @av_gettime() #15
   %3 = sitofp i64 %2 to double
-  %4 = fmul nsz double %3, 0x3EB0C6F7A0B5ED8D
+  %4 = fmul nnan nsz double %3, 0x3EB0C6F7A0B5ED8D
   ret double %4
 }
 

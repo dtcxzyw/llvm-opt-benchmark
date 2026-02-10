@@ -778,11 +778,11 @@ define hidden void @_Z12processImageiPv(i32 %0, ptr readnone captures(none) %1) 
   %61 = load i32, ptr %60, align 4, !tbaa !71
   %62 = call i32 @llvm.smin.i32(i32 %59, i32 %61)
   %63 = sitofp i32 %62 to double
-  %64 = fmul double %63, 8.000000e-01
+  %64 = fmul nnan double %63, 8.000000e-01
   %65 = fptosi double %64 to i32
   %66 = call i32 @llvm.smax.i32(i32 %59, i32 %61)
   %67 = sitofp i32 %66 to double
-  %68 = fmul double %67, 1.200000e+00
+  %68 = fmul nnan double %67, 1.200000e+00
   %69 = fptosi double %68 to i32
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 %65, ptr %70, align 4, !tbaa !72
@@ -2368,9 +2368,9 @@ define linkonce_odr hidden void @_ZN6canvas7stretchEN2cv6Point_IfEES2_(ptr nound
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = load double, ptr %57, align 8, !tbaa !76
   %59 = sitofp i32 %56 to double
-  %60 = fadd double %59, 1.000000e+00
+  %60 = fadd nnan double %59, 1.000000e+00
   %61 = sitofp i32 %55 to double
-  %62 = fsub double %60, %61
+  %62 = fsub nnan double %60, %61
   %63 = fmul double %58, %62
   %64 = fptosi double %63 to i32
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2396,9 +2396,9 @@ define linkonce_odr hidden void @_ZN6canvas7stretchEN2cv6Point_IfEES2_(ptr nound
 76:                                               ; preds = %.sink.split, %68
   %77 = phi double [ %58, %68 ], [ %75, %.sink.split ]
   %78 = sitofp i32 %54 to double
-  %79 = fadd double %78, 1.000000e+00
+  %79 = fadd nnan double %78, 1.000000e+00
   %80 = sitofp i32 %53 to double
-  %81 = fsub double %79, %80
+  %81 = fsub nnan double %79, %80
   %82 = fmul double %77, %81
   %83 = fptosi double %82 to i32
   %84 = icmp sgt i32 %66, %83
@@ -2557,7 +2557,7 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit20:                 ; preds = %_ZNSt7__cxx1112basi
   %.sroa.5.0.extract.shift = lshr i64 %51, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
   %53 = sitofp i32 %.sroa.5.0.extract.trunc to double
-  %54 = fmul double %53, 1.300000e+00
+  %54 = fmul nnan double %53, 1.300000e+00
   %55 = fptosi double %54 to i32
   %56 = add nsw i32 %.01228, %55
   %57 = sub nsw i32 %52, %.sroa.01.0.extract.trunc

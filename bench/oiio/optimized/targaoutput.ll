@@ -1835,7 +1835,7 @@ _ZN11OpenImageIO6v3_1_09TGAOutput12write_paddedENS0_17basic_string_viewIcSt11cha
   br i1 %or.cond56, label %213, label %208
 
 208:                                              ; preds = %205
-  %209 = fmul float %203, 1.000000e+04
+  %209 = fmul nnan float %203, 1.000000e+04
   %210 = fptoui float %209 to i16
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store i16 %210, ptr %18, align 2, !tbaa !97
@@ -2602,10 +2602,10 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_09TGAOutput16deassociateA
   %42 = fadd float %41, -1.000000e+00
   %43 = fmul float %42, %42
   %44 = fmul float %43, %43
-  %45 = fmul contract float %42, 0x3F831161A0000000
-  %46 = fsub contract float 0x3FAAA83920000000, %45
-  %47 = fmul contract float %42, 0x3FDEA2C5A0000000
-  %48 = fadd contract float %47, 0xBFE713CA80000000
+  %45 = fmul nnan contract float %42, 0x3F831161A0000000
+  %46 = fsub nnan contract float 0x3FAAA83920000000, %45
+  %47 = fmul nnan contract float %42, 0x3FDEA2C5A0000000
+  %48 = fadd nnan contract float %47, 0xBFE713CA80000000
   %49 = fmul contract float %42, %46
   %50 = fadd contract float %49, 0xBFC19A9FA0000000
   %51 = fmul contract float %42, %50

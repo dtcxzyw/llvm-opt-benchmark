@@ -2663,7 +2663,7 @@ define linkonce_odr hidden void @_ZN11opencv_test13MarkerPainter21getProjectMark
   %.032136.us = phi i32 [ 0, %.preheader.lr.ph ], [ %186, %._crit_edge133.us ]
   %.033135.us = phi i32 [ 0, %.preheader.lr.ph ], [ %176, %._crit_edge133.us ]
   %36 = sitofp i32 %.023137.us to double
-  %37 = fmul double %36, 0x400921FB54442D18
+  %37 = fmul nnan double %36, 0x400921FB54442D18
   %38 = fdiv double %37, 1.800000e+02
   br label %39
 
@@ -2674,7 +2674,7 @@ define linkonce_odr hidden void @_ZN11opencv_test13MarkerPainter21getProjectMark
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %40 = add nsw i32 %.134129.us, 70
   %41 = sitofp i32 %40 to double
-  %42 = fmul double %41, 0x400921FB54442D18
+  %42 = fmul nnan double %41, 0x400921FB54442D18
   %43 = fdiv double %42, 1.800000e+02
   invoke void @_ZN11opencv_test13MarkerPainter16getProjectMarkerEiddRKN2cv5aruco18DetectorParametersERKNS2_10DictionaryE(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.98") align 8 %12, ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %.1131.us, double noundef %43, double noundef %38, ptr noundef nonnull align 8 dereferenceable(188) %3, ptr noundef nonnull align 8 dereferenceable(104) %4)
           to label %44 unwind label %.split.us
@@ -11065,7 +11065,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store double %13, ptr %20, align 8, !tbaa !143
   store double %13, ptr %15, align 8, !tbaa !143
-  %21 = fmul double %13, 5.000000e-01
+  %21 = fmul nnan double %13, 5.000000e-01
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store double %21, ptr %22, align 8, !tbaa !143
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16

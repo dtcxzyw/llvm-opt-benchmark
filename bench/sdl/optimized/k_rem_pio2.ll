@@ -378,7 +378,7 @@ define hidden range(i32 0, 8) i32 @__kernel_rem_pio2(ptr noundef readonly captur
   br i1 %156, label %168, label %157
 
 157:                                              ; preds = %.critedge287
-  %158 = fmul double %155, 0x3E70000000000000
+  %158 = fmul nnan double %155, 0x3E70000000000000
   %159 = fptosi double %158 to i32
   %160 = sitofp i32 %159 to double
   %161 = tail call double @llvm.fmuladd.f64(double %160, double 0xC170000000000000, double %155)

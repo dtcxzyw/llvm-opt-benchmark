@@ -6826,8 +6826,8 @@ lor.lhs.false:                                    ; preds = %if.end
 
 if.end10:                                         ; preds = %lor.lhs.false
   %conv = uitofp i32 %screensize.sroa.0.0.copyload to float
-  %conv12 = fpext float %conv to double
-  %div = fmul nsz double %conv12, 5.000000e-01
+  %conv12 = fpext nnan ninf float %conv to double
+  %div = fmul nnan nsz double %conv12, 5.000000e-01
   %OriginalSize.i = getelementptr inbounds nuw i8, ptr %1, i64 72
   %sub28 = add nsw i32 %screensize.sroa.6.0.copyload, -320
   call void @llvm.lifetime.start.p0(ptr nonnull %desired_rect)

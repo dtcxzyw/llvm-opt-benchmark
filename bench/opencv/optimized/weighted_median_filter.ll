@@ -561,7 +561,7 @@ _ZSt6fill_nIPPfmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc125
   br i1 %exitcond.not.i.i, label %.preheader.lr.ph.i, label %.lr.ph.i.i, !llvm.loop !44
 
 .preheader.lr.ph.i:                               ; preds = %.lr.ph.i.i
-  %.pn425.i = fmul float %198, 2.000000e+00
+  %.pn425.i = fmul nnan float %198, 2.000000e+00
   %.pn.i = fmul float %.pn425.i, %198
   %215 = fdiv float 1.000000e+00, %.pn.i
   %216 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %5)
@@ -619,14 +619,14 @@ _ZSt6fill_nIPPfmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc125
 
 239:                                              ; preds = %.split1.us.us.i
   %240 = fneg float %226
-  %241 = fmul float %226, %240
+  %241 = fmul nnan float %226, %240
   %242 = fmul float %215, %241
   %243 = call noundef float @expf(float noundef %242) #20, !tbaa !47
   br label %249
 
 244:                                              ; preds = %.split1.us.us.i
   %245 = fneg float %226
-  %246 = fmul float %226, %245
+  %246 = fmul nnan float %226, %245
   %247 = fmul float %215, %246
   %248 = call noundef float @expf(float noundef %247) #20, !tbaa !47
   br label %249
@@ -672,7 +672,7 @@ _ZSt6fill_nIPPfmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc125
   %263 = sitofp i32 %262 to float
   %264 = call noundef float @llvm.fabs.f32(float %263)
   %265 = fneg float %264
-  %266 = fmul float %264, %265
+  %266 = fmul nnan float %264, %265
   %267 = fmul float %215, %266
   %268 = call noundef float @expf(float noundef %267) #20, !tbaa !47
   %269 = getelementptr inbounds nuw ptr, ptr %211, i64 %indvars.iv393.i
@@ -1004,9 +1004,9 @@ _ZSt6fill_nIPPfmS0_ET_S2_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc125
   br i1 %exitcond376.not.i, label %._crit_edge328.i, label %387, !llvm.loop !61
 
 _ZN12_GLOBAL__N_17float2DEii.exit233.i:           ; preds = %.lr.ph.i227.i, %.noexc232.i
-  %405 = fmul float %198, 3.906250e-03
-  %406 = fmul float %405, 6.400000e+01
-  %407 = fmul float %406, 2.000000e+00
+  %405 = fmul nnan float %198, 3.906250e-03
+  %406 = fmul nnan float %405, 6.400000e+01
+  %407 = fmul nnan float %406, 2.000000e+00
   %408 = fmul float %406, %407
   %409 = fdiv float 1.000000e+00, %408
   %410 = sext i32 %.sroa.speculated273.i to i64

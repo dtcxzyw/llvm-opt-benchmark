@@ -1366,7 +1366,7 @@ define hidden void @_ZN8lz4_flex5block8compress27compress_into_vec_with_dict17ha
   %16 = alloca { { i64, ptr, {} }, i64 }, align 8
   %. = select i1 %3, i64 4, i64 0
   %17 = uitofp i64 %2 to double
-  %18 = fmul double %17, 1.100000e+00
+  %18 = fmul nnan double %17, 1.100000e+00
   %19 = tail call i64 @llvm.fptoui.sat.i64.f64(double %18)
   %20 = add nuw nsw i64 %., 20
   %21 = add i64 %20, %19

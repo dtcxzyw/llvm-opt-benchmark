@@ -271,7 +271,7 @@ define hidden void @_ZN20PSAdaptiveSizePolicy32update_minor_pause_old_estimatorE
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = uitofp i64 %4 to double
-  %6 = fmul double %5, 0x3EB0000000000000
+  %6 = fmul nnan double %5, 0x3EB0000000000000
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN20LinearLeastSquareFit6updateEdd(ptr noundef nonnull align 8 dereferenceable(88) %8, double noundef %6, double noundef %1) #7
@@ -329,11 +329,11 @@ _ZN18AdaptiveSizePolicy25should_update_promo_statsEN7GCCause5CauseE.exit.thread:
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %29 = load i64, ptr %28, align 8
   %30 = uitofp i64 %29 to double
-  %31 = fmul double %30, 0x3EB0000000000000
+  %31 = fmul nnan double %30, 0x3EB0000000000000
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i64, ptr %32, align 8
   %34 = uitofp i64 %33 to double
-  %35 = fmul double %34, 0x3EB0000000000000
+  %35 = fmul nnan double %34, 0x3EB0000000000000
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %37 = load ptr, ptr %36, align 8
   tail call void @_ZN20LinearLeastSquareFit6updateEdd(ptr noundef nonnull align 8 dereferenceable(88) %37, double noundef %35, double noundef %10) #7

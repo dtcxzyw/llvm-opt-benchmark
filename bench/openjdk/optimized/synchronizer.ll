@@ -3016,8 +3016,8 @@ define hidden noundef zeroext i1 @_ZN18ObjectSynchronizer25is_async_deflation_ne
 
 31:                                               ; preds = %26
   %32 = sitofp i32 %15 to double
-  %33 = fsub double 1.000000e+02, %32
-  %34 = fdiv double %33, 1.000000e+02
+  %33 = fsub nnan double 1.000000e+02, %32
+  %34 = fdiv nnan double %33, 1.000000e+02
   %35 = uitofp i64 %.019.i to double
   %36 = fmul double %34, %35
   %37 = fptoui double %36 to i64

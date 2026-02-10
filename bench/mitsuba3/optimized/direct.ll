@@ -4294,11 +4294,11 @@ define linkonce_odr hidden void @_ZN7mitsuba7mueller7rotatorIfEEN5drjit6MatrixIT
   %9 = and i32 %8, -2
   %10 = sitofp i32 %9 to float
   %11 = bitcast float %4 to i32
-  %12 = fmul contract float %10, 0x3FE9200000000000
+  %12 = fmul nnan contract float %10, 0x3FE9200000000000
   %13 = fsub contract float %5, %12
-  %14 = fmul contract float %10, 0x3F2FB40000000000
+  %14 = fmul nnan contract float %10, 0x3F2FB40000000000
   %15 = fsub contract float %13, %14
-  %16 = fmul contract float %10, 0x3E64442D20000000
+  %16 = fmul nnan contract float %10, 0x3E64442D20000000
   %17 = fsub contract float %15, %16
   %18 = fmul contract float %17, %17
   %19 = fcmp contract oeq float %5, 0x7FF0000000000000

@@ -9807,7 +9807,7 @@ _ZSt11max_elementIPKfET_S2_S2_.exit:              ; preds = %.lr.ph.i.i, %367
   %442 = mul nsw i32 %425, %441
   %443 = select i1 %163, i32 %440, i32 %442
   %444 = sitofp i32 %443 to float
-  %445 = fdiv float 1.000000e+00, %444
+  %445 = fdiv nnan float 1.000000e+00, %444
   %446 = select i1 %164, float %445, float 1.000000e+00
   br i1 %18, label %461, label %.preheader641
 

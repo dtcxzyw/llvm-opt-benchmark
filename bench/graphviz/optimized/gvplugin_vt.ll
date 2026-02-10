@@ -635,12 +635,12 @@ define internal fastcc void @processNup(ptr noundef %0, i32 noundef range(i32 2,
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 %31
   %33 = load i8, ptr %32, align 1, !tbaa !34
   %34 = uitofp i8 %26 to double
-  %35 = fdiv double %34, 2.550000e+02
+  %35 = fdiv nnan double %34, 2.550000e+02
   %36 = uitofp i8 %30 to double
-  %37 = fdiv double %36, 2.550000e+02
+  %37 = fdiv nnan double %36, 2.550000e+02
   %38 = uitofp i8 %33 to double
-  %39 = fdiv double %38, 2.550000e+02
-  %40 = fmul double %37, 7.152000e-01
+  %39 = fdiv nnan double %38, 2.550000e+02
+  %40 = fmul nnan double %37, 7.152000e-01
   %41 = tail call double @llvm.fmuladd.f64(double %35, double 2.126000e-01, double %40)
   %42 = tail call double @llvm.fmuladd.f64(double %39, double 7.220000e-02, double %41)
   %43 = fmul double %42, 2.559990e+02

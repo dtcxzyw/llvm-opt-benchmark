@@ -600,7 +600,7 @@ define hidden void @_ZN6cvtest9ArrayTest30get_test_array_types_and_sizesEiRSt6ve
   %16 = and i64 %15, 4294967295
   %17 = or disjoint i64 %16, %11
   %18 = uitofp i64 %17 to double
-  %19 = fmul double %18, 0x3BF0000000000000
+  %19 = fmul nnan double %18, 0x3BF0000000000000
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %21 = load i32, ptr %20, align 8, !tbaa !32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -623,7 +623,7 @@ define hidden void @_ZN6cvtest9ArrayTest30get_test_array_types_and_sizesEiRSt6ve
   %38 = and i64 %37, 4294967295
   %39 = or disjoint i64 %38, %33
   %40 = uitofp i64 %39 to double
-  %41 = fmul double %40, 0x3BF0000000000000
+  %41 = fmul nnan double %40, 0x3BF0000000000000
   %42 = load i32, ptr %20, align 8, !tbaa !32
   %43 = load i32, ptr %22, align 4, !tbaa !31
   %44 = sub nsw i32 %42, %43

@@ -3831,7 +3831,7 @@ _ZNSt6vectorIdSaIdEEC2IN9__gnu_cxx17__normal_iteratorIPKdS1_EEvEET_S8_RKS0_.exit
   %15 = ashr exact i64 %14, 3
   %16 = add nsw i64 %15, -1
   %17 = sitofp i64 %16 to double
-  %18 = fmul double %17, 2.500000e-01
+  %18 = fmul nnan double %17, 2.500000e-01
   %19 = fptosi double %18 to i32
   %20 = sitofp i32 %19 to double
   %21 = fsub double %18, %20
@@ -3889,7 +3889,7 @@ _ZN5Catch9Benchmark6Detail25weighted_average_quantileEiiN9__gnu_cxx17__normal_it
   %.0.i = phi double [ %44, %_ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEET_S7_S7_.exit.i ], [ %30, %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_S7_.exit.i ]
   %45 = mul nsw i64 %16, 3
   %46 = sitofp i64 %45 to double
-  %47 = fmul double %46, 2.500000e-01
+  %47 = fmul nnan double %46, 2.500000e-01
   %48 = fptosi double %47 to i32
   %49 = sitofp i32 %48 to double
   %50 = fsub double %47, %49

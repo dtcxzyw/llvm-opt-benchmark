@@ -11867,7 +11867,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %.0.i.i, %55
+  %56 = fmul nnan double %.0.i.i, %55
   %57 = fcmp une double %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 
@@ -14673,7 +14673,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIfE5Pr
   %53 = fadd float %52, 5.000000e-01
   %54 = fptosi float %53 to i32
   %55 = sitofp i32 %54 to float
-  %56 = fmul float %.0.i.i, %55
+  %56 = fmul nnan float %.0.i.i, %55
   %57 = fcmp une float %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEfPSo.exit
 

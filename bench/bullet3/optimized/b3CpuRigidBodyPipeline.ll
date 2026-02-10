@@ -1288,7 +1288,7 @@ _ZL14b3SolveContactR20b3ContactConstraint4RK9b3Vector3RS1_S4_fRK11b3Matrix3x3S3_
   br i1 %390, label %391, label %400
 
 391:                                              ; preds = %379
-  %392 = fmul float %387, %387
+  %392 = fmul nnan float %387, %387
   %393 = tail call float @llvm.fmuladd.f32(float %384, float %384, float %392)
   %sqrt.i.i = tail call float @llvm.sqrt.f32(float %393)
   %394 = fdiv float 1.000000e+00, %sqrt.i.i

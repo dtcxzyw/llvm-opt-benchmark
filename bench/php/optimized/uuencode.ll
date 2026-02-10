@@ -44,9 +44,9 @@ define dso_local ptr @php_uuencode(ptr noundef %0, i64 noundef %1) local_unnamed
 
 21:                                               ; preds = %17
   %22 = uitofp i64 %19 to double
-  %23 = fdiv double %22, 3.000000e+00
-  %24 = tail call double @llvm.floor.f64(double %23)
-  %25 = fmul double %24, 3.000000e+00
+  %23 = fdiv nnan double %22, 3.000000e+00
+  %24 = tail call nnan double @llvm.floor.f64(double %23)
+  %25 = fmul nnan double %24, 3.000000e+00
   %26 = fptosi double %25 to i32
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %.078116, i64 %27
@@ -321,7 +321,7 @@ define dso_local noundef ptr @php_uudecode(ptr noundef readonly captures(address
 
 .lr.ph73.preheader:                               ; preds = %2
   %4 = uitofp i64 %1 to double
-  %5 = fmul double %4, 7.500000e-01
+  %5 = fmul nnan double %4, 7.500000e-01
   %6 = tail call double @llvm.ceil.f64(double %5)
   %7 = fptoui double %6 to i64
   %8 = and i64 %7, -8
@@ -361,7 +361,7 @@ define dso_local noundef ptr @php_uudecode(ptr noundef readonly captures(address
 
 27:                                               ; preds = %24
   %28 = uitofp nneg i8 %19 to double
-  %29 = fmul double %28, 1.330000e+00
+  %29 = fmul nnan double %28, 1.330000e+00
   %30 = tail call double @llvm.floor.f64(double %29)
   %31 = fptosi double %30 to i32
   %32 = sext i32 %31 to i64

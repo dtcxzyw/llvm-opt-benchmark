@@ -740,8 +740,8 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE5clearEv.exit: ; preds = %5, %11
 
 .preheader61.lr.ph:                               ; preds = %_ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE5clearEv.exit
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %21 = fmul double %13, 1.200000e+00
-  %22 = fmul double %14, 1.200000e+00
+  %21 = fmul nnan double %13, 1.200000e+00
+  %22 = fmul nnan double %14, 1.200000e+00
   %23 = fcmp ogt double %21, %13
   %24 = fcmp ogt double %22, %14
   br label %.preheader61
@@ -886,7 +886,7 @@ _ZNSt6vectorIN2cv5Rect_IdEESaIS2_EE9push_backEOS2_.exit: ; preds = %45, %_ZNSt6v
   %78 = fcmp uge double %76, 2.000000e+01
   %79 = fcmp uge double %77, 2.000000e+01
   %or.cond.not73 = and i1 %78, %79
-  %80 = or i1 %or.cond.not73, %23
+  %80 = select i1 %or.cond.not73, i1 true, i1 %23
   %brmerge = select i1 %80, i1 true, i1 %24
   %.mux = select i1 %or.cond.not73, double %76, double %21
   %.mux71 = select i1 %or.cond.not73, double %77, double %22

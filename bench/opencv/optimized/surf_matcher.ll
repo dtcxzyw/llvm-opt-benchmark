@@ -1335,7 +1335,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN2cv6DMatchESt6vectorIS3_SaIS3_EEEEEvT
   %462 = sub i64 %460, %461
   %463 = ashr exact i64 %462, 4
   %464 = uitofp i64 %463 to float
-  %465 = fmul float %464, 0x3FC3333340000000
+  %465 = fmul nnan float %464, 0x3FC3333340000000
   %466 = fptosi float %465 to i32
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %466, i32 50)
   %467 = icmp sgt i32 %466, 0

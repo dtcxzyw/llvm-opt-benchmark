@@ -3543,7 +3543,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %66 = lshr i32 %65, 16
   %67 = and i32 %66, 32767
   %68 = uitofp nneg i32 %67 to float
-  %69 = fmul float %68, 0x3F00000000000000
+  %69 = fmul nnan float %68, 0x3F00000000000000
   %70 = sub nsw i64 %6, %62
   %71 = uitofp i64 %70 to double
   %72 = sub nsw i32 %2, %storemerge31141
@@ -34902,7 +34902,7 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %213 = load i32, ptr %180, align 8, !tbaa !902
   %214 = sitofp i32 %213 to double
-  %215 = fmul double %214, 1.000000e-02
+  %215 = fmul nnan double %214, 1.000000e-02
   %216 = fptoui double %215 to i64
   br i1 %5, label %217, label %235
 
@@ -42107,7 +42107,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit54: ; pred
 
 164:                                              ; preds = %154
   %165 = uitofp i64 %158 to double
-  %166 = fmul double %165, 0x3E10000000000000
+  %166 = fmul nnan double %165, 0x3E10000000000000
   %167 = load ptr, ptr %14, align 8, !tbaa !984
   call void (ptr, ...) @_ZN8LightGBM3Log5DebugEPKcz(ptr noundef nonnull @.str.128, double noundef %166, ptr noundef %167)
   br label %168

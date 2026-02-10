@@ -121,7 +121,7 @@ check_retval.exit62:                              ; preds = %46
 52:                                               ; preds = %51, %57
   %.072 = phi i32 [ 1, %51 ], [ %72, %57 ]
   %53 = uitofp nneg i32 %.072 to double
-  %54 = fmul double %53, 2.500000e-01
+  %54 = fmul nnan double %53, 2.500000e-01
   %55 = call i32 @IDASolve(ptr noundef %29, double noundef %54, ptr noundef nonnull %5, ptr noundef %21, ptr noundef %22, i32 noundef 1) #12
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %73, label %57

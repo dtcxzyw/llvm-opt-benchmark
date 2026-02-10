@@ -6025,7 +6025,7 @@ define noundef double @_ZNK10open_spiel16coop_box_pushing18CoopBoxPushingGame10M
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(285) %0)
   %10 = mul nsw i32 %9, %5
   %11 = sitofp i32 %10 to double
-  %12 = fmul double %11, 9.990000e+01
+  %12 = fmul nnan double %11, 9.990000e+01
   ret double %12
 }
 
@@ -6041,7 +6041,7 @@ define noundef double @_ZNK10open_spiel16coop_box_pushing18CoopBoxPushingGame10M
   %9 = tail call noundef i32 %8(ptr noundef nonnull align 8 dereferenceable(285) %0)
   %10 = mul nsw i32 %9, %5
   %11 = sitofp i32 %10 to double
-  %12 = fmul double %11, -5.100000e+00
+  %12 = fmul nnan double %11, -5.100000e+00
   ret double %12
 }
 

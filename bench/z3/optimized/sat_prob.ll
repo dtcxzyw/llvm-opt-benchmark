@@ -811,7 +811,7 @@ define hidden void @_ZN3sat4prob4flipEv(ptr noundef nonnull align 8 dereferencea
   %36 = lshr i32 %35, 16
   %37 = and i32 %36, 32767
   %38 = uitofp nneg i32 %37 to double
-  %39 = fdiv double %38, 3.276700e+04
+  %39 = fdiv nnan double %38, 3.276700e+04
   %40 = fmul double %39, %.019.lcssa.i
   br label %53
 
@@ -926,7 +926,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN3sat4prob8pick_varEv(ptr
   %36 = lshr i32 %35, 16
   %37 = and i32 %36, 32767
   %38 = uitofp nneg i32 %37 to double
-  %39 = fdiv double %38, 3.276700e+04
+  %39 = fdiv nnan double %38, 3.276700e+04
   %40 = fmul double %39, %.019.lcssa
   br label %53
 
@@ -2801,7 +2801,7 @@ _ZNK9stopwatch19get_current_secondsEv.exit:       ; preds = %1, %_ZN9stopwatch4s
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %18 = load i64, ptr %17, align 8, !tbaa !41
   %19 = uitofp i64 %18 to double
-  %20 = fmul double %16, 1.000000e+03
+  %20 = fmul nnan double %16, 1.000000e+03
   %21 = fdiv double %19, %20
   %22 = tail call noundef i32 @_Z19get_verbosity_levelv()
   %23 = tail call noundef zeroext i1 @_Z11is_threadedv()

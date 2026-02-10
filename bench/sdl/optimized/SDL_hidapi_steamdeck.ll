@@ -353,42 +353,42 @@ HIDAPI_DriverSteamDeck_HandleState.exit:          ; preds = %73, %78
   store i32 %152, ptr %150, align 4
   %153 = load i16, ptr %44, align 2
   %154 = sitofp i16 %153 to float
-  %155 = fmul float %154, 0x3F00000000000000
-  %156 = fmul float %155, 0x4041740B00000000
+  %155 = fmul nnan float %154, 0x3F00000000000000
+  %156 = fmul nnan float %155, 0x4041740B00000000
   store float %156, ptr %2, align 4
   %157 = load i16, ptr %45, align 2
   %158 = sitofp i16 %157 to float
-  %159 = fmul float %158, 0x3F00000000000000
-  %160 = fmul float %159, 0x4041740B00000000
+  %159 = fmul nnan float %158, 0x3F00000000000000
+  %160 = fmul nnan float %159, 0x4041740B00000000
   store float %160, ptr %46, align 4
   %161 = load i16, ptr %47, align 16
   %162 = sext i16 %161 to i32
   %163 = sub nsw i32 0, %162
   %164 = sitofp i32 %163 to float
-  %165 = fmul float %164, 0x3F00000000000000
-  %166 = fmul float %165, 0x4041740B00000000
+  %165 = fmul nnan float %164, 0x3F00000000000000
+  %166 = fmul nnan float %165, 0x4041740B00000000
   store float %166, ptr %48, align 4
   %167 = zext i32 %152 to i64
   call void @SDL_SendJoystickSensor(i64 noundef %74, ptr noundef nonnull %14, i32 noundef 2, i64 noundef %167, ptr noundef nonnull %2, i32 noundef 3) #6
   %168 = load i16, ptr %49, align 8
   %169 = sitofp i16 %168 to float
-  %170 = fmul float %169, 0x3F00000000000000
-  %171 = fmul float %170, 2.000000e+00
-  %172 = fmul float %171, 0x40239D0140000000
+  %170 = fmul nnan float %169, 0x3F00000000000000
+  %171 = fmul nnan float %170, 2.000000e+00
+  %172 = fmul nnan float %171, 0x40239D0140000000
   store float %172, ptr %2, align 4
   %173 = load i16, ptr %50, align 4
   %174 = sitofp i16 %173 to float
-  %175 = fmul float %174, 0x3F00000000000000
-  %176 = fmul float %175, 2.000000e+00
-  %177 = fmul float %176, 0x40239D0140000000
+  %175 = fmul nnan float %174, 0x3F00000000000000
+  %176 = fmul nnan float %175, 2.000000e+00
+  %177 = fmul nnan float %176, 0x40239D0140000000
   store float %177, ptr %46, align 4
   %178 = load i16, ptr %51, align 2
   %179 = sext i16 %178 to i32
   %180 = sub nsw i32 0, %179
   %181 = sitofp i32 %180 to float
-  %182 = fmul float %181, 0x3F00000000000000
-  %183 = fmul float %182, 2.000000e+00
-  %184 = fmul float %183, 0x40239D0140000000
+  %182 = fmul nnan float %181, 0x3F00000000000000
+  %183 = fmul nnan float %182, 2.000000e+00
+  %184 = fmul nnan float %183, 0x40239D0140000000
   store float %184, ptr %48, align 4
   %185 = load i32, ptr %150, align 4
   %186 = zext i32 %185 to i64
@@ -397,27 +397,27 @@ HIDAPI_DriverSteamDeck_HandleState.exit:          ; preds = %73, %78
   %188 = icmp ne i16 %187, 0
   %189 = load i16, ptr %53, align 16
   %190 = sitofp i16 %189 to float
-  %191 = fmul float %190, 0x3EF0000000000000
+  %191 = fmul nnan float %190, 0x3EF0000000000000
   %192 = fadd float %191, 5.000000e-01
   %193 = load i16, ptr %54, align 2
   %194 = sitofp i16 %193 to float
-  %195 = fmul float %194, 0x3EF0000000000000
+  %195 = fmul nnan float %194, 0x3EF0000000000000
   %196 = fadd float %195, 5.000000e-01
   %197 = uitofp i16 %187 to float
-  %198 = fmul float %197, 0x3F00000000000000
+  %198 = fmul nnan float %197, 0x3F00000000000000
   call void @SDL_SendJoystickTouchpad(i64 noundef %74, ptr noundef nonnull %14, i32 noundef 0, i32 noundef 0, i1 noundef zeroext %188, float noundef %192, float noundef %196, float noundef %198) #6
   %199 = load i16, ptr %55, align 2
   %200 = icmp ne i16 %199, 0
   %201 = load i16, ptr %56, align 4
   %202 = sitofp i16 %201 to float
-  %203 = fmul float %202, 0x3EF0000000000000
+  %203 = fmul nnan float %202, 0x3EF0000000000000
   %204 = fadd float %203, 5.000000e-01
   %205 = load i16, ptr %57, align 2
   %206 = sitofp i16 %205 to float
-  %207 = fmul float %206, 0x3EF0000000000000
+  %207 = fmul nnan float %206, 0x3EF0000000000000
   %208 = fadd float %207, 5.000000e-01
   %209 = uitofp i16 %199 to float
-  %210 = fmul float %209, 0x3F00000000000000
+  %210 = fmul nnan float %209, 0x3F00000000000000
   call void @SDL_SendJoystickTouchpad(i64 noundef %74, ptr noundef nonnull %14, i32 noundef 1, i32 noundef 0, i1 noundef zeroext %200, float noundef %204, float noundef %208, float noundef %210) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %211
@@ -438,8 +438,8 @@ define internal noundef zeroext i1 @HIDAPI_DriverSteamDeck_OpenJoystick(ptr noun
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
   %6 = uitofp i32 %5 to float
-  %7 = fdiv float 1.000000e+00, %6
-  %8 = fmul float %7, 1.000000e+06
+  %7 = fdiv nnan float 1.000000e+00, %6
+  %8 = fmul nnan float %7, 1.000000e+06
   tail call void @SDL_AssertJoysticksLocked() #6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i32 16, ptr %9, align 8

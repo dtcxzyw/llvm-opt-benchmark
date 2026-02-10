@@ -837,7 +837,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define hidden void @cip_safety_128us_fmt(ptr noundef %0, i32 noundef %1) #0 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 1.280000e-01
+  %4 = fmul nnan double %3, 1.280000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.9, i32 noundef %1, double noundef %4)
   ret void
 }

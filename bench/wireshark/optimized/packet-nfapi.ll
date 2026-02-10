@@ -3473,7 +3473,7 @@ define internal void @power_offset_conversion_fn(ptr noundef %0, i16 noundef zer
 define internal void @laa_threshold_conversion_fn(ptr noundef %0, i16 noundef zeroext %1) #1 {
   %3 = zext i16 %1 to i32
   %4 = uitofp i16 %1 to double
-  %5 = fmul double %4, -1.000000e+02
+  %5 = fmul nnan double %4, -1.000000e+02
   %6 = fptrunc double %5 to float
   %7 = fpext float %6 to double
   %8 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2342, double noundef %7, i32 noundef %3)
@@ -3492,7 +3492,7 @@ define internal void @sfn_sf_conversion_fn(ptr noundef %0, i16 noundef zeroext %
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @dl_rs_tx_pow_measment_conversion_fn(ptr noundef %0, i16 noundef zeroext %1) #1 {
   %3 = uitofp i16 %1 to double
-  %4 = fmul double %3, 1.000000e-01
+  %4 = fmul nnan double %3, 1.000000e-01
   %5 = zext i16 %1 to i32
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2342, double noundef %4, i32 noundef %5)
   ret void
@@ -3510,7 +3510,7 @@ define internal void @max_transmit_power_2_conversion_fn(ptr noundef %0, i16 nou
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @max_transmit_power_conversion_fn(ptr noundef %0, i16 noundef zeroext %1) #1 {
   %3 = uitofp i16 %1 to double
-  %4 = fmul double %3, 1.000000e-01
+  %4 = fmul nnan double %3, 1.000000e-01
   %5 = zext i16 %1 to i32
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2342, double noundef %4, i32 noundef %5)
   ret void
@@ -3519,7 +3519,7 @@ define internal void @max_transmit_power_conversion_fn(ptr noundef %0, i16 nound
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @ul_cqi_conversion_fn(ptr noundef %0, i16 noundef zeroext %1) #1 {
   %3 = uitofp i16 %1 to float
-  %4 = fmul float %3, 5.000000e-01
+  %4 = fmul nnan float %3, 5.000000e-01
   %5 = fpext float %4 to double
   %6 = fadd double %5, -6.400000e+01
   %7 = zext i16 %1 to i32
@@ -3530,7 +3530,7 @@ define internal void @ul_cqi_conversion_fn(ptr noundef %0, i16 noundef zeroext %
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @rssi_conversion_fn(ptr noundef %0, i16 noundef zeroext %1) #1 {
   %3 = uitofp i16 %1 to double
-  %4 = fmul double %3, 1.000000e-01
+  %4 = fmul nnan double %3, 1.000000e-01
   %5 = zext i16 %1 to i32
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2342, double noundef %4, i32 noundef %5)
   ret void

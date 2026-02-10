@@ -9445,7 +9445,7 @@ if.end.i110:                                      ; preds = %if.else.i, %if.then
 while.body.lr.ph.i:                               ; preds = %if.end.i110
   %70 = load double, ptr %this, align 8, !tbaa !231
   %sub.i111 = fsub double %70, %68
-  %mul45.i = fmul double %.sroa.speculated, 5.000000e-01
+  %mul45.i = fmul nnan double %.sroa.speculated, 5.000000e-01
   br label %while.body.i
 
 while.body.i:                                     ; preds = %_ZNK8QuantLib12_GLOBAL__N_117ObjectiveFunctionclEd.exit89.i, %while.body.lr.ph.i

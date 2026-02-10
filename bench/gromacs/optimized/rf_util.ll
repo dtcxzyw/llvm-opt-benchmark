@@ -42,8 +42,8 @@ define void @_Z10calc_rffacP8_IO_FILEfffPfS1_(ptr noundef captures(address_is_nu
   br i1 %30, label %31, label %39
 
 31:                                               ; preds = %18
-  %32 = fpext float %29 to double
-  %33 = fmul double %32, 2.000000e+00
+  %32 = fpext nnan float %29 to double
+  %33 = fmul nnan double %32, 2.000000e+00
   %34 = tail call double @cbrt(double noundef %33) #6
   %35 = fdiv double 1.000000e+00, %34
   %36 = fptrunc double %35 to float

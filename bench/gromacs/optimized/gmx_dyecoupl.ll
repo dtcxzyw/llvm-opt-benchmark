@@ -1847,7 +1847,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit455: ; preds = %_Z
 
 .lr.ph689:                                        ; preds = %.preheader617
   %753 = uitofp nneg i32 %583 to float
-  %754 = fmul float %753, 4.000000e+00
+  %754 = fmul nnan float %753, 4.000000e+00
   %755 = fdiv float %754, %740
   %wide.trip.count757 = zext nneg i32 %739 to i64
   br label %756

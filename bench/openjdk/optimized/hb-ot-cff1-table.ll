@@ -2562,7 +2562,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit.i:               ; preds = %48, %46
 _ZN3CFF11arg_stack_tINS_8number_tEE10push_fixedEi.exit.i: ; preds = %78, %73
   %.0.i.i.i = phi ptr [ %77, %73 ], [ @_hb_CrapPool, %78 ]
   %80 = sitofp i32 %69 to double
-  %81 = fmul double %80, 0x3EF0000000000000
+  %81 = fmul nnan double %80, 0x3EF0000000000000
   store double %81, ptr %.0.i.i.i, align 8
   %82 = add i32 %52, 4
   store i32 %82, ptr %40, align 4
@@ -7760,7 +7760,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit.i:               ; preds = %52, %50
 _ZN3CFF11arg_stack_tINS_8number_tEE10push_fixedEi.exit.i: ; preds = %82, %77
   %.0.i.i.i = phi ptr [ %81, %77 ], [ @_hb_CrapPool, %82 ]
   %84 = sitofp i32 %73 to double
-  %85 = fmul double %84, 0x3EF0000000000000
+  %85 = fmul nnan double %84, 0x3EF0000000000000
   store double %85, ptr %.0.i.i.i, align 8
   %86 = add i32 %56, 4
   store i32 %86, ptr %44, align 4
@@ -11938,7 +11938,7 @@ _ZN3CFF14byte_str_ref_tixEi.exit.i:               ; preds = %48, %46
 _ZN3CFF11arg_stack_tINS_8number_tEE10push_fixedEi.exit.i: ; preds = %78, %73
   %.0.i.i.i = phi ptr [ %77, %73 ], [ @_hb_CrapPool, %78 ]
   %80 = sitofp i32 %69 to double
-  %81 = fmul double %80, 0x3EF0000000000000
+  %81 = fmul nnan double %80, 0x3EF0000000000000
   store double %81, ptr %.0.i.i.i, align 8
   %82 = add i32 %52, 4
   store i32 %82, ptr %40, align 4

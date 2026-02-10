@@ -5004,7 +5004,7 @@ define internal fastcc void @_ZL17drawQRCodeResultsRN2cv3MatERKSt6vectorINS_6Poi
   %..i = call i32 @llvm.smax.i32(i32 %66, i32 %67)
   %.54.i = call i32 @llvm.smin.i32(i32 %66, i32 %67)
   %68 = sitofp i32 %..i to double
-  %69 = fmul double %68, 2.813000e+00
+  %69 = fmul nnan double %68, 2.813000e+00
   %70 = sitofp i32 %.54.i to double
   %71 = fdiv double %69, %70
   %72 = fmul double %71, 4.000000e-01

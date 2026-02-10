@@ -2184,7 +2184,7 @@ make_bands.exit839.i:                             ; preds = %.lr.ph.i833.i
   %342 = load i8, ptr %341, align 1, !tbaa !110
   %.not751.i = icmp eq i8 %342, 0
   %343 = select nsz i1 %.not751.i, float 1.000000e+00, float 0x3FE89D89E0000000
-  %344 = fmul nsz float %343, %215
+  %344 = fmul nnan nsz float %343, %215
   %345 = uitofp nneg i32 %spec.select.i to float
   %346 = fdiv nsz float %345, %216
   %347 = call nsz float @llvm.log2.f32(float %346)
@@ -6596,7 +6596,7 @@ exp2fi.exit150.i:                                 ; preds = %132
   %174 = and i32 %173, -8388608
   %175 = add nsw i32 %174, 1065353216
   %176 = bitcast i32 %175 to float
-  %177 = fpext nsz float %176 to double
+  %177 = fpext nnan nsz float %176 to double
   %178 = and i8 %170, 1
   %179 = zext nneg i8 %178 to i64
   %180 = getelementptr inbounds nuw double, ptr @sbr_dequant.exp2_tab, i64 %179
@@ -7454,7 +7454,7 @@ sbr_mapping.exit:                                 ; preds = %474
   %590 = zext i8 %589 to i32
   %591 = sub nsw i32 %587, %590
   %592 = sitofp i32 %591 to float
-  %593 = fdiv nsz float 5.000000e-01, %592
+  %593 = fdiv nnan nsz float 5.000000e-01, %592
   %.not108.i192 = icmp eq i32 %584, 0
   br i1 %.not108.i192, label %.loopexit86.i, label %.lr.ph.i193
 

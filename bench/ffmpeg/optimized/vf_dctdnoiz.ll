@@ -869,7 +869,7 @@ define internal void @color_decorrelation_bgr(ptr noundef readonly captures(none
   %22 = getelementptr inbounds nuw i8, ptr %.1.i6.us, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !83
   %24 = uitofp i8 %23 to float
-  %25 = fmul nsz float %24, 0x3FE279A740000000
+  %25 = fmul nnan nsz float %24, 0x3FE279A740000000
   %26 = tail call nsz float @llvm.fmuladd.f32(float %21, float 0x3FE279A740000000, float %25)
   %27 = load i8, ptr %.1.i6.us, align 1, !tbaa !83
   %28 = uitofp i8 %27 to float
@@ -880,7 +880,7 @@ define internal void @color_decorrelation_bgr(ptr noundef readonly captures(none
   %32 = uitofp i8 %31 to float
   %33 = load i8, ptr %.1.i6.us, align 1, !tbaa !83
   %34 = uitofp i8 %33 to float
-  %35 = fmul nsz float %34, 0xBFE6A09E60000000
+  %35 = fmul nnan nsz float %34, 0xBFE6A09E60000000
   %36 = tail call nsz float @llvm.fmuladd.f32(float %32, float 0x3FE6A09E60000000, float %35)
   %37 = getelementptr inbounds nuw float, ptr %.042.i9.us, i64 %indvars.iv
   store float %36, ptr %37, align 4, !tbaa !74
@@ -888,7 +888,7 @@ define internal void @color_decorrelation_bgr(ptr noundef readonly captures(none
   %39 = uitofp i8 %38 to float
   %40 = load i8, ptr %22, align 1, !tbaa !83
   %41 = uitofp i8 %40 to float
-  %42 = fmul nsz float %41, 0xBFEA20BD80000000
+  %42 = fmul nnan nsz float %41, 0xBFEA20BD80000000
   %43 = tail call nsz float @llvm.fmuladd.f32(float %39, float 0x3FDA20BD80000000, float %42)
   %44 = load i8, ptr %.1.i6.us, align 1, !tbaa !83
   %45 = uitofp i8 %44 to float
@@ -1046,7 +1046,7 @@ define internal void @color_decorrelation_rgb(ptr noundef readonly captures(none
   %21 = getelementptr inbounds nuw i8, ptr %.1.i6.us, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !83
   %23 = uitofp i8 %22 to float
-  %24 = fmul nsz float %23, 0x3FE279A740000000
+  %24 = fmul nnan nsz float %23, 0x3FE279A740000000
   %25 = tail call nsz float @llvm.fmuladd.f32(float %20, float 0x3FE279A740000000, float %24)
   %26 = getelementptr inbounds nuw i8, ptr %.1.i6.us, i64 2
   %27 = load i8, ptr %26, align 1, !tbaa !83
@@ -1058,7 +1058,7 @@ define internal void @color_decorrelation_rgb(ptr noundef readonly captures(none
   %32 = uitofp i8 %31 to float
   %33 = load i8, ptr %26, align 1, !tbaa !83
   %34 = uitofp i8 %33 to float
-  %35 = fmul nsz float %34, 0xBFE6A09E60000000
+  %35 = fmul nnan nsz float %34, 0xBFE6A09E60000000
   %36 = tail call nsz float @llvm.fmuladd.f32(float %32, float 0x3FE6A09E60000000, float %35)
   %37 = getelementptr inbounds nuw float, ptr %.042.i9.us, i64 %indvars.iv
   store float %36, ptr %37, align 4, !tbaa !74
@@ -1066,7 +1066,7 @@ define internal void @color_decorrelation_rgb(ptr noundef readonly captures(none
   %39 = uitofp i8 %38 to float
   %40 = load i8, ptr %21, align 1, !tbaa !83
   %41 = uitofp i8 %40 to float
-  %42 = fmul nsz float %41, 0xBFEA20BD80000000
+  %42 = fmul nnan nsz float %41, 0xBFEA20BD80000000
   %43 = tail call nsz float @llvm.fmuladd.f32(float %39, float 0x3FDA20BD80000000, float %42)
   %44 = load i8, ptr %26, align 1, !tbaa !83
   %45 = uitofp i8 %44 to float
@@ -1228,7 +1228,7 @@ define internal void @color_decorrelation_gbrp(ptr noundef readonly captures(non
   %25 = getelementptr inbounds nuw i8, ptr %.04558.us, i64 %indvars.iv
   %26 = load i8, ptr %25, align 1, !tbaa !83
   %27 = uitofp i8 %26 to float
-  %28 = fmul nsz float %27, 0x3FE279A740000000
+  %28 = fmul nnan nsz float %27, 0x3FE279A740000000
   %29 = tail call nsz float @llvm.fmuladd.f32(float %24, float 0x3FE279A740000000, float %28)
   %30 = getelementptr inbounds nuw i8, ptr %.059.us, i64 %indvars.iv
   %31 = load i8, ptr %30, align 1, !tbaa !83
@@ -1240,7 +1240,7 @@ define internal void @color_decorrelation_gbrp(ptr noundef readonly captures(non
   %36 = uitofp i8 %35 to float
   %37 = load i8, ptr %30, align 1, !tbaa !83
   %38 = uitofp i8 %37 to float
-  %39 = fmul nsz float %38, 0xBFE6A09E60000000
+  %39 = fmul nnan nsz float %38, 0xBFE6A09E60000000
   %40 = tail call nsz float @llvm.fmuladd.f32(float %36, float 0x3FE6A09E60000000, float %39)
   %41 = getelementptr inbounds nuw float, ptr %.04855.us, i64 %indvars.iv
   store float %40, ptr %41, align 4, !tbaa !74
@@ -1248,7 +1248,7 @@ define internal void @color_decorrelation_gbrp(ptr noundef readonly captures(non
   %43 = uitofp i8 %42 to float
   %44 = load i8, ptr %25, align 1, !tbaa !83
   %45 = uitofp i8 %44 to float
-  %46 = fmul nsz float %45, 0xBFEA20BD80000000
+  %46 = fmul nnan nsz float %45, 0xBFEA20BD80000000
   %47 = tail call nsz float @llvm.fmuladd.f32(float %43, float 0x3FDA20BD80000000, float %46)
   %48 = load i8, ptr %30, align 1, !tbaa !83
   %49 = uitofp i8 %48 to float

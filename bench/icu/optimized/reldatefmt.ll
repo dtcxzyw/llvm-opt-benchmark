@@ -3531,7 +3531,7 @@ define void @_ZNK6icu_7725RelativeDateTimeFormatter18formatRelativeImplEd21URela
   br i1 %or.cond, label %10, label %19
 
 10:                                               ; preds = %8
-  %11 = fmul double %1, 1.000000e+02
+  %11 = fmul nnan double %1, 1.000000e+02
   %12 = fcmp olt double %11, 0.000000e+00
   %.in.v = select i1 %12, double -5.000000e-01, double 5.000000e-01
   %.in = fadd double %11, %.in.v

@@ -2548,7 +2548,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_12ThreeFry2x64ILj64EEEEEiRT_.exit244.thr
   %711 = phi i32 [ 1, %626 ], [ %625, %._crit_edge.i.i.i.i.i ]
   store i32 %711, ptr %150, align 8, !tbaa !210
   %712 = uitofp i64 %710 to float
-  %713 = fmul float %712, 0x3BF0000000000000
+  %713 = fmul nnan float %712, 0x3BF0000000000000
   %714 = fcmp oeq float %713, 1.000000e+00
   %.013.i.i.i.i = select i1 %714, float 0.000000e+00, float %713
   %715 = fcmp olt float %.013.i.i.i.i, %709
@@ -2829,7 +2829,7 @@ _ZL18print_allswitchindP8_IO_FILEiPiS1_S1_.exit.i: ; preds = %.lr.ph40.i.i, %._c
   %884 = phi i32 [ 1, %799 ], [ %798, %._crit_edge.i.i.i.i246.i ]
   store i32 %884, ptr %150, align 8, !tbaa !210
   %885 = uitofp i64 %883 to float
-  %886 = fmul float %885, 0x3BF0000000000000
+  %886 = fmul nnan float %885, 0x3BF0000000000000
   %887 = fcmp oeq float %886, 1.000000e+00
   %.013.i.i.i251.i = select i1 %887, float 0.000000e+00, float %886
   %888 = fcmp olt float %.013.i.i.i251.i, %882
@@ -4766,7 +4766,7 @@ _ZL10print_probP8_IO_FILEPKciPf.exit93:           ; preds = %129, %_ZL9print_ind
 .lr.ph12.i:                                       ; preds = %.lr.ph4.i
   %fputc3722.i = call i32 @fputc(i32 10, ptr %0)
   %148 = sitofp i32 %137 to double
-  %149 = fmul double %148, 2.000000e+00
+  %149 = fmul nnan double %148, 2.000000e+00
   %wide.trip.count20.i = zext nneg i32 %132 to i64
   br label %.lr.ph8.us.i
 

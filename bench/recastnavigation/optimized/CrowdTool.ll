@@ -616,10 +616,10 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %177 = sext i32 %176 to i64
   %178 = getelementptr inbounds float, ptr %164, i64 %177
   %179 = uitofp nneg i32 %.0394458 to float
-  %180 = fmul float %179, 1.562500e-02
+  %180 = fmul nnan float %179, 1.562500e-02
   %181 = fsub float 1.000000e+00, %180
   %182 = fadd float %.sroa.3.0, 0x3FB99999A0000000
-  %183 = fmul float %.0393459, 1.280000e+02
+  %183 = fmul nnan float %.0393459, 1.280000e+02
   %184 = fptosi float %183 to i32
   %185 = shl i32 %184, 24
   %186 = load ptr, ptr %4, align 8
@@ -632,7 +632,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %192 = fadd float %191, 0x3FB99999A0000000
   %193 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %194 = load float, ptr %193, align 4
-  %195 = fmul float %181, 1.280000e+02
+  %195 = fmul nnan float %181, 1.280000e+02
   %196 = fptosi float %195 to i32
   %197 = shl i32 %196, 24
   %198 = load ptr, ptr %4, align 8

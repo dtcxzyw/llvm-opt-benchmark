@@ -4698,7 +4698,7 @@ _ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit:
 
 21:                                               ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit
   %22 = fmul float %19, 0.000000e+00
-  %23 = fmul float %22, 0x3F847AE140000000
+  %23 = fmul ninf float %22, 0x3F847AE140000000
   br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
 
 _ZN8facebook4yoga11StyleLength7resolveEf.exit:    ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit, %20, %21
@@ -4822,7 +4822,7 @@ _ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit:
 
 21:                                               ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit
   %22 = fmul float %19, 0.000000e+00
-  %23 = fmul float %22, 0x3F847AE140000000
+  %23 = fmul ninf float %22, 0x3F847AE140000000
   br label %_ZN8facebook4yoga11StyleLength7resolveEf.exit
 
 _ZN8facebook4yoga11StyleLength7resolveEf.exit:    ; preds = %_ZNK8facebook4yoga5Style13computeBorderENS0_12PhysicalEdgeENS0_9DirectionE.exit, %20, %21

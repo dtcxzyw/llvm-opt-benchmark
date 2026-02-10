@@ -1470,7 +1470,7 @@ fasthuf_read_bits.exit169.i:                      ; preds = %.lr.ph.i167.i, %88
   %131 = sub nuw nsw i64 %.pre, %indvars.iv286.i
   %132 = shl nuw nsw i64 2, %131
   %133 = uitofp nneg i64 %132 to double
-  %134 = fmul double %130, %133
+  %134 = fmul nnan double %130, %133
   %135 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv286.i
   store double %134, ptr %135, align 8, !tbaa !68
   %indvars.iv.next287.i = add nuw nsw i64 %indvars.iv286.i, 1

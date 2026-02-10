@@ -36179,7 +36179,7 @@ define void @_ZN5image8dynimage12DynamicImage6resize17h5e96beb077fe2c8eE(ptr noa
   br i1 %23, label %32, label %29
 
 24:                                               ; preds = %.critedge
-  %25 = fdiv double 0x41EFFFFFFFE00000, %9
+  %25 = fdiv nnan double 0x41EFFFFFFFE00000, %9
   %26 = fmul double %25, %12
   %27 = tail call double @llvm.round.f64(double %26)
   %28 = tail call i32 @llvm.fptoui.sat.i32.f64(double %27)
@@ -36192,7 +36192,7 @@ define void @_ZN5image8dynimage12DynamicImage6resize17h5e96beb077fe2c8eE(ptr noa
   br label %_ZN5image4math5utils17resize_dimensions17hc7ef2b668d4b5334E.exit
 
 32:                                               ; preds = %22
-  %33 = fdiv double 0x41EFFFFFFFE00000, %12
+  %33 = fdiv nnan double 0x41EFFFFFFFE00000, %12
   %34 = fmul double %33, %9
   %35 = tail call double @llvm.round.f64(double %34)
   %36 = tail call i32 @llvm.fptoui.sat.i32.f64(double %35)
@@ -36509,7 +36509,7 @@ define void @_ZN5image8dynimage12DynamicImage9thumbnail17h6240504e378e2cfeE(ptr 
   br i1 %20, label %29, label %26
 
 21:                                               ; preds = %4
-  %22 = fdiv double 0x41EFFFFFFFE00000, %6
+  %22 = fdiv nnan double 0x41EFFFFFFFE00000, %6
   %23 = fmul double %22, %9
   %24 = tail call double @llvm.round.f64(double %23)
   %25 = tail call i32 @llvm.fptoui.sat.i32.f64(double %24)
@@ -36522,7 +36522,7 @@ define void @_ZN5image8dynimage12DynamicImage9thumbnail17h6240504e378e2cfeE(ptr 
   br label %_ZN5image4math5utils17resize_dimensions17hc7ef2b668d4b5334E.exit
 
 29:                                               ; preds = %19
-  %30 = fdiv double 0x41EFFFFFFFE00000, %9
+  %30 = fdiv nnan double 0x41EFFFFFFFE00000, %9
   %31 = fmul double %30, %6
   %32 = tail call double @llvm.round.f64(double %31)
   %33 = tail call i32 @llvm.fptoui.sat.i32.f64(double %32)
@@ -36681,7 +36681,7 @@ define void @_ZN5image8dynimage12DynamicImage14resize_to_fill17h9cf118f063722dcf
   br i1 %22, label %31, label %28
 
 23:                                               ; preds = %5
-  %24 = fdiv double 0x41EFFFFFFFE00000, %8
+  %24 = fdiv nnan double 0x41EFFFFFFFE00000, %8
   %25 = fmul double %24, %11
   %26 = tail call double @llvm.round.f64(double %25)
   %27 = tail call i32 @llvm.fptoui.sat.i32.f64(double %26)
@@ -36694,7 +36694,7 @@ define void @_ZN5image8dynimage12DynamicImage14resize_to_fill17h9cf118f063722dcf
   br label %.invoke
 
 31:                                               ; preds = %21
-  %32 = fdiv double 0x41EFFFFFFFE00000, %11
+  %32 = fdiv nnan double 0x41EFFFFFFFE00000, %11
   %33 = fmul double %32, %8
   %34 = tail call double @llvm.round.f64(double %33)
   %35 = tail call i32 @llvm.fptoui.sat.i32.f64(double %34)

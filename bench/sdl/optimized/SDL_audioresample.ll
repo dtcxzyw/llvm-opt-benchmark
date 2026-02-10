@@ -39,7 +39,7 @@ BesselI0.exit.i.i:                                ; preds = %.preheader
   %indvars.iv.i.i.i = phi i64 [ 0, %BesselI0.exit.i.i ], [ %indvars.iv.next.i.i.i, %11 ]
   %12 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %13 = uitofp nneg i32 %12 to float
-  %14 = fmul float %13, 0x3FC0C15240000000
+  %14 = fmul nnan float %13, 0x3FC0C15240000000
   %15 = tail call float @SDL_sinf_REAL(float noundef %14) #8
   %16 = fdiv float %15, 0x400921FB60000000
   %17 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i.i.i
@@ -314,7 +314,7 @@ define hidden void @SDL_ResampleAudio(i32 noundef %0, ptr noundef %1, i32 nounde
   %24 = getelementptr inbounds nuw [10 x %union.Cubic], ptr @ResamplerFilter, i64 %23
   %25 = and i32 %20, 536870911
   %26 = uitofp nneg i32 %25 to float
-  %27 = fmul float %26, 0x3E20000000000000
+  %27 = fmul nnan float %26, 0x3E20000000000000
   %28 = mul nsw i32 %0, %19
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds float, ptr %16, i64 %29

@@ -247,7 +247,7 @@ define range(i32 -12, 1) i32 @ff_tx_mdct_gen_exp_int32(ptr noundef captures(none
   %6 = load double, ptr %5, align 8, !tbaa !26
   %7 = fcmp nsz olt double %6, 0.000000e+00
   %8 = sitofp i32 %4 to double
-  %9 = fadd nsz double %8, 1.250000e-01
+  %9 = fadd nnan nsz double %8, 1.250000e-01
   %10 = select i1 %7, double %9, double 1.250000e-01
   %.not.not = icmp eq ptr %1, null
   %11 = and i32 %3, -2
@@ -283,8 +283,8 @@ define range(i32 -12, 1) i32 @ff_tx_mdct_gen_exp_int32(ptr noundef captures(none
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = uitofp nneg i32 %22 to double
-  %24 = fadd nsz double %10, %23
-  %25 = fmul nsz double %24, 0x3FF921FB54442D18
+  %24 = fadd nnan nsz double %10, %23
+  %25 = fmul nnan nsz double %24, 0x3FF921FB54442D18
   %26 = fdiv nsz double %25, %8
   %gep = getelementptr inbounds nuw %struct.AVComplexInt32, ptr %invariant.gep, i64 %indvars.iv
   %27 = tail call nsz double @llvm.cos.f64(double %26)
@@ -383,7 +383,7 @@ define internal void @ff_tx_init_tab_16_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_16_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3FD921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3FD921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -410,7 +410,7 @@ define internal void @ff_tx_init_tab_32_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_32_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3FC921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3FC921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -437,7 +437,7 @@ define internal void @ff_tx_init_tab_64_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_64_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3FB921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3FB921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -464,7 +464,7 @@ define internal void @ff_tx_init_tab_128_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_128_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3FA921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3FA921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -491,7 +491,7 @@ define internal void @ff_tx_init_tab_256_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_256_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3F9921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3F9921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -518,7 +518,7 @@ define internal void @ff_tx_init_tab_512_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_512_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3F8921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3F8921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -545,7 +545,7 @@ define internal void @ff_tx_init_tab_1024_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_1024_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3F7921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3F7921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -572,7 +572,7 @@ define internal void @ff_tx_init_tab_2048_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_2048_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3F6921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3F6921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -599,7 +599,7 @@ define internal void @ff_tx_init_tab_4096_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_4096_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3F5921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3F5921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -626,7 +626,7 @@ define internal void @ff_tx_init_tab_8192_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_8192_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3F4921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3F4921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -653,7 +653,7 @@ define internal void @ff_tx_init_tab_16384_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_16384_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3F3921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3F3921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -680,7 +680,7 @@ define internal void @ff_tx_init_tab_32768_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_32768_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3F2921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3F2921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -707,7 +707,7 @@ define internal void @ff_tx_init_tab_65536_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_65536_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3F1921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3F1921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -734,7 +734,7 @@ define internal void @ff_tx_init_tab_131072_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_131072_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3F0921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3F0921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -761,7 +761,7 @@ define internal void @ff_tx_init_tab_262144_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_262144_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3EF921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3EF921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -788,7 +788,7 @@ define internal void @ff_tx_init_tab_524288_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_524288_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3EE921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3EE921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -815,7 +815,7 @@ define internal void @ff_tx_init_tab_1048576_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_1048576_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3ED921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3ED921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -842,7 +842,7 @@ define internal void @ff_tx_init_tab_2097152_int32() #5 {
   %.07 = phi i32 [ 0, %0 ], [ %12, %2 ]
   %.056 = phi ptr [ @ff_tx_tab_2097152_int32, %0 ], [ %11, %2 ]
   %3 = uitofp nneg i32 %.07 to double
-  %4 = fmul nsz double %3, 0x3EC921FB54442D18
+  %4 = fmul nnan nsz double %3, 0x3EC921FB54442D18
   %5 = tail call nsz double @llvm.cos.f64(double %4)
   %6 = fmul nsz double %5, 0x41E0000000000000
   %7 = fptrunc nsz double %6 to float
@@ -4404,7 +4404,7 @@ define internal void @ff_tx_fft_naive_int32_c(ptr noundef readonly captures(none
   %.not = icmp eq i32 %7, 0
   %8 = sitofp i32 %5 to double
   %.v = select i1 %.not, double 0xC01921FB54442D18, double 0x401921FB54442D18
-  %9 = fdiv nsz double %.v, %8
+  %9 = fdiv nnan nsz double %.v, %8
   %10 = lshr i64 %3, 3
   %11 = icmp sgt i32 %5, 0
   br i1 %11, label %.preheader.us.preheader, label %._crit_edge47
@@ -4550,7 +4550,7 @@ define internal range(i32 -12, 1) i32 @ff_tx_fft_init_naive_small_int32_c(ptr no
   %.not = icmp eq i32 %9, 0
   %10 = sitofp i32 %4 to double
   %.v = select i1 %.not, double 0xC01921FB54442D18, double 0x401921FB54442D18
-  %11 = fdiv nsz double %.v, %10
+  %11 = fdiv nnan nsz double %.v, %10
   %12 = mul nsw i32 %4, %4
   %13 = zext nneg i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 3
@@ -9734,8 +9734,8 @@ define internal void @ff_tx_mdct_naive_fwd_int32_c(ptr noundef readonly captures
   %6 = load double, ptr %5, align 8, !tbaa !26
   %7 = load i32, ptr %0, align 8, !tbaa !17
   %8 = sitofp i32 %7 to double
-  %9 = fmul nsz double %8, 4.000000e+00
-  %10 = fdiv nsz double 0x400921FB54442D18, %9
+  %9 = fmul nnan nsz double %8, 4.000000e+00
+  %10 = fdiv nnan nsz double 0x400921FB54442D18, %9
   %11 = lshr i64 %3, 2
   %12 = icmp sgt i32 %7, 0
   br i1 %12, label %.preheader.us.preheader, label %._crit_edge30
@@ -9764,7 +9764,7 @@ define internal void @ff_tx_mdct_naive_fwd_int32_c(ptr noundef readonly captures
   %21 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !11
   %23 = sitofp i32 %22 to double
-  %24 = fmul nsz double %23, 0x3E00000000000000
+  %24 = fmul nnan nsz double %23, 0x3E00000000000000
   %25 = sitofp i32 %20 to double
   %26 = fmul nsz double %10, %25
   %27 = tail call nsz double @llvm.cos.f64(double %26)
@@ -9814,7 +9814,7 @@ define internal void @ff_tx_mdct_naive_inv_int32_c(ptr noundef readonly captures
   %8 = ashr i32 %7, 1
   %9 = and i32 %7, -2
   %10 = sitofp i32 %9 to double
-  %11 = fmul nsz double %10, 4.000000e+00
+  %11 = fmul nnan nsz double %10, 4.000000e+00
   %12 = fdiv nsz double 0x400921FB54442D18, %11
   %13 = lshr i64 %3, 2
   %14 = icmp sgt i32 %8, 0
@@ -9859,7 +9859,7 @@ define internal void @ff_tx_mdct_naive_inv_int32_c(ptr noundef readonly captures
   %37 = getelementptr inbounds nuw i32, ptr %2, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !11
   %39 = sitofp i32 %38 to double
-  %40 = fmul nsz double %39, 0x3E00000000000000
+  %40 = fmul nnan nsz double %39, 0x3E00000000000000
   %41 = tail call nsz double @llvm.fmuladd.f64(double %33, double %40, double %.04149.us)
   %42 = tail call nsz double @llvm.fmuladd.f64(double %35, double %40, double %.04347.us)
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
@@ -10278,7 +10278,7 @@ define internal i32 @ff_tx_rdft_init_int32_c(ptr noundef initializes((140, 152))
   %106 = shl nsw i32 %.090, 2
   %107 = sub nsw i32 %4, %106
   %108 = sitofp i32 %107 to double
-  %109 = fmul nsz double %108, 2.500000e-01
+  %109 = fmul nnan nsz double %108, 2.500000e-01
   %110 = fmul nsz double %27, %109
   %111 = tail call nsz double @llvm.cos.f64(double %110)
   %112 = fmul nsz double %111, 0x41E0000000000000

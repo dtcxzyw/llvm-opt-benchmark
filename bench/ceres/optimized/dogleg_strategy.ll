@@ -3661,7 +3661,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0EEaSINS1_IdLin
   %65 = load i64, ptr %64, align 8, !tbaa !118
   %.sroa.speculated.i.i.i = call noundef i64 @llvm.smin.i64(i64 %65, i64 %63)
   %66 = sitofp i64 %.sroa.speculated.i.i.i to double
-  %67 = fmul double %66, 0x3CB0000000000000
+  %67 = fmul nnan double %66, 0x3CB0000000000000
   br label %_ZNK5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE9thresholdEv.exit.i
 
 _ZNK5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE9thresholdEv.exit.i: ; preds = %61, %58

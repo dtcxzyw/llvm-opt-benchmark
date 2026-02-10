@@ -692,7 +692,7 @@ define linkonce_odr dso_local void @_ZN11TiltedStackC2ER8Settings(ptr noundef no
   %indvars.iv57 = phi i64 [ 0, %35 ], [ %indvars.iv.next58, %49 ]
   %45 = trunc nuw nsw i64 %indvars.iv57 to i32
   %46 = uitofp nneg i32 %45 to float
-  %47 = fmul float %46, 5.000000e+00
+  %47 = fmul nnan float %46, 5.000000e+00
   %48 = fadd float %47, -2.250000e+01
   %.idx = mul nuw nsw i64 %indvars.iv57, 80
   %invariant.gep = getelementptr inbounds nuw i8, ptr %23, i64 %.idx
@@ -713,7 +713,7 @@ define linkonce_odr dso_local void @_ZN11TiltedStackC2ER8Settings(ptr noundef no
   store i32 2, ptr %8, align 8, !tbaa !21
   %52 = trunc nuw nsw i64 %indvars.iv to i32
   %53 = uitofp nneg i32 %52 to float
-  %54 = fmul float %53, 0x3FC99999A0000000
+  %54 = fmul nnan float %53, 0x3FC99999A0000000
   %55 = fadd float %48, %54
   %56 = fadd float %53, 5.000000e-01
   store float %55, ptr %38, align 4, !tbaa !15
@@ -973,7 +973,7 @@ define linkonce_odr dso_local void @_ZN13VerticalStack12CreateStacksEv(ptr nound
   %29 = phi i32 [ %35, %._crit_edge ], [ %21, %.lr.ph36 ]
   %.03034 = phi i32 [ %36, %._crit_edge ], [ 0, %.lr.ph36 ]
   %30 = uitofp nneg i32 %.03034 to float
-  %31 = fmul float %30, 3.000000e+00
+  %31 = fmul nnan float %30, 3.000000e+00
   %32 = fsub float 8.000000e+00, %31
   %33 = icmp sgt i32 %29, 0
   br i1 %33, label %.lr.ph, label %._crit_edge
@@ -1355,8 +1355,8 @@ define linkonce_odr dso_local void @_ZN13VerticalStack11FireBulletsEv(ptr nounde
   store i32 %26, ptr @g_seed, align 4, !tbaa !62
   %27 = and i32 %26, 32767
   %28 = uitofp nneg i32 %27 to float
-  %29 = fdiv float %28, 3.276700e+04
-  %30 = fmul float %29, 1.000000e+02
+  %29 = fdiv nnan float %28, 3.276700e+04
+  %30 = fmul nnan float %29, 1.000000e+02
   %31 = fadd float %30, 2.000000e+02
   store float %31, ptr %11, align 4, !tbaa !15
   store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
@@ -1972,7 +1972,7 @@ define linkonce_odr dso_local void @_ZN5Cliff12CreateBodiesEv(ptr noundef nonnul
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %6)
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store float 0x3F847AE140000000, ptr %15, align 8, !tbaa !31
-  %16 = fmul float %14, 2.000000e+00
+  %16 = fmul nnan float %14, 2.000000e+00
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 20
   store float %16, ptr %17, align 4, !tbaa !15
   %.sroa.463.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2011,7 +2011,7 @@ define linkonce_odr dso_local void @_ZN5Cliff12CreateBodiesEv(ptr noundef nonnul
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %7)
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store float 0x3F847AE140000000, ptr %34, align 8, !tbaa !31
-  %35 = fmul float %14, 2.500000e+00
+  %35 = fmul nnan float %14, 2.500000e+00
   store float %35, ptr %17, align 4, !tbaa !15
   store float 0.000000e+00, ptr %.sroa.463.0..sroa_idx, align 8, !tbaa !15
   store float -1.100000e+01, ptr %22, align 4, !tbaa !15
@@ -2040,7 +2040,7 @@ define linkonce_odr dso_local void @_ZN5Cliff12CreateBodiesEv(ptr noundef nonnul
   call void @b2DefaultShapeDef(ptr dead_on_unwind nonnull writable sret(%struct.b2ShapeDef) align 8 %8)
   %45 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store float 0x3FC99999A0000000, ptr %45, align 8, !tbaa !31
-  %46 = fmul float %14, 1.500000e+00
+  %46 = fmul nnan float %14, 1.500000e+00
   store float %46, ptr %17, align 4, !tbaa !15
   store float 0.000000e+00, ptr %.sroa.463.0..sroa_idx, align 8, !tbaa !15
   %47 = load i8, ptr %11, align 8, !tbaa !94, !range !13, !noundef !14
@@ -2946,11 +2946,11 @@ define linkonce_odr dso_local void @_ZN8ConfinedC2ER8Settings(ptr noundef nonnul
   %.05058 = phi i32 [ 0, %36 ], [ %74, %69 ]
   %57 = load i32, ptr %28, align 4, !tbaa !104
   %58 = sitofp i32 %57 to float
-  %59 = fmul float %58, 1.800000e+01
+  %59 = fmul nnan float %58, 1.800000e+01
   %60 = fdiv float %59, 2.500000e+01
   %61 = fadd float %60, -8.750000e+00
   %62 = sitofp i32 %56 to float
-  %63 = fmul float %62, 1.800000e+01
+  %63 = fmul nnan float %62, 1.800000e+01
   %64 = fdiv float %63, 2.500000e+01
   %65 = fadd float %64, 1.500000e+00
   store float %61, ptr %35, align 4, !tbaa !15

@@ -1884,7 +1884,7 @@ _ZN5QListIdE6appendEd.exit:                       ; preds = %187
 
 .thread217:                                       ; preds = %213, %252, %253, %277, %279, %272
   %282 = uitofp i64 %117 to double
-  %283 = fmul double %282, 5.000000e-01
+  %283 = fmul nnan double %282, 5.000000e-01
   %284 = load i32, ptr %15, align 4
   %285 = uitofp i32 %284 to double
   %286 = fdiv double %283, %285
@@ -3294,7 +3294,7 @@ define void @_ZN14RtpAudioStream13visualSamplesEi(ptr dead_on_unwind noalias wri
   %5 = alloca double, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(24) %0, i8 0, i64 24, i1 false)
   %6 = sitofp i32 %2 to double
-  %7 = fmul double %6, 1.092200e+04
+  %7 = fmul nnan double %6, 1.092200e+04
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 7520
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 7536
   %10 = load i64, ptr %9, align 8
@@ -3379,7 +3379,7 @@ _ZNK17QArrayDataPointerIsE11needsDetachEv.exit.thread.i.i.i.i14: ; preds = %_ZNK
   %36 = getelementptr i16, ptr %35, i64 %16
   %37 = load i16, ptr %36, align 2
   %38 = sitofp i16 %37 to double
-  %39 = fmul double %38, 3.276700e+04
+  %39 = fmul nnan double %38, 3.276700e+04
   %40 = load i16, ptr %13, align 2
   %41 = sitofp i16 %40 to double
   %42 = fdiv double %39, %41
@@ -3533,7 +3533,7 @@ define void @_ZN14RtpAudioStream20outOfSequenceSamplesEi(ptr dead_on_unwind noal
   %4 = alloca double, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(24) %0, i8 0, i64 24, i1 false)
   %5 = sitofp i32 %2 to double
-  %6 = fmul double %5, 1.092200e+04
+  %6 = fmul nnan double %5, 1.092200e+04
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 7560
   %8 = load i64, ptr %7, align 8
   %9 = icmp sgt i64 %8, 0
@@ -3676,7 +3676,7 @@ define void @_ZN14RtpAudioStream20jitterDroppedSamplesEi(ptr dead_on_unwind noal
   %4 = alloca double, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(24) %0, i8 0, i64 24, i1 false)
   %5 = sitofp i32 %2 to double
-  %6 = fmul double %5, 1.092200e+04
+  %6 = fmul nnan double %5, 1.092200e+04
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 7584
   %8 = load i64, ptr %7, align 8
   %9 = icmp sgt i64 %8, 0
@@ -3819,7 +3819,7 @@ define void @_ZN14RtpAudioStream21wrongTimestampSamplesEi(ptr dead_on_unwind noa
   %4 = alloca double, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(24) %0, i8 0, i64 24, i1 false)
   %5 = sitofp i32 %2 to double
-  %6 = fmul double %5, 1.092200e+04
+  %6 = fmul nnan double %5, 1.092200e+04
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 7608
   %8 = load i64, ptr %7, align 8
   %9 = icmp sgt i64 %8, 0
@@ -3962,7 +3962,7 @@ define void @_ZN14RtpAudioStream22insertedSilenceSamplesEi(ptr dead_on_unwind no
   %4 = alloca double, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) dereferenceable_or_null(24) %0, i8 0, i64 24, i1 false)
   %5 = sitofp i32 %2 to double
-  %6 = fmul double %5, 1.092200e+04
+  %6 = fmul nnan double %5, 1.092200e+04
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 7632
   %8 = load i64, ptr %7, align 8
   %9 = icmp sgt i64 %8, 0

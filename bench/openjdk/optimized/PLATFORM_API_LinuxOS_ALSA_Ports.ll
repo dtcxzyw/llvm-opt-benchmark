@@ -1143,7 +1143,7 @@ define hidden void @PORT_SetFloatValue(ptr noundef readonly captures(address_is_
 getFakeBalance.exit:                              ; preds = %14, %17, %19
   %.0.i = phi float [ %16, %14 ], [ %21, %19 ], [ 0.000000e+00, %17 ]
   %22 = fcmp olt float %.0.i, 0.000000e+00
-  %23 = fadd float %.0.i, 1.000000e+00
+  %23 = fadd nnan float %.0.i, 1.000000e+00
   %24 = fmul float %1, %23
   %25 = fsub float 1.000000e+00, %.0.i
   %26 = fmul float %1, %25
@@ -1169,7 +1169,7 @@ getFakeBalance.exit:                              ; preds = %14, %17, %19
   %35 = fcmp ogt float %33, %34
   %36 = select i1 %35, float %33, float %34
   %37 = fcmp olt float %1, 0.000000e+00
-  %38 = fadd float %1, 1.000000e+00
+  %38 = fadd nnan float %1, 1.000000e+00
   %39 = fmul float %38, %36
   %40 = fsub float 1.000000e+00, %1
   %41 = fmul float %40, %36

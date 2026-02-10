@@ -624,15 +624,15 @@ current_time.exit123:                             ; preds = %140
   br i1 %or.cond9, label %162, label %173
 
 162:                                              ; preds = %159
-  %163 = fmul double %.096.lcssa, 1.000000e+03
+  %163 = fmul nnan double %.096.lcssa, 1.000000e+03
   %164 = uitofp i64 %4 to double
-  %165 = fdiv double %164, %.096.lcssa
-  %166 = fmul double %165, 0x3F50000000000000
-  %167 = fmul double %166, 0x3F50000000000000
-  %168 = fmul double %.092.lcssa, 1.000000e+03
-  %169 = fdiv double %164, %.092.lcssa
-  %170 = fmul double %169, 0x3F50000000000000
-  %171 = fmul double %170, 0x3F50000000000000
+  %165 = fdiv nnan double %164, %.096.lcssa
+  %166 = fmul nnan double %165, 0x3F50000000000000
+  %167 = fmul nnan double %166, 0x3F50000000000000
+  %168 = fmul nnan double %.092.lcssa, 1.000000e+03
+  %169 = fdiv nnan double %164, %.092.lcssa
+  %170 = fmul nnan double %169, 0x3F50000000000000
+  %171 = fmul nnan double %170, 0x3F50000000000000
   %172 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i64 noundef %4, double noundef %163, double noundef %167, double noundef %168, double noundef %171)
   br label %.critedge114
 

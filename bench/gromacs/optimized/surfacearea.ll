@@ -3895,7 +3895,7 @@ _ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit.i: ; preds = %274, %_ZN9__gnu_c
 
 277:                                              ; preds = %._crit_edge315.i
   %278 = uitofp nneg i32 %50 to double
-  %279 = fmul double %278, 3.000000e+00
+  %279 = fmul nnan double %278, 3.000000e+00
   %280 = fdiv double %.1168.lcssa.i, %279
   %281 = fptrunc double %280 to float
   store float %281, ptr %7, align 4, !tbaa !24

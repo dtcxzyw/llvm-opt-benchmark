@@ -28259,7 +28259,7 @@ define linkonce_odr dso_local noundef i64 @_ZN5Eigen8internal12SparseLUImplIdiE6
 12:                                               ; preds = %6
   %13 = add nsw i64 %11, 1
   %14 = sitofp i64 %11 to float
-  %15 = fmul float %14, 1.500000e+00
+  %15 = fmul nnan float %14, 1.500000e+00
   %16 = fptosi float %15 to i64
   %.sroa.speculated81 = tail call i64 @llvm.smax.i64(i64 %13, i64 %16)
   br label %17
@@ -28552,7 +28552,7 @@ define linkonce_odr dso_local noundef i64 @_ZN5Eigen8internal12SparseLUImplIdiE6
 12:                                               ; preds = %6
   %13 = add nsw i64 %11, 1
   %14 = sitofp i64 %11 to float
-  %15 = fmul float %14, 1.500000e+00
+  %15 = fmul nnan float %14, 1.500000e+00
   %16 = fptosi float %15 to i64
   %.sroa.speculated81 = tail call i64 @llvm.smax.i64(i64 %13, i64 %16)
   br label %17

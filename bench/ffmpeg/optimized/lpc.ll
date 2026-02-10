@@ -146,7 +146,7 @@ define double @ff_lpc_calc_ref_coefs_f(ptr noundef readonly captures(none) %0, p
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = trunc nuw nsw i64 %indvars.iv to i32
   %19 = uitofp nneg i32 %18 to double
-  %20 = fmul nsz double %19, 0x401921FB54442D18
+  %20 = fmul nnan nsz double %19, 0x401921FB54442D18
   %21 = fdiv nsz double %20, %12
   %22 = tail call nsz double @llvm.cos.f64(double %21)
   %23 = tail call nsz double @llvm.fmuladd.f64(double %22, double -5.000000e-01, double 5.000000e-01)

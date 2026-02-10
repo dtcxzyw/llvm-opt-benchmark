@@ -129,7 +129,7 @@ define noundef double @_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE(ptr nou
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
   %13 = uitofp i64 %12 to double
-  %14 = fdiv double 1.000000e+00, %13
+  %14 = fdiv nnan double 1.000000e+00, %13
   %15 = fmul double %14, %7
   br label %16
 
@@ -165,7 +165,7 @@ define noundef double @_ZN9benchmark16StatisticsMedianERKSt6vectorIdSaIdEE(ptr n
 
 "_ZNK9benchmark3$_0clERKSt6vectorIdSaIdEE.exit.i": ; preds = %.lr.ph.i.i.i
   %15 = uitofp nneg i64 %8 to double
-  %16 = fdiv double 1.000000e+00, %15
+  %16 = fdiv nnan double 1.000000e+00, %15
   %17 = fmul double %16, %13
   br label %_ZN9benchmark14StatisticsMeanERKSt6vectorIdSaIdEE.exit
 
@@ -313,7 +313,7 @@ define noundef double @_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE(ptr n
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
   %14 = uitofp i64 %13 to double
-  %15 = fdiv double 1.000000e+00, %14
+  %15 = fdiv nnan double 1.000000e+00, %14
   %16 = fmul double %15, %7
   %17 = icmp eq i64 %12, 8
   br i1 %17, label %"_ZNK9benchmark3$_2clEd.exit", label %.lr.ph.i.i
@@ -329,7 +329,7 @@ define noundef double @_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE(ptr n
 
 "_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit":  ; preds = %.lr.ph.i.i
   %21 = fmul double %15, %19
-  %22 = fadd double %14, -1.000000e+00
+  %22 = fadd nnan double %14, -1.000000e+00
   %23 = fdiv double %14, %22
   %24 = fmul double %16, %16
   %25 = fsub double %21, %24
@@ -371,7 +371,7 @@ define noundef double @_ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE(ptr nound
 
 14:                                               ; preds = %.lr.ph.i.i.i.i
   %15 = uitofp i64 %8 to double
-  %16 = fdiv double 1.000000e+00, %15
+  %16 = fdiv nnan double 1.000000e+00, %15
   %17 = fmul double %16, %12
   %18 = icmp eq i64 %7, 8
   br i1 %18, label %_ZN9benchmark16StatisticsStdDevERKSt6vectorIdSaIdEE.exit, label %.lr.ph.i.i.i
@@ -387,7 +387,7 @@ define noundef double @_ZN9benchmark12StatisticsCVERKSt6vectorIdSaIdEE(ptr nound
 
 "_ZNK9benchmark3$_1clERKSt6vectorIdSaIdEE.exit.i": ; preds = %.lr.ph.i.i.i
   %22 = fmul double %16, %20
-  %23 = fadd double %15, -1.000000e+00
+  %23 = fadd nnan double %15, -1.000000e+00
   %24 = fdiv double %15, %23
   %25 = fmul double %17, %17
   %26 = fsub double %22, %25

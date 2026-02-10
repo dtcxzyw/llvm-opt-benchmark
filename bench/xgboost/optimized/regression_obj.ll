@@ -17930,7 +17930,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25: ; preds = %_ZNK7x
   %square.i.us = fmul double %46, %46
   %47 = fdiv double %45, %square.i.us
   %48 = fptrunc double %47 to float
-  %49 = tail call noundef float @llvm.maxnum.f32(float %48, float 0x3EB0C6F7A0000000)
+  %49 = tail call nsz noundef float @llvm.maxnum.f32(float %48, float 0x3EB0C6F7A0000000)
   %50 = fmul float %.024.us, %49
   %51 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %5, i64 %.033.us
   store float %40, ptr %51, align 4
@@ -17973,7 +17973,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25: ; preds = %_ZNK7x
   %square.i = fmul double %77, %77
   %78 = fdiv double %76, %square.i
   %79 = fptrunc double %78 to float
-  %80 = tail call noundef float @llvm.maxnum.f32(float %79, float 0x3EB0C6F7A0000000)
+  %80 = tail call nsz noundef float @llvm.maxnum.f32(float %79, float 0x3EB0C6F7A0000000)
   %81 = fmul float %.024, %80
   %82 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %5, i64 %.033
   store float %71, ptr %82, align 4
@@ -20804,7 +20804,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25.i: ; preds = %_ZNK
   %79 = fmul float %.024.us.i, %78
   %80 = fsub float 1.000000e+00, %74
   %81 = fmul float %74, %80
-  %82 = tail call noundef float @llvm.maxnum.f32(float %81, float 0x3C9CD2B2A0000000)
+  %82 = tail call nsz noundef float @llvm.maxnum.f32(float %81, float 0x3C9CD2B2A0000000)
   %83 = fmul float %.024.us.i, %82
   %84 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %18, i64 %.033.us.i
   store float %79, ptr %84, align 4
@@ -20839,7 +20839,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25.i: ; preds = %_ZNK
   %105 = fmul float %104, %.024.i
   %106 = fsub float 1.000000e+00, %94
   %107 = fmul float %94, %106
-  %108 = tail call noundef float @llvm.maxnum.f32(float %107, float 0x3C9CD2B2A0000000)
+  %108 = tail call nsz noundef float @llvm.maxnum.f32(float %107, float 0x3C9CD2B2A0000000)
   %109 = fmul float %108, %.024.i
   %110 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %18, i64 %.033.i
   store float %105, ptr %110, align 4
@@ -23919,7 +23919,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25.i: ; preds = %_ZNK
   %79 = fmul float %.024.us.i, %78
   %80 = fsub float 1.000000e+00, %74
   %81 = fmul float %74, %80
-  %82 = tail call noundef float @llvm.maxnum.f32(float %81, float 0x3C9CD2B2A0000000)
+  %82 = tail call nsz noundef float @llvm.maxnum.f32(float %81, float 0x3C9CD2B2A0000000)
   %83 = fmul float %.024.us.i, %82
   %84 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %18, i64 %.033.us.i
   store float %79, ptr %84, align 4
@@ -23954,7 +23954,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25.i: ; preds = %_ZNK
   %105 = fmul float %104, %.024.i
   %106 = fsub float 1.000000e+00, %94
   %107 = fmul float %94, %106
-  %108 = tail call noundef float @llvm.maxnum.f32(float %107, float 0x3C9CD2B2A0000000)
+  %108 = tail call nsz noundef float @llvm.maxnum.f32(float %107, float 0x3C9CD2B2A0000000)
   %109 = fmul float %108, %.024.i
   %110 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %18, i64 %.033.i
   store float %105, ptr %110, align 4
@@ -26965,7 +26965,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25.i: ; preds = %_ZNK
   %79 = fmul float %.024.us.i, %78
   %80 = fsub float 1.000000e+00, %77
   %81 = fmul float %77, %80
-  %82 = tail call noundef float @llvm.maxnum.f32(float %81, float 0x3C9CD2B2A0000000)
+  %82 = tail call nsz noundef float @llvm.maxnum.f32(float %81, float 0x3C9CD2B2A0000000)
   %83 = fmul float %.024.us.i, %82
   %84 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %18, i64 %.034.us.i
   store float %79, ptr %84, align 4
@@ -27000,7 +27000,7 @@ _ZNK7xgboost6common4SpanIfLm18446744073709551615EEixEm.exit25.i: ; preds = %_ZNK
   %105 = fmul float %.024.i, %104
   %106 = fsub float 1.000000e+00, %103
   %107 = fmul float %103, %106
-  %108 = tail call noundef float @llvm.maxnum.f32(float %107, float 0x3C9CD2B2A0000000)
+  %108 = tail call nsz noundef float @llvm.maxnum.f32(float %107, float 0x3C9CD2B2A0000000)
   %109 = fmul float %.024.i, %108
   %110 = getelementptr inbounds nuw %"class.xgboost::detail::GradientPairInternal", ptr %18, i64 %.034.i
   store float %105, ptr %110, align 4

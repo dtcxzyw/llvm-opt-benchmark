@@ -7982,10 +7982,10 @@ _ZNK2cv11_InputArray6getMatEi.exit180:            ; preds = %134, %137
   br label %.preheader, !llvm.loop !498
 
 _ZN2cvngIdLi2EEENS_3VecIT_XT0_EEERKS3_.exit.critedge: ; preds = %198
-  %212 = fmul double %89, 5.000000e-01
+  %212 = fmul nnan double %89, 5.000000e-01
   %213 = fsub double %.0288, %111
   %214 = fdiv double %212, %213
-  %215 = fmul double %93, 5.000000e-01
+  %215 = fmul nnan double %93, 5.000000e-01
   %216 = fmul double %215, %166
   %217 = fsub double %167, %.0286
   %218 = fdiv double %216, %217
@@ -8013,7 +8013,7 @@ _ZN2cvngIdLi2EEENS_3VecIT_XT0_EEERKS3_.exit.critedge: ; preds = %198
   %238 = select i1 %236, double %237, double 1.000000e+00
   %239 = fmul double %238, %235
   %240 = fmul double %166, %93
-  %241 = fmul double %89, 5.000000e-01
+  %241 = fmul nnan double %89, 5.000000e-01
   %242 = fmul double %240, 5.000000e-01
   %243 = fmul double %111, %239
   %244 = fsub double %241, %243
@@ -8941,12 +8941,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit270: ; preds = %21
   %323 = load i32, ptr %321, align 4, !tbaa !100
   %324 = call i32 @llvm.smax.i32(i32 %322, i32 %323)
   %325 = sitofp i32 %324 to double
-  %326 = fmul double %325, 5.000000e-01
+  %326 = fmul nnan double %325, 5.000000e-01
   %327 = sitofp i32 %322 to double
-  %328 = fmul double %327, 5.000000e-01
+  %328 = fmul nnan double %327, 5.000000e-01
   %329 = fadd double %328, -5.000000e-01
   %330 = sitofp i32 %323 to double
-  %331 = fmul double %330, 5.000000e-01
+  %331 = fmul nnan double %330, 5.000000e-01
   %332 = fadd double %331, -5.000000e-01
   %333 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store double %329, ptr %333, align 8
@@ -14658,7 +14658,7 @@ _ZNSt6vectorIN2cv6Point_IdEESaIS2_EED2Ev.exit196: ; preds = %292, %294
 
 347:                                              ; preds = %345
   %348 = uitofp i64 %344 to double
-  %349 = fmul double %348, 2.000000e+00
+  %349 = fmul nnan double %348, 2.000000e+00
   %350 = uitofp i64 %346 to double
   %351 = sitofp i32 %343 to double
   %352 = fneg double %351
@@ -21868,7 +21868,7 @@ _ZN2cvL4normIdLi6ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit1251: ; preds = %2349
 
 2382:                                             ; preds = %2367
   %2383 = uitofp i64 %2368 to double
-  %2384 = fmul double %2383, 5.000000e-01
+  %2384 = fmul nnan double %2383, 5.000000e-01
   %2385 = fdiv double %.0273, %2384
   %2386 = call double @sqrt(double noundef %2385) #23, !tbaa !100
   %2387 = load double, ptr %188, align 8, !tbaa !14

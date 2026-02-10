@@ -1286,7 +1286,7 @@ _ZNK7rocksdb21BloomLikeFilterPolicy32GetLegacyBloomBuilderWithContextERKNS_21Fil
   store i32 %25, ptr %29, align 8, !tbaa !98
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 12
   %31 = sitofp i32 %25 to double
-  %32 = fmul double %31, 6.900000e-01
+  %32 = fmul nnan double %31, 6.900000e-01
   %33 = fptosi double %32 to i32
   %spec.store.select.i.i.i = tail call i32 @llvm.smax.i32(i32 %33, i32 1)
   %spec.store.select1.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %spec.store.select.i.i.i, i32 30)
@@ -1346,7 +1346,7 @@ define noalias noundef nonnull ptr @_ZNK7rocksdb21BloomLikeFilterPolicy32GetLega
   store i32 %17, ptr %21, align 8, !tbaa !98
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %23 = sitofp i32 %17 to double
-  %24 = fmul double %23, 6.900000e-01
+  %24 = fmul nnan double %23, 6.900000e-01
   %25 = fptosi double %24 to i32
   %spec.store.select.i.i = tail call i32 @llvm.smax.i32(i32 %25, i32 1)
   %spec.store.select1.i.i = tail call noundef i32 @llvm.umin.i32(i32 %spec.store.select.i.i, i32 30)
@@ -2337,7 +2337,7 @@ _ZNK7rocksdb21BloomLikeFilterPolicy32GetLegacyBloomBuilderWithContextERKNS_21Fil
   store i32 %20, ptr %24, align 8, !tbaa !98
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %26 = sitofp i32 %20 to double
-  %27 = fmul double %26, 6.900000e-01
+  %27 = fmul nnan double %26, 6.900000e-01
   %28 = fptosi double %27 to i32
   %spec.store.select.i.i.i = tail call i32 @llvm.smax.i32(i32 %28, i32 1)
   %spec.store.select1.i.i.i = tail call noundef i32 @llvm.umin.i32(i32 %spec.store.select.i.i.i, i32 30)
@@ -7236,7 +7236,7 @@ _ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit: ; pr
   %.0.i.i = phi i32 [ %42, %39 ], [ 1, %7 ], [ 2, %15 ], [ 3, %17 ], [ 4, %19 ], [ 5, %21 ], [ 6, %23 ], [ 7, %25 ], [ 8, %27 ], [ 9, %29 ], [ 10, %31 ], [ 11, %33 ], [ 12, %35 ], [ 24, %37 ]
   %43 = add i64 %2, -5
   %44 = uitofp i64 %43 to double
-  %45 = fmul double %44, 8.000000e+00
+  %45 = fmul nnan double %44, 8.000000e+00
   %46 = uitofp i64 %1 to double
   %47 = fdiv double %45, %46
   %48 = fcmp ugt double %47, 0.000000e+00
@@ -7266,7 +7266,7 @@ _ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit: ; pr
 
 cdce.end:                                         ; preds = %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit, %49
   %.0.i.i10 = phi double [ %67, %49 ], [ 1.000000e+00, %_ZN7rocksdb12_GLOBAL__N_125FastLocalBloomBitsBuilder12GetNumProbesEmm.exit ]
-  %68 = fmul double %46, 0x3BF0000000000000
+  %68 = fmul nnan double %46, 0x3BF0000000000000
   %69 = fcmp ogt double %68, 1.000000e-04
   %70 = fneg double %68
   br i1 %69, label %71, label %74
@@ -7277,7 +7277,7 @@ cdce.end:                                         ; preds = %_ZN7rocksdb12_GLOBA
   br label %_ZN7rocksdb18FastLocalBloomImpl15EstimatedFpRateEmmii.exit
 
 74:                                               ; preds = %cdce.end
-  %75 = fmul double %68, %70
+  %75 = fmul nnan double %68, %70
   %76 = tail call double @llvm.fmuladd.f64(double %75, double 5.000000e-01, double %68)
   br label %_ZN7rocksdb18FastLocalBloomImpl15EstimatedFpRateEmmii.exit
 
@@ -8328,7 +8328,7 @@ define internal fastcc noundef i64 @_ZN7rocksdb12_GLOBAL__N_122XXPH3FilterBitsBu
 15:                                               ; preds = %8
   %16 = sub nsw i64 0, %9
   %17 = uitofp nneg i64 %16 to double
-  %18 = fmul double %17, 0x3DF0000000000000
+  %18 = fmul nnan double %17, 0x3DF0000000000000
   %19 = fadd double %18, %13
   %20 = add i64 %1, -5
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -9373,7 +9373,7 @@ _ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilder7AddHashEjPcjj.exit.loopexit.us
 
 cdce.end.i:                                       ; preds = %58, %51
   %.0.i.i = phi double [ %77, %58 ], [ 1.000000e+00, %51 ]
-  %78 = fmul double %55, 0x3DF0000000000000
+  %78 = fmul nnan double %55, 0x3DF0000000000000
   %79 = fcmp ogt double %78, 1.000000e-04
   %80 = fneg double %78
   br i1 %79, label %81, label %84
@@ -9384,7 +9384,7 @@ cdce.end.i:                                       ; preds = %58, %51
   br label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit
 
 84:                                               ; preds = %cdce.end.i
-  %85 = fmul double %78, %80
+  %85 = fmul nnan double %78, %80
   %86 = tail call double @llvm.fmuladd.f64(double %85, double 5.000000e-01, double %78)
   br label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit
 
@@ -9399,7 +9399,7 @@ _ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit: ; preds = 
   %93 = load i32, ptr %13, align 8, !tbaa !98
   %94 = shl i32 %93, 16
   %95 = uitofp i32 %94 to double
-  %96 = fmul double %95, 0x3EF0000000000000
+  %96 = fmul nnan double %95, 0x3EF0000000000000
   %97 = fcmp ugt double %96, 0.000000e+00
   br i1 %97, label %98, label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit27
 
@@ -9560,7 +9560,7 @@ define internal noundef double @_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilde
 7:                                                ; preds = %3
   %8 = add i64 %2, -5
   %9 = uitofp i64 %8 to double
-  %10 = fmul double %9, 8.000000e+00
+  %10 = fmul nnan double %9, 8.000000e+00
   %11 = uitofp i64 %1 to double
   %12 = fdiv double %10, %11
   %13 = fcmp ugt double %12, 0.000000e+00
@@ -9592,7 +9592,7 @@ define internal noundef double @_ZN7rocksdb12_GLOBAL__N_122LegacyBloomBitsBuilde
 
 cdce.end.i:                                       ; preds = %14, %7
   %.0.i.i = phi double [ %34, %14 ], [ 1.000000e+00, %7 ]
-  %35 = fmul double %11, 0x3DF0000000000000
+  %35 = fmul nnan double %11, 0x3DF0000000000000
   %36 = fcmp ogt double %35, 1.000000e-04
   %37 = fneg double %35
   br i1 %36, label %38, label %41
@@ -9603,7 +9603,7 @@ cdce.end.i:                                       ; preds = %14, %7
   br label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit
 
 41:                                               ; preds = %cdce.end.i
-  %42 = fmul double %35, %37
+  %42 = fmul nnan double %35, %37
   %43 = tail call double @llvm.fmuladd.f64(double %42, double 5.000000e-01, double %35)
   br label %_ZN7rocksdb23LegacyLocalityBloomImplILb0EE15EstimatedFpRateEmmi.exit
 
@@ -11056,7 +11056,7 @@ define internal noundef i64 @_ZN7rocksdb12_GLOBAL__N_128Standard128RibbonBitsBui
 23:                                               ; preds = %11, %13
   %.029 = phi double [ %22, %13 ], [ 3.200000e+01, %11 ]
   %24 = uitofp i64 %7 to double
-  %25 = fmul double %24, 8.000000e+00
+  %25 = fmul nnan double %24, 8.000000e+00
   %26 = fdiv double %25, %.029
   %27 = tail call noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1MaybeSupportedILNS0_25ConstructionFailureChanceE1ELm128ELb0ELb0ELb1EE11GetNumSlotsEj(i32 noundef 950000000)
   %28 = uitofp i32 %27 to double
@@ -11262,7 +11262,7 @@ _ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapte
   %.sroa.12.0 = tail call i32 @llvm.umin.i32(i32 %25, i32 32)
   %.sroa.18.0 = select i1 %28, i32 0, i32 %27
   %29 = uitofp i32 %.sroa.18.0 to double
-  %30 = fmul double %29, 1.280000e+02
+  %30 = fmul nnan double %29, 1.280000e+02
   %31 = uitofp i32 %20 to double
   %32 = fdiv double %30, %31
   br label %_ZN7rocksdb6ribbon31SerializableInterleavedSolutionINS0_23StandardRehasherAdapterINS_12_GLOBAL__N_141Standard128RibbonRehasherTypesAndSettingsEEEE20ConfigureForNumSlotsEj.exit
@@ -11458,8 +11458,8 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_128Standard128RibbonBitsBui
   %26 = lshr i64 %25, 32
   %27 = trunc nuw i64 %26 to i32
   %28 = uitofp i32 %27 to double
-  %29 = fadd double %28, 5.000000e-01
-  %30 = fmul double %29, 0x3DF0000000000000
+  %29 = fadd nnan double %28, 5.000000e-01
+  %30 = fmul nnan double %29, 0x3DF0000000000000
   br label %31
 
 31:                                               ; preds = %24, %18

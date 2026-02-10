@@ -23915,7 +23915,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4217: ; preds = %8
   %8230 = phi i64 [ %.pre5755, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4214._crit_edge ], [ %8220, %8196 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %473)
   %8231 = sitofp i64 %8230 to double
-  %8232 = fmul double %8231, 0x3F50000000000000
+  %8232 = fmul nnan double %8231, 0x3F50000000000000
   invoke void (ptr, ptr, ...) @_ZN5Yosys7stringfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %473, ptr noundef nonnull @.str.176, double noundef %8232)
           to label %8233 unwind label %8294
 

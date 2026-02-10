@@ -17412,7 +17412,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerItffNS_8OpAddSqrIfffEEN
   %21 = getelementptr inbounds i16, ptr %6, i64 %indvars.iv
   %22 = load i16, ptr %21, align 2, !tbaa !209
   %23 = uitofp i16 %22 to float
-  %24 = fmul float %23, %23
+  %24 = fmul nnan float %23, %23
   %25 = getelementptr inbounds float, ptr %11, i64 %indvars.iv
   store float %24, ptr %25, align 4, !tbaa !79
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -17563,7 +17563,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerItddNS_8OpAddSqrIdddEEN
   %21 = getelementptr inbounds i16, ptr %6, i64 %indvars.iv
   %22 = load i16, ptr %21, align 2, !tbaa !209
   %23 = uitofp i16 %22 to double
-  %24 = fmul double %23, %23
+  %24 = fmul nnan double %23, %23
   %25 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
   store double %24, ptr %25, align 8, !tbaa !76
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -17714,7 +17714,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIsffNS_8OpAddSqrIfffEEN
   %21 = getelementptr inbounds i16, ptr %6, i64 %indvars.iv
   %22 = load i16, ptr %21, align 2, !tbaa !209
   %23 = sitofp i16 %22 to float
-  %24 = fmul float %23, %23
+  %24 = fmul nnan float %23, %23
   %25 = getelementptr inbounds float, ptr %11, i64 %indvars.iv
   store float %24, ptr %25, align 4, !tbaa !79
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -17865,7 +17865,7 @@ define linkonce_odr hidden void @_ZNK2cv15ReduceR_InvokerIsddNS_8OpAddSqrIdddEEN
   %21 = getelementptr inbounds i16, ptr %6, i64 %indvars.iv
   %22 = load i16, ptr %21, align 2, !tbaa !209
   %23 = sitofp i16 %22 to double
-  %24 = fmul double %23, %23
+  %24 = fmul nnan double %23, %23
   %25 = getelementptr inbounds double, ptr %11, i64 %indvars.iv
   store double %24, ptr %25, align 8, !tbaa !76
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -23517,7 +23517,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
   %45 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv101
   %46 = load i16, ptr %45, align 2, !tbaa !209
   %47 = uitofp i16 %46 to float
-  %48 = fmul float %47, %47
+  %48 = fmul nnan float %47, %47
   %49 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv101
   store float %48, ptr %49, align 4, !tbaa !79
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
@@ -23558,7 +23558,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
   %59 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv78
   %60 = load i16, ptr %59, align 2, !tbaa !209
   %61 = uitofp i16 %60 to float
-  %62 = fmul float %61, %61
+  %62 = fmul nnan float %61, %61
   %63 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv78
   store float %62, ptr %63, align 4, !tbaa !79
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
@@ -23634,7 +23634,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %79, %._crit_edge
   %83 = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv
   %84 = load i16, ptr %83, align 2, !tbaa !209
   %85 = uitofp i16 %84 to float
-  %86 = fmul float %85, %85
+  %86 = fmul nnan float %85, %85
   %87 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv
   store float %86, ptr %87, align 4, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -23740,7 +23740,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
   %45 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv101
   %46 = load i16, ptr %45, align 2, !tbaa !209
   %47 = uitofp i16 %46 to double
-  %48 = fmul double %47, %47
+  %48 = fmul nnan double %47, %47
   %49 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv101
   store double %48, ptr %49, align 8, !tbaa !76
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
@@ -23781,7 +23781,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
   %59 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv78
   %60 = load i16, ptr %59, align 2, !tbaa !209
   %61 = uitofp i16 %60 to double
-  %62 = fmul double %61, %61
+  %62 = fmul nnan double %61, %61
   %63 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv78
   store double %62, ptr %63, align 8, !tbaa !76
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
@@ -23857,7 +23857,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %79, %._crit_edge
   %83 = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv
   %84 = load i16, ptr %83, align 2, !tbaa !209
   %85 = uitofp i16 %84 to double
-  %86 = fmul double %85, %85
+  %86 = fmul nnan double %85, %85
   %87 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv
   store double %86, ptr %87, align 8, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -23963,7 +23963,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
   %45 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv101
   %46 = load i16, ptr %45, align 2, !tbaa !209
   %47 = sitofp i16 %46 to float
-  %48 = fmul float %47, %47
+  %48 = fmul nnan float %47, %47
   %49 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv101
   store float %48, ptr %49, align 4, !tbaa !79
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
@@ -24004,7 +24004,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %2, %18
   %59 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv78
   %60 = load i16, ptr %59, align 2, !tbaa !209
   %61 = sitofp i16 %60 to float
-  %62 = fmul float %61, %61
+  %62 = fmul nnan float %61, %61
   %63 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv78
   store float %62, ptr %63, align 4, !tbaa !79
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
@@ -24080,7 +24080,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit:             ; preds = %79, %._crit_edge
   %83 = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv
   %84 = load i16, ptr %83, align 2, !tbaa !209
   %85 = sitofp i16 %84 to float
-  %86 = fmul float %85, %85
+  %86 = fmul nnan float %85, %85
   %87 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv
   store float %86, ptr %87, align 4, !tbaa !79
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -24186,7 +24186,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
   %45 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv101
   %46 = load i16, ptr %45, align 2, !tbaa !209
   %47 = sitofp i16 %46 to double
-  %48 = fmul double %47, %47
+  %48 = fmul nnan double %47, %47
   %49 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv101
   store double %48, ptr %49, align 8, !tbaa !76
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
@@ -24227,7 +24227,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %2, %18
   %59 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv78
   %60 = load i16, ptr %59, align 2, !tbaa !209
   %61 = sitofp i16 %60 to double
-  %62 = fmul double %61, %61
+  %62 = fmul nnan double %61, %61
   %63 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv78
   store double %62, ptr %63, align 8, !tbaa !76
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
@@ -24303,7 +24303,7 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %79, %._crit_edge
   %83 = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv
   %84 = load i16, ptr %83, align 2, !tbaa !209
   %85 = sitofp i16 %84 to double
-  %86 = fmul double %85, %85
+  %86 = fmul nnan double %85, %85
   %87 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv
   store double %86, ptr %87, align 8, !tbaa !76
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

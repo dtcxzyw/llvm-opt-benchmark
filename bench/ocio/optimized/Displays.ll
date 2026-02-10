@@ -975,7 +975,7 @@ define internal noundef float @"_ZNSt17_Function_handlerIFfdEZN19OpenColorIO_v2_
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = fmul double %.val, %.val
+  %6 = fmul nnan double %.val, %.val
   br label %"_ZSt10__invoke_rIfRZN19OpenColorIO_v2_5dev7DISPLAY3HLG22GenerateHLGToLinearOpsERNS0_10OpRcPtrVecEE3$_0JdEENSt9enable_ifIXsr6__and_ISt6__not_ISt7is_voidIT_EESt14is_convertibleINSt15__invoke_resultIT0_JDpT1_EE4typeESA_EEE5valueESA_E4typeEOSF_DpOSG_.exit"
 
 7:                                                ; preds = %2

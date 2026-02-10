@@ -1113,7 +1113,7 @@ if.then:                                          ; preds = %entry
   %sub1.i = sub i64 %4, %add.i
   %retval.0.i = select i1 %cmp.not.i, i64 %sub1.i, i64 %sub.i
   %5 = uitofp i64 %retval.0.i to float
-  %6 = fmul nsz float %5, 0xBF9EB851E0000000
+  %6 = fmul nnan nsz float %5, 0xBF9EB851E0000000
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry

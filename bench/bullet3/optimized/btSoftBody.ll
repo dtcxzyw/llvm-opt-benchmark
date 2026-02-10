@@ -11496,7 +11496,7 @@ _ZL14EvaluateMediumPK19btSoftBodyWorldInfoRK9btVector3RN10btSoftBody7sMediumE.ex
   br i1 %or.cond3, label %117, label %123
 
 117:                                              ; preds = %102
-  %sqrt.i88 = tail call noundef float @llvm.sqrt.f32(float %111)
+  %sqrt.i88 = tail call nnan float @llvm.sqrt.f32(float %111)
   %sqrt.i89 = tail call noundef float @llvm.sqrt.f32(float %114)
   %118 = fdiv float %sqrt.i89, %sqrt.i88
   %119 = fmul float %118, 0x3FE99999A0000000
@@ -11852,7 +11852,7 @@ _ZL14EvaluateMediumPK19btSoftBodyWorldInfoRK9btVector3RN10btSoftBody7sMediumE.ex
   br i1 %or.cond3, label %157, label %163
 
 157:                                              ; preds = %135
-  %sqrt.i137 = tail call noundef float @llvm.sqrt.f32(float %145)
+  %sqrt.i137 = tail call nnan float @llvm.sqrt.f32(float %145)
   %sqrt.i138 = tail call noundef float @llvm.sqrt.f32(float %154)
   %158 = fdiv float %sqrt.i138, %sqrt.i137
   %159 = fmul float %158, 0x3FE99999A0000000
@@ -13556,8 +13556,8 @@ _Z15makeUpperBidiagR11btMatrix3x3S0_S0_.exit:     ; preds = %_ZNK14GivensRotatio
   br i1 %69, label %70, label %74
 
 70:                                               ; preds = %_Z15makeUpperBidiagR11btMatrix3x3S0_S0_.exit
-  %sqrt = call float @llvm.sqrt.f32(float %68)
-  %71 = fmul float %sqrt, 5.000000e-01
+  %sqrt = call nnan float @llvm.sqrt.f32(float %68)
+  %71 = fmul nnan float %sqrt, 5.000000e-01
   %72 = fcmp ogt float %71, 1.000000e+00
   %.sroa.speculated = select i1 %72, float %71, float 1.000000e+00
   %73 = fmul float %4, %.sroa.speculated
@@ -18716,7 +18716,7 @@ _ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.preheader: ; preds = %1
 .preheader602.preheader:                          ; preds = %._crit_edge659, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.preheader
   %.0158 = phi i32 [ %176, %._crit_edge659 ], [ 0, %_ZN20btAlignedObjectArrayI9btVector3E6resizeEiRKS0_.exit.preheader ]
   %172 = uitofp nneg i32 %.0158 to float
-  %173 = fmul float %172, 6.250000e-02
+  %173 = fmul nnan float %172, 6.250000e-02
   %174 = fcmp ogt float %173, 1.000000e+00
   %.sroa.speculated = select i1 %174, float 1.000000e+00, float %173
   %175 = fsub float 2.000000e+00, %.sroa.speculated
@@ -22221,7 +22221,7 @@ _ZL13ImplicitSolvePN10btSoftBody10ImplicitFnERK9btVector3S4_fi.exit: ; preds = %
   br label %864
 
 303:                                              ; preds = %289
-  %304 = fmul float %284, 2.000000e+00
+  %304 = fmul nnan float %284, 2.000000e+00
   store float %304, ptr %283, align 8, !tbaa !235
   %305 = fdiv float 1.000000e+00, %304
   br label %310
@@ -22230,7 +22230,7 @@ _ZL13ImplicitSolvePN10btSoftBody10ImplicitFnERK9btVector3S4_fi.exit: ; preds = %
   br i1 %288, label %307, label %310
 
 307:                                              ; preds = %306
-  %308 = fmul float %287, 2.000000e+00
+  %308 = fmul nnan float %287, 2.000000e+00
   store float %308, ptr %286, align 8, !tbaa !235
   %309 = fdiv float 1.000000e+00, %308
   br label %310
@@ -22812,7 +22812,7 @@ _ZN20btAlignedObjectArrayIN10btSoftBody4LinkEE10deallocateEv.exit.i.i.i: ; preds
   br i1 %606, label %607, label %616
 
 607:                                              ; preds = %597
-  %608 = fmul float %605, 5.000000e-01
+  %608 = fmul nnan float %605, 5.000000e-01
   %609 = fmul float %602, 2.000000e+00
   store float %609, ptr %601, align 8, !tbaa !235
   br label %616
@@ -37212,7 +37212,7 @@ define dso_local void @_ZN10btSoftBody12PSolve_LinksEPS_ff(ptr noundef readonly 
 
 42:                                               ; preds = %15
   %43 = fsub float %39, %37
-  %44 = fmul float %13, %40
+  %44 = fmul nnan float %13, %40
   %45 = fdiv float %43, %44
   %46 = fmul float %1, %45
   %47 = getelementptr inbounds nuw i8, ptr %17, i64 112
@@ -53145,9 +53145,9 @@ define linkonce_odr dso_local void @_ZN11btSparseSdfILi3EE9BuildCellERNS0_4CellE
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %13 = load i32, ptr %12, align 8, !tbaa !356
   %14 = sitofp i32 %13 to float
-  %15 = fmul float %8, 3.000000e+00
-  %16 = fmul float %11, 3.000000e+00
-  %17 = fmul float %14, 3.000000e+00
+  %15 = fmul nnan float %8, 3.000000e+00
+  %16 = fmul nnan float %11, 3.000000e+00
+  %17 = fmul nnan float %14, 3.000000e+00
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load float, ptr %18, align 8, !tbaa !234
   %20 = fmul float %15, %19

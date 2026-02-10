@@ -2708,7 +2708,7 @@ _ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE.ex
   %118 = zext i8 %117 to i32
   %119 = or disjoint i32 %115, %118
   %120 = uitofp nneg i32 %119 to float
-  %121 = fmul float %120, 0x3EF0001000000000
+  %121 = fmul nnan float %120, 0x3EF0001000000000
   %122 = getelementptr inbounds nuw i8, ptr %91, i64 12
   store float %121, ptr %122, align 4, !tbaa !79
   %123 = add nuw i64 %.0111148, 1
@@ -2745,7 +2745,7 @@ _ZN7lodepngL24convertToXYZ_gamma_tableEPfmmPK11LodePNGInfojPKNS_10LodePNGICCE.ex
   %146 = getelementptr inbounds nuw i8, ptr %44, i64 %145
   %147 = load i8, ptr %146, align 1, !tbaa !18
   %148 = uitofp i8 %147 to float
-  %149 = fmul float %148, 0x3F70101020000000
+  %149 = fmul nnan float %148, 0x3F70101020000000
   %150 = getelementptr inbounds nuw float, ptr %0, i64 %145
   store float %149, ptr %150, align 4, !tbaa !79
   %151 = add nuw i64 %.1112147, 1
@@ -2860,7 +2860,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit:     ; preds = %3
   %69 = zext i8 %68 to i32
   %70 = or disjoint i32 %66, %69
   %71 = sitofp i32 %70 to float
-  %72 = fmul float %71, 0x3EF0000000000000
+  %72 = fmul nnan float %71, 0x3EF0000000000000
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %72, ptr %73, align 8, !tbaa !79
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -2882,7 +2882,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit:     ; preds = %3
   %90 = zext i8 %89 to i32
   %91 = or disjoint i32 %87, %90
   %92 = sitofp i32 %91 to float
-  %93 = fmul float %92, 0x3EF0000000000000
+  %93 = fmul nnan float %92, 0x3EF0000000000000
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %93, ptr %94, align 4, !tbaa !79
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 76
@@ -2904,7 +2904,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit:     ; preds = %3
   %111 = zext i8 %110 to i32
   %112 = or disjoint i32 %108, %111
   %113 = sitofp i32 %112 to float
-  %114 = fmul float %113, 0x3EF0000000000000
+  %114 = fmul nnan float %113, 0x3EF0000000000000
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %114, ptr %115, align 8, !tbaa !79
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 128
@@ -3069,7 +3069,7 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit:             ; preds = %196
   %223 = zext i8 %222 to i32
   %224 = or disjoint i32 %220, %223
   %225 = sitofp i32 %224 to float
-  %226 = fmul float %225, 0x3EF0000000000000
+  %226 = fmul nnan float %225, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit262
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit262:  ; preds = %202, %205
@@ -3099,7 +3099,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit262:  ; preds = %202, %205
   %246 = zext i8 %245 to i32
   %247 = or disjoint i32 %243, %246
   %248 = sitofp i32 %247 to float
-  %249 = fmul float %248, 0x3EF0000000000000
+  %249 = fmul nnan float %248, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit264
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit264:  ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit262, %229
@@ -3129,7 +3129,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit264:  ; preds = %_ZN7lodepngL18decod
   %269 = zext i8 %268 to i32
   %270 = or disjoint i32 %266, %269
   %271 = sitofp i32 %270 to float
-  %272 = fmul float %271, 0x3EF0000000000000
+  %272 = fmul nnan float %271, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit266
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit266:  ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit264, %252
@@ -3182,7 +3182,7 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit268:          ; preds = %277
   %304 = zext i8 %303 to i32
   %305 = or disjoint i32 %301, %304
   %306 = sitofp i32 %305 to float
-  %307 = fmul float %306, 0x3EF0000000000000
+  %307 = fmul nnan float %306, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit270
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit270:  ; preds = %283, %286
@@ -3212,7 +3212,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit270:  ; preds = %283, %286
   %327 = zext i8 %326 to i32
   %328 = or disjoint i32 %324, %327
   %329 = sitofp i32 %328 to float
-  %330 = fmul float %329, 0x3EF0000000000000
+  %330 = fmul nnan float %329, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit272
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit272:  ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit270, %310
@@ -3242,7 +3242,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit272:  ; preds = %_ZN7lodepngL18decod
   %350 = zext i8 %349 to i32
   %351 = or disjoint i32 %347, %350
   %352 = sitofp i32 %351 to float
-  %353 = fmul float %352, 0x3EF0000000000000
+  %353 = fmul nnan float %352, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit274
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit274:  ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit272, %333
@@ -3295,7 +3295,7 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit276:          ; preds = %358
   %385 = zext i8 %384 to i32
   %386 = or disjoint i32 %382, %385
   %387 = sitofp i32 %386 to float
-  %388 = fmul float %387, 0x3EF0000000000000
+  %388 = fmul nnan float %387, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit278
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit278:  ; preds = %364, %367
@@ -3325,7 +3325,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit278:  ; preds = %364, %367
   %408 = zext i8 %407 to i32
   %409 = or disjoint i32 %405, %408
   %410 = sitofp i32 %409 to float
-  %411 = fmul float %410, 0x3EF0000000000000
+  %411 = fmul nnan float %410, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit280
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit280:  ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit278, %391
@@ -3355,7 +3355,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit280:  ; preds = %_ZN7lodepngL18decod
   %431 = zext i8 %430 to i32
   %432 = or disjoint i32 %428, %431
   %433 = sitofp i32 %432 to float
-  %434 = fmul float %433, 0x3EF0000000000000
+  %434 = fmul nnan float %433, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit282
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit282:  ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit280, %414
@@ -3408,7 +3408,7 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit284:          ; preds = %439
   %466 = zext i8 %465 to i32
   %467 = or disjoint i32 %463, %466
   %468 = sitofp i32 %467 to float
-  %469 = fmul float %468, 0x3EF0000000000000
+  %469 = fmul nnan float %468, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit286
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit286:  ; preds = %445, %448
@@ -3438,7 +3438,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit286:  ; preds = %445, %448
   %489 = zext i8 %488 to i32
   %490 = or disjoint i32 %486, %489
   %491 = sitofp i32 %490 to float
-  %492 = fmul float %491, 0x3EF0000000000000
+  %492 = fmul nnan float %491, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit288
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit288:  ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit286, %472
@@ -3468,7 +3468,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit288:  ; preds = %_ZN7lodepngL18decod
   %512 = zext i8 %511 to i32
   %513 = or disjoint i32 %509, %512
   %514 = sitofp i32 %513 to float
-  %515 = fmul float %514, 0x3EF0000000000000
+  %515 = fmul nnan float %514, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit290
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit290:  ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit288, %495
@@ -3513,7 +3513,7 @@ _ZN7lodepngL9isICCwordEPKhmmPKc.exit284.thread:   ; preds = %189, %_ZN7lodepngL9
   %539 = zext i8 %538 to i32
   %540 = or disjoint i32 %536, %539
   %541 = sitofp i32 %540 to float
-  %542 = fmul float %541, 0x3EF0000000000000
+  %542 = fmul nnan float %541, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit292
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit292:  ; preds = %519, %522
@@ -3613,7 +3613,7 @@ _ZN7lodepngL15decodeICCUint32EPKhmPm.exit294.thread: ; preds = %562, %_ZN7lodepn
   %597 = zext i8 %596 to i32
   %598 = or disjoint i32 %594, %597
   %599 = uitofp nneg i32 %598 to float
-  %600 = fmul float %599, 3.906250e-03
+  %600 = fmul nnan float %599, 3.906250e-03
   br label %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit
 
 _ZN7lodepngL15decodeICCUint16EPKhmPm.exit:        ; preds = %587, %590
@@ -3657,7 +3657,7 @@ _ZN7lodepngL15decodeICCUint16EPKhmPm.exit:        ; preds = %587, %590
   %620 = zext i8 %619 to i32
   %621 = or disjoint i32 %617, %620
   %622 = uitofp nneg i32 %621 to float
-  %623 = fmul float %622, 0x3EF0001000000000
+  %623 = fmul nnan float %622, 0x3EF0001000000000
   br label %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit297
 
 _ZN7lodepngL15decodeICCUint16EPKhmPm.exit297:     ; preds = %.lr.ph, %613
@@ -3724,7 +3724,7 @@ _ZN7lodepngL15decodeICCUint16EPKhmPm.exit299.thread: ; preds = %627, %_ZN7lodepn
   %663 = zext i8 %662 to i32
   %664 = or disjoint i32 %660, %663
   %665 = sitofp i32 %664 to float
-  %666 = fmul float %665, 0x3EF0000000000000
+  %666 = fmul nnan float %665, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit301
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit301:  ; preds = %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit299.thread, %645
@@ -3759,7 +3759,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit301:  ; preds = %_ZN7lodepngL15decod
   %688 = zext i8 %687 to i32
   %689 = or disjoint i32 %685, %688
   %690 = sitofp i32 %689 to float
-  %691 = fmul float %690, 0x3EF0000000000000
+  %691 = fmul nnan float %690, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit303
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit303:  ; preds = %668, %671
@@ -3790,7 +3790,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit303:  ; preds = %668, %671
   %712 = zext i8 %711 to i32
   %713 = or disjoint i32 %709, %712
   %714 = sitofp i32 %713 to float
-  %715 = fmul float %714, 0x3EF0000000000000
+  %715 = fmul nnan float %714, 0x3EF0000000000000
   br label %716
 
 716:                                              ; preds = %695, %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit303
@@ -3825,7 +3825,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit303:  ; preds = %668, %671
   %738 = zext i8 %737 to i32
   %739 = or disjoint i32 %735, %738
   %740 = sitofp i32 %739 to float
-  %741 = fmul float %740, 0x3EF0000000000000
+  %741 = fmul nnan float %740, 0x3EF0000000000000
   br label %742
 
 742:                                              ; preds = %721, %718
@@ -3860,7 +3860,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit303:  ; preds = %668, %671
   %765 = zext i8 %764 to i32
   %766 = or disjoint i32 %762, %765
   %767 = sitofp i32 %766 to float
-  %768 = fmul float %767, 0x3EF0000000000000
+  %768 = fmul nnan float %767, 0x3EF0000000000000
   br label %769
 
 769:                                              ; preds = %748, %745
@@ -3895,7 +3895,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit303:  ; preds = %668, %671
   %792 = zext i8 %791 to i32
   %793 = or disjoint i32 %789, %792
   %794 = sitofp i32 %793 to float
-  %795 = fmul float %794, 0x3EF0000000000000
+  %795 = fmul nnan float %794, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit311
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit311:  ; preds = %772, %775
@@ -3926,7 +3926,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit311:  ; preds = %772, %775
   %816 = zext i8 %815 to i32
   %817 = or disjoint i32 %813, %816
   %818 = sitofp i32 %817 to float
-  %819 = fmul float %818, 0x3EF0000000000000
+  %819 = fmul nnan float %818, 0x3EF0000000000000
   br label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit313
 
 _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit313:  ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit311, %799
@@ -5107,7 +5107,7 @@ _ZN7lodepngL14iccBackwardTRCEPKNS_15LodePNGICCCurveEf.exit: ; preds = %11, %16, 
   br i1 %180, label %181, label %183
 
 181:                                              ; preds = %177
-  %182 = fmul float %179, 0x4029D70A40000000
+  %182 = fmul nnan float %179, 0x4029D70A40000000
   br label %186
 
 183:                                              ; preds = %177
@@ -5984,7 +5984,7 @@ common.ret231:                                    ; preds = %120, %._crit_edge16
   %.0111134 = phi float [ %75, %.lr.ph ], [ %.0121, %71 ]
   %.0116133 = phi float [ %74, %.lr.ph ], [ 0.000000e+00, %71 ]
   %74 = fadd float %.0116133, -1.600000e+01
-  %75 = fmul float %.0111134, 6.553600e+04
+  %75 = fmul nnan float %.0111134, 6.553600e+04
   %76 = fcmp olt float %75, 0x3EF0000000000000
   br i1 %76, label %.lr.ph, label %.preheader132, !llvm.loop !136
 
@@ -5998,7 +5998,7 @@ common.ret231:                                    ; preds = %120, %._crit_edge16
   %.1112137 = phi float [ %79, %.lr.ph138 ], [ %.0111.lcssa, %.preheader132 ]
   %.1117136 = phi float [ %78, %.lr.ph138 ], [ %.0116.lcssa, %.preheader132 ]
   %78 = fadd float %.1117136, 1.600000e+01
-  %79 = fmul float %.1112137, 0x3EF0000000000000
+  %79 = fmul nnan float %.1112137, 0x3EF0000000000000
   %80 = fcmp ogt float %79, 6.553600e+04
   br i1 %80, label %.lr.ph138, label %.preheader131, !llvm.loop !137
 
@@ -6012,7 +6012,7 @@ common.ret231:                                    ; preds = %120, %._crit_edge16
   %.2113142 = phi float [ %83, %.lr.ph143 ], [ %.1112.lcssa, %.preheader131 ]
   %.2118141 = phi float [ %82, %.lr.ph143 ], [ %.1117.lcssa, %.preheader131 ]
   %82 = fadd float %.2118141, -1.000000e+00
-  %83 = fmul float %.2113142, 2.000000e+00
+  %83 = fmul nnan float %.2113142, 2.000000e+00
   %84 = fcmp olt float %83, 1.000000e+00
   br i1 %84, label %.lr.ph143, label %.preheader130, !llvm.loop !138
 
@@ -6020,7 +6020,7 @@ common.ret231:                                    ; preds = %120, %._crit_edge16
   %.3147 = phi float [ %86, %.lr.ph148 ], [ %.2113.lcssa, %.preheader130 ]
   %.3119146 = phi float [ %85, %.lr.ph148 ], [ %.2118.lcssa, %.preheader130 ]
   %85 = fadd float %.3119146, 1.000000e+00
-  %86 = fmul float %.3147, 5.000000e-01
+  %86 = fmul nnan float %.3147, 5.000000e-01
   %87 = fcmp ogt float %86, 2.000000e+00
   br i1 %87, label %.lr.ph148, label %._crit_edge, !llvm.loop !139
 

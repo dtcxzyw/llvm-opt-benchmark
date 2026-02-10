@@ -1918,7 +1918,7 @@ define hidden void @_ZN11opencv_test42ImgSize_TmplSize_Method_matchTemplateSmall
 76:                                               ; preds = %74
   %77 = mul i64 %75, 65025
   %78 = uitofp i64 %77 to double
-  %79 = fmul double %78, 0x3EB0C6F7A0B5ED8D
+  %79 = fmul nnan double %78, 0x3EB0C6F7A0B5ED8D
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.critedge, %.critedge, %.critedge, %76
@@ -3456,8 +3456,8 @@ define hidden void @_ZN11opencv_test40ImgSize_TmplSize_Method_matchTemplateBig12
 
 76:                                               ; preds = %74
   %77 = uitofp i64 %75 to double
-  %78 = fmul double %77, 6.502500e+04
-  %79 = fmul double %78, 0x3EB0C6F7A0B5ED8D
+  %78 = fmul nnan double %77, 6.502500e+04
+  %79 = fmul nnan double %78, 0x3EB0C6F7A0B5ED8D
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.critedge, %.critedge, %.critedge, %76

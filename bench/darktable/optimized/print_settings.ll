@@ -2525,14 +2525,14 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   call void @cairo_set_source_rgb(ptr noundef %1, double noundef 8.000000e-01, double noundef 8.000000e-01, double noundef 8.000000e-01) #18
   %546 = load i32, ptr %513, align 4, !tbaa !153
   %547 = sitofp i32 %546 to double
-  %548 = fmul reassoc nsz arcp contract afn double %547, 5.000000e-01
+  %548 = fmul reassoc nnan nsz arcp contract afn double %547, 5.000000e-01
   %549 = fadd reassoc nsz arcp contract afn double %548, %.2
   call void @cairo_move_to(ptr noundef %1, double noundef %532, double noundef %549) #18
   call void @cairo_save(ptr noundef %1) #18
   call void @cairo_rotate(ptr noundef %1, double noundef 0xBFF921FB54442D18) #18
   %550 = load i32, ptr %513, align 4, !tbaa !153
   %551 = sitofp i32 %550 to double
-  %552 = fmul reassoc nsz arcp contract afn double %551, -5.000000e-01
+  %552 = fmul reassoc nnan nsz arcp contract afn double %551, -5.000000e-01
   %553 = fmul reassoc nsz arcp contract afn double %371, -9.000000e+00
   call void @cairo_rel_move_to(ptr noundef %1, double noundef %552, double noundef %553) #18
   call void @pango_cairo_update_layout(ptr noundef %1, ptr noundef %368) #18
@@ -2616,14 +2616,14 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   call void @cairo_set_source_rgb(ptr noundef %1, double noundef 8.000000e-01, double noundef 8.000000e-01, double noundef 8.000000e-01) #18
   %609 = load i32, ptr %575, align 4, !tbaa !153
   %610 = sitofp i32 %609 to double
-  %611 = fmul reassoc nsz arcp contract afn double %610, 5.000000e-01
+  %611 = fmul reassoc nnan nsz arcp contract afn double %610, 5.000000e-01
   %612 = fadd reassoc nsz arcp contract afn double %611, %.3
   call void @cairo_move_to(ptr noundef %1, double noundef %593, double noundef %612) #18
   call void @cairo_save(ptr noundef %1) #18
   call void @cairo_rotate(ptr noundef %1, double noundef 0xBFF921FB54442D18) #18
   %613 = load i32, ptr %575, align 4, !tbaa !153
   %614 = sitofp i32 %613 to double
-  %615 = fmul reassoc nsz arcp contract afn double %614, -5.000000e-01
+  %615 = fmul reassoc nnan nsz arcp contract afn double %614, -5.000000e-01
   %616 = fmul reassoc nsz arcp contract afn double %371, -9.000000e+00
   call void @cairo_rel_move_to(ptr noundef %1, double noundef %615, double noundef %616) #18
   call void @pango_cairo_update_layout(ptr noundef %1, ptr noundef %368) #18
@@ -2685,7 +2685,7 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   %656 = fptrunc reassoc nsz arcp contract afn double %655 to float
   %657 = fsub reassoc nsz arcp contract afn double %.4481, %373
   %658 = fptrunc reassoc nsz arcp contract afn double %657 to float
-  %.neg567 = fmul reassoc nsz arcp contract afn double %654, -5.000000e-01
+  %.neg567 = fmul reassoc nnan nsz arcp contract afn double %654, -5.000000e-01
   %.neg568 = fsub reassoc nsz arcp contract afn double %652, %373
   %659 = fadd reassoc nsz arcp contract afn double %.neg568, %.neg567
   %660 = fptrunc reassoc nsz arcp contract afn double %659 to float
@@ -2697,7 +2697,7 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   call void @cairo_rotate(ptr noundef %1, double noundef 0xBFF921FB54442D18) #18
   %662 = load i32, ptr %621, align 4, !tbaa !153
   %663 = sitofp i32 %662 to double
-  %664 = fmul reassoc nsz arcp contract afn double %663, -5.000000e-01
+  %664 = fmul reassoc nnan nsz arcp contract afn double %663, -5.000000e-01
   %665 = fmul reassoc nsz arcp contract afn double %371, -9.000000e+00
   call void @cairo_rel_move_to(ptr noundef %1, double noundef %664, double noundef %665) #18
   call void @pango_cairo_update_layout(ptr noundef %1, ptr noundef %368) #18

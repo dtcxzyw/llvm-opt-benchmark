@@ -80,7 +80,7 @@ define void @_ZN3net25QuicStreamSequencerBufferC2Em(ptr noundef nonnull align 8 
   store i64 %1, ptr %0, align 8, !tbaa !13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = uitofp i64 %1 to double
-  %5 = fmul double %4, 0x3F20000000000000
+  %5 = fmul nnan double %4, 0x3F20000000000000
   %6 = tail call double @llvm.ceil.f64(double %5)
   %7 = fptoui double %6 to i64
   store i64 %7, ptr %3, align 8, !tbaa !39

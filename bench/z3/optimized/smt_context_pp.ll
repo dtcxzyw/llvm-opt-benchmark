@@ -6798,7 +6798,7 @@ _ZNSolsEj.exit197:                                ; preds = %262
 
 .noexc203:                                        ; preds = %282
   %289 = uitofp i64 %288 to double
-  %290 = fmul double %289, 0x3EB0000000000000
+  %290 = fmul nnan double %289, 0x3EB0000000000000
   %291 = load ptr, ptr %.0.i199, align 8, !tbaa !508
   %292 = getelementptr i8, ptr %291, i64 -24
   %293 = load i64, ptr %292, align 8

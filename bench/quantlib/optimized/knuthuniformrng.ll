@@ -145,7 +145,7 @@ invoke.cont4:                                     ; preds = %entry
   %and = and i64 %seed, 1073741823
   %add = add nuw nsw i64 %and, 2
   %conv = uitofp nneg i64 %add to double
-  %mul5 = fmul double %conv, 0x3CC0000000000000
+  %mul5 = fmul nnan double %conv, 0x3CC0000000000000
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1592) %call5.i.i.i.i2.i.i70, i8 0, i64 1592, i1 false)
   br label %for.body
 

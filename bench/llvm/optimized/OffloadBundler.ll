@@ -2449,7 +2449,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %169, %171
   %199 = uitofp i64 %198 to double
   %200 = fdiv double %197, %199
   %.sroa.0119.0.copyload = load double, ptr %20, align 8, !tbaa !168
-  %201 = fmul double %197, 0x3EB0000000000000
+  %201 = fmul nnan double %197, 0x3EB0000000000000
   %202 = fdiv double %201, %.sroa.0119.0.copyload
   %203 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #24
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 24
@@ -3814,7 +3814,7 @@ _ZN4llvm13ManagedStaticINS_10TimerGroupEN12_GLOBAL__N_135CreateClangOffloadBundl
   %217 = uitofp i64 %.074 to double
   %218 = uitofp i64 %148 to double
   %219 = fdiv double %217, %218
-  %220 = fmul double %217, 0x3EB0000000000000
+  %220 = fmul nnan double %217, 0x3EB0000000000000
   %221 = fdiv double %220, %.sroa.0197.0.copyload
   %222 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #24
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 24

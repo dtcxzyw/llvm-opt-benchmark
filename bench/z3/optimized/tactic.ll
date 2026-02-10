@@ -315,7 +315,7 @@ define hidden void @_ZN13tactic_reportC2EPKcRK4goal(ptr noundef nonnull writeonl
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %11 = tail call noundef i64 @_ZN6memory19get_allocation_sizeEv()
   %12 = uitofp i64 %11 to double
-  %13 = fmul double %12, 0x3EB0000000000000
+  %13 = fmul nnan double %12, 0x3EB0000000000000
   store double %13, ptr %10, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %15 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #22
@@ -7232,7 +7232,7 @@ _ZN9stopwatch4stopEv.exit:                        ; preds = %6, %1
 
 13:                                               ; preds = %_ZN9stopwatch4stopEv.exit
   %14 = uitofp i64 %12 to double
-  %15 = fmul double %14, 0x3EB0000000000000
+  %15 = fmul nnan double %14, 0x3EB0000000000000
   %16 = invoke noundef i32 @_Z19get_verbosity_levelv()
           to label %17 unwind label %246
 

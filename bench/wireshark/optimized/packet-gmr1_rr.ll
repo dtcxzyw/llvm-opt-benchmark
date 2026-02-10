@@ -1083,7 +1083,7 @@ define internal void @rr_timing_ofs_value_fmt(ptr noundef %0, i32 noundef %1) #2
   %3 = sitofp i32 %1 to float
   %4 = fdiv float %3, 4.000000e+01
   %5 = fpext float %4 to double
-  %6 = fmul float %4, 0x3FA5E15E20000000
+  %6 = fmul nnan float %4, 0x3FA5E15E20000000
   %7 = fpext float %6 to double
   %8 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.350, double noundef %5, double noundef %7)
   ret void
@@ -1140,7 +1140,7 @@ define internal void @rr_gps_almanac_pn_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @rr_pkt_freq_prm_xx_bw_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
-  %4 = fmul float %3, 3.125000e+01
+  %4 = fmul nnan float %3, 3.125000e+01
   %5 = fpext float %4 to double
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.410, i32 noundef %1, double noundef %5, i32 noundef %1)
   ret void
@@ -1158,7 +1158,7 @@ define internal void @rr_pkt_pwr_ctrl_prm_par_fmt(ptr noundef %0, i32 noundef %1
 
 7:                                                ; preds = %2
   %8 = uitofp nneg i32 %1 to float
-  %9 = fmul float %8, 0x3FD99999A0000000
+  %9 = fmul nnan float %8, 0x3FD99999A0000000
   %10 = fpext float %9 to double
   %11 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.414, double noundef %10, i32 noundef %1)
   br label %12

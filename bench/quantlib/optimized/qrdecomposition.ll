@@ -380,7 +380,7 @@ for.body122:                                      ; preds = %for.body122.lr.ph, 
   br i1 %cmp130, label %if.then131, label %for.inc224
 
 if.then131:                                       ; preds = %for.body122
-  %div = fdiv double 1.000000e+00, %62
+  %div = fdiv nnan double 1.000000e+00, %62
   %add.ptr142.idx = shl nuw nsw i64 %indvars.iv.next494, 3
   %add.ptr142 = getelementptr inbounds nuw i8, ptr %call.i178, i64 %add.ptr142.idx
   %cmp.not3.i.i.i190 = icmp eq i64 %indvars.iv.next494, 0

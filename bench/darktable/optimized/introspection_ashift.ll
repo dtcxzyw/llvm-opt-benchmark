@@ -695,7 +695,7 @@ define internal fastcc void @_homography(ptr noundef nonnull %0, float noundef %
   %23 = tail call reassoc nsz arcp contract afn float @llvm.sin.f32(float %21)
   %24 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %7)
   %25 = tail call reassoc nsz arcp contract afn float @llvm.exp.f32(float %2)
-  %26 = fmul reassoc nsz arcp contract afn float %18, 0x401CCCCCC0000000
+  %26 = fmul reassoc nnan nsz arcp contract afn float %18, 0x401CCCCCC0000000
   %27 = fdiv reassoc nsz arcp contract afn float %26, %17
   %28 = fadd reassoc nsz arcp contract afn float %27, 0x401CCCCCC0000000
   %29 = fadd reassoc nsz arcp contract afn float %25, -1.000000e+00
@@ -721,7 +721,7 @@ define internal fastcc void @_homography(ptr noundef nonnull %0, float noundef %
   %44 = fadd reassoc nsz arcp contract afn float %43, 1.000000e+00
   %45 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %44, float 0x3FB99999A0000000)
   %46 = tail call reassoc nsz arcp contract afn float @llvm.exp.f32(float %3)
-  %47 = fmul reassoc nsz arcp contract afn float %17, 0x401CCCCCC0000000
+  %47 = fmul reassoc nnan nsz arcp contract afn float %17, 0x401CCCCCC0000000
   %48 = fdiv reassoc nsz arcp contract afn float %47, %18
   %49 = fadd reassoc nsz arcp contract afn float %48, 0x401CCCCCC0000000
   %50 = fadd reassoc nsz arcp contract afn float %46, -1.000000e+00
@@ -762,11 +762,11 @@ define internal fastcc void @_homography(ptr noundef nonnull %0, float noundef %
   store float %23, ptr %69, align 4, !tbaa !103
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store float %22, ptr %70, align 16, !tbaa !103
-  %71 = fmul reassoc nsz arcp contract afn float %18, -5.000000e-01
+  %71 = fmul reassoc nnan nsz arcp contract afn float %18, -5.000000e-01
   %72 = fmul reassoc nsz arcp contract afn float %71, %22
-  %73 = fmul reassoc nsz arcp contract afn float %17, 5.000000e-01
+  %73 = fmul reassoc nnan nsz arcp contract afn float %17, 5.000000e-01
   %74 = fmul reassoc nsz arcp contract afn float %73, %23
-  %75 = fmul reassoc nsz arcp contract afn float %18, 5.000000e-01
+  %75 = fmul reassoc nnan nsz arcp contract afn float %18, 5.000000e-01
   %76 = fadd reassoc nsz arcp contract afn float %75, %74
   %77 = fadd reassoc nsz arcp contract afn float %76, %72
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -936,7 +936,7 @@ mat3mul.exit265:                                  ; preds = %111
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %12, i8 0, i64 32, i1 false)
   store float 1.000000e+00, ptr %12, align 16, !tbaa !103
   store float %45, ptr %70, align 16, !tbaa !103
-  %118 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %45
+  %118 = fsub reassoc nnan nsz arcp contract afn float 1.000000e+00, %45
   %119 = fmul reassoc nsz arcp contract afn float %118, %73
   store float %119, ptr %83, align 4, !tbaa !103
   store float 1.000000e+00, ptr %84, align 16, !tbaa !103
@@ -1097,7 +1097,7 @@ mat3mul.exit325:                                  ; preds = %145
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %12, i8 0, i64 32, i1 false)
   store float 1.000000e+00, ptr %12, align 16, !tbaa !103
   store float %154, ptr %70, align 16, !tbaa !103
-  %155 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %154
+  %155 = fsub reassoc nnan nsz arcp contract afn float 1.000000e+00, %154
   %156 = fmul reassoc nsz arcp contract afn float %155, %75
   store float %156, ptr %83, align 4, !tbaa !103
   store float 1.000000e+00, ptr %84, align 16, !tbaa !103
@@ -2357,7 +2357,7 @@ mat3mulv.exit.us:                                 ; preds = %126
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %149 = load i64, ptr %148, align 8, !tbaa !299
   %150 = uitofp i64 %149 to float
-  %151 = fmul reassoc nsz arcp contract afn float %150, 2.000000e+00
+  %151 = fmul reassoc nnan nsz arcp contract afn float %150, 2.000000e+00
   %152 = fsub reassoc nsz arcp contract afn float %.0.lcssa, %150
   %153 = fptosi float %152 to i32
   %154 = fsub reassoc nsz arcp contract afn float %.0104.lcssa, %150
@@ -2450,8 +2450,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %38 = load i32, ptr %37, align 4, !tbaa !100
   %39 = sitofp i32 %38 to float
   store float %39, ptr %36, align 4, !tbaa !103
-  %40 = fmul reassoc nsz arcp contract afn float %35, %35
-  %41 = fmul reassoc nsz arcp contract afn float %39, %39
+  %40 = fmul reassoc nnan nsz arcp contract afn float %35, %35
+  %41 = fmul reassoc nnan nsz arcp contract afn float %39, %39
   %42 = fadd reassoc nsz arcp contract afn float %41, %40
   %43 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %42)
   %44 = getelementptr inbounds nuw i8, ptr %22, i64 96
@@ -4645,7 +4645,7 @@ mat3mulv.exit.i:                                  ; preds = %108
   %224 = fmul reassoc nsz arcp contract afn float %223, 2.000000e+00
   %225 = fmul reassoc nsz arcp contract afn float %221, %221
   %226 = fmul reassoc nsz arcp contract afn float %225, %224
-  %227 = fmul reassoc nsz arcp contract afn float %88, 0x3F847AE140000000
+  %227 = fmul reassoc nnan nsz arcp contract afn float %88, 0x3F847AE140000000
   %228 = fmul reassoc nsz arcp contract afn float %227, %91
   %229 = fcmp reassoc nsz arcp contract afn olt float %226, %228
   br i1 %229, label %330, label %277
@@ -10323,7 +10323,7 @@ define internal fastcc i32 @simplex(ptr noundef readonly captures(none) %0, ptr 
   %25 = sitofp i32 %2 to double
   %26 = fadd reassoc nsz arcp contract afn double %24, %25
   %27 = fmul reassoc nsz arcp contract afn double %26, %4
-  %28 = fmul reassoc nsz arcp contract afn double %25, 0x3FF6A09E667F3BCD
+  %28 = fmul reassoc nnan nsz arcp contract afn double %25, 0x3FF6A09E667F3BCD
   %29 = fdiv reassoc nsz arcp contract afn double %27, %28
   %30 = fmul reassoc nsz arcp contract afn double %24, %4
   %31 = fdiv reassoc nsz arcp contract afn double %30, %28
@@ -11900,7 +11900,7 @@ mat3mulv.exit.us.i:                               ; preds = %311
   %331 = fmul reassoc nsz arcp contract afn float %330, %329
   %332 = sitofp i32 %.pre.i to float
   %333 = sitofp i32 %295 to float
-  %334 = fmul reassoc nsz arcp contract afn float %333, 4.000000e+00
+  %334 = fmul reassoc nnan nsz arcp contract afn float %333, 4.000000e+00
   %335 = fmul reassoc nsz arcp contract afn float %334, %332
   %336 = fcmp reassoc nsz arcp contract afn ogt float %331, %335
   br i1 %336, label %nmsfit.exit.thread29, label %nmsfit.exit
@@ -12107,8 +12107,8 @@ gamma_correct.exit.i.i:                           ; preds = %70, %56
 76:                                               ; preds = %gamma_correct.exit.i.i
   %77 = sitofp i32 %41 to float
   %78 = sitofp i32 %43 to float
-  %79 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %77, float %78)
-  %80 = fmul reassoc nsz arcp contract afn float %79, 0x3F947AE140000000
+  %79 = tail call reassoc nnan nsz arcp contract afn float @llvm.minnum.f32(float %77, float %78)
+  %80 = fmul reassoc nnan nsz arcp contract afn float %79, 0x3F947AE140000000
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %76
@@ -12196,7 +12196,7 @@ dt_Rec709_to_XYZ_D50.exit.i.i.i:                  ; preds = %98
   %128 = bitcast i32 %127 to float
   %129 = fmul reassoc nsz arcp contract afn float %128, %128
   %130 = fmul reassoc nsz arcp contract afn float %129, %128
-  %factor.i.i.i.i.i.i = fmul reassoc nsz arcp contract afn float %122, 2.000000e+00
+  %factor.i.i.i.i.i.i = fmul reassoc nnan nsz arcp contract afn float %122, 2.000000e+00
   %131 = fadd reassoc nsz arcp contract afn float %130, %factor.i.i.i.i.i.i
   %132 = fmul reassoc nsz arcp contract afn float %131, %128
   %factor11.i.i.i.i.i.i = fmul reassoc nsz arcp contract afn float %130, 2.000000e+00
@@ -12476,13 +12476,13 @@ new_ntuple_list.exit.i.i.i:                       ; preds = %edge_enhance.exit.i
 
 271:                                              ; preds = %new_ntuple_list.exit.i.i.i
   %272 = uitofp nneg i32 %41 to double
-  %273 = fmul reassoc nsz arcp contract afn double %272, 0x3FEFAE147AE147AE
+  %273 = fmul reassoc nnan nsz arcp contract afn double %272, 0x3FEFAE147AE147AE
   %274 = fcmp reassoc nsz arcp contract afn ogt double %273, 0x41EFFFFFFFE00000
   br i1 %274, label %279, label %275
 
 275:                                              ; preds = %271
   %276 = uitofp nneg i32 %43 to double
-  %277 = fmul reassoc nsz arcp contract afn double %276, 0x3FEFAE147AE147AE
+  %277 = fmul reassoc nnan nsz arcp contract afn double %276, 0x3FEFAE147AE147AE
   %278 = fcmp reassoc nsz arcp contract afn ogt double %277, 0x41EFFFFFFFE00000
   br i1 %278, label %279, label %280
 
@@ -12538,7 +12538,7 @@ new_ntuple_list.exit.i.i.i.i:                     ; preds = %280
 .lr.ph.i164.i.i.i:                                ; preds = %._crit_edge141.i.i.i.i, %.lr.ph.i.i.i.i
   %.0142.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i ], [ %347, %._crit_edge141.i.i.i.i ]
   %300 = uitofp i32 %.0142.i.i.i.i to double
-  %301 = fmul reassoc nsz arcp contract afn double %300, 0x3FF0295FAD40A57F
+  %301 = fmul reassoc nnan nsz arcp contract afn double %300, 0x3FF0295FAD40A57F
   %302 = fadd reassoc nsz arcp contract afn double %301, 5.000000e-01
   %303 = tail call reassoc nsz arcp contract afn double @llvm.floor.f64(double %302)
   %304 = fptosi double %303 to i32
@@ -12649,7 +12649,7 @@ gaussian_kernel.exit176.i.i.i:                    ; preds = %.lr.ph31.i171.i.i.i
 .lr.ph.i157.i.i.i:                                ; preds = %._crit_edge149.i.i.i.i, %.lr.ph152.i.i.i.i
   %.1119151.i.i.i.i = phi i32 [ 0, %.lr.ph152.i.i.i.i ], [ %396, %._crit_edge149.i.i.i.i ]
   %348 = uitofp i32 %.1119151.i.i.i.i to double
-  %349 = fmul reassoc nsz arcp contract afn double %348, 0x3FF0295FAD40A57F
+  %349 = fmul reassoc nnan nsz arcp contract afn double %348, 0x3FF0295FAD40A57F
   %350 = fadd reassoc nsz arcp contract afn double %349, 5.000000e-01
   %351 = tail call reassoc nsz arcp contract afn double @llvm.floor.f64(double %350)
   %352 = fptosi double %351 to i32
@@ -13038,9 +13038,9 @@ free_image_double.exit.i.i.i:                     ; preds = %514, %.critedge.thr
   %518 = getelementptr inbounds nuw i8, ptr %408, i64 12
   %519 = load i32, ptr %518, align 4, !tbaa !555
   %520 = uitofp i32 %517 to double
-  %521 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %520)
+  %521 = tail call reassoc nnan nsz arcp contract afn double @llvm.log10.f64(double %520)
   %522 = uitofp i32 %519 to double
-  %523 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %522)
+  %523 = tail call reassoc nnan nsz arcp contract afn double @llvm.log10.f64(double %522)
   %524 = fadd reassoc nsz arcp contract afn double %523, %521
   %525 = fmul reassoc nsz arcp contract afn double %524, 2.500000e+00
   %526 = fadd reassoc nsz arcp contract afn double %525, 0x3FF0A98B6050C56E
@@ -15554,7 +15554,7 @@ ri_del.exit:                                      ; preds = %ri_end.exit, %ri_in
 
 143:                                              ; preds = %141
   %144 = sitofp i32 %.022.lcssa to double
-  %145 = tail call reassoc nsz arcp contract afn double @llvm.log10.f64(double %129)
+  %145 = tail call reassoc ninf nsz arcp contract afn double @llvm.log10.f64(double %129)
   %146 = fmul reassoc nsz arcp contract afn double %145, %144
   %147 = fadd reassoc nsz arcp contract afn double %146, %2
   %148 = fneg reassoc nsz arcp contract afn double %147
@@ -15568,10 +15568,10 @@ ri_del.exit:                                      ; preds = %ri_end.exit, %ri_in
   br i1 %153, label %154, label %170
 
 154:                                              ; preds = %149
-  %155 = fadd reassoc nsz arcp contract afn double %151, 5.000000e-01
-  %156 = tail call reassoc nsz arcp contract afn double @llvm.log.f64(double %152)
+  %155 = fadd reassoc nnan nsz arcp contract afn double %151, 5.000000e-01
+  %156 = tail call reassoc nnan nsz arcp contract afn double @llvm.log.f64(double %152)
   %157 = fmul reassoc nsz arcp contract afn double %156, %155
-  %158 = fmul reassoc nsz arcp contract afn double %152, 5.000000e-01
+  %158 = fmul reassoc nnan nsz arcp contract afn double %152, 5.000000e-01
   %159 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %152
   %160 = tail call reassoc nsz arcp contract afn double @llvm.sinh.f64(double %159)
   %161 = fmul reassoc nsz arcp contract afn double %160, %152
@@ -15586,7 +15586,7 @@ ri_del.exit:                                      ; preds = %ri_end.exit, %ri_in
   br label %189
 
 170:                                              ; preds = %149
-  %171 = fadd reassoc nsz arcp contract afn double %151, 1.500000e+00
+  %171 = fadd reassoc nnan nsz arcp contract afn double %151, 1.500000e+00
   %172 = fadd reassoc nsz arcp contract afn double %151, 6.500000e+00
   %173 = tail call reassoc nsz arcp contract afn double @llvm.log.f64(double %172)
   %174 = fmul reassoc nsz arcp contract afn double %173, %171
@@ -15624,10 +15624,10 @@ log_gamma_lanczos.exit.i:                         ; preds = %176
   br i1 %193, label %194, label %210
 
 194:                                              ; preds = %189
-  %195 = fadd reassoc nsz arcp contract afn double %191, 5.000000e-01
-  %196 = tail call reassoc nsz arcp contract afn double @llvm.log.f64(double %192)
+  %195 = fadd reassoc nnan nsz arcp contract afn double %191, 5.000000e-01
+  %196 = tail call reassoc nnan nsz arcp contract afn double @llvm.log.f64(double %192)
   %197 = fmul reassoc nsz arcp contract afn double %196, %195
-  %198 = fmul reassoc nsz arcp contract afn double %192, 5.000000e-01
+  %198 = fmul reassoc nnan nsz arcp contract afn double %192, 5.000000e-01
   %199 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %192
   %200 = tail call reassoc nsz arcp contract afn double @llvm.sinh.f64(double %199)
   %201 = fmul reassoc nsz arcp contract afn double %200, %192
@@ -15642,7 +15642,7 @@ log_gamma_lanczos.exit.i:                         ; preds = %176
   br label %229
 
 210:                                              ; preds = %189
-  %211 = fadd reassoc nsz arcp contract afn double %191, 1.500000e+00
+  %211 = fadd reassoc nnan nsz arcp contract afn double %191, 1.500000e+00
   %212 = fadd reassoc nsz arcp contract afn double %191, 6.500000e+00
   %213 = tail call reassoc nsz arcp contract afn double @llvm.log.f64(double %212)
   %214 = fmul reassoc nsz arcp contract afn double %213, %211
@@ -15681,10 +15681,10 @@ log_gamma_lanczos.exit98.i:                       ; preds = %216
   br i1 %234, label %235, label %251
 
 235:                                              ; preds = %229
-  %236 = fadd reassoc nsz arcp contract afn double %232, 5.000000e-01
-  %237 = tail call reassoc nsz arcp contract afn double @llvm.log.f64(double %233)
+  %236 = fadd reassoc nnan nsz arcp contract afn double %232, 5.000000e-01
+  %237 = tail call reassoc nnan nsz arcp contract afn double @llvm.log.f64(double %233)
   %238 = fmul reassoc nsz arcp contract afn double %237, %236
-  %239 = fmul reassoc nsz arcp contract afn double %233, 5.000000e-01
+  %239 = fmul reassoc nnan nsz arcp contract afn double %233, 5.000000e-01
   %240 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %233
   %241 = tail call reassoc nsz arcp contract afn double @llvm.sinh.f64(double %240)
   %242 = fmul reassoc nsz arcp contract afn double %241, %233
@@ -15699,7 +15699,7 @@ log_gamma_lanczos.exit98.i:                       ; preds = %216
   br label %270
 
 251:                                              ; preds = %229
-  %252 = fadd reassoc nsz arcp contract afn double %232, 1.500000e+00
+  %252 = fadd reassoc nnan nsz arcp contract afn double %232, 1.500000e+00
   %253 = fadd reassoc nsz arcp contract afn double %232, 6.500000e+00
   %254 = tail call reassoc nsz arcp contract afn double @llvm.log.f64(double %253)
   %255 = fmul reassoc nsz arcp contract afn double %254, %252
@@ -15731,7 +15731,7 @@ log_gamma_lanczos.exit104.i:                      ; preds = %257
 
 270:                                              ; preds = %log_gamma_lanczos.exit104.i, %235
   %271 = phi reassoc nsz arcp contract afn double [ %250, %235 ], [ %269, %log_gamma_lanczos.exit104.i ]
-  %272 = tail call reassoc nsz arcp contract afn double @llvm.log.f64(double %129)
+  %272 = tail call reassoc ninf nsz arcp contract afn double @llvm.log.f64(double %129)
   %273 = fmul reassoc nsz arcp contract afn double %272, %191
   %274 = tail call reassoc nsz arcp contract afn double @llvm.log.f64(double %150)
   %275 = fmul reassoc nsz arcp contract afn double %274, %232
@@ -16437,9 +16437,9 @@ vec3isnull.exit.thread:                           ; preds = %shuffle.exit
 
 178:                                              ; preds = %174
   %179 = sitofp i32 %.1109 to float
-  %180 = fmul reassoc nsz arcp contract afn float %179, 1.000000e+02
+  %180 = fmul reassoc nnan nsz arcp contract afn float %179, 1.000000e+02
   %181 = uitofp nneg i32 %.1112 to float
-  %182 = fmul reassoc nsz arcp contract afn float %181, %35
+  %182 = fmul reassoc nnan nsz arcp contract afn float %181, %35
   %183 = fdiv reassoc nsz arcp contract afn float %180, %182
   %184 = fcmp reassoc nsz arcp contract afn olt float %183, 6.000000e+01
   br i1 %184, label %185, label %192
@@ -16639,7 +16639,7 @@ define internal double @model_fitness(ptr noundef readonly captures(none) %0, pt
 
 ._crit_edge:                                      ; preds = %205
   %113 = sitofp i32 %.1118 to float
-  %114 = fpext reassoc nsz arcp contract afn float %113 to double
+  %114 = fpext fast float %113 to double
   %115 = fmul reassoc nsz arcp contract afn double %.1111, %114
   %116 = fcmp reassoc nsz arcp contract afn ogt double %.1122, 0.000000e+00
   %117 = icmp sgt i32 %.1114, 0
@@ -16824,7 +16824,7 @@ mat3mulv.exit142:                                 ; preds = %138
 
 206:                                              ; preds = %._crit_edge
   %207 = sitofp i32 %.1116 to float
-  %208 = fpext reassoc nsz arcp contract afn float %207 to double
+  %208 = fpext fast float %207 to double
   %209 = fmul reassoc nsz arcp contract afn double %.1124, %208
   %210 = uitofp nneg i32 %.1114 to double
   %211 = fmul reassoc nsz arcp contract afn double %.1120, %210

@@ -1370,8 +1370,8 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %5
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 720
   %14 = load i32, ptr %13, align 8, !tbaa !122
   %15 = sitofp i32 %14 to double
-  %16 = fmul double %12, %15
-  %17 = fmul double %16, 0x3E10000000000000
+  %16 = fmul nnan double %12, %15
+  %17 = fmul nnan double %16, 0x3E10000000000000
   %18 = fcmp ogt double %17, 1.000000e+00
   br i1 %18, label %19, label %21
 

@@ -866,7 +866,7 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit5
   store float %42, ptr %43, align 8, !tbaa !34
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN11OpenImageIO6v3_1_012FilterSinc1DE, i64 16), ptr %40, align 8, !tbaa !25
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  %45 = fmul float %42, 5.000000e-01
+  %45 = fmul nnan float %42, 5.000000e-01
   store float %45, ptr %44, align 4, !tbaa !46
   br label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit100.thread
 
@@ -1306,10 +1306,10 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit7
   store float %74, ptr %76, align 4, !tbaa !66
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN11OpenImageIO6v3_1_012FilterSinc2DE, i64 16), ptr %70, align 8, !tbaa !25
   %77 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  %78 = fmul float %72, 5.000000e-01
+  %78 = fmul nnan float %72, 5.000000e-01
   store float %78, ptr %77, align 8, !tbaa !82
   %79 = getelementptr inbounds nuw i8, ptr %70, i64 20
-  %80 = fmul float %74, 5.000000e-01
+  %80 = fmul nnan float %74, 5.000000e-01
   store float %80, ptr %79, align 4, !tbaa !84
   br label %_ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit137.thread
 
@@ -1654,9 +1654,9 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_016FilterGaussi
   br i1 %7, label %8, label %_ZN11OpenImageIO6v3_1_016FilterGaussian1D7gauss1dEf.exit
 
 8:                                                ; preds = %2
-  %9 = fmul float %5, %5
-  %10 = fmul float %9, -2.000000e+00
-  %11 = fmul float %10, 0x3FF7154760000000
+  %9 = fmul nnan float %5, %5
+  %10 = fmul nnan float %9, -2.000000e+00
+  %11 = fmul nnan float %10, 0x3FF7154760000000
   %.inv.i = fcmp oge float %11, -1.260000e+02
   %.0.i.i = select i1 %.inv.i, float %11, float -1.260000e+02
   %12 = fcmp ogt float %.0.i.i, 1.260000e+02
@@ -1711,9 +1711,9 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_021FilterSharpG
   br i1 %7, label %8, label %_ZN11OpenImageIO6v3_1_021FilterSharpGaussian1D7gauss1dEf.exit
 
 8:                                                ; preds = %2
-  %9 = fmul float %5, %5
-  %10 = fmul float %9, -4.000000e+00
-  %11 = fmul float %10, 0x3FF7154760000000
+  %9 = fmul nnan float %5, %5
+  %10 = fmul nnan float %9, -4.000000e+00
+  %11 = fmul nnan float %10, 0x3FF7154760000000
   %.inv.i = fcmp oge float %11, -1.260000e+02
   %.0.i.i = select i1 %.inv.i, float %11, float -1.260000e+02
   %12 = fcmp ogt float %.0.i.i, 1.260000e+02
@@ -1774,7 +1774,7 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_018FilterCatmul
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %10
-  %13 = fmul float %7, -5.000000e+00
+  %13 = fmul nnan float %7, -5.000000e+00
   %14 = tail call float @llvm.fmuladd.f32(float %8, float 3.000000e+00, float %13)
   %15 = fadd float %14, 2.000000e+00
   br label %_ZN11OpenImageIO6v3_1_018FilterCatmullRom1D8catrom1dEf.exit
@@ -1955,8 +1955,8 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_016FilterMitche
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %8
-  %13 = fmul float %9, 0xC002AAAAA0000000
-  %14 = fmul float %10, 1.200000e+01
+  %13 = fmul nnan float %9, 0xC002AAAAA0000000
+  %14 = fmul nnan float %10, 1.200000e+01
   %15 = tail call float @llvm.fmuladd.f32(float %13, float %10, float %14)
   %16 = tail call float @llvm.fmuladd.f32(float %9, float -2.000000e+01, float %15)
   %17 = fadd float %16, 0x4025555560000000
@@ -2004,7 +2004,7 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_015FilterBSplin
 
 8:                                                ; preds = %2
   %9 = fsub float 1.000000e+00, %6
-  %10 = fmul float %9, 5.000000e-01
+  %10 = fmul nnan float %9, 5.000000e-01
   %11 = fsub float 1.000000e+00, %9
   %12 = tail call float @llvm.fmuladd.f32(float %9, float %11, float 1.000000e+00)
   %13 = tail call noundef float @llvm.fmuladd.f32(float %10, float %12, float 0x3FC5555560000000)
@@ -2057,7 +2057,7 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_013FilterCubic1
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %10
-  %14 = fadd float %11, -5.000000e+00
+  %14 = fadd nnan float %11, -5.000000e+00
   %15 = tail call float @llvm.fmuladd.f32(float %11, float %14, float 8.000000e+00)
   %16 = tail call float @llvm.fmuladd.f32(float %11, float %15, float -4.000000e+00)
   %17 = fmul float %7, %16
@@ -2303,9 +2303,9 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_016FilterGaussi
   br i1 %8, label %9, label %_ZN11OpenImageIO6v3_1_016FilterGaussian1D7gauss1dEf.exit
 
 9:                                                ; preds = %3
-  %10 = fmul float %6, %6
-  %11 = fmul float %10, -2.000000e+00
-  %12 = fmul float %11, 0x3FF7154760000000
+  %10 = fmul nnan float %6, %6
+  %11 = fmul nnan float %10, -2.000000e+00
+  %12 = fmul nnan float %11, 0x3FF7154760000000
   %.inv.i = fcmp oge float %12, -1.260000e+02
   %.0.i.i = select i1 %.inv.i, float %12, float -1.260000e+02
   %13 = fcmp ogt float %.0.i.i, 1.260000e+02
@@ -2341,9 +2341,9 @@ _ZN11OpenImageIO6v3_1_016FilterGaussian1D7gauss1dEf.exit: ; preds = %3, %9
   br i1 %38, label %39, label %_ZN11OpenImageIO6v3_1_016FilterGaussian1D7gauss1dEf.exit6
 
 39:                                               ; preds = %_ZN11OpenImageIO6v3_1_016FilterGaussian1D7gauss1dEf.exit
-  %40 = fmul float %36, %36
-  %41 = fmul float %40, -2.000000e+00
-  %42 = fmul float %41, 0x3FF7154760000000
+  %40 = fmul nnan float %36, %36
+  %41 = fmul nnan float %40, -2.000000e+00
+  %42 = fmul nnan float %41, 0x3FF7154760000000
   %.inv.i3 = fcmp oge float %42, -1.260000e+02
   %.0.i.i4 = select i1 %.inv.i3, float %42, float -1.260000e+02
   %43 = fcmp ogt float %.0.i.i4, 1.260000e+02
@@ -2385,9 +2385,9 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_016FilterGaussi
   br i1 %7, label %8, label %_ZN11OpenImageIO6v3_1_016FilterGaussian1D7gauss1dEf.exit
 
 8:                                                ; preds = %2
-  %9 = fmul float %5, %5
-  %10 = fmul float %9, -2.000000e+00
-  %11 = fmul float %10, 0x3FF7154760000000
+  %9 = fmul nnan float %5, %5
+  %10 = fmul nnan float %9, -2.000000e+00
+  %11 = fmul nnan float %10, 0x3FF7154760000000
   %.inv.i = fcmp oge float %11, -1.260000e+02
   %.0.i.i = select i1 %.inv.i, float %11, float -1.260000e+02
   %12 = fcmp ogt float %.0.i.i, 1.260000e+02
@@ -2428,9 +2428,9 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_016FilterGaussi
   br i1 %7, label %8, label %_ZN11OpenImageIO6v3_1_016FilterGaussian1D7gauss1dEf.exit
 
 8:                                                ; preds = %2
-  %9 = fmul float %5, %5
-  %10 = fmul float %9, -2.000000e+00
-  %11 = fmul float %10, 0x3FF7154760000000
+  %9 = fmul nnan float %5, %5
+  %10 = fmul nnan float %9, -2.000000e+00
+  %11 = fmul nnan float %10, 0x3FF7154760000000
   %.inv.i = fcmp oge float %11, -1.260000e+02
   %.0.i.i = select i1 %.inv.i, float %11, float -1.260000e+02
   %12 = fcmp ogt float %.0.i.i, 1.260000e+02
@@ -2490,9 +2490,9 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_021FilterSharpG
   br i1 %8, label %9, label %_ZN11OpenImageIO6v3_1_021FilterSharpGaussian1D7gauss1dEf.exit
 
 9:                                                ; preds = %3
-  %10 = fmul float %6, %6
-  %11 = fmul float %10, -4.000000e+00
-  %12 = fmul float %11, 0x3FF7154760000000
+  %10 = fmul nnan float %6, %6
+  %11 = fmul nnan float %10, -4.000000e+00
+  %12 = fmul nnan float %11, 0x3FF7154760000000
   %.inv.i = fcmp oge float %12, -1.260000e+02
   %.0.i.i = select i1 %.inv.i, float %12, float -1.260000e+02
   %13 = fcmp ogt float %.0.i.i, 1.260000e+02
@@ -2528,9 +2528,9 @@ _ZN11OpenImageIO6v3_1_021FilterSharpGaussian1D7gauss1dEf.exit: ; preds = %3, %9
   br i1 %38, label %39, label %_ZN11OpenImageIO6v3_1_021FilterSharpGaussian1D7gauss1dEf.exit6
 
 39:                                               ; preds = %_ZN11OpenImageIO6v3_1_021FilterSharpGaussian1D7gauss1dEf.exit
-  %40 = fmul float %36, %36
-  %41 = fmul float %40, -4.000000e+00
-  %42 = fmul float %41, 0x3FF7154760000000
+  %40 = fmul nnan float %36, %36
+  %41 = fmul nnan float %40, -4.000000e+00
+  %42 = fmul nnan float %41, 0x3FF7154760000000
   %.inv.i3 = fcmp oge float %42, -1.260000e+02
   %.0.i.i4 = select i1 %.inv.i3, float %42, float -1.260000e+02
   %43 = fcmp ogt float %.0.i.i4, 1.260000e+02
@@ -2572,9 +2572,9 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_021FilterSharpG
   br i1 %7, label %8, label %_ZN11OpenImageIO6v3_1_021FilterSharpGaussian1D7gauss1dEf.exit
 
 8:                                                ; preds = %2
-  %9 = fmul float %5, %5
-  %10 = fmul float %9, -4.000000e+00
-  %11 = fmul float %10, 0x3FF7154760000000
+  %9 = fmul nnan float %5, %5
+  %10 = fmul nnan float %9, -4.000000e+00
+  %11 = fmul nnan float %10, 0x3FF7154760000000
   %.inv.i = fcmp oge float %11, -1.260000e+02
   %.0.i.i = select i1 %.inv.i, float %11, float -1.260000e+02
   %12 = fcmp ogt float %.0.i.i, 1.260000e+02
@@ -2615,9 +2615,9 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_021FilterSharpG
   br i1 %7, label %8, label %_ZN11OpenImageIO6v3_1_021FilterSharpGaussian1D7gauss1dEf.exit
 
 8:                                                ; preds = %2
-  %9 = fmul float %5, %5
-  %10 = fmul float %9, -4.000000e+00
-  %11 = fmul float %10, 0x3FF7154760000000
+  %9 = fmul nnan float %5, %5
+  %10 = fmul nnan float %9, -4.000000e+00
+  %11 = fmul nnan float %10, 0x3FF7154760000000
   %.inv.i = fcmp oge float %11, -1.260000e+02
   %.0.i.i = select i1 %.inv.i, float %11, float -1.260000e+02
   %12 = fcmp ogt float %.0.i.i, 1.260000e+02
@@ -2683,7 +2683,7 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_018FilterCatmul
   br i1 %12, label %13, label %17
 
 13:                                               ; preds = %11
-  %14 = fmul float %8, -5.000000e+00
+  %14 = fmul nnan float %8, -5.000000e+00
   %15 = tail call float @llvm.fmuladd.f32(float %9, float 3.000000e+00, float %14)
   %16 = fadd float %15, 2.000000e+00
   br label %_ZN11OpenImageIO6v3_1_018FilterCatmullRom1D8catrom1dEf.exit
@@ -2711,7 +2711,7 @@ _ZN11OpenImageIO6v3_1_018FilterCatmullRom1D8catrom1dEf.exit: ; preds = %3, %13, 
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %30
-  %33 = fmul float %27, -5.000000e+00
+  %33 = fmul nnan float %27, -5.000000e+00
   %34 = tail call float @llvm.fmuladd.f32(float %28, float 3.000000e+00, float %33)
   %35 = fadd float %34, 2.000000e+00
   br label %_ZN11OpenImageIO6v3_1_018FilterCatmullRom1D8catrom1dEf.exit3
@@ -2745,7 +2745,7 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_018FilterCatmul
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %10
-  %13 = fmul float %7, -5.000000e+00
+  %13 = fmul nnan float %7, -5.000000e+00
   %14 = tail call float @llvm.fmuladd.f32(float %8, float 3.000000e+00, float %13)
   %15 = fadd float %14, 2.000000e+00
   br label %_ZN11OpenImageIO6v3_1_018FilterCatmullRom1D8catrom1dEf.exit
@@ -2778,7 +2778,7 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_018FilterCatmul
   br i1 %11, label %12, label %16
 
 12:                                               ; preds = %10
-  %13 = fmul float %7, -5.000000e+00
+  %13 = fmul nnan float %7, -5.000000e+00
   %14 = tail call float @llvm.fmuladd.f32(float %8, float 3.000000e+00, float %13)
   %15 = fadd float %14, 2.000000e+00
   br label %_ZN11OpenImageIO6v3_1_018FilterCatmullRom1D8catrom1dEf.exit
@@ -3331,8 +3331,8 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_016FilterMitche
   br i1 %12, label %19, label %13
 
 13:                                               ; preds = %9
-  %14 = fmul float %10, 0xC002AAAAA0000000
-  %15 = fmul float %11, 1.200000e+01
+  %14 = fmul nnan float %10, 0xC002AAAAA0000000
+  %15 = fmul nnan float %11, 1.200000e+01
   %16 = tail call float @llvm.fmuladd.f32(float %14, float %11, float %15)
   %17 = tail call float @llvm.fmuladd.f32(float %10, float -2.000000e+01, float %16)
   %18 = fadd float %17, 0x4025555560000000
@@ -3366,8 +3366,8 @@ _ZN11OpenImageIO6v3_1_016FilterMitchell1D10mitchell1dEf.exit: ; preds = %3, %24
   br i1 %33, label %40, label %34
 
 34:                                               ; preds = %30
-  %35 = fmul float %31, 0xC002AAAAA0000000
-  %36 = fmul float %32, 1.200000e+01
+  %35 = fmul nnan float %31, 0xC002AAAAA0000000
+  %36 = fmul nnan float %32, 1.200000e+01
   %37 = tail call float @llvm.fmuladd.f32(float %35, float %32, float %36)
   %38 = tail call float @llvm.fmuladd.f32(float %31, float -2.000000e+01, float %37)
   %39 = fadd float %38, 0x4025555560000000
@@ -3407,8 +3407,8 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_016FilterMitche
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %8
-  %13 = fmul float %9, 0xC002AAAAA0000000
-  %14 = fmul float %10, 1.200000e+01
+  %13 = fmul nnan float %9, 0xC002AAAAA0000000
+  %14 = fmul nnan float %10, 1.200000e+01
   %15 = tail call float @llvm.fmuladd.f32(float %13, float %10, float %14)
   %16 = tail call float @llvm.fmuladd.f32(float %9, float -2.000000e+01, float %15)
   %17 = fadd float %16, 0x4025555560000000
@@ -3447,8 +3447,8 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_016FilterMitche
   br i1 %11, label %18, label %12
 
 12:                                               ; preds = %8
-  %13 = fmul float %9, 0xC002AAAAA0000000
-  %14 = fmul float %10, 1.200000e+01
+  %13 = fmul nnan float %9, 0xC002AAAAA0000000
+  %14 = fmul nnan float %10, 1.200000e+01
   %15 = tail call float @llvm.fmuladd.f32(float %13, float %10, float %14)
   %16 = tail call float @llvm.fmuladd.f32(float %9, float -2.000000e+01, float %15)
   %17 = fadd float %16, 0x4025555560000000
@@ -3501,7 +3501,7 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_015FilterBSplin
 
 9:                                                ; preds = %3
   %10 = fsub float 1.000000e+00, %7
-  %11 = fmul float %10, 5.000000e-01
+  %11 = fmul nnan float %10, 5.000000e-01
   %12 = fsub float 1.000000e+00, %10
   %13 = tail call float @llvm.fmuladd.f32(float %10, float %12, float 1.000000e+00)
   %14 = tail call noundef float @llvm.fmuladd.f32(float %11, float %13, float 0x3FC5555560000000)
@@ -3529,7 +3529,7 @@ _ZN11OpenImageIO6v3_1_015FilterBSpline1D9bspline1dEf.exit: ; preds = %9, %15, %1
 
 27:                                               ; preds = %_ZN11OpenImageIO6v3_1_015FilterBSpline1D9bspline1dEf.exit
   %28 = fsub float 1.000000e+00, %25
-  %29 = fmul float %28, 5.000000e-01
+  %29 = fmul nnan float %28, 5.000000e-01
   %30 = fsub float 1.000000e+00, %28
   %31 = tail call float @llvm.fmuladd.f32(float %28, float %30, float 1.000000e+00)
   %32 = tail call noundef float @llvm.fmuladd.f32(float %29, float %31, float 0x3FC5555560000000)
@@ -3563,7 +3563,7 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_015FilterBSplin
 
 8:                                                ; preds = %2
   %9 = fsub float 1.000000e+00, %6
-  %10 = fmul float %9, 5.000000e-01
+  %10 = fmul nnan float %9, 5.000000e-01
   %11 = fsub float 1.000000e+00, %9
   %12 = tail call float @llvm.fmuladd.f32(float %9, float %11, float 1.000000e+00)
   %13 = tail call noundef float @llvm.fmuladd.f32(float %10, float %12, float 0x3FC5555560000000)
@@ -3596,7 +3596,7 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_015FilterBSplin
 
 8:                                                ; preds = %2
   %9 = fsub float 1.000000e+00, %6
-  %10 = fmul float %9, 5.000000e-01
+  %10 = fmul nnan float %9, 5.000000e-01
   %11 = fsub float 1.000000e+00, %9
   %12 = tail call float @llvm.fmuladd.f32(float %9, float %11, float 1.000000e+00)
   %13 = tail call noundef float @llvm.fmuladd.f32(float %10, float %12, float 0x3FC5555560000000)
@@ -3685,7 +3685,7 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_013FilterCubic2
   br i1 %13, label %19, label %14
 
 14:                                               ; preds = %11
-  %15 = fadd float %12, -5.000000e+00
+  %15 = fadd nnan float %12, -5.000000e+00
   %16 = tail call float @llvm.fmuladd.f32(float %12, float %15, float 8.000000e+00)
   %17 = tail call float @llvm.fmuladd.f32(float %12, float %16, float -4.000000e+00)
   %18 = fmul float %8, %17
@@ -3715,7 +3715,7 @@ _ZN11OpenImageIO6v3_1_013FilterCubic1D5cubicEff.exit: ; preds = %3, %14, %19
   br i1 %33, label %39, label %34
 
 34:                                               ; preds = %31
-  %35 = fadd float %32, -5.000000e+00
+  %35 = fadd nnan float %32, -5.000000e+00
   %36 = tail call float @llvm.fmuladd.f32(float %32, float %35, float 8.000000e+00)
   %37 = tail call float @llvm.fmuladd.f32(float %32, float %36, float -4.000000e+00)
   %38 = fmul float %8, %37
@@ -3753,7 +3753,7 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_013FilterCubic2
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %10
-  %14 = fadd float %11, -5.000000e+00
+  %14 = fadd nnan float %11, -5.000000e+00
   %15 = tail call float @llvm.fmuladd.f32(float %11, float %14, float 8.000000e+00)
   %16 = tail call float @llvm.fmuladd.f32(float %11, float %15, float -4.000000e+00)
   %17 = fmul float %7, %16
@@ -3790,7 +3790,7 @@ define linkonce_odr hidden noundef float @_ZNK11OpenImageIO6v3_1_013FilterCubic2
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %10
-  %14 = fadd float %11, -5.000000e+00
+  %14 = fadd nnan float %11, -5.000000e+00
   %15 = tail call float @llvm.fmuladd.f32(float %11, float %14, float 8.000000e+00)
   %16 = tail call float @llvm.fmuladd.f32(float %11, float %15, float -4.000000e+00)
   %17 = fmul float %7, %16

@@ -2711,15 +2711,15 @@ mkv_handle_spherical.exit.i.i.i.i:                ; preds = %1224, %1211, %1210
   %1234 = getelementptr inbounds nuw i8, ptr %1197, i64 4
   %1235 = load i32, ptr %1234, align 4, !tbaa !155
   %1236 = sitofp i32 %1235 to double
-  %1237 = fmul nsz double %1236, 0x3EF0000000000000
+  %1237 = fmul nnan nsz double %1236, 0x3EF0000000000000
   %1238 = getelementptr inbounds nuw i8, ptr %1197, i64 8
   %1239 = load i32, ptr %1238, align 4, !tbaa !156
   %1240 = sitofp i32 %1239 to double
-  %1241 = fmul nsz double %1240, 0x3EF0000000000000
+  %1241 = fmul nnan nsz double %1240, 0x3EF0000000000000
   %1242 = getelementptr inbounds nuw i8, ptr %1197, i64 12
   %1243 = load i32, ptr %1242, align 4, !tbaa !157
   %1244 = sitofp i32 %1243 to double
-  %1245 = fmul nsz double %1244, 0x3EF0000000000000
+  %1245 = fmul nnan nsz double %1244, 0x3EF0000000000000
   br label %mkv_handle_rotation.exit.i.i.i.i
 
 1246:                                             ; preds = %1199, %mkv_write_video_color.exit.i.i.i

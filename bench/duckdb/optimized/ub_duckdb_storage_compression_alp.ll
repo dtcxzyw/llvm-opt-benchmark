@@ -502,7 +502,7 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
 
 30:                                               ; preds = %25
   %31 = uitofp i32 %29 to double
-  %32 = fmul double %31, 3.125000e-02
+  %32 = fmul nnan double %31, 3.125000e-02
   %33 = call double @llvm.ceil.f64(double %32)
   %34 = fptoui double %33 to i32
   %35 = call noundef i32 @llvm.umax.i32(i32 %34, i32 1)
@@ -1738,7 +1738,7 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
 
 30:                                               ; preds = %25
   %31 = uitofp i32 %29 to double
-  %32 = fmul double %31, 3.125000e-02
+  %32 = fmul nnan double %31, 3.125000e-02
   %33 = call double @llvm.ceil.f64(double %32)
   %34 = fptoui double %33 to i32
   %35 = call noundef i32 @llvm.umax.i32(i32 %34, i32 1)
@@ -4793,7 +4793,7 @@ _ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
   %75 = sitofp i64 %.0.i.i.i to float
   %76 = load i64, ptr %56, align 8, !tbaa !77
   %77 = sitofp i64 %76 to float
-  %78 = fmul float %75, %77
+  %78 = fmul nnan float %75, %77
   %79 = load float, ptr %39, align 4, !tbaa !131
   %80 = fmul float %79, %78
   %81 = load float, ptr %.sroa.038.042.i, align 4, !tbaa !131
@@ -6170,7 +6170,7 @@ _ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
   %48 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i88
   %49 = load i64, ptr %48, align 8, !tbaa !77
   %50 = sitofp i64 %49 to float
-  %51 = fmul float %47, %50
+  %51 = fmul nnan float %47, %50
   %52 = and i16 %.sroa.0.0.copyload, 255
   %53 = zext nneg i16 %52 to i64
   %54 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %53
@@ -6331,7 +6331,7 @@ define linkonce_odr void @_ZN6duckdb3alp14AlpCompressionIfLb1EE25FindBestFactorA
 
 .lr.ph:                                           ; preds = %3
   %5 = uitofp i64 %1 to double
-  %6 = fmul double %5, 3.125000e-02
+  %6 = fmul nnan double %5, 3.125000e-02
   %7 = tail call double @llvm.ceil.f64(double %6)
   %8 = fptoui double %7 to i32
   %9 = tail call noundef i32 @llvm.umax.i32(i32 %8, i32 1)
@@ -6606,7 +6606,7 @@ _ZN6duckdb3alp14AlpCompressionIfLb1EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
   %45 = sitofp i64 %.0.i.i to float
   %46 = load i64, ptr %12, align 8, !tbaa !77
   %47 = sitofp i64 %46 to float
-  %48 = fmul float %45, %47
+  %48 = fmul nnan float %45, %47
   %49 = load float, ptr %13, align 4, !tbaa !131
   %50 = fmul float %49, %48
   %51 = load float, ptr %.sroa.035.039, align 4, !tbaa !131
@@ -7822,7 +7822,7 @@ _ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
   %49 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i101
   %50 = load i64, ptr %49, align 8, !tbaa !77
   %51 = sitofp i64 %50 to float
-  %52 = fmul float %48, %51
+  %52 = fmul nnan float %48, %51
   %53 = and i16 %.sroa.0.0.copyload, 255
   %54 = zext nneg i16 %53 to i64
   %55 = getelementptr inbounds nuw float, ptr @_ZN6duckdb17AlpTypedConstantsIfE8FRAC_ARRE, i64 %54
@@ -8226,7 +8226,7 @@ define linkonce_odr void @_ZN6duckdb3alp14AlpCompressionIfLb0EE25FindBestFactorA
 
 .lr.ph:                                           ; preds = %3
   %5 = uitofp i64 %1 to double
-  %6 = fmul double %5, 3.125000e-02
+  %6 = fmul nnan double %5, 3.125000e-02
   %7 = tail call double @llvm.ceil.f64(double %6)
   %8 = fptoui double %7 to i32
   %9 = tail call noundef i32 @llvm.umax.i32(i32 %8, i32 1)
@@ -8501,7 +8501,7 @@ _ZN6duckdb3alp14AlpCompressionIfLb0EE11EncodeValueEfNS0_18AlpEncodingIndicesE.ex
   %45 = sitofp i64 %.0.i.i to float
   %46 = load i64, ptr %12, align 8, !tbaa !77
   %47 = sitofp i64 %46 to float
-  %48 = fmul float %45, %47
+  %48 = fmul nnan float %45, %47
   %49 = load float, ptr %13, align 4, !tbaa !131
   %50 = fmul float %49, %48
   %51 = load float, ptr %.sroa.035.039, align 4, !tbaa !131
@@ -9328,7 +9328,7 @@ _ZN6duckdb20BitpackingPrimitives12UnPackBufferImEEvPhS2_mhb.exit.i.i: ; preds = 
   %84 = getelementptr inbounds nuw i64, ptr %3, i64 %.02832.i.i
   %85 = load i64, ptr %84, align 8, !tbaa !77
   %86 = sitofp i64 %85 to float
-  %87 = fmul float %74, %86
+  %87 = fmul nnan float %74, %86
   %88 = fmul float %77, %87
   %89 = getelementptr inbounds nuw float, ptr %1, i64 %.02832.i.i
   store float %88, ptr %89, align 4, !tbaa !131
@@ -10480,7 +10480,7 @@ _ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
   %74 = sitofp i64 %.0.i.i.i to double
   %75 = load i64, ptr %56, align 8, !tbaa !77
   %76 = sitofp i64 %75 to double
-  %77 = fmul double %74, %76
+  %77 = fmul nnan double %74, %76
   %78 = load double, ptr %39, align 8, !tbaa !228
   %79 = fmul double %78, %77
   %80 = load double, ptr %.sroa.038.042.i, align 8, !tbaa !228
@@ -11179,7 +11179,7 @@ _ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
   %47 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i88
   %48 = load i64, ptr %47, align 8, !tbaa !77
   %49 = sitofp i64 %48 to double
-  %50 = fmul double %46, %49
+  %50 = fmul nnan double %46, %49
   %51 = and i16 %.sroa.0.0.copyload, 255
   %52 = zext nneg i16 %51 to i64
   %53 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %52
@@ -11340,7 +11340,7 @@ define linkonce_odr void @_ZN6duckdb3alp14AlpCompressionIdLb1EE25FindBestFactorA
 
 .lr.ph:                                           ; preds = %3
   %5 = uitofp i64 %1 to double
-  %6 = fmul double %5, 3.125000e-02
+  %6 = fmul nnan double %5, 3.125000e-02
   %7 = tail call double @llvm.ceil.f64(double %6)
   %8 = fptoui double %7 to i32
   %9 = tail call noundef i32 @llvm.umax.i32(i32 %8, i32 1)
@@ -11612,7 +11612,7 @@ _ZN6duckdb3alp14AlpCompressionIdLb1EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
   %44 = sitofp i64 %.0.i.i to double
   %45 = load i64, ptr %12, align 8, !tbaa !77
   %46 = sitofp i64 %45 to double
-  %47 = fmul double %44, %46
+  %47 = fmul nnan double %44, %46
   %48 = load double, ptr %13, align 8, !tbaa !228
   %49 = fmul double %48, %47
   %50 = load double, ptr %.sroa.035.039, align 8, !tbaa !228
@@ -12275,7 +12275,7 @@ _ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
   %48 = getelementptr inbounds nuw i64, ptr @_ZN6duckdb12AlpConstants8FACT_ARRE, i64 %.sroa.2.0.extract.trunc.i101
   %49 = load i64, ptr %48, align 8, !tbaa !77
   %50 = sitofp i64 %49 to double
-  %51 = fmul double %47, %50
+  %51 = fmul nnan double %47, %50
   %52 = and i16 %.sroa.0.0.copyload, 255
   %53 = zext nneg i16 %52 to i64
   %54 = getelementptr inbounds nuw double, ptr @_ZN6duckdb17AlpTypedConstantsIdE8FRAC_ARRE, i64 %53
@@ -12679,7 +12679,7 @@ define linkonce_odr void @_ZN6duckdb3alp14AlpCompressionIdLb0EE25FindBestFactorA
 
 .lr.ph:                                           ; preds = %3
   %5 = uitofp i64 %1 to double
-  %6 = fmul double %5, 3.125000e-02
+  %6 = fmul nnan double %5, 3.125000e-02
   %7 = tail call double @llvm.ceil.f64(double %6)
   %8 = fptoui double %7 to i32
   %9 = tail call noundef i32 @llvm.umax.i32(i32 %8, i32 1)
@@ -12951,7 +12951,7 @@ _ZN6duckdb3alp14AlpCompressionIdLb0EE11EncodeValueEdNS0_18AlpEncodingIndicesE.ex
   %44 = sitofp i64 %.0.i.i to double
   %45 = load i64, ptr %12, align 8, !tbaa !77
   %46 = sitofp i64 %45 to double
-  %47 = fmul double %44, %46
+  %47 = fmul nnan double %44, %46
   %48 = load double, ptr %13, align 8, !tbaa !228
   %49 = fmul double %48, %47
   %50 = load double, ptr %.sroa.035.039, align 8, !tbaa !228
@@ -13221,7 +13221,7 @@ _ZN6duckdb20BitpackingPrimitives12UnPackBufferImEEvPhS2_mhb.exit.i.i: ; preds = 
   %84 = getelementptr inbounds nuw i64, ptr %3, i64 %.02832.i.i
   %85 = load i64, ptr %84, align 8, !tbaa !77
   %86 = sitofp i64 %85 to double
-  %87 = fmul double %74, %86
+  %87 = fmul nnan double %74, %86
   %88 = fmul double %77, %87
   %89 = getelementptr inbounds nuw double, ptr %1, i64 %.02832.i.i
   store double %88, ptr %89, align 8, !tbaa !228

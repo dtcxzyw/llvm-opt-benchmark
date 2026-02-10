@@ -1317,7 +1317,7 @@ define internal void @base_volume(ptr noundef %0, i32 noundef %1) #2 {
 6:                                                ; preds = %2
   %7 = trunc i32 %1 to i16
   %8 = sitofp i16 %7 to double
-  %9 = fmul double %8, 3.906250e-03
+  %9 = fmul nnan double %8, 3.906250e-03
   %10 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.789, double noundef %9)
   br label %11
 

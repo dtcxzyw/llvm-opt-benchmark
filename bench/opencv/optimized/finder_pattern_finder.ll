@@ -557,7 +557,7 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   %245 = fdiv double %244, 2.400000e+01
   %246 = call double @sqrt(double noundef %245) #25, !tbaa !18
   %247 = sitofp i32 %236 to double
-  %248 = fmul double %247, 6.250000e-02
+  %248 = fmul nnan double %247, 6.250000e-02
   %249 = call double @sqrt(double noundef %248) #25, !tbaa !18
   %250 = sitofp i32 %240 to double
   %251 = fdiv double %250, 9.000000e+00
@@ -644,13 +644,13 @@ _ZN5zxing6qrcode19FinderPatternFinder17foundPatternCrossEPi.exit.thread: ; preds
   %306 = load i32, ptr %8, align 4, !tbaa !18
   %307 = add nsw i32 %306, %305
   %308 = sitofp i32 %307 to double
-  %309 = fmul double %308, 5.000000e-01
+  %309 = fmul nnan double %308, 5.000000e-01
   %310 = fptosi double %309 to i32
   %311 = load i32, ptr %9, align 4, !tbaa !18
   %312 = load i32, ptr %7, align 4, !tbaa !18
   %313 = add nsw i32 %312, %311
   %314 = sitofp i32 %313 to double
-  %315 = fmul double %314, 5.000000e-01
+  %315 = fmul nnan double %314, 5.000000e-01
   %316 = fptosi double %315 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -954,7 +954,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handleP
   %22 = load i32, ptr %21, align 4, !tbaa !18
   %23 = add i32 %20, %22
   %24 = sitofp i32 %23 to float
-  %25 = fmul float %24, 5.000000e-01
+  %25 = fmul nnan float %24, 5.000000e-01
   %26 = fsub float %15, %25
   switch i32 %10, label %38 [
     i32 0, label %27
@@ -984,7 +984,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handleP
   %39 = sitofp i32 %.0108 to float
   %40 = fdiv float %39, 7.000000e+00
   %41 = fcmp ogt float %40, 4.000000e+00
-  %42 = fmul float %40, 5.000000e-01
+  %42 = fmul nnan float %40, 5.000000e-01
   %43 = select i1 %41, float %42, float 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float %26, ptr %5, align 16, !tbaa !50
@@ -10804,7 +10804,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder13centerFromEn
   %14 = load i32, ptr %13, align 4, !tbaa !18
   %15 = add nsw i32 %12, %14
   %16 = sitofp i32 %15 to float
-  %17 = fmul float %16, 5.000000e-01
+  %17 = fmul nnan float %16, 5.000000e-01
   %18 = fsub float %7, %17
   ret float %18
 }
@@ -11645,7 +11645,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVe
   %206 = add nuw i32 %.lcssa183, %70
   %207 = add i32 %206, %97
   %208 = sitofp i32 %207 to float
-  %209 = fmul float %208, 5.000000e-01
+  %209 = fmul nnan float %208, 5.000000e-01
   %210 = fsub float %205, %209
   br label %.critedge2.thread
 
@@ -12120,7 +12120,7 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder20crossCheckHo
   %208 = add nuw i32 %.lcssa161, %62
   %209 = add i32 %208, %86
   %210 = sitofp i32 %209 to float
-  %211 = fmul float %210, 5.000000e-01
+  %211 = fmul nnan float %210, 5.000000e-01
   %212 = fsub float %207, %211
   br label %.critedge2.thread
 

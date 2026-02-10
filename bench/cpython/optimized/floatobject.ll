@@ -2259,7 +2259,7 @@ PyObject_TypeCheck.exit.thread:                   ; preds = %3, %PyObject_TypeCh
   %32 = sitofp i32 %22 to double
   %33 = load i32, ptr %4, align 4, !tbaa !53
   %34 = sitofp i32 %33 to double
-  %35 = fmul double %34, 2.000000e+00
+  %35 = fmul nnan double %34, 2.000000e+00
   br label %.thread
 
 36:                                               ; preds = %28
@@ -2805,7 +2805,7 @@ define dso_local range(i32 -1, 1) i32 @PyFloat_Pack4(double noundef %0, ptr noun
   br label %56
 
 18:                                               ; preds = %8
-  %19 = fmul double %11, 2.000000e+00
+  %19 = fmul nnan double %11, 2.000000e+00
   %20 = load i32, ptr %4, align 4, !tbaa !53
   %21 = add i32 %20, -1
   %22 = icmp sgt i32 %21, 127
@@ -2825,7 +2825,7 @@ define dso_local range(i32 -1, 1) i32 @PyFloat_Pack4(double noundef %0, ptr noun
   %.0587781 = phi double [ %19, %23 ], [ %11, %14 ]
   %28 = icmp eq i32 %storemerge7682, 0
   %29 = fcmp oeq double %.0587781, 0.000000e+00
-  %or.cond4 = and i1 %28, %29
+  %or.cond4 = select i1 %28, i1 %29, i1 false
   br i1 %or.cond4, label %33, label %30
 
 30:                                               ; preds = %.thread78
@@ -2961,7 +2961,7 @@ define dso_local range(i32 -1, 1) i32 @PyFloat_Pack8(double noundef %0, ptr noun
   br label %76
 
 19:                                               ; preds = %8
-  %20 = fmul double %12, 2.000000e+00
+  %20 = fmul nnan double %12, 2.000000e+00
   %21 = load i32, ptr %5, align 4, !tbaa !53
   %22 = add i32 %21, -1
   %23 = icmp sgt i32 %22, 1023
@@ -2981,7 +2981,7 @@ define dso_local range(i32 -1, 1) i32 @PyFloat_Pack8(double noundef %0, ptr noun
   %.0708892 = phi double [ %20, %24 ], [ %12, %15 ]
   %29 = icmp eq i32 %storemerge8793, 0
   %30 = fcmp oeq double %.0708892, 0.000000e+00
-  %or.cond3 = and i1 %29, %30
+  %or.cond3 = select i1 %29, i1 %30, i1 false
   br i1 %or.cond3, label %34, label %31
 
 31:                                               ; preds = %.thread89
@@ -3119,7 +3119,7 @@ define dso_local double @PyFloat_Unpack2(ptr noundef readonly captures(none) %0,
 
 19:                                               ; preds = %2
   %20 = uitofp nneg i32 %12 to double
-  %21 = fmul double %20, 0x3F50000000000000
+  %21 = fmul nnan double %20, 0x3F50000000000000
   %22 = icmp eq i32 %6, 0
   %23 = fadd double %21, 1.000000e+00
   %24 = add nsw i32 %6, -15
@@ -3177,7 +3177,7 @@ define dso_local double @PyFloat_Unpack4(ptr noundef readonly captures(none) %0,
   %28 = zext i8 %27 to i32
   %29 = or disjoint i32 %25, %28
   %30 = uitofp nneg i32 %29 to double
-  %31 = fmul double %30, 0x3E80000000000000
+  %31 = fmul nnan double %30, 0x3E80000000000000
   %32 = icmp eq i32 %14, 0
   %33 = fadd double %31, 1.000000e+00
   %34 = add nsw i32 %14, -127
@@ -3291,9 +3291,9 @@ define dso_local double @PyFloat_Unpack8(ptr noundef readonly captures(none) %0,
   %48 = or disjoint i32 %44, %47
   %49 = uitofp nneg i32 %35 to double
   %50 = uitofp nneg i32 %48 to double
-  %51 = fmul double %50, 0x3E70000000000000
-  %52 = fadd double %51, %49
-  %53 = fmul double %52, 0x3E30000000000000
+  %51 = fmul nnan double %50, 0x3E70000000000000
+  %52 = fadd nnan double %51, %49
+  %53 = fmul nnan double %52, 0x3E30000000000000
   %54 = icmp eq i32 %15, 0
   %55 = fadd double %53, 1.000000e+00
   %56 = add nsw i32 %15, -1023

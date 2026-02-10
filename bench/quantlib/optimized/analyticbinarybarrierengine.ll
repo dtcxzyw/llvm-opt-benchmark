@@ -4991,7 +4991,7 @@ _ZN5boost20dynamic_pointer_castIN8QuantLib20AssetOrNothingPayoffENS1_17StrikedTy
   %call225 = call double @log(double noundef %div224) #27, !tbaa !145
   %div226 = fdiv double %84, %spot
   %call227 = call double @log(double noundef %div226) #27, !tbaa !145
-  %mul228 = fmul double %84, %84
+  %mul228 = fmul nnan double %84, %84
   %mul229 = fmul double %spot, %82
   %div230 = fdiv double %mul228, %mul229
   %call231 = call double @log(double noundef %div230) #27, !tbaa !145
@@ -5402,7 +5402,7 @@ terminate.lpad.i.i307:                            ; preds = %if.then.i.i.i.i311,
   unreachable
 
 _ZN5boost10shared_ptrIN8QuantLib19CashOrNothingPayoffEED2Ev.exit: ; preds = %_ZN5boost10shared_ptrIN8QuantLib20AssetOrNothingPayoffEED2Ev.exit, %if.then.i.i301, %.noexc.i.i308, %if.then.i.i.i.i311
-  %mul = fmul double %spot, %call2.i
+  %mul = fmul nnan double %spot, %call2.i
   %div220 = fdiv double %mul, %discount
   %K.1 = select i1 %cmp.i271.not490, double %K.0, double %div220
   %mul397 = fmul double %discount, %K.1

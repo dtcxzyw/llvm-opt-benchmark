@@ -3870,7 +3870,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev12MatrixOpData7cleanUpEd(ptr noundef
 .lr.ph:                                           ; preds = %31
   %27 = fcmp ogt double %1, 1.000000e-04
   %28 = select i1 %27, double %1, double 1.000000e-04
-  %29 = fmul double %28, 0x3E7AD7F29ABCAF48
+  %29 = fmul nnan double %28, 0x3E7AD7F29ABCAF48
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 216
   br label %45
 

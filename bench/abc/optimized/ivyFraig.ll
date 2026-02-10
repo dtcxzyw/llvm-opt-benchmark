@@ -2814,9 +2814,9 @@ define internal fastcc void @Ivy_FraigStop(ptr noundef captures(none) %0) unname
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load i32, ptr %12, align 8, !tbaa !96
   %14 = sitofp i32 %13 to double
-  %15 = fmul double %11, %14
-  %16 = fmul double %15, 4.000000e+00
-  %17 = fmul double %16, 0x3EB0000000000000
+  %15 = fmul nnan double %11, %14
+  %16 = fmul nnan double %15, 4.000000e+00
+  %17 = fmul nnan double %16, 0x3EB0000000000000
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %19 = load i32, ptr %18, align 8, !tbaa !147
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %13, i32 noundef %19, double noundef %17)
@@ -6988,9 +6988,9 @@ define range(i32 -2147483647, -2147483648) i32 @Ivy_FraigSetActivityFactors_rec(
 55:                                               ; preds = %52
   %56 = load i32, ptr %33, align 8, !tbaa !217
   %57 = sitofp i32 %56 to double
-  %58 = fmul double %57, 0x3EB0000000000000
+  %58 = fmul nnan double %57, 0x3EB0000000000000
   %59 = sitofp i32 %43 to double
-  %60 = fmul double %59, 0x3EB0000000000000
+  %60 = fmul nnan double %59, 0x3EB0000000000000
   %61 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.40, double noundef %58, double noundef %60)
   %62 = load ptr, ptr @stdout, align 8, !tbaa !56
   %63 = tail call i32 @fflush(ptr noundef %62)

@@ -1120,27 +1120,27 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit193: ; preds = %35
   %369 = getelementptr inbounds nuw i8, ptr %.sroa.0266.0319, i64 8
   %370 = load i32, ptr %369, align 4, !tbaa !94
   %371 = sitofp i32 %370 to double
-  %372 = fmul double %371, 1.000000e-01
+  %372 = fmul nnan double %371, 1.000000e-01
   %373 = insertelement <2 x double> poison, double %372, i64 0
   %374 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %373)
   %375 = load i32, ptr %.sroa.0266.0319, align 4, !tbaa !96
   %376 = add nsw i32 %375, %374
   store i32 %376, ptr %.sroa.0266.0319, align 4, !tbaa !96
-  %377 = fmul double %371, 8.000000e-01
+  %377 = fmul nnan double %371, 8.000000e-01
   %378 = insertelement <2 x double> poison, double %377, i64 0
   %379 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %378)
   store i32 %379, ptr %369, align 4, !tbaa !94
   %380 = getelementptr inbounds nuw i8, ptr %.sroa.0266.0319, i64 12
   %381 = load i32, ptr %380, align 4, !tbaa !97
   %382 = sitofp i32 %381 to double
-  %383 = fmul double %382, 7.000000e-02
+  %383 = fmul nnan double %382, 7.000000e-02
   %384 = insertelement <2 x double> poison, double %383, i64 0
   %385 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %384)
   %386 = getelementptr inbounds nuw i8, ptr %.sroa.0266.0319, i64 4
   %387 = load i32, ptr %386, align 4, !tbaa !98
   %388 = add nsw i32 %387, %385
   store i32 %388, ptr %386, align 4, !tbaa !98
-  %389 = fmul double %382, 8.000000e-01
+  %389 = fmul nnan double %382, 8.000000e-01
   %390 = insertelement <2 x double> poison, double %389, i64 0
   %391 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %390)
   store i32 %391, ptr %380, align 4, !tbaa !97

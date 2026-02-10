@@ -221,7 +221,7 @@ define i64 @_ZN4base4Time11FromDoubleTEd(double noundef %0) local_unnamed_addr #
 
 2:                                                ; preds = %1
   %3 = load i64, ptr @_ZN4base4Time26kTimeTToMicrosecondsOffsetE, align 8, !tbaa !8
-  %4 = fmul double %0, 1.000000e+06
+  %4 = fmul nnan double %0, 1.000000e+06
   %5 = fcmp ogt double %4, 0x43E0000000000000
   br i1 %5, label %_ZN4base9TimeDelta12FromSecondsDEd.exit, label %6
 
@@ -287,7 +287,7 @@ define i64 @_ZN4base4Time12FromTimeSpecERK8timespec(ptr noundef nonnull readonly
 
 9:                                                ; preds = %1
   %10 = load i64, ptr @_ZN4base4Time26kTimeTToMicrosecondsOffsetE, align 8, !tbaa !8
-  %11 = fmul double %8, 1.000000e+06
+  %11 = fmul nnan double %8, 1.000000e+06
   %12 = fcmp ogt double %11, 0x43E0000000000000
   br i1 %12, label %_ZN4base9TimeDelta12FromSecondsDEd.exit.i, label %13
 

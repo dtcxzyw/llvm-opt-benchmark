@@ -869,7 +869,7 @@ growops.exit51.i:                                 ; preds = %384, %377
 
 395:                                              ; preds = %374
   %396 = fcmp ogt double %.033.i, 1.000000e-02
-  %397 = fmul double %.033.i, 5.000000e-01
+  %397 = fmul nnan double %.033.i, 5.000000e-01
   %.134.i = select i1 %396, double %397, double 0.000000e+00
   br label %159
 

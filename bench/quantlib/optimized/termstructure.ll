@@ -1496,7 +1496,7 @@ if.end.i:                                         ; preds = %lor.lhs.false34
   br i1 %or.cond.i, label %_ZN8QuantLib12close_enoughEdd.exit, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.end.i
-  %mul.i = fmul double %t, 0x3D05000000000000
+  %mul.i = fmul nnan double %t, 0x3D05000000000000
   %cmp6.i = fcmp ole double %20, %mul.i
   %21 = tail call double @llvm.fabs.f64(double %call37)
   %mul7.i = fmul double %21, 0x3D05000000000000

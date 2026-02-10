@@ -1096,7 +1096,7 @@ define noundef float @_ZN24dtObstacleAvoidanceQuery13processSampleEPKffS1_fS1_S1
   %129 = fcmp olt float %126, 0.000000e+00
   %130 = fcmp ogt float %128, 0.000000e+00
   %or.cond = and i1 %129, %130
-  %131 = fmul float %126, -5.000000e-01
+  %131 = fmul nnan float %126, -5.000000e-01
   %.094 = select i1 %or.cond, float %131, float %126
   %132 = fcmp oge float %.094, 0.000000e+00
   %133 = fcmp olt float %.094, %.064117
@@ -1395,9 +1395,9 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery22sampleVelocityAdaptiveEPKfffS
   %narrow118 = select i1 %35, i8 1, i8 %36
   %37 = zext nneg i8 %narrow118 to i32
   %38 = uitofp nneg i8 %narrow to float
-  %39 = fdiv float 1.000000e+00, %38
-  %40 = fmul float %39, 0x400921FB60000000
-  %41 = fmul float %40, 2.000000e+00
+  %39 = fdiv nnan float 1.000000e+00, %38
+  %40 = fmul nnan float %39, 0x400921FB60000000
+  %41 = fmul nnan float %40, 2.000000e+00
   %42 = tail call float @cosf(float noundef %41) #13
   %43 = tail call float @sinf(float noundef %41) #13
   %44 = load float, ptr %5, align 4
@@ -1418,7 +1418,7 @@ define noundef i32 @_ZN24dtObstacleAvoidanceQuery22sampleVelocityAdaptiveEPKfffS
 _Z13dtNormalize2DPf.exit:                         ; preds = %24, %50
   %.sroa.6.0 = phi float [ %46, %24 ], [ %53, %50 ]
   %.sroa.0.0 = phi float [ %44, %24 ], [ %52, %50 ]
-  %54 = fmul float %41, 5.000000e-01
+  %54 = fmul nnan float %41, 5.000000e-01
   %55 = tail call float @cosf(float noundef %54) #13
   %56 = tail call float @sinf(float noundef %54) #13
   %57 = fneg float %56

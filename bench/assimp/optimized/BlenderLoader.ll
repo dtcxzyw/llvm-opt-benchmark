@@ -12640,24 +12640,24 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
   %1471 = getelementptr inbounds nuw i8, ptr %1470, i64 16
   %1472 = load i8, ptr %1471, align 8
   %1473 = uitofp i8 %1472 to float
-  %1474 = fmul float %1473, 0x3F70101020000000
+  %1474 = fmul nnan float %1473, 0x3F70101020000000
   store float %1474, ptr %.0376808, align 4
   %1475 = getelementptr inbounds nuw i8, ptr %1470, i64 17
   %1476 = load i8, ptr %1475, align 1
   %1477 = uitofp i8 %1476 to float
-  %1478 = fmul float %1477, 0x3F70101020000000
+  %1478 = fmul nnan float %1477, 0x3F70101020000000
   %1479 = getelementptr inbounds nuw i8, ptr %.0376808, i64 4
   store float %1478, ptr %1479, align 4
   %1480 = getelementptr inbounds nuw i8, ptr %1470, i64 18
   %1481 = load i8, ptr %1480, align 2
   %1482 = uitofp i8 %1481 to float
-  %1483 = fmul float %1482, 0x3F70101020000000
+  %1483 = fmul nnan float %1482, 0x3F70101020000000
   %1484 = getelementptr inbounds nuw i8, ptr %.0376808, i64 8
   store float %1483, ptr %1484, align 4
   %1485 = getelementptr inbounds nuw i8, ptr %1470, i64 19
   %1486 = load i8, ptr %1485, align 1
   %1487 = uitofp i8 %1486 to float
-  %1488 = fmul float %1487, 0x3F70101020000000
+  %1488 = fmul nnan float %1487, 0x3F70101020000000
   %1489 = getelementptr inbounds nuw i8, ptr %.0376808, i64 12
   store float %1488, ptr %1489, align 4
   %1490 = add nuw i32 %.0374809, 1
@@ -13337,7 +13337,7 @@ define hidden noalias noundef nonnull ptr @_ZN6Assimp15BlenderImporter12ConvertL
   store float 1.000000e+00, ptr %87, align 4
   %88 = fdiv float 2.000000e+00, %84
   store float %88, ptr %7, align 4
-  %89 = fmul float %84, %84
+  %89 = fmul nnan float %84, %84
   %90 = fdiv float 1.000000e+00, %89
   br label %_ZNSt10unique_ptrI7aiLightSt14default_deleteIS0_EED2Ev.exit
 

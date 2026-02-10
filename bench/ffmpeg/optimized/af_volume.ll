@@ -697,7 +697,7 @@ define internal fastcc range(i32 -22, 1) i32 @set_volume(ptr noundef %0) unnamed
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 160
   store i32 %34, ptr %35, align 8, !tbaa !61
   %36 = sitofp i32 %34 to double
-  %37 = fmul nsz double %36, 3.906250e-03
+  %37 = fmul nnan nsz double %36, 3.906250e-03
   store double %37, ptr %8, align 8, !tbaa !59
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.8, i32 noundef %34) #8
   br label %38

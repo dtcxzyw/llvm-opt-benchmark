@@ -761,8 +761,8 @@ define hidden void @_ZN6Assimp11HMPImporter19InternReadFile_HMP5Ev(ptr noundef n
   store float %66, ptr %67, align 4
   %68 = load i16, ptr %.14449.us, align 1
   %69 = uitofp i16 %68 to float
-  %70 = fdiv float %69, 6.553500e+04
-  %71 = fadd float %70, -5.000000e-01
+  %70 = fdiv nnan float %69, 6.553500e+04
+  %71 = fadd nnan float %70, -5.000000e-01
   %72 = load float, ptr %56, align 1
   %73 = fmul float %72, %71
   %74 = fmul float %73, 8.000000e+00
@@ -1010,8 +1010,8 @@ _ZN10aiVector3tIfEdVEf.exit.i.us:                 ; preds = %.preheader.us, %_ZN
   store float %65, ptr %66, align 4
   %67 = load i16, ptr %.14853.us, align 1
   %68 = uitofp i16 %67 to float
-  %69 = fdiv float %68, 6.553500e+04
-  %70 = fadd float %69, -5.000000e-01
+  %69 = fdiv nnan float %68, 6.553500e+04
+  %70 = fadd nnan float %69, -5.000000e-01
   %71 = load float, ptr %56, align 1
   %72 = fmul float %71, %70
   %73 = fmul float %72, 8.000000e+00
@@ -1020,12 +1020,12 @@ _ZN10aiVector3tIfEdVEf.exit.i.us:                 ; preds = %.preheader.us, %_ZN
   %75 = getelementptr inbounds nuw i8, ptr %.14853.us, i64 2
   %76 = load i8, ptr %75, align 1
   %77 = sitofp i8 %76 to float
-  %78 = fmul float %77, 7.812500e-03
+  %78 = fmul nnan float %77, 7.812500e-03
   store float %78, ptr %.14455.us, align 4
   %79 = getelementptr inbounds nuw i8, ptr %.14853.us, i64 3
   %80 = load i8, ptr %79, align 1
   %81 = sitofp i8 %80 to float
-  %82 = fmul float %81, 7.812500e-03
+  %82 = fmul nnan float %81, 7.812500e-03
   %83 = getelementptr inbounds nuw i8, ptr %.14455.us, i64 4
   %84 = getelementptr inbounds nuw i8, ptr %.14455.us, i64 8
   %85 = fmul float %82, %82

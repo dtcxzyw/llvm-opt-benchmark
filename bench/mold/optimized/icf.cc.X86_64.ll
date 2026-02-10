@@ -16930,7 +16930,7 @@ _ZN3tbb6detail2d122dynamic_grainsize_modeINS1_20linear_affinity_modeINS1_23affin
   %66 = sub nsw i64 %63, %65
   %67 = uitofp i64 %66 to float
   %68 = uitofp nneg i64 %59 to float
-  %69 = fmul float %68, %67
+  %69 = fmul nnan float %68, %67
   %70 = uitofp nneg i64 %58 to float
   %71 = fdiv float %69, %70
   %72 = fadd float %71, 5.000000e-01
@@ -19923,7 +19923,7 @@ _ZN3tbb6detail2d122dynamic_grainsize_modeINS1_20linear_affinity_modeINS1_23affin
   %68 = sub nsw i64 %65, %67
   %69 = uitofp i64 %68 to float
   %70 = uitofp nneg i64 %61 to float
-  %71 = fmul float %70, %69
+  %71 = fmul nnan float %70, %69
   %72 = uitofp nneg i64 %60 to float
   %73 = fdiv float %71, %72
   %74 = fadd float %73, 5.000000e-01

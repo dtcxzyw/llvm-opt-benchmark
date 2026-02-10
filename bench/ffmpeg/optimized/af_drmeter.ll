@@ -49,7 +49,7 @@ define internal void @uninit(ptr noundef %0) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !26
   %13 = uitofp i64 %12 to float
-  %14 = fmul nsz float %13, 0x3FC99999A0000000
+  %14 = fmul nnan nsz float %13, 0x3FC99999A0000000
   %15 = tail call i64 @llvm.lrint.i64.f32(float %14)
   %16 = trunc i64 %15 to i32
   %17 = load i64, ptr %10, align 8, !tbaa !29
@@ -115,7 +115,7 @@ define internal void @uninit(ptr noundef %0) #0 {
 52:                                               ; preds = %51
   %53 = trunc nuw nsw i64 %indvars.iv.i to i32
   %54 = uitofp nneg i32 %53 to float
-  %55 = fmul nsz float %54, 0x3F00000000000000
+  %55 = fmul nnan nsz float %54, 0x3F00000000000000
   br label %.loopexit.i
 
 56:                                               ; preds = %51, %48
@@ -142,7 +142,7 @@ define internal void @uninit(ptr noundef %0) #0 {
 
 61:                                               ; preds = %.lr.ph.i
   %62 = uitofp nneg i64 %.04777.i to float
-  %63 = fmul nsz float %62, 0x3F00000000000000
+  %63 = fmul nnan nsz float %62, 0x3F00000000000000
   %64 = fmul nsz float %63, %63
   %65 = uitofp i32 %60 to float
   %66 = tail call nsz float @llvm.fmuladd.f32(float %64, float %65, float %.05476.i)

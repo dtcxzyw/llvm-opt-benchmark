@@ -975,12 +975,12 @@ define internal fastcc range(i32 -12, 1) i32 @capture_screen(ptr noundef %0) unn
 .critedge2:                                       ; preds = %.critedge2.loopexit, %44
   %.1134.lcssa = phi i32 [ 0, %44 ], [ %.1134.lcssa.ph, %.critedge2.loopexit ]
   %60 = uitofp nneg i32 %.1134.lcssa to double
-  %61 = tail call nsz double @llvm.fmuladd.f64(double %60, double 2.500000e-02, double 1.000000e-01)
-  %62 = fmul nsz double %61, 3.840000e+02
+  %61 = tail call nnan nsz double @llvm.fmuladd.f64(double %60, double 2.500000e-02, double 1.000000e-01)
+  %62 = fmul nnan nsz double %61, 3.840000e+02
   %63 = fptosi double %62 to i32
   %64 = uitofp nneg i32 %41 to double
-  %65 = tail call nsz double @llvm.fmuladd.f64(double %64, double 5.330000e-02, double 1.000000e-01)
-  %66 = fmul nsz double %65, 2.880000e+02
+  %65 = tail call nnan nsz double @llvm.fmuladd.f64(double %64, double 5.330000e-02, double 1.000000e-01)
+  %66 = fmul nnan nsz double %65, 2.880000e+02
   %67 = fptosi double %66 to i32
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.18, i32 noundef %63, i32 noundef %67) #9
   %68 = icmp samesign ult i32 %.1134.lcssa, 32

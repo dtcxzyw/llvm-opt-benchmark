@@ -507,7 +507,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %82,
   %.158.i = select i1 %170, double 0x3FA5555555555555, double 0xBFA5555555555555
   %.159.i = select i1 %170, double 5.000000e-02, double -5.000000e-02
   %.160.i = select i1 %170, double 0x3F91111111111111, double 0xBF91111111111111
-  %171 = fmul double %.0142.lcssa.i, %..i
+  %171 = fmul nnan double %.0142.lcssa.i, %..i
   store double %171, ptr %0, align 8, !tbaa !3, !alias.scope !53
   %172 = fmul double %.0143.lcssa.i, %.156.i
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -579,7 +579,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %82,
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store double %220, ptr %221, align 8, !tbaa !23
   %222 = call noundef double @llvm.fabs.f64(double %.080.i136)
-  %sqrt.i139 = call double @llvm.sqrt.f64(double %222)
+  %sqrt.i139 = call nnan double @llvm.sqrt.f64(double %222)
   %223 = fmul double %.080.i136, %.080.i136
   %224 = fmul double %223, %sqrt.i139
   %225 = fmul double %223, %196

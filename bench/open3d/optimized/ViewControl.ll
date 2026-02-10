@@ -3670,11 +3670,11 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit: ;
   %114 = load i32, ptr %8, align 8, !tbaa !43
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %116 = sitofp i32 %114 to double
-  %117 = fmul double %116, 5.000000e-01
+  %117 = fmul nnan double %116, 5.000000e-01
   %118 = fadd double %117, -5.000000e-01
   store double %118, ptr %115, align 8, !tbaa !33
   %119 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %120 = fmul double %111, 5.000000e-01
+  %120 = fmul nnan double %111, 5.000000e-01
   %121 = fadd double %120, -5.000000e-01
   store double %121, ptr %119, align 8, !tbaa !33
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3871,7 +3871,7 @@ define noundef zeroext i1 @_ZN6open3d13visualization11ViewControl34ConvertFromPi
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %23 = load double, ptr %22, align 8, !tbaa !33
   %24 = uitofp nneg i32 %14 to double
-  %25 = fmul double %24, 5.000000e-01
+  %25 = fmul nnan double %24, 5.000000e-01
   %26 = fadd double %25, -5.000000e-01
   %27 = fsub double %23, %26
   %28 = tail call noundef double @llvm.fabs.f64(double %27)
@@ -3882,7 +3882,7 @@ define noundef zeroext i1 @_ZN6open3d13visualization11ViewControl34ConvertFromPi
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %32 = load double, ptr %31, align 8, !tbaa !33
   %33 = uitofp nneg i32 %13 to double
-  %34 = fmul double %33, 5.000000e-01
+  %34 = fmul nnan double %33, 5.000000e-01
   %35 = fadd double %34, -5.000000e-01
   %36 = fsub double %32, %35
   %37 = tail call noundef double @llvm.fabs.f64(double %36)

@@ -1786,7 +1786,7 @@ define internal fastcc void @_ZL13getStatStringB5cxx11PKciiS0_b(ptr dead_on_unwi
   %7 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %.not = icmp eq i32 %3, 0
   %8 = sitofp i32 %2 to double
-  %9 = fmul double %8, 1.000000e+02
+  %9 = fmul nnan double %8, 1.000000e+02
   %10 = sitofp i32 %3 to double
   %11 = fdiv double %9, %10
   %.0 = select i1 %.not, double 0.000000e+00, double %11

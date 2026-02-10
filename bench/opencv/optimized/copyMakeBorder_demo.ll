@@ -303,13 +303,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %83,
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %86 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src, i64 8), align 8, !tbaa !17
   %87 = sitofp i32 %86 to double
-  %88 = fmul double %87, 5.000000e-02
+  %88 = fmul nnan double %87, 5.000000e-02
   %89 = fptosi double %88 to i32
   store i32 %89, ptr @top, align 4, !tbaa !26
   store i32 %89, ptr @bottom, align 4, !tbaa !26
   %90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @src, i64 12), align 4, !tbaa !27
   %91 = sitofp i32 %90 to double
-  %92 = fmul double %91, 5.000000e-02
+  %92 = fmul nnan double %91, 5.000000e-02
   %93 = fptosi double %92 to i32
   store i32 %93, ptr @left, align 4, !tbaa !26
   store i32 %93, ptr @right, align 4, !tbaa !26

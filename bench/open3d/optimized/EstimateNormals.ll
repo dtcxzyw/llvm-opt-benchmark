@@ -2887,12 +2887,12 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit.i:              ; preds = %214, %212, %211
 
 _ZNSt6vectorIdSaIdEED2Ev.exit.i:                  ; preds = %.noexc24.i
   %264 = uitofp nneg i64 %.pre54.i to double
-  %265 = fmul double %264, 2.500000e-01
+  %265 = fmul nnan double %264, 2.500000e-01
   %266 = fptosi double %265 to i32
   %267 = sext i32 %266 to i64
   %268 = getelementptr inbounds nuw double, ptr %208, i64 %267
   %269 = load double, ptr %268, align 8, !tbaa !29
-  %270 = fmul double %264, 7.500000e-01
+  %270 = fmul nnan double %264, 7.500000e-01
   %271 = fptosi double %270 to i32
   %272 = sext i32 %271 to i64
   %273 = getelementptr inbounds nuw double, ptr %208, i64 %272

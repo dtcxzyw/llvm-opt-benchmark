@@ -1239,7 +1239,7 @@ define internal fastcc void @box_cn(ptr noundef writeonly captures(none) %0, ptr
   unreachable
 
 float8_pl.exit:                                   ; preds = %9
-  %15 = fmul double %6, 5.000000e-01
+  %15 = fmul nnan double %6, 5.000000e-01
   br label %20
 
 float8_pl.exit.thread:                            ; preds = %2
@@ -1289,7 +1289,7 @@ float8_div.exit:                                  ; preds = %20, %23
   unreachable
 
 float8_pl.exit8:                                  ; preds = %33
-  %39 = fmul double %30, 5.000000e-01
+  %39 = fmul nnan double %30, 5.000000e-01
   br label %44
 
 float8_pl.exit8.thread:                           ; preds = %float8_div.exit
@@ -7594,7 +7594,7 @@ define dso_local i64 @lseg_center(ptr noundef readonly captures(none) %0) local_
   unreachable
 
 float8_pl.exit:                                   ; preds = %12
-  %18 = fmul double %9, 5.000000e-01
+  %18 = fmul nnan double %9, 5.000000e-01
   br label %23
 
 float8_pl.exit.thread:                            ; preds = %1
@@ -7644,7 +7644,7 @@ float8_div.exit:                                  ; preds = %23, %26
   unreachable
 
 float8_pl.exit10:                                 ; preds = %36
-  %42 = fmul double %33, 5.000000e-01
+  %42 = fmul nnan double %33, 5.000000e-01
   br label %47
 
 float8_pl.exit10.thread:                          ; preds = %float8_div.exit
@@ -17839,7 +17839,7 @@ define dso_local i64 @box_circle(ptr noundef readonly captures(none) %0) local_u
   unreachable
 
 float8_pl.exit:                                   ; preds = %12
-  %18 = fmul double %9, 5.000000e-01
+  %18 = fmul nnan double %9, 5.000000e-01
   br label %23
 
 float8_pl.exit.thread:                            ; preds = %1
@@ -17889,7 +17889,7 @@ float8_div.exit:                                  ; preds = %23, %26
   unreachable
 
 float8_pl.exit13:                                 ; preds = %36
-  %42 = fmul double %33, 5.000000e-01
+  %42 = fmul nnan double %33, 5.000000e-01
   br label %47
 
 float8_pl.exit13.thread:                          ; preds = %float8_div.exit
@@ -18083,7 +18083,7 @@ define dso_local noundef i64 @circle_poly(ptr noundef readonly captures(none) %0
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %float8_pl.exit ]
   %45 = trunc nuw nsw i64 %indvars.iv to i32
   %46 = uitofp nneg i32 %45 to double
-  %47 = fmul double %36, %46
+  %47 = fmul nnan double %36, %46
   %48 = fcmp oeq double %47, 0x7FF0000000000000
   br i1 %48, label %49, label %50, !prof !12
 
@@ -18563,7 +18563,7 @@ define internal fastcc zeroext i1 @lseg_inside_poly(ptr noundef nonnull readonly
   unreachable
 
 float8_pl.exit:                                   ; preds = %56
-  %62 = fmul double %53, 5.000000e-01
+  %62 = fmul nnan double %53, 5.000000e-01
   br label %67
 
 float8_pl.exit.thread:                            ; preds = %50
@@ -18613,7 +18613,7 @@ float8_div.exit:                                  ; preds = %67, %70
   unreachable
 
 float8_pl.exit41:                                 ; preds = %80
-  %86 = fmul double %77, 5.000000e-01
+  %86 = fmul nnan double %77, 5.000000e-01
   br label %91
 
 float8_pl.exit41.thread:                          ; preds = %float8_div.exit

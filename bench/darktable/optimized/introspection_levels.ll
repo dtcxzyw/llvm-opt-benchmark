@@ -363,7 +363,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %indvars.iv.i.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i.i, %69 ]
   %70 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %71 = uitofp nneg i32 %70 to float
-  %72 = fmul reassoc nsz arcp contract afn float %71, 0x3EF0000000000000
+  %72 = fmul reassoc nnan nsz arcp contract afn float %71, 0x3EF0000000000000
   %73 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %72, float %66)
   %74 = fmul reassoc nsz arcp contract afn float %73, 1.000000e+02
   %75 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv.i.i
@@ -406,7 +406,7 @@ compute_lut.exit.i:                               ; preds = %69, %19, %16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %97 = uitofp i32 %96 to float
   %98 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  %99 = fmul reassoc nsz arcp contract afn float %97, 0x3F847AE140000000
+  %99 = fmul reassoc nnan nsz arcp contract afn float %97, 0x3F847AE140000000
   %100 = getelementptr inbounds nuw i8, ptr %76, i64 16
   br label %110
 
@@ -543,7 +543,7 @@ dt_iop_levels_compute_levels_automatic.exit.i:    ; preds = %.thread58.i.i, %.th
   %indvars.iv.i53.i = phi i64 [ 0, %dt_iop_levels_compute_levels_automatic.exit.i ], [ %indvars.iv.next.i54.i, %167 ]
   %168 = trunc nuw nsw i64 %indvars.iv.i53.i to i32
   %169 = uitofp nneg i32 %168 to float
-  %170 = fmul reassoc nsz arcp contract afn float %169, 0x3EF0000000000000
+  %170 = fmul reassoc nnan nsz arcp contract afn float %169, 0x3EF0000000000000
   %171 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %170, float %164)
   %172 = fmul reassoc nsz arcp contract afn float %171, 1.000000e+02
   %173 = getelementptr inbounds nuw float, ptr %166, i64 %indvars.iv.i53.i
@@ -626,7 +626,7 @@ commit_params_late.exit:                          ; preds = %177, %174, %compute
   br i1 %221, label %222, label %228
 
 222:                                              ; preds = %218
-  %223 = fmul reassoc nsz arcp contract afn float %220, 6.553600e+04
+  %223 = fmul reassoc nnan nsz arcp contract afn float %220, 6.553600e+04
   %224 = fptosi float %223 to i32
   %225 = sext i32 %224 to i64
   %226 = getelementptr inbounds float, ptr %207, i64 %225
@@ -768,7 +768,7 @@ define void @commit_params(ptr noundef captures(none) %0, ptr noundef readonly c
   %indvars.iv.i = phi i64 [ 0, %42 ], [ %indvars.iv.next.i, %65 ]
   %66 = trunc nuw nsw i64 %indvars.iv.i to i32
   %67 = uitofp nneg i32 %66 to float
-  %68 = fmul reassoc nsz arcp contract afn float %67, 0x3EF0000000000000
+  %68 = fmul reassoc nnan nsz arcp contract afn float %67, 0x3EF0000000000000
   %69 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %68, float %62)
   %70 = fmul reassoc nsz arcp contract afn float %69, 1.000000e+02
   %71 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv.i
@@ -1190,7 +1190,7 @@ define internal noundef i32 @dt_iop_levels_area_draw(ptr readnone captures(none)
   call void @cairo_set_line_width(ptr noundef %41, double noundef %54) #20
   call void @cairo_set_source_rgb(ptr noundef %41, double noundef 1.000000e-01, double noundef 1.000000e-01, double noundef 1.000000e-01) #20
   %55 = sitofp i32 %44 to float
-  %56 = fmul reassoc nsz arcp contract afn float %55, 2.500000e-01
+  %56 = fmul reassoc nnan nsz arcp contract afn float %55, 2.500000e-01
   br label %57
 
 57:                                               ; preds = %57, %3
@@ -1363,7 +1363,7 @@ dt_draw_vertical_lines.exit:                      ; preds = %57
 
 145:                                              ; preds = %141
   call void @cairo_save(ptr noundef %41) #20
-  %146 = fmul reassoc nsz arcp contract afn double %49, 0x3F70101010101010
+  %146 = fmul reassoc nnan nsz arcp contract afn double %49, 0x3F70101010101010
   %147 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !158
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 1424
   %149 = load double, ptr %148, align 8, !tbaa !159
@@ -1794,7 +1794,7 @@ define internal void @dt_iop_levels_autoadjust_callback(ptr readnone captures(no
 17:                                               ; preds = %.preheader.i
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   %19 = uitofp nneg i32 %18 to float
-  %20 = fmul reassoc nsz arcp contract afn float %19, 0x3F50000000000000
+  %20 = fmul reassoc nnan nsz arcp contract afn float %19, 0x3F50000000000000
   store float %20, ptr %13, align 4, !tbaa !15
   br label %.loopexit17.i.preheader
 
@@ -1816,7 +1816,7 @@ define internal void @dt_iop_levels_autoadjust_callback(ptr readnone captures(no
 
 27:                                               ; preds = %.loopexit17.i
   %28 = uitofp nneg i32 %.021.i to float
-  %29 = fmul reassoc nsz arcp contract afn float %28, 0x3F50000000000000
+  %29 = fmul reassoc nnan nsz arcp contract afn float %28, 0x3F50000000000000
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store float %29, ptr %30, align 4, !tbaa !15
   br label %.loopexit.i

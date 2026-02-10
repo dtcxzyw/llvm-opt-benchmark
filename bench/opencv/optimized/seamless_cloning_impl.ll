@@ -1837,7 +1837,7 @@ define hidden void @_ZN2cv7Cloning13initVariablesERKNS_3MatES3_(ptr noundef nonn
 _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %67, %69, %71, %73
   %74 = add nsw i32 %55, -1
   %75 = sitofp i32 %74 to double
-  %76 = fdiv double 0x400921FB54442D18, %75
+  %76 = fdiv nnan double 0x400921FB54442D18, %75
   %77 = icmp sgt i32 %55, 2
   br i1 %77, label %.lr.ph, label %._crit_edge
 
@@ -1883,7 +1883,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %67, %69, %71, %73
 _ZNSt6vectorIfSaIfEE6resizeEm.exit56:             ; preds = %92, %94, %96, %98
   %99 = add nsw i32 %80, -1
   %100 = sitofp i32 %99 to double
-  %101 = fdiv double 0x400921FB54442D18, %100
+  %101 = fdiv nnan double 0x400921FB54442D18, %100
   %102 = icmp sgt i32 %80, 2
   br i1 %102, label %.lr.ph59, label %._crit_edge60
 

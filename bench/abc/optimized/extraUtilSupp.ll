@@ -824,7 +824,7 @@ Abc_SuppGenProfile.exit:                          ; preds = %._crit_edge.us.i, %
   %22 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !21
   %24 = sitofp i32 %23 to double
-  %25 = fmul double %24, 1.000000e+02
+  %25 = fmul nnan double %24, 1.000000e+02
   %.val = load i32, ptr %4, align 4, !tbaa !3
   %26 = sitofp i32 %.val to double
   %27 = fdiv double %25, %26
@@ -1421,7 +1421,7 @@ Abc_Clock.exit:                                   ; preds = %5, %13
   %.val27 = load i32, ptr %25, align 4, !tbaa !3
   %26 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.val27)
   %27 = sitofp i32 %.val27 to double
-  %28 = fmul double %27, 5.000000e-01
+  %28 = fmul nnan double %27, 5.000000e-01
   %29 = add nsw i32 %.val27, -1
   %30 = sitofp i32 %29 to double
   %31 = fmul double %28, %30
@@ -1861,7 +1861,7 @@ Vec_WrdDup.exit:                                  ; preds = %._crit_edge, %35
   store ptr %39, ptr %40, align 8, !tbaa !11
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %39, ptr align 8 %22, i64 %.pre-phi12.i, i1 false)
   %41 = sitofp i32 %spec.store.select.i to double
-  %42 = fmul double %41, 1.000000e+02
+  %42 = fmul nnan double %41, 1.000000e+02
   %43 = fdiv double %42, %41
   %44 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.25, i32 noundef %spec.store.select.i, double noundef %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)

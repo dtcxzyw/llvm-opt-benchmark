@@ -333,7 +333,7 @@ thread-pre-split.i:                               ; preds = %57
   %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats_prev, i64 32), align 8
   %80 = sub i64 %78, %79
   %81 = uitofp i64 %80 to double
-  %82 = fmul double %81, 0x3EB0000000000000
+  %82 = fmul nnan double %81, 0x3EB0000000000000
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %82, ptr %83, align 8
   %84 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats, i64 8), align 8
@@ -345,7 +345,7 @@ thread-pre-split.i:                               ; preds = %57
   %89 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats_prev, i64 24), align 8
   %90 = sub i64 %88, %89
   %91 = uitofp i64 %90 to double
-  %92 = fmul double %91, 0x3EB0000000000000
+  %92 = fmul nnan double %91, 0x3EB0000000000000
   %93 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %92, ptr %93, align 8
   %94 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
@@ -510,7 +510,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_filesystem_p_get_data(ptr nou
   %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats_prev, i64 32), align 8
   %48 = sub i64 %46, %47
   %49 = uitofp i64 %48 to double
-  %50 = fmul double %49, 0x3EB0000000000000
+  %50 = fmul nnan double %49, 0x3EB0000000000000
   %51 = fptoui double %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %40, i64 24
   store i64 %51, ptr %52, align 8
@@ -518,7 +518,7 @@ define dso_local range(i32 -1, 1) i32 @acct_gather_filesystem_p_get_data(ptr nou
   %54 = load i64, ptr getelementptr inbounds nuw (i8, ptr @lstats_prev, i64 24), align 8
   %55 = sub i64 %53, %54
   %56 = uitofp i64 %55 to double
-  %57 = fmul double %56, 0x3EB0000000000000
+  %57 = fmul nnan double %56, 0x3EB0000000000000
   %58 = fptoui double %57 to i64
   %59 = getelementptr inbounds nuw i8, ptr %40, i64 32
   store i64 %58, ptr %59, align 8

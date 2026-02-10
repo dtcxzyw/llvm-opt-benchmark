@@ -261,9 +261,9 @@ thread-pre-split.i.i.i.i:                         ; preds = %_ZN5Eigen15PlainObj
   %22 = getelementptr inbounds nuw float, ptr %20, i64 %.05.i.i.i.i.i
   %23 = tail call i32 @rand() #11
   %24 = sitofp i32 %23 to float
-  %25 = fmul float %24, 2.000000e+00
-  %26 = fmul float %25, 0x3E00000000000000
-  %27 = fadd float %26, -1.000000e+00
+  %25 = fmul nnan float %24, 2.000000e+00
+  %26 = fmul nnan float %25, 0x3E00000000000000
+  %27 = fadd nnan float %26, -1.000000e+00
   %28 = fmul float %12, %27
   %29 = fadd float %14, %28
   store float %29, ptr %22, align 4, !tbaa !25

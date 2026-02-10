@@ -757,13 +757,13 @@ define void @Mpm_ManPrintDsdStats(ptr noundef readonly captures(none) %0) local_
 
 26:                                               ; preds = %25
   %27 = sitofp i32 %.1 to double
-  %28 = fmul double %27, 1.000000e+02
+  %28 = fmul nnan double %27, 1.000000e+02
   %29 = fdiv double %28, 5.950000e+02
   %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %.1, double noundef %29)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 13880
   %32 = load i32, ptr %31, align 8, !tbaa !42
   %33 = sitofp i32 %32 to double
-  %34 = fmul double %33, 1.000000e+02
+  %34 = fmul nnan double %33, 1.000000e+02
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 13892
   %36 = load i32, ptr %35, align 4, !tbaa !43
   %37 = sitofp i32 %36 to double
@@ -772,7 +772,7 @@ define void @Mpm_ManPrintDsdStats(ptr noundef readonly captures(none) %0) local_
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 13884
   %41 = load i32, ptr %40, align 4, !tbaa !44
   %42 = sitofp i32 %41 to double
-  %43 = fmul double %42, 1.000000e+02
+  %43 = fmul nnan double %42, 1.000000e+02
   %44 = load i32, ptr %35, align 4, !tbaa !43
   %45 = sitofp i32 %44 to double
   %46 = fdiv double %43, %45

@@ -35161,7 +35161,7 @@ select.unfold.i:                                  ; preds = %._crit_edge.i.i.i, 
 308:                                              ; preds = %325
   %309 = uitofp nneg i64 %.val86 to double
   %310 = sitofp i64 %327 to double
-  %311 = fmul double %310, %309
+  %311 = fmul nnan double %310, %309
   %312 = fdiv double %311, 1.000000e+02
   %313 = fcmp ult double %312, 2.000000e+00
   call void @llvm.lifetime.end.p0(ptr nonnull %27)

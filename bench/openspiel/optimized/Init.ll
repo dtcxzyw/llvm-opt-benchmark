@@ -176,13 +176,13 @@ define void @SetResources(i32 noundef %0, i32 noundef %1) local_unnamed_addr #3 
   call void @_ZNK6System11GetHardwareERiRy(ptr noundef nonnull align 8 dereferenceable(200) @sysdep, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
   %5 = icmp eq i32 %0, 0
   %6 = sitofp i32 %0 to double
-  %7 = fmul double %6, 1.300000e+00
+  %7 = fmul nnan double %6, 1.300000e+00
   %8 = fptosi double %7 to i32
   %9 = select i1 %5, i32 1000000, i32 %8
   %10 = load i64, ptr %4, align 8
   %11 = uitofp i64 %10 to double
-  %12 = fmul double %11, 0x3FE6666666666666
-  %13 = fmul double %12, 0x3F50000000000000
+  %12 = fmul nnan double %11, 0x3FE6666666666666
+  %13 = fmul nnan double %12, 0x3F50000000000000
   %14 = fptosi double %13 to i32
   %.sroa.speculated40 = call i32 @llvm.smin.i32(i32 %9, i32 %14)
   %.sroa.speculated32 = call i32 @llvm.smin.i32(i32 %.sroa.speculated40, i32 1000000)

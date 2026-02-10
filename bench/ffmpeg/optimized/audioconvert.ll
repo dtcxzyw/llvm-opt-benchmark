@@ -628,7 +628,7 @@ define internal void @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_FLT(ptr noundef wri
   %18 = zext i8 %17 to i32
   %19 = add nsw i32 %18, -128
   %20 = sitofp i32 %19 to float
-  %21 = fmul nsz float %20, 7.812500e-03
+  %21 = fmul nnan nsz float %20, 7.812500e-03
   store float %21, ptr %.038, align 4, !tbaa !38
   %22 = getelementptr inbounds i8, ptr %.03537, i64 %11
   %23 = getelementptr inbounds i8, ptr %.038, i64 %12
@@ -636,7 +636,7 @@ define internal void @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_FLT(ptr noundef wri
   %25 = zext i8 %24 to i32
   %26 = add nsw i32 %25, -128
   %27 = sitofp i32 %26 to float
-  %28 = fmul nsz float %27, 7.812500e-03
+  %28 = fmul nnan nsz float %27, 7.812500e-03
   store float %28, ptr %23, align 4, !tbaa !38
   %29 = getelementptr inbounds i8, ptr %22, i64 %11
   %30 = getelementptr inbounds i8, ptr %23, i64 %12
@@ -644,7 +644,7 @@ define internal void @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_FLT(ptr noundef wri
   %32 = zext i8 %31 to i32
   %33 = add nsw i32 %32, -128
   %34 = sitofp i32 %33 to float
-  %35 = fmul nsz float %34, 7.812500e-03
+  %35 = fmul nnan nsz float %34, 7.812500e-03
   store float %35, ptr %30, align 4, !tbaa !38
   %36 = getelementptr inbounds i8, ptr %29, i64 %11
   %37 = getelementptr inbounds i8, ptr %30, i64 %12
@@ -652,7 +652,7 @@ define internal void @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_FLT(ptr noundef wri
   %39 = zext i8 %38 to i32
   %40 = add nsw i32 %39, -128
   %41 = sitofp i32 %40 to float
-  %42 = fmul nsz float %41, 7.812500e-03
+  %42 = fmul nnan nsz float %41, 7.812500e-03
   store float %42, ptr %37, align 4, !tbaa !38
   %43 = getelementptr inbounds i8, ptr %36, i64 %11
   %44 = getelementptr inbounds i8, ptr %37, i64 %12
@@ -666,7 +666,7 @@ define internal void @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_FLT(ptr noundef wri
   %48 = zext i8 %47 to i32
   %49 = add nsw i32 %48, -128
   %50 = sitofp i32 %49 to float
-  %51 = fmul nsz float %50, 7.812500e-03
+  %51 = fmul nnan nsz float %50, 7.812500e-03
   store float %51, ptr %.141, align 4, !tbaa !38
   %52 = getelementptr inbounds i8, ptr %.13640, i64 %14
   %53 = getelementptr inbounds i8, ptr %.141, i64 %15
@@ -709,7 +709,7 @@ define internal void @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_DBL(ptr noundef wri
   %18 = zext i8 %17 to i32
   %19 = add nsw i32 %18, -128
   %20 = sitofp i32 %19 to double
-  %21 = fmul nsz double %20, 7.812500e-03
+  %21 = fmul nnan nsz double %20, 7.812500e-03
   store double %21, ptr %.038, align 8, !tbaa !42
   %22 = getelementptr inbounds i8, ptr %.03537, i64 %11
   %23 = getelementptr inbounds i8, ptr %.038, i64 %12
@@ -717,7 +717,7 @@ define internal void @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_DBL(ptr noundef wri
   %25 = zext i8 %24 to i32
   %26 = add nsw i32 %25, -128
   %27 = sitofp i32 %26 to double
-  %28 = fmul nsz double %27, 7.812500e-03
+  %28 = fmul nnan nsz double %27, 7.812500e-03
   store double %28, ptr %23, align 8, !tbaa !42
   %29 = getelementptr inbounds i8, ptr %22, i64 %11
   %30 = getelementptr inbounds i8, ptr %23, i64 %12
@@ -725,7 +725,7 @@ define internal void @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_DBL(ptr noundef wri
   %32 = zext i8 %31 to i32
   %33 = add nsw i32 %32, -128
   %34 = sitofp i32 %33 to double
-  %35 = fmul nsz double %34, 7.812500e-03
+  %35 = fmul nnan nsz double %34, 7.812500e-03
   store double %35, ptr %30, align 8, !tbaa !42
   %36 = getelementptr inbounds i8, ptr %29, i64 %11
   %37 = getelementptr inbounds i8, ptr %30, i64 %12
@@ -733,7 +733,7 @@ define internal void @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_DBL(ptr noundef wri
   %39 = zext i8 %38 to i32
   %40 = add nsw i32 %39, -128
   %41 = sitofp i32 %40 to double
-  %42 = fmul nsz double %41, 7.812500e-03
+  %42 = fmul nnan nsz double %41, 7.812500e-03
   store double %42, ptr %37, align 8, !tbaa !42
   %43 = getelementptr inbounds i8, ptr %36, i64 %11
   %44 = getelementptr inbounds i8, ptr %37, i64 %12
@@ -747,7 +747,7 @@ define internal void @conv_AV_SAMPLE_FMT_U8_to_AV_SAMPLE_FMT_DBL(ptr noundef wri
   %48 = zext i8 %47 to i32
   %49 = add nsw i32 %48, -128
   %50 = sitofp i32 %49 to double
-  %51 = fmul nsz double %50, 7.812500e-03
+  %51 = fmul nnan nsz double %50, 7.812500e-03
   store double %51, ptr %.141, align 8, !tbaa !42
   %52 = getelementptr inbounds i8, ptr %.13640, i64 %14
   %53 = getelementptr inbounds i8, ptr %.141, i64 %15
@@ -1072,25 +1072,25 @@ define internal void @conv_AV_SAMPLE_FMT_S16_to_AV_SAMPLE_FMT_FLT(ptr noundef wr
   %.03537 = phi ptr [ %1, %.lr.ph ], [ %35, %16 ]
   %17 = load i16, ptr %.03537, align 2, !tbaa !32
   %18 = sitofp i16 %17 to float
-  %19 = fmul nsz float %18, 0x3F00000000000000
+  %19 = fmul nnan nsz float %18, 0x3F00000000000000
   store float %19, ptr %.038, align 4, !tbaa !38
   %20 = getelementptr inbounds i8, ptr %.03537, i64 %11
   %21 = getelementptr inbounds i8, ptr %.038, i64 %12
   %22 = load i16, ptr %20, align 2, !tbaa !32
   %23 = sitofp i16 %22 to float
-  %24 = fmul nsz float %23, 0x3F00000000000000
+  %24 = fmul nnan nsz float %23, 0x3F00000000000000
   store float %24, ptr %21, align 4, !tbaa !38
   %25 = getelementptr inbounds i8, ptr %20, i64 %11
   %26 = getelementptr inbounds i8, ptr %21, i64 %12
   %27 = load i16, ptr %25, align 2, !tbaa !32
   %28 = sitofp i16 %27 to float
-  %29 = fmul nsz float %28, 0x3F00000000000000
+  %29 = fmul nnan nsz float %28, 0x3F00000000000000
   store float %29, ptr %26, align 4, !tbaa !38
   %30 = getelementptr inbounds i8, ptr %25, i64 %11
   %31 = getelementptr inbounds i8, ptr %26, i64 %12
   %32 = load i16, ptr %30, align 2, !tbaa !32
   %33 = sitofp i16 %32 to float
-  %34 = fmul nsz float %33, 0x3F00000000000000
+  %34 = fmul nnan nsz float %33, 0x3F00000000000000
   store float %34, ptr %31, align 4, !tbaa !38
   %35 = getelementptr inbounds i8, ptr %30, i64 %11
   %36 = getelementptr inbounds i8, ptr %31, i64 %12
@@ -1102,7 +1102,7 @@ define internal void @conv_AV_SAMPLE_FMT_S16_to_AV_SAMPLE_FMT_FLT(ptr noundef wr
   %.13640 = phi ptr [ %.035.lcssa, %.lr.ph42 ], [ %42, %38 ]
   %39 = load i16, ptr %.13640, align 2, !tbaa !32
   %40 = sitofp i16 %39 to float
-  %41 = fmul nsz float %40, 0x3F00000000000000
+  %41 = fmul nnan nsz float %40, 0x3F00000000000000
   store float %41, ptr %.141, align 4, !tbaa !38
   %42 = getelementptr inbounds i8, ptr %.13640, i64 %14
   %43 = getelementptr inbounds i8, ptr %.141, i64 %15
@@ -1143,25 +1143,25 @@ define internal void @conv_AV_SAMPLE_FMT_S16_to_AV_SAMPLE_FMT_DBL(ptr noundef wr
   %.03537 = phi ptr [ %1, %.lr.ph ], [ %35, %16 ]
   %17 = load i16, ptr %.03537, align 2, !tbaa !32
   %18 = sitofp i16 %17 to double
-  %19 = fmul nsz double %18, 0x3F00000000000000
+  %19 = fmul nnan nsz double %18, 0x3F00000000000000
   store double %19, ptr %.038, align 8, !tbaa !42
   %20 = getelementptr inbounds i8, ptr %.03537, i64 %11
   %21 = getelementptr inbounds i8, ptr %.038, i64 %12
   %22 = load i16, ptr %20, align 2, !tbaa !32
   %23 = sitofp i16 %22 to double
-  %24 = fmul nsz double %23, 0x3F00000000000000
+  %24 = fmul nnan nsz double %23, 0x3F00000000000000
   store double %24, ptr %21, align 8, !tbaa !42
   %25 = getelementptr inbounds i8, ptr %20, i64 %11
   %26 = getelementptr inbounds i8, ptr %21, i64 %12
   %27 = load i16, ptr %25, align 2, !tbaa !32
   %28 = sitofp i16 %27 to double
-  %29 = fmul nsz double %28, 0x3F00000000000000
+  %29 = fmul nnan nsz double %28, 0x3F00000000000000
   store double %29, ptr %26, align 8, !tbaa !42
   %30 = getelementptr inbounds i8, ptr %25, i64 %11
   %31 = getelementptr inbounds i8, ptr %26, i64 %12
   %32 = load i16, ptr %30, align 2, !tbaa !32
   %33 = sitofp i16 %32 to double
-  %34 = fmul nsz double %33, 0x3F00000000000000
+  %34 = fmul nnan nsz double %33, 0x3F00000000000000
   store double %34, ptr %31, align 8, !tbaa !42
   %35 = getelementptr inbounds i8, ptr %30, i64 %11
   %36 = getelementptr inbounds i8, ptr %31, i64 %12
@@ -1173,7 +1173,7 @@ define internal void @conv_AV_SAMPLE_FMT_S16_to_AV_SAMPLE_FMT_DBL(ptr noundef wr
   %.13640 = phi ptr [ %.035.lcssa, %.lr.ph42 ], [ %42, %38 ]
   %39 = load i16, ptr %.13640, align 2, !tbaa !32
   %40 = sitofp i16 %39 to double
-  %41 = fmul nsz double %40, 0x3F00000000000000
+  %41 = fmul nnan nsz double %40, 0x3F00000000000000
   store double %41, ptr %.141, align 8, !tbaa !42
   %42 = getelementptr inbounds i8, ptr %.13640, i64 %14
   %43 = getelementptr inbounds i8, ptr %.141, i64 %15
@@ -1493,25 +1493,25 @@ define internal void @conv_AV_SAMPLE_FMT_S32_to_AV_SAMPLE_FMT_FLT(ptr noundef wr
   %.03537 = phi ptr [ %1, %.lr.ph ], [ %35, %16 ]
   %17 = load i32, ptr %.03537, align 4, !tbaa !27
   %18 = sitofp i32 %17 to float
-  %19 = fmul nsz float %18, 0x3E00000000000000
+  %19 = fmul nnan nsz float %18, 0x3E00000000000000
   store float %19, ptr %.038, align 4, !tbaa !38
   %20 = getelementptr inbounds i8, ptr %.03537, i64 %11
   %21 = getelementptr inbounds i8, ptr %.038, i64 %12
   %22 = load i32, ptr %20, align 4, !tbaa !27
   %23 = sitofp i32 %22 to float
-  %24 = fmul nsz float %23, 0x3E00000000000000
+  %24 = fmul nnan nsz float %23, 0x3E00000000000000
   store float %24, ptr %21, align 4, !tbaa !38
   %25 = getelementptr inbounds i8, ptr %20, i64 %11
   %26 = getelementptr inbounds i8, ptr %21, i64 %12
   %27 = load i32, ptr %25, align 4, !tbaa !27
   %28 = sitofp i32 %27 to float
-  %29 = fmul nsz float %28, 0x3E00000000000000
+  %29 = fmul nnan nsz float %28, 0x3E00000000000000
   store float %29, ptr %26, align 4, !tbaa !38
   %30 = getelementptr inbounds i8, ptr %25, i64 %11
   %31 = getelementptr inbounds i8, ptr %26, i64 %12
   %32 = load i32, ptr %30, align 4, !tbaa !27
   %33 = sitofp i32 %32 to float
-  %34 = fmul nsz float %33, 0x3E00000000000000
+  %34 = fmul nnan nsz float %33, 0x3E00000000000000
   store float %34, ptr %31, align 4, !tbaa !38
   %35 = getelementptr inbounds i8, ptr %30, i64 %11
   %36 = getelementptr inbounds i8, ptr %31, i64 %12
@@ -1523,7 +1523,7 @@ define internal void @conv_AV_SAMPLE_FMT_S32_to_AV_SAMPLE_FMT_FLT(ptr noundef wr
   %.13640 = phi ptr [ %.035.lcssa, %.lr.ph42 ], [ %42, %38 ]
   %39 = load i32, ptr %.13640, align 4, !tbaa !27
   %40 = sitofp i32 %39 to float
-  %41 = fmul nsz float %40, 0x3E00000000000000
+  %41 = fmul nnan nsz float %40, 0x3E00000000000000
   store float %41, ptr %.141, align 4, !tbaa !38
   %42 = getelementptr inbounds i8, ptr %.13640, i64 %14
   %43 = getelementptr inbounds i8, ptr %.141, i64 %15
@@ -1564,25 +1564,25 @@ define internal void @conv_AV_SAMPLE_FMT_S32_to_AV_SAMPLE_FMT_DBL(ptr noundef wr
   %.03537 = phi ptr [ %1, %.lr.ph ], [ %35, %16 ]
   %17 = load i32, ptr %.03537, align 4, !tbaa !27
   %18 = sitofp i32 %17 to double
-  %19 = fmul nsz double %18, 0x3E00000000000000
+  %19 = fmul nnan nsz double %18, 0x3E00000000000000
   store double %19, ptr %.038, align 8, !tbaa !42
   %20 = getelementptr inbounds i8, ptr %.03537, i64 %11
   %21 = getelementptr inbounds i8, ptr %.038, i64 %12
   %22 = load i32, ptr %20, align 4, !tbaa !27
   %23 = sitofp i32 %22 to double
-  %24 = fmul nsz double %23, 0x3E00000000000000
+  %24 = fmul nnan nsz double %23, 0x3E00000000000000
   store double %24, ptr %21, align 8, !tbaa !42
   %25 = getelementptr inbounds i8, ptr %20, i64 %11
   %26 = getelementptr inbounds i8, ptr %21, i64 %12
   %27 = load i32, ptr %25, align 4, !tbaa !27
   %28 = sitofp i32 %27 to double
-  %29 = fmul nsz double %28, 0x3E00000000000000
+  %29 = fmul nnan nsz double %28, 0x3E00000000000000
   store double %29, ptr %26, align 8, !tbaa !42
   %30 = getelementptr inbounds i8, ptr %25, i64 %11
   %31 = getelementptr inbounds i8, ptr %26, i64 %12
   %32 = load i32, ptr %30, align 4, !tbaa !27
   %33 = sitofp i32 %32 to double
-  %34 = fmul nsz double %33, 0x3E00000000000000
+  %34 = fmul nnan nsz double %33, 0x3E00000000000000
   store double %34, ptr %31, align 8, !tbaa !42
   %35 = getelementptr inbounds i8, ptr %30, i64 %11
   %36 = getelementptr inbounds i8, ptr %31, i64 %12
@@ -1594,7 +1594,7 @@ define internal void @conv_AV_SAMPLE_FMT_S32_to_AV_SAMPLE_FMT_DBL(ptr noundef wr
   %.13640 = phi ptr [ %.035.lcssa, %.lr.ph42 ], [ %42, %38 ]
   %39 = load i32, ptr %.13640, align 4, !tbaa !27
   %40 = sitofp i32 %39 to double
-  %41 = fmul nsz double %40, 0x3E00000000000000
+  %41 = fmul nnan nsz double %40, 0x3E00000000000000
   store double %41, ptr %.141, align 8, !tbaa !42
   %42 = getelementptr inbounds i8, ptr %.13640, i64 %14
   %43 = getelementptr inbounds i8, ptr %.141, i64 %15
@@ -2916,25 +2916,25 @@ define internal void @conv_AV_SAMPLE_FMT_S64_to_AV_SAMPLE_FMT_FLT(ptr noundef wr
   %.03537 = phi ptr [ %1, %.lr.ph ], [ %35, %16 ]
   %17 = load i64, ptr %.03537, align 8, !tbaa !46
   %18 = sitofp i64 %17 to float
-  %19 = fmul nsz float %18, 0x3C00000000000000
+  %19 = fmul nnan nsz float %18, 0x3C00000000000000
   store float %19, ptr %.038, align 4, !tbaa !38
   %20 = getelementptr inbounds i8, ptr %.03537, i64 %11
   %21 = getelementptr inbounds i8, ptr %.038, i64 %12
   %22 = load i64, ptr %20, align 8, !tbaa !46
   %23 = sitofp i64 %22 to float
-  %24 = fmul nsz float %23, 0x3C00000000000000
+  %24 = fmul nnan nsz float %23, 0x3C00000000000000
   store float %24, ptr %21, align 4, !tbaa !38
   %25 = getelementptr inbounds i8, ptr %20, i64 %11
   %26 = getelementptr inbounds i8, ptr %21, i64 %12
   %27 = load i64, ptr %25, align 8, !tbaa !46
   %28 = sitofp i64 %27 to float
-  %29 = fmul nsz float %28, 0x3C00000000000000
+  %29 = fmul nnan nsz float %28, 0x3C00000000000000
   store float %29, ptr %26, align 4, !tbaa !38
   %30 = getelementptr inbounds i8, ptr %25, i64 %11
   %31 = getelementptr inbounds i8, ptr %26, i64 %12
   %32 = load i64, ptr %30, align 8, !tbaa !46
   %33 = sitofp i64 %32 to float
-  %34 = fmul nsz float %33, 0x3C00000000000000
+  %34 = fmul nnan nsz float %33, 0x3C00000000000000
   store float %34, ptr %31, align 4, !tbaa !38
   %35 = getelementptr inbounds i8, ptr %30, i64 %11
   %36 = getelementptr inbounds i8, ptr %31, i64 %12
@@ -2946,7 +2946,7 @@ define internal void @conv_AV_SAMPLE_FMT_S64_to_AV_SAMPLE_FMT_FLT(ptr noundef wr
   %.13640 = phi ptr [ %.035.lcssa, %.lr.ph42 ], [ %42, %38 ]
   %39 = load i64, ptr %.13640, align 8, !tbaa !46
   %40 = sitofp i64 %39 to float
-  %41 = fmul nsz float %40, 0x3C00000000000000
+  %41 = fmul nnan nsz float %40, 0x3C00000000000000
   store float %41, ptr %.141, align 4, !tbaa !38
   %42 = getelementptr inbounds i8, ptr %.13640, i64 %14
   %43 = getelementptr inbounds i8, ptr %.141, i64 %15
@@ -2987,25 +2987,25 @@ define internal void @conv_AV_SAMPLE_FMT_S64_to_AV_SAMPLE_FMT_DBL(ptr noundef wr
   %.03537 = phi ptr [ %1, %.lr.ph ], [ %35, %16 ]
   %17 = load i64, ptr %.03537, align 8, !tbaa !46
   %18 = sitofp i64 %17 to double
-  %19 = fmul nsz double %18, 0x3C00000000000000
+  %19 = fmul nnan nsz double %18, 0x3C00000000000000
   store double %19, ptr %.038, align 8, !tbaa !42
   %20 = getelementptr inbounds i8, ptr %.03537, i64 %11
   %21 = getelementptr inbounds i8, ptr %.038, i64 %12
   %22 = load i64, ptr %20, align 8, !tbaa !46
   %23 = sitofp i64 %22 to double
-  %24 = fmul nsz double %23, 0x3C00000000000000
+  %24 = fmul nnan nsz double %23, 0x3C00000000000000
   store double %24, ptr %21, align 8, !tbaa !42
   %25 = getelementptr inbounds i8, ptr %20, i64 %11
   %26 = getelementptr inbounds i8, ptr %21, i64 %12
   %27 = load i64, ptr %25, align 8, !tbaa !46
   %28 = sitofp i64 %27 to double
-  %29 = fmul nsz double %28, 0x3C00000000000000
+  %29 = fmul nnan nsz double %28, 0x3C00000000000000
   store double %29, ptr %26, align 8, !tbaa !42
   %30 = getelementptr inbounds i8, ptr %25, i64 %11
   %31 = getelementptr inbounds i8, ptr %26, i64 %12
   %32 = load i64, ptr %30, align 8, !tbaa !46
   %33 = sitofp i64 %32 to double
-  %34 = fmul nsz double %33, 0x3C00000000000000
+  %34 = fmul nnan nsz double %33, 0x3C00000000000000
   store double %34, ptr %31, align 8, !tbaa !42
   %35 = getelementptr inbounds i8, ptr %30, i64 %11
   %36 = getelementptr inbounds i8, ptr %31, i64 %12
@@ -3017,7 +3017,7 @@ define internal void @conv_AV_SAMPLE_FMT_S64_to_AV_SAMPLE_FMT_DBL(ptr noundef wr
   %.13640 = phi ptr [ %.035.lcssa, %.lr.ph42 ], [ %42, %38 ]
   %39 = load i64, ptr %.13640, align 8, !tbaa !46
   %40 = sitofp i64 %39 to double
-  %41 = fmul nsz double %40, 0x3C00000000000000
+  %41 = fmul nnan nsz double %40, 0x3C00000000000000
   store double %41, ptr %.141, align 8, !tbaa !42
   %42 = getelementptr inbounds i8, ptr %.13640, i64 %14
   %43 = getelementptr inbounds i8, ptr %.141, i64 %15

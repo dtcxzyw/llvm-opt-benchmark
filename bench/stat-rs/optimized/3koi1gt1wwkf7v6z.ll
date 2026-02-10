@@ -238,7 +238,7 @@ define { i64, double } @"_ZN127_$LT$statrs..distribution..discrete_uniform..Disc
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = add i64 %4, %2
   %6 = sitofp i64 %5 to double
-  %7 = fmul double %6, 5.000000e-01
+  %7 = fmul nnan double %6, 5.000000e-01
   %8 = insertvalue { i64, double } { i64 1, double poison }, double %7, 1
   ret { i64, double } %8
 }
@@ -283,7 +283,7 @@ define noundef double @"_ZN121_$LT$statrs..distribution..discrete_uniform..Discr
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = add i64 %4, %2
   %6 = sitofp i64 %5 to double
-  %7 = fmul double %6, 5.000000e-01
+  %7 = fmul nnan double %6, 5.000000e-01
   ret double %7
 }
 
@@ -294,7 +294,7 @@ define { i64, i64 } @"_ZN147_$LT$statrs..distribution..discrete_uniform..Discret
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = add i64 %4, %2
   %6 = sitofp i64 %5 to double
-  %7 = fmul double %6, 5.000000e-01
+  %7 = fmul nnan double %6, 5.000000e-01
   %8 = tail call double @llvm.floor.f64(double %7)
   %9 = tail call i64 @llvm.fptosi.sat.i64.f64(double %8)
   %10 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %9, 1
@@ -1660,12 +1660,12 @@ define noundef double @"_ZN116_$LT$statrs..distribution..students_t..StudentsT$u
 
 6:                                                ; preds = %2
   %7 = fcmp ult double %1, 5.000000e-01
-  %8 = fsub double 1.000000e+00, %1
+  %8 = fsub nnan double 1.000000e+00, %1
   %.sroa.0.0 = select i1 %7, double %1, double %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load double, ptr %9, align 8, !noundef !4
   %11 = fmul double %10, 5.000000e-01
-  %12 = fmul double %.sroa.0.0, 2.000000e+00
+  %12 = fmul nnan double %.sroa.0.0, 2.000000e+00
   %13 = tail call noundef double @_ZN6statrs8function4beta12inv_beta_reg17h6cd70450337c051aE(double noundef %11, double noundef 5.000000e-01, double noundef %12)
   %14 = fsub double 1.000000e+00, %13
   %15 = fmul double %10, %14

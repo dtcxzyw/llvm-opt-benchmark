@@ -4174,7 +4174,7 @@ _ZNK11QMouseEvent1xEv.exit:                       ; preds = %17, %20
   %36 = add i32 %34, 1
   %37 = sub i32 %36, %35
   %38 = sitofp i32 %37 to float
-  %39 = fmul float %38, 5.000000e-01
+  %39 = fmul nnan float %38, 5.000000e-01
   %40 = fdiv float %29, %39
   %41 = fadd float %40, -1.000000e+00
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 32
@@ -4208,7 +4208,7 @@ _ZNK11QMouseEvent1yEv.exit:                       ; preds = %51, %54
   %63 = sub nsw i32 %47, %62
   %64 = sitofp i32 %63 to float
   %65 = sitofp i32 %47 to float
-  %66 = fmul float %65, 5.000000e-01
+  %66 = fmul nnan float %65, 5.000000e-01
   %67 = fdiv float %64, %66
   %68 = fadd float %67, -1.000000e+00
   store float %41, ptr %4, align 16

@@ -1295,8 +1295,8 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillOval(ptr noundef %0, ptr nound
   %20 = add nsw i32 %19, -1
   %21 = sitofp i32 %20 to double
   %22 = fneg double %21
-  %23 = tail call double @llvm.fmuladd.f64(double %18, double 0x3FEBB67AE8584CAA, double %22)
-  %24 = fmul double %23, 5.000000e-01
+  %23 = tail call nnan double @llvm.fmuladd.f64(double %18, double 0x3FEBB67AE8584CAA, double %22)
+  %24 = fmul nnan double %23, 5.000000e-01
   %25 = fptosi double %24 to i32
   %26 = shl nsw i32 %25, 1
   %27 = or disjoint i32 %26, %19
@@ -1317,8 +1317,8 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillOval(ptr noundef %0, ptr nound
   %37 = add nsw i32 %36, -1
   %38 = sitofp i32 %37 to double
   %39 = fneg double %38
-  %40 = tail call double @llvm.fmuladd.f64(double %35, double 0x3FEBB67AE8584CAA, double %39)
-  %41 = fmul double %40, 5.000000e-01
+  %40 = tail call nnan double @llvm.fmuladd.f64(double %35, double 0x3FEBB67AE8584CAA, double %39)
+  %41 = fmul nnan double %40, 5.000000e-01
   %42 = fptosi double %41 to i32
   %43 = shl nsw i32 %42, 1
   %44 = or disjoint i32 %43, %36

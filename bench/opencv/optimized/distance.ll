@@ -352,8 +352,8 @@ define hidden noundef double @_ZN2cv3ccm15deltaCIEDE2000_ERKNS_3VecIdLi3EEES4_RK
   br i1 %71, label %72, label %75
 
 72:                                               ; preds = %70
-  %73 = fadd double %67, 0x401921FB54442D18
-  %74 = fmul double %73, 5.000000e-01
+  %73 = fadd nnan double %67, 0x401921FB54442D18
+  %74 = fmul nnan double %73, 5.000000e-01
   br label %78
 
 75:                                               ; preds = %70

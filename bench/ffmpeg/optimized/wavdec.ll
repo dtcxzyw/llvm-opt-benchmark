@@ -1104,7 +1104,7 @@ wav_seek_tag.exit:                                ; preds = %404, %.thread399
 
 442:                                              ; preds = %437
   %443 = uitofp nneg i64 %.2292425463 to double
-  %444 = fmul nsz double %443, 8.000000e+00
+  %444 = fmul nnan nsz double %443, 8.000000e+00
   %445 = uitofp nneg i32 %435 to double
   %446 = fmul nsz double %444, %445
   %447 = uitofp nneg i32 %430 to double

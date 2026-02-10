@@ -1532,7 +1532,7 @@ define internal fastcc void @_ZL21low_get_pull_coord_drRK6pull_tRK17pull_coord_w
   br i1 %exitcond17.not, label %.split7.us, label %.split, !llvm.loop !126
 
 87:                                               ; preds = %.split7.us
-  %88 = fmul double %6, 0x3FEEBB98C7E28240
+  %88 = fmul nnan double %6, 0x3FEEBB98C7E28240
   %89 = fcmp ogt double %.us-phi, %88
   br i1 %89, label %90, label %105
 

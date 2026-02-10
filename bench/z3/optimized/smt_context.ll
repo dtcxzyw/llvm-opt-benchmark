@@ -15997,8 +15997,8 @@ _ZNK5timer10ms_timeoutEj.exit:                    ; preds = %34, %_ZN9stopwatch4
   %45 = load i64, ptr %44, align 8, !tbaa !964
   %46 = sdiv i64 %45, 1000000
   %47 = sitofp i64 %46 to double
-  %48 = fdiv double %47, 1.000000e+03
-  %49 = fmul double %48, 1.000000e+03
+  %48 = fdiv nnan double %47, 1.000000e+03
+  %49 = fmul nnan double %48, 1.000000e+03
   %50 = uitofp i32 %33 to double
   %51 = fcmp ogt double %49, %50
   br i1 %51, label %52, label %_ZNK5timer10ms_timeoutEj.exit.thread

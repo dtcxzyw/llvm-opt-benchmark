@@ -2263,7 +2263,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit61:               ; preds = %55, %_ZNKSt7__cxx11
 
 65:                                               ; preds = %63
   %66 = sitofp i32 %.028 to double
-  %67 = fmul double %66, 2.000000e+00
+  %67 = fmul nnan double %66, 2.000000e+00
   %68 = sitofp i32 %.030 to double
   %69 = fdiv double %67, %68
   %70 = fadd double %69, -1.000000e+00

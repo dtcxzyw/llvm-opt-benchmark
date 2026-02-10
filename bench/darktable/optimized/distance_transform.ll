@@ -183,14 +183,14 @@ define internal fastcc void @_image_distance_transform(ptr noundef readonly capt
   %9 = load float, ptr %8, align 4, !tbaa !6
   %10 = trunc nuw nsw i64 %indvars.iv84 to i32
   %11 = uitofp nneg i32 %10 to float
-  %12 = fmul reassoc nsz arcp contract afn float %11, %11
+  %12 = fmul reassoc nnan nsz arcp contract afn float %11, %11
   %13 = fadd reassoc nsz arcp contract afn float %9, %12
   %14 = sext i32 %.05871 to i64
   %15 = sext i32 %7 to i64
   %16 = getelementptr inbounds float, ptr %0, i64 %15
   %17 = load float, ptr %16, align 4, !tbaa !6
   %18 = sitofp i32 %7 to float
-  %19 = fmul reassoc nsz arcp contract afn float %18, %18
+  %19 = fmul reassoc nnan nsz arcp contract afn float %18, %18
   %20 = fadd reassoc nsz arcp contract afn float %19, %17
   %.05665 = fsub reassoc nsz arcp contract afn float %13, %20
   %21 = getelementptr inbounds float, ptr %1, i64 %14
@@ -211,7 +211,7 @@ define internal fastcc void @_image_distance_transform(ptr noundef readonly capt
   %31 = getelementptr inbounds float, ptr %0, i64 %30
   %32 = load float, ptr %31, align 4, !tbaa !6
   %33 = sitofp i32 %29 to float
-  %34 = fmul reassoc nsz arcp contract afn float %33, %33
+  %34 = fmul reassoc nnan nsz arcp contract afn float %33, %33
   %35 = fadd reassoc nsz arcp contract afn float %34, %32
   %.056 = fsub reassoc nsz arcp contract afn float %13, %35
   %36 = getelementptr inbounds float, ptr %1, i64 %indvars.iv.next
@@ -273,7 +273,7 @@ define internal fastcc void @_image_distance_transform(ptr noundef readonly capt
   %61 = load i32, ptr %60, align 4, !tbaa !10
   %62 = sub nsw i32 %51, %61
   %63 = sitofp i32 %62 to float
-  %64 = fmul reassoc nsz arcp contract afn float %63, %63
+  %64 = fmul reassoc nnan nsz arcp contract afn float %63, %63
   %65 = sext i32 %61 to i64
   %66 = getelementptr inbounds float, ptr %0, i64 %65
   %67 = load float, ptr %66, align 4, !tbaa !6

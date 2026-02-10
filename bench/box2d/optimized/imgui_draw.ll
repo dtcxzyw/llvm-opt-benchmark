@@ -1310,8 +1310,8 @@ define dso_local void @_ZN20ImDrawListSharedDataC2Ev(ptr noundef nonnull writeon
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   %6 = uitofp nneg i32 %5 to float
-  %7 = fmul float %6, 2.000000e+00
-  %8 = fmul float %7, 0x400921FB60000000
+  %7 = fmul nnan float %6, 2.000000e+00
+  %8 = fmul nnan float %7, 0x400921FB60000000
   %9 = fdiv float %8, 4.800000e+01
   %10 = tail call float @cosf(float noundef %9) #43, !tbaa !19
   %11 = tail call float @sinf(float noundef %9) #43, !tbaa !19
@@ -4186,13 +4186,13 @@ define dso_local void @_ZN10ImDrawList11AddPolylineEPK6ImVec2ijif(ptr noundef no
   br label %.lr.ph608
 
 .thread593:                                       ; preds = %.thread
-  %99 = fmul float %25, 5.000000e-01
+  %99 = fmul nnan float %25, 5.000000e-01
   %100 = fadd float %99, 1.000000e+00
   %101 = select i1 %spec.select, float %100, float %17
   br label %.lr.ph614
 
 102:                                              ; preds = %89
-  %103 = fmul float %25, 5.000000e-01
+  %103 = fmul nnan float %25, 5.000000e-01
   %104 = fadd float %103, 1.000000e+00
   %105 = select i1 %spec.select, float %104, float %17
   %106 = fmul float %105, %.val
@@ -5877,12 +5877,12 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit:       ; preds = %._ZN8ImVectorI6ImVe
   %80 = phi i32 [ %68, %66 ], [ %62, %54 ]
   %81 = tail call noundef i32 @llvm.smax.i32(i32 %.sink, i32 0)
   %82 = sitofp i32 %80 to float
-  %83 = fmul float %82, 0x400921FB60000000
-  %84 = fmul float %83, 2.000000e+00
+  %83 = fmul nnan float %82, 0x400921FB60000000
+  %84 = fmul nnan float %83, 2.000000e+00
   %85 = fdiv float %84, 4.800000e+01
   %86 = sitofp i32 %79 to float
-  %87 = fmul float %86, 0x400921FB60000000
-  %88 = fmul float %87, 2.000000e+00
+  %87 = fmul nnan float %86, 0x400921FB60000000
+  %88 = fmul nnan float %87, 2.000000e+00
   %89 = fdiv float %88, 4.800000e+01
   %90 = fsub float %85, %3
   %91 = tail call noundef float @llvm.fabs.f32(float %90)
@@ -6410,7 +6410,7 @@ define dso_local void @_ZN10ImDrawList22PathBezierCubicCurveToERK6ImVec2S2_S2_i(
 
 30:                                               ; preds = %5
   %31 = sitofp i32 %4 to float
-  %32 = fdiv float 1.000000e+00, %31
+  %32 = fdiv nnan float 1.000000e+00, %31
   %.not21 = icmp slt i32 %4, 1
   br i1 %.not21, label %.loopexit, label %.lr.ph
 
@@ -6686,7 +6686,7 @@ define dso_local void @_ZN10ImDrawList26PathBezierQuadraticCurveToERK6ImVec2S2_i
 
 26:                                               ; preds = %4
   %27 = sitofp i32 %3 to float
-  %28 = fdiv float 1.000000e+00, %27
+  %28 = fdiv nnan float 1.000000e+00, %27
   %.not18 = icmp slt i32 %3, 1
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
@@ -8824,7 +8824,7 @@ define dso_local void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnu
   %19 = uitofp nneg i32 %18 to float
   %20 = add nsw i32 %18, -1
   %21 = uitofp nneg i32 %20 to float
-  %22 = fmul float %21, 0x401921FB60000000
+  %22 = fmul nnan float %21, 0x401921FB60000000
   %23 = fdiv float %22, %19
   %24 = fadd float %2, -5.000000e-01
   tail call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, float noundef %24, float noundef 0.000000e+00, float noundef %23, i32 noundef %20)
@@ -8870,7 +8870,7 @@ define dso_local void @_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji(ptr noundef
   %17 = uitofp nneg i32 %16 to float
   %18 = add nsw i32 %16, -1
   %19 = uitofp nneg i32 %18 to float
-  %20 = fmul float %19, 0x401921FB60000000
+  %20 = fmul nnan float %19, 0x401921FB60000000
   %21 = fdiv float %20, %17
   tail call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, float noundef %2, float noundef 0.000000e+00, float noundef %21, i32 noundef %18)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -8899,8 +8899,8 @@ define dso_local void @_ZN10ImDrawList7AddNgonERK6ImVec2fjif(ptr noundef nonnull
 
 9:                                                ; preds = %6
   %10 = uitofp nneg i32 %4 to float
-  %11 = fadd float %10, -1.000000e+00
-  %12 = fmul float %11, 0x401921FB60000000
+  %11 = fadd nnan float %10, -1.000000e+00
+  %12 = fmul nnan float %11, 0x401921FB60000000
   %13 = fdiv float %12, %10
   %14 = fadd float %2, -5.000000e-01
   %15 = add nsw i32 %4, -1
@@ -8926,8 +8926,8 @@ define dso_local void @_ZN10ImDrawList13AddNgonFilledERK6ImVec2fji(ptr noundef n
 
 8:                                                ; preds = %5
   %9 = uitofp nneg i32 %4 to float
-  %10 = fadd float %9, -1.000000e+00
-  %11 = fmul float %10, 0x401921FB60000000
+  %10 = fadd nnan float %9, -1.000000e+00
+  %11 = fmul nnan float %10, 0x401921FB60000000
   %12 = fdiv float %11, %9
   %13 = add nsw i32 %4, -1
   tail call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, float noundef %2, float noundef 0.000000e+00, float noundef %12, i32 noundef %13)
@@ -8994,8 +8994,8 @@ define dso_local void @_ZN10ImDrawList10AddEllipseERK6ImVec2S2_jfif(ptr noundef 
 _ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit: ; preds = %27, %21, %9
   %.0 = phi i32 [ %5, %9 ], [ %26, %21 ], [ %42, %27 ]
   %43 = uitofp nneg i32 %.0 to float
-  %44 = fadd float %43, -1.000000e+00
-  %45 = fmul float %44, 0x401921FB60000000
+  %44 = fadd nnan float %43, -1.000000e+00
+  %45 = fmul nnan float %44, 0x401921FB60000000
   %46 = fdiv float %45, %43
   %47 = add nsw i32 %.0, -1
   tail call void @_ZN10ImDrawList19PathEllipticalArcToERK6ImVec2S2_fffi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, float noundef %4, float noundef 0.000000e+00, float noundef %46, i32 noundef %47)
@@ -9062,8 +9062,8 @@ define dso_local void @_ZN10ImDrawList16AddEllipseFilledERK6ImVec2S2_jfi(ptr nou
 _ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit: ; preds = %26, %20, %8
   %.0 = phi i32 [ %5, %8 ], [ %25, %20 ], [ %41, %26 ]
   %42 = uitofp nneg i32 %.0 to float
-  %43 = fadd float %42, -1.000000e+00
-  %44 = fmul float %43, 0x401921FB60000000
+  %43 = fadd nnan float %42, -1.000000e+00
+  %44 = fmul nnan float %43, 0x401921FB60000000
   %45 = fdiv float %44, %42
   %46 = add nsw i32 %.0, -1
   tail call void @_ZN10ImDrawList19PathEllipticalArcToERK6ImVec2S2_fffi(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, float noundef %4, float noundef 0.000000e+00, float noundef %45, i32 noundef %46)
@@ -18401,13 +18401,13 @@ _ZL23stbtt__oversample_shifti.exit.i:             ; preds = %1617, %1597
   %.not.i.i419 = icmp eq i8 %1631, 0
   %1639 = sub nsw i32 1, %1632
   %1640 = sitofp i32 %1639 to float
-  %1641 = fmul float %1635, 2.000000e+00
+  %1641 = fmul nnan float %1635, 2.000000e+00
   %1642 = fdiv float %1640, %1641
   %.0.i.i420 = select i1 %.not.i.i419, float 0.000000e+00, float %1642
   %.not.i161.i = icmp eq i8 %1633, 0
   %1643 = sub nsw i32 1, %1634
   %1644 = sitofp i32 %1643 to float
-  %1645 = fmul float %1637, 2.000000e+00
+  %1645 = fmul nnan float %1637, 2.000000e+00
   %1646 = fdiv float %1644, %1645
   %.0.i162.i = select i1 %.not.i161.i, float 0.000000e+00, float %1646
   %1647 = load i32, ptr %1582, align 8, !tbaa !416
@@ -19669,7 +19669,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i.i.i.i: ;
   %2346 = load float, ptr %2345, align 4, !tbaa !452
   %2347 = fsub float %.0308.i.i.i.i.i.i, %.1300.i.i.i.i.i.i
   %2348 = fmul float %2346, %2347
-  %2349 = fsub float %2336, %.1.i.i.i.i.i.i
+  %2349 = fsub nnan float %2336, %.1.i.i.i.i.i.i
   %2350 = fmul float %2349, %2348
   %2351 = fmul float %2350, 5.000000e-01
   %2352 = sext i32 %.pre-phi.i.i.i.i.i.i to i64
@@ -19719,7 +19719,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i.i.i.i: ;
   %.0306.lcssa.i.i.i.i.i.i = phi float [ %2348, %2362 ], [ %2372, %2367 ]
   %2373 = fsub float %.1303.i.i.i.i.i.i, %.0309.i.i.i.i.i.i
   %2374 = fadd float %2340, 1.000000e+00
-  %2375 = fsub float %2374, %2340
+  %2375 = fsub nnan float %2374, %2340
   %2376 = fsub float %2374, %.1298.i.i.i.i.i.i
   %2377 = fadd float %2375, %2376
   %2378 = fmul float %2377, 5.000000e-01
@@ -19865,7 +19865,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit376.i.i.i.i.i.i:
   br i1 %2463, label %2464, label %2471
 
 2464:                                             ; preds = %2462
-  %2465 = fsub float %2398, %2396
+  %2465 = fsub nnan float %2398, %2396
   %2466 = fsub float %2460, %2401
   %2467 = fmul float %2465, %2466
   %2468 = fsub float %2404, %2401
@@ -20108,7 +20108,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit403.i.i.i.i.i.i:
   br i1 %2607, label %2608, label %2615
 
 2608:                                             ; preds = %2606
-  %2609 = fsub float %2396, %2398
+  %2609 = fsub nnan float %2396, %2398
   %2610 = fsub float %2604, %2404
   %2611 = fmul float %2609, %2610
   %2612 = fsub float %2401, %2404
@@ -23543,14 +23543,14 @@ _Z41ImFontAtlasBuildRender32bppRectFromStringP11ImFontAtlasiiiiPKccj.exit.i: ; p
 _ZL36ImFontAtlasBuildRenderDefaultTexDataP11ImFontAtlas.exit: ; preds = %._crit_edge.us.i57.i, %._crit_edge.us.i76.i, %99, %112
   %122 = load i16, ptr %12, align 4, !tbaa !293
   %123 = uitofp i16 %122 to float
-  %124 = fadd float %123, 5.000000e-01
+  %124 = fadd nnan float %123, 5.000000e-01
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %126 = load float, ptr %125, align 8, !tbaa !295
   %127 = fmul float %126, %124
   %128 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %129 = load i16, ptr %128, align 2, !tbaa !296
   %130 = uitofp i16 %129 to float
-  %131 = fadd float %130, 5.000000e-01
+  %131 = fadd nnan float %130, 5.000000e-01
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %133 = load float, ptr %132, align 4, !tbaa !297
   %134 = fmul float %133, %131
@@ -26162,9 +26162,9 @@ define dso_local void @_ZN5ImGui15RenderCheckMarkEP10ImDrawList6ImVec2jf(ptr nou
   %5 = fdiv float %3, 5.000000e+00
   %6 = fcmp oge float %5, 1.000000e+00
   %7 = select i1 %6, float %5, float 1.000000e+00
-  %8 = fmul float %7, 5.000000e-01
+  %8 = fmul nnan float %7, 5.000000e-01
   %9 = fsub float %3, %8
-  %10 = fmul float %7, 2.500000e-01
+  %10 = fmul nnan float %7, 2.500000e-01
   %.sroa.050.0.vec.extract52 = extractelement <2 x float> %1, i64 0
   %11 = fadd float %.sroa.050.0.vec.extract52, %10
   %.sroa.050.4.vec.extract55 = extractelement <2 x float> %1, i64 1
@@ -30734,7 +30734,7 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.i380:      ; preds = %855, %852
 
 _ZL14stbtt__buf_getP10stbtt__bufi.exit:           ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i380
   %864 = sitofp i32 %.0.i.i to float
-  %865 = fmul float %864, 0x3EF0000000000000
+  %865 = fmul nnan float %864, 0x3EF0000000000000
   br label %923
 
 866:                                              ; preds = %849
@@ -32101,7 +32101,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %215, %232, %2
   %410 = zext i8 %.1297.val385.i to i16
   %411 = or disjoint i16 %409, %410
   %412 = sitofp i16 %411 to float
-  %413 = fmul float %412, 0x3F10000000000000
+  %413 = fmul nnan float %412, 0x3F10000000000000
   %414 = getelementptr inbounds nuw i8, ptr %.1297.i, i64 2
   br label %468
 
@@ -32119,7 +32119,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %215, %232, %2
   %421 = zext i8 %.1297.val383.i to i16
   %422 = or disjoint i16 %420, %421
   %423 = sitofp i16 %422 to float
-  %424 = fmul float %423, 0x3F10000000000000
+  %424 = fmul nnan float %423, 0x3F10000000000000
   %425 = getelementptr inbounds nuw i8, ptr %.1297.i, i64 2
   %.val380.i = load i8, ptr %425, align 1, !tbaa !23
   %426 = getelementptr i8, ptr %.1297.i, i64 3
@@ -32129,7 +32129,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %215, %232, %2
   %429 = zext i8 %.val381.i to i16
   %430 = or disjoint i16 %428, %429
   %431 = sitofp i16 %430 to float
-  %432 = fmul float %431, 0x3F10000000000000
+  %432 = fmul nnan float %431, 0x3F10000000000000
   %433 = getelementptr inbounds nuw i8, ptr %.1297.i, i64 4
   br label %468
 
@@ -32146,7 +32146,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %215, %232, %2
   %439 = zext i8 %.1297.val379.i to i16
   %440 = or disjoint i16 %438, %439
   %441 = sitofp i16 %440 to float
-  %442 = fmul float %441, 0x3F10000000000000
+  %442 = fmul nnan float %441, 0x3F10000000000000
   %443 = getelementptr inbounds nuw i8, ptr %.1297.i, i64 2
   %.val377.i = load i8, ptr %443, align 1, !tbaa !23
   %444 = getelementptr i8, ptr %.1297.i, i64 3
@@ -32156,7 +32156,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %215, %232, %2
   %447 = zext i8 %.val378.i to i16
   %448 = or disjoint i16 %446, %447
   %449 = sitofp i16 %448 to float
-  %450 = fmul float %449, 0x3F10000000000000
+  %450 = fmul nnan float %449, 0x3F10000000000000
   %451 = getelementptr inbounds nuw i8, ptr %.1297.i, i64 4
   %.val375.i = load i8, ptr %451, align 1, !tbaa !23
   %452 = getelementptr i8, ptr %.1297.i, i64 5
@@ -32166,7 +32166,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %215, %232, %2
   %455 = zext i8 %.val376.i to i16
   %456 = or disjoint i16 %454, %455
   %457 = sitofp i16 %456 to float
-  %458 = fmul float %457, 0x3F10000000000000
+  %458 = fmul nnan float %457, 0x3F10000000000000
   %459 = getelementptr inbounds nuw i8, ptr %.1297.i, i64 6
   %.val373.i = load i8, ptr %459, align 1, !tbaa !23
   %460 = getelementptr i8, ptr %.1297.i, i64 7
@@ -32176,7 +32176,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %215, %232, %2
   %463 = zext i8 %.val374.i to i16
   %464 = or disjoint i16 %462, %463
   %465 = sitofp i16 %464 to float
-  %466 = fmul float %465, 0x3F10000000000000
+  %466 = fmul nnan float %465, 0x3F10000000000000
   %467 = getelementptr inbounds nuw i8, ptr %.1297.i, i64 8
   br label %468
 

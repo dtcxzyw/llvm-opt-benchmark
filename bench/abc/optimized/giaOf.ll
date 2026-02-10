@@ -3889,7 +3889,7 @@ define void @Of_ManPrintStats(ptr noundef readonly captures(none) %0, ptr nounde
   %12 = load i64, ptr %11, align 8, !tbaa !120
   %13 = trunc i64 %12 to i32
   %14 = sitofp i32 %13 to double
-  %15 = fmul double %14, 1.000000e-01
+  %15 = fmul nnan double %14, 1.000000e-01
   %16 = fptrunc double %15 to float
   %17 = fpext float %16 to double
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, double noundef %17)
@@ -4041,14 +4041,14 @@ define void @Of_ManPrintQuit(ptr noundef captures(none) %0) local_unnamed_addr #
   %8 = getelementptr i8, ptr %7, i64 24
   %.val = load i32, ptr %8, align 8, !tbaa !42
   %9 = sitofp i32 %.val to double
-  %10 = fmul double %9, 3.200000e+01
-  %11 = fmul double %10, 0x3EB0000000000000
+  %10 = fmul nnan double %9, 3.200000e+01
+  %11 = fmul nnan double %10, 0x3EB0000000000000
   %12 = fptrunc double %11 to float
   %13 = getelementptr i8, ptr %0, i64 28
   %.val30 = load i32, ptr %13, align 4, !tbaa !72
   %14 = sitofp i32 %.val30 to double
-  %15 = fmul double %14, 2.621440e+05
-  %16 = fmul double %15, 0x3EB0000000000000
+  %15 = fmul nnan double %14, 2.621440e+05
+  %16 = fmul nnan double %15, 0x3EB0000000000000
   %17 = fptrunc double %16 to float
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !71
@@ -4058,7 +4058,7 @@ define void @Of_ManPrintQuit(ptr noundef captures(none) %0) local_unnamed_addr #
 20:                                               ; preds = %1
   %21 = load i32, ptr %19, align 8, !tbaa !62
   %22 = sitofp i32 %21 to double
-  %23 = fmul double %22, 8.000000e+00
+  %23 = fmul nnan double %22, 8.000000e+00
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !65
   %26 = shl nuw i32 1, %25
@@ -4071,7 +4071,7 @@ define void @Of_ManPrintQuit(ptr noundef captures(none) %0) local_unnamed_addr #
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %34 = load i32, ptr %33, align 8, !tbaa !130
   %35 = sitofp i32 %34 to double
-  %36 = fmul double %35, 8.000000e+00
+  %36 = fmul nnan double %35, 8.000000e+00
   %37 = tail call double @llvm.fmuladd.f64(double %28, double %32, double %36)
   %38 = fadd double %37, 4.800000e+01
   %39 = fmul double %38, 0x3EB0000000000000
@@ -6840,7 +6840,7 @@ Of_ManComputeOutputRequired.exit:                 ; preds = %.critedge2.i, %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 160
   store i64 %53, ptr %57, align 8, !tbaa !120
   %58 = uitofp nneg i32 %.0.lcssa90.i to double
-  %59 = fmul double %58, 1.000000e-01
+  %59 = fmul nnan double %58, 1.000000e-01
   %60 = fptrunc double %59 to float
   %61 = fpext float %60 to double
   %62 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, double noundef %61)

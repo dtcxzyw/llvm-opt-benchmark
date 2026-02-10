@@ -12712,7 +12712,7 @@ rioRead.exit302:                                  ; preds = %162, %164
 
 302:                                              ; preds = %296
   %303 = sitofp i64 %299 to double
-  %304 = fmul double %303, 0x3EB0000000000000
+  %304 = fmul nnan double %303, 0x3EB0000000000000
   call void (i32, ptr, ...) @_serverLog(i32 noundef 2, ptr noundef nonnull @.str.125, double noundef %304) #23
   br label %305
 

@@ -560,9 +560,9 @@ _requeue_job.exit:                                ; preds = %26, %30
   tail call void @cairo_paint(ptr noundef %1) #12
   tail call void @cairo_save(ptr noundef %1) #12
   %33 = sitofp i32 %2 to double
-  %34 = fmul reassoc nsz arcp contract afn double %33, 5.000000e-01
+  %34 = fmul reassoc nnan nsz arcp contract afn double %33, 5.000000e-01
   %35 = sitofp i32 %3 to double
-  %36 = fmul reassoc nsz arcp contract afn double %35, 5.000000e-01
+  %36 = fmul reassoc nnan nsz arcp contract afn double %35, 5.000000e-01
   tail call void @cairo_translate(ptr noundef %1, double noundef %34, double noundef %36) #12
   %37 = load ptr, ptr %12, align 8, !tbaa !86
   %38 = icmp ne ptr %37, null
@@ -593,10 +593,10 @@ _requeue_job.exit:                                ; preds = %26, %30
   %55 = tail call ptr @dt_view_create_surface(ptr noundef %52, i64 noundef %53, i64 noundef %54) #12
   %56 = load i64, ptr %17, align 8, !tbaa !87
   %57 = uitofp i64 %56 to double
-  %58 = fmul reassoc nsz arcp contract afn double %57, -5.000000e-01
+  %58 = fmul reassoc nnan nsz arcp contract afn double %57, -5.000000e-01
   %59 = load i64, ptr %47, align 8, !tbaa !88
   %60 = uitofp i64 %59 to double
-  %61 = fmul reassoc nsz arcp contract afn double %60, -5.000000e-01
+  %61 = fmul reassoc nnan nsz arcp contract afn double %60, -5.000000e-01
   tail call void @cairo_set_source_surface(ptr noundef %1, ptr noundef %55, double noundef %58, double noundef %61) #12
   %62 = tail call ptr @cairo_get_source(ptr noundef %1) #12
   tail call void @cairo_pattern_set_filter(ptr noundef %62, i32 noundef 2) #12
@@ -649,10 +649,10 @@ _requeue_job.exit:                                ; preds = %26, %30
   %90 = call ptr @gdk_pixbuf_new_from_data(ptr noundef %86, i32 noundef 0, i32 noundef 1, i32 noundef 8, i32 noundef %87, i32 noundef %88, i32 noundef %89, ptr noundef null, ptr noundef null) #12
   %91 = load i32, ptr %77, align 8, !tbaa !93
   %92 = sitofp i32 %91 to double
-  %93 = fmul reassoc nsz arcp contract afn double %92, -5.000000e-01
+  %93 = fmul reassoc nnan nsz arcp contract afn double %92, -5.000000e-01
   %94 = load i32, ptr %81, align 4, !tbaa !94
   %95 = sitofp i32 %94 to double
-  %96 = fmul reassoc nsz arcp contract afn double %95, -5.000000e-01
+  %96 = fmul reassoc nnan nsz arcp contract afn double %95, -5.000000e-01
   call void @gdk_cairo_set_source_pixbuf(ptr noundef %1, ptr noundef %90, double noundef %93, double noundef %96) #12
   %97 = call ptr @cairo_get_source(ptr noundef %1) #12
   call void @cairo_pattern_set_filter(ptr noundef %97, i32 noundef 1) #12

@@ -836,7 +836,7 @@ define dso_local void @_ZN9Stockfish4Eval5traceB5cxx11ERNS_8PositionE(ptr dead_o
   %32 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.11) #18
   %33 = call noundef i32 @_ZN9Stockfish3UCI5to_cpEi(i32 noundef %31) #18
   %34 = sitofp i32 %33 to double
-  %35 = fmul double %34, 1.000000e-02
+  %35 = fmul nnan double %34, 1.000000e-02
   %36 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %32, double noundef %35) #18
   %37 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull @.str.12) #18
   %38 = call noundef i32 @_ZN9Stockfish4Eval8evaluateERKNS_8PositionEi(ptr noundef nonnull align 8 dereferenceable(865) %1, i32 noundef 0)
@@ -847,7 +847,7 @@ define dso_local void @_ZN9Stockfish4Eval5traceB5cxx11ERNS_8PositionE(ptr dead_o
   %43 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.13) #18
   %44 = call noundef i32 @_ZN9Stockfish3UCI5to_cpEi(i32 noundef %42) #18
   %45 = sitofp i32 %44 to double
-  %46 = fmul double %45, 1.000000e-02
+  %46 = fmul nnan double %45, 1.000000e-02
   %47 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %43, double noundef %46) #18
   %48 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %47, ptr noundef nonnull @.str.14) #18
   %49 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull @.str.15) #18

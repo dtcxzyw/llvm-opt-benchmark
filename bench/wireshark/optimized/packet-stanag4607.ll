@@ -724,8 +724,8 @@ define internal void @prt_millisec(ptr noundef %0, i32 noundef %1) #1 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @prt_sa32(ptr noundef %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E10000000000000
-  %5 = fmul double %4, 4.500000e+01
+  %4 = fmul nnan double %3, 0x3E10000000000000
+  %5 = fmul nnan double %4, 4.500000e+01
   %6 = tail call double @llvm.floor.f64(double %5)
   %7 = fsub double %5, %6
   %8 = fmul double %7, 6.000000e+01
@@ -740,8 +740,8 @@ define internal void @prt_sa32(ptr noundef %0, i32 noundef %1) #1 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @prt_ba32(ptr noundef %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E10000000000000
-  %5 = fmul double %4, 9.000000e+01
+  %4 = fmul nnan double %3, 0x3E10000000000000
+  %5 = fmul nnan double %4, 9.000000e+01
   %6 = tail call double @llvm.floor.f64(double %5)
   %7 = fsub double %5, %6
   %8 = fmul double %7, 6.000000e+01
@@ -764,8 +764,8 @@ define internal void @prt_centimeters(ptr noundef %0, i32 noundef %1) #1 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @prt_ba16(ptr noundef %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F10000000000000
-  %5 = fmul double %4, 9.000000e+01
+  %4 = fmul nnan double %3, 0x3F10000000000000
+  %5 = fmul nnan double %4, 9.000000e+01
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.365, double noundef %5)
   ret void
 }
@@ -797,8 +797,8 @@ define internal void @prt_speed_centi(ptr noundef %0, i32 noundef %1) #1 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @prt_sa16(ptr noundef %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F10000000000000
-  %5 = fmul double %4, 9.000000e+01
+  %4 = fmul nnan double %3, 0x3F10000000000000
+  %5 = fmul nnan double %4, 9.000000e+01
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.365, double noundef %5)
   ret void
 }
@@ -806,7 +806,7 @@ define internal void @prt_sa16(ptr noundef %0, i32 noundef %1) #1 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @prt_kilo(ptr noundef %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 7.812500e-03
+  %4 = fmul nnan double %3, 7.812500e-03
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.369, double noundef %4)
   ret void
 }
@@ -871,8 +871,8 @@ define internal void @prt_ba16_none(ptr noundef %0, i32 noundef %1) #1 {
 
 6:                                                ; preds = %2
   %7 = uitofp i32 %1 to double
-  %8 = fmul double %7, 0x3F10000000000000
-  %9 = fmul double %8, 9.000000e+01
+  %8 = fmul nnan double %7, 0x3F10000000000000
+  %9 = fmul nnan double %8, 9.000000e+01
   %10 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.365, double noundef %9)
   br label %11
 

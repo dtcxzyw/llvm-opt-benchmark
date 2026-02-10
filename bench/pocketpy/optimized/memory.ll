@@ -603,7 +603,7 @@ define linkonce_odr void @_ZN4pkpy10MemoryPoolILi64EE4infoB5cxx11Ev(ptr dead_on_
 
 _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit.loopexit: ; preds = %.lr.ph.i
   %21 = uitofp i64 %19 to float
-  %22 = fmul float %21, 0x3EB0000000000000
+  %22 = fmul nnan float %21, 0x3EB0000000000000
   %23 = fpext float %22 to double
   br label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit
 
@@ -628,7 +628,7 @@ _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx1
 _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E0_EEvT_.exit: ; preds = %.lr.ph.i7, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit
   %.2 = phi i64 [ %.1, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi64EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit ], [ %30, %.lr.ph.i7 ]
   %31 = uitofp i64 %.2 to float
-  %32 = fmul float %31, 0x3EB0000000000000
+  %32 = fmul nnan float %31, 0x3EB0000000000000
   %33 = fpext float %32 to double
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 512, ptr noundef nonnull @.str, i32 noundef 64, double noundef %.116, double noundef %33, i32 noundef %5, i32 noundef %8) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19
@@ -714,7 +714,7 @@ define linkonce_odr void @_ZN4pkpy10MemoryPoolILi128EE4infoB5cxx11Ev(ptr dead_on
 
 _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit.loopexit: ; preds = %.lr.ph.i
   %21 = uitofp i64 %19 to float
-  %22 = fmul float %21, 0x3EB0000000000000
+  %22 = fmul nnan float %21, 0x3EB0000000000000
   %23 = fpext float %22 to double
   br label %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit
 
@@ -739,7 +739,7 @@ _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx
 _ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E0_EEvT_.exit: ; preds = %.lr.ph.i7, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit
   %.2 = phi i64 [ %.1, %_ZN4pkpy16DoubleLinkedListINS_10MemoryPoolILi128EE5ArenaEE5applyIZNS2_4infoB5cxx11EvEUlPS3_E_EEvT_.exit ], [ %30, %.lr.ph.i7 ]
   %31 = uitofp i64 %.2 to float
-  %32 = fmul float %31, 0x3EB0000000000000
+  %32 = fmul nnan float %31, 0x3EB0000000000000
   %33 = fpext float %32 to double
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 512, ptr noundef nonnull @.str, i32 noundef 128, double noundef %.116, double noundef %33, i32 noundef %5, i32 noundef %8) #19
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #19

@@ -2614,7 +2614,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNSt6vectorIfSaIfE
   %48 = phi ptr [ %41, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i ], [ %24, %27 ]
   %49 = phi ptr [ %47, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i ], [ %25, %27 ]
   %50 = phi ptr [ %45, %_ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i ], [ %28, %27 ]
-  %51 = fmul float %storemerge39, 0x3FF19999A0000000
+  %51 = fmul nnan float %storemerge39, 0x3FF19999A0000000
   %52 = fcmp olt float %51, 0x3FF3333340000000
   br i1 %52, label %23, label %22, !llvm.loop !123
 

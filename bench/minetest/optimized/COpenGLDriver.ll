@@ -12710,22 +12710,22 @@ if.then76:                                        ; preds = %if.then61
   %shr.i = lshr i32 %16, 16
   %and.i = and i32 %shr.i, 255
   %conv79 = uitofp nneg i32 %and.i to float
-  %mul = fmul float %conv79, 0x3F70101020000000
+  %mul = fmul nnan float %conv79, 0x3F70101020000000
   store float %mul, ptr %color, align 16, !tbaa !103
   %shr.i838 = lshr i32 %16, 8
   %and.i839 = and i32 %shr.i838, 255
   %conv82 = uitofp nneg i32 %and.i839 to float
-  %mul83 = fmul float %conv82, 0x3F70101020000000
+  %mul83 = fmul nnan float %conv82, 0x3F70101020000000
   %arrayidx84 = getelementptr inbounds nuw i8, ptr %color, i64 4
   store float %mul83, ptr %arrayidx84, align 4, !tbaa !103
   %and.i840 = and i32 %16, 255
   %conv87 = uitofp nneg i32 %and.i840 to float
-  %mul88 = fmul float %conv87, 0x3F70101020000000
+  %mul88 = fmul nnan float %conv87, 0x3F70101020000000
   %arrayidx89 = getelementptr inbounds nuw i8, ptr %color, i64 8
   store float %mul88, ptr %arrayidx89, align 8, !tbaa !103
   %shr.i841 = lshr i32 %16, 24
   %conv92 = uitofp nneg i32 %shr.i841 to float
-  %mul93 = fmul float %conv92, 0x3F70101020000000
+  %mul93 = fmul nnan float %conv92, 0x3F70101020000000
   %arrayidx94 = getelementptr inbounds nuw i8, ptr %color, i64 12
   store float %mul93, ptr %arrayidx94, align 4, !tbaa !103
   call void @glMaterialfv(i32 noundef 1032, i32 noundef 4608, ptr noundef nonnull %color) #25
@@ -12748,22 +12748,22 @@ if.then111:                                       ; preds = %if.end95
   %shr.i842 = lshr i32 %17, 16
   %and.i843 = and i32 %shr.i842, 255
   %conv114 = uitofp nneg i32 %and.i843 to float
-  %mul115 = fmul float %conv114, 0x3F70101020000000
+  %mul115 = fmul nnan float %conv114, 0x3F70101020000000
   store float %mul115, ptr %color, align 16, !tbaa !103
   %shr.i844 = lshr i32 %17, 8
   %and.i845 = and i32 %shr.i844, 255
   %conv119 = uitofp nneg i32 %and.i845 to float
-  %mul120 = fmul float %conv119, 0x3F70101020000000
+  %mul120 = fmul nnan float %conv119, 0x3F70101020000000
   %arrayidx121 = getelementptr inbounds nuw i8, ptr %color, i64 4
   store float %mul120, ptr %arrayidx121, align 4, !tbaa !103
   %and.i846 = and i32 %17, 255
   %conv124 = uitofp nneg i32 %and.i846 to float
-  %mul125 = fmul float %conv124, 0x3F70101020000000
+  %mul125 = fmul nnan float %conv124, 0x3F70101020000000
   %arrayidx126 = getelementptr inbounds nuw i8, ptr %color, i64 8
   store float %mul125, ptr %arrayidx126, align 8, !tbaa !103
   %shr.i847 = lshr i32 %17, 24
   %conv129 = uitofp nneg i32 %shr.i847 to float
-  %mul130 = fmul float %conv129, 0x3F70101020000000
+  %mul130 = fmul nnan float %conv129, 0x3F70101020000000
   %arrayidx131 = getelementptr inbounds nuw i8, ptr %color, i64 12
   store float %mul130, ptr %arrayidx131, align 4, !tbaa !103
   call void @glMaterialfv(i32 noundef 1032, i32 noundef 4609, ptr noundef nonnull %color) #25
@@ -12782,22 +12782,22 @@ if.then141:                                       ; preds = %if.end133
   %shr.i848 = lshr i32 %19, 16
   %and.i849 = and i32 %shr.i848, 255
   %conv144 = uitofp nneg i32 %and.i849 to float
-  %mul145 = fmul float %conv144, 0x3F70101020000000
+  %mul145 = fmul nnan float %conv144, 0x3F70101020000000
   store float %mul145, ptr %color, align 16, !tbaa !103
   %shr.i850 = lshr i32 %19, 8
   %and.i851 = and i32 %shr.i850, 255
   %conv149 = uitofp nneg i32 %and.i851 to float
-  %mul150 = fmul float %conv149, 0x3F70101020000000
+  %mul150 = fmul nnan float %conv149, 0x3F70101020000000
   %arrayidx151 = getelementptr inbounds nuw i8, ptr %color, i64 4
   store float %mul150, ptr %arrayidx151, align 4, !tbaa !103
   %and.i852 = and i32 %19, 255
   %conv154 = uitofp nneg i32 %and.i852 to float
-  %mul155 = fmul float %conv154, 0x3F70101020000000
+  %mul155 = fmul nnan float %conv154, 0x3F70101020000000
   %arrayidx156 = getelementptr inbounds nuw i8, ptr %color, i64 8
   store float %mul155, ptr %arrayidx156, align 8, !tbaa !103
   %shr.i853 = lshr i32 %19, 24
   %conv159 = uitofp nneg i32 %shr.i853 to float
-  %mul160 = fmul float %conv159, 0x3F70101020000000
+  %mul160 = fmul nnan float %conv159, 0x3F70101020000000
   %arrayidx161 = getelementptr inbounds nuw i8, ptr %color, i64 12
   store float %mul160, ptr %arrayidx161, align 4, !tbaa !103
   call void @glMaterialfv(i32 noundef 1032, i32 noundef 5632, ptr noundef nonnull %color) #25
@@ -12867,22 +12867,22 @@ if.end206:                                        ; preds = %if.then205, %if.the
   %shr.i855 = lshr i32 %30, 16
   %and.i856 = and i32 %shr.i855, 255
   %conv209 = uitofp nneg i32 %and.i856 to float
-  %mul210 = fmul float %conv209, 0x3F70101020000000
+  %mul210 = fmul nnan float %conv209, 0x3F70101020000000
   store float %mul210, ptr %color189, align 16, !tbaa !103
   %shr.i857 = lshr i32 %30, 8
   %and.i858 = and i32 %shr.i857, 255
   %conv214 = uitofp nneg i32 %and.i858 to float
-  %mul215 = fmul float %conv214, 0x3F70101020000000
+  %mul215 = fmul nnan float %conv214, 0x3F70101020000000
   %arrayidx216 = getelementptr inbounds nuw i8, ptr %color189, i64 4
   store float %mul215, ptr %arrayidx216, align 4, !tbaa !103
   %and.i859 = and i32 %30, 255
   %conv219 = uitofp nneg i32 %and.i859 to float
-  %mul220 = fmul float %conv219, 0x3F70101020000000
+  %mul220 = fmul nnan float %conv219, 0x3F70101020000000
   %arrayidx221 = getelementptr inbounds nuw i8, ptr %color189, i64 8
   store float %mul220, ptr %arrayidx221, align 8, !tbaa !103
   %shr.i860 = lshr i32 %30, 24
   %conv224 = uitofp nneg i32 %shr.i860 to float
-  %mul225 = fmul float %conv224, 0x3F70101020000000
+  %mul225 = fmul nnan float %conv224, 0x3F70101020000000
   %arrayidx226 = getelementptr inbounds nuw i8, ptr %color189, i64 12
   store float %mul225, ptr %arrayidx226, align 4, !tbaa !103
   br label %if.end235
@@ -15140,7 +15140,7 @@ if.then53:                                        ; preds = %lor.lhs.false46, %i
 
 if.then59:                                        ; preds = %if.then53
   %conv66 = sitofp i8 %.pre to float
-  %mul = fmul float %conv66, 1.250000e-01
+  %mul = fmul nnan float %conv66, 1.250000e-01
   %103 = load float, ptr %MaxTextureLODBias102, align 4
   %fneg = fneg float %103
   %cmp.i.i458 = fcmp olt float %mul, %fneg
@@ -15171,7 +15171,7 @@ if.then84:                                        ; preds = %if.else80
 
 if.then90:                                        ; preds = %if.then84
   %conv98 = sitofp i8 %108 to float
-  %mul99 = fmul float %conv98, 1.250000e-01
+  %mul99 = fmul nnan float %conv98, 1.250000e-01
   %109 = load float, ptr %MaxTextureLODBias102, align 4
   %fneg103 = fneg float %109
   %cmp.i.i459 = fcmp olt float %mul99, %fneg103
@@ -16115,17 +16115,17 @@ if.end20:                                         ; preds = %if.else19, %if.then
   %shr.i.i = lshr i32 %c.coerce, 16
   %and.i.i = and i32 %shr.i.i, 255
   %conv.i = uitofp nneg i32 %and.i.i to float
-  %mul.i = fmul float %conv.i, 0x3F70101020000000
+  %mul.i = fmul nnan float %conv.i, 0x3F70101020000000
   %shr.i11.i = lshr i32 %c.coerce, 8
   %and.i12.i = and i32 %shr.i11.i, 255
   %conv3.i = uitofp nneg i32 %and.i12.i to float
-  %mul4.i = fmul float %conv3.i, 0x3F70101020000000
+  %mul4.i = fmul nnan float %conv3.i, 0x3F70101020000000
   %and.i13.i = and i32 %c.coerce, 255
   %conv6.i = uitofp nneg i32 %and.i13.i to float
-  %mul7.i = fmul float %conv6.i, 0x3F70101020000000
+  %mul7.i = fmul nnan float %conv6.i, 0x3F70101020000000
   %shr.i14.i = lshr i32 %c.coerce, 24
   %conv9.i = uitofp nneg i32 %shr.i14.i to float
-  %mul10.i = fmul float %conv9.i, 0x3F70101020000000
+  %mul10.i = fmul nnan float %conv9.i, 0x3F70101020000000
   call void @llvm.lifetime.start.p0(ptr nonnull %data)
   store float %mul.i, ptr %data, align 16, !tbaa !103
   %arrayinit.element = getelementptr inbounds nuw i8, ptr %data, i64 4
@@ -18415,17 +18415,17 @@ _ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreText
   %shr.i = lshr i32 %color.coerce, 16
   %and.i = and i32 %shr.i, 255
   %conv4 = uitofp nneg i32 %and.i to float
-  %mul = fmul float %conv4, 0x3F70101020000000
+  %mul = fmul nnan float %conv4, 0x3F70101020000000
   %shr.i42 = lshr i32 %color.coerce, 8
   %and.i43 = and i32 %shr.i42, 255
   %conv6 = uitofp nneg i32 %and.i43 to float
-  %mul7 = fmul float %conv6, 0x3F70101020000000
+  %mul7 = fmul nnan float %conv6, 0x3F70101020000000
   %and.i44 = and i32 %color.coerce, 255
   %conv9 = uitofp nneg i32 %and.i44 to float
-  %mul10 = fmul float %conv9, 0x3F70101020000000
+  %mul10 = fmul nnan float %conv9, 0x3F70101020000000
   %shr.i45 = lshr i32 %color.coerce, 24
   %conv12 = uitofp nneg i32 %shr.i45 to float
-  %mul13 = fmul float %conv12, 0x3F70101020000000
+  %mul13 = fmul nnan float %conv12, 0x3F70101020000000
   tail call void @glClearColor(float noundef %mul, float noundef %mul7, float noundef %mul10, float noundef %mul13) #25
   br label %if.end
 

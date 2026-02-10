@@ -4500,7 +4500,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc22DisparityWLSFilterImplELN9__gnu_cxx12_Lock_po
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %126 = load ptr, ptr %0, align 8, !tbaa !185
   %127 = sitofp i32 %35 to double
-  %128 = fmul double %127, 3.300000e-01
+  %128 = fmul nnan double %127, 3.300000e-01
   %129 = tail call double @llvm.ceil.f64(double %128)
   %130 = fptosi double %129 to i32
   %131 = load ptr, ptr %126, align 8, !tbaa !52
@@ -4728,7 +4728,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc22DisparityWLSFilterImplELN9__gnu_cxx12_Lock_po
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %227 = load ptr, ptr %0, align 8, !tbaa !185
   %228 = sitofp i32 %35 to double
-  %229 = fmul double %228, 5.000000e-01
+  %229 = fmul nnan double %228, 5.000000e-01
   %230 = tail call double @llvm.ceil.f64(double %229)
   %231 = fptosi double %230 to i32
   %232 = load ptr, ptr %227, align 8, !tbaa !52
@@ -6515,7 +6515,7 @@ _ZNK2cv11_InputArray6getMatEi.exit72:             ; preds = %100, %103
 
 151:                                              ; preds = %146
   %152 = sitofp i32 %143 to double
-  %153 = fmul double %152, 1.000000e+02
+  %153 = fmul nnan double %152, 1.000000e+02
   %154 = sext i32 %150 to i64
   %155 = sub i64 %145, %154
   %156 = uitofp i64 %155 to double

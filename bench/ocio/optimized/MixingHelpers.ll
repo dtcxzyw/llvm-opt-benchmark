@@ -209,7 +209,7 @@ define hidden noundef float @_ZNK19OpenColorIO_v2_5dev16MixingSliderImpl16getSli
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %9
-  %17 = fmul float %.sroa.speculated, 5.000000e-01
+  %17 = fmul nnan float %.sroa.speculated, 5.000000e-01
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118linearToPerceptualEf.exit
 
 18:                                               ; preds = %9
@@ -288,7 +288,7 @@ define hidden noundef float @_ZNK19OpenColorIO_v2_5dev16MixingSliderImpl16getSli
   br i1 %15, label %18, label %16
 
 16:                                               ; preds = %9
-  %17 = fmul float %.sroa.speculated, 5.000000e-01
+  %17 = fmul nnan float %.sroa.speculated, 5.000000e-01
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118linearToPerceptualEf.exit
 
 18:                                               ; preds = %9
@@ -360,7 +360,7 @@ define hidden noundef float @_ZNK19OpenColorIO_v2_5dev16MixingSliderImpl14slider
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
-  %26 = fmul float %16, 2.000000e+00
+  %26 = fmul nnan float %16, 2.000000e+00
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118perceptualToLinearEf.exit
 
 27:                                               ; preds = %23
@@ -400,7 +400,7 @@ define hidden noundef float @_ZNK19OpenColorIO_v2_5dev16MixingSliderImpl14mixing
   br i1 %10, label %13, label %11
 
 11:                                               ; preds = %9
-  %12 = fmul float %1, 5.000000e-01
+  %12 = fmul nnan float %1, 5.000000e-01
   br label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_118linearToPerceptualEf.exit
 
 13:                                               ; preds = %9

@@ -1798,8 +1798,8 @@ show_memory_counters.exit:                        ; preds = %229, %ExplainIndent
 244:                                              ; preds = %239
   %245 = load i64, ptr %6, align 8
   %246 = sitofp i64 %245 to double
-  %247 = fdiv double %246, 1.000000e+09
-  %248 = fmul double %247, 1.000000e+03
+  %247 = fdiv nnan double %246, 1.000000e+09
+  %248 = fmul nnan double %247, 1.000000e+03
   %249 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %248) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, ptr noundef %249, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
   call void @pfree(ptr noundef %249) #12
@@ -1915,8 +1915,8 @@ ExplainIndentText.exit.i105:                      ; preds = %297, %290
   %306 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %307 = load i64, ptr %306, align 8
   %308 = sitofp i64 %307 to double
-  %309 = fdiv double %308, 1.000000e+09
-  %310 = fmul double %309, 1.000000e+03
+  %309 = fdiv nnan double %308, 1.000000e+09
+  %310 = fmul nnan double %309, 1.000000e+03
   %311 = load i64, ptr %18, align 8
   %312 = add i64 %311, 1023
   %313 = lshr i64 %312, 10
@@ -2041,8 +2041,8 @@ peek_buffer_usage.exit.thread.i:                  ; preds = %peek_buffer_usage.e
   %391 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %392 = load i64, ptr %391, align 8
   %393 = sitofp i64 %392 to double
-  %394 = fdiv double %393, 1.000000e+09
-  %395 = fmul double %394, 1.000000e+03
+  %394 = fdiv nnan double %393, 1.000000e+09
+  %395 = fmul nnan double %394, 1.000000e+03
   %396 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %395) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.84, ptr noundef nonnull @.str.41, ptr noundef %396, i1 noundef zeroext true, ptr noundef nonnull readonly %2)
   call void @pfree(ptr noundef %396) #12
@@ -2100,7 +2100,7 @@ ExplainPrintSerialize.exit:                       ; preds = %318, %peek_buffer_u
   %419 = sub i64 %418, %410
   %420 = add i64 %419, %reass.mul130
   %421 = sitofp i64 %420 to double
-  %422 = fdiv double %421, 1.000000e+09
+  %422 = fdiv nnan double %421, 1.000000e+09
   %423 = fadd double %.083, %422
   %424 = load i8, ptr %240, align 2, !range !4, !noundef !5
   %425 = trunc nuw i8 %424 to i1
@@ -9417,28 +9417,28 @@ ExplainIndentText.exit67:                         ; preds = %80, %87
   %90 = phi ptr [ %76, %80 ], [ %.pre73, %87 ]
   %91 = load i64, ptr %9, align 8
   %92 = sitofp i64 %91 to double
-  %93 = fdiv double %92, 1.000000e+09
-  %94 = fmul double %93, 1.000000e+03
+  %93 = fdiv nnan double %92, 1.000000e+09
+  %94 = fmul nnan double %93, 1.000000e+03
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %96 = load i64, ptr %95, align 8
   %97 = sitofp i64 %96 to double
-  %98 = fdiv double %97, 1.000000e+09
-  %99 = fmul double %98, 1.000000e+03
+  %98 = fdiv nnan double %97, 1.000000e+09
+  %99 = fmul nnan double %98, 1.000000e+03
   %100 = load i64, ptr %11, align 8
   %101 = sitofp i64 %100 to double
-  %102 = fdiv double %101, 1.000000e+09
-  %103 = fmul double %102, 1.000000e+03
+  %102 = fdiv nnan double %101, 1.000000e+09
+  %103 = fmul nnan double %102, 1.000000e+03
   %104 = load i64, ptr %14, align 8
   %105 = sitofp i64 %104 to double
-  %106 = fdiv double %105, 1.000000e+09
-  %107 = fmul double %106, 1.000000e+03
+  %106 = fdiv nnan double %105, 1.000000e+09
+  %107 = fmul nnan double %106, 1.000000e+03
   %108 = load i64, ptr %17, align 8
   %109 = sitofp i64 %108 to double
-  %110 = fdiv double %109, 1.000000e+09
-  %111 = fmul double %110, 1.000000e+03
+  %110 = fdiv nnan double %109, 1.000000e+09
+  %111 = fmul nnan double %110, 1.000000e+03
   %112 = sitofp i64 %19 to double
-  %113 = fdiv double %112, 1.000000e+09
-  %114 = fmul double %113, 1.000000e+03
+  %113 = fdiv nnan double %112, 1.000000e+09
+  %114 = fmul nnan double %113, 1.000000e+03
   call void (ptr, ptr, ...) @appendStringInfo(ptr noundef %90, ptr noundef nonnull @.str.74, ptr noundef nonnull @.str.75, double noundef %94, ptr noundef nonnull @.str.76, double noundef %99, ptr noundef nonnull @.str.70, double noundef %103, ptr noundef nonnull @.str.71, double noundef %107, ptr noundef nonnull @.str.77, double noundef %111, ptr noundef nonnull @.str.78, double noundef %114) #12
   br label %115
 
@@ -9489,43 +9489,43 @@ ExplainIndentText.exit67:                         ; preds = %80, %87
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %138 = load i64, ptr %137, align 8
   %139 = sitofp i64 %138 to double
-  %140 = fdiv double %139, 1.000000e+09
-  %141 = fmul double %140, 1.000000e+03
+  %140 = fdiv nnan double %139, 1.000000e+09
+  %141 = fmul nnan double %140, 1.000000e+03
   %142 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %141) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.76, ptr noundef nonnull @.str.41, ptr noundef %142, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %142) #12
   %143 = load i64, ptr %9, align 8
   %144 = sitofp i64 %143 to double
-  %145 = fdiv double %144, 1.000000e+09
-  %146 = fmul double %145, 1.000000e+03
+  %145 = fdiv nnan double %144, 1.000000e+09
+  %146 = fmul nnan double %145, 1.000000e+03
   %147 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %146) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.41, ptr noundef %147, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %147) #12
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.75, ptr nonnull poison, i1 noundef zeroext true, ptr noundef nonnull %0)
   %148 = load i64, ptr %11, align 8
   %149 = sitofp i64 %148 to double
-  %150 = fdiv double %149, 1.000000e+09
-  %151 = fmul double %150, 1.000000e+03
+  %150 = fdiv nnan double %149, 1.000000e+09
+  %151 = fmul nnan double %150, 1.000000e+03
   %152 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %151) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.41, ptr noundef %152, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %152) #12
   %153 = load i64, ptr %14, align 8
   %154 = sitofp i64 %153 to double
-  %155 = fdiv double %154, 1.000000e+09
-  %156 = fmul double %155, 1.000000e+03
+  %155 = fdiv nnan double %154, 1.000000e+09
+  %156 = fmul nnan double %155, 1.000000e+03
   %157 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %156) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.41, ptr noundef %157, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %157) #12
   %158 = load i64, ptr %17, align 8
   %159 = sitofp i64 %158 to double
-  %160 = fdiv double %159, 1.000000e+09
-  %161 = fmul double %160, 1.000000e+03
+  %160 = fdiv nnan double %159, 1.000000e+09
+  %161 = fmul nnan double %160, 1.000000e+03
   %162 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %161) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.41, ptr noundef %162, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %162) #12
   %163 = sitofp i64 %19 to double
-  %164 = fdiv double %163, 1.000000e+09
-  %165 = fmul double %164, 1.000000e+03
+  %164 = fdiv nnan double %163, 1.000000e+09
+  %165 = fmul nnan double %164, 1.000000e+03
   %166 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.56, i32 noundef 3, double noundef %165) #12
   call fastcc void @ExplainProperty(ptr noundef nonnull @.str.78, ptr noundef nonnull @.str.41, ptr noundef %166, i1 noundef zeroext true, ptr noundef nonnull readonly %0)
   call void @pfree(ptr noundef %166) #12

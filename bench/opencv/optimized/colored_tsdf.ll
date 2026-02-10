@@ -3964,7 +3964,7 @@ _ZSt3minIfET_St16initializer_listIS0_E.exit:      ; preds = %.lr.ph.i.i169
   %328 = getelementptr inbounds %"struct.cv::kinfu::RGBTsdfVoxel", ptr %321, i64 %327
   %329 = load i8, ptr %328, align 2, !tbaa !263
   %330 = sitofp i8 %329 to float
-  %331 = fmul float %330, -7.812500e-03
+  %331 = fmul nnan float %330, -7.812500e-03
   %332 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i193
   store float %331, ptr %332, align 4, !tbaa !33
   %indvars.iv.next.i194 = add nuw nsw i64 %indvars.iv.i193, 1
@@ -4091,7 +4091,7 @@ _ZNK2cv3Mat2atINS_5kinfu12RGBTsdfVoxelEEERKT_i.exit: ; preds = %394, %401, %407
   %.0.i = phi ptr [ %396, %394 ], [ %406, %401 ], [ %417, %407 ]
   %418 = load i8, ptr %.0.i, align 2, !tbaa !263
   %419 = sitofp i8 %418 to float
-  %420 = fmul float %419, -7.812500e-03
+  %420 = fmul nnan float %419, -7.812500e-03
   %421 = fcmp une float %420, %.0136434
   br i1 %421, label %422, label %476
 
@@ -4119,7 +4119,7 @@ _ZNK2cv3Mat2atINS_5kinfu12RGBTsdfVoxelEEERKT_i.exit: ; preds = %394, %401, %407
   %439 = getelementptr inbounds %"struct.cv::kinfu::RGBTsdfVoxel", ptr %321, i64 %438
   %440 = load i8, ptr %439, align 2, !tbaa !263
   %441 = sitofp i8 %440 to float
-  %442 = fmul float %441, -7.812500e-03
+  %442 = fmul nnan float %441, -7.812500e-03
   %443 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i196
   store float %442, ptr %443, align 4, !tbaa !33
   %indvars.iv.next.i197 = add nuw nsw i64 %indvars.iv.i196, 1
@@ -4216,7 +4216,7 @@ _ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit199.
   %501 = getelementptr inbounds %"struct.cv::kinfu::RGBTsdfVoxel", ptr %321, i64 %500
   %502 = load i8, ptr %501, align 2, !tbaa !263
   %503 = sitofp i8 %502 to float
-  %504 = fmul float %503, -7.812500e-03
+  %504 = fmul nnan float %503, -7.812500e-03
   %505 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i204
   store float %504, ptr %505, align 4, !tbaa !33
   %indvars.iv.next.i205 = add nuw nsw i64 %indvars.iv.i204, 1
@@ -4256,7 +4256,7 @@ _ZNK2cv5kinfu20ColoredTSDFVolumeCPU16interpolateVoxelERKNS_7Point3_IfEE.exit207:
   %530 = getelementptr inbounds %"struct.cv::kinfu::RGBTsdfVoxel", ptr %321, i64 %529
   %531 = load i8, ptr %530, align 2, !tbaa !263
   %532 = sitofp i8 %531 to float
-  %533 = fmul float %532, -7.812500e-03
+  %533 = fmul nnan float %532, -7.812500e-03
   %534 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i208
   store float %533, ptr %534, align 4, !tbaa !33
   %indvars.iv.next.i209 = add nuw nsw i64 %indvars.iv.i208, 1
@@ -4849,13 +4849,13 @@ define linkonce_odr hidden { <2 x float>, float } @_ZNK2cv5kinfu20ColoredTSDFVol
   %115 = getelementptr inbounds %"struct.cv::kinfu::RGBTsdfVoxel", ptr %13, i64 %114
   %116 = load i8, ptr %115, align 2, !tbaa !263
   %117 = sitofp i8 %116 to float
-  %118 = fmul float %117, -7.812500e-03
+  %118 = fmul nnan float %117, -7.812500e-03
   %119 = sub nsw i32 %112, %84
   %120 = sext i32 %119 to i64
   %121 = getelementptr inbounds %"struct.cv::kinfu::RGBTsdfVoxel", ptr %13, i64 %120
   %122 = load i8, ptr %121, align 2, !tbaa !263
   %123 = sitofp i8 %122 to float
-  %124 = fmul float %123, 7.812500e-03
+  %124 = fmul nnan float %123, 7.812500e-03
   %125 = fadd float %118, %124
   %126 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
   store float %125, ptr %126, align 4, !tbaa !33
@@ -5210,7 +5210,7 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu30ColorFetchPointsNormalsInvokercl
 
 .lr.ph118:                                        ; preds = %.lr.ph123.split
   %32 = sitofp i32 %.0120 to float
-  %33 = fadd float %32, 5.000000e-01
+  %33 = fadd nnan float %32, 5.000000e-01
   %34 = getelementptr inbounds nuw i8, ptr %21, i64 92
   %35 = load i32, ptr %34, align 4, !tbaa !38
   %36 = icmp sgt i32 %35, 0
@@ -5246,7 +5246,7 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu30ColorFetchPointsNormalsInvokercl
 
 .lr.ph:                                           ; preds = %.lr.ph118.split
   %54 = uitofp nneg i32 %.053116 to float
-  %55 = fadd float %54, 5.000000e-01
+  %55 = fadd nnan float %54, 5.000000e-01
   br label %61
 
 ._crit_edge:                                      ; preds = %88, %.lr.ph118.split
@@ -5268,7 +5268,7 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu30ColorFetchPointsNormalsInvokercl
   %68 = getelementptr inbounds %"struct.cv::kinfu::RGBTsdfVoxel", ptr %50, i64 %67
   %69 = load i8, ptr %68, align 2, !tbaa !263
   %70 = sitofp i8 %69 to float
-  %71 = fmul float %70, -7.812500e-03
+  %71 = fmul nnan float %70, -7.812500e-03
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 1
   %73 = load i8, ptr %72, align 1, !tbaa !308
   %74 = icmp ne i8 %73, 0
@@ -5278,7 +5278,7 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu30ColorFetchPointsNormalsInvokercl
 
 76:                                               ; preds = %61
   %77 = uitofp nneg i32 %.054115 to float
-  %78 = fadd float %77, 5.000000e-01
+  %78 = fadd nnan float %77, 5.000000e-01
   %79 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %80 = load float, ptr %79, align 8, !tbaa !3
   %81 = fmul float %33, %80
@@ -5702,7 +5702,7 @@ define linkonce_odr hidden void @_ZNK2cv5kinfu30ColorFetchPointsNormalsInvoker5c
   %60 = getelementptr inbounds %"struct.cv::kinfu::RGBTsdfVoxel", ptr %43, i64 %59
   %61 = load i8, ptr %60, align 2, !tbaa !263
   %62 = sitofp i8 %61 to float
-  %63 = fmul float %62, -7.812500e-03
+  %63 = fmul nnan float %62, -7.812500e-03
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 1
   %65 = load i8, ptr %64, align 1, !tbaa !308
   %66 = icmp ne i8 %65, 0

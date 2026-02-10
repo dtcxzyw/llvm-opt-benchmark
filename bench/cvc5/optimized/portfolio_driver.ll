@@ -21406,7 +21406,7 @@ define linkonce_odr void @_ZNSt11this_thread9sleep_forIdSt5ratioILl1ELl1000EEEEv
   %6 = fdiv double %3, 1.000000e+03
   %7 = fptosi double %6 to i64
   %8 = sitofp i64 %7 to double
-  %9 = fmul double %8, 1.000000e+03
+  %9 = fmul nnan double %8, 1.000000e+03
   %10 = fsub double %3, %9
   %11 = fmul double %10, 1.000000e+06
   %12 = fptosi double %11 to i64

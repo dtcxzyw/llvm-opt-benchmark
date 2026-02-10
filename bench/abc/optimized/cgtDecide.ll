@@ -559,9 +559,9 @@ define float @Cgt_ManComputeCoverage(ptr noundef %0, ptr noundef readonly captur
 
 .critedge.loopexit:                               ; preds = %7
   %14 = sitofp i32 %11 to float
-  %15 = fmul float %14, 1.000000e+02
-  %16 = fmul float %15, 3.125000e-02
-  %17 = fmul float %16, 3.125000e-02
+  %15 = fmul nnan float %14, 1.000000e+02
+  %16 = fmul nnan float %15, 3.125000e-02
+  %17 = fmul nnan float %16, 3.125000e-02
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %2
@@ -803,9 +803,9 @@ Vec_VecSizeSize.exit:                             ; preds = %72, %68
 
 .critedge.loopexit.i:                             ; preds = %.lr.ph.i77
   %86 = sitofp i32 %85 to float
-  %87 = fmul float %86, 1.000000e+02
-  %88 = fmul float %87, 3.125000e-02
-  %89 = fmul float %88, 3.125000e-02
+  %87 = fmul nnan float %86, 1.000000e+02
+  %88 = fmul nnan float %87, 3.125000e-02
+  %89 = fmul nnan float %88, 3.125000e-02
   br label %Cgt_ManComputeCoverage.exit
 
 Cgt_ManComputeCoverage.exit:                      ; preds = %Vec_VecSizeSize.exit, %.critedge.loopexit.i
@@ -1415,9 +1415,9 @@ Vec_VecSizeSize.exit:                             ; preds = %148, %145
 
 .critedge.loopexit.i:                             ; preds = %.lr.ph.i82
   %161 = sitofp i32 %160 to float
-  %162 = fmul float %161, 1.000000e+02
-  %163 = fmul float %162, 3.125000e-02
-  %164 = fmul float %163, 3.125000e-02
+  %162 = fmul nnan float %161, 1.000000e+02
+  %163 = fmul nnan float %162, 3.125000e-02
+  %164 = fmul nnan float %163, 3.125000e-02
   br label %Cgt_ManComputeCoverage.exit
 
 Cgt_ManComputeCoverage.exit:                      ; preds = %Vec_VecSizeSize.exit, %.critedge.loopexit.i

@@ -435,7 +435,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImE
   %179 = sub nuw nsw i64 %169, %indvars.iv264
   %180 = shl i64 2, %179
   %181 = sitofp i64 %180 to double
-  %182 = fmul double %181, %178
+  %182 = fmul nnan double %181, %178
   %183 = getelementptr inbounds nuw double, ptr %159, i64 %indvars.iv264
   store double %182, ptr %183, align 8, !tbaa !23
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1

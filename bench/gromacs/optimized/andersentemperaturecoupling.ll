@@ -632,7 +632,7 @@ define void @_ZN3gmx27AndersenTemperatureCoupling5applyEl(ptr noundef nonnull re
 _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit: ; preds = %133
   store i32 1, ptr %83, align 8, !tbaa !48
   %219 = uitofp i64 %214 to float
-  %220 = fmul float %219, 0x3BF0000000000000
+  %220 = fmul nnan float %219, 0x3BF0000000000000
   %221 = fcmp oeq float %220, 1.000000e+00
   %.013.i.i.i = select i1 %221, float 0.000000e+00, float %220
   %222 = load float, ptr %98, align 4, !tbaa !33

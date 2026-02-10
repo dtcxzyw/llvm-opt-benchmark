@@ -168,7 +168,7 @@ define linkonce_odr dso_local noundef float @_Z5root3f(float noundef %0) local_u
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.043.i = phi float [ %6, %.lr.ph.i ], [ %0, %3 ]
   %.03842.i = phi float [ %7, %.lr.ph.i ], [ 1.000000e+00, %3 ]
-  %6 = fmul float %.043.i, 8.000000e+00
+  %6 = fmul nnan float %.043.i, 8.000000e+00
   %7 = fmul float %.03842.i, 5.000000e-01
   %8 = fcmp olt float %6, 1.000000e+00
   br i1 %8, label %.lr.ph.i, label %.preheader.i, !llvm.loop !10
@@ -176,7 +176,7 @@ define linkonce_odr dso_local noundef float @_Z5root3f(float noundef %0) local_u
 .lr.ph47.i:                                       ; preds = %.preheader.i, %.lr.ph47.i
   %.146.i = phi float [ %9, %.lr.ph47.i ], [ %.0.lcssa.i, %.preheader.i ]
   %.13945.i = phi float [ %10, %.lr.ph47.i ], [ %.038.lcssa.i, %.preheader.i ]
-  %9 = fmul float %.146.i, 1.250000e-01
+  %9 = fmul nnan float %.146.i, 1.250000e-01
   %10 = fmul float %.13945.i, 2.000000e+00
   %11 = fcmp ogt float %9, 8.000000e+00
   br i1 %11, label %.lr.ph47.i, label %_ZL6_root3f.exit, !llvm.loop !12
@@ -245,7 +245,7 @@ _ZL6_root3f.exit:                                 ; preds = %.lr.ph47.i, %.prehe
 .lr.ph.i14:                                       ; preds = %55, %.lr.ph.i14
   %.043.i15 = phi float [ %59, %.lr.ph.i14 ], [ %56, %55 ]
   %.03842.i16 = phi float [ %60, %.lr.ph.i14 ], [ 1.000000e+00, %55 ]
-  %59 = fmul float %.043.i15, 8.000000e+00
+  %59 = fmul nnan float %.043.i15, 8.000000e+00
   %60 = fmul float %.03842.i16, 5.000000e-01
   %61 = fcmp olt float %59, 1.000000e+00
   br i1 %61, label %.lr.ph.i14, label %.preheader.i6, !llvm.loop !10
@@ -253,7 +253,7 @@ _ZL6_root3f.exit:                                 ; preds = %.lr.ph47.i, %.prehe
 .lr.ph47.i11:                                     ; preds = %.preheader.i6, %.lr.ph47.i11
   %.146.i12 = phi float [ %62, %.lr.ph47.i11 ], [ %.0.lcssa.i8, %.preheader.i6 ]
   %.13945.i13 = phi float [ %63, %.lr.ph47.i11 ], [ %.038.lcssa.i7, %.preheader.i6 ]
-  %62 = fmul float %.146.i12, 1.250000e-01
+  %62 = fmul nnan float %.146.i12, 1.250000e-01
   %63 = fmul float %.13945.i13, 2.000000e+00
   %64 = fcmp ogt float %62, 8.000000e+00
   br i1 %64, label %.lr.ph47.i11, label %_ZL6_root3f.exit17, !llvm.loop !12

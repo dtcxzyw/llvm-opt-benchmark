@@ -4889,8 +4889,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %37, i64 16
   %.pre1351 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !150
   %1810 = uitofp i64 %1864 to double
-  %1811 = fmul double %1810, 0x3F50000000000000
-  %1812 = fmul double %1811, 0x3F50000000000000
+  %1811 = fmul nnan double %1810, 0x3F50000000000000
+  %1812 = fmul nnan double %1811, 0x3F50000000000000
   br label %._crit_edge1295
 
 ._crit_edge1295:                                  ; preds = %._crit_edge1295.loopexit, %.loopexit1154

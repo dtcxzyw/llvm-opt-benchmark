@@ -6606,7 +6606,7 @@ Fra_ClausEstimateCoverageOne.exit:                ; preds = %.lr.ph30.split.i, %
 135:                                              ; preds = %133, %134
   %136 = sub nsw i32 65536, %132
   %137 = sitofp i32 %136 to double
-  %138 = fmul double %137, 0x3EF0000000000000
+  %138 = fmul nnan double %137, 0x3EF0000000000000
   %139 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, double noundef %138)
   %140 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %136, i32 noundef 65536)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.29)

@@ -39,14 +39,14 @@ define dso_local void @FLAC__replaygain_synthesis__init_dither_context(ptr nound
   store i64 %14, ptr %15, align 8, !tbaa !16
   %16 = xor i64 %14, -1
   %17 = uitofp nneg i64 %16 to double
-  %18 = fmul double %17, 5.000000e-01
+  %18 = fmul nnan double %17, 5.000000e-01
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %18, ptr %19, align 8, !tbaa !17
   %20 = zext nneg i32 %spec.store.select3 to i64
   %21 = getelementptr inbounds nuw i8, ptr @FLAC__replaygain_synthesis__init_dither_context.default_dither, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !18
   %23 = uitofp i8 %22 to float
-  %24 = fmul float %23, 0x3F847AE140000000
+  %24 = fmul nnan float %23, 0x3F847AE140000000
   %25 = zext nneg i32 %1 to i64
   %26 = shl nuw i64 1, %25
   %27 = sitofp i64 %26 to float
@@ -166,15 +166,15 @@ define dso_local range(i64 0, 4294967296) i64 @FLAC__replaygain_synthesis__apply
   br i1 %90, label %91, label %101
 
 91:                                               ; preds = %89
-  %92 = fadd double %86, -5.000000e-01
-  %93 = fmul double %92, 2.000000e+00
+  %92 = fadd nnan double %86, -5.000000e-01
+  %93 = fmul nnan double %92, 2.000000e+00
   %94 = tail call double @tanh(double noundef %93) #6, !tbaa !24
   %95 = tail call double @llvm.fmuladd.f64(double %94, double 5.000000e-01, double 5.000000e-01)
   br label %101
 
 96:                                               ; preds = %87
-  %97 = fadd double %86, 5.000000e-01
-  %98 = fmul double %97, 2.000000e+00
+  %97 = fadd nnan double %86, 5.000000e-01
+  %98 = fmul nnan double %97, 2.000000e+00
   %99 = tail call double @tanh(double noundef %98) #6, !tbaa !24
   %100 = tail call double @llvm.fmuladd.f64(double %99, double 5.000000e-01, double -5.000000e-01)
   br label %101
@@ -229,7 +229,7 @@ define dso_local range(i64 0, 4294967296) i64 @FLAC__replaygain_synthesis__apply
   store i32 %141, ptr @random_int_.r2_, align 4, !tbaa !24
   %142 = xor i32 %141, %139
   %143 = sitofp i32 %142 to double
-  %144 = fadd double %127, %143
+  %144 = fadd nnan double %127, %143
   %145 = fmul double %144, %108
   %146 = load ptr, ptr %11, align 8, !tbaa !15
   %147 = zext nneg i32 %105 to i64

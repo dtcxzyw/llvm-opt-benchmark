@@ -2715,7 +2715,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @appendSegment(ptr noundef capt
   %40 = fsub float %.81, %.83
   %41 = fdiv float %39, %40
   %42 = sitofp i32 %9 to float
-  %43 = fadd float %42, 5.000000e-01
+  %43 = fadd nnan float %42, 5.000000e-01
   %44 = fsub float %43, %.83
   %45 = fmul float %39, %44
   %46 = fdiv float %45, %40
@@ -2730,7 +2730,7 @@ define internal fastcc zeroext range(i8 0, 2) i8 @appendSegment(ptr noundef capt
   %55 = fmul double %54, 0x41DFFFFFFFC00000
   %56 = fptosi double %55 to i32
   %57 = sitofp i32 %50 to float
-  %58 = fadd float %57, -5.000000e-01
+  %58 = fadd nnan float %57, -5.000000e-01
   %59 = fsub float %47, %58
   %60 = fpext float %59 to double
   %61 = fmul double %60, 0x41DFFFFFFFC00000

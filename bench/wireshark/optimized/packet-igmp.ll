@@ -532,7 +532,7 @@ define internal noundef i32 @dissect_igmp_v2(ptr noundef %0, ptr noundef %1, ptr
   %10 = load i32, ptr @hf_max_resp, align 4
   %11 = zext i8 %9 to i32
   %12 = uitofp i8 %9 to double
-  %13 = fmul double %12, 1.000000e-01
+  %13 = fmul nnan double %12, 1.000000e-01
   %14 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %7, i32 noundef %10, ptr noundef %0, i32 noundef %8, i32 noundef 1, i32 noundef %11, ptr noundef nonnull @.str.196, double noundef %13, i32 noundef %11)
   %15 = load i32, ptr @hf_checksum, align 4
   %16 = load i32, ptr @hf_checksum_status, align 4
@@ -660,7 +660,7 @@ define internal i32 @dissect_igmp_mquery(ptr noundef %0, ptr noundef %1, ptr nou
   %24 = shl nuw nsw i32 %20, %23
   %25 = load i32, ptr @hf_max_resp, align 4
   %26 = uitofp nneg i32 %24 to double
-  %27 = fmul double %26, 1.000000e-01
+  %27 = fmul nnan double %26, 1.000000e-01
   %28 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %12, i32 noundef %25, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef %24, ptr noundef nonnull @.str.196, double noundef %27, i32 noundef %17)
   %29 = load i32, ptr @ett_max_resp, align 4
   %30 = tail call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %29)
@@ -673,7 +673,7 @@ define internal i32 @dissect_igmp_mquery(ptr noundef %0, ptr noundef %1, ptr nou
 .critedge.i.i:                                    ; preds = %11
   %35 = load i32, ptr @hf_max_resp, align 4
   %36 = uitofp nneg i8 %16 to double
-  %37 = fmul double %36, 1.000000e-01
+  %37 = fmul nnan double %36, 1.000000e-01
   %38 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %12, i32 noundef %35, ptr noundef %0, i32 noundef %13, i32 noundef 1, i32 noundef %17, ptr noundef nonnull @.str.196, double noundef %37, i32 noundef %17)
   br label %dissect_v3_max_resp.exit.i
 

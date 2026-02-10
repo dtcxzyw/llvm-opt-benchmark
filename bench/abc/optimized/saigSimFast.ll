@@ -659,7 +659,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 define float @Faig_ManComputeSwitching(i32 noundef %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = shl nsw i32 %1, 5
   %4 = sitofp i32 %0 to float
-  %5 = fmul float %4, 2.000000e+00
+  %5 = fmul nnan float %4, 2.000000e+00
   %6 = sitofp i32 %3 to float
   %7 = fdiv float %5, %6
   %8 = sub nsw i32 %3, %0

@@ -1498,7 +1498,7 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit27:           ; preds = %_ZStmlIdESt7complex
 
 cond.true.i:                                      ; preds = %_ZStmlIdESt7complexIT_ERKS2_S4_.exit27
   %call1.i = tail call double @pow(double noundef %div21, double noundef %real_mul_phi.i.i19) #26, !tbaa !105
-  %call4.i = tail call double @llvm.log.f64(double %div21), !tbaa !105
+  %call4.i = tail call nnan double @llvm.log.f64(double %div21)
   %mul.i = fmul double %call4.i, %imag_mul_phi.i.i20
   %call.i.i30 = tail call double @cos(double noundef %mul.i) #26, !tbaa !105
   %mul.i.i = fmul double %call1.i, %call.i.i30

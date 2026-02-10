@@ -90,7 +90,7 @@ define internal { double, double } @_ZL15robin_s_inverse5PJ_XYP8PJconsts(double 
   br i1 %18, label %.thread, label %19
 
 19:                                               ; preds = %17
-  %20 = fmul double %7, 1.800000e+01
+  %20 = fmul nnan double %7, 1.800000e+01
   %21 = tail call double @llvm.floor.f64(double %20)
   %22 = tail call i64 @lround(double noundef %21) #7, !tbaa !43
   %or.cond = icmp ult i64 %22, 18

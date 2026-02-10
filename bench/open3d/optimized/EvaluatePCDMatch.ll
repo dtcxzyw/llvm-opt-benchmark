@@ -2980,7 +2980,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit395:                 ; preds = %640, %_ZNSt6vectorI
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %655 = load i32, ptr %30, align 4, !tbaa !37
   %656 = sitofp i32 %655 to double
-  %657 = fmul double %656, 1.000000e+02
+  %657 = fmul nnan double %656, 1.000000e+02
   %658 = fdiv double %657, %450
   store double %658, ptr %40, align 8, !tbaa !91
   call void @llvm.lifetime.start.p0(ptr nonnull %41)

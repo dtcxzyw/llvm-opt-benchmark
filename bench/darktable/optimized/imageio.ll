@@ -1139,7 +1139,7 @@ define range(i32 0, 2) i32 @dt_imageio_export_with_flags(i32 noundef %0, ptr nou
   %77 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !118
   %79 = sitofp i64 %78 to double
-  %80 = fmul reassoc nsz arcp contract afn double %79, 0x3EB0C6F7A0B5ED8D
+  %80 = fmul reassoc nnan nsz arcp contract afn double %79, 0x3EB0C6F7A0B5ED8D
   %81 = fadd reassoc nsz arcp contract afn double %80, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   store double %81, ptr %29, align 8, !tbaa !119
@@ -1150,7 +1150,7 @@ define range(i32 0, 2) i32 @dt_imageio_export_with_flags(i32 noundef %0, ptr nou
   %85 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %86 = load i64, ptr %85, align 8, !tbaa !123
   %87 = sitofp i64 %86 to double
-  %88 = fmul reassoc nsz arcp contract afn double %87, 0x3EB0C6F7A0B5ED8D
+  %88 = fmul reassoc nnan nsz arcp contract afn double %87, 0x3EB0C6F7A0B5ED8D
   %89 = fadd reassoc nsz arcp contract afn double %88, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   %90 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1624,7 +1624,7 @@ _get_pipescale.exit441:                           ; preds = %288, %291
   %341 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %342 = load i64, ptr %341, align 8, !tbaa !118
   %343 = sitofp i64 %342 to double
-  %344 = fmul reassoc nsz arcp contract afn double %343, 0x3EB0C6F7A0B5ED8D
+  %344 = fmul reassoc nnan nsz arcp contract afn double %343, 0x3EB0C6F7A0B5ED8D
   %345 = fadd reassoc nsz arcp contract afn double %344, %340
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   store double %345, ptr %29, align 8, !tbaa !119
@@ -1635,7 +1635,7 @@ _get_pipescale.exit441:                           ; preds = %288, %291
   %349 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %350 = load i64, ptr %349, align 8, !tbaa !123
   %351 = sitofp i64 %350 to double
-  %352 = fmul reassoc nsz arcp contract afn double %351, 0x3EB0C6F7A0B5ED8D
+  %352 = fmul reassoc nnan nsz arcp contract afn double %351, 0x3EB0C6F7A0B5ED8D
   %353 = fadd reassoc nsz arcp contract afn double %352, %348
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   %354 = getelementptr inbounds nuw i8, ptr %29, i64 8

@@ -4218,8 +4218,8 @@ define linkonce_odr hidden void @_ZN11opencv_test14TestFunctional15initScalarRan
   %10 = urem i32 %9, 7
   %11 = add nsw i32 %10, -1
   %12 = sitofp i32 %11 to double
-  %13 = fmul double %12, 3.000000e+00
-  %14 = fmul double %13, 0x3FE62E42FEFA39EF
+  %13 = fmul nnan double %12, 3.000000e+00
+  %14 = fmul nnan double %13, 0x3FE62E42FEFA39EF
   %15 = tail call double @exp(double noundef %14) #31, !tbaa !67
   %16 = and i64 %8, 4294967295
   %17 = mul nuw i64 %16, 4164903690
@@ -4237,8 +4237,8 @@ define linkonce_odr hidden void @_ZN11opencv_test14TestFunctional15initScalarRan
   %28 = urem i32 %27, 7
   %29 = add nsw i32 %28, -1
   %30 = sitofp i32 %29 to double
-  %31 = fmul double %30, 3.000000e+00
-  %32 = fmul double %31, 0x3FE62E42FEFA39EF
+  %31 = fmul nnan double %30, 3.000000e+00
+  %32 = fmul nnan double %31, 0x3FE62E42FEFA39EF
   %33 = tail call double @exp(double noundef %32) #31, !tbaa !67
   %34 = and i64 %26, 4294967295
   %35 = mul nuw i64 %34, 4164903690
@@ -4256,8 +4256,8 @@ define linkonce_odr hidden void @_ZN11opencv_test14TestFunctional15initScalarRan
   %46 = urem i32 %45, 7
   %47 = add nsw i32 %46, -1
   %48 = sitofp i32 %47 to double
-  %49 = fmul double %48, 3.000000e+00
-  %50 = fmul double %49, 0x3FE62E42FEFA39EF
+  %49 = fmul nnan double %48, 3.000000e+00
+  %50 = fmul nnan double %49, 0x3FE62E42FEFA39EF
   %51 = tail call double @exp(double noundef %50) #31, !tbaa !67
   %52 = and i64 %44, 4294967295
   %53 = mul nuw i64 %52, 4164903690
@@ -4275,8 +4275,8 @@ define linkonce_odr hidden void @_ZN11opencv_test14TestFunctional15initScalarRan
   %64 = urem i32 %63, 7
   %65 = add nsw i32 %64, -1
   %66 = sitofp i32 %65 to double
-  %67 = fmul double %66, 3.000000e+00
-  %68 = fmul double %67, 0x3FE62E42FEFA39EF
+  %67 = fmul nnan double %66, 3.000000e+00
+  %68 = fmul nnan double %67, 0x3FE62E42FEFA39EF
   %69 = tail call double @exp(double noundef %68) #31, !tbaa !67
   %70 = and i64 %62, 4294967296
   %.not6 = icmp eq i64 %70, 0

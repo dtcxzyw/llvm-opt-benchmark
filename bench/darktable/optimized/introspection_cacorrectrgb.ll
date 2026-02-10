@@ -195,7 +195,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %.preheader.lr.ph.split.us.i.i
   %.08389.us.i.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i.i ], [ %124, %._crit_edge.us.i.i ]
   %63 = uitofp i64 %.08389.us.i.i to float
-  %64 = fmul reassoc nsz arcp contract afn float %49, %63
+  %64 = fmul reassoc nnan nsz arcp contract afn float %49, %63
   %65 = fmul reassoc nsz arcp contract afn float %64, %61
   %66 = tail call reassoc nsz arcp contract afn float @llvm.floor.f32(float %65)
   %67 = fptoui float %66 to i64
@@ -214,7 +214,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 78:                                               ; preds = %102, %.preheader.us.i.i
   %.08488.us.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %103, %102 ]
   %79 = uitofp i64 %.08488.us.i.i to float
-  %80 = fmul reassoc nsz arcp contract afn float %46, %79
+  %80 = fmul reassoc nnan nsz arcp contract afn float %46, %79
   %81 = fmul reassoc nsz arcp contract afn float %80, %62
   %82 = tail call reassoc nsz arcp contract afn float @llvm.floor.f32(float %81)
   %83 = fptoui float %82 to i64
@@ -487,8 +487,8 @@ interpolate_bilinear.exit.i:                      ; preds = %._crit_edge.us.i.i,
   %260 = fadd reassoc nsz arcp contract afn float %259, %.sink343.i.i
   %261 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %260)
   %262 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %261, float 0x3FB99999A0000000)
-  %263 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %262
-  %264 = fadd reassoc nsz arcp contract afn float %263, 0x3FC99999A0000000
+  %263 = fdiv reassoc nnan nsz arcp contract afn float 1.000000e+00, %262
+  %264 = fadd reassoc nnan nsz arcp contract afn float %263, 0x3FC99999A0000000
   %265 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %258, float 0x3FB99999A0000000)
   %266 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %265
   %267 = fadd reassoc nsz arcp contract afn float %266, 0x3FC99999A0000000
@@ -633,7 +633,7 @@ get_manifolds.exit.i:                             ; preds = %._crit_edge323.i.i,
 .preheader.us.i56.i:                              ; preds = %._crit_edge.us.i62.i, %.preheader.lr.ph.split.us.i55.i
   %.08389.us.i57.i = phi i64 [ 0, %.preheader.lr.ph.split.us.i55.i ], [ %401, %._crit_edge.us.i62.i ]
   %340 = uitofp i64 %.08389.us.i57.i to float
-  %341 = fmul reassoc nsz arcp contract afn float %336, %340
+  %341 = fmul reassoc nnan nsz arcp contract afn float %336, %340
   %342 = fmul reassoc nsz arcp contract afn float %341, %338
   %343 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %342)
   %344 = fptoui float %343 to i64
@@ -652,7 +652,7 @@ get_manifolds.exit.i:                             ; preds = %._crit_edge323.i.i,
 355:                                              ; preds = %379, %.preheader.us.i56.i
   %.08488.us.i58.i = phi i64 [ 0, %.preheader.us.i56.i ], [ %380, %379 ]
   %356 = uitofp i64 %.08488.us.i58.i to float
-  %357 = fmul reassoc nsz arcp contract afn float %337, %356
+  %357 = fmul reassoc nnan nsz arcp contract afn float %337, %356
   %358 = fmul reassoc nsz arcp contract afn float %357, %339
   %359 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %358)
   %360 = fptoui float %359 to i64
@@ -910,11 +910,11 @@ apply_correction.exit.i:                          ; preds = %435, %interpolate_b
   %497 = getelementptr inbounds nuw i8, ptr %491, i64 %.06678.i.i
   %498 = load float, ptr %497, align 8, !tbaa !60, !noalias !96
   %499 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %498, float 0x3EB0C6F7A0000000)
-  %500 = call reassoc nsz arcp contract afn float @llvm.log2.f32(float %499)
+  %500 = call reassoc nnan nsz arcp contract afn float @llvm.log2.f32(float %499)
   %501 = getelementptr inbounds nuw i8, ptr %497, i64 4
   %502 = load float, ptr %501, align 4, !tbaa !60, !noalias !96
   %503 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %502, float 0x3EB0C6F7A0000000)
-  %504 = call reassoc nsz arcp contract afn float @llvm.log2.f32(float %503)
+  %504 = call reassoc nnan nsz arcp contract afn float @llvm.log2.f32(float %503)
   %505 = fsub reassoc nsz arcp contract afn float %504, %500
   %506 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %505)
   %507 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %506, float 0x3F847AE140000000)
@@ -1320,9 +1320,9 @@ define internal fastcc void @normalize_manifolds(ptr noalias noundef readonly ca
   br i1 %31, label %30, label %28
 
 45:                                               ; preds = %28
-  %46 = fmul reassoc nsz arcp contract afn float %15, 2.500000e+01
-  %47 = fadd reassoc nsz arcp contract afn float %46, -2.500000e-01
-  %48 = fsub reassoc nsz arcp contract afn float 1.250000e+00, %46
+  %46 = fmul reassoc nnan nsz arcp contract afn float %15, 2.500000e+01
+  %47 = fadd reassoc nnan nsz arcp contract afn float %46, -2.500000e-01
+  %48 = fsub reassoc nnan nsz arcp contract afn float 1.250000e+00, %46
   br label %49
 
 49:                                               ; preds = %45, %49
@@ -1345,9 +1345,9 @@ define internal fastcc void @normalize_manifolds(ptr noalias noundef readonly ca
   br i1 %59, label %60, label %.loopexit
 
 60:                                               ; preds = %.loopexit80
-  %61 = fmul reassoc nsz arcp contract afn float %18, 2.500000e+01
-  %62 = fadd reassoc nsz arcp contract afn float %61, -2.500000e-01
-  %63 = fsub reassoc nsz arcp contract afn float 1.250000e+00, %61
+  %61 = fmul reassoc nnan nsz arcp contract afn float %18, 2.500000e+01
+  %62 = fadd reassoc nnan nsz arcp contract afn float %61, -2.500000e-01
+  %63 = fsub reassoc nnan nsz arcp contract afn float 1.250000e+00, %61
   br label %64
 
 64:                                               ; preds = %60, %64

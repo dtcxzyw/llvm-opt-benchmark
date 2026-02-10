@@ -9869,7 +9869,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %546
 
 ._crit_edge.i26:                                  ; preds = %.noexc49
   %570 = sitofp i32 %552 to double
-  %571 = fdiv double 1.000000e+00, %570
+  %571 = fdiv nnan double 1.000000e+00, %570
   %572 = fmul double %571, 0.000000e+00
   br label %._crit_edge256.i
 
@@ -10375,7 +10375,7 @@ _ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_X
   br i1 %731, label %732, label %_ZN2cvmLIdLi3ELi3EEERNS_4MatxIT_XT0_EXT1_EEES4_d.exit.i
 
 732:                                              ; preds = %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit207.i
-  %733 = fdiv double 1.000000e+00, %729
+  %733 = fdiv nnan double 1.000000e+00, %729
   br label %734
 
 734:                                              ; preds = %734, %732

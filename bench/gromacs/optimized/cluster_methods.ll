@@ -879,7 +879,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit179
   %.0136229 = phi float [ %373, %369 ], [ 0.000000e+00, %368 ]
   %375 = call noundef i64 @_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv(ptr noundef nonnull align 8 dereferenceable(52) %17)
   %376 = uitofp i64 %375 to float
-  %377 = fmul float %376, 0x3BF0000000000000
+  %377 = fmul nnan float %376, 0x3BF0000000000000
   %378 = fcmp oeq float %377, 1.000000e+00
   %.013.i.i.i = select i1 %378, float 0.000000e+00, float %377
   %379 = fcmp olt float %.013.i.i.i, %.0136229

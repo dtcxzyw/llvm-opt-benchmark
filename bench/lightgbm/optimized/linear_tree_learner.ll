@@ -11084,7 +11084,7 @@ define linkonce_odr void @_ZNK5Eigen9FullPivLUINS_6MatrixIdLin1ELin1ELi0ELin1ELi
 30:                                               ; preds = %3
   %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smin.i64(i64 %20, i64 %18)
   %31 = sitofp i64 %.sroa.speculated.i.i.i to double
-  %32 = fmul double %31, 0x3CB0000000000000
+  %32 = fmul nnan double %31, 0x3CB0000000000000
   br label %_ZNK5Eigen9FullPivLUINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE9thresholdEv.exit.i
 
 _ZNK5Eigen9FullPivLUINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE9thresholdEv.exit.i: ; preds = %30, %27

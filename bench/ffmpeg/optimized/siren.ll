@@ -89,7 +89,7 @@ define internal i32 @siren_init(ptr noundef %0) #0 {
   %26 = trunc i64 %indvars.iv to i32
   %27 = add i32 %26, -24
   %28 = sitofp i32 %27 to double
-  %29 = fmul nsz double %28, 0x3FD3441350A96098
+  %29 = fmul nnan nsz double %28, 0x3FD3441350A96098
   %30 = fptrunc nsz double %29 to float
   %31 = tail call nsz float @llvm.pow.f32(float 1.000000e+01, float %30)
   %32 = tail call nsz float @llvm.sqrt.f32(float %31)
@@ -103,9 +103,9 @@ define internal i32 @siren_init(ptr noundef %0) #0 {
   %indvars.iv49 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next50, %34 ]
   %35 = trunc nuw nsw i64 %indvars.iv49 to i32
   %36 = uitofp nneg i32 %35 to float
-  %37 = fadd nsz float %36, 5.000000e-01
-  %38 = fpext nsz float %37 to double
-  %39 = fmul nsz double %38, 0x3FF921FB54442D18
+  %37 = fadd nnan nsz float %36, 5.000000e-01
+  %38 = fpext nnan nsz float %37 to double
+  %39 = fmul nnan nsz double %38, 0x3FF921FB54442D18
   %40 = fdiv nsz double %39, 3.200000e+02
   %41 = fptrunc nsz double %40 to float
   %42 = tail call nsz float @llvm.sin.f32(float %41)

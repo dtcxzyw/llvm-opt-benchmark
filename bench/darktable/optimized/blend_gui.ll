@@ -870,7 +870,7 @@ define internal fastcc void @_blendif_scale(ptr noundef readonly captures(none) 
   %98 = select reassoc nsz arcp contract afn i1 %97, float %96, float %82
   %99 = fptosi float %98 to i32
   %100 = sitofp i32 %99 to float
-  %101 = fsub reassoc nsz arcp contract afn float %96, %100
+  %101 = fsub reassoc nnan nsz arcp contract afn float %96, %100
   %102 = sext i32 %99 to i64
   %103 = getelementptr inbounds float, ptr %85, i64 %102
   %104 = load float, ptr %103, align 4, !tbaa !74
@@ -1364,7 +1364,7 @@ _blendif_colorpicker_cst.exit:                    ; preds = %switch.lookup, %65,
   %128 = select reassoc nsz arcp contract afn i1 %127, float %126, float %112
   %129 = fptosi float %128 to i32
   %130 = sitofp i32 %129 to float
-  %131 = fsub reassoc nsz arcp contract afn float %126, %130
+  %131 = fsub reassoc nnan nsz arcp contract afn float %126, %130
   %132 = sext i32 %129 to i64
   %133 = getelementptr inbounds float, ptr %115, i64 %132
   %134 = load float, ptr %133, align 4, !tbaa !74
@@ -2309,7 +2309,7 @@ define void @dt_iop_gui_init_blendif(ptr noundef %0, ptr noundef %1) local_unnam
   %173 = load ptr, ptr %171, align 8, !tbaa !115
   %174 = trunc nuw nsw i64 %indvars.iv to i32
   %175 = uitofp nneg i32 %174 to double
-  %176 = fmul reassoc nsz arcp contract afn double %175, 0x3FCBBBBBBBBBBBBC
+  %176 = fmul reassoc nnan nsz arcp contract afn double %175, 0x3FCBBBBBBBBBBBBC
   %177 = fadd reassoc nsz arcp contract afn double %176, 3.500000e-01
   %178 = fptrunc reassoc nsz arcp contract afn double %177 to float
   call void @gtk_label_set_xalign(ptr noundef %173, float noundef %178) #18
@@ -3097,7 +3097,7 @@ define internal void @_blendop_blendif_boost_factor_callback(ptr noundef %0, ptr
   br i1 %51, label %52, label %62
 
 52:                                               ; preds = %35
-  %53 = fsub reassoc nsz arcp contract afn float %50, %.096
+  %53 = fsub reassoc nnan nsz arcp contract afn float %50, %.096
   %54 = fmul reassoc nsz arcp contract afn float %53, %46
   %55 = fadd reassoc nsz arcp contract afn float %54, %.096
   %56 = fcmp reassoc nsz arcp contract afn ult float %55, 0.000000e+00
@@ -3122,7 +3122,7 @@ define internal void @_blendop_blendif_boost_factor_callback(ptr noundef %0, ptr
   br i1 %65, label %66, label %76
 
 66:                                               ; preds = %62
-  %67 = fsub reassoc nsz arcp contract afn float %64, %.096
+  %67 = fsub reassoc nnan nsz arcp contract afn float %64, %.096
   %68 = fmul reassoc nsz arcp contract afn float %67, %46
   %69 = fadd reassoc nsz arcp contract afn float %68, %.096
   %70 = fcmp reassoc nsz arcp contract afn ult float %69, 0.000000e+00
@@ -3148,7 +3148,7 @@ define internal void @_blendop_blendif_boost_factor_callback(ptr noundef %0, ptr
   br i1 %80, label %81, label %91
 
 81:                                               ; preds = %76
-  %82 = fsub reassoc nsz arcp contract afn float %79, %.096
+  %82 = fsub reassoc nnan nsz arcp contract afn float %79, %.096
   %83 = fmul reassoc nsz arcp contract afn float %82, %46
   %84 = fadd reassoc nsz arcp contract afn float %83, %.096
   %85 = fcmp reassoc nsz arcp contract afn ult float %84, 0.000000e+00
@@ -3174,7 +3174,7 @@ define internal void @_blendop_blendif_boost_factor_callback(ptr noundef %0, ptr
   br i1 %95, label %96, label %106
 
 96:                                               ; preds = %91
-  %97 = fsub reassoc nsz arcp contract afn float %94, %.096
+  %97 = fsub reassoc nnan nsz arcp contract afn float %94, %.096
   %98 = fmul reassoc nsz arcp contract afn float %97, %46
   %99 = fadd reassoc nsz arcp contract afn float %98, %.096
   %100 = fcmp reassoc nsz arcp contract afn ult float %99, 0.000000e+00

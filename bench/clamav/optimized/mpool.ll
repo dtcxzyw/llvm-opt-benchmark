@@ -156,7 +156,7 @@ define void @mpool_flush(ptr noundef %0) local_unnamed_addr #0 {
   %42 = phi i64 [ %40, %36 ], [ %33, %._crit_edge ]
   %43 = add i64 %42, %.0.lcssa
   %44 = uitofp i64 %43 to double
-  %45 = fmul double %44, 0x3EB0000000000000
+  %45 = fmul nnan double %44, 0x3EB0000000000000
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2, double noundef %45) #10
   ret void
 }

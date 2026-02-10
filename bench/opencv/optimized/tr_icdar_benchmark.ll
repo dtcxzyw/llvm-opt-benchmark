@@ -3220,13 +3220,13 @@ _ZNSt6vectorIN2cv3VecIiLi2EEESaIS2_EED2Ev.exit663: ; preds = %.loopexit1024, %.l
 934:                                              ; preds = %924
   %935 = sitofp i32 %.sroa.14.sroa.12.0.i to double
   %936 = sitofp i32 %927 to double
-  %937 = fmul double %936, 8.000000e-01
+  %937 = fmul nnan double %936, 8.000000e-01
   %938 = fcmp olt double %937, %935
   br i1 %938, label %943, label %939
 
 939:                                              ; preds = %934
   %940 = sitofp i32 %928 to double
-  %941 = fmul double %940, 8.000000e-01
+  %941 = fmul nnan double %940, 8.000000e-01
   %942 = fcmp olt double %941, %935
   br i1 %942, label %943, label %1011
 

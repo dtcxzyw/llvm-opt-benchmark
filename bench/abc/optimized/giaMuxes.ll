@@ -266,16 +266,16 @@ Gia_ManCountMuxXor.exit:                          ; preds = %.lr.ph.i, %.lr.ph.i
   %.0 = phi i32 [ %52, %Gia_ManCountMuxXor.exit ], [ %23, %6 ]
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str)
   %55 = sitofp i32 %.038 to double
-  %56 = fmul double %55, 3.000000e+02
+  %56 = fmul nnan double %55, 3.000000e+02
   %57 = sitofp i32 %.0 to double
   %58 = fdiv double %56, %57
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1, i32 noundef %.038, double noundef %58)
   %59 = sitofp i32 %.039 to double
-  %60 = fmul double %59, 3.000000e+02
+  %60 = fmul nnan double %59, 3.000000e+02
   %61 = fdiv double %60, %57
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, i32 noundef %.039, double noundef %61)
   %62 = sitofp i32 %.015 to double
-  %63 = fmul double %62, 1.000000e+02
+  %63 = fmul nnan double %62, 1.000000e+02
   %64 = fdiv double %63, %57
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, i32 noundef %.015, double noundef %64)
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4926,7 +4926,7 @@ Vec_WecSizeSize.exit:                             ; preds = %159, %Vec_IntFree.e
   %163 = add nsw i32 %.val8.i131, -1
   %164 = call i32 @Abc_NamMemUsed(ptr noundef %18) #29
   %165 = sitofp i32 %164 to double
-  %166 = fmul double %165, 0x3EB0000000000000
+  %166 = fmul nnan double %165, 0x3EB0000000000000
   %167 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %.val107, i32 noundef %.0.lcssa.i, i32 noundef %163, double noundef %166)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %168 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #29

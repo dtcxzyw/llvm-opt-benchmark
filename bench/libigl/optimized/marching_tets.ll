@@ -697,7 +697,7 @@ _ZNSt12_Vector_baseIN5Eigen7TripletIdiEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   store float 5.000000e-01, ptr %211, align 8, !tbaa !70
   store i64 0, ptr %212, align 8, !tbaa !71
   %214 = uitofp nneg i64 %29 to double
-  %215 = fmul double %214, 2.000000e+00
+  %215 = fmul nnan double %214, 2.000000e+00
   %216 = call double @llvm.ceil.f64(double %215)
   %217 = fptoui double %216 to i64
   invoke void @_ZNSt10_HashtableIlSt4pairIKliESaIS2_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(56) %11, i64 noundef %217)

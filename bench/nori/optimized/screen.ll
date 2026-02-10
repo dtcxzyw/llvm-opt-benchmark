@@ -4112,11 +4112,11 @@ _ZN7nanogui5ArrayIiLm3EEC2Ei.exit.i:              ; preds = %75, %70
   %.sroa.066.0 = phi i32 [ %77, %75 ], [ %47, %70 ]
   %.028 = phi i32 [ %76, %75 ], [ 0, %70 ]
   %81 = load ptr, ptr %11, align 8
-  %82 = fadd double %28, -5.000000e-01
-  %83 = fmul double %82, 2.000000e+00
+  %82 = fadd nnan double %28, -5.000000e-01
+  %83 = fmul nnan double %82, 2.000000e+00
   %84 = fcmp olt double %83, 1.000000e+00
   %.sroa.speculated = select i1 %84, double %83, double 1.000000e+00
-  %85 = fmul double %.sroa.speculated, 8.000000e-01
+  %85 = fmul nnan double %.sroa.speculated, 8.000000e-01
   %86 = fptrunc double %85 to float
   call void @nvgGlobalAlpha(ptr noundef %81, float noundef %86)
   %87 = load ptr, ptr %11, align 8

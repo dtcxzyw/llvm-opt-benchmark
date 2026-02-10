@@ -3949,7 +3949,7 @@ _ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit190: ; p
 
 270:                                              ; preds = %263
   %271 = load float, ptr %251, align 4, !tbaa !59
-  %272 = fmul float %267, %267
+  %272 = fmul nnan float %267, %267
   %273 = tail call float @llvm.fmuladd.f32(float %271, float %271, float %272)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %273)
   %274 = fdiv float 1.000000e+00, %sqrt.i
@@ -4527,7 +4527,7 @@ _ZN35btSequentialImpulseConstraintSolver24applyAnisotropicFrictionEP17btCollisio
   br i1 %700, label %701, label %712
 
 701:                                              ; preds = %697
-  %702 = fmul float %498, %498
+  %702 = fmul nnan float %498, %498
   %703 = tail call float @llvm.fmuladd.f32(float %496, float %496, float %702)
   %sqrt.i260 = tail call float @llvm.sqrt.f32(float %703)
   %704 = fdiv float 1.000000e+00, %sqrt.i260

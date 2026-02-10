@@ -966,7 +966,7 @@ define dso_local double @SDLTest_RandomUnitDouble() local_unnamed_addr #2 {
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.4.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %7 = lshr i64 %.sroa.0.0.insert.insert.i, 11
   %8 = uitofp nneg i64 %7 to double
-  %9 = fmul double %8, 0x3CA0000000000000
+  %9 = fmul nnan double %8, 0x3CA0000000000000
   ret double %9
 }
 

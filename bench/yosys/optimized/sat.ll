@@ -38553,7 +38553,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6
 
 ._crit_edge304.loopexit:                          ; preds = %146
   %153 = uitofp nneg i32 %.sroa.speculated to double
-  %154 = fmul double %153, 2.500000e-01
+  %154 = fmul nnan double %153, 2.500000e-01
   br label %._crit_edge304
 
 ._crit_edge304:                                   ; preds = %._crit_edge304.loopexit, %21

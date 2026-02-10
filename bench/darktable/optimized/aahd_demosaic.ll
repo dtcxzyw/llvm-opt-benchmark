@@ -137,13 +137,13 @@ define void @_ZN4AAHDC2ER6LibRaw(ptr noundef nonnull align 8 captures(none) dere
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %76 ], [ 0, %51 ]
   %65 = trunc nuw nsw i64 %indvars.iv97 to i32
   %66 = uitofp nneg i32 %65 to float
-  %67 = fmul reassoc nsz arcp contract afn float %66, 0x3EF0000000000000
+  %67 = fmul reassoc nnan nsz arcp contract afn float %66, 0x3EF0000000000000
   %68 = fpext reassoc nsz arcp contract afn float %67 to double
   %69 = fcmp reassoc nsz arcp contract afn olt double %68, 1.810000e-02
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %.preheader
-  %71 = fmul reassoc nsz arcp contract afn float %66, 0x3F12000000000000
+  %71 = fmul reassoc nnan nsz arcp contract afn float %66, 0x3F12000000000000
   br label %76
 
 72:                                               ; preds = %.preheader

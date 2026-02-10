@@ -4365,8 +4365,8 @@ define hidden noundef double @_ZN2cv2ml22LogisticRegressionImpl12compute_costERK
 64:                                               ; preds = %60
   %65 = shl nsw i32 %46, 1
   %66 = sitofp i32 %65 to float
-  %67 = fdiv float 1.000000e+00, %66
-  %68 = fpext float %67 to double
+  %67 = fdiv nnan float 1.000000e+00, %66
+  %68 = fpext nnan float %67 to double
   %69 = load double, ptr %13, align 8, !tbaa !105
   %70 = fmul double %69, %68
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -4655,7 +4655,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit95:               ; preds = %127
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %161 = sitofp i32 %46 to double
-  %162 = fdiv double 1.000000e+00, %161
+  %162 = fdiv nnan double 1.000000e+00, %161
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %163 = getelementptr inbounds nuw i8, ptr %40, i64 16
@@ -5137,8 +5137,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %61, %
 
 92:                                               ; preds = %88
   %93 = sitofp i32 %32 to float
-  %94 = fdiv float 1.000000e+00, %93
-  %95 = fpext float %94 to double
+  %94 = fdiv nnan float 1.000000e+00, %93
+  %95 = fpext nnan float %94 to double
   %96 = load double, ptr %26, align 8, !tbaa !105
   %97 = fmul double %96, %95
   store double %97, ptr %25, align 8, !tbaa !105
@@ -7000,7 +7000,7 @@ define linkonce_odr hidden void @_ZNK2cv2ml43LogisticRegressionImpl_ComputeDradi
   %44 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %46 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %47 = fdiv double 1.000000e+00, %43
+  %47 = fdiv nnan double 1.000000e+00, %43
   %48 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %50 = getelementptr inbounds nuw i8, ptr %5, i64 4

@@ -406,7 +406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81: ; preds = %_ZN
   store ptr %10, ptr %94, align 8, !tbaa !32
   %134 = load i32, ptr %96, align 4, !tbaa !33
   %135 = sitofp i32 %134 to double
-  %136 = fmul double %135, 4.800000e+02
+  %136 = fmul nnan double %135, 4.800000e+02
   %137 = uitofp nneg i32 %129 to double
   %138 = fdiv double %136, %137
   %139 = insertelement <2 x double> poison, double %138, i64 0
@@ -459,9 +459,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit81: ; preds = %_ZN
 
 .noexc.i83:                                       ; preds = %151
   %153 = sitofp i64 %150 to float
-  %154 = fsub float %153, %147
-  %155 = fpext float %154 to double
-  %156 = fmul double %155, 1.000000e+03
+  %154 = fsub nnan float %153, %147
+  %155 = fpext nnan float %154 to double
+  %156 = fmul nnan double %155, 1.000000e+03
   %157 = fdiv double %156, %152
   %158 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, double noundef %157)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)

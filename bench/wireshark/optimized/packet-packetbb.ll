@@ -1256,9 +1256,9 @@ define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1,
   %140 = lshr i8 %139, 3
   %141 = and i8 %139, 7
   %142 = uitofp nneg i8 %141 to float
-  %143 = fmul float %142, 1.250000e-01
-  %144 = fpext float %143 to double
-  %145 = fadd double %144, 1.000000e+00
+  %143 = fmul nnan float %142, 1.250000e-01
+  %144 = fpext nnan float %143 to double
+  %145 = fadd nnan double %144, 1.000000e+00
   %146 = zext nneg i8 %140 to i32
   %147 = shl nuw i32 1, %146
   %148 = uitofp i32 %147 to double
@@ -1274,9 +1274,9 @@ define internal fastcc i32 @dissect_pbb_tlvblock(ptr noundef %0, ptr noundef %1,
   %155 = lshr i8 %154, 3
   %156 = and i8 %154, 7
   %157 = uitofp nneg i8 %156 to float
-  %158 = fmul float %157, 1.250000e-01
-  %159 = fpext float %158 to double
-  %160 = fadd double %159, 1.000000e+00
+  %158 = fmul nnan float %157, 1.250000e-01
+  %159 = fpext nnan float %158 to double
+  %160 = fadd nnan double %159, 1.000000e+00
   %161 = zext nneg i8 %155 to i32
   %162 = shl nuw i32 1, %161
   %163 = uitofp i32 %162 to double

@@ -744,13 +744,13 @@ clamp_row_est.exit:                               ; preds = %extract_nonindex_co
   %132 = select i1 %131, double %130, double 1.000000e+00
   %133 = load i32, ptr @effective_cache_size, align 4
   %134 = sitofp i32 %133 to double
-  %135 = fmul double %127, %134
+  %135 = fmul nnan double %127, %134
   %136 = fdiv double %135, %132
   %137 = fcmp ugt double %136, 1.000000e+00
   %138 = call double @llvm.ceil.f64(double %136)
   %.037.i = select i1 %137, double %138, double 1.000000e+00
   %139 = fcmp ult double %.037.i, %127
-  %140 = fmul double %127, 2.000000e+00
+  %140 = fmul nnan double %127, 2.000000e+00
   br i1 %139, label %148, label %141
 
 141:                                              ; preds = %119
@@ -886,13 +886,13 @@ index_pages_fetched.exit133:                      ; preds = %181, %186, %204
   %227 = select i1 %226, double %225, double 1.000000e+00
   %228 = load i32, ptr @effective_cache_size, align 4
   %229 = sitofp i32 %228 to double
-  %230 = fmul double %222, %229
+  %230 = fmul nnan double %222, %229
   %231 = fdiv double %230, %227
   %232 = fcmp ugt double %231, 1.000000e+00
   %233 = call double @llvm.ceil.f64(double %231)
   %.037.i134 = select i1 %232, double %233, double 1.000000e+00
   %234 = fcmp ult double %.037.i134, %222
-  %235 = fmul double %222, 2.000000e+00
+  %235 = fmul nnan double %222, 2.000000e+00
   br i1 %234, label %243, label %236
 
 236:                                              ; preds = %215
@@ -1129,13 +1129,13 @@ define dso_local double @index_pages_fetched(double noundef %0, i32 noundef %1, 
   %11 = select i1 %10, double %9, double 1.000000e+00
   %12 = load i32, ptr @effective_cache_size, align 4
   %13 = sitofp i32 %12 to double
-  %14 = fmul double %6, %13
+  %14 = fmul nnan double %6, %13
   %15 = fdiv double %14, %11
   %16 = fcmp ugt double %15, 1.000000e+00
   %17 = tail call double @llvm.ceil.f64(double %15)
   %.037 = select i1 %16, double %17, double 1.000000e+00
   %18 = fcmp ult double %.037, %6
-  %19 = fmul double %6, 2.000000e+00
+  %19 = fmul nnan double %6, 2.000000e+00
   br i1 %18, label %27, label %20
 
 20:                                               ; preds = %4
@@ -1472,7 +1472,7 @@ clamp_row_est.exit:                               ; preds = %cost_bitmap_tree_no
   %40 = uitofp i32 %39 to double
   %41 = tail call i32 @llvm.umax.i32(i32 %39, i32 1)
   %42 = uitofp i32 %41 to double
-  %43 = fmul double %42, 2.000000e+00
+  %43 = fmul nnan double %42, 2.000000e+00
   %44 = fmul double %.0.i, %43
   %45 = tail call double @llvm.fmuladd.f64(double %42, double 2.000000e+00, double %.0.i)
   %46 = fdiv double %44, %45
@@ -1499,13 +1499,13 @@ clamp_row_est.exit:                               ; preds = %cost_bitmap_tree_no
   %65 = select i1 %64, double %63, double 1.000000e+00
   %66 = load i32, ptr @effective_cache_size, align 4
   %67 = sitofp i32 %66 to double
-  %68 = fmul double %60, %67
+  %68 = fmul nnan double %60, %67
   %69 = fdiv double %68, %65
   %70 = fcmp ugt double %69, 1.000000e+00
   %71 = tail call double @llvm.ceil.f64(double %69)
   %.037.i = select i1 %70, double %71, double 1.000000e+00
   %72 = fcmp ult double %.037.i, %60
-  %73 = fmul double %60, 2.000000e+00
+  %73 = fmul nnan double %60, 2.000000e+00
   br i1 %72, label %81, label %74
 
 74:                                               ; preds = %55
@@ -1557,7 +1557,7 @@ index_pages_fetched.exit:                         ; preds = %74, %79, %97
   br i1 %101, label %102, label %clamp_row_est.exit61
 
 102:                                              ; preds = %100
-  %103 = fmul double %53, 5.000000e-01
+  %103 = fmul nnan double %53, 5.000000e-01
   %104 = fsub double %48, %103
   %105 = fcmp olt double %104, 0.000000e+00
   %106 = select i1 %105, double 0.000000e+00, double %104
@@ -5008,7 +5008,7 @@ has_indexed_join_quals.exit:                      ; preds = %.thread44.i
 has_indexed_join_quals.exit.thread112:            ; preds = %.thread44.i.thread, %has_indexed_join_quals.exit
   %113 = tail call double @llvm.fmuladd.f64(double %58, double %69, double %17)
   %114 = fcmp ogt double %64, 1.000000e+00
-  %115 = fadd double %64, -1.000000e+00
+  %115 = fadd nnan double %64, -1.000000e+00
   %116 = fmul double %60, %115
   %117 = tail call double @llvm.fmuladd.f64(double %116, double %69, double %113)
   %.084 = select i1 %114, double %117, double %113
@@ -6152,7 +6152,7 @@ clamp_row_est.exit:                               ; preds = %get_parallel_diviso
   store double %17, ptr %58, align 8
   %59 = sitofp i32 %25 to double
   %60 = sitofp i32 %27 to double
-  %61 = fmul double %59, %60
+  %61 = fmul nnan double %59, %60
   %62 = load i32, ptr %11, align 4
   %63 = icmp eq i32 %62, 294
   br i1 %63, label %69, label %.preheader
@@ -6518,7 +6518,7 @@ approx_tuple_count.exit:                          ; preds = %.critedge.i, %227, 
   %236 = and i64 %235, -8
   %237 = add nsw i64 %236, 24
   %238 = uitofp i64 %237 to double
-  %239 = fmul double %.0.i143, %238
+  %239 = fmul nnan double %.0.i143, %238
   %240 = uitofp i64 %128 to double
   %241 = fcmp ogt double %239, %240
   %242 = fadd double %21, %129

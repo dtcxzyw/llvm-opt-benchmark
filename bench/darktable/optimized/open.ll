@@ -1323,7 +1323,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %363 = mul nuw nsw i32 %362, 7
   %364 = lshr i32 %363, 2
   %365 = uitofp nneg i32 %364 to double
-  %366 = fmul reassoc nsz arcp contract afn double %365, 6.250000e-02
+  %366 = fmul reassoc nnan nsz arcp contract afn double %365, 6.250000e-02
   %367 = fptrunc reassoc nsz arcp contract afn double %366 to float
   %368 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %367)
   %369 = fptoui float %368 to i32
@@ -1718,7 +1718,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %590 = uitofp i16 %575 to float
   %591 = fdiv reassoc nsz arcp contract afn float %589, %590
   %592 = uitofp nneg i16 %555 to float
-  %593 = fmul reassoc nsz arcp contract afn float %592, 0x3F50624DE0000000
+  %593 = fmul reassoc nnan nsz arcp contract afn float %592, 0x3F50624DE0000000
   %594 = fdiv reassoc nsz arcp contract afn float %591, %593
   %595 = fpext reassoc nsz arcp contract afn float %594 to double
   %596 = fcmp reassoc nsz arcp contract afn olt double %595, 0x3FEF5C28F5C28F5C
@@ -2075,7 +2075,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 
 ._crit_edge824:                                   ; preds = %.lr.ph823
   %769 = fcmp reassoc nsz arcp contract afn ogt float %.1320, 1.000000e+00
-  %770 = fmul reassoc nsz arcp contract afn float %.1320, 2.000000e+01
+  %770 = fmul reassoc nnan nsz arcp contract afn float %.1320, 2.000000e+01
   %771 = fcmp reassoc nsz arcp contract afn olt float %.1318, %770
   %or.cond609 = select i1 %769, i1 %771, i1 false
   br i1 %or.cond609, label %.lr.ph828, label %795
@@ -2533,13 +2533,13 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
   %indvars.iv924 = phi i64 [ 0, %975 ], [ %indvars.iv.next925, %981 ]
   %982 = trunc nuw nsw i64 %indvars.iv924 to i32
   %983 = uitofp nneg i32 %982 to double
-  %984 = fmul reassoc nsz arcp contract afn double %983, 0x3F35555555555555
+  %984 = fmul reassoc nnan nsz arcp contract afn double %983, 0x3F35555555555555
   %985 = fmul reassoc nsz arcp contract afn double %984, %984
-  %.neg762 = fmul reassoc nsz arcp contract afn double %983, 0xBE975608FECE194D
-  %.neg763 = fmul reassoc nsz arcp contract afn double %985, 0x3F667BCEF737735E
-  %986 = fmul reassoc nsz arcp contract afn double %983, 0xBEB267E8FF27CE95
+  %.neg762 = fmul reassoc nnan nsz arcp contract afn double %983, 0xBE975608FECE194D
+  %.neg763 = fmul reassoc nnan nsz arcp contract afn double %985, 0x3F667BCEF737735E
+  %986 = fmul reassoc nnan nsz arcp contract afn double %983, 0xBEB267E8FF27CE95
   %.neg765 = fmul reassoc nsz arcp contract afn double %986, %985
-  %reass.add = fadd reassoc nsz arcp contract afn double %.neg762, 0x3EF3C65EA647FFF0
+  %reass.add = fadd reassoc nnan nsz arcp contract afn double %.neg762, 0x3EF3C65EA647FFF0
   %reass.add767 = fadd reassoc nsz arcp contract afn double %reass.add, %.neg763
   %reass.add768 = fadd reassoc nsz arcp contract afn double %reass.add767, %.neg765
   %reass.mul = fmul reassoc nsz arcp contract afn double %reass.add768, %983
@@ -2772,7 +2772,7 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 
 1095:                                             ; preds = %1091
   %1096 = uitofp i32 %1089 to float
-  %1097 = fmul reassoc nsz arcp contract afn float %1096, 0x3FEDE81300000000
+  %1097 = fmul reassoc nnan nsz arcp contract afn float %1096, 0x3FEDE81300000000
   %1098 = fptosi float %1097 to i64
   %1099 = getelementptr inbounds nuw i8, ptr %0, i64 153032
   store i64 %1098, ptr %1099, align 8, !tbaa !131
@@ -2809,13 +2809,13 @@ define noundef range(i32 -100013, 3) i32 @_ZN6LibRaw15open_datastreamEP26LibRaw_
 1112:                                             ; preds = %1108
   %1113 = load i32, ptr %1109, align 4, !tbaa !129
   %1114 = sitofp i32 %1113 to float
-  %1115 = fmul reassoc nsz arcp contract afn float %1114, 0x3FF0CE0760000000
+  %1115 = fmul reassoc nnan nsz arcp contract afn float %1114, 0x3FF0CE0760000000
   %1116 = fptosi float %1115 to i32
   store i32 %1116, ptr %1109, align 4, !tbaa !129
   %1117 = getelementptr inbounds nuw i8, ptr %1109, i64 8
   %1118 = load i32, ptr %1117, align 4, !tbaa !129
   %1119 = sitofp i32 %1118 to float
-  %1120 = fmul reassoc nsz arcp contract afn float %1119, 0x40024B2960000000
+  %1120 = fmul reassoc nnan nsz arcp contract afn float %1119, 0x40024B2960000000
   %1121 = fptosi float %1120 to i32
   store i32 %1121, ptr %1117, align 4, !tbaa !129
   br label %1122

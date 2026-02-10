@@ -147,7 +147,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32i_vle8ff_vP1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %36 = load i64, ptr %35, align 8, !tbaa !145
   %37 = uitofp i64 %36 to float
-  %38 = fdiv float 8.000000e+00, %37
+  %38 = fdiv nnan float 8.000000e+00, %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %40 = load float, ptr %39, align 8, !tbaa !146
   %41 = fmul float %40, %38
@@ -629,7 +629,7 @@ define noundef i64 @_Z19fast_rv64i_vle8ff_vP11processor_t6insn_tm(ptr noundef %0
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %36 = load i64, ptr %35, align 8, !tbaa !145
   %37 = uitofp i64 %36 to float
-  %38 = fdiv float 8.000000e+00, %37
+  %38 = fdiv nnan float 8.000000e+00, %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %40 = load float, ptr %39, align 8, !tbaa !146
   %41 = fmul float %40, %38
@@ -975,7 +975,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32i_vle8ff_v
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %36 = load i64, ptr %35, align 8, !tbaa !145
   %37 = uitofp i64 %36 to float
-  %38 = fdiv float 8.000000e+00, %37
+  %38 = fdiv nnan float 8.000000e+00, %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %40 = load float, ptr %39, align 8, !tbaa !146
   %41 = fmul float %40, %38
@@ -1323,7 +1323,7 @@ define noundef i64 @_Z21logged_rv64i_vle8ff_vP11processor_t6insn_tm(ptr noundef 
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %36 = load i64, ptr %35, align 8, !tbaa !145
   %37 = uitofp i64 %36 to float
-  %38 = fdiv float 8.000000e+00, %37
+  %38 = fdiv nnan float 8.000000e+00, %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %40 = load float, ptr %39, align 8, !tbaa !146
   %41 = fmul float %40, %38
@@ -1669,7 +1669,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z19fast_rv32e_vle8ff_vP1
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %36 = load i64, ptr %35, align 8, !tbaa !145
   %37 = uitofp i64 %36 to float
-  %38 = fdiv float 8.000000e+00, %37
+  %38 = fdiv nnan float 8.000000e+00, %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %40 = load float, ptr %39, align 8, !tbaa !146
   %41 = fmul float %40, %38
@@ -2033,7 +2033,7 @@ define noundef i64 @_Z19fast_rv64e_vle8ff_vP11processor_t6insn_tm(ptr noundef %0
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %36 = load i64, ptr %35, align 8, !tbaa !145
   %37 = uitofp i64 %36 to float
-  %38 = fdiv float 8.000000e+00, %37
+  %38 = fdiv nnan float 8.000000e+00, %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %40 = load float, ptr %39, align 8, !tbaa !146
   %41 = fmul float %40, %38
@@ -2395,7 +2395,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z21logged_rv32e_vle8ff_v
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %36 = load i64, ptr %35, align 8, !tbaa !145
   %37 = uitofp i64 %36 to float
-  %38 = fdiv float 8.000000e+00, %37
+  %38 = fdiv nnan float 8.000000e+00, %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %40 = load float, ptr %39, align 8, !tbaa !146
   %41 = fmul float %40, %38
@@ -2759,7 +2759,7 @@ define noundef i64 @_Z21logged_rv64e_vle8ff_vP11processor_t6insn_tm(ptr noundef 
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 266800
   %36 = load i64, ptr %35, align 8, !tbaa !145
   %37 = uitofp i64 %36 to float
-  %38 = fdiv float 8.000000e+00, %37
+  %38 = fdiv nnan float 8.000000e+00, %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 266808
   %40 = load float, ptr %39, align 8, !tbaa !146
   %41 = fmul float %40, %38

@@ -2634,7 +2634,7 @@ common.resume:                                    ; preds = %26, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %33 = sub i64 %32, %20
   %34 = uitofp i64 %33 to double
-  %35 = fmul double %34, 0x3EF0000000000000
+  %35 = fmul nnan double %34, 0x3EF0000000000000
   %36 = tail call double @llvm.ceil.f64(double %35)
   %37 = tail call i64 @llvm.fptoui.sat.i64.f64(double %36)
   store ptr %1, ptr %0, align 8

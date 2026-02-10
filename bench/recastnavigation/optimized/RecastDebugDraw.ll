@@ -907,7 +907,7 @@ define void @_Z37duDebugDrawCompactHeightfieldDistanceP11duDebugDrawRK20rcCompac
   %12 = load i16, ptr %11, align 8
   %13 = uitofp i16 %12 to float
   %14 = icmp eq i16 %12, 0
-  %15 = fdiv float 2.550000e+02, %13
+  %15 = fdiv nnan float 2.550000e+02, %13
   %16 = select i1 %14, float 2.550000e+02, float %15
   %17 = load ptr, ptr %0, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32

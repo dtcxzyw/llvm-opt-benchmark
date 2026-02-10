@@ -1094,9 +1094,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit67: ; preds = 
   %324 = sub i64 %322, %323
   %325 = ashr exact i64 %324, 6
   %326 = uitofp i64 %325 to double
-  %327 = fadd double %326, -1.000000e+00
-  %328 = fdiv double 1.000000e+00, %327
-  %329 = fptrunc double %328 to float
+  %327 = fadd nnan double %326, -1.000000e+00
+  %328 = fdiv nnan double 1.000000e+00, %327
+  %329 = fptrunc nnan double %328 to float
   %330 = fneg float %329
   br label %331
 
@@ -3610,9 +3610,9 @@ define internal fastcc void @_ZL12gradient_matPfN3gmx8ArrayRefI8t_matrixEE(ptr r
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 6
   %18 = uitofp i64 %17 to double
-  %19 = fadd double %18, -1.000000e+00
-  %20 = fdiv double 1.000000e+00, %19
-  %21 = fptrunc double %20 to float
+  %19 = fadd nnan double %18, -1.000000e+00
+  %20 = fdiv nnan double 1.000000e+00, %19
+  %21 = fptrunc nnan double %20 to float
   %22 = fneg float %21
   br label %23
 
@@ -3681,7 +3681,7 @@ define internal fastcc void @_ZL11rainbow_matbN3gmx8ArrayRefI8t_matrixEE(i1 noun
   br i1 %22, label %27, label %23
 
 23:                                               ; preds = %.lr.ph.split.us.i.us
-  %24 = fmul double %21, 4.000000e+00
+  %24 = fmul nnan double %21, 4.000000e+00
   %25 = tail call double @pow(double noundef %24, double noundef 0x3FE5555555555555) #29, !tbaa !4
   %26 = fptrunc double %25 to float
   br label %45
@@ -3762,7 +3762,7 @@ _ZL11rainbow_mapbN3gmx8ArrayRefI9t_mappingEE.exit.us: ; preds = %45, %.lr.ph.spl
   br i1 %65, label %70, label %66
 
 66:                                               ; preds = %.lr.ph.split.i
-  %67 = fmul double %64, 4.000000e+00
+  %67 = fmul nnan double %64, 4.000000e+00
   %68 = tail call double @pow(double noundef %67, double noundef 0x3FE5555555555555) #29, !tbaa !4
   %69 = fptrunc double %68 to float
   br label %88

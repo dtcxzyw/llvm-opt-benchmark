@@ -499,7 +499,7 @@ _ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EE5clearEv.exit: ; preds = %144, %147
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %156
   %158 = sub nsw i64 %155, %148
   %159 = sitofp i64 %158 to double
-  %160 = fmul double %159, 1.000000e+03
+  %160 = fmul nnan double %159, 1.000000e+03
   %161 = fdiv double %160, %143
   %162 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %161)
           to label %_ZNSolsEd.exit unwind label %.loopexit290
@@ -771,7 +771,7 @@ _ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EE5clearEv.exit197: ; preds = %239, %242
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit199: ; preds = %256
   %258 = sub nsw i64 %255, %243
   %259 = sitofp i64 %258 to double
-  %260 = fmul double %259, 1.000000e+03
+  %260 = fmul nnan double %259, 1.000000e+03
   %261 = fdiv double %260, %238
   %262 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %261)
           to label %_ZNSolsEd.exit201 unwind label %.loopexit
@@ -856,7 +856,7 @@ _ZNSolsEPFRSoS_E.exit205:                         ; preds = %.noexc268
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit207: ; preds = %290
   %292 = sub nsw i64 %289, %282
   %293 = sitofp i64 %292 to double
-  %294 = fmul double %293, 1.000000e+03
+  %294 = fmul nnan double %293, 1.000000e+03
   %295 = fdiv double %294, %238
   %296 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %295)
           to label %_ZNSolsEd.exit209 unwind label %.loopexit

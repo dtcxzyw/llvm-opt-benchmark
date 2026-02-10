@@ -701,7 +701,7 @@ _ZN5ZXing6ResultC2Ev.exit93:                      ; preds = %183
 
 _ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit: ; preds = %.lr.ph.i.i.i.i
   %227 = uitofp i16 %225 to float
-  %228 = fmul float %227, 5.000000e-01
+  %228 = fmul nnan float %227, 5.000000e-01
   %229 = fcmp ugt float %228, %222
   br i1 %229, label %230, label %_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit.thread
 

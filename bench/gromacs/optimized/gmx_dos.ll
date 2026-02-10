@@ -1720,7 +1720,7 @@ _ZL13calc_compressd.exit:                         ; preds = %699, %_ZL6calc_yddd
   %742 = fdiv double %738, %741
   %743 = fmul double %662, 6.000000e+00
   %744 = fmul double %.2309, %743
-  %745 = fmul double %615, 0x400921FB54442D18
+  %745 = fmul nnan double %615, 0x400921FB54442D18
   %746 = fdiv double %744, %745
   %747 = call double @cbrt(double noundef %746) #21
   %748 = load ptr, ptr %10, align 8, !tbaa !91
@@ -2123,7 +2123,7 @@ _ZL7wEsolidff.exit:                               ; preds = %_ZL7wAsolidff.exit,
 ._crit_edge601:                                   ; preds = %_ZL7wEsolidff.exit, %871
   %975 = load ptr, ptr %362, align 8, !tbaa !62
   %976 = uitofp nneg i32 %332 to double
-  %977 = fmul double %976, 5.000000e-01
+  %977 = fmul nnan double %976, 5.000000e-01
   %978 = fptrunc double %977 to float
   %979 = invoke noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %437, ptr noundef %439, ptr noundef %975, ptr noundef null, float noundef %978, ptr noundef nonnull %15)
           to label %980 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

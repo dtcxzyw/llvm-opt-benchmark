@@ -461,7 +461,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit38:               ; preds = %.lr.ph.i.i.i33.preh
   %31 = lshr i32 %30, 1
   %32 = tail call i32 @llvm.umin.i32(i32 %27, i32 %31)
   %33 = uitofp nneg i32 %32 to float
-  %34 = fmul float %33, 0x3FE6666660000000
+  %34 = fmul nnan float %33, 0x3FE6666660000000
   %35 = icmp sgt i32 %26, 0
   br i1 %35, label %.preheader.lr.ph, label %._crit_edge43
 
@@ -489,8 +489,8 @@ _ZNSt8valarrayIfE6resizeEmf.exit38:               ; preds = %.lr.ph.i.i.i33.preh
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %40
-  %47 = fpext float %sqrt.us to double
-  %48 = fmul double %47, 0x400921FB54442D18
+  %47 = fpext nnan float %sqrt.us to double
+  %48 = fmul nnan double %47, 0x400921FB54442D18
   %49 = fdiv double %48, %37
   %50 = tail call double @cos(double noundef %49) #21, !tbaa !71
   %51 = fptrunc double %50 to float

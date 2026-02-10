@@ -2489,7 +2489,7 @@ define void @_ZN2cv16phase_unwrapping29HistogramPhaseUnwrapping_Impl12addIncreme
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %39 = load i32, ptr %38, align 4, !tbaa !28
   %40 = sitofp i32 %39 to double
-  %41 = fmul double %40, 0x401921FB54442D18
+  %41 = fmul nnan double %40, 0x401921FB54442D18
   %42 = fptrunc double %41 to float
   %43 = fadd float %37, %42
   %44 = load ptr, ptr %25, align 8, !tbaa !111

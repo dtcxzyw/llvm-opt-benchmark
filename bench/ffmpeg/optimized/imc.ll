@@ -482,7 +482,7 @@ imc_read_level_coeffs_raw.exit.thread.i:          ; preds = %86
   %175 = getelementptr inbounds nuw i8, ptr %60, i64 256
   %.val.i = load i32, ptr %37, align 16, !tbaa !70
   %176 = uitofp nneg i32 %85 to double
-  %177 = fmul nsz double %176, 1.894500e-01
+  %177 = fmul nnan nsz double %176, 1.894500e-01
   %exp2.i.i = call nsz double @llvm.exp2.f64(double %177)
   %178 = fdiv nsz double 2.000000e+04, %exp2.i.i
   %179 = fptrunc nsz double %178 to float
@@ -508,7 +508,7 @@ imc_read_level_coeffs_raw.exit.thread.i:          ; preds = %86
   %191 = load i32, ptr %.02.i.i, align 4, !tbaa !30
   %192 = sub nsw i32 0, %191
   %193 = sitofp i32 %192 to double
-  %194 = fmul nsz double %193, 4.375000e-01
+  %194 = fmul nnan nsz double %193, 4.375000e-01
   %195 = fptrunc nsz double %194 to float
   %196 = call nsz float @llvm.pow.f32(float 1.000000e+01, float %195)
   %197 = fmul nsz float %196, %179
@@ -535,7 +535,7 @@ imc_read_level_coeffs_raw.exit.i:                 ; preds = %173
 206:                                              ; preds = %imc_read_level_coeffs_raw.exit.i
   %207 = load i32, ptr %78, align 4, !tbaa !30
   %208 = sitofp i32 %207 to double
-  %209 = fmul nsz double %208, 1.894500e-01
+  %209 = fmul nnan nsz double %208, 1.894500e-01
   %210 = call nsz double @llvm.exp2.f64(double %209)
   %211 = fdiv nsz double 2.000000e+04, %210
   %212 = fptrunc nsz double %211 to float
@@ -1526,7 +1526,7 @@ imc_calculate_coeffs.exit.i:                      ; preds = %.preheader.i.i
 685:                                              ; preds = %._crit_edge.i213.i
   %686 = sub nsw i32 %674, %671
   %687 = sitofp i32 %686 to double
-  %688 = fmul nsz double %687, 1.500000e+00
+  %688 = fmul nnan nsz double %687, 1.500000e+00
   %689 = fptosi double %688 to i32
   %690 = icmp slt i32 %682, %689
   %691 = icmp sgt i32 %682, 0
@@ -2375,8 +2375,8 @@ define internal fastcc void @iac_generate_tabs(ptr noundef writeonly captures(no
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = sitofp i32 %1 to double
-  %7 = fmul nsz double %6, 0x3F50000000000000
-  %8 = fmul nsz double %6, 5.000000e-01
+  %7 = fmul nnan nsz double %6, 0x3F50000000000000
+  %8 = fmul nnan nsz double %6, 5.000000e-01
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 15412
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 15536
   br label %13

@@ -1410,7 +1410,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit209.i:        ; preds = %.noexc.i, %_ZN2cv10
 .lr.ph.i.i:                                       ; preds = %_ZN2cv10AutoBufferIfLm264EEC2Em.exit209.i
   %348 = fcmp olt double %301, 0x3E80000000000000
   %349 = uitofp nneg i32 %300 to double
-  %350 = fmul double %349, 3.000000e-01
+  %350 = fmul nnan double %349, 3.000000e-01
   %.083.i.i = select i1 %348, double %350, double %301
   %351 = fmul double %.083.i.i, 2.000000e+00
   %352 = fmul double %.083.i.i, %351
@@ -2115,7 +2115,7 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit218.i:        ; preds = %648, %_ZN2cv10AutoB
 
 670:                                              ; preds = %.lr.ph315
   %671 = sitofp i32 %668 to double
-  %672 = fmul double %671, 3.000000e-01
+  %672 = fmul nnan double %671, 3.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %673 = shl nsw i32 %668, 1
   %674 = add nsw i32 %673, %666
@@ -2221,7 +2221,7 @@ _ZN2cv10AutoBufferIPKfLm136EEC2Em.exit.i:         ; preds = %.noexc195.i, %_ZN2c
   br i1 %.not230.i, label %._crit_edge.i170, label %.lr.ph.i149
 
 .lr.ph.i149:                                      ; preds = %_ZN2cv10AutoBufferIPKfLm136EEC2Em.exit.i
-  %721 = fmul double %672, 2.000000e+00
+  %721 = fmul nnan double %672, 2.000000e+00
   %722 = fmul double %672, %721
   %723 = add nuw nsw i32 %668, 1
   %wide.trip.count.i150 = zext nneg i32 %723 to i64

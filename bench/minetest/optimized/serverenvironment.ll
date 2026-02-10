@@ -3897,8 +3897,8 @@ invoke.cont55:                                    ; preds = %invoke.cont37
 
 for.body.lr.ph.i:                                 ; preds = %invoke.cont55
   %conv2.i = sitofp i16 %.sroa.speculated to float
-  %mul.i252 = fmul nsz float %conv2.i, 1.000000e+01
-  %mul3.i = fmul nsz float %mul.i252, 1.600000e+01
+  %mul.i252 = fmul nnan nsz float %conv2.i, 1.000000e+01
+  %mul3.i = fmul nnan nsz float %mul.i252, 1.600000e+01
   %conv4.i = fptosi float %mul3.i to i16
   %53 = trunc nsw i32 %div.i11.i.i to i16
   %conv17.i253 = sub i16 %53, %.sroa.speculated
@@ -14950,8 +14950,8 @@ land.lhs.true:                                    ; preds = %invoke.cont115
 
 if.then123:                                       ; preds = %land.lhs.true
   %conv124 = uitofp i32 %inc120 to float
-  %conv125 = fpext float %conv124 to double
-  %mul = fmul nsz double %conv125, 1.000000e+02
+  %conv125 = fpext nnan ninf float %conv124 to double
+  %mul = fmul nnan nsz double %conv125, 1.000000e+02
   %102 = load ptr, ptr %_M_finish.i383933, align 8, !tbaa !482
   %103 = load ptr, ptr %loadable_blocks, align 8, !tbaa !484
   %sub.ptr.lhs.cast.i443 = ptrtoint ptr %102 to i64
@@ -21086,11 +21086,11 @@ ehcleanup98:                                      ; preds = %_ZN12StaticObjectD2
 define dso_local void @_ZN17ServerEnvironment21getAddedActiveObjectsEP9PlayerSAOssRKSt3setItSt4lessItESaItEERSt6vectorItS5_E(ptr noundef nonnull align 8 dereferenceable(952) %this, ptr noundef readonly captures(none) %playersao, i16 noundef signext %radius, i16 noundef signext %player_radius, ptr noundef nonnull align 8 dereferenceable(48) %current_objects, ptr noundef nonnull align 8 dereferenceable(24) %added_objects) local_unnamed_addr #13 align 2 {
 entry:
   %conv4 = sitofp i16 %player_radius to float
-  %mul5 = fmul nsz float %conv4, 1.000000e+01
+  %mul5 = fmul nnan nsz float %conv4, 1.000000e+01
   %cmp = fcmp nsz olt float %mul5, 0.000000e+00
   %player_radius_f.0 = select i1 %cmp, float 0.000000e+00, float %mul5
   %conv2 = sitofp i16 %radius to float
-  %mul = fmul nsz float %conv2, 1.000000e+01
+  %mul = fmul nnan nsz float %conv2, 1.000000e+01
   %m_ao_manager = getelementptr inbounds nuw i8, ptr %this, i64 136
   %m_base_position.i = getelementptr inbounds nuw i8, ptr %playersao, i64 32
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %m_base_position.i, align 8, !tbaa.struct !191
@@ -21106,9 +21106,9 @@ declare void @_ZN6server15ActiveObjectMgr30getAddedActiveObjectsAroundPosEN3irr4
 define dso_local void @_ZN17ServerEnvironment23getRemovedActiveObjectsEP9PlayerSAOssRKSt3setItSt4lessItESaItEERSt6vectorISt4pairIbtESaISB_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(952) %this, ptr noundef readonly captures(none) %playersao, i16 noundef signext %radius, i16 noundef signext %player_radius, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %current_objects, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %removed_objects) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv2 = sitofp i16 %radius to float
-  %mul = fmul nsz float %conv2, 1.000000e+01
+  %mul = fmul nnan nsz float %conv2, 1.000000e+01
   %conv4 = sitofp i16 %player_radius to float
-  %mul5 = fmul nsz float %conv4, 1.000000e+01
+  %mul5 = fmul nnan nsz float %conv4, 1.000000e+01
   %cmp = fcmp nsz olt float %mul5, 0.000000e+00
   %player_radius_f.0 = select i1 %cmp, float 0.000000e+00, float %mul5
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %current_objects, i64 24
@@ -22560,15 +22560,15 @@ entry:
   %mul3.i.i21 = fmul nsz double %conv2.i.i, 5.000000e-01
   %5 = call nsz double @llvm.sin.f64(double %mul3.i.i21)
   %6 = call nsz double @llvm.cos.f64(double %mul3.i.i21)
-  %mul8.i.i = fmul nsz double %6, 0.000000e+00
-  %mul9.i.i = fmul nsz double %5, 0.000000e+00
+  %mul8.i.i = fmul ninf nsz double %6, 0.000000e+00
+  %mul9.i.i = fmul ninf nsz double %5, 0.000000e+00
   %neg.i.i = fneg nsz double %mul9.i.i
   %7 = call nsz double @llvm.fmuladd.f64(double %6, double 0.000000e+00, double %neg.i.i)
-  %mul14.i.i = fmul nsz double %mul8.i.i, 0.000000e+00
+  %mul14.i.i = fmul ninf nsz double %mul8.i.i, 0.000000e+00
   %8 = fadd nsz double %5, %mul14.i.i
   %conv15.i.i = fptrunc double %8 to float
   %9 = fsub nsz double %mul8.i.i, %mul9.i.i
-  %mul21.i.i = fmul nsz double %mul9.i.i, 0.000000e+00
+  %mul21.i.i = fmul ninf nsz double %mul9.i.i, 0.000000e+00
   %10 = fadd nsz double %6, %mul21.i.i
   %conv22.i.i = fptrunc double %10 to float
   %mul4.i.i.i = fmul nsz float %conv15.i.i, %conv15.i.i

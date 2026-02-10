@@ -2413,7 +2413,7 @@ thread-pre-split:                                 ; preds = %6, %8, %10
 
 54:                                               ; preds = %51
   %55 = uitofp nneg i32 %52 to double
-  %56 = fmul double %55, 0x3F50000000000000
+  %56 = fmul nnan double %55, 0x3F50000000000000
   %57 = fdiv double %56, 9.600000e+01
   store double %57, ptr @GetGlobalContentScale.scale_factor, align 8
   br label %58

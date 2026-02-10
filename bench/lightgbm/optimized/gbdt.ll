@@ -3844,8 +3844,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit:
   %31 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #22
   %32 = sub nsw i64 %31, %7
   %33 = sitofp i64 %32 to double
-  %34 = fdiv double %33, 1.000000e+06
-  %35 = fmul double %34, 1.000000e-03
+  %34 = fdiv nnan double %33, 1.000000e+06
+  %35 = fmul nnan double %34, 1.000000e-03
   %36 = add nuw nsw i32 %.01278.us, 1
   call void (ptr, ...) @_ZN8LightGBM3Log4InfoEPKcz(ptr noundef nonnull @.str.29, double %35, i32 noundef %36)
   %37 = urem i32 %36, %1
@@ -4213,8 +4213,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit35.us: ; preds = %
   %183 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #22
   %184 = sub nsw i64 %183, %7
   %185 = sitofp i64 %184 to double
-  %186 = fdiv double %185, 1.000000e+06
-  %187 = fmul double %186, 1.000000e-03
+  %186 = fdiv nnan double %185, 1.000000e+06
+  %187 = fmul nnan double %186, 1.000000e-03
   %188 = add nuw nsw i32 %.01278, 1
   tail call void (ptr, ...) @_ZN8LightGBM3Log4InfoEPKcz(ptr noundef nonnull @.str.29, double %187, i32 noundef %188)
   %189 = load ptr, ptr %8, align 8, !tbaa !159
@@ -7650,7 +7650,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232.i: ; preds = %
   br i1 %.ph.i, label %335, label %341
 
 335:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i231.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i231.thread.i
-  %336 = fmul double %.0129.i, 1.000000e+308
+  %336 = fmul nnan double %.0129.i, 1.000000e+308
   br label %.sink.split.i
 
 337:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit224.thread257.i

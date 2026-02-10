@@ -3223,7 +3223,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %178 = fadd reassoc nsz arcp contract afn float %177, %175
   %179 = fmul reassoc nsz arcp contract afn float %178, %2
   %180 = fpext reassoc nsz arcp contract afn float %179 to double
-  %181 = fmul reassoc nsz arcp contract afn double %167, 5.000000e-01
+  %181 = fmul reassoc nnan nsz arcp contract afn double %167, 5.000000e-01
   %182 = fsub reassoc nsz arcp contract afn double %180, %181
   %183 = getelementptr inbounds nuw i8, ptr %19, i64 60
   %184 = load float, ptr %183, align 4, !tbaa !137
@@ -3293,7 +3293,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %223 = load i64, ptr %222, align 8, !tbaa !143
   %224 = sub nsw i64 %221, %223
   %225 = sitofp i64 %224 to float
-  %226 = fmul reassoc nsz arcp contract afn float %225, 0x3EA0C6F7A0000000
+  %226 = fmul reassoc nnan nsz arcp contract afn float %225, 0x3EA0C6F7A0000000
   %227 = fcmp reassoc nsz arcp contract afn ugt float %226, 1.000000e+00
   br i1 %227, label %245, label %228
 
@@ -3302,7 +3302,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %230 = load i64, ptr %222, align 8, !tbaa !143
   %231 = sub nsw i64 %229, %230
   %232 = sitofp i64 %231 to float
-  %233 = fmul reassoc nsz arcp contract afn float %232, 0x3EA0C6F7A0000000
+  %233 = fmul reassoc nnan nsz arcp contract afn float %232, 0x3EA0C6F7A0000000
   %234 = fpext reassoc nsz arcp contract afn float %233 to double
   %235 = fsub reassoc nsz arcp contract afn double 1.000000e+00, %234
   %236 = fcmp reassoc nsz arcp contract afn ugt double %235, 1.000000e+00
@@ -3313,7 +3313,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %239 = load i64, ptr %222, align 8, !tbaa !143
   %240 = sub nsw i64 %238, %239
   %241 = sitofp i64 %240 to float
-  %242 = fmul reassoc nsz arcp contract afn float %241, 0x3EA0C6F7A0000000
+  %242 = fmul reassoc nnan nsz arcp contract afn float %241, 0x3EA0C6F7A0000000
   %243 = fpext reassoc nsz arcp contract afn float %242 to double
   %244 = fsub reassoc nsz arcp contract afn double 1.000000e+00, %243
   br label %245

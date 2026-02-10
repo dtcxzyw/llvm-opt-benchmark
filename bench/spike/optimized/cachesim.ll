@@ -659,7 +659,7 @@ define void @_ZN11cache_sim_t11print_statsEv(ptr noundef nonnull readonly align 
   %6 = load i64, ptr %5, align 8, !tbaa !34
   %7 = add i64 %6, %4
   %8 = uitofp i64 %7 to float
-  %9 = fmul float %8, 1.000000e+02
+  %9 = fmul nnan float %8, 1.000000e+02
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %11 = load i64, ptr %10, align 8, !tbaa !35
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88

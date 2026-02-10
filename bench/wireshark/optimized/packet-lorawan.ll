@@ -504,8 +504,8 @@ define internal void @cf_coords_lat_custom(ptr noundef %0, i32 noundef %1) #1 {
   %4 = add i32 %1, -16777216
   %5 = select i1 %3, i32 %1, i32 %4
   %6 = sitofp i32 %5 to double
-  %7 = fmul double %6, 9.000000e+01
-  %8 = fmul double %7, 0x3E80000000000000
+  %7 = fmul nnan double %6, 9.000000e+01
+  %8 = fmul nnan double %7, 0x3E80000000000000
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = fcmp oge double %8, 0.000000e+00
   %11 = select i1 %10, i32 78, i32 83
@@ -519,8 +519,8 @@ define internal void @cf_coords_lng_custom(ptr noundef %0, i32 noundef %1) #1 {
   %4 = add i32 %1, -16777216
   %5 = select i1 %3, i32 %1, i32 %4
   %6 = sitofp i32 %5 to double
-  %7 = fmul double %6, 1.800000e+02
-  %8 = fmul double %7, 0x3E80000000000000
+  %7 = fmul nnan double %6, 1.800000e+02
+  %8 = fmul nnan double %7, 0x3E80000000000000
   %9 = tail call double @llvm.fabs.f64(double %8)
   %10 = fcmp oge double %8, 0.000000e+00
   %11 = select i1 %10, i32 69, i32 87

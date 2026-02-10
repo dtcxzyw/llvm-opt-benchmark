@@ -11023,7 +11023,7 @@ define void @_ZN6duckdb22TemporaryMemoryManager11UpdateStateERNS_13ClientContext
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %6)
   %12 = uitofp i64 %11 to double
-  %13 = fmul double %12, 8.000000e-01
+  %13 = fmul nnan double %12, 8.000000e-01
   %14 = fptoui double %13 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %14, ptr %15, align 8, !tbaa !821
@@ -11144,7 +11144,7 @@ define void @_ZN6duckdb22TemporaryMemoryManager11UpdateStateERNS_13ClientContext
   %.neg = sub i64 %97, %96
   %98 = add i64 %.neg, %95
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3FE5555555555555
+  %100 = fmul nnan double %99, 0x3FE5555555555555
   %101 = fptoui double %100 to i64
   %102 = tail call noundef i64 @llvm.umin.i64(i64 %94, i64 %101)
   %103 = tail call noundef i64 @llvm.umin.i64(i64 %102, i64 %98)
@@ -11354,7 +11354,7 @@ define void @_ZN6duckdb22TemporaryMemoryManager19UpdateConfigurationERNS_13Clien
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(8) %5)
   %11 = uitofp i64 %10 to double
-  %12 = fmul double %11, 8.000000e-01
+  %12 = fmul nnan double %11, 8.000000e-01
   %13 = fptoui double %12 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %13, ptr %14, align 8, !tbaa !821
@@ -11440,7 +11440,7 @@ _ZN6duckdb22TemporaryMemoryManager4LockEv.exit:   ; preds = %3
 
 .noexc13:                                         ; preds = %.noexc12
   %16 = uitofp i64 %15 to double
-  %17 = fmul double %16, 8.000000e-01
+  %17 = fmul nnan double %16, 8.000000e-01
   %18 = fptoui double %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %18, ptr %19, align 8, !tbaa !821
@@ -12734,7 +12734,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i: ; 
   %363 = call noundef range(i64 1, 0) i64 @llvm.umax.i64(i64 %362, i64 1)
   %364 = add i64 %363, %.1111333
   %365 = uitofp i64 %364 to double
-  %366 = fmul double %365, 0x3FE5555555555555
+  %366 = fmul nnan double %365, 0x3FE5555555555555
   %367 = fptoui double %366 to i64
   %368 = load i64, ptr %359, align 8, !tbaa !62
   %369 = call noundef i64 @llvm.umin.i64(i64 %368, i64 %367)
@@ -51599,7 +51599,7 @@ define void @_ZN6duckdb20TemporaryFileManager15SetMaxSwapSpaceENS_12optional_idx
 16:                                               ; preds = %13
   %17 = call noundef i64 @_ZNK6duckdb12optional_idx8GetIndexEv(ptr noundef nonnull align 8 dereferenceable(8) %3)
   %18 = uitofp i64 %17 to double
-  %19 = fmul double %18, 9.000000e-01
+  %19 = fmul nnan double %18, 9.000000e-01
   %20 = fptoui double %19 to i64
   br label %_ZN6duckdbL13GetDefaultMaxERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 

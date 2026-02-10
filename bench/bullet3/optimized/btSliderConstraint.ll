@@ -1210,7 +1210,7 @@ define dso_local void @_ZN18btSliderConstraint18getInfo2NonVirtualEPN17btTypedCo
   br i1 %75, label %77, label %88
 
 77:                                               ; preds = %56
-  %78 = fmul float %73, %73
+  %78 = fmul nnan float %73, %73
   %79 = tail call float @llvm.fmuladd.f32(float %72, float %72, float %78)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %79)
   %80 = fdiv float 1.000000e+00, %sqrt.i
@@ -2177,7 +2177,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
 
 625:                                              ; preds = %623
   %626 = fneg float %602
-  %627 = fmul float %622, %626
+  %627 = fmul nnan float %622, %626
   %628 = fcmp ogt float %627, %.pre1103
   br i1 %628, label %629, label %637
 
@@ -2191,7 +2191,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
 
 632:                                              ; preds = %630
   %633 = fneg float %602
-  %634 = fmul float %622, %633
+  %634 = fmul nnan float %622, %633
   %635 = fcmp olt float %634, %.pre1103
   br i1 %635, label %636, label %637
 
@@ -2414,7 +2414,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
 
 776:                                              ; preds = %774
   %777 = fneg float %748
-  %778 = fmul float %773, %777
+  %778 = fmul nnan float %773, %777
   %779 = fcmp ogt float %778, %.pre1109
   br i1 %779, label %780, label %788
 
@@ -2428,7 +2428,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %77, %88
 
 783:                                              ; preds = %781
   %784 = fneg float %748
-  %785 = fmul float %773, %784
+  %785 = fmul nnan float %773, %784
   %786 = fcmp olt float %785, %.pre1109
   br i1 %786, label %787, label %788
 

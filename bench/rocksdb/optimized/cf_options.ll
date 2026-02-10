@@ -37488,7 +37488,7 @@ _ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us:    ; preds = %.lr.ph.split.us.spl
 
 52:                                               ; preds = %48
   %53 = uitofp i64 %46 to double
-  %54 = fmul double %53, %27
+  %54 = fmul nnan double %53, %27
   %55 = fptoui double %54 to i64
   br label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us16
 
@@ -37531,7 +37531,7 @@ _ZN7rocksdb21MultiplyCheckOverflowEmd.exit.us16:  ; preds = %52, %48, %43
 
 67:                                               ; preds = %63
   %68 = uitofp i64 %61 to double
-  %69 = fmul double %68, %27
+  %69 = fmul nnan double %68, %27
   %70 = fptoui double %69 to i64
   br label %_ZN7rocksdb21MultiplyCheckOverflowEmd.exit
 

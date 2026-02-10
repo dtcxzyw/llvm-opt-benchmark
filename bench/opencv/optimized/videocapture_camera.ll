@@ -715,7 +715,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit101: ; preds = %_ZSt
           to label %283 unwind label %339
 
 283:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit101
-  %284 = fmul double %275, 1.000000e+03
+  %284 = fmul nnan double %275, 1.000000e+03
   %285 = fmul double %282, 1.000000e+01
   %286 = fdiv double %284, %285
   invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull @.str.13, double noundef %286)
@@ -738,7 +738,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit103: ; preds = %_ZSt
 
 293:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit103
   %294 = sitofp i64 %.044 to double
-  %295 = fmul double %294, 1.000000e+03
+  %295 = fmul nnan double %294, 1.000000e+03
   %296 = fmul double %292, 1.000000e+01
   %297 = fdiv double %295, %296
   invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.13, double noundef %297)

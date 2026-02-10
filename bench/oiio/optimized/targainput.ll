@@ -4601,7 +4601,7 @@ _ZN11OpenImageIO6v3_1_08TGAInput12decode_pixelEPhS2_S2_iim.exit181.thread312: ; 
   %565 = getelementptr inbounds i8, ptr %.163.i, i64 %542
   %566 = load i8, ptr %565, align 1, !tbaa !14
   %567 = uitofp i8 %566 to float
-  %568 = fmul float %567, 0x3F70101020000000
+  %568 = fmul nnan float %567, 0x3F70101020000000
   %.inv.i = fcmp oge float %568, 0x3810000000000000
   %.0.i.i = select i1 %.inv.i, float %568, float 0x3810000000000000
   %569 = fcmp ogt float %.0.i.i, 0x47EFFFFFE0000000
@@ -4615,10 +4615,10 @@ _ZN11OpenImageIO6v3_1_08TGAInput12decode_pixelEPhS2_S2_iim.exit181.thread312: ; 
   %576 = fadd float %575, -1.000000e+00
   %577 = fmul float %576, %576
   %578 = fmul float %577, %577
-  %579 = fmul contract float %576, 0x3F831161A0000000
-  %580 = fsub contract float 0x3FAAA83920000000, %579
-  %581 = fmul contract float %576, 0x3FDEA2C5A0000000
-  %582 = fadd contract float %581, 0xBFE713CA80000000
+  %579 = fmul nnan contract float %576, 0x3F831161A0000000
+  %580 = fsub nnan contract float 0x3FAAA83920000000, %579
+  %581 = fmul nnan contract float %576, 0x3FDEA2C5A0000000
+  %582 = fadd nnan contract float %581, 0xBFE713CA80000000
   %583 = fmul contract float %576, %580
   %584 = fadd contract float %583, 0xBFC19A9FA0000000
   %585 = fmul contract float %576, %584

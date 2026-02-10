@@ -6696,7 +6696,7 @@ define internal fastcc void @dissect_common_control(ptr noundef %0, ptr noundef 
 34:                                               ; preds = %4
   %35 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef 2)
   %36 = uitofp i32 %35 to float
-  %37 = fmul float %36, 1.250000e-01
+  %37 = fmul nnan float %36, 1.250000e-01
   %38 = load i32, ptr @hf_fp_t1, align 4
   %39 = fpext float %37 to double
   %40 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef 2, i32 noundef 3, float noundef %37, ptr noundef nonnull @.str.535, double noundef %39, i32 noundef %35)
@@ -7556,7 +7556,7 @@ define internal fastcc void @dissect_common_timing_adjustment(ptr noundef %0, pt
   %.029 = phi i32 [ %10, %6 ], [ %21, %16 ]
   %.0 = phi ptr [ %12, %6 ], [ %23, %16 ]
   %28 = sitofp i32 %.029 to float
-  %29 = fmul float %28, 1.250000e-01
+  %29 = fmul nnan float %28, 1.250000e-01
   %30 = fpext float %29 to double
   %31 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %0, ptr noundef %.0, ptr noundef nonnull @ei_fp_timing_adjustment_reported, ptr noundef nonnull @.str.533, double noundef %30)
   ret void
@@ -7566,19 +7566,19 @@ define internal fastcc void @dissect_common_timing_adjustment(ptr noundef %0, pt
 define internal fastcc void @dissect_common_ul_node_synchronisation(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @tvb_get_ntoh24(ptr noundef %2, i32 noundef 2)
   %5 = uitofp i32 %4 to float
-  %6 = fmul float %5, 1.250000e-01
+  %6 = fmul nnan float %5, 1.250000e-01
   %7 = load i32, ptr @hf_fp_t1, align 4
   %8 = fpext float %6 to double
   %9 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef 2, i32 noundef 3, float noundef %6, ptr noundef nonnull @.str.535, double noundef %8, i32 noundef %4)
   %10 = tail call i32 @tvb_get_ntoh24(ptr noundef %2, i32 noundef 5)
   %11 = uitofp i32 %10 to float
-  %12 = fmul float %11, 1.250000e-01
+  %12 = fmul nnan float %11, 1.250000e-01
   %13 = load i32, ptr @hf_fp_t2, align 4
   %14 = fpext float %12 to double
   %15 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %1, i32 noundef %13, ptr noundef %2, i32 noundef 5, i32 noundef 3, float noundef %12, ptr noundef nonnull @.str.535, double noundef %14, i32 noundef %10)
   %16 = tail call i32 @tvb_get_ntoh24(ptr noundef %2, i32 noundef 8)
   %17 = uitofp i32 %16 to float
-  %18 = fmul float %17, 1.250000e-01
+  %18 = fmul nnan float %17, 1.250000e-01
   %19 = load i32, ptr @hf_fp_t3, align 4
   %20 = fpext float %18 to double
   %21 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %1, i32 noundef %19, ptr noundef %2, i32 noundef 8, i32 noundef 3, float noundef %18, ptr noundef nonnull @.str.535, double noundef %20, i32 noundef %16)
@@ -7677,7 +7677,7 @@ define internal fastcc void @dissect_dch_control_frame(ptr noundef %0, ptr nound
   %23 = load i32, ptr @hf_fp_toa, align 4
   %24 = call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %23, ptr noundef %2, i32 noundef 3, i32 noundef 2, i32 noundef 0)
   %25 = sitofp i16 %22 to float
-  %26 = fmul float %25, 1.250000e-01
+  %26 = fmul nnan float %25, 1.250000e-01
   %27 = fpext float %26 to double
   %28 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %24, ptr noundef nonnull @ei_fp_timing_adjustment_reported, ptr noundef nonnull @.str.533, double noundef %27)
   %29 = load ptr, ptr %15, align 8
@@ -7816,7 +7816,7 @@ dissect_dch_rx_timing_deviation.exit:             ; preds = %32, %42, %76
 104:                                              ; preds = %4
   %105 = tail call i32 @tvb_get_ntoh24(ptr noundef %2, i32 noundef 2)
   %106 = uitofp i32 %105 to float
-  %107 = fmul float %106, 1.250000e-01
+  %107 = fmul nnan float %106, 1.250000e-01
   %108 = load i32, ptr @hf_fp_t1, align 4
   %109 = fpext float %107 to double
   %110 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %0, i32 noundef %108, ptr noundef %2, i32 noundef 2, i32 noundef 3, float noundef %107, ptr noundef nonnull @.str.535, double noundef %109, i32 noundef %105)
@@ -7845,7 +7845,7 @@ dissect_dch_radio_interface_parameter_update.exit: ; preds = %.preheader
   %120 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef 5)
   %121 = and i8 %120, 31
   %122 = uitofp nneg i8 %121 to float
-  %123 = fmul float %122, 2.500000e-01
+  %123 = fmul nnan float %122, 2.500000e-01
   %124 = load i32, ptr @hf_fp_tpc_po, align 4
   %125 = fpext float %123 to double
   %126 = zext nneg i8 %121 to i32
@@ -8289,9 +8289,9 @@ define internal fastcc noundef zeroext i1 @heur_dissect_fp_edch_type_1(ptr nound
 
 54:                                               ; preds = %48
   %55 = uitofp nneg i8 %51 to double
-  %56 = tail call double @llvm.fmuladd.f64(double %55, double 1.500000e+00, double 1.500000e+00)
-  %57 = tail call double @llvm.fmuladd.f64(double %56, double 8.000000e+00, double 7.000000e+00)
-  %58 = fmul double %57, 1.250000e-01
+  %56 = tail call nnan double @llvm.fmuladd.f64(double %55, double 1.500000e+00, double 1.500000e+00)
+  %57 = tail call nnan double @llvm.fmuladd.f64(double %56, double 8.000000e+00, double 7.000000e+00)
+  %58 = fmul nnan double %57, 1.250000e-01
   %59 = fptosi double %58 to i32
   %60 = add i32 %49, %59
   %.not129 = icmp ult i32 %60, %33

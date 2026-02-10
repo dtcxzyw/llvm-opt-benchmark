@@ -806,7 +806,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN10ClipperLib14PointInPolygonERKNS
   %41 = sub nsw i64 %.sroa.8.0104, %13
   %42 = sitofp i64 %41 to double
   %43 = fneg double %42
-  %44 = fmul double %43, %40
+  %44 = fmul nnan double %43, %40
   %45 = tail call double @llvm.fmuladd.f64(double %36, double %38, double %44)
   %46 = fcmp une double %45, 0.000000e+00
   br i1 %46, label %.thread, label %.loopexit
@@ -832,7 +832,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN10ClipperLib14PointInPolygonERKNS
   %59 = sub nsw i64 %.sroa.8.0104, %13
   %60 = sitofp i64 %59 to double
   %61 = fneg double %60
-  %62 = fmul double %61, %58
+  %62 = fmul nnan double %61, %58
   %63 = tail call double @llvm.fmuladd.f64(double %54, double %56, double %62)
   %64 = fcmp une double %63, 0.000000e+00
   br i1 %64, label %.thread91, label %.loopexit
@@ -939,7 +939,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN10ClipperLib14PointInPolygonERKNS
   %47 = sub nsw i64 %31, %4
   %48 = sitofp i64 %47 to double
   %49 = fneg double %48
-  %50 = fmul double %49, %46
+  %50 = fmul nnan double %49, %46
   %51 = tail call double @llvm.fmuladd.f64(double %42, double %44, double %50)
   %52 = fcmp une double %51, 0.000000e+00
   br i1 %52, label %53, label %.critedge
@@ -965,7 +965,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN10ClipperLib14PointInPolygonERKNS
   %66 = sub nsw i64 %31, %4
   %67 = sitofp i64 %66 to double
   %68 = fneg double %67
-  %69 = fmul double %68, %65
+  %69 = fmul nnan double %68, %65
   %70 = tail call double @llvm.fmuladd.f64(double %61, double %63, double %69)
   %71 = fcmp une double %70, 0.000000e+00
   br i1 %71, label %72, label %.critedge
@@ -10414,7 +10414,7 @@ _ZN10ClipperLib15UpdateOutPtIdxsERNS_6OutRecE.exit: ; preds = %96
   %146 = sub nsw i64 %127, %104
   %147 = sitofp i64 %146 to double
   %148 = fneg double %147
-  %149 = fmul double %148, %145
+  %149 = fmul nnan double %148, %145
   %150 = tail call double @llvm.fmuladd.f64(double %141, double %143, double %149)
   %151 = fcmp une double %150, 0.000000e+00
   br i1 %151, label %152, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
@@ -10440,7 +10440,7 @@ _ZN10ClipperLib15UpdateOutPtIdxsERNS_6OutRecE.exit: ; preds = %96
   %165 = sub nsw i64 %127, %104
   %166 = sitofp i64 %165 to double
   %167 = fneg double %166
-  %168 = fmul double %167, %164
+  %168 = fmul nnan double %167, %164
   %169 = tail call double @llvm.fmuladd.f64(double %160, double %162, double %168)
   %170 = fcmp une double %169, 0.000000e+00
   br i1 %170, label %171, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
@@ -10557,7 +10557,7 @@ _ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread: ; preds = %_ZN10
   %228 = sub nsw i64 %209, %186
   %229 = sitofp i64 %228 to double
   %230 = fneg double %229
-  %231 = fmul double %230, %227
+  %231 = fmul nnan double %230, %227
   %232 = tail call double @llvm.fmuladd.f64(double %223, double %225, double %231)
   %233 = fcmp une double %232, 0.000000e+00
   br i1 %233, label %234, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit94.thread
@@ -10583,7 +10583,7 @@ _ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit.thread: ; preds = %_ZN10
   %247 = sub nsw i64 %209, %186
   %248 = sitofp i64 %247 to double
   %249 = fneg double %248
-  %250 = fmul double %249, %246
+  %250 = fmul nnan double %249, %246
   %251 = tail call double @llvm.fmuladd.f64(double %242, double %244, double %250)
   %252 = fcmp une double %251, 0.000000e+00
   br i1 %252, label %253, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit94.thread
@@ -10761,7 +10761,7 @@ _ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit.i: ; preds = %289, %.lr.ph.i.
   %342 = sub nsw i64 %323, %300
   %343 = sitofp i64 %342 to double
   %344 = fneg double %343
-  %345 = fmul double %344, %341
+  %345 = fmul nnan double %344, %341
   %346 = tail call double @llvm.fmuladd.f64(double %337, double %339, double %345)
   %347 = fcmp une double %346, 0.000000e+00
   br i1 %347, label %348, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i
@@ -10787,7 +10787,7 @@ _ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit.i: ; preds = %289, %.lr.ph.i.
   %361 = sub nsw i64 %323, %300
   %362 = sitofp i64 %361 to double
   %363 = fneg double %362
-  %364 = fmul double %363, %360
+  %364 = fmul nnan double %363, %360
   %365 = tail call double @llvm.fmuladd.f64(double %356, double %358, double %364)
   %366 = fcmp une double %365, 0.000000e+00
   br i1 %366, label %367, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread.i
@@ -17859,7 +17859,7 @@ _ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit: ; preds = %.lr.ph.i, %22, %1
   %75 = sub nsw i64 %56, %33
   %76 = sitofp i64 %75 to double
   %77 = fneg double %76
-  %78 = fmul double %77, %74
+  %78 = fmul nnan double %77, %74
   %79 = tail call double @llvm.fmuladd.f64(double %70, double %72, double %78)
   %80 = fcmp une double %79, 0.000000e+00
   br i1 %80, label %81, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
@@ -17885,7 +17885,7 @@ _ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit: ; preds = %.lr.ph.i, %22, %1
   %94 = sub nsw i64 %56, %33
   %95 = sitofp i64 %94 to double
   %96 = fneg double %95
-  %97 = fmul double %96, %93
+  %97 = fmul nnan double %96, %93
   %98 = tail call double @llvm.fmuladd.f64(double %89, double %91, double %97)
   %99 = fcmp une double %98, 0.000000e+00
   br i1 %99, label %100, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
@@ -18081,7 +18081,7 @@ _ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit: ; preds = %.lr.ph.i, %29, %2
   %79 = sub nsw i64 %60, %37
   %80 = sitofp i64 %79 to double
   %81 = fneg double %80
-  %82 = fmul double %81, %78
+  %82 = fmul nnan double %81, %78
   %83 = tail call double @llvm.fmuladd.f64(double %74, double %76, double %82)
   %84 = fcmp une double %83, 0.000000e+00
   br i1 %84, label %85, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
@@ -18107,7 +18107,7 @@ _ZN10ClipperLibL14ParseFirstLeftEPNS_6OutRecE.exit: ; preds = %.lr.ph.i, %29, %2
   %98 = sub nsw i64 %60, %37
   %99 = sitofp i64 %98 to double
   %100 = fneg double %99
-  %101 = fmul double %100, %97
+  %101 = fmul nnan double %100, %97
   %102 = tail call double @llvm.fmuladd.f64(double %93, double %95, double %101)
   %103 = fcmp une double %102, 0.000000e+00
   br i1 %103, label %104, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit.thread
@@ -18215,7 +18215,7 @@ _ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit: ; preds = %._crit_edge9
   %159 = sub nsw i64 %140, %117
   %160 = sitofp i64 %159 to double
   %161 = fneg double %160
-  %162 = fmul double %161, %158
+  %162 = fmul nnan double %161, %158
   %163 = tail call double @llvm.fmuladd.f64(double %154, double %156, double %162)
   %164 = fcmp une double %163, 0.000000e+00
   br i1 %164, label %165, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit61.thread
@@ -18241,7 +18241,7 @@ _ZN10ClipperLib18Poly2ContainsPoly1EPNS_5OutPtES1_.exit: ; preds = %._crit_edge9
   %178 = sub nsw i64 %140, %117
   %179 = sitofp i64 %178 to double
   %180 = fneg double %179
-  %181 = fmul double %180, %177
+  %181 = fmul nnan double %180, %177
   %182 = tail call double @llvm.fmuladd.f64(double %173, double %175, double %181)
   %183 = fcmp une double %182, 0.000000e+00
   br i1 %183, label %184, label %_ZN10ClipperLib14PointInPolygonERKNS_8IntPointEPNS_5OutPtE.exit61.thread
@@ -18388,7 +18388,7 @@ define hidden { double, double } @_ZN10ClipperLib13GetUnitNormalERKNS_8IntPointE
   %12 = sitofp i64 %11 to double
   %13 = sub nsw i64 %7, %9
   %14 = sitofp i64 %13 to double
-  %15 = fmul double %14, %14
+  %15 = fmul nnan double %14, %14
   %16 = tail call double @llvm.fmuladd.f64(double %12, double %12, double %15)
   %sqrt = tail call double @llvm.sqrt.f64(double %16)
   %17 = fdiv double 1.000000e+00, %sqrt
@@ -20095,7 +20095,7 @@ _ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE9push_backERKS3_.exit: ; 
 105:                                              ; preds = %_ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE5clearEv.exit
   %106 = load double, ptr %0, align 8
   %107 = fcmp ogt double %106, 2.000000e+00
-  %108 = fmul double %106, %106
+  %108 = fmul nnan double %106, %106
   %109 = fdiv double 2.000000e+00, %108
   %.sink = select i1 %107, double %109, double 5.000000e-01
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -20679,7 +20679,7 @@ _ZNSt6vectorIN10ClipperLib11DoublePointESaIS1_EE7reserveEm.exit: ; preds = %339,
   %374 = sitofp i64 %373 to double
   %375 = sub nsw i64 %369, %371
   %376 = sitofp i64 %375 to double
-  %377 = fmul double %376, %376
+  %377 = fmul nnan double %376, %376
   %378 = tail call double @llvm.fmuladd.f64(double %374, double %374, double %377)
   %sqrt.i = tail call double @llvm.sqrt.f64(double %378)
   %379 = fdiv double 1.000000e+00, %sqrt.i
@@ -20785,7 +20785,7 @@ _ZNSt6vectorIN10ClipperLib11DoublePointESaIS1_EE9push_backEOS1_.exit: ; preds = 
   %421 = sitofp i64 %420 to double
   %422 = sub nsw i64 %416, %418
   %423 = sitofp i64 %422 to double
-  %424 = fmul double %423, %423
+  %424 = fmul nnan double %423, %423
   %425 = tail call double @llvm.fmuladd.f64(double %421, double %421, double %424)
   %sqrt.i227 = tail call double @llvm.sqrt.f64(double %425)
   %426 = fdiv double 1.000000e+00, %sqrt.i227
@@ -23991,18 +23991,18 @@ define hidden noundef double @_ZN10ClipperLib20DistanceFromLineSqrdERKNS_8IntPoi
   %13 = sitofp i64 %12 to double
   %14 = sitofp i64 %11 to double
   %15 = sitofp i64 %5 to double
-  %16 = fmul double %15, %13
+  %16 = fmul nnan double %15, %13
   %17 = tail call double @llvm.fmuladd.f64(double %9, double %14, double %16)
   %18 = load i64, ptr %0, align 8
   %19 = sitofp i64 %18 to double
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i64, ptr %20, align 8
   %22 = sitofp i64 %21 to double
-  %23 = fmul double %13, %22
+  %23 = fmul nnan double %13, %22
   %24 = tail call double @llvm.fmuladd.f64(double %9, double %19, double %23)
   %25 = fsub double %24, %17
   %26 = fmul double %25, %25
-  %27 = fmul double %13, %13
+  %27 = fmul nnan double %13, %13
   %28 = tail call double @llvm.fmuladd.f64(double %9, double %9, double %27)
   %29 = fdiv double %26, %28
   ret double %29
@@ -24039,15 +24039,15 @@ define hidden noundef zeroext i1 @_ZN10ClipperLib19SlopesNearCollinearERKNS_8Int
   %27 = sitofp i64 %26 to double
   %28 = sitofp i64 %6 to double
   %29 = sitofp i64 %12 to double
-  %30 = fmul double %29, %27
+  %30 = fmul nnan double %29, %27
   %31 = tail call double @llvm.fmuladd.f64(double %25, double %28, double %30)
   %32 = sitofp i64 %5 to double
   %33 = sitofp i64 %10 to double
-  %34 = fmul double %33, %27
+  %34 = fmul nnan double %33, %27
   %35 = tail call double @llvm.fmuladd.f64(double %25, double %32, double %34)
   %36 = fsub double %35, %31
   %37 = fmul double %36, %36
-  %38 = fmul double %27, %27
+  %38 = fmul nnan double %27, %27
   %39 = tail call double @llvm.fmuladd.f64(double %25, double %25, double %38)
   %40 = fdiv double %37, %39
   br label %150
@@ -24067,15 +24067,15 @@ define hidden noundef zeroext i1 @_ZN10ClipperLib19SlopesNearCollinearERKNS_8Int
   %51 = sitofp i64 %50 to double
   %52 = sitofp i64 %5 to double
   %53 = sitofp i64 %10 to double
-  %54 = fmul double %53, %51
+  %54 = fmul nnan double %53, %51
   %55 = tail call double @llvm.fmuladd.f64(double %49, double %52, double %54)
   %56 = sitofp i64 %6 to double
   %57 = sitofp i64 %12 to double
-  %58 = fmul double %57, %51
+  %58 = fmul nnan double %57, %51
   %59 = tail call double @llvm.fmuladd.f64(double %49, double %56, double %58)
   %60 = fsub double %59, %55
   %61 = fmul double %60, %60
-  %62 = fmul double %51, %51
+  %62 = fmul nnan double %51, %51
   %63 = tail call double @llvm.fmuladd.f64(double %49, double %49, double %62)
   %64 = fdiv double %61, %63
   br label %150
@@ -24086,17 +24086,17 @@ define hidden noundef zeroext i1 @_ZN10ClipperLib19SlopesNearCollinearERKNS_8Int
   %68 = sitofp i64 %67 to double
   %69 = sitofp i64 %5 to double
   %70 = sitofp i64 %10 to double
-  %71 = fmul double %70, %68
+  %71 = fmul nnan double %70, %68
   %72 = tail call double @llvm.fmuladd.f64(double %66, double %69, double %71)
   %73 = sitofp i64 %18 to double
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %75 = load i64, ptr %74, align 8
   %76 = sitofp i64 %75 to double
-  %77 = fmul double %68, %76
+  %77 = fmul nnan double %68, %76
   %78 = tail call double @llvm.fmuladd.f64(double %66, double %73, double %77)
   %79 = fsub double %78, %72
   %80 = fmul double %79, %79
-  %81 = fmul double %68, %68
+  %81 = fmul nnan double %68, %68
   %82 = tail call double @llvm.fmuladd.f64(double %66, double %66, double %81)
   %83 = fdiv double %80, %82
   br label %150
@@ -24117,15 +24117,15 @@ define hidden noundef zeroext i1 @_ZN10ClipperLib19SlopesNearCollinearERKNS_8Int
   %95 = sitofp i64 %94 to double
   %96 = sitofp i64 %6 to double
   %97 = sitofp i64 %12 to double
-  %98 = fmul double %97, %95
+  %98 = fmul nnan double %97, %95
   %99 = tail call double @llvm.fmuladd.f64(double %92, double %96, double %98)
   %100 = sitofp i64 %5 to double
   %101 = sitofp i64 %10 to double
-  %102 = fmul double %101, %95
+  %102 = fmul nnan double %101, %95
   %103 = tail call double @llvm.fmuladd.f64(double %92, double %100, double %102)
   %104 = fsub double %103, %99
   %105 = fmul double %104, %104
-  %106 = fmul double %95, %95
+  %106 = fmul nnan double %95, %95
   %107 = tail call double @llvm.fmuladd.f64(double %92, double %92, double %106)
   %108 = fdiv double %105, %107
   br label %150
@@ -24144,15 +24144,15 @@ define hidden noundef zeroext i1 @_ZN10ClipperLib19SlopesNearCollinearERKNS_8Int
   %118 = sitofp i64 %117 to double
   %119 = sitofp i64 %5 to double
   %120 = sitofp i64 %10 to double
-  %121 = fmul double %120, %118
+  %121 = fmul nnan double %120, %118
   %122 = tail call double @llvm.fmuladd.f64(double %115, double %119, double %121)
   %123 = sitofp i64 %6 to double
   %124 = sitofp i64 %12 to double
-  %125 = fmul double %124, %118
+  %125 = fmul nnan double %124, %118
   %126 = tail call double @llvm.fmuladd.f64(double %115, double %123, double %125)
   %127 = fsub double %126, %122
   %128 = fmul double %127, %127
-  %129 = fmul double %118, %118
+  %129 = fmul nnan double %118, %118
   %130 = tail call double @llvm.fmuladd.f64(double %115, double %115, double %129)
   %131 = fdiv double %128, %130
   br label %150
@@ -24163,16 +24163,16 @@ define hidden noundef zeroext i1 @_ZN10ClipperLib19SlopesNearCollinearERKNS_8Int
   %135 = sitofp i64 %134 to double
   %136 = sitofp i64 %5 to double
   %137 = sitofp i64 %10 to double
-  %138 = fmul double %137, %135
+  %138 = fmul nnan double %137, %135
   %139 = tail call double @llvm.fmuladd.f64(double %133, double %136, double %138)
   %140 = load i64, ptr %2, align 8
   %141 = sitofp i64 %140 to double
   %142 = sitofp i64 %87 to double
-  %143 = fmul double %135, %142
+  %143 = fmul nnan double %135, %142
   %144 = tail call double @llvm.fmuladd.f64(double %133, double %141, double %143)
   %145 = fsub double %144, %139
   %146 = fmul double %145, %145
-  %147 = fmul double %135, %135
+  %147 = fmul nnan double %135, %135
   %148 = tail call double @llvm.fmuladd.f64(double %133, double %133, double %147)
   %149 = fdiv double %146, %148
   br label %150

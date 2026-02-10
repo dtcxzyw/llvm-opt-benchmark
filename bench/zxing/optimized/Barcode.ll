@@ -638,7 +638,7 @@ define linkonce_odr noundef double @_ZNK5ZXing13QuadrilateralINS_6PointTIiEEE11o
   %.sroa.02.0.extract.trunc.i = trunc i64 %8 to i32
   %15 = sitofp i32 %.sroa.02.0.extract.trunc.i to double
   %16 = sitofp i32 %14 to double
-  %17 = fmul double %16, %16
+  %17 = fmul nnan double %16, %16
   %18 = tail call noundef double @llvm.fmuladd.f64(double %15, double %15, double %17)
   %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %18)
   %19 = fdiv double %15, %sqrt.i.i

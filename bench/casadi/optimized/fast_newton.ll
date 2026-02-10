@@ -13960,7 +13960,7 @@ _ZN6casadi12casadi_houseIdEET_PS1_S2_x.exit:      ; preds = %.lr.ph.i, %._crit_e
   %110 = select i1 %104, double %106, double %109
   %111 = select i1 %103, double %110, double 1.000000e+00
   store double %111, ptr %92, align 8, !tbaa !171
-  %112 = fmul double %105, 2.000000e+00
+  %112 = fmul nnan double %105, 2.000000e+00
   %113 = fmul double %102, %111
   %114 = fdiv double -1.000000e+00, %113
   %115 = select i1 %103, double %114, double %112

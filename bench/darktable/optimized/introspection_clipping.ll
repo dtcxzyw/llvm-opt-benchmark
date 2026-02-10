@@ -458,14 +458,14 @@ define noundef i32 @distort_transform(ptr noundef %0, ptr noundef %1, ptr noalia
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %20 = load i32, ptr %19, align 8, !tbaa !95
   %21 = sitofp i32 %20 to float
-  %22 = fmul reassoc nsz arcp contract afn float %spec.store.select, %21
+  %22 = fmul reassoc nnan nsz arcp contract afn float %spec.store.select, %21
   %23 = fptosi float %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %23, ptr %24, align 4, !tbaa !96
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %26 = load i32, ptr %25, align 4, !tbaa !97
   %27 = sitofp i32 %26 to float
-  %28 = fmul reassoc nsz arcp contract afn float %spec.store.select, %27
+  %28 = fmul reassoc nnan nsz arcp contract afn float %spec.store.select, %27
   %29 = fptosi float %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %29, ptr %30, align 4, !tbaa !98
@@ -856,14 +856,14 @@ define noundef i32 @distort_backtransform(ptr noundef %0, ptr noundef %1, ptr no
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %20 = load i32, ptr %19, align 8, !tbaa !95
   %21 = sitofp i32 %20 to float
-  %22 = fmul reassoc nsz arcp contract afn float %spec.store.select, %21
+  %22 = fmul reassoc nnan nsz arcp contract afn float %spec.store.select, %21
   %23 = fptosi float %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %23, ptr %24, align 4, !tbaa !96
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %26 = load i32, ptr %25, align 4, !tbaa !97
   %27 = sitofp i32 %26 to float
-  %28 = fmul reassoc nsz arcp contract afn float %spec.store.select, %27
+  %28 = fmul reassoc nnan nsz arcp contract afn float %spec.store.select, %27
   %29 = fptosi float %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 12
   store i32 %29, ptr %30, align 4, !tbaa !98
@@ -1524,16 +1524,16 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   %78 = getelementptr inbounds nuw i8, ptr %13, i64 52
   store float %77, ptr %78, align 4, !tbaa !125
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %79 = fmul reassoc nsz arcp contract afn float %65, -5.000000e-01
+  %79 = fmul reassoc nnan nsz arcp contract afn float %65, -5.000000e-01
   store float %79, ptr %6, align 16, !tbaa !111
   %80 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %81 = fmul reassoc nsz arcp contract afn float %68, -5.000000e-01
+  %81 = fmul reassoc nnan nsz arcp contract afn float %68, -5.000000e-01
   store float %81, ptr %80, align 4, !tbaa !111
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %83 = fmul reassoc nsz arcp contract afn float %65, 5.000000e-01
+  %83 = fmul reassoc nnan nsz arcp contract afn float %65, 5.000000e-01
   store float %83, ptr %82, align 8, !tbaa !111
   %84 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  %85 = fmul reassoc nsz arcp contract afn float %68, 5.000000e-01
+  %85 = fmul reassoc nnan nsz arcp contract afn float %68, 5.000000e-01
   store float %85, ptr %84, align 4, !tbaa !111
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1568,13 +1568,13 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   %104 = select i1 %.not274, i32 %67, i32 %64
   %105 = sitofp i32 %104 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %106 = fmul reassoc nsz arcp contract afn float %103, -5.000000e-01
+  %106 = fmul reassoc nnan nsz arcp contract afn float %103, -5.000000e-01
   store float %106, ptr %7, align 16, !tbaa !111
-  %107 = fmul reassoc nsz arcp contract afn float %105, -5.000000e-01
+  %107 = fmul reassoc nnan nsz arcp contract afn float %105, -5.000000e-01
   store float %107, ptr %86, align 4, !tbaa !111
-  %108 = fmul reassoc nsz arcp contract afn float %103, 5.000000e-01
+  %108 = fmul reassoc nnan nsz arcp contract afn float %103, 5.000000e-01
   store float %108, ptr %87, align 8, !tbaa !111
-  %109 = fmul reassoc nsz arcp contract afn float %105, 5.000000e-01
+  %109 = fmul reassoc nnan nsz arcp contract afn float %105, 5.000000e-01
   store float %109, ptr %88, align 4, !tbaa !111
   br label %.preheader
 
@@ -1729,8 +1729,8 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   store i32 0, ptr %195, align 4, !tbaa !126
   %196 = load i32, ptr %52, align 4, !tbaa !121
   %197 = icmp eq i32 %196, 1
-  %198 = fmul reassoc nsz arcp contract afn float %186, 5.000000e-01
-  %199 = fmul reassoc nsz arcp contract afn float %193, 5.000000e-01
+  %198 = fmul reassoc nnan nsz arcp contract afn float %186, 5.000000e-01
+  %199 = fmul reassoc nnan nsz arcp contract afn float %193, 5.000000e-01
   %200 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %201 = load float, ptr %200, align 4, !tbaa !124
   %202 = getelementptr inbounds nuw i8, ptr %13, i64 52
@@ -1850,17 +1850,17 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   %301 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %273, float %275)
   %302 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %301, float %278)
   %303 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %302, float %281)
-  %304 = fmul reassoc nsz arcp contract afn float %186, 2.000000e+00
+  %304 = fmul reassoc nnan nsz arcp contract afn float %186, 2.000000e+00
   %305 = fcmp reassoc nsz arcp contract afn ogt float %303, %304
   %.0246 = select nsz i1 %305, float %304, float %303
   %306 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %287, float %289)
   %307 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %306, float %292)
   %308 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %307, float %295)
-  %309 = fmul reassoc nsz arcp contract afn float %193, 2.000000e+00
+  %309 = fmul reassoc nnan nsz arcp contract afn float %193, 2.000000e+00
   %310 = fcmp reassoc nsz arcp contract afn ogt float %308, %309
   %.0244 = select nsz i1 %310, float %309, float %308
   %311 = fsub reassoc nsz arcp contract afn float %.0246, %.0250
-  %312 = fmul reassoc nsz arcp contract afn float %186, 1.250000e-01
+  %312 = fmul reassoc nnan nsz arcp contract afn float %186, 1.250000e-01
   %313 = fcmp reassoc nsz arcp contract afn olt float %311, %312
   br i1 %313, label %336, label %346
 
@@ -1897,10 +1897,10 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
 336:                                              ; preds = %.split297.us
   %337 = fadd reassoc nsz arcp contract afn float %.0250, %.0246
   %338 = fmul reassoc nsz arcp contract afn float %337, 5.000000e-01
-  %339 = fmul reassoc nsz arcp contract afn float %186, 6.250000e-02
+  %339 = fmul reassoc nnan nsz arcp contract afn float %186, 6.250000e-02
   %340 = fcmp reassoc nsz arcp contract afn olt float %338, %339
   %.0242 = select nsz i1 %340, float %339, float %338
-  %341 = fmul reassoc nsz arcp contract afn float %186, 9.375000e-01
+  %341 = fmul reassoc nnan nsz arcp contract afn float %186, 9.375000e-01
   %342 = fcmp reassoc nsz arcp contract afn ult float %.0242, %341
   %343 = fadd reassoc nsz arcp contract afn float %341, -1.000000e+00
   %.1243 = select nsz i1 %342, float %.0242, float %343
@@ -1912,22 +1912,22 @@ define void @modify_roi_out(ptr noundef %0, ptr noundef captures(none) %1, ptr n
   %.1251 = phi nsz float [ %344, %336 ], [ %.0250, %.split297.us ]
   %.1247 = phi nsz float [ %345, %336 ], [ %.0246, %.split297.us ]
   %347 = fsub reassoc nsz arcp contract afn float %.0244, %.0248
-  %348 = fmul reassoc nsz arcp contract afn float %193, 1.250000e-01
+  %348 = fmul reassoc nnan nsz arcp contract afn float %193, 1.250000e-01
   %349 = fcmp reassoc nsz arcp contract afn olt float %347, %348
   br i1 %349, label %350, label %359
 
 350:                                              ; preds = %346
   %351 = fadd reassoc nsz arcp contract afn float %.0248, %.0244
   %352 = fmul reassoc nsz arcp contract afn float %351, 5.000000e-01
-  %353 = fmul reassoc nsz arcp contract afn float %193, 6.250000e-02
+  %353 = fmul reassoc nnan nsz arcp contract afn float %193, 6.250000e-02
   %354 = fcmp reassoc nsz arcp contract afn olt float %352, %353
   %.0 = select nsz i1 %354, float %353, float %352
-  %355 = fmul reassoc nsz arcp contract afn float %193, 9.375000e-01
+  %355 = fmul reassoc nnan nsz arcp contract afn float %193, 9.375000e-01
   %356 = fcmp reassoc nsz arcp contract afn ult float %.0, %355
   %357 = fadd reassoc nsz arcp contract afn float %355, -1.000000e+00
   %.1 = select nsz i1 %356, float %.0, float %357
   %358 = fsub reassoc nsz arcp contract afn float %.1, %353
-  %.pre320 = fmul reassoc nsz arcp contract afn float %193, 1.250000e-01
+  %.pre320 = fmul reassoc nnan nsz arcp contract afn float %193, 1.250000e-01
   br label %359
 
 359:                                              ; preds = %350, %346
@@ -5691,7 +5691,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %169 = fmul reassoc nsz arcp contract afn float %168, 5.000000e-01
   %170 = fadd reassoc nsz arcp contract afn float %169, %167
   %171 = fmul reassoc nsz arcp contract afn float %170, %2
-  %172 = fmul reassoc nsz arcp contract afn float %157, 5.000000e-01
+  %172 = fmul reassoc nnan nsz arcp contract afn float %157, 5.000000e-01
   %173 = fsub reassoc nsz arcp contract afn float %171, %172
   %174 = getelementptr inbounds nuw i8, ptr %23, i64 104
   %175 = load float, ptr %174, align 8, !tbaa !220
@@ -6657,7 +6657,7 @@ get_grab.exit.thread:                             ; preds = %348, %345, %341, %3
   %851 = fptrunc reassoc nsz arcp contract afn double %850 to float
   %852 = sitofp i32 %825 to float
   %853 = sitofp i32 %838 to float
-  %854 = fmul reassoc nsz arcp contract afn float %853, 5.000000e-01
+  %854 = fmul reassoc nnan nsz arcp contract afn float %853, 5.000000e-01
   %855 = fsub reassoc nsz arcp contract afn float %852, %854
   %856 = fpext reassoc nsz arcp contract afn float %855 to double
   %857 = fmul reassoc nsz arcp contract afn double %842, 4.000000e+00
@@ -6665,7 +6665,7 @@ get_grab.exit.thread:                             ; preds = %348, %345, %341, %3
   %859 = fptrunc reassoc nsz arcp contract afn double %858 to float
   %860 = sitofp i32 %836 to float
   %861 = sitofp i32 %847 to float
-  %862 = fmul reassoc nsz arcp contract afn float %861, 5.000000e-01
+  %862 = fmul reassoc nnan nsz arcp contract afn float %861, 5.000000e-01
   %863 = fsub reassoc nsz arcp contract afn float %860, %862
   %864 = fpext reassoc nsz arcp contract afn float %863 to double
   %865 = fmul reassoc nsz arcp contract afn double %842, 6.000000e+00
@@ -6675,12 +6675,12 @@ get_grab.exit.thread:                             ; preds = %348, %345, %341, %3
   %868 = sitofp i32 %825 to double
   %869 = load i32, ptr %837, align 4, !tbaa !326
   %870 = sitofp i32 %869 to double
-  %871 = fmul reassoc nsz arcp contract afn double %870, 5.000000e-01
+  %871 = fmul reassoc nnan nsz arcp contract afn double %870, 5.000000e-01
   %872 = fsub reassoc nsz arcp contract afn double %868, %871
   %873 = sitofp i32 %836 to double
   %874 = load i32, ptr %846, align 4, !tbaa !331
   %875 = sitofp i32 %874 to double
-  %876 = fmul reassoc nsz arcp contract afn double %875, 7.500000e-01
+  %876 = fmul reassoc nnan nsz arcp contract afn double %875, 7.500000e-01
   %877 = fsub reassoc nsz arcp contract afn double %873, %876
   call void @cairo_move_to(ptr noundef %1, double noundef %872, double noundef %877) #28
   %878 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !244
@@ -7122,16 +7122,16 @@ define internal fastcc range(i32 0, 2) i32 @_iop_clipping_set_max_clip(ptr nound
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store float %26, ptr %63, align 4, !tbaa !111
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %65 = fmul reassoc nsz arcp contract afn float %34, %23
+  %65 = fmul reassoc nnan nsz arcp contract afn float %34, %23
   store float %65, ptr %64, align 16, !tbaa !111
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %67 = fmul reassoc nsz arcp contract afn float %42, %26
+  %67 = fmul reassoc nnan nsz arcp contract afn float %42, %26
   store float %67, ptr %66, align 4, !tbaa !111
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %69 = fmul reassoc nsz arcp contract afn float %51, %23
+  %69 = fmul reassoc nnan nsz arcp contract afn float %51, %23
   store float %69, ptr %68, align 8, !tbaa !111
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %71 = fmul reassoc nsz arcp contract afn float %60, %26
+  %71 = fmul reassoc nnan nsz arcp contract afn float %60, %26
   store float %71, ptr %70, align 4, !tbaa !111
   %72 = load ptr, ptr %11, align 8, !tbaa !223
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 96
@@ -7320,14 +7320,14 @@ define internal fastcc void @gui_draw_sym(ptr noundef %0, float noundef %1, floa
   %42 = fadd reassoc nsz arcp contract afn double %41, %40
   %43 = fptrunc reassoc nsz arcp contract afn double %42 to float
   %44 = sitofp i32 %30 to float
-  %45 = fmul reassoc nsz arcp contract afn float %44, 5.000000e-01
+  %45 = fmul reassoc nnan nsz arcp contract afn float %44, 5.000000e-01
   %46 = fsub reassoc nsz arcp contract afn float %1, %45
   %47 = fpext reassoc nsz arcp contract afn float %46 to double
   %48 = fmul reassoc nsz arcp contract afn double %34, 2.000000e+00
   %49 = fsub reassoc nsz arcp contract afn double %47, %48
   %50 = fptrunc reassoc nsz arcp contract afn double %49 to float
   %51 = sitofp i32 %39 to float
-  %52 = fmul reassoc nsz arcp contract afn float %51, 5.000000e-01
+  %52 = fmul reassoc nnan nsz arcp contract afn float %51, 5.000000e-01
   %53 = fsub reassoc nsz arcp contract afn float %2, %52
   %54 = fpext reassoc nsz arcp contract afn float %53 to double
   %55 = fsub reassoc nsz arcp contract afn double %54, %35
@@ -7335,7 +7335,7 @@ define internal fastcc void @gui_draw_sym(ptr noundef %0, float noundef %1, floa
   call void @dt_gui_draw_rounded_rectangle(ptr noundef %0, float noundef %37, float noundef %43, float noundef %50, float noundef %56) #28
   %57 = load i32, ptr %29, align 4, !tbaa !326
   %58 = sitofp i32 %57 to float
-  %59 = fmul reassoc nsz arcp contract afn float %58, 5.000000e-01
+  %59 = fmul reassoc nnan nsz arcp contract afn float %58, 5.000000e-01
   %60 = fsub reassoc nsz arcp contract afn float %1, %59
   %61 = fpext reassoc nsz arcp contract afn float %60 to double
   %62 = fpext reassoc nsz arcp contract afn float %2 to double
@@ -7344,7 +7344,7 @@ define internal fastcc void @gui_draw_sym(ptr noundef %0, float noundef %1, floa
   %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !244
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 1424
   %67 = load double, ptr %66, align 8, !tbaa !301
-  %.neg = fmul reassoc nsz arcp contract afn double %64, -7.500000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %64, -7.500000e-01
   %.neg26 = fmul reassoc nsz arcp contract afn double %67, -4.000000e+00
   %.neg27 = fadd reassoc nsz arcp contract afn double %.neg, %62
   %68 = fadd reassoc nsz arcp contract afn double %.neg27, %.neg26

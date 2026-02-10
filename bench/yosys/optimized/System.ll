@@ -48,8 +48,8 @@ _ZL11memReadStati.exit:                           ; preds = %0, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %12 = tail call i32 @getpagesize() #11
   %13 = sitofp i32 %12 to double
-  %14 = fmul double %.0.i, %13
-  %15 = fmul double %14, 0x3EB0000000000000
+  %14 = fmul nnan double %.0.i, %13
+  %15 = fmul nnan double %14, 0x3EB0000000000000
   ret double %15
 }
 
@@ -99,7 +99,7 @@ define noundef double @_ZN7Minisat11memUsedPeakEb(i1 noundef zeroext %0) local_u
   %16 = load i32, ptr %3, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = sitofp i32 %16 to double
-  %18 = fmul double %17, 0x3F50000000000000
+  %18 = fmul nnan double %17, 0x3F50000000000000
   br label %_ZL11memReadPeakv.exit
 
 _ZL11memReadPeakv.exit:                           ; preds = %1, %.critedge.i

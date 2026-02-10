@@ -519,7 +519,7 @@ gv_calloc.exit.thread:                            ; preds = %17
   br i1 %exitcond224.not.i, label %._crit_edge.i, label %.lr.ph152.split.us.split.us.i, !llvm.loop !49
 
 .lr.ph131.us.us.i:                                ; preds = %.lr.ph152.split.us.split.us.i
-  %90 = fmul double %86, %86
+  %90 = fmul nnan double %86, %86
   %91 = fdiv double 1.000000e+00, %90
   %92 = sext i32 %80 to i64
   %wide.trip.count218.i = sext i32 %88 to i64
@@ -546,7 +546,7 @@ gv_calloc.exit.thread:                            ; preds = %17
   %103 = getelementptr inbounds i32, ptr %73, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !27
   %105 = sitofp i32 %104 to double
-  %106 = fmul double %86, %105
+  %106 = fmul nnan double %86, %105
   %107 = fdiv double 1.000000e+00, %106
   %108 = fadd double %.1108129.us.us.us.us.i, %107
   br label %111
@@ -603,7 +603,7 @@ gv_calloc.exit.thread:                            ; preds = %17
   br i1 %129, label %.lr.ph131.i, label %.loopexit124.i
 
 .lr.ph131.i:                                      ; preds = %.lr.ph152.split.split.i
-  %130 = fmul double %126, %126
+  %130 = fmul nnan double %126, %126
   %131 = sext i32 %120 to i64
   %wide.trip.count188.i = sext i32 %128 to i64
   br label %132
@@ -638,7 +638,7 @@ gv_calloc.exit.thread:                            ; preds = %17
   %149 = sitofp i32 %148 to double
   %150 = getelementptr inbounds double, ptr %.0106.i, i64 %indvars.iv185.i
   %151 = load double, ptr %150, align 8, !tbaa !12
-  %152 = fmul double %126, %149
+  %152 = fmul nnan double %126, %149
   %153 = fdiv double %151, %152
   %154 = fadd double %.1108129.i, %153
   br label %155

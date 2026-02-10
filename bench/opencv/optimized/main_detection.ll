@@ -6810,7 +6810,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %2285
   %2293 = load i32, ptr %1589, align 4, !tbaa !160
   %2294 = sub nsw i32 %2278, %2293
   %2295 = sitofp i32 %2294 to double
-  %2296 = fmul double %2295, 5.000000e-01
+  %2296 = fmul nnan double %2295, 5.000000e-01
   %2297 = fptosi double %2296 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %158)
   call void @llvm.lifetime.start.p0(ptr nonnull %159)

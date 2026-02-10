@@ -4534,7 +4534,7 @@ define internal fastcc i32 @cmd_init_strat(ptr noundef %0, i32 noundef range(i32
 11:                                               ; preds = %.lr.ph
   %12 = uitofp i8 %10 to float
   %13 = load i32, ptr @hf_gryphon_init_strat_delay, align 4
-  %14 = fmul float %12, 2.500000e-01
+  %14 = fmul nnan float %12, 2.500000e-01
   %15 = fpext float %14 to double
   %16 = tail call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef %.035, i32 noundef 1, float noundef %14, ptr noundef nonnull @.str.1088, i32 noundef %.02834, double noundef %15)
   br label %20

@@ -9097,11 +9097,11 @@ sw.bb8:                                           ; preds = %if.end
   %p.sroa.3.0.extract.shift.i = lshr i48 %agg.tmp.sroa.0.0.copyload, 32
   %p.sroa.3.0.extract.trunc.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i to i16
   %conv.i = sitofp i16 %p.sroa.0.0.extract.trunc.i to float
-  %mul.i = fmul nsz float %conv.i, 1.000000e+01
+  %mul.i = fmul nnan nsz float %conv.i, 1.000000e+01
   %conv1.i = sitofp i16 %p.sroa.2.0.extract.trunc.i to float
-  %mul2.i = fmul nsz float %conv1.i, 1.000000e+01
+  %mul2.i = fmul nnan nsz float %conv1.i, 1.000000e+01
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
-  %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
+  %mul4.i = fmul nnan nsz float %conv3.i, 1.000000e+01
   %15 = load ptr, ptr %this, align 8, !tbaa !309
   %m_sao.i = getelementptr inbounds nuw i8, ptr %15, i64 440
   %16 = load ptr, ptr %m_sao.i, align 8, !tbaa !302
@@ -12763,9 +12763,9 @@ invoke.cont269:                                   ; preds = %if.then260
   %153 = insertelement <2 x i48> %152, i48 %p.sroa.2.0.extract.shift.i, i64 1
   %154 = trunc <2 x i48> %153 to <2 x i16>
   %155 = sitofp <2 x i16> %154 to <2 x float>
-  %156 = fmul nsz <2 x float> %155, splat (float 1.000000e+01)
+  %156 = fmul nnan nsz <2 x float> %155, splat (float 1.000000e+01)
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
-  %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
+  %mul4.i = fmul nnan nsz float %conv3.i, 1.000000e+01
   br label %if.end321
 
 lpad237:                                          ; preds = %init.check

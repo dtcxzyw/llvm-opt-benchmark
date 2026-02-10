@@ -835,11 +835,11 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
 .lr.ph408:                                        ; preds = %.preheader378
   %18 = add nsw i32 %1, -1
   %19 = uitofp nneg i32 %18 to double
-  %20 = fmul nsz double %19, 5.000000e-01
+  %20 = fmul nnan nsz double %19, 5.000000e-01
   %21 = fptrunc nsz double %20 to float
   %22 = fpext nsz float %21 to double
-  %23 = fmul nsz double %22, 3.000000e-01
-  %24 = fmul nsz double %22, 0x3FE6666666666666
+  %23 = fmul nnan nsz double %22, 3.000000e-01
+  %24 = fmul nnan nsz double %22, 0x3FE6666666666666
   %wide.trip.count479 = zext nneg i32 %1 to i64
   br label %262
 
@@ -851,8 +851,8 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   %26 = add nsw i32 %1, -1
   %.neg560566 = lshr i32 %26, 1
   %27 = uitofp nneg i32 %26 to double
-  %28 = fmul nsz double %27, 4.000000e-01
-  %29 = fmul nsz double %28, 5.000000e-01
+  %28 = fmul nnan nsz double %27, 4.000000e-01
+  %29 = fmul nnan nsz double %28, 5.000000e-01
   %wide.trip.count484 = zext nneg i32 %1 to i64
   br label %252
 
@@ -933,7 +933,7 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
 .lr.ph435:                                        ; preds = %.preheader369
   %52 = add nsw i32 %1, -1
   %53 = uitofp nneg i32 %52 to double
-  %54 = fmul nsz double %53, 5.000000e-01
+  %54 = fmul nnan nsz double %53, 5.000000e-01
   %wide.trip.count524 = zext nneg i32 %1 to i64
   br label %111
 
@@ -974,7 +974,7 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
 .lr.ph447:                                        ; preds = %.preheader365
   %65 = add nsw i32 %1, -1
   %66 = uitofp nneg i32 %65 to double
-  %67 = fmul nsz double %66, 5.000000e-01
+  %67 = fmul nnan nsz double %66, 5.000000e-01
   %wide.trip.count544 = zext nneg i32 %1 to i64
   br label %70
 
@@ -1013,7 +1013,7 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   %indvars.iv536 = phi i64 [ 0, %.lr.ph444 ], [ %indvars.iv.next537, %79 ]
   %80 = trunc nuw nsw i64 %indvars.iv536 to i32
   %81 = uitofp nneg i32 %80 to double
-  %82 = fmul nsz double %81, 0x401921FB54442D18
+  %82 = fmul nnan nsz double %81, 0x401921FB54442D18
   %83 = fdiv nsz double %82, %63
   %84 = tail call nsz double @llvm.cos.f64(double %83)
   %85 = fsub nsz double 1.000000e+00, %84
@@ -1029,7 +1029,7 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   %indvars.iv531 = phi i64 [ 0, %.lr.ph441 ], [ %indvars.iv.next532, %89 ]
   %90 = trunc nuw nsw i64 %indvars.iv531 to i32
   %91 = uitofp nneg i32 %90 to double
-  %92 = fmul nsz double %91, 0x401921FB54442D18
+  %92 = fmul nnan nsz double %91, 0x401921FB54442D18
   %93 = fdiv nsz double %92, %60
   %94 = tail call nsz double @llvm.cos.f64(double %93)
   %95 = tail call nsz double @llvm.fmuladd.f64(double %94, double -4.600000e-01, double 5.400000e-01)
@@ -1044,11 +1044,11 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   %indvars.iv526 = phi i64 [ 0, %.lr.ph438 ], [ %indvars.iv.next527, %98 ]
   %99 = trunc nuw nsw i64 %indvars.iv526 to i32
   %100 = uitofp nneg i32 %99 to double
-  %101 = fmul nsz double %100, 0x401921FB54442D18
+  %101 = fmul nnan nsz double %100, 0x401921FB54442D18
   %102 = fdiv nsz double %101, %57
   %103 = tail call nsz double @llvm.cos.f64(double %102)
   %104 = tail call nsz double @llvm.fmuladd.f64(double %103, double -4.965600e-01, double 4.265900e-01)
-  %105 = fmul nsz double %100, 0x402921FB54442D18
+  %105 = fmul nnan nsz double %100, 0x402921FB54442D18
   %106 = fdiv nsz double %105, %57
   %107 = tail call nsz double @llvm.cos.f64(double %106)
   %108 = tail call nsz double @llvm.fmuladd.f64(double %107, double 7.684900e-02, double %104)
@@ -1079,43 +1079,43 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   %indvars.iv516 = phi i64 [ 0, %.lr.ph432 ], [ %indvars.iv.next517, %121 ]
   %122 = trunc nuw nsw i64 %indvars.iv516 to i32
   %123 = uitofp nneg i32 %122 to double
-  %124 = fmul nsz double %123, 0x401921FB54442D18
+  %124 = fmul nnan nsz double %123, 0x401921FB54442D18
   %125 = fdiv nsz double %124, %50
   %126 = tail call nsz double @llvm.cos.f64(double %125)
   %127 = tail call nsz double @llvm.fmuladd.f64(double %126, double 0xBFFFC60487BC5429, double 1.000000e+00)
-  %128 = fmul nsz double %123, 0x402921FB54442D18
+  %128 = fmul nnan nsz double %123, 0x402921FB54442D18
   %129 = fdiv nsz double %128, %50
   %130 = tail call nsz double @llvm.cos.f64(double %129)
   %131 = tail call nsz double @llvm.fmuladd.f64(double %130, double 0x3FFCA8A8A00BFC02, double %127)
-  %132 = fmul nsz double %123, 0x4032D97C7F3321D2
+  %132 = fmul nnan nsz double %123, 0x4032D97C7F3321D2
   %133 = fdiv nsz double %132, %50
   %134 = tail call nsz double @llvm.cos.f64(double %133)
   %135 = tail call nsz double @llvm.fmuladd.f64(double %134, double 0xBFF483615F7CFB71, double %131)
-  %136 = fmul nsz double %123, 0x403921FB54442D18
+  %136 = fmul nnan nsz double %123, 0x403921FB54442D18
   %137 = fdiv nsz double %136, %50
   %138 = tail call nsz double @llvm.cos.f64(double %137)
   %139 = tail call nsz double @llvm.fmuladd.f64(double %138, double 0x3FE55E6EFBAFE037, double %135)
-  %140 = fmul nsz double %123, 0x403F6A7A2955385E
+  %140 = fmul nnan nsz double %123, 0x403F6A7A2955385E
   %141 = fdiv nsz double %140, %50
   %142 = tail call nsz double @llvm.cos.f64(double %141)
   %143 = tail call nsz double @llvm.fmuladd.f64(double %142, double 0xBFCEBD96C789A119, double %139)
-  %144 = fmul nsz double %123, 0x4042D97C7F3321D2
+  %144 = fmul nnan nsz double %123, 0x4042D97C7F3321D2
   %145 = fdiv nsz double %144, %50
   %146 = tail call nsz double @llvm.cos.f64(double %145)
   %147 = tail call nsz double @llvm.fmuladd.f64(double %146, double 0x3FAD0210B59277DF, double %143)
-  %148 = fmul nsz double %123, 0x4045FDBBE9BBA775
+  %148 = fmul nnan nsz double %123, 0x4045FDBBE9BBA775
   %149 = fdiv nsz double %148, %50
   %150 = tail call nsz double @llvm.cos.f64(double %149)
   %151 = tail call nsz double @llvm.fmuladd.f64(double %150, double 0xBF80A911CABA9273, double %147)
-  %152 = fmul nsz double %123, 0x404921FB54442D18
+  %152 = fmul nnan nsz double %123, 0x404921FB54442D18
   %153 = fdiv nsz double %152, %50
   %154 = tail call nsz double @llvm.cos.f64(double %153)
   %155 = tail call nsz double @llvm.fmuladd.f64(double %154, double 0x3F44770F6C5EC1E5, double %151)
-  %156 = fmul nsz double %123, 0x404C463ABECCB2BB
+  %156 = fmul nnan nsz double %123, 0x404C463ABECCB2BB
   %157 = fdiv nsz double %156, %50
   %158 = tail call nsz double @llvm.cos.f64(double %157)
   %159 = tail call nsz double @llvm.fmuladd.f64(double %158, double 0xBEF4C56FFA2B6206, double %155)
-  %160 = fmul nsz double %123, 0x404F6A7A2955385E
+  %160 = fmul nnan nsz double %123, 0x404F6A7A2955385E
   %161 = fdiv nsz double %160, %50
   %162 = tail call nsz double @llvm.cos.f64(double %161)
   %163 = tail call nsz double @llvm.fmuladd.f64(double %162, double 1.329740e-07, double %159)
@@ -1130,15 +1130,15 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   %indvars.iv511 = phi i64 [ 0, %.lr.ph429 ], [ %indvars.iv.next512, %166 ]
   %167 = trunc nuw nsw i64 %indvars.iv511 to i32
   %168 = uitofp nneg i32 %167 to double
-  %169 = fmul nsz double %168, 0x401921FB54442D18
+  %169 = fmul nnan nsz double %168, 0x401921FB54442D18
   %170 = fdiv nsz double %169, %47
   %171 = tail call nsz double @llvm.cos.f64(double %170)
   %172 = tail call nsz double @llvm.fmuladd.f64(double %171, double -4.882900e-01, double 3.587500e-01)
-  %173 = fmul nsz double %168, 0x402921FB54442D18
+  %173 = fmul nnan nsz double %168, 0x402921FB54442D18
   %174 = fdiv nsz double %173, %47
   %175 = tail call nsz double @llvm.cos.f64(double %174)
   %176 = tail call nsz double @llvm.fmuladd.f64(double %175, double 1.412800e-01, double %172)
-  %177 = fmul nsz double %168, 0x4032D97C7F3321D2
+  %177 = fmul nnan nsz double %168, 0x4032D97C7F3321D2
   %178 = fdiv nsz double %177, %47
   %179 = tail call nsz double @llvm.cos.f64(double %178)
   %180 = tail call nsz double @llvm.fmuladd.f64(double %179, double -1.168000e-02, double %176)
@@ -1153,15 +1153,15 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   %indvars.iv506 = phi i64 [ 0, %.lr.ph426 ], [ %indvars.iv.next507, %183 ]
   %184 = trunc nuw nsw i64 %indvars.iv506 to i32
   %185 = uitofp nneg i32 %184 to double
-  %186 = fmul nsz double %185, 0x401921FB54442D18
+  %186 = fmul nnan nsz double %185, 0x401921FB54442D18
   %187 = fdiv nsz double %186, %44
   %188 = tail call nsz double @llvm.cos.f64(double %187)
   %189 = tail call nsz double @llvm.fmuladd.f64(double %188, double 0xBFDF4EAF251C193B, double 0x3FD744ED047AB904)
-  %190 = fmul nsz double %185, 0x402921FB54442D18
+  %190 = fmul nnan nsz double %185, 0x402921FB54442D18
   %191 = fdiv nsz double %190, %44
   %192 = tail call nsz double @llvm.cos.f64(double %191)
   %193 = tail call nsz double @llvm.fmuladd.f64(double %192, double 0x3FC17C17A89331A1, double %189)
-  %194 = fmul nsz double %185, 0x4032D97C7F3321D2
+  %194 = fmul nnan nsz double %185, 0x4032D97C7F3321D2
   %195 = fdiv nsz double %194, %44
   %196 = tail call nsz double @llvm.cos.f64(double %195)
   %197 = tail call nsz double @llvm.fmuladd.f64(double %196, double -1.064110e-02, double %193)
@@ -1180,7 +1180,7 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   %204 = fadd nsz double %203, -5.000000e-01
   %205 = tail call nsz double @llvm.fabs.f64(double %204)
   %206 = tail call nsz double @llvm.fmuladd.f64(double %205, double -4.800000e-01, double 6.200000e-01)
-  %207 = fmul nsz double %202, 0x401921FB54442D18
+  %207 = fmul nnan nsz double %202, 0x401921FB54442D18
   %208 = fdiv nsz double %207, %41
   %209 = tail call nsz double @llvm.cos.f64(double %208)
   %210 = tail call nsz double @llvm.fmuladd.f64(double %209, double -3.800000e-01, double %206)
@@ -1195,7 +1195,7 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   %indvars.iv496 = phi i64 [ 0, %.lr.ph420 ], [ %indvars.iv.next497, %213 ]
   %214 = trunc nuw nsw i64 %indvars.iv496 to i32
   %215 = uitofp nneg i32 %214 to double
-  %216 = fmul nsz double %215, 0x400921FB54442D18
+  %216 = fmul nnan nsz double %215, 0x400921FB54442D18
   %217 = fdiv nsz double %216, %38
   %218 = tail call nsz double @llvm.sin.f64(double %217)
   %219 = fptrunc nsz double %218 to float
@@ -1209,15 +1209,15 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   %indvars.iv491 = phi i64 [ 0, %.lr.ph417 ], [ %indvars.iv.next492, %221 ]
   %222 = trunc nuw nsw i64 %indvars.iv491 to i32
   %223 = uitofp nneg i32 %222 to double
-  %224 = fmul nsz double %223, 0x401921FB54442D18
+  %224 = fmul nnan nsz double %223, 0x401921FB54442D18
   %225 = fdiv nsz double %224, %35
   %226 = tail call nsz double @llvm.cos.f64(double %225)
   %227 = tail call nsz double @llvm.fmuladd.f64(double %226, double -4.873960e-01, double 3.557680e-01)
-  %228 = fmul nsz double %223, 0x402921FB54442D18
+  %228 = fmul nnan nsz double %223, 0x402921FB54442D18
   %229 = fdiv nsz double %228, %35
   %230 = tail call nsz double @llvm.cos.f64(double %229)
   %231 = tail call nsz double @llvm.fmuladd.f64(double %230, double 1.442320e-01, double %227)
-  %232 = fmul nsz double %223, 0x4032D97C7F3321D2
+  %232 = fmul nnan nsz double %223, 0x4032D97C7F3321D2
   %233 = fdiv nsz double %232, %35
   %234 = tail call nsz double @llvm.cos.f64(double %233)
   %235 = tail call nsz double @llvm.fmuladd.f64(double %234, double -1.260400e-02, double %231)
@@ -1436,11 +1436,11 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   br i1 %or.cond7, label %365, label %373
 
 365:                                              ; preds = %362
-  %366 = fmul nsz double %346, -2.400000e+01
+  %366 = fmul nnan nsz double %346, -2.400000e+01
   %367 = tail call nsz double @llvm.fmuladd.f64(double %366, double %346, double 1.000000e+00)
-  %368 = fmul nsz double %346, 4.800000e+01
+  %368 = fmul nnan nsz double %346, 4.800000e+01
   %369 = fneg nsz double %346
-  %370 = fmul nsz double %368, %369
+  %370 = fmul nnan nsz double %368, %369
   %371 = tail call nsz double @llvm.fmuladd.f64(double %370, double %346, double %367)
   %372 = fptrunc nsz double %371 to float
   br label %383
@@ -1452,9 +1452,9 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   br i1 %or.cond9, label %376, label %383
 
 376:                                              ; preds = %373
-  %377 = fmul nsz double %346, -2.400000e+01
+  %377 = fmul nnan nsz double %346, -2.400000e+01
   %378 = tail call nsz double @llvm.fmuladd.f64(double %377, double %346, double 1.000000e+00)
-  %379 = fmul nsz double %346, 4.800000e+01
+  %379 = fmul nnan nsz double %346, 4.800000e+01
   %380 = fmul nsz double %346, %379
   %381 = tail call nsz double @llvm.fmuladd.f64(double %380, double %346, double %378)
   %382 = fptrunc nsz double %381 to float
@@ -1481,7 +1481,7 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   br i1 %or.cond11, label %393, label %397
 
 393:                                              ; preds = %385
-  %394 = fmul nsz double %390, -6.000000e+00
+  %394 = fmul nnan nsz double %390, -6.000000e+00
   %395 = tail call nsz double @llvm.exp.f64(double %394)
   %396 = fptrunc nsz double %395 to float
   br label %404
@@ -1493,7 +1493,7 @@ define internal fastcc void @generate_window_func(ptr noundef nonnull writeonly 
   br i1 %or.cond13, label %400, label %404
 
 400:                                              ; preds = %397
-  %401 = fmul nsz double %390, 6.000000e+00
+  %401 = fmul nnan nsz double %390, 6.000000e+00
   %402 = tail call nsz double @llvm.exp.f64(double %401)
   %403 = fptrunc nsz double %402 to float
   br label %404
@@ -1743,9 +1743,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @try_push_frame(ptr noundef
   br i1 %cond73.i, label %read16_fft_bin.exit57.i, label %67
 
 67:                                               ; preds = %.lr.ph18.i.i
-  %68 = fadd nsz double %66, -1.000000e+00
-  %69 = fmul nsz double %68, 6.000000e+00
-  %70 = fmul nsz double %69, 0x400A934F0979A371
+  %68 = fadd nnan nsz double %66, -1.000000e+00
+  %69 = fmul nnan nsz double %68, 6.000000e+00
+  %70 = fmul nnan nsz double %69, 0x400A934F0979A371
   %71 = tail call nsz double @llvm.exp2.f64(double %70)
   br label %read16_fft_bin.exit57.i
 
@@ -1761,9 +1761,9 @@ read16_fft_bin.exit57.i:                          ; preds = %67, %.lr.ph18.i.i
   %gep134.i = getelementptr i8, ptr %invariant.gep133.i, i64 %73
   %74 = load i16, ptr %gep134.i, align 2, !tbaa !109
   %75 = uitofp i16 %74 to double
-  %76 = fdiv nsz double %75, 6.553500e+04
-  %77 = tail call nsz double @llvm.fmuladd.f64(double %76, double 2.000000e+00, double -1.000000e+00)
-  %78 = fmul nsz double %77, 0x400921FB54442D18
+  %76 = fdiv nnan nsz double %75, 6.553500e+04
+  %77 = tail call nnan nsz double @llvm.fmuladd.f64(double %76, double 2.000000e+00, double -1.000000e+00)
+  %78 = fmul nnan nsz double %77, 0x400921FB54442D18
   %79 = fptrunc nsz double %78 to float
   %80 = fpext nsz float %.0.i56.i to double
   %81 = fpext nsz float %79 to double
@@ -1829,9 +1829,9 @@ read16_fft_bin.exit57.i:                          ; preds = %67, %.lr.ph18.i.i
   br i1 %cond72.i, label %read8_fft_bin.exit53.i, label %118
 
 118:                                              ; preds = %.lr.ph14.i.i
-  %119 = fadd nsz double %117, -1.000000e+00
-  %120 = fmul nsz double %119, 6.000000e+00
-  %121 = fmul nsz double %120, 0x400A934F0979A371
+  %119 = fadd nnan nsz double %117, -1.000000e+00
+  %120 = fmul nnan nsz double %119, 6.000000e+00
+  %121 = fmul nnan nsz double %120, 0x400A934F0979A371
   %122 = tail call nsz double @llvm.exp2.f64(double %121)
   br label %read8_fft_bin.exit53.i
 
@@ -1847,9 +1847,9 @@ read8_fft_bin.exit53.i:                           ; preds = %118, %.lr.ph14.i.i
   %gep.i = getelementptr i8, ptr %invariant.gep.i, i64 %124
   %125 = load i8, ptr %gep.i, align 1, !tbaa !115
   %126 = uitofp i8 %125 to double
-  %127 = fdiv nsz double %126, 2.550000e+02
-  %128 = tail call nsz double @llvm.fmuladd.f64(double %127, double 2.000000e+00, double -1.000000e+00)
-  %129 = fmul nsz double %128, 0x400921FB54442D18
+  %127 = fdiv nnan nsz double %126, 2.550000e+02
+  %128 = tail call nnan nsz double @llvm.fmuladd.f64(double %127, double 2.000000e+00, double -1.000000e+00)
+  %129 = fmul nnan nsz double %128, 0x400921FB54442D18
   %130 = fptrunc nsz double %129 to float
   %131 = fpext nsz float %.0.i52.i to double
   %132 = fpext nsz float %130 to double
@@ -1926,9 +1926,9 @@ read8_fft_bin.exit53.i:                           ; preds = %118, %.lr.ph14.i.i
   br i1 %cond71.i, label %read16_fft_bin.exit.i, label %175
 
 175:                                              ; preds = %.lr.ph10.i.i
-  %176 = fadd nsz double %174, -1.000000e+00
-  %177 = fmul nsz double %176, 6.000000e+00
-  %178 = fmul nsz double %177, 0x400A934F0979A371
+  %176 = fadd nnan nsz double %174, -1.000000e+00
+  %177 = fmul nnan nsz double %176, 6.000000e+00
+  %178 = fmul nnan nsz double %177, 0x400A934F0979A371
   %179 = tail call nsz double @llvm.exp2.f64(double %178)
   br label %read16_fft_bin.exit.i
 
@@ -1943,9 +1943,9 @@ read16_fft_bin.exit.i:                            ; preds = %175, %.lr.ph10.i.i
   %181 = getelementptr inbounds i16, ptr %162, i64 %indvars.iv89.i
   %182 = load i16, ptr %181, align 2, !tbaa !109
   %183 = uitofp i16 %182 to double
-  %184 = fdiv nsz double %183, 6.553500e+04
-  %185 = tail call nsz double @llvm.fmuladd.f64(double %184, double 2.000000e+00, double -1.000000e+00)
-  %186 = fmul nsz double %185, 0x400921FB54442D18
+  %184 = fdiv nnan nsz double %183, 6.553500e+04
+  %185 = tail call nnan nsz double @llvm.fmuladd.f64(double %184, double 2.000000e+00, double -1.000000e+00)
+  %186 = fmul nnan nsz double %185, 0x400921FB54442D18
   %187 = fptrunc nsz double %186 to float
   %188 = fpext nsz float %.0.i49.i to double
   %189 = fpext nsz float %187 to double
@@ -2011,9 +2011,9 @@ read16_fft_bin.exit.i:                            ; preds = %175, %.lr.ph10.i.i
   br i1 %cond.i, label %read8_fft_bin.exit.i, label %229
 
 229:                                              ; preds = %.lr.ph.i.i
-  %230 = fadd nsz double %228, -1.000000e+00
-  %231 = fmul nsz double %230, 6.000000e+00
-  %232 = fmul nsz double %231, 0x400A934F0979A371
+  %230 = fadd nnan nsz double %228, -1.000000e+00
+  %231 = fmul nnan nsz double %230, 6.000000e+00
+  %232 = fmul nnan nsz double %231, 0x400A934F0979A371
   %233 = tail call nsz double @llvm.exp2.f64(double %232)
   br label %read8_fft_bin.exit.i
 
@@ -2028,9 +2028,9 @@ read8_fft_bin.exit.i:                             ; preds = %229, %.lr.ph.i.i
   %235 = getelementptr inbounds i8, ptr %216, i64 %indvars.iv82.i
   %236 = load i8, ptr %235, align 1, !tbaa !115
   %237 = uitofp i8 %236 to double
-  %238 = fdiv nsz double %237, 2.550000e+02
-  %239 = tail call nsz double @llvm.fmuladd.f64(double %238, double 2.000000e+00, double -1.000000e+00)
-  %240 = fmul nsz double %239, 0x400921FB54442D18
+  %238 = fdiv nnan nsz double %237, 2.550000e+02
+  %239 = tail call nnan nsz double @llvm.fmuladd.f64(double %238, double 2.000000e+00, double -1.000000e+00)
+  %240 = fmul nnan nsz double %239, 0x400921FB54442D18
   %241 = fptrunc nsz double %240 to float
   %242 = fpext nsz float %.0.i.i to double
   %243 = fpext nsz float %241 to double

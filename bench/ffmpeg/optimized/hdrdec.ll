@@ -964,13 +964,13 @@ decompress.exit.thread:                           ; preds = %decompress.exit.thr
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %394, i64 1
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1
   %399 = uitofp i8 %.sroa.0.0.copyload to float
-  %400 = fmul nsz float %399, 3.906250e-03
+  %400 = fmul nnan nsz float %399, 3.906250e-03
   %401 = call nsz float @ldexpf(float noundef %400, i32 noundef range(i32 -128, 128) %398) #12
   %402 = uitofp i8 %.sroa.5.0.copyload to float
-  %403 = fmul nsz float %402, 3.906250e-03
+  %403 = fmul nnan nsz float %402, 3.906250e-03
   %404 = call nsz float @ldexpf(float noundef %403, i32 noundef range(i32 -128, 128) %398) #12
   %405 = uitofp i8 %.sroa.4.0.copyload to float
-  %406 = fmul nsz float %405, 3.906250e-03
+  %406 = fmul nnan nsz float %405, 3.906250e-03
   %407 = call nsz float @ldexpf(float noundef %406, i32 noundef range(i32 -128, 128) %398) #12
   br label %convert.exit218
 

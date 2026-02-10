@@ -1326,7 +1326,7 @@ define hidden noundef float @_ZN8rawspeed10CrwDecoder7canonEvEl(i64 noundef %0) 
   %7 = and i64 %2, 9223372036854775776
   %8 = or disjoint i64 %.0, %7
   %9 = uitofp nneg i64 %8 to float
-  %10 = fmul float %9, 3.125000e-02
+  %10 = fmul nnan float %9, 3.125000e-02
   %11 = sitofp i64 %0 to float
   %12 = tail call float @llvm.copysign.f32(float %10, float %11)
   ret float %12
@@ -1579,8 +1579,8 @@ _ZN8rawspeed10CrwDecoder7canonEvEl.exit:          ; preds = %96, %99, %100
   %101 = and i64 %97, 65504
   %102 = or disjoint i64 %.0.i, %101
   %103 = uitofp nneg i64 %102 to float
-  %104 = fmul float %103, 3.125000e-02
-  %105 = fmul float %104, 0x3FE62E4300000000
+  %104 = fmul nnan float %103, 3.125000e-02
+  %105 = fmul nnan float %104, 0x3FE62E4300000000
   %106 = call float @expf(float noundef %105) #32, !tbaa !51
   %107 = fmul float %106, 1.000000e+02
   %108 = fmul float %107, 3.125000e-02
@@ -1662,9 +1662,9 @@ _ZN8rawspeed10CrwDecoder7canonEvEl.exit:          ; preds = %96, %99, %100
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 256
   store float %144, ptr %146, align 4, !tbaa !70
   %147 = uitofp i16 %131 to double
-  %148 = fdiv double 1.024000e+03, %147
+  %148 = fdiv nnan double 1.024000e+03, %147
   %149 = uitofp i16 %134 to double
-  %150 = fdiv double 1.024000e+03, %149
+  %150 = fdiv nnan double 1.024000e+03, %149
   %151 = fadd double %148, %150
   %152 = fptrunc double %151 to float
   %153 = fmul float %152, 5.000000e-01
@@ -1969,8 +1969,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126: ; preds = %21
 282:                                              ; preds = %280
   %283 = uitofp i16 %279 to float
   %284 = uitofp i16 %281 to float
-  %285 = fadd float %283, %284
-  %286 = fmul float %285, 5.000000e-01
+  %285 = fadd nnan float %283, %284
+  %286 = fmul nnan float %285, 5.000000e-01
   %287 = load ptr, ptr %13, align 8, !tbaa !24
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 260
   store float %286, ptr %288, align 4, !tbaa !70

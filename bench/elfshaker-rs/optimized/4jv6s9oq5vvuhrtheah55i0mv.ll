@@ -5226,8 +5226,8 @@ define hidden void @_ZN9elfshaker4repo4pack4Pack15extract_entries17hb63ba1226b27
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %120 = uitofp i64 %113 to double
-  %121 = fmul double %120, 0x3F50000000000000
-  %122 = fmul double %121, 0x3F50000000000000
+  %121 = fmul nnan double %120, 0x3F50000000000000
+  %122 = fmul nnan double %121, 0x3F50000000000000
   store double %122, ptr %34, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %123 = load i64, ptr %54, align 8, !noundef !3

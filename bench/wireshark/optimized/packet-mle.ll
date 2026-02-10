@@ -1950,7 +1950,7 @@ proto_item_set_generated.exit:                    ; preds = %83, %80, %77, %75, 
   %692 = call zeroext i16 @tvb_get_ntohs(ptr noundef %.0..0..0..0.535, i32 noundef %691)
   %693 = lshr i16 %692, 1
   %694 = uitofp nneg i16 %693 to double
-  %695 = fmul double %694, 0x40DDCD6500000000
+  %695 = fmul nnan double %694, 0x40DDCD6500000000
   %696 = call i64 @lround(double noundef %695) #12
   %697 = trunc i64 %696 to i32
   store i32 %697, ptr %131, align 8

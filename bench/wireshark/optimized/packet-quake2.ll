@@ -569,8 +569,8 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
   %231 = zext i16 %230 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %228, ptr noundef nonnull @.str.87, i32 noundef %231)
   %232 = uitofp i16 %230 to double
-  %233 = fmul double %232, 0x3EF0000000000000
-  %234 = fmul double %233, 3.600000e+02
+  %233 = fmul nnan double %232, 0x3EF0000000000000
+  %234 = fmul nnan double %233, 3.600000e+02
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %228, ptr noundef nonnull @.str.88, double noundef %234)
   br label %235
 
@@ -590,8 +590,8 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
   %245 = zext i16 %244 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %242, ptr noundef nonnull @.str.87, i32 noundef %245)
   %246 = uitofp i16 %244 to double
-  %247 = fmul double %246, 0x3EF0000000000000
-  %248 = fmul double %247, 3.600000e+02
+  %247 = fmul nnan double %246, 0x3EF0000000000000
+  %248 = fmul nnan double %247, 3.600000e+02
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %242, ptr noundef nonnull @.str.88, double noundef %248)
   br label %249
 
@@ -611,8 +611,8 @@ define internal i32 @dissect_quake2(ptr noundef %0, ptr noundef %1, ptr noundef 
   %259 = zext i16 %258 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %256, ptr noundef nonnull @.str.87, i32 noundef %259)
   %260 = uitofp i16 %258 to double
-  %261 = fmul double %260, 0x3EF0000000000000
-  %262 = fmul double %261, 3.600000e+02
+  %261 = fmul nnan double %260, 0x3EF0000000000000
+  %262 = fmul nnan double %261, 3.600000e+02
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %256, ptr noundef nonnull @.str.88, double noundef %262)
   br label %263
 

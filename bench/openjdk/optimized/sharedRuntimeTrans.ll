@@ -120,8 +120,8 @@ define internal fastcc noundef double @_ZL13__ieee754_logd(double noundef %0) un
 
 40:                                               ; preds = %38
   %41 = sitofp i32 %31 to double
-  %42 = fmul double %41, 0x3FE62E42FEE00000
-  %43 = fmul double %41, 0x3DEA39EF35793C76
+  %42 = fmul nnan double %41, 0x3FE62E42FEE00000
+  %43 = fmul nnan double %41, 0x3DEA39EF35793C76
   %44 = fadd double %42, %43
   br label %115
 
@@ -139,8 +139,8 @@ define internal fastcc noundef double @_ZL13__ieee754_logd(double noundef %0) un
 
 53:                                               ; preds = %45
   %54 = sitofp i32 %31 to double
-  %55 = fmul double %54, 0x3FE62E42FEE00000
-  %56 = fmul double %54, 0x3DEA39EF35793C76
+  %55 = fmul nnan double %54, 0x3FE62E42FEE00000
+  %56 = fmul nnan double %54, 0x3DEA39EF35793C76
   %57 = fsub double %49, %56
   %58 = fsub double %57, %32
   %59 = fsub double %55, %58
@@ -185,10 +185,10 @@ define internal fastcc noundef double @_ZL13__ieee754_logd(double noundef %0) un
   br label %115
 
 92:                                               ; preds = %83
-  %93 = fmul double %63, 0x3FE62E42FEE00000
+  %93 = fmul nnan double %63, 0x3FE62E42FEE00000
   %94 = fadd double %85, %81
   %95 = fmul double %62, %94
-  %96 = fmul double %63, 0x3DEA39EF35793C76
+  %96 = fmul nnan double %63, 0x3DEA39EF35793C76
   %97 = fadd double %96, %95
   %98 = fsub double %85, %97
   %99 = fsub double %98, %32
@@ -206,10 +206,10 @@ define internal fastcc noundef double @_ZL13__ieee754_logd(double noundef %0) un
   br label %115
 
 107:                                              ; preds = %101
-  %108 = fmul double %63, 0x3FE62E42FEE00000
+  %108 = fmul nnan double %63, 0x3FE62E42FEE00000
   %109 = fsub double %32, %81
   %110 = fmul double %62, %109
-  %111 = fmul double %63, 0x3DEA39EF35793C76
+  %111 = fmul nnan double %63, 0x3DEA39EF35793C76
   %112 = fsub double %110, %111
   %113 = fsub double %112, %32
   %114 = fsub double %108, %113
@@ -278,11 +278,11 @@ define hidden noundef double @_ZN13SharedRuntime6dlog10Ed(double noundef %0) loc
   %.sroa.0.4.insert.mask.i.i = and i64 %30, 4294967295
   %.sroa.0.4.insert.insert.i.i = or disjoint i64 %.sroa.0.4.insert.shift.i.i, %.sroa.0.4.insert.mask.i.i
   %31 = bitcast i64 %.sroa.0.4.insert.insert.i.i to double
-  %32 = fmul double %29, 0x3D59FEF311F12B36
+  %32 = fmul nnan double %29, 0x3D59FEF311F12B36
   %33 = tail call fastcc noundef double @_ZL13__ieee754_logd(double noundef %31)
   %34 = fmul double %33, 0x3FDBCB7B1526E50E
   %35 = fadd double %32, %34
-  %36 = fmul double %29, 0x3FD34413509F6000
+  %36 = fmul nnan double %29, 0x3FD34413509F6000
   %37 = fadd double %36, %35
   br label %_ZL15__ieee754_log10d.exit
 
@@ -355,8 +355,8 @@ define hidden noundef double @_ZN13SharedRuntime4dexpEd(double noundef %0) local
   %36 = fadd double %32, %35
   %37 = fptosi double %36 to i32
   %38 = sitofp i32 %37 to double
-  %39 = fmul double %38, 0x3FE62E42FEE00000
-  %40 = fmul double %38, 0x3DEA39EF35793C76
+  %39 = fmul nnan double %38, 0x3FE62E42FEE00000
+  %40 = fmul nnan double %38, 0x3DEA39EF35793C76
   br label %41
 
 41:                                               ; preds = %.thread71.i, %24
@@ -664,10 +664,10 @@ define hidden noundef double @_ZN13SharedRuntime4dpowEdd(double noundef %0, doub
 
 114:                                              ; preds = %112
   %115 = icmp slt i64 %4, 0
-  %116 = fmul double %spec.store.select.i, 1.000000e+300
-  %117 = fmul double %116, 1.000000e+300
-  %118 = fmul double %spec.store.select.i, 1.000000e-300
-  %119 = fmul double %118, 1.000000e-300
+  %116 = fmul nnan double %spec.store.select.i, 1.000000e+300
+  %117 = fmul nnan double %116, 1.000000e+300
+  %118 = fmul nnan double %spec.store.select.i, 1.000000e-300
+  %119 = fmul nnan double %118, 1.000000e-300
   %120 = select i1 %115, double %117, double %119
   br label %_ZL13__ieee754_powdd.exit
 
@@ -677,10 +677,10 @@ define hidden noundef double @_ZN13SharedRuntime4dpowEdd(double noundef %0, doub
 
 123:                                              ; preds = %121
   %124 = icmp sgt i32 %.sroa.0.4.extract.trunc.i215.i, 0
-  %125 = fmul double %spec.store.select.i, 1.000000e+300
-  %126 = fmul double %125, 1.000000e+300
-  %127 = fmul double %spec.store.select.i, 1.000000e-300
-  %128 = fmul double %127, 1.000000e-300
+  %125 = fmul nnan double %spec.store.select.i, 1.000000e+300
+  %126 = fmul nnan double %125, 1.000000e+300
+  %127 = fmul nnan double %spec.store.select.i, 1.000000e-300
+  %128 = fmul nnan double %127, 1.000000e-300
   %129 = select i1 %124, double %126, double %128
   br label %_ZL13__ieee754_powdd.exit
 
@@ -846,8 +846,8 @@ define hidden noundef double @_ZN13SharedRuntime4dpowEdd(double noundef %0, doub
   br i1 %.not213.i, label %255, label %252
 
 252:                                              ; preds = %249
-  %253 = fmul double %spec.store.select.i, 1.000000e+300
-  %254 = fmul double %253, 1.000000e+300
+  %253 = fmul nnan double %spec.store.select.i, 1.000000e+300
+  %254 = fmul nnan double %253, 1.000000e+300
   br label %_ZL13__ieee754_powdd.exit
 
 255:                                              ; preds = %249
@@ -857,8 +857,8 @@ define hidden noundef double @_ZN13SharedRuntime4dpowEdd(double noundef %0, doub
   br i1 %258, label %259, label %277
 
 259:                                              ; preds = %255
-  %260 = fmul double %spec.store.select.i, 1.000000e+300
-  %261 = fmul double %260, 1.000000e+300
+  %260 = fmul nnan double %spec.store.select.i, 1.000000e+300
+  %261 = fmul nnan double %260, 1.000000e+300
   br label %_ZL13__ieee754_powdd.exit
 
 262:                                              ; preds = %239
@@ -873,8 +873,8 @@ define hidden noundef double @_ZN13SharedRuntime4dpowEdd(double noundef %0, doub
   br i1 %.not.i, label %271, label %268
 
 268:                                              ; preds = %265
-  %269 = fmul double %spec.store.select.i, 1.000000e-300
-  %270 = fmul double %269, 1.000000e-300
+  %269 = fmul nnan double %spec.store.select.i, 1.000000e-300
+  %270 = fmul nnan double %269, 1.000000e-300
   br label %_ZL13__ieee754_powdd.exit
 
 271:                                              ; preds = %265
@@ -883,8 +883,8 @@ define hidden noundef double @_ZN13SharedRuntime4dpowEdd(double noundef %0, doub
   br i1 %273, label %277, label %274
 
 274:                                              ; preds = %271
-  %275 = fmul double %spec.store.select.i, 1.000000e-300
-  %276 = fmul double %275, 1.000000e-300
+  %275 = fmul nnan double %spec.store.select.i, 1.000000e-300
+  %276 = fmul nnan double %275, 1.000000e-300
   br label %_ZL13__ieee754_powdd.exit
 
 277:                                              ; preds = %271, %262, %255
@@ -1118,7 +1118,7 @@ define internal fastcc noundef double @_ZL7scalbnAdi(double noundef %0, i32 noun
 
 23:                                               ; preds = %.thread
   %24 = tail call noundef double @llvm.copysign.f64(double 1.000000e+300, double %.03842)
-  %25 = fmul double %24, 1.000000e+300
+  %25 = fmul nnan double %24, 1.000000e+300
   br label %52
 
 26:                                               ; preds = %.thread
@@ -1147,12 +1147,12 @@ define internal fastcc noundef double @_ZL7scalbnAdi(double noundef %0, i32 noun
 
 38:                                               ; preds = %36
   %39 = tail call noundef double @llvm.copysign.f64(double 1.000000e+300, double %.03842)
-  %40 = fmul double %39, 1.000000e+300
+  %40 = fmul nnan double %39, 1.000000e+300
   br label %52
 
 41:                                               ; preds = %36
   %42 = tail call noundef double @llvm.copysign.f64(double 1.000000e-300, double %.03842)
-  %43 = fmul double %42, 1.000000e-300
+  %43 = fmul nnan double %42, 1.000000e-300
   br label %52
 
 44:                                               ; preds = %34

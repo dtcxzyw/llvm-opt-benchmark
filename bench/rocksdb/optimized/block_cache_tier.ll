@@ -1174,7 +1174,7 @@ define linkonce_odr void @_ZNK7rocksdb21PersistentCacheConfig16ValidateSettingsE
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %29 = load i32, ptr %28, align 4, !tbaa !145
   %30 = uitofp i32 %29 to double
-  %31 = fadd double %30, 1.200000e+00
+  %31 = fadd nnan double %30, 1.200000e+00
   %32 = uitofp i32 %20 to double
   %33 = fmul double %31, %32
   %34 = uitofp i32 %25 to double
@@ -4876,7 +4876,7 @@ define noundef zeroext i1 @_ZN7rocksdb14BlockCacheTier7ReserveEm(ptr noundef non
   %13 = uitofp i64 %12 to double
   %14 = load i64, ptr %9, align 8, !tbaa !277
   %15 = uitofp i64 %14 to double
-  %16 = fmul double %15, 9.000000e-01
+  %16 = fmul nnan double %15, 9.000000e-01
   %17 = fcmp uge double %16, %13
   br i1 %17, label %._crit_edge, label %.lr.ph
 
@@ -4950,7 +4950,7 @@ _ZNSt10unique_ptrIN7rocksdb14BlockCacheFileESt14default_deleteIS1_EED2Ev.exit23:
   %46 = uitofp i64 %45 to double
   %47 = load i64, ptr %9, align 8, !tbaa !277
   %48 = uitofp i64 %47 to double
-  %49 = fmul double %48, 9.000000e-01
+  %49 = fmul nnan double %48, 9.000000e-01
   %50 = fcmp uge double %49, %46
   br i1 %50, label %._crit_edge, label %22, !llvm.loop !278
 
@@ -8042,7 +8042,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   %64 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %65 = load i32, ptr %64, align 4, !tbaa !145
   %66 = uitofp i32 %65 to double
-  %67 = fadd double %66, 1.200000e+00
+  %67 = fadd nnan double %66, 1.200000e+00
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %69 = load i32, ptr %68, align 8, !tbaa !143
   %70 = uitofp i32 %69 to double
@@ -8189,7 +8189,7 @@ _ZN7rocksdb22BlockCacheTierMetadataC2Ejj.exit:    ; preds = %.noexc20
   %129 = load i32, ptr %128, align 8, !tbaa !349
   %130 = load i32, ptr %77, align 4, !tbaa !145
   %131 = uitofp i32 %130 to double
-  %132 = fadd double %131, 1.200000e+00
+  %132 = fadd nnan double %131, 1.200000e+00
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %134 = load i32, ptr %133, align 8, !tbaa !143
   %135 = uitofp i32 %134 to double

@@ -23639,7 +23639,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %12
   %32 = add i64 %spec.select.i, 1
   %33 = mul i64 %31, %32
   %34 = uitofp i64 %27 to float
-  %35 = fdiv float 5.000000e-01, %34
+  %35 = fdiv nnan float 5.000000e-01, %34
   %36 = load atomic i64, ptr %28 monotonic, align 8
   br label %37
 
@@ -25183,7 +25183,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %12
   %39 = add i64 %spec.select.i, 1
   %40 = mul i64 %38, %39
   %41 = uitofp i64 %34 to float
-  %42 = fdiv float 5.000000e-01, %41
+  %42 = fdiv nnan float 5.000000e-01, %41
   %43 = load atomic i64, ptr %35 monotonic, align 8
   br label %44
 
@@ -26290,7 +26290,7 @@ define internal fastcc void @"_ZZZN2tf25make_reduce_by_index_taskINS_10IndexRang
   %15 = add i64 %spec.select.i, 1
   %16 = mul i64 %14, %15
   %17 = uitofp i64 %6 to float
-  %18 = fdiv float 5.000000e-01, %17
+  %18 = fdiv nnan float 5.000000e-01, %17
   %19 = load atomic i64, ptr %8 monotonic, align 8
   br label %20
 

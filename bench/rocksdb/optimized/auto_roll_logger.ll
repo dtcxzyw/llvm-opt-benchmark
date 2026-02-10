@@ -328,7 +328,7 @@ _ZNSt5queueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5dequeIS5_SaIS
 102:                                              ; preds = %_ZNSt5queueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5dequeIS5_SaIS5_EEEC2IS8_vEEv.exit
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %104 = uitofp i64 %101 to double
-  %105 = fmul double %104, 0x3EB0C6F7A0B5ED8D
+  %105 = fmul nnan double %104, 0x3EB0C6F7A0B5ED8D
   %106 = fptoui double %105 to i64
   store i64 %106, ptr %103, align 8, !tbaa !98
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -1992,7 +1992,7 @@ _ZN7rocksdb6StatusD2Ev.exit11:                    ; preds = %_ZN7rocksdb6Statusa
   %113 = load ptr, ptr %112, align 8
   %114 = call noundef i64 %113(ptr noundef nonnull align 8 dereferenceable(32) %110)
   %115 = uitofp i64 %114 to double
-  %116 = fmul double %115, 0x3EB0C6F7A0B5ED8D
+  %116 = fmul nnan double %115, 0x3EB0C6F7A0B5ED8D
   %117 = fptoui double %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i64 %117, ptr %118, align 8, !tbaa !98
@@ -2691,7 +2691,7 @@ _ZN7rocksdb9MutexLockC2EPNS_4port5MutexE.exit:    ; preds = %3
 
 .noexc:                                           ; preds = %22
   %29 = uitofp i64 %28 to double
-  %30 = fmul double %29, 0x3EB0C6F7A0B5ED8D
+  %30 = fmul nnan double %29, 0x3EB0C6F7A0B5ED8D
   %31 = fptoui double %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i64 %31, ptr %32, align 8, !tbaa !98
@@ -3131,7 +3131,7 @@ define noundef zeroext i1 @_ZN7rocksdb14AutoRollLogger10LogExpiredEv(ptr noundef
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef i64 %12(ptr noundef nonnull align 8 dereferenceable(32) %9)
   %14 = uitofp i64 %13 to double
-  %15 = fmul double %14, 0x3EB0C6F7A0B5ED8D
+  %15 = fmul nnan double %14, 0x3EB0C6F7A0B5ED8D
   %16 = fptoui double %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 336
   store i64 %16, ptr %17, align 8, !tbaa !98

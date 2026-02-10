@@ -6219,7 +6219,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit:
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = tail call noundef i64 @_ZN11quinn_proto10congestion3bbr7min_max6MinMax3get17h878cef28d4d0a2e4E(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %5)
   %7 = uitofp i64 %6 to float
-  %8 = fmul float %7, 0x3EB0000000000000
+  %8 = fmul nnan float %7, 0x3EB0000000000000
   store float %8, ptr %3, align 4
   store ptr %3, ptr %4, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8

@@ -7781,7 +7781,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE21chooseCen
   %14 = trunc i64 %13 to i32
   %15 = and i32 %14, 2147483647
   %16 = uitofp nneg i32 %15 to double
-  %17 = fmul double %16, 0x3E00000000000000
+  %17 = fmul nnan double %16, 0x3E00000000000000
   %18 = fmul double %17, %7
   %19 = fptosi double %18 to i32
   %20 = sext i32 %19 to i64
@@ -8125,7 +8125,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE21chooseCen
   %19 = trunc i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = uitofp nneg i32 %20 to double
-  %22 = fmul double %21, 0x3E00000000000000
+  %22 = fmul nnan double %21, 0x3E00000000000000
   %23 = fmul double %22, %12
   %24 = fptosi double %23 to i32
   %25 = sext i32 %24 to i64
@@ -8289,7 +8289,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   %111 = trunc i64 %110 to i32
   %112 = and i32 %111, 2147483647
   %113 = uitofp nneg i32 %112 to double
-  %114 = fmul double %113, 0x3E00000000000000
+  %114 = fmul nnan double %113, 0x3E00000000000000
   %115 = tail call noundef double @llvm.fmuladd.f64(double %.1155, double %114, double 0.000000e+00)
   br label %.lr.ph138
 
@@ -12396,7 +12396,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE11findExact
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %.loopexit57
-  %55 = fmul float %52, %52
+  %55 = fmul nnan float %52, %52
   %56 = fmul float %46, 4.000000e+00
   %57 = fmul float %56, %50
   %58 = fcmp ogt float %55, %57
@@ -13098,7 +13098,7 @@ tailrecurse:                                      ; preds = %137, %7
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %.loopexit68
-  %59 = fmul float %56, %56
+  %59 = fmul nnan float %56, %56
   %60 = fmul float %50, 4.000000e+00
   %61 = fmul float %60, %54
   %62 = fcmp ogt float %59, %61

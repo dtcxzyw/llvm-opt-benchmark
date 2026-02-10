@@ -1970,8 +1970,8 @@ define void @Frc_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i32, ptr %23, align 8, !tbaa !44
   %25 = sitofp i32 %24 to double
-  %26 = fmul double %25, 4.000000e+00
-  %27 = fmul double %26, 0x3EB0000000000000
+  %26 = fmul nnan double %25, 4.000000e+00
+  %27 = fmul nnan double %26, 0x3EB0000000000000
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %27)
   %putchar = tail call i32 @putchar(i32 10)
   ret void
@@ -3558,7 +3558,7 @@ Abc_Clock.exit:                                   ; preds = %3, %11
   %.095.lcssa = phi i32 [ %37, %..critedge2_crit_edge ], [ %51, %44 ]
   %52 = add nsw i32 %.095.lcssa, %.096.lcssa
   %53 = sitofp i32 %52 to double
-  %54 = fmul double %53, 5.000000e-01
+  %54 = fmul nnan double %53, 5.000000e-01
   %55 = fptrunc double %54 to float
   %56 = getelementptr inbounds nuw i8, ptr %35, i64 20
   store float %55, ptr %56, align 4, !tbaa !8
@@ -3780,7 +3780,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %154 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %.pre180, double noundef %.093.lcssa199)
   %155 = sub nsw i32 %16, %152
   %156 = sitofp i32 %155 to double
-  %157 = fmul double %156, 1.000000e+02
+  %157 = fmul nnan double %156, 1.000000e+02
   %158 = fdiv double %157, %29
   %159 = load i32, ptr %8, align 4, !tbaa !9
   %160 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %152, double noundef %158, i32 noundef %159)

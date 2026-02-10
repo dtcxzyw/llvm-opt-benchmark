@@ -174,7 +174,7 @@ define hidden noundef float @_ZN2cv10xobjdetect14calcNormFactorERKNS_3MatES3_(pt
   %50 = fadd double %47, %49
   %51 = sitofp i32 %37 to double
   %52 = fneg double %51
-  %53 = fmul double %51, %52
+  %53 = fmul nnan double %51, %52
   %54 = tail call double @llvm.fmuladd.f64(double %24, double %50, double %53)
   %55 = tail call double @sqrt(double noundef %54) #20, !tbaa !18
   %56 = fptrunc double %55 to float

@@ -6006,7 +6006,7 @@ define void @_ZNK10open_spiel11leduc_poker10LeducState14ChanceOutcomesEv(ptr dea
   br i1 %.not89, label %.loopexit, label %.lr.ph86
 
 .lr.ph86:                                         ; preds = %25
-  %29 = fmul double %20, 2.000000e+00
+  %29 = fmul nnan double %20, 2.000000e+00
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %32

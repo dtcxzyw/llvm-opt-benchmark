@@ -191,7 +191,7 @@ _ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit.i: ; 
   %46 = sitofp i32 %33 to float
   %47 = getelementptr inbounds nuw i8, ptr %15, i64 60
   store i32 0, ptr %47, align 4, !tbaa !26
-  %48 = fmul float %46, 5.000000e-01
+  %48 = fmul nnan float %46, 5.000000e-01
   %49 = fptosi float %48 to i32
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 56
   store i32 %49, ptr %50, align 8, !tbaa !27

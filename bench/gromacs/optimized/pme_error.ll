@@ -2783,7 +2783,7 @@ _ZN3gmx22UniformIntDistributionIiEC2Eii.exit:     ; preds = %_ZN3gmx22UniformInt
   %211 = load i32, ptr %207, align 4, !tbaa !4
   %212 = sitofp i32 %211 to float
   %213 = fdiv float %135, %212
-  %214 = fmul float %210, -2.000000e+00
+  %214 = fmul nnan float %210, -2.000000e+00
   br label %215
 
 215:                                              ; preds = %215, %.preheader41.i
@@ -2885,7 +2885,7 @@ _ZL9eps_poly2fff.exit:                            ; preds = %177, %_ZL9eps_poly1
   %271 = load i32, ptr %207, align 4, !tbaa !4
   %272 = sitofp i32 %271 to float
   %273 = fdiv float %161, %272
-  %274 = fmul float %.pre-phi, -2.000000e+00
+  %274 = fmul nnan float %.pre-phi, -2.000000e+00
   br label %275
 
 275:                                              ; preds = %275, %.preheader41.i343
@@ -2989,7 +2989,7 @@ _ZL9eps_poly2fff.exit363:                         ; preds = %_ZL9eps_poly2fff.ex
   %333 = load i32, ptr %207, align 4, !tbaa !4
   %334 = sitofp i32 %333 to float
   %335 = fdiv float %178, %334
-  %336 = fmul float %.pre-phi359, -2.000000e+00
+  %336 = fmul nnan float %.pre-phi359, -2.000000e+00
   br label %337
 
 337:                                              ; preds = %337, %.preheader41.i364
@@ -3591,7 +3591,7 @@ _ZL9eps_poly1fff.exit458:                         ; preds = %_ZL9eps_poly1fff.ex
   %708 = load i32, ptr %207, align 4, !tbaa !4
   %709 = sitofp i32 %708 to float
   %710 = fdiv float %135, %709
-  %711 = fmul float %707, -2.000000e+00
+  %711 = fmul nnan float %707, -2.000000e+00
   br label %712
 
 712:                                              ; preds = %712, %.preheader38.i
@@ -3667,7 +3667,7 @@ _ZL9eps_poly3fff.exit:                            ; preds = %_ZL9eps_poly1fff.ex
   %754 = load i32, ptr %142, align 4, !tbaa !4
   %755 = sitofp i32 %754 to float
   %756 = fdiv float %161, %755
-  %757 = fmul float %.pre-phi361, -2.000000e+00
+  %757 = fmul nnan float %.pre-phi361, -2.000000e+00
   br label %758
 
 758:                                              ; preds = %758, %.preheader38.i461
@@ -3743,7 +3743,7 @@ _ZL9eps_poly3fff.exit473:                         ; preds = %_ZL9eps_poly3fff.ex
   %800 = load i32, ptr %149, align 4, !tbaa !4
   %801 = sitofp i32 %800 to float
   %802 = fdiv float %178, %801
-  %803 = fmul float %.pre-phi363, -2.000000e+00
+  %803 = fmul nnan float %.pre-phi363, -2.000000e+00
   br label %804
 
 804:                                              ; preds = %804, %.preheader38.i474
@@ -3822,7 +3822,7 @@ _ZL9eps_poly3fff.exit486:                         ; preds = %_ZL9eps_poly3fff.ex
 .preheader40.i487:                                ; preds = %_ZL9eps_poly3fff.exit486
   %849 = sitofp i32 %.pre322 to float
   %850 = fdiv float %135, %849
-  %851 = fmul float %.pre-phi365, -2.000000e+00
+  %851 = fmul nnan float %.pre-phi365, -2.000000e+00
   br label %852
 
 852:                                              ; preds = %852, %.preheader40.i487
@@ -3902,7 +3902,7 @@ _ZL9eps_poly4fff.exit:                            ; preds = %_ZL9eps_poly3fff.ex
 .preheader40.i490:                                ; preds = %_ZL9eps_poly4fff.exit
   %897 = sitofp i32 %.pre325 to float
   %898 = fdiv float %161, %897
-  %899 = fmul float %.pre-phi367, -2.000000e+00
+  %899 = fmul nnan float %.pre-phi367, -2.000000e+00
   br label %900
 
 900:                                              ; preds = %900, %.preheader40.i490
@@ -3982,7 +3982,7 @@ _ZL9eps_poly4fff.exit502:                         ; preds = %_ZL9eps_poly4fff.ex
 .preheader40.i503:                                ; preds = %_ZL9eps_poly4fff.exit502
   %945 = sitofp i32 %.pre328 to float
   %946 = fdiv float %178, %945
-  %947 = fmul float %.pre-phi369, -2.000000e+00
+  %947 = fmul nnan float %.pre-phi369, -2.000000e+00
   br label %948
 
 948:                                              ; preds = %948, %.preheader40.i503
@@ -4112,7 +4112,7 @@ _ZL9eps_poly4fff.exit515:                         ; preds = %_ZL9eps_poly4fff.ex
   %reass.sub = sub i32 %.0316175, %.030773
   %1024 = add nuw i32 %reass.sub, 1
   %1025 = sitofp i32 %1024 to double
-  %1026 = fmul double %1025, 1.000000e+02
+  %1026 = fmul nnan double %1025, 1.000000e+02
   %1027 = fdiv double %1026, %133
   %1028 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1023, ptr noundef nonnull @.str.67, double noundef %1027) #24
   %1029 = load ptr, ptr @stderr, align 8, !tbaa !265
@@ -4165,7 +4165,7 @@ _ZL9eps_poly4fff.exit515:                         ; preds = %_ZL9eps_poly4fff.ex
   br label %1189
 
 1060:                                             ; preds = %1042
-  %1061 = fmul float %1044, %1048
+  %1061 = fmul nnan float %1044, %1048
   %1062 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %1063 = load i32, ptr %1062, align 8, !tbaa !297
   %1064 = sitofp i32 %1063 to float
@@ -4390,7 +4390,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.lo
   %1203 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %1204 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %1205 = sitofp i32 %.06891 to double
-  %1206 = fmul double %1205, 0x400921FB54442D18
+  %1206 = fmul nnan double %1205, 0x400921FB54442D18
   %1207 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %1208 = sitofp i32 %.sroa.speculated93 to double
   %1209 = sext i32 %1190 to i64
@@ -4454,8 +4454,8 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.lo
   %1237 = load float, ptr %1198, align 4, !tbaa !8
   %1238 = load ptr, ptr %1199, align 8, !tbaa !177
   %1239 = icmp eq i32 %.1317209, 0
-  %1240 = fpext float %1229 to double
-  %1241 = fmul double %1240, 0x401921FB54442D18
+  %1240 = fpext nnan ninf float %1229 to double
+  %1241 = fmul nnan double %1240, 0x401921FB54442D18
   %.pre331 = load i32, ptr %1238, align 4, !tbaa !4
   br label %1242
 
@@ -4482,8 +4482,8 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.lo
 .lr.ph191:                                        ; preds = %1242
   %1255 = or i32 %.1315198, %.1317209
   %1256 = icmp eq i32 %.1315198, 0
-  %1257 = fpext float %1246 to double
-  %1258 = fmul double %1257, 0x401921FB54442D18
+  %1257 = fpext nnan ninf float %1246 to double
+  %1258 = fmul nnan double %1257, 0x401921FB54442D18
   br label %1259
 
 1259:                                             ; preds = %.lr.ph191, %1464
@@ -4545,7 +4545,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.lo
   %.04451.i = phi float [ 0.000000e+00, %1287 ], [ %1315, %1302 ]
   %.04650.i = phi i32 [ -6, %1287 ], [ %1317, %1302 ]
   %1303 = sitofp i32 %.04650.i to double
-  %1304 = fmul double %1303, 0x401921FB54442D18
+  %1304 = fmul nnan double %1303, 0x401921FB54442D18
   %1305 = fmul double %1304, %1298
   %1306 = fmul double %1305, %1299
   %1307 = call double @sin(double noundef %1306) #21, !tbaa !4
@@ -4567,7 +4567,7 @@ _ZN3gmx22UniformIntDistributionIiEclINS_16ThreeFry2x64FastILj64EEEEEiRT_.exit.lo
   %.14554.i = phi float [ %1330, %.preheader.i517 ], [ %1315, %1302 ]
   %.14753.i = phi i32 [ %1332, %.preheader.i517 ], [ 6, %1302 ]
   %1318 = uitofp nneg i32 %.14753.i to double
-  %1319 = fmul double %1318, 0x401921FB54442D18
+  %1319 = fmul nnan double %1318, 0x401921FB54442D18
   %1320 = fmul double %1319, %1298
   %1321 = fmul double %1320, %1299
   %1322 = call double @sin(double noundef %1321) #21, !tbaa !4
@@ -4623,7 +4623,7 @@ _ZL8eps_selfffPffS_.exit:                         ; preds = %1262, %1334
   %.04451.i520 = phi float [ 0.000000e+00, %1345 ], [ %1373, %1360 ]
   %.04650.i521 = phi i32 [ -6, %1345 ], [ %1375, %1360 ]
   %1361 = sitofp i32 %.04650.i521 to double
-  %1362 = fmul double %1361, 0x401921FB54442D18
+  %1362 = fmul nnan double %1361, 0x401921FB54442D18
   %1363 = fmul double %1362, %1356
   %1364 = fmul double %1363, %1357
   %1365 = call double @sin(double noundef %1364) #21, !tbaa !4
@@ -4645,7 +4645,7 @@ _ZL8eps_selfffPffS_.exit:                         ; preds = %1262, %1334
   %.14554.i525 = phi float [ %1388, %.preheader.i523 ], [ %1373, %1360 ]
   %.14753.i526 = phi i32 [ %1390, %.preheader.i523 ], [ 6, %1360 ]
   %1376 = uitofp nneg i32 %.14753.i526 to double
-  %1377 = fmul double %1376, 0x401921FB54442D18
+  %1377 = fmul nnan double %1376, 0x401921FB54442D18
   %1378 = fmul double %1377, %1356
   %1379 = fmul double %1378, %1357
   %1380 = call double @sin(double noundef %1379) #21, !tbaa !4
@@ -4685,7 +4685,7 @@ _ZL8eps_selfffPffS_.exit528:                      ; preds = %_ZL8eps_selfffPffS_
   %1406 = sitofp i32 %1405 to float
   %1407 = load i32, ptr %1238, align 4, !tbaa !4
   %1408 = sitofp i32 %1407 to float
-  %1409 = fpext float %1263 to double
+  %1409 = fpext nnan ninf float %1263 to double
   %1410 = load float, ptr %1222, align 4, !tbaa !8
   %1411 = load float, ptr %1223, align 4, !tbaa !8
   %1412 = fmul float %1266, %1411
@@ -4694,7 +4694,7 @@ _ZL8eps_selfffPffS_.exit528:                      ; preds = %_ZL8eps_selfffPffS_
   %1415 = call noundef float @llvm.fmuladd.f32(float %1268, float %1414, float %1413)
   %1416 = fpext float %1408 to double
   %1417 = fpext float %1415 to double
-  %1418 = fmul double %1409, 0x401921FB54442D18
+  %1418 = fmul nnan double %1409, 0x401921FB54442D18
   %1419 = fdiv double %1418, %1416
   %1420 = fneg float %1406
   br label %1421
@@ -4704,7 +4704,7 @@ _ZL8eps_selfffPffS_.exit528:                      ; preds = %_ZL8eps_selfffPffS_
   %.04451.i530 = phi float [ 0.000000e+00, %1404 ], [ %1434, %1421 ]
   %.04650.i531 = phi i32 [ -6, %1404 ], [ %1436, %1421 ]
   %1422 = sitofp i32 %.04650.i531 to double
-  %1423 = fmul double %1422, 0x401921FB54442D18
+  %1423 = fmul nnan double %1422, 0x401921FB54442D18
   %1424 = fmul double %1423, %1416
   %1425 = fmul double %1424, %1417
   %1426 = call double @sin(double noundef %1425) #21, !tbaa !4
@@ -4726,7 +4726,7 @@ _ZL8eps_selfffPffS_.exit528:                      ; preds = %_ZL8eps_selfffPffS_
   %.14554.i535 = phi float [ %1449, %.preheader.i533 ], [ %1434, %1421 ]
   %.14753.i536 = phi i32 [ %1451, %.preheader.i533 ], [ 6, %1421 ]
   %1437 = uitofp nneg i32 %.14753.i536 to double
-  %1438 = fmul double %1437, 0x401921FB54442D18
+  %1438 = fmul nnan double %1437, 0x401921FB54442D18
   %1439 = fmul double %1438, %1416
   %1440 = fmul double %1439, %1417
   %1441 = call double @sin(double noundef %1440) #21, !tbaa !4
@@ -4872,7 +4872,7 @@ _ZL8eps_selfffPffS_.exit538:                      ; preds = %_ZL8eps_selfffPffS_
   %1529 = add nsw i64 %indvars.iv298, 1
   %1530 = trunc i64 %1529 to i32
   %1531 = sitofp i32 %1530 to double
-  %1532 = fmul double %1531, 1.000000e+02
+  %1532 = fmul nnan double %1531, 1.000000e+02
   %1533 = fdiv double %1532, %1208
   %1534 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1528, ptr noundef nonnull @.str.75, double noundef %1533) #24
   %1535 = load ptr, ptr @stderr, align 8, !tbaa !265

@@ -34928,9 +34928,9 @@ _ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i: ; preds = %949, %946, %943, 
 
 952:                                              ; preds = %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.i
   %953 = sitofp i64 %930 to double
-  %954 = fmul double %953, 2.000000e+00
-  %955 = fdiv double %954, 1.000000e+03
-  %956 = fmul double %955, 1.000000e+03
+  %954 = fmul nnan double %953, 2.000000e+00
+  %955 = fdiv nnan double %954, 1.000000e+03
+  %956 = fmul nnan double %955, 1.000000e+03
   %957 = fcmp ult double %956, 0x43E0000000000000
   br i1 %957, label %958, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit98.i
 

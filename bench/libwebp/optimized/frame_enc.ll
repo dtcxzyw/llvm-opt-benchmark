@@ -173,7 +173,7 @@ InitPassStats.exit.i:                             ; preds = %76, %73
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %109 = icmp ne i32 %.054.i, 0
   %110 = uitofp i64 %95 to double
-  %111 = fmul double %110, 6.502500e+04
+  %111 = fmul nnan double %110, 6.502500e+04
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 3619
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 23500
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 3616
@@ -1182,7 +1182,7 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 3620
   %87 = icmp ne i64 %20, 0
   %88 = uitofp i64 %20 to double
-  %89 = fmul double %88, 6.502500e+04
+  %89 = fmul nnan double %88, 6.502500e+04
   %.not101 = icmp eq i32 %13, 0
   br label %90
 

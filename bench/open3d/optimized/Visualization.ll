@@ -37064,8 +37064,8 @@ _ZN6open3d4core6TensorD2Ev.exit374:               ; preds = %_ZN6open3d4core11Sm
   br i1 %928, label %929, label %932
 
 929:                                              ; preds = %_ZN6open3d4core6TensorD2Ev.exit374
-  %930 = fmul double %.1.i, 4.000000e+00
-  %931 = fmul double %930, 2.000000e+00
+  %930 = fmul nnan double %.1.i, 4.000000e+00
+  %931 = fmul nnan double %930, 2.000000e+00
   br label %_ZN6open3d1t9pipelines4slacL3JetEddd.exit
 
 932:                                              ; preds = %_ZN6open3d4core6TensorD2Ev.exit374
@@ -37073,9 +37073,9 @@ _ZN6open3d4core6TensorD2Ev.exit374:               ; preds = %_ZN6open3d4core11Sm
   br i1 %933, label %934, label %939
 
 934:                                              ; preds = %932
-  %935 = fsub double 1.250000e-01, %.1.i
-  %936 = fmul double %935, 4.000000e+00
-  %937 = fmul double %936, 2.000000e+00
+  %935 = fsub nnan double 1.250000e-01, %.1.i
+  %936 = fmul nnan double %935, 4.000000e+00
+  %937 = fmul nnan double %936, 2.000000e+00
   %938 = fadd double %937, 1.000000e+00
   br label %_ZN6open3d1t9pipelines4slacL3JetEddd.exit
 
@@ -37084,9 +37084,9 @@ _ZN6open3d4core6TensorD2Ev.exit374:               ; preds = %_ZN6open3d4core11Sm
   br i1 %940, label %941, label %945
 
 941:                                              ; preds = %939
-  %942 = fadd double %.1.i, -2.500000e-01
-  %943 = fmul double %942, 4.000000e+00
-  %944 = fmul double %943, 2.000000e+00
+  %942 = fadd nnan double %.1.i, -2.500000e-01
+  %943 = fmul nnan double %942, 4.000000e+00
+  %944 = fmul nnan double %943, 2.000000e+00
   br label %_ZN6open3d1t9pipelines4slacL3JetEddd.exit
 
 945:                                              ; preds = %939

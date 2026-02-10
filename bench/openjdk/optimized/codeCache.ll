@@ -2424,7 +2424,7 @@ _ZN9CodeCache12max_capacityEv.exit:               ; preds = %27, %7, %_ZN9CodeCa
   tail call void @_ZN12TruncatedSeq3addEd(ptr noundef nonnull align 8 dereferenceable(72) @_ZN9CodeCache23_unloading_gc_intervalsE, double noundef %37) #21
   %51 = load i64, ptr @StartAggressiveSweepingAt, align 8
   %52 = uitofp i64 %51 to double
-  %53 = fdiv double %52, 1.000000e+02
+  %53 = fdiv nnan double %52, 1.000000e+02
   %54 = uitofp i64 %.0.lcssa.i49 to double
   %55 = fmul double %53, %54
   %56 = fptoui double %55 to i64
@@ -2465,9 +2465,9 @@ _ZN9CodeCache12max_capacityEv.exit:               ; preds = %27, %7, %_ZN9CodeCa
   %78 = uitofp i64 %36 to double
   %79 = fdiv double %78, %54
   %80 = fmul double %63, 0x3F50000000000000
-  %81 = fmul double %78, 0x3EB0000000000000
+  %81 = fmul nnan double %78, 0x3EB0000000000000
   %82 = fmul double %79, 1.000000e+02
-  %83 = fmul double %76, 0x3EB0000000000000
+  %83 = fmul nnan double %76, 0x3EB0000000000000
   %84 = fmul double %77, 1.000000e+02
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE19ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz(ptr noundef nonnull @.str.39, double noundef %80, double noundef %66, double noundef %69, i64 noundef %73, double noundef %81, double noundef %82, double noundef %83, double noundef %84, double noundef %62)
   br label %85

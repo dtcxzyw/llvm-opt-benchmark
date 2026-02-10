@@ -34983,9 +34983,9 @@ define internal fastcc void @listOfArc(ptr noundef %0, ptr noundef captures(none
   %36 = sext i16 %26 to i32
   %37 = sext i16 %29 to i32
   %38 = sitofp i16 %26 to double
-  %39 = fmul double %38, 1.562500e-02
+  %39 = fmul nnan double %38, 1.562500e-02
   %40 = sitofp i16 %29 to double
-  %41 = fmul double %40, 1.562500e-02
+  %41 = fmul nnan double %40, 1.562500e-02
   %42 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %11, i32 noundef %30, ptr noundef %0, i32 noundef %31, i32 noundef 12, ptr noundef nonnull @.str.14931, i32 noundef %32, i32 noundef %33, i32 noundef %34, i32 noundef %35, i32 noundef %36, i32 noundef %37, double noundef %39, double noundef %41)
   %43 = load i32, ptr @ett_x11_arc, align 4
   %44 = tail call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %43)

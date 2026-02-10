@@ -3799,7 +3799,7 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   %368 = select i1 %367, double 1.250000e+00, double 9.000000e-01
   %369 = load i32, ptr %14, align 4
   %370 = sitofp i32 %369 to double
-  %371 = fmul double %368, %370
+  %371 = fmul nnan double %368, %370
   %372 = fptosi double %371 to i32
   %373 = load i32, ptr @_ZN10open_spiel10algorithms12MIN_GC_LIMITE, align 4
   %374 = call i32 @llvm.smax.i32(i32 %373, i32 %372)
@@ -7756,7 +7756,7 @@ _ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm256
   br i1 %167, label %select.unfold.i.i.backedge, label %168
 
 168:                                              ; preds = %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit26
-  %169 = tail call double @llvm.log.f64(double %164)
+  %169 = tail call ninf double @llvm.log.f64(double %164)
   %170 = fmul double %169, -2.000000e+00
   %171 = fdiv double %170, %164
   %172 = tail call double @sqrt(double noundef %171) #30

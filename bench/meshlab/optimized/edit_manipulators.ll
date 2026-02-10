@@ -5642,8 +5642,8 @@ define void @_ZN22EditManipulatorsPlugin10DrawCircleEfff(ptr noundef nonnull rea
 5:                                                ; preds = %4, %5
   %.02337.int = phi i32 [ 0, %4 ], [ %.int, %5 ]
   %indvar.conv = uitofp nneg i32 %.02337.int to double
-  %6 = fmul double %indvar.conv, 0x401921FB53C8D4F1
-  %7 = fmul double %6, 3.125000e-02
+  %6 = fmul nnan double %indvar.conv, 0x401921FB53C8D4F1
+  %7 = fmul nnan double %6, 3.125000e-02
   %8 = tail call double @cos(double noundef %7) #25
   %9 = tail call double @sin(double noundef %7) #25
   tail call void @glNormal3d(double noundef %8, double noundef %9, double noundef 0.000000e+00)
@@ -7967,7 +7967,7 @@ define void @_ZN22EditManipulatorsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(
   %84 = add i32 %82, 1
   %85 = sub i32 %84, %83
   %86 = sitofp i32 %85 to float
-  %87 = fmul float %86, 5.000000e-01
+  %87 = fmul nnan float %86, 5.000000e-01
   %88 = fptosi float %87 to i32
   %89 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %90 = load i32, ptr %89, align 4
@@ -7976,7 +7976,7 @@ define void @_ZN22EditManipulatorsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(
   %93 = add i32 %90, 1
   %94 = sub i32 %93, %92
   %95 = sitofp i32 %94 to float
-  %96 = fmul float %95, 5.000000e-01
+  %96 = fmul nnan float %95, 5.000000e-01
   %97 = fptosi float %96 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
@@ -8008,7 +8008,7 @@ define void @_ZN22EditManipulatorsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(
   %114 = add i32 %112, 1
   %115 = sub i32 %114, %113
   %116 = sitofp i32 %115 to float
-  %117 = fmul float %116, 0x3FEFAE1480000000
+  %117 = fmul nnan float %116, 0x3FEFAE1480000000
   %118 = fptosi float %117 to i32
   %119 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %120 = load i32, ptr %119, align 4
@@ -8017,7 +8017,7 @@ define void @_ZN22EditManipulatorsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(
   %123 = add i32 %120, 1
   %124 = sub i32 %123, %122
   %125 = sitofp i32 %124 to float
-  %126 = fmul float %125, 5.000000e-01
+  %126 = fmul nnan float %125, 5.000000e-01
   %127 = fptosi float %126 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
@@ -8049,7 +8049,7 @@ define void @_ZN22EditManipulatorsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(
   %144 = add i32 %142, 1
   %145 = sub i32 %144, %143
   %146 = sitofp i32 %145 to float
-  %147 = fmul float %146, 5.000000e-01
+  %147 = fmul nnan float %146, 5.000000e-01
   %148 = fptosi float %147 to i32
   %149 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %150 = load i32, ptr %149, align 4
@@ -8058,7 +8058,7 @@ define void @_ZN22EditManipulatorsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(
   %153 = add i32 %150, 1
   %154 = sub i32 %153, %152
   %155 = sitofp i32 %154 to float
-  %156 = fmul float %155, 0x3F847AE140000000
+  %156 = fmul nnan float %155, 0x3F847AE140000000
   %157 = fptosi float %156 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
@@ -8090,7 +8090,7 @@ define void @_ZN22EditManipulatorsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(
   %174 = add i32 %172, 1
   %175 = sub i32 %174, %173
   %176 = sitofp i32 %175 to float
-  %177 = fmul float %176, 5.000000e-01
+  %177 = fmul nnan float %176, 5.000000e-01
   %178 = fptosi float %177 to i32
   %179 = getelementptr inbounds nuw i8, ptr %169, i64 32
   %180 = load i32, ptr %179, align 4
@@ -8099,7 +8099,7 @@ define void @_ZN22EditManipulatorsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(
   %183 = add i32 %180, 1
   %184 = sub i32 %183, %182
   %185 = sitofp i32 %184 to float
-  %186 = fmul float %185, 5.000000e-01
+  %186 = fmul nnan float %185, 5.000000e-01
   %187 = fptosi float %186 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)

@@ -3154,7 +3154,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %629
   store i64 %651, ptr %640, align 8, !tbaa !71
   %652 = trunc i64 %651 to i32
   %653 = uitofp i32 %652 to float
-  %654 = fmul float %653, 0x3DF0000000000000
+  %654 = fmul nnan float %653, 0x3DF0000000000000
   %655 = load ptr, ptr %641, align 8, !tbaa !27
   %656 = load ptr, ptr %642, align 8, !tbaa !34
   %657 = load i64, ptr %656, align 8, !tbaa !35
@@ -4456,8 +4456,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %106
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %97 ]
   %112 = trunc nuw nsw i64 %indvars.iv to i32
   %113 = uitofp nneg i32 %112 to double
-  %114 = fmul double %113, 0x401921FB54442D18
-  %115 = fmul double %114, 3.125000e-02
+  %114 = fmul nnan double %113, 0x401921FB54442D18
+  %115 = fmul nnan double %114, 3.125000e-02
   %116 = load i32, ptr %28, align 8, !tbaa !219
   %117 = sitofp i32 %116 to double
   %118 = tail call double @cos(double noundef %115) #29, !tbaa !9
@@ -7387,7 +7387,7 @@ _ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC11findClosestEiiRKNS_7Point3_If
   store i64 %112, ptr %107, align 8, !tbaa !71
   %113 = trunc i64 %112 to i32
   %114 = uitofp i32 %113 to float
-  %115 = fmul float %114, 0x3DF0000000000000
+  %115 = fmul nnan float %114, 0x3DF0000000000000
   %116 = getelementptr inbounds nuw i8, ptr %106, i64 56
   %117 = load float, ptr %116, align 8, !tbaa !62
   %118 = fcmp olt float %115, %117
@@ -7517,7 +7517,7 @@ _ZN2cv6bgsegm12_GLOBAL__N_119BackgroundModelGSOC13replaceOldestEiiRKNS1_20Backgr
   store i64 %198, ptr %193, align 8, !tbaa !71
   %199 = trunc i64 %198 to i32
   %200 = uitofp i32 %199 to float
-  %201 = fmul float %200, 0x3DF0000000000000
+  %201 = fmul nnan float %200, 0x3DF0000000000000
   %202 = getelementptr inbounds nuw i8, ptr %88, i64 60
   %203 = load float, ptr %202, align 4, !tbaa !63
   %204 = fcmp olt float %201, %203
@@ -7966,7 +7966,7 @@ _ZNK2cv6bgsegm12_GLOBAL__N_119BackgroundModelLSBP12countMatchesEiiRKNS_7Point3_I
   store i64 %167, ptr %162, align 8, !tbaa !71
   %168 = trunc i64 %167 to i32
   %169 = uitofp i32 %168 to float
-  %170 = fmul float %169, 0x3DF0000000000000
+  %170 = fmul nnan float %169, 0x3DF0000000000000
   %171 = load i64, ptr %155, align 8, !tbaa !35
   %172 = mul i64 %171, %48
   %173 = getelementptr inbounds nuw i8, ptr %154, i64 %172
@@ -8052,7 +8052,7 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %178, %201
   store i64 %226, ptr %222, align 8, !tbaa !71
   %227 = trunc i64 %226 to i32
   %228 = uitofp i32 %227 to float
-  %229 = fmul float %228, 0x3DF0000000000000
+  %229 = fmul nnan float %228, 0x3DF0000000000000
   %230 = load i64, ptr %218, align 8, !tbaa !35
   %231 = mul i64 %230, %48
   %232 = getelementptr inbounds nuw i8, ptr %219, i64 %231

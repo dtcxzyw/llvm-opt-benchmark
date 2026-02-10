@@ -1673,7 +1673,7 @@ define range(i32 -2147483648, 1) i32 @ff_opus_psy_init(ptr noundef initializes((
   %indvars.iv.i = phi i64 [ 0, %103 ], [ %indvars.iv.next.i, %107 ]
   %108 = trunc nuw nsw i64 %indvars.iv.i to i32
   %109 = uitofp nneg i32 %108 to double
-  %110 = fmul nsz double %109, 0x400921FB54442D18
+  %110 = fmul nnan nsz double %109, 0x400921FB54442D18
   %111 = fdiv nsz double %110, %106
   %112 = call nsz double @llvm.sin.f64(double %111)
   %113 = fptrunc nsz double %112 to float
@@ -2110,7 +2110,7 @@ pvq_band_cost.exit:                               ; preds = %151
   %163 = add i32 %68, %156
   %164 = sub i32 %162, %163
   %165 = uitofp i32 %164 to float
-  %166 = fmul nsz float %165, 1.250000e-01
+  %166 = fmul nnan nsz float %165, 1.250000e-01
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1384) %9, ptr noundef nonnull align 8 dereferenceable(1384) %8, i64 1384, i1 false)
   %167 = fmul nsz float %29, %160
   %168 = fmul nsz float %167, %166

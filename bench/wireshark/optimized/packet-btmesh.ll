@@ -3829,7 +3829,7 @@ define internal void @format_global_latitude(ptr noundef %0, i32 noundef %1) #3 
 
 6:                                                ; preds = %2
   %7 = sitofp i32 %1 to double
-  %8 = fmul double %7, 0x3E668000002D0000
+  %8 = fmul nnan double %7, 0x3E668000002D0000
   %9 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1903, double noundef %8)
   br label %10
 
@@ -3848,7 +3848,7 @@ define internal void @format_global_longitude(ptr noundef %0, i32 noundef %1) #3
 
 6:                                                ; preds = %2
   %7 = sitofp i32 %1 to double
-  %8 = fmul double %7, 0x3E768000002D0000
+  %8 = fmul nnan double %7, 0x3E768000002D0000
   %9 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1903, double noundef %8)
   br label %10
 
@@ -4485,7 +4485,7 @@ define internal void @format_temperature_kelvin_unknown(ptr noundef %0, i32 noun
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @format_hsl_hue(ptr noundef %0, i32 noundef %1) #3 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F76800000000000
+  %4 = fmul nnan double %3, 0x3F76800000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2175, double noundef %4)
   ret void
 }
@@ -4579,7 +4579,7 @@ define internal void @format_sensor_period(ptr noundef %0, i32 noundef %1) #3 {
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %6
-  %12 = fmul double %9, 1.000000e+03
+  %12 = fmul nnan double %9, 1.000000e+03
   %13 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2191, double noundef %12)
   br label %35
 
@@ -4708,7 +4708,7 @@ define internal void @format_percentage_8(ptr noundef %0, i32 noundef %1) #3 {
 
 10:                                               ; preds = %6
   %11 = uitofp nneg i32 %1 to double
-  %12 = fmul double %11, 5.000000e-01
+  %12 = fmul nnan double %11, 5.000000e-01
   %13 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2204, double noundef %12)
   br label %14
 
@@ -4798,7 +4798,7 @@ define internal void @format_temperature_8(ptr noundef %0, i32 noundef %1) #3 {
 
 6:                                                ; preds = %2
   %7 = sitofp i32 %1 to double
-  %8 = fmul double %7, 5.000000e-01
+  %8 = fmul nnan double %7, 5.000000e-01
   %9 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2208, double noundef %8)
   br label %10
 

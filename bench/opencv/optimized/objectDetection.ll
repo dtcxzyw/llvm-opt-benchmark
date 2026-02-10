@@ -924,7 +924,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EED2Ev.exit:     ; preds = %._crit_edge, %90
   %124 = add nsw i32 %120, %123
   %125 = add nsw i32 %122, %113
   %126 = sitofp i32 %125 to double
-  %127 = fmul double %126, 2.500000e-01
+  %127 = fmul nnan double %126, 2.500000e-01
   %128 = insertelement <2 x double> poison, double %127, i64 0
   %129 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %128)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)

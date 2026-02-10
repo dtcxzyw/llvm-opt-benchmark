@@ -1599,7 +1599,7 @@ _ZN6dmg_fpL5ratioEPNS_6BigintES1_.exit:           ; preds = %699, %704
 
 722:                                              ; preds = %714
   %723 = fcmp olt double %709, 1.000000e+00
-  %724 = fmul double %709, 5.000000e-01
+  %724 = fmul nnan double %709, 5.000000e-01
   %.0343 = select i1 %723, double 5.000000e-01, double %724
   %725 = fneg double %.0343
   br label %.thread614
@@ -4221,7 +4221,7 @@ _ZN6dmg_fpL8rv_allocEi.exit:                      ; preds = %181, %209
 
 261:                                              ; preds = %259
   %262 = add nsw i32 %.1438, -1
-  %263 = fmul double %256, 1.000000e+01
+  %263 = fmul nnan double %256, 1.000000e+01
   %264 = add nsw i32 %.3470, 1
   br label %265
 

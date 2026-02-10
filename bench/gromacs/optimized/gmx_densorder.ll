@@ -584,7 +584,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNSt10filesystem7_
   %202 = mul i32 %.0233, %.0
   %203 = mul nsw i32 %202, %168
   %204 = sitofp i32 %203 to double
-  %205 = fmul double %204, 0x3A6071F778ED6AAF
+  %205 = fmul nnan double %204, 0x3A6071F778ED6AAF
   br label %206
 
 206:                                              ; preds = %.noexc41, %.noexc35
@@ -864,7 +864,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i:        ; preds = %_ZNSt10filesystem7_
 
 .noexc49:                                         ; preds = %310
   %315 = uitofp nneg i32 %308 to double
-  %316 = fmul double %315, 5.000000e-01
+  %316 = fmul nnan double %315, 5.000000e-01
   %317 = fptrunc double %316 to float
   %318 = fmul float %317, %317
   invoke void @_Z11gausskernelPfif(ptr noundef %314, i32 noundef range(i32 3, -2147483648) %312, float noundef %318)
@@ -1230,7 +1230,7 @@ _ZL11outputfieldPKcPPPPfiiii.exit:                ; preds = %._crit_edge60.i
   %431 = getelementptr inbounds i32, ptr %410, i64 %430
   %432 = load i32, ptr %431, align 4, !tbaa !4
   %433 = sitofp i32 %432 to float
-  %434 = fadd float %433, 5.000000e-01
+  %434 = fadd nnan float %433, 5.000000e-01
   %435 = fmul float %378, %434
   %436 = load ptr, ptr %414, align 8, !tbaa !88
   %437 = add nuw nsw i64 %indvars.iv399.i, %416
@@ -1243,7 +1243,7 @@ _ZL11outputfieldPKcPPPPfiiii.exit:                ; preds = %._crit_edge60.i
   %442 = getelementptr inbounds i32, ptr %410, i64 %441
   %443 = load i32, ptr %442, align 4, !tbaa !4
   %444 = sitofp i32 %443 to float
-  %445 = fadd float %444, 5.000000e-01
+  %445 = fadd nnan float %444, 5.000000e-01
   %446 = fmul float %378, %445
   %447 = load ptr, ptr %415, align 8, !tbaa !88
   %448 = getelementptr inbounds nuw ptr, ptr %447, i64 %437

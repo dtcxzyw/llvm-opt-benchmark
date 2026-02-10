@@ -111,7 +111,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   store i32 1, ptr %46, align 8, !tbaa !51
   %47 = load i32, ptr %7, align 8, !tbaa !28
   %48 = sitofp i32 %47 to double
-  %49 = fmul nsz double %48, 5.000000e-01
+  %49 = fmul nnan nsz double %48, 5.000000e-01
   %50 = fptrunc nsz double %49 to float
   %51 = load i32, ptr %24, align 8, !tbaa !36
   %52 = icmp eq i32 %51, 2
@@ -198,8 +198,8 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   br label %147
 
 95:                                               ; preds = %91
-  %96 = fpext nsz float %50 to double
-  %97 = fmul nsz double %96, 4.000000e-01
+  %96 = fpext nnan nsz float %50 to double
+  %97 = fmul nnan nsz double %96, 4.000000e-01
   %98 = fptrunc nsz double %97 to float
   br label %147
 
@@ -214,16 +214,16 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
 
 103:                                              ; preds = %99
   %104 = fcmp nsz ult double %100, 0x3FE70A3D70A3D70A
-  %105 = fpext nsz float %50 to double
+  %105 = fpext nnan nsz float %50 to double
   br i1 %104, label %109, label %106
 
 106:                                              ; preds = %103
-  %107 = fmul nsz double %105, 0x3FE6666666666666
+  %107 = fmul nnan nsz double %105, 0x3FE6666666666666
   %108 = fptrunc nsz double %107 to float
   br label %147
 
 109:                                              ; preds = %103
-  %110 = fmul nsz double %105, 6.000000e-01
+  %110 = fmul nnan nsz double %105, 6.000000e-01
   %111 = fptrunc nsz double %110 to float
   br label %147
 
@@ -232,18 +232,18 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   br i1 %113, label %114, label %116
 
 114:                                              ; preds = %112
-  %115 = fmul nsz float %50, 5.000000e-01
+  %115 = fmul nnan nsz float %50, 5.000000e-01
   br label %147
 
 116:                                              ; preds = %112
-  %117 = fpext nsz float %50 to double
-  %118 = fmul nsz double %117, 3.000000e-01
+  %117 = fpext nnan nsz float %50 to double
+  %118 = fmul nnan nsz double %117, 3.000000e-01
   %119 = fptrunc nsz double %118 to float
   br label %147
 
 120:                                              ; preds = %86
-  %121 = fpext nsz float %50 to double
-  %122 = fmul nsz double %121, 0x3FE6666666666666
+  %121 = fpext nnan nsz float %50 to double
+  %122 = fmul nnan nsz double %121, 0x3FE6666666666666
   %123 = fptrunc nsz double %122 to float
   br label %147
 
@@ -252,7 +252,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   br i1 %125, label %128, label %126
 
 126:                                              ; preds = %124
-  %127 = fmul nsz float %50, 5.000000e-01
+  %127 = fmul nnan nsz float %50, 5.000000e-01
   br label %147
 
 128:                                              ; preds = %124
@@ -264,8 +264,8 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   br label %147
 
 131:                                              ; preds = %128
-  %132 = fpext nsz float %50 to double
-  %133 = fmul nsz double %132, 6.500000e-01
+  %132 = fpext nnan nsz float %50 to double
+  %133 = fmul nnan nsz double %132, 6.500000e-01
   %134 = fptrunc nsz double %133 to float
   br label %147
 
@@ -274,7 +274,7 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   br i1 %136, label %139, label %137
 
 137:                                              ; preds = %135
-  %138 = fmul nsz float %50, 7.500000e-01
+  %138 = fmul nnan nsz float %50, 7.500000e-01
   br label %147
 
 139:                                              ; preds = %135
@@ -282,13 +282,13 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   br i1 %140, label %145, label %141
 
 141:                                              ; preds = %139
-  %142 = fpext nsz float %50 to double
-  %143 = fmul nsz double %142, 6.000000e-01
+  %142 = fpext nnan nsz float %50 to double
+  %143 = fmul nnan nsz double %142, 6.000000e-01
   %144 = fptrunc nsz double %143 to float
   br label %147
 
 145:                                              ; preds = %139
-  %146 = fmul nsz float %50, 5.000000e-01
+  %146 = fmul nnan nsz float %50, 5.000000e-01
   br label %147
 
 147:                                              ; preds = %106, %109, %102, %120, %137, %145, %141, %126, %131, %130, %114, %116, %94, %95
@@ -562,9 +562,9 @@ define range(i32 -2147483648, 1) i32 @ff_wma_init(ptr noundef %0, i32 noundef %1
   %.sink351 = select i1 %.not290, float 0x3FA47AE140000000, float 0x3F947AE140000000
   %282 = getelementptr inbounds nuw i8, ptr %4, i64 165300
   store float %.sink351, ptr %282, align 4, !tbaa !69
-  %283 = fpext nsz float %.sink351 to double
-  %284 = fmul nsz double %283, 0x3E0BB67AE8584CAA
-  %285 = fptrunc nsz double %284 to float
+  %283 = fpext nnan ninf nsz float %.sink351 to double
+  %284 = fmul nnan nsz double %283, 0x3E0BB67AE8584CAA
+  %285 = fptrunc nnan nsz double %284 to float
   %286 = getelementptr inbounds nuw i8, ptr %4, i64 132528
   br label %287
 

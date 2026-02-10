@@ -62,7 +62,7 @@ define hidden void @_ZN5ceres8internal9CorrectorC2EdPKd(ptr noundef nonnull writ
   br i1 %25, label %26, label %37, !prof !20
 
 26:                                               ; preds = %23
-  %27 = fmul double %1, 2.000000e+00
+  %27 = fmul nnan double %1, 2.000000e+00
   %28 = fmul double %27, %19
   %29 = fdiv double %28, %24
   %30 = fadd double %29, 1.000000e+00

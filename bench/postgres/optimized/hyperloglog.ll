@@ -224,7 +224,7 @@ define dso_local double @estimateHyperLogLog(ptr noundef readonly captures(none)
   %17 = load double, ptr %16, align 8
   %18 = fdiv double %17, 0.000000e+00
   %19 = uitofp i64 %3 to double
-  %20 = fmul double %19, 2.500000e+00
+  %20 = fmul nnan double %19, 2.500000e+00
   %21 = fcmp ugt double %18, %20
   br i1 %21, label %42, label %._crit_edge39.thread
 
@@ -233,7 +233,7 @@ define dso_local double @estimateHyperLogLog(ptr noundef readonly captures(none)
   %23 = load double, ptr %22, align 8
   %24 = fdiv double %23, %12
   %25 = uitofp i64 %3 to double
-  %26 = fmul double %25, 2.500000e+00
+  %26 = fmul nnan double %25, 2.500000e+00
   %27 = fcmp ugt double %24, %26
   br i1 %27, label %42, label %.lr.ph38
 
@@ -271,7 +271,7 @@ define dso_local double @estimateHyperLogLog(ptr noundef readonly captures(none)
   br i1 %44, label %45, label %._crit_edge39.thread
 
 45:                                               ; preds = %42
-  %46 = fmul double %43, 0x3DF0000000000000
+  %46 = fmul nnan double %43, 0x3DF0000000000000
   %47 = fsub double 1.000000e+00, %46
   br label %._crit_edge39.thread.sink.split
 

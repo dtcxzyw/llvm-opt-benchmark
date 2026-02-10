@@ -305,7 +305,7 @@ _ZNK6open3d8geometry10PointCloud10HasNormalsEv.exit.thread: ; preds = %8, %_ZNK6
   %79 = sub i64 %77, %78
   %80 = sdiv exact i64 %79, 24
   %81 = uitofp i64 %80 to double
-  %82 = fmul double %81, 1.000000e-03
+  %82 = fmul nnan double %81, 1.000000e-03
   %83 = fptoui double %82 to i64
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %83, i64 10)
   br label %84
@@ -11258,7 +11258,7 @@ define internal fastcc void @_ZN6open3d8geometry12_GLOBAL__N_113PlaneDetector11R
   %13 = tail call double @cos(double noundef %11) #4, !tbaa !64, !noalias !323
   %14 = fsub double 1.000000e+00, %13
   %.scalar79 = fmul double %14, 0.000000e+00
-  %15 = fmul double %.scalar79, 0.000000e+00
+  %15 = fmul ninf double %.scalar79, 0.000000e+00
   %16 = fsub double %15, %12
   %17 = fadd double %12, %15
   %18 = fadd double %.scalar, %.scalar79

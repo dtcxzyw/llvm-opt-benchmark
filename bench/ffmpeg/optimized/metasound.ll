@@ -985,7 +985,7 @@ define internal void @dec_bark_env(ptr noundef captures(none) %0, ptr noundef re
   %45 = getelementptr inbounds nuw i16, ptr %32, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !88
   %47 = sitofp i16 %46 to double
-  %48 = fmul nsz double %47, 0x3F40000000000000
+  %48 = fmul nnan nsz double %47, 0x3F40000000000000
   %49 = fptrunc nsz double %48 to float
   %50 = fadd nsz float %49, 1.000000e+00
   %51 = getelementptr inbounds float, ptr %15, i64 %indvars.iv94
@@ -1046,7 +1046,7 @@ twinvq_memset_float.exit.us.us.us.us:             ; preds = %.lr.ph.i.us.us.us.u
   %72 = getelementptr inbounds nuw i16, ptr %32, i64 %71
   %73 = load i16, ptr %72, align 2, !tbaa !88
   %74 = sitofp i16 %73 to double
-  %75 = fmul nsz double %74, 0x3F40000000000000
+  %75 = fmul nnan nsz double %74, 0x3F40000000000000
   %76 = fptrunc nsz double %75 to float
   %77 = getelementptr inbounds float, ptr %15, i64 %indvars.iv84
   %78 = load float, ptr %77, align 4, !tbaa !84
@@ -1109,7 +1109,7 @@ twinvq_memset_float.exit.us.us:                   ; preds = %.lr.ph.i.us.us, %65
   %101 = getelementptr inbounds nuw i16, ptr %32, i64 %100
   %102 = load i16, ptr %101, align 2, !tbaa !88
   %103 = sitofp i16 %102 to double
-  %104 = fmul nsz double %103, 0x3F40000000000000
+  %104 = fmul nnan nsz double %103, 0x3F40000000000000
   %105 = fptrunc nsz double %104 to float
   %106 = fpext nsz float %105 to double
   br i1 %.not, label %113, label %107
@@ -1304,7 +1304,7 @@ define internal void @decode_ppc(ptr noundef readonly captures(none) %0, i32 nou
   %95 = uitofp nneg i32 %94 to float
   %96 = fdiv nsz float %90, %95
   %97 = sitofp i32 %2 to float
-  %98 = fmul nsz float %96, 5.000000e-01
+  %98 = fmul nnan nsz float %96, 5.000000e-01
   %99 = tail call nsz float @llvm.fmuladd.f32(float %96, float %97, float %98)
   %100 = fdiv nsz float %99, %90
   %101 = fcmp nsz ogt float %100, -1.000000e+00
@@ -1314,7 +1314,7 @@ define internal void @decode_ppc(ptr noundef readonly captures(none) %0, i32 nou
   %104 = fcmp nsz ogt float %..i.i, 0.000000e+00
   %105 = fneg nsz float %90
   %106 = select nsz i1 %104, float %90, float %105
-  %107 = fpext nsz float %106 to double
+  %107 = fpext nnan ninf nsz float %106 to double
   %108 = tail call nsz float @llvm.fabs.f32(float %..i.i)
   %109 = fpext float %108 to double
   %110 = fmul nsz double %109, 0x401536958FD351F0

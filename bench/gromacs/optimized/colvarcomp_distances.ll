@@ -3319,7 +3319,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit.us.us: ; preds = %_ZN12colvarmodule13
   %51 = fcmp oeq double %50, 0.000000e+00
   %.017.i.us.us = select i1 %51, double 0.000000e+00, double 1.000000e+00
   %52 = fadd double %.017.i.us.us, %35
-  %53 = fmul double %.017.i.us.us, %28
+  %53 = fmul nnan double %.017.i.us.us, %28
   %54 = fdiv double %53, %50
   %55 = fmul double %54, 2.000000e+00
   %56 = fmul double %39, %55
@@ -3604,7 +3604,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit25:     ; preds = %156, %._crit_edge.i
   %224 = sdiv exact i64 %223, 120
   %225 = mul i64 %224, %214
   %226 = uitofp i64 %225 to double
-  %227 = fdiv double 1.000000e+00, %226
+  %227 = fdiv nnan double 1.000000e+00, %226
   %228 = fmul double %205, %227
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   %230 = load i32, ptr %229, align 8, !tbaa !248
@@ -3614,7 +3614,7 @@ _ZN12colvarmodule13integer_powerERKdi.exit25:     ; preds = %156, %._crit_edge.i
   store double %233, ptr %3, align 8, !tbaa !98
   %234 = load i32, ptr %229, align 8, !tbaa !248
   %235 = sitofp i32 %234 to double
-  %236 = fdiv double -1.000000e+00, %235
+  %236 = fdiv nnan double -1.000000e+00, %235
   %237 = add nsw i32 %234, 1
   %238 = fcmp oeq double %233, 0.000000e+00
   br i1 %238, label %_ZN12colvarmodule13integer_powerERKdi.exit38, label %239

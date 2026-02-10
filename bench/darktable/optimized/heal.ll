@@ -531,8 +531,8 @@ _collect_color_runs.exit.i55.i:                   ; preds = %231, %254, %213
 collect_runs.exit78.loopexit.i:                   ; preds = %_collect_color_runs.exit.i55.i
   %257 = add i64 %256, %197
   %258 = uitofp i64 %257 to float
-  %259 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %258)
-  %260 = fmul reassoc nsz arcp contract afn float %259, 0x3FC428F5C0000000
+  %259 = tail call fast float @llvm.sqrt.f32(float %258)
+  %260 = fmul reassoc nnan nsz arcp contract afn float %259, 0x3FC428F5C0000000
   %261 = fadd reassoc nsz arcp contract afn float %260, 0x3FE99999A0000000
   br label %collect_runs.exit78.i
 

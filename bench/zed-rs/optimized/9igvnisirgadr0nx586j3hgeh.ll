@@ -464,8 +464,8 @@ _ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit: ; pred
   %238 = udiv i64 %3, %2
   %239 = shl nuw nsw i64 1, %238
   %240 = uitofp nneg i64 %239 to double
-  %241 = tail call double @llvm.log.f64(double %240)
-  %242 = fadd double %241, -1.000000e+00
+  %241 = tail call nnan double @llvm.log.f64(double %240)
+  %242 = fadd nnan double %241, -1.000000e+00
   %243 = fdiv double %240, %242
   %244 = fmul double %243, 2.500000e-01
   %245 = fmul double %244, 5.000000e-01

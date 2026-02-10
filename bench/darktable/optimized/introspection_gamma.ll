@@ -279,7 +279,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %125 = fadd reassoc nsz arcp contract afn float %124, -1.280000e+02
   %126 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %125, float -5.600000e+01)
   %127 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %126, float 5.600000e+01)
-  %128 = fmul reassoc nsz arcp contract afn float %127, 0x3FC9249240000000
+  %128 = fmul reassoc nnan nsz arcp contract afn float %127, 0x3FC9249240000000
   %129 = fsub reassoc nsz arcp contract afn float 7.900000e+01, %128
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !51
   store float %127, ptr %30, align 16, !tbaa !52, !noalias !51
@@ -410,7 +410,7 @@ _XYZ_to_REC_709_normalized.exit.i:                ; preds = %188
   br i1 %199, label %202, label %200
 
 200:                                              ; preds = %196
-  %201 = fmul reassoc nsz arcp contract afn float %198, 0x4029D70A40000000
+  %201 = fmul reassoc nnan nsz arcp contract afn float %198, 0x4029D70A40000000
   br label %206
 
 202:                                              ; preds = %196
@@ -472,7 +472,7 @@ _write_pixel.exit.i:                              ; preds = %.preheader.i109.i
   %234 = fadd reassoc nsz arcp contract afn float %233, -1.280000e+02
   %235 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %234, float -6.500000e+01)
   %236 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %235, float 6.500000e+01)
-  %237 = fmul reassoc nsz arcp contract afn float %236, 0x3F9F81F820000000
+  %237 = fmul reassoc nnan nsz arcp contract afn float %236, 0x3F9F81F820000000
   %238 = fadd reassoc nsz arcp contract afn float %237, 6.000000e+01
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !51
   store float 0.000000e+00, ptr %26, align 16, !tbaa !52, !noalias !51
@@ -603,7 +603,7 @@ _XYZ_to_REC_709_normalized.exit123.i:             ; preds = %297
   br i1 %308, label %311, label %309
 
 309:                                              ; preds = %305
-  %310 = fmul reassoc nsz arcp contract afn float %307, 0x4029D70A40000000
+  %310 = fmul reassoc nnan nsz arcp contract afn float %307, 0x4029D70A40000000
   br label %315
 
 311:                                              ; preds = %305
@@ -680,7 +680,7 @@ _write_pixel.exit129.i:                           ; preds = %.preheader.i126.i
   br i1 %347, label %350, label %348
 
 348:                                              ; preds = %344
-  %349 = fmul reassoc nsz arcp contract afn float %346, 0x4029D70A40000000
+  %349 = fmul reassoc nnan nsz arcp contract afn float %346, 0x4029D70A40000000
   br label %354
 
 350:                                              ; preds = %344
@@ -756,7 +756,7 @@ _write_pixel.exit135.i:                           ; preds = %.preheader.i132.i
   br i1 %386, label %389, label %387
 
 387:                                              ; preds = %383
-  %388 = fmul reassoc nsz arcp contract afn float %385, 0x4029D70A40000000
+  %388 = fmul reassoc nnan nsz arcp contract afn float %385, 0x4029D70A40000000
   br label %393
 
 389:                                              ; preds = %383
@@ -832,7 +832,7 @@ _write_pixel.exit141.i:                           ; preds = %.preheader.i138.i
   br i1 %425, label %428, label %426
 
 426:                                              ; preds = %422
-  %427 = fmul reassoc nsz arcp contract afn float %424, 0x4029D70A40000000
+  %427 = fmul reassoc nnan nsz arcp contract afn float %424, 0x4029D70A40000000
   br label %432
 
 428:                                              ; preds = %422
@@ -920,7 +920,7 @@ _write_pixel.exit147.i:                           ; preds = %.preheader.i144.i
   br i1 %470, label %473, label %471
 
 471:                                              ; preds = %467
-  %472 = fmul reassoc nsz arcp contract afn float %469, 0x4029D70A40000000
+  %472 = fmul reassoc nnan nsz arcp contract afn float %469, 0x4029D70A40000000
   br label %477
 
 473:                                              ; preds = %467
@@ -1111,7 +1111,7 @@ _XYZ_to_REC_709_normalized.exit167.i:             ; preds = %567
   br i1 %578, label %581, label %579
 
 579:                                              ; preds = %575
-  %580 = fmul reassoc nsz arcp contract afn float %577, 0x4029D70A40000000
+  %580 = fmul reassoc nnan nsz arcp contract afn float %577, 0x4029D70A40000000
   br label %585
 
 581:                                              ; preds = %575
@@ -1238,7 +1238,7 @@ _normalize_color.exit.i:                          ; preds = %627
   br i1 %638, label %641, label %639
 
 639:                                              ; preds = %635
-  %640 = fmul reassoc nsz arcp contract afn float %637, 0x4029D70A40000000
+  %640 = fmul reassoc nnan nsz arcp contract afn float %637, 0x4029D70A40000000
   br label %645
 
 641:                                              ; preds = %635
@@ -1463,7 +1463,7 @@ _normalize_color.exit189.i:                       ; preds = %753
   br i1 %764, label %767, label %765
 
 765:                                              ; preds = %761
-  %766 = fmul reassoc nsz arcp contract afn float %763, 0x4029D70A40000000
+  %766 = fmul reassoc nnan nsz arcp contract afn float %763, 0x4029D70A40000000
   br label %771
 
 767:                                              ; preds = %761
@@ -1551,7 +1551,7 @@ _write_pixel.exit195.i:                           ; preds = %.preheader.i192.i
   br i1 %807, label %810, label %808
 
 808:                                              ; preds = %804
-  %809 = fmul reassoc nsz arcp contract afn float %806, 0x4029D70A40000000
+  %809 = fmul reassoc nnan nsz arcp contract afn float %806, 0x4029D70A40000000
   br label %814
 
 810:                                              ; preds = %804
@@ -1639,7 +1639,7 @@ _write_pixel.exit.i.i:                            ; preds = %.preheader.i.i.i
   br i1 %850, label %853, label %851
 
 851:                                              ; preds = %847
-  %852 = fmul reassoc nsz arcp contract afn float %849, 0x4029D70A40000000
+  %852 = fmul reassoc nnan nsz arcp contract afn float %849, 0x4029D70A40000000
   br label %857
 
 853:                                              ; preds = %847
@@ -1753,7 +1753,7 @@ _write_pixel.exit.i45:                            ; preds = %.preheader.i.i42
   br i1 %908, label %911, label %909
 
 909:                                              ; preds = %905
-  %910 = fmul reassoc nsz arcp contract afn float %907, 0x4029D70A40000000
+  %910 = fmul reassoc nnan nsz arcp contract afn float %907, 0x4029D70A40000000
   br label %915
 
 911:                                              ; preds = %905
@@ -1824,7 +1824,7 @@ _write_pixel.exit.i54:                            ; preds = %.preheader.i.i51
   %944 = getelementptr inbounds nuw float, ptr %938, i64 %.011.i
   %945 = load float, ptr %944, align 4, !tbaa !52, !alias.scope !257, !noalias !260
   %946 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %945, float 0.000000e+00)
-  %947 = fmul reassoc nsz arcp contract afn float %946, 2.550000e+02
+  %947 = fmul reassoc nnan nsz arcp contract afn float %946, 2.550000e+02
   %948 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %947)
   %949 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %948, float 2.550000e+02)
   %950 = fptoui float %949 to i8

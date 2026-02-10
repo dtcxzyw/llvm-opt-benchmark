@@ -7877,7 +7877,7 @@ define void @"_ZN112_$LT$quiche..recovery..gcongestion..pacer..Pacer$u20$as$u20$
 49:                                               ; preds = %27
   %50 = call noundef i64 @"_ZN111_$LT$quiche..recovery..gcongestion..bbr2..BBRv2$u20$as$u20$quiche..recovery..gcongestion..CongestionControl$GT$32get_congestion_window_in_packets17h32855f9a03f05c56E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(1024) %10)
   %51 = uitofp i64 %50 to double
-  %52 = fmul double %51, 2.500000e-01
+  %52 = fmul nnan double %51, 2.500000e-01
   %53 = call i64 @llvm.fptoui.sat.i64.f64(double %52)
   %54 = icmp ult i64 %53, 2
   %.sroa.0.0.sroa.speculated.i8 = select i1 %54, i64 1, i64 2

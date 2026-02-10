@@ -145,7 +145,7 @@ define internal noundef i32 @lj_cf_os_exit(ptr noundef %0) #2 {
 define internal noundef i32 @lj_cf_os_clock(ptr noundef captures(none) %0) #0 {
   %2 = tail call i64 @clock() #13
   %3 = sitofp i64 %2 to double
-  %4 = fmul double %3, 0x3EB0C6F7A0B5ED8D
+  %4 = fmul nnan double %3, 0x3EB0C6F7A0B5ED8D
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8

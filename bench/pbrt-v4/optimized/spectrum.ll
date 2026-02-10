@@ -4687,16 +4687,16 @@ define dso_local void @_ZN4pbrt7Spectra1DEfN4pstd3pmr21polymorphic_allocatorISt4
   br i1 %11, label %12, label %_ZN4pbrt17BlackbodySpectrumC2Ef.exit
 
 12:                                               ; preds = %10
-  %13 = fdiv float 0x3F67BD1180000000, %8
-  %14 = fmul float %13, 1.000000e+09
-  %15 = fmul float %14, 0x3E112E0BE0000000
+  %13 = fdiv nnan float 0x3F67BD1180000000, %8
+  %14 = fmul nnan float %13, 1.000000e+09
+  %15 = fmul nnan float %14, 0x3E112E0BE0000000
   %16 = fmul float %15, %15
   %17 = fmul float %16, %16
   %18 = fmul float %15, %17
-  %19 = fmul float %15, 0x3B30B0E6A0000000
-  %20 = fmul float %8, %19
-  %21 = fdiv float 0x3ACEBD1F40000000, %20
-  %22 = fmul float %21, 0x3FF7154760000000
+  %19 = fmul nnan float %15, 0x3B30B0E6A0000000
+  %20 = fmul nnan float %8, %19
+  %21 = fdiv nnan float 0x3ACEBD1F40000000, %20
+  %22 = fmul nnan float %21, 0x3FF7154760000000
   %23 = tail call noundef float @llvm.floor.f32(float %22)
   %24 = fsub float %22, %23
   %25 = fptosi float %23 to i32
@@ -4762,14 +4762,14 @@ _ZN4pbrt22DenselySampledSpectrumC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE
   %indvars.iv18.i = phi i64 [ %indvars.iv.next19.i, %92 ], [ 360, %_ZN4pbrt17BlackbodySpectrumC2Ef.exit ]
   %59 = trunc nuw nsw i64 %indvars.iv18.i to i32
   %60 = uitofp nneg i32 %59 to float
-  %61 = fmul float %60, 0x3E112E0BE0000000
+  %61 = fmul nnan float %60, 0x3E112E0BE0000000
   %62 = fmul float %61, %61
   %63 = fmul float %62, %62
   %64 = fmul float %61, %63
-  %65 = fmul float %61, 0x3B30B0E6A0000000
-  %66 = fmul float %8, %65
-  %67 = fdiv float 0x3ACEBD1F40000000, %66
-  %68 = fmul float %67, 0x3FF7154760000000
+  %65 = fmul nnan float %61, 0x3B30B0E6A0000000
+  %66 = fmul nnan float %8, %65
+  %67 = fdiv nnan float 0x3ACEBD1F40000000, %66
+  %68 = fmul nnan float %67, 0x3FF7154760000000
   %69 = tail call noundef float @llvm.floor.f32(float %68)
   %70 = fsub float %68, %69
   %71 = fptosi float %69 to i32

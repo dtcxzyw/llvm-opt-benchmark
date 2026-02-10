@@ -180,7 +180,7 @@ _ZN4absl15random_internal12_GLOBAL__N_115normal_survivalEd.exit73: ; preds = %28
   br i1 %57, label %58, label %67
 
 58:                                               ; preds = %56
-  %59 = fmul double %54, %54
+  %59 = fmul nnan double %54, %54
   br label %60
 
 60:                                               ; preds = %60, %58
@@ -232,7 +232,7 @@ _ZN4absl15random_internal12_GLOBAL__N_13POZEd.exit: ; preds = %_ZN4absl15random_
 80:                                               ; preds = %_ZN4absl15random_internal12_GLOBAL__N_13POZEd.exit
   %81 = add nsw i32 %1, -1
   %82 = uitofp nneg i32 %81 to double
-  %83 = fmul double %82, 5.000000e-01
+  %83 = fmul nnan double %82, 5.000000e-01
   %84 = select i1 %.not, double 1.000000e+00, double 5.000000e-01
   br i1 %45, label %85, label %100
 

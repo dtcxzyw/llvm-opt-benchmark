@@ -585,11 +585,11 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %58 = and i32 %57, -2
   %59 = sitofp i32 %58 to float
   %60 = bitcast float %.1 to i32
-  %61 = fmul contract float %59, 0x3FE9200000000000
+  %61 = fmul nnan contract float %59, 0x3FE9200000000000
   %62 = fsub contract float %54, %61
-  %63 = fmul contract float %59, 0x3F2FB40000000000
+  %63 = fmul nnan contract float %59, 0x3F2FB40000000000
   %64 = fsub contract float %62, %63
-  %65 = fmul contract float %59, 0x3E64442D20000000
+  %65 = fmul nnan contract float %59, 0x3E64442D20000000
   %66 = fsub contract float %64, %65
   %67 = fmul contract float %66, %66
   %68 = fcmp contract oeq float %54, 0x7FF0000000000000

@@ -988,7 +988,7 @@ decode_messagepara.exit:                          ; preds = %237, %242, %248, %2
 284:                                              ; preds = %274, %274
   %285 = tail call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %273)
   %286 = uitofp i64 %285 to double
-  %287 = fmul double %286, 0x3EB0000000000000
+  %287 = fmul nnan double %286, 0x3EB0000000000000
   %288 = load i32, ptr @hf_hislip_maxmessagesize, align 4
   %289 = tail call ptr @proto_tree_add_item(ptr noundef %.075, i32 noundef %288, ptr noundef %0, i32 noundef %273, i32 noundef 8, i32 noundef 0)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %289, ptr noundef nonnull @.str.272, double noundef %287)

@@ -231,7 +231,7 @@ define linkonce_odr dso_local void @_ZN13FallingHingesC2ER8Settings(ptr noundef 
   %.06788 = phi i64 [ 0, %38 ], [ %indvars.iv.next, %66 ]
   %.06987 = phi i32 [ 0, %38 ], [ %67, %66 ]
   %62 = uitofp nneg i32 %.06987 to float
-  %63 = fmul float %62, 2.500000e+00
+  %63 = fmul nnan float %62, 2.500000e+00
   %64 = fadd float %63, -3.750000e+00
   %sext = shl i64 %.06788, 32
   %65 = ashr exact i64 %sext, 32
@@ -253,10 +253,10 @@ define linkonce_odr dso_local void @_ZN13FallingHingesC2ER8Settings(ptr noundef 
 69:                                               ; preds = %68
   store i32 2, ptr %9, align 8, !tbaa !46
   %70 = uitofp nneg i32 %.07084 to float
-  %71 = fmul float %70, 0x3FB99999A0000000
+  %71 = fmul nnan float %70, 0x3FB99999A0000000
   %72 = fadd float %64, %71
   store float %72, ptr %48, align 4, !tbaa !51
-  %73 = fmul float %70, 5.000000e-01
+  %73 = fmul nnan float %70, 5.000000e-01
   %74 = fadd float %73, 2.500000e-01
   store float %74, ptr %49, align 8, !tbaa !52
   %75 = fadd float %71, -1.000000e+00

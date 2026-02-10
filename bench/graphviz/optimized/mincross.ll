@@ -1872,7 +1872,7 @@ save_best.exit83:                                 ; preds = %._crit_edge.i74, %.
   %262 = sitofp i32 %249 to double
   %263 = sitofp i32 %248 to double
   %264 = sitofp i32 %253 to double
-  %265 = fmul double %263, %264
+  %265 = fmul nnan double %263, %264
   %266 = tail call double @llvm.fmuladd.f64(double %261, double %262, double %265)
   %267 = add nsw i32 %253, %249
   %268 = sitofp i32 %267 to double
@@ -2334,7 +2334,7 @@ mincross_step.exit:                               ; preds = %reorder.exit.i, %14
 save_best.exit109:                                ; preds = %._crit_edge.i100, %486
   %509 = sitofp i64 %485 to double
   %510 = sitofp i64 %.4157 to double
-  %511 = fmul double %510, 0x3FEFD70A3D70A3D7
+  %511 = fmul nnan double %510, 0x3FEFD70A3D70A3D7
   %512 = fcmp ogt double %511, %509
   %.156 = select i1 %512, i32 0, i32 %117
   br label %513

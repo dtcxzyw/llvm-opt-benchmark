@@ -2184,7 +2184,7 @@ switch.early.test:                                ; preds = %128
 
 159:                                              ; preds = %149
   %160 = uitofp nneg i64 %.fr to double
-  %161 = fmul nsz double %160, 0x3F50000000000000
+  %161 = fmul nnan nsz double %160, 0x3F50000000000000
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.39, double noundef %161) #18
   br label %162
 
@@ -2270,8 +2270,8 @@ switch.early.test:                                ; preds = %128
 185:                                              ; preds = %184, %183
   %186 = fptosi float %35 to i32
   %187 = sitofp i32 %186 to float
-  %188 = fsub nsz float %35, %187
-  %189 = fmul nsz float %188, 1.000000e+03
+  %188 = fsub nnan nsz float %35, %187
+  %189 = fmul nnan nsz float %188, 1.000000e+03
   %190 = fptosi float %189 to i32
   %191 = sdiv i32 %186, 60
   %192 = srem i32 %186, 60

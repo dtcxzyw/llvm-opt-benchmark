@@ -1182,7 +1182,7 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = uitofp nneg i32 %36 to double
-  %38 = fmul nsz double %37, 0x400921FB54442D18
+  %38 = fmul nnan nsz double %37, 0x400921FB54442D18
   %39 = fdiv nsz double %38, %31
   %40 = tail call nsz double @llvm.sin.f64(double %39)
   %41 = fmul nsz double %40, %34
@@ -1275,13 +1275,13 @@ define internal fastcc range(i32 -12, 1) i32 @build_filter(ptr noundef readonly 
   br i1 %76, label %77, label %88
 
 77:                                               ; preds = %73
-  %78 = fmul nsz double %75, -3.000000e+00
+  %78 = fmul nnan nsz double %75, -3.000000e+00
   %79 = tail call nsz double @llvm.fmuladd.f64(double %78, double %75, double 1.000000e+00)
-  %80 = fmul nsz double %75, 2.000000e+00
+  %80 = fmul nnan nsz double %75, 2.000000e+00
   %81 = fmul nsz double %75, %80
   %82 = tail call nsz double @llvm.fmuladd.f64(double %81, double %75, double %79)
   %83 = fneg nsz double %75
-  %84 = fmul nsz double %74, %74
+  %84 = fmul nnan nsz double %74, %74
   %85 = fmul nsz double %84, %75
   %86 = tail call nsz double @llvm.fmuladd.f64(double %83, double %75, double %85)
   %87 = tail call nsz double @llvm.fmuladd.f64(double %86, double -5.000000e-01, double %82)

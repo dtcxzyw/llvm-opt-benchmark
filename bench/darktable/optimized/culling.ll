@@ -1806,7 +1806,7 @@ _compute_sizes.exit:                              ; preds = %39, %50, %57, %.sin
   %70 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !160
   %72 = sitofp i64 %71 to double
-  %73 = fmul reassoc nsz arcp contract afn double %72, 0x3EB0C6F7A0B5ED8D
+  %73 = fmul reassoc nnan nsz arcp contract afn double %72, 0x3EB0C6F7A0B5ED8D
   %74 = fadd reassoc nsz arcp contract afn double %73, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dt_get_debug_wtime.exit
@@ -2344,7 +2344,7 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   %353 = sitofp i32 %.1390.i to float
   %354 = mul nsw i32 %.1390.i, %.1347..i
   %355 = sitofp i32 %354 to float
-  %356 = fmul reassoc nsz arcp contract afn float %355, %353
+  %356 = fmul reassoc nnan nsz arcp contract afn float %355, %353
   %357 = fdiv reassoc nsz arcp contract afn float %293, %356
   %358 = fcmp reassoc nsz arcp contract afn ogt float %357, %285
   %359 = fmul reassoc nsz arcp contract afn float %357, %294
@@ -2393,7 +2393,7 @@ _thumbs_recreate_list_at.exit:                    ; preds = %._crit_edge98.i
   %.0371.lcssa.i = phi i32 [ -1, %370 ], [ %382, %.lr.ph502.i ]
   %372 = uitofp nneg i32 %.0378517.i to double
   %373 = uitofp nneg i32 %.0372.lcssa.i to double
-  %374 = fmul reassoc nsz arcp contract afn double %373, 4.000000e-01
+  %374 = fmul reassoc nnan nsz arcp contract afn double %373, 4.000000e-01
   %375 = fadd reassoc nsz arcp contract afn double %374, %372
   %376 = fcmp reassoc nsz arcp contract afn ogt double %375, %365
   br i1 %376, label %386, label %.critedge430.i
@@ -3048,7 +3048,7 @@ _thumbs_prefetch.exit:                            ; preds = %641, %716
   %732 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %733 = load i64, ptr %732, align 8, !tbaa !160
   %734 = sitofp i64 %733 to double
-  %735 = fmul reassoc nsz arcp contract afn double %734, 0x3EB0C6F7A0B5ED8D
+  %735 = fmul reassoc nnan nsz arcp contract afn double %734, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %736 = fsub reassoc nsz arcp contract afn double %731, %75
   %737 = fadd reassoc nsz arcp contract afn double %736, %735
@@ -3595,12 +3595,12 @@ define void @dt_culling_zoom_max(ptr noundef captures(none) %0) local_unnamed_ad
   %10 = load ptr, ptr %9, align 8, !tbaa !97
   %11 = tail call i32 @gtk_widget_get_allocated_width(ptr noundef %10) #14
   %12 = sitofp i32 %11 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fptrunc reassoc nsz arcp contract afn double %13 to float
   %15 = load ptr, ptr %9, align 8, !tbaa !97
   %16 = tail call i32 @gtk_widget_get_allocated_height(ptr noundef %15) #14
   %17 = sitofp i32 %16 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fptrunc reassoc nsz arcp contract afn double %18 to float
   br label %20
 
@@ -3827,7 +3827,7 @@ _zoom_to_center.exit.us:                          ; preds = %94
   %105 = fmul reassoc nsz arcp contract afn float %97, %104
   %106 = fsub reassoc nsz arcp contract afn float %101, %105
   %107 = sitofp i32 %100 to double
-  %108 = fmul reassoc nsz arcp contract afn double %107, 5.000000e-01
+  %108 = fmul reassoc nnan nsz arcp contract afn double %107, 5.000000e-01
   %109 = getelementptr inbounds nuw i8, ptr %84, i64 368
   %110 = load double, ptr %109, align 8, !tbaa !111
   %111 = fsub reassoc nsz arcp contract afn double %108, %110
@@ -3847,7 +3847,7 @@ _zoom_to_center.exit.us:                          ; preds = %94
   %124 = fmul reassoc nsz arcp contract afn float %97, %123
   %125 = fsub reassoc nsz arcp contract afn float %120, %124
   %126 = sitofp i32 %119 to double
-  %127 = fmul reassoc nsz arcp contract afn double %126, 5.000000e-01
+  %127 = fmul reassoc nnan nsz arcp contract afn double %126, 5.000000e-01
   %128 = getelementptr inbounds nuw i8, ptr %84, i64 376
   %129 = load double, ptr %128, align 8, !tbaa !112
   %130 = fsub reassoc nsz arcp contract afn double %127, %129

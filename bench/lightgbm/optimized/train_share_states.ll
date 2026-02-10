@@ -2565,7 +2565,7 @@ define void @_ZN8LightGBM18MultiValBinWrapper9InitTrainERKSt6vectorIiSaIiEERKS1_
   %32 = tail call noundef double %31(ptr noundef nonnull align 8 dereferenceable(8) %18)
   %33 = load i32, ptr %24, align 4, !tbaa !44
   %34 = sitofp i32 %33 to float
-  %35 = fmul float %34, 0x3FD3333340000000
+  %35 = fmul nnan float %34, 0x3FD3333340000000
   %36 = fpext float %35 to double
   %37 = fadd double %32, 0x38AA95A5C0000000
   %38 = fdiv double %36, %37

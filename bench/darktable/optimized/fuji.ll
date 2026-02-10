@@ -479,13 +479,13 @@ define void @_ZN6LibRaw22parseAdobeRAFMakernoteEv(ptr noundef nonnull align 8 de
   %167 = getelementptr inbounds [4 x i32], ptr %101, i64 %166
   %168 = load i32, ptr %167, align 4, !tbaa !93
   %169 = sitofp i32 %168 to double
-  %170 = fmul reassoc nsz arcp contract afn double %.0339, %169
+  %170 = fmul reassoc nnan nsz arcp contract afn double %.0339, %169
   %171 = fptosi double %170 to i32
   store i32 %171, ptr %167, align 4, !tbaa !93
   %172 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %173 = load i32, ptr %172, align 4, !tbaa !93
   %174 = sitofp i32 %173 to double
-  %175 = fmul reassoc nsz arcp contract afn double %.0338, %174
+  %175 = fmul reassoc nnan nsz arcp contract afn double %.0338, %174
   %176 = fptosi double %175 to i32
   store i32 %176, ptr %172, align 4, !tbaa !93
   br label %.thread
@@ -598,13 +598,13 @@ define void @_ZN6LibRaw22parseAdobeRAFMakernoteEv(ptr noundef nonnull align 8 de
 220:                                              ; preds = %.loopexit682
   %221 = load i32, ptr %191, align 4, !tbaa !93
   %222 = sitofp i32 %221 to double
-  %223 = fmul reassoc nsz arcp contract afn double %.0339, %222
+  %223 = fmul reassoc nnan nsz arcp contract afn double %.0339, %222
   %224 = fptosi double %223 to i32
   store i32 %224, ptr %191, align 4, !tbaa !93
   %225 = getelementptr inbounds nuw i8, ptr %191, i64 8
   %226 = load i32, ptr %225, align 4, !tbaa !93
   %227 = sitofp i32 %226 to double
-  %228 = fmul reassoc nsz arcp contract afn double %.0338, %227
+  %228 = fmul reassoc nnan nsz arcp contract afn double %.0338, %227
   %229 = fptosi double %228 to i32
   store i32 %229, ptr %225, align 4, !tbaa !93
   br label %230
@@ -665,12 +665,12 @@ define void @_ZN6LibRaw22parseAdobeRAFMakernoteEv(ptr noundef nonnull align 8 de
 256:                                              ; preds = %.loopexit706
   %257 = load i32, ptr %98, align 4, !tbaa !93
   %258 = sitofp i32 %257 to double
-  %259 = fmul reassoc nsz arcp contract afn double %.0339, %258
+  %259 = fmul reassoc nnan nsz arcp contract afn double %.0339, %258
   %260 = fptosi double %259 to i32
   store i32 %260, ptr %98, align 4, !tbaa !93
   %261 = load i32, ptr %99, align 4, !tbaa !93
   %262 = sitofp i32 %261 to double
-  %263 = fmul reassoc nsz arcp contract afn double %.0338, %262
+  %263 = fmul reassoc nnan nsz arcp contract afn double %.0338, %262
   %264 = fptosi double %263 to i32
   store i32 %264, ptr %99, align 4, !tbaa !93
   br label %.preheader
@@ -3313,12 +3313,12 @@ define void @_ZN6LibRaw10parse_fujiEi(ptr noundef nonnull align 8 dereferenceabl
 158:                                              ; preds = %.loopexit243
   %159 = load i32, ptr %42, align 4, !tbaa !93
   %160 = sitofp i32 %159 to double
-  %161 = fmul reassoc nsz arcp contract afn double %.0190, %160
+  %161 = fmul reassoc nnan nsz arcp contract afn double %.0190, %160
   %162 = fptosi double %161 to i32
   store i32 %162, ptr %42, align 4, !tbaa !93
   %163 = load i32, ptr %43, align 4, !tbaa !93
   %164 = sitofp i32 %163 to double
-  %165 = fmul reassoc nsz arcp contract afn double %.0191, %164
+  %165 = fmul reassoc nnan nsz arcp contract afn double %.0191, %164
   %166 = fptosi double %165 to i32
   store i32 %166, ptr %43, align 4, !tbaa !93
   br label %.preheader368
@@ -3543,13 +3543,13 @@ thread-pre-split:                                 ; preds = %.preheader249
   %277 = getelementptr inbounds [4 x i32], ptr %57, i64 %276
   %278 = load i32, ptr %277, align 4, !tbaa !93
   %279 = sitofp i32 %278 to double
-  %280 = fmul reassoc nsz arcp contract afn double %.0190, %279
+  %280 = fmul reassoc nnan nsz arcp contract afn double %.0190, %279
   %281 = fptosi double %280 to i32
   store i32 %281, ptr %277, align 4, !tbaa !93
   %282 = getelementptr inbounds nuw i8, ptr %277, i64 8
   %283 = load i32, ptr %282, align 4, !tbaa !93
   %284 = sitofp i32 %283 to double
-  %285 = fmul reassoc nsz arcp contract afn double %.0191, %284
+  %285 = fmul reassoc nnan nsz arcp contract afn double %.0191, %284
   %286 = fptosi double %285 to i32
   store i32 %286, ptr %282, align 4, !tbaa !93
   br label %.thread.thread
@@ -3617,13 +3617,13 @@ thread-pre-split:                                 ; preds = %.preheader249
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 188532
   %315 = load i32, ptr %314, align 4, !tbaa !93
   %316 = sitofp i32 %315 to double
-  %317 = fmul reassoc nsz arcp contract afn double %.0190, %316
+  %317 = fmul reassoc nnan nsz arcp contract afn double %.0190, %316
   %318 = fptosi double %317 to i32
   store i32 %318, ptr %314, align 4, !tbaa !93
   %319 = getelementptr inbounds nuw i8, ptr %313, i64 188540
   %320 = load i32, ptr %319, align 4, !tbaa !93
   %321 = sitofp i32 %320 to double
-  %322 = fmul reassoc nsz arcp contract afn double %.0191, %321
+  %322 = fmul reassoc nnan nsz arcp contract afn double %.0191, %321
   %323 = fptosi double %322 to i32
   store i32 %323, ptr %319, align 4, !tbaa !93
   br label %324

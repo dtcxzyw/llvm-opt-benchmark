@@ -14171,27 +14171,27 @@ _ZN7rocksdb8IOStatusaSERKS0_.exit:                ; preds = %_ZNSt10unique_ptrIA
   %177 = load i32, ptr %176, align 4, !tbaa !1093
   %178 = load i64, ptr %127, align 8, !tbaa !1082
   %179 = uitofp i64 %178 to double
-  %180 = fmul double %179, 0x3EB0000000000000
+  %180 = fmul nnan double %179, 0x3EB0000000000000
   %181 = load i64, ptr %132, align 8, !tbaa !1084
   %182 = uitofp i64 %181 to double
-  %183 = fmul double %182, 0x3EB0000000000000
+  %183 = fmul nnan double %182, 0x3EB0000000000000
   %184 = load i64, ptr %129, align 8, !tbaa !1083
   %185 = uitofp i64 %184 to double
-  %186 = fmul double %185, 0x3EB0000000000000
+  %186 = fmul nnan double %185, 0x3EB0000000000000
   %187 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %188 = load i64, ptr %187, align 8, !tbaa !1094
   %189 = uitofp i64 %188 to double
-  %190 = fmul double %189, 0x3EB0000000000000
+  %190 = fmul nnan double %189, 0x3EB0000000000000
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %192 = load i64, ptr %191, align 8, !tbaa !1095
   %193 = uitofp i64 %192 to double
-  %194 = fmul double %193, 0x3EB0000000000000
+  %194 = fmul nnan double %193, 0x3EB0000000000000
   %195 = load i64, ptr %135, align 8, !tbaa !1085
   %196 = uitofp i64 %195 to double
-  %197 = fmul double %196, 0x3EB0000000000000
+  %197 = fmul nnan double %196, 0x3EB0000000000000
   %198 = load i64, ptr %137, align 8, !tbaa !1086
   %199 = uitofp i64 %198 to double
-  %200 = fmul double %199, 0x3EB0000000000000
+  %200 = fmul nnan double %199, 0x3EB0000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZNK7rocksdb6Status8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %201 unwind label %258

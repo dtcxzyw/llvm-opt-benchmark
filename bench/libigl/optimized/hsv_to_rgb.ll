@@ -362,7 +362,7 @@ define weak_odr dso_local void @_ZN3igl10hsv_to_rgbIN5Eigen6MatrixIhLi64ELi3ELi1
   %17 = fsub double %13, %16
   %18 = uitofp i8 %11 to double
   %19 = uitofp i8 %9 to double
-  %20 = fsub double 1.000000e+00, %19
+  %20 = fsub nnan double 1.000000e+00, %19
   %21 = fmul double %20, %18
   %22 = fneg double %19
   %23 = tail call double @llvm.fmuladd.f64(double %22, double %17, double 1.000000e+00)

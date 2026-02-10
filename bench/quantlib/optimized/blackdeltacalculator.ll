@@ -852,13 +852,13 @@ ehcleanup165:                                     ; preds = %if.then.i.i125, %eh
   br label %eh.resume
 
 do.end168:                                        ; preds = %do.body123
-  %mul171 = fmul double %stdDev, 5.000000e-01
+  %mul171 = fmul nnan double %stdDev, 5.000000e-01
   %mul173 = fmul double %stdDev, %mul171
   %call174 = tail call double @exp(double noundef %mul173) #18, !tbaa !31
   %mul175 = fmul double %div, %call174
   %fExpPos_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   store double %mul175, ptr %fExpPos_, align 8, !tbaa !32
-  %mul178 = fmul double %stdDev, -5.000000e-01
+  %mul178 = fmul nnan double %stdDev, -5.000000e-01
   %mul180 = fmul double %stdDev, %mul178
   %call181 = tail call double @exp(double noundef %mul180) #18, !tbaa !31
   %mul182 = fmul double %div, %call181

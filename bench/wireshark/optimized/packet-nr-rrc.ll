@@ -58915,7 +58915,7 @@ define hidden void @proto_register_nr_rrc() local_unnamed_addr #0 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @nr_rrc_Hysteresis_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 5.000000e-01
+  %4 = fmul nnan double %3, 5.000000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.25198, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -58970,11 +58970,11 @@ define internal void @nr_rrc_RSRQ_Range_fmt(ptr noundef %0, i32 noundef %1) #2 {
 
 8:                                                ; preds = %6
   %9 = uitofp nneg i32 %1 to float
-  %10 = fadd float %9, -1.000000e+00
-  %11 = fmul float %10, 5.000000e-01
+  %10 = fadd nnan float %9, -1.000000e+00
+  %11 = fmul nnan float %10, 5.000000e-01
   %12 = fadd float %11, -4.300000e+01
   %13 = fpext float %12 to double
-  %14 = fmul float %9, 5.000000e-01
+  %14 = fmul nnan float %9, 5.000000e-01
   %15 = fadd float %14, -4.300000e+01
   %16 = fpext float %15 to double
   %17 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.25211, double noundef %13, double noundef %16, i32 noundef %1)
@@ -59074,7 +59074,7 @@ define internal void @nr_rrc_FlightPathUpdateDistanceThr_r18_fmt(ptr noundef %0,
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @nr_rrc_drx_SlotOffset_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 3.125000e-02
+  %4 = fmul nnan double %3, 3.125000e-02
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.26618, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -59121,11 +59121,11 @@ define internal void @nr_rrc_RSRQ_RangeEUTRA_r16_fmt(ptr noundef %0, i32 noundef
 
 8:                                                ; preds = %6
   %9 = sitofp i32 %1 to float
-  %10 = fadd float %9, -1.000000e+00
-  %11 = fmul float %10, 5.000000e-01
+  %10 = fadd nnan float %9, -1.000000e+00
+  %11 = fmul nnan float %10, 5.000000e-01
   %12 = fadd float %11, -1.900000e+01
   %13 = fpext float %12 to double
-  %14 = fmul float %9, 5.000000e-01
+  %14 = fmul nnan float %9, 5.000000e-01
   %15 = fadd float %14, -1.900000e+01
   %16 = fpext float %15 to double
   %17 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.26812, double noundef %13, double noundef %16, i32 noundef %1)
@@ -59145,11 +59145,11 @@ define internal void @nr_rrc_RSRQ_RangeEUTRA_r16_fmt(ptr noundef %0, i32 noundef
 
 24:                                               ; preds = %22
   %25 = uitofp nneg i32 %1 to float
-  %26 = fadd float %25, -1.000000e+00
-  %27 = fmul float %26, 5.000000e-01
+  %26 = fadd nnan float %25, -1.000000e+00
+  %27 = fmul nnan float %26, 5.000000e-01
   %28 = fpext float %27 to double
   %29 = fadd double %28, -1.950000e+01
-  %30 = fmul float %25, 5.000000e-01
+  %30 = fmul nnan float %25, 5.000000e-01
   %31 = fpext float %30 to double
   %32 = fadd double %31, -1.950000e+01
   %33 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.26812, double noundef %29, double noundef %32, i32 noundef %1)
@@ -59169,11 +59169,11 @@ define internal void @nr_rrc_RSRQ_RangeEUTRA_r16_fmt(ptr noundef %0, i32 noundef
 
 40:                                               ; preds = %38
   %41 = uitofp nneg i32 %1 to float
-  %42 = fadd float %41, -1.000000e+00
-  %43 = fmul float %42, 5.000000e-01
+  %42 = fadd nnan float %41, -1.000000e+00
+  %43 = fmul nnan float %42, 5.000000e-01
   %44 = fadd float %43, -2.000000e+01
   %45 = fpext float %44 to double
-  %46 = fmul float %41, 5.000000e-01
+  %46 = fmul nnan float %41, 5.000000e-01
   %47 = fadd float %46, -2.000000e+01
   %48 = fpext float %47 to double
   %49 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.26812, double noundef %45, double noundef %48, i32 noundef %1)
@@ -59202,11 +59202,11 @@ define internal void @nr_rrc_SINR_Range_fmt(ptr noundef %0, i32 noundef %1) #2 {
 
 8:                                                ; preds = %6
   %9 = uitofp nneg i32 %1 to float
-  %10 = fadd float %9, -1.000000e+00
-  %11 = fmul float %10, 5.000000e-01
+  %10 = fadd nnan float %9, -1.000000e+00
+  %11 = fmul nnan float %10, 5.000000e-01
   %12 = fadd float %11, -2.300000e+01
   %13 = fpext float %12 to double
-  %14 = fmul float %9, 5.000000e-01
+  %14 = fmul nnan float %9, 5.000000e-01
   %15 = fadd float %14, -2.300000e+01
   %16 = fpext float %15 to double
   %17 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.26831, double noundef %13, double noundef %16, i32 noundef %1)
@@ -59235,11 +59235,11 @@ define internal void @nr_rrc_RSRQ_RangeEUTRA_fmt(ptr noundef %0, i32 noundef %1)
 
 8:                                                ; preds = %6
   %9 = uitofp nneg i32 %1 to float
-  %10 = fmul float %9, 5.000000e-01
+  %10 = fmul nnan float %9, 5.000000e-01
   %11 = fadd float %10, -2.000000e+01
   %12 = fpext float %11 to double
-  %13 = fadd float %9, 1.000000e+00
-  %14 = fmul float %13, 5.000000e-01
+  %13 = fadd nnan float %9, 1.000000e+00
+  %14 = fmul nnan float %13, 5.000000e-01
   %15 = fadd float %14, -2.000000e+01
   %16 = fpext float %15 to double
   %17 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.26867, double noundef %12, double noundef %16, i32 noundef %1)
@@ -59270,11 +59270,11 @@ define internal void @nr_rrc_SINR_RangeEUTRA_fmt(ptr noundef %0, i32 noundef %1)
 
 7:                                                ; preds = %2
   %8 = uitofp i32 %1 to float
-  %9 = fadd float %8, -1.000000e+00
-  %10 = fmul float %9, 5.000000e-01
+  %9 = fadd nnan float %8, -1.000000e+00
+  %10 = fmul nnan float %9, 5.000000e-01
   %11 = fadd float %10, -2.300000e+01
   %12 = fpext float %11 to double
-  %13 = fmul float %8, 5.000000e-01
+  %13 = fmul nnan float %8, 5.000000e-01
   %14 = fadd float %13, -2.300000e+01
   %15 = fpext float %14 to double
   %16 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.26870, double noundef %12, double noundef %15, i32 noundef %1)
@@ -59326,11 +59326,11 @@ define internal void @nr_rrc_utra_FDD_EcN0_r16_fmt(ptr noundef %0, i32 noundef %
 
 8:                                                ; preds = %6
   %9 = uitofp nneg i32 %1 to float
-  %10 = fadd float %9, -1.000000e+00
-  %11 = fmul float %10, 5.000000e-01
+  %10 = fadd nnan float %9, -1.000000e+00
+  %11 = fmul nnan float %10, 5.000000e-01
   %12 = fadd float %11, -2.400000e+01
   %13 = fpext float %12 to double
-  %14 = fmul float %9, 5.000000e-01
+  %14 = fmul nnan float %9, 5.000000e-01
   %15 = fadd float %14, -2.400000e+01
   %16 = fpext float %15 to double
   %17 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.26875, double noundef %13, double noundef %16, i32 noundef %1)
@@ -59405,7 +59405,7 @@ define internal void @nr_rrc_measTriggerQuantity_utra_FDD_RSCP_r16_fmt(ptr nound
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @nr_rrc_measTriggerQuantity_utra_FDD_EcN0_r16_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
-  %4 = fmul float %3, 5.000000e-01
+  %4 = fmul nnan float %3, 5.000000e-01
   %5 = fpext float %4 to double
   %6 = fadd double %5, -2.450000e+01
   %7 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.27626, double noundef %6, i32 noundef %1)
@@ -59415,7 +59415,7 @@ define internal void @nr_rrc_measTriggerQuantity_utra_FDD_EcN0_r16_fmt(ptr nound
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @nr_rrc_MeasTriggerQuantityOffset_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to float
-  %4 = fmul float %3, 5.000000e-01
+  %4 = fmul nnan float %3, 5.000000e-01
   %5 = fpext float %4 to double
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.27653, double noundef %5, i32 noundef %1)
   ret void

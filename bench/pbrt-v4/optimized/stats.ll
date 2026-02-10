@@ -8249,7 +8249,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit261: ; preds = %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %464 = load i64, ptr %22, align 8, !tbaa !91
   %465 = sitofp i64 %464 to float
-  %466 = fmul float %465, 1.000000e+02
+  %466 = fmul nnan float %465, 1.000000e+02
   %467 = load i64, ptr %23, align 8, !tbaa !91
   %468 = sitofp i64 %467 to float
   %469 = fdiv float %466, %468
@@ -8696,7 +8696,7 @@ define dso_local noundef zeroext i1 @_ZN4pbrt14PrintCheckRareEP8_IO_FILE(ptr nou
   %14 = fptrunc double %13 to float
   %15 = add nsw i64 %11, -1
   %16 = sitofp i64 %15 to double
-  %17 = fdiv double 1.000000e+00, %16
+  %17 = fdiv nnan double 1.000000e+00, %16
   %18 = fpext float %14 to double
   %19 = fmul double %17, %18
   %20 = fsub float 1.000000e+00, %14
@@ -8757,7 +8757,7 @@ define dso_local noundef zeroext i1 @_ZN4pbrt16StatsAccumulator14PrintCheckRareE
   %15 = fptrunc double %14 to float
   %16 = add nsw i64 %12, -1
   %17 = sitofp i64 %16 to double
-  %18 = fdiv double 1.000000e+00, %17
+  %18 = fdiv nnan double 1.000000e+00, %17
   %19 = fpext float %15 to double
   %20 = fmul double %18, %19
   %21 = fsub float 1.000000e+00, %15
@@ -9153,7 +9153,7 @@ define internal fastcc void @"_ZZN4pbrt16StatsAccumulator5PrintEP8_IO_FILEENK3$_
   %5 = alloca float, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = uitofp i64 %1 to double
-  %7 = fmul double %6, 0x3F50000000000000
+  %7 = fmul nnan double %6, 0x3F50000000000000
   %8 = fptrunc double %7 to float
   store float %8, ptr %3, align 4, !tbaa !67
   %9 = fcmp olt double %7, 0x408FFFFFF0000000
@@ -9190,7 +9190,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 18:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %19 = fmul float %8, 0x3F50000000000000
+  %19 = fmul nnan float %8, 0x3F50000000000000
   store float %19, ptr %4, align 4, !tbaa !67
   %20 = fcmp olt float %19, 1.024000e+03
   br i1 %20, label %21, label %28
@@ -9213,7 +9213,7 @@ common.resume:                                    ; preds = %common.resume.sink.
 
 28:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %29 = fmul float %19, 0x3F50000000000000
+  %29 = fmul nnan float %19, 0x3F50000000000000
   store float %29, ptr %5, align 4, !tbaa !67
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %0, align 8, !tbaa !49, !alias.scope !225

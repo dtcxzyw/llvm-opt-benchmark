@@ -123,7 +123,7 @@ define hidden void @_ZN15ConnectionGraphC2EP7CompileP12PhaseIterGVNi(ptr noundef
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 592
   %10 = load i32, ptr %9, align 8
   %11 = uitofp i32 %10 to double
-  %12 = fmul double %11, 1.100000e+00
+  %12 = fmul nnan double %11, 1.100000e+00
   %13 = select i1 %8, double %12, double %11
   %14 = fptosi double %13 to i32
   %15 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %14, i32 noundef 8, ptr noundef nonnull %5) #12
@@ -7813,7 +7813,7 @@ _ZN15ConnectionGraph21step_through_mergememEP12MergeMemNodeiPK10TypeOopPtr.exit:
   %1548 = load i64, ptr %1547, align 8
   %1549 = trunc i64 %1548 to i32
   %1550 = uitofp i32 %1549 to double
-  %1551 = fmul double %1550, 7.500000e-01
+  %1551 = fmul nnan double %1550, 7.500000e-01
   %1552 = fcmp ugt double %1551, %1546
   br i1 %1552, label %1567, label %1553
 

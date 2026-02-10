@@ -2152,7 +2152,7 @@ _ZNSt4pairIKmN32pxrInternal_v0_24__pxrReserved__7TfTokenEED2Ev.exit: ; preds = %
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.023.037, i64 32
   %53 = load i64, ptr %52, align 8
   %54 = uitofp i64 %53 to double
-  %55 = fmul double %54, 1.000000e+03
+  %55 = fmul nnan double %54, 1.000000e+03
   %56 = fptoui double %55 to i64
   %57 = invoke noundef double @_ZN32pxrInternal_v0_24__pxrReserved__18ArchTicksToSecondsEm(i64 noundef %56)
           to label %58 unwind label %.loopexit
@@ -3275,7 +3275,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L11_GetKeyNameB5cxx11ERKNS_7TfTokenE.exit53
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %144 = fmul double %143, 1.000000e+03
+  %144 = fmul nnan double %143, 1.000000e+03
   %145 = fptoui double %144 to i64
   %146 = zext nneg i32 %3 to i64
   %147 = udiv i64 %145, %146
@@ -3327,7 +3327,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i58: ;
   br label %221
 
 157:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit.i58, %.noexc71
-  %158 = fmul double %142, 1.000000e+03
+  %158 = fmul nnan double %142, 1.000000e+03
   %159 = fptoui double %158 to i64
   %160 = udiv i64 %159, %146
   %161 = invoke noundef double @_ZN32pxrInternal_v0_24__pxrReserved__18ArchTicksToSecondsEm(i64 noundef %160)

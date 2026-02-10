@@ -1138,7 +1138,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   br i1 %408, label %409, label %412
 
 409:                                              ; preds = %407
-  %410 = fmul reassoc nsz arcp contract afn float %241, 5.000000e-01
+  %410 = fmul reassoc nnan nsz arcp contract afn float %241, 5.000000e-01
   %411 = fsub reassoc nsz arcp contract afn float %410, %403
   br label %417
 
@@ -1167,7 +1167,7 @@ _watermark_get_svgdoc.exit:                       ; preds = %._crit_edge.i, %84
   ]
 
 418:                                              ; preds = %417, %417, %417
-  %419 = fmul reassoc nsz arcp contract afn float %238, 5.000000e-01
+  %419 = fmul reassoc nnan nsz arcp contract afn float %238, 5.000000e-01
   %420 = fsub reassoc nsz arcp contract afn float %419, %400
   br label %424
 

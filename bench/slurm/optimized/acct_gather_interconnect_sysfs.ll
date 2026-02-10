@@ -239,7 +239,7 @@ thread-pre-split.i:                               ; preds = %23, %20
   %48 = load i64, ptr %47, align 8
   %49 = sub i64 %46, %48
   %50 = uitofp i64 %49 to double
-  %51 = fmul double %50, 0x3EF0000000000000
+  %51 = fmul nnan double %50, 0x3EF0000000000000
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %51, ptr %52, align 16
   %53 = getelementptr inbounds nuw i8, ptr %31, i64 32
@@ -248,7 +248,7 @@ thread-pre-split.i:                               ; preds = %23, %20
   %56 = load i64, ptr %55, align 8
   %57 = sub i64 %54, %56
   %58 = uitofp i64 %57 to double
-  %59 = fmul double %58, 0x3EF0000000000000
+  %59 = fmul nnan double %58, 0x3EF0000000000000
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store double %59, ptr %60, align 8
   call void @slurm_xfree(ptr noundef nonnull @last_update) #9

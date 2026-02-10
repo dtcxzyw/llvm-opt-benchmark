@@ -1056,7 +1056,7 @@ define { i64, double } @"_ZN149_$LT$statrs..distribution..negative_binomial..Neg
   br i1 %3, label %4, label %12
 
 4:                                                ; preds = %1
-  %5 = fadd double %2, -1.000000e+00
+  %5 = fadd nnan double %2, -1.000000e+00
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load double, ptr %6, align 8, !noundef !5
   %8 = fsub double 1.000000e+00, %7
@@ -1586,10 +1586,10 @@ define void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr 
   %28 = fsub double %26, %27
   %29 = tail call noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(double noundef %2)
   %30 = fsub double %28, %29
-  %31 = tail call noundef double @llvm.log.f64(double %3)
+  %31 = tail call nnan ninf double @llvm.log.f64(double %3)
   %32 = fmul double %1, %31
   %33 = fadd double %32, %30
-  %34 = fsub double 1.000000e+00, %3
+  %34 = fsub nnan double 1.000000e+00, %3
   %35 = tail call noundef double @llvm.log.f64(double %34)
   %36 = fmul double %2, %35
   %37 = fadd double %36, %33
@@ -1780,10 +1780,10 @@ _ZN6statrs8function4beta7ln_beta17h82d301b62336438bE.exit: ; preds = %8
   %49 = fmul double %34, %34
   %50 = fadd double %49, -3.000000e+00
   %51 = fdiv double %50, 6.000000e+00
-  %52 = fmul double %.sroa.0.0, 2.000000e+00
+  %52 = fmul nnan double %.sroa.0.0, 2.000000e+00
   %53 = fadd double %52, -1.000000e+00
   %54 = fdiv double 1.000000e+00, %53
-  %55 = fmul double %.sroa.016.0, 2.000000e+00
+  %55 = fmul nnan double %.sroa.016.0, 2.000000e+00
   %56 = fadd double %55, -1.000000e+00
   %57 = fdiv double 1.000000e+00, %56
   %58 = fadd double %54, %57

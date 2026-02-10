@@ -6638,7 +6638,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit: ; pr
   %156 = phi i32 [ 1, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj16EEEvPSt5arrayIT_XT0_EE.exit ], [ %67, %._crit_edge.i.i.i.i ]
   store i32 %156, ptr %39, align 8, !tbaa !121
   %157 = uitofp i64 %155 to float
-  %158 = fmul float %157, 0x3BF0000000000000
+  %158 = fmul nnan float %157, 0x3BF0000000000000
   %159 = fcmp oeq float %158, 1.000000e+00
   %.013.i.i.i = select i1 %159, float 0.000000e+00, float %158
   %160 = tail call noundef float @llvm.fmuladd.f32(float %56, float %.013.i.i.i, float %55)
@@ -6746,7 +6746,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit108: ;
   %210 = phi i32 [ 1, %203 ], [ %202, %._crit_edge.i.i.i.i101 ]
   store i32 %210, ptr %199, align 8, !tbaa !121
   %211 = uitofp i64 %209 to float
-  %212 = fmul float %211, 0x3BF0000000000000
+  %212 = fmul nnan float %211, 0x3BF0000000000000
   %213 = fcmp oeq float %212, 1.000000e+00
   %.013.i.i.i106 = select i1 %213, float 0.000000e+00, float %212
   %214 = getelementptr inbounds nuw i8, ptr %0, i64 396
@@ -6787,7 +6787,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit116: ;
   %231 = phi i32 [ 2, %._crit_edge.i.i.i.i109 ], [ 1, %223 ]
   store i32 %231, ptr %199, align 8, !tbaa !121
   %232 = uitofp i64 %230 to float
-  %233 = fmul float %232, 0x3BF0000000000000
+  %233 = fmul nnan float %232, 0x3BF0000000000000
   %234 = fcmp oeq float %233, 1.000000e+00
   %.013.i.i.i114 = select i1 %234, float 0.000000e+00, float %233
   %235 = tail call noundef float @llvm.fmuladd.f32(float %.pre-phi, float %.013.i.i.i114, float %229)
@@ -6827,7 +6827,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit124: ;
   %249 = phi i32 [ %240, %._crit_edge.i.i.i.i117 ], [ 1, %241 ]
   store i32 %249, ptr %199, align 8, !tbaa !121
   %250 = uitofp i64 %248 to float
-  %251 = fmul float %250, 0x3BF0000000000000
+  %251 = fmul nnan float %250, 0x3BF0000000000000
   %252 = fcmp oeq float %251, 1.000000e+00
   %.013.i.i.i122 = select i1 %252, float 0.000000e+00, float %251
   %253 = tail call noundef float @llvm.fmuladd.f32(float %.pre-phi242, float %.013.i.i.i122, float %247)
@@ -7849,7 +7849,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj16EEEEEfRT_.exit: ; pr
   %228 = phi i32 [ 1, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj16EEEvPSt5arrayIT_XT0_EE.exit ], [ %138, %._crit_edge.i.i.i.i ]
   store i32 %228, ptr %83, align 8, !tbaa !121
   %229 = uitofp i64 %227 to float
-  %230 = fmul float %229, 0x3BF0000000000000
+  %230 = fmul nnan float %229, 0x3BF0000000000000
   %231 = fcmp oeq float %230, 1.000000e+00
   %.013.i.i.i = select i1 %231, float 0.000000e+00, float %230
   %232 = call noundef float @llvm.fmuladd.f32(float %133, float %.013.i.i.i, float %132)

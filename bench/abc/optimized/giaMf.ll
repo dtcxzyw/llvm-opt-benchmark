@@ -793,7 +793,7 @@ define void @Mf_ManTruthQuit() local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %4, align 4, !tbaa !29
   %5 = sitofp i32 %.val to double
-  %6 = fmul double %5, 1.000000e+02
+  %6 = fmul nnan double %5, 1.000000e+02
   %7 = load i32, ptr @s_nCalls, align 4, !tbaa !12
   %8 = sitofp i32 %7 to double
   %9 = fdiv double %6, %8
@@ -9566,9 +9566,9 @@ define i32 @Mf_ManSetMapRefs(ptr noundef readonly captures(none) %0) local_unnam
 
 thread-pre-split:                                 ; preds = %38
   %41 = uitofp nneg i32 %.0.lcssa to float
-  %42 = fpext float %41 to double
+  %42 = fpext nnan ninf float %41 to double
   %43 = sitofp i32 %40 to double
-  %44 = fadd double %43, 1.000000e+02
+  %44 = fadd nnan double %43, 1.000000e+02
   %45 = fmul double %44, %42
   %46 = fdiv double %45, 1.000000e+02
   %47 = fptosi double %46 to i32
@@ -12677,14 +12677,14 @@ define void @Mf_ManPrintQuit(ptr noundef captures(none) %0, ptr noundef readonly
   %10 = getelementptr i8, ptr %9, i64 24
   %.val46 = load i32, ptr %10, align 8, !tbaa !61
   %11 = sitofp i32 %.val46 to double
-  %12 = fmul double %11, 1.600000e+01
-  %13 = fmul double %12, 0x3EB0000000000000
+  %12 = fmul nnan double %11, 1.600000e+01
+  %13 = fmul nnan double %12, 0x3EB0000000000000
   %14 = fptrunc double %13 to float
   %15 = getelementptr i8, ptr %0, i64 36
   %.val47 = load i32, ptr %15, align 4, !tbaa !193
   %16 = sitofp i32 %.val47 to double
-  %17 = fmul double %16, 2.621440e+05
-  %18 = fmul double %17, 0x3EB0000000000000
+  %17 = fmul nnan double %16, 2.621440e+05
+  %18 = fmul nnan double %17, 0x3EB0000000000000
   %19 = fptrunc double %18 to float
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !84
@@ -12694,7 +12694,7 @@ define void @Mf_ManPrintQuit(ptr noundef captures(none) %0, ptr noundef readonly
 22:                                               ; preds = %2
   %23 = load i32, ptr %21, align 8, !tbaa !14
   %24 = sitofp i32 %23 to double
-  %25 = fmul double %24, 8.000000e+00
+  %25 = fmul nnan double %24, 8.000000e+00
   %26 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !18
   %28 = shl nuw i32 1, %27
@@ -12707,7 +12707,7 @@ define void @Mf_ManPrintQuit(ptr noundef captures(none) %0, ptr noundef readonly
   %35 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %36 = load i32, ptr %35, align 8, !tbaa !36
   %37 = sitofp i32 %36 to double
-  %38 = fmul double %37, 8.000000e+00
+  %38 = fmul nnan double %37, 8.000000e+00
   %39 = tail call double @llvm.fmuladd.f64(double %30, double %34, double %38)
   %40 = fadd double %39, 4.800000e+01
   %41 = fmul double %40, 0x3EB0000000000000
@@ -12725,8 +12725,8 @@ define void @Mf_ManPrintQuit(ptr noundef captures(none) %0, ptr noundef readonly
   %48 = load i32, ptr %46, align 8, !tbaa !22
   %49 = sext i32 %48 to i64
   %50 = uitofp i64 %49 to double
-  %51 = tail call double @llvm.fmuladd.f64(double %50, double 4.000000e+00, double 1.600000e+01)
-  %52 = fmul double %51, 0x3EB0000000000000
+  %51 = tail call nnan double @llvm.fmuladd.f64(double %50, double 4.000000e+00, double 1.600000e+01)
+  %52 = fmul nnan double %51, 0x3EB0000000000000
   %53 = fptrunc double %52 to float
   br label %Vec_IntMemory.exit
 
@@ -12819,7 +12819,7 @@ Vec_IntMemory.exit:                               ; preds = %43, %47
   %114 = getelementptr i8, ptr %112, i64 4
   %.val45 = load i32, ptr %114, align 4, !tbaa !29
   %115 = sitofp i32 %.val45 to double
-  %116 = fmul double %115, 1.000000e+02
+  %116 = fmul nnan double %115, 1.000000e+02
   %117 = load double, ptr %73, align 8, !tbaa !156
   %118 = fdiv double %116, %117
   %119 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %.val45, double noundef %118)
@@ -15141,7 +15141,7 @@ Vec_MemDumpTruthTables.exit:                      ; preds = %Vec_MemDump.exit.i,
   %.val13.i = phi i32 [ %.val13.pre.i, %148 ], [ %.val1316.i, %Vec_MemDump.exit.i ]
   %150 = select i1 %.not.i68, ptr @.str.65, ptr %3
   %151 = sitofp i32 %.val13.i to double
-  %152 = fmul double %151, 8.000000e+00
+  %152 = fmul nnan double %151, 8.000000e+00
   %.val14.i = load i32, ptr %93, align 8, !tbaa !14
   %153 = sitofp i32 %.val14.i to double
   %154 = fmul double %152, %153

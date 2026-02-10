@@ -3322,7 +3322,7 @@ define void @_Z15andersen_tcouplPK10t_inputreclPK9t_commreciN3gmx8ArrayRefIKtEEN
 _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit: ; preds = %136
   store i32 1, ptr %24, align 8, !tbaa !290
   %139 = uitofp i64 %120 to float
-  %140 = fmul float %139, 0x3BF0000000000000
+  %140 = fmul nnan float %139, 0x3BF0000000000000
   %141 = fcmp oeq float %140, 1.000000e+00
   %.013.i.i.i = select i1 %141, float 0.000000e+00, float %140
   %142 = fcmp olt float %.013.i.i.i, %8
@@ -3612,8 +3612,8 @@ define noundef float @_Z9calc_tempff(float noundef %0, float noundef %1) local_u
 4:                                                ; preds = %2
   %5 = fpext float %0 to double
   %6 = fmul double %5, 2.000000e+00
-  %7 = fpext float %1 to double
-  %8 = fmul double %7, 0x3F81072C483AF26D
+  %7 = fpext nnan float %1 to double
+  %8 = fmul nnan double %7, 0x3F81072C483AF26D
   %9 = fdiv double %6, %8
   %10 = fptrunc double %9 to float
   br label %11
@@ -4642,7 +4642,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
   %21 = phi i32 [ 1, %16 ], [ %15, %._crit_edge.i.i.i.i ]
   store i32 %21, ptr %7, align 8, !tbaa !255
   %22 = uitofp i64 %20 to float
-  %23 = fmul float %22, 0x3BF0000000000000
+  %23 = fmul nnan float %22, 0x3BF0000000000000
   %24 = fcmp oeq float %23, 1.000000e+00
   %25 = tail call float @llvm.fmuladd.f32(float %23, float 2.000000e+00, float -1.000000e+00)
   %26 = select i1 %24, float -1.000000e+00, float %25
@@ -4667,7 +4667,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26: ; 
   %33 = phi i32 [ 1, %28 ], [ 2, %._crit_edge.i.i.i.i19 ]
   store i32 %33, ptr %7, align 8, !tbaa !255
   %34 = uitofp i64 %32 to float
-  %35 = fmul float %34, 0x3BF0000000000000
+  %35 = fmul nnan float %34, 0x3BF0000000000000
   %36 = fcmp oeq float %35, 1.000000e+00
   %37 = tail call float @llvm.fmuladd.f32(float %35, float 2.000000e+00, float -1.000000e+00)
   %38 = select i1 %36, float -1.000000e+00, float %37
@@ -4680,8 +4680,8 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26: ; 
 
 44:                                               ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26
   %45 = fpext float %40 to double
-  %46 = tail call float @llvm.log.f32(float %40), !tbaa !134
-  %47 = fpext float %46 to double
+  %46 = tail call ninf float @llvm.log.f32(float %40)
+  %47 = fpext ninf float %46 to double
   %48 = fmul double %47, -2.000000e+00
   %49 = fdiv double %48, %45
   %50 = tail call double @sqrt(double noundef %49) #21, !tbaa !134
@@ -6152,7 +6152,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %29, %27, %25, %23, 
   %43 = fpext float %36 to double
   %44 = fdiv double %43, 0x401921FB54442D18
   %45 = fmul double %44, %44
-  %46 = fpext float %40 to double
+  %46 = fpext nnan float %40 to double
   %47 = fmul double %45, %46
   %48 = fdiv double 1.000000e+00, %47
   br label %49
@@ -6311,14 +6311,14 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit77:             ; preds = %129, %127, %125, %1
   br i1 %153, label %.lr.ph83.us, label %.lr.ph.us
 
 .lr.ph83.us:                                      ; preds = %150
-  %154 = fpext float %148 to double
-  %155 = fmul double %154, 0x3F81072C483AF26D
-  %156 = fptrunc double %155 to float
-  %157 = fpext float %152 to double
+  %154 = fpext nnan float %148 to double
+  %155 = fmul nnan double %154, 0x3F81072C483AF26D
+  %156 = fptrunc nnan double %155 to float
+  %157 = fpext nnan float %152 to double
   %158 = fpext float %144 to double
   %159 = fdiv double %158, 0x401921FB54442D18
   %160 = fmul double %159, %159
-  %161 = fpext float %156 to double
+  %161 = fpext nnan float %156 to double
   %162 = mul nuw nsw i64 %indvars.iv112, %137
   %163 = load ptr, ptr %3, align 8, !tbaa !105
   %invariant.gep = getelementptr inbounds nuw double, ptr %163, i64 %162
@@ -7199,8 +7199,8 @@ _ZL27calcParrinelloRahmanInvMassRK23PressureCouplingOptionsPA3_KfPA3_f.exit: ; p
   %89 = fmul float %88, %88
   %90 = fpext float %89 to double
   %91 = fmul double %90, 5.000000e-01
-  %92 = fpext float %84 to double
-  %93 = fmul double %92, 0x40309AFAE1F7C60E
+  %92 = fpext nnan float %84 to double
+  %93 = fmul nnan double %92, 0x40309AFAE1F7C60E
   %94 = fdiv double %91, %93
   %95 = fpext float %.260 to double
   %96 = fadd double %94, %95
@@ -7497,7 +7497,7 @@ _ZL14energyVrescalePK7t_state.exit:               ; preds = %188, %_ZSt10accumul
   %258 = getelementptr inbounds nuw double, ptr %206, i64 %257
   %259 = getelementptr inbounds nuw double, ptr %205, i64 %257
   %260 = getelementptr inbounds nuw double, ptr %203, i64 %257
-  %261 = fmul double %250, 0x3F71072C483AF26D
+  %261 = fmul nnan double %250, 0x3F71072C483AF26D
   %262 = load double, ptr %259, align 8, !tbaa !115
   %263 = fmul double %262, %262
   %264 = fmul double %261, %263
@@ -7987,7 +7987,7 @@ _ZN3gmx23ExponentialDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
   %25 = phi i32 [ 1, %18 ], [ %17, %._crit_edge.i.i.i.i ]
   store i32 %25, ptr %14, align 8, !tbaa !255
   %26 = uitofp i64 %24 to float
-  %27 = fmul float %26, 0x3BF0000000000000
+  %27 = fmul nnan float %26, 0x3BF0000000000000
   %28 = fcmp oeq float %27, 1.000000e+00
   %29 = fsub float 1.000000e+00, %27
   %30 = select i1 %28, float 1.000000e+00, float %29
@@ -8224,7 +8224,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i: ; 
   %150 = phi i32 [ 1, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit72 ], [ %62, %._crit_edge.i.i.i.i.i ]
   store i32 %150, ptr %39, align 8, !tbaa !255
   %151 = uitofp i64 %149 to float
-  %152 = fmul float %151, 0x3BF0000000000000
+  %152 = fmul nnan float %151, 0x3BF0000000000000
   %153 = fcmp oeq float %152, 1.000000e+00
   %154 = tail call float @llvm.fmuladd.f32(float %152, float 2.000000e+00, float -1.000000e+00)
   %155 = select i1 %153, float -1.000000e+00, float %154
@@ -8382,7 +8382,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i: 
   %244 = phi i32 [ 1, %_ZN3gmx8internal14highBitCounter9incrementImLm2ELj64EEEvPSt5arrayIT_XT0_EE.exit ], [ 2, %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i ]
   store i32 %244, ptr %39, align 8, !tbaa !255
   %245 = uitofp i64 %243 to float
-  %246 = fmul float %245, 0x3BF0000000000000
+  %246 = fmul nnan float %245, 0x3BF0000000000000
   %247 = fcmp oeq float %246, 1.000000e+00
   %248 = tail call float @llvm.fmuladd.f32(float %246, float 2.000000e+00, float -1.000000e+00)
   %249 = select i1 %247, float -1.000000e+00, float %248
@@ -8395,8 +8395,8 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i: 
 
 255:                                              ; preds = %_ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit26.i
   %256 = fpext float %251 to double
-  %257 = tail call float @llvm.log.f32(float %251), !tbaa !134
-  %258 = fpext float %257 to double
+  %257 = tail call ninf float @llvm.log.f32(float %251)
+  %258 = fpext ninf float %257 to double
   %259 = fmul double %258, -2.000000e+00
   %260 = fdiv double %259, %256
   %261 = tail call double @sqrt(double noundef %260) #21, !tbaa !134
@@ -8446,7 +8446,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit: ; pr
   %279 = phi i32 [ 1, %274 ], [ %273, %._crit_edge.i.i.i.i43 ]
   store i32 %279, ptr %39, align 8, !tbaa !255
   %280 = uitofp i64 %278 to float
-  %281 = fmul float %280, 0x3BF0000000000000
+  %281 = fmul nnan float %280, 0x3BF0000000000000
   %282 = fcmp oeq float %281, 1.000000e+00
   %283 = fadd float %281, 0x3810000000000000
   %284 = select i1 %282, float 0x3810000000000000, float %283
@@ -8518,7 +8518,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit56: ; 
   %323 = phi i32 [ 1, %316 ], [ %315, %._crit_edge.i.i.i.i49 ]
   store i32 %323, ptr %312, align 8, !tbaa !255
   %324 = uitofp i64 %322 to float
-  %325 = fmul float %324, 0x3BF0000000000000
+  %325 = fmul nnan float %324, 0x3BF0000000000000
   %326 = fcmp oeq float %325, 1.000000e+00
   %327 = fadd float %325, 0x3810000000000000
   %328 = select i1 %326, float 0x3810000000000000, float %327

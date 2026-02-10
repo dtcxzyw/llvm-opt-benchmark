@@ -1382,10 +1382,10 @@ define hidden void @_glfwCenterCursorInContentArea(ptr noundef %0) local_unnamed
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 72), align 8, !tbaa !168
   %6 = load i32, ptr %2, align 4, !tbaa !169
   %7 = sitofp i32 %6 to double
-  %8 = fmul double %7, 5.000000e-01
+  %8 = fmul nnan double %7, 5.000000e-01
   %9 = load i32, ptr %3, align 4, !tbaa !169
   %10 = sitofp i32 %9 to double
-  %11 = fmul double %10, 5.000000e-01
+  %11 = fmul nnan double %10, 5.000000e-01
   call void %5(ptr noundef %0, double noundef %8, double noundef %11) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3287,7 +3287,7 @@ initJoysticks.exit.thread:                        ; preds = %9
   %120 = getelementptr inbounds nuw i8, ptr %116, i64 %119
   %121 = load i8, ptr %120, align 1, !tbaa !3
   %122 = uitofp i8 %121 to float
-  %123 = fmul float %122, 2.000000e+00
+  %123 = fmul nnan float %122, 2.000000e+00
   %124 = fadd float %123, -1.000000e+00
   %125 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv85
   store float %124, ptr %125, align 4, !tbaa !145
@@ -3401,7 +3401,7 @@ define void @glfwSetTime(double noundef %0) local_unnamed_addr #0 {
   %8 = tail call i64 @_glfwPlatformGetTimerValue() #12
   %9 = tail call i64 @_glfwPlatformGetTimerFrequency() #12
   %10 = uitofp i64 %9 to double
-  %11 = fmul double %0, %10
+  %11 = fmul nnan double %0, %10
   %12 = fptoui double %11 to i64
   %13 = sub i64 %8, %12
   store i64 %13, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133472), align 8, !tbaa !205

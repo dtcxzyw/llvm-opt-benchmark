@@ -23,7 +23,7 @@ define hidden void @amaze_demosaic(ptr noundef readonly captures(none) %0, ptr n
   %17 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %14, float %16)
   %18 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %12, float %17)
   %19 = tail call reassoc nsz arcp contract afn noundef float @llvm.maxnum.f32(float %18, float 1.000000e+00)
-  %20 = fmul reassoc nsz arcp contract afn float %19, 0x3FE99999A0000000
+  %20 = fmul reassoc nnan nsz arcp contract afn float %19, 0x3FE99999A0000000
   %21 = and i32 %4, 3
   %22 = icmp eq i32 %21, 1
   %23 = and i32 %4, 12
@@ -3605,7 +3605,7 @@ _ZL9_clampnanfff.exit3723.us:                     ; preds = %611, %609, %607
   br i1 %2463, label %2464, label %2507
 
 2464:                                             ; preds = %2460
-  %2465 = fmul reassoc nsz arcp contract afn float %2454, 3.000000e+00
+  %2465 = fmul reassoc nnan nsz arcp contract afn float %2454, 3.000000e+00
   %2466 = fadd reassoc nsz arcp contract afn float %2461, %2459
   %2467 = fcmp reassoc nsz arcp contract afn ogt float %2465, %2466
   br i1 %2467, label %2490, label %2468
@@ -3687,7 +3687,7 @@ thread-pre-split.us:                              ; preds = %2504, %2483
   br i1 %2508, label %2509, label %2553
 
 2509:                                             ; preds = %2507
-  %2510 = fmul reassoc nsz arcp contract afn float %.pr3790.us, 3.000000e+00
+  %2510 = fmul reassoc nnan nsz arcp contract afn float %.pr3790.us, 3.000000e+00
   %2511 = fadd reassoc nsz arcp contract afn float %2459, %2462
   %2512 = fcmp reassoc nsz arcp contract afn ogt float %2510, %2511
   br i1 %2512, label %2536, label %2513
@@ -3844,7 +3844,7 @@ thread-pre-split.us:                              ; preds = %2504, %2483
   br i1 %2594, label %2595, label %2640
 
 2595:                                             ; preds = %2591
-  %2596 = fmul reassoc nsz arcp contract afn float %2454, 3.000000e+00
+  %2596 = fmul reassoc nnan nsz arcp contract afn float %2454, 3.000000e+00
   %2597 = fadd reassoc nsz arcp contract afn float %2592, %2459
   %2598 = fneg reassoc nsz arcp contract afn float %2597
   %2599 = fcmp reassoc nsz arcp contract afn olt float %2596, %2598
@@ -3929,7 +3929,7 @@ thread-pre-split3789.us:                          ; preds = %2637, %2618
   br i1 %2642, label %2643, label %2689
 
 2643:                                             ; preds = %2640
-  %2644 = fmul reassoc nsz arcp contract afn float %.pr3790.us, 3.000000e+00
+  %2644 = fmul reassoc nnan nsz arcp contract afn float %.pr3790.us, 3.000000e+00
   %2645 = fadd reassoc nsz arcp contract afn float %2459, %2593
   %2646 = fneg reassoc nsz arcp contract afn float %2645
   %2647 = fcmp reassoc nsz arcp contract afn olt float %2644, %2646

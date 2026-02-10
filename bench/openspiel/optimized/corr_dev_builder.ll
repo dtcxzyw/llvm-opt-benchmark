@@ -499,7 +499,7 @@ define void @_ZN10open_spiel10algorithms14CorrDevBuilder21AddSampledJointPolicyE
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %20 = uitofp nneg i32 %2 to double
-  %21 = fdiv double 1.000000e+00, %20
+  %21 = fdiv nnan double 1.000000e+00, %20
   %22 = fmul double %3, %21
   br label %23
 

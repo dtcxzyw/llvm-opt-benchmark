@@ -3640,7 +3640,7 @@ do.end150:                                        ; preds = %invoke.cont108
   %tMinStepsPerYear = getelementptr inbounds nuw i8, ptr %this, i64 80
   %81 = load i64, ptr %tMinStepsPerYear, align 8, !tbaa !139
   %conv154 = uitofp i64 %81 to double
-  %div155 = fdiv double 1.000000e+00, %conv154
+  %div155 = fdiv nnan double 1.000000e+00, %conv154
   call void @llvm.lifetime.start.p0(ptr nonnull %times)
   %call5.i.i.i.i2.i.i294 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #34
           to label %call5.i.i.i.i2.i.i.noexc unwind label %lpad157

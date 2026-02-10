@@ -615,7 +615,7 @@ _ZNSt6vectorIN5ceres8internal5BlockESaIS2_EE9push_backEOS2_.exit67: ; preds = %2
   %267 = getelementptr inbounds nuw double, ptr %262, i64 %.05.i.i.i.i.i.i.i.i
   %268 = tail call i32 @rand() #15
   %269 = sitofp i32 %268 to double
-  %270 = fmul double %269, 2.000000e+00
+  %270 = fmul nnan double %269, 2.000000e+00
   %271 = fdiv double %270, 0x41DFFFFFFFC00000
   %272 = fadd double %271, -1.000000e+00
   store double %272, ptr %267, align 8, !tbaa !92

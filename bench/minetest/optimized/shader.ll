@@ -9123,17 +9123,17 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
   %shr.i.i = lshr i32 %agg.tmp.sroa.0.0.copyload, 16
   %and.i.i = and i32 %shr.i.i, 255
   %conv.i = uitofp nneg i32 %and.i.i to float
-  %mul.i = fmul nsz float %conv.i, 0x3F70101020000000
+  %mul.i = fmul nnan nsz float %conv.i, 0x3F70101020000000
   %shr.i11.i = lshr i32 %agg.tmp.sroa.0.0.copyload, 8
   %and.i12.i = and i32 %shr.i11.i, 255
   %conv3.i = uitofp nneg i32 %and.i12.i to float
-  %mul4.i = fmul nsz float %conv3.i, 0x3F70101020000000
+  %mul4.i = fmul nnan nsz float %conv3.i, 0x3F70101020000000
   %and.i13.i = and i32 %agg.tmp.sroa.0.0.copyload, 255
   %conv6.i = uitofp nneg i32 %and.i13.i to float
-  %mul7.i = fmul nsz float %conv6.i, 0x3F70101020000000
+  %mul7.i = fmul nnan nsz float %conv6.i, 0x3F70101020000000
   %shr.i14.i = lshr i32 %agg.tmp.sroa.0.0.copyload, 24
   %conv9.i = uitofp nneg i32 %shr.i14.i to float
-  %mul10.i = fmul nsz float %conv9.i, 0x3F70101020000000
+  %mul10.i = fmul nnan nsz float %conv9.i, 0x3F70101020000000
   call void @llvm.lifetime.start.p0(ptr nonnull %array.i)
   store float %mul.i, ptr %array.i, align 16, !tbaa !205
   %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %array.i, i64 4

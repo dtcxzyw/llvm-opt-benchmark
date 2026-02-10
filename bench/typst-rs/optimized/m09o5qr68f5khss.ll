@@ -12368,14 +12368,14 @@ define hidden void @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = load ptr, ptr %33, align 8, !alias.scope !3657, !noalias !3658, !nonnull !4, !align !36, !noundef !4
   %35 = uitofp i64 %9 to double
-  %36 = fmul double %35, 0x401921FB54442D18
+  %36 = fmul nnan double %35, 0x401921FB54442D18
   %37 = load ptr, ptr %34, align 8, !noalias !3660, !nonnull !4, !align !36, !noundef !4
   %38 = load i64, ptr %37, align 8, !noalias !3660, !noundef !4
   %39 = uitofp i64 %38 to double
   %40 = fdiv double %36, %39
-  %41 = fdiv double 1.000000e+00, %39
-  %42 = fsub double 5.000000e-01, %41
-  %43 = fmul double %42, 0x400921FB54442D18
+  %41 = fdiv nnan double 1.000000e+00, %39
+  %42 = fsub nnan double 5.000000e-01, %41
+  %43 = fmul nnan double %42, 0x400921FB54442D18
   %44 = fadd double %40, %43
   %45 = tail call double @llvm.cos.f64(double %44)
   %.0.i.inv.i.i.i.i.i.i.i.i.i = fcmp ord double %45, 0.000000e+00
@@ -12482,14 +12482,14 @@ define hidden void @"_ZN107_$LT$core..ops..range..RangeInclusive$LT$T$GT$$u20$as
   %85 = load double, ptr %12, align 8, !noalias !3679, !noundef !4
   %86 = load double, ptr %13, align 8, !noalias !3679, !noundef !4
   %87 = uitofp i64 %83 to double
-  %88 = fmul double %87, 0x401921FB54442D18
+  %88 = fmul nnan double %87, 0x401921FB54442D18
   %89 = load ptr, ptr %15, align 8, !noalias !3679, !nonnull !4, !align !36, !noundef !4
   %90 = load i64, ptr %89, align 8, !noalias !3679, !noundef !4
   %91 = uitofp i64 %90 to double
   %92 = fdiv double %88, %91
-  %93 = fdiv double 1.000000e+00, %91
-  %94 = fsub double 5.000000e-01, %93
-  %95 = fmul double %94, 0x400921FB54442D18
+  %93 = fdiv nnan double 1.000000e+00, %91
+  %94 = fsub nnan double 5.000000e-01, %93
+  %95 = fmul nnan double %94, 0x400921FB54442D18
   %96 = fadd double %92, %95
   %97 = tail call double @llvm.cos.f64(double %96)
   %.0.i.inv.i.i.i.i.i.i.i.i.i13 = fcmp ord double %97, 0.000000e+00
@@ -13095,7 +13095,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i180.i = load i16, ptr %111, align 1, !alias.scope !3800, !noalias !3763
   %112 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i180.i)
   %113 = sitofp i16 %112 to float
-  %114 = fmul float %113, 0x3F10000000000000
+  %114 = fmul nnan float %113, 0x3F10000000000000
   br label %128
 
 115:                                              ; preds = %102
@@ -13110,12 +13110,12 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i183.i = load i16, ptr %120, align 1, !alias.scope !3809, !noalias !3763
   %121 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i183.i)
   %122 = sitofp i16 %121 to float
-  %123 = fmul float %122, 0x3F10000000000000
+  %123 = fmul nnan float %122, 0x3F10000000000000
   %124 = getelementptr inbounds i8, ptr %25, i64 %103
   %.val.i.i.i.i190.i = load i16, ptr %124, align 1, !alias.scope !3818, !noalias !3763
   %125 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i190.i)
   %126 = sitofp i16 %125 to float
-  %127 = fmul float %126, 0x3F10000000000000
+  %127 = fmul nnan float %126, 0x3F10000000000000
   br label %128
 
 128:                                              ; preds = %152, %119, %110, %99
@@ -13135,7 +13135,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i194.i = load i16, ptr %133, align 1, !alias.scope !3827, !noalias !3763
   %134 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i194.i)
   %135 = sitofp i16 %134 to float
-  %136 = fmul float %135, 0x3F10000000000000
+  %136 = fmul nnan float %135, 0x3F10000000000000
   %137 = add i64 %.sroa.7113.1, 4
   %138 = icmp ugt i64 %96, -3
   %139 = icmp ugt i64 %137, %24
@@ -13147,7 +13147,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i201.i = load i16, ptr %141, align 1, !alias.scope !3836, !noalias !3763
   %142 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i201.i)
   %143 = sitofp i16 %142 to float
-  %144 = fmul float %143, 0x3F10000000000000
+  %144 = fmul nnan float %143, 0x3F10000000000000
   %145 = add i64 %.sroa.7113.1, 6
   %146 = icmp ugt i64 %137, -3
   %147 = icmp ugt i64 %145, %24
@@ -13166,12 +13166,12 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i208.i = load i16, ptr %153, align 1, !alias.scope !3845, !noalias !3763
   %154 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i208.i)
   %155 = sitofp i16 %154 to float
-  %156 = fmul float %155, 0x3F10000000000000
+  %156 = fmul nnan float %155, 0x3F10000000000000
   %157 = getelementptr inbounds i8, ptr %25, i64 %145
   %.val.i.i.i.i215.i = load i16, ptr %157, align 1, !alias.scope !3854, !noalias !3763
   %158 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i215.i)
   %159 = sitofp i16 %158 to float
-  %160 = fmul float %159, 0x3F10000000000000
+  %160 = fmul nnan float %159, 0x3F10000000000000
   br label %128
 
 161:                                              ; preds = %128
@@ -95700,8 +95700,8 @@ define hidden void @_ZN5typst9visualize5shape7ellipse17h95c6ac8d049657c2E(ptr no
   %8 = fmul double %2, 5.000000e-01
   %.0.i.inv.i.i.i19 = fcmp ord double %8, 0.000000e+00
   %.0.i.i.i20 = select i1 %.0.i.inv.i.i.i19, double %8, double 0.000000e+00
-  %9 = fmul double %.0.i.i.i, 5.517840e-01
-  %10 = fmul double %.0.i.i.i20, 5.517840e-01
+  %9 = fmul nnan double %.0.i.i.i, 5.517840e-01
+  %10 = fmul nnan double %.0.i.i.i20, 5.517840e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !alias.scope !23643
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8

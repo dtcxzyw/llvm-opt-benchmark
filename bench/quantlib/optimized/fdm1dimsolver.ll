@@ -8285,13 +8285,13 @@ call.i743.noexc:                                  ; preds = %invoke.cont600
   %242 = load double, ptr %241, align 8, !tbaa !64
   %sub606 = add i64 %237, -1
   %conv = uitofp i64 %sub606 to double
-  %div607 = fdiv double 1.000000e+00, %conv
+  %div607 = fdiv nnan double 1.000000e+00, %conv
   %mul610 = fmul double %div607, %242
   %mul613 = fmul double %242, %mul610
   %mul616 = fmul double %242, %mul613
   store double %mul616, ptr %call.i743754, align 8, !tbaa !64
   %243 = load double, ptr %241, align 8, !tbaa !64
-  %div624 = fdiv double 8.750000e-01, %conv
+  %div624 = fdiv nnan double 8.750000e-01, %conv
   %mul627 = fmul double %div624, %243
   %mul630 = fmul double %243, %mul627
   %mul633 = fmul double %243, %mul630
@@ -9602,7 +9602,7 @@ call.i1122.noexc:                                 ; preds = %invoke.cont1105
   %mul1117 = fmul double %div1114, %398
   store double %mul1117, ptr %call.i11221133, align 8, !tbaa !64
   %399 = load double, ptr %397, align 8, !tbaa !64
-  %div1125 = fdiv double 5.000000e-01, %conv1113
+  %div1125 = fdiv nnan double 5.000000e-01, %conv1113
   %mul1128 = fmul double %div1125, %399
   %arrayidx1131 = getelementptr inbounds nuw i8, ptr %call.i11221133, i64 8
   store double %mul1128, ptr %arrayidx1131, align 8, !tbaa !64

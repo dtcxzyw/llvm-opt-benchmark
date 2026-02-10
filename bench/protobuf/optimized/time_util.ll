@@ -1578,7 +1578,7 @@ entry:
   %nanos_.i.i = getelementptr inbounds nuw i8, ptr %d, i64 24
   %2 = load i32, ptr %nanos_.i.i, align 8
   %conv2 = sitofp i32 %2 to double
-  %3 = tail call double @llvm.fmuladd.f64(double %conv2, double 1.000000e-09, double %conv)
+  %3 = tail call nnan double @llvm.fmuladd.f64(double %conv2, double 1.000000e-09, double %conv)
   %mul = fmul double %r, %3
   %conv3 = fptosi double %mul to i64
   %conv4 = sitofp i64 %conv3 to double

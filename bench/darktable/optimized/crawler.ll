@@ -171,7 +171,7 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !55
   %45 = sitofp i64 %44 to double
-  %46 = fmul reassoc nsz arcp contract afn double %45, 0x3EB0C6F7A0B5ED8D
+  %46 = fmul reassoc nnan nsz arcp contract afn double %45, 0x3EB0C6F7A0B5ED8D
   %47 = fadd reassoc nsz arcp contract afn double %46, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %48 = load ptr, ptr %3, align 8, !tbaa !51
@@ -208,7 +208,7 @@ define ptr @dt_control_crawler_run() local_unnamed_addr #0 {
   %70 = sitofp i64 %69 to double
   %71 = load i64, ptr %52, align 8, !tbaa !55
   %72 = sitofp i64 %71 to double
-  %73 = fmul reassoc nsz arcp contract afn double %72, 0x3EB0C6F7A0B5ED8D
+  %73 = fmul reassoc nnan nsz arcp contract afn double %72, 0x3EB0C6F7A0B5ED8D
   %74 = fadd reassoc nsz arcp contract afn double %73, %70
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %75 = fsub reassoc nsz arcp contract afn double %74, %47
@@ -1170,7 +1170,7 @@ define void @dt_set_backthumb_time(double noundef %0) local_unnamed_addr #11 {
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !55
   %12 = sitofp i64 %11 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 0x3EB0C6F7A0B5ED8D
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = fadd reassoc nsz arcp contract afn double %0, %9
   %15 = fadd reassoc nsz arcp contract afn double %14, %13
@@ -1186,7 +1186,7 @@ define void @dt_set_backthumb_time(double noundef %0) local_unnamed_addr #11 {
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !55
   %24 = sitofp i64 %23 to double
-  %25 = fmul reassoc nsz arcp contract afn double %24, 0x3EB0C6F7A0B5ED8D
+  %25 = fmul reassoc nnan nsz arcp contract afn double %24, 0x3EB0C6F7A0B5ED8D
   %26 = fadd reassoc nsz arcp contract afn double %25, %21
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %27 = load double, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3392), align 8, !tbaa !87
@@ -1301,7 +1301,7 @@ define void @dt_update_thumbs_thread(ptr noundef readnone captures(none) %0) loc
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %49 = load i64, ptr %48, align 8, !tbaa !55
   %50 = sitofp i64 %49 to double
-  %51 = fmul reassoc nsz arcp contract afn double %50, 0x3EB0C6F7A0B5ED8D
+  %51 = fmul reassoc nnan nsz arcp contract afn double %50, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %52 = fadd reassoc nsz arcp contract afn double %47, 5.000000e+00
   %53 = fadd reassoc nsz arcp contract afn double %52, %51
@@ -1393,7 +1393,7 @@ _reinitialize_thumbs_database.exit:               ; preds = %71, %75
   %88 = sitofp i64 %87 to double
   %89 = load i64, ptr %55, align 8, !tbaa !55
   %90 = sitofp i64 %89 to double
-  %91 = fmul reassoc nsz arcp contract afn double %90, 0x3EB0C6F7A0B5ED8D
+  %91 = fmul reassoc nnan nsz arcp contract afn double %90, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %92 = fadd reassoc nsz arcp contract afn double %88, 5.000000e+00
   %93 = fadd reassoc nsz arcp contract afn double %92, %91
@@ -1430,7 +1430,7 @@ _lighttable_silent.exit:                          ; preds = %101
   %107 = sitofp i64 %106 to double
   %108 = load i64, ptr %56, align 8, !tbaa !55
   %109 = sitofp i64 %108 to double
-  %110 = fmul reassoc nsz arcp contract afn double %109, 0x3EB0C6F7A0B5ED8D
+  %110 = fmul reassoc nnan nsz arcp contract afn double %109, 0x3EB0C6F7A0B5ED8D
   %111 = fadd reassoc nsz arcp contract afn double %110, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %112 = load double, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3384), align 8, !tbaa !100
@@ -1528,7 +1528,7 @@ _lighttable_silent.exit.i.i:                      ; preds = %154
   %160 = sitofp i64 %159 to double
   %161 = load i64, ptr %57, align 8, !tbaa !55
   %162 = sitofp i64 %161 to double
-  %163 = fmul reassoc nsz arcp contract afn double %162, 0x3EB0C6F7A0B5ED8D
+  %163 = fmul reassoc nnan nsz arcp contract afn double %162, 0x3EB0C6F7A0B5ED8D
   %164 = fadd reassoc nsz arcp contract afn double %163, %160
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %165 = load double, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3384), align 8, !tbaa !100
@@ -1722,7 +1722,7 @@ _lighttable_silent.exit.i31.i:                    ; preds = %254
   %260 = sitofp i64 %259 to double
   %261 = load i64, ptr %58, align 8, !tbaa !55
   %262 = sitofp i64 %261 to double
-  %263 = fmul reassoc nsz arcp contract afn double %262, 0x3EB0C6F7A0B5ED8D
+  %263 = fmul reassoc nnan nsz arcp contract afn double %262, 0x3EB0C6F7A0B5ED8D
   %264 = fadd reassoc nsz arcp contract afn double %263, %260
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %265 = load double, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3384), align 8, !tbaa !100

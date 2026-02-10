@@ -1153,7 +1153,7 @@ _ZN5Eigen16CommaInitializerINS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEcmERKd.exit55: ; 
   %.sroa.86.56.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i = insertelement <2 x double> %.sroa.86.48.vec.insert.i.i.i.i.i.i.i.i.i.i.i.i, double %86, i64 1
   %87 = fmul <2 x double> %67, zeroinitializer
   %shift151 = shufflevector <2 x double> %87, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop152 = fadd <2 x double> %87, %shift151
+  %foldExtExtBinop152 = fadd ninf <2 x double> %87, %shift151
   %88 = extractelement <2 x double> %foldExtExtBinop152, i64 0
   %89 = fadd double %24, %88
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 16

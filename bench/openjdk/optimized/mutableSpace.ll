@@ -380,13 +380,13 @@ define hidden void @_ZN12MutableSpace10initializeE9MemRegionbbbP13WorkerThreads(
   %41 = lshr i64 %35, 3
   %42 = uitofp nneg i64 %41 to float
   %43 = uitofp nneg i64 %.0 to float
-  %44 = fmul float %42, %43
+  %44 = fmul nnan float %42, %43
   %45 = uitofp nneg i64 %40 to float
   %46 = fdiv float %44, %45
   %47 = fptoui float %46 to i64
   %48 = call noundef i64 @llvm.umin.i64(i64 %47, i64 %.0)
   %49 = uitofp nneg i64 %.031 to float
-  %50 = fmul float %42, %49
+  %50 = fmul nnan float %42, %49
   %51 = fdiv float %50, %45
   %52 = fptoui float %51 to i64
   %53 = call noundef i64 @llvm.umin.i64(i64 %52, i64 %.031)
@@ -822,7 +822,7 @@ define hidden void @_ZNK12MutableSpace14print_short_onEP12outputStream(ptr nound
   %14 = tail call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   %15 = shl i64 %14, 3
   %16 = uitofp i64 %15 to double
-  %17 = fmul double %16, 1.000000e+02
+  %17 = fmul nnan double %16, 1.000000e+02
   %18 = load ptr, ptr %3, align 8
   %19 = load ptr, ptr %5, align 8
   %20 = ptrtoint ptr %18 to i64
@@ -864,7 +864,7 @@ define hidden void @_ZNK12MutableSpace8print_onEP12outputStream(ptr noundef nonn
   %14 = tail call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
   %15 = shl i64 %14, 3
   %16 = uitofp i64 %15 to double
-  %17 = fmul double %16, 1.000000e+02
+  %17 = fmul nnan double %16, 1.000000e+02
   %18 = load ptr, ptr %3, align 8
   %19 = load ptr, ptr %5, align 8
   %20 = ptrtoint ptr %18 to i64

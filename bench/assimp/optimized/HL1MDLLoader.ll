@@ -9386,7 +9386,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EE6resizeEm.exit420: ; preds = %816, %_ZSt27__
   %966 = getelementptr inbounds nuw i8, ptr %965, i64 68
   %967 = load i32, ptr %966, align 1
   %968 = sitofp i32 %967 to float
-  %969 = fdiv float 1.000000e+00, %968
+  %969 = fdiv nnan float 1.000000e+00, %968
   %970 = getelementptr inbounds nuw i8, ptr %965, i64 72
   %971 = load i32, ptr %970, align 1
   %972 = sitofp i32 %971 to float
@@ -10624,7 +10624,7 @@ _ZNSt6vectorIN6Assimp3MDL8HalfLife11HL1MeshFaceESaIS3_EE9push_backEOS3_.exit502:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %1439, i8 0, i64 %1443, i1 false)
   %1444 = getelementptr inbounds nuw i8, ptr %1398, i64 112
   store ptr %1439, ptr %1444, align 8
-  %1445 = fdiv float -1.000000e+00, %972
+  %1445 = fdiv nnan float -1.000000e+00, %972
   br label %1457
 
 ._crit_edge2204:                                  ; preds = %1457

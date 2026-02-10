@@ -1841,7 +1841,7 @@ _ZN2cv10AutoBufferIjLm264EED2Ev.exit315:          ; preds = %_ZN2cv10AutoBufferI
   br i1 %293, label %308, label %294
 
 294:                                              ; preds = %292
-  %295 = fmul double %282, 1.000000e+04
+  %295 = fmul nnan double %282, 1.000000e+04
   %296 = fptoui double %295 to i32
   %297 = uitofp i32 %296 to double
   %298 = fdiv double %297, 1.000000e+04
@@ -1876,7 +1876,7 @@ _ZN2cv10AutoBufferIjLm264EED2Ev.exit315:          ; preds = %_ZN2cv10AutoBufferI
   br i1 %313, label %328, label %314
 
 314:                                              ; preds = %312
-  %315 = fmul double %285, 1.000000e+04
+  %315 = fmul nnan double %285, 1.000000e+04
   %316 = fptoui double %315 to i32
   %317 = uitofp i32 %316 to double
   %318 = fdiv double %317, 1.000000e+04
@@ -1911,7 +1911,7 @@ _ZN2cv10AutoBufferIjLm264EED2Ev.exit315:          ; preds = %_ZN2cv10AutoBufferI
   br i1 %333, label %348, label %334
 
 334:                                              ; preds = %332
-  %335 = fmul double %288, 1.000000e+04
+  %335 = fmul nnan double %288, 1.000000e+04
   %336 = fptoui double %335 to i32
   %337 = uitofp i32 %336 to double
   %338 = fdiv double %337, 1.000000e+04
@@ -1937,9 +1937,9 @@ _ZN2cv10AutoBufferIjLm264EED2Ev.exit315:          ; preds = %_ZN2cv10AutoBufferI
   %349 = fadd double %.0260, %.0258
   %350 = fmul double %.0258, %.0258
   %351 = call double @llvm.fmuladd.f64(double %.0260, double %.0260, double %350)
-  %352 = fmul double %.0259, 4.000000e+00
+  %352 = fmul nnan double %.0259, 4.000000e+00
   %353 = call double @llvm.fmuladd.f64(double %352, double %.0259, double %351)
-  %354 = fmul double %.0260, -2.000000e+00
+  %354 = fmul nnan double %.0260, -2.000000e+00
   %355 = call double @llvm.fmuladd.f64(double %354, double %.0258, double %353)
   %356 = call double @sqrt(double noundef %355) #24, !tbaa !21
   %357 = fsub double %349, %356

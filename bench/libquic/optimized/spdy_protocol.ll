@@ -314,8 +314,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i: ; preds = %7
 _ZN3net18ClampSpdy3PriorityEh.exit:               ; preds = %1, %5, %.critedge.i
   %.020.i = phi i8 [ %0, %1 ], [ 7, %5 ], [ 7, %.critedge.i ]
   %13 = uitofp nneg i8 %.020.i to float
-  %14 = fsub float 7.000000e+00, %13
-  %15 = fmul float %14, 0x4042475060000000
+  %14 = fsub nnan float 7.000000e+00, %13
+  %15 = fmul nnan float %14, 0x4042475060000000
   %16 = fptosi float %15 to i32
   %17 = add nsw i32 %16, 1
   ret i32 %17

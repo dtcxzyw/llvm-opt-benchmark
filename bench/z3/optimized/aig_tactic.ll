@@ -1543,7 +1543,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
 208:                                              ; preds = %205
   %209 = uitofp i32 %207 to double
   %210 = uitofp i32 %204 to double
-  %211 = fmul double %210, 1.200000e+00
+  %211 = fmul nnan double %210, 1.200000e+00
   %212 = fcmp ult double %211, %209
   br i1 %212, label %227, label %213
 
@@ -1690,7 +1690,7 @@ _Z6mk_andRK10ref_vectorI4expr11ast_managerE.exit: ; preds = %_ZN11ast_manager7in
 264:                                              ; preds = %261
   %265 = uitofp i32 %263 to double
   %266 = uitofp i32 %260 to double
-  %267 = fmul double %266, 1.200000e+00
+  %267 = fmul nnan double %266, 1.200000e+00
   %268 = fcmp uge double %267, %265
   %.pre = load ptr, ptr %9, align 8, !tbaa !141
   %.not.i95 = icmp eq ptr %.pre, %247

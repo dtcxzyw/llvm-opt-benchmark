@@ -1843,7 +1843,7 @@ invoke.cont162:                                   ; preds = %for.body.i173, %inv
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
   %sub.ptr.div.i.i = ashr exact i64 %sub.ptr.sub.i.i, 3
   %conv.i = uitofp i64 %sub.ptr.div.i.i to double
-  %mul.i179 = fmul double %conv.i, 2.000000e+00
+  %mul.i179 = fmul nnan double %conv.i, 2.000000e+00
   %div15.i = fdiv double %retval2.0.lcssa.i, %mul.i179
   br label %if.end164
 
@@ -2613,7 +2613,7 @@ invoke.cont179:                                   ; preds = %for.body.i338, %inv
   %sub.ptr.sub.i.i353 = sub i64 %sub.ptr.lhs.cast.i.i351, %sub.ptr.rhs.cast.i.i352
   %sub.ptr.div.i.i354 = ashr exact i64 %sub.ptr.sub.i.i353, 3
   %conv.i355 = uitofp i64 %sub.ptr.div.i.i354 to double
-  %mul.i356 = fmul double %conv.i355, 2.000000e+00
+  %mul.i356 = fmul nnan double %conv.i355, 2.000000e+00
   %div15.i357 = fdiv double %retval2.0.lcssa.i350, %mul.i356
   br label %if.end181
 
@@ -2781,7 +2781,7 @@ invoke.cont231:                                   ; preds = %for.body.i424, %if.
   %sub.ptr.sub.i.i439 = sub i64 %sub.ptr.lhs.cast.i.i437, %sub.ptr.rhs.cast.i.i438
   %sub.ptr.div.i.i440 = ashr exact i64 %sub.ptr.sub.i.i439, 3
   %conv.i441 = uitofp i64 %sub.ptr.div.i.i440 to double
-  %mul.i442 = fmul double %conv.i441, 2.000000e+00
+  %mul.i442 = fmul nnan double %conv.i441, 2.000000e+00
   %div15.i443 = fdiv double %retval2.0.lcssa.i436, %mul.i442
   %cmp.i445 = fcmp olt double %div15.i443, %fCost1.0
   %.sroa.speculated637 = select i1 %cmp.i445, double %div15.i443, double %fCost1.0
@@ -2974,7 +2974,7 @@ invoke.cont264:                                   ; preds = %for.body.i497, %if.
   %sub.ptr.sub.i.i512 = sub i64 %sub.ptr.lhs.cast.i.i510, %sub.ptr.rhs.cast.i.i511
   %sub.ptr.div.i.i513 = ashr exact i64 %sub.ptr.sub.i.i512, 3
   %conv.i514 = uitofp i64 %sub.ptr.div.i.i513 to double
-  %mul.i515 = fmul double %conv.i514, 2.000000e+00
+  %mul.i515 = fmul nnan double %conv.i514, 2.000000e+00
   %div15.i516 = fdiv double %retval2.0.lcssa.i509, %mul.i515
   %cmp.i518 = fcmp olt double %div15.i516, %fCost2.0
   %.sroa.speculated = select i1 %cmp.i518, double %div15.i516, double %fCost2.0
@@ -3713,7 +3713,7 @@ do.end:                                           ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 4
   %conv = uitofp i64 %sub.ptr.div.i to double
-  %div = fdiv double 1.000000e+00, %conv
+  %div = fdiv nnan double 1.000000e+00, %conv
   %conv35 = uitofp i64 %sub.ptr.div.i.i.i to double
   br label %for.body
 
@@ -3772,7 +3772,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %conv = uitofp i64 %sub.ptr.div.i to double
-  %mul = fmul double %conv, 2.000000e+00
+  %mul = fmul nnan double %conv, 2.000000e+00
   %div15 = fdiv double %retval2.0.lcssa, %mul
   ret double %div15
 
@@ -4809,7 +4809,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %arrayidx.i8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %conv = uitofp i64 %sub.ptr.div.i to double
-  %mul = fmul double %conv, 2.000000e+00
+  %mul = fmul nnan double %conv, 2.000000e+00
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body, %_ZN8QuantLib5ArrayC2Em.exit.thread
@@ -4879,7 +4879,7 @@ for.body.lr.ph:                                   ; preds = %_ZSt4fillIPddEvT_S1
 
 for.cond.cleanup:                                 ; preds = %for.body, %_ZSt4fillIPddEvT_S1_RKT0_.exit
   %conv = uitofp i64 %sub.ptr.div.i to double
-  %mul = fmul double %conv, 2.000000e+00
+  %mul = fmul nnan double %conv, 2.000000e+00
   br i1 %cmp.not3.i.i.i, label %"_ZSt9transformIPdS0_ZNK8QuantLib12_GLOBAL__N_119Garch11CostFunction8gradientERNS1_5ArrayERKS4_E3$_0ET0_T_SA_S9_T1_.exit", label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.cleanup, %for.body.i
@@ -4963,7 +4963,7 @@ for.body.lr.ph:                                   ; preds = %_ZSt4fillIPddEvT_S1
 for.cond.cleanup:                                 ; preds = %for.body, %_ZSt4fillIPddEvT_S1_RKT0_.exit
   %retval3.0.lcssa = phi double [ 0.000000e+00, %_ZSt4fillIPddEvT_S1_RKT0_.exit ], [ %add17, %for.body ]
   %conv = uitofp i64 %sub.ptr.div.i to double
-  %mul = fmul double %conv, 2.000000e+00
+  %mul = fmul nnan double %conv, 2.000000e+00
   br i1 %cmp.not3.i.i.i, label %"_ZSt9transformIPdS0_ZNK8QuantLib12_GLOBAL__N_119Garch11CostFunction16valueAndGradientERNS1_5ArrayERKS4_E3$_0ET0_T_SA_S9_T1_.exit", label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.cleanup, %for.body.i

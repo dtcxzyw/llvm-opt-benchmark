@@ -3262,7 +3262,7 @@ cond.false.i546:                                  ; preds = %invoke.cont463
 
 invoke.cont465:                                   ; preds = %.noexc548, %invoke.cont463
   %327 = phi ptr [ %326, %invoke.cont463 ], [ %.pre.i547, %.noexc548 ]
-  %mul467 = fmul double %call175, 1.000000e-02
+  %mul467 = fmul nnan double %call175, 1.000000e-02
   %call469 = invoke noundef double @_ZNK8QuantLib19FdmSimple2dBSSolver7deltaAtEddd(ptr noundef nonnull align 8 dereferenceable(176) %327, double noundef %call175, double noundef %cond, double noundef %mul467)
           to label %invoke.cont468 unwind label %lpad460
 

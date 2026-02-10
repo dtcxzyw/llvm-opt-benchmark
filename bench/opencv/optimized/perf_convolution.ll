@@ -2819,7 +2819,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit379: ; preds = %_ZNS
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit381: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit379
   %523 = uitofp nneg i64 %437 to double
-  %524 = fmul double %523, 0x3EB0C6F7A0B5ED8D
+  %524 = fmul nnan double %523, 0x3EB0C6F7A0B5ED8D
   %525 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %520, double noundef %524)
           to label %_ZNSolsEd.exit unwind label %550
 

@@ -119,7 +119,7 @@ define internal noundef i32 @sipr_decoder_init(ptr noundef %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = trunc nuw nsw i64 %indvars.iv.next to i32
   %36 = uitofp nneg i32 %35 to double
-  %37 = fmul nsz double %36, 0x400921FB54442D18
+  %37 = fmul nnan nsz double %36, 0x400921FB54442D18
   %38 = fdiv nsz double %37, 1.100000e+01
   %39 = tail call nsz double @llvm.cos.f64(double %38)
   %40 = fptrunc nsz double %39 to float
@@ -490,7 +490,7 @@ lsf_decode_fp.exit:                               ; preds = %56
   %68 = uitofp i8 %24 to double
   %69 = fdiv nsz double 1.000000e+00, %68
   %70 = fptrunc nsz double %69 to float
-  %71 = fmul nsz float %70, 5.000000e-01
+  %71 = fmul nnan nsz float %70, 5.000000e-01
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %82, %lsf_decode_fp.exit

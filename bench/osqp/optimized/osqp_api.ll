@@ -2528,7 +2528,7 @@ define i64 @osqp_update_rho(ptr noundef readonly captures(address_is_null) %0, d
   %39 = load ptr, ptr %38, align 8, !tbaa !67
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !69
-  %42 = fmul double %32, 1.000000e+03
+  %42 = fmul nnan double %32, 1.000000e+03
   tail call void @OSQPVectorf_set_scalar_conditional(ptr noundef %39, ptr noundef %41, double noundef 0x3EB0C6F7A0B5ED8D, double noundef %32, double noundef %42) #15
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %44 = load ptr, ptr %43, align 8, !tbaa !68

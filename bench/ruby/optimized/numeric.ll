@@ -6997,7 +6997,7 @@ rb_integer_type_p.exit.thread24:                  ; preds = %16, %16, %6, %18, %
 
 40:                                               ; preds = %38
   %41 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %35)
-  %42 = fmul double %41, %34
+  %42 = fmul nnan double %41, %34
   %43 = fmul double %42, 0x7FF0000000000000
   br label %fix_fdiv_double.exit
 

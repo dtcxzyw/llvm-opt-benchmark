@@ -8987,7 +8987,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_17Context12printSummaryERKNS_7Summ
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8, !tbaa !374
   %9 = uitofp i64 %8 to double
-  %10 = fmul double %9, 1.000000e+02
+  %10 = fmul nnan double %9, 1.000000e+02
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !376
   %13 = uitofp i64 %12 to double
@@ -9040,7 +9040,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_17Context12printSummaryERKNS_7Summ
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %43 = load i64, ptr %42, align 8, !tbaa !386
   %44 = uitofp i64 %43 to double
-  %45 = fmul double %44, 1.000000e+02
+  %45 = fmul nnan double %44, 1.000000e+02
   %46 = uitofp i64 %25 to double
   %47 = fdiv double %45, %46
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -9056,7 +9056,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_17Context12printSummaryERKNS_7Summ
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %53 = load i64, ptr %52, align 8, !tbaa !390
   %54 = uitofp i64 %53 to double
-  %55 = fmul double %54, 1.000000e+02
+  %55 = fmul nnan double %54, 1.000000e+02
   %56 = load i64, ptr %24, align 8, !tbaa !385
   %57 = uitofp i64 %56 to double
   %58 = fdiv double %55, %57

@@ -1057,7 +1057,7 @@ define internal ptr @Type_U16Fixed16_Read(ptr noundef readonly captures(none) %0
 14:                                               ; preds = %.lr.ph
   %15 = load i32, ptr %5, align 4
   %16 = uitofp i32 %15 to double
-  %17 = fmul double %16, 0x3EF0000000000000
+  %17 = fmul nnan double %16, 0x3EF0000000000000
   %18 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
   store double %17, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

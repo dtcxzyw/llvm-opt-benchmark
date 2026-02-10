@@ -855,9 +855,9 @@ define void @xSAT_SolverAddVariable(ptr noundef readonly captures(none) %0, i32 
 
 35:                                               ; preds = %26
   %36 = sitofp i32 %27 to double
-  %37 = fmul double %36, 0x3EB0000000000000
+  %37 = fmul nnan double %36, 0x3EB0000000000000
   %38 = sitofp i32 %17 to double
-  %39 = fmul double %38, 0x3EB0000000000000
+  %39 = fmul nnan double %38, 0x3EB0000000000000
   %40 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, double noundef %37, double noundef %39)
   %41 = load ptr, ptr @stdout, align 8, !tbaa !93
   %42 = tail call i32 @fflush(ptr noundef %41)
@@ -918,9 +918,9 @@ xSAT_VecWatchListPush.exit:                       ; preds = %2, %43
 
 74:                                               ; preds = %65
   %75 = sitofp i32 %66 to double
-  %76 = fmul double %75, 0x3EB0000000000000
+  %76 = fmul nnan double %75, 0x3EB0000000000000
   %77 = sitofp i32 %56 to double
-  %78 = fmul double %77, 0x3EB0000000000000
+  %78 = fmul nnan double %77, 0x3EB0000000000000
   %79 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, double noundef %76, double noundef %78)
   %80 = load ptr, ptr @stdout, align 8, !tbaa !93
   %81 = tail call i32 @fflush(ptr noundef %80)
@@ -980,9 +980,9 @@ xSAT_VecWatchListPush.exit17:                     ; preds = %xSAT_VecWatchListPu
 
 114:                                              ; preds = %105
   %115 = sitofp i32 %106 to double
-  %116 = fmul double %115, 0x3EB0000000000000
+  %116 = fmul nnan double %115, 0x3EB0000000000000
   %117 = sitofp i32 %96 to double
-  %118 = fmul double %117, 0x3EB0000000000000
+  %118 = fmul nnan double %117, 0x3EB0000000000000
   %119 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, double noundef %116, double noundef %118)
   %120 = load ptr, ptr @stdout, align 8, !tbaa !93
   %121 = tail call i32 @fflush(ptr noundef %120)
@@ -1043,9 +1043,9 @@ xSAT_VecWatchListPush.exit21:                     ; preds = %xSAT_VecWatchListPu
 
 153:                                              ; preds = %144
   %154 = sitofp i32 %145 to double
-  %155 = fmul double %154, 0x3EB0000000000000
+  %155 = fmul nnan double %154, 0x3EB0000000000000
   %156 = sitofp i32 %135 to double
-  %157 = fmul double %156, 0x3EB0000000000000
+  %157 = fmul nnan double %156, 0x3EB0000000000000
   %158 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12, double noundef %155, double noundef %157)
   %159 = load ptr, ptr @stdout, align 8, !tbaa !93
   %160 = tail call i32 @fflush(ptr noundef %159)

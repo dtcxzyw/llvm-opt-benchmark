@@ -1443,7 +1443,7 @@ dt_sRGB_to_XYZ.exit.i.us:                         ; preds = %625
   %653 = bitcast i32 %652 to float
   %654 = fmul reassoc nsz arcp contract afn float %653, %653
   %655 = fmul reassoc nsz arcp contract afn float %654, %653
-  %factor.i.i.i.i.us = fmul reassoc nsz arcp contract afn float %644, 2.000000e+00
+  %factor.i.i.i.i.us = fmul reassoc nnan nsz arcp contract afn float %644, 2.000000e+00
   %656 = fadd reassoc nsz arcp contract afn float %655, %factor.i.i.i.i.us
   %657 = fmul reassoc nsz arcp contract afn float %656, %653
   %factor11.i.i.i.i.us = fmul reassoc nsz arcp contract afn float %655, 2.000000e+00
@@ -1569,15 +1569,15 @@ _process_legacy.exit.us:                          ; preds = %dt_XYZ_to_Lab.exit.
   %725 = and <4 x i32> %720, splat (i32 8388607)
   %726 = or disjoint <4 x i32> %725, splat (i32 1065353216)
   %727 = bitcast <4 x i32> %726 to <4 x float>
-  %728 = fmul reassoc nsz arcp contract afn <4 x float> %727, splat (float 0x3FAE8AA5E0000000)
-  %729 = fadd reassoc nsz arcp contract afn <4 x float> %728, splat (float 0xBFDDCE72E0000000)
-  %730 = fmul reassoc nsz arcp contract afn <4 x float> %729, %727
-  %731 = fadd reassoc nsz arcp contract afn <4 x float> %730, splat (float 0x3FF7B2DBA0000000)
-  %732 = fmul reassoc nsz arcp contract afn <4 x float> %731, %727
-  %733 = fadd reassoc nsz arcp contract afn <4 x float> %732, splat (float 0xC0042A7EC0000000)
-  %734 = fmul reassoc nsz arcp contract afn <4 x float> %733, %727
-  %735 = fadd reassoc nsz arcp contract afn <4 x float> %734, splat (float 0x40071B2D80000000)
-  %736 = fadd reassoc nsz arcp contract afn <4 x float> %727, splat (float -1.000000e+00)
+  %728 = fmul reassoc nnan nsz arcp contract afn <4 x float> %727, splat (float 0x3FAE8AA5E0000000)
+  %729 = fadd reassoc nnan nsz arcp contract afn <4 x float> %728, splat (float 0xBFDDCE72E0000000)
+  %730 = fmul reassoc nnan nsz arcp contract afn <4 x float> %729, %727
+  %731 = fadd reassoc nnan nsz arcp contract afn <4 x float> %730, splat (float 0x3FF7B2DBA0000000)
+  %732 = fmul reassoc nnan nsz arcp contract afn <4 x float> %731, %727
+  %733 = fadd reassoc nnan nsz arcp contract afn <4 x float> %732, splat (float 0xC0042A7EC0000000)
+  %734 = fmul reassoc nnan nsz arcp contract afn <4 x float> %733, %727
+  %735 = fadd reassoc nnan nsz arcp contract afn <4 x float> %734, splat (float 0x40071B2D80000000)
+  %736 = fadd reassoc nnan nsz arcp contract afn <4 x float> %727, splat (float -1.000000e+00)
   %737 = fmul reassoc nsz arcp contract afn <4 x float> %735, %736
   %738 = fadd reassoc nsz arcp contract afn <4 x float> %737, %724
   %739 = fmul reassoc nsz arcp contract afn <4 x float> %738, splat (float 0x3FDD1745C0000000)
@@ -1612,15 +1612,15 @@ _process_legacy.exit.us:                          ; preds = %dt_XYZ_to_Lab.exit.
   %768 = and <4 x i32> %763, splat (i32 8388607)
   %769 = or disjoint <4 x i32> %768, splat (i32 1065353216)
   %770 = bitcast <4 x i32> %769 to <4 x float>
-  %771 = fmul reassoc nsz arcp contract afn <4 x float> %770, splat (float 0x3FAE8AA5E0000000)
-  %772 = fadd reassoc nsz arcp contract afn <4 x float> %771, splat (float 0xBFDDCE72E0000000)
-  %773 = fmul reassoc nsz arcp contract afn <4 x float> %772, %770
-  %774 = fadd reassoc nsz arcp contract afn <4 x float> %773, splat (float 0x3FF7B2DBA0000000)
-  %775 = fmul reassoc nsz arcp contract afn <4 x float> %774, %770
-  %776 = fadd reassoc nsz arcp contract afn <4 x float> %775, splat (float 0xC0042A7EC0000000)
-  %777 = fmul reassoc nsz arcp contract afn <4 x float> %776, %770
-  %778 = fadd reassoc nsz arcp contract afn <4 x float> %777, splat (float 0x40071B2D80000000)
-  %779 = fadd reassoc nsz arcp contract afn <4 x float> %770, splat (float -1.000000e+00)
+  %771 = fmul reassoc nnan nsz arcp contract afn <4 x float> %770, splat (float 0x3FAE8AA5E0000000)
+  %772 = fadd reassoc nnan nsz arcp contract afn <4 x float> %771, splat (float 0xBFDDCE72E0000000)
+  %773 = fmul reassoc nnan nsz arcp contract afn <4 x float> %772, %770
+  %774 = fadd reassoc nnan nsz arcp contract afn <4 x float> %773, splat (float 0x3FF7B2DBA0000000)
+  %775 = fmul reassoc nnan nsz arcp contract afn <4 x float> %774, %770
+  %776 = fadd reassoc nnan nsz arcp contract afn <4 x float> %775, splat (float 0xC0042A7EC0000000)
+  %777 = fmul reassoc nnan nsz arcp contract afn <4 x float> %776, %770
+  %778 = fadd reassoc nnan nsz arcp contract afn <4 x float> %777, splat (float 0x40071B2D80000000)
+  %779 = fadd reassoc nnan nsz arcp contract afn <4 x float> %770, splat (float -1.000000e+00)
   %780 = fmul reassoc nsz arcp contract afn <4 x float> %778, %779
   %781 = fadd reassoc nsz arcp contract afn <4 x float> %780, %767
   %782 = fmul reassoc nsz arcp contract afn <4 x float> %781, %.sroa.0.12.vec.insert
@@ -1675,15 +1675,15 @@ _process_legacy.exit.us:                          ; preds = %dt_XYZ_to_Lab.exit.
   %824 = and <4 x i32> %819, splat (i32 8388607)
   %825 = or disjoint <4 x i32> %824, splat (i32 1065353216)
   %826 = bitcast <4 x i32> %825 to <4 x float>
-  %827 = fmul reassoc nsz arcp contract afn <4 x float> %826, splat (float 0x3FAE8AA5E0000000)
-  %828 = fadd reassoc nsz arcp contract afn <4 x float> %827, splat (float 0xBFDDCE72E0000000)
-  %829 = fmul reassoc nsz arcp contract afn <4 x float> %828, %826
-  %830 = fadd reassoc nsz arcp contract afn <4 x float> %829, splat (float 0x3FF7B2DBA0000000)
-  %831 = fmul reassoc nsz arcp contract afn <4 x float> %830, %826
-  %832 = fadd reassoc nsz arcp contract afn <4 x float> %831, splat (float 0xC0042A7EC0000000)
-  %833 = fmul reassoc nsz arcp contract afn <4 x float> %832, %826
-  %834 = fadd reassoc nsz arcp contract afn <4 x float> %833, splat (float 0x40071B2D80000000)
-  %835 = fadd reassoc nsz arcp contract afn <4 x float> %826, splat (float -1.000000e+00)
+  %827 = fmul reassoc nnan nsz arcp contract afn <4 x float> %826, splat (float 0x3FAE8AA5E0000000)
+  %828 = fadd reassoc nnan nsz arcp contract afn <4 x float> %827, splat (float 0xBFDDCE72E0000000)
+  %829 = fmul reassoc nnan nsz arcp contract afn <4 x float> %828, %826
+  %830 = fadd reassoc nnan nsz arcp contract afn <4 x float> %829, splat (float 0x3FF7B2DBA0000000)
+  %831 = fmul reassoc nnan nsz arcp contract afn <4 x float> %830, %826
+  %832 = fadd reassoc nnan nsz arcp contract afn <4 x float> %831, splat (float 0xC0042A7EC0000000)
+  %833 = fmul reassoc nnan nsz arcp contract afn <4 x float> %832, %826
+  %834 = fadd reassoc nnan nsz arcp contract afn <4 x float> %833, splat (float 0x40071B2D80000000)
+  %835 = fadd reassoc nnan nsz arcp contract afn <4 x float> %826, splat (float -1.000000e+00)
   %836 = fmul reassoc nsz arcp contract afn <4 x float> %834, %835
   %837 = fadd reassoc nsz arcp contract afn <4 x float> %836, %823
   %838 = fmul reassoc nsz arcp contract afn <4 x float> %837, %.sroa.0174.12.vec.insert
@@ -1722,7 +1722,7 @@ _process_legacy.exit.us:                          ; preds = %dt_XYZ_to_Lab.exit.
   %868 = fmul reassoc nsz arcp contract afn <4 x float> %866, <float 0x3FF09814C0000000, float 1.000000e+00, float 0x3FF3657360000000, float 1.000000e+00>
   %869 = bitcast <4 x float> %868 to <4 x i32>
   %870 = sitofp <4 x i32> %869 to <4 x float>
-  %871 = fmul reassoc nsz arcp contract afn <4 x float> %870, splat (float 0x3FD5555560000000)
+  %871 = fmul reassoc nnan nsz arcp contract afn <4 x float> %870, splat (float 0x3FD5555560000000)
   %872 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %871)
   %873 = add <4 x i32> %872, splat (i32 709921077)
   %874 = bitcast <4 x i32> %873 to <4 x float>
@@ -1808,15 +1808,15 @@ _process_legacy.exit.us183:                       ; preds = %858, %686
   %932 = and <4 x i32> %927, splat (i32 8388607)
   %933 = or disjoint <4 x i32> %932, splat (i32 1065353216)
   %934 = bitcast <4 x i32> %933 to <4 x float>
-  %935 = fmul reassoc nsz arcp contract afn <4 x float> %934, splat (float 0x3FAE8AA5E0000000)
-  %936 = fadd reassoc nsz arcp contract afn <4 x float> %935, splat (float 0xBFDDCE72E0000000)
-  %937 = fmul reassoc nsz arcp contract afn <4 x float> %936, %934
-  %938 = fadd reassoc nsz arcp contract afn <4 x float> %937, splat (float 0x3FF7B2DBA0000000)
-  %939 = fmul reassoc nsz arcp contract afn <4 x float> %938, %934
-  %940 = fadd reassoc nsz arcp contract afn <4 x float> %939, splat (float 0xC0042A7EC0000000)
-  %941 = fmul reassoc nsz arcp contract afn <4 x float> %940, %934
-  %942 = fadd reassoc nsz arcp contract afn <4 x float> %941, splat (float 0x40071B2D80000000)
-  %943 = fadd reassoc nsz arcp contract afn <4 x float> %934, splat (float -1.000000e+00)
+  %935 = fmul reassoc nnan nsz arcp contract afn <4 x float> %934, splat (float 0x3FAE8AA5E0000000)
+  %936 = fadd reassoc nnan nsz arcp contract afn <4 x float> %935, splat (float 0xBFDDCE72E0000000)
+  %937 = fmul reassoc nnan nsz arcp contract afn <4 x float> %936, %934
+  %938 = fadd reassoc nnan nsz arcp contract afn <4 x float> %937, splat (float 0x3FF7B2DBA0000000)
+  %939 = fmul reassoc nnan nsz arcp contract afn <4 x float> %938, %934
+  %940 = fadd reassoc nnan nsz arcp contract afn <4 x float> %939, splat (float 0xC0042A7EC0000000)
+  %941 = fmul reassoc nnan nsz arcp contract afn <4 x float> %940, %934
+  %942 = fadd reassoc nnan nsz arcp contract afn <4 x float> %941, splat (float 0x40071B2D80000000)
+  %943 = fadd reassoc nnan nsz arcp contract afn <4 x float> %934, splat (float -1.000000e+00)
   %944 = fmul reassoc nsz arcp contract afn <4 x float> %942, %943
   %945 = fadd reassoc nsz arcp contract afn <4 x float> %944, %931
   %946 = fmul reassoc nsz arcp contract afn <4 x float> %945, %.sroa.0170.12.vec.insert
@@ -1871,15 +1871,15 @@ _process_legacy.exit.us183:                       ; preds = %858, %686
   %988 = and <4 x i32> %983, splat (i32 8388607)
   %989 = or disjoint <4 x i32> %988, splat (i32 1065353216)
   %990 = bitcast <4 x i32> %989 to <4 x float>
-  %991 = fmul reassoc nsz arcp contract afn <4 x float> %990, splat (float 0x3FAE8AA5E0000000)
-  %992 = fadd reassoc nsz arcp contract afn <4 x float> %991, splat (float 0xBFDDCE72E0000000)
-  %993 = fmul reassoc nsz arcp contract afn <4 x float> %992, %990
-  %994 = fadd reassoc nsz arcp contract afn <4 x float> %993, splat (float 0x3FF7B2DBA0000000)
-  %995 = fmul reassoc nsz arcp contract afn <4 x float> %994, %990
-  %996 = fadd reassoc nsz arcp contract afn <4 x float> %995, splat (float 0xC0042A7EC0000000)
-  %997 = fmul reassoc nsz arcp contract afn <4 x float> %996, %990
-  %998 = fadd reassoc nsz arcp contract afn <4 x float> %997, splat (float 0x40071B2D80000000)
-  %999 = fadd reassoc nsz arcp contract afn <4 x float> %990, splat (float -1.000000e+00)
+  %991 = fmul reassoc nnan nsz arcp contract afn <4 x float> %990, splat (float 0x3FAE8AA5E0000000)
+  %992 = fadd reassoc nnan nsz arcp contract afn <4 x float> %991, splat (float 0xBFDDCE72E0000000)
+  %993 = fmul reassoc nnan nsz arcp contract afn <4 x float> %992, %990
+  %994 = fadd reassoc nnan nsz arcp contract afn <4 x float> %993, splat (float 0x3FF7B2DBA0000000)
+  %995 = fmul reassoc nnan nsz arcp contract afn <4 x float> %994, %990
+  %996 = fadd reassoc nnan nsz arcp contract afn <4 x float> %995, splat (float 0xC0042A7EC0000000)
+  %997 = fmul reassoc nnan nsz arcp contract afn <4 x float> %996, %990
+  %998 = fadd reassoc nnan nsz arcp contract afn <4 x float> %997, splat (float 0x40071B2D80000000)
+  %999 = fadd reassoc nnan nsz arcp contract afn <4 x float> %990, splat (float -1.000000e+00)
   %1000 = fmul reassoc nsz arcp contract afn <4 x float> %998, %999
   %1001 = fadd reassoc nsz arcp contract afn <4 x float> %1000, %987
   %1002 = fmul reassoc nsz arcp contract afn <4 x float> %1001, %.sroa.0174.12.vec.insert
@@ -1918,7 +1918,7 @@ _process_legacy.exit.us183:                       ; preds = %858, %686
   %1032 = fmul reassoc nsz arcp contract afn <4 x float> %1030, <float 0x3FF09814C0000000, float 1.000000e+00, float 0x3FF3657360000000, float 1.000000e+00>
   %1033 = bitcast <4 x float> %1032 to <4 x i32>
   %1034 = sitofp <4 x i32> %1033 to <4 x float>
-  %1035 = fmul reassoc nsz arcp contract afn <4 x float> %1034, splat (float 0x3FD5555560000000)
+  %1035 = fmul reassoc nnan nsz arcp contract afn <4 x float> %1034, splat (float 0x3FD5555560000000)
   %1036 = tail call <4 x i32> @llvm.x86.sse2.cvtps2dq(<4 x float> %1035)
   %1037 = add <4 x i32> %1036, splat (i32 709921077)
   %1038 = bitcast <4 x i32> %1037 to <4 x float>
@@ -5732,7 +5732,7 @@ rgb2hsl.exit.thread:                              ; preds = %3, %rgb2hsl.exit
 
 70:                                               ; preds = %68
   %71 = fcmp reassoc nsz arcp contract afn olt float %66, 4.000000e+00
-  %72 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %66
+  %72 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %66
   %73 = select reassoc nsz arcp contract afn i1 %71, float %72, float 0.000000e+00
   br label %hue2rgb.exit.i.i
 
@@ -5746,7 +5746,7 @@ hue2rgb.exit.i.i:                                 ; preds = %70, %68, %rgb2hsl.e
   br i1 %76, label %hue2rgb.exit36.i.i, label %77
 
 77:                                               ; preds = %75
-  %78 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %64
+  %78 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %64
   %79 = select reassoc nsz arcp contract afn i1 %65, float %78, float 0.000000e+00
   br label %hue2rgb.exit36.i.i
 
@@ -5764,7 +5764,7 @@ hue2rgb.exit36.i.i:                               ; preds = %77, %75, %hue2rgb.e
 
 85:                                               ; preds = %83
   %86 = fcmp reassoc nsz arcp contract afn olt float %81, 4.000000e+00
-  %87 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %81
+  %87 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %81
   %88 = select reassoc nsz arcp contract afn i1 %86, float %87, float 0.000000e+00
   br label %update_saturation_slider_color.exit
 
@@ -6622,7 +6622,7 @@ define internal void @lift_callback(ptr noundef readnone captures(address) %0, p
 
 34:                                               ; preds = %32
   %35 = fcmp reassoc nsz arcp contract afn olt float %30, 4.000000e+00
-  %36 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %30
+  %36 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %30
   %37 = select reassoc nsz arcp contract afn i1 %35, float %36, float 0.000000e+00
   br label %hue2rgb.exit.i.i
 
@@ -6636,7 +6636,7 @@ hue2rgb.exit.i.i:                                 ; preds = %34, %32, %27
   br i1 %40, label %hue2rgb.exit36.i.i, label %41
 
 41:                                               ; preds = %39
-  %42 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %28
+  %42 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %28
   %43 = select reassoc nsz arcp contract afn i1 %29, float %42, float 0.000000e+00
   br label %hue2rgb.exit36.i.i
 
@@ -6654,7 +6654,7 @@ hue2rgb.exit36.i.i:                               ; preds = %41, %39, %hue2rgb.e
 
 49:                                               ; preds = %47
   %50 = fcmp reassoc nsz arcp contract afn olt float %45, 4.000000e+00
-  %51 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %45
+  %51 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %45
   %52 = select reassoc nsz arcp contract afn i1 %50, float %51, float 0.000000e+00
   br label %hsl2rgb.exit.i
 
@@ -6739,7 +6739,7 @@ define internal void @gamma_callback(ptr noundef readnone captures(address) %0, 
 
 34:                                               ; preds = %32
   %35 = fcmp reassoc nsz arcp contract afn olt float %30, 4.000000e+00
-  %36 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %30
+  %36 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %30
   %37 = select reassoc nsz arcp contract afn i1 %35, float %36, float 0.000000e+00
   br label %hue2rgb.exit.i.i
 
@@ -6753,7 +6753,7 @@ hue2rgb.exit.i.i:                                 ; preds = %34, %32, %27
   br i1 %40, label %hue2rgb.exit36.i.i, label %41
 
 41:                                               ; preds = %39
-  %42 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %28
+  %42 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %28
   %43 = select reassoc nsz arcp contract afn i1 %29, float %42, float 0.000000e+00
   br label %hue2rgb.exit36.i.i
 
@@ -6771,7 +6771,7 @@ hue2rgb.exit36.i.i:                               ; preds = %41, %39, %hue2rgb.e
 
 49:                                               ; preds = %47
   %50 = fcmp reassoc nsz arcp contract afn olt float %45, 4.000000e+00
-  %51 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %45
+  %51 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %45
   %52 = select reassoc nsz arcp contract afn i1 %50, float %51, float 0.000000e+00
   br label %hsl2rgb.exit.i
 
@@ -6854,7 +6854,7 @@ define internal void @gain_callback(ptr noundef readnone captures(address) %0, p
 
 34:                                               ; preds = %32
   %35 = fcmp reassoc nsz arcp contract afn olt float %30, 4.000000e+00
-  %36 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %30
+  %36 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %30
   %37 = select reassoc nsz arcp contract afn i1 %35, float %36, float 0.000000e+00
   br label %hue2rgb.exit.i.i
 
@@ -6868,7 +6868,7 @@ hue2rgb.exit.i.i:                                 ; preds = %34, %32, %27
   br i1 %40, label %hue2rgb.exit36.i.i, label %41
 
 41:                                               ; preds = %39
-  %42 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %28
+  %42 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %28
   %43 = select reassoc nsz arcp contract afn i1 %29, float %42, float 0.000000e+00
   br label %hue2rgb.exit36.i.i
 
@@ -6886,7 +6886,7 @@ hue2rgb.exit36.i.i:                               ; preds = %41, %39, %hue2rgb.e
 
 49:                                               ; preds = %47
   %50 = fcmp reassoc nsz arcp contract afn olt float %45, 4.000000e+00
-  %51 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %45
+  %51 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %45
   %52 = select reassoc nsz arcp contract afn i1 %50, float %51, float 0.000000e+00
   br label %hsl2rgb.exit.i
 
@@ -7284,7 +7284,7 @@ define internal fastcc void @set_RGB_sliders(ptr noundef %0, ptr noundef %1, ptr
 40:                                               ; preds = %38
   %41 = fcmp reassoc nsz arcp contract afn olt float %32, 4.000000e+00
   %42 = fsub reassoc nsz arcp contract afn float %25, %29
-  %43 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %32
+  %43 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %32
   %44 = fmul reassoc nsz arcp contract afn float %42, %43
   %45 = fadd reassoc nsz arcp contract afn float %44, %29
   %46 = select reassoc nsz arcp contract afn i1 %41, float %45, float %29
@@ -7307,7 +7307,7 @@ hue2rgb.exit.i:                                   ; preds = %40, %38, %34
 
 54:                                               ; preds = %52
   %55 = fsub reassoc nsz arcp contract afn float %25, %29
-  %56 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %30
+  %56 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %30
   %57 = fmul reassoc nsz arcp contract afn float %55, %56
   %58 = fadd reassoc nsz arcp contract afn float %57, %29
   %59 = select reassoc nsz arcp contract afn i1 %31, float %58, float %29
@@ -7334,7 +7334,7 @@ hue2rgb.exit36.i:                                 ; preds = %54, %52, %48
 69:                                               ; preds = %67
   %70 = fcmp reassoc nsz arcp contract afn olt float %61, 4.000000e+00
   %71 = fsub reassoc nsz arcp contract afn float %25, %29
-  %72 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %61
+  %72 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %61
   %73 = fmul reassoc nsz arcp contract afn float %71, %72
   %74 = fadd reassoc nsz arcp contract afn float %73, %29
   %75 = select reassoc nsz arcp contract afn i1 %70, float %74, float %29

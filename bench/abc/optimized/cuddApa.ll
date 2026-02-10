@@ -613,7 +613,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Cudd_ApaPrintDecimal(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #11 {
   %4 = sitofp i32 %1 to double
-  %5 = fmul double %4, 0x40234413509F79FF
+  %5 = fmul nnan double %4, 0x40234413509F79FF
   %6 = fptosi double %5 to i32
   %7 = sext i32 %1 to i64
   %8 = shl nsw i64 %7, 2
@@ -731,7 +731,7 @@ Cudd_ApaCopy.exit.thread:                         ; preds = %16
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Cudd_ApaPrintExponential(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #11 {
   %5 = sitofp i32 %1 to double
-  %6 = fmul double %5, 0x40234413509F79FF
+  %6 = fmul nnan double %5, 0x40234413509F79FF
   %7 = fptosi double %6 to i32
   %8 = add i32 %7, 1
   %9 = sext i32 %1 to i64

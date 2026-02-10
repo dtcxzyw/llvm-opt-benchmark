@@ -12637,14 +12637,14 @@ define linkonce_odr hidden void @_ZNK6open3d8geometry9VoxelGrid24GetVoxelCenterC
   %9 = load double, ptr %8, align 8, !tbaa !430, !noalias !432
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %11 = sitofp i32 %.sroa.028.0.copyload to double
-  %12 = fadd double %11, 5.000000e-01
+  %12 = fadd nnan double %11, 5.000000e-01
   %13 = fmul double %12, %9
   %14 = load double, ptr %10, align 8, !tbaa !430
   %15 = fadd double %14, %13
   store double %15, ptr %0, align 8, !tbaa !430
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = sitofp i32 %.sroa.529.0.copyload to double
-  %18 = fadd double %17, 5.000000e-01
+  %18 = fadd nnan double %17, 5.000000e-01
   %19 = fmul double %9, %18
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %21 = load double, ptr %20, align 8, !tbaa !430
@@ -12652,7 +12652,7 @@ define linkonce_odr hidden void @_ZNK6open3d8geometry9VoxelGrid24GetVoxelCenterC
   store double %22, ptr %16, align 8, !tbaa !430
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = sitofp i32 %.sroa.6.0.copyload to double
-  %25 = fadd double %24, 5.000000e-01
+  %25 = fadd nnan double %24, 5.000000e-01
   %26 = fmul double %9, %25
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %28 = load double, ptr %27, align 8, !tbaa !430

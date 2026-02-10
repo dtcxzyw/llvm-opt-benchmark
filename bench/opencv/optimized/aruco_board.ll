@@ -7229,7 +7229,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %99, %
   %108 = fdiv float %3, %107
   %109 = fsub float %2, %3
   %110 = fmul float %109, 5.000000e-01
-  %111 = fmul float %108, 0x3FE6666660000000
+  %111 = fmul nnan float %108, 0x3FE6666660000000
   %112 = fcmp olt float %110, %111
   br i1 %112, label %113, label %189
 

@@ -9361,7 +9361,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10TfIteratorISt3mapImPKNSt7__cxx1112basic_s
   %210 = load ptr, ptr %209, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %20) #17
   %211 = uitofp i64 %208 to double
-  %212 = fmul double %211, 1.000000e+02
+  %212 = fmul nnan double %211, 1.000000e+02
   %213 = fdiv double %212, %187
   %214 = fcmp olt double %213, 1.000000e-01
   br i1 %214, label %254, label %242
@@ -10269,7 +10269,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11TfMallocTag8CallTree6Report
 
 96:                                               ; preds = %94
   %97 = uitofp i64 %.154.i to double
-  %98 = fmul double %97, 1.000000e+02
+  %98 = fmul nnan double %97, 1.000000e+02
   %99 = uitofp i64 %36 to double
   %100 = fdiv double %98, %99
   invoke void (ptr, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringPrintfB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @.str.54, double noundef %100)
@@ -12623,7 +12623,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashIPNS
   %.sroa.speculated.i9 = select i1 %71, float %70, float 0x3FEE666660000000
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i9, ptr %72, align 4
-  %73 = fmul float %.sroa.speculated.i9, %64
+  %73 = fmul nnan float %.sroa.speculated.i9, %64
   %74 = fptoui float %73 to i64
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %74, ptr %75, align 8
@@ -20492,7 +20492,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %.sroa.speculated.i9 = select i1 %71, float %70, float 0x3FEE666660000000
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i9, ptr %72, align 4
-  %73 = fmul float %.sroa.speculated.i9, %64
+  %73 = fmul nnan float %.sroa.speculated.i9, %64
   %74 = fptoui float %73 to i64
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %74, ptr %75, align 8

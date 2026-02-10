@@ -17959,7 +17959,7 @@ define void @_ZN25VisibilityCheck_ShadowMap16initMeshTexturesEv(ptr noundef nonn
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 264
   %12 = load i32, ptr %11, align 8
   %13 = sitofp i32 %12 to float
-  %14 = fmul float %13, 0x3F40000000000000
+  %14 = fmul nnan float %13, 0x3F40000000000000
   %15 = tail call noundef float @llvm.ceil.f32(float %14)
   %16 = fptosi float %15 to i32
   %17 = shl nsw i32 %16, 11

@@ -718,7 +718,7 @@ define void @dt_interpolation_resample(ptr noundef readonly captures(none) %0, p
   %46 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !70
   %48 = sitofp i64 %47 to double
-  %49 = fmul reassoc nsz arcp contract afn double %48, 0x3EB0C6F7A0B5ED8D
+  %49 = fmul reassoc nnan nsz arcp contract afn double %48, 0x3EB0C6F7A0B5ED8D
   %50 = fadd reassoc nsz arcp contract afn double %49, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store double %50, ptr %19, align 8, !tbaa !71
@@ -729,7 +729,7 @@ define void @dt_interpolation_resample(ptr noundef readonly captures(none) %0, p
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %55 = load i64, ptr %54, align 8, !tbaa !75
   %56 = sitofp i64 %55 to double
-  %57 = fmul reassoc nsz arcp contract afn double %56, 0x3EB0C6F7A0B5ED8D
+  %57 = fmul reassoc nnan nsz arcp contract afn double %56, 0x3EB0C6F7A0B5ED8D
   %58 = fadd reassoc nsz arcp contract afn double %57, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %59 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -821,7 +821,7 @@ dt_get_perf_times.exit.i:                         ; preds = %41, %38
   %113 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %114 = load i64, ptr %113, align 8, !tbaa !70
   %115 = sitofp i64 %114 to double
-  %116 = fmul reassoc nsz arcp contract afn double %115, 0x3EB0C6F7A0B5ED8D
+  %116 = fmul reassoc nnan nsz arcp contract afn double %115, 0x3EB0C6F7A0B5ED8D
   %117 = fadd reassoc nsz arcp contract afn double %116, %112
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -831,7 +831,7 @@ dt_get_perf_times.exit.i:                         ; preds = %41, %38
   %121 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %122 = load i64, ptr %121, align 8, !tbaa !75
   %123 = sitofp i64 %122 to double
-  %124 = fmul reassoc nsz arcp contract afn double %123, 0x3EB0C6F7A0B5ED8D
+  %124 = fmul reassoc nnan nsz arcp contract afn double %123, 0x3EB0C6F7A0B5ED8D
   %125 = fadd reassoc nsz arcp contract afn double %124, %120
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dt_get_perf_times.exit109.i
@@ -1117,10 +1117,10 @@ dt_get_perf_times.exit109.i:                      ; preds = %108, %105
 
 247:                                              ; preds = %236
   %248 = sitofp i64 %244 to double
-  %249 = fmul reassoc nsz arcp contract afn double %248, 0x3EB0C6F7A0B5ED8D
+  %249 = fmul reassoc nnan nsz arcp contract afn double %248, 0x3EB0C6F7A0B5ED8D
   %250 = sitofp i64 %242 to double
   %251 = sitofp i64 %240 to double
-  %252 = fmul reassoc nsz arcp contract afn double %251, 0x3EB0C6F7A0B5ED8D
+  %252 = fmul reassoc nnan nsz arcp contract afn double %251, 0x3EB0C6F7A0B5ED8D
   %253 = add nsw i64 %238, -1290608000
   %254 = sitofp i64 %253 to double
   %255 = fsub reassoc nsz arcp contract afn double %.sroa.0.0.i, %61
@@ -1231,7 +1231,7 @@ define void @dt_interpolation_resample_1c(ptr noundef readonly captures(none) %0
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !70
   %35 = sitofp i64 %34 to double
-  %36 = fmul reassoc nsz arcp contract afn double %35, 0x3EB0C6F7A0B5ED8D
+  %36 = fmul reassoc nnan nsz arcp contract afn double %35, 0x3EB0C6F7A0B5ED8D
   %37 = fadd reassoc nsz arcp contract afn double %36, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store double %37, ptr %19, align 8, !tbaa !71
@@ -1242,7 +1242,7 @@ define void @dt_interpolation_resample_1c(ptr noundef readonly captures(none) %0
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !75
   %43 = sitofp i64 %42 to double
-  %44 = fmul reassoc nsz arcp contract afn double %43, 0x3EB0C6F7A0B5ED8D
+  %44 = fmul reassoc nnan nsz arcp contract afn double %43, 0x3EB0C6F7A0B5ED8D
   %45 = fadd reassoc nsz arcp contract afn double %44, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %46 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -1344,7 +1344,7 @@ dt_get_perf_times.exit.i:                         ; preds = %28, %25
   %102 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %103 = load i64, ptr %102, align 8, !tbaa !70
   %104 = sitofp i64 %103 to double
-  %105 = fmul reassoc nsz arcp contract afn double %104, 0x3EB0C6F7A0B5ED8D
+  %105 = fmul reassoc nnan nsz arcp contract afn double %104, 0x3EB0C6F7A0B5ED8D
   %106 = fadd reassoc nsz arcp contract afn double %105, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1354,7 +1354,7 @@ dt_get_perf_times.exit.i:                         ; preds = %28, %25
   %110 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %111 = load i64, ptr %110, align 8, !tbaa !75
   %112 = sitofp i64 %111 to double
-  %113 = fmul reassoc nsz arcp contract afn double %112, 0x3EB0C6F7A0B5ED8D
+  %113 = fmul reassoc nnan nsz arcp contract afn double %112, 0x3EB0C6F7A0B5ED8D
   %114 = fadd reassoc nsz arcp contract afn double %113, %109
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %dt_get_perf_times.exit105.i
@@ -1536,10 +1536,10 @@ dt_get_perf_times.exit105.i:                      ; preds = %97, %94
 
 193:                                              ; preds = %182
   %194 = sitofp i64 %190 to double
-  %195 = fmul reassoc nsz arcp contract afn double %194, 0x3EB0C6F7A0B5ED8D
+  %195 = fmul reassoc nnan nsz arcp contract afn double %194, 0x3EB0C6F7A0B5ED8D
   %196 = sitofp i64 %188 to double
   %197 = sitofp i64 %186 to double
-  %198 = fmul reassoc nsz arcp contract afn double %197, 0x3EB0C6F7A0B5ED8D
+  %198 = fmul reassoc nnan nsz arcp contract afn double %197, 0x3EB0C6F7A0B5ED8D
   %199 = add nsw i64 %184, -1290608000
   %200 = sitofp i64 %199 to double
   %201 = fsub reassoc nsz arcp contract afn double %.sroa.0.0.i, %48
@@ -2224,7 +2224,7 @@ define internal fastcc range(i32 0, 2) i32 @_prepare_resampling_plan(ptr noundef
 
 19:                                               ; preds = %13
   %20 = uitofp i64 %16 to float
-  %21 = fmul reassoc nsz arcp contract afn float %20, 2.000000e+00
+  %21 = fmul reassoc nnan nsz arcp contract afn float %20, 2.000000e+00
   %22 = fdiv reassoc nsz arcp contract afn float %21, %4
   %23 = fcmp reassoc nsz arcp contract afn ugt float %22, 0.000000e+00
   br i1 %23, label %27, label %24

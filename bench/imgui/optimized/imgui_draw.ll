@@ -1320,8 +1320,8 @@ define void @_ZN20ImDrawListSharedDataC2Ev(ptr noundef nonnull writeonly align 8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   %7 = uitofp nneg i32 %6 to float
-  %8 = fmul float %7, 2.000000e+00
-  %9 = fmul float %8, 0x400921FB60000000
+  %8 = fmul nnan float %7, 2.000000e+00
+  %9 = fmul nnan float %8, 0x400921FB60000000
   %10 = fdiv float %9, 4.800000e+01
   %11 = tail call float @cosf(float noundef %10) #43, !tbaa !19
   %12 = tail call float @sinf(float noundef %10) #43, !tbaa !19
@@ -6230,12 +6230,12 @@ _ZN8ImVectorI6ImVec2E9push_backERKS0_.exit:       ; preds = %._ZN8ImVectorI6ImVe
   %80 = phi i32 [ %68, %66 ], [ %62, %54 ]
   %81 = tail call noundef i32 @llvm.smax.i32(i32 %.sink, i32 0)
   %82 = sitofp i32 %80 to float
-  %83 = fmul float %82, 0x400921FB60000000
-  %84 = fmul float %83, 2.000000e+00
+  %83 = fmul nnan float %82, 0x400921FB60000000
+  %84 = fmul nnan float %83, 2.000000e+00
   %85 = fdiv float %84, 4.800000e+01
   %86 = sitofp i32 %79 to float
-  %87 = fmul float %86, 0x400921FB60000000
-  %88 = fmul float %87, 2.000000e+00
+  %87 = fmul nnan float %86, 0x400921FB60000000
+  %88 = fmul nnan float %87, 2.000000e+00
   %89 = fdiv float %88, 4.800000e+01
   %90 = fsub float %85, %3
   %91 = tail call noundef float @llvm.fabs.f32(float %90)
@@ -6747,7 +6747,7 @@ define void @_ZN10ImDrawList22PathBezierCubicCurveToERK6ImVec2S2_S2_i(ptr nounde
 
 30:                                               ; preds = %5
   %31 = sitofp i32 %4 to float
-  %32 = fdiv float 1.000000e+00, %31
+  %32 = fdiv nnan float 1.000000e+00, %31
   %.not21 = icmp slt i32 %4, 1
   br i1 %.not21, label %.loopexit, label %.lr.ph
 
@@ -7015,7 +7015,7 @@ define void @_ZN10ImDrawList26PathBezierQuadraticCurveToERK6ImVec2S2_i(ptr nound
 
 26:                                               ; preds = %4
   %27 = sitofp i32 %3 to float
-  %28 = fdiv float 1.000000e+00, %27
+  %28 = fdiv nnan float 1.000000e+00, %27
   %.not18 = icmp slt i32 %3, 1
   br i1 %.not18, label %.loopexit, label %.lr.ph
 
@@ -9145,7 +9145,7 @@ define void @_ZN10ImDrawList9AddCircleERK6ImVec2fjif(ptr noundef nonnull align 8
   %19 = uitofp nneg i32 %18 to float
   %20 = add nsw i32 %18, -1
   %21 = uitofp nneg i32 %20 to float
-  %22 = fmul float %21, 0x401921FB60000000
+  %22 = fmul nnan float %21, 0x401921FB60000000
   %23 = fdiv float %22, %19
   %24 = fadd float %2, -5.000000e-01
   tail call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, float noundef %24, float noundef 0.000000e+00, float noundef %23, i32 noundef %20)
@@ -9191,7 +9191,7 @@ define void @_ZN10ImDrawList15AddCircleFilledERK6ImVec2fji(ptr noundef nonnull a
   %17 = uitofp nneg i32 %16 to float
   %18 = add nsw i32 %16, -1
   %19 = uitofp nneg i32 %18 to float
-  %20 = fmul float %19, 0x401921FB60000000
+  %20 = fmul nnan float %19, 0x401921FB60000000
   %21 = fdiv float %20, %17
   tail call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, float noundef %2, float noundef 0.000000e+00, float noundef %21, i32 noundef %18)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -9220,8 +9220,8 @@ define void @_ZN10ImDrawList7AddNgonERK6ImVec2fjif(ptr noundef nonnull align 8 c
 
 9:                                                ; preds = %6
   %10 = uitofp nneg i32 %4 to float
-  %11 = fadd float %10, -1.000000e+00
-  %12 = fmul float %11, 0x401921FB60000000
+  %11 = fadd nnan float %10, -1.000000e+00
+  %12 = fmul nnan float %11, 0x401921FB60000000
   %13 = fdiv float %12, %10
   %14 = fadd float %2, -5.000000e-01
   %15 = add nsw i32 %4, -1
@@ -9247,8 +9247,8 @@ define void @_ZN10ImDrawList13AddNgonFilledERK6ImVec2fji(ptr noundef nonnull ali
 
 8:                                                ; preds = %5
   %9 = uitofp nneg i32 %4 to float
-  %10 = fadd float %9, -1.000000e+00
-  %11 = fmul float %10, 0x401921FB60000000
+  %10 = fadd nnan float %9, -1.000000e+00
+  %11 = fmul nnan float %10, 0x401921FB60000000
   %12 = fdiv float %11, %9
   %13 = add nsw i32 %4, -1
   tail call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, float noundef %2, float noundef 0.000000e+00, float noundef %12, i32 noundef %13)
@@ -9315,8 +9315,8 @@ define void @_ZN10ImDrawList10AddEllipseERK6ImVec2S2_jfif(ptr noundef nonnull al
 _ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit: ; preds = %27, %21, %9
   %.0 = phi i32 [ %5, %9 ], [ %26, %21 ], [ %42, %27 ]
   %43 = uitofp nneg i32 %.0 to float
-  %44 = fadd float %43, -1.000000e+00
-  %45 = fmul float %44, 0x401921FB60000000
+  %44 = fadd nnan float %43, -1.000000e+00
+  %45 = fmul nnan float %44, 0x401921FB60000000
   %46 = fdiv float %45, %43
   %47 = add nsw i32 %.0, -1
   tail call void @_ZN10ImDrawList19PathEllipticalArcToERK6ImVec2S2_fffi(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, float noundef %4, float noundef 0.000000e+00, float noundef %46, i32 noundef %47)
@@ -9383,8 +9383,8 @@ define void @_ZN10ImDrawList16AddEllipseFilledERK6ImVec2S2_jfi(ptr noundef nonnu
 _ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf.exit: ; preds = %26, %20, %8
   %.0 = phi i32 [ %5, %8 ], [ %25, %20 ], [ %41, %26 ]
   %42 = uitofp nneg i32 %.0 to float
-  %43 = fadd float %42, -1.000000e+00
-  %44 = fmul float %43, 0x401921FB60000000
+  %43 = fadd nnan float %42, -1.000000e+00
+  %44 = fmul nnan float %43, 0x401921FB60000000
   %45 = fdiv float %44, %42
   %46 = add nsw i32 %.0, -1
   tail call void @_ZN10ImDrawList19PathEllipticalArcToERK6ImVec2S2_fffi(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, float noundef %4, float noundef 0.000000e+00, float noundef %45, i32 noundef %46)
@@ -18682,13 +18682,13 @@ _ZL23stbtt__oversample_shifti.exit.i:             ; preds = %1635, %1615
   %.not.i.i427 = icmp eq i8 %1649, 0
   %1657 = sub nsw i32 1, %1650
   %1658 = sitofp i32 %1657 to float
-  %1659 = fmul float %1653, 2.000000e+00
+  %1659 = fmul nnan float %1653, 2.000000e+00
   %1660 = fdiv float %1658, %1659
   %.0.i.i428 = select i1 %.not.i.i427, float 0.000000e+00, float %1660
   %.not.i161.i = icmp eq i8 %1651, 0
   %1661 = sub nsw i32 1, %1652
   %1662 = sitofp i32 %1661 to float
-  %1663 = fmul float %1655, 2.000000e+00
+  %1663 = fmul nnan float %1655, 2.000000e+00
   %1664 = fdiv float %1662, %1663
   %.0.i162.i = select i1 %.not.i161.i, float 0.000000e+00, float %1664
   %1665 = load i32, ptr %1600, align 8, !tbaa !424
@@ -19936,7 +19936,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i.i.i.i: ;
   %2360 = load float, ptr %2359, align 4, !tbaa !460
   %2361 = fsub float %.0308.i.i.i.i.i.i, %.1300.i.i.i.i.i.i
   %2362 = fmul float %2360, %2361
-  %2363 = fsub float %2352, %.1.i.i.i.i.i.i
+  %2363 = fsub nnan float %2352, %.1.i.i.i.i.i.i
   %2364 = fmul float %2363, %2362
   %2365 = fmul float %2364, 5.000000e-01
   %2366 = sext i32 %.pre-phi.i.i.i.i.i.i to i64
@@ -19986,7 +19986,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i.i.i.i: ;
   %.0306.lcssa.i.i.i.i.i.i = phi float [ %2362, %2376 ], [ %2386, %2381 ]
   %2387 = fsub float %.1303.i.i.i.i.i.i, %.0309.i.i.i.i.i.i
   %2388 = fadd float %2355, 1.000000e+00
-  %2389 = fsub float %2388, %2355
+  %2389 = fsub nnan float %2388, %2355
   %2390 = fsub float %2388, %.1298.i.i.i.i.i.i
   %2391 = fadd float %2389, %2390
   %2392 = fmul float %2391, 5.000000e-01
@@ -20128,7 +20128,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit370.i.i.i.i.i.i:
   br i1 %2476, label %2477, label %2484
 
 2477:                                             ; preds = %2475
-  %2478 = fsub float %2410, %2408
+  %2478 = fsub nnan float %2410, %2408
   %2479 = fsub float %2473, %2413
   %2480 = fmul float %2478, %2479
   %2481 = fsub float %2416, %2413
@@ -20373,7 +20373,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit391.i.i.i.i.i.i:
   br i1 %2626, label %2627, label %2634
 
 2627:                                             ; preds = %2625
-  %2628 = fsub float %2408, %2410
+  %2628 = fsub nnan float %2408, %2410
   %2629 = fsub float %2623, %2416
   %2630 = fmul float %2628, %2629
   %2631 = fsub float %2413, %2416
@@ -23801,14 +23801,14 @@ _Z41ImFontAtlasBuildRender32bppRectFromStringP11ImFontAtlasiiiiPKccj.exit.i: ; p
 _ZL36ImFontAtlasBuildRenderDefaultTexDataP11ImFontAtlas.exit: ; preds = %._crit_edge.us.i57.i, %._crit_edge.us.i76.i, %22, %35
   %121 = load i16, ptr %7, align 8, !tbaa !299
   %122 = uitofp i16 %121 to float
-  %123 = fadd float %122, 5.000000e-01
+  %123 = fadd nnan float %122, 5.000000e-01
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %125 = load float, ptr %124, align 8, !tbaa !301
   %126 = fmul float %125, %123
   %127 = getelementptr inbounds nuw i8, ptr %7, i64 2
   %128 = load i16, ptr %127, align 2, !tbaa !302
   %129 = uitofp i16 %128 to float
-  %130 = fadd float %129, 5.000000e-01
+  %130 = fadd nnan float %129, 5.000000e-01
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %132 = load float, ptr %131, align 4, !tbaa !303
   %133 = fmul float %132, %130
@@ -26383,7 +26383,7 @@ define void @_ZN5ImGui15RenderCheckMarkEP10ImDrawList6ImVec2jf(ptr noundef captu
   %7 = select i1 %6, float %5, float 1.000000e+00
   %8 = fneg float %7
   %9 = tail call float @llvm.fmuladd.f32(float %8, float 5.000000e-01, float %3)
-  %10 = fmul float %7, 2.500000e-01
+  %10 = fmul nnan float %7, 2.500000e-01
   %.sroa.050.0.vec.extract52 = extractelement <2 x float> %1, i64 0
   %11 = fadd float %.sroa.050.0.vec.extract52, %10
   %.sroa.050.4.vec.extract55 = extractelement <2 x float> %1, i64 1
@@ -30946,7 +30946,7 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.i380:      ; preds = %855, %852
 
 _ZL14stbtt__buf_getP10stbtt__bufi.exit:           ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i380
   %864 = sitofp i32 %.0.i.i to float
-  %865 = fmul float %864, 0x3EF0000000000000
+  %865 = fmul nnan float %864, 0x3EF0000000000000
   br label %923
 
 866:                                              ; preds = %849
@@ -32313,7 +32313,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %215, %232, %2
   %410 = zext i8 %.1297.val385.i to i16
   %411 = or disjoint i16 %409, %410
   %412 = sitofp i16 %411 to float
-  %413 = fmul float %412, 0x3F10000000000000
+  %413 = fmul nnan float %412, 0x3F10000000000000
   %414 = getelementptr inbounds nuw i8, ptr %.1297.i, i64 2
   br label %468
 
@@ -32331,7 +32331,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %215, %232, %2
   %421 = zext i8 %.1297.val383.i to i16
   %422 = or disjoint i16 %420, %421
   %423 = sitofp i16 %422 to float
-  %424 = fmul float %423, 0x3F10000000000000
+  %424 = fmul nnan float %423, 0x3F10000000000000
   %425 = getelementptr inbounds nuw i8, ptr %.1297.i, i64 2
   %.val380.i = load i8, ptr %425, align 1, !tbaa !23
   %426 = getelementptr i8, ptr %.1297.i, i64 3
@@ -32341,7 +32341,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %215, %232, %2
   %429 = zext i8 %.val381.i to i16
   %430 = or disjoint i16 %428, %429
   %431 = sitofp i16 %430 to float
-  %432 = fmul float %431, 0x3F10000000000000
+  %432 = fmul nnan float %431, 0x3F10000000000000
   %433 = getelementptr inbounds nuw i8, ptr %.1297.i, i64 4
   br label %468
 
@@ -32358,7 +32358,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %215, %232, %2
   %439 = zext i8 %.1297.val379.i to i16
   %440 = or disjoint i16 %438, %439
   %441 = sitofp i16 %440 to float
-  %442 = fmul float %441, 0x3F10000000000000
+  %442 = fmul nnan float %441, 0x3F10000000000000
   %443 = getelementptr inbounds nuw i8, ptr %.1297.i, i64 2
   %.val377.i = load i8, ptr %443, align 1, !tbaa !23
   %444 = getelementptr i8, ptr %.1297.i, i64 3
@@ -32368,7 +32368,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %215, %232, %2
   %447 = zext i8 %.val378.i to i16
   %448 = or disjoint i16 %446, %447
   %449 = sitofp i16 %448 to float
-  %450 = fmul float %449, 0x3F10000000000000
+  %450 = fmul nnan float %449, 0x3F10000000000000
   %451 = getelementptr inbounds nuw i8, ptr %.1297.i, i64 4
   %.val375.i = load i8, ptr %451, align 1, !tbaa !23
   %452 = getelementptr i8, ptr %.1297.i, i64 5
@@ -32378,7 +32378,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %215, %232, %2
   %455 = zext i8 %.val376.i to i16
   %456 = or disjoint i16 %454, %455
   %457 = sitofp i16 %456 to float
-  %458 = fmul float %457, 0x3F10000000000000
+  %458 = fmul nnan float %457, 0x3F10000000000000
   %459 = getelementptr inbounds nuw i8, ptr %.1297.i, i64 6
   %.val373.i = load i8, ptr %459, align 1, !tbaa !23
   %460 = getelementptr i8, ptr %.1297.i, i64 7
@@ -32388,7 +32388,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit17: ; preds = %215, %232, %2
   %463 = zext i8 %.val374.i to i16
   %464 = or disjoint i16 %462, %463
   %465 = sitofp i16 %464 to float
-  %466 = fmul float %465, 0x3F10000000000000
+  %466 = fmul nnan float %465, 0x3F10000000000000
   %467 = getelementptr inbounds nuw i8, ptr %.1297.i, i64 8
   br label %468
 

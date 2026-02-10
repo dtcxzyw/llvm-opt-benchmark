@@ -821,7 +821,7 @@ define void @_ZN6LibRaw15parse_kodak_ifdEi(ptr noundef nonnull align 8 dereferen
   %293 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   store i16 %293, ptr %50, align 4, !tbaa !115
   %294 = uitofp i16 %293 to float
-  %295 = fmul reassoc nsz arcp contract afn float %294, 0x4022E38E40000000
+  %295 = fmul reassoc nnan nsz arcp contract afn float %294, 0x4022E38E40000000
   %296 = fptosi float %295 to i32
   %297 = sext i32 %296 to i64
   store i64 %297, ptr %47, align 8, !tbaa !116

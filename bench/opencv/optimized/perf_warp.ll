@@ -2126,11 +2126,11 @@ define hidden void @_ZN11opencv_test25TestWarpAffine_WarpAffine12PerfTestBodyEv(
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %38 = load i32, ptr %37, align 4, !tbaa !126
   %39 = sitofp i32 %38 to float
-  %40 = fmul float %39, 5.000000e-01
+  %40 = fmul nnan float %39, 5.000000e-01
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !133
   %43 = sitofp i32 %42 to float
-  %44 = fmul float %43, 5.000000e-01
+  %44 = fmul nnan float %43, 5.000000e-01
   %.sroa.042.0.vec.insert = insertelement <2 x float> poison, float %40, i64 0
   %.sroa.042.4.vec.insert = insertelement <2 x float> %.sroa.042.0.vec.insert, float %44, i64 1
   call void @llvm.experimental.noalias.scope.decl(metadata !134)
@@ -3396,11 +3396,11 @@ define hidden void @_ZN11opencv_test38TestWarpAffine_DISABLED_WarpAffine_ovx12Pe
   %37 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %38 = load i32, ptr %37, align 4, !tbaa !126
   %39 = sitofp i32 %38 to float
-  %40 = fmul float %39, 5.000000e-01
+  %40 = fmul nnan float %39, 5.000000e-01
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !133
   %43 = sitofp i32 %42 to float
-  %44 = fmul float %43, 5.000000e-01
+  %44 = fmul nnan float %43, 5.000000e-01
   %.sroa.042.0.vec.insert = insertelement <2 x float> poison, float %40, i64 0
   %.sroa.042.4.vec.insert = insertelement <2 x float> %.sroa.042.0.vec.insert, float %44, i64 1
   call void @llvm.experimental.noalias.scope.decl(metadata !187)
@@ -5076,11 +5076,11 @@ define hidden void @_ZN11opencv_test35TestWarpPerspective_WarpPerspective12PerfT
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %41 = load i32, ptr %40, align 4, !tbaa !126
   %42 = sitofp i32 %41 to float
-  %43 = fmul float %42, 5.000000e-01
+  %43 = fmul nnan float %42, 5.000000e-01
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !133
   %46 = sitofp i32 %45 to float
-  %47 = fmul float %46, 5.000000e-01
+  %47 = fmul nnan float %46, 5.000000e-01
   %.sroa.054.0.vec.insert = insertelement <2 x float> poison, float %43, i64 0
   %.sroa.054.4.vec.insert = insertelement <2 x float> %.sroa.054.0.vec.insert, float %47, i64 1
   call void @llvm.experimental.noalias.scope.decl(metadata !280)
@@ -6878,11 +6878,11 @@ define hidden void @_ZN11opencv_test48TestWarpPerspective_DISABLED_WarpPerspecti
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %41 = load i32, ptr %40, align 4, !tbaa !126
   %42 = sitofp i32 %41 to float
-  %43 = fmul float %42, 5.000000e-01
+  %43 = fmul nnan float %42, 5.000000e-01
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !133
   %46 = sitofp i32 %45 to float
-  %47 = fmul float %46, 5.000000e-01
+  %47 = fmul nnan float %46, 5.000000e-01
   %.sroa.054.0.vec.insert = insertelement <2 x float> poison, float %43, i64 0
   %.sroa.054.4.vec.insert = insertelement <2 x float> %.sroa.054.0.vec.insert, float %47, i64 1
   call void @llvm.experimental.noalias.scope.decl(metadata !354)
@@ -8867,7 +8867,7 @@ define hidden void @_ZN11opencv_test45TestWarpPerspectiveNear_t_WarpPerspectiveN
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %47 = load i32, ptr %46, align 4, !tbaa !126
   %48 = sitofp i32 %47 to double
-  %49 = fmul double %48, 4.000000e-02
+  %49 = fmul nnan double %48, 4.000000e-02
   %50 = fptosi double %49 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -11637,11 +11637,11 @@ define hidden void @_ZN11opencv_test10update_mapERKN2cv3MatERS1_S4_ib(ptr nounde
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %16 = sitofp i32 %10 to double
-  %17 = fmul double %16, 2.500000e-01
-  %18 = fmul double %16, 7.500000e-01
+  %17 = fmul nnan double %16, 2.500000e-01
+  %18 = fmul nnan double %16, 7.500000e-01
   %19 = uitofp nneg i32 %7 to double
-  %20 = fmul double %19, 2.500000e-01
-  %21 = fmul double %19, 7.500000e-01
+  %20 = fmul nnan double %19, 2.500000e-01
+  %21 = fmul nnan double %19, 7.500000e-01
   %22 = sitofp i32 %10 to float
   %23 = fneg float %22
   %24 = uitofp nneg i32 %7 to float
@@ -11667,14 +11667,13 @@ define hidden void @_ZN11opencv_test10update_mapERKN2cv3MatERS1_S4_ib(ptr nounde
   %35 = uitofp nneg i32 %33 to double
   %36 = fcmp uge double %20, %35
   %37 = fcmp ule double %21, %35
-  %or.cond73.us.not80 = or i1 %36, %37
   %38 = tail call float @llvm.fmuladd.f32(float %25, float 2.500000e-01, float %34)
   %39 = tail call float @llvm.fmuladd.f32(float %38, float 2.000000e+00, float 5.000000e-01)
   br label %40
 
-40:                                               ; preds = %.preheader.us, %85
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %85 ]
-  switch i32 %3, label %69 [
+40:                                               ; preds = %.preheader.us, %86
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %86 ]
+  switch i32 %3, label %70 [
     i32 0, label %52
     i32 1, label %49
     i32 2, label %45
@@ -11703,59 +11702,60 @@ define hidden void @_ZN11opencv_test10update_mapERKN2cv3MatERS1_S4_ib(ptr nounde
   %54 = uitofp nneg i32 %53 to double
   %55 = fcmp uge double %17, %54
   %56 = fcmp ule double %18, %54
-  %or.cond.us.not78 = or i1 %55, %56
-  %brmerge = select i1 %or.cond.us.not78, i1 true, i1 %or.cond73.us.not80
-  br i1 %brmerge, label %.sink.split, label %57
+  %or.cond.us.not78 = select i1 %55, i1 true, i1 %56
+  %57 = select i1 %or.cond.us.not78, i1 true, i1 %36
+  %brmerge = select i1 %57, i1 true, i1 %37
+  br i1 %brmerge, label %.sink.split, label %58
 
-57:                                               ; preds = %52
-  %58 = uitofp nneg i32 %53 to float
-  %59 = tail call float @llvm.fmuladd.f32(float %23, float 2.500000e-01, float %58)
-  %60 = tail call float @llvm.fmuladd.f32(float %59, float 2.000000e+00, float 5.000000e-01)
+58:                                               ; preds = %52
+  %59 = uitofp nneg i32 %53 to float
+  %60 = tail call float @llvm.fmuladd.f32(float %23, float 2.500000e-01, float %59)
+  %61 = tail call float @llvm.fmuladd.f32(float %60, float 2.000000e+00, float 5.000000e-01)
   br label %.sink.split
 
-.sink.split:                                      ; preds = %52, %41, %45, %49, %57
-  %.sink93 = phi float [ %60, %57 ], [ %44, %41 ], [ %51, %49 ], [ %48, %45 ], [ 0.000000e+00, %52 ]
-  %.sink = phi float [ %39, %57 ], [ %30, %41 ], [ %30, %49 ], [ %34, %45 ], [ 0.000000e+00, %52 ]
-  %61 = load i64, ptr %27, align 8, !tbaa !10
-  %62 = mul i64 %61, %indvars.iv83
-  %63 = getelementptr inbounds nuw i8, ptr %26, i64 %62
-  %64 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv
-  store float %.sink93, ptr %64, align 4, !tbaa !578
-  %65 = load i64, ptr %32, align 8, !tbaa !10
-  %66 = mul i64 %65, %indvars.iv83
-  %67 = getelementptr inbounds nuw i8, ptr %31, i64 %66
-  %68 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv
-  store float %.sink, ptr %68, align 4, !tbaa !578
-  br label %69
+.sink.split:                                      ; preds = %52, %41, %45, %49, %58
+  %.sink93 = phi float [ %61, %58 ], [ %44, %41 ], [ %51, %49 ], [ %48, %45 ], [ 0.000000e+00, %52 ]
+  %.sink = phi float [ %39, %58 ], [ %30, %41 ], [ %30, %49 ], [ %34, %45 ], [ 0.000000e+00, %52 ]
+  %62 = load i64, ptr %27, align 8, !tbaa !10
+  %63 = mul i64 %62, %indvars.iv83
+  %64 = getelementptr inbounds nuw i8, ptr %26, i64 %63
+  %65 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv
+  store float %.sink93, ptr %65, align 4, !tbaa !578
+  %66 = load i64, ptr %32, align 8, !tbaa !10
+  %67 = mul i64 %66, %indvars.iv83
+  %68 = getelementptr inbounds nuw i8, ptr %31, i64 %67
+  %69 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv
+  store float %.sink, ptr %69, align 4, !tbaa !578
+  br label %70
 
-69:                                               ; preds = %.sink.split, %40
-  br i1 %4, label %70, label %85
+70:                                               ; preds = %.sink.split, %40
+  br i1 %4, label %71, label %86
 
-70:                                               ; preds = %69
-  %71 = trunc nuw nsw i64 %indvars.iv to i32
-  %72 = uitofp nneg i32 %71 to float
-  %73 = load i64, ptr %27, align 8, !tbaa !10
-  %74 = mul i64 %73, %indvars.iv83
-  %75 = getelementptr inbounds nuw i8, ptr %26, i64 %74
-  %76 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv
-  %77 = load float, ptr %76, align 4, !tbaa !578
-  %78 = fsub float %77, %72
-  store float %78, ptr %76, align 4, !tbaa !578
-  %79 = load i64, ptr %32, align 8, !tbaa !10
-  %80 = mul i64 %79, %indvars.iv83
-  %81 = getelementptr inbounds nuw i8, ptr %31, i64 %80
-  %82 = getelementptr inbounds nuw float, ptr %81, i64 %indvars.iv
-  %83 = load float, ptr %82, align 4, !tbaa !578
-  %84 = fsub float %83, %34
-  store float %84, ptr %82, align 4, !tbaa !578
-  br label %85
+71:                                               ; preds = %70
+  %72 = trunc nuw nsw i64 %indvars.iv to i32
+  %73 = uitofp nneg i32 %72 to float
+  %74 = load i64, ptr %27, align 8, !tbaa !10
+  %75 = mul i64 %74, %indvars.iv83
+  %76 = getelementptr inbounds nuw i8, ptr %26, i64 %75
+  %77 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv
+  %78 = load float, ptr %77, align 4, !tbaa !578
+  %79 = fsub float %78, %73
+  store float %79, ptr %77, align 4, !tbaa !578
+  %80 = load i64, ptr %32, align 8, !tbaa !10
+  %81 = mul i64 %80, %indvars.iv83
+  %82 = getelementptr inbounds nuw i8, ptr %31, i64 %81
+  %83 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv
+  %84 = load float, ptr %83, align 4, !tbaa !578
+  %85 = fsub float %84, %34
+  store float %85, ptr %83, align 4, !tbaa !578
+  br label %86
 
-85:                                               ; preds = %70, %69
+86:                                               ; preds = %71, %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %40, !llvm.loop !580
 
-._crit_edge.us:                                   ; preds = %85
+._crit_edge.us:                                   ; preds = %86
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
   br i1 %exitcond87.not, label %._crit_edge76, label %.preheader.us, !llvm.loop !581

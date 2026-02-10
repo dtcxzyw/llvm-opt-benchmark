@@ -17320,7 +17320,7 @@ define hidden void @"_ZN157_$LT$palette..oklab..Oklab$LT$T$GT$$u20$as$u20$palett
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit"
 
 34:                                               ; preds = %2
-  %35 = fmul float %4, 0x3FB3D07220000000
+  %35 = fmul nnan float %4, 0x3FB3D07220000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit": ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.4930786928582598558.exit.i", %34
@@ -17374,7 +17374,7 @@ define hidden void @"_ZN157_$LT$palette..oklab..Oklab$LT$T$GT$$u20$as$u20$palett
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit12"
 
 67:                                               ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit"
-  %68 = fmul float %37, 0x3FB3D07220000000
+  %68 = fmul nnan float %37, 0x3FB3D07220000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit12"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit12": ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.4930786928582598558.exit.i9", %67
@@ -17428,7 +17428,7 @@ define hidden void @"_ZN157_$LT$palette..oklab..Oklab$LT$T$GT$$u20$as$u20$palett
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit21"
 
 100:                                              ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit12"
-  %101 = fmul float %70, 0x3FB3D07220000000
+  %101 = fmul nnan float %70, 0x3FB3D07220000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit21"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit21": ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.4930786928582598558.exit.i18", %100
@@ -17485,7 +17485,7 @@ define hidden void @"_ZN161_$LT$palette..oklab..Oklab$LT$T$GT$$u20$as$u20$palett
   br label %"_ZN161_$LT$palette..xyz..Xyz$LT$Wp$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17hce7891a71985336aE.exit"
 
 12:                                               ; preds = %2
-  %13 = fmul float %6, 0x3FB3D07220000000
+  %13 = fmul nnan float %6, 0x3FB3D07220000000
   br label %"_ZN161_$LT$palette..xyz..Xyz$LT$Wp$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17hce7891a71985336aE.exit"
 
 "_ZN161_$LT$palette..xyz..Xyz$LT$Wp$C$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..luma..luma..Luma$LT$S$C$T$GT$$GT$$GT$20from_color_unclamped17hce7891a71985336aE.exit": ; preds = %10, %12
@@ -54872,7 +54872,7 @@ define hidden void @"_ZN7palette3rgb3rgb16Rgb$LT$S$C$T$GT$11into_linear17hf59dcb
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit"
 
 33:                                               ; preds = %2
-  %34 = fmul float %3, 0x3FB3D07220000000
+  %34 = fmul nnan float %3, 0x3FB3D07220000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit": ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.4930786928582598558.exit.i", %33
@@ -54926,7 +54926,7 @@ define hidden void @"_ZN7palette3rgb3rgb16Rgb$LT$S$C$T$GT$11into_linear17hf59dcb
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit10"
 
 66:                                               ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit"
-  %67 = fmul float %36, 0x3FB3D07220000000
+  %67 = fmul nnan float %36, 0x3FB3D07220000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit10"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit10": ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.4930786928582598558.exit.i7", %66
@@ -54980,7 +54980,7 @@ define hidden void @"_ZN7palette3rgb3rgb16Rgb$LT$S$C$T$GT$11into_linear17hf59dcb
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit19"
 
 99:                                               ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit10"
-  %100 = fmul float %69, 0x3FB3D07220000000
+  %100 = fmul nnan float %69, 0x3FB3D07220000000
   br label %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit19"
 
 "_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear17h36bb460bc00066f1E.llvm.4930786928582598558.exit19": ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.4930786928582598558.exit.i16", %99
@@ -74816,7 +74816,7 @@ define hidden noundef float @"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20
   br label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h4d7662692d84381bE.llvm.4930786928582598558.exit"
 
 31:                                               ; preds = %1
-  %32 = fmul float %0, 0x3FB3D07220000000
+  %32 = fmul nnan float %0, 0x3FB3D07220000000
   br label %"_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h4d7662692d84381bE.llvm.4930786928582598558.exit"
 
 "_ZN64_$LT$bool$u20$as$u20$palette..bool_mask..LazySelect$LT$T$GT$$GT$11lazy_select17h4d7662692d84381bE.llvm.4930786928582598558.exit": ; preds = %"_ZN92_$LT$palette..encoding..srgb..Srgb$u20$as$u20$palette..encoding..IntoLinear$LT$T$C$T$GT$$GT$11into_linear28_$u7b$$u7b$closure$u7d$$u7d$17hba7bcb443e036159E.llvm.4930786928582598558.exit", %31

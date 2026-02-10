@@ -8291,10 +8291,10 @@ for.body:                                         ; preds = %for.body, %for.body
   %conv26 = fadd nsz float %mul, -5.000000e-01
   %add = fadd nsz float %div, %conv26
   %conv27 = uitofp nneg i32 %i.0403 to double
-  %add28 = fadd nsz double %conv27, 1.000000e-01
+  %add28 = fadd nnan nsz double %conv27, 1.000000e-01
   %mul30 = fmul nsz double %add28, %conv29
   %conv31 = fptrunc double %mul30 to float
-  %add33 = fadd nsz double %conv27, 9.000000e-01
+  %add33 = fadd nnan nsz double %conv27, 9.000000e-01
   %mul35 = fmul nsz double %add33, %conv29
   %conv36 = fptrunc double %mul35 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %vertices37)
@@ -8365,10 +8365,10 @@ for.body71:                                       ; preds = %for.body71, %for.bo
   %fneg = fsub nsz float 5.000000e-01, %mul73
   %sub77 = fsub nsz float %fneg, %div23
   %conv80 = uitofp nneg i32 %i67.0405 to double
-  %add81 = fadd nsz double %conv80, 1.000000e-01
+  %add81 = fadd nnan nsz double %conv80, 1.000000e-01
   %mul83 = fmul nsz double %add81, %conv82
   %conv84 = fptrunc double %mul83 to float
-  %add87 = fadd nsz double %conv80, 9.000000e-01
+  %add87 = fadd nnan nsz double %conv80, 9.000000e-01
   %mul89 = fmul nsz double %add87, %conv82
   %conv90 = fptrunc double %mul89 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %vertices91)

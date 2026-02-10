@@ -3850,7 +3850,7 @@ define void @Llb_MnxStop(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %23 = load i64, ptr %11, align 8, !tbaa !137
   %.not73 = icmp eq i64 %23, 0
   %24 = sitofp i64 %23 to double
-  %25 = fmul double %21, 1.000000e+02
+  %25 = fmul nnan double %21, 1.000000e+02
   %26 = fdiv double %25, %24
   %27 = select i1 %.not73, double 0.000000e+00, double %26
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %22, double noundef %27)
@@ -3861,7 +3861,7 @@ define void @Llb_MnxStop(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %31 = load i64, ptr %11, align 8, !tbaa !137
   %.not74 = icmp eq i64 %31, 0
   %32 = sitofp i64 %31 to double
-  %33 = fmul double %29, 1.000000e+02
+  %33 = fmul nnan double %29, 1.000000e+02
   %34 = fdiv double %33, %32
   %35 = select i1 %.not74, double 0.000000e+00, double %34
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %30, double noundef %35)
@@ -3872,7 +3872,7 @@ define void @Llb_MnxStop(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %39 = load i64, ptr %11, align 8, !tbaa !137
   %.not75 = icmp eq i64 %39, 0
   %40 = sitofp i64 %39 to double
-  %41 = fmul double %37, 1.000000e+02
+  %41 = fmul nnan double %37, 1.000000e+02
   %42 = fdiv double %41, %40
   %43 = select i1 %.not75, double 0.000000e+00, double %42
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %38, double noundef %43)
@@ -3881,7 +3881,7 @@ define void @Llb_MnxStop(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %45 = sitofp i64 %44 to double
   %46 = fdiv double %45, 1.000000e+06
   %.not76 = icmp eq i64 %44, 0
-  %47 = fmul double %45, 1.000000e+02
+  %47 = fmul nnan double %45, 1.000000e+02
   %48 = fdiv double %47, %45
   %49 = select i1 %.not76, double 0.000000e+00, double %48
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %46, double noundef %49)
@@ -3892,7 +3892,7 @@ define void @Llb_MnxStop(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %53 = load i64, ptr %11, align 8, !tbaa !137
   %.not77 = icmp eq i64 %53, 0
   %54 = sitofp i64 %53 to double
-  %55 = fmul double %51, 1.000000e+02
+  %55 = fmul nnan double %51, 1.000000e+02
   %56 = fdiv double %55, %54
   %57 = select i1 %.not77, double 0.000000e+00, double %56
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %52, double noundef %57)

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @ff_adx_calculate_coeffs(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = sitofp i32 %0 to double
-  %6 = fmul nsz double %5, 0x401921FB54442D18
+  %6 = fmul nnan nsz double %5, 0x401921FB54442D18
   %7 = sitofp i32 %1 to double
   %8 = fdiv nsz double %6, %7
   %9 = tail call nsz double @llvm.cos.f64(double %8)

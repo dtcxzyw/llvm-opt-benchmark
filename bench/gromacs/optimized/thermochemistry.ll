@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef double @_Z21eigenvalueToFrequencyd(double noundef %0) local_unnamed_addr #0 {
   %2 = fcmp ogt double %0, 0.000000e+00
   %.sroa.speculated = select i1 %2, double %0, double 0.000000e+00
-  %3 = fmul double %.sroa.speculated, 0x44EA78437A00E75D
+  %3 = fmul nnan double %.sroa.speculated, 0x44EA78437A00E75D
   %sqrt = tail call double @llvm.sqrt.f64(double %3)
   ret double %sqrt
 }
@@ -58,7 +58,7 @@ define noundef double @_Z19calcZeroPointEnergyN3gmx8ArrayRefIKfEEf(ptr readonly 
   %8 = fpext float %7 to double
   %9 = fcmp ogt double %8, 0.000000e+00
   %.sroa.speculated.i = select i1 %9, double %8, double 0.000000e+00
-  %10 = fmul double %.sroa.speculated.i, 0x44EA78437A00E75D
+  %10 = fmul nnan double %.sroa.speculated.i, 0x44EA78437A00E75D
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %10)
   %11 = tail call double @llvm.fmuladd.f64(double %5, double %sqrt.i, double %.015)
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.014, i64 4
@@ -106,8 +106,8 @@ define noundef double @_Z29calcVibrationalInternalEnergyN3gmx8ArrayRefIKfEEfbf(p
 
 21:                                               ; preds = %17
   %22 = fpext float %19 to double
-  %23 = fmul double %22, 0x44EA78437A00E75D
-  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %23)
+  %23 = fmul nnan double %22, 0x44EA78437A00E75D
+  %sqrt.i = tail call nnan double @llvm.sqrt.f64(double %23)
   %24 = fmul double %sqrt.i, %12
   %25 = fmul double %24, 0x38E185A7057C690D
   %26 = fdiv double %25, %14
@@ -180,8 +180,8 @@ define noundef double @_Z27calcVibrationalHeatCapacityN3gmx8ArrayRefIKfEEfbf(ptr
 
 20:                                               ; preds = %16
   %21 = fpext float %18 to double
-  %22 = fmul double %21, 0x44EA78437A00E75D
-  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %22)
+  %22 = fmul nnan double %21, 0x44EA78437A00E75D
+  %sqrt.i = tail call nnan double @llvm.sqrt.f64(double %22)
   %23 = fmul double %sqrt.i, %12
   %24 = fmul double %23, 0x38E185A7057C690D
   %25 = fdiv double %24, %14
@@ -244,12 +244,12 @@ define noundef double @_Z24calcTranslationalEntropyfff(float noundef %0, float n
   unreachable
 
 12:                                               ; preds = %9
-  %13 = fpext float %1 to double
-  %14 = fmul double %13, 0x3F81072C483AF26D
-  %15 = fpext float %2 to double
-  %16 = fmul double %15, 1.000000e+05
-  %17 = fpext float %0 to double
-  %18 = fmul double %17, 0x401921FB54442D18
+  %13 = fpext nnan float %1 to double
+  %14 = fmul nnan double %13, 0x3F81072C483AF26D
+  %15 = fpext nnan float %2 to double
+  %16 = fmul nnan double %15, 1.000000e+05
+  %17 = fpext nnan float %0 to double
+  %18 = fmul nnan double %17, 0x401921FB54442D18
   %19 = fmul double %18, %14
   %20 = fdiv double %19, 0x3FC461841FB3BD3C
   %21 = tail call double @pow(double noundef %20, double noundef 1.500000e+00) #9, !tbaa !8
@@ -305,7 +305,7 @@ define noundef double @_Z21calcRotationalEntropyfibPKff(float noundef %0, i32 no
   unreachable
 
 18:                                               ; preds = %15
-  %19 = fmul float %4, %14
+  %19 = fmul nnan float %4, %14
   %20 = fdiv float %0, %19
   %21 = fpext float %20 to double
   br label %.sink.split
@@ -382,8 +382,8 @@ define noundef double @_Z24calcQuasiHarmonicEntropyN3gmx8ArrayRefIKfEEfbf(ptr %0
 
 20:                                               ; preds = %16
   %21 = fpext float %18 to double
-  %22 = fmul double %21, 0x44EA78437A00E75D
-  %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %22)
+  %22 = fmul nnan double %21, 0x44EA78437A00E75D
+  %sqrt.i = tail call nnan double @llvm.sqrt.f64(double %22)
   %23 = fmul double %sqrt.i, %12
   %24 = fmul double %23, 0x38E185A7057C690D
   %25 = fdiv double %24, %14

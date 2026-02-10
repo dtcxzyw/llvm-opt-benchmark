@@ -258,7 +258,7 @@ define hidden void @_ZN2cv11xfeatures2d10FREAK_Impl12buildPatternEv(ptr noundef 
 _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EE6resizeEm.exit: ; preds = %30, %33, %34, %36
   %37 = phi i32 [ %.pre179, %30 ], [ %10, %33 ], [ %10, %34 ], [ %10, %36 ]
   %38 = sitofp i32 %37 to double
-  %39 = fmul double %38, 1.562500e-02
+  %39 = fmul nnan double %38, 1.562500e-02
   %exp2 = tail call double @exp2(double %39)
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %41 = load ptr, ptr %21, align 8, !tbaa !28
@@ -469,8 +469,8 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EE6resizeEm.exit:
   %indvars.iv156.tr = trunc i64 %indvars.iv156 to i32
   %141 = shl i32 %indvars.iv156.tr, 1
   %142 = uitofp nneg i32 %141 to double
-  %143 = fmul double %142, 0x400921FB54442D18
-  %144 = fmul double %143, 3.906250e-03
+  %143 = fmul nnan double %142, 0x400921FB54442D18
+  %144 = fmul nnan double %143, 3.906250e-03
   %145 = load double, ptr %4, align 8
   %.idx = mul i64 %indvars.iv156, 516
   %gep = getelementptr i8, ptr %invariant.gep, i64 %.idx
@@ -482,7 +482,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EE6resizeEm.exit:
   %146 = getelementptr inbounds nuw i32, ptr @__const._ZN2cv11xfeatures2d10FREAK_Impl12buildPatternEv.n, i64 %.086134
   %147 = load i32, ptr %146, align 4, !tbaa !32
   %148 = sitofp i32 %147 to double
-  %149 = fdiv double 0x400921FB54442D18, %148
+  %149 = fdiv nnan double 0x400921FB54442D18, %148
   %150 = and i64 %.086134, 1
   %151 = uitofp nneg i64 %150 to double
   %152 = fmul double %149, %151
@@ -519,7 +519,7 @@ _ZNSt6vectorIN2cv11xfeatures2d10FREAK_Impl12PatternPointESaIS3_EE6resizeEm.exit:
   %.085132 = phi i32 [ 0, %.lr.ph ], [ %192, %191 ]
   %170 = shl nuw i32 %.085132, 1
   %171 = uitofp i32 %170 to double
-  %172 = fmul double %171, 0x400921FB54442D18
+  %172 = fmul nnan double %171, 0x400921FB54442D18
   %173 = fdiv double %172, %148
   %174 = fadd double %173, %152
   %175 = fadd double %144, %174
@@ -1313,7 +1313,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i32, ptr %55, align 8, !tbaa !24
   %57 = sitofp i32 %56 to double
-  %58 = fmul double %57, 0x3FE62E42FEFA39EC
+  %58 = fmul nnan double %57, 0x3FE62E42FEFA39EC
   %59 = fdiv double 6.400000e+01, %58
   %60 = fptrunc double %59 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1435,8 +1435,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br i1 %.not210, label %.loopexit, label %71, !llvm.loop !91
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %126 = fpext float %60 to double
-  %127 = fmul double %126, 0x3FF193EA7AAD02DF
+  %126 = fpext nnan float %60 to double
+  %127 = fmul nnan double %126, 0x3FF193EA7AAD02DF
   %128 = insertelement <2 x double> poison, double %127, i64 0
   %129 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %128)
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %129, i32 0)
@@ -2351,7 +2351,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i32, ptr %55, align 8, !tbaa !24
   %57 = sitofp i32 %56 to double
-  %58 = fmul double %57, 0x3FE62E42FEFA39EC
+  %58 = fmul nnan double %57, 0x3FE62E42FEFA39EC
   %59 = fdiv double 6.400000e+01, %58
   %60 = fptrunc double %59 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -2473,8 +2473,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br i1 %.not210, label %.loopexit, label %71, !llvm.loop !124
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %126 = fpext float %60 to double
-  %127 = fmul double %126, 0x3FF193EA7AAD02DF
+  %126 = fpext nnan float %60 to double
+  %127 = fmul nnan double %126, 0x3FF193EA7AAD02DF
   %128 = insertelement <2 x double> poison, double %127, i64 0
   %129 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %128)
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %129, i32 0)
@@ -3389,7 +3389,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i32, ptr %55, align 8, !tbaa !24
   %57 = sitofp i32 %56 to double
-  %58 = fmul double %57, 0x3FE62E42FEFA39EC
+  %58 = fmul nnan double %57, 0x3FE62E42FEFA39EC
   %59 = fdiv double 6.400000e+01, %58
   %60 = fptrunc double %59 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -3511,8 +3511,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br i1 %.not210, label %.loopexit, label %71, !llvm.loop !147
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %126 = fpext float %60 to double
-  %127 = fmul double %126, 0x3FF193EA7AAD02DF
+  %126 = fpext nnan float %60 to double
+  %127 = fmul nnan double %126, 0x3FF193EA7AAD02DF
   %128 = insertelement <2 x double> poison, double %127, i64 0
   %129 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %128)
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %129, i32 0)
@@ -4427,7 +4427,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i32, ptr %55, align 8, !tbaa !24
   %57 = sitofp i32 %56 to double
-  %58 = fmul double %57, 0x3FE62E42FEFA39EC
+  %58 = fmul nnan double %57, 0x3FE62E42FEFA39EC
   %59 = fdiv double 6.400000e+01, %58
   %60 = fptrunc double %59 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -4549,8 +4549,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br i1 %.not210, label %.loopexit, label %71, !llvm.loop !167
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %126 = fpext float %60 to double
-  %127 = fmul double %126, 0x3FF193EA7AAD02DF
+  %126 = fpext nnan float %60 to double
+  %127 = fmul nnan double %126, 0x3FF193EA7AAD02DF
   %128 = insertelement <2 x double> poison, double %127, i64 0
   %129 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %128)
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %129, i32 0)
@@ -5465,7 +5465,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i32, ptr %55, align 8, !tbaa !24
   %57 = sitofp i32 %56 to double
-  %58 = fmul double %57, 0x3FE62E42FEFA39EC
+  %58 = fmul nnan double %57, 0x3FE62E42FEFA39EC
   %59 = fdiv double 6.400000e+01, %58
   %60 = fptrunc double %59 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -5587,8 +5587,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br i1 %.not210, label %.loopexit, label %71, !llvm.loop !187
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %126 = fpext float %60 to double
-  %127 = fmul double %126, 0x3FF193EA7AAD02DF
+  %126 = fpext nnan float %60 to double
+  %127 = fmul nnan double %126, 0x3FF193EA7AAD02DF
   %128 = insertelement <2 x double> poison, double %127, i64 0
   %129 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %128)
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %129, i32 0)
@@ -6503,7 +6503,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %56 = load i32, ptr %55, align 8, !tbaa !24
   %57 = sitofp i32 %56 to double
-  %58 = fmul double %57, 0x3FE62E42FEFA39EC
+  %58 = fmul nnan double %57, 0x3FE62E42FEFA39EC
   %59 = fdiv double 6.400000e+01, %58
   %60 = fptrunc double %59 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -6625,8 +6625,8 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.ex
   br i1 %.not210, label %.loopexit, label %71, !llvm.loop !212
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEEC2EmRKS0_.exit
-  %126 = fpext float %60 to double
-  %127 = fmul double %126, 0x3FF193EA7AAD02DF
+  %126 = fpext nnan float %60 to double
+  %127 = fmul nnan double %126, 0x3FF193EA7AAD02DF
   %128 = insertelement <2 x double> poison, double %127, i64 0
   %129 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %128)
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %129, i32 0)

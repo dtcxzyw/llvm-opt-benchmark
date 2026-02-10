@@ -23485,7 +23485,7 @@ define linkonce_odr noundef double @_ZN6OctreeIfE11memoryUsageEv(ptr noundef non
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %15 = uitofp i64 %14 to double
-  %16 = fmul double %15, 0x3EB0000000000000
+  %16 = fmul nnan double %15, 0x3EB0000000000000
   %17 = select i1 %13, double %16, double 0.000000e+00
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load double, ptr %18, align 8
@@ -38635,7 +38635,7 @@ _ZN21BSplineEvaluationDataILi2EL12BoundaryType2EE29BSplineUpSamplingCoefficients
   %56 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4
   %58 = sitofp i32 %57 to double
-  %59 = fmul double %58, 2.500000e-01
+  %59 = fmul nnan double %58, 2.500000e-01
   %60 = getelementptr inbounds nuw double, ptr %54, i64 %indvars.iv
   store double %59, ptr %60, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -41752,7 +41752,7 @@ _ZNK10PolynomialILi1EE8integralEv.exit24.i:       ; preds = %_ZN10PolynomialILi1
   store double %42, ptr %40, align 8, !alias.scope !672
   %43 = trunc nuw nsw i64 %indvars.iv19.i to i32
   %44 = uitofp nneg i32 %43 to double
-  %45 = fmul double %17, %44
+  %45 = fmul nnan double %17, %44
   %46 = fmul double %.01416.i, %45
   %47 = sub nuw nsw i64 %indvars.iv.next.i, %indvars.iv19.i
   %48 = trunc nuw nsw i64 %47 to i32
@@ -51449,8 +51449,8 @@ define linkonce_odr noundef float @_ZNK6OctreeIfE19_finerFunctionValueILi2EL12Bo
   store i32 %37, ptr %30, align 4
   %38 = shl nuw i32 1, %18
   %39 = sitofp i32 %38 to double
-  %40 = fdiv double 1.000000e+00, %39
-  %41 = fptrunc double %40 to float
+  %40 = fdiv nnan double 1.000000e+00, %39
+  %41 = fptrunc nnan double %40 to float
   br label %42
 
 42:                                               ; preds = %42, %7
@@ -51458,8 +51458,8 @@ define linkonce_odr noundef float @_ZNK6OctreeIfE19_finerFunctionValueILi2EL12Bo
   %43 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i.i
   %44 = load i32, ptr %43, align 4
   %45 = sitofp i32 %44 to double
-  %46 = fadd double %45, 5.000000e-01
-  %47 = fptrunc double %46 to float
+  %46 = fadd nnan double %45, 5.000000e-01
+  %47 = fptrunc nnan double %46 to float
   %48 = fmul float %41, %47
   %49 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i.i
   store float %48, ptr %49, align 4
@@ -63182,7 +63182,7 @@ define linkonce_odr void @_ZN21BSplineEvaluationDataILi1EL12BoundaryType2EE17BSp
   store double %16, ptr %14, align 8
   %17 = trunc nuw nsw i64 %indvars.iv19.i to i32
   %18 = uitofp nneg i32 %17 to double
-  %19 = fmul double %9, %18
+  %19 = fmul nnan double %9, %18
   %20 = fmul double %.01416.i, %19
   %21 = sub nuw nsw i64 %indvars.iv.next.i, %indvars.iv19.i
   %22 = trunc nuw nsw i64 %21 to i32

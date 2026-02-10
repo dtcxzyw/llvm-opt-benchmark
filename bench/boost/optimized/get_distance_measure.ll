@@ -37925,7 +37925,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %28, %30
 
 36:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
   %37 = uitofp i32 %34 to double
-  %38 = fdiv double %37, 5.000000e+01
+  %38 = fdiv nnan double %37, 5.000000e+01
   %39 = load i64, ptr %13, align 8, !tbaa !799
   %40 = uitofp i64 %39 to double
   %41 = fmul double %38, %40
@@ -73357,8 +73357,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %20, ptr noundef nonnull align 16 dereferenceable(32) @__const._Z25test_get_distance_measureIN5boost8geometry5model5pointIeLm2ENS1_2cs9cartesianEEEEvv.q2a, i64 32, i1 false)
   %142 = load x86_fp80, ptr %17, align 16, !tbaa !1519
   %143 = sitofp i32 %.025209 to double
-  %144 = fdiv double %143, 1.000000e+01
-  %145 = fmul double %144, 1.000000e-09
+  %144 = fdiv nnan double %143, 1.000000e+01
+  %145 = fmul nnan double %144, 1.000000e-09
   %146 = fpext double %145 to x86_fp80
   %147 = fadd x86_fp80 %142, %146
   store x86_fp80 %147, ptr %20, align 16, !tbaa !1519
@@ -75487,7 +75487,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %178
 
 .noexc51:                                         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %183 = uitofp i64 %181 to double
-  %184 = fmul double %183, 0x3EB0C6F7A0B5ED8D
+  %184 = fmul nnan double %183, 0x3EB0C6F7A0B5ED8D
   %185 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %42, double noundef %184)
           to label %.noexc52 unwind label %459
 
@@ -76945,7 +76945,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72: ; preds = %208
 
 .noexc74:                                         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72
   %213 = uitofp i64 %211 to double
-  %214 = fmul double %213, 0x3EB0C6F7A0B5ED8D
+  %214 = fmul nnan double %213, 0x3EB0C6F7A0B5ED8D
   %215 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %191, double noundef %214)
           to label %.noexc75 unwind label %259
 
@@ -133550,7 +133550,7 @@ _ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.i.i.i: ; preds = %11
   %17 = select i1 %16, float %12, float %9
   %18 = fcmp olt float %17, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i = select i1 %18, float 1.000000e+00, float %17
-  %19 = fmul float %.sroa.speculated.i.i.i.i.i.i, 0x3E80000000000000
+  %19 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i, 0x3E80000000000000
   %20 = fcmp ugt float %15, %19
   br i1 %20, label %39, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread7.i.i.i
 
@@ -133579,7 +133579,7 @@ _ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.i.i.i.i: ; preds = %29
   %35 = select i1 %34, float %30, float %27
   %36 = fcmp olt float %35, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i = select i1 %36, float 1.000000e+00, float %35
-  %37 = fmul float %.sroa.speculated.i.i.i.i.i.i.i, 0x3E80000000000000
+  %37 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i.i, 0x3E80000000000000
   %38 = fcmp ugt float %33, %37
   br i1 %38, label %39, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIfLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
@@ -133605,7 +133605,7 @@ _ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.i.i.i29: ; preds = %45
   %51 = select i1 %50, float %46, float %43
   %52 = fcmp olt float %51, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i30 = select i1 %52, float 1.000000e+00, float %51
-  %53 = fmul float %.sroa.speculated.i.i.i.i.i.i30, 0x3E80000000000000
+  %53 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i30, 0x3E80000000000000
   %54 = fcmp ugt float %49, %53
   br i1 %54, label %73, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread7.i.i.i31
 
@@ -133634,7 +133634,7 @@ _ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.i.i.i.i32: ; preds = %63
   %69 = select i1 %68, float %64, float %61
   %70 = fcmp olt float %69, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i33 = select i1 %70, float 1.000000e+00, float %69
-  %71 = fmul float %.sroa.speculated.i.i.i.i.i.i.i33, 0x3E80000000000000
+  %71 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i.i33, 0x3E80000000000000
   %72 = fcmp ugt float %67, %71
   br i1 %72, label %73, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIfLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
@@ -133659,7 +133659,7 @@ _ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.i.i.i37: ; preds = %78
   %84 = select i1 %83, float %79, float %76
   %85 = fcmp olt float %84, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i38 = select i1 %85, float 1.000000e+00, float %84
-  %86 = fmul float %.sroa.speculated.i.i.i.i.i.i38, 0x3E80000000000000
+  %86 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i38, 0x3E80000000000000
   %87 = fcmp ugt float %82, %86
   br i1 %87, label %106, label %_ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.thread7.i.i.i39
 
@@ -133688,7 +133688,7 @@ _ZN5boost8geometry4math6equalsIffEEbRKT_RKT0_.exit.i.i.i.i40: ; preds = %96
   %102 = select i1 %101, float %97, float %94
   %103 = fcmp olt float %102, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i41 = select i1 %103, float 1.000000e+00, float %102
-  %104 = fmul float %.sroa.speculated.i.i.i.i.i.i.i41, 0x3E80000000000000
+  %104 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i.i41, 0x3E80000000000000
   %105 = fcmp ugt float %100, %104
   br i1 %105, label %106, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIfLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
@@ -133712,7 +133712,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.
   %116 = select i1 %115, float %111, float %108
   %117 = fcmp olt float %116, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i45 = select i1 %117, float 1.000000e+00, float %116
-  %118 = fmul float %.sroa.speculated.i.i.i.i.i.i45, 0x3E80000000000000
+  %118 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i45, 0x3E80000000000000
   %119 = fcmp ugt float %114, %118
   br i1 %119, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread13.i.i
 
@@ -133741,7 +133741,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.
   %134 = select i1 %133, float %129, float %126
   %135 = fcmp olt float %134, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i46 = select i1 %135, float 1.000000e+00, float %134
-  %136 = fmul float %.sroa.speculated.i.i.i.i.i.i.i46, 0x3E80000000000000
+  %136 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i.i46, 0x3E80000000000000
   %137 = fcmp ugt float %132, %136
   %138 = fcmp olt float %121, %123
   %or.cond = and i1 %138, %137
@@ -133775,7 +133775,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.
   %150 = select i1 %149, float %145, float %142
   %151 = fcmp olt float %150, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i48 = select i1 %151, float 1.000000e+00, float %150
-  %152 = fmul float %.sroa.speculated.i.i.i.i.i.i48, 0x3E80000000000000
+  %152 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i48, 0x3E80000000000000
   %153 = fcmp ugt float %148, %152
   br i1 %153, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i54, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread13.i.i49
 
@@ -133804,7 +133804,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.
   %168 = select i1 %167, float %163, float %160
   %169 = fcmp olt float %168, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i51 = select i1 %169, float 1.000000e+00, float %168
-  %170 = fmul float %.sroa.speculated.i.i.i.i.i.i.i51, 0x3E80000000000000
+  %170 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i.i51, 0x3E80000000000000
   %171 = fcmp ugt float %166, %170
   %172 = fcmp olt float %155, %157
   %or.cond78 = and i1 %172, %171
@@ -133864,7 +133864,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.
   %199 = select i1 %198, float %194, float %191
   %200 = fcmp olt float %199, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i59 = select i1 %200, float 1.000000e+00, float %199
-  %201 = fmul float %.sroa.speculated.i.i.i.i.i.i59, 0x3E80000000000000
+  %201 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i59, 0x3E80000000000000
   %202 = fcmp ugt float %197, %201
   br i1 %202, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread.i.i65, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.thread13.i.i60
 
@@ -133893,7 +133893,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIffEEbRKT_RKT0_.exit.i.
   %217 = select i1 %216, float %212, float %209
   %218 = fcmp olt float %217, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i62 = select i1 %218, float 1.000000e+00, float %217
-  %219 = fmul float %.sroa.speculated.i.i.i.i.i.i.i62, 0x3E80000000000000
+  %219 = fmul nnan float %.sroa.speculated.i.i.i.i.i.i.i62, 0x3E80000000000000
   %220 = fcmp ugt float %215, %219
   %221 = fcmp olt float %204, %206
   %or.cond80 = and i1 %221, %220
@@ -135962,7 +135962,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i: ; preds = %11
   %17 = select i1 %16, double %12, double %9
   %18 = fcmp olt double %17, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i = select i1 %18, double 1.000000e+00, double %17
-  %19 = fmul double %.sroa.speculated.i.i.i.i.i.i, 0x3CB0000000000000
+  %19 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i, 0x3CB0000000000000
   %20 = fcmp ugt double %15, %19
   br i1 %20, label %39, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i
 
@@ -135991,7 +135991,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i: ; preds = %29
   %35 = select i1 %34, double %30, double %27
   %36 = fcmp olt double %35, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i = select i1 %36, double 1.000000e+00, double %35
-  %37 = fmul double %.sroa.speculated.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %37 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i, 0x3CB0000000000000
   %38 = fcmp ugt double %33, %37
   br i1 %38, label %39, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
@@ -136017,7 +136017,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i29: ; preds = %45
   %51 = select i1 %50, double %46, double %43
   %52 = fcmp olt double %51, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i30 = select i1 %52, double 1.000000e+00, double %51
-  %53 = fmul double %.sroa.speculated.i.i.i.i.i.i30, 0x3CB0000000000000
+  %53 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i30, 0x3CB0000000000000
   %54 = fcmp ugt double %49, %53
   br i1 %54, label %73, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i31
 
@@ -136046,7 +136046,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i32: ; preds = %63
   %69 = select i1 %68, double %64, double %61
   %70 = fcmp olt double %69, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i33 = select i1 %70, double 1.000000e+00, double %69
-  %71 = fmul double %.sroa.speculated.i.i.i.i.i.i.i33, 0x3CB0000000000000
+  %71 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i33, 0x3CB0000000000000
   %72 = fcmp ugt double %67, %71
   br i1 %72, label %73, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
@@ -136071,7 +136071,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i37: ; preds = %78
   %84 = select i1 %83, double %79, double %76
   %85 = fcmp olt double %84, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i38 = select i1 %85, double 1.000000e+00, double %84
-  %86 = fmul double %.sroa.speculated.i.i.i.i.i.i38, 0x3CB0000000000000
+  %86 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i38, 0x3CB0000000000000
   %87 = fcmp ugt double %82, %86
   br i1 %87, label %106, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i39
 
@@ -136100,7 +136100,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i40: ; preds = %96
   %102 = select i1 %101, double %97, double %94
   %103 = fcmp olt double %102, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i41 = select i1 %103, double 1.000000e+00, double %102
-  %104 = fmul double %.sroa.speculated.i.i.i.i.i.i.i41, 0x3CB0000000000000
+  %104 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i41, 0x3CB0000000000000
   %105 = fcmp ugt double %100, %104
   br i1 %105, label %106, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIdLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
@@ -136124,7 +136124,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.
   %116 = select i1 %115, double %111, double %108
   %117 = fcmp olt double %116, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i45 = select i1 %117, double 1.000000e+00, double %116
-  %118 = fmul double %.sroa.speculated.i.i.i.i.i.i45, 0x3CB0000000000000
+  %118 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i45, 0x3CB0000000000000
   %119 = fcmp ugt double %114, %118
   br i1 %119, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i
 
@@ -136153,7 +136153,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.
   %134 = select i1 %133, double %129, double %126
   %135 = fcmp olt double %134, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i46 = select i1 %135, double 1.000000e+00, double %134
-  %136 = fmul double %.sroa.speculated.i.i.i.i.i.i.i46, 0x3CB0000000000000
+  %136 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i46, 0x3CB0000000000000
   %137 = fcmp ugt double %132, %136
   %138 = fcmp olt double %121, %123
   %or.cond = and i1 %138, %137
@@ -136187,7 +136187,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.
   %150 = select i1 %149, double %145, double %142
   %151 = fcmp olt double %150, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i48 = select i1 %151, double 1.000000e+00, double %150
-  %152 = fmul double %.sroa.speculated.i.i.i.i.i.i48, 0x3CB0000000000000
+  %152 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i48, 0x3CB0000000000000
   %153 = fcmp ugt double %148, %152
   br i1 %153, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i54, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i49
 
@@ -136216,7 +136216,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.
   %168 = select i1 %167, double %163, double %160
   %169 = fcmp olt double %168, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i51 = select i1 %169, double 1.000000e+00, double %168
-  %170 = fmul double %.sroa.speculated.i.i.i.i.i.i.i51, 0x3CB0000000000000
+  %170 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i51, 0x3CB0000000000000
   %171 = fcmp ugt double %166, %170
   %172 = fcmp olt double %155, %157
   %or.cond78 = and i1 %172, %171
@@ -136308,7 +136308,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.
   %225 = select i1 %224, double %220, double %217
   %226 = fcmp olt double %225, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i59 = select i1 %226, double 1.000000e+00, double %225
-  %227 = fmul double %.sroa.speculated.i.i.i.i.i.i59, 0x3CB0000000000000
+  %227 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i59, 0x3CB0000000000000
   %228 = fcmp ugt double %223, %227
   br i1 %228, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread.i.i65, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.thread13.i.i60
 
@@ -136337,7 +136337,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIddEEbRKT_RKT0_.exit.i.
   %243 = select i1 %242, double %238, double %235
   %244 = fcmp olt double %243, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i62 = select i1 %244, double 1.000000e+00, double %243
-  %245 = fmul double %.sroa.speculated.i.i.i.i.i.i.i62, 0x3CB0000000000000
+  %245 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i62, 0x3CB0000000000000
   %246 = fcmp ugt double %241, %245
   %247 = fcmp olt double %230, %232
   %or.cond80 = and i1 %247, %246
@@ -137327,7 +137327,7 @@ _ZN5boost8geometry4math6equalsIeeEEbRKT_RKT0_.exit.i.i.i: ; preds = %11
   %17 = select i1 %16, x86_fp80 %12, x86_fp80 %9
   %18 = fcmp olt x86_fp80 %17, 0xK3FFF8000000000000000
   %19 = select i1 %18, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %17
-  %20 = fmul x86_fp80 %19, 0xK3FC08000000000000000
+  %20 = fmul nnan x86_fp80 %19, 0xK3FC08000000000000000
   %21 = fcmp ugt x86_fp80 %15, %20
   br i1 %21, label %41, label %_ZN5boost8geometry4math6equalsIeeEEbRKT_RKT0_.exit.thread8.i.i.i
 
@@ -137356,7 +137356,7 @@ _ZN5boost8geometry4math6equalsIeeEEbRKT_RKT0_.exit.i.i.i.i: ; preds = %30
   %36 = select i1 %35, x86_fp80 %31, x86_fp80 %28
   %37 = fcmp olt x86_fp80 %36, 0xK3FFF8000000000000000
   %38 = select i1 %37, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %36
-  %39 = fmul x86_fp80 %38, 0xK3FC08000000000000000
+  %39 = fmul nnan x86_fp80 %38, 0xK3FC08000000000000000
   %40 = fcmp ugt x86_fp80 %34, %39
   br i1 %40, label %41, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIeLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
@@ -137382,7 +137382,7 @@ _ZN5boost8geometry4math6equalsIeeEEbRKT_RKT0_.exit.i.i.i29: ; preds = %47
   %53 = select i1 %52, x86_fp80 %48, x86_fp80 %45
   %54 = fcmp olt x86_fp80 %53, 0xK3FFF8000000000000000
   %55 = select i1 %54, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %53
-  %56 = fmul x86_fp80 %55, 0xK3FC08000000000000000
+  %56 = fmul nnan x86_fp80 %55, 0xK3FC08000000000000000
   %57 = fcmp ugt x86_fp80 %51, %56
   br i1 %57, label %77, label %_ZN5boost8geometry4math6equalsIeeEEbRKT_RKT0_.exit.thread8.i.i.i30
 
@@ -137411,7 +137411,7 @@ _ZN5boost8geometry4math6equalsIeeEEbRKT_RKT0_.exit.i.i.i.i31: ; preds = %66
   %72 = select i1 %71, x86_fp80 %67, x86_fp80 %64
   %73 = fcmp olt x86_fp80 %72, 0xK3FFF8000000000000000
   %74 = select i1 %73, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %72
-  %75 = fmul x86_fp80 %74, 0xK3FC08000000000000000
+  %75 = fmul nnan x86_fp80 %74, 0xK3FC08000000000000000
   %76 = fcmp ugt x86_fp80 %70, %75
   br i1 %76, label %77, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIeLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
@@ -137436,7 +137436,7 @@ _ZN5boost8geometry4math6equalsIeeEEbRKT_RKT0_.exit.i.i.i35: ; preds = %82
   %88 = select i1 %87, x86_fp80 %83, x86_fp80 %80
   %89 = fcmp olt x86_fp80 %88, 0xK3FFF8000000000000000
   %90 = select i1 %89, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %88
-  %91 = fmul x86_fp80 %90, 0xK3FC08000000000000000
+  %91 = fmul nnan x86_fp80 %90, 0xK3FC08000000000000000
   %92 = fcmp ugt x86_fp80 %86, %91
   br i1 %92, label %112, label %_ZN5boost8geometry4math6equalsIeeEEbRKT_RKT0_.exit.thread8.i.i.i36
 
@@ -137465,7 +137465,7 @@ _ZN5boost8geometry4math6equalsIeeEEbRKT_RKT0_.exit.i.i.i.i37: ; preds = %101
   %107 = select i1 %106, x86_fp80 %102, x86_fp80 %99
   %108 = fcmp olt x86_fp80 %107, 0xK3FFF8000000000000000
   %109 = select i1 %108, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %107
-  %110 = fmul x86_fp80 %109, 0xK3FC08000000000000000
+  %110 = fmul nnan x86_fp80 %109, 0xK3FC08000000000000000
   %111 = fcmp ugt x86_fp80 %105, %110
   br i1 %111, label %112, label %_ZN5boost8geometry8strategy4side16side_by_triangleIvE18equals_point_pointINS0_5model5pointIeLm2ENS0_2cs9cartesianEEESA_EEbRKT_RKT0_.exit
 
@@ -137489,7 +137489,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIeeEEbRKT_RKT0_.exit.i.
   %122 = select i1 %121, x86_fp80 %117, x86_fp80 %114
   %123 = fcmp olt x86_fp80 %122, 0xK3FFF8000000000000000
   %124 = select i1 %123, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %122
-  %125 = fmul x86_fp80 %124, 0xK3FC08000000000000000
+  %125 = fmul nnan x86_fp80 %124, 0xK3FC08000000000000000
   %126 = fcmp ugt x86_fp80 %120, %125
   br i1 %126, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIeeEEbRKT_RKT0_.exit.thread.i.i, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIeeEEbRKT_RKT0_.exit.thread14.i.i
 
@@ -137518,7 +137518,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIeeEEbRKT_RKT0_.exit.i.
   %141 = select i1 %140, x86_fp80 %136, x86_fp80 %133
   %142 = fcmp olt x86_fp80 %141, 0xK3FFF8000000000000000
   %143 = select i1 %142, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %141
-  %144 = fmul x86_fp80 %143, 0xK3FC08000000000000000
+  %144 = fmul nnan x86_fp80 %143, 0xK3FC08000000000000000
   %145 = fcmp ugt x86_fp80 %139, %144
   %146 = fcmp olt x86_fp80 %128, %130
   %or.cond = and i1 %146, %145
@@ -137552,7 +137552,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIeeEEbRKT_RKT0_.exit.i.
   %158 = select i1 %157, x86_fp80 %153, x86_fp80 %150
   %159 = fcmp olt x86_fp80 %158, 0xK3FFF8000000000000000
   %160 = select i1 %159, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %158
-  %161 = fmul x86_fp80 %160, 0xK3FC08000000000000000
+  %161 = fmul nnan x86_fp80 %160, 0xK3FC08000000000000000
   %162 = fcmp ugt x86_fp80 %156, %161
   br i1 %162, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIeeEEbRKT_RKT0_.exit.thread.i.i46, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIeeEEbRKT_RKT0_.exit.thread14.i.i42
 
@@ -137581,7 +137581,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIeeEEbRKT_RKT0_.exit.i.
   %177 = select i1 %176, x86_fp80 %172, x86_fp80 %169
   %178 = fcmp olt x86_fp80 %177, 0xK3FFF8000000000000000
   %179 = select i1 %178, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %177
-  %180 = fmul x86_fp80 %179, 0xK3FC08000000000000000
+  %180 = fmul nnan x86_fp80 %179, 0xK3FC08000000000000000
   %181 = fcmp ugt x86_fp80 %175, %180
   %182 = fcmp olt x86_fp80 %164, %166
   %or.cond62 = and i1 %182, %181
@@ -137673,7 +137673,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIeeEEbRKT_RKT0_.exit.i.
   %239 = select i1 %238, x86_fp80 %234, x86_fp80 %231
   %240 = fcmp olt x86_fp80 %239, 0xK3FFF8000000000000000
   %241 = select i1 %240, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %239
-  %242 = fmul x86_fp80 %241, 0xK3FC08000000000000000
+  %242 = fmul nnan x86_fp80 %241, 0xK3FC08000000000000000
   %243 = fcmp ugt x86_fp80 %237, %242
   br i1 %243, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIeeEEbRKT_RKT0_.exit.thread.i.i53, label %_ZN5boost8geometry8strategy7compare14equals_epsilon5applyIeeEEbRKT_RKT0_.exit.thread14.i.i49
 
@@ -137702,7 +137702,7 @@ _ZN5boost8geometry8strategy7compare14equals_epsilon5applyIeeEEbRKT_RKT0_.exit.i.
   %258 = select i1 %257, x86_fp80 %253, x86_fp80 %250
   %259 = fcmp olt x86_fp80 %258, 0xK3FFF8000000000000000
   %260 = select i1 %259, x86_fp80 0xK3FFF8000000000000000, x86_fp80 %258
-  %261 = fmul x86_fp80 %260, 0xK3FC08000000000000000
+  %261 = fmul nnan x86_fp80 %260, 0xK3FC08000000000000000
   %262 = fcmp ugt x86_fp80 %256, %261
   %263 = fcmp olt x86_fp80 %245, %247
   %or.cond64 = and i1 %263, %262

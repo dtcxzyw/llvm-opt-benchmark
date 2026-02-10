@@ -1985,7 +1985,7 @@ _ZNK5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEEptEv.exit: ; preds 
   br i1 %cmp.i, label %cond.true.i, label %cond.false.i34
 
 cond.true.i:                                      ; preds = %_ZNK5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEEptEv.exit
-  %div.i = fdiv double 1.000000e+00, %27
+  %div.i = fdiv nnan double 1.000000e+00, %27
   %fneg.i = fneg double %27
   %sub.i = fsub double %26, %t
   %mul.i = fmul double %sub.i, %fneg.i
@@ -2026,7 +2026,7 @@ entry:
   br i1 %cmp, label %cond.true, label %cond.false
 
 cond.true:                                        ; preds = %entry
-  %div = fdiv double 1.000000e+00, %0
+  %div = fdiv nnan double 1.000000e+00, %0
   %fneg = fneg double %0
   %sub = fsub double %T, %t
   %mul = fmul double %sub, %fneg
@@ -2102,7 +2102,7 @@ _ZNK5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEEptEv.exit: ; preds 
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %_ZNK5boost10shared_ptrIN8QuantLib24OrnsteinUhlenbeckProcessEEptEv.exit
-  %mul5.i = fmul double %3, %3
+  %mul5.i = fmul nnan double %3, %3
   %div.i = fdiv double %mul.i, %mul5.i
   %sub.i = fsub double %add, %t0
   %mul7.i = fmul double %sub.i, %fneg
@@ -2241,7 +2241,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %mul5 = fmul double %0, %0
+  %mul5 = fmul nnan double %0, %0
   %div = fdiv double %mul, %mul5
   %fneg = fneg double %0
   %sub = fsub double %t, %s

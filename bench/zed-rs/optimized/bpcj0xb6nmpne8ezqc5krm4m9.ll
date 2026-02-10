@@ -26948,7 +26948,7 @@ define void @_ZN14language_model7request18LanguageModelImage17from_render_image1
   %indvars.iv.next168.i.i = add nuw nsw i64 %indvars.iv167.i.i, 1
   %134 = trunc nuw i64 %indvars.iv167.i.i to i32
   %135 = uitofp i32 %134 to float
-  %136 = fadd float %135, 5.000000e-01
+  %136 = fadd nnan float %135, 5.000000e-01
   %137 = fmul float %119, %136
   %138 = fsub float %137, %..i.i
   %139 = call float @llvm.floor.f32(float %138)
@@ -27380,7 +27380,7 @@ define void @_ZN14language_model7request18LanguageModelImage17from_render_image1
   %indvars.iv.next201.i.i = add nuw nsw i64 %indvars.iv200.i.i, 1
   %289 = trunc nuw i64 %indvars.iv200.i.i to i32
   %290 = uitofp i32 %289 to float
-  %291 = fadd float %290, 5.000000e-01
+  %291 = fadd nnan float %290, 5.000000e-01
   %292 = fmul float %278, %291
   %293 = fsub float %292, %.sroa.03.0.i.i
   %294 = call float @llvm.floor.f32(float %293)

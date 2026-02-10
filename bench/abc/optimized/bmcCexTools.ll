@@ -231,7 +231,7 @@ Bmc_CexBitCount.exit48:                           ; preds = %46, %.preheader.i40
 
 Bmc_CexBitCount.exit57.loopexit:                  ; preds = %69
   %82 = uitofp nneg i32 %.1.i54 to double
-  %83 = fmul double %82, 1.000000e+02
+  %83 = fmul nnan double %82, 1.000000e+02
   br label %Bmc_CexBitCount.exit57
 
 Bmc_CexBitCount.exit57:                           ; preds = %Bmc_CexBitCount.exit57.loopexit, %.preheader.i49, %68
@@ -251,16 +251,16 @@ Bmc_CexBitCount.exit57:                           ; preds = %Bmc_CexBitCount.exi
   %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.4, i32 noundef %94) #21
   %96 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.4, i32 noundef %86) #21
   %97 = sitofp i32 %87 to double
-  %98 = fmul double %97, 1.000000e+02
+  %98 = fmul nnan double %97, 1.000000e+02
   %99 = sitofp i32 %86 to double
   %100 = fdiv double %98, %99
   %101 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.5, double noundef %100) #21
   %102 = sitofp i32 %84 to double
-  %103 = fmul double %102, 1.000000e+02
+  %103 = fmul nnan double %102, 1.000000e+02
   %104 = fdiv double %103, %99
   %105 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.5, double noundef %104) #21
   %106 = sitofp i32 %.017.i41 to double
-  %107 = fmul double %106, 1.000000e+02
+  %107 = fmul nnan double %106, 1.000000e+02
   %108 = fdiv double %107, %99
   %109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.5, double noundef %108) #21
   %110 = fdiv double %.017.i50, %99
@@ -4550,7 +4550,7 @@ define void @Gia_ManCountCareBits(ptr noundef readonly captures(none) %0, ptr no
   %168 = udiv i64 %.082.lcssa, %.pre-phi
   %169 = trunc i64 %168 to i32
   %170 = sitofp i32 %169 to double
-  %171 = fmul double %170, 1.000000e+02
+  %171 = fmul nnan double %170, 1.000000e+02
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %173 = load ptr, ptr %172, align 8, !tbaa !35
   %174 = getelementptr i8, ptr %173, i64 4

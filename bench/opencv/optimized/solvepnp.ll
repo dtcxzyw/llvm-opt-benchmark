@@ -11245,7 +11245,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit295:              ; preds = %702
   br i1 %730, label %..thread_crit_edge.i, label %731
 
 ..thread_crit_edge.i:                             ; preds = %725
-  %.pre.i = fmul double %sqrt.i, %sqrt.i
+  %.pre.i = fmul nnan double %sqrt.i, %sqrt.i
   br label %.thread.i
 
 731:                                              ; preds = %725

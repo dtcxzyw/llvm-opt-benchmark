@@ -5820,7 +5820,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   %245 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %246 = load i64, ptr %245, align 8
   %247 = uitofp i64 %246 to double
-  %248 = fmul double %247, 0x3EB0000000000000
+  %248 = fmul nnan double %247, 0x3EB0000000000000
   store double %248, ptr %40, align 8
   %249 = getelementptr inbounds nuw i8, ptr %2, i64 120
   call void @llvm.lifetime.start.p0(ptr nonnull %10)

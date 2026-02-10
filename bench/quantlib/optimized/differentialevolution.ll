@@ -1974,8 +1974,8 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %for.body15,
   %shr7.i.i = lshr i64 %xor6.i.i, 18
   %xor8.i.i = xor i64 %shr7.i.i, %xor6.i.i
   %conv.i = uitofp i64 %xor8.i.i to double
-  %add.i = fadd double %conv.i, 5.000000e-01
-  %div.i = fmul double %add.i, 0x3DF0000000000000
+  %add.i = fadd nnan double %conv.i, 5.000000e-01
+  %div.i = fmul nnan double %add.i, 0x3DF0000000000000
   %29 = tail call double @llvm.fmuladd.f64(double %sub, double %div.i, double %23)
   %30 = load ptr, ptr %population, align 8, !tbaa !45
   %add.ptr.i27 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %30, i64 %j.037
@@ -3252,8 +3252,8 @@ invoke.cont116:                                   ; preds = %.noexc550, %for.bod
   %shr7.i.i546 = lshr i64 %xor6.i.i545, 18
   %xor8.i.i547 = xor i64 %shr7.i.i546, %xor6.i.i545
   %conv.i = uitofp i64 %xor8.i.i547 to double
-  %add.i = fadd double %conv.i, 5.000000e-01
-  %div.i = fmul double %add.i, 0x3DF0000000000000
+  %add.i = fadd nnan double %conv.i, 5.000000e-01
+  %div.i = fmul nnan double %add.i, 0x3DF0000000000000
   store double %div.i, ptr %__begin4.02244, align 8, !tbaa !39
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %__begin4.02244, i64 8
   %cmp111.not = icmp eq ptr %incdec.ptr, %add.ptr.i530
@@ -4518,8 +4518,8 @@ invoke.cont328:                                   ; preds = %.noexc1050, %for.bo
   %shr7.i.i1043 = lshr i64 %xor6.i.i1042, 18
   %xor8.i.i1044 = xor i64 %shr7.i.i1043, %xor6.i.i1042
   %conv.i1045 = uitofp i64 %xor8.i.i1044 to double
-  %add.i1046 = fadd double %conv.i1045, 5.000000e-01
-  %div.i1047 = fmul double %add.i1046, 0x3DF0000000000000
+  %add.i1046 = fadd nnan double %conv.i1045, 5.000000e-01
+  %div.i1047 = fmul nnan double %add.i1046, 0x3DF0000000000000
   %sub = fsub double 1.000000e+00, %273
   %278 = call double @llvm.fmuladd.f64(double %sub, double %div.i1047, double %275)
   store double %278, ptr %__begin3.02230, align 8, !tbaa !39
@@ -5138,8 +5138,8 @@ invoke.cont427:                                   ; preds = %.noexc1319, %invoke
   %shr7.i.i1312 = lshr i64 %xor6.i.i1311, 18
   %xor8.i.i1313 = xor i64 %shr7.i.i1312, %xor6.i.i1311
   %conv.i1314 = uitofp i64 %xor8.i.i1313 to double
-  %add.i1315 = fadd double %conv.i1314, 5.000000e-01
-  %div.i1316 = fmul double %add.i1315, 0x3DF0000000000000
+  %add.i1315 = fadd nnan double %conv.i1314, 5.000000e-01
+  %div.i1316 = fmul nnan double %add.i1315, 0x3DF0000000000000
   %sub425 = fsub double 1.000000e+00, %350
   %355 = call double @llvm.fmuladd.f64(double %sub425, double %div.i1316, double %352)
   %356 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !43
@@ -5777,8 +5777,8 @@ invoke.cont513:                                   ; preds = %.noexc1592, %invoke
   %shr7.i.i1585 = lshr i64 %xor6.i.i1584, 18
   %xor8.i.i1586 = xor i64 %shr7.i.i1585, %xor6.i.i1584
   %conv.i1587 = uitofp i64 %xor8.i.i1586 to double
-  %add.i1588 = fadd double %conv.i1587, 5.000000e-01
-  %div.i1589 = fmul double %add.i1588, 0x3DF0000000000000
+  %add.i1588 = fadd nnan double %conv.i1587, 5.000000e-01
+  %div.i1589 = fmul nnan double %add.i1588, 0x3DF0000000000000
   %cmp515 = fcmp olt double %div.i1589, 5.000000e-01
   br i1 %cmp515, label %for.cond517.preheader, label %if.else
 
@@ -6769,8 +6769,8 @@ invoke.cont658:                                   ; preds = %.noexc1978, %for.bo
   %shr7.i.i1971 = lshr i64 %xor6.i.i1970, 18
   %xor8.i.i1972 = xor i64 %shr7.i.i1971, %xor6.i.i1970
   %conv.i1973 = uitofp i64 %xor8.i.i1972 to double
-  %add.i1974 = fadd double %conv.i1973, 5.000000e-01
-  %div.i1975 = fmul double %add.i1974, 0x3DF0000000000000
+  %add.i1974 = fadd nnan double %conv.i1973, 5.000000e-01
+  %div.i1975 = fmul nnan double %add.i1974, 0x3DF0000000000000
   %cmp660 = fcmp olt double %div.i1975, 1.000000e-01
   br i1 %cmp660, label %if.then661, label %if.else675
 
@@ -8769,8 +8769,8 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %for.body, %
   %shr7.i.i = lshr i64 %xor6.i.i, 18
   %xor8.i.i = xor i64 %shr7.i.i, %xor6.i.i
   %conv.i = uitofp i64 %xor8.i.i to double
-  %add.i = fadd double %conv.i, 5.000000e-01
-  %div.i = fmul double %add.i, 0x3DF0000000000000
+  %add.i = fadd nnan double %conv.i, 5.000000e-01
+  %div.i = fmul nnan double %add.i, 0x3DF0000000000000
   %cmp4 = fcmp olt double %div.i, 1.000000e-01
   br i1 %cmp4, label %if.then, label %if.end
 
@@ -8800,8 +8800,8 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit23: ; preds = %if.then, 
   %shr7.i.i16 = lshr i64 %xor6.i.i15, 18
   %xor8.i.i17 = xor i64 %shr7.i.i16, %xor6.i.i15
   %conv.i18 = uitofp i64 %xor8.i.i17 to double
-  %add.i19 = fadd double %conv.i18, 5.000000e-01
-  %div.i20 = fmul double %add.i19, 0x3DF0000000000000
+  %add.i19 = fadd nnan double %conv.i18, 5.000000e-01
+  %div.i20 = fmul nnan double %add.i19, 0x3DF0000000000000
   %7 = tail call double @llvm.fmuladd.f64(double %div.i20, double 9.000000e-01, double 1.000000e-01)
   store double %7, ptr %__begin1.025, align 8, !tbaa !39
   br label %if.end
@@ -9108,8 +9108,8 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit.i: ; preds = %.noexc78,
   %shr7.i.i.i = lshr i64 %xor6.i.i.i, 18
   %xor8.i.i.i = xor i64 %shr7.i.i.i, %xor6.i.i.i
   %conv.i.i = uitofp i64 %xor8.i.i.i to double
-  %add.i.i = fadd double %conv.i.i, 5.000000e-01
-  %div.i.i = fmul double %add.i.i, 0x3DF0000000000000
+  %add.i.i = fadd nnan double %conv.i.i, 5.000000e-01
+  %div.i.i = fmul nnan double %add.i.i, 0x3DF0000000000000
   %15 = load double, ptr %arrayidx.i.i, align 8, !tbaa !39
   %cmp10.i = fcmp olt double %div.i.i, %15
   %.pr.i..pre25.i = select i1 %cmp10.i, ptr %.pr.i, ptr %.pre25.i
@@ -9431,8 +9431,8 @@ invoke.cont62:                                    ; preds = %.noexc151, %if.then
   %shr7.i.i = lshr i64 %xor6.i.i, 18
   %xor8.i.i = xor i64 %shr7.i.i, %xor6.i.i
   %conv.i = uitofp i64 %xor8.i.i to double
-  %add.i = fadd double %conv.i, 5.000000e-01
-  %div.i = fmul double %add.i, 0x3DF0000000000000
+  %add.i = fadd nnan double %conv.i, 5.000000e-01
+  %div.i = fmul nnan double %add.i, 0x3DF0000000000000
   %59 = load ptr, ptr %mirrorPopulation, align 8, !tbaa !45
   %add.ptr.i152 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %59, i64 %popIter.0210
   %60 = load ptr, ptr %add.ptr.i152, align 8, !tbaa !23
@@ -9495,8 +9495,8 @@ invoke.cont88:                                    ; preds = %.noexc180, %if.then
   %shr7.i.i173 = lshr i64 %xor6.i.i172, 18
   %xor8.i.i174 = xor i64 %shr7.i.i173, %xor6.i.i172
   %conv.i175 = uitofp i64 %xor8.i.i174 to double
-  %add.i176 = fadd double %conv.i175, 5.000000e-01
-  %div.i177 = fmul double %add.i176, 0x3DF0000000000000
+  %add.i176 = fadd nnan double %conv.i175, 5.000000e-01
+  %div.i177 = fmul nnan double %add.i176, 0x3DF0000000000000
   %73 = load ptr, ptr %mirrorPopulation, align 8, !tbaa !45
   %add.ptr.i182 = getelementptr inbounds nuw %"struct.QuantLib::DifferentialEvolution::Candidate", ptr %73, i64 %popIter.0210
   %74 = load ptr, ptr %add.ptr.i182, align 8, !tbaa !23
@@ -9668,8 +9668,8 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %for.body, %
   %shr7.i.i = lshr i64 %xor6.i.i, 18
   %xor8.i.i = xor i64 %shr7.i.i, %xor6.i.i
   %conv.i = uitofp i64 %xor8.i.i to double
-  %add.i = fadd double %conv.i, 5.000000e-01
-  %div.i = fmul double %add.i, 0x3DF0000000000000
+  %add.i = fadd nnan double %conv.i, 5.000000e-01
+  %div.i = fmul nnan double %add.i, 0x3DF0000000000000
   %cmp4 = fcmp olt double %div.i, 1.000000e-01
   br i1 %cmp4, label %if.then, label %if.end
 
@@ -9699,8 +9699,8 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit23: ; preds = %if.then, 
   %shr7.i.i16 = lshr i64 %xor6.i.i15, 18
   %xor8.i.i17 = xor i64 %shr7.i.i16, %xor6.i.i15
   %conv.i18 = uitofp i64 %xor8.i.i17 to double
-  %add.i19 = fadd double %conv.i18, 5.000000e-01
-  %div.i20 = fmul double %add.i19, 0x3DF0000000000000
+  %add.i19 = fadd nnan double %conv.i18, 5.000000e-01
+  %div.i20 = fmul nnan double %add.i19, 0x3DF0000000000000
   store double %div.i20, ptr %__begin1.025, align 8, !tbaa !39
   br label %if.end
 
@@ -9771,7 +9771,7 @@ sw.bb:                                            ; preds = %_ZN8QuantLib5ArrayC
   %11 = load i64, ptr %n_.i16, align 8, !tbaa !21
   %conv = uitofp i64 %11 to double
   %div = fdiv double 1.000000e+00, %conv
-  %sub = fsub double 1.000000e+00, %div
+  %sub = fsub nnan double 1.000000e+00, %div
   br i1 %cmp.not.i, label %invoke.cont16, label %for.body.i.preheader.i
 
 for.body.i.preheader.i:                           ; preds = %sw.bb
@@ -10088,8 +10088,8 @@ _ZNK8QuantLib25MersenneTwisterUniformRng8nextRealEv.exit: ; preds = %for.body7, 
   %shr7.i.i = lshr i64 %xor6.i.i, 18
   %xor8.i.i = xor i64 %shr7.i.i, %xor6.i.i
   %conv.i = uitofp i64 %xor8.i.i to double
-  %add.i = fadd double %conv.i, 5.000000e-01
-  %div.i = fmul double %add.i, 0x3DF0000000000000
+  %add.i = fadd nnan double %conv.i, 5.000000e-01
+  %div.i = fmul nnan double %add.i, 0x3DF0000000000000
   %10 = load ptr, ptr %mutationProbabilities, align 8, !tbaa !23
   %arrayidx.i = getelementptr inbounds nuw double, ptr %10, i64 %cmIter.024
   %11 = load double, ptr %arrayidx.i, align 8, !tbaa !39

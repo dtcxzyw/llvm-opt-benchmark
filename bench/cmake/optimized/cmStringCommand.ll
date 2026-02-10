@@ -6754,8 +6754,8 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJcEEEvN9__gnu_cxx17__normal_iteratorIPcS
   %.sroa.19.1187 = phi ptr [ %.sroa.19.3, %_ZNSt6vectorIcSaIcEE9push_backERKc.exit ], [ null, %.lr.ph192.preheader ]
   %152 = call i32 @rand() #27
   %153 = sitofp i32 %152 to double
-  %154 = fmul double %103, %153
-  %155 = fmul double %154, 0x3E00000000000000
+  %154 = fmul nnan double %103, %153
+  %155 = fmul nnan double %154, 0x3E00000000000000
   %156 = fptosi double %155 to i32
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds i8, ptr %132, i64 %157

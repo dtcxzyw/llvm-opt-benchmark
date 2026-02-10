@@ -36,8 +36,8 @@ define hidden noundef i32 @main() local_unnamed_addr #0 personality ptr @__gxx_p
   %12 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #11
   %13 = sub nsw i64 %12, %4
   %14 = sitofp i64 %13 to double
-  %15 = fdiv double %14, 1.000000e+09
-  %16 = fmul double %15, 1.000000e+03
+  %15 = fdiv nnan double %14, 1.000000e+09
+  %16 = fmul nnan double %15, 1.000000e+03
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   store double %16, ptr %1, align 16, !tbaa !4
   call void @_ZN3fmt3v116vprintENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_7contextEEE(ptr nonnull @.str.1, i64 7, i64 10, ptr nonnull %1)

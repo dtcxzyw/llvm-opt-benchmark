@@ -3227,7 +3227,7 @@ define void @_ZN4base22FormatBytesUnlocalizedB5cxx11El(ptr dead_on_unwind noalia
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.016 = phi double [ %6, %.lr.ph ], [ %4, %2 ]
   %.01415 = phi i64 [ %7, %.lr.ph ], [ 0, %2 ]
-  %6 = fmul double %.016, 0x3F50000000000000
+  %6 = fmul nnan double %.016, 0x3F50000000000000
   %7 = add nuw nsw i64 %.01415, 1
   %8 = fcmp oge double %6, 1.024000e+03
   %9 = icmp samesign ult i64 %.01415, 4

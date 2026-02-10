@@ -852,7 +852,7 @@ define internal fastcc range(i32 0, 2) i32 @_wait_nodes_ready(ptr noundef nonnul
 
 8:                                                ; preds = %6
   %9 = uitofp nneg i32 %.029 to double
-  %10 = fmul double %9, 5.000000e-01
+  %10 = fmul nnan double %9, 5.000000e-01
   br label %11
 
 11:                                               ; preds = %4, %6, %8

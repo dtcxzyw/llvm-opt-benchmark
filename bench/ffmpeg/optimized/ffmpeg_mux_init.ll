@@ -6120,7 +6120,7 @@ get_line.exit.thread:                             ; preds = %234, %get_line.exit
   %427 = load i32, ptr %426, align 8, !tbaa !387
   %428 = or i32 %427, 2
   store i32 %428, ptr %426, align 8, !tbaa !387
-  %429 = fmul nsz double %421, 1.180000e+02
+  %429 = fmul nnan nsz double %421, 1.180000e+02
   %430 = fptosi double %429 to i32
   %431 = getelementptr inbounds nuw i8, ptr %425, i64 420
   store i32 %430, ptr %431, align 4, !tbaa !395

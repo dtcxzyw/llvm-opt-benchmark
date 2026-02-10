@@ -402,8 +402,8 @@ define hidden double @SDL_uclibc_pow(double noundef %0, double noundef %1) local
   br i1 %.not313, label %242, label %239
 
 239:                                              ; preds = %236
-  %240 = fmul double %spec.store.select, 1.000000e+300
-  %241 = fmul double %240, 1.000000e+300
+  %240 = fmul nnan double %spec.store.select, 1.000000e+300
+  %241 = fmul nnan double %240, 1.000000e+300
   br label %319
 
 242:                                              ; preds = %236
@@ -413,8 +413,8 @@ define hidden double @SDL_uclibc_pow(double noundef %0, double noundef %1) local
   br i1 %245, label %246, label %264
 
 246:                                              ; preds = %242
-  %247 = fmul double %spec.store.select, 1.000000e+300
-  %248 = fmul double %247, 1.000000e+300
+  %247 = fmul nnan double %spec.store.select, 1.000000e+300
+  %248 = fmul nnan double %247, 1.000000e+300
   br label %319
 
 249:                                              ; preds = %224
@@ -429,8 +429,8 @@ define hidden double @SDL_uclibc_pow(double noundef %0, double noundef %1) local
   br i1 %.not, label %258, label %255
 
 255:                                              ; preds = %252
-  %256 = fmul double %spec.store.select, 1.000000e-300
-  %257 = fmul double %256, 1.000000e-300
+  %256 = fmul nnan double %spec.store.select, 1.000000e-300
+  %257 = fmul nnan double %256, 1.000000e-300
   br label %319
 
 258:                                              ; preds = %252
@@ -439,8 +439,8 @@ define hidden double @SDL_uclibc_pow(double noundef %0, double noundef %1) local
   br i1 %260, label %264, label %261
 
 261:                                              ; preds = %258
-  %262 = fmul double %spec.store.select, 1.000000e-300
-  %263 = fmul double %262, 1.000000e-300
+  %262 = fmul nnan double %spec.store.select, 1.000000e-300
+  %263 = fmul nnan double %262, 1.000000e-300
   br label %319
 
 264:                                              ; preds = %249, %258, %242

@@ -632,8 +632,8 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21GenerateIdentityLut1DEPfii(ptr nou
 
 4:                                                ; preds = %3
   %5 = sitofp i32 %1 to float
-  %6 = fadd float %5, -1.000000e+00
-  %7 = fdiv float 1.000000e+00, %6
+  %6 = fadd nnan float %5, -1.000000e+00
+  %7 = fdiv nnan float 1.000000e+00, %6
   %8 = icmp sgt i32 %1, 0
   %9 = icmp sgt i32 %2, 0
   %or.cond = and i1 %8, %9

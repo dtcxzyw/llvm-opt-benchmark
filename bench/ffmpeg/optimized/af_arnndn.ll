@@ -65,8 +65,8 @@ define internal range(i32 -1094995529, 1) i32 @init(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ 0, %.preheader35 ], [ %indvars.iv.next, %12 ]
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   %14 = uitofp nneg i32 %13 to double
-  %15 = fadd nsz double %14, 5.000000e-01
-  %16 = fmul nsz double %15, 0x3FF921FB54442D18
+  %15 = fadd nnan nsz double %14, 5.000000e-01
+  %16 = fmul nnan nsz double %15, 0x3FF921FB54442D18
   %17 = fdiv nsz double %16, 4.800000e+02
   %18 = tail call nsz double @llvm.sin.f64(double %17)
   %19 = fmul nsz double %18, 0x3FF921FB54442D18
@@ -86,7 +86,7 @@ define internal range(i32 -1094995529, 1) i32 @init(ptr noundef %0) #0 {
   %indvars.iv44 = phi i64 [ 0, %.preheader34 ], [ %indvars.iv.next45, %29 ]
   %26 = trunc nuw nsw i64 %indvars.iv44 to i32
   %27 = uitofp nneg i32 %26 to float
-  %28 = fadd nsz float %27, 5.000000e-01
+  %28 = fadd nnan nsz float %27, 5.000000e-01
   %invariant.gep = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv44
   br label %30
 
@@ -2743,7 +2743,7 @@ celt_lpc.exit.i.i.i.preheader:                    ; preds = %._crit_edge60.i.i.i
   %266 = load float, ptr %265, align 4, !tbaa !25
   %267 = trunc nuw nsw i64 %indvars.iv19.i.i.i to i32
   %268 = uitofp nneg i32 %267 to float
-  %269 = fmul nsz float %268, 0x3F80624DE0000000
+  %269 = fmul nnan nsz float %268, 0x3F80624DE0000000
   %270 = fneg nsz float %269
   %271 = fmul nsz float %266, %270
   %272 = call nsz float @llvm.fmuladd.f32(float %271, float %269, float %266)
@@ -2935,7 +2935,7 @@ celt_pitch_xcorr.exit.i.i.i:                      ; preds = %celt_inner_prod.exi
   br i1 %364, label %365, label %376
 
 365:                                              ; preds = %.preheader.i61.i.i.i
-  %366 = fmul nsz float %363, 0x3D71979980000000
+  %366 = fmul nnan nsz float %363, 0x3D71979980000000
   %367 = fmul nsz float %366, %366
   %368 = fmul nsz float %.sroa.6.056.i.i.i.i, %367
   %369 = fmul nsz float %.sroa.631.061.i.i.i.i, %.158.i.i.i.i
@@ -3018,7 +3018,7 @@ find_best_pitch.exit.preheader.i.i.i:             ; preds = %376
   br i1 %397, label %398, label %410
 
 398:                                              ; preds = %.preheader.i68.i.i.i
-  %399 = fmul nsz float %396, 0x3D71979980000000
+  %399 = fmul nnan nsz float %396, 0x3D71979980000000
   %400 = fmul nsz float %399, %399
   %401 = fmul nsz float %.sroa.6.056.i74.i.i.i, %400
   %402 = fmul nsz float %.sroa.631.061.i70.i.i.i, %.158.i72.i.i.i
@@ -3588,7 +3588,7 @@ dct.exit.preheader.i.i:                           ; preds = %.preheader
   store float %699, ptr %83, align 4, !tbaa !25
   %700 = add nsw i32 %storemerge166.i.i.i, -300
   %701 = sitofp i32 %700 to double
-  %702 = fmul nsz double %701, 1.000000e-02
+  %702 = fmul nnan nsz double %701, 1.000000e-02
   %703 = fptrunc nsz double %702 to float
   store float %703, ptr %84, align 16, !tbaa !25
   br label %716

@@ -202,7 +202,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %48, %
 
 73:                                               ; preds = %67
   %74 = uitofp nneg i32 %31 to float
-  %75 = fmul float %74, 0x3E80000000000000
+  %75 = fmul nnan float %74, 0x3E80000000000000
   %76 = fpext float %75 to double
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %77 = fcmp une float %71, 0.000000e+00
@@ -477,7 +477,7 @@ _ZN2cvL10calcDist2DEPKNS_6Point_IfEEiPfS4_.exit.i: ; preds = %.lr.ph.i.i, %.thre
   br i1 %178, label %.lr.ph239.preheader.i, label %.lr.ph236.i
 
 .lr.ph239.preheader.i:                            ; preds = %._crit_edge233.thread.i
-  %179 = fdiv double 1.000000e+00, %176
+  %179 = fdiv nnan double 1.000000e+00, %176
   br label %.lr.ph239.i
 
 .lr.ph239.i:                                      ; preds = %.lr.ph239.i, %.lr.ph239.preheader.i
@@ -664,7 +664,7 @@ _ZN2cvL9fitLine2DEPKNS_6Point_IfEEiifffPf.exit:   ; preds = %81, %_ZN2cv10AutoBu
 
 249:                                              ; preds = %67
   %250 = sitofp i32 %33 to float
-  %251 = fmul float %250, 0x3E80000000000000
+  %251 = fmul nnan float %250, 0x3E80000000000000
   %252 = fpext float %251 to double
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false)
@@ -984,7 +984,7 @@ _ZN2cvL10calcDist3DEPKNS_7Point3_IfEEiPfS4_.exit.i: ; preds = %.lr.ph.i.i57, %.t
   br i1 %396, label %397, label %.lr.ph258.i
 
 397:                                              ; preds = %._crit_edge255.i
-  %398 = fdiv double 1.000000e+00, %394
+  %398 = fdiv nnan double 1.000000e+00, %394
   br label %.lr.ph261.i
 
 .lr.ph261.i:                                      ; preds = %.lr.ph261.i, %397

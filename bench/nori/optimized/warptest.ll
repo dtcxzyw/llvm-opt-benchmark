@@ -1869,11 +1869,11 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   ]
 
 96:                                               ; preds = %._crit_edge, %._crit_edge
-  %97 = fmul double %94, 4.000000e+00
+  %97 = fmul nnan double %94, 4.000000e+00
   br label %100
 
 98:                                               ; preds = %._crit_edge
-  %99 = fmul double %94, 0x402921FB60000000
+  %99 = fmul nnan double %94, 0x402921FB60000000
   br label %100
 
 100:                                              ; preds = %._crit_edge, %96, %98
@@ -8369,7 +8369,7 @@ _ZN7nanogui6Shader10set_bufferERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   store i64 3, ptr %400, align 8
   store i64 %394, ptr %402, align 8
   %413 = sitofp i32 %387 to float
-  %414 = fdiv float 1.000000e+00, %413
+  %414 = fdiv nnan float 1.000000e+00, %413
   %415 = sitofp i32 %388 to float
   %416 = fdiv float 1.000000e+00, %415
   %417 = load ptr, ptr %153, align 8
@@ -9172,12 +9172,12 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %.0117715 = phi i32 [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit281 ], [ %795, %790 ]
   %791 = shl nuw nsw i32 %.0117715, 1
   %792 = uitofp nneg i32 %791 to float
-  %793 = fmul float %792, 0x400921FB60000000
+  %793 = fmul nnan float %792, 0x400921FB60000000
   %794 = fdiv float %793, 5.000000e+01
   %795 = add nuw nsw i32 %.0117715, 1
   %796 = shl nuw nsw i32 %795, 1
   %797 = uitofp nneg i32 %796 to float
-  %798 = fmul float %797, 0x400921FB60000000
+  %798 = fmul nnan float %797, 0x400921FB60000000
   %799 = fdiv float %798, 5.000000e+01
   %800 = or disjoint i64 %indvars.iv760, 1
   %801 = load ptr, ptr %17, align 8, !noalias !127
@@ -9330,7 +9330,7 @@ _ZN7nanogui7TextBox9set_unitsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %58) #32
   %876 = load i32, ptr %110, align 8
   %877 = sitofp i32 %876 to float
-  %878 = fmul float %877, 0x3EB0C6F7A0000000
+  %878 = fmul nnan float %877, 0x3EB0C6F7A0000000
   store float %878, ptr %60, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %13)
@@ -9438,7 +9438,7 @@ _ZN7nanogui7TextBox9set_unitsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %62) #32
   %907 = load i32, ptr %110, align 8
   %908 = sitofp i32 %907 to float
-  %909 = fmul float %908, 0x3F50624DE0000000
+  %909 = fmul nnan float %908, 0x3F50624DE0000000
   store float %909, ptr %64, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %11)
@@ -10723,10 +10723,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 73:                                               ; preds = %42
   %74 = uitofp nneg i32 %45 to float
-  %75 = fadd float %74, 5.000000e-01
+  %75 = fadd nnan float %74, 5.000000e-01
   %76 = fmul float %14, %75
   %77 = sitofp i32 %44 to float
-  %78 = fadd float %77, 5.000000e-01
+  %78 = fadd nnan float %77, 5.000000e-01
   %79 = fmul float %14, %78
   br label %.sink.split
 
@@ -12067,9 +12067,9 @@ _ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37: ; 
   br i1 %92, label %93, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
 
 93:                                               ; preds = %_ZN5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE9normalizeEv.exit37
-  %sqrt76 = tail call float @llvm.sqrt.f32(float %91)
-  %94 = fadd float %sqrt76, -1.000000e+00
-  %95 = tail call float @llvm.fmuladd.f32(float %94, float 0x3FC99999A0000000, float 1.000000e+00)
+  %sqrt76 = tail call nnan float @llvm.sqrt.f32(float %91)
+  %94 = fadd nnan float %sqrt76, -1.000000e+00
+  %95 = tail call nnan float @llvm.fmuladd.f32(float %94, float 0x3FC99999A0000000, float 1.000000e+00)
   %96 = fmul float %95, %90
   br label %_ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit
 
@@ -13811,7 +13811,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
 
 .lr.ph151:                                        ; preds = %.preheader
   %33 = sitofp i32 %4 to double
-  %34 = fmul double %33, 1.000000e-05
+  %34 = fmul nnan double %33, 1.000000e-05
   br label %35
 
 35:                                               ; preds = %.lr.ph151, %102
@@ -14056,7 +14056,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
 
 156:                                              ; preds = %150
   %157 = uitofp nneg i32 %125 to double
-  %158 = fmul double %157, 5.000000e-01
+  %158 = fmul nnan double %157, 5.000000e-01
   %159 = fmul double %.291, 5.000000e-01
   %160 = invoke noundef double @_ZN6cephes7rlgammaEdd(double noundef %158, double noundef %159)
           to label %_ZN10hypothesis8chi2_cdfEdi.exit unwind label %56
@@ -15941,7 +15941,7 @@ define linkonce_odr hidden noundef double @_ZN6cephes7rlgammaEdd(double noundef 
 
 63:                                               ; preds = %60
   %64 = fmul double %.076, 0x3CB0000000000000
-  %65 = fmul double %50, 0x3CB0000000000000
+  %65 = fmul nnan double %50, 0x3CB0000000000000
   %66 = fmul double %.074, 0x3CB0000000000000
   %67 = fmul double %52, 0x3CB0000000000000
   br label %68

@@ -4887,7 +4887,7 @@ define internal i32 @dissect_bthci_cmd(ptr noundef %0, ptr noundef %1, ptr nound
   %199 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %198, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef -2147483648)
   %200 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 6)
   %201 = uitofp i8 %200 to double
-  %202 = fmul double %201, 1.280000e+00
+  %202 = fmul nnan double %201, 1.280000e+00
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %199, ptr noundef nonnull @.str.3002, double noundef %202)
   %203 = load i32, ptr @hf_bthci_cmd_num_responses, align 4
   %204 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %203, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef -2147483648)
@@ -4898,13 +4898,13 @@ define internal i32 @dissect_bthci_cmd(ptr noundef %0, ptr noundef %1, ptr nound
   %207 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %206, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648)
   %208 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 3)
   %209 = uitofp i16 %208 to double
-  %210 = fmul double %209, 1.280000e+00
+  %210 = fmul nnan double %209, 1.280000e+00
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %207, ptr noundef nonnull @.str.3002, double noundef %210)
   %211 = load i32, ptr @hf_bthci_cmd_min_period_length, align 4
   %212 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %211, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648)
   %213 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5)
   %214 = uitofp i16 %213 to double
-  %215 = fmul double %214, 1.280000e+00
+  %215 = fmul nnan double %214, 1.280000e+00
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %212, ptr noundef nonnull @.str.3002, double noundef %215)
   %216 = load i32, ptr @hf_bthci_cmd_lap, align 4
   %217 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %216, ptr noundef %0, i32 noundef 7, i32 noundef 3, i32 noundef -2147483648)
@@ -4912,7 +4912,7 @@ define internal i32 @dissect_bthci_cmd(ptr noundef %0, ptr noundef %1, ptr nound
   %219 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %218, ptr noundef %0, i32 noundef 10, i32 noundef 1, i32 noundef -2147483648)
   %220 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 10)
   %221 = uitofp i8 %220 to double
-  %222 = fmul double %221, 1.280000e+00
+  %222 = fmul nnan double %221, 1.280000e+00
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %219, ptr noundef nonnull @.str.3002, double noundef %222)
   %223 = load i32, ptr @hf_bthci_cmd_num_responses, align 4
   %224 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %223, ptr noundef %0, i32 noundef 11, i32 noundef 1, i32 noundef -2147483648)
@@ -4939,7 +4939,7 @@ define internal i32 @dissect_bthci_cmd(ptr noundef %0, ptr noundef %1, ptr nound
   %242 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 13)
   %243 = and i16 %242, 32767
   %244 = uitofp nneg i16 %243 to double
-  %245 = fmul double %244, 1.250000e+00
+  %245 = fmul nnan double %244, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %241, ptr noundef nonnull @.str.3003, double noundef %245)
   %246 = load i32, ptr @hf_bthci_cmd_clock_offset_valid, align 4
   %247 = call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %246, ptr noundef %0, i32 noundef %239, i32 noundef 2, i32 noundef -2147483648)
@@ -5251,7 +5251,7 @@ define internal i32 @dissect_bthci_cmd(ptr noundef %0, ptr noundef %1, ptr nound
   %448 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %445)
   %449 = and i16 %448, 32767
   %450 = uitofp nneg i16 %449 to double
-  %451 = fmul double %450, 1.250000e+00
+  %451 = fmul nnan double %450, 1.250000e+00
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %447, ptr noundef nonnull @.str.3003, double noundef %451)
   %452 = load i32, ptr @hf_bthci_cmd_clock_offset_valid, align 4
   %453 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %452, ptr noundef %0, i32 noundef %445, i32 noundef 2, i32 noundef -2147483648)
@@ -5573,7 +5573,7 @@ define internal i32 @dissect_bthci_cmd(ptr noundef %0, ptr noundef %1, ptr nound
   %723 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 13)
   %724 = and i16 %723, 32767
   %725 = uitofp nneg i16 %724 to double
-  %726 = fmul double %725, 1.250000e+00
+  %726 = fmul nnan double %725, 1.250000e+00
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %722, ptr noundef nonnull @.str.3003, double noundef %726)
   %727 = load i32, ptr @hf_bthci_cmd_clock_offset_valid, align 4
   %728 = tail call ptr @proto_tree_add_item(ptr noundef %36, i32 noundef %727, ptr noundef %0, i32 noundef %720, i32 noundef 2, i32 noundef -2147483648)
@@ -7412,13 +7412,13 @@ define internal fastcc i32 @dissect_host_controller_baseband_cmd(ptr noundef %0,
   %382 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %381, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648)
   %383 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 3)
   %384 = uitofp i16 %383 to double
-  %385 = fmul double %384, 6.250000e-01
+  %385 = fmul nnan double %384, 6.250000e-01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %382, ptr noundef nonnull @.str.3006, double noundef %385)
   %386 = load i32, ptr @hf_bthci_cmd_window, align 4
   %387 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %386, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648)
   %388 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5)
   %389 = uitofp i16 %388 to double
-  %390 = fmul double %389, 6.250000e-01
+  %390 = fmul nnan double %389, 6.250000e-01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %387, ptr noundef nonnull @.str.3006, double noundef %390)
   br label %.loopexit
 
@@ -7836,7 +7836,7 @@ define internal fastcc i32 @dissect_host_controller_baseband_cmd(ptr noundef %0,
 
 672:                                              ; preds = %668
   %673 = uitofp i16 %669 to double
-  %674 = fmul double %673, 1.250000e+00
+  %674 = fmul nnan double %673, 1.250000e+00
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %671, ptr noundef nonnull @.str.3003, double noundef %674)
   br label %.loopexit
 
@@ -8065,13 +8065,13 @@ define internal fastcc i32 @dissect_le_cmd(ptr noundef %0, ptr noundef %1, ptr n
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648)
   %30 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 3)
   %31 = uitofp i16 %30 to double
-  %32 = fmul double %31, 6.250000e-01
+  %32 = fmul nnan double %31, 6.250000e-01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %29, ptr noundef nonnull @.str.3003, double noundef %32)
   %33 = load i32, ptr @hf_bthci_cmd_le_advts_interval_max, align 4
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648)
   %35 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5)
   %36 = uitofp i16 %35 to double
-  %37 = fmul double %36, 6.250000e-01
+  %37 = fmul nnan double %36, 6.250000e-01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %34, ptr noundef nonnull @.str.3003, double noundef %37)
   %38 = load i32, ptr @hf_bthci_cmd_le_advts_type, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef -2147483648)
@@ -8593,13 +8593,13 @@ define internal fastcc i32 @dissect_le_cmd(ptr noundef %0, ptr noundef %1, ptr n
   %455 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %454, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef -2147483648)
   %456 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 4)
   %457 = uitofp i16 %456 to double
-  %458 = fmul double %457, 1.250000e+00
+  %458 = fmul nnan double %457, 1.250000e+00
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %455, ptr noundef nonnull @.str.3003, double noundef %458)
   %459 = load i32, ptr @hf_bthci_cmd_le_advts_interval_max, align 4
   %460 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %459, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
   %461 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6)
   %462 = uitofp i16 %461 to double
-  %463 = fmul double %462, 1.250000e+00
+  %463 = fmul nnan double %462, 1.250000e+00
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %460, ptr noundef nonnull @.str.3003, double noundef %463)
   %464 = load i32, ptr @hf_bthci_cmd_periodic_advertising_properties, align 4
   %465 = load i32, ptr @ett_adv_properties, align 4
@@ -8708,13 +8708,13 @@ define internal fastcc i32 @dissect_le_cmd(ptr noundef %0, ptr noundef %1, ptr n
   %541 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %540, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648)
   %542 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5)
   %543 = uitofp i16 %542 to double
-  %544 = fmul double %543, 1.000000e+01
+  %544 = fmul nnan double %543, 1.000000e+01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %541, ptr noundef nonnull @.str.3003, double noundef %544)
   %545 = load i32, ptr @hf_bthci_cmd_le_scan_period, align 4
   %546 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %545, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef -2147483648)
   %547 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 7)
   %548 = uitofp i16 %547 to double
-  %549 = fmul double %548, 1.280000e+00
+  %549 = fmul nnan double %548, 1.280000e+00
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %546, ptr noundef nonnull @.str.3002, double noundef %549)
   br label %.thread
 
@@ -8850,13 +8850,13 @@ define internal fastcc i32 @dissect_le_cmd(ptr noundef %0, ptr noundef %1, ptr n
   %651 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %650, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef -2147483648)
   %652 = tail call signext i16 @tvb_get_letohis(ptr noundef %0, i32 noundef 3)
   %653 = sitofp i16 %652 to double
-  %654 = fmul double %653, 1.000000e-01
+  %654 = fmul nnan double %653, 1.000000e-01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %651, ptr noundef nonnull @.str.3016, double noundef %654)
   %655 = load i32, ptr @hf_bthci_cmd_rf_rx_path_compensation_value, align 4
   %656 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %655, ptr noundef %0, i32 noundef 5, i32 noundef 2, i32 noundef -2147483648)
   %657 = tail call signext i16 @tvb_get_letohis(ptr noundef %0, i32 noundef 5)
   %658 = sitofp i16 %657 to double
-  %659 = fmul double %658, 1.000000e-01
+  %659 = fmul nnan double %658, 1.000000e-01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %656, ptr noundef nonnull @.str.3016, double noundef %659)
   br label %.thread
 
@@ -10633,22 +10633,22 @@ define internal fastcc i32 @dissect_eir_ad_data(ptr noundef %0, ptr noundef %1, 
   %193 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %192, ptr noundef %0, i32 noundef %39, i32 noundef 2, i32 noundef -2147483648)
   %194 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %39)
   %195 = uitofp i16 %194 to double
-  %196 = fmul double %195, 1.250000e+00
+  %196 = fmul nnan double %195, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %193, ptr noundef nonnull @.str.3003, double noundef %196)
   %197 = add i32 %.0870, 4
   %198 = load i32, ptr @hf_btcommon_eir_ad_connection_interval_max, align 4
   %199 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %198, ptr noundef %0, i32 noundef %197, i32 noundef 2, i32 noundef -2147483648)
   %200 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %197)
   %201 = uitofp i16 %200 to double
-  %202 = fmul double %201, 1.250000e+00
+  %202 = fmul nnan double %201, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %199, ptr noundef nonnull @.str.3003, double noundef %202)
   %203 = add i32 %.0870, 6
   %204 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %39)
   %205 = uitofp i16 %204 to double
-  %206 = fmul double %205, 1.250000e+00
+  %206 = fmul nnan double %205, 1.250000e+00
   %207 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %197)
   %208 = uitofp i16 %207 to double
-  %209 = fmul double %208, 1.250000e+00
+  %209 = fmul nnan double %208, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %32, ptr noundef nonnull @.str.3176, double noundef %206, double noundef %209)
   br label %.loopexit
 
@@ -10812,7 +10812,7 @@ define internal fastcc i32 @dissect_eir_ad_data(ptr noundef %0, ptr noundef %1, 
   %305 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %304, ptr noundef %0, i32 noundef %39, i32 noundef 2, i32 noundef -2147483648)
   %306 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %39)
   %307 = uitofp i16 %306 to double
-  %308 = fmul double %307, 6.250000e-01
+  %308 = fmul nnan double %307, 6.250000e-01
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %305, ptr noundef nonnull @.str.3003, double noundef %308)
   %309 = add i32 %.0870, 4
   br label %.loopexit
@@ -11166,7 +11166,7 @@ define internal fastcc i32 @dissect_eir_ad_data(ptr noundef %0, ptr noundef %1, 
   %529 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %34, i32 noundef %528, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7)
   %530 = load i32, ptr %7, align 4
   %531 = uitofp i32 %530 to double
-  %532 = fmul double %531, 1.250000e+00
+  %532 = fmul nnan double %531, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %529, ptr noundef nonnull @.str.3003, double noundef %532)
   %533 = load i32, ptr @hf_btcommon_eir_ad_biginfo_num_bis, align 4
   %534 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %34, i32 noundef %533, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8)

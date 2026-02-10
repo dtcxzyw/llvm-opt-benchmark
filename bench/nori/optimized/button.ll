@@ -264,7 +264,7 @@ define hidden i64 @_ZNK7nanogui6Button14preferred_sizeEP10NVGcontext(ptr noundef
   resume { ptr, i32 } %42
 
 43:                                               ; preds = %22
-  %44 = fmul float %16, 0x3FECCCCCC0000000
+  %44 = fmul nnan float %16, 0x3FECCCCCC0000000
   call void @nvgImageSize(ptr noundef %1, i32 noundef %21, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %45 = load i32, ptr %4, align 4
   %46 = sitofp i32 %45 to float
@@ -909,8 +909,8 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.preheader.critedge: ; preds =
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %139 = load i32, ptr %138, align 4
   %140 = sitofp i32 %139 to float
-  %141 = fmul float %137, 5.000000e-01
-  %142 = fmul float %140, 5.000000e-01
+  %141 = fmul nnan float %137, 5.000000e-01
+  %142 = fmul nnan float %140, 5.000000e-01
   %143 = fadd float %141, %132
   %144 = fadd float %142, %135
   %145 = fneg float %130
@@ -973,7 +973,7 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.preheader.critedge: ; preds =
           to label %179 unwind label %176
 
 179:                                              ; preds = %178
-  %180 = fmul float %127, 0x3FECCCCCC0000000
+  %180 = fmul nnan float %127, 0x3FECCCCCC0000000
   %181 = load i32, ptr %5, align 4
   %182 = sitofp i32 %181 to float
   %183 = fmul float %180, %182

@@ -1277,8 +1277,8 @@ _dt_collection_store.exit:                        ; preds = %132, %149
   %206 = load i64, ptr %194, align 8, !tbaa !84
   %207 = sitofp i64 %206 to double
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %reass.add.i = fsub reassoc nsz arcp contract afn double %207, %193
-  %reass.mul.i = fmul reassoc nsz arcp contract afn double %reass.add.i, 0x3EB0C6F7A0B5ED8D
+  %reass.add.i = fsub reassoc nnan nsz arcp contract afn double %207, %193
+  %reass.mul.i = fmul reassoc nnan nsz arcp contract afn double %reass.add.i, 0x3EB0C6F7A0B5ED8D
   %208 = fsub reassoc nsz arcp contract afn double %205, %190
   %209 = fadd reassoc nsz arcp contract afn double %208, %reass.mul.i
   %210 = fcmp reassoc nsz arcp contract afn ogt double %209, 7.000000e+00

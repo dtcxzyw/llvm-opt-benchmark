@@ -3843,9 +3843,9 @@ define hidden void @_ZN2cv10ExrDecoder11ChromaToRGBEPfiii(ptr noundef nonnull re
   %37 = getelementptr i8, ptr %gep.lver.orig, i64 8
   %38 = load i32, ptr %37, align 4, !tbaa !103
   %39 = uitofp i32 %38 to double
-  %40 = fadd double %39, 1.000000e+00
+  %40 = fadd nnan double %39, 1.000000e+00
   %41 = fmul double %40, %36
-  %42 = fadd double %33, 1.000000e+00
+  %42 = fadd nnan double %33, 1.000000e+00
   %43 = fmul double %42, %36
   %44 = fneg double %43
   %45 = tail call double @llvm.fmuladd.f64(double %44, double %28, double %36)
@@ -3980,9 +3980,9 @@ define hidden void @_ZN2cv10ExrDecoder11ChromaToRGBEPfiii(ptr noundef nonnull re
   %122 = getelementptr i8, ptr %gep, i64 8
   %123 = load i32, ptr %122, align 4, !tbaa !103
   %124 = uitofp i32 %123 to double
-  %125 = fadd double %124, 1.000000e+00
+  %125 = fadd nnan double %124, 1.000000e+00
   %126 = fmul double %125, %121
-  %127 = fadd double %119, 1.000000e+00
+  %127 = fadd nnan double %119, 1.000000e+00
   %128 = fmul double %127, %121
   %129 = fneg double %128
   %130 = tail call double @llvm.fmuladd.f64(double %129, double %28, double %121)
@@ -4074,9 +4074,9 @@ define hidden void @_ZN2cv10ExrDecoder11ChromaToBGREPfiii(ptr noundef nonnull re
   %37 = getelementptr i8, ptr %gep.lver.orig, i64 8
   %38 = load i32, ptr %37, align 4, !tbaa !103
   %39 = uitofp i32 %38 to double
-  %40 = fadd double %39, 1.000000e+00
+  %40 = fadd nnan double %39, 1.000000e+00
   %41 = fmul double %40, %36
-  %42 = fadd double %33, 1.000000e+00
+  %42 = fadd nnan double %33, 1.000000e+00
   %43 = fmul double %42, %36
   %44 = fneg double %43
   %45 = tail call double @llvm.fmuladd.f64(double %44, double %28, double %36)
@@ -4211,9 +4211,9 @@ define hidden void @_ZN2cv10ExrDecoder11ChromaToBGREPfiii(ptr noundef nonnull re
   %122 = getelementptr i8, ptr %gep, i64 8
   %123 = load i32, ptr %122, align 4, !tbaa !103
   %124 = uitofp i32 %123 to double
-  %125 = fadd double %124, 1.000000e+00
+  %125 = fadd nnan double %124, 1.000000e+00
   %126 = fmul double %125, %121
-  %127 = fadd double %119, 1.000000e+00
+  %127 = fadd nnan double %119, 1.000000e+00
   %128 = fmul double %127, %121
   %129 = fneg double %128
   %130 = tail call double @llvm.fmuladd.f64(double %129, double %28, double %121)

@@ -10265,7 +10265,7 @@ Abc_Clock.exit:                                   ; preds = %339, %342
   %384 = load i64, ptr %349, align 8, !tbaa !137
   %.not95 = icmp eq i64 %384, 0
   %385 = sitofp i64 %384 to double
-  %386 = fmul double %382, 1.000000e+02
+  %386 = fmul nnan double %382, 1.000000e+02
   %387 = fdiv double %386, %385
   %388 = select i1 %.not95, double 0.000000e+00, double %387
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.34, double noundef %383, double noundef %388)
@@ -10277,7 +10277,7 @@ Abc_Clock.exit:                                   ; preds = %339, %342
   %393 = load i64, ptr %349, align 8, !tbaa !137
   %.not96 = icmp eq i64 %393, 0
   %394 = sitofp i64 %393 to double
-  %395 = fmul double %391, 1.000000e+02
+  %395 = fmul nnan double %391, 1.000000e+02
   %396 = fdiv double %395, %394
   %397 = select i1 %.not96, double 0.000000e+00, double %396
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.34, double noundef %392, double noundef %397)
@@ -10289,7 +10289,7 @@ Abc_Clock.exit:                                   ; preds = %339, %342
   %402 = load i64, ptr %349, align 8, !tbaa !137
   %.not97 = icmp eq i64 %402, 0
   %403 = sitofp i64 %402 to double
-  %404 = fmul double %400, 1.000000e+02
+  %404 = fmul nnan double %400, 1.000000e+02
   %405 = fdiv double %404, %403
   %406 = select i1 %.not97, double 0.000000e+00, double %405
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.34, double noundef %401, double noundef %406)
@@ -10301,7 +10301,7 @@ Abc_Clock.exit:                                   ; preds = %339, %342
   %411 = load i64, ptr %349, align 8, !tbaa !137
   %.not98 = icmp eq i64 %411, 0
   %412 = sitofp i64 %411 to double
-  %413 = fmul double %409, 1.000000e+02
+  %413 = fmul nnan double %409, 1.000000e+02
   %414 = fdiv double %413, %412
   %415 = select i1 %.not98, double 0.000000e+00, double %414
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.34, double noundef %410, double noundef %415)
@@ -10310,7 +10310,7 @@ Abc_Clock.exit:                                   ; preds = %339, %342
   %417 = sitofp i64 %416 to double
   %418 = fdiv double %417, 1.000000e+06
   %.not99 = icmp eq i64 %416, 0
-  %419 = fmul double %417, 1.000000e+02
+  %419 = fmul nnan double %417, 1.000000e+02
   %420 = fdiv double %419, %417
   %421 = select i1 %.not99, double 0.000000e+00, double %420
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.34, double noundef %418, double noundef %421)

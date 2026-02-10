@@ -329,7 +329,7 @@ define internal i32 @config_input(ptr noundef %0) #1 {
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 %12, ptr %13, align 8, !tbaa !69
   %14 = sitofp i32 %8 to float
-  %15 = fmul nsz float %14, 5.000000e-01
+  %15 = fmul nnan nsz float %14, 5.000000e-01
   %16 = lshr exact i32 %12, 1
   %17 = or disjoint i32 %16, 1
   %18 = uitofp nneg i32 %17 to float
@@ -462,7 +462,7 @@ define internal i32 @config_input(ptr noundef %0) #1 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %92 ]
   %93 = trunc nuw nsw i64 %indvars.iv.i to i32
   %94 = uitofp nneg i32 %93 to double
-  %95 = fmul nsz double %94, 0x401921FB54442D18
+  %95 = fmul nnan nsz double %94, 0x401921FB54442D18
   %96 = fdiv nsz double %95, %91
   %97 = fptrunc nsz double %96 to float
   %98 = tail call nsz float @llvm.cos.f32(float %97)

@@ -20042,8 +20042,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit402: ; preds = %77
 
 780:                                              ; preds = %657
   %781 = uitofp nneg i64 %658 to double
-  %782 = fadd double %781, -1.000000e+00
-  %mul = fmul double %782, 2.000000e+00
+  %782 = fadd nnan double %781, -1.000000e+00
+  %mul = fmul nnan double %782, 2.000000e+00
   %exp2 = call double @exp2(double %mul)
   %783 = fmul double %exp2, 1.000000e+02
   %784 = fptoui double %783 to i64

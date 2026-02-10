@@ -453,19 +453,19 @@ define void @Bbl_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
   %36 = getelementptr i8, ptr %35, i64 4
   %.val33 = load i32, ptr %36, align 4, !tbaa !3
   %37 = sitofp i32 %.val33 to double
-  %38 = fmul double %37, 0x3EB0000000000000
+  %38 = fmul nnan double %37, 0x3EB0000000000000
   %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, double noundef %38)
   %40 = load ptr, ptr %2, align 8, !tbaa !20
   %41 = getelementptr i8, ptr %40, i64 4
   %.val34 = load i32, ptr %41, align 4, !tbaa !3
   %42 = sitofp i32 %.val34 to double
-  %43 = fmul double %42, 0x3EB0000000000000
+  %43 = fmul nnan double %42, 0x3EB0000000000000
   %44 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, double noundef %43)
   %45 = load ptr, ptr %21, align 8, !tbaa !21
   %46 = getelementptr i8, ptr %45, i64 4
   %.val35 = load i32, ptr %46, align 4, !tbaa !3
   %47 = sitofp i32 %.val35 to double
-  %48 = fmul double %47, 0x3EB0000000000000
+  %48 = fmul nnan double %47, 0x3EB0000000000000
   %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, double noundef %48)
   ret void
 }

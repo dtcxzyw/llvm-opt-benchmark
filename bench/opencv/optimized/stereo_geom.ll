@@ -2124,8 +2124,8 @@ _ZN2cv4Mat_IdEC2EONS_3MatE.exit403:               ; preds = %_ZNK2cv11_InputArra
   %488 = load double, ptr %487, align 8, !tbaa !34
   %489 = fadd double %479, %488
   %490 = fmul double %379, %489
-  %491 = fadd double %140, -1.000000e+00
-  %492 = fadd double %141, -1.000000e+00
+  %491 = fadd nnan double %140, -1.000000e+00
+  %492 = fadd nnan double %141, -1.000000e+00
   %493 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %494 = getelementptr inbounds nuw i8, ptr %77, i64 20
   %495 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -2169,8 +2169,8 @@ _ZN2cv4Mat_IdEC2EONS_3MatE.exit403:               ; preds = %_ZNK2cv11_InputArra
   %533 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %534 = getelementptr inbounds nuw i8, ptr %96, i64 20
   %535 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %536 = fmul double %491, 5.000000e-01
-  %537 = fmul double %492, 5.000000e-01
+  %536 = fmul nnan double %491, 5.000000e-01
+  %537 = fmul nnan double %492, 5.000000e-01
   %538 = getelementptr inbounds nuw i8, ptr %95, i64 8
   br label %541
 
@@ -3863,13 +3863,13 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %213, %221, %229
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %269 = add nsw i32 %.sroa.0.0.extract.trunc, -1
   %270 = sitofp i32 %269 to double
-  %271 = fmul double %270, 5.000000e-01
+  %271 = fmul nnan double %270, 5.000000e-01
   %272 = insertelement <2 x double> poison, double %271, i64 0
   %273 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %272)
   %274 = sitofp i32 %273 to double
   %275 = add nsw i32 %.sroa.2.0.extract.trunc, -1
   %276 = sitofp i32 %275 to double
-  %277 = fmul double %276, 5.000000e-01
+  %277 = fmul nnan double %276, 5.000000e-01
   %278 = insertelement <2 x double> poison, double %277, i64 0
   %279 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %278)
   %280 = sitofp i32 %279 to double
@@ -5345,14 +5345,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit388: ; preds = %81
   %852 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store double 0.000000e+00, ptr %852, align 8, !tbaa !34
   %853 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %854 = fmul double %274, 2.000000e+00
+  %854 = fmul nnan double %274, 2.000000e+00
   store double %854, ptr %853, align 16, !tbaa !34
   %855 = getelementptr inbounds nuw i8, ptr %115, i64 24
   store double 0.000000e+00, ptr %855, align 8, !tbaa !34
   %856 = getelementptr inbounds nuw i8, ptr %115, i64 32
   store double -1.000000e+00, ptr %856, align 16, !tbaa !34
   %857 = getelementptr inbounds nuw i8, ptr %115, i64 40
-  %858 = fmul double %280, 2.000000e+00
+  %858 = fmul nnan double %280, 2.000000e+00
   store double %858, ptr %857, align 8, !tbaa !34
   %859 = getelementptr inbounds nuw i8, ptr %115, i64 48
   %860 = getelementptr inbounds nuw i8, ptr %115, i64 64

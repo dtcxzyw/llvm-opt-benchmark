@@ -936,14 +936,14 @@ define void @_ZNK6open3d8geometry9VoxelGrid11GetMaxBoundEv(ptr dead_on_unwind no
   %16 = load double, ptr %15, align 8, !tbaa !32, !noalias !37
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %18 = sitofp i32 %39 to double
-  %19 = fadd double %18, 1.000000e+00
+  %19 = fadd nnan double %18, 1.000000e+00
   %20 = fmul double %19, %16
   %21 = load double, ptr %17, align 8, !tbaa !32
   %22 = fadd double %21, %20
   store double %22, ptr %0, align 8, !tbaa !32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = sitofp i32 %42 to double
-  %25 = fadd double %24, 1.000000e+00
+  %25 = fadd nnan double %24, 1.000000e+00
   %26 = fmul double %25, %16
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %28 = load double, ptr %27, align 8, !tbaa !32
@@ -951,7 +951,7 @@ define void @_ZNK6open3d8geometry9VoxelGrid11GetMaxBoundEv(ptr dead_on_unwind no
   store double %29, ptr %23, align 8, !tbaa !32
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %31 = sitofp i32 %45 to double
-  %32 = fadd double %31, 1.000000e+00
+  %32 = fadd nnan double %31, 1.000000e+00
   %33 = fmul double %32, %16
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %35 = load double, ptr %34, align 8, !tbaa !32
@@ -31816,20 +31816,20 @@ define void @_ZNK6open3d8geometry9VoxelGrid22GetVoxelBoundingPointsERKN5Eigen6Ma
   %11 = load double, ptr %4, align 8, !tbaa !32, !noalias !688
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %13 = sitofp i32 %.sroa.028.0.copyload.i to double
-  %14 = fadd double %13, 5.000000e-01
+  %14 = fadd nnan double %13, 5.000000e-01
   %15 = fmul double %14, %11
   %16 = load double, ptr %12, align 8, !tbaa !32, !noalias !685
   %17 = fadd double %16, %15
   %.sroa.0232.0.vec.insert = insertelement <2 x double> poison, double %17, i64 0
   %18 = sitofp i32 %.sroa.529.0.copyload.i to double
-  %19 = fadd double %18, 5.000000e-01
+  %19 = fadd nnan double %18, 5.000000e-01
   %20 = fmul double %11, %19
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %22 = load double, ptr %21, align 8, !tbaa !32, !noalias !685
   %23 = fadd double %20, %22
   %.sroa.0232.8.vec.insert = insertelement <2 x double> %.sroa.0232.0.vec.insert, double %23, i64 1
   %24 = sitofp i32 %.sroa.6.0.copyload.i to double
-  %25 = fadd double %24, 5.000000e-01
+  %25 = fadd nnan double %24, 5.000000e-01
   %26 = fmul double %11, %25
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %28 = load double, ptr %27, align 8, !tbaa !32, !noalias !685

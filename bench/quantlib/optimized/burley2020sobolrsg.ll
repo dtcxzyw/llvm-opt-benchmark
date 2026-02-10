@@ -1140,7 +1140,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.ptr.i = getelementptr inbounds nuw i32, ptr %1, i64 %k.06
   %3 = load i32, ptr %add.ptr.i, align 4, !tbaa !27
   %conv = uitofp i32 %3 to double
-  %div = fmul double %conv, 0x3DF0000000000000
+  %div = fmul nnan double %conv, 0x3DF0000000000000
   %add.ptr.i4 = getelementptr inbounds nuw double, ptr %2, i64 %k.06
   store double %div, ptr %add.ptr.i4, align 8, !tbaa !29
   %inc = add nuw i64 %k.06, 1

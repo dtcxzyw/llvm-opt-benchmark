@@ -2545,7 +2545,7 @@ _ZN8rawspeed19roundUpDivisionSafeEmm.exit142:     ; preds = %55
   %96 = getelementptr inbounds nuw i8, ptr %85, i64 %indvars.iv633
   %.0.copyload.i.i.i.i.i.i147.us.us.us.us = load i16, ptr %96, align 1
   %97 = uitofp i16 %.0.copyload.i.i.i.i.i.i147.us.us.us.us to float
-  %98 = fmul float %97, 0x3F00000000000000
+  %98 = fmul nnan float %97, 0x3F00000000000000
   tail call void @llvm.assume(i1 %89)
   %99 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv631
   store float %98, ptr %99, align 4, !tbaa !119
@@ -2584,7 +2584,7 @@ _ZN8rawspeed19roundUpDivisionSafeEmm.exit142:     ; preds = %55
   %.0.copyload.i.i.i.i.i.i147.us.us505 = load i16, ptr %111, align 1
   %112 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i147.us.us505)
   %113 = uitofp i16 %112 to float
-  %114 = fmul float %113, 0x3F00000000000000
+  %114 = fmul nnan float %113, 0x3F00000000000000
   tail call void @llvm.assume(i1 %104)
   %115 = getelementptr inbounds nuw float, ptr %105, i64 %indvars.iv621
   store float %114, ptr %115, align 4, !tbaa !119
@@ -2625,7 +2625,7 @@ _ZN8rawspeed19roundUpDivisionSafeEmm.exit142:     ; preds = %55
   %127 = getelementptr inbounds nuw i8, ptr %85, i64 %indvars.iv613
   %.0.copyload.i.i.i.i.i.i147.us479.us = load i16, ptr %127, align 1
   %128 = uitofp i16 %.0.copyload.i.i.i.i.i.i147.us479.us to float
-  %129 = fmul float %128, 0x3F00000000000000
+  %129 = fmul nnan float %128, 0x3F00000000000000
   tail call void @llvm.assume(i1 %120)
   %130 = getelementptr inbounds nuw float, ptr %121, i64 %indvars.iv611
   %131 = load float, ptr %130, align 4, !tbaa !119
@@ -2692,7 +2692,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.critedge
   %.0.copyload.i.i.i.i.i.i147 = load i16, ptr %149, align 1
   %150 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i147)
   %151 = uitofp i16 %150 to float
-  %152 = fmul float %151, 0x3F00000000000000
+  %152 = fmul nnan float %151, 0x3F00000000000000
   tail call void @llvm.assume(i1 %141)
   %153 = getelementptr inbounds nuw float, ptr %142, i64 %indvars.iv601
   %154 = load float, ptr %153, align 4, !tbaa !119
@@ -3710,7 +3710,7 @@ _ZN8rawspeed6SplineItEC2ERKSt6vectorINS_8iPoint2DESaIS3_EE.exit: ; preds = %._cr
   %279 = trunc i64 %indvars.iv.i112 to i32
   %280 = sub i32 %279, %265
   %281 = sitofp i32 %280 to double
-  %282 = fmul double %281, %281
+  %282 = fmul nnan double %281, %281
   %283 = fmul double %282, %281
   %284 = call double @llvm.fmuladd.f64(double %271, double %281, double %269)
   %285 = call double @llvm.fmuladd.f64(double %273, double %282, double %284)
@@ -4332,7 +4332,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16correctBadColumnEt(ptr noundef no
   %132 = add nuw nsw i32 %131, %128
   %133 = uitofp nneg i32 %123 to double
   %134 = uitofp nneg i32 %132 to double
-  %135 = fmul double %134, 0x3FD6A09E7098EF50
+  %135 = fmul nnan double %134, 0x3FD6A09E7098EF50
   %136 = tail call double @llvm.fmuladd.f64(double %133, double 7.322330e-02, double %135)
   %137 = tail call i64 @lround(double noundef %136) #27, !tbaa !30
   %138 = trunc i64 %137 to i16

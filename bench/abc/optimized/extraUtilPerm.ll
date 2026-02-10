@@ -544,7 +544,7 @@ define void @Abc_ZddManFree(ptr noundef captures(none) %0) local_unnamed_addr #6
   %15 = lshr i64 %14, 20
   %16 = trunc i64 %15 to i32
   %17 = sitofp i32 %16 to double
-  %18 = fmul double %17, 4.000000e+00
+  %18 = fmul nnan double %17, 4.000000e+00
   %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, double noundef %18)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %21 = load ptr, ptr %20, align 8, !tbaa !37

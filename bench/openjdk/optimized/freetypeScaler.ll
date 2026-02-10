@@ -711,28 +711,28 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load i64, ptr %35, align 8
   %37 = sitofp i64 %36 to float
-  %38 = fmul float %32, %37
-  %39 = fpext float %38 to double
-  %40 = fmul double %39, 0x3EF0000000000000
-  %41 = fmul double %40, 1.562500e-02
+  %38 = fmul nnan float %32, %37
+  %39 = fpext nnan float %38 to double
+  %40 = fmul nnan double %39, 0x3EF0000000000000
+  %41 = fmul nnan double %40, 1.562500e-02
   %42 = fptrunc double %41 to float
   %43 = fneg float %42
   %44 = getelementptr inbounds nuw i8, ptr %29, i64 140
   %45 = load i16, ptr %44, align 4
   %46 = sitofp i16 %45 to float
-  %47 = fmul float %37, %46
-  %48 = fpext float %47 to double
-  %49 = fmul double %48, 0x3EF0000000000000
-  %50 = fmul double %49, 1.562500e-02
+  %47 = fmul nnan float %37, %46
+  %48 = fpext nnan float %47 to double
+  %49 = fmul nnan double %48, 0x3EF0000000000000
+  %50 = fmul nnan double %49, 1.562500e-02
   %51 = fptrunc double %50 to float
   %52 = fneg float %51
   %53 = getelementptr inbounds nuw i8, ptr %29, i64 142
   %54 = load i16, ptr %53, align 2
   %55 = sitofp i16 %54 to float
-  %56 = fmul float %37, %55
-  %57 = fpext float %56 to double
-  %58 = fmul double %57, 0x3EF0000000000000
-  %59 = fmul double %58, 1.562500e-02
+  %56 = fmul nnan float %37, %55
+  %57 = fpext nnan float %56 to double
+  %58 = fmul nnan double %57, 0x3EF0000000000000
+  %59 = fmul nnan double %58, 1.562500e-02
   %60 = fptrunc double %59 to float
   %61 = fsub float %60, %42
   %62 = fadd float %61, %51
@@ -770,7 +770,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
   %84 = phi i64 [ %82, %77 ], [ 0, %72 ]
   %85 = add nsw i64 %74, %84
   %86 = sitofp i64 %85 to float
-  %87 = fmul float %86, 1.562500e-02
+  %87 = fmul nnan float %86, 1.562500e-02
   %88 = load ptr, ptr %0, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 224
   %90 = load ptr, ptr %89, align 8
@@ -778,22 +778,22 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
   %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 200), align 8
   %93 = load i64, ptr %6, align 8
   %94 = sitofp i64 %93 to float
-  %95 = fmul float %94, 0x3EF0000000000000
+  %95 = fmul nnan float %94, 0x3EF0000000000000
   %96 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %97 = load i64, ptr %96, align 8
   %98 = sitofp i64 %97 to float
-  %99 = fmul float %98, 0x3EF0000000000000
+  %99 = fmul nnan float %98, 0x3EF0000000000000
   %100 = fmul float %99, %42
   %101 = tail call float @llvm.fmuladd.f32(float %95, float 0.000000e+00, float %100)
   %102 = fpext float %101 to double
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %104 = load i64, ptr %103, align 8
   %105 = sitofp i64 %104 to float
-  %106 = fmul float %105, 0xBEF0000000000000
+  %106 = fmul nnan float %105, 0xBEF0000000000000
   %107 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %108 = load i64, ptr %107, align 8
   %109 = sitofp i64 %108 to float
-  %110 = fmul float %109, 0x3EF0000000000000
+  %110 = fmul nnan float %109, 0x3EF0000000000000
   %111 = fmul float %110, %43
   %112 = tail call float @llvm.fmuladd.f32(float %106, float 0.000000e+00, float %111)
   %113 = fpext float %112 to double
@@ -1158,16 +1158,16 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   %140 = getelementptr inbounds nuw i8, ptr %45, i64 112
   %141 = load i64, ptr %140, align 8
   %142 = sitofp i64 %141 to float
-  %143 = fmul float %142, 0x3EF0000000000000
+  %143 = fmul nnan float %142, 0x3EF0000000000000
   %144 = load i64, ptr %9, align 8
   %145 = sitofp i64 %144 to float
-  %146 = fmul float %145, 0x3EF0000000000000
+  %146 = fmul nnan float %145, 0x3EF0000000000000
   %147 = fmul float %143, %146
   store float %147, ptr %104, align 8
   %148 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %149 = load i64, ptr %148, align 8
   %150 = sitofp i64 %149 to float
-  %151 = fmul float %150, 0xBEF0000000000000
+  %151 = fmul nnan float %150, 0xBEF0000000000000
   %152 = fmul float %143, %151
   br label %174
 
@@ -1181,7 +1181,7 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
 
 158:                                              ; preds = %153
   %159 = sitofp i64 %157 to float
-  %160 = fmul float %159, 1.562500e-02
+  %160 = fmul nnan float %159, 1.562500e-02
   store float %160, ptr %104, align 8
   br label %174
 
@@ -1194,17 +1194,17 @@ define internal fastcc noundef i64 @getGlyphImageNativeInternal(ptr noundef %0, 
   %163 = load i64, ptr %155, align 8
   %164 = sub nsw i64 0, %163
   %165 = sitofp i64 %164 to float
-  %166 = fmul float %165, 1.562500e-02
+  %166 = fmul nnan float %165, 1.562500e-02
   br label %174
 
 167:                                              ; preds = %161
   %168 = sitofp i64 %157 to float
-  %169 = fmul float %168, 1.562500e-02
+  %169 = fmul nnan float %168, 1.562500e-02
   store float %169, ptr %104, align 8
   %170 = load i64, ptr %155, align 8
   %171 = sub nsw i64 0, %170
   %172 = sitofp i64 %171 to float
-  %173 = fmul float %172, 1.562500e-02
+  %173 = fmul nnan float %172, 1.562500e-02
   br label %174
 
 174:                                              ; preds = %158, %167, %162, %139
@@ -1759,19 +1759,19 @@ getFTOutline.exit.thread:                         ; preds = %17, %11, %15, %6, %
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 80), align 8
   %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sunFontIDs, i64 96), align 8
   %64 = sitofp i64 %43 to float
-  %65 = fmul float %64, 1.562500e-02
+  %65 = fmul nnan float %64, 1.562500e-02
   %66 = fpext float %65 to double
   %67 = sub nsw i64 0, %50
   %68 = sitofp i64 %67 to float
-  %69 = fmul float %68, 1.562500e-02
+  %69 = fmul nnan float %68, 1.562500e-02
   %70 = fpext float %69 to double
   %71 = sub nsw i64 %45, %43
   %72 = sitofp i64 %71 to float
-  %73 = fmul float %72, 1.562500e-02
+  %73 = fmul nnan float %72, 1.562500e-02
   %74 = fpext float %73 to double
   %75 = sub nsw i64 %50, %48
   %76 = sitofp i64 %75 to float
-  %77 = fmul float %76, 1.562500e-02
+  %77 = fmul nnan float %76, 1.562500e-02
   %78 = fpext float %77 to double
   %79 = call ptr (ptr, ptr, ptr, ...) %61(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %63, double noundef %66, double noundef %70, double noundef %74, double noundef %78) #19
   br label %80
@@ -2182,11 +2182,11 @@ define ptr @Java_sun_font_FreetypeFontScaler_getGlyphPointNative(ptr noundef %0,
   %39 = getelementptr inbounds %struct.FT_Vector_, ptr %37, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = sitofp i64 %40 to float
-  %42 = fmul float %41, 1.562500e-02
+  %42 = fmul nnan float %41, 1.562500e-02
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = sitofp i64 %44 to float
-  %46 = fmul float %45, -1.562500e-02
+  %46 = fmul nnan float %45, -1.562500e-02
   %47 = fpext float %42 to double
   %48 = fpext float %46 to double
   br label %getFTOutline.exit.thread
@@ -2625,7 +2625,7 @@ define internal noundef i32 @moveTo(ptr noundef readonly captures(none) %0, ptr 
   %13 = phi i32 [ %.pre, %5 ], [ 0, %2 ]
   %14 = load i64, ptr %0, align 8
   %15 = sitofp i64 %14 to float
-  %16 = fmul float %15, 1.562500e-02
+  %16 = fmul nnan float %15, 1.562500e-02
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = add nsw i32 %13, 1
@@ -2636,7 +2636,7 @@ define internal noundef i32 @moveTo(ptr noundef readonly captures(none) %0, ptr 
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = sitofp i64 %23 to float
-  %25 = fmul float %24, -1.562500e-02
+  %25 = fmul nnan float %24, -1.562500e-02
   %26 = load ptr, ptr %17, align 8
   %27 = load i32, ptr %3, align 4
   %28 = add nsw i32 %27, 1
@@ -2659,7 +2659,7 @@ define internal noundef i32 @moveTo(ptr noundef readonly captures(none) %0, ptr 
 define internal noundef i32 @lineTo(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #16 {
   %3 = load i64, ptr %0, align 8
   %4 = sitofp i64 %3 to float
-  %5 = fmul float %4, 1.562500e-02
+  %5 = fmul nnan float %4, 1.562500e-02
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2672,7 +2672,7 @@ define internal noundef i32 @lineTo(ptr noundef readonly captures(none) %0, ptr 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = sitofp i64 %14 to float
-  %16 = fmul float %15, -1.562500e-02
+  %16 = fmul nnan float %15, -1.562500e-02
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %8, align 4
   %19 = add nsw i32 %18, 1
@@ -2695,7 +2695,7 @@ define internal noundef i32 @lineTo(ptr noundef readonly captures(none) %0, ptr 
 define internal noundef i32 @conicTo(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #16 {
   %4 = load i64, ptr %0, align 8
   %5 = sitofp i64 %4 to float
-  %6 = fmul float %5, 1.562500e-02
+  %6 = fmul nnan float %5, 1.562500e-02
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -2708,7 +2708,7 @@ define internal noundef i32 @conicTo(ptr noundef readonly captures(none) %0, ptr
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = sitofp i64 %15 to float
-  %17 = fmul float %16, -1.562500e-02
+  %17 = fmul nnan float %16, -1.562500e-02
   %18 = load ptr, ptr %7, align 8
   %19 = load i32, ptr %9, align 4
   %20 = add nsw i32 %19, 1
@@ -2718,7 +2718,7 @@ define internal noundef i32 @conicTo(ptr noundef readonly captures(none) %0, ptr
   store float %17, ptr %22, align 4
   %23 = load i64, ptr %1, align 8
   %24 = sitofp i64 %23 to float
-  %25 = fmul float %24, 1.562500e-02
+  %25 = fmul nnan float %24, 1.562500e-02
   %26 = load ptr, ptr %7, align 8
   %27 = load i32, ptr %9, align 4
   %28 = add nsw i32 %27, 1
@@ -2729,7 +2729,7 @@ define internal noundef i32 @conicTo(ptr noundef readonly captures(none) %0, ptr
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = sitofp i64 %32 to float
-  %34 = fmul float %33, -1.562500e-02
+  %34 = fmul nnan float %33, -1.562500e-02
   %35 = load ptr, ptr %7, align 8
   %36 = load i32, ptr %9, align 4
   %37 = add nsw i32 %36, 1
@@ -2752,7 +2752,7 @@ define internal noundef i32 @conicTo(ptr noundef readonly captures(none) %0, ptr
 define internal noundef i32 @cubicTo(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) #16 {
   %5 = load i64, ptr %0, align 8
   %6 = sitofp i64 %5 to float
-  %7 = fmul float %6, 1.562500e-02
+  %7 = fmul nnan float %6, 1.562500e-02
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -2765,7 +2765,7 @@ define internal noundef i32 @cubicTo(ptr noundef readonly captures(none) %0, ptr
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   %17 = sitofp i64 %16 to float
-  %18 = fmul float %17, -1.562500e-02
+  %18 = fmul nnan float %17, -1.562500e-02
   %19 = load ptr, ptr %8, align 8
   %20 = load i32, ptr %10, align 4
   %21 = add nsw i32 %20, 1
@@ -2775,7 +2775,7 @@ define internal noundef i32 @cubicTo(ptr noundef readonly captures(none) %0, ptr
   store float %18, ptr %23, align 4
   %24 = load i64, ptr %1, align 8
   %25 = sitofp i64 %24 to float
-  %26 = fmul float %25, 1.562500e-02
+  %26 = fmul nnan float %25, 1.562500e-02
   %27 = load ptr, ptr %8, align 8
   %28 = load i32, ptr %10, align 4
   %29 = add nsw i32 %28, 1
@@ -2786,7 +2786,7 @@ define internal noundef i32 @cubicTo(ptr noundef readonly captures(none) %0, ptr
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = sitofp i64 %33 to float
-  %35 = fmul float %34, -1.562500e-02
+  %35 = fmul nnan float %34, -1.562500e-02
   %36 = load ptr, ptr %8, align 8
   %37 = load i32, ptr %10, align 4
   %38 = add nsw i32 %37, 1
@@ -2796,7 +2796,7 @@ define internal noundef i32 @cubicTo(ptr noundef readonly captures(none) %0, ptr
   store float %35, ptr %40, align 4
   %41 = load i64, ptr %2, align 8
   %42 = sitofp i64 %41 to float
-  %43 = fmul float %42, 1.562500e-02
+  %43 = fmul nnan float %42, 1.562500e-02
   %44 = load ptr, ptr %8, align 8
   %45 = load i32, ptr %10, align 4
   %46 = add nsw i32 %45, 1
@@ -2807,7 +2807,7 @@ define internal noundef i32 @cubicTo(ptr noundef readonly captures(none) %0, ptr
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %50 = load i64, ptr %49, align 8
   %51 = sitofp i64 %50 to float
-  %52 = fmul float %51, -1.562500e-02
+  %52 = fmul nnan float %51, -1.562500e-02
   %53 = load ptr, ptr %8, align 8
   %54 = load i32, ptr %10, align 4
   %55 = add nsw i32 %54, 1

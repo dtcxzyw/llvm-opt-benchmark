@@ -602,7 +602,7 @@ define internal void @init_tables() #0 {
   %59 = trunc i64 %indvars.iv147 to i32
   %60 = add i32 %59, -960
   %61 = sitofp i32 %60 to float
-  %62 = fmul nsz float %61, 1.562500e-02
+  %62 = fmul nnan nsz float %61, 1.562500e-02
   %63 = tail call nsz float @llvm.exp2.f32(float %62)
   %64 = getelementptr inbounds nuw float, ptr @gain_tab, i64 %indvars.iv147
   store float %63, ptr %64, align 4, !tbaa !27

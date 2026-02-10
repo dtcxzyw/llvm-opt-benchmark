@@ -754,7 +754,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 305:                                              ; preds = %300
   %306 = add i32 %304, 1
   %307 = uitofp i32 %306 to double
-  %308 = tail call nsz double @llvm.log2.f64(double %307)
+  %308 = tail call nnan nsz double @llvm.log2.f64(double %307)
   %309 = fdiv nsz double %308, %220
   %310 = fmul nsz double %309, %281
   br label %316
@@ -1046,7 +1046,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %551 = sitofp i32 %547 to double
   %552 = add i32 %549, 1
   %553 = uitofp i32 %552 to double
-  %554 = tail call nsz double @llvm.log2.f64(double %553)
+  %554 = tail call nnan nsz double @llvm.log2.f64(double %553)
   %555 = fdiv nsz double %554, %220
   %556 = fsub nsz double 1.000000e+00, %555
   %557 = fmul nsz double %556, %551

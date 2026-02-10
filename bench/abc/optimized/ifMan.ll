@@ -1218,7 +1218,7 @@ define void @If_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %24 = load ptr, ptr %23, align 8, !tbaa !43
   %25 = load i32, ptr %24, align 8, !tbaa !45
   %26 = sitofp i32 %25 to double
-  %27 = fmul double %26, 8.000000e+00
+  %27 = fmul nnan double %26, 8.000000e+00
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !48
   %30 = shl nuw i32 1, %29
@@ -1231,7 +1231,7 @@ define void @If_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %38 = load i32, ptr %37, align 8, !tbaa !130
   %39 = sitofp i32 %38 to double
-  %40 = fmul double %39, 8.000000e+00
+  %40 = fmul nnan double %39, 8.000000e+00
   %41 = tail call double @llvm.fmuladd.f64(double %32, double %36, double %40)
   %42 = fadd double %41, 4.800000e+01
   %43 = fptosi double %42 to i32
@@ -1242,7 +1242,7 @@ define void @If_ManStop(ptr noundef %0) local_unnamed_addr #0 {
 
 45:                                               ; preds = %.preheader306
   %46 = sitofp i32 %44 to double
-  %47 = fmul double %46, 0x3EB0000000000000
+  %47 = fmul nnan double %46, 0x3EB0000000000000
   %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %22, double noundef %47)
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %50 = load i64, ptr %49, align 8, !tbaa !132
@@ -1260,7 +1260,7 @@ define void @If_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 2028
   %58 = load i32, ptr %57, align 4, !tbaa !135
   %59 = sitofp i32 %54 to double
-  %60 = fmul double %59, 1.000000e+02
+  %60 = fmul nnan double %59, 1.000000e+02
   %61 = add nsw i32 %58, %54
   %62 = sitofp i32 %61 to double
   %63 = fdiv double %60, %62
@@ -1328,7 +1328,7 @@ define void @If_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %99 = getelementptr inbounds nuw i32, ptr %94, i64 %indvars.iv334
   %100 = load i32, ptr %99, align 4, !tbaa !40
   %101 = sitofp i32 %97 to double
-  %102 = fmul double %101, 1.000000e+02
+  %102 = fmul nnan double %101, 1.000000e+02
   %103 = tail call noundef i32 @llvm.smax.i32(i32 %100, i32 1)
   %104 = uitofp nneg i32 %103 to double
   %105 = fdiv double %102, %104
@@ -1346,7 +1346,7 @@ define void @If_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   %111 = load i32, ptr %110, align 8, !tbaa !138
   %112 = sitofp i32 %109 to double
-  %113 = fmul double %112, 1.000000e+02
+  %113 = fmul nnan double %112, 1.000000e+02
   %114 = tail call noundef i32 @llvm.smax.i32(i32 %111, i32 1)
   %115 = uitofp nneg i32 %114 to double
   %116 = fdiv double %113, %115
@@ -3476,13 +3476,13 @@ If_ManSetupSet.exit:                              ; preds = %.lr.ph.i, %15
   %69 = getelementptr i8, ptr %.val25, i64 4
   %.val25.val = load i32, ptr %69, align 4, !tbaa !29
   %70 = sitofp i32 %.val25.val to double
-  %71 = fmul double %67, %70
-  %72 = fmul double %71, 0x3EB0000000000000
+  %71 = fmul nnan double %67, %70
+  %72 = fmul nnan double %71, 0x3EB0000000000000
   %73 = load i32, ptr %4, align 8, !tbaa !80
   %74 = sitofp i32 %73 to double
   %75 = sitofp i32 %1 to double
-  %76 = fmul double %75, %74
-  %77 = fmul double %76, 0x3EB0000000000000
+  %76 = fmul nnan double %75, %74
+  %77 = fmul nnan double %76, 0x3EB0000000000000
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, i32 noundef %.val, i32 noundef %62, double noundef %72, double noundef %77)
   br label %78
 

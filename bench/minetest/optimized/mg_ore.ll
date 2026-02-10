@@ -2576,7 +2576,7 @@ for.cond80.preheader:                             ; preds = %for.cond80.for.cond
   %conv7.i = ashr exact i32 %sext240, 16
   %sub128 = sub nsw i32 %y1.0258, %div124.sext
   %conv129 = sitofp i32 %sub128 to float
-  %mul134 = fmul nsz float %conv129, %conv129
+  %mul134 = fmul nnan nsz float %conv129, %conv129
   br label %for.body83
 
 for.cond76.for.cond.cleanup78_crit_edge.split:    ; preds = %for.cond80.for.cond.cleanup82_crit_edge
@@ -3352,8 +3352,8 @@ if.then103:                                       ; preds = %if.end101
 if.end120:                                        ; preds = %if.then103, %if.end101
   %call121 = call noundef i32 @_ZN9PcgRandom4nextEv(ptr noundef nonnull align 8 dereferenceable(16) %pr)
   %conv122 = uitofp i32 %call121 to float
-  %div = fmul nsz float %conv122, 0x3E00000000000000
-  %sub123 = fadd nsz float %div, -1.000000e+00
+  %div = fmul nnan nsz float %conv122, 0x3E00000000000000
+  %sub123 = fadd nnan nsz float %div, -1.000000e+00
   %38 = load ptr, ptr %noise, align 8, !tbaa !72
   %result = getelementptr inbounds nuw i8, ptr %38, i64 80
   %39 = load ptr, ptr %result, align 8, !tbaa !110

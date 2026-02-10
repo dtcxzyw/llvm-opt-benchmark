@@ -1904,9 +1904,9 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
   br i1 %or.cond, label %175, label %181
 
 175:                                              ; preds = %168
-  %176 = fdiv double 1.000000e+00, %173
-  %177 = fptrunc double %176 to float
-  %178 = fmul float %177, 1.000000e+02
+  %176 = fdiv nnan double 1.000000e+00, %173
+  %177 = fptrunc nnan double %176 to float
+  %178 = fmul nnan float %177, 1.000000e+02
   %179 = call float @llvm.round.f32(float %178)
   %180 = fdiv float %179, 1.000000e+02
   call void @_ZN11OpenImageIO6v3_1_027set_colorspace_rec709_gammaERNS0_9ImageSpecEf(ptr noundef nonnull align 8 dereferenceable(160) %6, float noundef %180)
@@ -2686,14 +2686,14 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit168: ;
 497:                                              ; preds = %494
   %498 = load i32, ptr %72, align 4, !tbaa !88
   %499 = uitofp i32 %498 to float
-  %500 = fmul float %499, 0x3F9A027520000000
+  %500 = fmul nnan float %499, 0x3F9A027520000000
   %501 = load i32, ptr %73, align 4, !tbaa !88
   %502 = uitofp i32 %501 to float
-  %503 = fmul float %502, 0x3F9A027520000000
-  %504 = fmul float %500, 1.000000e+01
+  %503 = fmul nnan float %502, 0x3F9A027520000000
+  %504 = fmul nnan float %500, 1.000000e+01
   %505 = call noundef float @llvm.round.f32(float %504)
   %506 = fdiv float %505, 1.000000e+01
-  %507 = fmul float %503, 1.000000e+01
+  %507 = fmul nnan float %503, 1.000000e+01
   %508 = call noundef float @llvm.round.f32(float %507)
   %509 = fdiv float %508, 1.000000e+01
   store ptr @.str.77, ptr %74, align 8, !tbaa !72

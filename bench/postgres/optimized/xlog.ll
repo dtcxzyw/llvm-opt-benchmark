@@ -6376,7 +6376,7 @@ XLogRecPtrToBytePos.exit95:                       ; preds = %564, %567, %571, %5
   %629 = sext i32 %628 to i64
   %630 = and i64 %626, %629
   %631 = sitofp i32 %627 to double
-  %632 = fmul double %631, 7.500000e-01
+  %632 = fmul nnan double %631, 7.500000e-01
   %633 = fptoui double %632 to i32
   %634 = zext i32 %633 to i64
   %.not.i96 = icmp ult i64 %630, %634
@@ -7910,7 +7910,7 @@ update_checkpoint_display.exit:                   ; preds = %LogCheckpointStart.
   store double %144, ptr @PrevCheckPointDistance, align 8
   %145 = load double, ptr @CheckPointDistanceEstimate, align 8
   %146 = fcmp olt double %145, %144
-  %147 = fmul double %144, 1.000000e-01
+  %147 = fmul nnan double %144, 1.000000e-01
   %148 = call double @llvm.fmuladd.f64(double %145, double 9.000000e-01, double %147)
   %storemerge.i = select i1 %146, double %144, double %148
   store double %storemerge.i, ptr @CheckPointDistanceEstimate, align 8
@@ -7985,7 +7985,7 @@ RecoveryInProgress.exit69.thread:                 ; preds = %163, %RecoveryInPro
   %186 = sext i32 %185 to i64
   %187 = and i64 %183, %186
   %188 = sitofp i32 %184 to double
-  %189 = fmul double %188, 7.500000e-01
+  %189 = fmul nnan double %188, 7.500000e-01
   %190 = fptoui double %189 to i32
   %191 = zext i32 %190 to i64
   %.not.i70 = icmp ult i64 %187, %191
@@ -8648,7 +8648,7 @@ update_checkpoint_display.exit:                   ; preds = %LogCheckpointStart.
   store double %299, ptr @PrevCheckPointDistance, align 8
   %300 = load double, ptr @CheckPointDistanceEstimate, align 8
   %301 = fcmp olt double %300, %299
-  %302 = fmul double %299, 1.000000e-01
+  %302 = fmul nnan double %299, 1.000000e-01
   %303 = call double @llvm.fmuladd.f64(double %300, double 9.000000e-01, double %302)
   %storemerge.i = select i1 %301, double %299, double %303
   store double %storemerge.i, ptr @CheckPointDistanceEstimate, align 8
@@ -8699,7 +8699,7 @@ update_checkpoint_display.exit:                   ; preds = %LogCheckpointStart.
   %330 = sext i32 %329 to i64
   %331 = and i64 %327, %330
   %332 = sitofp i32 %328 to double
-  %333 = fmul double %332, 7.500000e-01
+  %333 = fmul nnan double %332, 7.500000e-01
   %334 = fptoui double %333 to i32
   %335 = zext i32 %334 to i64
   %.not.i112 = icmp ult i64 %331, %335
@@ -9156,7 +9156,7 @@ define internal fastcc void @LogCheckpointEnd(i1 noundef zeroext %0) unnamed_add
   %.str.191..str.192 = select i1 %0, ptr @.str.191, ptr @.str.192
   %32 = load i32, ptr getelementptr inbounds nuw (i8, ptr @CheckpointStats, i64 40), align 8
   %33 = sitofp i32 %32 to double
-  %34 = fmul double %33, 1.000000e+02
+  %34 = fmul nnan double %33, 1.000000e+02
   %35 = load i32, ptr @NBuffers, align 4
   %36 = sitofp i32 %35 to double
   %37 = fdiv double %34, %36

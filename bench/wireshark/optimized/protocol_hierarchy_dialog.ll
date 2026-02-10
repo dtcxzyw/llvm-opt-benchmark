@@ -5030,13 +5030,13 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %.noexc
 90:                                               ; preds = %83
   %91 = load i32, ptr %33, align 8
   %92 = uitofp i32 %91 to double
-  %93 = fmul double %92, 1.000000e+02
+  %93 = fmul nnan double %92, 1.000000e+02
   %94 = uitofp i32 %84 to double
   %95 = fdiv double %93, %94
   store double %95, ptr %48, align 8
   %96 = load i32, ptr %42, align 4
   %97 = uitofp i32 %96 to double
-  %98 = fmul double %97, 1.000000e+02
+  %98 = fmul nnan double %97, 1.000000e+02
   %99 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %100 = load i32, ptr %99, align 4
   %101 = uitofp i32 %100 to double
@@ -5051,12 +5051,12 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i.i:    ; preds = %.noexc
   br i1 %108, label %109, label %116
 
 109:                                              ; preds = %90
-  %110 = fmul double %97, 8.000000e+00
+  %110 = fmul nnan double %97, 8.000000e+00
   %111 = fdiv double %110, %107
   store double %111, ptr %50, align 8
   %112 = load i32, ptr %45, align 8
   %113 = uitofp i32 %112 to double
-  %114 = fmul double %113, 8.000000e+00
+  %114 = fmul nnan double %113, 8.000000e+00
   %115 = fdiv double %114, %107
   store double %115, ptr %51, align 8
   br label %116

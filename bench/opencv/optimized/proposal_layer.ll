@@ -1134,7 +1134,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit335: ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %286 = load i32, ptr %135, align 4, !tbaa !68
   %287 = uitofp i32 %286 to double
-  %288 = fmul double %287, 5.000000e-01
+  %288 = fmul nnan double %287, 5.000000e-01
   %289 = load i32, ptr %105, align 8, !tbaa !45
   %290 = uitofp i32 %289 to double
   %291 = fdiv double %288, %290

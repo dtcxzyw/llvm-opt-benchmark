@@ -548,7 +548,7 @@ _ZN18JfrAdaptiveSampler19project_sample_sizeERK16JfrSamplerParamsPK16JfrSamplerW
   %48 = lshr i64 %47, 22
   %49 = trunc nuw nsw i64 %48 to i32
   %50 = uitofp nneg i32 %49 to double
-  %51 = fmul double %50, 0x3E50000000000000
+  %51 = fmul nnan double %50, 0x3E50000000000000
   %52 = fcmp oeq double %51, 0.000000e+00
   br i1 %52, label %_Z14next_geometricdd.exit.i, label %53
 
@@ -669,7 +669,7 @@ define hidden noundef i64 @_ZN18JfrAdaptiveSampler24derive_sampling_intervalEdPK
   %22 = lshr i64 %21, 22
   %23 = trunc nuw nsw i64 %22 to i32
   %24 = uitofp nneg i32 %23 to double
-  %25 = fmul double %24, 0x3E50000000000000
+  %25 = fmul nnan double %24, 0x3E50000000000000
   %26 = fcmp oeq double %25, 0.000000e+00
   br i1 %26, label %_Z14next_geometricdd.exit, label %27
 
@@ -894,7 +894,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN24JfrGTestFixe
   %18 = fdiv double 1.000000e+00, %17
   %19 = select i1 %16, double 1.000000e+00, double %18
   %20 = load double, ptr %5, align 8
-  %21 = fsub double 1.000000e+00, %19
+  %21 = fsub nnan double 1.000000e+00, %19
   %22 = fmul double %20, %21
   %23 = tail call noundef double @llvm.fmuladd.f64(double %19, double %13, double %22)
   store double %23, ptr %5, align 8

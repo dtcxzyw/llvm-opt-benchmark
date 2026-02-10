@@ -538,7 +538,7 @@ define internal fastcc void @dissect_read_response(ptr noundef %0, ptr noundef %
 24:                                               ; preds = %21
   %25 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %15)
   %26 = uitofp i32 %25 to double
-  %27 = fmul double %26, 8.000000e+00
+  %27 = fmul nnan double %26, 8.000000e+00
   %28 = add i32 %2, 17
   %29 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %28)
   %30 = uitofp i32 %29 to double

@@ -167,7 +167,7 @@ define noundef i32 @_Z10gmx_sigepsiPPc(i32 noundef %0, ptr noundef %1) local_unn
   store float %38, ptr @_ZZ10gmx_sigepsiPPcE2c6, align 4, !tbaa !26
   %39 = load i32, ptr @_ZZ10gmx_sigepsiPPcE4npow, align 4, !tbaa !4
   %40 = sitofp i32 %39 to double
-  %41 = fdiv double 6.000000e+00, %40
+  %41 = fdiv nnan double 6.000000e+00, %40
   %42 = sitofp i32 %39 to float
   %43 = load float, ptr @_ZZ10gmx_sigepsiPPcE3Bbh, align 4, !tbaa !26
   %44 = fdiv float %42, %43
@@ -297,7 +297,7 @@ define noundef i32 @_Z10gmx_sigepsiPPc(i32 noundef %0, ptr noundef %1) local_unn
   %129 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, double noundef %126, double noundef %128)
   %130 = load i32, ptr @_ZZ10gmx_sigepsiPPcE4npow, align 4, !tbaa !4
   %131 = sitofp i32 %130 to double
-  %132 = fdiv double %131, 6.000000e+00
+  %132 = fdiv nnan double %131, 6.000000e+00
   %133 = load float, ptr @_ZZ10gmx_sigepsiPPcE3sig, align 4, !tbaa !26
   %134 = add nsw i32 %130, -6
   %135 = fpext float %133 to double

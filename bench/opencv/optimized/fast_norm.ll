@@ -245,7 +245,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit39: ; preds = %_ZN2c
   %45 = sext i32 %.024.i to i64
   %46 = mul nsw i64 %.024.i31, %45
   %47 = uitofp i64 %46 to double
-  %48 = fmul double %47, 0x3F50000000000000
+  %48 = fmul nnan double %47, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef %11, double noundef %48)
           to label %49 unwind label %62
 
@@ -644,7 +644,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit40: ; preds = %_ZN2c
   %43 = sext i32 %.024.i to i64
   %44 = mul nsw i64 %.024.i32, %43
   %45 = uitofp i64 %44 to double
-  %46 = fmul double %45, 0x3F50000000000000
+  %46 = fmul nnan double %45, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef %10, double noundef %46)
           to label %47 unwind label %60
 
@@ -939,7 +939,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit45: ; preds = %_ZN2c
   %75 = sext i32 %.024.i65 to i64
   %76 = mul nsw i64 %.024.i37, %75
   %77 = uitofp i64 %76 to double
-  %78 = fmul double %77, 0x3F50000000000000
+  %78 = fmul nnan double %77, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef %11, double noundef %78)
           to label %79 unwind label %93
 
@@ -1192,7 +1192,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %_ZN2cv3
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn15fastNormChannelERKNS0_3MatES8_S8_RS6_fE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %60, align 8, !tbaa !40
   %64 = mul i64 %54, %.024.i
   %65 = uitofp i64 %64 to double
-  %66 = fmul double %65, 0x3F50000000000000
+  %66 = fmul nnan double %65, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef %11, double noundef %66)
           to label %67 unwind label %78
 
@@ -1444,7 +1444,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %_ZN2cv3
   store ptr @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13fastNormGroupERKNS0_3MatES8_S8_RS6_fmE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation", ptr %66, align 8, !tbaa !40
   %70 = mul i64 %59, %58
   %71 = uitofp i64 %70 to double
-  %72 = fmul double %71, 0x3F50000000000000
+  %72 = fmul nnan double %71, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef %14, double noundef %72)
           to label %73 unwind label %84
 
@@ -1714,7 +1714,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNo
   %.pre65.i.i.i = load float, ptr %20, align 4, !tbaa !3
   %54 = fmul float %.pre.i.i.i, 0.000000e+00
   %55 = fneg float %54
-  %56 = fmul float %54, %55
+  %56 = fmul ninf float %54, %55
   %57 = tail call float @llvm.fmuladd.f32(float %.pre.i.i.i, float 0.000000e+00, float %56)
   %58 = fcmp ogt float %57, 0.000000e+00
   %.sroa.speculated.i.i.i = select i1 %58, float %57, float 0.000000e+00
@@ -1878,7 +1878,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNo
   %.pre67.i.i.i = load float, ptr %24, align 4, !tbaa !3
   %26 = fmul float %.pre.i.i.i, 0.000000e+00
   %27 = fneg float %26
-  %28 = fmul float %26, %27
+  %28 = fmul ninf float %26, %27
   %29 = tail call float @llvm.fmuladd.f32(float %.pre.i.i.i, float 0.000000e+00, float %28)
   %30 = fcmp ogt float %29, 0.000000e+00
   %.sroa.speculated.i.i.i = select i1 %30, float %29, float 0.000000e+00
@@ -2035,7 +2035,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn8fastNo
   %.pre69.i.i.i = load float, ptr %28, align 4, !tbaa !3
   %30 = fmul float %.pre.i.i.i, 0.000000e+00
   %31 = fneg float %30
-  %32 = fmul float %30, %31
+  %32 = fmul ninf float %30, %31
   %33 = tail call float @llvm.fmuladd.f32(float %.pre.i.i.i, float 0.000000e+00, float %32)
   %34 = fcmp ogt float %33, 0.000000e+00
   %.sroa.speculated.i.i.i = select i1 %34, float %33, float 0.000000e+00
@@ -2197,7 +2197,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn15fastN
   %.pre72.i.i.i = load float, ptr %28, align 4, !tbaa !3
   %33 = fmul float %.pre.i.i.i, 0.000000e+00
   %34 = fneg float %33
-  %35 = fmul float %33, %34
+  %35 = fmul ninf float %33, %34
   %36 = tail call float @llvm.fmuladd.f32(float %.pre.i.i.i, float 0.000000e+00, float %35)
   %37 = fcmp ogt float %36, 0.000000e+00
   %.sroa.speculated.i.i.i = select i1 %37, float %36, float 0.000000e+00
@@ -2359,7 +2359,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn13fastN
   %.pre74.i.i.i = load float, ptr %28, align 4, !tbaa !3
   %35 = fmul float %.pre.i.i.i, 0.000000e+00
   %36 = fneg float %35
-  %37 = fmul float %35, %36
+  %37 = fmul ninf float %35, %36
   %38 = tail call float @llvm.fmuladd.f32(float %.pre.i.i.i, float 0.000000e+00, float %37)
   %39 = fcmp ogt float %38, 0.000000e+00
   %.sroa.speculated.i.i.i = select i1 %39, float %38, float 0.000000e+00

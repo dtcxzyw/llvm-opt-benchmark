@@ -982,7 +982,7 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %162, %_ZN2cv10AutoB
 
 187:                                              ; preds = %._crit_edge.i
   %188 = uitofp i64 %186 to double
-  %189 = fmul double %188, 0x3EF0000000000000
+  %189 = fmul nnan double %188, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %19, double noundef %189)
           to label %190 unwind label %194
 
@@ -1119,7 +1119,7 @@ _ZN2cvL8resizeNNERKNS_3MatERS0_dd.exit:           ; preds = %190, %193
 
 245:                                              ; preds = %._crit_edge.i489
   %246 = uitofp i64 %236 to double
-  %247 = fmul double %246, 0x3EF0000000000000
+  %247 = fmul nnan double %246, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16, double noundef %247)
           to label %_ZN2cvL17resizeNN_bitexactERKNS_3MatERS0_dd.exit unwind label %248
 
@@ -1982,9 +1982,9 @@ switch.early.test479:                             ; preds = %548
 
 591:                                              ; preds = %585
   %592 = fneg float %588
-  %593 = fpext float %592 to double
-  %594 = fmul double %593, 0x400921FB54442D18
-  %595 = fmul double %594, 2.500000e-01
+  %593 = fpext nnan float %592 to double
+  %594 = fmul nnan double %593, 0x400921FB54442D18
+  %595 = fmul nnan double %594, 2.500000e-01
   %596 = getelementptr inbounds nuw [2 x double], ptr @_ZZN2cvL19interpolateLanczos4EfPfE2cs, i64 %indvars.iv.i533
   %597 = load double, ptr %596, align 16, !tbaa !66
   %598 = getelementptr inbounds nuw i8, ptr %596, i64 8
@@ -2190,9 +2190,9 @@ _ZN2cvL19interpolateLanczos4EfPf.exit:            ; preds = %608, %612, %559
 
 702:                                              ; preds = %696
   %703 = fneg float %699
-  %704 = fpext float %703 to double
-  %705 = fmul double %704, 0x400921FB54442D18
-  %706 = fmul double %705, 2.500000e-01
+  %704 = fpext nnan float %703 to double
+  %705 = fmul nnan double %704, 0x400921FB54442D18
+  %706 = fmul nnan double %705, 2.500000e-01
   %707 = getelementptr inbounds nuw [2 x double], ptr @_ZZN2cvL19interpolateLanczos4EfPfE2cs, i64 %indvars.iv.i536
   %708 = load double, ptr %707, align 16, !tbaa !66
   %709 = getelementptr inbounds nuw i8, ptr %707, i64 8
@@ -2396,7 +2396,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_13HResizeLinearIhisLi2048ENS_12
 
 34:                                               ; preds = %9
   %35 = uitofp i64 %33 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %36)
           to label %37 unwind label %40
 
@@ -2473,7 +2473,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_13HResizeLinearItffLi1ENS_12HRe
 
 34:                                               ; preds = %9
   %35 = uitofp i64 %33 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %36)
           to label %37 unwind label %40
 
@@ -2550,7 +2550,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_13HResizeLinearIsffLi1ENS_12HRe
 
 34:                                               ; preds = %9
   %35 = uitofp i64 %33 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %36)
           to label %37 unwind label %40
 
@@ -2627,7 +2627,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_13HResizeLinearIfffLi1ENS_12HRe
 
 34:                                               ; preds = %9
   %35 = uitofp i64 %33 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %36)
           to label %37 unwind label %40
 
@@ -2704,7 +2704,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_13HResizeLinearIddfLi1ENS_12HRe
 
 34:                                               ; preds = %9
   %35 = uitofp i64 %33 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %36)
           to label %37 unwind label %40
 
@@ -2781,7 +2781,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_12HResizeCubicIhisEENS_12VResiz
 
 34:                                               ; preds = %9
   %35 = uitofp i64 %33 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %36)
           to label %37 unwind label %40
 
@@ -2858,7 +2858,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_12HResizeCubicItffEENS_12VResiz
 
 34:                                               ; preds = %9
   %35 = uitofp i64 %33 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %36)
           to label %37 unwind label %40
 
@@ -2935,7 +2935,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_12HResizeCubicIsffEENS_12VResiz
 
 34:                                               ; preds = %9
   %35 = uitofp i64 %33 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %36)
           to label %37 unwind label %40
 
@@ -3012,7 +3012,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_12HResizeCubicIfffEENS_12VResiz
 
 34:                                               ; preds = %9
   %35 = uitofp i64 %33 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %36)
           to label %37 unwind label %40
 
@@ -3089,7 +3089,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_12HResizeCubicIddfEENS_12VResiz
 
 34:                                               ; preds = %9
   %35 = uitofp i64 %33 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %36)
           to label %37 unwind label %40
 
@@ -3166,7 +3166,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_15HResizeLanczos4IhisEENS_15VRe
 
 34:                                               ; preds = %9
   %35 = uitofp i64 %33 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %36)
           to label %37 unwind label %40
 
@@ -3243,7 +3243,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_15HResizeLanczos4ItffEENS_15VRe
 
 34:                                               ; preds = %9
   %35 = uitofp i64 %33 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %36)
           to label %37 unwind label %40
 
@@ -3320,7 +3320,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_15HResizeLanczos4IsffEENS_15VRe
 
 34:                                               ; preds = %9
   %35 = uitofp i64 %33 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %36)
           to label %37 unwind label %40
 
@@ -3397,7 +3397,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_15HResizeLanczos4IfffEENS_15VRe
 
 34:                                               ; preds = %9
   %35 = uitofp i64 %33 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %36)
           to label %37 unwind label %40
 
@@ -3474,7 +3474,7 @@ define internal void @_ZN2cvL14resizeGeneric_INS_15HResizeLanczos4IddfEENS_15VRe
 
 34:                                               ; preds = %9
   %35 = uitofp i64 %33 to double
-  %36 = fmul double %35, 0x3EF0000000000000
+  %36 = fmul nnan double %35, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %36)
           to label %37 unwind label %40
 
@@ -3557,7 +3557,7 @@ _ZN2cv22resizeAreaFast_InvokerIhiNS_17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVe
 
 25:                                               ; preds = %_ZN2cv22resizeAreaFast_InvokerIhiNS_17ResizeAreaFastVecIhNS_19ResizeAreaFastNoVecIhhEEEEEC2ERKNS_3MatERS6_iiPKiSB_.exit
   %26 = uitofp i64 %24 to double
-  %27 = fmul double %26, 0x3EF0000000000000
+  %27 = fmul nnan double %26, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef %27)
           to label %28 unwind label %29
 
@@ -3634,7 +3634,7 @@ _ZN2cv22resizeAreaFast_InvokerItfNS_17ResizeAreaFastVecItNS_19ResizeAreaFastNoVe
 
 25:                                               ; preds = %_ZN2cv22resizeAreaFast_InvokerItfNS_17ResizeAreaFastVecItNS_19ResizeAreaFastNoVecIttEEEEEC2ERKNS_3MatERS6_iiPKiSB_.exit
   %26 = uitofp i64 %24 to double
-  %27 = fmul double %26, 0x3EF0000000000000
+  %27 = fmul nnan double %26, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef %27)
           to label %28 unwind label %29
 
@@ -3711,7 +3711,7 @@ _ZN2cv22resizeAreaFast_InvokerIsfNS_17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVe
 
 25:                                               ; preds = %_ZN2cv22resizeAreaFast_InvokerIsfNS_17ResizeAreaFastVecIsNS_19ResizeAreaFastNoVecIssEEEEEC2ERKNS_3MatERS6_iiPKiSB_.exit
   %26 = uitofp i64 %24 to double
-  %27 = fmul double %26, 0x3EF0000000000000
+  %27 = fmul nnan double %26, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef %27)
           to label %28 unwind label %29
 
@@ -3788,7 +3788,7 @@ _ZN2cv22resizeAreaFast_InvokerIffNS_19ResizeAreaFastNoVecIffEEEC2ERKNS_3MatERS4_
 
 25:                                               ; preds = %_ZN2cv22resizeAreaFast_InvokerIffNS_19ResizeAreaFastNoVecIffEEEC2ERKNS_3MatERS4_iiPKiS9_.exit
   %26 = uitofp i64 %24 to double
-  %27 = fmul double %26, 0x3EF0000000000000
+  %27 = fmul nnan double %26, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef %27)
           to label %28 unwind label %29
 
@@ -3865,7 +3865,7 @@ _ZN2cv22resizeAreaFast_InvokerIddNS_19ResizeAreaFastNoVecIddEEEC2ERKNS_3MatERS4_
 
 25:                                               ; preds = %_ZN2cv22resizeAreaFast_InvokerIddNS_19ResizeAreaFastNoVecIddEEEC2ERKNS_3MatERS4_iiPKiS9_.exit
   %26 = uitofp i64 %24 to double
-  %27 = fmul double %26, 0x3EF0000000000000
+  %27 = fmul nnan double %26, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, double noundef %27)
           to label %28 unwind label %29
 
@@ -3918,7 +3918,7 @@ define internal void @_ZN2cvL11resizeArea_IhfEEvRKNS_3MatERS1_PKNS_13DecimateAlp
 
 21:                                               ; preds = %7
   %22 = uitofp i64 %20 to double
-  %23 = fmul double %22, 0x3EF0000000000000
+  %23 = fmul nnan double %22, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, double noundef %23)
           to label %24 unwind label %25
 
@@ -3968,7 +3968,7 @@ define internal void @_ZN2cvL11resizeArea_ItfEEvRKNS_3MatERS1_PKNS_13DecimateAlp
 
 21:                                               ; preds = %7
   %22 = uitofp i64 %20 to double
-  %23 = fmul double %22, 0x3EF0000000000000
+  %23 = fmul nnan double %22, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, double noundef %23)
           to label %24 unwind label %25
 
@@ -4018,7 +4018,7 @@ define internal void @_ZN2cvL11resizeArea_IsfEEvRKNS_3MatERS1_PKNS_13DecimateAlp
 
 21:                                               ; preds = %7
   %22 = uitofp i64 %20 to double
-  %23 = fmul double %22, 0x3EF0000000000000
+  %23 = fmul nnan double %22, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, double noundef %23)
           to label %24 unwind label %25
 
@@ -4068,7 +4068,7 @@ define internal void @_ZN2cvL11resizeArea_IffEEvRKNS_3MatERS1_PKNS_13DecimateAlp
 
 21:                                               ; preds = %7
   %22 = uitofp i64 %20 to double
-  %23 = fmul double %22, 0x3EF0000000000000
+  %23 = fmul nnan double %22, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, double noundef %23)
           to label %24 unwind label %25
 
@@ -4118,7 +4118,7 @@ define internal void @_ZN2cvL11resizeArea_IddEEvRKNS_3MatERS1_PKNS_13DecimateAlp
 
 21:                                               ; preds = %7
   %22 = uitofp i64 %20 to double
-  %23 = fmul double %22, 0x3EF0000000000000
+  %23 = fmul nnan double %22, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9, double noundef %23)
           to label %24 unwind label %25
 
@@ -4318,7 +4318,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %27, %47
   store i32 %7, ptr %83, align 4, !tbaa !32
   %84 = mul nsw i32 %7, %6
   %85 = sitofp i32 %84 to double
-  %86 = fmul double %85, 0x3EF0000000000000
+  %86 = fmul nnan double %85, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19, double noundef %86)
           to label %93 unwind label %97
 
@@ -4568,7 +4568,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %27, %46
   store i32 %7, ptr %82, align 4, !tbaa !32
   %83 = mul nsw i32 %7, %6
   %84 = sitofp i32 %83 to double
-  %85 = fmul double %84, 0x3EF0000000000000
+  %85 = fmul nnan double %84, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19, double noundef %85)
           to label %92 unwind label %96
 
@@ -4818,7 +4818,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %27, %46
   store i32 %7, ptr %82, align 4, !tbaa !32
   %83 = mul nsw i32 %7, %6
   %84 = sitofp i32 %83 to double
-  %85 = fmul double %84, 0x3EF0000000000000
+  %85 = fmul nnan double %84, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19, double noundef %85)
           to label %92 unwind label %96
 
@@ -5068,7 +5068,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %27, %46
   store i32 %7, ptr %82, align 4, !tbaa !32
   %83 = mul nsw i32 %7, %6
   %84 = sitofp i32 %83 to double
-  %85 = fmul double %84, 0x3EF0000000000000
+  %85 = fmul nnan double %84, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19, double noundef %85)
           to label %92 unwind label %96
 
@@ -5319,7 +5319,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %27, %47
   store i32 %7, ptr %83, align 4, !tbaa !32
   %84 = mul nsw i32 %7, %6
   %85 = sitofp i32 %84 to double
-  %86 = fmul double %85, 0x3EF0000000000000
+  %86 = fmul nnan double %85, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef nonnull align 8 dereferenceable(8) %19, double noundef %86)
           to label %93 unwind label %97
 
@@ -17112,7 +17112,7 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerIhiNS_17ResizeAr
   %21 = load i32, ptr %20, align 4, !tbaa !85
   %22 = mul i32 %21, %19
   %23 = sitofp i32 %22 to float
-  %24 = fdiv float 1.000000e+00, %23
+  %24 = fdiv nnan float 1.000000e+00, %23
   %25 = sdiv i32 %.fr131, %19
   %26 = mul nsw i32 %25, %17
   %27 = mul i32 %17, %13
@@ -17703,7 +17703,7 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerItfNS_17ResizeAr
   %21 = load i32, ptr %20, align 4, !tbaa !90
   %22 = mul i32 %21, %19
   %23 = sitofp i32 %22 to float
-  %24 = fdiv float 1.000000e+00, %23
+  %24 = fdiv nnan float 1.000000e+00, %23
   %25 = sdiv i32 %.fr130, %19
   %26 = mul nsw i32 %25, %17
   %27 = mul i32 %17, %13
@@ -18308,7 +18308,7 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerIsfNS_17ResizeAr
   %21 = load i32, ptr %20, align 4, !tbaa !95
   %22 = mul i32 %21, %19
   %23 = sitofp i32 %22 to float
-  %24 = fdiv float 1.000000e+00, %23
+  %24 = fdiv nnan float 1.000000e+00, %23
   %25 = sdiv i32 %.fr130, %19
   %26 = mul nsw i32 %25, %17
   %27 = mul i32 %17, %13
@@ -18915,7 +18915,7 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerIffNS_19ResizeAr
   %.fr = freeze i32 %20
   %21 = mul i32 %.fr, %.fr141
   %22 = sitofp i32 %21 to float
-  %23 = fdiv float 1.000000e+00, %22
+  %23 = fdiv nnan float 1.000000e+00, %22
   %24 = sdiv i32 %.fr143, %.fr141
   %25 = mul i32 %24, %16
   %26 = mul i32 %16, %12
@@ -19189,7 +19189,7 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerIddNS_19ResizeAr
 .lr.ph135:                                        ; preds = %2
   %29 = mul i32 %.fr, %.fr141
   %30 = sitofp i32 %29 to float
-  %31 = fdiv float 1.000000e+00, %30
+  %31 = fdiv nnan float 1.000000e+00, %30
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %33 = load ptr, ptr %32, align 8, !tbaa !797
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -19204,7 +19204,7 @@ define linkonce_odr hidden void @_ZNK2cv22resizeAreaFast_InvokerIddNS_19ResizeAr
   %43 = load ptr, ptr %42, align 8
   %44 = icmp sgt i32 %29, 0
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %46 = fpext float %31 to double
+  %46 = fpext nnan float %31 to double
   %47 = fmul double %46, 0.000000e+00
   %48 = icmp sgt i32 %.fr, 0
   %49 = mul i32 %16, %.fr141

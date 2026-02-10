@@ -14053,7 +14053,7 @@ define hidden void @_ZN6quiche8recovery10congestion10Congestion14on_packet_sent1
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   %58 = load i64, ptr %57, align 8, !noundef !7
   %59 = uitofp i64 %58 to double
-  %60 = fmul double %59, 1.250000e+00
+  %60 = fmul nnan double %59, 1.250000e+00
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %62 = load i64, ptr %61, align 8, !noundef !7
   %63 = uitofp i64 %62 to double

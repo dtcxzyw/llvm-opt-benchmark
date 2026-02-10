@@ -62,7 +62,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %19 = fmul nsz float %13, %13
   %20 = fpext nsz float %19 to double
   %21 = sitofp i32 %15 to double
-  %22 = fmul nsz double %21, 2.000000e+00
+  %22 = fmul nnan nsz double %21, 2.000000e+00
   %23 = fdiv nsz double %20, %22
   %24 = tail call nsz double @llvm.fmuladd.f64(double %23, double 2.000000e+00, double 1.000000e+00)
   %25 = tail call nsz double @llvm.fmuladd.f64(double %23, double 4.000000e+00, double 1.000000e+00)

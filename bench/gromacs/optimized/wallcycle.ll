@@ -1472,7 +1472,7 @@ _ZL12print_headerP8_IO_FILEiiii.exit:             ; preds = %103, %105, %113, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %151 = fmul double %150, 1.000000e+02
+  %151 = fmul nnan double %150, 1.000000e+02
   %152 = fdiv double %151, %.fr
   %.not482.us.us.us.us.us.us = icmp eq i64 %149, 0
   br i1 %.not482.us.us.us.us.us.us, label %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us.us.us, label %153
@@ -1495,7 +1495,7 @@ _ZL12print_headerP8_IO_FILEiiii.exit:             ; preds = %103, %105, %113, %1
 
 158:                                              ; preds = %156, %155
   %159 = fmul double %93, %150
-  %160 = fmul double %150, 1.000000e-09
+  %160 = fmul nnan double %150, 1.000000e-09
   %161 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.108, ptr noundef nonnull %21, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, double noundef %159, double noundef %160, double noundef %152) #27
   br label %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us.us.us
 
@@ -1555,7 +1555,7 @@ _ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us.us.us: ; preds = %158, %14
 
 180:                                              ; preds = %178, %177
   %181 = fmul double %93, %174
-  %182 = fmul double %174, 1.000000e-09
+  %182 = fmul nnan double %174, 1.000000e-09
   %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.108, ptr noundef nonnull %21, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, double noundef %181, double noundef %182, double noundef 0.000000e+00) #27
   br label %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us
 
@@ -1594,7 +1594,7 @@ _ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us: ; preds = %180, %164
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %197 = fmul double %196, 1.000000e+02
+  %197 = fmul nnan double %196, 1.000000e+02
   %198 = fdiv double %197, %.fr
   %199 = select i1 %135, double %198, double 0.000000e+00
   %.not482.us.us = icmp eq i64 %195, 0
@@ -1618,7 +1618,7 @@ _ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us.us.us: ; preds = %180, %164
 
 206:                                              ; preds = %203, %202
   %207 = fmul double %93, %196
-  %208 = fmul double %196, 1.000000e-09
+  %208 = fmul nnan double %196, 1.000000e-09
   %209 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.108, ptr noundef nonnull %21, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, double noundef %207, double noundef %208, double noundef %199) #27
   br label %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit.us.us
 
@@ -1743,7 +1743,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %218, 
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %266 = fmul double %265, 1.000000e+02
+  %266 = fmul nnan double %265, 1.000000e+02
   %267 = fdiv double %266, %.fr
   %268 = select i1 %135, double %267, double 0.000000e+00
   %.not482 = icmp eq i64 %264, 0
@@ -1774,7 +1774,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %218, 
 
 278:                                              ; preds = %277, %275, %274
   %279 = fmul double %93, %265
-  %280 = fmul double %265, 1.000000e-09
+  %280 = fmul nnan double %265, 1.000000e-09
   %281 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.108, ptr noundef nonnull %21, ptr noundef nonnull %18, ptr noundef nonnull %19, ptr noundef nonnull %20, double noundef %279, double noundef %280, double noundef %268) #27
   br label %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit
 
@@ -1801,14 +1801,14 @@ _ZL12print_cyclesP8_IO_FILEdPKciiidd.exit:        ; preds = %255, %278
   br i1 %289, label %290, label %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit339
 
 290:                                              ; preds = %.loopexit494
-  %291 = fmul double %287, 1.000000e+02
+  %291 = fmul nnan double %287, 1.000000e+02
   %292 = fdiv double %291, %.fr
   %293 = select i1 %288, double %292, double 0.000000e+00
   store i8 0, ptr %15, align 16, !tbaa !72
   store i8 0, ptr %16, align 16, !tbaa !72
   store i8 0, ptr %17, align 16, !tbaa !72
   %294 = fmul double %93, %287
-  %295 = fmul double %287, 1.000000e-09
+  %295 = fmul nnan double %287, 1.000000e-09
   %296 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.13, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17, double noundef %294, double noundef %295, double noundef %293) #27
   br label %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit339
 
@@ -1823,13 +1823,13 @@ _ZL12print_cyclesP8_IO_FILEdPKciiidd.exit339:     ; preds = %.loopexit494, %290
   br i1 %288, label %298, label %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit340
 
 298:                                              ; preds = %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit339
-  %299 = fmul double %.fr, 1.000000e+02
+  %299 = fmul nnan double %.fr, 1.000000e+02
   %300 = fdiv double %299, %.fr
   store i8 0, ptr %12, align 16, !tbaa !72
   store i8 0, ptr %13, align 16, !tbaa !72
   store i8 0, ptr %14, align 16, !tbaa !72
   %301 = fmul double %.fr, %89
-  %302 = fmul double %.fr, 1.000000e-09
+  %302 = fmul nnan double %.fr, 1.000000e-09
   %303 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.108, ptr noundef nonnull @.str.14, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, double noundef %301, double noundef %302, double noundef %300) #27
   br label %_ZL12print_cyclesP8_IO_FILEdPKciiidd.exit340
 
@@ -2752,7 +2752,7 @@ define internal fastcc void @_ZL12print_cyclesP8_IO_FILEdPKciiidd(ptr noundef ca
 
 31:                                               ; preds = %27, %28, %30
   %32 = fmul double %1, %6
-  %33 = fmul double %6, 1.000000e-09
+  %33 = fmul nnan double %6, 1.000000e-09
   %34 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.108, ptr noundef %2, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, double noundef %32, double noundef %33, double noundef %15) #27
   br label %35
 

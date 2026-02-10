@@ -7029,7 +7029,7 @@ define hidden double @FLAC__lpc_compute_expected_bits_per_residual_sample(double
 
 4:                                                ; preds = %2
   %5 = uitofp i32 %1 to double
-  %6 = fmul reassoc nsz arcp double %0, 5.000000e-01
+  %6 = fmul reassoc nnan nsz arcp double %0, 5.000000e-01
   %7 = fdiv reassoc nsz arcp double %6, %5
   %8 = tail call reassoc nsz arcp double @log(double noundef %7) #14, !tbaa !3
   %9 = fmul reassoc nsz arcp double %8, 0x3FE71547652B82FE
@@ -7095,7 +7095,7 @@ define hidden i32 @FLAC__lpc_compute_best_order(ptr noundef readonly captures(no
   br i1 %10, label %11, label %16
 
 11:                                               ; preds = %7
-  %12 = fmul reassoc nsz arcp double %9, 5.000000e-01
+  %12 = fmul reassoc nnan nsz arcp double %9, 5.000000e-01
   %13 = fmul reassoc nsz arcp double %12, %6
   %14 = tail call reassoc nsz arcp double @log(double noundef %13) #14, !tbaa !3
   %15 = fmul reassoc nsz arcp double %14, 0x3FE71547652B82FE

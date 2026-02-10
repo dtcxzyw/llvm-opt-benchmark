@@ -2759,7 +2759,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %1, i64 %k.06.i
   %3 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !102
   %conv.i = uitofp i32 %3 to double
-  %mul.i = fmul double %conv.i, 0x3DF0000000000000
+  %mul.i = fmul nnan double %conv.i, 0x3DF0000000000000
   %add.ptr.i4.i = getelementptr inbounds nuw double, ptr %2, i64 %k.06.i
   store double %mul.i, ptr %add.ptr.i4.i, align 8, !tbaa !42
   %inc.i = add nuw i64 %k.06.i, 1

@@ -426,7 +426,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %33 = load float, ptr %32, align 4, !tbaa !52
   %34 = fpext reassoc nsz arcp contract afn float %33 to double
-  %35 = fmul reassoc nsz arcp contract afn double %31, 1.000000e-02
+  %35 = fmul reassoc nnan nsz arcp contract afn double %31, 1.000000e-02
   %36 = fmul reassoc nsz arcp contract afn double %35, %34
   %37 = fcmp reassoc nsz arcp contract afn ogt double %36, %31
   br i1 %37, label %41, label %38
@@ -507,7 +507,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %85 = load float, ptr %84, align 4, !tbaa !52
   %86 = fpext reassoc nsz arcp contract afn float %85 to double
-  %87 = fmul reassoc nsz arcp contract afn double %83, 1.000000e-02
+  %87 = fmul reassoc nnan nsz arcp contract afn double %83, 1.000000e-02
   %88 = fmul reassoc nsz arcp contract afn double %87, %86
   %89 = fcmp reassoc nsz arcp contract afn ogt double %88, %83
   br i1 %89, label %93, label %90
@@ -1200,7 +1200,7 @@ dot_product.exit:                                 ; preds = %scalar_product.exit
   %72 = bitcast i32 %71 to float
   %73 = fmul reassoc nsz arcp contract afn float %72, %72
   %74 = fmul reassoc nsz arcp contract afn float %73, %72
-  %factor.i.i.i = fmul reassoc nsz arcp contract afn float %66, 2.000000e+00
+  %factor.i.i.i = fmul reassoc nnan nsz arcp contract afn float %66, 2.000000e+00
   %75 = fadd reassoc nsz arcp contract afn float %74, %factor.i.i.i
   %76 = fmul reassoc nsz arcp contract afn float %75, %72
   %factor11.i.i.i = fmul reassoc nsz arcp contract afn float %74, 2.000000e+00
@@ -1432,7 +1432,7 @@ _get_exposure_bias.exit:                          ; preds = %163, %165, %169
   %204 = bitcast i32 %203 to float
   %205 = fmul reassoc nsz arcp contract afn float %204, %204
   %206 = fmul reassoc nsz arcp contract afn float %205, %204
-  %factor.i.i.i52 = fmul reassoc nsz arcp contract afn float %198, 2.000000e+00
+  %factor.i.i.i52 = fmul reassoc nnan nsz arcp contract afn float %198, 2.000000e+00
   %207 = fadd reassoc nsz arcp contract afn float %206, %factor.i.i.i52
   %208 = fmul reassoc nsz arcp contract afn float %207, %204
   %factor11.i.i.i53 = fmul reassoc nsz arcp contract afn float %206, 2.000000e+00
@@ -3162,7 +3162,7 @@ define internal fastcc void @_paint_hue(ptr readonly captures(none) %.704.val) u
   br i1 %exitcond26.not.i, label %dt_Lab_to_XYZ.exit, label %.preheader.i
 
 dt_Lab_to_XYZ.exit:                               ; preds = %.preheader.i
-  %60 = fmul reassoc nsz arcp contract afn float %23, 0x3FAAF286C0000000
+  %60 = fmul reassoc nnan nsz arcp contract afn float %23, 0x3FAAF286C0000000
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)

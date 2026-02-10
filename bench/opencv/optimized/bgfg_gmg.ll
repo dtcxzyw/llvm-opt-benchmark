@@ -1426,7 +1426,7 @@ _ZNK2cv11_InputArray6getMatEi.exit69:             ; preds = %77, %80
 
 110:                                              ; preds = %105
   %111 = uitofp i64 %109 to double
-  %112 = fmul double %111, 0x3EF0000000000000
+  %112 = fmul nnan double %111, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9, double noundef %112)
           to label %113 unwind label %128
 

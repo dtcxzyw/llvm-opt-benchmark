@@ -63,7 +63,7 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
 
 51:                                               ; preds = %48
   %52 = fneg double %23
-  %53 = fmul double %19, %52
+  %53 = fmul nnan double %19, %52
   %54 = tail call double @llvm.fmuladd.f64(double %17, double %25, double %53)
   %55 = fcmp oeq double %54, 0.000000e+00
   br i1 %55, label %568, label %56
@@ -257,10 +257,10 @@ define hidden range(i32 0, 2) i32 @mlib_AffineEdges(ptr noundef captures(none) %
 150:                                              ; preds = %135
   %151 = fneg double %19
   %152 = fneg double %25
-  %153 = fmul double %19, %27
+  %153 = fmul nnan double %19, %27
   %154 = tail call double @llvm.fmuladd.f64(double %152, double %21, double %153)
   %155 = fneg double %27
-  %156 = fmul double %17, %155
+  %156 = fmul nnan double %17, %155
   %157 = tail call double @llvm.fmuladd.f64(double %23, double %21, double %156)
   %158 = fadd double %21, -5.000000e-01
   %159 = fadd double %27, -5.000000e-01

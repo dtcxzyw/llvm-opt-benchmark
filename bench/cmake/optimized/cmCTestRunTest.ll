@@ -5214,12 +5214,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit567: ; preds =
   %1302 = fdiv double %.sroa.0.0.copyload.i568, 3.600000e+03
   %1303 = fptosi double %1302 to i64
   %1304 = sitofp i64 %1303 to double
-  %1305 = fmul double %1304, 3.600000e+03
+  %1305 = fmul nnan double %1304, 3.600000e+03
   %1306 = fsub double %.sroa.0.0.copyload.i568, %1305
   %1307 = fdiv double %1306, 6.000000e+01
   %1308 = fptosi double %1307 to i64
   %1309 = sitofp i64 %1308 to double
-  %1310 = fmul double %1309, 6.000000e+01
+  %1310 = fmul nnan double %1309, 6.000000e+01
   %1311 = fsub double %1306, %1310
   %1312 = fptosi double %1311 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %45)

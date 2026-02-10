@@ -177,7 +177,7 @@ define internal range(i32 -12, 1) i32 @init(ptr noundef readonly captures(none) 
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %16 = load i32, ptr %15, align 8, !tbaa !33
   %17 = sitofp i32 %16 to float
-  %18 = fmul nsz float %17, 2.000000e+00
+  %18 = fmul nnan nsz float %17, 2.000000e+00
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %20 = load float, ptr %19, align 8, !tbaa !41
   %21 = fmul nsz float %20, %18
@@ -1402,7 +1402,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #0 {
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %16 = load i32, ptr %15, align 8, !tbaa !33
   %17 = sitofp i32 %16 to float
-  %18 = fmul nsz float %17, 2.000000e+00
+  %18 = fmul nnan nsz float %17, 2.000000e+00
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %20 = load float, ptr %19, align 8, !tbaa !41
   %21 = fmul nsz float %20, %18
@@ -1568,7 +1568,7 @@ define internal i32 @tmedian_filter_frame(ptr noundef readonly captures(none) %0
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %15 = load i32, ptr %14, align 8, !tbaa !33
   %16 = sitofp i32 %15 to float
-  %17 = fmul nsz float %16, 2.000000e+00
+  %17 = fmul nnan nsz float %16, 2.000000e+00
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %19 = load float, ptr %18, align 8, !tbaa !41
   %20 = fmul nsz float %19, %17

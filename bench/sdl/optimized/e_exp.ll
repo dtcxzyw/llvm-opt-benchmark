@@ -80,7 +80,7 @@ define hidden double @SDL_uclibc_exp(double noundef %0) local_unnamed_addr #0 {
   %40 = sitofp i32 %39 to double
   %41 = fneg double %40
   %42 = tail call double @llvm.fmuladd.f64(double %41, double 0x3FE62E42FEE00000, double %0)
-  %43 = fmul double %40, 0x3DEA39EF35793C76
+  %43 = fmul nnan double %40, 0x3DEA39EF35793C76
   br label %44
 
 44:                                               ; preds = %.thread76, %26

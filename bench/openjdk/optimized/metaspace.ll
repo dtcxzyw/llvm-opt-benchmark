@@ -735,7 +735,7 @@ define hidden void @_ZN11MetaspaceGC16compute_new_sizeEv() local_unnamed_addr #0
   br i1 %.not59, label %27, label %25
 
 25:                                               ; preds = %23
-  %26 = fmul double %4, 0x3F50000000000000
+  %26 = fmul nnan double %4, 0x3F50000000000000
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.17, double noundef %26)
   br label %27
 
@@ -777,14 +777,14 @@ _ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb.exit: ; preds = %41, %35
 
 45:                                               ; preds = %_ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb.exit
   %46 = uitofp i64 %17 to double
-  %47 = fmul double %46, 0x3F50000000000000
+  %47 = fmul nnan double %46, 0x3F50000000000000
   %48 = uitofp i64 %33 to double
-  %49 = fmul double %48, 0x3F50000000000000
+  %49 = fmul nnan double %48, 0x3F50000000000000
   %50 = load i64, ptr @MinMetaspaceExpansion, align 8
   %51 = uitofp i64 %50 to double
-  %52 = fmul double %51, 0x3F50000000000000
+  %52 = fmul nnan double %51, 0x3F50000000000000
   %53 = uitofp i64 %.056 to double
-  %54 = fmul double %53, 0x3F50000000000000
+  %54 = fmul nnan double %53, 0x3F50000000000000
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.18, double noundef %47, double noundef %49, double noundef %52, double noundef %54)
   br label %116
 
@@ -820,9 +820,9 @@ _ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb.exit: ; preds = %41, %35
 
 74:                                               ; preds = %72
   %75 = uitofp i64 %17 to double
-  %76 = fmul double %75, 0x3F50000000000000
+  %76 = fmul nnan double %75, 0x3F50000000000000
   %77 = uitofp i64 %69 to double
-  %78 = fmul double %77, 0x3F50000000000000
+  %78 = fmul nnan double %77, 0x3F50000000000000
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.20, double noundef %76, double noundef %78)
   br label %79
 
@@ -848,9 +848,9 @@ _ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb.exit: ; preds = %41, %35
 91:                                               ; preds = %81
   %92 = load i64, ptr @MetaspaceSize, align 8
   %93 = uitofp i64 %92 to double
-  %94 = fmul double %93, 0x3F50000000000000
+  %94 = fmul nnan double %93, 0x3F50000000000000
   %95 = uitofp i64 %69 to double
-  %96 = fmul double %95, 0x3F50000000000000
+  %96 = fmul nnan double %95, 0x3F50000000000000
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.21, double noundef %94, double noundef %96)
   br label %97
 
@@ -861,11 +861,11 @@ _ZN11MetaspaceGC21inc_capacity_until_GCEmPmS0_Pb.exit: ; preds = %41, %35
 
 99:                                               ; preds = %97
   %100 = uitofp i64 %86 to double
-  %101 = fmul double %100, 0x3F50000000000000
+  %101 = fmul nnan double %100, 0x3F50000000000000
   %102 = load i32, ptr @_ZN11MetaspaceGC14_shrink_factorE, align 4
   %103 = load i64, ptr @MinMetaspaceExpansion, align 8
   %104 = uitofp i64 %103 to double
-  %105 = fmul double %104, 0x3F50000000000000
+  %105 = fmul nnan double %104, 0x3F50000000000000
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.22, double noundef %101, i32 noundef %1, i32 noundef %102, double noundef %105)
   br label %106
 

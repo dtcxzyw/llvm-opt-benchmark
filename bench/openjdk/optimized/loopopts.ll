@@ -23482,7 +23482,7 @@ _ZN14PhaseIdealLoop13fix_data_usesER9Node_ListP13IdealLoopTreeNS_13CloneLoopMode
 _ZNK10Node_ArrayixEj.exit205:                     ; preds = %479
   %483 = fmul float %102, %481
   store float %483, ptr %480, align 8
-  %484 = fsub float 1.000000e+00, %102
+  %484 = fsub nnan float 1.000000e+00, %102
   %485 = fmul float %484, %481
   %486 = getelementptr inbounds nuw i8, ptr %114, i64 40
   %487 = load i32, ptr %486, align 8

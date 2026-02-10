@@ -9903,7 +9903,7 @@ _ZN3ue2L14get_edge_reachEttRKNS_12_GLOBAL__N_18dfa_infoE.exit.loopexit: ; preds 
   %114 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.9.1)
   %115 = add nuw nsw i64 %113, %114
   %116 = uitofp nneg i64 %115 to double
-  %117 = fmul double %116, 3.906250e-03
+  %117 = fmul nnan double %116, 3.906250e-03
   br label %_ZN3ue2L14get_edge_reachEttRKNS_12_GLOBAL__N_18dfa_infoE.exit
 
 _ZN3ue2L14get_edge_reachEttRKNS_12_GLOBAL__N_18dfa_infoE.exit: ; preds = %_ZN3ue2L14get_edge_reachEttRKNS_12_GLOBAL__N_18dfa_infoE.exit.loopexit, %72

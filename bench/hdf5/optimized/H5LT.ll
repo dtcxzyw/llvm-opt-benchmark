@@ -531,7 +531,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5LTopen_file_image(ptr noundef 
 
 23:                                               ; preds = %19
   %24 = uitofp i64 %1 to double
-  %25 = fmul double %24, 1.000000e-01
+  %25 = fmul nnan double %24, 1.000000e-01
   %26 = fptoui double %25 to i64
   %. = tail call i64 @llvm.umax.i64(i64 %26, i64 65536)
   %27 = tail call i32 @H5Pset_fapl_core(i64 noundef %21, i64 noundef %., i1 noundef zeroext false) #20

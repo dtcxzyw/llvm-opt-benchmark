@@ -13005,7 +13005,7 @@ cond.end.i104:                                    ; preds = %cond.false.i102, %c
 
 cond.true15.i:                                    ; preds = %cond.end.i104
   %108 = fneg double %106
-  %fneg18.i = fmul double %106, %108
+  %fneg18.i = fmul nnan double %106, %108
   %call19.i = call double @exp(double noundef %fneg18.i) #28, !tbaa !192, !noalias !235
   br label %cond.end22.i
 
@@ -15946,7 +15946,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
 
 cond.true15.i:                                    ; preds = %cond.end.i
   %8 = fneg double %6
-  %fneg18.i = fmul double %6, %8
+  %fneg18.i = fmul nnan double %6, %8
   %call19.i = tail call double @exp(double noundef %fneg18.i) #28, !tbaa !192, !noalias !279
   br label %cond.end22.i
 
@@ -16148,7 +16148,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
 
 cond.true15.i:                                    ; preds = %cond.end.i
   %8 = fneg double %6
-  %fneg18.i = fmul double %6, %8
+  %fneg18.i = fmul nnan double %6, %8
   %call19.i = tail call double @exp(double noundef %fneg18.i) #28, !tbaa !192, !noalias !283
   br label %cond.end22.i
 

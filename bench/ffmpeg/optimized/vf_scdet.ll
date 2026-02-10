@@ -117,7 +117,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 
 ._crit_edge.loopexit.i:                           ; preds = %69
   %47 = uitofp i64 %86 to double
-  %48 = fmul nsz double %47, 1.000000e+02
+  %48 = fmul nnan nsz double %47, 1.000000e+02
   %49 = uitofp i64 %90 to double
   %50 = fdiv nsz double %48, %49
   br label %._crit_edge.i

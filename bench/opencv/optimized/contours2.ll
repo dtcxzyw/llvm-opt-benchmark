@@ -421,7 +421,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %94
   %.050274 = phi i32 [ %164, %163 ], [ 0, %134 ]
   %140 = add nuw nsw i32 %.050274, 5
   %141 = uitofp nneg i32 %140 to double
-  %142 = fmul double %141, 0x400921FB54442D18
+  %142 = fmul nnan double %141, 0x400921FB54442D18
   %143 = fdiv double %142, 2.100000e+01
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %105, align 8

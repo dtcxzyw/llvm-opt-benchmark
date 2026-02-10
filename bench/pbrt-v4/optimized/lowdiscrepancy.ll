@@ -645,7 +645,7 @@ define linkonce_odr dso_local void @_ZN4pbrt16DigitPermutationC2EijN4pstd3pmr21p
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %10, align 4, !tbaa !20
   %11 = sitofp i32 %1 to float
-  %12 = fdiv float 1.000000e+00, %11
+  %12 = fdiv nnan float 1.000000e+00, %11
   %13 = add nsw i32 %1, -1
   %14 = sitofp i32 %13 to float
   %15 = fsub float 1.000000e+00, %14

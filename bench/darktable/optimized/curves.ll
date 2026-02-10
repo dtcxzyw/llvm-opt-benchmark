@@ -64,14 +64,14 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
   %34 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv225
   %35 = load i32, ptr %34, align 4, !tbaa !13
   %36 = sitofp i32 %35 to double
-  %37 = fmul reassoc nsz arcp contract afn double %36, 0x3EF0001000100010
+  %37 = fmul reassoc nnan nsz arcp contract afn double %36, 0x3EF0001000100010
   %38 = fptrunc reassoc nsz arcp contract afn double %37 to float
   %39 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv225
   store float %38, ptr %39, align 4, !tbaa !15
   %40 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv225
   %41 = load i32, ptr %40, align 4, !tbaa !13
   %42 = sitofp i32 %41 to double
-  %43 = fmul reassoc nsz arcp contract afn double %42, 0x3EF0001000100010
+  %43 = fmul reassoc nnan nsz arcp contract afn double %42, 0x3EF0001000100010
   %44 = fptrunc reassoc nsz arcp contract afn double %43 to float
   %45 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv225
   store float %44, ptr %45, align 4, !tbaa !15
@@ -259,7 +259,7 @@ define void @_ZN6LibRaw12cubic_splineEPKiS1_i(ptr noundef nonnull align 8 derefe
   %indvars.iv259 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next260, %190 ]
   %136 = trunc nuw nsw i64 %indvars.iv259 to i32
   %137 = uitofp nneg i32 %136 to double
-  %138 = fmul reassoc nsz arcp contract afn double %137, 0x3EF0001000100010
+  %138 = fmul reassoc nnan nsz arcp contract afn double %137, 0x3EF0001000100010
   %139 = fptrunc reassoc nsz arcp contract afn double %138 to float
   br i1 %118, label %.lr.ph218, label %.thread
 

@@ -2811,8 +2811,8 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev11Lut3DOpDataELN9__gnu_cxx12_Lock_poli
   store i32 %903, ptr %906, align 4, !tbaa !97
   %907 = load i32, ptr %23, align 4, !tbaa !35
   %908 = sitofp i32 %907 to float
-  %909 = fadd float %908, -1.000000e+00
-  %910 = fdiv float 1.000000e+00, %909
+  %909 = fadd nnan float %908, -1.000000e+00
+  %910 = fdiv nnan float 1.000000e+00, %909
   %.not746 = icmp eq ptr %.sroa.18.0.ph, %.sroa.0542.0.ph
   br i1 %.not746, label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev12_GLOBAL__N_115LocalCachedFileELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %.lr.ph
 

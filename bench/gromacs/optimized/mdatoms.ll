@@ -3011,8 +3011,8 @@ define internal void @_Z8atoms2mdRK10gmx_mtop_tRK10t_inputreciN3gmx8ArrayRefIiEE
   br i1 %114, label %115, label %121
 
 115:                                              ; preds = %112
-  %116 = fpext float %113 to double
-  %117 = fmul double %116, 5.000000e-01
+  %116 = fpext nnan float %113 to double
+  %117 = fmul nnan double %116, 5.000000e-01
   %118 = load double, ptr %34, align 8, !tbaa !323
   %119 = fmul double %117, %118
   %120 = fptrunc double %119 to float

@@ -269,7 +269,7 @@ define void @_ZN2cv8Subdiv2D12initDelaunayENS_5Rect_IiEE(ptr noundef nonnull ali
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv8Subdiv2D12initDelaunayENS_5Rect_IiEEE25__cv_trace_location_fn494)
   %10 = call i32 @llvm.smax.i32(i32 %.sroa.3.8.extract.trunc, i32 %.sroa.7.8.extract.trunc)
   %11 = sitofp i32 %10 to float
-  %12 = fmul float %11, 3.000000e+00
+  %12 = fmul nnan float %11, 3.000000e+00
   %13 = sitofp i32 %.sroa.034.0.extract.trunc to float
   %14 = sitofp i32 %.sroa.2.0.extract.trunc to float
   %15 = load ptr, ptr %0, align 8, !tbaa !11

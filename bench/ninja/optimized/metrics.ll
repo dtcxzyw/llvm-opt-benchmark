@@ -203,7 +203,7 @@ define dso_local noundef double @_ZNK9Stopwatch7ElapsedEv(ptr noundef nonnull re
   %6 = fdiv double %5, 1.000000e+03
   %7 = fptosi double %6 to i64
   %8 = sitofp i64 %7 to double
-  %9 = fmul double %8, 0x3EB0C6F7A0B5ED8D
+  %9 = fmul nnan double %8, 0x3EB0C6F7A0B5ED8D
   ret double %9
 }
 

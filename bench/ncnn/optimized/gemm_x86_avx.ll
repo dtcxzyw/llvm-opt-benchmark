@@ -23438,8 +23438,8 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.03095.i = phi nsz <8 x float> [ %801, %.lr.ph3537.i ], [ %890, %880 ], [ %801, %810 ], [ %877, %875 ], [ %873, %872 ], [ %804, %.thread3257.i ], [ %808, %807 ]
   %.122894.i = phi nsz <8 x float> [ %.1128933531.i, %.lr.ph3537.i ], [ %884, %880 ], [ %.1128933531.i, %810 ], [ %.142896.i, %875 ], [ %.142896.i, %872 ], [ %.1128933531.i, %.thread3257.i ], [ %.1128933531.i, %807 ]
   %.13.i = phi ptr [ null, %.lr.ph3537.i ], [ %892, %880 ], [ %.123536.i, %810 ], [ %871, %875 ], [ %871, %872 ], [ %.123536.i, %.thread3257.i ], [ %.123536.i, %807 ]
-  %.53106.i = fmul reassoc nsz arcp contract afn <8 x float> %.03101.i, %91
-  %.53100.i = fmul reassoc nsz arcp contract afn <8 x float> %.03095.i, %91
+  %.53106.i = fmul reassoc nnan nsz arcp contract afn <8 x float> %.03101.i, %91
+  %.53100.i = fmul reassoc nnan nsz arcp contract afn <8 x float> %.03095.i, %91
   br i1 %.not1980.i, label %896, label %893
 
 893:                                              ; preds = %.thread3266.i
@@ -24687,8 +24687,8 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.03061.i = phi nsz <4 x float> [ %1552, %.lr.ph3590.i ], [ %1611, %1601 ], [ %1552, %1561 ], [ %1594, %1593 ], [ %1598, %1596 ], [ %1555, %.thread3360.i ], [ %1559, %1558 ]
   %.03055.i = phi nsz <4 x float> [ %1553, %.lr.ph3590.i ], [ %1612, %1601 ], [ %1553, %1561 ], [ %1595, %1593 ], [ %1600, %1596 ], [ %1556, %.thread3360.i ], [ %1560, %1558 ]
   %.33.i = phi ptr [ null, %.lr.ph3590.i ], [ %1613, %1601 ], [ %.323589.i, %1561 ], [ %1592, %1593 ], [ %1592, %1596 ], [ %.323589.i, %.thread3360.i ], [ %.323589.i, %1558 ]
-  %.53066.i = fmul reassoc nsz arcp contract afn <4 x float> %.03061.i, %133
-  %.53060.i = fmul reassoc nsz arcp contract afn <4 x float> %.03055.i, %133
+  %.53066.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.03061.i, %133
+  %.53060.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.03055.i, %133
   br i1 %.not1974.i, label %1617, label %1614
 
 1614:                                             ; preds = %.thread3369.i
@@ -25332,8 +25332,8 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.02971.i = phi nsz <4 x float> [ %1892, %.lr.ph3631.i ], [ %1912, %1909 ], [ %1892, %1901 ], [ %.42975.i, %1902 ], [ %1895, %.thread3432.i ], [ %1899, %1898 ]
   %.02965.i = phi nsz <4 x float> [ %1893, %.lr.ph3631.i ], [ %1913, %1909 ], [ %1893, %1901 ], [ %.42969.i, %1902 ], [ %1896, %.thread3432.i ], [ %1900, %1898 ]
   %.48.i = phi ptr [ null, %.lr.ph3631.i ], [ %1914, %1909 ], [ %.473630.i, %1901 ], [ %1908, %1902 ], [ %.473630.i, %.thread3432.i ], [ %.473630.i, %1898 ]
-  %.52976.i = fmul reassoc nsz arcp contract afn <4 x float> %.02971.i, %1038
-  %.52970.i = fmul reassoc nsz arcp contract afn <4 x float> %.02965.i, %1038
+  %.52976.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.02971.i, %1038
+  %.52970.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.02965.i, %1038
   br i1 %.not1968.i, label %1928, label %1915
 
 1915:                                             ; preds = %.thread3441.i
@@ -25728,8 +25728,8 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.02942.i = phi nsz <4 x float> [ %2090, %.lr.ph3666.i ], [ %2104, %2099 ], [ %2090, %2098 ], [ %2096, %.thread3486.i ]
   %.02939.i = phi nsz <4 x float> [ %2094, %.lr.ph3666.i ], [ %2106, %2099 ], [ %2094, %2098 ], [ %2097, %.thread3486.i ]
   %.61.i = phi ptr [ null, %.lr.ph3666.i ], [ %2107, %2099 ], [ %.603665.i, %2098 ], [ %.603665.i, %.thread3486.i ]
-  %.22944.i = fmul reassoc nsz arcp contract afn <4 x float> %.02942.i, %1699
-  %.22941.i = fmul reassoc nsz arcp contract afn <4 x float> %.02939.i, %1699
+  %.22944.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.02942.i, %1699
+  %.22941.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.02939.i, %1699
   br i1 %.not1962.i, label %2127, label %2109
 
 2109:                                             ; preds = %2108

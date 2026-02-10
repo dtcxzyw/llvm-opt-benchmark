@@ -168,7 +168,7 @@ define hidden void @proto_register_metamako() local_unnamed_addr #0 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @sub_nanos_base_custom(ptr noundef %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E70000000000000
+  %4 = fmul nnan double %3, 0x3E70000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.68, double noundef %4)
   ret void
 }
@@ -445,7 +445,7 @@ validate_metamako_timestamp.exit.thread.i:        ; preds = %.loopexit4.i, %46, 
   %123 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %122)
   %124 = and i32 %123, 16777215
   %125 = uitofp nneg i32 %124 to double
-  %126 = fmul double %125, 0x3E70000000000000
+  %126 = fmul nnan double %125, 0x3E70000000000000
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %92, ptr noundef nonnull @.str.85, double noundef %126)
   br label %.loopexit.i
 

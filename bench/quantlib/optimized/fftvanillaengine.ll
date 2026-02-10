@@ -2029,7 +2029,7 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit75:           ; preds = %_ZStmlIdESt7complex
 
 cond.true.i:                                      ; preds = %_ZStmlIdESt7complexIT_ERKS2_S4_.exit75
   %call1.i = tail call double @pow(double noundef %div32, double noundef %real_mul_phi.i.i67) #25, !tbaa !101
-  %call4.i = tail call double @llvm.log.f64(double %div32), !tbaa !101
+  %call4.i = tail call nnan double @llvm.log.f64(double %div32)
   %mul.i = fmul double %call4.i, %imag_mul_phi.i.i68
   %call.i.i78 = tail call double @cos(double noundef %mul.i) #25, !tbaa !101
   %mul.i.i = fmul double %call1.i, %call.i.i78

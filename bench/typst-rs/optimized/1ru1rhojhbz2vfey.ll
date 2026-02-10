@@ -3932,7 +3932,7 @@ define hidden void @"_ZN161_$LT$palette..oklch..Oklch$LT$T$GT$$u20$as$u20$palett
   br label %"_ZN161_$LT$palette..oklab..Oklab$LT$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..luma..luma..Luma$LT$_S$C$T$GT$$GT$$GT$20from_color_unclamped17h961a11c27b39a355E.exit"
 
 13:                                               ; preds = %2
-  %14 = fmul float %7, 0x3FB3D07220000000
+  %14 = fmul nnan float %7, 0x3FB3D07220000000
   br label %"_ZN161_$LT$palette..oklab..Oklab$LT$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..luma..luma..Luma$LT$_S$C$T$GT$$GT$$GT$20from_color_unclamped17h961a11c27b39a355E.exit"
 
 "_ZN161_$LT$palette..oklab..Oklab$LT$T$GT$$u20$as$u20$palette..convert..from_into_color_unclamped..FromColorUnclamped$LT$palette..luma..luma..Luma$LT$_S$C$T$GT$$GT$$GT$20from_color_unclamped17h961a11c27b39a355E.exit": ; preds = %11, %13

@@ -3361,15 +3361,15 @@ _ZNSt6vectorISt4pairIP12ggml_backendPFvS2_iEESaIS5_EE12emplace_backIJS2_RS4_EEER
   %.0293.lcssa = phi i64 [ 0, %._crit_edge567 ], [ %458, %.lr.ph572 ]
   %441 = add i64 %.0293.lcssa, %.0292.lcssa
   %442 = uitofp i64 %441 to float
-  %443 = fmul float %442, 0x3EB0000000000000
+  %443 = fmul nnan float %442, 0x3EB0000000000000
   %444 = fpext float %443 to double
   %445 = tail call ptr @ggml_type_name(i32 noundef %.0281)
   %446 = uitofp i64 %.0292.lcssa to float
-  %447 = fmul float %446, 0x3EB0000000000000
+  %447 = fmul nnan float %446, 0x3EB0000000000000
   %448 = fpext float %447 to double
   %449 = tail call ptr @ggml_type_name(i32 noundef %.0282)
   %450 = uitofp i64 %.0293.lcssa to float
-  %451 = fmul float %450, 0x3EB0000000000000
+  %451 = fmul nnan float %450, 0x3EB0000000000000
   %452 = fpext float %451 to double
   tail call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__.llama_init_from_model, double noundef %444, ptr noundef %445, double noundef %448, ptr noundef %449, double noundef %452)
   %453 = zext i32 %80 to i64
@@ -3399,8 +3399,8 @@ _ZNSt6vectorISt4pairIP12ggml_backendPFvS2_iEESaIS5_EE12emplace_backIJS2_RS4_EEER
   %465 = load ptr, ptr %462, align 8, !tbaa !348
   %466 = tail call i64 @ggml_backend_buffer_get_size(ptr noundef %465)
   %467 = uitofp i64 %466 to double
-  %468 = fmul double %467, 0x3F50000000000000
-  %469 = fmul double %468, 0x3F50000000000000
+  %468 = fmul nnan double %467, 0x3F50000000000000
+  %469 = fmul nnan double %468, 0x3F50000000000000
   tail call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.llama_init_from_model, ptr noundef %464, double noundef %469)
   %470 = load ptr, ptr %349, align 8, !tbaa !327
   %471 = load ptr, ptr %350, align 8, !tbaa !327
@@ -3909,8 +3909,8 @@ select.unfold:                                    ; preds = %581, %573
 
 673:                                              ; preds = %671
   %674 = uitofp i64 %668 to double
-  %675 = fmul double %674, 0x3F50000000000000
-  %676 = fmul double %675, 0x3F50000000000000
+  %675 = fmul nnan double %674, 0x3F50000000000000
+  %676 = fmul nnan double %675, 0x3F50000000000000
   invoke void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.llama_init_from_model, ptr noundef %672, double noundef %676)
           to label %679 unwind label %677
 
@@ -8846,24 +8846,24 @@ define void @llama_perf_context(ptr dead_on_unwind noalias writable writeonly sr
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 712
   %6 = load i64, ptr %5, align 8, !tbaa !246
   %7 = sitofp i64 %6 to double
-  %8 = fmul double %7, 1.000000e-03
+  %8 = fmul nnan double %7, 1.000000e-03
   store double %8, ptr %0, align 8, !tbaa !537
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 720
   %10 = load i64, ptr %9, align 8, !tbaa !247
   %11 = sitofp i64 %10 to double
-  %12 = fmul double %11, 1.000000e-03
+  %12 = fmul nnan double %11, 1.000000e-03
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %12, ptr %13, align 8, !tbaa !540
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 728
   %15 = load i64, ptr %14, align 8, !tbaa !541
   %16 = sitofp i64 %15 to double
-  %17 = fmul double %16, 1.000000e-03
+  %17 = fmul nnan double %16, 1.000000e-03
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %17, ptr %18, align 8, !tbaa !542
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 736
   %20 = load i64, ptr %19, align 8, !tbaa !543
   %21 = sitofp i64 %20 to double
-  %22 = fmul double %21, 1.000000e-03
+  %22 = fmul nnan double %21, 1.000000e-03
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %22, ptr %23, align 8, !tbaa !544
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 760
@@ -8891,19 +8891,19 @@ define void @llama_perf_context_print(ptr noundef readonly captures(address_is_n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %5 = load i64, ptr %4, align 8, !tbaa !246, !noalias !547
   %6 = sitofp i64 %5 to double
-  %7 = fmul double %6, 1.000000e-03
+  %7 = fmul nnan double %6, 1.000000e-03
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %9 = load i64, ptr %8, align 8, !tbaa !247, !noalias !547
   %10 = sitofp i64 %9 to double
-  %11 = fmul double %10, 1.000000e-03
+  %11 = fmul nnan double %10, 1.000000e-03
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %13 = load i64, ptr %12, align 8, !tbaa !541, !noalias !547
   %14 = sitofp i64 %13 to double
-  %15 = fmul double %14, 1.000000e-03
+  %15 = fmul nnan double %14, 1.000000e-03
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %17 = load i64, ptr %16, align 8, !tbaa !543, !noalias !547
   %18 = sitofp i64 %17 to double
-  %19 = fmul double %18, 1.000000e-03
+  %19 = fmul nnan double %18, 1.000000e-03
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 760
   %21 = load i32, ptr %20, align 8, !tbaa !155, !noalias !547
   %.sroa.speculated10.i = tail call i32 @llvm.smax.i32(i32 %21, i32 1)
@@ -8921,16 +8921,16 @@ llama_perf_context.exit:                          ; preds = %1, %3
   %.sroa.14.0 = phi i32 [ 0, %1 ], [ %.sroa.speculated.i, %3 ]
   %24 = tail call i64 @ggml_time_us()
   %25 = sitofp i64 %24 to double
-  %26 = fmul double %25, 1.000000e-03
+  %26 = fmul nnan double %25, 1.000000e-03
   tail call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.llama_perf_context_print, double noundef %.sroa.5.0)
   %27 = uitofp nneg i32 %.sroa.11.0 to double
   %28 = fdiv double %.sroa.7.0, %27
-  %29 = fdiv double 1.000000e+03, %.sroa.7.0
+  %29 = fdiv nnan double 1.000000e+03, %.sroa.7.0
   %30 = fmul double %29, %27
   tail call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.50, ptr noundef nonnull @__func__.llama_perf_context_print, double noundef %.sroa.7.0, i32 noundef %.sroa.11.0, double noundef %28, double noundef %30)
   %31 = uitofp nneg i32 %.sroa.14.0 to double
   %32 = fdiv double %.sroa.9.0, %31
-  %33 = fdiv double 1.000000e+03, %.sroa.9.0
+  %33 = fdiv nnan double 1.000000e+03, %.sroa.9.0
   %34 = fmul double %33, %31
   tail call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.51, ptr noundef nonnull @__func__.llama_perf_context_print, double noundef %.sroa.9.0, i32 noundef %.sroa.14.0, double noundef %32, double noundef %34)
   %35 = fsub double %26, %.sroa.0.0

@@ -1799,12 +1799,12 @@ Abc_Clock.exit50:                                 ; preds = %86, %89
   %105 = load i32, ptr %104, align 8, !tbaa !38
   %106 = shl nsw i32 %105, 4
   %107 = sitofp i32 %106 to double
-  %108 = fmul double %107, 0x3EB0000000000000
+  %108 = fmul nnan double %107, 0x3EB0000000000000
   %109 = shl i32 %1, 2
   %110 = add i32 %109, 4
   %111 = mul i32 %110, %103
   %112 = sitofp i32 %111 to double
-  %113 = fmul double %112, 0x3EB0000000000000
+  %113 = fmul nnan double %112, 0x3EB0000000000000
   %114 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %103, double noundef %108, double noundef %113)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

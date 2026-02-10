@@ -100,8 +100,8 @@ define void @ff_dca_lbr_init_tables() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   %3 = uitofp nneg i32 %2 to double
-  %4 = fmul nsz double %3, 0x400921FB54442D18
-  %5 = fmul nsz double %4, 7.812500e-03
+  %4 = fmul nnan nsz double %3, 0x400921FB54442D18
+  %5 = fmul nnan nsz double %4, 7.812500e-03
   %6 = tail call nsz double @llvm.cos.f64(double %5)
   %7 = fptrunc nsz double %6 to float
   %8 = getelementptr inbounds nuw float, ptr @cos_tab, i64 %indvars.iv
@@ -1112,7 +1112,7 @@ bytestream2_get_be16.exit201:                     ; preds = %387, %bytestream2_g
   %480 = xor i32 %476, %479
   %481 = add nsw i32 %480, %478
   %482 = sitofp i32 %481 to float
-  %483 = fmul nsz float %482, 0x3E80000020000000
+  %483 = fmul nnan nsz float %482, 0x3E80000020000000
   %484 = zext nneg i32 %471 to i64
   %485 = getelementptr inbounds nuw float, ptr @ff_dca_lfe_step_size_24, i64 %484
   %486 = load float, ptr %485, align 4, !tbaa !4
@@ -1223,7 +1223,7 @@ bytestream2_get_be16.exit201:                     ; preds = %387, %bytestream2_g
   %551 = xor i32 %547, %550
   %552 = add nsw i32 %551, %549
   %553 = sitofp i32 %552 to float
-  %554 = fmul nsz float %553, 0x3F00002000000000
+  %554 = fmul nnan nsz float %553, 0x3F00002000000000
   %555 = zext nneg i32 %542 to i64
   %556 = getelementptr inbounds nuw float, ptr @ff_dca_lfe_step_size_16, i64 %555
   %557 = load float, ptr %556, align 4, !tbaa !4
@@ -3771,7 +3771,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_sample_rate(ptr nound
   %5 = sub nsw i32 2, %4
   %6 = shl nuw i32 1, %5
   %7 = sitofp i32 %6 to double
-  %8 = tail call nsz double @llvm.sqrt.f64(double %7)
+  %8 = tail call ninf nsz double @llvm.sqrt.f64(double %7)
   %9 = fmul nsz double %8, 0xBEE0000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %10 = fptrunc nsz double %9 to float
@@ -3828,8 +3828,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_sample_rate(ptr nound
 39:                                               ; preds = %37
   %40 = add nsw i32 %15, -14000
   %41 = uitofp nneg i32 %40 to double
-  %42 = call nsz double @llvm.fmuladd.f64(double %41, double 0x3EE179EC9CBD821E, double 8.500000e-01)
-  %43 = fmul nsz double %42, 0x3E00000000200000
+  %42 = call nnan nsz double @llvm.fmuladd.f64(double %41, double 0x3EE179EC9CBD821E, double 8.500000e-01)
+  %43 = fmul nnan nsz double %42, 0x3E00000000200000
   br label %44
 
 44:                                               ; preds = %37, %._crit_edge, %39
@@ -3840,7 +3840,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_sample_rate(ptr nound
   br i1 %47, label %.lr.ph44, label %._crit_edge45
 
 .lr.ph44:                                         ; preds = %44
-  %48 = fmul nsz double %.037, 7.850000e-01
+  %48 = fmul nnan nsz double %.037, 7.850000e-01
   %49 = fptrunc nsz double %48 to float
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 7808
   %wide.trip.count50 = zext nneg i32 %46 to i64
@@ -3859,8 +3859,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_sample_rate(ptr nound
   %56 = trunc nuw nsw i64 %indvars.iv47 to i32
   %57 = add nsw i32 %56, -1
   %58 = uitofp nneg i32 %57 to double
-  %59 = fmul nsz double %58, 2.500000e-01
-  %60 = fmul nsz double %59, 7.850000e-01
+  %59 = fmul nnan nsz double %58, 2.500000e-01
+  %60 = fmul nnan nsz double %59, 7.850000e-01
   %61 = fmul nsz double %.037, %60
   %62 = fptrunc nsz double %61 to float
   br label %63
@@ -3876,7 +3876,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_sample_rate(ptr nound
 ._crit_edge45:                                    ; preds = %63, %44
   %65 = shl i32 16, %24
   %66 = sitofp i32 %65 to double
-  %67 = fmul nsz double %66, 0x3EE069DE41A2D800
+  %67 = fmul nnan nsz double %66, 0x3EE069DE41A2D800
   %68 = fptrunc nsz double %67 to float
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 13368
   store float %68, ptr %69, align 8, !tbaa !93

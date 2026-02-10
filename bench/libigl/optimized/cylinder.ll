@@ -51,7 +51,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %.077.us = phi i32 [ 0, %.lr.ph.us.preheader ], [ %.2.us, %._crit_edge.us ]
   %22 = trunc nuw nsw i64 %indvars.iv83 to i32
   %23 = uitofp nneg i32 %22 to double
-  %24 = fmul double %23, 0x401921FB54442D18
+  %24 = fmul nnan double %23, 0x401921FB54442D18
   %25 = fdiv double %24, %13
   %26 = tail call double @cos(double noundef %25) #6, !tbaa !4
   %27 = tail call double @sin(double noundef %25) #6, !tbaa !4
@@ -123,7 +123,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 .lr.ph78.split:                                   ; preds = %.lr.ph78, %.lr.ph78.split
   %.07276 = phi i32 [ %66, %.lr.ph78.split ], [ 0, %.lr.ph78 ]
   %61 = uitofp nneg i32 %.07276 to double
-  %62 = fmul double %61, 0x401921FB54442D18
+  %62 = fmul nnan double %61, 0x401921FB54442D18
   %63 = fdiv double %62, %13
   %64 = tail call double @cos(double noundef %63) #6, !tbaa !4
   %65 = tail call double @sin(double noundef %63) #6, !tbaa !4

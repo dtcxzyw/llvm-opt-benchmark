@@ -6320,7 +6320,7 @@ ehcleanup239:                                     ; preds = %if.then.i.i271, %eh
 
 do.end243:                                        ; preds = %do.body192
   %sub244 = fsub double %call.i191, %call.i198
-  %mul245 = fmul double %.sroa.speculated, 2.000000e+00
+  %mul245 = fmul nnan double %.sroa.speculated, 2.000000e+00
   %div246 = fdiv double %sub244, %mul245
   br label %if.end253
 

@@ -761,15 +761,15 @@ define internal void @decode_init_static() #0 {
   %7 = udiv i64 %2, %6
   %8 = trunc i64 %7 to i32
   %9 = sitofp i32 %8 to float
-  %10 = fmul nsz float %9, 2.000000e+00
+  %10 = fmul nnan nsz float %9, 2.000000e+00
   %11 = fptosi float %10 to i32
   %12 = getelementptr inbounds nuw [3 x i32], ptr @scale_factor_mult, i64 %indvars.iv
   store i32 %11, ptr %12, align 4, !tbaa !51
-  %13 = fmul nsz float %9, 0x3FF965FEA0000000
+  %13 = fmul nnan nsz float %9, 0x3FF965FEA0000000
   %14 = fptosi float %13 to i32
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %14, ptr %15, align 4, !tbaa !51
-  %16 = fmul nsz float %9, 0x3FF428A300000000
+  %16 = fmul nnan nsz float %9, 0x3FF428A300000000
   %17 = fptosi float %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i32 %17, ptr %18, align 4, !tbaa !51
@@ -798,7 +798,7 @@ define internal void @decode_init_static() #0 {
   %28 = xor i32 %27, -1
   %29 = mul nsw i32 %21, %28
   %30 = sitofp i32 %29 to double
-  %31 = fmul nsz double %30, 2.500000e-01
+  %31 = fmul nnan nsz double %30, 2.500000e-01
   %32 = tail call nsz double @llvm.exp2.f64(double %31)
   %33 = fptrunc nsz double %32 to float
   %34 = getelementptr inbounds nuw [2 x [16 x float]], ptr @is_table_lsf, i64 %indvars.iv30

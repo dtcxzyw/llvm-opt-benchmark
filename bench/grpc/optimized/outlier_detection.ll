@@ -7143,7 +7143,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit.i.i.i.i.i.i:   ; preds = %_ZTWN9grpc_core9Tim
   %.val2.i412.i.i.i.i.i.i = load ptr, ptr %100, align 8, !tbaa !210, !noalias !306
   %107 = load atomic i64, ptr %.val2.i412.i.i.i.i.i.i seq_cst, align 8, !noalias !306
   %108 = uitofp i64 %107 to double
-  %109 = fmul double %108, 1.000000e+02
+  %109 = fmul nnan double %108, 1.000000e+02
   %.val3.i.i.i.i.i.i.i = load ptr, ptr %100, align 8, !tbaa !210, !noalias !306
   %110 = load atomic i64, ptr %.val3.i.i.i.i.i.i.i seq_cst, align 8, !noalias !306
   %.val4.i.i.i.i.i.i.i = load ptr, ptr %100, align 8, !tbaa !210, !noalias !306
@@ -7629,7 +7629,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   %263 = uitofp i64 %.3191625.i.i.i.i.i.i to double
-  %264 = fmul double %263, 1.000000e+02
+  %264 = fmul nnan double %263, 1.000000e+02
   %.val346.i.i.i.i.i.i = load ptr, ptr %72, align 8, !tbaa !191
   %265 = getelementptr i8, ptr %.val346.i.i.i.i.i.i, i64 144
   %.val401.i.i.i.i.i.i = load i64, ptr %265, align 8, !tbaa !158
@@ -8080,7 +8080,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi16EEERS2_RAT__Kc.exit493.i.
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %409 = uitofp i64 %.6194630.i.i.i.i.i.i to double
-  %410 = fmul double %409, 1.000000e+02
+  %410 = fmul nnan double %409, 1.000000e+02
   %.val345.i.i.i.i.i.i = load ptr, ptr %72, align 8, !tbaa !191
   %411 = getelementptr i8, ptr %.val345.i.i.i.i.i.i, i64 144
   %.val402.i.i.i.i.i.i = load i64, ptr %411, align 8, !tbaa !158

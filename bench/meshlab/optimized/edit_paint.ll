@@ -1980,7 +1980,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %197, %_ZN9QtPrivate
   %204 = load ptr, ptr %203, align 8
   %205 = call noundef i32 @_ZNK15QAbstractSlider5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %204)
   %206 = sitofp i32 %205 to double
-  %207 = fdiv double %206, 1.000000e+02
+  %207 = fdiv nnan double %206, 1.000000e+02
   %208 = load float, ptr %59, align 4
   %209 = load float, ptr %60, align 8
   %210 = fsub float %208, %209
@@ -3377,7 +3377,7 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %49
   %115 = load ptr, ptr %114, align 8
   %116 = call noundef i32 @_ZNK15QAbstractSlider5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %115)
   %117 = sitofp i32 %116 to double
-  %118 = fdiv double %117, 1.000000e+02
+  %118 = fdiv nnan double %117, 1.000000e+02
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 652
   %120 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %121 = load float, ptr %119, align 4
@@ -3761,7 +3761,7 @@ _ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE5clearEv
   %348 = load ptr, ptr %347, align 8
   %349 = call noundef i32 @_ZNK15QAbstractSlider5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %348)
   %350 = sitofp i32 %349 to float
-  %351 = fmul float %350, 1.000000e+01
+  %351 = fmul nnan float %350, 1.000000e+01
   %352 = getelementptr inbounds nuw i8, ptr %1, i64 652
   %353 = getelementptr inbounds nuw i8, ptr %1, i64 664
   %354 = load float, ptr %352, align 4
@@ -6844,7 +6844,7 @@ _ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit: ; preds = %154
   store i32 %194, ptr %4, align 4
   %195 = load i8, ptr %39, align 1
   %196 = uitofp i8 %195 to double
-  %197 = fdiv double %196, 2.550000e+02
+  %197 = fdiv nnan double %196, 2.550000e+02
   %198 = sitofp i32 %180 to double
   %199 = fmul double %197, %198
   %200 = fptosi double %199 to i32
@@ -7013,7 +7013,7 @@ _ZN15EditPaintPlugin17accessCloneBufferEiiRN3vcg6Color4IhEE.exit36: ; preds = %2
   store i32 %299, ptr %3, align 4
   %300 = load i8, ptr %39, align 1
   %301 = uitofp i8 %300 to double
-  %302 = fdiv double %301, 2.550000e+02
+  %302 = fdiv nnan double %301, 2.550000e+02
   %303 = sitofp i32 %221 to double
   %304 = fmul double %302, %303
   %305 = fptosi double %304 to i32
@@ -7142,8 +7142,8 @@ define linkonce_odr void @_ZN15EditPaintPlugin6sculptER9MeshModelPSt6vectorISt4p
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 @_ZNK15QAbstractSlider5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %9)
   %11 = sitofp i32 %10 to double
-  %12 = fdiv double %11, 1.000000e+02
-  %13 = fptrunc double %12 to float
+  %12 = fdiv nnan double %11, 1.000000e+02
+  %13 = fptrunc nnan double %12 to float
   %14 = load ptr, ptr %6, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 440
   %16 = load ptr, ptr %15, align 8
@@ -7157,7 +7157,7 @@ define linkonce_odr void @_ZN15EditPaintPlugin6sculptER9MeshModelPSt6vectorISt4p
   %24 = tail call noundef zeroext i1 @_ZNK15QAbstractButton9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(48) %23)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %26 = load double, ptr %25, align 8
-  %27 = fpext float %20 to double
+  %27 = fpext nnan float %20 to double
   %28 = fmul double %26, %27
   %29 = fptrunc double %28 to float
   %.0 = select i1 %24, float %29, float %20
@@ -7189,7 +7189,7 @@ define linkonce_odr void @_ZN15EditPaintPlugin6sculptER9MeshModelPSt6vectorISt4p
   br i1 %.not59, label %.loopexit, label %_ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit.lr.ph
 
 _ZNSt6vectorISt4pairIP8CVertexON15EditPaintPlugin11PickingDataEESaIS5_EE2atEm.exit.lr.ph: ; preds = %44
-  %48 = fmul float %13, 1.000000e+02
+  %48 = fmul nnan float %13, 1.000000e+02
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %51 = fsub float 1.000000e+02, %48
@@ -8982,7 +8982,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i:    ; preds = %_ZN9QtPrivate8RefCo
 
 _ZN7QStringD2Ev.exit:                             ; preds = %52, %_ZN9QtPrivate8RefCount5derefEv.exit.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread2.i
   %57 = uitofp i8 %42 to double
-  %58 = fdiv double %57, 2.550000e+02
+  %58 = fdiv nnan double %57, 2.550000e+02
   %59 = sitofp i32 %21 to double
   %60 = fmul double %58, %59
   %61 = fptosi double %60 to i32
@@ -10234,20 +10234,20 @@ _ZN8Paintbox15getGradientFormEv.exit:             ; preds = %_ZN8Paintbox15getGr
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %140 = icmp eq i32 %134, 0
-  %141 = fmul float %sqrt, %sqrt
+  %141 = fmul nnan float %sqrt, %sqrt
   %142 = icmp ne i32 %114, 0
   %sqrt173 = call float @llvm.sqrt.f32(float %141)
   %143 = icmp eq i32 %130, 0
   %144 = sitofp i32 %35 to double
-  %145 = fmul double %144, 1.000000e-02
+  %145 = fmul nnan double %144, 1.000000e-02
   %146 = uitofp i8 %65 to double
-  %147 = fdiv double %146, 2.550000e+02
+  %147 = fdiv nnan double %146, 2.550000e+02
   %148 = getelementptr inbounds nuw i8, ptr %19, i64 3
   %149 = fpext float %103 to double
   %150 = fmul double %147, %144
   %151 = fptosi double %150 to i32
   %152 = uitofp i8 %76 to double
-  %153 = fdiv double %152, 2.550000e+02
+  %153 = fdiv nnan double %152, 2.550000e+02
   %154 = fmul double %153, %144
   %155 = fptosi double %154 to i32
   br label %156
@@ -10548,7 +10548,7 @@ _Z11mergeColorsdRKN3vcg6Color4IhEES3_PS1_.exit:   ; preds = %.preheader
   store i32 %312, ptr %10, align 4
   %313 = load i8, ptr %148, align 1
   %314 = uitofp i8 %313 to double
-  %315 = fdiv double %314, 2.550000e+02
+  %315 = fdiv nnan double %314, 2.550000e+02
   %316 = fmul double %315, %144
   %317 = fptosi double %316 to i32
   br label %318
@@ -10796,7 +10796,7 @@ _Z11mergeColorsdRKN3vcg6Color4IhEES3_PS1_.exit112: ; preds = %.preheader214
   store i32 %439, ptr %5, align 4
   %440 = load i8, ptr %148, align 1
   %441 = uitofp i8 %440 to double
-  %442 = fdiv double %441, 2.550000e+02
+  %442 = fdiv nnan double %441, 2.550000e+02
   %443 = fmul double %442, %144
   %444 = fptosi double %443 to i32
   br label %445
@@ -14310,11 +14310,11 @@ define linkonce_odr noundef i32 @_ZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6v
   store float -1.000000e+00, ptr %34, align 4
   %35 = sitofp i32 %0 to float
   %36 = sitofp i32 %4 to float
-  %37 = fmul float %36, 5.000000e-01
+  %37 = fmul nnan float %36, 5.000000e-01
   %38 = fsub float %35, %37
   %39 = sitofp i32 %1 to float
   %40 = sitofp i32 %5 to float
-  %41 = fmul float %40, 5.000000e-01
+  %41 = fmul nnan float %40, 5.000000e-01
   %42 = fsub float %39, %41
   store float %38, ptr %30, align 4
   store float %42, ptr %32, align 4
@@ -16558,7 +16558,7 @@ define void @_Z15generatePolygonRSt6vectorI7QPointFSaIS0_EEii(ptr noundef nonnul
   %5 = uitofp nneg i32 %1 to double
   %6 = fdiv double 0x400921FB54442D18, %5
   %7 = fptrunc double %6 to float
-  %8 = fmul double %5, 5.000000e-01
+  %8 = fmul nnan double %5, 5.000000e-01
   %9 = fptrunc double %8 to float
   %10 = fpext float %9 to double
   %11 = fpext float %7 to double
@@ -16571,8 +16571,8 @@ define void @_Z15generatePolygonRSt6vectorI7QPointFSaIS0_EEii(ptr noundef nonnul
   %15 = phi ptr [ %.pre, %.lr.ph ], [ %47, %_ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit ]
   %.0103 = phi i32 [ 0, %.lr.ph ], [ %48, %_ZNSt6vectorI7QPointFSaIS0_EE9push_backEOS0_.exit ]
   %16 = uitofp nneg i32 %.0103 to float
-  %17 = fpext float %16 to double
-  %18 = fmul double %17, 0x400921FB54442D18
+  %17 = fpext nnan ninf float %16 to double
+  %18 = fmul nnan double %17, 0x400921FB54442D18
   %19 = fdiv double %18, %10
   %20 = fadd double %19, %11
   %21 = tail call double @sin(double noundef %20) #26

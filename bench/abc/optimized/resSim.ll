@@ -2153,18 +2153,18 @@ define void @Res_SimCountResults(ptr noundef readonly captures(none) %0, ptr nou
   %43 = load i32, ptr %2, align 4, !tbaa !59
   %44 = add nsw i32 %42, %43
   %45 = sitofp i32 %40 to double
-  %46 = fmul double %45, 1.000000e+02
+  %46 = fmul nnan double %45, 1.000000e+02
   %47 = sitofp i32 %44 to double
   %48 = fdiv double %46, %47
   %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, double noundef %48)
   %50 = load i32, ptr %2, align 4, !tbaa !59
   %51 = sitofp i32 %50 to double
-  %52 = fmul double %51, 1.000000e+02
+  %52 = fmul nnan double %51, 1.000000e+02
   %53 = fdiv double %52, %47
   %54 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, double noundef %53)
   %55 = load i32, ptr %3, align 4, !tbaa !59
   %56 = sitofp i32 %55 to double
-  %57 = fmul double %56, 1.000000e+02
+  %57 = fmul nnan double %56, 1.000000e+02
   %58 = fdiv double %57, %47
   %59 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, double noundef %58)
   br label %60

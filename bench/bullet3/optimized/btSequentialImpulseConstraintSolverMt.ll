@@ -1011,7 +1011,7 @@ _ZNK12btSolverBody30getVelocityInLocalPointNoDeltaERK9btVector3RS0_.exit179: ; p
 
 175:                                              ; preds = %162
   %176 = load float, ptr %150, align 4, !tbaa !79
-  %177 = fmul float %171, %171
+  %177 = fmul nnan float %171, %171
   %178 = call float @llvm.fmuladd.f32(float %176, float %176, float %177)
   %sqrt.i = call float @llvm.sqrt.f32(float %178)
   %179 = fdiv float 1.000000e+00, %sqrt.i
@@ -1259,7 +1259,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %175, %188
   br i1 %327, label %328, label %339
 
 328:                                              ; preds = %324
-  %329 = fmul float %278, %278
+  %329 = fmul nnan float %278, %278
   %330 = call float @llvm.fmuladd.f32(float %276, float %276, float %329)
   %sqrt.i205 = call float @llvm.sqrt.f32(float %330)
   %331 = fdiv float 1.000000e+00, %sqrt.i205

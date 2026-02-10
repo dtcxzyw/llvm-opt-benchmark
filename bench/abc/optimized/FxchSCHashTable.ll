@@ -1598,7 +1598,7 @@ define void @Fxch_SCHashTablePrint(ptr noundef %0) local_unnamed_addr #12 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !26
   %10 = sitofp i32 %7 to double
-  %11 = fmul double %10, 0x3EB0000000000000
+  %11 = fmul nnan double %10, 0x3EB0000000000000
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, i32 noundef %9, double noundef %11)
   ret void
 }

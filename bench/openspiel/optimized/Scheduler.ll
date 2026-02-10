@@ -2167,7 +2167,7 @@ define noundef i32 @_ZNK9Scheduler13PredictedTimeER4deali(ptr noundef nonnull re
   %.0 = select i1 %64, i32 %65, i32 %66
   %67 = icmp sgt i32 %2, 0
   %68 = sitofp i32 %.0 to double
-  %69 = fmul double %68, 1.250000e+00
+  %69 = fmul nnan double %68, 1.250000e+00
   %70 = fptosi double %69 to i32
   %.1 = select i1 %67, i32 %70, i32 %.0
   %71 = icmp sgt i32 %2, 1
@@ -2178,7 +2178,7 @@ define noundef i32 @_ZNK9Scheduler13PredictedTimeER4deali(ptr noundef nonnull re
   %73 = add i32 %.neg, 125000
   %74 = icmp sgt i32 %2, 0
   %75 = sitofp i32 %73 to double
-  %76 = fmul double %75, 1.200000e+00
+  %76 = fmul nnan double %75, 1.200000e+00
   %77 = fptosi double %76 to i32
   %.3 = select i1 %74, i32 %77, i32 %73
   %78 = icmp sgt i32 %2, 1

@@ -211,9 +211,9 @@ define void @Nwk_ManGraphReportMemoryUsage(ptr noundef captures(none) initialize
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 %21, ptr %22, align 4, !tbaa !33
   %23 = sitofp i32 %15 to double
-  %24 = fmul double %23, 0x3EB0000000000000
+  %24 = fmul nnan double %23, 0x3EB0000000000000
   %25 = sitofp i32 %21 to double
-  %26 = fmul double %25, 0x3EB0000000000000
+  %26 = fmul nnan double %25, 0x3EB0000000000000
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %24, double noundef %26)
   ret void
 }
@@ -3051,9 +3051,9 @@ Abc_Clock.exit16:                                 ; preds = %Abc_Clock.exit14, %
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 220
   store i32 %68, ptr %69, align 4, !tbaa !33
   %70 = sitofp i32 %64 to double
-  %71 = fmul double %70, 0x3EB0000000000000
+  %71 = fmul nnan double %70, 0x3EB0000000000000
   %72 = sitofp i32 %68 to double
-  %73 = fmul double %72, 0x3EB0000000000000
+  %73 = fmul nnan double %72, 0x3EB0000000000000
   %74 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %71, double noundef %73)
   call void @Nwk_ManGraphFree(ptr noundef nonnull %12)
   ret i32 %52
@@ -4543,9 +4543,9 @@ Abc_Clock.exit142:                                ; preds = %188, %200
   %226 = getelementptr inbounds nuw i8, ptr %32, i64 220
   store i32 %225, ptr %226, align 4, !tbaa !33
   %227 = sitofp i32 %221 to double
-  %228 = fmul double %227, 0x3EB0000000000000
+  %228 = fmul nnan double %227, 0x3EB0000000000000
   %229 = sitofp i32 %225 to double
-  %230 = fmul double %229, 0x3EB0000000000000
+  %230 = fmul nnan double %229, 0x3EB0000000000000
   %231 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %228, double noundef %230)
   br label %232
 

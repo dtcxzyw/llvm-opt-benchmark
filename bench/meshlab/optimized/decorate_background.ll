@@ -2628,8 +2628,8 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i135: ; preds = %_ZN9QtPrivate8RefCo
   %211 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %212 = load float, ptr %211, align 4
   %213 = fsub float %210, %212
-  %214 = fptrunc double %.sroa.speculated to float
-  %215 = fmul float %214, 5.000000e-01
+  %214 = fptrunc nnan double %.sroa.speculated to float
+  %215 = fmul nnan float %214, 5.000000e-01
   %216 = fmul float %215, %203
   %217 = fmul float %215, %208
   %218 = fmul float %215, %213
@@ -3199,40 +3199,40 @@ define void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 n
   %30 = srem i32 %0, 3
   store i32 %12, ptr %19, align 4
   %31 = uitofp i8 %.sroa.0.0.extract.trunc to double
-  %32 = fmul double %31, 2.000000e+00
+  %32 = fmul nnan double %31, 2.000000e+00
   %33 = fcmp olt double %32, 2.550000e+02
   %.sroa.speculated97 = select i1 %33, double %32, double 2.550000e+02
   %34 = fptoui double %.sroa.speculated97 to i8
   store i8 %34, ptr %20, align 1
   %35 = uitofp i8 %.sroa.3.0.extract.trunc to double
-  %36 = fmul double %35, 2.000000e+00
+  %36 = fmul nnan double %35, 2.000000e+00
   %37 = fcmp olt double %36, 2.550000e+02
   %.sroa.speculated92 = select i1 %37, double %36, double 2.550000e+02
   %38 = fptoui double %.sroa.speculated92 to i8
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 1
   store i8 %38, ptr %39, align 1
   %40 = uitofp i8 %.sroa.5.0.extract.trunc to double
-  %41 = fmul double %40, 2.000000e+00
+  %41 = fmul nnan double %40, 2.000000e+00
   %42 = fcmp olt double %41, 2.550000e+02
   %.sroa.speculated87 = select i1 %42, double %41, double 2.550000e+02
   %43 = fptoui double %.sroa.speculated87 to i8
   %44 = getelementptr inbounds nuw i8, ptr %20, i64 2
   store i8 %43, ptr %44, align 1
   %45 = uitofp i8 %.sroa.7.0.extract.trunc to double
-  %46 = fmul double %45, 5.000000e-01
+  %46 = fmul nnan double %45, 5.000000e-01
   %47 = fcmp olt double %46, 1.270000e+02
   %.sroa.speculated = select i1 %47, double %46, double 1.270000e+02
   %48 = fptoui double %.sroa.speculated to i8
   %49 = getelementptr inbounds nuw i8, ptr %20, i64 3
   store i8 %48, ptr %49, align 1
-  %50 = fmul double %31, 6.600000e-01
+  %50 = fmul nnan double %31, 6.600000e-01
   %51 = fptoui double %50 to i8
   store i8 %51, ptr %21, align 1
-  %52 = fmul double %35, 6.600000e-01
+  %52 = fmul nnan double %35, 6.600000e-01
   %53 = fptoui double %52 to i8
   %54 = getelementptr inbounds nuw i8, ptr %21, i64 1
   store i8 %53, ptr %54, align 1
-  %55 = fmul double %40, 6.600000e-01
+  %55 = fmul nnan double %40, 6.600000e-01
   %56 = fptoui double %55 to i8
   %57 = getelementptr inbounds nuw i8, ptr %21, i64 2
   store i8 %56, ptr %57, align 1

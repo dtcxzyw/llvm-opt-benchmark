@@ -7050,7 +7050,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit108.thread.i.loopexit.split-lp: ; preds = %308
   %432 = sub nsw i32 %430, %429
   %433 = sitofp i32 %432 to double
   %434 = sitofp i32 %429 to double
-  %435 = fmul double %433, %433
+  %435 = fmul nnan double %433, %433
   %436 = fdiv double %435, %434
   %437 = fadd double %.019.i.i, %436
   br label %438
@@ -8553,7 +8553,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %.0.i.i, %55
+  %56 = fmul nnan double %.0.i.i, %55
   %57 = fcmp une double %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 

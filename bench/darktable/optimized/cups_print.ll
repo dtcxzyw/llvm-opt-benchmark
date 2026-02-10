@@ -190,7 +190,7 @@ define void @dt_get_printer_info(ptr noundef %0, ptr noundef %1) local_unnamed_a
 .lr.ph:                                           ; preds = %59, %.lr.ph
   %62 = phi i32 [ %65, %.lr.ph ], [ %.promoted, %59 ]
   %63 = uitofp nneg i32 %62 to double
-  %64 = fmul reassoc nsz arcp contract afn double %63, 5.000000e-01
+  %64 = fmul reassoc nnan nsz arcp contract afn double %63, 5.000000e-01
   %65 = fptosi double %64 to i32
   %66 = icmp sgt i32 %65, 360
   br i1 %66, label %.lr.ph, label %._crit_edge
@@ -421,12 +421,12 @@ paper_exists.exit:                                ; preds = %.critedge.i, %.preh
   %40 = call i64 @g_strlcpy(ptr noundef nonnull %39, ptr noundef nonnull %6, i64 noundef 128) #16
   %41 = load i32, ptr %16, align 4, !tbaa !92
   %42 = sitofp i32 %41 to double
-  %43 = fmul reassoc nsz arcp contract afn double %42, 1.000000e-02
+  %43 = fmul reassoc nnan nsz arcp contract afn double %42, 1.000000e-02
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 256
   store double %43, ptr %44, align 8, !tbaa !96
   %45 = load i32, ptr %17, align 4, !tbaa !97
   %46 = sitofp i32 %45 to double
-  %47 = fmul reassoc nsz arcp contract afn double %46, 1.000000e-02
+  %47 = fmul reassoc nnan nsz arcp contract afn double %46, 1.000000e-02
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 264
   store double %47, ptr %48, align 8, !tbaa !98
   %49 = call ptr @g_list_append(ptr noundef %.1102, ptr noundef %37) #16

@@ -6200,14 +6200,14 @@ _ZN14QSharedPointerI22QCPAbstractPaintBufferED2Ev.exit: ; preds = %_ZN14QSharedP
 88:                                               ; preds = %87, %86
   %89 = call noundef i64 @_ZNK13QElapsedTimer12nsecsElapsedEv(ptr noundef nonnull align 8 dereferenceable_or_null(16) %3) #54
   %90 = sitofp i64 %89 to double
-  %91 = fmul double %90, 0x3EB0C6F7A0B5ED8D
+  %91 = fmul nnan double %90, 0x3EB0C6F7A0B5ED8D
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 488
   store double %91, ptr %92, align 8
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %94 = load double, ptr %93, align 8
   %95 = call double @llvm.fabs.f64(double %94)
   %96 = fcmp ole double %95, 0x3D719799812DEA11
-  %97 = fmul double %91, 1.000000e-01
+  %97 = fmul nnan double %91, 1.000000e-01
   %98 = call double @llvm.fmuladd.f64(double %94, double 9.000000e-01, double %97)
   %storemerge = select i1 %96, double %91, double %98
   store double %storemerge, ptr %93, align 8
@@ -8982,13 +8982,13 @@ _ZN8QCPRange9normalizeEv.exit:
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %25
-  %29 = fmul double %10, 1.000000e-03
+  %29 = fmul nnan double %10, 1.000000e-03
   %30 = fcmp olt double %29, -1.000000e-03
   %.44 = select i1 %30, double -1.000000e-03, double %29
   br label %34
 
 31:                                               ; preds = %25
-  %32 = fmul double %9, 1.000000e-03
+  %32 = fmul nnan double %9, 1.000000e-03
   %33 = fcmp ogt double %32, 1.000000e-03
   %.45 = select i1 %33, double 1.000000e-03, double %32
   br label %34
@@ -15300,7 +15300,7 @@ define noundef double @_ZNK16QCPLayoutElement10selectTestERK7QPointFbP8QVariant(
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 228
   %34 = load i32, ptr %33, align 4
   %35 = sitofp i32 %34 to double
-  %36 = fmul double %35, 0x3FEFAE147AE147AE
+  %36 = fmul nnan double %35, 0x3FEFAE147AE147AE
   br label %80
 
 37:                                               ; preds = %29
@@ -28907,7 +28907,7 @@ _ZNK12QCPLayerable14realVisibilityEv.exit:        ; preds = %45
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 228
   %54 = load i32, ptr %53, align 4
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %55, 0x3FEFAE147AE147AE
+  %56 = fmul nnan double %55, 0x3FEFAE147AE147AE
   br label %.loopexit27
 
 .loopexit:                                        ; preds = %_ZNK8QPointerI12QCPLayerableE4dataEv.exit.i, %21, %45, %.lr.ph
@@ -32169,7 +32169,7 @@ define { double, double } @_ZN22QCPLabelPainterPrivate12getAnchorPosERK7QPointF(
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %60 = load i32, ptr %59, align 8
   %61 = sitofp i32 %60 to double
-  %62 = fmul double %61, 0x3FE6A09E667F3BCD
+  %62 = fmul nnan double %61, 0x3FE6A09E667F3BCD
   %63 = load double, ptr %1, align 8
   %64 = fadd double %63, %62
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -32182,9 +32182,9 @@ define { double, double } @_ZN22QCPLabelPainterPrivate12getAnchorPosERK7QPointF(
   %70 = load i32, ptr %69, align 8
   %71 = sub i32 0, %70
   %72 = sitofp i32 %71 to double
-  %73 = fmul double %72, 0x3FE6A09E667F3BCD
+  %73 = fmul nnan double %72, 0x3FE6A09E667F3BCD
   %74 = sitofp i32 %70 to double
-  %75 = fmul double %74, 0x3FE6A09E667F3BCD
+  %75 = fmul nnan double %74, 0x3FE6A09E667F3BCD
   %76 = load double, ptr %1, align 8
   %77 = fadd double %76, %73
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -32197,7 +32197,7 @@ define { double, double } @_ZN22QCPLabelPainterPrivate12getAnchorPosERK7QPointF(
   %83 = load i32, ptr %82, align 8
   %84 = sub i32 0, %83
   %85 = sitofp i32 %84 to double
-  %86 = fmul double %85, 0x3FE6A09E667F3BCD
+  %86 = fmul nnan double %85, 0x3FE6A09E667F3BCD
   %87 = load double, ptr %1, align 8
   %88 = fadd double %87, %86
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -32209,10 +32209,10 @@ define { double, double } @_ZN22QCPLabelPainterPrivate12getAnchorPosERK7QPointF(
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %94 = load i32, ptr %93, align 8
   %95 = sitofp i32 %94 to double
-  %96 = fmul double %95, 0x3FE6A09E667F3BCD
+  %96 = fmul nnan double %95, 0x3FE6A09E667F3BCD
   %97 = sub i32 0, %94
   %98 = sitofp i32 %97 to double
-  %99 = fmul double %98, 0x3FE6A09E667F3BCD
+  %99 = fmul nnan double %98, 0x3FE6A09E667F3BCD
   %100 = load double, ptr %1, align 8
   %101 = fadd double %100, %96
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -34821,7 +34821,7 @@ _ZN7QStringD2Ev.exit117:                          ; preds = %226, %_ZN17QArrayDa
 
 267:                                              ; preds = %265
   %268 = sitofp i32 %266 to double
-  %269 = fmul double %268, 7.500000e-01
+  %269 = fmul nnan double %268, 7.500000e-01
   %270 = fptosi double %269 to i32
   invoke void @_ZN5QFont12setPointSizeEi(ptr noundef nonnull align 8 dereferenceable_or_null(12) %47, i32 noundef %270)
           to label %277 unwind label %.loopexit.split-lp
@@ -34832,7 +34832,7 @@ _ZN7QStringD2Ev.exit117:                          ; preds = %226, %_ZN17QArrayDa
 
 273:                                              ; preds = %271
   %274 = sitofp i32 %272 to double
-  %275 = fmul double %274, 7.500000e-01
+  %275 = fmul nnan double %274, 7.500000e-01
   %276 = fptosi double %275 to i32
   invoke void @_ZN5QFont12setPixelSizeEi(ptr noundef nonnull align 8 dereferenceable_or_null(12) %47, i32 noundef %276)
           to label %277 unwind label %.loopexit.split-lp
@@ -35134,7 +35134,7 @@ _ZN22QCPLabelPainterPrivate11CachedLabelC2Ev.exit: ; preds = %2
   %61 = load ptr, ptr %60, align 8
   %62 = call noundef i32 %61(ptr noundef nonnull align 8 dereferenceable_or_null(10) %58, i32 noundef 12)
   %63 = sitofp i32 %62 to double
-  %64 = fmul double %63, 0x3EF0000000000000
+  %64 = fmul nnan double %63, 0x3EF0000000000000
   call void @_ZN7QPixmap19setDevicePixelRatioEd(ptr noundef nonnull align 8 dereferenceable_or_null(24) %14, double noundef %64)
   br label %81
 
@@ -35881,7 +35881,7 @@ define void @_ZNK22QCPLabelPainterPrivate20applyAnchorTransformERNS_9LabelDataE(
   %27 = load i32, ptr %20, align 8
   %28 = sub i32 0, %27
   %29 = sitofp i32 %28 to double
-  %30 = fmul double %29, 5.000000e-01
+  %30 = fmul nnan double %29, 5.000000e-01
   %31 = tail call noundef align 8 dereferenceable(74) ptr @_ZN10QTransform9translateEdd(ptr noundef nonnull align 8 dereferenceable_or_null(74) %11, double noundef 0.000000e+00, double noundef %30)
   br label %thread-pre-split
 
@@ -35892,7 +35892,7 @@ define void @_ZNK22QCPLabelPainterPrivate20applyAnchorTransformERNS_9LabelDataE(
   %.neg26 = xor i32 %34, -1
   %.neg25 = add i32 %35, %.neg26
   %36 = sitofp i32 %.neg25 to double
-  %37 = fmul double %36, 5.000000e-01
+  %37 = fmul nnan double %36, 5.000000e-01
   %38 = tail call noundef align 8 dereferenceable(74) ptr @_ZN10QTransform9translateEdd(ptr noundef nonnull align 8 dereferenceable_or_null(74) %11, double noundef %37, double noundef 0.000000e+00)
   br label %thread-pre-split
 
@@ -36869,10 +36869,10 @@ _ZN5QListIdED2Ev.exit17:                          ; preds = %65, %_ZN17QArrayDat
   br i1 %72, label %79, label %73
 
 73:                                               ; preds = %71
-  %74 = fmul double %12, 2.000000e+00
+  %74 = fmul nnan double %12, 2.000000e+00
   %75 = fptosi double %74 to i32
   %76 = sitofp i32 %75 to double
-  %77 = fmul double %76, 5.000000e-01
+  %77 = fmul nnan double %76, 5.000000e-01
   %78 = fmul double %11, %77
   br label %85
 
@@ -36880,7 +36880,7 @@ _ZN5QListIdED2Ev.exit17:                          ; preds = %65, %_ZN17QArrayDat
   %80 = fmul double %12, 5.000000e-01
   %81 = fptosi double %80 to i32
   %82 = sitofp i32 %81 to double
-  %83 = fmul double %82, 2.000000e+00
+  %83 = fmul nnan double %82, 2.000000e+00
   %84 = fmul double %11, %83
   br label %85
 
@@ -48281,13 +48281,13 @@ define void @_ZN7QCPAxis12setScaleTypeENS_9ScaleTypeE(ptr noundef align 8 derefe
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %34
-  %38 = fmul double %19, 1.000000e-03
+  %38 = fmul nnan double %19, 1.000000e-03
   %39 = fcmp olt double %38, -1.000000e-03
   %.44.i = select i1 %39, double -1.000000e-03, double %38
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
 
 40:                                               ; preds = %34
-  %41 = fmul double %18, 1.000000e-03
+  %41 = fmul nnan double %18, 1.000000e-03
   %42 = fcmp ogt double %41, 1.000000e-03
   %.45.i = select i1 %42, double 1.000000e-03, double %41
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
@@ -48430,13 +48430,13 @@ _ZN8QCPRange10validRangeERKS_.exit.thread13:      ; preds = %33, %_ZN8QCPRange10
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %61
-  %65 = fmul double %46, 1.000000e-03
+  %65 = fmul nnan double %46, 1.000000e-03
   %66 = fcmp olt double %65, -1.000000e-03
   %.44.i = select i1 %66, double -1.000000e-03, double %65
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
 
 67:                                               ; preds = %61
-  %68 = fmul double %45, 1.000000e-03
+  %68 = fmul nnan double %45, 1.000000e-03
   %69 = fcmp ogt double %68, 1.000000e-03
   %.45.i = select i1 %69, double 1.000000e-03, double %68
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
@@ -48628,13 +48628,13 @@ _ZN8QCPRange10validRangeEdd.exit.thread16:        ; preds = %29, %_ZN8QCPRange10
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %58
-  %62 = fmul double %43, 1.000000e-03
+  %62 = fmul nnan double %43, 1.000000e-03
   %63 = fcmp olt double %62, -1.000000e-03
   %.44.i = select i1 %63, double -1.000000e-03, double %62
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
 
 64:                                               ; preds = %58
-  %65 = fmul double %42, 1.000000e-03
+  %65 = fmul nnan double %42, 1.000000e-03
   %66 = fcmp ogt double %65, 1.000000e-03
   %.45.i = select i1 %66, double 1.000000e-03, double %65
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
@@ -48764,13 +48764,13 @@ define void @_ZN7QCPAxis13setRangeLowerEd(ptr noundef align 8 dereferenceable_or
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %36
-  %40 = fmul double %21, 1.000000e-03
+  %40 = fmul nnan double %21, 1.000000e-03
   %41 = fcmp olt double %40, -1.000000e-03
   %.44.i = select i1 %41, double -1.000000e-03, double %40
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
 
 42:                                               ; preds = %36
-  %43 = fmul double %20, 1.000000e-03
+  %43 = fmul nnan double %20, 1.000000e-03
   %44 = fcmp ogt double %43, 1.000000e-03
   %.45.i = select i1 %44, double 1.000000e-03, double %43
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
@@ -48873,13 +48873,13 @@ define void @_ZN7QCPAxis13setRangeUpperEd(ptr noundef align 8 dereferenceable_or
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %36
-  %40 = fmul double %21, 1.000000e-03
+  %40 = fmul nnan double %21, 1.000000e-03
   %41 = fcmp olt double %40, -1.000000e-03
   %.44.i = select i1 %41, double -1.000000e-03, double %40
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
 
 42:                                               ; preds = %36
-  %43 = fmul double %20, 1.000000e-03
+  %43 = fmul nnan double %20, 1.000000e-03
   %44 = fcmp ogt double %43, 1.000000e-03
   %.45.i = select i1 %44, double 1.000000e-03, double %43
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
@@ -50698,13 +50698,13 @@ _ZN8QCPRange10validRangeERKS_.exit23.thread46:    ; preds = %80, %_ZN8QCPRange10
   br i1 %106, label %107, label %110
 
 107:                                              ; preds = %104
-  %108 = fmul double %89, 1.000000e-03
+  %108 = fmul nnan double %89, 1.000000e-03
   %109 = fcmp olt double %108, -1.000000e-03
   %.44.i = select i1 %109, double -1.000000e-03, double %108
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
 
 110:                                              ; preds = %104
-  %111 = fmul double %88, 1.000000e-03
+  %111 = fmul nnan double %88, 1.000000e-03
   %112 = fcmp ogt double %111, 1.000000e-03
   %.45.i = select i1 %112, double 1.000000e-03, double %111
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
@@ -51596,7 +51596,7 @@ define noundef double @_ZNK7QCPAxis10selectTestERK7QPointFbP8QVariant(ptr nounde
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 228
   %22 = load i32, ptr %21, align 4
   %23 = sitofp i32 %22 to double
-  %24 = fmul double %23, 0x3FEFAE147AE147AE
+  %24 = fmul nnan double %23, 0x3FEFAE147AE147AE
   br label %25
 
 25:                                               ; preds = %10, %16, %19
@@ -59055,7 +59055,7 @@ _ZN21QCPAxisPainterPrivate11CachedLabelC2Ev.exit: ; preds = %_ZN6QCacheI7QString
 
 136:                                              ; preds = %124
   %137 = sitofp i32 %135 to double
-  %138 = fmul double %137, 0x3EF0000000000000
+  %138 = fmul nnan double %137, 0x3EF0000000000000
   invoke void @_ZN7QPixmap19setDevicePixelRatioEd(ptr noundef nonnull align 8 dereferenceable_or_null(24) %74, double noundef %138)
           to label %162 unwind label %143
 
@@ -60696,7 +60696,7 @@ _ZN7QStringD2Ev.exit131:                          ; preds = %236, %_ZN17QArrayDa
 
 277:                                              ; preds = %275
   %278 = sitofp i32 %276 to double
-  %279 = fmul double %278, 7.500000e-01
+  %279 = fmul nnan double %278, 7.500000e-01
   %280 = fptosi double %279 to i32
   invoke void @_ZN5QFont12setPointSizeEi(ptr noundef nonnull align 8 dereferenceable_or_null(12) %43, i32 noundef %280)
           to label %287 unwind label %.loopexit.split-lp
@@ -60707,7 +60707,7 @@ _ZN7QStringD2Ev.exit131:                          ; preds = %236, %_ZN17QArrayDa
 
 283:                                              ; preds = %281
   %284 = sitofp i32 %282 to double
-  %285 = fmul double %284, 7.500000e-01
+  %285 = fmul nnan double %284, 7.500000e-01
   %286 = fptosi double %285 to i32
   invoke void @_ZN5QFont12setPixelSizeEi(ptr noundef nonnull align 8 dereferenceable_or_null(12) %43, i32 noundef %286)
           to label %287 unwind label %.loopexit.split-lp
@@ -61052,7 +61052,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
 47:                                               ; preds = %36
   %48 = sub i32 0, %44
   %49 = sitofp i32 %48 to double
-  %50 = fmul double %49, 5.000000e-01
+  %50 = fmul nnan double %49, 5.000000e-01
   br label %.thread66
 
 51:                                               ; preds = %36
@@ -61106,7 +61106,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   br i1 %19, label %97, label %99
 
 97:                                               ; preds = %70
-  %98 = fmul double %96, 5.000000e-01
+  %98 = fmul nnan double %96, 5.000000e-01
   br label %.thread66
 
 99:                                               ; preds = %70
@@ -61136,7 +61136,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %.neg86 = xor i32 %116, -1
   %.neg85 = add i32 %118, %.neg86
   %119 = sitofp i32 %.neg85 to double
-  %120 = fmul double %119, 5.000000e-01
+  %120 = fmul nnan double %119, 5.000000e-01
   br label %.thread66
 
 121:                                              ; preds = %27, %30
@@ -61223,7 +61223,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %.neg82 = xor i32 %175, -1
   %.neg81 = add i32 %177, %.neg82
   %178 = sitofp i32 %.neg81 to double
-  %179 = fmul double %178, 5.000000e-01
+  %179 = fmul nnan double %178, 5.000000e-01
   br label %.thread66
 
 180:                                              ; preds = %.split
@@ -61318,7 +61318,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %.neg76 = xor i32 %249, -1
   %.neg75 = add i32 %250, %.neg76
   %251 = sitofp i32 %.neg75 to double
-  %252 = fmul double %251, 5.000000e-01
+  %252 = fmul nnan double %251, 5.000000e-01
   %253 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %254 = load i32, ptr %253, align 4
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 124
@@ -61386,7 +61386,7 @@ define { double, double } @_ZNK21QCPAxisPainterPrivate22getTickLabelDrawOffsetER
   %.neg74 = xor i32 %303, -1
   %.neg = add i32 %304, %.neg74
   %305 = sitofp i32 %.neg to double
-  %306 = fmul double %305, 5.000000e-01
+  %306 = fmul nnan double %305, 5.000000e-01
   br label %.thread66
 
 .thread66:                                        ; preds = %180, %183, %27, %30, %2, %.split, %97, %99, %47, %51, %149, %171, %173, %261, %272, %300, %246, %225, %189, %109
@@ -63572,10 +63572,10 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit440:       ; preds = %653, %654
   %669 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %670 = tail call noundef i32 @_ZNK7QPixmap5widthEv(ptr noundef nonnull align 8 dereferenceable_or_null(24) %669)
   %671 = sitofp i32 %670 to double
-  %672 = fmul double %671, 5.000000e-01
+  %672 = fmul nnan double %671, 5.000000e-01
   %673 = tail call noundef i32 @_ZNK7QPixmap6heightEv(ptr noundef nonnull align 8 dereferenceable_or_null(24) %669)
   %674 = sitofp i32 %673 to double
-  %675 = fmul double %674, 5.000000e-01
+  %675 = fmul nnan double %674, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   call void @_ZNK8QPainter16clipBoundingRectEv(ptr dead_on_unwind nonnull writable sret(%class.QRectF) align 8 %63, ptr noundef align 8 dereferenceable_or_null(8) %1)
@@ -77024,7 +77024,7 @@ _ZN17QArrayDataPointerI6QLineFE5derefEv.exit.i.i.i74: ; preds = %91
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 228
   %98 = load i32, ptr %97, align 4
   %99 = sitofp i32 %98 to double
-  %100 = fmul double %99, 0x3FEFAE147AE147AE
+  %100 = fmul nnan double %99, 0x3FEFAE147AE147AE
   %101 = fcmp ogt double %62, %100
   br i1 %101, label %102, label %110
 
@@ -77037,7 +77037,7 @@ _ZN17QArrayDataPointerI6QLineFE5derefEv.exit.i.i.i74: ; preds = %91
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 228
   %107 = load i32, ptr %106, align 4
   %108 = sitofp i32 %107 to double
-  %109 = fmul double %108, 0x3FEFAE147AE147AE
+  %109 = fmul nnan double %108, 0x3FEFAE147AE147AE
   br label %110
 
 110:                                              ; preds = %102, %104, %94, %_ZN9QtPrivate17QForeachContainerI5QListI6QLineFEED2Ev.exit
@@ -78462,7 +78462,7 @@ _ZN7QWidget16setMouseTrackingEb.exit:             ; preds = %95
 
 103:                                              ; preds = %98
   %104 = sitofp i32 %102 to double
-  %105 = fmul double %104, 0x3EF0000000000000
+  %105 = fmul nnan double %104, 0x3EF0000000000000
   invoke void @_ZN11QCustomPlot25setBufferDevicePixelRatioEd(ptr noundef align 8 dereferenceable_or_null(513) %0, double noundef %105)
           to label %106 unwind label %639
 
@@ -90891,7 +90891,7 @@ define void @_ZN11QCustomPlot10paintEventEP11QPaintEvent(ptr noundef align 8 der
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i32 %9(ptr noundef nonnull align 8 dereferenceable_or_null(10) %6, i32 noundef 12)
   %11 = sitofp i32 %10 to double
-  %12 = fmul double %11, 0x3EF0000000000000
+  %12 = fmul nnan double %11, 0x3EF0000000000000
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load double, ptr %13, align 8
   %15 = fsub double %14, %12
@@ -100023,7 +100023,7 @@ _ZNK4QMapId6QColorE10constBeginEv.exit.i:         ; preds = %_ZNK4QMapId6QColorE
   %25 = load i32, ptr %0, align 8
   %26 = add i32 %25, -1
   %27 = sitofp i32 %26 to double
-  %28 = fdiv double 1.000000e+00, %27
+  %28 = fdiv nnan double 1.000000e+00, %27
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -102008,7 +102008,7 @@ define void @_ZNK28QCPSelectionDecoratorBracket11drawBracketEP10QCPPainteri(ptr 
   %28 = load i32, ptr %27, align 4
   %29 = sub i32 0, %28
   %30 = sitofp i32 %29 to double
-  %31 = fmul double %30, 5.000000e-01
+  %31 = fmul nnan double %30, 5.000000e-01
   store double %26, ptr %11, align 8
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double %31, ptr %32, align 8
@@ -102059,7 +102059,7 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit:          ; preds = %42, %43
   %53 = sitofp i32 %52 to double
   %54 = load i32, ptr %27, align 4
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %55, 5.000000e-01
+  %56 = fmul nnan double %55, 5.000000e-01
   store double %53, ptr %12, align 8
   %57 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %56, ptr %57, align 8
@@ -102107,9 +102107,9 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit21:        ; preds = %66, %67
   %75 = load i32, ptr %27, align 4
   %76 = sub i32 0, %75
   %77 = sitofp i32 %76 to double
-  %78 = fmul double %77, 5.000000e-01
+  %78 = fmul nnan double %77, 5.000000e-01
   %79 = sitofp i32 %75 to double
-  %80 = fmul double %79, 5.000000e-01
+  %80 = fmul nnan double %79, 5.000000e-01
   store double 0.000000e+00, ptr %13, align 8
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store double %78, ptr %81, align 8
@@ -102161,12 +102161,12 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit31:        ; preds = %90, %91
   %101 = load i32, ptr %100, align 8
   %102 = sub i32 0, %101
   %103 = sitofp i32 %102 to double
-  %104 = fmul double %103, 5.000000e-01
+  %104 = fmul nnan double %103, 5.000000e-01
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %106 = load i32, ptr %105, align 4
   %107 = sub i32 0, %106
   %108 = sitofp i32 %107 to double
-  %109 = fmul double %108, 5.000000e-01
+  %109 = fmul nnan double %108, 5.000000e-01
   %110 = sitofp i32 %101 to double
   %111 = sitofp i32 %106 to double
   store double %104, ptr %14, align 8
@@ -102187,12 +102187,12 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit31:        ; preds = %90, %91
   %118 = load i32, ptr %117, align 8
   %119 = sub i32 0, %118
   %120 = sitofp i32 %119 to double
-  %121 = fmul double %120, 5.000000e-01
+  %121 = fmul nnan double %120, 5.000000e-01
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %123 = load i32, ptr %122, align 4
   %124 = sub i32 0, %123
   %125 = sitofp i32 %124 to double
-  %126 = fmul double %125, 5.000000e-01
+  %126 = fmul nnan double %125, 5.000000e-01
   %127 = sitofp i32 %118 to double
   %128 = sitofp i32 %123 to double
   store double %121, ptr %15, align 8
@@ -102212,9 +102212,9 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit31:        ; preds = %90, %91
   %134 = load i32, ptr %133, align 4
   %135 = sub i32 0, %134
   %136 = sitofp i32 %135 to double
-  %137 = fmul double %136, 5.000000e-01
+  %137 = fmul nnan double %136, 5.000000e-01
   %138 = sitofp i32 %134 to double
-  %139 = fmul double %138, 5.000000e-01
+  %139 = fmul nnan double %138, 5.000000e-01
   store double 0.000000e+00, ptr %16, align 8
   %140 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store double %137, ptr %140, align 8
@@ -102264,9 +102264,9 @@ _ZN10QCPPainter8drawLineERK6QLineF.exit41:        ; preds = %150, %151
   %160 = load i32, ptr %159, align 8
   %161 = sub i32 0, %160
   %162 = sitofp i32 %161 to double
-  %163 = fmul double %162, 5.000000e-01
+  %163 = fmul nnan double %162, 5.000000e-01
   %164 = sitofp i32 %160 to double
-  %165 = fmul double %164, 5.000000e-01
+  %165 = fmul nnan double %164, 5.000000e-01
   store double %163, ptr %17, align 8
   %166 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store double 0.000000e+00, ptr %166, align 8
@@ -113022,7 +113022,7 @@ define noundef double @_ZNK21QCPAbstractLegendItem10selectTestERK7QPointFbP8QVar
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 228
   %32 = load i32, ptr %31, align 4
   %33 = sitofp i32 %32 to double
-  %34 = fmul double %33, 0x3FEFAE147AE147AE
+  %34 = fmul nnan double %33, 0x3FEFAE147AE147AE
   br label %.critedge2
 
 .critedge2:                                       ; preds = %9, %.critedge, %13, %4, %29
@@ -115412,7 +115412,7 @@ define noundef double @_ZNK9QCPLegend10selectTestERK7QPointFbP8QVariant(ptr noun
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 228
   %31 = load i32, ptr %30, align 4
   %32 = sitofp i32 %31 to double
-  %33 = fmul double %32, 0x3FEFAE147AE147AE
+  %33 = fmul nnan double %32, 0x3FEFAE147AE147AE
   br label %34
 
 34:                                               ; preds = %14, %10, %4, %28
@@ -117458,7 +117458,7 @@ define noundef double @_ZNK14QCPTextElement10selectTestERK7QPointFbP8QVariant(pt
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 228
   %26 = load i32, ptr %25, align 4
   %27 = sitofp i32 %26 to double
-  %28 = fmul double %27, 0x3FEFAE147AE147AE
+  %28 = fmul nnan double %27, 0x3FEFAE147AE147AE
   br label %29
 
 29:                                               ; preds = %10, %6, %22
@@ -120063,13 +120063,13 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread:      ; preds = %10, %_ZNK8QPointerI
   br i1 %47, label %48, label %51
 
 48:                                               ; preds = %45
-  %49 = fmul double %30, 1.000000e-03
+  %49 = fmul nnan double %30, 1.000000e-03
   %50 = fcmp olt double %49, -1.000000e-03
   %.44.i = select i1 %50, double -1.000000e-03, double %49
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
 
 51:                                               ; preds = %45
-  %52 = fmul double %29, 1.000000e-03
+  %52 = fmul nnan double %29, 1.000000e-03
   %53 = fcmp ogt double %52, 1.000000e-03
   %.45.i = select i1 %53, double 1.000000e-03, double %52
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
@@ -121128,7 +121128,7 @@ _ZNK11QCPColorMap10colorScaleEv.exit:             ; preds = %64, %60, %56
   br i1 %or.cond4, label %76, label %80
 
 76:                                               ; preds = %73
-  %77 = fmul double %.sroa.2.0.copyload.i, 1.000000e-03
+  %77 = fmul nnan double %.sroa.2.0.copyload.i, 1.000000e-03
   store double %77, ptr %5, align 8
   br label %.critedge
 
@@ -121150,7 +121150,7 @@ _ZNK11QCPColorMap10colorScaleEv.exit:             ; preds = %64, %60, %56
   br i1 %or.cond10, label %85, label %87
 
 85:                                               ; preds = %82
-  %86 = fmul double %.sroa.0.0.copyload.i, 1.000000e-03
+  %86 = fmul nnan double %.sroa.0.0.copyload.i, 1.000000e-03
   store double %86, ptr %.sroa.4.0..sroa_idx, align 8
   br label %.critedge
 
@@ -138297,7 +138297,7 @@ _ZN6QDebuglsEPKc.exit183:                         ; preds = %_ZN7QStringD2Ev.exi
   %184 = select i1 %182, double %183, double %181
   %185 = fcmp ogt double %184, 1.000000e+00
   %.sroa.speculated221 = select i1 %185, double %184, double 1.000000e+00
-  %186 = fmul double %.sroa.speculated221, 2.500000e-01
+  %186 = fmul nnan double %.sroa.speculated221, 2.500000e-01
   %187 = uitofp nneg i32 %.0152310 to double
   %188 = fdiv double %187, %186
   %189 = tail call double @llvm.copysign.f64(double 5.000000e-01, double %188)
@@ -141893,7 +141893,7 @@ define noundef double @_ZNK8QCPCurve13pointDistanceERK7QPointFRN5QListI12QCPCurv
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 228
   %106 = load i32, ptr %105, align 4
   %107 = sitofp i32 %106 to double
-  %108 = fmul double %107, 1.200000e+00
+  %108 = fmul nnan double %107, 1.200000e+00
   invoke void @_ZNK8QCPCurve13getCurveLinesEP5QListI7QPointFERK12QCPDataRanged(ptr noundef align 8 dereferenceable_or_null(288) %0, ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(8) %9, double noundef %108)
           to label %109 unwind label %119
 
@@ -157657,7 +157657,7 @@ _ZN16QCPDataSelectionD2Ev.exit22:                 ; preds = %93, %_ZN17QArrayDat
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 228
   %105 = load i32, ptr %104, align 4
   %106 = sitofp i32 %105 to double
-  %107 = fmul double %106, 0x3FEFAE147AE147AE
+  %107 = fmul nnan double %106, 0x3FEFAE147AE147AE
   br label %_ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread.sink.split
 
 _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread.sink.split: ; preds = %99, %66, %101
@@ -162951,7 +162951,7 @@ _ZNK8QPointerI7QCPAxisEptEv.exit:                 ; preds = %_ZNK8QPointerI7QCPA
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 228
   %116 = load i32, ptr %115, align 4
   %117 = sitofp i32 %116 to double
-  %118 = fmul double %117, 0x3FEFAE147AE147AE
+  %118 = fmul nnan double %117, 0x3FEFAE147AE147AE
   %119 = fmul double %118, %117
   %120 = fmul double %119, 0x3FEFAE147AE147AE
   %121 = fcmp olt double %120, %.02388
@@ -168396,13 +168396,13 @@ _ZN8QCPRange10validRangeERKS_.exit.thread13:      ; preds = %23, %_ZN8QCPRange10
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %59
-  %63 = fmul double %44, 1.000000e-03
+  %63 = fmul nnan double %44, 1.000000e-03
   %64 = fcmp olt double %63, -1.000000e-03
   %.44.i = select i1 %64, double -1.000000e-03, double %63
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
 
 65:                                               ; preds = %59
-  %66 = fmul double %43, 1.000000e-03
+  %66 = fmul nnan double %43, 1.000000e-03
   %67 = fcmp ogt double %66, 1.000000e-03
   %.45.i = select i1 %67, double 1.000000e-03, double %66
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
@@ -168510,13 +168510,13 @@ define void @_ZN11QCPColorMap16setDataScaleTypeEN7QCPAxis9ScaleTypeE(ptr noundef
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %36
-  %40 = fmul double %21, 1.000000e-03
+  %40 = fmul nnan double %21, 1.000000e-03
   %41 = fcmp olt double %40, -1.000000e-03
   %.44.i = select i1 %41, double -1.000000e-03, double %40
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
 
 42:                                               ; preds = %36
-  %43 = fmul double %20, 1.000000e-03
+  %43 = fmul nnan double %20, 1.000000e-03
   %44 = fcmp ogt double %43, 1.000000e-03
   %.45.i = select i1 %44, double 1.000000e-03, double %43
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
@@ -169555,7 +169555,7 @@ _ZN16QCPDataSelectionD2Ev.exit31:                 ; preds = %82, %_ZN17QArrayDat
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 228
   %91 = load i32, ptr %90, align 4
   %92 = sitofp i32 %91 to double
-  %93 = fmul double %92, 0x3FEFAE147AE147AE
+  %93 = fmul nnan double %92, 0x3FEFAE147AE147AE
   br label %_ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread.sink.split
 
 _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit.thread.sink.split: ; preds = %70, %62, %.critedge2
@@ -169594,7 +169594,7 @@ _ZN8QCPRange9normalizeEv.exit:
   br i1 %or.cond, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = fmul double %.sroa.7.1, 1.000000e-03
+  %11 = fmul nnan double %.sroa.7.1, 1.000000e-03
   br label %23
 
 12:                                               ; preds = %7
@@ -169613,7 +169613,7 @@ _ZN8QCPRange9normalizeEv.exit:
   br i1 %or.cond8, label %18, label %20
 
 18:                                               ; preds = %15
-  %19 = fmul double %.sroa.0.1, 1.000000e-03
+  %19 = fmul nnan double %.sroa.0.1, 1.000000e-03
   br label %23
 
 20:                                               ; preds = %15
@@ -169703,7 +169703,7 @@ _ZN8QCPRange9normalizeEv.exit:                    ; preds = %15, %_ZNK8QCPRangen
   br i1 %or.cond, label %31, label %33
 
 31:                                               ; preds = %28
-  %32 = fmul double %27, 1.000000e-03
+  %32 = fmul nnan double %27, 1.000000e-03
   br label %44
 
 33:                                               ; preds = %28
@@ -169722,7 +169722,7 @@ _ZN8QCPRange9normalizeEv.exit:                    ; preds = %15, %_ZNK8QCPRangen
   br i1 %or.cond8, label %39, label %41
 
 39:                                               ; preds = %36
-  %40 = fmul double %26, 1.000000e-03
+  %40 = fmul nnan double %26, 1.000000e-03
   br label %44
 
 41:                                               ; preds = %36
@@ -170503,8 +170503,8 @@ _ZNK8QPointerI7QCPAxisEcvPS0_Ev.exit76:           ; preds = %39
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %77 = fmul double %73, 3.000000e+00
-  %78 = fmul double %76, 3.000000e+00
+  %77 = fmul nnan double %73, 3.000000e+00
+  %78 = fmul nnan double %76, 3.000000e+00
   %79 = call double @llvm.copysign.f64(double 5.000000e-01, double %77)
   %80 = fadd double %77, %79
   %81 = fptosi double %80 to i32
@@ -171098,15 +171098,15 @@ _ZN10QCPPainterD2Ev.exit:                         ; preds = %340, %_ZN17QArrayDa
   %351 = fadd double %.sroa.7164.0, %350
   %352 = fptosi double %351 to i32
   %353 = sitofp i32 %349 to double
-  %354 = fsub double %.sroa.0162.0, %353
-  %355 = fmul double %354, 5.000000e-01
+  %354 = fsub nnan double %.sroa.0162.0, %353
+  %355 = fmul nnan double %354, 5.000000e-01
   %356 = fadd double %.sroa.10.0, %355
   %357 = call double @llvm.copysign.f64(double 5.000000e-01, double %356)
   %358 = fadd double %356, %357
   %359 = fptosi double %358 to i32
   %360 = sitofp i32 %352 to double
-  %361 = fsub double %.sroa.7164.0, %360
-  %362 = fmul double %361, 5.000000e-01
+  %361 = fsub nnan double %.sroa.7164.0, %360
+  %362 = fmul nnan double %361, 5.000000e-01
   %363 = fadd double %.sroa.13.0, %362
   %364 = call double @llvm.copysign.f64(double 5.000000e-01, double %363)
   %365 = fadd double %363, %364
@@ -171230,9 +171230,9 @@ define void @_ZNK11QCPColorMap14drawLegendIconEP10QCPPainterRK6QRectF(ptr nounde
   %35 = load double, ptr %15, align 8
   %36 = fmul double %35, 5.000000e-01
   %37 = fadd double %34, %36
-  %38 = fmul double %27, 5.000000e-01
+  %38 = fmul nnan double %27, 5.000000e-01
   %39 = fsub double %32, %38
-  %40 = fmul double %28, 5.000000e-01
+  %40 = fmul nnan double %28, 5.000000e-01
   %41 = fsub double %37, %40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store double %39, ptr %6, align 8
@@ -174567,7 +174567,7 @@ _ZN6QDebuglsEPKc.exit66:                          ; preds = %_ZN7QStringD2Ev.exi
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 228
   %139 = load i32, ptr %138, align 4
   %140 = sitofp i32 %139 to double
-  %141 = fmul double %140, 0x3FEFAE147AE147AE
+  %141 = fmul nnan double %140, 0x3FEFAE147AE147AE
   %142 = fmul double %141, %140
   %143 = fmul double %142, 0x3FEFAE147AE147AE
   br label %165
@@ -174692,7 +174692,7 @@ _ZNK8QCPRange8containsEd.exit.thread:             ; preds = %130, %113
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 228
   %203 = load i32, ptr %202, align 4
   %204 = sitofp i32 %203 to double
-  %205 = fmul double %204, 0x3FEFAE147AE147AE
+  %205 = fmul nnan double %204, 0x3FEFAE147AE147AE
   %206 = fmul double %205, %204
   %207 = fmul double %206, 0x3FEFAE147AE147AE
   br label %229
@@ -194293,7 +194293,7 @@ define noundef double @_ZNK11QCPItemText10selectTestERK7QPointFbP8QVariant(ptr n
   br i1 %.not.i, label %70, label %67
 
 67:                                               ; preds = %65
-  %68 = fmul double %60, 5.000000e-01
+  %68 = fmul nnan double %60, 5.000000e-01
   %69 = fsub double %21, %68
   br label %74
 
@@ -194313,7 +194313,7 @@ define noundef double @_ZNK11QCPItemText10selectTestERK7QPointFbP8QVariant(ptr n
   br i1 %.not19.i, label %79, label %76
 
 76:                                               ; preds = %74
-  %77 = fmul double %63, 5.000000e-01
+  %77 = fmul nnan double %63, 5.000000e-01
   %78 = fsub double %22, %77
   br label %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
 
@@ -194574,7 +194574,7 @@ define void @_ZN11QCPItemText4drawEP10QCPPainter(ptr noundef align 8 dereference
   br i1 %.not.i, label %88, label %85
 
 85:                                               ; preds = %83
-  %86 = fmul double %78, 5.000000e-01
+  %86 = fmul nnan double %78, 5.000000e-01
   %87 = fsub double 0.000000e+00, %86
   br label %92
 
@@ -194594,7 +194594,7 @@ define void @_ZN11QCPItemText4drawEP10QCPPainter(ptr noundef align 8 dereference
   br i1 %.not19.i, label %97, label %94
 
 94:                                               ; preds = %92
-  %95 = fmul double %81, 5.000000e-01
+  %95 = fmul nnan double %81, 5.000000e-01
   %96 = fsub double 0.000000e+00, %95
   br label %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
 
@@ -195137,7 +195137,7 @@ define { double, double } @_ZNK11QCPItemText19anchorPixelPositionEi(ptr noundef 
   br i1 %.not.i, label %72, label %69
 
 69:                                               ; preds = %67
-  %70 = fmul double %60, 5.000000e-01
+  %70 = fmul nnan double %60, 5.000000e-01
   %71 = fsub double 0.000000e+00, %70
   br label %76
 
@@ -195157,7 +195157,7 @@ define { double, double } @_ZNK11QCPItemText19anchorPixelPositionEi(ptr noundef 
   br i1 %.not19.i, label %81, label %78
 
 78:                                               ; preds = %76
-  %79 = fmul double %65, 5.000000e-01
+  %79 = fmul nnan double %65, 5.000000e-01
   %80 = fsub double 0.000000e+00, %79
   br label %_ZNK11QCPItemText16getTextDrawPointERK7QPointFRK6QRectF6QFlagsIN2Qt13AlignmentFlagEE.exit
 
@@ -196959,7 +196959,7 @@ define noundef double @_ZNK14QCPItemEllipse10selectTestERK7QPointFbP8QVariant(pt
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 228
   %62 = load i32, ptr %61, align 4
   %63 = sitofp i32 %62 to double
-  %64 = fmul double %63, 0x3FEFAE147AE147AE
+  %64 = fmul nnan double %63, 0x3FEFAE147AE147AE
   %65 = fcmp ogt double %58, %64
   br i1 %65, label %66, label %81
 
@@ -196984,7 +196984,7 @@ define noundef double @_ZNK14QCPItemEllipse10selectTestERK7QPointFbP8QVariant(pt
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 228
   %78 = load i32, ptr %77, align 4
   %79 = sitofp i32 %78 to double
-  %80 = fmul double %79, 0x3FEFAE147AE147AE
+  %80 = fmul nnan double %79, 0x3FEFAE147AE147AE
   br label %81
 
 81:                                               ; preds = %9, %66, %71, %75, %5
@@ -199360,12 +199360,12 @@ define { double, double } @_ZNK13QCPItemPixmap19anchorPixelPositionEi(ptr nounde
   %26 = and i32 %tr.sh.diff191, -2
   %.sroa.0102.0.extract.trunc = trunc i64 %25 to i32
   %27 = sitofp i32 %.sroa.0102.0.extract.trunc to double
-  %28 = fmul double %27, 5.000000e-01
+  %28 = fmul nnan double %27, 5.000000e-01
   %29 = call double @llvm.copysign.f64(double 5.000000e-01, double %28)
   %30 = fadd double %28, %29
   %31 = fptosi double %30 to i32
   %32 = sitofp i32 %26 to double
-  %33 = fmul double %32, 5.000000e-01
+  %33 = fmul nnan double %32, 5.000000e-01
   %34 = call double @llvm.copysign.f64(double 5.000000e-01, double %33)
   %35 = fadd double %33, %34
   %36 = fptosi double %35 to i32
@@ -199390,12 +199390,12 @@ define { double, double } @_ZNK13QCPItemPixmap19anchorPixelPositionEi(ptr nounde
   %.sroa.24.1.tr = trunc i64 %.sroa.24.1 to i32
   %.sroa.092.0.extract.trunc = shl i32 %.sroa.24.1.tr, 1
   %44 = sitofp i32 %.sroa.092.0.extract.trunc to double
-  %45 = fmul double %44, 5.000000e-01
+  %45 = fmul nnan double %44, 5.000000e-01
   %46 = call double @llvm.copysign.f64(double 5.000000e-01, double %45)
   %47 = fadd double %45, %46
   %48 = fptosi double %47 to i32
   %49 = sitofp i32 %43 to double
-  %50 = fmul double %49, 5.000000e-01
+  %50 = fmul nnan double %49, 5.000000e-01
   %51 = call double @llvm.copysign.f64(double 5.000000e-01, double %50)
   %52 = fadd double %50, %51
   %53 = fptosi double %52 to i32
@@ -199410,12 +199410,12 @@ define { double, double } @_ZNK13QCPItemPixmap19anchorPixelPositionEi(ptr nounde
   %58 = and i32 %tr.sh.diff, -2
   %.sroa.084.0.extract.trunc = trunc i64 %57 to i32
   %59 = sitofp i32 %.sroa.084.0.extract.trunc to double
-  %60 = fmul double %59, 5.000000e-01
+  %60 = fmul nnan double %59, 5.000000e-01
   %61 = call double @llvm.copysign.f64(double 5.000000e-01, double %60)
   %62 = fadd double %60, %61
   %63 = fptosi double %62 to i32
   %64 = sitofp i32 %58 to double
-  %65 = fmul double %64, 5.000000e-01
+  %65 = fmul nnan double %64, 5.000000e-01
   %66 = call double @llvm.copysign.f64(double 5.000000e-01, double %65)
   %67 = fadd double %65, %66
   %68 = fptosi double %67 to i32
@@ -199440,12 +199440,12 @@ define { double, double } @_ZNK13QCPItemPixmap19anchorPixelPositionEi(ptr nounde
   %.sroa.0106.1.tr = trunc i64 %.sroa.0106.1 to i32
   %.sroa.074.0.extract.trunc = shl i32 %.sroa.0106.1.tr, 1
   %76 = sitofp i32 %.sroa.074.0.extract.trunc to double
-  %77 = fmul double %76, 5.000000e-01
+  %77 = fmul nnan double %76, 5.000000e-01
   %78 = call double @llvm.copysign.f64(double 5.000000e-01, double %77)
   %79 = fadd double %77, %78
   %80 = fptosi double %79 to i32
   %81 = sitofp i32 %75 to double
-  %82 = fmul double %81, 5.000000e-01
+  %82 = fmul nnan double %81, 5.000000e-01
   %83 = call double @llvm.copysign.f64(double 5.000000e-01, double %82)
   %84 = fadd double %82, %83
   %85 = fptosi double %84 to i32
@@ -201689,7 +201689,7 @@ define noundef double @_ZNK13QCPItemTracer10selectTestERK7QPointFbP8QVariant(ptr
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 228
   %172 = load i32, ptr %171, align 4
   %173 = sitofp i32 %172 to double
-  %174 = fmul double %173, 0x3FEFAE147AE147AE
+  %174 = fmul nnan double %173, 0x3FEFAE147AE147AE
   %175 = fcmp ogt double %168, %174
   br i1 %175, label %176, label %239
 
@@ -201714,7 +201714,7 @@ define noundef double @_ZNK13QCPItemTracer10selectTestERK7QPointFbP8QVariant(ptr
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 228
   %188 = load i32, ptr %187, align 4
   %189 = sitofp i32 %188 to double
-  %190 = fmul double %189, 0x3FEFAE147AE147AE
+  %190 = fmul nnan double %189, 0x3FEFAE147AE147AE
   br label %239
 
 191:                                              ; preds = %33
@@ -206877,13 +206877,13 @@ define void @_ZN18QCPPolarAxisRadial12setScaleTypeENS_9ScaleTypeE(ptr noundef al
   br i1 %36, label %37, label %40
 
 37:                                               ; preds = %34
-  %38 = fmul double %19, 1.000000e-03
+  %38 = fmul nnan double %19, 1.000000e-03
   %39 = fcmp olt double %38, -1.000000e-03
   %.44.i = select i1 %39, double -1.000000e-03, double %38
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
 
 40:                                               ; preds = %34
-  %41 = fmul double %18, 1.000000e-03
+  %41 = fmul nnan double %18, 1.000000e-03
   %42 = fcmp ogt double %41, 1.000000e-03
   %.45.i = select i1 %42, double 1.000000e-03, double %41
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
@@ -207024,13 +207024,13 @@ _ZN8QCPRange10validRangeERKS_.exit.thread13:      ; preds = %33, %_ZN8QCPRange10
   br i1 %63, label %64, label %67
 
 64:                                               ; preds = %61
-  %65 = fmul double %46, 1.000000e-03
+  %65 = fmul nnan double %46, 1.000000e-03
   %66 = fcmp olt double %65, -1.000000e-03
   %.44.i = select i1 %66, double -1.000000e-03, double %65
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
 
 67:                                               ; preds = %61
-  %68 = fmul double %45, 1.000000e-03
+  %68 = fmul nnan double %45, 1.000000e-03
   %69 = fcmp ogt double %68, 1.000000e-03
   %.45.i = select i1 %69, double 1.000000e-03, double %68
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
@@ -207222,13 +207222,13 @@ _ZN8QCPRange10validRangeEdd.exit.thread16:        ; preds = %29, %_ZN8QCPRange10
   br i1 %60, label %61, label %64
 
 61:                                               ; preds = %58
-  %62 = fmul double %43, 1.000000e-03
+  %62 = fmul nnan double %43, 1.000000e-03
   %63 = fcmp olt double %62, -1.000000e-03
   %.44.i = select i1 %63, double -1.000000e-03, double %62
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
 
 64:                                               ; preds = %58
-  %65 = fmul double %42, 1.000000e-03
+  %65 = fmul nnan double %42, 1.000000e-03
   %66 = fcmp ogt double %65, 1.000000e-03
   %.45.i = select i1 %66, double 1.000000e-03, double %65
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
@@ -207358,13 +207358,13 @@ define void @_ZN18QCPPolarAxisRadial13setRangeLowerEd(ptr noundef align 8 derefe
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %36
-  %40 = fmul double %21, 1.000000e-03
+  %40 = fmul nnan double %21, 1.000000e-03
   %41 = fcmp olt double %40, -1.000000e-03
   %.44.i = select i1 %41, double -1.000000e-03, double %40
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
 
 42:                                               ; preds = %36
-  %43 = fmul double %20, 1.000000e-03
+  %43 = fmul nnan double %20, 1.000000e-03
   %44 = fcmp ogt double %43, 1.000000e-03
   %.45.i = select i1 %44, double 1.000000e-03, double %43
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
@@ -207467,13 +207467,13 @@ define void @_ZN18QCPPolarAxisRadial13setRangeUpperEd(ptr noundef align 8 derefe
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %36
-  %40 = fmul double %21, 1.000000e-03
+  %40 = fmul nnan double %21, 1.000000e-03
   %41 = fcmp olt double %40, -1.000000e-03
   %.44.i = select i1 %41, double -1.000000e-03, double %40
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
 
 42:                                               ; preds = %36
-  %43 = fmul double %20, 1.000000e-03
+  %43 = fmul nnan double %20, 1.000000e-03
   %44 = fcmp ogt double %43, 1.000000e-03
   %.45.i = select i1 %44, double 1.000000e-03, double %43
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
@@ -209094,13 +209094,13 @@ _ZN8QCPRange10validRangeERKS_.exit23.thread46:    ; preds = %80, %_ZN8QCPRange10
   br i1 %106, label %107, label %110
 
 107:                                              ; preds = %104
-  %108 = fmul double %89, 1.000000e-03
+  %108 = fmul nnan double %89, 1.000000e-03
   %109 = fcmp olt double %108, -1.000000e-03
   %.44.i = select i1 %109, double -1.000000e-03, double %108
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
 
 110:                                              ; preds = %104
-  %111 = fmul double %88, 1.000000e-03
+  %111 = fmul nnan double %88, 1.000000e-03
   %112 = fcmp ogt double %111, 1.000000e-03
   %.45.i = select i1 %112, double 1.000000e-03, double %111
   br label %_ZNK8QCPRange20sanitizedForLogScaleEv.exit
@@ -214210,7 +214210,7 @@ define noundef double @_ZNK19QCPPolarAxisAngular10selectTestERK7QPointFbP8QVaria
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 228
   %34 = load i32, ptr %33, align 4
   %35 = sitofp i32 %34 to double
-  %36 = fmul double %35, 0x3FEFAE147AE147AE
+  %36 = fmul nnan double %35, 0x3FEFAE147AE147AE
   br label %80
 
 37:                                               ; preds = %29
@@ -214497,7 +214497,7 @@ _ZN18QCPPolarAxisRadial16setupTickVectorsEv.exit: ; preds = %9, %21, %25, %53
   %83 = tail call noundef i32 @llvm.abs.i32(i32 %82, i1 false)
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %81, i32 %83)
   %84 = sitofp i32 %.sroa.speculated to double
-  %85 = fmul double %84, 5.000000e-01
+  %85 = fmul nnan double %84, 5.000000e-01
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %87 = fcmp olt double %85, 1.000000e+00
   %storemerge = select i1 %87, double 1.000000e+00, double %85

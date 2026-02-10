@@ -660,11 +660,11 @@ define internal fastcc void @selective_color_8(ptr readonly captures(none) %.72.
 
 .lr.ph:                                           ; preds = %81
   %105 = uitofp i8 %62 to float
-  %106 = fmul nsz float %105, 0x3F70101020000000
+  %106 = fmul nnan nsz float %105, 0x3F70101020000000
   %107 = uitofp i8 %59 to float
-  %108 = fmul nsz float %107, 0x3F70101020000000
+  %108 = fmul nnan nsz float %107, 0x3F70101020000000
   %109 = uitofp i8 %56 to float
-  %110 = fmul nsz float %109, 0x3F70101020000000
+  %110 = fmul nnan nsz float %109, 0x3F70101020000000
   %111 = fsub nsz float 1.000000e+00, %110
   %112 = fneg nsz float %110
   %113 = fsub nsz float 1.000000e+00, %108
@@ -978,11 +978,11 @@ define internal fastcc void @selective_color_16(ptr readonly captures(none) %.72
 
 .lr.ph:                                           ; preds = %83
   %107 = uitofp i16 %64 to float
-  %108 = fmul nsz float %107, 0x3EF0001000000000
+  %108 = fmul nnan nsz float %107, 0x3EF0001000000000
   %109 = uitofp i16 %61 to float
-  %110 = fmul nsz float %109, 0x3EF0001000000000
+  %110 = fmul nnan nsz float %109, 0x3EF0001000000000
   %111 = uitofp i16 %58 to float
-  %112 = fmul nsz float %111, 0x3EF0001000000000
+  %112 = fmul nnan nsz float %111, 0x3EF0001000000000
   %113 = fsub nsz float 1.000000e+00, %112
   %114 = fneg nsz float %112
   %115 = fsub nsz float 1.000000e+00, %110

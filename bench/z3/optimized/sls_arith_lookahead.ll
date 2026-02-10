@@ -1700,7 +1700,7 @@ _ZNK3sls10arith_baseI13checked_int64ILb1EEE8get_ineqEj.exit: ; preds = %_ZNK6vec
 
 202:                                              ; preds = %199
   %203 = sitofp i64 %200 to double
-  %204 = fmul double %203, %203
+  %204 = fmul nnan double %203, %203
   %205 = fdiv double %204, 1.000000e+06
   %206 = fsub double 1.000000e+00, %205
   br label %207

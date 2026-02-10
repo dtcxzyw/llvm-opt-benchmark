@@ -51,7 +51,7 @@ define void @RandomPolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Po
   %28 = xor i32 %27, %26
   %29 = and i32 %28, 32767
   %30 = uitofp nneg i32 %29 to float
-  %31 = fdiv float %30, 3.276700e+04
+  %31 = fdiv nnan float %30, 3.276700e+04
   %32 = fmul float %15, %31
   %33 = fsub float %32, %1
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %33, i64 0
@@ -63,7 +63,7 @@ define void @RandomPolygon(ptr dead_on_unwind noalias writable sret(%struct.b2Po
   %39 = xor i32 %38, %37
   %40 = and i32 %39, 32767
   %41 = uitofp nneg i32 %40 to float
-  %42 = fdiv float %41, 3.276700e+04
+  %42 = fdiv nnan float %41, 3.276700e+04
   %43 = fmul float %15, %42
   %44 = fsub float %43, %1
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %44, i64 1

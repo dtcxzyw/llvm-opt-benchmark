@@ -7768,7 +7768,7 @@ _ZNSt10unique_ptrIN7rocksdb20WriteControllerTokenESt14default_deleteIS1_EED2Ev.e
 
 166:                                              ; preds = %165
   %167 = uitofp i64 %160 to double
-  %168 = fmul double %167, 6.000000e-01
+  %168 = fmul nnan double %167, 6.000000e-01
   %169 = fptoui double %168 to i64
   %spec.store.select.i = tail call i64 @llvm.umax.i64(i64 %169, i64 16384)
   br label %_ZN7rocksdb12_GLOBAL__N_110SetupDelayEPNS_15WriteControllerEmmbb.exit
@@ -7780,7 +7780,7 @@ _ZNSt10unique_ptrIN7rocksdb20WriteControllerTokenESt14default_deleteIS1_EED2Ev.e
 
 172:                                              ; preds = %170
   %173 = uitofp i64 %160 to double
-  %174 = fmul double %173, 8.000000e-01
+  %174 = fmul nnan double %173, 8.000000e-01
   %175 = fptoui double %174 to i64
   %spec.store.select2.i = tail call i64 @llvm.umax.i64(i64 %175, i64 16384)
   br label %_ZN7rocksdb12_GLOBAL__N_110SetupDelayEPNS_15WriteControllerEmmbb.exit
@@ -7791,7 +7791,7 @@ _ZNSt10unique_ptrIN7rocksdb20WriteControllerTokenESt14default_deleteIS1_EED2Ev.e
 
 177:                                              ; preds = %176
   %178 = uitofp i64 %160 to double
-  %179 = fmul double %178, 1.250000e+00
+  %179 = fmul nnan double %178, 1.250000e+00
   %180 = fptoui double %179 to i64
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %158, i64 %180)
   br label %_ZN7rocksdb12_GLOBAL__N_110SetupDelayEPNS_15WriteControllerEmmbb.exit
@@ -8235,7 +8235,7 @@ _ZNSt10unique_ptrIN7rocksdb20WriteControllerTokenESt14default_deleteIS1_EE5reset
   %405 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %406 = load i64, ptr %405, align 8, !tbaa !833
   %407 = uitofp i64 %406 to double
-  %408 = fmul double %407, 1.400000e+00
+  %408 = fmul nnan double %407, 1.400000e+00
   %409 = fptoui double %408 to i64
   %410 = icmp eq i64 %409, 0
   %411 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -9439,7 +9439,7 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_110SetupDelayEPNS_15WriteCo
 
 17:                                               ; preds = %16
   %18 = uitofp i64 %10 to double
-  %19 = fmul double %18, 6.000000e-01
+  %19 = fmul nnan double %18, 6.000000e-01
   %20 = fptoui double %19 to i64
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %20, i64 16384)
   br label %32
@@ -9451,7 +9451,7 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_110SetupDelayEPNS_15WriteCo
 
 23:                                               ; preds = %21
   %24 = uitofp i64 %10 to double
-  %25 = fmul double %24, 8.000000e-01
+  %25 = fmul nnan double %24, 8.000000e-01
   %26 = fptoui double %25 to i64
   %spec.store.select2 = tail call i64 @llvm.umax.i64(i64 %26, i64 16384)
   br label %32
@@ -9462,7 +9462,7 @@ define internal fastcc void @_ZN7rocksdb12_GLOBAL__N_110SetupDelayEPNS_15WriteCo
 
 28:                                               ; preds = %27
   %29 = uitofp i64 %10 to double
-  %30 = fmul double %29, 1.250000e+00
+  %30 = fmul nnan double %29, 1.250000e+00
   %31 = fptoui double %30 to i64
   %spec.select = tail call i64 @llvm.umin.i64(i64 %8, i64 %31)
   br label %32

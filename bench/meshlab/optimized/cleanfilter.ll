@@ -9584,7 +9584,7 @@ define linkonce_odr void @_ZN3vcg3tri14AdvancingFrontI6CMeshOE9BuildMeshEPFbiPKc
   %12 = sub i64 %10, %11
   %13 = sdiv exact i64 %12, 48
   %14 = uitofp i64 %13 to float
-  %15 = fmul float %14, 2.000000e+00
+  %15 = fmul nnan float %14, 2.000000e+00
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.lr.ph.us.us.preheader, label %.thread
 
@@ -27066,7 +27066,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit95:                  ; preds = %._crit_edge132
   %110 = sub i64 %108, %109
   %111 = ashr exact i64 %110, 2
   %112 = uitofp i64 %111 to double
-  %113 = fmul double %112, 5.000000e-01
+  %113 = fmul nnan double %112, 5.000000e-01
   %114 = fptoui double %113 to i64
   %115 = getelementptr inbounds float, ptr %.sroa.0.0.lcssa, i64 %114
   %116 = load float, ptr %115, align 4

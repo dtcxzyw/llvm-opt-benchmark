@@ -1689,7 +1689,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
 61:                                               ; preds = %56
   %62 = sub nsw i32 %38, %29
   %63 = sitofp i32 %62 to float
-  %64 = fadd nsz float %37, 1.000000e+00
+  %64 = fadd nnan nsz float %37, 1.000000e+00
   %65 = fmul nsz float %64, %63
   %66 = fptosi float %65 to i32
   br label %67
@@ -1722,7 +1722,7 @@ define internal i32 @pixscope_filter_frame(ptr noundef readonly captures(none) %
 79:                                               ; preds = %74
   %80 = sub nsw i32 %44, %46
   %81 = sitofp i32 %80 to float
-  %82 = fadd nsz float %43, 1.000000e+00
+  %82 = fadd nnan nsz float %43, 1.000000e+00
   %83 = fmul nsz float %82, %81
   %84 = fptosi float %83 to i32
   br label %85
@@ -3873,7 +3873,7 @@ define internal fastcc void @update_oscilloscope(ptr readonly captures(none) %.3
   %52 = fptosi float %51 to i32
   %53 = sitofp i32 %46 to double
   %54 = sitofp i32 %35 to double
-  %55 = fmul nsz double %54, 5.000000e-01
+  %55 = fmul nnan nsz double %54, 5.000000e-01
   %56 = call nsz double @llvm.cos.f64(double %40)
   %57 = fneg nsz double %55
   %58 = call nsz double @llvm.fmuladd.f64(double %57, double %56, double %53)

@@ -4164,11 +4164,11 @@ define void @Extra_ZddTest() local_unnamed_addr #0 {
   tail call void @Cudd_Ref(ptr noundef %4) #19
   %5 = tail call i32 @Cudd_zddDagSize(ptr noundef %4) #19
   %6 = sitofp i32 %5 to double
-  %7 = fmul double %6, 2.000000e+01
-  %8 = fmul double %7, 0x3EB0000000000000
+  %7 = fmul nnan double %6, 2.000000e+01
+  %8 = fmul nnan double %7, 0x3EB0000000000000
   %9 = mul nuw nsw i32 %.020, 8000
   %10 = uitofp nneg i32 %9 to double
-  %11 = fmul double %10, 0x3EB0000000000000
+  %11 = fmul nnan double %10, 0x3EB0000000000000
   %12 = mul nuw nsw i32 %.020, 800000
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %13, %7

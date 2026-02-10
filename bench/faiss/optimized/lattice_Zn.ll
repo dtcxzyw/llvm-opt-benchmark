@@ -2553,7 +2553,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_
 .preheader:                                       ; preds = %8, %.preheader
   %.036 = phi i32 [ %13, %.preheader ], [ %2, %8 ]
   %10 = sitofp i32 %.036 to float
-  %11 = fmul float %10, %10
+  %11 = fmul nnan float %10, %10
   %12 = fcmp ogt float %11, %1
   %13 = add nsw i32 %.036, -1
   br i1 %12, label %.preheader, label %14, !llvm.loop !108
@@ -2603,7 +2603,7 @@ define internal fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_
   %.137103.us = phi i32 [ %41, %_ZNSt6vectorIfSaIfEED2Ev.exit.us ], [ %2, %.lr.ph.split.us.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %31 = uitofp nneg i32 %.137103.us to float
-  %32 = fmul float %31, %31
+  %32 = fmul nnan float %31, %31
   %33 = fsub float %1, %32
   invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias writable align 8 %5, float noundef %33, i32 noundef %.137103.us, i32 noundef %23)
           to label %.preheader56.us unwind label %.split105.us
@@ -2818,7 +2818,7 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit.us.us:    ; preds = %_ZNSt6vectorIfSaIfE
   %.137103 = phi i32 [ %118, %_ZNSt6vectorIfSaIfEED2Ev.exit ], [ %2, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %108 = uitofp nneg i32 %.137103 to float
-  %109 = fmul float %108, %108
+  %109 = fmul nnan float %108, %108
   %110 = fsub float %1, %109
   invoke fastcc void @_ZN5faiss12_GLOBAL__N_19sum_of_sqEfiif(ptr dead_on_unwind noalias writable align 8 %5, float noundef %110, i32 noundef %.137103, i32 noundef %23)
           to label %.preheader56 unwind label %.split105

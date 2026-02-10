@@ -758,8 +758,8 @@ ehcleanup32:                                      ; preds = %if.then.i.i26, %ehc
 do.end:                                           ; preds = %entry
   %sub.i = sub nsw i64 %0, %1
   %conv = sitofp i64 %sub.i to double
-  %div = fdiv double %conv, 3.652500e+02
-  %mul = fmul double %div, 1.200000e+01
+  %div = fdiv nnan double %conv, 3.652500e+02
+  %mul = fmul nnan double %div, 1.200000e+01
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp35)
   store i32 0, ptr %ref.tmp35, align 4, !tbaa !26
   %type_.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp35, i64 4

@@ -650,7 +650,7 @@ _process_axis_timestep.exit:                      ; preds = %20, %2
   %31 = sitofp i32 %30 to double
   %32 = fadd reassoc nsz arcp contract afn double %31, 1.000000e-03
   %33 = fdiv reassoc nsz arcp contract afn double %27, %32
-  %34 = fmul reassoc nsz arcp contract afn double %27, 0x3E847AE147AE147B
+  %34 = fmul reassoc nnan nsz arcp contract afn double %27, 0x3E847AE147AE147B
   %35 = tail call reassoc nsz arcp contract afn double @llvm.trunc.f64(double %34)
   %36 = fcmp reassoc nsz arcp contract afn oeq double %35, 0.000000e+00
   %37 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %33)
@@ -659,7 +659,7 @@ _process_axis_timestep.exit:                      ; preds = %20, %2
   br i1 %or.cond, label %47, label %39
 
 39:                                               ; preds = %23
-  %40 = fmul reassoc nsz arcp contract afn double %35, 6.553600e+06
+  %40 = fmul reassoc nnan nsz arcp contract afn double %35, 6.553600e+06
   %41 = fsub reassoc nsz arcp contract afn double %27, %40
   %42 = fptosi double %41 to i32
   store i32 %42, ptr %25, align 4, !tbaa !63
@@ -671,14 +671,14 @@ _process_axis_timestep.exit:                      ; preds = %20, %2
   br label %73
 
 47:                                               ; preds = %23
-  %48 = fmul reassoc nsz arcp contract afn double %31, 0x3E847AE147AE147B
+  %48 = fmul reassoc nnan nsz arcp contract afn double %31, 0x3E847AE147AE147B
   %49 = tail call reassoc nsz arcp contract afn double @llvm.trunc.f64(double %48)
   %50 = fneg reassoc nsz arcp contract afn double %49
   %51 = fcmp reassoc nsz arcp contract afn une double %49, 0.000000e+00
   br i1 %51, label %52, label %73
 
 52:                                               ; preds = %47
-  %53 = fmul reassoc nsz arcp contract afn double %49, -6.553600e+06
+  %53 = fmul reassoc nnan nsz arcp contract afn double %49, -6.553600e+06
   %54 = fadd reassoc nsz arcp contract afn double %53, %31
   %55 = fptosi double %54 to i32
   store i32 %55, ptr %29, align 4, !tbaa !63

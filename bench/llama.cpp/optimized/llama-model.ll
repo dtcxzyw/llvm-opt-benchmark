@@ -43106,8 +43106,8 @@ _ZNSt13unordered_mapIjP19ggml_backend_bufferSt4hashIjESt8equal_toIjESaISt4pairIK
 
 14180:                                            ; preds = %14177
   %14181 = uitofp i64 %14179 to double
-  %14182 = fmul double %14181, 0x3F50000000000000
-  %14183 = fmul double %14182, 0x3F50000000000000
+  %14182 = fmul nnan double %14181, 0x3F50000000000000
+  %14183 = fmul nnan double %14182, 0x3F50000000000000
   invoke void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.106, ptr noundef nonnull @__func__._ZN11llama_model12load_tensorsER18llama_model_loader, ptr noundef %14176, double noundef %14183)
           to label %14184 unwind label %14186
 
@@ -46245,7 +46245,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94: ; preds = %347
 
 356:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit94
   %357 = uitofp i64 %354 to double
-  %358 = fmul double %357, 0x3D719799812DEA11
+  %358 = fmul nnan double %357, 0x3D719799812DEA11
   call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.145, ptr noundef nonnull @__func__._ZNK11llama_model10print_infoEv, double noundef %358)
   br label %377
 
@@ -46272,7 +46272,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %359
 
 367:                                              ; preds = %365
   %368 = uitofp nneg i64 %354 to double
-  %369 = fmul double %368, 1.000000e-09
+  %369 = fmul nnan double %368, 1.000000e-09
   call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.146, ptr noundef nonnull @__func__._ZNK11llama_model10print_infoEv, double noundef %369)
   br label %377
 
@@ -46282,12 +46282,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %359
   br i1 %371, label %373, label %375
 
 373:                                              ; preds = %370
-  %374 = fmul double %372, 0x3EB0C6F7A0B5ED8D
+  %374 = fmul nnan double %372, 0x3EB0C6F7A0B5ED8D
   call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.147, ptr noundef nonnull @__func__._ZNK11llama_model10print_infoEv, double noundef %374)
   br label %377
 
 375:                                              ; preds = %370
-  %376 = fmul double %372, 1.000000e-03
+  %376 = fmul nnan double %372, 1.000000e-03
   call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.148, ptr noundef nonnull @__func__._ZNK11llama_model10print_infoEv, double noundef %376)
   br label %377
 

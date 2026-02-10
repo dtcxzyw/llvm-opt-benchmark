@@ -106,7 +106,7 @@ define hidden noundef double @_ZN11StringUtils10similarityEPKcmS1_m(ptr noundef 
 
 ._crit_edge.loopexit32:                           ; preds = %..loopexit_crit_edge.us
   %28 = uitofp i64 %.1.us to double
-  %29 = fmul double %28, 2.000000e+00
+  %29 = fmul nnan double %28, 2.000000e+00
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader.lr.ph, %._crit_edge.loopexit32, %7

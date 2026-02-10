@@ -3447,7 +3447,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
 575:                                              ; preds = %545
   %576 = fcmp olt float %571, 0.000000e+00
   %577 = select i1 %576, float 0xC7EFFFFFE0000000, float 0x47EFFFFFE0000000
-  %578 = fmul float %577, %568
+  %578 = fmul nnan float %577, %568
   br label %582
 
 579:                                              ; preds = %545

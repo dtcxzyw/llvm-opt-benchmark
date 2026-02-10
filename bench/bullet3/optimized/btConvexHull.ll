@@ -2464,7 +2464,7 @@ _Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit: ; preds
   %.067221.int = phi i32 [ %.int, %.thread193 ], [ 0, %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit ]
   %.068220 = phi i32 [ %.013.lcssa.i100, %.thread193 ], [ -1, %_Z14maxdirfilteredI9btVector3EiPKT_iRS2_R20btAlignedObjectArrayIiE.exit ]
   %indvar.conv = uitofp nneg i32 %.067221.int to float
-  %79 = fmul float %indvar.conv, 0x3F91DF46A0000000
+  %79 = fmul nnan float %indvar.conv, 0x3F91DF46A0000000
   %80 = tail call noundef float @sinf(float noundef %79) #21, !tbaa !46
   %81 = tail call noundef float @cosf(float noundef %79) #21, !tbaa !46
   %82 = fmul float %32, %80

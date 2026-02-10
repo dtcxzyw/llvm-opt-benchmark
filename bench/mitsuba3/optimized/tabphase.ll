@@ -1137,11 +1137,11 @@ define weak_odr void @_ZNK7mitsuba22TabulatedPhaseFunctionIfN5drjit6MatrixINS_8S
   %24 = and i32 %23, -2
   %25 = sitofp i32 %24 to float
   %26 = bitcast float %19 to i32
-  %27 = fmul contract float %25, 0x3FE9200000000000
+  %27 = fmul nnan contract float %25, 0x3FE9200000000000
   %28 = fsub contract float %20, %27
-  %29 = fmul contract float %25, 0x3F2FB40000000000
+  %29 = fmul nnan contract float %25, 0x3F2FB40000000000
   %30 = fsub contract float %28, %29
-  %31 = fmul contract float %25, 0x3E64442D20000000
+  %31 = fmul nnan contract float %25, 0x3E64442D20000000
   %32 = fsub contract float %30, %31
   %33 = fmul contract float %32, %32
   %34 = fcmp contract oeq float %20, 0x7FF0000000000000

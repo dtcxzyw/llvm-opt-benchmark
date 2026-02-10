@@ -1340,7 +1340,7 @@ inet_opr_codenum.exit:                            ; preds = %mcv_population.exit
   br i1 %105, label %106, label %inet_semi_join_sel.exit
 
 106:                                              ; preds = %103
-  %107 = fmul double %.081, %104
+  %107 = fmul nnan double %.081, %104
   %108 = fcmp ogt double %107, 1.000000e+00
   %109 = select i1 %108, double 1.000000e+00, double %107
   br label %inet_semi_join_sel.exit
@@ -1412,7 +1412,7 @@ inet_semi_join_sel.exit:                          ; preds = %.lr.ph.i107, %.thre
   br i1 %138, label %139, label %inet_semi_join_sel.exit122
 
 139:                                              ; preds = %136
-  %140 = fmul double %.081, %137
+  %140 = fmul nnan double %.081, %137
   %141 = fcmp ogt double %140, 1.000000e+00
   %142 = select i1 %141, double 1.000000e+00, double %140
   br label %inet_semi_join_sel.exit122

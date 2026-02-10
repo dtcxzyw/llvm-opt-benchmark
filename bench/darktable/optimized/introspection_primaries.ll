@@ -461,7 +461,7 @@ define internal fastcc void @_paint_hue_slider(ptr noundef nonnull %0, ptr nound
 20:                                               ; preds = %5, %_apply_trc_if_nonlinear.exit
   %.018 = phi i32 [ 0, %5 ], [ %75, %_apply_trc_if_nonlinear.exit ]
   %21 = uitofp nneg i32 %.018 to float
-  %22 = fmul reassoc nsz arcp contract afn float %21, 0x3FAAF286C0000000
+  %22 = fmul reassoc nnan nsz arcp contract afn float %21, 0x3FAAF286C0000000
   %.reass = fmul reassoc nsz arcp contract afn float %invariant.op, %21
   %23 = fadd reassoc nsz arcp contract afn float %.reass, %8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -503,7 +503,7 @@ define internal fastcc void @_paint_hue_slider(ptr noundef nonnull %0, ptr nound
   %46 = select reassoc nsz arcp contract afn i1 %45, float %44, float %30
   %47 = fptosi float %46 to i32
   %48 = sitofp i32 %47 to float
-  %49 = fsub reassoc nsz arcp contract afn float %44, %48
+  %49 = fsub reassoc nnan nsz arcp contract afn float %44, %48
   %50 = sext i32 %47 to i64
   %51 = getelementptr inbounds float, ptr %33, i64 %50
   %52 = load float, ptr %51, align 4, !tbaa !30
@@ -593,7 +593,7 @@ define internal fastcc void @_paint_purity_slider(ptr noundef nonnull %0, ptr no
   br label %85
 
 31:                                               ; preds = %85
-  %32 = fmul reassoc nsz arcp contract afn float %26, 0x3FAAF286C0000000
+  %32 = fmul reassoc nnan nsz arcp contract afn float %26, 0x3FAAF286C0000000
   %33 = load i32, ptr %16, align 4, !tbaa !90
   %.not.i = icmp eq i32 %33, 0
   br i1 %.not.i, label %80, label %34
@@ -630,7 +630,7 @@ define internal fastcc void @_paint_purity_slider(ptr noundef nonnull %0, ptr no
   %55 = select reassoc nsz arcp contract afn i1 %54, float %53, float %39
   %56 = fptosi float %55 to i32
   %57 = sitofp i32 %56 to float
-  %58 = fsub reassoc nsz arcp contract afn float %53, %57
+  %58 = fsub reassoc nnan nsz arcp contract afn float %53, %57
   %59 = sext i32 %56 to i64
   %60 = getelementptr inbounds float, ptr %42, i64 %59
   %61 = load float, ptr %60, align 4, !tbaa !30

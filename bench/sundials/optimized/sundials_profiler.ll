@@ -548,7 +548,7 @@ define range(i32 -9999, 1) i32 @SUNProfiler_GetTimerResolution(ptr noundef readn
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !25
   %8 = sitofp i64 %7 to double
-  %9 = fmul double %8, 1.000000e-09
+  %9 = fmul nnan double %8, 1.000000e-09
   store double %9, ptr %1, align 8, !tbaa !32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %10
@@ -735,7 +735,7 @@ SUNProfiler_GetTimerResolution.exit:              ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !25
   %24 = sitofp i64 %23 to double
-  %25 = fmul double %24, 1.000000e-09
+  %25 = fmul nnan double %24, 1.000000e-09
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %26 = call i64 @fwrite(ptr nonnull @.str.2, i64 114, i64 1, ptr %1)
   %27 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4) #18

@@ -1224,7 +1224,7 @@ define noundef double @_ZNK9grpc_core6chttp220TransportFlowControl50TargetInitia
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !tbaa !92
   %5 = sitofp i64 %4 to double
-  %6 = fmul double %5, 2.000000e+00
+  %6 = fmul nnan double %5, 2.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = load ptr, ptr %0, align 8, !tbaa !48
   %8 = load ptr, ptr %7, align 8, !tbaa !93, !noalias !98
@@ -1255,7 +1255,7 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit: ; preds = %1
 
 16:                                               ; preds = %14
   %17 = fsub double %6, %.sroa.speculated
-  %18 = fadd double %.pre, -2.000000e-01
+  %18 = fadd nnan double %.pre, -2.000000e-01
   %19 = fmul double %17, %18
   %20 = fdiv double %19, 3.000000e-01
   %21 = fadd double %.sroa.speculated, %20
@@ -1266,8 +1266,8 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit: ; preds = %1
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %22
-  %25 = fsub double 0.000000e+00, %6
-  %26 = fadd double %.pre, -5.000000e-01
+  %25 = fsub nnan double 0.000000e+00, %6
+  %26 = fadd nnan double %.pre, -5.000000e-01
   %27 = fmul double %25, %26
   %28 = fmul double %27, 2.000000e+00
   %29 = fadd double %6, %28
@@ -1447,7 +1447,7 @@ define void @_ZN9grpc_core6chttp220TransportFlowControl14PeriodicUpdateEv(ptr de
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !92
   %17 = sitofp i64 %16 to double
-  %18 = fmul double %17, 2.000000e+00
+  %18 = fmul nnan double %17, 2.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %19 = load ptr, ptr %1, align 8, !tbaa !48
   %20 = load ptr, ptr %19, align 8, !tbaa !93, !noalias !115
@@ -1478,7 +1478,7 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i: ; preds = %14
 
 28:                                               ; preds = %26
   %29 = fsub double %18, %.sroa.speculated.i
-  %30 = fadd double %.pre.i, -2.000000e-01
+  %30 = fadd nnan double %.pre.i, -2.000000e-01
   %31 = fmul double %29, %30
   %32 = fdiv double %31, 3.000000e-01
   %33 = fadd double %.sroa.speculated.i, %32
@@ -1489,8 +1489,8 @@ _ZNK9grpc_core11MemoryOwner15GetPressureInfoEv.exit.i: ; preds = %14
   br i1 %35, label %36, label %_ZNK9grpc_core6chttp220TransportFlowControl50TargetInitialWindowSizeBasedOnMemoryPressureAndBdpEv.exit
 
 36:                                               ; preds = %34
-  %37 = fsub double 0.000000e+00, %18
-  %38 = fadd double %.pre.i, -5.000000e-01
+  %37 = fsub nnan double 0.000000e+00, %18
+  %38 = fadd nnan double %.pre.i, -5.000000e-01
   %39 = fmul double %37, %38
   %40 = fmul double %39, 2.000000e+00
   %41 = fadd double %18, %40

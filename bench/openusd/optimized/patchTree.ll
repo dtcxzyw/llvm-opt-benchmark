@@ -1802,7 +1802,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE6resizeEm.exit:
   %100 = shl nuw nsw i32 1, %92
   %101 = sub nsw i32 %100, %72
   %102 = sitofp i32 %101 to double
-  %103 = fadd double %102, -2.500000e-01
+  %103 = fadd nnan double %102, -2.500000e-01
   %104 = sub nsw i32 %100, %74
   %105 = sitofp i32 %104 to double
   %106 = fadd double %105, -2.500000e-01
@@ -1811,7 +1811,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Bfr9PatchTree8TreeNodeESaIS4_EE6resizeEm.exit:
 107:                                              ; preds = %88
   %108 = trunc nuw nsw i64 %sum.shift.i to i16
   %109 = uitofp nneg i16 %108 to double
-  %110 = fadd double %109, 2.500000e-01
+  %110 = fadd nnan double %109, 2.500000e-01
   %111 = trunc i64 %sum.shift.i44 to i16
   %112 = and i16 %111, 1023
   %113 = uitofp nneg i16 %112 to double

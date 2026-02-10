@@ -41934,14 +41934,14 @@ common.ret:                                       ; preds = %"_ZN4core3ptr59drop
   %84 = lshr i32 %80, 9
   %85 = or disjoint i32 %84, 1065353216
   %86 = bitcast i32 %85 to float
-  %87 = fadd float %86, -1.000000e+00
+  %87 = fadd nnan float %86, -1.000000e+00
   %88 = fmul float %82, %87
   %89 = fadd float %83, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !9242
   %90 = uitofp i64 %76 to float
   %91 = uitofp nneg i32 %78 to float
-  %92 = fdiv float %91, 1.000000e+09
-  %93 = fadd float %92, %90
+  %92 = fdiv nnan float %91, 1.000000e+09
+  %93 = fadd nnan float %92, %90
   %94 = fmul float %93, %89
   %95 = fcmp olt float %94, 0.000000e+00
   br i1 %95, label %149, label %96

@@ -4869,7 +4869,7 @@ define void @_ZN6LibRaw10ljpeg_idctEP5jhead(ptr noundef nonnull align 8 derefere
   %6 = trunc nuw nsw i64 %indvars.iv to i32
   %7 = and i32 %6, 31
   %8 = uitofp nneg i32 %7 to double
-  %9 = fmul reassoc nsz arcp contract afn double %8, 0x3FC921FB54442D18
+  %9 = fmul reassoc nnan nsz arcp contract afn double %8, 0x3FC921FB54442D18
   %10 = tail call reassoc nsz arcp contract afn double @llvm.cos.f64(double %9)
   %11 = fmul reassoc nsz arcp contract afn double %10, 5.000000e-01
   %12 = fptrunc reassoc nsz arcp contract afn double %11 to float
@@ -6595,18 +6595,18 @@ define void @_ZN6LibRaw18nikon_yuv_load_rawEv(ptr noundef nonnull align 8 derefe
   %55 = load i32, ptr %54, align 4, !tbaa !101
   %56 = sitofp i32 %55 to double
   %57 = sitofp i32 %52 to double
-  %58 = fmul reassoc nsz arcp contract afn double %57, 0x3FF5EE685DB76B3C
+  %58 = fmul reassoc nnan nsz arcp contract afn double %57, 0x3FF5EE685DB76B3C
   %59 = fadd reassoc nsz arcp contract afn double %58, %56
   %60 = fptosi double %59 to i32
   store i32 %60, ptr %3, align 4, !tbaa !101
   %61 = sitofp i32 %51 to double
-  %.neg = fmul reassoc nsz arcp contract afn double %57, -6.980010e-01
-  %.neg42 = fmul reassoc nsz arcp contract afn double %61, -3.376330e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %57, -6.980010e-01
+  %.neg42 = fmul reassoc nnan nsz arcp contract afn double %61, -3.376330e-01
   %.neg43 = fadd reassoc nsz arcp contract afn double %.neg, %56
   %62 = fadd reassoc nsz arcp contract afn double %.neg43, %.neg42
   %63 = fptosi double %62 to i32
   store i32 %63, ptr %17, align 4, !tbaa !101
-  %64 = fmul reassoc nsz arcp contract afn double %61, 0x3FFBB8194C016052
+  %64 = fmul reassoc nnan nsz arcp contract afn double %61, 0x3FFBB8194C016052
   %65 = fadd reassoc nsz arcp contract afn double %64, %56
   %66 = fptosi double %65 to i32
   store i32 %66, ptr %18, align 4, !tbaa !101

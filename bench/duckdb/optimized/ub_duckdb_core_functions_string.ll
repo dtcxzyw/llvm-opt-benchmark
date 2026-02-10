@@ -58755,7 +58755,7 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit18.thread.i.i.i.i: ; preds =
 ._crit_edge.i.i.i.i:                              ; preds = %88, %.lr.ph.i.i.i.i
   %.030.lcssa.ph.i.i.i.i = phi i64 [ %83, %88 ], [ %.03050.i.i.i.i, %.lr.ph.i.i.i.i ]
   %90 = uitofp nneg i64 %.030.lcssa.ph.i.i.i.i to double
-  %91 = fmul double %90, 1.000000e-01
+  %91 = fmul nnan double %90, 1.000000e-01
   br label %_ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit.i
 
 _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit.i: ; preds = %._crit_edge.i.i.i.i, %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit18.thread.i.i.i.i
@@ -59021,7 +59021,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i.i.i.i: ; pred
 ._crit_edge.i.i.i91.i:                            ; preds = %206, %.lr.ph.i.i.i88.i
   %.030.lcssa.ph.i.i.i92.i = phi i64 [ %201, %206 ], [ %.03050.i.i.i89.i, %.lr.ph.i.i.i88.i ]
   %208 = uitofp nneg i64 %.030.lcssa.ph.i.i.i92.i to double
-  %209 = fmul double %208, 1.000000e-01
+  %209 = fmul nnan double %208, 1.000000e-01
   br label %_ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit101.i
 
 _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit101.i: ; preds = %._crit_edge.i.i.i91.i, %194
@@ -59096,7 +59096,7 @@ _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit101.i: ; preds 
 ._crit_edge.i.i.i107.i:                           ; preds = %238, %.lr.ph.i.i.i104.i
   %.030.lcssa.ph.i.i.i108.i = phi i64 [ %233, %238 ], [ %.03050.i.i.i105.i, %.lr.ph.i.i.i104.i ]
   %240 = uitofp nneg i64 %.030.lcssa.ph.i.i.i108.i to double
-  %241 = fmul double %240, 1.000000e-01
+  %241 = fmul nnan double %240, 1.000000e-01
   br label %_ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit117.i
 
 _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit117.i: ; preds = %._crit_edge.i.i.i107.i, %222
@@ -59168,7 +59168,7 @@ _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit117.i: ; preds 
 ._crit_edge.i.i.i123.i:                           ; preds = %266, %.lr.ph.i.i.i120.i
   %.030.lcssa.ph.i.i.i124.i = phi i64 [ %261, %266 ], [ %.03050.i.i.i121.i, %.lr.ph.i.i.i120.i ]
   %268 = uitofp nneg i64 %.030.lcssa.ph.i.i.i124.i to double
-  %269 = fmul double %268, 1.000000e-01
+  %269 = fmul nnan double %268, 1.000000e-01
   br label %_ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit133.i
 
 _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit133.i: ; preds = %._crit_edge.i.i.i123.i, %254
@@ -59436,7 +59436,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i63.i.i.i: ; pr
 ._crit_edge.i.i.i139.i:                           ; preds = %385, %.lr.ph.i.i.i136.i
   %.030.lcssa.ph.i.i.i140.i = phi i64 [ %380, %385 ], [ %.03050.i.i.i137.i, %.lr.ph.i.i.i136.i ]
   %387 = uitofp nneg i64 %.030.lcssa.ph.i.i.i140.i to double
-  %388 = fmul double %387, 1.000000e-01
+  %388 = fmul nnan double %387, 1.000000e-01
   br label %_ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit149.i
 
 _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit149.i: ; preds = %._crit_edge.i.i.i139.i, %373
@@ -59511,7 +59511,7 @@ _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit149.i: ; preds 
 ._crit_edge.i.i.i155.i:                           ; preds = %417, %.lr.ph.i.i.i152.i
   %.030.lcssa.ph.i.i.i156.i = phi i64 [ %412, %417 ], [ %.03050.i.i.i153.i, %.lr.ph.i.i.i152.i ]
   %419 = uitofp nneg i64 %.030.lcssa.ph.i.i.i156.i to double
-  %420 = fmul double %419, 1.000000e-01
+  %420 = fmul nnan double %419, 1.000000e-01
   br label %_ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit165.i
 
 _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit165.i: ; preds = %._crit_edge.i.i.i155.i, %401
@@ -59583,7 +59583,7 @@ _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit165.i: ; preds 
 ._crit_edge.i.i.i171.i:                           ; preds = %445, %.lr.ph.i.i.i168.i
   %.030.lcssa.ph.i.i.i172.i = phi i64 [ %440, %445 ], [ %.03050.i.i.i169.i, %.lr.ph.i.i.i168.i ]
   %447 = uitofp nneg i64 %.030.lcssa.ph.i.i.i172.i to double
-  %448 = fmul double %447, 1.000000e-01
+  %448 = fmul nnan double %447, 1.000000e-01
   br label %_ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit181.i
 
 _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit181.i: ; preds = %._crit_edge.i.i.i171.i, %433
@@ -59827,7 +59827,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit.i.i108.i.i.i: ; p
 ._crit_edge.i.i.i187.i:                           ; preds = %556, %.lr.ph.i.i.i184.i
   %.030.lcssa.ph.i.i.i188.i = phi i64 [ %551, %556 ], [ %.03050.i.i.i185.i, %.lr.ph.i.i.i184.i ]
   %558 = uitofp nneg i64 %.030.lcssa.ph.i.i.i188.i to double
-  %559 = fmul double %558, 1.000000e-01
+  %559 = fmul nnan double %558, 1.000000e-01
   br label %_ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit197.i
 
 _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit197.i: ; preds = %._crit_edge.i.i.i187.i, %.lr.ph.i.i110.i.i.i
@@ -59905,7 +59905,7 @@ _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit197.i: ; preds 
 ._crit_edge.i.i.i203.i:                           ; preds = %590, %.lr.ph.i.i.i200.i
   %.030.lcssa.ph.i.i.i204.i = phi i64 [ %585, %590 ], [ %.03050.i.i.i201.i, %.lr.ph.i.i.i200.i ]
   %592 = uitofp nneg i64 %.030.lcssa.ph.i.i.i204.i to double
-  %593 = fmul double %592, 1.000000e-01
+  %593 = fmul nnan double %592, 1.000000e-01
   br label %_ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit213.i
 
 _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit213.i: ; preds = %._crit_edge.i.i.i203.i, %573
@@ -59985,7 +59985,7 @@ _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit213.i: ; preds 
 ._crit_edge.i.i.i219.i:                           ; preds = %623, %.lr.ph.i.i.i216.i
   %.030.lcssa.ph.i.i.i220.i = phi i64 [ %618, %623 ], [ %.03050.i.i.i217.i, %.lr.ph.i.i.i216.i ]
   %625 = uitofp nneg i64 %.030.lcssa.ph.i.i.i220.i to double
-  %626 = fmul double %625, 1.000000e-01
+  %626 = fmul nnan double %625, 1.000000e-01
   br label %_ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit229.i
 
 _ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8string_tES2_RKd.exit229.i: ; preds = %._crit_edge.i.i.i219.i, %606
@@ -60136,7 +60136,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit63.us.us.i.i.i.i.i: ; preds = %.lr.
 ._crit_edge.i.i.i235.i:                           ; preds = %685, %.lr.ph.i.i.i232.i
   %.030.lcssa.ph.i.i.i236.i = phi i64 [ %680, %685 ], [ %.03050.i.i.i233.i, %.lr.ph.i.i.i232.i ]
   %687 = uitofp nneg i64 %.030.lcssa.ph.i.i.i236.i to double
-  %688 = fmul double %687, 1.000000e-01
+  %688 = fmul nnan double %687, 1.000000e-01
   br label %_ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit.i.i
 
 _ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit.i.i: ; preds = %._crit_edge.i.i.i235.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit63.us.us.i.i.i.i.i
@@ -60213,7 +60213,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit63.us.i.i.i.i.i: ; preds = %.lr.ph7
 ._crit_edge.i.i.i251.i:                           ; preds = %718, %.lr.ph.i.i.i248.i
   %.030.lcssa.ph.i.i.i252.i = phi i64 [ %713, %718 ], [ %.03050.i.i.i249.i, %.lr.ph.i.i.i248.i ]
   %720 = uitofp nneg i64 %.030.lcssa.ph.i.i.i252.i to double
-  %721 = fmul double %720, 1.000000e-01
+  %721 = fmul nnan double %720, 1.000000e-01
   br label %_ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit.i253.i
 
 _ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit.i253.i: ; preds = %._crit_edge.i.i.i251.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit63.us.i.i.i.i.i
@@ -60293,7 +60293,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit63.us75.i.i.i.i.i: ; preds = %.lr.p
 ._crit_edge.i.i.i268.i:                           ; preds = %751, %.lr.ph.i.i.i265.i
   %.030.lcssa.ph.i.i.i269.i = phi i64 [ %746, %751 ], [ %.03050.i.i.i266.i, %.lr.ph.i.i.i265.i ]
   %753 = uitofp nneg i64 %.030.lcssa.ph.i.i.i269.i to double
-  %754 = fmul double %753, 1.000000e-01
+  %754 = fmul nnan double %753, 1.000000e-01
   br label %_ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit.i270.i
 
 _ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit.i270.i: ; preds = %._crit_edge.i.i.i268.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit63.us75.i.i.i.i.i
@@ -60417,7 +60417,7 @@ _ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit60.thread.i.i.i.i.i: ; p
 ._crit_edge.i.i.i285.i:                           ; preds = %806, %.lr.ph.i.i.i282.i
   %.030.lcssa.ph.i.i.i286.i = phi i64 [ %801, %806 ], [ %.03050.i.i.i283.i, %.lr.ph.i.i.i282.i ]
   %808 = uitofp nneg i64 %.030.lcssa.ph.i.i.i286.i to double
-  %809 = fmul double %808, 1.000000e-01
+  %809 = fmul nnan double %808, 1.000000e-01
   br label %_ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit.i287.i
 
 _ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit.i287.i: ; preds = %._crit_edge.i.i.i285.i, %_ZNK6duckdb21TemplatedValidityMaskImE10RowIsValidEm.exit60.thread.i.i.i.i.i
@@ -60526,7 +60526,7 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit63.i.i.i.i.i: ; preds = %.lr.ph74.s
 ._crit_edge.i.i.i302.i:                           ; preds = %855, %.lr.ph.i.i.i299.i
   %.030.lcssa.ph.i.i.i303.i = phi i64 [ %850, %855 ], [ %.03050.i.i.i300.i, %.lr.ph.i.i.i299.i ]
   %857 = uitofp nneg i64 %.030.lcssa.ph.i.i.i303.i to double
-  %858 = fmul double %857, 1.000000e-01
+  %858 = fmul nnan double %857, 1.000000e-01
   br label %_ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit.i304.i
 
 _ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit.i304.i: ; preds = %._crit_edge.i.i.i302.i, %_ZNK6duckdb15SelectionVector9get_indexEm.exit63.i.i.i.i.i
@@ -83938,7 +83938,7 @@ define internal noundef double @_ZN6duckdbL25JaroWinklerScalarFunctionERKNS_8str
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %25
   %.030.lcssa.ph.i.i = phi i64 [ %20, %25 ], [ %.03050.i.i, %.lr.ph.i.i ]
   %27 = uitofp nneg i64 %.030.lcssa.ph.i.i to double
-  %28 = fmul double %27, 1.000000e-01
+  %28 = fmul nnan double %27, 1.000000e-01
   %29 = fcmp ogt double %18, 0x3FE6666666666666
   br i1 %29, label %31, label %_ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit
 

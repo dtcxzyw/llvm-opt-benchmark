@@ -1953,7 +1953,7 @@ define void @_ZN13sentencepiece3bpe7Trainer19UpdateActiveSymbolsEv(ptr noundef n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %5 = load i64, ptr %4, align 8, !tbaa !28
   %6 = uitofp i64 %5 to float
-  %7 = fmul float %6, 0x3FA99999A0000000
+  %7 = fmul nnan float %6, 0x3FA99999A0000000
   %8 = fptosi float %7 to i32
   %9 = ptrtoint ptr %.sroa.15.0.lcssa to i64
   %10 = ptrtoint ptr %.sroa.064.0.lcssa to i64

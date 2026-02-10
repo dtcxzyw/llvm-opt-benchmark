@@ -4661,8 +4661,8 @@ define internal fastcc void @dissect_sub_clv_tlv_22_22_23_141_222_223(ptr nounde
 313:                                              ; preds = %306
   %314 = call i32 @tvb_get_uint24(ptr noundef %0, i32 noundef %311, i32 noundef 0)
   %315 = uitofp i32 %314 to float
-  %316 = fpext float %315 to double
-  %317 = fmul double %316, 3.000000e-06
+  %316 = fpext nnan ninf float %315 to double
+  %317 = fmul nnan double %316, 3.000000e-06
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %312, ptr noundef nonnull @.str.837, double noundef %317)
   br label %dissect_subclv_admin_group.exit
 

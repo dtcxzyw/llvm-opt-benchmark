@@ -64,7 +64,7 @@ define noundef signext range(i16 18761, 19790) i16 @_ZN6LibRaw16guess_byte_order
   %37 = or disjoint i32 %34, %36
   %38 = sub nsw i32 %30, %37
   %39 = sitofp i32 %38 to double
-  %40 = fmul reassoc nsz arcp contract afn double %39, %39
+  %40 = fmul reassoc nnan nsz arcp contract afn double %39, %39
   %41 = load double, ptr %indvars.iv.sroa.phi, align 8, !tbaa !74
   %42 = fadd reassoc nsz arcp contract afn double %40, %41
   store double %42, ptr %indvars.iv.sroa.phi, align 8, !tbaa !74

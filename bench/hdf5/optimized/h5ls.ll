@@ -1940,7 +1940,7 @@ print_string.exit:                                ; preds = %.preheader110
 
 144:                                              ; preds = %138
   %145 = uitofp i64 %122 to double
-  %146 = fmul double %145, 1.000000e+02
+  %146 = fmul nnan double %145, 1.000000e+02
   %147 = uitofp i64 %123 to double
   %148 = fdiv double %146, %147
   %149 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef nonnull %17, ptr noundef nonnull @.str.91, double noundef %148) #20

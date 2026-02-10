@@ -3130,7 +3130,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i180.i = load i16, ptr %111, align 1, !alias.scope !462, !noalias !425
   %112 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i180.i)
   %113 = sitofp i16 %112 to float
-  %114 = fmul float %113, 0x3F10000000000000
+  %114 = fmul nnan float %113, 0x3F10000000000000
   br label %128
 
 115:                                              ; preds = %102
@@ -3145,12 +3145,12 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i183.i = load i16, ptr %120, align 1, !alias.scope !471, !noalias !425
   %121 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i183.i)
   %122 = sitofp i16 %121 to float
-  %123 = fmul float %122, 0x3F10000000000000
+  %123 = fmul nnan float %122, 0x3F10000000000000
   %124 = getelementptr inbounds i8, ptr %25, i64 %103
   %.val.i.i.i.i190.i = load i16, ptr %124, align 1, !alias.scope !480, !noalias !425
   %125 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i190.i)
   %126 = sitofp i16 %125 to float
-  %127 = fmul float %126, 0x3F10000000000000
+  %127 = fmul nnan float %126, 0x3F10000000000000
   br label %128
 
 128:                                              ; preds = %152, %119, %110, %99
@@ -3170,7 +3170,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i194.i = load i16, ptr %133, align 1, !alias.scope !489, !noalias !425
   %134 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i194.i)
   %135 = sitofp i16 %134 to float
-  %136 = fmul float %135, 0x3F10000000000000
+  %136 = fmul nnan float %135, 0x3F10000000000000
   %137 = add i64 %.sroa.7113.1, 4
   %138 = icmp ugt i64 %96, -3
   %139 = icmp ugt i64 %137, %24
@@ -3182,7 +3182,7 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i201.i = load i16, ptr %141, align 1, !alias.scope !498, !noalias !425
   %142 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i201.i)
   %143 = sitofp i16 %142 to float
-  %144 = fmul float %143, 0x3F10000000000000
+  %144 = fmul nnan float %143, 0x3F10000000000000
   %145 = add i64 %.sroa.7113.1, 6
   %146 = icmp ugt i64 %137, -3
   %147 = icmp ugt i64 %145, %24
@@ -3201,12 +3201,12 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
   %.val.i.i.i.i208.i = load i16, ptr %153, align 1, !alias.scope !507, !noalias !425
   %154 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i208.i)
   %155 = sitofp i16 %154 to float
-  %156 = fmul float %155, 0x3F10000000000000
+  %156 = fmul nnan float %155, 0x3F10000000000000
   %157 = getelementptr inbounds i8, ptr %25, i64 %145
   %.val.i.i.i.i215.i = load i16, ptr %157, align 1, !alias.scope !516, !noalias !425
   %158 = call i16 @llvm.bswap.i16(i16 %.val.i.i.i.i215.i)
   %159 = sitofp i16 %158 to float
-  %160 = fmul float %159, 0x3F10000000000000
+  %160 = fmul nnan float %159, 0x3F10000000000000
   br label %128
 
 161:                                              ; preds = %128
@@ -38957,7 +38957,7 @@ define { double, double } @_ZN5typst6layout5frame5Frame6resize17h1d05ba3e2c373ce
   br label %_ZN4core3ops8function5FnMut8call_mut17hb24614bfef0794f5E.llvm.2456044669961016091.exit.i
 
 33:                                               ; preds = %.critedge
-  %34 = fmul double %.0.i.i.i.i2.i, 5.000000e-01
+  %34 = fmul nnan double %.0.i.i.i.i2.i, 5.000000e-01
   br label %_ZN4core3ops8function5FnMut8call_mut17hb24614bfef0794f5E.llvm.2456044669961016091.exit.i
 
 _ZN4core3ops8function5FnMut8call_mut17hb24614bfef0794f5E.llvm.2456044669961016091.exit.i: ; preds = %33, %32, %.critedge
@@ -38975,7 +38975,7 @@ _ZN4core3ops8function5FnMut8call_mut17hb24614bfef0794f5E.llvm.245604466996101609
   br label %"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17hde4aacd3ba88b3f3E.exit"
 
 37:                                               ; preds = %_ZN4core3ops8function5FnMut8call_mut17hb24614bfef0794f5E.llvm.2456044669961016091.exit.i
-  %38 = fmul double %.0.i.i.i2.i4.i, 5.000000e-01
+  %38 = fmul nnan double %.0.i.i.i2.i4.i, 5.000000e-01
   br label %"_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17hde4aacd3ba88b3f3E.exit"
 
 "_ZN5typst6layout4axes13Axes$LT$T$GT$7zip_map17hde4aacd3ba88b3f3E.exit": ; preds = %_ZN4core3ops8function5FnMut8call_mut17hb24614bfef0794f5E.llvm.2456044669961016091.exit.i, %36, %37
@@ -57004,7 +57004,7 @@ _ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit.us.i.i: ; preds = %.lr.ph.
   br i1 %341, label %_ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit.i.i, label %342
 
 342:                                              ; preds = %338
-  %343 = fmul double %.0.i.i.i2.i48.i, %339
+  %343 = fmul nnan double %.0.i.i.i2.i48.i, %339
   %344 = fcmp ugt double %343, 0.000000e+00
   br i1 %344, label %345, label %_ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit.i.i
 
@@ -65868,7 +65868,7 @@ _ZN5typst6layout4grid6layout12GridLayouter13layout_footer17h1fa2810d192e95f0E.ex
   br i1 %or.cond.i, label %266, label %_ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit
 
 266:                                              ; preds = %258
-  %267 = fmul double %261, %.0.i.i.i2.i
+  %267 = fmul nnan double %261, %.0.i.i.i2.i
   %268 = fcmp ugt double %267, 0.000000e+00
   br i1 %268, label %269, label %_ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit
 
@@ -75638,7 +75638,7 @@ default.unreachable:                              ; preds = %169
   br label %176
 
 174:                                              ; preds = %169
-  %175 = fmul double %.0.i.i.i2.i, 5.000000e-01
+  %175 = fmul nnan double %.0.i.i.i2.i, 5.000000e-01
   br label %176
 
 176:                                              ; preds = %166, %169, %173, %174

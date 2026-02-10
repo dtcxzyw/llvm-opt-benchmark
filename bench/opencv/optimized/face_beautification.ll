@@ -41262,7 +41262,7 @@ define linkonce_odr hidden void @_ZN6custom13getEyeEllipseERKN2cv6Point_IiEES4_(
   %24 = sub nsw i32 %.val24, %.val26
   %25 = sitofp i32 %23 to double
   %26 = sitofp i32 %24 to double
-  %27 = fmul double %26, %26
+  %27 = fmul nnan double %26, %26
   %28 = tail call double @llvm.fmuladd.f64(double %25, double %25, double %27)
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %28)
   %29 = fmul double %sqrt.i, 5.000000e-01
@@ -41340,7 +41340,7 @@ define linkonce_odr hidden void @_ZN6custom17getPatchedEllipseERKN2cv6Point_IiEE
   %27 = sub nsw i32 %.val30, %.val32
   %28 = sitofp i32 %26 to double
   %29 = sitofp i32 %27 to double
-  %30 = fmul double %29, %29
+  %30 = fmul nnan double %29, %29
   %31 = tail call double @llvm.fmuladd.f64(double %28, double %28, double %30)
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %31)
   %32 = fmul double %sqrt.i, 5.000000e-01
@@ -41354,7 +41354,7 @@ define linkonce_odr hidden void @_ZN6custom17getPatchedEllipseERKN2cv6Point_IiEE
   %36 = sub nsw i32 %12, %.val36
   %37 = sitofp i32 %35 to double
   %38 = sitofp i32 %36 to double
-  %39 = fmul double %38, %38
+  %39 = fmul nnan double %38, %38
   %40 = tail call double @llvm.fmuladd.f64(double %37, double %37, double %39)
   %sqrt.i57 = tail call noundef double @llvm.sqrt.f64(double %40)
   %41 = tail call i64 @lround(double noundef %sqrt.i57) #32, !tbaa !56
@@ -41375,7 +41375,7 @@ define linkonce_odr hidden void @_ZN6custom17getPatchedEllipseERKN2cv6Point_IiEE
   %45 = sub nsw i32 %12, %.val40
   %46 = sitofp i32 %44 to double
   %47 = sitofp i32 %45 to double
-  %48 = fmul double %47, %47
+  %48 = fmul nnan double %47, %47
   %49 = call double @llvm.fmuladd.f64(double %46, double %46, double %48)
   %sqrt.i62 = call noundef double @llvm.sqrt.f64(double %49)
   %50 = call i64 @lround(double noundef %sqrt.i62) #32, !tbaa !56
@@ -41481,7 +41481,7 @@ define linkonce_odr hidden void @_ZN6custom18getForeheadEllipseERKN2cv6Point_IiE
   %25 = sub nsw i32 %.val27, %.val29
   %26 = sitofp i32 %24 to double
   %27 = sitofp i32 %25 to double
-  %28 = fmul double %27, %27
+  %28 = fmul nnan double %27, %27
   %29 = tail call double @llvm.fmuladd.f64(double %26, double %26, double %28)
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %29)
   %30 = fmul double %sqrt.i, 5.000000e-01
@@ -41493,7 +41493,7 @@ define linkonce_odr hidden void @_ZN6custom18getForeheadEllipseERKN2cv6Point_IiE
   %34 = sub nsw i32 %10, %.val33
   %35 = sitofp i32 %33 to double
   %36 = sitofp i32 %34 to double
-  %37 = fmul double %36, %36
+  %37 = fmul nnan double %36, %36
   %38 = tail call double @llvm.fmuladd.f64(double %35, double %35, double %37)
   %sqrt.i48 = tail call noundef double @llvm.sqrt.f64(double %38)
   %39 = fmul double %sqrt.i48, 2.000000e+00

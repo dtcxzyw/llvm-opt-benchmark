@@ -24669,7 +24669,7 @@ invoke.cont84:                                    ; preds = %.noexc222
 .noexc230:                                        ; preds = %invoke.cont84
   %add.ptr.i226 = getelementptr inbounds nuw i8, ptr %ss.i, i64 16
   %conv.i = sitofp i64 %69 to double
-  %mul.i = fmul double %conv.i, 1.000000e-03
+  %mul.i = fmul nnan double %conv.i, 1.000000e-03
   %call.i = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i226, double noundef %mul.i)
           to label %invoke.cont.i228 unwind label %lpad.i227, !noalias !322
 
@@ -25702,7 +25702,7 @@ entry:
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ss)
   %add.ptr = getelementptr inbounds nuw i8, ptr %ss, i64 16
   %conv = sitofp i64 %ms to double
-  %mul = fmul double %conv, 1.000000e-03
+  %mul = fmul nnan double %conv, 1.000000e-03
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr, double noundef %mul)
           to label %invoke.cont unwind label %lpad
 
@@ -27028,7 +27028,7 @@ invoke.cont80:                                    ; preds = %.noexc160
 .noexc167:                                        ; preds = %invoke.cont80
   %add.ptr.i163 = getelementptr inbounds nuw i8, ptr %ss.i, i64 16
   %conv.i = sitofp i64 %25 to double
-  %mul.i = fmul double %conv.i, 1.000000e-03
+  %mul.i = fmul nnan double %conv.i, 1.000000e-03
   %call.i164 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i163, double noundef %mul.i)
           to label %invoke.cont.i166 unwind label %lpad.i165, !noalias !377
 
@@ -28615,7 +28615,7 @@ invoke.cont82:                                    ; preds = %.noexc193
 .noexc201:                                        ; preds = %invoke.cont82
   %add.ptr.i196 = getelementptr inbounds nuw i8, ptr %ss.i, i64 16
   %conv.i = sitofp i64 %55 to double
-  %mul.i = fmul double %conv.i, 1.000000e-03
+  %mul.i = fmul nnan double %conv.i, 1.000000e-03
   %call.i197 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i196, double noundef %mul.i)
           to label %invoke.cont.i199 unwind label %lpad.i198, !noalias !412
 

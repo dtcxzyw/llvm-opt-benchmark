@@ -5752,19 +5752,19 @@ define internal fastcc void @print_pkt_side_data(ptr noundef %0, ptr noundef rea
   %70 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %71 = load i32, ptr %70, align 4, !tbaa !323
   %72 = sitofp i32 %71 to double
-  %73 = fmul nsz double %72, 0x3EF0000000000000
+  %73 = fmul nnan nsz double %72, 0x3EF0000000000000
   %74 = fptosi double %73 to i64
   call void @avtext_print_integer(ptr noundef %0, ptr noundef nonnull @.str.364, i64 noundef %74, i32 noundef 0) #20
   %75 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %76 = load i32, ptr %75, align 4, !tbaa !324
   %77 = sitofp i32 %76 to double
-  %78 = fmul nsz double %77, 0x3EF0000000000000
+  %78 = fmul nnan nsz double %77, 0x3EF0000000000000
   %79 = fptosi double %78 to i64
   call void @avtext_print_integer(ptr noundef %0, ptr noundef nonnull @.str.365, i64 noundef %79, i32 noundef 0) #20
   %80 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %81 = load i32, ptr %80, align 4, !tbaa !325
   %82 = sitofp i32 %81 to double
-  %83 = fmul nsz double %82, 0x3EF0000000000000
+  %83 = fmul nnan nsz double %82, 0x3EF0000000000000
   %84 = fptosi double %83 to i64
   call void @avtext_print_integer(ptr noundef %0, ptr noundef nonnull @.str.366, i64 noundef %84, i32 noundef 0) #20
   br label %print_ambient_viewing_environment.exit

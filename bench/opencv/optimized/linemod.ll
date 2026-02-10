@@ -3413,7 +3413,7 @@ _ZNKSt6vectorIP9_IplImageSaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %_ZN2
   %58 = load i32, ptr %57, align 4, !tbaa !142
   %59 = sub nsw i32 %56, %58
   %60 = sitofp i32 %59 to float
-  %61 = fmul float %60, %60
+  %61 = fmul nnan float %60, %60
   %62 = call float @llvm.fmuladd.f32(float %54, float %54, float %61)
   %sqrt.i = call float @llvm.sqrt.f32(float %62)
   %63 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv.i
@@ -3459,12 +3459,12 @@ _ZNSt6vectorIN2cv7Point3_IdEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: ; pred
   br i1 %77, label %78, label %.loopexit428.i
 
 78:                                               ; preds = %.lr.ph459.i
-  %79 = fmul float %76, 2.000000e+02
+  %79 = fmul nnan float %76, 2.000000e+02
   %80 = fdiv float %79, %.0.lcssa.i
   %81 = insertelement <4 x float> poison, float %80, i64 0
   %82 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %81)
   %83 = sitofp i32 %82 to float
-  %84 = fdiv float %76, %83
+  %84 = fdiv nnan float %76, %83
   %85 = icmp sgt i32 %82, 0
   br i1 %85, label %.lr.ph450.i, label %.loopexit428.i
 

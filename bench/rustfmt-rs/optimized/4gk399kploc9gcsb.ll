@@ -18893,27 +18893,27 @@ define void @_ZN15rustfmt_nightly6config7options15WidthHeuristics6scaled17hdd6d5
 
 4:                                                ; preds = %2
   %5 = uitofp i64 %1 to float
-  %6 = fdiv float %5, 1.000000e+02
-  %7 = fmul float %6, 1.000000e+01
+  %6 = fdiv nnan float %5, 1.000000e+02
+  %7 = fmul nnan float %6, 1.000000e+01
   %8 = tail call float @llvm.round.f32(float %7)
   %9 = fdiv float %8, 1.000000e+01
   br label %10
 
 10:                                               ; preds = %2, %4
   %.0 = phi float [ %9, %4 ], [ 1.000000e+00, %2 ]
-  %11 = fmul float %.0, 6.000000e+01
+  %11 = fmul nnan float %.0, 6.000000e+01
   %12 = tail call float @llvm.round.f32(float %11)
   %13 = tail call i64 @llvm.fptoui.sat.i64.f32(float %12)
-  %14 = fmul float %.0, 7.000000e+01
+  %14 = fmul nnan float %.0, 7.000000e+01
   %15 = tail call float @llvm.round.f32(float %14)
   %16 = tail call i64 @llvm.fptoui.sat.i64.f32(float %15)
-  %17 = fmul float %.0, 1.800000e+01
+  %17 = fmul nnan float %.0, 1.800000e+01
   %18 = tail call float @llvm.round.f32(float %17)
   %19 = tail call i64 @llvm.fptoui.sat.i64.f32(float %18)
-  %20 = fmul float %.0, 3.500000e+01
+  %20 = fmul nnan float %.0, 3.500000e+01
   %21 = tail call float @llvm.round.f32(float %20)
   %22 = tail call i64 @llvm.fptoui.sat.i64.f32(float %21)
-  %23 = fmul float %.0, 5.000000e+01
+  %23 = fmul nnan float %.0, 5.000000e+01
   %24 = tail call float @llvm.round.f32(float %23)
   %25 = tail call i64 @llvm.fptoui.sat.i64.f32(float %24)
   store i64 %13, ptr %0, align 8

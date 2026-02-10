@@ -1126,7 +1126,7 @@ define void @dlasq2_(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captu
   store double %563, ptr %564, align 8, !tbaa !7
   %565 = load i32, ptr %12, align 4, !tbaa !3
   %566 = sitofp i32 %565 to double
-  %567 = fmul double %566, 1.000000e+02
+  %567 = fmul nnan double %566, 1.000000e+02
   %568 = fdiv double %567, %557
   %569 = getelementptr i8, ptr %553, i64 40
   store double %568, ptr %569, align 8, !tbaa !7

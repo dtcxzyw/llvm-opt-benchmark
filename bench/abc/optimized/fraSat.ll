@@ -1477,9 +1477,9 @@ define range(i32 -2147483647, -2147483648) i32 @Fra_SetActivityFactors_rec(ptr n
 71:                                               ; preds = %68
   %72 = load i32, ptr %46, align 8, !tbaa !78
   %73 = sitofp i32 %72 to double
-  %74 = fmul double %73, 0x3EB0000000000000
+  %74 = fmul nnan double %73, 0x3EB0000000000000
   %75 = sitofp i32 %59 to double
-  %76 = fmul double %75, 0x3EB0000000000000
+  %76 = fmul nnan double %75, 0x3EB0000000000000
   %77 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, double noundef %74, double noundef %76)
   %78 = load ptr, ptr @stdout, align 8, !tbaa !80
   %79 = tail call i32 @fflush(ptr noundef %78)

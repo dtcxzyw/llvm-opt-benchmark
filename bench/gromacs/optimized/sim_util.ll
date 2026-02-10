@@ -6395,7 +6395,7 @@ _ZN3gmxL28averageKineticEnergyEstimateERK9t_grpopts.exit.i: ; preds = %3766, %37
 
 3772:                                             ; preds = %3771
   %3773 = fcmp ogt float %.029.i, 0.000000e+00
-  %3774 = fmul float %.029.i, 1.000000e+06
+  %3774 = fmul nnan float %.029.i, 1.000000e+06
   %3775 = fcmp ogt float %3730, %3774
   %or.cond.i1145 = select i1 %3773, i1 %3775, i1 false
   br i1 %or.cond.i1145, label %3776, label %_ZN3gmxL28checkPotentialEnergyValidityElRK14gmx_enerdata_tRK10t_inputrec.exit

@@ -1226,18 +1226,18 @@ define dso_local void @uv_loadavg(ptr noundef %0) local_unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !22
   %17 = uitofp i64 %16 to double
-  %18 = fmul double %17, 0x3EF0000000000000
+  %18 = fmul nnan double %17, 0x3EF0000000000000
   store double %18, ptr %0, align 8, !tbaa !32
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %20 = load i64, ptr %19, align 8, !tbaa !22
   %21 = uitofp i64 %20 to double
-  %22 = fmul double %21, 0x3EF0000000000000
+  %22 = fmul nnan double %21, 0x3EF0000000000000
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %22, ptr %23, align 8, !tbaa !32
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %25 = load i64, ptr %24, align 8, !tbaa !22
   %26 = uitofp i64 %25 to double
-  %27 = fmul double %26, 0x3EF0000000000000
+  %27 = fmul nnan double %26, 0x3EF0000000000000
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %27, ptr %28, align 8, !tbaa !32
   br label %29

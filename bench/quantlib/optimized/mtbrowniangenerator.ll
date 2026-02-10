@@ -539,8 +539,8 @@ _ZNK8QuantLib25MersenneTwisterUniformRng4nextEv.exit.i: ; preds = %if.then.i.i.i
   %shr7.i.i.i.i = lshr i64 %xor6.i.i.i.i, 18
   %xor8.i.i.i.i = xor i64 %shr7.i.i.i.i, %xor6.i.i.i.i
   %conv.i.i.i = uitofp i64 %xor8.i.i.i.i to double
-  %add.i.i.i = fadd double %conv.i.i.i, 5.000000e-01
-  %div.i.i.i = fmul double %add.i.i.i, 0x3DF0000000000000
+  %add.i.i.i = fadd nnan double %conv.i.i.i, 5.000000e-01
+  %div.i.i.i = fmul nnan double %add.i.i.i, 0x3DF0000000000000
   %6 = load ptr, ptr %sequence_.i, align 8, !tbaa !34
   %add.ptr.i.i = getelementptr inbounds nuw double, ptr %6, i64 %i.04.i
   store double %div.i.i.i, ptr %add.ptr.i.i, align 8, !tbaa !33

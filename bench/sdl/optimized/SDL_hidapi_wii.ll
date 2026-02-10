@@ -2014,19 +2014,19 @@ UpdatePowerLevelWiiU.exit.i:                      ; preds = %switch.lookup.i.i, 
   %.0.v.i = select i1 %.not24.i, i32 2000, i32 440
   %.0.i = mul nsw i32 %156, %.0.v.i
   %160 = sitofp i32 %.0.i to float
-  %161 = fmul float %160, 0xBF20000000000000
-  %162 = fmul float %161, 0x400921FB60000000
+  %161 = fmul nnan float %160, 0xBF20000000000000
+  %162 = fmul nnan float %161, 0x400921FB60000000
   %163 = fdiv float %162, 1.800000e+02
   store float %163, ptr %6, align 4
   %164 = sitofp i32 %.022.i to float
-  %165 = fmul float %164, 0x3F20000000000000
-  %166 = fmul float %165, 0x400921FB60000000
+  %165 = fmul nnan float %164, 0x3F20000000000000
+  %166 = fmul nnan float %165, 0x400921FB60000000
   %167 = fdiv float %166, 1.800000e+02
   %168 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store float %167, ptr %168, align 4
   %169 = sitofp i32 %.021.i to float
-  %170 = fmul float %169, 0x3F20000000000000
-  %171 = fmul float %170, 0x400921FB60000000
+  %170 = fmul nnan float %169, 0x3F20000000000000
+  %171 = fmul nnan float %170, 0x400921FB60000000
   %172 = fdiv float %171, 1.800000e+02
   %173 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store float %172, ptr %173, align 4
@@ -2344,17 +2344,17 @@ PostStickCalibrated.exit55.i:                     ; preds = %318, %277
   %357 = or disjoint i16 %354, -512
   %358 = add nsw i16 %357, %.sink.i
   %359 = sitofp i16 %355 to float
-  %360 = fdiv float %359, -2.000000e+02
-  %361 = fmul float %360, 0x40239D0140000000
+  %360 = fdiv nnan float %359, -2.000000e+02
+  %361 = fmul nnan float %360, 0x40239D0140000000
   store float %361, ptr %5, align 4
   %362 = sitofp i16 %358 to float
-  %363 = fdiv float %362, 2.000000e+02
-  %364 = fmul float %363, 0x40239D0140000000
+  %363 = fdiv nnan float %362, 2.000000e+02
+  %364 = fmul nnan float %363, 0x40239D0140000000
   %365 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %364, ptr %365, align 4
   %366 = sitofp i16 %356 to float
-  %367 = fdiv float %366, 2.000000e+02
-  %368 = fmul float %367, 0x40239D0140000000
+  %367 = fdiv nnan float %366, 2.000000e+02
+  %368 = fmul nnan float %367, 0x40239D0140000000
   %369 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store float %368, ptr %369, align 4
   %370 = load i64, ptr %217, align 8
@@ -2876,17 +2876,17 @@ HandleWiiRemoteButtonDataAsMainController.exit:   ; preds = %388, %642, %601, %3
   %678 = trunc nuw nsw i32 %677 to i16
   %679 = add nsw i16 %678, -512
   %680 = sitofp i16 %658 to float
-  %681 = fdiv float %680, -1.000000e+02
-  %682 = fmul float %681, 0x40239D0140000000
+  %681 = fdiv nnan float %680, -1.000000e+02
+  %682 = fmul nnan float %681, 0x40239D0140000000
   store float %682, ptr %4, align 4
   %683 = sitofp i16 %679 to float
-  %684 = fdiv float %683, 1.000000e+02
-  %685 = fmul float %684, 0x40239D0140000000
+  %684 = fdiv nnan float %683, 1.000000e+02
+  %685 = fmul nnan float %684, 0x40239D0140000000
   %686 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %685, ptr %686, align 4
   %687 = sitofp i16 %670 to float
-  %688 = fdiv float %687, 1.000000e+02
-  %689 = fmul float %688, 0x40239D0140000000
+  %688 = fdiv nnan float %687, 1.000000e+02
+  %689 = fmul nnan float %688, 0x40239D0140000000
   %690 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float %689, ptr %690, align 4
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 16

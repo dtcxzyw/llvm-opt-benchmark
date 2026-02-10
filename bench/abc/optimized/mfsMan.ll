@@ -304,7 +304,7 @@ define void @Mfs_ManPrint(ptr noundef readonly captures(none) %0) local_unnamed_
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 748
   %25 = load i32, ptr %24, align 4, !tbaa !66
   %26 = sitofp i32 %23 to double
-  %27 = fmul double %26, 1.000000e+02
+  %27 = fmul nnan double %26, 1.000000e+02
   %28 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %25, i32 1)
   %29 = uitofp nneg i32 %28 to double
   %30 = fdiv double %27, %29
@@ -314,7 +314,7 @@ define void @Mfs_ManPrint(ptr noundef readonly captures(none) %0) local_unnamed_
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 752
   %35 = load i32, ptr %34, align 8, !tbaa !68
   %36 = sitofp i32 %33 to double
-  %37 = fmul double %36, 1.000000e+02
+  %37 = fmul nnan double %36, 1.000000e+02
   %38 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %35, i32 1)
   %39 = uitofp nneg i32 %38 to double
   %40 = fdiv double %37, %39
@@ -326,7 +326,7 @@ define void @Mfs_ManPrint(ptr noundef readonly captures(none) %0) local_unnamed_
   %45 = load i32, ptr %44, align 4, !tbaa !69
   %46 = sub nsw i32 %43, %45
   %47 = sitofp i32 %46 to double
-  %48 = fmul double %47, 1.000000e+02
+  %48 = fmul nnan double %47, 1.000000e+02
   %49 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %43, i32 1)
   %50 = uitofp nneg i32 %49 to double
   %51 = fdiv double %48, %50
@@ -337,7 +337,7 @@ define void @Mfs_ManPrint(ptr noundef readonly captures(none) %0) local_unnamed_
   %56 = load i32, ptr %55, align 4, !tbaa !71
   %57 = sub nsw i32 %54, %56
   %58 = sitofp i32 %57 to double
-  %59 = fmul double %58, 1.000000e+02
+  %59 = fmul nnan double %58, 1.000000e+02
   %60 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %54, i32 1)
   %61 = uitofp nneg i32 %60 to double
   %62 = fdiv double %59, %61
@@ -417,7 +417,7 @@ define void @Mfs_ManPrint(ptr noundef readonly captures(none) %0) local_unnamed_
   %121 = load i64, ptr %120, align 8, !tbaa !82
   %.not96 = icmp eq i64 %121, 0
   %122 = sitofp i64 %121 to double
-  %123 = fmul double %118, 1.000000e+02
+  %123 = fmul nnan double %118, 1.000000e+02
   %124 = fdiv double %123, %122
   %125 = select i1 %.not96, double 0.000000e+00, double %124
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %119, double noundef %125)
@@ -429,7 +429,7 @@ define void @Mfs_ManPrint(ptr noundef readonly captures(none) %0) local_unnamed_
   %130 = load i64, ptr %120, align 8, !tbaa !82
   %.not97 = icmp eq i64 %130, 0
   %131 = sitofp i64 %130 to double
-  %132 = fmul double %128, 1.000000e+02
+  %132 = fmul nnan double %128, 1.000000e+02
   %133 = fdiv double %132, %131
   %134 = select i1 %.not97, double 0.000000e+00, double %133
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %129, double noundef %134)
@@ -441,7 +441,7 @@ define void @Mfs_ManPrint(ptr noundef readonly captures(none) %0) local_unnamed_
   %139 = load i64, ptr %120, align 8, !tbaa !82
   %.not98 = icmp eq i64 %139, 0
   %140 = sitofp i64 %139 to double
-  %141 = fmul double %137, 1.000000e+02
+  %141 = fmul nnan double %137, 1.000000e+02
   %142 = fdiv double %141, %140
   %143 = select i1 %.not98, double 0.000000e+00, double %142
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %138, double noundef %143)
@@ -453,7 +453,7 @@ define void @Mfs_ManPrint(ptr noundef readonly captures(none) %0) local_unnamed_
   %148 = load i64, ptr %120, align 8, !tbaa !82
   %.not99 = icmp eq i64 %148, 0
   %149 = sitofp i64 %148 to double
-  %150 = fmul double %146, 1.000000e+02
+  %150 = fmul nnan double %146, 1.000000e+02
   %151 = fdiv double %150, %149
   %152 = select i1 %.not99, double 0.000000e+00, double %151
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %147, double noundef %152)
@@ -465,7 +465,7 @@ define void @Mfs_ManPrint(ptr noundef readonly captures(none) %0) local_unnamed_
   %157 = load i64, ptr %120, align 8, !tbaa !82
   %.not100 = icmp eq i64 %157, 0
   %158 = sitofp i64 %157 to double
-  %159 = fmul double %155, 1.000000e+02
+  %159 = fmul nnan double %155, 1.000000e+02
   %160 = fdiv double %159, %158
   %161 = select i1 %.not100, double 0.000000e+00, double %160
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %156, double noundef %161)
@@ -480,7 +480,7 @@ define void @Mfs_ManPrint(ptr noundef readonly captures(none) %0) local_unnamed_
   %169 = load i64, ptr %120, align 8, !tbaa !82
   %.not101 = icmp eq i64 %169, 0
   %170 = sitofp i64 %169 to double
-  %171 = fmul double %167, 1.000000e+02
+  %171 = fmul nnan double %167, 1.000000e+02
   %172 = fdiv double %171, %170
   %173 = select i1 %.not101, double 0.000000e+00, double %172
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %168, double noundef %173)
@@ -491,7 +491,7 @@ define void @Mfs_ManPrint(ptr noundef readonly captures(none) %0) local_unnamed_
   %177 = load i64, ptr %120, align 8, !tbaa !82
   %.not102 = icmp eq i64 %177, 0
   %178 = sitofp i64 %177 to double
-  %179 = fmul double %175, 1.000000e+02
+  %179 = fmul nnan double %175, 1.000000e+02
   %180 = fdiv double %179, %178
   %181 = select i1 %.not102, double 0.000000e+00, double %180
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %176, double noundef %181)
@@ -499,7 +499,7 @@ define void @Mfs_ManPrint(ptr noundef readonly captures(none) %0) local_unnamed_
   %182 = load i64, ptr %120, align 8, !tbaa !82
   %183 = sitofp i64 %182 to double
   %.not103 = icmp eq i64 %182, 0
-  %184 = fmul double %183, 1.000000e+02
+  %184 = fmul nnan double %183, 1.000000e+02
   %185 = fdiv double %184, %183
   %186 = select i1 %.not103, double 0.000000e+00, double %185
   %187 = fdiv double %183, 1.000000e+06

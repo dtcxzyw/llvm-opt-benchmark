@@ -1221,7 +1221,7 @@ define internal noundef i32 @lj_cf_collectgarbage(ptr noundef %0) #2 {
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !55
   %11 = uitofp i64 %10 to double
-  %12 = fmul double %11, 0x3F50000000000000
+  %12 = fmul nnan double %11, 0x3F50000000000000
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !4
   store double %12, ptr %14, align 8, !tbaa !14

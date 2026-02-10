@@ -51,7 +51,7 @@ define range(i32 0, 2) i32 @cuddAnnealing(ptr noundef %0, i32 noundef %1, i32 no
 copyOrder.exit:                                   ; preds = %.copyOrder.exit_crit_edge, %.lr.ph.i
   %.pre-phi = phi i64 [ %.pre, %.copyOrder.exit_crit_edge ], [ %23, %.lr.ph.i ]
   %25 = sitofp i32 %20 to double
-  %26 = fmul double %25, 6.000000e-01
+  %26 = fmul nnan double %25, 6.000000e-01
   %27 = mul i32 %5, 15
   %28 = add nsw i32 %20, 10
   %29 = add nsw i32 %20, 20
@@ -261,7 +261,7 @@ stopping_criterion.exit:                          ; preds = %37
 123:                                              ; preds = %116
   %124 = sitofp i32 %.sink.i to double
   %125 = sitofp i32 %.0.i128 to double
-  %126 = fmul double %125, 1.100000e+00
+  %126 = fmul nnan double %125, 1.100000e+00
   %127 = fcmp olt double %126, %124
   br i1 %127, label %129, label %128
 
@@ -436,7 +436,7 @@ copyOrder.exit139:                                ; preds = %.lr.ph.i132, %188
   br i1 %196, label %37, label %197, !llvm.loop !44
 
 197:                                              ; preds = %.critedge._crit_edge
-  %198 = tail call double @llvm.log.f64(double %195), !tbaa !27
+  %198 = tail call nnan double @llvm.log.f64(double %195)
   %199 = tail call double @log(double noundef %.0103) #8, !tbaa !27
   %200 = fdiv double %198, %199
   %201 = sitofp i32 %.098.ph to double

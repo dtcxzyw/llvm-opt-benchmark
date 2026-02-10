@@ -245,14 +245,14 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
 
 19:                                               ; preds = %16
   %20 = sitofp i32 %18 to double
-  %21 = fmul nsz double %20, 5.000000e-01
+  %21 = fmul nnan nsz double %20, 5.000000e-01
   %22 = fadd nsz double %21, -1.000000e+00
   %23 = fdiv nsz double %22, 3.000000e+00
   %24 = fadd nsz double %23, 0x3FD5555555555555
   %.neg.i = sdiv i32 %18, -2
-  %25 = fmul nsz double %24, 0x40040D931FF62705
-  %26 = fdiv nsz double 1.000000e+00, %25
-  %27 = fmul nsz double %24, 2.000000e+00
+  %25 = fmul nnan nsz double %24, 0x40040D931FF62705
+  %26 = fdiv nnan nsz double 1.000000e+00, %25
+  %27 = fmul nnan nsz double %24, 2.000000e+00
   %28 = fmul nsz double %24, %27
   %29 = icmp sgt i32 %17, -1
   br i1 %29, label %.lr.ph.i, label %init_gaussian_filter.exit
@@ -538,7 +538,7 @@ cqueue_resize.exit74:                             ; preds = %.lr.ph.i65, %._crit
   %175 = load i32, ptr %174, align 4, !tbaa !67
   %176 = sitofp i32 %173 to double
   %177 = sitofp i32 %175 to double
-  %178 = fdiv nsz double %177, 1.000000e+03
+  %178 = fdiv nnan nsz double %177, 1.000000e+03
   %179 = fmul nsz double %178, %176
   %180 = tail call i64 @llvm.lrint.i64.f64(double %179)
   %181 = trunc i64 %180 to i32
@@ -945,7 +945,7 @@ define internal i32 @config_input(ptr noundef readonly captures(none) %0) #2 {
   %12 = load i32, ptr %11, align 4, !tbaa !67
   %13 = sitofp i32 %10 to double
   %14 = sitofp i32 %12 to double
-  %15 = fdiv nsz double %14, 1.000000e+03
+  %15 = fdiv nnan nsz double %14, 1.000000e+03
   %16 = fmul nsz double %15, %13
   %17 = tail call i64 @llvm.lrint.i64.f64(double %16)
   %18 = trunc i64 %17 to i32
@@ -1302,14 +1302,14 @@ define internal fastcc void @init_gaussian_filter(ptr noundef readonly captures(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2440
   %3 = load i32, ptr %2, align 8, !tbaa !20
   %4 = sitofp i32 %3 to double
-  %5 = fmul nsz double %4, 5.000000e-01
+  %5 = fmul nnan nsz double %4, 5.000000e-01
   %6 = fadd nsz double %5, -1.000000e+00
   %7 = fdiv nsz double %6, 3.000000e+00
   %8 = fadd nsz double %7, 0x3FD5555555555555
   %.neg = sdiv i32 %3, -2
-  %9 = fmul nsz double %8, 0x40040D931FF62705
-  %10 = fdiv nsz double 1.000000e+00, %9
-  %11 = fmul nsz double %8, 2.000000e+00
+  %9 = fmul nnan nsz double %8, 0x40040D931FF62705
+  %10 = fdiv nnan nsz double 1.000000e+00, %9
+  %11 = fmul nnan nsz double %8, 2.000000e+00
   %12 = fmul nsz double %8, %11
   %13 = icmp sgt i32 %3, 0
   br i1 %13, label %.lr.ph, label %._crit_edge32
@@ -1687,7 +1687,7 @@ ff_bufqueue_get.exit:                             ; preds = %35
   %145 = getelementptr inbounds nuw double, ptr %.pre.i.i, i64 %indvars.iv60.i.i
   %146 = load double, ptr %145, align 8, !tbaa !49
   %147 = fmul nsz double %146, 9.000000e-01
-  %148 = call nsz noundef double @llvm.fmuladd.f64(double %.040.lcssa.i.i, double 1.000000e-01, double %147)
+  %148 = call nsz double @llvm.fmuladd.f64(double %.040.lcssa.i.i, double 1.000000e-01, double %147)
   br label %149
 
 149:                                              ; preds = %144, %._crit_edge.i.i
@@ -1825,7 +1825,7 @@ compute_frame_std_dev.exit.i.i:                   ; preds = %._crit_edge39.us.i.
 213:                                              ; preds = %compute_frame_std_dev.exit.i.i
   %214 = load double, ptr %212, align 8, !tbaa !49
   %215 = fmul nsz double %214, 0x3FE5555555555556
-  %216 = call nsz noundef double @llvm.fmuladd.f64(double %210, double 0x3FD5555555555555, double %215)
+  %216 = call nsz double @llvm.fmuladd.f64(double %210, double 0x3FD5555555555555, double %215)
   br label %compute_frame_std_dev.exit._crit_edge.i.i
 
 compute_frame_std_dev.exit._crit_edge.i.i:        ; preds = %213, %compute_frame_std_dev.exit.i.i
@@ -1861,7 +1861,7 @@ compute_frame_std_dev.exit._crit_edge.i.i:        ; preds = %213, %compute_frame
   br i1 %233, label %.critedge.i.i.i, label %221, !llvm.loop !114
 
 .critedge.i.i.i:                                  ; preds = %228, %221
-  %234 = fmul nsz double %.022.i.i.i, 5.000000e-01
+  %234 = fmul nnan nsz double %.022.i.i.i, 5.000000e-01
   %235 = fcmp nsz ogt double %234, 0x3CB0000000000000
   br i1 %235, label %.preheader.i.i.i, label %setup_compress_thresh.exit.i.i, !llvm.loop !115
 
@@ -1896,7 +1896,7 @@ setup_compress_thresh.exit.i.i:                   ; preds = %.critedge.i.i.i, %c
   br i1 %250, label %.critedge.i95.i.i, label %238, !llvm.loop !114
 
 .critedge.i95.i.i:                                ; preds = %245, %238
-  %251 = fmul nsz double %.022.i92.i.i, 5.000000e-01
+  %251 = fmul nnan nsz double %.022.i92.i.i, 5.000000e-01
   %252 = fcmp nsz ogt double %251, 0x3CB0000000000000
   br i1 %252, label %.preheader.i91.i.i, label %setup_compress_thresh.exit96.i.i, !llvm.loop !115
 
@@ -2027,7 +2027,7 @@ compute_frame_std_dev.exit117.i.i:                ; preds = %.lr.ph.i.i.i, %286
   br i1 %321, label %.critedge.i124.i.i, label %309, !llvm.loop !114
 
 .critedge.i124.i.i:                               ; preds = %316, %309
-  %322 = fmul nsz double %.022.i121.i.i, 5.000000e-01
+  %322 = fmul nnan nsz double %.022.i121.i.i, 5.000000e-01
   %323 = fcmp nsz ogt double %322, 0x3CB0000000000000
   br i1 %323, label %.preheader.i120.i.i, label %setup_compress_thresh.exit125.i.i, !llvm.loop !115
 
@@ -2040,7 +2040,7 @@ setup_compress_thresh.exit125.i.i:                ; preds = %.critedge.i124.i.i,
   %325 = getelementptr inbounds nuw double, ptr %.pre168.i.i, i64 %indvars.iv165.i.i
   %326 = load double, ptr %325, align 8, !tbaa !49
   %327 = fmul nsz double %326, 0x3FE5555555555556
-  %328 = call nsz noundef double @llvm.fmuladd.f64(double %.018.i119.i.i, double 0x3FD5555555555555, double %327)
+  %328 = call nsz double @llvm.fmuladd.f64(double %.018.i119.i.i, double 0x3FD5555555555555, double %327)
   br label %329
 
 329:                                              ; preds = %324, %setup_compress_thresh.exit125.i.i
@@ -2077,7 +2077,7 @@ setup_compress_thresh.exit125.i.i:                ; preds = %.critedge.i124.i.i,
   br i1 %347, label %.critedge.i132.i.i, label %335, !llvm.loop !114
 
 .critedge.i132.i.i:                               ; preds = %342, %335
-  %348 = fmul nsz double %.022.i129.i.i, 5.000000e-01
+  %348 = fmul nnan nsz double %.022.i129.i.i, 5.000000e-01
   %349 = fcmp nsz ogt double %348, 0x3CB0000000000000
   br i1 %349, label %.preheader.i128.i.i, label %setup_compress_thresh.exit133.i.i, !llvm.loop !115
 
@@ -2112,7 +2112,7 @@ setup_compress_thresh.exit133.i.i:                ; preds = %.critedge.i132.i.i,
   br i1 %364, label %.critedge.i140.i.i, label %352, !llvm.loop !114
 
 .critedge.i140.i.i:                               ; preds = %359, %352
-  %365 = fmul nsz double %.022.i137.i.i, 5.000000e-01
+  %365 = fmul nnan nsz double %.022.i137.i.i, 5.000000e-01
   %366 = fcmp nsz ogt double %365, 0x3CB0000000000000
   br i1 %366, label %.preheader.i136.i.i, label %setup_compress_thresh.exit141.i.i, !llvm.loop !115
 

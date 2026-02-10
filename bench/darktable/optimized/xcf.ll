@@ -324,7 +324,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br i1 %151, label %156, label %152
 
 152:                                              ; preds = %150
-  %153 = fmul reassoc nsz arcp contract afn float %148, 2.550000e+02
+  %153 = fmul reassoc nnan nsz arcp contract afn float %148, 2.550000e+02
   %154 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %153)
   %155 = fptoui float %154 to i8
   br label %156
@@ -365,7 +365,7 @@ define range(i32 0, 2) i32 @write_image(ptr noundef readonly captures(none) %0, 
   br i1 %173, label %178, label %174
 
 174:                                              ; preds = %172
-  %175 = fmul reassoc nsz arcp contract afn float %170, 6.553500e+04
+  %175 = fmul reassoc nnan nsz arcp contract afn float %170, 6.553500e+04
   %176 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %175)
   %177 = fptoui float %176 to i16
   br label %178

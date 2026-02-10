@@ -625,7 +625,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i:      ; preds = %_ZNSt6vectorIiSaIiE
   %205 = load i32, ptr %204, align 8, !tbaa !139, !noalias !131
   %206 = add nsw i32 %205, %.084228.i.i
   %207 = sitofp i32 %205 to double
-  %208 = fmul double %207, %207
+  %208 = fmul nnan double %207, %207
   %209 = fadd double %.083229.i.i, %208
   %.sroa.speculated144.i.i = call i32 @llvm.smin.i32(i32 %205, i32 %.0178226.i.i)
   %.sroa.speculated.i.i = call i32 @llvm.smax.i32(i32 %.0177227.i.i, i32 %205)
@@ -1730,7 +1730,7 @@ define internal fastcc noundef i32 @_ZL27computeAtomGroupDomainIndexRK12gmx_domd
 
 29:                                               ; preds = %9
   %30 = sitofp i32 %17 to float
-  %31 = fdiv float 1.000000e+00, %30
+  %31 = fdiv nnan float 1.000000e+00, %30
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %34 = icmp slt i32 %4, %5

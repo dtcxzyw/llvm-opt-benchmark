@@ -1041,8 +1041,8 @@ Vec_IntMemory.exit:                               ; preds = %._crit_edge
   %125 = load i32, ptr %20, align 8, !tbaa !30
   %126 = sext i32 %125 to i64
   %127 = uitofp i64 %126 to double
-  %128 = tail call double @llvm.fmuladd.f64(double %127, double 4.000000e+00, double 1.600000e+01)
-  %129 = fmul double %128, 0x3EB0000000000000
+  %128 = tail call nnan double @llvm.fmuladd.f64(double %127, double 4.000000e+00, double 1.600000e+01)
+  %129 = fmul nnan double %128, 0x3EB0000000000000
   %130 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %118, i32 noundef %.039.lcssa, double noundef %121, double noundef %124, double noundef %129)
   br label %131
 

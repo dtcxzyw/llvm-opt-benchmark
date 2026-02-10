@@ -8011,7 +8011,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit48: ; pred
 
 89:                                               ; preds = %79
   %90 = uitofp i64 %83 to double
-  %91 = fmul double %90, 0x3E10000000000000
+  %91 = fmul nnan double %90, 0x3E10000000000000
   %92 = load ptr, ptr %11, align 8, !tbaa !91
   call void (ptr, ...) @_ZN8LightGBM3Log5DebugEPKcz(ptr noundef nonnull @.str.32, double noundef %91, ptr noundef %92)
   br label %93
@@ -13143,8 +13143,8 @@ _ZNSt6vectorIPdSaIS0_EED2Ev.exit356:              ; preds = %893, %_ZNSt6vectorI
   %896 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #21
   %897 = sub nsw i64 %896, %33
   %898 = sitofp i64 %897 to double
-  %899 = fdiv double %898, 1.000000e+06
-  %900 = fmul double %899, 1.000000e-03
+  %899 = fdiv nnan double %898, 1.000000e+06
+  %900 = fmul nnan double %899, 1.000000e-03
   invoke void (ptr, ...) @_ZN8LightGBM3Log4InfoEPKcz(ptr noundef nonnull @.str.94, double %900)
           to label %901 unwind label %931
 
@@ -26628,7 +26628,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %71 = lshr i32 %70, 16
   %72 = and i32 %71, 32767
   %73 = uitofp nneg i32 %72 to float
-  %74 = fmul float %73, 0x3F00000000000000
+  %74 = fmul nnan float %73, 0x3F00000000000000
   %75 = fpext float %74 to double
   %76 = fcmp ogt double %67, %75
   br i1 %76, label %77, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit47
@@ -32704,7 +32704,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit54: ; pred
 
 164:                                              ; preds = %154
   %165 = uitofp i64 %158 to double
-  %166 = fmul double %165, 0x3E10000000000000
+  %166 = fmul nnan double %165, 0x3E10000000000000
   %167 = load ptr, ptr %14, align 8, !tbaa !91
   call void (ptr, ...) @_ZN8LightGBM3Log5DebugEPKcz(ptr noundef nonnull @.str.32, double noundef %166, ptr noundef %167)
   br label %168

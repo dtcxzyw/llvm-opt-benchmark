@@ -69,7 +69,7 @@ entry:
   br i1 %or.cond, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %mul5 = fmul double %0, 2.000000e+00
+  %mul5 = fmul nnan double %0, 2.000000e+00
   %4 = tail call double @llvm.fmuladd.f64(double %0, double %0, double %mul5)
   %5 = tail call double @llvm.fmuladd.f64(double %1, double %1, double %4)
   %call6 = tail call double @log1p(double noundef %5) #5, !tbaa !3

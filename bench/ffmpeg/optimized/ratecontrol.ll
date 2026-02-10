@@ -584,7 +584,7 @@ get_fpsQ.exit.i.._crit_edge.thread.i_crit_edge:   ; preds = %get_fpsQ.exit.i
   %.1184.us.i = select nsz i1 %252, double %253, double %243
   %254 = zext i1 %252 to i32
   %.1182.us.i = add nuw nsw i32 %.0181278.us.i, %254
-  %255 = fmul nsz double %.0185276.us.i, 5.000000e-01
+  %255 = fmul nnan nsz double %.0185276.us.i, 5.000000e-01
   %256 = fcmp nsz ogt double %255, 0x3E7AD7F29ABCAF48
   br i1 %256, label %.preheader227.split.us.i, label %.split.us.i, !llvm.loop !126
 
@@ -1047,7 +1047,7 @@ get_diff_limited_q.exit.us.i:                     ; preds = %460, %459
   %501 = sub nsw i32 %500, %497
   %502 = sitofp i32 %501 to double
   %503 = fneg nsz double %502
-  %504 = fmul nsz double %503, %502
+  %504 = fmul nnan nsz double %503, %502
   %505 = fdiv nsz double %504, %493
   %506 = call nsz double @llvm.exp.f64(double %505)
   %or.cond224.us263.us.i = icmp ult i32 %500, %248
@@ -1309,8 +1309,8 @@ get_diff_limited_q.exit.us.i:                     ; preds = %460, %459
   %625 = load float, ptr %601, align 4, !tbaa !151
   %626 = fpext nsz float %625 to double
   %627 = uitofp nneg i32 %.1158246 to double
-  %628 = fdiv nsz double %627, 1.000000e+04
-  %629 = fadd nsz double %628, 1.000000e+00
+  %628 = fdiv nnan nsz double %627, 1.000000e+04
+  %629 = fadd nnan nsz double %628, 1.000000e+00
   %630 = fmul nsz double %629, %626
   %631 = load i32, ptr %604, align 4, !tbaa !109
   %632 = sitofp i32 %631 to double
@@ -1587,7 +1587,7 @@ define internal fastcc double @get_qscale(ptr noundef captures(none) %0, ptr nou
   %45 = load i32, ptr %44, align 8, !tbaa !155
   %46 = add nsw i32 %45, %42
   %47 = sitofp i32 %46 to double
-  %48 = fmul nsz double %47, 5.000000e-01
+  %48 = fmul nnan nsz double %47, 5.000000e-01
   br label %51
 
 49:                                               ; preds = %4
@@ -2206,7 +2206,7 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
   %117 = load i64, ptr %116, align 8, !tbaa !120
   %118 = sitofp i64 %117 to double
   %119 = sitofp i32 %8 to double
-  %120 = fmul nsz double %119, %118
+  %120 = fmul nnan nsz double %119, %118
   br label %127
 
 121:                                              ; preds = %110
@@ -2214,7 +2214,7 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
   %123 = load i64, ptr %122, align 8, !tbaa !120
   %124 = sitofp i64 %123 to double
   %125 = sitofp i64 %113 to double
-  %126 = fmul nsz double %125, %124
+  %126 = fmul nnan nsz double %125, %124
   br label %127
 
 127:                                              ; preds = %121, %115
@@ -2306,7 +2306,7 @@ update_predictor.exit:                            ; preds = %63, %55, %get_fps.e
   %176 = sext i32 %10 to i64
   %177 = getelementptr inbounds %struct.Predictor, ptr %175, i64 %176
   %178 = sitofp i64 %161 to double
-  %179 = tail call nsz double @llvm.sqrt.f64(double %178)
+  %179 = tail call ninf nsz double @llvm.sqrt.f64(double %178)
   %.val = load double, ptr %177, align 8, !tbaa !92
   %180 = getelementptr i8, ptr %177, i64 8
   %.val190 = load double, ptr %180, align 8, !tbaa !94

@@ -145,7 +145,7 @@ define void @Dar_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2744
   %12 = load i32, ptr %11, align 8, !tbaa !27
   %13 = sitofp i32 %10 to double
-  %14 = fmul double %13, 1.000000e+02
+  %14 = fmul nnan double %13, 1.000000e+02
   %15 = sitofp i32 %4 to double
   %16 = fdiv double %14, %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2736
@@ -245,7 +245,7 @@ define void @Dar_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
   %87 = load i32, ptr %72, align 4, !tbaa !51
   %.not53.us = icmp eq i32 %87, 0
   %88 = sitofp i32 %86 to double
-  %89 = fmul double %88, 1.000000e+02
+  %89 = fmul nnan double %88, 1.000000e+02
   %90 = sitofp i32 %87 to double
   %91 = fdiv double %89, %90
   %92 = select i1 %.not53.us, double 0.000000e+00, double %91
@@ -288,7 +288,7 @@ define void @Dar_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
   %111 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %110)
   %112 = load i32, ptr %102, align 4, !tbaa !26
   %113 = sitofp i32 %112 to double
-  %114 = fmul double %113, 1.000000e+02
+  %114 = fmul nnan double %113, 1.000000e+02
   %115 = fdiv double %114, %13
   %116 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %112, double noundef %115)
   %117 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv
@@ -296,7 +296,7 @@ define void @Dar_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
   %119 = load i32, ptr %72, align 4, !tbaa !51
   %.not53 = icmp eq i32 %119, 0
   %120 = sitofp i32 %118 to double
-  %121 = fmul double %120, 1.000000e+02
+  %121 = fmul nnan double %120, 1.000000e+02
   %122 = sitofp i32 %119 to double
   %123 = fdiv double %121, %122
   %124 = select i1 %.not53, double 0.000000e+00, double %123

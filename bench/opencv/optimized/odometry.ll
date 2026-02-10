@@ -6118,7 +6118,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i:           ; preds = %.noexc190, %375
   %424 = sitofp i32 %423 to float
   %425 = getelementptr inbounds nuw float, ptr %383, i64 %indvars.iv.i
   store float %424, ptr %425, align 4, !tbaa !121
-  %426 = fmul float %424, %424
+  %426 = fmul nnan float %424, %424
   %427 = fpext float %426 to double
   %428 = fadd double %.0132152.i, %427
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

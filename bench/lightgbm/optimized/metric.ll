@@ -30990,7 +30990,7 @@ define internal void @_ZNK8LightGBM18CrossEntropyMetric4EvalEPKdPKNS_17Objective
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %26
-  %35 = call double @llvm.log.f64(double %31), !tbaa !127
+  %35 = call nnan double @llvm.log.f64(double %31)
   %36 = fmul double %35, %32
   br label %39
 
@@ -31007,7 +31007,7 @@ define internal void @_ZNK8LightGBM18CrossEntropyMetric4EvalEPKdPKNS_17Objective
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %39
-  %45 = call double @llvm.log.f64(double %42), !tbaa !127
+  %45 = call nnan double @llvm.log.f64(double %42)
   %46 = fmul double %45, %41
   br label %_ZN8LightGBML8XentLossEfd.exit
 
@@ -31126,7 +31126,7 @@ define internal void @_ZNK8LightGBM18CrossEntropyMetric4EvalEPKdPKNS_17Objective
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %28
-  %37 = call double @llvm.log.f64(double %33), !tbaa !127
+  %37 = call nnan double @llvm.log.f64(double %33)
   %38 = fmul double %37, %34
   br label %41
 
@@ -31143,7 +31143,7 @@ define internal void @_ZNK8LightGBM18CrossEntropyMetric4EvalEPKdPKNS_17Objective
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %41
-  %47 = call double @llvm.log.f64(double %44), !tbaa !127
+  %47 = call nnan double @llvm.log.f64(double %44)
   %48 = fmul double %47, %43
   br label %_ZN8LightGBML8XentLossEfd.exit
 
@@ -31274,7 +31274,7 @@ define internal void @_ZNK8LightGBM18CrossEntropyMetric4EvalEPKdPKNS_17Objective
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %33
-  %41 = call double @llvm.log.f64(double %37), !tbaa !127
+  %41 = call nnan double @llvm.log.f64(double %37)
   %42 = fmul double %41, %38
   br label %45
 
@@ -31291,7 +31291,7 @@ define internal void @_ZNK8LightGBM18CrossEntropyMetric4EvalEPKdPKNS_17Objective
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %45
-  %51 = call double @llvm.log.f64(double %48), !tbaa !127
+  %51 = call nnan double @llvm.log.f64(double %48)
   %52 = fmul double %51, %47
   br label %_ZN8LightGBML8XentLossEfd.exit
 
@@ -31428,7 +31428,7 @@ define internal void @_ZNK8LightGBM18CrossEntropyMetric4EvalEPKdPKNS_17Objective
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %34
-  %42 = call double @llvm.log.f64(double %38), !tbaa !127
+  %42 = call nnan double @llvm.log.f64(double %38)
   %43 = fmul double %42, %39
   br label %46
 
@@ -31445,7 +31445,7 @@ define internal void @_ZNK8LightGBM18CrossEntropyMetric4EvalEPKdPKNS_17Objective
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %46
-  %52 = call double @llvm.log.f64(double %49), !tbaa !127
+  %52 = call nnan double @llvm.log.f64(double %49)
   %53 = fmul double %52, %48
   br label %_ZN8LightGBML8XentLossEfd.exit
 
@@ -32191,7 +32191,7 @@ define internal void @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17Obj
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %26
-  %40 = call double @llvm.log.f64(double %36), !tbaa !127
+  %40 = call nnan double @llvm.log.f64(double %36)
   %41 = fmul double %40, %37
   br label %44
 
@@ -32208,7 +32208,7 @@ define internal void @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17Obj
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %44
-  %50 = call double @llvm.log.f64(double %47), !tbaa !127
+  %50 = call nnan double @llvm.log.f64(double %47)
   %51 = fmul double %50, %46
   br label %_ZN8LightGBML14XentLambdaLossEffd.exit
 
@@ -32339,7 +32339,7 @@ define internal void @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17Obj
   br i1 %44, label %45, label %48
 
 45:                                               ; preds = %28
-  %46 = call double @llvm.log.f64(double %42), !tbaa !127
+  %46 = call nnan double @llvm.log.f64(double %42)
   %47 = fmul double %46, %43
   br label %50
 
@@ -32356,7 +32356,7 @@ define internal void @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17Obj
   br i1 %54, label %55, label %58
 
 55:                                               ; preds = %50
-  %56 = call double @llvm.log.f64(double %53), !tbaa !127
+  %56 = call nnan double @llvm.log.f64(double %53)
   %57 = fmul double %56, %52
   br label %_ZN8LightGBML14XentLambdaLossEffd.exit
 
@@ -32486,7 +32486,7 @@ define internal void @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17Obj
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %33
-  %44 = call double @llvm.log.f64(double %40), !tbaa !127
+  %44 = call nnan double @llvm.log.f64(double %40)
   %45 = fmul double %44, %41
   br label %48
 
@@ -32503,7 +32503,7 @@ define internal void @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17Obj
   br i1 %52, label %53, label %56
 
 53:                                               ; preds = %48
-  %54 = call double @llvm.log.f64(double %51), !tbaa !127
+  %54 = call nnan double @llvm.log.f64(double %51)
   %55 = fmul double %54, %50
   br label %_ZN8LightGBML14XentLambdaLossEffd.exit
 
@@ -32648,7 +32648,7 @@ define internal void @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17Obj
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %34
-  %50 = call double @llvm.log.f64(double %46), !tbaa !127
+  %50 = call nnan double @llvm.log.f64(double %46)
   %51 = fmul double %50, %47
   br label %54
 
@@ -32665,7 +32665,7 @@ define internal void @_ZNK8LightGBM24CrossEntropyLambdaMetric4EvalEPKdPKNS_17Obj
   br i1 %58, label %59, label %62
 
 59:                                               ; preds = %54
-  %60 = call double @llvm.log.f64(double %57), !tbaa !127
+  %60 = call nnan double @llvm.log.f64(double %57)
   %61 = fmul double %60, %56
   br label %_ZN8LightGBML14XentLambdaLossEffd.exit
 
@@ -33546,7 +33546,7 @@ define internal void @_ZNK8LightGBM25KullbackLeiblerDivergence4EvalEPKdPKNS_17Ob
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %26
-  %35 = call double @llvm.log.f64(double %31), !tbaa !127
+  %35 = call nnan double @llvm.log.f64(double %31)
   %36 = fmul double %35, %32
   br label %39
 
@@ -33563,7 +33563,7 @@ define internal void @_ZNK8LightGBM25KullbackLeiblerDivergence4EvalEPKdPKNS_17Ob
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %39
-  %45 = call double @llvm.log.f64(double %42), !tbaa !127
+  %45 = call nnan double @llvm.log.f64(double %42)
   %46 = fmul double %45, %41
   br label %_ZN8LightGBML8XentLossEfd.exit
 
@@ -33682,7 +33682,7 @@ define internal void @_ZNK8LightGBM25KullbackLeiblerDivergence4EvalEPKdPKNS_17Ob
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %28
-  %37 = call double @llvm.log.f64(double %33), !tbaa !127
+  %37 = call nnan double @llvm.log.f64(double %33)
   %38 = fmul double %37, %34
   br label %41
 
@@ -33699,7 +33699,7 @@ define internal void @_ZNK8LightGBM25KullbackLeiblerDivergence4EvalEPKdPKNS_17Ob
   br i1 %45, label %46, label %49
 
 46:                                               ; preds = %41
-  %47 = call double @llvm.log.f64(double %44), !tbaa !127
+  %47 = call nnan double @llvm.log.f64(double %44)
   %48 = fmul double %47, %43
   br label %_ZN8LightGBML8XentLossEfd.exit
 
@@ -33830,7 +33830,7 @@ define internal void @_ZNK8LightGBM25KullbackLeiblerDivergence4EvalEPKdPKNS_17Ob
   br i1 %39, label %40, label %43
 
 40:                                               ; preds = %33
-  %41 = call double @llvm.log.f64(double %37), !tbaa !127
+  %41 = call nnan double @llvm.log.f64(double %37)
   %42 = fmul double %41, %38
   br label %45
 
@@ -33847,7 +33847,7 @@ define internal void @_ZNK8LightGBM25KullbackLeiblerDivergence4EvalEPKdPKNS_17Ob
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %45
-  %51 = call double @llvm.log.f64(double %48), !tbaa !127
+  %51 = call nnan double @llvm.log.f64(double %48)
   %52 = fmul double %51, %47
   br label %_ZN8LightGBML8XentLossEfd.exit
 
@@ -33984,7 +33984,7 @@ define internal void @_ZNK8LightGBM25KullbackLeiblerDivergence4EvalEPKdPKNS_17Ob
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %34
-  %42 = call double @llvm.log.f64(double %38), !tbaa !127
+  %42 = call nnan double @llvm.log.f64(double %38)
   %43 = fmul double %42, %39
   br label %46
 
@@ -34001,7 +34001,7 @@ define internal void @_ZNK8LightGBM25KullbackLeiblerDivergence4EvalEPKdPKNS_17Ob
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %46
-  %52 = call double @llvm.log.f64(double %49), !tbaa !127
+  %52 = call nnan double @llvm.log.f64(double %49)
   %53 = fmul double %52, %48
   br label %_ZN8LightGBML8XentLossEfd.exit
 

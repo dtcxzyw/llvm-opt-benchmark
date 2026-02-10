@@ -606,7 +606,7 @@ define weak_odr void @_ZNK7mitsuba23SRGBReflectanceSpectrumIfN5drjit6MatrixINS_8
   %17 = tail call contract noundef float @llvm.fabs.f32(float %14)
   %18 = fcmp contract oeq float %17, 0x7FF0000000000000
   %19 = tail call float @llvm.copysign.f32(float 1.000000e+00, float %14)
-  %20 = tail call contract noundef float @llvm.fma.f32(float %19, float 5.000000e-01, float 5.000000e-01)
+  %20 = tail call nnan contract float @llvm.fma.f32(float %19, float 5.000000e-01, float 5.000000e-01)
   %21 = fmul contract <4 x float> %16, splat (float 5.000000e-01)
   %22 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %16, <4 x float> %16, <4 x float> splat (float 1.000000e+00))
   %23 = tail call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %22, <4 x float> zeroinitializer, i8 -1)

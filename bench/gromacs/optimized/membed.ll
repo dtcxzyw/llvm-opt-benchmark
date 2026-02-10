@@ -2144,8 +2144,8 @@ _ZL13gmx_snew_implI7t_blockEvPKcS2_iRPT_m.exit:   ; preds = %635
 
 710:                                              ; preds = %704
   %711 = fpext float %.0104.lcssa.i to double
-  %712 = fpext float %708 to double
-  %713 = fmul double %712, 5.000000e-01
+  %712 = fpext nnan float %708 to double
+  %713 = fmul nnan double %712, 5.000000e-01
   %714 = fadd double %713, %711
   %715 = fadd double %714, -3.000000e+00
   %716 = fptrunc double %715 to float

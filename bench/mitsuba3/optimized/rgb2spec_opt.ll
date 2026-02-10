@@ -538,10 +538,10 @@ define hidden void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr #6 
   %indvars.iv62 = phi i64 [ 0, %14 ], [ %indvars.iv.next63, %82 ]
   %18 = trunc nuw nsw i64 %indvars.iv62 to i32
   %19 = uitofp nneg i32 %18 to double
-  %20 = fmul contract double %19, 0x3FFAAAAAAAAAAAAB
+  %20 = fmul nnan contract double %19, 0x3FFAAAAAAAAAAAAB
   %21 = fadd contract double %20, 3.600000e+02
-  %22 = fadd contract double %21, -3.600000e+02
-  %23 = fmul contract double %22, 2.000000e-01
+  %22 = fadd nnan contract double %21, -3.600000e+02
+  %23 = fmul nnan contract double %22, 2.000000e-01
   %24 = fptosi double %23 to i32
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %24, i32 0)
   %spec.store.select1.i = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 93)
@@ -1288,7 +1288,7 @@ _Z8LUPSolvePPdPiS_iS_.exit:                       ; preds = %._crit_edge49.i, %_
   br i1 %175, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %167
-  %176 = fdiv contract double 2.000000e+02, %174
+  %176 = fdiv nnan contract double 2.000000e+02, %174
   br label %177
 
 177:                                              ; preds = %.preheader, %177

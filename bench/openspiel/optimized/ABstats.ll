@@ -584,7 +584,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 42:                                               ; preds = %40
   %43 = load i32, ptr %33, align 4
   %44 = sitofp i32 %43 to double
-  %45 = fmul double %44, 1.000000e+02
+  %45 = fmul nnan double %44, 1.000000e+02
   %46 = getelementptr inbounds nuw i8, ptr %5, i64 196
   %47 = load i32, ptr %46, align 4
   %48 = sitofp i32 %47 to double
@@ -647,7 +647,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
   %77 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull @_ZSt5fixedRSt8ios_base)
   %78 = load i32, ptr %9, align 4
   %79 = sitofp i32 %78 to double
-  %80 = fmul double %79, 1.000000e+02
+  %80 = fmul nnan double %79, 1.000000e+02
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 204
   %82 = load i32, ptr %81, align 4
   %83 = sitofp i32 %82 to double
@@ -912,7 +912,7 @@ define void @_ZNK7ABstats15PrintStatsDepthERSt14basic_ofstreamIcSt11char_traitsI
   %20 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @_ZSt5fixedRSt8ios_base)
   %21 = load i32, ptr %15, align 4
   %22 = sitofp i32 %21 to double
-  %23 = fmul double %22, 1.000000e+02
+  %23 = fmul nnan double %22, 1.000000e+02
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %25 = load i32, ptr %24, align 8
   %26 = sitofp i32 %25 to double
@@ -922,7 +922,7 @@ define void @_ZNK7ABstats15PrintStatsDepthERSt14basic_ofstreamIcSt11char_traitsI
   %30 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %29, i32 1)
   %31 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @_ZSt5fixedRSt8ios_base)
   %32 = sitofp i32 %3 to double
-  %33 = fmul double %32, 1.000000e+02
+  %33 = fmul nnan double %32, 1.000000e+02
   %34 = load i32, ptr %24, align 8
   %35 = sitofp i32 %34 to double
   %36 = fdiv double %33, %35
@@ -1051,7 +1051,7 @@ define void @_ZNK7ABstats17PrintAverageDepthERSt14basic_ofstreamIcSt11char_trait
   %79 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull @_ZSt5fixedRSt8ios_base)
   %80 = load i32, ptr %63, align 4
   %81 = sitofp i32 %80 to double
-  %82 = fmul double %81, 1.000000e+02
+  %82 = fmul nnan double %81, 1.000000e+02
   %83 = load i32, ptr %7, align 4
   %84 = sitofp i32 %83 to double
   %85 = fdiv double %82, %84
@@ -1062,7 +1062,7 @@ define void @_ZNK7ABstats17PrintAverageDepthERSt14basic_ofstreamIcSt11char_trait
   %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %89, ptr noundef nonnull @_ZSt5fixedRSt8ios_base)
   %91 = load i32, ptr %67, align 4
   %92 = sitofp i32 %91 to double
-  %93 = fmul double %92, 1.000000e+02
+  %93 = fmul nnan double %92, 1.000000e+02
   %94 = load i32, ptr %11, align 8
   %95 = sitofp i32 %94 to double
   %96 = fdiv double %93, %95

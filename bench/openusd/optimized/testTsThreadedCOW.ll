@@ -1442,8 +1442,8 @@ define dso_local void @_Z14CreateEvalTestRKN32pxrInternal_v0_24__pxrReserved__8T
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %7 = tail call i32 @rand() #22
   %8 = sitofp i32 %7 to double
-  %9 = fdiv double %8, 0x41DFFFFFFFC00000
-  %10 = fmul double %9, 1.000000e+01
+  %9 = fdiv nnan double %8, 0x41DFFFFFFFC00000
+  %10 = fmul nnan double %9, 1.000000e+01
   store ptr @_Z4EvalN32pxrInternal_v0_24__pxrReserved__8TsSplineEd, ptr %4, align 8, !alias.scope !17
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %10, ptr %11, align 8, !alias.scope !17

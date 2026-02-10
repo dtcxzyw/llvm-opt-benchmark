@@ -5681,7 +5681,7 @@ define hidden noundef zeroext i1 @_ZN13IdealLoopTree13policy_unrollEP14PhaseIdea
   %72 = uitofp nneg i32 %71 to double
   %73 = load i64, ptr @LoopPercentProfileLimit, align 8
   %74 = sitofp i64 %73 to double
-  %75 = fdiv double 1.000000e+02, %74
+  %75 = fdiv nnan double 1.000000e+02, %74
   %76 = fmul double %75, %72
   %77 = fpext float %49 to double
   %78 = fcmp ogt double %76, %77
@@ -5689,7 +5689,7 @@ define hidden noundef zeroext i1 @_ZN13IdealLoopTree13policy_unrollEP14PhaseIdea
 
 79:                                               ; preds = %70
   %80 = uitofp nneg i32 %66 to double
-  %81 = fmul double %80, 1.200000e+00
+  %81 = fmul nnan double %80, 1.200000e+00
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %83 = load i32, ptr %82, align 8
   %84 = uitofp i32 %83 to double

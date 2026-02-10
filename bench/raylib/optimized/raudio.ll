@@ -14989,7 +14989,7 @@ define hidden void @ma_pcm_u8_to_f32(ptr noundef writeonly captures(none) %0, pt
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i7
   %6 = load i8, ptr %5, align 1
   %7 = uitofp i8 %6 to float
-  %8 = fmul float %7, 0x3F80101020000000
+  %8 = fmul nnan float %7, 0x3F80101020000000
   %9 = fadd float %8, -1.000000e+00
   %10 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7
   store float %9, ptr %10, align 4
@@ -15307,7 +15307,7 @@ define hidden void @ma_pcm_s16_to_f32(ptr noundef writeonly captures(none) %0, p
   %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.0.i7
   %6 = load i16, ptr %5, align 2
   %7 = sitofp i16 %6 to float
-  %8 = fmul float %7, 0x3F00000000000000
+  %8 = fmul nnan float %7, 0x3F00000000000000
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7
   store float %8, ptr %9, align 4
   %10 = add nuw i64 %.0.i7, 1
@@ -15711,7 +15711,7 @@ define hidden void @ma_pcm_s24_to_f32(ptr noundef writeonly captures(none) %0, p
   %14 = or disjoint i32 %13, %9
   %15 = ashr exact i32 %14, 8
   %16 = sitofp i32 %15 to float
-  %17 = fmul float %16, 0x3E80000000000000
+  %17 = fmul nnan float %16, 0x3E80000000000000
   %18 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7
   store float %17, ptr %18, align 4
   %19 = add nuw i64 %.0.i7, 1
@@ -16115,7 +16115,7 @@ define hidden void @ma_pcm_s32_to_f32(ptr noundef writeonly captures(none) %0, p
   %5 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i7
   %6 = load i32, ptr %5, align 4
   %7 = sitofp i32 %6 to double
-  %8 = fmul double %7, 0x3E00000000000000
+  %8 = fmul nnan double %7, 0x3E00000000000000
   %9 = fptrunc double %8 to float
   %10 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7
   store float %9, ptr %10, align 4
@@ -17128,7 +17128,7 @@ define hidden void @ma_pcm_convert(ptr noundef %0, i32 noundef %1, ptr noundef %
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i7.i103
   %46 = load i8, ptr %45, align 1
   %47 = uitofp i8 %46 to float
-  %48 = fmul float %47, 0x3F80101020000000
+  %48 = fmul nnan float %47, 0x3F80101020000000
   %49 = fadd float %48, -1.000000e+00
   %50 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7.i103
   store float %49, ptr %50, align 4
@@ -17196,7 +17196,7 @@ define hidden void @ma_pcm_convert(ptr noundef %0, i32 noundef %1, ptr noundef %
   %74 = getelementptr inbounds nuw i16, ptr %2, i64 %.0.i7.i115
   %75 = load i16, ptr %74, align 2
   %76 = sitofp i16 %75 to float
-  %77 = fmul float %76, 0x3F00000000000000
+  %77 = fmul nnan float %76, 0x3F00000000000000
   %78 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7.i115
   store float %77, ptr %78, align 4
   %79 = add nuw i64 %.0.i7.i115, 1
@@ -17259,7 +17259,7 @@ define hidden void @ma_pcm_convert(ptr noundef %0, i32 noundef %1, ptr noundef %
   %106 = or disjoint i32 %105, %101
   %107 = ashr exact i32 %106, 8
   %108 = sitofp i32 %107 to float
-  %109 = fmul float %108, 0x3E80000000000000
+  %109 = fmul nnan float %108, 0x3E80000000000000
   %110 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7.i123
   store float %109, ptr %110, align 4
   %111 = add nuw i64 %.0.i7.i123, 1
@@ -17316,7 +17316,7 @@ define hidden void @ma_pcm_convert(ptr noundef %0, i32 noundef %1, ptr noundef %
   %130 = getelementptr inbounds nuw i32, ptr %2, i64 %.0.i7.i131
   %131 = load i32, ptr %130, align 4
   %132 = sitofp i32 %131 to double
-  %133 = fmul double %132, 0x3E00000000000000
+  %133 = fmul nnan double %132, 0x3E00000000000000
   %134 = fptrunc double %133 to float
   %135 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7.i131
   store float %134, ptr %135, align 4
@@ -19695,7 +19695,7 @@ cdce.end10.i.i:                                   ; preds = %cdce.call193, %cdce
   %.sink287.in = phi i32 [ %142, %140 ], [ %138, %137 ]
   %.sink287 = uitofp i32 %.sink287.in to double
   %146 = uitofp i32 %.sink289 to double
-  %147 = fdiv double 0x400921FB54442D18, %146
+  %147 = fdiv nnan double 0x400921FB54442D18, %146
   %148 = fmul double %147, %.sink287
   %149 = fsub double 0x3FF921FB54442D18, %148
   %150 = call double @sin(double noundef %149) #71
@@ -22218,7 +22218,7 @@ cdce.end10.i.i:                                   ; preds = %cdce.call194, %cdce
   %.sink288.in = phi i32 [ %142, %140 ], [ %138, %137 ]
   %.sink288 = uitofp i32 %.sink288.in to double
   %146 = uitofp i32 %.sink290 to double
-  %147 = fdiv double 0x400921FB54442D18, %146
+  %147 = fdiv nnan double 0x400921FB54442D18, %146
   %148 = fmul double %147, %.sink288
   %149 = fsub double 0x3FF921FB54442D18, %148
   %150 = call double @sin(double noundef %149) #71
@@ -23397,7 +23397,7 @@ ma_zero_memory_default.exit17.i:                  ; preds = %ma_zero_memory_defa
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %67, ptr %68, align 8
   %69 = fdiv double 0.000000e+00, %23
-  %70 = fmul double %69, 1.638400e+04
+  %70 = fmul ninf double %69, 1.638400e+04
   %71 = fptosi double %70 to i32
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %71, ptr %72, align 4
@@ -23645,7 +23645,7 @@ define hidden range(i32 -3, 1) i32 @ma_bpf2_reinit(ptr noundef readonly captures
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %56, ptr %57, align 8
   %58 = fdiv double 0.000000e+00, %23
-  %59 = fmul double %58, 1.638400e+04
+  %59 = fmul ninf double %58, 1.638400e+04
   %60 = fptosi double %59 to i32
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %60, ptr %61, align 4
@@ -28215,7 +28215,7 @@ define hidden range(i32 -2, 1) i32 @ma_panner_process_pcm_frames(ptr noundef rea
   br i1 %100, label %101, label %114
 
 101:                                              ; preds = %99
-  %102 = fsub float 1.000000e+00, %17
+  %102 = fsub nnan float 1.000000e+00, %17
   %.not44.i.i = icmp eq i64 %3, 0
   br i1 %.not44.i.i, label %ma_stereo_balance_pcm_frames.exit, label %.lr.ph43.i.i
 
@@ -30712,7 +30712,7 @@ ma_spatializer_get_cone.exit:                     ; preds = %ma_attenuation_inve
   %147 = fneg float %134
   %148 = fneg float %133
   %149 = bitcast i32 %140 to float
-  %150 = fmul float %138, 5.000000e-01
+  %150 = fmul nnan float %138, 5.000000e-01
   %151 = fpext float %150 to double
   %152 = fsub double 0x3FF921FB54442D18, %151
   %153 = call double @sin(double noundef %152) #71
@@ -30759,7 +30759,7 @@ ma_spatializer_get_cone.exit:                     ; preds = %ma_attenuation_inve
   %182 = load float, ptr %181, align 8
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %184 = load float, ptr %183, align 4
-  %185 = fmul float %175, 5.000000e-01
+  %185 = fmul nnan float %175, 5.000000e-01
   %186 = fpext float %185 to double
   %187 = fsub double 0x3FF921FB54442D18, %186
   %188 = call double @sin(double noundef %187) #71
@@ -33684,7 +33684,7 @@ ma_gcf_u32.exit:                                  ; preds = %16
   %. = tail call i32 @llvm.umax.i32(i32 %19, i32 %20)
   %25 = tail call i32 @llvm.umin.i32(i32 %19, i32 %20)
   %26 = uitofp i32 %25 to double
-  %27 = fmul double %26, 5.000000e-01
+  %27 = fmul nnan double %26, 5.000000e-01
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load double, ptr %28, align 8
   %30 = fmul double %27, %29
@@ -35189,7 +35189,7 @@ ma_gcf_u32.exit.i:                                ; preds = %13
   %..i = tail call i32 @llvm.umax.i32(i32 %17, i32 %18)
   %23 = tail call i32 @llvm.umin.i32(i32 %17, i32 %18)
   %24 = uitofp nneg i32 %23 to double
-  %25 = fmul double %24, 5.000000e-01
+  %25 = fmul nnan double %24, 5.000000e-01
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load double, ptr %26, align 8
   %28 = fmul double %25, %27
@@ -37637,7 +37637,7 @@ ma_channel_map_get_channel.exit.i.i326:           ; preds = %523, %ma_channel_ma
   %532 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %533 = load i32, ptr %5, align 4
   %534 = zext i32 %533 to i64
-  %535 = fmul float %531, 4.096000e+03
+  %535 = fmul nnan float %531, 4.096000e+03
   %536 = fptosi float %535 to i32
   br label %537
 
@@ -57320,7 +57320,7 @@ define hidden i64 @drwav_target_write_size_bytes(ptr noundef readonly captures(n
   %11 = zext i32 %10 to i64
   %12 = mul nsw i64 %8, %11
   %13 = sitofp i64 %12 to double
-  %14 = fmul double %13, 1.250000e-01
+  %14 = fmul nnan double %13, 1.250000e-01
   %15 = fptoui double %14 to i64
   %16 = load i32, ptr %0, align 4
   switch i32 %16, label %35 [
@@ -61647,7 +61647,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %24, %30
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 %.01114.i.i.i
   %59 = load i8, ptr %58, align 1
   %60 = uitofp i8 %59 to float
-  %61 = fmul float %60, 0x3F80101020000000
+  %61 = fmul nnan float %60, 0x3F80101020000000
   %62 = fadd float %61, -1.000000e+00
   %63 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 4
   store float %62, ptr %.015.i.i.i, align 4
@@ -61665,7 +61665,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %24, %30
   %66 = getelementptr inbounds nuw i16, ptr %8, i64 %.012.i.i.i
   %67 = load i16, ptr %66, align 2
   %68 = sitofp i16 %67 to float
-  %69 = fmul float %68, 0x3F00000000000000
+  %69 = fmul nnan float %68, 0x3F00000000000000
   %70 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i, i64 4
   store float %69, ptr %.0811.i.i.i, align 4
   %71 = add nuw i64 %.012.i.i.i, 1
@@ -61691,7 +61691,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %24, %30
   %82 = or disjoint i32 %81, %77
   %83 = ashr exact i32 %82, 8
   %84 = sitofp i32 %83 to double
-  %85 = fmul double %84, 0x3E80000000000000
+  %85 = fmul nnan double %84, 0x3E80000000000000
   %86 = fptrunc double %85 to float
   %87 = getelementptr inbounds nuw i8, ptr %.020.i.i.i, i64 4
   store float %86, ptr %.020.i.i.i, align 4
@@ -61709,7 +61709,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %24, %30
   %90 = getelementptr inbounds nuw i32, ptr %8, i64 %.012.i45.i.i
   %91 = load i32, ptr %90, align 4
   %92 = sitofp i32 %91 to double
-  %93 = fmul double %92, 0x3E00000000000000
+  %93 = fmul nnan double %92, 0x3E00000000000000
   %94 = fptrunc double %93 to float
   %95 = getelementptr inbounds nuw i8, ptr %.0811.i46.i.i, i64 4
   store float %94, ptr %.0811.i46.i.i, align 4
@@ -61753,7 +61753,7 @@ drwav_get_bytes_per_pcm_frame.exit.i:             ; preds = %24, %30
 108:                                              ; preds = %100
   %109 = getelementptr inbounds nuw i8, ptr %.03858.i.i, i64 %43
   %110 = sitofp i64 %106 to double
-  %111 = fmul double %110, 0x3C00000000000000
+  %111 = fmul nnan double %110, 0x3C00000000000000
   %112 = fptrunc double %111 to float
   %113 = getelementptr inbounds nuw i8, ptr %.03759.i.i, i64 4
   store float %112, ptr %.03759.i.i, align 4
@@ -61805,7 +61805,7 @@ drwav_read_pcm_frames_f32__pcm.exit:              ; preds = %47, %50, %.loopexit
   %132 = getelementptr inbounds nuw i16, ptr %7, i64 %.012.i.i
   %133 = load i16, ptr %132, align 2
   %134 = sitofp i16 %133 to float
-  %135 = fmul float %134, 0x3F00000000000000
+  %135 = fmul nnan float %134, 0x3F00000000000000
   %136 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 4
   store float %135, ptr %.0811.i.i, align 4
   %137 = add nuw i64 %.012.i.i, 1
@@ -62086,7 +62086,7 @@ drwav_read_pcm_frames_f32__ieee.exit:             ; preds = %.preheader.split.us
   %260 = getelementptr inbounds nuw i16, ptr @g_drwavAlawTable, i64 %259
   %261 = load i16, ptr %260, align 2
   %262 = sitofp i16 %261 to float
-  %263 = fmul float %262, 0x3F00000000000000
+  %263 = fmul nnan float %262, 0x3F00000000000000
   %264 = getelementptr inbounds nuw i8, ptr %.0811.i.i57, i64 4
   store float %263, ptr %.0811.i.i57, align 4
   %265 = add nuw i64 %.012.i.i56, 1
@@ -62188,7 +62188,7 @@ drwav_read_pcm_frames_f32__alaw.exit:             ; preds = %247, %250, %.loopex
   %310 = getelementptr inbounds nuw i16, ptr @g_drwavMulawTable, i64 %309
   %311 = load i16, ptr %310, align 2
   %312 = sitofp i16 %311 to float
-  %313 = fmul float %312, 0x3F00000000000000
+  %313 = fmul nnan float %312, 0x3F00000000000000
   %314 = getelementptr inbounds nuw i8, ptr %.0811.i.i77, i64 4
   store float %313, ptr %.0811.i.i77, align 4
   %315 = add nuw i64 %.012.i.i76, 1
@@ -62261,7 +62261,7 @@ define hidden void @drwav_u8_to_f32(ptr noundef writeonly captures(address_is_nu
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.01114
   %8 = load i8, ptr %7, align 1
   %9 = uitofp i8 %8 to float
-  %10 = fmul float %9, 0x3F80101020000000
+  %10 = fmul nnan float %9, 0x3F80101020000000
   %11 = fadd float %10, -1.000000e+00
   %12 = getelementptr inbounds nuw i8, ptr %.015, i64 4
   store float %11, ptr %.015, align 4
@@ -62288,7 +62288,7 @@ define hidden void @drwav_s16_to_f32(ptr noundef writeonly captures(address_is_n
   %7 = getelementptr inbounds nuw i16, ptr %1, i64 %.012
   %8 = load i16, ptr %7, align 2
   %9 = sitofp i16 %8 to float
-  %10 = fmul float %9, 0x3F00000000000000
+  %10 = fmul nnan float %9, 0x3F00000000000000
   %11 = getelementptr inbounds nuw i8, ptr %.0811, i64 4
   store float %10, ptr %.0811, align 4
   %12 = add nuw i64 %.012, 1
@@ -62323,7 +62323,7 @@ define hidden void @drwav_s24_to_f32(ptr noundef writeonly captures(address_is_n
   %16 = or disjoint i32 %15, %11
   %17 = ashr exact i32 %16, 8
   %18 = sitofp i32 %17 to double
-  %19 = fmul double %18, 0x3E80000000000000
+  %19 = fmul nnan double %18, 0x3E80000000000000
   %20 = fptrunc double %19 to float
   %21 = getelementptr inbounds nuw i8, ptr %.020, i64 4
   store float %20, ptr %.020, align 4
@@ -62350,7 +62350,7 @@ define hidden void @drwav_s32_to_f32(ptr noundef writeonly captures(address_is_n
   %7 = getelementptr inbounds nuw i32, ptr %1, i64 %.012
   %8 = load i32, ptr %7, align 4
   %9 = sitofp i32 %8 to double
-  %10 = fmul double %9, 0x3E00000000000000
+  %10 = fmul nnan double %9, 0x3E00000000000000
   %11 = fptrunc double %10 to float
   %12 = getelementptr inbounds nuw i8, ptr %.0811, i64 4
   store float %11, ptr %.0811, align 4
@@ -62405,7 +62405,7 @@ define hidden void @drwav_alaw_to_f32(ptr noundef writeonly captures(address_is_
   %10 = getelementptr inbounds nuw i16, ptr @g_drwavAlawTable, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = sitofp i16 %11 to float
-  %13 = fmul float %12, 0x3F00000000000000
+  %13 = fmul nnan float %12, 0x3F00000000000000
   %14 = getelementptr inbounds nuw i8, ptr %.0811, i64 4
   store float %13, ptr %.0811, align 4
   %15 = add nuw i64 %.012, 1
@@ -62434,7 +62434,7 @@ define hidden void @drwav_mulaw_to_f32(ptr noundef writeonly captures(address_is
   %10 = getelementptr inbounds nuw i16, ptr @g_drwavMulawTable, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = sitofp i16 %11 to float
-  %13 = fmul float %12, 0x3F00000000000000
+  %13 = fmul nnan float %12, 0x3F00000000000000
   %14 = getelementptr inbounds nuw i8, ptr %.0811, i64 4
   store float %13, ptr %.0811, align 4
   %15 = add nuw i64 %.012, 1
@@ -71349,7 +71349,7 @@ set_file_offset.exit.i:                           ; preds = %65, %62, %53, %52, 
 
 130:                                              ; preds = %117
   %131 = uitofp i32 %85 to double
-  %132 = fsub double %74, %131
+  %132 = fsub nnan double %74, %131
   %133 = fmul double %132, %.0103196.i
   %134 = fcmp oge double %133, 0.000000e+00
   %135 = fcmp olt double %133, 8.000000e+03
@@ -81485,7 +81485,7 @@ drmp3_read_pcm_frames_raw.exit:                   ; preds = %.split.i, %22, %48
   %59 = getelementptr inbounds nuw i16, ptr %4, i64 %.08.i
   %60 = load i16, ptr %59, align 2
   %61 = sitofp i16 %60 to float
-  %62 = fmul float %61, 0x3F00000000000000
+  %62 = fmul nnan float %61, 0x3F00000000000000
   %63 = getelementptr inbounds nuw float, ptr %57, i64 %.08.i
   store float %62, ptr %63, align 4
   %64 = add nuw i64 %.08.i, 1
@@ -85256,7 +85256,7 @@ qoaplay_decode_frame.exit26:                      ; preds = %61, %71
   %104 = getelementptr inbounds i16, ptr %103, i64 %indvars.iv40
   %105 = load i16, ptr %104, align 2
   %106 = sitofp i16 %105 to double
-  %107 = fmul double %106, 0x3F00000000000000
+  %107 = fmul nnan double %106, 0x3F00000000000000
   %108 = fptrunc double %107 to float
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %109 = getelementptr inbounds float, ptr %1, i64 %indvars.iv
@@ -87842,7 +87842,7 @@ define hidden ptr @jar_xm_load_module(ptr noundef captures(none) initializes((50
   %883 = zext i8 %882 to i32
   %884 = shl nuw nsw i32 %883, 2
   %885 = uitofp nneg i32 %884 to float
-  %886 = fmul float %885, 3.906250e-03
+  %886 = fmul nnan float %885, 3.906250e-03
   br label %887
 
 887:                                              ; preds = %871, %880
@@ -88171,7 +88171,7 @@ define hidden ptr @jar_xm_load_module(ptr noundef captures(none) initializes((50
   %1073 = add nsw i32 %1051, %1072
   %1074 = trunc i32 %1073 to i16
   %1075 = sitofp i16 %1074 to float
-  %1076 = fmul float %1075, 0x3F00000000000000
+  %1076 = fmul nnan float %1075, 0x3F00000000000000
   %1077 = load ptr, ptr %1043, align 8
   %1078 = getelementptr inbounds nuw float, ptr %1077, i64 %indvars.iv1041
   store float %1076, ptr %1078, align 4
@@ -88221,7 +88221,7 @@ define hidden ptr @jar_xm_load_module(ptr noundef captures(none) initializes((50
   %1099 = add nsw i32 %1098, %1090
   %1100 = trunc i32 %1099 to i8
   %1101 = sitofp i8 %1100 to float
-  %1102 = fmul float %1101, 7.812500e-03
+  %1102 = fmul nnan float %1101, 7.812500e-03
   %1103 = load ptr, ptr %1041, align 8
   %1104 = getelementptr inbounds nuw float, ptr %1103, i64 %indvars.iv1038
   store float %1102, ptr %1104, align 4
@@ -88320,7 +88320,7 @@ define hidden ptr @jar_xm_load_module(ptr noundef captures(none) initializes((50
   %1144 = add nsw i32 %1122, %1143
   %1145 = trunc i32 %1144 to i16
   %1146 = sitofp i16 %1145 to float
-  %1147 = fmul float %1146, 0x3F00000000000000
+  %1147 = fmul nnan float %1146, 0x3F00000000000000
   %1148 = load ptr, ptr %1118, align 8
   %1149 = getelementptr inbounds nuw float, ptr %1148, i64 %indvars.iv1051
   store float %1147, ptr %1149, align 4
@@ -88368,7 +88368,7 @@ define hidden ptr @jar_xm_load_module(ptr noundef captures(none) initializes((50
   %1167 = add nsw i32 %1166, %1158
   %1168 = trunc i32 %1167 to i8
   %1169 = sitofp i8 %1168 to float
-  %1170 = fmul float %1169, 7.812500e-03
+  %1170 = fmul nnan float %1169, 7.812500e-03
   %1171 = load ptr, ptr %1117, align 8
   %1172 = getelementptr inbounds nuw float, ptr %1171, i64 %indvars.iv1046
   store float %1170, ptr %1172, align 4
@@ -89013,7 +89013,7 @@ jar_xm_row.exit:                                  ; preds = %133, %125, %121, %1
   %178 = getelementptr inbounds nuw i8, ptr %168, i64 244
   %179 = load i16, ptr %178, align 4
   %180 = uitofp i16 %179 to float
-  %181 = fmul float %180, 0x3EF0000000000000
+  %181 = fmul nnan float %180, 0x3EF0000000000000
   %182 = getelementptr inbounds nuw i8, ptr %166, i64 64
   %183 = load float, ptr %182, align 8
   %184 = fsub float %183, %181
@@ -89086,8 +89086,8 @@ jar_xm_envelopes.exit.thread:                     ; preds = %191, %jar_xm_envelo
 
 221:                                              ; preds = %203
   %222 = uitofp nneg i8 %220 to float
-  %223 = fmul float %222, 0x401921FB00000000
-  %224 = fmul float %223, 1.562500e-02
+  %223 = fmul nnan float %222, 0x401921FB00000000
+  %224 = fmul nnan float %223, 1.562500e-02
   %225 = tail call float @sinf(float noundef %224) #71
   %226 = fneg float %225
   br label %jar_xm_waveform.exit.i
@@ -89096,7 +89096,7 @@ jar_xm_envelopes.exit.thread:                     ; preds = %191, %jar_xm_envelo
   %228 = zext nneg i8 %220 to i32
   %229 = sub nsw i32 32, %228
   %230 = sitofp i32 %229 to float
-  %231 = fmul float %230, 3.125000e-02
+  %231 = fmul nnan float %230, 3.125000e-02
   br label %jar_xm_waveform.exit.i
 
 232:                                              ; preds = %203
@@ -89112,7 +89112,7 @@ jar_xm_envelopes.exit.thread:                     ; preds = %191, %jar_xm_envelo
   %239 = lshr i32 %238, 16
   %240 = and i32 %239, 32767
   %241 = uitofp nneg i32 %240 to float
-  %242 = fmul float %241, 0x3F10000000000000
+  %242 = fmul nnan float %241, 0x3F10000000000000
   %243 = fadd float %242, -1.000000e+00
   br label %jar_xm_waveform.exit.i
 
@@ -89120,7 +89120,7 @@ jar_xm_envelopes.exit.thread:                     ; preds = %191, %jar_xm_envelo
   %245 = zext nneg i8 %220 to i32
   %246 = add nsw i32 %245, -32
   %247 = sitofp i32 %246 to float
-  %248 = fmul float %247, 3.125000e-02
+  %248 = fmul nnan float %247, 3.125000e-02
   br label %jar_xm_waveform.exit.i
 
 jar_xm_waveform.exit.i:                           ; preds = %244, %235, %232, %227, %221, %203
@@ -89230,7 +89230,7 @@ jar_xm_autovibrato.exit:                          ; preds = %163, %jar_xm_envelo
 298:                                              ; preds = %297, %290, %290, %290, %290
   %299 = add nsw i32 %295, -16
   %300 = sitofp i32 %299 to float
-  %301 = fmul float %300, 1.562500e-02
+  %301 = fmul nnan float %300, 1.562500e-02
   %302 = getelementptr inbounds nuw i8, ptr %166, i64 52
   store float %301, ptr %302, align 4
   br label %jar_xm_volume_slide.exit
@@ -89242,7 +89242,7 @@ jar_xm_autovibrato.exit:                          ; preds = %163, %jar_xm_envelo
 
 305:                                              ; preds = %303
   %306 = uitofp nneg i8 %304 to float
-  %307 = fmul float %306, 1.562500e-02
+  %307 = fmul nnan float %306, 1.562500e-02
   %308 = getelementptr inbounds nuw i8, ptr %166, i64 52
   %309 = load float, ptr %308, align 4
   %310 = fsub float %309, %307
@@ -89256,7 +89256,7 @@ jar_xm_autovibrato.exit:                          ; preds = %163, %jar_xm_envelo
 
 312:                                              ; preds = %311
   %313 = uitofp nneg i8 %.mask287 to float
-  %314 = fmul float %313, 1.562500e-02
+  %314 = fmul nnan float %313, 1.562500e-02
   %315 = getelementptr inbounds nuw i8, ptr %166, i64 52
   %316 = load float, ptr %315, align 4
   %317 = fadd float %314, %316
@@ -89270,7 +89270,7 @@ jar_xm_autovibrato.exit:                          ; preds = %163, %jar_xm_envelo
 
 320:                                              ; preds = %318
   %321 = uitofp nneg i8 %319 to float
-  %322 = fmul float %321, 1.562500e-02
+  %322 = fmul nnan float %321, 1.562500e-02
   %323 = getelementptr inbounds nuw i8, ptr %166, i64 52
   %324 = load float, ptr %323, align 4
   %325 = fsub float %324, %322
@@ -89284,7 +89284,7 @@ jar_xm_autovibrato.exit:                          ; preds = %163, %jar_xm_envelo
 
 327:                                              ; preds = %326
   %328 = uitofp nneg i8 %.mask286 to float
-  %329 = fmul float %328, 1.562500e-02
+  %329 = fmul nnan float %328, 1.562500e-02
   %330 = getelementptr inbounds nuw i8, ptr %166, i64 52
   %331 = load float, ptr %330, align 4
   %332 = fadd float %329, %331
@@ -89324,8 +89324,8 @@ jar_xm_autovibrato.exit:                          ; preds = %163, %jar_xm_envelo
 
 351:                                              ; preds = %339
   %352 = uitofp nneg i8 %350 to float
-  %353 = fmul float %352, 0x401921FB00000000
-  %354 = fmul float %353, 1.562500e-02
+  %353 = fmul nnan float %352, 0x401921FB00000000
+  %354 = fmul nnan float %353, 1.562500e-02
   %355 = tail call float @sinf(float noundef %354) #71
   %356 = fneg float %355
   br label %jar_xm_vibrato.exit
@@ -89334,7 +89334,7 @@ jar_xm_autovibrato.exit:                          ; preds = %163, %jar_xm_envelo
   %358 = zext nneg i8 %350 to i32
   %359 = sub nsw i32 32, %358
   %360 = sitofp i32 %359 to float
-  %361 = fmul float %360, 3.125000e-02
+  %361 = fmul nnan float %360, 3.125000e-02
   br label %jar_xm_vibrato.exit
 
 362:                                              ; preds = %339
@@ -89350,7 +89350,7 @@ jar_xm_autovibrato.exit:                          ; preds = %163, %jar_xm_envelo
   %369 = lshr i32 %368, 16
   %370 = and i32 %369, 32767
   %371 = uitofp nneg i32 %370 to float
-  %372 = fmul float %371, 0x3F10000000000000
+  %372 = fmul nnan float %371, 0x3F10000000000000
   %373 = fadd float %372, -1.000000e+00
   br label %jar_xm_vibrato.exit
 
@@ -89358,7 +89358,7 @@ jar_xm_autovibrato.exit:                          ; preds = %163, %jar_xm_envelo
   %375 = zext nneg i8 %350 to i32
   %376 = add nsw i32 %375, -32
   %377 = sitofp i32 %376 to float
-  %378 = fmul float %377, 3.125000e-02
+  %378 = fmul nnan float %377, 3.125000e-02
   br label %jar_xm_vibrato.exit
 
 jar_xm_vibrato.exit:                              ; preds = %339, %351, %357, %362, %365, %374
@@ -89594,7 +89594,7 @@ jar_xm_arpeggio.exit:                             ; preds = %467, %468, %470
   %481 = sitofp i32 %480 to float
   %482 = load i32, ptr %149, align 8
   %483 = icmp eq i32 %482, 0
-  %484 = fmul float %481, 4.000000e+00
+  %484 = fmul nnan float %481, 4.000000e+00
   %.0.i245 = select i1 %483, float %484, float %481
   %485 = getelementptr inbounds nuw i8, ptr %166, i64 36
   %486 = load float, ptr %485, align 4
@@ -89616,7 +89616,7 @@ jar_xm_arpeggio.exit:                             ; preds = %467, %468, %470
   %495 = uitofp i8 %494 to float
   %496 = load i32, ptr %149, align 8
   %497 = icmp eq i32 %496, 0
-  %498 = fmul float %495, 4.000000e+00
+  %498 = fmul nnan float %495, 4.000000e+00
   %.0.i246 = select i1 %497, float %498, float %495
   %499 = getelementptr inbounds nuw i8, ptr %166, i64 36
   %500 = load float, ptr %499, align 4
@@ -89713,8 +89713,8 @@ jar_xm_arpeggio.exit:                             ; preds = %467, %468, %470
 
 552:                                              ; preds = %540
   %553 = uitofp nneg i8 %551 to float
-  %554 = fmul float %553, 0x401921FB00000000
-  %555 = fmul float %554, 1.562500e-02
+  %554 = fmul nnan float %553, 0x401921FB00000000
+  %555 = fmul nnan float %554, 1.562500e-02
   %556 = tail call float @sinf(float noundef %555) #71
   %557 = fneg float %556
   br label %jar_xm_vibrato.exit252
@@ -89723,7 +89723,7 @@ jar_xm_arpeggio.exit:                             ; preds = %467, %468, %470
   %559 = zext nneg i8 %551 to i32
   %560 = sub nsw i32 32, %559
   %561 = sitofp i32 %560 to float
-  %562 = fmul float %561, 3.125000e-02
+  %562 = fmul nnan float %561, 3.125000e-02
   br label %jar_xm_vibrato.exit252
 
 563:                                              ; preds = %540
@@ -89739,7 +89739,7 @@ jar_xm_arpeggio.exit:                             ; preds = %467, %468, %470
   %570 = lshr i32 %569, 16
   %571 = and i32 %570, 32767
   %572 = uitofp nneg i32 %571 to float
-  %573 = fmul float %572, 0x3F10000000000000
+  %573 = fmul nnan float %572, 0x3F10000000000000
   %574 = fadd float %573, -1.000000e+00
   br label %jar_xm_vibrato.exit252
 
@@ -89747,7 +89747,7 @@ jar_xm_arpeggio.exit:                             ; preds = %467, %468, %470
   %576 = zext nneg i8 %551 to i32
   %577 = add nsw i32 %576, -32
   %578 = sitofp i32 %577 to float
-  %579 = fmul float %578, 3.125000e-02
+  %579 = fmul nnan float %578, 3.125000e-02
   br label %jar_xm_vibrato.exit252
 
 jar_xm_vibrato.exit252:                           ; preds = %540, %552, %558, %563, %566, %575
@@ -89829,7 +89829,7 @@ jar_xm_tone_portamento.exit254:                   ; preds = %589, %593, %619
 623:                                              ; preds = %jar_xm_tone_portamento.exit254
   %624 = lshr i32 %622, 4
   %625 = uitofp nneg i32 %624 to float
-  %626 = fmul float %625, 1.562500e-02
+  %626 = fmul nnan float %625, 1.562500e-02
   %627 = getelementptr inbounds nuw i8, ptr %166, i64 52
   %628 = load float, ptr %627, align 4
   %629 = fadd float %626, %628
@@ -89843,7 +89843,7 @@ jar_xm_tone_portamento.exit254:                   ; preds = %589, %593, %619
 
 632:                                              ; preds = %630
   %633 = uitofp nneg i32 %631 to float
-  %634 = fmul float %633, 1.562500e-02
+  %634 = fmul nnan float %633, 1.562500e-02
   %635 = getelementptr inbounds nuw i8, ptr %166, i64 52
   %636 = load float, ptr %635, align 4
   %637 = fsub float %636, %634
@@ -89879,8 +89879,8 @@ jar_xm_tone_portamento.exit254:                   ; preds = %589, %593, %619
 
 653:                                              ; preds = %641
   %654 = uitofp nneg i8 %652 to float
-  %655 = fmul float %654, 0x401921FB00000000
-  %656 = fmul float %655, 1.562500e-02
+  %655 = fmul nnan float %654, 0x401921FB00000000
+  %656 = fmul nnan float %655, 1.562500e-02
   %657 = tail call float @sinf(float noundef %656) #71
   %658 = fneg float %657
   br label %jar_xm_vibrato.exit260
@@ -89889,7 +89889,7 @@ jar_xm_tone_portamento.exit254:                   ; preds = %589, %593, %619
   %660 = zext nneg i8 %652 to i32
   %661 = sub nsw i32 32, %660
   %662 = sitofp i32 %661 to float
-  %663 = fmul float %662, 3.125000e-02
+  %663 = fmul nnan float %662, 3.125000e-02
   br label %jar_xm_vibrato.exit260
 
 664:                                              ; preds = %641
@@ -89905,7 +89905,7 @@ jar_xm_tone_portamento.exit254:                   ; preds = %589, %593, %619
   %671 = lshr i32 %670, 16
   %672 = and i32 %671, 32767
   %673 = uitofp nneg i32 %672 to float
-  %674 = fmul float %673, 0x3F10000000000000
+  %674 = fmul nnan float %673, 0x3F10000000000000
   %675 = fadd float %674, -1.000000e+00
   br label %jar_xm_vibrato.exit260
 
@@ -89913,7 +89913,7 @@ jar_xm_tone_portamento.exit254:                   ; preds = %589, %593, %619
   %677 = zext nneg i8 %652 to i32
   %678 = add nsw i32 %677, -32
   %679 = sitofp i32 %678 to float
-  %680 = fmul float %679, 3.125000e-02
+  %680 = fmul nnan float %679, 3.125000e-02
   br label %jar_xm_vibrato.exit260
 
 jar_xm_vibrato.exit260:                           ; preds = %641, %653, %659, %664, %667, %676
@@ -89935,7 +89935,7 @@ jar_xm_vibrato.exit260:                           ; preds = %641, %653, %659, %6
 690:                                              ; preds = %jar_xm_vibrato.exit260
   %691 = lshr i32 %689, 4
   %692 = uitofp nneg i32 %691 to float
-  %693 = fmul float %692, 1.562500e-02
+  %693 = fmul nnan float %692, 1.562500e-02
   %694 = getelementptr inbounds nuw i8, ptr %166, i64 52
   %695 = load float, ptr %694, align 4
   %696 = fadd float %693, %695
@@ -89949,7 +89949,7 @@ jar_xm_vibrato.exit260:                           ; preds = %641, %653, %659, %6
 
 699:                                              ; preds = %697
   %700 = uitofp nneg i32 %698 to float
-  %701 = fmul float %700, 1.562500e-02
+  %701 = fmul nnan float %700, 1.562500e-02
   %702 = getelementptr inbounds nuw i8, ptr %166, i64 52
   %703 = load float, ptr %702, align 4
   %704 = fsub float %703, %701
@@ -89983,8 +89983,8 @@ jar_xm_vibrato.exit260:                           ; preds = %641, %653, %659, %6
 
 719:                                              ; preds = %708
   %720 = uitofp nneg i8 %718 to float
-  %721 = fmul float %720, 0x401921FB00000000
-  %722 = fmul float %721, 1.562500e-02
+  %721 = fmul nnan float %720, 0x401921FB00000000
+  %722 = fmul nnan float %721, 1.562500e-02
   %723 = tail call float @sinf(float noundef %722) #71
   %724 = fneg float %723
   br label %jar_xm_tremolo.exit
@@ -89993,7 +89993,7 @@ jar_xm_vibrato.exit260:                           ; preds = %641, %653, %659, %6
   %726 = zext nneg i8 %718 to i32
   %727 = sub nsw i32 32, %726
   %728 = sitofp i32 %727 to float
-  %729 = fmul float %728, 3.125000e-02
+  %729 = fmul nnan float %728, 3.125000e-02
   br label %jar_xm_tremolo.exit
 
 730:                                              ; preds = %708
@@ -90009,7 +90009,7 @@ jar_xm_vibrato.exit260:                           ; preds = %641, %653, %659, %6
   %737 = lshr i32 %736, 16
   %738 = and i32 %737, 32767
   %739 = uitofp nneg i32 %738 to float
-  %740 = fmul float %739, 0x3F10000000000000
+  %740 = fmul nnan float %739, 0x3F10000000000000
   %741 = fadd float %740, -1.000000e+00
   br label %jar_xm_tremolo.exit
 
@@ -90017,7 +90017,7 @@ jar_xm_vibrato.exit260:                           ; preds = %641, %653, %659, %6
   %743 = zext nneg i8 %718 to i32
   %744 = add nsw i32 %743, -32
   %745 = sitofp i32 %744 to float
-  %746 = fmul float %745, 3.125000e-02
+  %746 = fmul nnan float %745, 3.125000e-02
   br label %jar_xm_tremolo.exit
 
 jar_xm_tremolo.exit:                              ; preds = %708, %719, %725, %730, %733, %742
@@ -90046,7 +90046,7 @@ jar_xm_tremolo.exit:                              ; preds = %708, %719, %725, %7
 760:                                              ; preds = %756
   %761 = lshr i32 %759, 4
   %762 = uitofp nneg i32 %761 to float
-  %763 = fmul float %762, 1.562500e-02
+  %763 = fmul nnan float %762, 1.562500e-02
   %764 = getelementptr inbounds nuw i8, ptr %166, i64 52
   %765 = load float, ptr %764, align 4
   %766 = fadd float %763, %765
@@ -90060,7 +90060,7 @@ jar_xm_tremolo.exit:                              ; preds = %708, %719, %725, %7
 
 769:                                              ; preds = %767
   %770 = uitofp nneg i32 %768 to float
-  %771 = fmul float %770, 1.562500e-02
+  %771 = fmul nnan float %770, 1.562500e-02
   %772 = getelementptr inbounds nuw i8, ptr %166, i64 52
   %773 = load float, ptr %772, align 4
   %774 = fsub float %773, %771
@@ -90116,7 +90116,7 @@ jar_xm_tremolo.exit:                              ; preds = %708, %719, %725, %7
   %797 = getelementptr inbounds nuw i8, ptr %787, i64 244
   %798 = load i16, ptr %797, align 4
   %799 = uitofp i16 %798 to float
-  %800 = fmul float %799, 0x3EF0000000000000
+  %800 = fmul nnan float %799, 0x3EF0000000000000
   %801 = getelementptr inbounds nuw i8, ptr %166, i64 64
   %802 = load float, ptr %801, align 8
   %803 = fsub float %802, %800
@@ -90192,7 +90192,7 @@ jar_xm_tremolo.exit:                              ; preds = %708, %719, %725, %7
   %843 = getelementptr inbounds nuw i8, ptr %833, i64 244
   %844 = load i16, ptr %843, align 4
   %845 = uitofp i16 %844 to float
-  %846 = fmul float %845, 0x3EF0000000000000
+  %846 = fmul nnan float %845, 0x3EF0000000000000
   %847 = getelementptr inbounds nuw i8, ptr %166, i64 64
   %848 = load float, ptr %847, align 8
   %849 = fsub float %848, %846
@@ -90246,7 +90246,7 @@ jar_xm_tremolo.exit:                              ; preds = %708, %719, %725, %7
 873:                                              ; preds = %872
   %874 = lshr i8 %870, 4
   %875 = uitofp nneg i8 %874 to float
-  %876 = fmul float %875, 1.562500e-02
+  %876 = fmul nnan float %875, 1.562500e-02
   %877 = load float, ptr %150, align 8
   %878 = fadd float %876, %877
   %879 = fcmp ogt float %878, 1.000000e+00
@@ -90256,7 +90256,7 @@ jar_xm_tremolo.exit:                              ; preds = %708, %719, %725, %7
 
 880:                                              ; preds = %872
   %881 = uitofp nneg i8 %870 to float
-  %882 = fmul float %881, 1.562500e-02
+  %882 = fmul nnan float %881, 1.562500e-02
   %883 = load float, ptr %150, align 8
   %884 = fsub float %883, %882
   %885 = fcmp olt float %884, 0.000000e+00
@@ -90479,7 +90479,7 @@ jar_xm_tone_portamento.exit249:                   ; preds = %918, %916, %900, %8
   %1018 = getelementptr inbounds nuw i8, ptr %0, i64 358
   %1019 = load i16, ptr %1018, align 2
   %1020 = uitofp i16 %1019 to float
-  %1021 = fmul float %1020, 0x3FD99999A0000000
+  %1021 = fmul nnan float %1020, 0x3FD99999A0000000
   %1022 = fdiv float %1017, %1021
   %1023 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %1024 = load float, ptr %1023, align 8
@@ -95912,7 +95912,7 @@ define noalias noundef ptr @LoadWaveSamples(ptr noundef readonly byval(%struct.W
   %15 = zext i8 %14 to i32
   %16 = add nsw i32 %15, -128
   %17 = sitofp i32 %16 to float
-  %18 = fmul float %17, 7.812500e-03
+  %18 = fmul nnan float %17, 7.812500e-03
   %19 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv22
   store float %18, ptr %19, align 4
   %indvars.iv.next23 = add nuw nsw i64 %indvars.iv22, 1
@@ -95924,7 +95924,7 @@ define noalias noundef ptr @LoadWaveSamples(ptr noundef readonly byval(%struct.W
   %20 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
   %21 = load i16, ptr %20, align 2
   %22 = sitofp i16 %21 to float
-  %23 = fmul float %22, 0x3F00000000000000
+  %23 = fmul nnan float %22, 0x3F00000000000000
   %24 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
   store float %23, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -106526,7 +106526,7 @@ define internal noundef i32 @ma_device_read__null(ptr noundef captures(none) %0,
   %57 = load i64, ptr %18, align 8
   %58 = sub i64 %56, %57
   %59 = uitofp i64 %58 to double
-  %60 = fdiv double %59, 1.000000e+09
+  %60 = fdiv nnan double %59, 1.000000e+09
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %61 = fadd double %51, %60
   %62 = uitofp i32 %.0.i to double
@@ -106653,7 +106653,7 @@ define internal noundef i32 @ma_device_write__null(ptr noundef %0, ptr readnone 
   %42 = load i64, ptr %16, align 8
   %43 = sub i64 %41, %42
   %44 = uitofp i64 %43 to double
-  %45 = fdiv double %44, 1.000000e+09
+  %45 = fdiv nnan double %44, 1.000000e+09
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = fadd double %36, %45
   %47 = uitofp i32 %.0.i to double
@@ -119198,7 +119198,7 @@ setup_malloc.exit65:                              ; preds = %44, %53, %56, %62
   %.03335.i = phi i32 [ 0, %.lr.ph.i ], [ %105, %79 ]
   %80 = shl nsw i32 %.03335.i, 2
   %81 = uitofp nneg i32 %80 to double
-  %82 = fmul double %81, 0x400921FB54442D18
+  %82 = fmul nnan double %81, 0x400921FB54442D18
   %83 = fdiv double %82, %76
   %84 = tail call double @cos(double noundef %83) #71
   %85 = fptrunc double %84 to float
@@ -119212,7 +119212,7 @@ setup_malloc.exit65:                              ; preds = %44, %53, %56, %62
   store float %89, ptr %91, align 4
   %92 = trunc nuw nsw i64 %90 to i32
   %93 = uitofp nneg i32 %92 to double
-  %94 = fmul double %93, 0x400921FB54442D18
+  %94 = fmul nnan double %93, 0x400921FB54442D18
   %95 = fdiv double %94, %76
   %96 = fmul double %95, 5.000000e-01
   %97 = tail call double @cos(double noundef %96) #71
@@ -119237,7 +119237,7 @@ setup_malloc.exit65:                              ; preds = %44, %53, %56, %62
   %.tr.i = trunc i64 %107 to i32
   %108 = shl i32 %.tr.i, 1
   %109 = uitofp nneg i32 %108 to double
-  %110 = fmul double %109, 0x400921FB54442D18
+  %110 = fmul nnan double %109, 0x400921FB54442D18
   %111 = fdiv double %110, %78
   %112 = tail call double @cos(double noundef %111) #71
   %113 = fptrunc double %112 to float
@@ -119307,10 +119307,10 @@ setup_malloc.exit69:                              ; preds = %130, %134
   %indvars.iv.i71 = phi i64 [ 0, %.lr.ph.i70 ], [ %indvars.iv.next.i72, %143 ]
   %144 = trunc nuw nsw i64 %indvars.iv.i71 to i32
   %145 = uitofp nneg i32 %144 to double
-  %146 = fadd double %145, 5.000000e-01
-  %147 = fdiv double %146, %142
-  %148 = fmul double %147, 5.000000e-01
-  %149 = fmul double %148, 0x400921FB54442D18
+  %146 = fadd nnan double %145, 5.000000e-01
+  %147 = fdiv nnan double %146, %142
+  %148 = fmul nnan double %147, 5.000000e-01
+  %149 = fmul nnan double %148, 0x400921FB54442D18
   %150 = tail call double @sin(double noundef %149) #71
   %151 = fptrunc double %150 to float
   %152 = fmul float %151, %151
@@ -120182,7 +120182,7 @@ define internal fastcc void @jar_xm_next_of_sample(ptr noundef readonly captures
   %27 = getelementptr inbounds nuw float, ptr %26, i64 %22
   %28 = load float, ptr %27, align 4
   %29 = uitofp nneg i64 %22 to float
-  %30 = fmul float %29, 1.250000e-01
+  %30 = fmul nnan float %29, 1.250000e-01
   %31 = fsub float 0.000000e+00, %28
   %32 = tail call float @llvm.fmuladd.f32(float %30, float %31, float %28)
   br i1 %25, label %33, label %42
@@ -120552,7 +120552,7 @@ define internal fastcc void @jar_xm_next_of_sample(ptr noundef readonly captures
   %229 = getelementptr inbounds nuw float, ptr %228, i64 %224
   %230 = load float, ptr %229, align 4
   %231 = uitofp nneg i64 %224 to float
-  %232 = fmul float %231, 1.250000e-01
+  %232 = fmul nnan float %231, 1.250000e-01
   %233 = fsub float %216, %230
   %234 = tail call float @llvm.fmuladd.f32(float %232, float %233, float %230)
   br i1 %227, label %.thread263, label %.thread264
@@ -120868,7 +120868,7 @@ define internal fastcc void @jar_xm_volume_slide(ptr noundef captures(none) %0, 
 4:                                                ; preds = %2
   %5 = lshr i32 %3, 4
   %6 = uitofp nneg i32 %5 to float
-  %7 = fmul float %6, 1.562500e-02
+  %7 = fmul nnan float %6, 1.562500e-02
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %9 = load float, ptr %8, align 4
   %10 = fadd float %7, %9
@@ -120882,7 +120882,7 @@ define internal fastcc void @jar_xm_volume_slide(ptr noundef captures(none) %0, 
 
 13:                                               ; preds = %11
   %14 = uitofp nneg i32 %12 to float
-  %15 = fmul float %14, 1.562500e-02
+  %15 = fmul nnan float %14, 1.562500e-02
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %17 = load float, ptr %16, align 4
   %18 = fsub float %17, %15
@@ -121263,7 +121263,7 @@ jar_xm_trigger_note.exit:                         ; preds = %jar_xm_trigger_note
   %104 = getelementptr inbounds nuw i8, ptr %96, i64 48
   %105 = load i8, ptr %104, align 8
   %106 = sitofp i8 %105 to float
-  %107 = fmul float %106, 7.812500e-03
+  %107 = fmul nnan float %106, 7.812500e-03
   %108 = fadd float %107, %103
   %109 = fadd float %108, -1.000000e+00
   store float %109, ptr %1, align 8
@@ -121402,7 +121402,7 @@ jar_xm_period.exit:                               ; preds = %97, %111, %jar_xm_a
   %188 = getelementptr inbounds nuw i8, ptr %179, i64 48
   %189 = load i8, ptr %188, align 8
   %190 = sitofp i8 %189 to float
-  %191 = fmul float %190, 7.812500e-03
+  %191 = fmul nnan float %190, 7.812500e-03
   %192 = fadd float %191, %187
   %193 = fadd float %192, -1.000000e+00
   store float %193, ptr %1, align 8
@@ -121751,7 +121751,7 @@ jar_xm_key_off.exit:                              ; preds = %211, %207, %jar_xm_
   %366 = load i8, ptr %365, align 1
   %367 = icmp ugt i8 %366, 64
   %368 = uitofp i8 %366 to float
-  %369 = fmul float %368, 1.562500e-02
+  %369 = fmul nnan float %368, 1.562500e-02
   %370 = select i1 %367, float 1.000000e+00, float %369
   %371 = getelementptr inbounds nuw i8, ptr %1, i64 52
   store float %370, ptr %371, align 4
@@ -121812,7 +121812,7 @@ jar_xm_key_off.exit:                              ; preds = %211, %207, %jar_xm_
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %397 = load i32, ptr %396, align 8
   %398 = icmp eq i32 %397, 0
-  %399 = fmul float %395, 4.000000e+00
+  %399 = fmul nnan float %395, 4.000000e+00
   %.0.i328 = select i1 %398, float %399, float %395
   %400 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %401 = load float, ptr %400, align 4
@@ -121845,7 +121845,7 @@ jar_xm_key_off.exit:                              ; preds = %211, %207, %jar_xm_
   %412 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %413 = load i32, ptr %412, align 8
   %414 = icmp eq i32 %413, 0
-  %415 = fmul float %411, 4.000000e+00
+  %415 = fmul nnan float %411, 4.000000e+00
   %.0.i329 = select i1 %414, float %415, float %411
   %416 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %417 = load float, ptr %416, align 4
@@ -121893,7 +121893,7 @@ jar_xm_key_off.exit:                              ; preds = %211, %207, %jar_xm_
   %443 = and i32 %442, 240
   %444 = add nsw i32 %443, -128
   %445 = sitofp i32 %444 to float
-  %446 = fmul float %445, 7.812500e-03
+  %446 = fmul nnan float %445, 7.812500e-03
   %447 = fadd float %446, %441
   %448 = fadd float %447, -1.000000e+00
   store float %448, ptr %1, align 8
@@ -122072,7 +122072,7 @@ jar_xm_key_off.exit:                              ; preds = %211, %207, %jar_xm_
   %536 = load i8, ptr %535, align 1
   %537 = icmp ugt i8 %536, 64
   %538 = uitofp i8 %536 to float
-  %539 = fmul float %538, 1.562500e-02
+  %539 = fmul nnan float %538, 1.562500e-02
   %540 = select i1 %537, float 1.000000e+00, float %539
   %541 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store float %540, ptr %541, align 8
@@ -122178,7 +122178,7 @@ jar_xm_key_off.exit:                              ; preds = %211, %207, %jar_xm_
   %590 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %591 = load i32, ptr %590, align 8
   %592 = icmp eq i32 %591, 0
-  %593 = fmul float %588, -4.000000e+00
+  %593 = fmul nnan float %588, -4.000000e+00
   %.0.i331 = select i1 %592, float %593, float %589
   %594 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %595 = load float, ptr %594, align 4
@@ -122211,7 +122211,7 @@ jar_xm_key_off.exit:                              ; preds = %211, %207, %jar_xm_
   %606 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %607 = load i32, ptr %606, align 8
   %608 = icmp eq i32 %607, 0
-  %609 = fmul float %605, 4.000000e+00
+  %609 = fmul nnan float %605, 4.000000e+00
   %.0.i333 = select i1 %608, float %609, float %605
   %610 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %611 = load float, ptr %610, align 4
@@ -122244,7 +122244,7 @@ define internal fastcc void @jar_xm_envelope_tick(ptr noundef readonly captures(
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %12 = load i16, ptr %11, align 2
   %13 = uitofp i16 %12 to float
-  %14 = fmul float %13, 1.562500e-02
+  %14 = fmul nnan float %13, 1.562500e-02
   store float %14, ptr %3, align 4
   %15 = fcmp ogt float %14, 1.000000e+00
   br i1 %15, label %16, label %94

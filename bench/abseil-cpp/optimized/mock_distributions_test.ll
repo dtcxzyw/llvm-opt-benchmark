@@ -27087,7 +27087,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %.0.i.i, %55
+  %56 = fmul nnan double %.0.i.i, %55
   %57 = fcmp une double %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 
@@ -45257,7 +45257,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit.i
 
 86:                                               ; preds = %_ZN4absl15random_internal15FastUniformBitsIjEclINS_13MockingBitGenEEEjRT_.exit.i.i
   %87 = uitofp nneg i64 %72 to double
-  %88 = fmul double %87, 0x3DF0000000000000
+  %88 = fmul nnan double %87, 0x3DF0000000000000
   %89 = fsub double %.013.i.i, %88
   %90 = fmul double %89, 0x41F0000000000000
   %91 = fcmp une double %90, 0.000000e+00
@@ -50319,15 +50319,15 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit36
   br label %83
 
 62:                                               ; preds = %58
-  %63 = tail call double @llvm.log.f64(double %32), !tbaa !31
+  %63 = tail call nnan double @llvm.log.f64(double %32)
   %64 = fmul double %63, %52
-  %65 = tail call double @llvm.log.f64(double %51), !tbaa !31
+  %65 = tail call nnan double @llvm.log.f64(double %51)
   %66 = fmul double %54, %65
   %67 = tail call double @llvm.fabs.f64(double %64)
   %68 = fcmp one double %67, 0x7FF0000000000000
   %69 = tail call double @llvm.fabs.f64(double %66)
   %70 = fcmp one double %69, 0x7FF0000000000000
-  %or.cond = and i1 %68, %70
+  %or.cond = select i1 %68, i1 %70, i1 false
   br i1 %or.cond, label %71, label %.backedge.backedge
 
 71:                                               ; preds = %62
@@ -50457,7 +50457,7 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit36
   %72 = tail call double @llvm.fmuladd.f64(double %71, double %64, double 0xBFF62E42FEFA39EF)
   %73 = fadd double %65, %72
   %74 = fsub double %73, %67
-  %75 = fmul double %40, %40
+  %75 = fmul nnan double %40, %40
   %76 = fmul double %75, %59
   br i1 %6, label %.thread, label %78
 
@@ -57417,8 +57417,8 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit: 
   %reass.sub = sub nsw i64 %29, %28
   %30 = add nsw i64 %reass.sub, 4602678819172646912
   %31 = bitcast i64 %30 to double
-  %32 = tail call double @llvm.log.f64(double %31), !tbaa !31
-  %33 = fmul double %32, 0x3FD2972A8AFC6175
+  %32 = tail call nnan double @llvm.log.f64(double %31)
+  %33 = fmul nnan double %32, 0x3FD2972A8AFC6175
   %34 = icmp ugt i64 %21, 31
   br i1 %34, label %35, label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit9
 
@@ -57617,8 +57617,8 @@ _ZN4absl13MockingBitGen10InvokeMockEPKvPvS3_.exit: ; preds = %_ZN4absl18containe
   %78 = tail call double @log(double noundef %77) #35, !tbaa !31, !noalias !1332
   %79 = fdiv double 1.000000e+00, %78
   %80 = uitofp i32 %71 to double
-  %81 = fadd double %80, 5.000000e-01
-  %82 = tail call double @llvm.log.f64(double %81), !tbaa !31
+  %81 = fadd nnan double %80, 5.000000e-01
+  %82 = tail call nnan double @llvm.log.f64(double %81)
   %83 = fmul double %82, %79
   %84 = tail call double @llvm.ceil.f64(double %83)
   %85 = fptosi double %84 to i32

@@ -10561,7 +10561,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %38, %40, %42, %44
   %59 = fpext float %58 to double
   %60 = trunc nuw nsw i64 %indvars.iv32 to i32
   %61 = uitofp nneg i32 %60 to float
-  %62 = fpext float %61 to double
+  %62 = fpext nnan ninf float %61 to double
   %63 = fmul double %54, %62
   %64 = sitofp i32 %57 to double
   %65 = fdiv double %63, %64
@@ -11771,9 +11771,9 @@ _ZN3vcg9HistogramIfED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
   %76 = add i32 %74, 1
   %77 = sub i32 %76, %75
   %78 = sitofp i32 %77 to float
-  %79 = fadd float %78, -1.000000e+01
-  %80 = fadd float %79, -1.000000e+01
-  %81 = fmul float %80, 5.000000e-01
+  %79 = fadd nnan float %78, -1.000000e+01
+  %80 = fadd nnan float %79, -1.000000e+01
+  %81 = fmul nnan float %80, 5.000000e-01
   %82 = trunc nuw nsw i64 %indvars.iv to i32
   %83 = uitofp nneg i32 %82 to float
   %84 = fmul float %81, %83
@@ -12559,7 +12559,7 @@ define void @_ZN19QualityMapperDialog22initEqualizerSpinboxesEv(ptr noundef nonn
   %.015 = phi double [ %26, %.lr.ph ], [ %22, %1 ]
   %.114 = phi i32 [ %25, %.lr.ph ], [ 0, %1 ]
   %25 = add nuw nsw i32 %.114, 1
-  %26 = fmul double %.015, 1.000000e+01
+  %26 = fmul nnan double %.015, 1.000000e+01
   %27 = fcmp olt double %26, 1.000000e-01
   br i1 %27, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !124
 
@@ -13151,7 +13151,7 @@ define void @_ZN19QualityMapperDialog17drawHistogramBarsER14QGraphicsSceneP10CHA
   %57 = sub i32 %56, %55
   %58 = sitofp i32 %57 to float
   %59 = fadd float %58, -1.000000e+01
-  %60 = fadd float %59, -1.000000e+01
+  %60 = fadd nnan float %59, -1.000000e+01
   %61 = load ptr, ptr %33, align 8
   %62 = uitofp nneg i32 %.039 to float
   %63 = call float @llvm.fmuladd.f32(float %62, float %32, float %3)
@@ -13589,7 +13589,7 @@ define void @_ZN19QualityMapperDialog20drawTransferFunctionEv(ptr noundef nonnul
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %60 = trunc nuw nsw i64 %indvars.iv.next74 to i32
   %61 = uitofp nneg i32 %60 to float
-  %62 = fmul float %61, 2.000000e+00
+  %62 = fmul nnan float %61, 2.000000e+00
   %63 = fpext float %62 to double
   %64 = sext i32 %54 to i64
   %65 = getelementptr inbounds %class.QList.22, ptr %41, i64 %64
@@ -14016,7 +14016,7 @@ define void @_ZN19QualityMapperDialog15updateColorBandEv(ptr noundef nonnull rea
   %24 = add i32 %22, 1
   %25 = sub i32 %24, %23
   %26 = sitofp i32 %25 to float
-  %27 = fdiv float 1.024000e+03, %26
+  %27 = fdiv nnan float 1.024000e+03, %26
   br label %28
 
 28:                                               ; preds = %39, %1
@@ -18034,7 +18034,7 @@ define void @_ZN19QualityMapperDialog22on_clampButton_clickedEv(ptr noundef nonn
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 @_ZNK8QSpinBox5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %7)
   %9 = sitofp i32 %8 to float
-  %10 = fdiv float %9, 1.000000e+02
+  %10 = fdiv nnan float %9, 1.000000e+02
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %5, align 8
@@ -18105,8 +18105,8 @@ _ZNK3vcg9HistogramIfE10PercentileEf.exit:         ; preds = %19, %._crit_edge24.
   %44 = load ptr, ptr %6, align 8
   %45 = tail call noundef i32 @_ZNK8QSpinBox5valueEv(ptr noundef nonnull align 8 dereferenceable(48) %44)
   %46 = sitofp i32 %45 to float
-  %47 = fdiv float %46, 1.000000e+02
-  %48 = fsub float 1.000000e+00, %47
+  %47 = fdiv nnan float %46, 1.000000e+02
+  %48 = fsub nnan float 1.000000e+00, %47
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = load ptr, ptr %43, align 8

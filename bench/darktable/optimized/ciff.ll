@@ -402,12 +402,12 @@ define void @_ZN6LibRaw10parse_ciffEiii(ptr noundef nonnull align 8 dereferencea
   %192 = zext i16 %191 to i32
   %193 = add nuw nsw i32 %192, %190
   %194 = uitofp nneg i32 %193 to float
-  %195 = fmul reassoc nsz arcp contract afn float %194, 3.125000e-02
+  %195 = fmul reassoc nnan nsz arcp contract afn float %194, 3.125000e-02
   %196 = fadd reassoc nsz arcp contract afn float %195, -5.000000e+00
   %197 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %196)
   %or.cond.i.i281 = fcmp reassoc nsz arcp contract afn ogt float %197, 6.400000e+01
-  %exp2 = tail call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %196)
-  %198 = fmul reassoc nsz arcp contract afn float %exp2, 1.000000e+02
+  %exp2 = tail call reassoc nnan nsz arcp contract afn float @llvm.exp2.f32(float %196)
+  %198 = fmul reassoc nnan nsz arcp contract afn float %exp2, 1.000000e+02
   %199 = select i1 %or.cond.i.i281, float 0.000000e+00, float %198
   store float %199, ptr %59, align 8, !tbaa !91
   %200 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
@@ -417,7 +417,7 @@ define void @_ZN6LibRaw10parse_ciffEiii(ptr noundef nonnull align 8 dereferencea
   store float %202, ptr %61, align 4, !tbaa !90
   %203 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %204 = sitofp i16 %203 to float
-  %205 = fmul reassoc nsz arcp contract afn float %204, -3.125000e-02
+  %205 = fmul reassoc nnan nsz arcp contract afn float %204, -3.125000e-02
   %206 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %205)
   %or.cond.i.i282 = fcmp reassoc nsz arcp contract afn ogt float %206, 6.400000e+01
   %exp2363 = tail call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %205)
@@ -442,7 +442,7 @@ define void @_ZN6LibRaw10parse_ciffEiii(ptr noundef nonnull align 8 dereferencea
 219:                                              ; preds = %187
   %220 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %221 = uitofp i16 %220 to float
-  %222 = fmul reassoc nsz arcp contract afn float %221, 0x3FB99999A0000000
+  %222 = fmul reassoc nnan nsz arcp contract afn float %221, 0x3FB99999A0000000
   store float %222, ptr %62, align 4, !tbaa !88
   br label %.thread361
 
@@ -1156,7 +1156,7 @@ _ZNK21libraw_static_table_tixEj.exit326:          ; preds = %.preheader368, %_ZN
 
 543:                                              ; preds = %538
   store i16 32, ptr %81, align 8, !tbaa !124
-  %544 = fmul reassoc nsz arcp contract afn float %540, 3.125000e-02
+  %544 = fmul reassoc nnan nsz arcp contract afn float %540, 3.125000e-02
   store float %544, ptr %79, align 8, !tbaa !122
   br label %545
 

@@ -33171,13 +33171,13 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZNS_1t8geometry6kernel10
   %142 = add nuw nsw i32 %.sroa.speculated73.i, 1
   %143 = sub nsw i32 %142, %.sroa.speculated78.i
   %144 = sitofp i32 %143 to float
-  %145 = fmul float %144, 6.250000e-02
+  %145 = fmul nnan float %144, 6.250000e-02
   %146 = call float @llvm.ceil.f32(float %145)
   %147 = fptosi float %146 to i32
   %148 = add nuw nsw i32 %.sroa.speculated64.i, 1
   %149 = sub nsw i32 %148, %.sroa.speculated68.i
   %150 = sitofp i32 %149 to float
-  %151 = fmul float %150, 6.250000e-02
+  %151 = fmul nnan float %150, 6.250000e-02
   %152 = call float @llvm.ceil.f32(float %151)
   %153 = fptosi float %152 to i32
   %154 = mul nsw i32 %153, %147
@@ -43025,7 +43025,7 @@ _ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHa
   br i1 %.not317, label %535, label %527
 
 527:                                              ; preds = %526
-  %528 = fmul float %.1, 2.550000e+02
+  %528 = fmul nnan float %.1, 2.550000e+02
   %529 = load float, ptr %.0245, align 4, !tbaa !662
   %530 = fdiv float %529, %528
   store float %530, ptr %.0245, align 4, !tbaa !662
@@ -46979,7 +46979,7 @@ _ZNK3tbb6detail2d112hash_compareIN6open3d7utility7MiniVecIiLi3EEENS4_11MiniVecHa
   br i1 %.not316, label %532, label %524
 
 524:                                              ; preds = %523
-  %525 = fmul float %.1, 2.550000e+02
+  %525 = fmul nnan float %.1, 2.550000e+02
   %526 = load float, ptr %.0245, align 4, !tbaa !662
   %527 = fdiv float %526, %525
   store float %527, ptr %.0245, align 4, !tbaa !662

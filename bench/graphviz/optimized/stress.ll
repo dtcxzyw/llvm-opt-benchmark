@@ -1670,7 +1670,7 @@ gv_calloc.exit604.i:                              ; preds = %gv_calloc.exit599.i
   %336 = getelementptr inbounds nuw i32, ptr %325, i64 %.0483681.i
   %337 = load i32, ptr %336, align 4, !tbaa !46
   %338 = sitofp i32 %337 to float
-  %339 = fmul float %338, %338
+  %339 = fmul nnan float %338, %338
   %340 = fdiv float -1.000000e+00, %339
   %341 = getelementptr inbounds nuw float, ptr %.0523685.i, i64 %.0483681.i
   store float %340, ptr %341, align 4, !tbaa !47
@@ -2271,8 +2271,8 @@ gv_calloc.exit436:                                ; preds = %.thread.i435, %574
   %595 = sitofp i32 %1 to float
   %596 = add i32 %1, -1
   %597 = sitofp i32 %596 to float
-  %598 = fmul float %595, %597
-  %599 = fmul float %598, 5.000000e-01
+  %598 = fmul nnan float %595, %597
+  %599 = fmul nnan float %598, 5.000000e-01
   %600 = add nsw i32 %1, 1
   %601 = mul nsw i32 %600, %1
   %602 = sdiv i32 %601, 2
@@ -3472,7 +3472,7 @@ define internal fastcc double @compute_stress1(ptr noundef readonly captures(non
   %59 = sitofp i32 %58 to double
   %60 = fsub double %59, %55
   %61 = fmul double %60, %60
-  %62 = fmul double %59, %59
+  %62 = fmul nnan double %59, %59
   %63 = fdiv double %61, %62
   %64 = fadd double %.181108.us.us, %63
   br label %45
@@ -3511,7 +3511,7 @@ define internal fastcc double @compute_stress1(ptr noundef readonly captures(non
   %75 = getelementptr inbounds nuw i32, ptr %74, i64 %.078109
   %76 = load i32, ptr %75, align 4, !tbaa !46
   %77 = sitofp i32 %76 to double
-  %78 = fmul double %77, %77
+  %78 = fmul nnan double %77, %77
   %79 = fdiv double %78, %78
   %80 = fadd double %.181108, %79
   br label %81
@@ -3556,7 +3556,7 @@ define internal fastcc double @compute_stress1(ptr noundef readonly captures(non
   %93 = getelementptr inbounds nuw i32, ptr %92, i64 %.098
   %94 = load i32, ptr %93, align 4, !tbaa !46
   %95 = sitofp i32 %94 to double
-  %96 = fmul double %95, %95
+  %96 = fmul nnan double %95, %95
   %97 = fdiv double %96, %95
   %98 = fadd double %.597, %97
   br label %99

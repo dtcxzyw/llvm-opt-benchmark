@@ -779,7 +779,7 @@ define void @dt_control_draw_busy_msg(ptr noundef %0, i32 noundef %1, i32 nounde
   %19 = load i32, ptr %18, align 4, !tbaa !136
   %20 = sitofp i32 %19 to double
   %21 = sitofp i32 %1 to double
-  %22 = fmul reassoc nsz arcp contract afn double %21, 0x3FEF5C28F5C28F5C
+  %22 = fmul reassoc nnan nsz arcp contract afn double %21, 0x3FEF5C28F5C28F5C
   %23 = fcmp reassoc nsz arcp contract afn olt double %22, %20
   br i1 %23, label %24, label %25
 
@@ -793,12 +793,12 @@ define void @dt_control_draw_busy_msg(ptr noundef %0, i32 noundef %1, i32 nounde
 25:                                               ; preds = %24, %3
   %.pre-phi = phi double [ %.pre29, %24 ], [ %20, %3 ]
   %26 = sitofp i32 %2 to double
-  %27 = fmul reassoc nsz arcp contract afn double %26, 8.500000e-01
+  %27 = fmul reassoc nnan nsz arcp contract afn double %26, 8.500000e-01
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !108
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1424
   %30 = load double, ptr %29, align 8, !tbaa !135
-  %31 = fsub reassoc nsz arcp contract afn double %21, %.pre-phi
-  %32 = fmul reassoc nsz arcp contract afn double %31, 5.000000e-01
+  %31 = fsub reassoc nnan nsz arcp contract afn double %21, %.pre-phi
+  %32 = fmul reassoc nnan nsz arcp contract afn double %31, 5.000000e-01
   %33 = fpext reassoc nsz arcp contract afn float %13 to double
   %.neg27 = fmul reassoc nsz arcp contract afn double %30, -3.000000e+01
   %34 = fmul reassoc nsz arcp contract afn double %33, 0xBFE5555555555556
@@ -1313,7 +1313,7 @@ define void @dt_control_button_pressed(double noundef %0, double noundef %1, dou
   %15 = sitofp i32 %14 to double
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8960
   %17 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %16) #13
-  %18 = fmul reassoc nsz arcp contract afn double %15, 8.500000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %15, 8.500000e-01
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 948
   %20 = load i32, ptr %19, align 4, !tbaa !95
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 944

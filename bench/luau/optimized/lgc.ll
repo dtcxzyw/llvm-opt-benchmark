@@ -129,9 +129,9 @@ define hidden noundef i64 @_Z9luaC_stepP9lua_Stateb(ptr noundef %0, i1 noundef z
   %79 = add i32 %70, 1
   store i32 %79, ptr %69, align 8, !tbaa !47
   %80 = sitofp i32 %68 to double
-  %81 = fmul double %80, 4.050000e-01
+  %81 = fmul nnan double %80, 4.050000e-01
   %82 = sitofp i32 %78 to double
-  %83 = fmul double %82, 0x3FCF1A9FBE76C8B5
+  %83 = fmul nnan double %82, 0x3FCF1A9FBE76C8B5
   %84 = fadd double %81, %83
   %85 = fmul double %84, 1.024000e+03
   %86 = fptosi double %85 to i64

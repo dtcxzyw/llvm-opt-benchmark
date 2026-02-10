@@ -1009,11 +1009,11 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS1_IS5_Lm4EE
   %208 = icmp eq i32 %207, 0
   %209 = fcmp contract oeq float %199, 0x7FF0000000000000
   %210 = sitofp i32 %203 to float
-  %211 = fmul contract float %210, 0x3FE9200000000000
+  %211 = fmul nnan contract float %210, 0x3FE9200000000000
   %212 = fsub contract float %199, %211
-  %213 = fmul contract float %210, 0x3F2FB40000000000
+  %213 = fmul nnan contract float %210, 0x3F2FB40000000000
   %214 = fsub contract float %212, %213
-  %215 = fmul contract float %210, 0x3E64442D20000000
+  %215 = fmul nnan contract float %210, 0x3E64442D20000000
   %216 = fsub contract float %214, %215
   %217 = fmul contract float %216, %216
   %218 = select i1 %209, float 0xFFFFFFFFE0000000, float %217

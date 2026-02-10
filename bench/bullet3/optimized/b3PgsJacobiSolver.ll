@@ -100,7 +100,7 @@ define dso_local void @_Z15getContactPointP10b3Contact4iR14b3ContactPoint(ptr no
   br i1 %32, label %33, label %44
 
 33:                                               ; preds = %3
-  %34 = fmul float %30, %30
+  %34 = fmul nnan float %30, %30
   %35 = tail call float @llvm.fmuladd.f32(float %29, float %29, float %34)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %35)
   %36 = fdiv float 1.000000e+00, %sqrt.i
@@ -4162,7 +4162,7 @@ _ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit141: ; preds = %_ZNK12b3S
 
 183:                                              ; preds = %178
   %184 = load float, ptr %79, align 4, !tbaa !112
-  %185 = fmul float %180, %180
+  %185 = fmul nnan float %180, %180
   %186 = call float @llvm.fmuladd.f32(float %184, float %184, float %185)
   %sqrt.i143 = call float @llvm.sqrt.f32(float %186)
   %187 = fdiv float 1.000000e+00, %sqrt.i143
@@ -4328,7 +4328,7 @@ _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit:   ; preds = %183, %196
   br i1 %284, label %285, label %296
 
 285:                                              ; preds = %282
-  %286 = fmul float %242, %242
+  %286 = fmul nnan float %242, %242
   %287 = call float @llvm.fmuladd.f32(float %240, float %240, float %286)
   %sqrt.i164 = call float @llvm.sqrt.f32(float %287)
   %288 = fdiv float 1.000000e+00, %sqrt.i164

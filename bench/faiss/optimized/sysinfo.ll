@@ -592,7 +592,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148.i: ; preds = %
 171:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit148.i
   %172 = load i64, ptr %34, align 8, !tbaa !37
   %173 = sitofp i64 %172 to double
-  %174 = fmul double %173, 1.000000e+03
+  %174 = fmul nnan double %173, 1.000000e+03
   br label %_ZN9benchmark12_GLOBAL__N_121GetCPUCyclesPerSecondENS_7CPUInfo7ScalingE.exit
 
 175:                                              ; preds = %_ZN9benchmark12_GLOBAL__N_110CpuScalingEi.exit

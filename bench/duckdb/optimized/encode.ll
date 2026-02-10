@@ -4589,7 +4589,7 @@ _ZL12WrapPositionm.exit.i387:                     ; preds = %1465, %_ZL16GetBrot
 1490:                                             ; preds = %1486
   %1491 = uitofp i64 %1457 to double
   %1492 = uitofp nneg i64 %1451 to double
-  %1493 = fmul double %1492, 0x3FEFAE147AE147AE
+  %1493 = fmul nnan double %1492, 0x3FEFAE147AE147AE
   %1494 = fcmp olt double %1493, %1491
   br i1 %1494, label %.lr.ph.preheader.i.i, label %_ZL14ShouldCompressPKhmmmmm.exit.i
 
@@ -4668,7 +4668,7 @@ _ZN13duckdb_brotliL8FastLog2Em.exit.i.i:          ; preds = %1527, %1524
   br i1 %1531, label %.preheader.i.i, label %1532, !llvm.loop !540
 
 1532:                                             ; preds = %_ZN13duckdb_brotliL8FastLog2Em.exit.i.i
-  %1533 = fmul double %1492, 7.920000e+00
+  %1533 = fmul nnan double %1492, 7.920000e+00
   %1534 = fdiv double %1533, 1.300000e+01
   %.not27.i.i.i = icmp eq i64 %1521, 0
   br i1 %.not27.i.i.i, label %_ZN13duckdb_brotliL14ShannonEntropyEPKjmPm.exit.i.i, label %1535

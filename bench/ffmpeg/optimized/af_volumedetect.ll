@@ -105,9 +105,9 @@ define internal void @uninit(ptr noundef %0) #0 {
 
 40:                                               ; preds = %39
   %41 = uitofp nneg i64 %36 to double
-  %42 = fmul nsz double %41, 0x3E10000000000000
-  %43 = tail call nsz double @llvm.log10.f64(double %42)
-  %44 = fmul nsz double %43, -1.000000e+01
+  %42 = fmul nnan nsz double %41, 0x3E10000000000000
+  %43 = tail call nnan nsz double @llvm.log10.f64(double %42)
+  %44 = fmul nnan nsz double %43, -1.000000e+01
   br label %logdb.exit.i
 
 logdb.exit.i:                                     ; preds = %40, %39
@@ -140,9 +140,9 @@ logdb.exit.i:                                     ; preds = %40, %39
   %57 = trunc nuw nsw i64 %indvars.iv95.i to i32
   %58 = mul nsw i32 %57, %57
   %59 = uitofp nneg i32 %58 to double
-  %60 = fmul nsz double %59, 0x3E10000000000000
-  %61 = tail call nsz double @llvm.log10.f64(double %60)
-  %62 = fmul nsz double %61, -1.000000e+01
+  %60 = fmul nnan nsz double %59, 0x3E10000000000000
+  %61 = tail call nnan nsz double @llvm.log10.f64(double %60)
+  %62 = fmul nnan nsz double %61, -1.000000e+01
   br label %logdb.exit73.i
 
 logdb.exit73.i:                                   ; preds = %54, %56
@@ -163,9 +163,9 @@ logdb.exit73.i:                                   ; preds = %54, %56
   %70 = mul nsw i64 %67, %67
   %71 = trunc nsw i64 %70 to i32
   %72 = uitofp nneg i32 %71 to double
-  %73 = fmul nsz double %72, 0x3E10000000000000
-  %74 = tail call nsz double @llvm.log10.f64(double %73)
-  %75 = fmul nsz double %74, -1.000000e+01
+  %73 = fmul nnan nsz double %72, 0x3E10000000000000
+  %74 = tail call nnan nsz double @llvm.log10.f64(double %73)
+  %75 = fmul nnan nsz double %74, -1.000000e+01
   %76 = fptosi double %75 to i32
   %77 = sext i32 %76 to i64
   br label %logdb.exit76.i

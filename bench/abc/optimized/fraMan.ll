@@ -732,8 +732,8 @@ define void @Fra_ManPrint(ptr noundef %0) local_unnamed_addr #2 {
   %12 = shl nsw i64 %11, 2
   %13 = add nsw i64 %12, 48
   %14 = uitofp i64 %13 to double
-  %15 = fmul double %6, %14
-  %16 = fmul double %15, 0x3EB0000000000000
+  %15 = fmul nnan double %6, %14
+  %16 = fmul nnan double %15, 0x3EB0000000000000
   %17 = load ptr, ptr %0, align 8, !tbaa !19
   %18 = load i32, ptr %17, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -743,7 +743,7 @@ define void @Fra_ManPrint(ptr noundef %0) local_unnamed_addr #2 {
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %24 = load i32, ptr %23, align 4, !tbaa !91
   %25 = sitofp i32 %24 to double
-  %26 = fmul double %25, 1.000000e+02
+  %26 = fmul nnan double %25, 1.000000e+02
   %.not = icmp eq i32 %22, 0
   %27 = sitofp i32 %22 to double
   %28 = select i1 %.not, double 1.000000e+00, double %27
@@ -768,7 +768,7 @@ define void @Fra_ManPrint(ptr noundef %0) local_unnamed_addr #2 {
   %47 = load i32, ptr %46, align 4, !tbaa !97
   %48 = sub nsw i32 %45, %47
   %49 = sitofp i32 %48 to double
-  %50 = fmul double %49, 1.000000e+02
+  %50 = fmul nnan double %49, 1.000000e+02
   %.not51 = icmp eq i32 %45, 0
   %51 = sitofp i32 %45 to double
   %52 = select i1 %.not51, double 1.000000e+00, double %51
@@ -779,7 +779,7 @@ define void @Fra_ManPrint(ptr noundef %0) local_unnamed_addr #2 {
   %57 = load i32, ptr %56, align 4, !tbaa !99
   %58 = sub nsw i32 %55, %57
   %59 = sitofp i32 %58 to double
-  %60 = fmul double %59, 1.000000e+02
+  %60 = fmul nnan double %59, 1.000000e+02
   %.not52 = icmp eq i32 %55, 0
   %61 = sitofp i32 %55 to double
   %62 = select i1 %.not52, double 1.000000e+00, double %61

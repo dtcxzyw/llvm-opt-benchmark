@@ -6795,7 +6795,7 @@ rfc3825_lci_to_fixpoint.exit:                     ; preds = %123, %139
   %155 = getelementptr inbounds nuw i8, ptr %5, i64 15
   %156 = load i8, ptr %155, align 1
   %157 = sitofp i64 %storemerge.i to double
-  %158 = fmul double %157, 0x3E60000000000000
+  %158 = fmul nnan double %157, 0x3E60000000000000
   %159 = call double @llvm.fabs.f64(double %158)
   %or.cond.i = fcmp ogt double %159, 9.000000e+01
   br i1 %or.cond.i, label %225, label %160
@@ -6827,7 +6827,7 @@ rfc3825_lci_to_fixpoint.exit:                     ; preds = %123, %139
 176:                                              ; preds = %171, %165
   %.sink.i70 = phi double [ %170, %165 ], [ %175, %171 ]
   %177 = sitofp i64 %.sink.i to double
-  %178 = fmul double %177, 0x3E60000000000000
+  %178 = fmul nnan double %177, 0x3E60000000000000
   %179 = call double @llvm.fabs.f64(double %178)
   %or.cond56.i = fcmp ogt double %179, 1.800000e+02
   br i1 %or.cond56.i, label %225, label %180
@@ -6867,7 +6867,7 @@ rfc3825_lci_to_fixpoint.exit:                     ; preds = %123, %139
 
 198:                                              ; preds = %196
   %199 = sitofp i32 %.sink50.i to double
-  %200 = fmul double %199, 3.906250e-03
+  %200 = fmul nnan double %199, 3.906250e-03
   %201 = fcmp ogt double %200, 0x413FFFFF00000000
   %202 = fcmp olt double %200, 0xC140000000000000
   %or.cond57.i = or i1 %201, %202
@@ -6905,7 +6905,7 @@ rfc3825_lci_to_fixpoint.exit:                     ; preds = %123, %139
 
 220:                                              ; preds = %219, %219
   %221 = sitofp i32 %.sink50.i to double
-  %222 = fmul double %221, 3.906250e-03
+  %222 = fmul nnan double %221, 3.906250e-03
   br label %223
 
 223:                                              ; preds = %220, %214, %208, %196

@@ -1305,7 +1305,7 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
 
 66:                                               ; preds = %23
   %67 = uitofp nneg i32 %60 to double
-  %68 = fmul double %62, 5.870000e-01
+  %68 = fmul nnan double %62, 5.870000e-01
   %69 = tail call double @llvm.fmuladd.f64(double %67, double 2.990000e-01, double %68)
   %70 = uitofp nneg i32 %44 to double
   %71 = tail call double @llvm.fmuladd.f64(double %70, double 1.140000e-01, double %69)

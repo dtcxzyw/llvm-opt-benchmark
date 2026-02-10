@@ -127,9 +127,9 @@ define internal ptr @netlink_reachable(ptr noundef %0, ptr noundef %1) #1 {
   %51 = call i32 @llvm.abs.i32(i32 %50, i1 true)
   %52 = add nuw i32 %51, 1
   %53 = uitofp i32 %52 to double
-  %54 = fdiv double 1.000000e+00, %53
-  %55 = fadd double %54, %49
-  %56 = fmul double %55, 1.000000e+02
+  %54 = fdiv nnan double 1.000000e+00, %53
+  %55 = fadd nnan double %54, %49
+  %56 = fmul nnan double %55, 1.000000e+02
   %57 = fptosi double %56 to i32
   br label %83
 
@@ -152,17 +152,17 @@ define internal ptr @netlink_reachable(ptr noundef %0, ptr noundef %1) #1 {
   %72 = call i32 @llvm.abs.i32(i32 %71, i1 true)
   %73 = add nuw i32 %72, 1
   %74 = uitofp i32 %73 to double
-  %75 = fdiv double 1.000000e+00, %74
-  %76 = fadd double %75, %70
+  %75 = fdiv nnan double 1.000000e+00, %74
+  %76 = fadd nnan double %75, %70
   br i1 %65, label %77, label %80
 
 77:                                               ; preds = %63
-  %78 = fmul double %76, 1.000000e+02
+  %78 = fmul nnan double %76, 1.000000e+02
   %79 = fptosi double %78 to i32
   br label %83
 
 80:                                               ; preds = %63
-  %81 = fmul double %76, 5.000000e+01
+  %81 = fmul nnan double %76, 5.000000e+01
   %82 = fptosi double %81 to i32
   br label %83
 

@@ -3095,7 +3095,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIfE27ComputeI
 20:                                               ; preds = %5
   %21 = uitofp nneg i32 %0 to double
   %22 = fdiv double 1.000000e+00, %21
-  %23 = fmul double %22, 0x401921FB54442D18
+  %23 = fmul nnan double %22, 0x401921FB54442D18
   %24 = tail call double @cos(double noundef %23) #16
   %25 = fadd double %24, 5.000000e+00
   %26 = fadd double %24, 9.000000e+00
@@ -3103,7 +3103,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIfE27ComputeI
   %28 = fmul double %26, %27
   %29 = tail call double @sqrt(double noundef %28) #16
   %30 = fadd double %25, %29
-  %31 = fmul double %22, 1.600000e+01
+  %31 = fmul nnan double %22, 1.600000e+01
   %32 = fdiv double %31, %30
   br label %_ZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIfE18computeCoefficientEi.exit
 
@@ -3111,7 +3111,7 @@ _ZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIfE18computeCoefficientEi.exit: ; preds
   %.0.i = phi double [ %19, %16 ], [ %32, %20 ]
   %33 = fmul double %.0.i, 5.000000e-01
   %34 = fmul double %13, %33
-  %35 = fmul double %11, 0x401921FB54442D18
+  %35 = fmul nnan double %11, 0x401921FB54442D18
   %36 = shl nsw i32 %0, 1
   %37 = or disjoint i32 %36, 1
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -8790,7 +8790,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIdE27ComputeI
 20:                                               ; preds = %5
   %21 = uitofp nneg i32 %0 to double
   %22 = fdiv double 1.000000e+00, %21
-  %23 = fmul double %22, 0x401921FB54442D18
+  %23 = fmul nnan double %22, 0x401921FB54442D18
   %24 = tail call double @cos(double noundef %23) #16
   %25 = fadd double %24, 5.000000e+00
   %26 = fadd double %24, 9.000000e+00
@@ -8798,7 +8798,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIdE27ComputeI
   %28 = fmul double %26, %27
   %29 = tail call double @sqrt(double noundef %28) #16
   %30 = fadd double %25, %29
-  %31 = fmul double %22, 1.600000e+01
+  %31 = fmul nnan double %22, 1.600000e+01
   %32 = fdiv double %31, %30
   br label %_ZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIdE18computeCoefficientEi.exit
 
@@ -8806,7 +8806,7 @@ _ZN10OpenSubdiv6v3_6_03Far13CatmarkLimitsIdE18computeCoefficientEi.exit: ; preds
   %.0.i = phi double [ %19, %16 ], [ %32, %20 ]
   %33 = fmul double %.0.i, 5.000000e-01
   %34 = fmul double %13, %33
-  %35 = fmul double %11, 0x401921FB54442D18
+  %35 = fmul nnan double %11, 0x401921FB54442D18
   %36 = shl nsw i32 %0, 1
   %37 = or disjoint i32 %36, 1
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 16

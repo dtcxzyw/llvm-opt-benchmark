@@ -415,7 +415,7 @@ sub_1:                                            ; preds = %sub_0
 ._crit_edge.loopexit.i:                           ; preds = %162
   %166 = add nuw nsw i32 %.sroa.speculated.i, 2
   %167 = uitofp nneg i32 %166 to float
-  %168 = fmul float %167, 0x4023333340000000
+  %168 = fmul nnan float %167, 0x4023333340000000
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %.noexc
@@ -848,7 +848,7 @@ _ZL5wheelPKciPPcifS0_.exit:                       ; preds = %273, %276
   %302 = load ptr, ptr @stderr, align 8, !tbaa !32
   %303 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %302, ptr noundef nonnull @.str.25, i32 noundef %.0.lcssa.i37) #17
   %304 = uitofp nneg i32 %.0.lcssa.i37 to float
-  %305 = fmul float %304, 0x4019333320000000
+  %305 = fmul nnan float %304, 0x4019333320000000
   %306 = fadd float %305, 6.000000e+01
   %307 = sdiv i32 %124, 18
   %308 = add nsw i32 %307, 1

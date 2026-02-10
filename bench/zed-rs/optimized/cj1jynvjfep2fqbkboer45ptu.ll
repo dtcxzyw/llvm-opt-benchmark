@@ -82973,7 +82973,7 @@ _ZN4gpui8elements4text10TextLayout4lock17h8514f434ef9fa0e7E.llvm.120180527265527
   %85 = getelementptr inbounds nuw i8, ptr %75, i64 52
   %86 = load float, ptr %85, align 4, !alias.scope !16520, !noalias !16527, !noundef !9
   %87 = uitofp i64 %84 to float
-  %88 = fadd float %87, 1.000000e+00
+  %88 = fadd nnan float %87, 1.000000e+00
   %89 = fmul float %46, %88
   store float %.sroa.4.sroa.0.0.copyload, ptr %7, align 4, !noalias !16523
   store float %.sroa.44.048, ptr %62, align 4, !noalias !16523

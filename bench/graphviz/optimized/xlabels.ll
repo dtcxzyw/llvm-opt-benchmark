@@ -1067,8 +1067,8 @@ aabbaabb.exit:                                    ; preds = %89
   %116 = load i32, ptr %41, align 4, !tbaa !3
   %117 = call i32 @llvm.smin.i32(i32 %115, i32 %116)
   %118 = sitofp i32 %117 to double
-  %119 = fsub double %114, %106
-  %120 = fsub double %118, %110
+  %119 = fsub nnan double %114, %106
+  %120 = fsub nnan double %118, %110
   %121 = fmul double %119, %120
   %122 = fcmp ogt double %121, 0.000000e+00
   br i1 %122, label %123, label %aabbaabb.exit.thread
@@ -1191,8 +1191,8 @@ getintrsxi.exit.i:                                ; preds = %158, %157, %155, %1
   %190 = load i32, ptr %45, align 4, !tbaa !3
   %191 = call i32 @llvm.smin.i32(i32 %189, i32 %190)
   %192 = sitofp i32 %191 to double
-  %193 = fsub double %188, %180
-  %194 = fsub double %192, %184
+  %193 = fsub nnan double %188, %180
+  %194 = fsub nnan double %192, %184
   %195 = fmul double %193, %194
   br label %aabbaabb.exit.i
 
@@ -1250,8 +1250,8 @@ aabbaabb.exit.i:                                  ; preds = %177, %162
   %228 = load i32, ptr %45, align 4, !tbaa !3
   %229 = call i32 @llvm.smin.i32(i32 %227, i32 %228)
   %230 = sitofp i32 %229 to double
-  %231 = fsub double %226, %218
-  %232 = fsub double %230, %222
+  %231 = fsub nnan double %226, %218
+  %232 = fsub nnan double %230, %222
   %233 = fmul double %231, %232
   br label %aabbaabb.exit49.i
 
@@ -1348,8 +1348,8 @@ aabbaabb.exit78:                                  ; preds = %251
   %278 = load i32, ptr %41, align 4, !tbaa !3
   %279 = call i32 @llvm.smin.i32(i32 %277, i32 %278)
   %280 = sitofp i32 %279 to double
-  %281 = fsub double %276, %268
-  %282 = fsub double %280, %272
+  %281 = fsub nnan double %276, %268
+  %282 = fsub nnan double %280, %272
   %283 = fmul double %281, %282
   %284 = fcmp ogt double %283, 0.000000e+00
   br i1 %284, label %285, label %aabbaabb.exit78.thread
@@ -1471,8 +1471,8 @@ getintrsxi.exit.i81:                              ; preds = %319, %318, %316, %3
   %351 = load i32, ptr %48, align 4, !tbaa !3
   %352 = call i32 @llvm.smin.i32(i32 %350, i32 %351)
   %353 = sitofp i32 %352 to double
-  %354 = fsub double %349, %341
-  %355 = fsub double %353, %345
+  %354 = fsub nnan double %349, %341
+  %355 = fsub nnan double %353, %345
   %356 = fmul double %354, %355
   br label %aabbaabb.exit.i91
 
@@ -1530,8 +1530,8 @@ aabbaabb.exit.i91:                                ; preds = %338, %323
   %389 = load i32, ptr %48, align 4, !tbaa !3
   %390 = call i32 @llvm.smin.i32(i32 %388, i32 %389)
   %391 = sitofp i32 %390 to double
-  %392 = fsub double %387, %379
-  %393 = fsub double %391, %383
+  %392 = fsub nnan double %387, %379
+  %393 = fsub nnan double %391, %383
   %394 = fmul double %392, %393
   br label %aabbaabb.exit49.i103
 

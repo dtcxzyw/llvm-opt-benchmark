@@ -25254,7 +25254,7 @@ _ZNK11colvar_gridImE5valueERKSt6vectorIiSaIiEERKm.exit.i: ; preds = %71, %65
   %97 = fsub double %.013.i, %89
   %98 = sub nsw i32 %93, %88
   %99 = sitofp i32 %98 to double
-  %100 = fmul double %.013.i, %99
+  %100 = fmul nnan double %.013.i, %99
   %101 = fdiv double %97, %100
   br label %_ZN20colvar_grid_gradient21smooth_inverse_weightEd.exit.i
 
@@ -31868,7 +31868,7 @@ _ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %_ZSt4copyIN9__gnu_c
   %121 = load i64, ptr %120, align 8, !tbaa !30
   %122 = add i64 %121, %61
   %123 = uitofp i64 %122 to double
-  %124 = fmul double %63, %123
+  %124 = fmul nnan double %63, %123
   %125 = fcmp oeq double %124, 0.000000e+00
   br i1 %125, label %290, label %129
 
@@ -32023,7 +32023,7 @@ _ZNSt6vectorIiSaIiEEaSERKS1_.exit75:              ; preds = %_ZSt4copyIN9__gnu_c
   %202 = load i64, ptr %201, align 8, !tbaa !30
   %203 = add i64 %202, %168
   %204 = uitofp i64 %203 to double
-  %205 = fmul double %170, %204
+  %205 = fmul nnan double %170, %204
   %206 = fcmp oeq double %205, 0.000000e+00
   br i1 %206, label %290, label %207
 
@@ -32140,7 +32140,7 @@ _ZNSt6vectorIiSaIiEEaSERKS1_.exit75:              ; preds = %_ZSt4copyIN9__gnu_c
   %270 = uitofp i64 %.in to double
   %271 = add i64 %269, %238
   %272 = uitofp i64 %271 to double
-  %273 = fmul double %240, %270
+  %273 = fmul nnan double %240, %270
   %274 = fmul double %273, %272
   %275 = fcmp oeq double %274, 0.000000e+00
   br i1 %275, label %290, label %276

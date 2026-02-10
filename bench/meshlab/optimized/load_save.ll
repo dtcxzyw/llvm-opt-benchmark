@@ -11672,10 +11672,10 @@ _ZN7QStringD2Ev.exit79:                           ; preds = %_ZN9QtPrivate8RefCo
 
 112:                                              ; preds = %108
   %113 = sitofp i32 %107 to double
-  %114 = fmul double %113, 5.000000e-01
+  %114 = fmul nnan double %113, 5.000000e-01
   %115 = fptrunc double %114 to float
   %116 = sitofp i32 %111 to double
-  %117 = fmul double %116, 5.000000e-01
+  %117 = fmul nnan double %116, 5.000000e-01
   %118 = fptrunc double %117 to float
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store float %115, ptr %119, align 4
@@ -11704,10 +11704,10 @@ _ZN7QStringD2Ev.exit79:                           ; preds = %_ZN9QtPrivate8RefCo
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i64 %130, ptr %134, align 4
   %135 = uitofp i32 %131 to double
-  %136 = fmul double %135, 5.000000e-01
+  %136 = fmul nnan double %135, 5.000000e-01
   %137 = fptrunc double %136 to float
   %138 = uitofp i32 %133 to double
-  %139 = fmul double %138, 5.000000e-01
+  %139 = fmul nnan double %138, 5.000000e-01
   %140 = fptrunc double %139 to float
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store float %137, ptr %141, align 4

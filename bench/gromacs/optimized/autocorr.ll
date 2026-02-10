@@ -430,7 +430,7 @@ _Z11get_acfnoutv.exit:                            ; preds = %16
   %162 = trunc i64 %indvars.iv249.i to i32
   %163 = sub i32 %3, %162
   %164 = sitofp i32 %163 to double
-  %165 = fmul double %164, -5.000000e-01
+  %165 = fmul nnan double %164, -5.000000e-01
   %166 = fptrunc double %165 to float
   %167 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv249.i
   store float %166, ptr %167, align 4, !tbaa !22

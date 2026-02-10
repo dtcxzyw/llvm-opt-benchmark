@@ -352,7 +352,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef %0) #2 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %72 ]
   %73 = trunc nuw nsw i64 %indvars.iv.i to i32
   %74 = uitofp nneg i32 %73 to double
-  %75 = fmul nsz double %74, 0x401921FB54442D18
+  %75 = fmul nnan nsz double %74, 0x401921FB54442D18
   %76 = fdiv nsz double %75, %71
   %77 = fptrunc nsz double %76 to float
   %78 = tail call nsz float @llvm.cos.f32(float %77)

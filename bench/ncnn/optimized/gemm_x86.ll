@@ -19809,8 +19809,8 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.4662.i = phi nsz <4 x float> [ %604, %.lr.ph905.i ], [ %663, %653 ], [ %604, %613 ], [ %650, %648 ], [ %646, %645 ], [ %607, %.thread737.i ], [ %611, %610 ]
   %.15501.i = phi nsz <4 x float> [ %.12498900.i, %.lr.ph905.i ], [ %657, %653 ], [ %.12498900.i, %613 ], [ %.13499.i, %648 ], [ %.13499.i, %645 ], [ %.12498900.i, %.thread737.i ], [ %.12498900.i, %610 ]
   %.13.i = phi ptr [ null, %.lr.ph905.i ], [ %665, %653 ], [ %.12904.i, %613 ], [ %644, %648 ], [ %644, %645 ], [ %.12904.i, %.thread737.i ], [ %.12904.i, %610 ]
-  %.5669.i = fmul reassoc nsz arcp contract afn <4 x float> %.4668.i, %74
-  %.5663.i = fmul reassoc nsz arcp contract afn <4 x float> %.4662.i, %74
+  %.5669.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.4668.i, %74
+  %.5663.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.4662.i, %74
   br i1 %.not1203.i, label %669, label %666
 
 666:                                              ; preds = %.thread746.i
@@ -20441,8 +20441,8 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.4581.i = phi nsz <4 x float> [ %939, %.lr.ph946.i ], [ %959, %956 ], [ %939, %948 ], [ %.2579.i, %949 ], [ %942, %.thread809.i ], [ %946, %945 ]
   %.4575.i = phi nsz <4 x float> [ %940, %.lr.ph946.i ], [ %960, %956 ], [ %940, %948 ], [ %.2573.i, %949 ], [ %943, %.thread809.i ], [ %947, %945 ]
   %.28.i = phi ptr [ null, %.lr.ph946.i ], [ %961, %956 ], [ %.27945.i, %948 ], [ %955, %949 ], [ %.27945.i, %.thread809.i ], [ %.27945.i, %945 ]
-  %.5582.i = fmul reassoc nsz arcp contract afn <4 x float> %.4581.i, %114
-  %.5576.i = fmul reassoc nsz arcp contract afn <4 x float> %.4575.i, %114
+  %.5582.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.4581.i, %114
+  %.5576.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.4575.i, %114
   br i1 %.not1197.i, label %975, label %962
 
 962:                                              ; preds = %.thread818.i
@@ -20837,8 +20837,8 @@ define internal fastcc void @_ZN4ncnnL29unpack_output_tile_dequantizeERKNS_3MatE
   %.1548.i = phi nsz <4 x float> [ %1137, %.lr.ph981.i ], [ %1151, %1146 ], [ %1137, %1145 ], [ %1143, %.thread863.i ]
   %.1545.i = phi nsz <4 x float> [ %1141, %.lr.ph981.i ], [ %1153, %1146 ], [ %1141, %1145 ], [ %1144, %.thread863.i ]
   %.41.i = phi ptr [ null, %.lr.ph981.i ], [ %1154, %1146 ], [ %.40980.i, %1145 ], [ %.40980.i, %.thread863.i ]
-  %.2549.i = fmul reassoc nsz arcp contract afn <4 x float> %.1548.i, %750
-  %.2546.i = fmul reassoc nsz arcp contract afn <4 x float> %.1545.i, %750
+  %.2549.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.1548.i, %750
+  %.2546.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.1545.i, %750
   br i1 %.not.i, label %1172, label %1156
 
 1156:                                             ; preds = %1155

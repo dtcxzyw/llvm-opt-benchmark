@@ -1604,11 +1604,11 @@ _ZNSt3__14pairIN7mitsuba11BSDFSample3IfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EE
   %119 = and i32 %118, -2
   %120 = sitofp i32 %119 to float
   %121 = bitcast float %.1 to i32
-  %122 = fmul contract float %120, 0x3FE9200000000000
+  %122 = fmul nnan contract float %120, 0x3FE9200000000000
   %123 = fsub contract float %115, %122
-  %124 = fmul contract float %120, 0x3F2FB40000000000
+  %124 = fmul nnan contract float %120, 0x3F2FB40000000000
   %125 = fsub contract float %123, %124
-  %126 = fmul contract float %120, 0x3E64442D20000000
+  %126 = fmul nnan contract float %120, 0x3E64442D20000000
   %127 = fsub contract float %125, %126
   %128 = fmul contract float %127, %127
   %129 = fcmp contract oeq float %115, 0x7FF0000000000000
@@ -2079,7 +2079,7 @@ _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit: ; preds = %5
 
 _ZNK7mitsuba11BSDFContext10is_enabledENS_9BSDFFlagsEj.exit28.thread: ; preds = %18, %20
   %.025 = phi float [ %50, %20 ], [ 1.000000e+00, %18 ]
-  %51 = fmul contract float %9, 0x3FD45F3060000000
+  %51 = fmul nnan contract float %9, 0x3FD45F3060000000
   %52 = fmul contract float %51, %.025
   br label %.critedge
 

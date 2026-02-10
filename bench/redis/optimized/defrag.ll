@@ -3664,7 +3664,7 @@ defragOtherGlobals.exit:                          ; preds = %87
   %120 = add i64 %109, %110
   %121 = sub i64 %120, %111
   %122 = sitofp i64 %121 to double
-  %123 = fmul double %122, 1.000000e-02
+  %123 = fmul nnan double %122, 1.000000e-02
   %124 = fcmp ugt double %123, %119
   br i1 %124, label %125, label %130
 

@@ -156,7 +156,7 @@ define noundef double @_ZN3gmx34getDeviationFromPointAlongGridAxisERKNS_8BiasGri
   br i1 %17, label %18, label %_ZN3gmx12_GLOBAL__N_120getDeviationPeriodicEddd.exit
 
 18:                                               ; preds = %4
-  %19 = fmul double %15, 5.000000e-01
+  %19 = fmul nnan double %15, 5.000000e-01
   %20 = fcmp ogt double %16, %19
   br i1 %20, label %21, label %23
 
@@ -200,7 +200,7 @@ define noundef double @_ZN3gmx34getDeviationFromPointAlongGridAxisERKNS_8BiasGri
   br i1 %21, label %22, label %_ZN3gmx12_GLOBAL__N_120getDeviationPeriodicEddd.exit
 
 22:                                               ; preds = %4
-  %23 = fmul double %19, 5.000000e-01
+  %23 = fmul nnan double %19, 5.000000e-01
   %24 = fcmp ogt double %20, %23
   br i1 %24, label %25, label %27
 
@@ -370,7 +370,7 @@ _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i,
   br i1 %74, label %76, label %_ZN3gmx34getDeviationFromPointAlongGridAxisERKNS_8BiasGridEiii.exit
 
 76:                                               ; preds = %75
-  %77 = fmul double %72, 5.000000e-01
+  %77 = fmul nnan double %72, 5.000000e-01
   %78 = fcmp ogt double %73, %77
   br i1 %78, label %79, label %81
 
@@ -396,7 +396,7 @@ _ZN3gmx34getDeviationFromPointAlongGridAxisERKNS_8BiasGridEiii.exit: ; preds = %
   br i1 %74, label %88, label %_ZN3gmx34getDeviationFromPointAlongGridAxisERKNS_8BiasGridEiii.exit23
 
 88:                                               ; preds = %87
-  %89 = fmul double %72, 5.000000e-01
+  %89 = fmul nnan double %72, 5.000000e-01
   %90 = fcmp ogt double %73, %89
   br i1 %90, label %91, label %93
 
@@ -577,7 +577,7 @@ _ZNK3gmx8BiasGrid13hasLambdaAxisEv.exit:          ; preds = %.lr.ph.i.i.i.i.i.i,
   br i1 %74, label %75, label %_ZN3gmx34getDeviationFromPointAlongGridAxisERKNS_8BiasGridEiii.exit
 
 75:                                               ; preds = %66
-  %76 = fmul double %72, 5.000000e-01
+  %76 = fmul nnan double %72, 5.000000e-01
   %77 = fcmp ogt double %73, %76
   br i1 %77, label %78, label %80
 
@@ -1131,7 +1131,7 @@ define noundef zeroext i1 @_ZNK3gmx8BiasGrid6coversEPKd(ptr noundef nonnull read
   br i1 %25, label %26, label %_ZN3gmx12_GLOBAL__N_120getDeviationPeriodicEddd.exit.i.i
 
 26:                                               ; preds = %18
-  %27 = fmul double %23, 5.000000e-01
+  %27 = fmul nnan double %23, 5.000000e-01
   %28 = fcmp ogt double %24, %27
   br i1 %28, label %29, label %31
 
@@ -1300,7 +1300,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK3gmx8GridAxis12neares
   br i1 %11, label %12, label %_ZN3gmx12_GLOBAL__N_120getDeviationPeriodicEddd.exit.i
 
 12:                                               ; preds = %6
-  %13 = fmul double %9, 5.000000e-01
+  %13 = fmul nnan double %9, 5.000000e-01
   %14 = fcmp ogt double %10, %13
   br i1 %14, label %15, label %17
 
@@ -1576,7 +1576,7 @@ _ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit.us: ; preds = %.lr.ph43.u
   br i1 %58, label %59, label %69
 
 59:                                               ; preds = %52
-  %60 = fmul double %57, 5.000000e-01
+  %60 = fmul nnan double %57, 5.000000e-01
   %61 = fcmp ogt double %54, %60
   br i1 %61, label %67, label %62
 
@@ -3987,7 +3987,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt13_Bvector_bas
   br i1 %231, label %232, label %_ZN3gmx12_GLOBAL__N_120getDeviationPeriodicEddd.exit.i.i
 
 232:                                              ; preds = %224
-  %233 = fmul double %229, 5.000000e-01
+  %233 = fmul nnan double %229, 5.000000e-01
   %234 = fcmp ogt double %230, %233
   br i1 %234, label %235, label %237
 
@@ -4186,7 +4186,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit132: ; preds = %27
   br i1 %304, label %305, label %_ZN3gmx12_GLOBAL__N_120getDeviationPeriodicEddd.exit.i.i154
 
 305:                                              ; preds = %297
-  %306 = fmul double %302, 5.000000e-01
+  %306 = fmul nnan double %302, 5.000000e-01
   %307 = fcmp ogt double %303, %306
   br i1 %307, label %308, label %310
 

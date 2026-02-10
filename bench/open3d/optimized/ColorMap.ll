@@ -202,8 +202,8 @@ define void @_ZNK6open3d13visualization11ColorMapJet8GetColorEd(ptr dead_on_unwi
   br i1 %7, label %11, label %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i
 
 _ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i: ; preds = %6
-  %8 = fadd double %4, 7.500000e-01
-  %9 = fmul double %8, 2.000000e+00
+  %8 = fadd nnan double %4, 7.500000e-01
+  %9 = fmul nnan double %8, 2.000000e+00
   %10 = fadd double %9, 0.000000e+00
   br label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit
 
@@ -216,8 +216,8 @@ _ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i: ; preds = %6
   br i1 %14, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit, label %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i
 
 _ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i: ; preds = %13
-  %15 = fadd double %4, -2.500000e-01
-  %16 = fmul double %15, 2.000000e+00
+  %15 = fadd nnan double %4, -2.500000e-01
+  %16 = fmul nnan double %15, 2.000000e+00
   %17 = fsub double 1.000000e+00, %16
   br label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit
 
@@ -232,8 +232,8 @@ _ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit: ; preds = %3, %_ZNK6open
   br i1 %21, label %25, label %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i5
 
 _ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i5: ; preds = %20
-  %22 = fadd double %18, 7.500000e-01
-  %23 = fmul double %22, 2.000000e+00
+  %22 = fadd nnan double %18, 7.500000e-01
+  %23 = fmul nnan double %22, 2.000000e+00
   %24 = fadd double %23, 0.000000e+00
   br label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7
 
@@ -246,8 +246,8 @@ _ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i5: ; preds = %20
   br i1 %28, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7, label %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i6
 
 _ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i6: ; preds = %27
-  %29 = fadd double %18, -2.500000e-01
-  %30 = fmul double %29, 2.000000e+00
+  %29 = fadd nnan double %18, -2.500000e-01
+  %30 = fmul nnan double %29, 2.000000e+00
   %31 = fsub double 1.000000e+00, %30
   br label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7
 
@@ -262,8 +262,8 @@ _ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit7: ; preds = %_ZNK6open3d1
   br i1 %35, label %39, label %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i9
 
 _ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i9: ; preds = %34
-  %36 = fadd double %32, 7.500000e-01
-  %37 = fmul double %36, 2.000000e+00
+  %36 = fadd nnan double %32, 7.500000e-01
+  %37 = fmul nnan double %36, 2.000000e+00
   %38 = fadd double %37, 0.000000e+00
   br label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit11
 
@@ -276,8 +276,8 @@ _ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit.i9: ; preds = %34
   br i1 %42, label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit11, label %_ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i10
 
 _ZNK6open3d13visualization8ColorMap11InterpolateEddddd.exit10.i10: ; preds = %41
-  %43 = fadd double %32, -2.500000e-01
-  %44 = fmul double %43, 2.000000e+00
+  %43 = fadd nnan double %32, -2.500000e-01
+  %44 = fmul nnan double %43, 2.000000e+00
   %45 = fsub double 1.000000e+00, %44
   br label %_ZNK6open3d13visualization11ColorMapJet7JetBaseEd.exit11
 

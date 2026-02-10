@@ -9939,7 +9939,7 @@ define internal void @xnap_AveragePacketDelayValue_fmt(ptr noundef %0, i32 nound
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @xnap_PacketDelayBudget_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
-  %4 = fmul float %3, 5.000000e-01
+  %4 = fmul nnan float %3, 5.000000e-01
   %5 = fpext float %4 to double
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.5003, double noundef %5, i32 noundef %1)
   ret void
@@ -9955,7 +9955,7 @@ define internal void @xnap_Threshold_RSRP_fmt(ptr noundef %0, i32 noundef %1) #2
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @xnap_Threshold_RSRQ_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
-  %4 = fmul float %3, 5.000000e-01
+  %4 = fmul nnan float %3, 5.000000e-01
   %5 = fadd float %4, -4.300000e+01
   %6 = fpext float %5 to double
   %7 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.5276, double noundef %6, i32 noundef %1)
@@ -9974,7 +9974,7 @@ define internal void @xnap_PacketLossRate_fmt(ptr noundef %0, i32 noundef %1) #2
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @xnap_Threshold_SINR_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
-  %4 = fmul float %3, 5.000000e-01
+  %4 = fmul nnan float %3, 5.000000e-01
   %5 = fadd float %4, -2.300000e+01
   %6 = fpext float %5 to double
   %7 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.5276, double noundef %6, i32 noundef %1)
@@ -9984,7 +9984,7 @@ define internal void @xnap_Threshold_SINR_fmt(ptr noundef %0, i32 noundef %1) #2
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @xnap_handoverTriggerChange_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
-  %4 = fmul float %3, 5.000000e-01
+  %4 = fmul nnan float %3, 5.000000e-01
   %5 = fpext float %4 to double
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.5436, double noundef %5, i32 noundef %1)
   ret void
@@ -9993,7 +9993,7 @@ define internal void @xnap_handoverTriggerChange_fmt(ptr noundef %0, i32 noundef
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @xnap_N6Jitter_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
-  %4 = fmul float %3, 5.000000e-01
+  %4 = fmul nnan float %3, 5.000000e-01
   %5 = fpext float %4 to double
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.5445, double noundef %5, i32 noundef %1)
   ret void

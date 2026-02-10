@@ -3066,7 +3066,7 @@ define void @_ZN15ImGuiPlatformIOC2Ev(ptr noundef nonnull writeonly align 8 capt
 ; Function Attrs: mustprogress uwtable
 define <2 x float> @_Z25ImBezierCubicClosestPointRK6ImVec2S1_S1_S1_S1_i(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %4, i32 noundef %5) local_unnamed_addr #11 {
   %7 = sitofp i32 %5 to float
-  %8 = fdiv float 1.000000e+00, %7
+  %8 = fdiv nnan float 1.000000e+00, %7
   %.not34 = icmp slt i32 %5, 1
   br i1 %.not34, label %._crit_edge, label %.lr.ph
 
@@ -5493,18 +5493,18 @@ define noundef range(i32 -16777216, 0) i32 @_Z18ImAlphaBlendColorsjj(i32 noundef
 define { <2 x float>, <2 x float> } @_ZN5ImGui23ColorConvertU32ToFloat4Ej(i32 noundef %0) local_unnamed_addr #8 {
   %2 = and i32 %0, 255
   %3 = uitofp nneg i32 %2 to float
-  %4 = fmul float %3, 0x3F70101020000000
+  %4 = fmul nnan float %3, 0x3F70101020000000
   %5 = lshr i32 %0, 8
   %6 = and i32 %5, 255
   %7 = uitofp nneg i32 %6 to float
-  %8 = fmul float %7, 0x3F70101020000000
+  %8 = fmul nnan float %7, 0x3F70101020000000
   %9 = lshr i32 %0, 16
   %10 = and i32 %9, 255
   %11 = uitofp nneg i32 %10 to float
-  %12 = fmul float %11, 0x3F70101020000000
+  %12 = fmul nnan float %11, 0x3F70101020000000
   %13 = lshr i32 %0, 24
   %14 = uitofp nneg i32 %13 to float
-  %15 = fmul float %14, 0x3F70101020000000
+  %15 = fmul nnan float %14, 0x3F70101020000000
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %4, i64 0
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %8, i64 1
   %.sroa.3.8.vec.insert = insertelement <2 x float> poison, float %12, i64 0
@@ -9722,18 +9722,18 @@ define void @_ZN5ImGui14PushStyleColorEij(i32 noundef %0, i32 noundef %1) local_
 12:                                               ; preds = %2
   %13 = and i32 %1, 255
   %14 = uitofp nneg i32 %13 to float
-  %15 = fmul float %14, 0x3F70101020000000
+  %15 = fmul nnan float %14, 0x3F70101020000000
   %16 = lshr i32 %1, 8
   %17 = and i32 %16, 255
   %18 = uitofp nneg i32 %17 to float
-  %19 = fmul float %18, 0x3F70101020000000
+  %19 = fmul nnan float %18, 0x3F70101020000000
   %20 = lshr i32 %1, 16
   %21 = and i32 %20, 255
   %22 = uitofp nneg i32 %21 to float
-  %23 = fmul float %22, 0x3F70101020000000
+  %23 = fmul nnan float %22, 0x3F70101020000000
   %24 = lshr i32 %1, 24
   %25 = uitofp nneg i32 %24 to float
-  %26 = fmul float %25, 0x3F70101020000000
+  %26 = fmul nnan float %25, 0x3F70101020000000
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %15, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %19, i64 1
   %.sroa.3.8.vec.insert.i = insertelement <2 x float> poison, float %23, i64 0
@@ -38836,7 +38836,7 @@ _ZL14ClampWindowPosP11ImGuiWindowRK6ImRect.exit:  ; preds = %1194, %1202, %1206
   %1274 = fptosi float %1273 to i32
   %1275 = sitofp i32 %1274 to float
   %.not246.i = icmp eq i32 %1238, 0
-  %1276 = fmul float %1275, 7.500000e-01
+  %1276 = fmul nnan float %1275, 7.500000e-01
   %1277 = fptosi float %1276 to i32
   %1278 = sitofp i32 %1277 to float
   %1279 = select i1 %.not246.i, float 0.000000e+00, float %1278
@@ -40160,7 +40160,7 @@ _ZN5ImGuiL24UpdateWindowManualResizeEP11ImGuiWindowRK6ImVec2PiS5_iPjRK6ImRect.ex
   br i1 %brmerge468, label %1979, label %1977
 
 1977:                                             ; preds = %1880
-  %1978 = fmul float %1891, 0x3FE4CCCCC0000000
+  %1978 = fmul nnan float %1891, 0x3FE4CCCCC0000000
   br label %1982
 
 1979:                                             ; preds = %1880

@@ -2594,7 +2594,7 @@ _ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit292: ; preds = %522, 
   %531 = load i16, ptr %.039.i, align 1, !tbaa !104
   %532 = call noundef i16 @llvm.bswap.i16(i16 %531)
   %533 = sitofp i16 %532 to float
-  %534 = fmul float %533, 0x3F10000000000000
+  %534 = fmul nnan float %533, 0x3F10000000000000
   store float %534, ptr %412, align 4, !tbaa !68
   store float %534, ptr %21, align 16, !tbaa !68
   br label %_ZNK2OT9glyf_impl20CompositeGlyphRecord18get_transformationERA4_fR15contour_point_t.exit
@@ -2608,13 +2608,13 @@ _ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit292: ; preds = %522, 
   %538 = load i16, ptr %.039.i, align 1, !tbaa !104
   %539 = call noundef i16 @llvm.bswap.i16(i16 %538)
   %540 = sitofp i16 %539 to float
-  %541 = fmul float %540, 0x3F10000000000000
+  %541 = fmul nnan float %540, 0x3F10000000000000
   store float %541, ptr %21, align 16, !tbaa !68
   %542 = getelementptr inbounds nuw i8, ptr %.039.i, i64 2
   %543 = load i16, ptr %542, align 1, !tbaa !104
   %544 = call noundef i16 @llvm.bswap.i16(i16 %543)
   %545 = sitofp i16 %544 to float
-  %546 = fmul float %545, 0x3F10000000000000
+  %546 = fmul nnan float %545, 0x3F10000000000000
   store float %546, ptr %412, align 4, !tbaa !68
   br label %_ZNK2OT9glyf_impl20CompositeGlyphRecord18get_transformationERA4_fR15contour_point_t.exit
 
@@ -2627,25 +2627,25 @@ _ZN9hb_iter_tI10hb_array_tI15contour_point_tERS1_EixEj.exit292: ; preds = %522, 
   %550 = load i16, ptr %.039.i, align 1, !tbaa !104
   %551 = call noundef i16 @llvm.bswap.i16(i16 %550)
   %552 = sitofp i16 %551 to float
-  %553 = fmul float %552, 0x3F10000000000000
+  %553 = fmul nnan float %552, 0x3F10000000000000
   store float %553, ptr %21, align 16, !tbaa !68
   %554 = getelementptr inbounds nuw i8, ptr %.039.i, i64 2
   %555 = load i16, ptr %554, align 1, !tbaa !104
   %556 = call noundef i16 @llvm.bswap.i16(i16 %555)
   %557 = sitofp i16 %556 to float
-  %558 = fmul float %557, 0x3F10000000000000
+  %558 = fmul nnan float %557, 0x3F10000000000000
   store float %558, ptr %414, align 4, !tbaa !68
   %559 = getelementptr inbounds nuw i8, ptr %.039.i, i64 4
   %560 = load i16, ptr %559, align 1, !tbaa !104
   %561 = call noundef i16 @llvm.bswap.i16(i16 %560)
   %562 = sitofp i16 %561 to float
-  %563 = fmul float %562, 0x3F10000000000000
+  %563 = fmul nnan float %562, 0x3F10000000000000
   store float %563, ptr %413, align 8, !tbaa !68
   %564 = getelementptr inbounds nuw i8, ptr %.039.i, i64 6
   %565 = load i16, ptr %564, align 1, !tbaa !104
   %566 = call noundef i16 @llvm.bswap.i16(i16 %565)
   %567 = sitofp i16 %566 to float
-  %568 = fmul float %567, 0x3F10000000000000
+  %568 = fmul nnan float %567, 0x3F10000000000000
   store float %568, ptr %412, align 4, !tbaa !68
   br label %_ZNK2OT9glyf_impl20CompositeGlyphRecord18get_transformationERA4_fR15contour_point_t.exit
 

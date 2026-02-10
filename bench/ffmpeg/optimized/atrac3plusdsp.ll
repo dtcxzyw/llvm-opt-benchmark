@@ -33,8 +33,8 @@ define void @ff_atrac3p_init_dsp_static() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   %3 = uitofp nneg i32 %2 to double
-  %4 = fmul nsz double %3, 0x401921FB54442D18
-  %5 = fmul nsz double %4, 0x3F40000000000000
+  %4 = fmul nnan nsz double %3, 0x401921FB54442D18
+  %5 = fmul nnan nsz double %4, 0x3F40000000000000
   %6 = tail call nsz double @llvm.sin.f64(double %5)
   %7 = fptrunc nsz double %6 to float
   %8 = getelementptr inbounds nuw float, ptr @sine_table, i64 %indvars.iv
@@ -47,8 +47,8 @@ define void @ff_atrac3p_init_dsp_static() local_unnamed_addr #0 {
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %.preheader12 ], [ 0, %1 ]
   %9 = trunc nuw nsw i64 %indvars.iv17 to i32
   %10 = uitofp nneg i32 %9 to double
-  %11 = fmul nsz double %10, 0x401921FB54442D18
-  %12 = fmul nsz double %11, 3.906250e-03
+  %11 = fmul nnan nsz double %10, 0x401921FB54442D18
+  %12 = fmul nnan nsz double %11, 3.906250e-03
   %13 = tail call nsz double @llvm.cos.f64(double %12)
   %14 = fsub nsz double 1.000000e+00, %13
   %15 = fmul nsz double %14, 5.000000e-01
@@ -64,7 +64,7 @@ define void @ff_atrac3p_init_dsp_static() local_unnamed_addr #0 {
   %18 = trunc i64 %indvars.iv21 to i32
   %19 = add i32 %18, -3
   %20 = sitofp i32 %19 to float
-  %21 = fmul nsz float %20, 2.500000e-01
+  %21 = fmul nnan nsz float %20, 2.500000e-01
   %22 = tail call nsz float @llvm.exp2.f32(float %21)
   %23 = getelementptr inbounds nuw float, ptr @amp_sf_tab, i64 %indvars.iv21
   store float %22, ptr %23, align 4, !tbaa !4
@@ -327,7 +327,7 @@ define internal fastcc void @waves_synth(ptr noundef readonly captures(none) %0,
   %25 = load i32, ptr %24, align 4, !tbaa !44
   %26 = add nsw i32 %25, 1
   %27 = sitofp i32 %26 to float
-  %28 = fdiv nsz float %27, 0x402E428F60000000
+  %28 = fdiv nnan nsz float %27, 0x402E428F60000000
   %29 = fmul nsz float %23, %28
   %30 = fpext nsz float %29 to double
   %31 = load i32, ptr %.074.us, align 4, !tbaa !45

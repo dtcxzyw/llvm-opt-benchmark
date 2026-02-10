@@ -2817,7 +2817,7 @@ _ZN8QPainter8drawRectERK5QRect.exit:              ; preds = %67
 
 71:                                               ; preds = %70
   %72 = sitofp i32 %61 to double
-  %73 = fmul double %72, 5.000000e-01
+  %73 = fmul nnan double %72, 5.000000e-01
   invoke void @_ZN5QFont13setPointSizeFEd(ptr noundef nonnull align 8 dereferenceable_or_null(12) %17, double noundef %73)
           to label %74 unwind label %107
 

@@ -746,7 +746,7 @@ define void @_ZN6LibRaw19parseLeicaMakernoteEiij(ptr noundef nonnull align 8 der
 202:                                              ; preds = %198
   %203 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %204 = uitofp i32 %203 to float
-  %205 = fmul reassoc nsz arcp contract afn float %204, 0x3F50624DE0000000
+  %205 = fmul reassoc nnan nsz arcp contract afn float %204, 0x3F50624DE0000000
   store float %205, ptr %57, align 4, !tbaa !85
   %206 = fpext reassoc nsz arcp contract afn float %205 to double
   %207 = fcmp reassoc nsz arcp contract afn ogt double %206, 1.263000e+02

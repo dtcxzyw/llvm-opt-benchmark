@@ -435,7 +435,7 @@ codebook_sanity_check_for_rate_quarter.exit:      ; preds = %122, %118
   %180 = trunc i64 %indvars.iv127 to i32
   %181 = add i32 %180, 1
   %182 = uitofp nneg i32 %181 to double
-  %183 = fmul nsz double %182, 2.500000e-01
+  %183 = fmul nnan nsz double %182, 2.500000e-01
   %184 = fptrunc nsz double %183 to float
   %185 = fcmp nsz une float %184, 1.000000e+00
   br i1 %185, label %.thread.i92, label %.thread46.i
@@ -1252,7 +1252,7 @@ define internal fastcc range(i32 -1, 1) i32 @decode_lspf(ptr noundef %0, ptr nou
   %41 = icmp ult i8 %39, 4
   %42 = select i1 %41, float 0x3FEA1999A0000000, float 0x3FE44CCCC0000000
   %.0101 = select nsz i1 %40, float %42, float 9.062500e-01
-  %43 = fsub nsz float 1.000000e+00, %.0101
+  %43 = fsub nnan nsz float 1.000000e+00, %.0101
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %45
 
@@ -1468,7 +1468,7 @@ define internal fastcc void @apply_pitch_filters(ptr noundef %0, ptr noundef %1)
   %24 = zext i8 %23 to i32
   %25 = add nuw nsw i32 %24, 1
   %26 = uitofp nneg i32 %25 to double
-  %27 = fmul nsz double %26, 2.500000e-01
+  %27 = fmul nnan nsz double %26, 2.500000e-01
   %28 = fptrunc nsz double %27 to float
   br label %29
 

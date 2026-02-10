@@ -7998,7 +7998,7 @@ define hidden void @_ZN13mini_lsm_mvcc5table7builder14SsTableBuilder5build17h707
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %57 = load i64, ptr %56, align 8, !noundef !4
   %58 = uitofp i64 %57 to double
-  %59 = fmul double %58, 0x40126BB1BBB55515
+  %59 = fmul nnan double %58, 0x40126BB1BBB55515
   %60 = fdiv double %59, 0x3FDEBFBDFF82C58E
   %61 = fdiv double %60, %58
   %62 = call double @llvm.ceil.f64(double %61)

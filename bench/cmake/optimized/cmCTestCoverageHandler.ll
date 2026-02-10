@@ -46662,7 +46662,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   %731 = sitofp i32 %730 to float
   %732 = load i32, ptr %32, align 4, !tbaa !207
   %733 = icmp sgt i32 %732, 0
-  %734 = fmul float %731, 5.000000e-01
+  %734 = fmul nnan float %731, 5.000000e-01
   %.in = select i1 %733, float %734, float %731
   %735 = fpext float %.in to double
   %736 = fadd double %.079.ph.ph, %735

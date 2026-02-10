@@ -1571,7 +1571,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIfE5Pr
   %53 = fadd float %52, 5.000000e-01
   %54 = fptosi float %53 to i32
   %55 = sitofp i32 %54 to float
-  %56 = fmul float %.0.i.i, %55
+  %56 = fmul nnan float %.0.i.i, %55
   %57 = fcmp une float %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEfPSo.exit
 
@@ -1809,7 +1809,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %.0.i.i, %55
+  %56 = fmul nnan double %.0.i.i, %55
   %57 = fcmp une double %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 
@@ -7802,7 +7802,7 @@ _ZN7testing15AssertionResultD2Ev.exit377:         ; preds = %633, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   %646 = trunc nuw nsw i64 %indvars.iv to i32
   %647 = uitofp nneg i32 %646 to float
-  %648 = fmul float %647, 0x3BF0000000000000
+  %648 = fmul nnan float %647, 0x3BF0000000000000
   store float %648, ptr %56, align 4, !tbaa !60
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %649 = icmp eq i64 %indvars.iv, 0
@@ -18453,7 +18453,7 @@ _ZN7testing15AssertionResultD2Ev.exit701:         ; preds = %1279, %_ZNKSt14defa
   call void @llvm.lifetime.start.p0(ptr nonnull %107)
   %1292 = trunc nuw nsw i64 %indvars.iv to i32
   %1293 = uitofp nneg i32 %1292 to double
-  %1294 = fmul double %1293, 0x3BF0000000000000
+  %1294 = fmul nnan double %1293, 0x3BF0000000000000
   store double %1294, ptr %107, align 8, !tbaa !70
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   %1295 = icmp eq i64 %indvars.iv, 0
@@ -25473,7 +25473,7 @@ _ZN7testing15AssertionResultD2Ev.exit889:         ; preds = %1756, %_ZNKSt14defa
   call void @llvm.lifetime.start.p0(ptr nonnull %142)
   %1769 = trunc nuw nsw i64 %indvars.iv to i32
   %1770 = uitofp nneg i32 %1769 to double
-  %1771 = fmul double %1770, 0x3C00000000000000
+  %1771 = fmul nnan double %1770, 0x3C00000000000000
   store double %1771, ptr %142, align 8, !tbaa !70
   call void @llvm.lifetime.start.p0(ptr nonnull %143)
   %1772 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %indvars.iv, i1 true)

@@ -1184,12 +1184,12 @@ _ZNSt6vectorIN3vcg6Point2IiEESaIS2_EED2Ev.exit:   ; preds = %322, %324
 325:                                              ; preds = %_ZNSt6vectorIN3vcg6Point2IiEESaIS2_EED2Ev.exit
   %326 = load i32, ptr %295, align 4
   %327 = sitofp i32 %326 to double
-  %328 = fmul double %327, 1.100000e+00
+  %328 = fmul nnan double %327, 1.100000e+00
   %329 = fptosi double %328 to i32
   store i32 %329, ptr %295, align 4
   %330 = load i32, ptr %296, align 4
   %331 = sitofp i32 %330 to double
-  %332 = fmul double %331, 1.100000e+00
+  %332 = fmul nnan double %331, 1.100000e+00
   %333 = fptosi double %332 to i32
   store i32 %333, ptr %296, align 4
   %334 = icmp slt i32 %329, 20001
@@ -5375,8 +5375,8 @@ _ZN3vcg24RasterizedOutline2PackerIf20QtOutline2RasterizerE12packingfield10dropYI
 
 1098:                                             ; preds = %1091
   %1099 = sitofp i32 %.5.us to float
-  %1100 = fpext float %1099 to double
-  %1101 = fmul double %1100, 0x401921FB54442D18
+  %1100 = fpext nnan ninf float %1099 to double
+  %1101 = fmul nnan double %1100, 0x401921FB54442D18
   %1102 = load i32, ptr %117, align 4
   %1103 = sitofp i32 %1102 to float
   %1104 = fpext float %1103 to double

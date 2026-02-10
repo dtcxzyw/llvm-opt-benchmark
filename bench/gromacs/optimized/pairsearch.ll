@@ -98,7 +98,7 @@ define void @_ZNK3gmx19SearchCycleCounting11printCyclesEP8_IO_FILENS_8ArrayRefIK
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !10
   %11 = uitofp i64 %10 to double
-  %12 = fmul double %11, 0x3EB0C6F7A0B5ED8D
+  %12 = fmul nnan double %11, 0x3EB0C6F7A0B5ED8D
   %13 = uitofp nneg i32 %6 to double
   %14 = fdiv double %12, %13
   br label %_ZNK3gmx13nbnxn_cycle_t14averageMCyclesEv.exit
@@ -114,7 +114,7 @@ _ZNK3gmx13nbnxn_cycle_t14averageMCyclesEv.exit:   ; preds = %4, %8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %20 = load i64, ptr %19, align 8, !tbaa !10
   %21 = uitofp i64 %20 to double
-  %22 = fmul double %21, 0x3EB0C6F7A0B5ED8D
+  %22 = fmul nnan double %21, 0x3EB0C6F7A0B5ED8D
   %23 = uitofp nneg i32 %16 to double
   %24 = fdiv double %22, %23
   br label %_ZNK3gmx13nbnxn_cycle_t14averageMCyclesEv.exit14
@@ -139,7 +139,7 @@ _ZNK3gmx13nbnxn_cycle_t14averageMCyclesEv.exit16: ; preds = %31
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %36 = load i64, ptr %35, align 8, !tbaa !10
   %37 = uitofp i64 %36 to double
-  %38 = fmul double %37, 0x3EB0C6F7A0B5ED8D
+  %38 = fmul nnan double %37, 0x3EB0C6F7A0B5ED8D
   %39 = uitofp nneg i32 %33 to double
   %40 = fdiv double %38, %39
   %41 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.2, double noundef %40) #20
@@ -161,7 +161,7 @@ _ZNK3gmx13nbnxn_cycle_t14averageMCyclesEv.exit16: ; preds = %31
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.024, i64 136
   %49 = load i64, ptr %48, align 8, !tbaa !10
   %50 = uitofp i64 %49 to double
-  %51 = fmul double %50, 0x3EB0C6F7A0B5ED8D
+  %51 = fmul nnan double %50, 0x3EB0C6F7A0B5ED8D
   %52 = uitofp nneg i32 %45 to double
   %53 = fdiv double %51, %52
   br label %_ZNK3gmx13nbnxn_cycle_t14averageMCyclesEv.exit20

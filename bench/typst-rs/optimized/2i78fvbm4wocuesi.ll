@@ -24872,7 +24872,7 @@ define hidden { i64, double } @"_ZN4core6option15Option$LT$T$GT$7or_else17h56b4e
   ]
 
 25:                                               ; preds = %17
-  %26 = fmul double %24, 2.540000e+00
+  %26 = fmul nnan double %24, 2.540000e+00
   br label %"_ZN5typst9visualize5image6raster13determine_dpi28_$u7b$$u7b$closure$u7d$$u7d$17h7e8a00cccc1b92b7E.llvm.16978709814855407318.exit"
 
 "_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17h761af2e556da134dE.exit.thread.i.i": ; preds = %17, %"_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17hcf4d876f2f63b3a7E.exit.i.i", %"_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17h761af2e556da134dE.exit63.i.i", %"_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17h761af2e556da134dE.exit57.i.i", %"_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17h761af2e556da134dE.exit.i.i", %6
@@ -117852,7 +117852,7 @@ define hidden { i64, double } @_ZN5typst9visualize5image6raster13determine_dpi17
   ]
 
 28:                                               ; preds = %20
-  %29 = fmul double %27, 2.540000e+00
+  %29 = fmul nnan double %27, 2.540000e+00
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17h56b4e5815ec4c1c1E.llvm.16978709814855407318.exit"
 
 "_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17h761af2e556da134dE.exit.thread.i.i.i": ; preds = %20, %"_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17hcf4d876f2f63b3a7E.exit.i.i.i", %"_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17h761af2e556da134dE.exit63.i.i.i", %"_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17h761af2e556da134dE.exit57.i.i.i", %"_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17h761af2e556da134dE.exit.i.i.i", %.thread
@@ -117921,7 +117921,7 @@ define hidden { i64, double } @"_ZN5typst9visualize5image6raster13determine_dpi2
   ]
 
 21:                                               ; preds = %13
-  %22 = fmul double %20, 2.540000e+00
+  %22 = fmul nnan double %20, 2.540000e+00
   br label %_ZN5typst9visualize5image6raster8jpeg_dpi17hf71fb4c4647ff454E.llvm.16978709814855407318.exit
 
 "_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17h761af2e556da134dE.exit.thread.i": ; preds = %13, %"_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17hcf4d876f2f63b3a7E.exit.i", %"_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17h761af2e556da134dE.exit63.i", %"_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17h761af2e556da134dE.exit57.i", %"_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17h761af2e556da134dE.exit.i", %2
@@ -118133,7 +118133,7 @@ define hidden { i64, double } @_ZN5typst9visualize5image6raster8jpeg_dpi17hf71fb
   ]
 
 21:                                               ; preds = %13
-  %22 = fmul double %20, 2.540000e+00
+  %22 = fmul nnan double %20, 2.540000e+00
   br label %23
 
 23:                                               ; preds = %21, %13, %"_ZN5typst9visualize5image6raster8jpeg_dpi28_$u7b$$u7b$closure$u7d$$u7d$17h761af2e556da134dE.exit.thread"
@@ -118167,9 +118167,9 @@ define hidden { i64, double } @_ZN5typst9visualize5image6raster7png_dpi17h7da374
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br label %14
 
-14:                                               ; preds = %50, %2
-  %.sroa.4.0 = phi i64 [ %1, %2 ], [ %.sroa.725.0, %50 ]
-  %.sroa.0.0 = phi ptr [ %0, %2 ], [ %.sroa.023.0, %50 ]
+14:                                               ; preds = %49, %2
+  %.sroa.4.0 = phi i64 [ %1, %2 ], [ %.sroa.725.0, %49 ]
+  %.sroa.0.0 = phi ptr [ %0, %2 ], [ %.sroa.023.0, %49 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8
@@ -118191,7 +118191,7 @@ define hidden { i64, double } @_ZN5typst9visualize5image6raster7png_dpi17h7da374
 15:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hb1bd5fe26ba89da7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %6) #83
-          to label %41 unwind label %56
+          to label %41 unwind label %55
 
 16:                                               ; preds = %14
   %17 = load i8, ptr %11, align 1, !range !22842, !noundef !4
@@ -118259,23 +118259,23 @@ define hidden { i64, double } @_ZN5typst9visualize5image6raster7png_dpi17h7da374
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %34 = load i64, ptr %33, align 8, !range !570, !noalias !22863, !noundef !4
   %.not.i.i.i48 = icmp eq i64 %34, 0
-  br i1 %.not.i.i.i48, label %55, label %35
+  br i1 %.not.i.i.i48, label %54, label %35
 
 35:                                               ; preds = %.noexc49
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %37 = load i64, ptr %36, align 8, !noalias !22863, !noundef !4
   %38 = icmp eq i64 %37, 0
-  br i1 %38, label %55, label %39
+  br i1 %38, label %54, label %39
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %3, align 8, !noalias !22863, !nonnull !4, !noundef !4
   call void @__rust_dealloc(ptr noundef nonnull %40, i64 noundef %37, i64 noundef %34) #85
-  br label %55
+  br label %54
 
 41:                                               ; preds = %.loopexit77, %.loopexit.split-lp78, %15
   %.pn = phi { ptr, i32 } [ %lpad.phi, %15 ], [ %lpad.loopexit79, %.loopexit77 ], [ %lpad.loopexit.split-lp80, %.loopexit.split-lp78 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$png..decoder..stream..StreamingDecoder$GT$17ha231a1b7f1f19330E"(ptr noalias noundef nonnull align 8 dereferenceable(464) %8) #83
-          to label %58 unwind label %56
+          to label %57 unwind label %55
 
 .loopexit77:                                      ; preds = %25
   %lpad.loopexit79 = landingpad { ptr, i32 }
@@ -118290,7 +118290,7 @@ define hidden { i64, double } @_ZN5typst9visualize5image6raster7png_dpi17h7da374
 42:                                               ; preds = %30, %27, %.noexc47
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !22856
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  switch i8 %17, label %50 [
+  switch i8 %17, label %49 [
     i8 4, label %43
     i8 6, label %44
     i8 9, label %.loopexit82
@@ -118299,47 +118299,49 @@ define hidden { i64, double } @_ZN5typst9visualize5image6raster7png_dpi17h7da374
 
 43:                                               ; preds = %42
   %or.cond11 = icmp eq i32 %.sroa.029.sroa.4.sroa.4.0.copyload, 1413563465
-  br i1 %or.cond11, label %.loopexit82, label %50
+  br i1 %or.cond11, label %.loopexit82, label %49
 
 44:                                               ; preds = %42
   %.0.sroa.speculated.i = call noundef i32 @llvm.umax.i32(i32 %.sroa.029.sroa.4.sroa.0.0.copyload, i32 %.sroa.029.sroa.4.sroa.4.0.copyload)
+  %trunc = trunc i8 %.sroa.029.sroa.4.sroa.5.0.copyload to i1
   %45 = uitofp i32 %.0.sroa.speculated.i to double
-  %46 = fmul double %45, 2.540000e-02
-  %47 = and i8 %.sroa.029.sroa.4.sroa.5.0.copyload, 1
-  %.sroa.015.1 = zext nneg i8 %47 to i64
+  %46 = fmul nnan double %45, 2.540000e-02
+  %.sroa.7.1 = select i1 %trunc, double %46, double undef
+  %trunc.mask = and i8 %.sroa.029.sroa.4.sroa.5.0.copyload, 1
+  %.sroa.015.1 = zext nneg i8 %trunc.mask to i64
   br label %.loopexit82
 
-.loopexit82:                                      ; preds = %43, %42, %42, %50, %55, %44
-  %.sroa.7.2 = phi double [ %46, %44 ], [ undef, %55 ], [ undef, %50 ], [ undef, %42 ], [ undef, %42 ], [ undef, %43 ]
-  %.sroa.015.2 = phi i64 [ %.sroa.015.1, %44 ], [ 0, %55 ], [ 0, %50 ], [ 0, %42 ], [ 0, %42 ], [ 0, %43 ]
+.loopexit82:                                      ; preds = %43, %42, %42, %49, %54, %44
+  %.sroa.7.2 = phi double [ %.sroa.7.1, %44 ], [ undef, %54 ], [ undef, %49 ], [ undef, %42 ], [ undef, %42 ], [ undef, %43 ]
+  %.sroa.015.2 = phi i64 [ %.sroa.015.1, %44 ], [ 0, %54 ], [ 0, %49 ], [ 0, %42 ], [ 0, %42 ], [ 0, %43 ]
   call void @"_ZN4core3ptr59drop_in_place$LT$png..decoder..stream..StreamingDecoder$GT$17ha231a1b7f1f19330E"(ptr noalias noundef nonnull align 8 dereferenceable(464) %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %48 = insertvalue { i64, double } poison, i64 %.sroa.015.2, 0
-  %49 = insertvalue { i64, double } %48, double %.sroa.7.2, 1
-  ret { i64, double } %49
+  %47 = insertvalue { i64, double } poison, i64 %.sroa.015.2, 0
+  %48 = insertvalue { i64, double } %47, double %.sroa.7.2, 1
+  ret { i64, double } %48
 
-50:                                               ; preds = %42, %43
-  %51 = icmp ugt i64 %.sroa.029.sroa.0.0.copyload, %.sroa.4.0
-  %52 = sub nuw i64 %.sroa.4.0, %.sroa.029.sroa.0.0.copyload
-  %53 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.sroa.029.sroa.0.0.copyload
-  %.sroa.725.0 = select i1 %51, i64 undef, i64 %52
-  %.sroa.023.0 = select i1 %51, ptr null, ptr %53
-  %54 = add i64 %.sroa.029.sroa.0.0.copyload, -1
-  %or.cond.not = icmp ult i64 %54, %.sroa.4.0
+49:                                               ; preds = %42, %43
+  %50 = icmp ugt i64 %.sroa.029.sroa.0.0.copyload, %.sroa.4.0
+  %51 = sub nuw i64 %.sroa.4.0, %.sroa.029.sroa.0.0.copyload
+  %52 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.sroa.029.sroa.0.0.copyload
+  %.sroa.725.0 = select i1 %50, i64 undef, i64 %51
+  %.sroa.023.0 = select i1 %50, ptr null, ptr %52
+  %53 = add i64 %.sroa.029.sroa.0.0.copyload, -1
+  %or.cond.not = icmp ult i64 %53, %.sroa.4.0
   br i1 %or.cond.not, label %14, label %.loopexit82
 
-55:                                               ; preds = %39, %35, %.noexc49
+54:                                               ; preds = %39, %35, %.noexc49
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !22863
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit82
 
-56:                                               ; preds = %41, %15
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %41, %15
+  %56 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #84
   unreachable
 
-58:                                               ; preds = %41
+57:                                               ; preds = %41
   resume { ptr, i32 } %.pn
 }
 

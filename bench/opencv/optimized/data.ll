@@ -12676,7 +12676,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %10, %
 _ZNK2cv2ml13TrainDataImpl11getNSamplesEv.exit:    ; preds = %18, %25, %28
   %31 = phi i32 [ %20, %18 ], [ %27, %25 ], [ %30, %28 ]
   %32 = sitofp i32 %31 to double
-  %33 = fmul double %1, %32
+  %33 = fmul nnan double %1, %32
   %34 = insertelement <2 x double> poison, double %33, i64 0
   %35 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %34)
   tail call void @_ZN2cv2ml13TrainDataImpl17setTrainTestSplitEib(ptr noundef nonnull align 8 dereferenceable(1608) %0, i32 noundef %35, i1 noundef zeroext %2)

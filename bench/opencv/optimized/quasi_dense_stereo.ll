@@ -5230,7 +5230,7 @@ define linkonce_odr hidden noundef float @_ZN2cv6stereo20QuasiDenseStereoImpl8iZ
   %9 = shl nsw i32 %3, 1
   %10 = or disjoint i32 %9, 1
   %11 = sitofp i32 %10 to float
-  %12 = fmul float %11, %8
+  %12 = fmul nnan float %11, %8
   %13 = sub nsw i32 %.sroa.028.0.extract.trunc, %3
   %14 = sub nsw i32 %.sroa.329.0.extract.trunc, %4
   %15 = add i32 %3, 1

@@ -375,7 +375,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %33 = call ptr @add_tlv_subtree_no_item(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %32, ptr noundef %0, i32 noundef %.0329347)
   %34 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %30)
   %35 = uitofp i32 %34 to double
-  %36 = fmul double %35, 2.500000e-01
+  %36 = fmul nnan double %35, 2.500000e-01
   %37 = fptrunc double %36 to float
   %38 = load i32, ptr @hf_rng_rsp_timing_adjust, align 4
   %39 = fpext float %37 to double
@@ -392,7 +392,7 @@ define internal i32 @dissect_mac_mgmt_msg_rng_rsp_decoder(ptr noundef %0, ptr no
   %45 = call ptr @add_tlv_subtree_no_item(ptr noundef nonnull %5, ptr noundef %11, i32 noundef %44, ptr noundef %0, i32 noundef %.0329347)
   %46 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %30)
   %47 = uitofp i8 %46 to double
-  %48 = fmul double %47, 2.500000e-01
+  %48 = fmul nnan double %47, 2.500000e-01
   %49 = fptrunc double %48 to float
   %50 = load i32, ptr @hf_rng_rsp_power_level_adjust, align 4
   %51 = fpext float %49 to double

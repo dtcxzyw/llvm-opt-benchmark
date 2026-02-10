@@ -2637,13 +2637,13 @@ define internal fastcc range(i32 1, 0) i32 @computeStep(i64 noundef range(i64 1,
 6:                                                ; preds = %20
   %7 = uitofp i64 %0 to double
   %8 = tail call double @llvm.fmuladd.f64(double %7, double 1.000000e+02, double -1.000000e+00)
-  %9 = fmul double %8, 4.000000e+00
+  %9 = fmul nnan double %8, 4.000000e+00
   %10 = fneg double %29
   %11 = fmul double %9, %10
   %12 = tail call double @llvm.fmuladd.f64(double %27, double %27, double %11)
   %13 = tail call double @sqrt(double noundef %12) #23, !tbaa !108
   %14 = fsub double %13, %27
-  %15 = fmul double %8, 2.000000e+00
+  %15 = fmul nnan double %8, 2.000000e+00
   %16 = fdiv double %14, %15
   %17 = fptosi double %16 to i32
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %17, i32 1)

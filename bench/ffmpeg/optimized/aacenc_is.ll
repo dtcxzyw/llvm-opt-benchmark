@@ -21,7 +21,7 @@ define void @ff_aac_search_for_is(ptr noundef %0, ptr noundef readonly captures(
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 316
   %11 = load i32, ptr %10, align 4, !tbaa !27
   %12 = sitofp i32 %11 to float
-  %13 = fdiv nsz float 1.024000e+03, %12
+  %13 = fdiv nnan nsz float 1.024000e+03, %12
   %14 = fdiv nsz float %9, %13
   %15 = fmul nsz float %14, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

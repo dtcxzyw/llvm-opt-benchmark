@@ -9084,7 +9084,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_elst(ptr noundef readonl
   store i64 %66, ptr %67, align 8, !tbaa !432
   %68 = tail call i32 @avio_rb32(ptr noundef nonnull %1) #17
   %69 = uitofp i32 %68 to double
-  %70 = fmul nsz double %69, 0x3EF0000000000000
+  %70 = fmul nnan nsz double %69, 0x3EF0000000000000
   %71 = fptrunc nsz double %70 to float
   %72 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store float %71, ptr %72, align 8, !tbaa !433
@@ -9136,7 +9136,7 @@ define internal range(i32 -1094995529, 1) i32 @mov_read_elst(ptr noundef readonl
   store i64 %96, ptr %97, align 8, !tbaa !432
   %98 = tail call i32 @avio_rb32(ptr noundef nonnull %1) #17
   %99 = uitofp i32 %98 to double
-  %100 = fmul nsz double %99, 0x3EF0000000000000
+  %100 = fmul nnan nsz double %99, 0x3EF0000000000000
   %101 = fptrunc nsz double %100 to float
   %102 = getelementptr inbounds nuw i8, ptr %92, i64 16
   store float %101, ptr %102, align 8, !tbaa !433
@@ -25569,15 +25569,15 @@ define internal fastcc i32 @mov_metadata_loci(ptr noundef readonly captures(none
 31:                                               ; preds = %23
   %32 = call i32 @avio_rb32(ptr noundef %1) #17
   %33 = sitofp i32 %32 to float
-  %34 = fmul nsz float %33, 0x3EF0000000000000
+  %34 = fmul nnan nsz float %33, 0x3EF0000000000000
   %35 = fpext nsz float %34 to double
   %36 = call i32 @avio_rb32(ptr noundef %1) #17
   %37 = sitofp i32 %36 to float
-  %38 = fmul nsz float %37, 0x3EF0000000000000
+  %38 = fmul nnan nsz float %37, 0x3EF0000000000000
   %39 = fpext nsz float %38 to double
   %40 = call i32 @avio_rb32(ptr noundef %1) #17
   %41 = sitofp i32 %40 to float
-  %42 = fmul nsz float %41, 0x3EF0000000000000
+  %42 = fmul nnan nsz float %41, 0x3EF0000000000000
   %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 200, ptr noundef nonnull @.str.446, double noundef %39, double noundef %35) #17
   %44 = fcmp nsz une float %42, 0.000000e+00
   br i1 %44, label %45, label %48

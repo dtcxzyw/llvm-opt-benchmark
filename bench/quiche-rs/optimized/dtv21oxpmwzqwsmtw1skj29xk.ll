@@ -11121,7 +11121,7 @@ common.resume:                                    ; preds = %2655, %2670, %"_ZN4
 1519:                                             ; preds = %1517
   call void @llvm.lifetime.end.p0(ptr nonnull %125)
   %1520 = uitofp i64 %1513 to double
-  %1521 = fmul double %1520, 1.500000e+00
+  %1521 = fmul nnan double %1520, 1.500000e+00
   %1522 = call i64 @llvm.fptoui.sat.i64.f64(double %1521)
   invoke void @_ZN6quiche11flowcontrol11FlowControl25ensure_window_lower_bound17h60ceb21d06434794E(ptr noalias noundef nonnull align 8 dereferenceable(48) %529, i64 noundef %1522)
           to label %1511 unwind label %1496
@@ -13307,9 +13307,9 @@ common.resume:                                    ; preds = %2655, %2670, %"_ZN4
   %2351 = icmp ult i32 %2349, 1000000000
   call void @llvm.assume(i1 %2351)
   %2352 = uitofp nneg i32 %2349 to float
-  %2353 = fdiv float %2352, 1.000000e+09
-  %2354 = fadd float %2353, %2350
-  %2355 = fmul float %2354, 1.000000e+03
+  %2353 = fdiv nnan float %2352, 1.000000e+09
+  %2354 = fadd nnan float %2353, %2350
+  %2355 = fmul nnan float %2354, 1.000000e+03
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %37, ptr noundef nonnull align 8 dereferenceable(192) %39, i64 192, i1 false)
   %.sroa.0534.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 200

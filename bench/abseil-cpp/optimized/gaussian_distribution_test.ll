@@ -2276,7 +2276,7 @@ _ZNSt6vectorIdSaIdEE9push_backERKd.exit.i:        ; preds = %_ZNSt6vectorIdSaIdE
 87:                                               ; preds = %85
   %88 = load i64, ptr %15, align 8, !tbaa !111
   %89 = uitofp i64 %88 to double
-  %90 = fdiv double %89, 6.000000e+00
+  %90 = fdiv nnan double %89, 6.000000e+00
   %91 = load double, ptr %39, align 8, !tbaa !113
   %square.i = fmul double %91, %91
   %92 = load double, ptr %40, align 8, !tbaa !114
@@ -2859,8 +2859,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %reass.sub51 = sub nsw i64 %42, %43
   %44 = add nsw i64 %reass.sub51, 4602678819172646912
   %45 = bitcast i64 %44 to double
-  %46 = tail call double @llvm.log.f64(double %45), !tbaa !49
-  %47 = fmul double %46, 0x3FD2972A8AFC6175
+  %46 = tail call nnan double @llvm.log.f64(double %45)
+  %47 = fmul nnan double %46, 0x3FD2972A8AFC6175
   %.sroa.24.0.insert.ext.i.i.i.i.i12.i = zext i64 %.narrow.i.i.i.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i13.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i12.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i14.i = and i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i, 18446744073709551615
@@ -6717,8 +6717,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %reass.sub38 = sub nsw i64 %52, %53
   %54 = add nsw i64 %reass.sub38, 4602678819172646912
   %55 = bitcast i64 %54 to double
-  %56 = tail call double @llvm.log.f64(double %55), !tbaa !49
-  %57 = fmul double %56, 0x3FD2972A8AFC6175
+  %56 = tail call nnan double @llvm.log.f64(double %55)
+  %57 = fmul nnan double %56, 0x3FD2972A8AFC6175
   %58 = add i64 %43, 2
   store i64 %58, ptr %1, align 8, !tbaa !206
   %59 = urem i64 %44, %10
@@ -11442,8 +11442,8 @@ define internal void @_ZN12_GLOBAL__N_145GaussianDistributionTest_AlgorithmBound
   %reass.sub684 = sub nsw i64 %171, %172
   %173 = add nsw i64 %reass.sub684, 4602678819172646912
   %174 = bitcast i64 %173 to double
-  %175 = call double @llvm.log.f64(double %174), !tbaa !49
-  %176 = fmul double %175, 0x3FD2972A8AFC6175
+  %175 = call nnan double @llvm.log.f64(double %174)
+  %176 = fmul nnan double %175, 0x3FD2972A8AFC6175
   %177 = add i64 %162, 2
   %178 = urem i64 %163, 3
   %179 = getelementptr inbounds nuw i64, ptr %127, i64 %178
@@ -12188,8 +12188,8 @@ _ZN4absl15random_internal13sequence_urbgD2Ev.exit246: ; preds = %427, %365, %310
   %reass.sub687 = sub nsw i64 %475, %476
   %477 = add nsw i64 %reass.sub687, 4602678819172646912
   %478 = bitcast i64 %477 to double
-  %479 = call double @llvm.log.f64(double %478), !tbaa !49
-  %480 = fmul double %479, 0x3FD2972A8AFC6175
+  %479 = call nnan double @llvm.log.f64(double %478)
+  %480 = fmul nnan double %479, 0x3FD2972A8AFC6175
   %481 = add i64 %466, 2
   %482 = urem i64 %467, 3
   %483 = getelementptr inbounds nuw i64, ptr %431, i64 %482
@@ -15747,7 +15747,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %.0.i.i, %55
+  %56 = fmul nnan double %.0.i.i, %55
   %57 = fcmp une double %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 
@@ -19993,7 +19993,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIfE5Pr
   %53 = fadd float %52, 5.000000e-01
   %54 = fptosi float %53 to i32
   %55 = sitofp i32 %54 to float
-  %56 = fmul float %.0.i.i, %55
+  %56 = fmul nnan float %.0.i.i, %55
   %57 = fcmp une float %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEfPSo.exit
 
@@ -20312,8 +20312,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %reass.sub51 = sub nsw i64 %42, %43
   %44 = add nsw i64 %reass.sub51, 4602678819172646912
   %45 = bitcast i64 %44 to double
-  %46 = tail call double @llvm.log.f64(double %45), !tbaa !49
-  %47 = fmul double %46, 0x3FD2972A8AFC6175
+  %46 = tail call nnan double @llvm.log.f64(double %45)
+  %47 = fmul nnan double %46, 0x3FD2972A8AFC6175
   %.sroa.24.0.insert.ext.i.i.i.i.i.i12.i = zext i64 %.narrow.i.i.i.i.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i13.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i12.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i14.i = and i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i, 18446744073709551615

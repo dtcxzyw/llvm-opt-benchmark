@@ -6918,7 +6918,7 @@ define internal void @_ZN3gmxL16set_lincs_matrixEPNS_5LincsENS_8ArrayRefIKfEEf.o
   %95 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv143.i
   store float %94, ptr %95, align 4, !tbaa !201
   %96 = sitofp i32 %.0103125.i to double
-  %97 = fmul double %96, 5.000000e-01
+  %97 = fmul nnan double %96, 5.000000e-01
   %98 = fptrunc double %97 to float
   %99 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv143.i
   store float %98, ptr %99, align 4, !tbaa !201
@@ -9410,7 +9410,7 @@ _ZN3gmxL19calc_dist_iter_simdEiiNS_8ArrayRefIKN12_GLOBAL__N_18AtomPairEEEPA3_KfP
   %709 = getelementptr inbounds i32, ptr %105, i64 %indvars.iv142.i
   %710 = load i32, ptr %709, align 4, !tbaa !18
   %711 = sitofp i32 %710 to double
-  %712 = fmul double %711, 5.000000e-01
+  %712 = fmul nnan double %711, 5.000000e-01
   %713 = getelementptr inbounds float, ptr %101, i64 %indvars.iv142.i
   %714 = load float, ptr %713, align 4, !tbaa !201
   %715 = fpext float %714 to double

@@ -318,7 +318,7 @@ if.else99.us:                                     ; preds = %if.else.us
 if.then101.us:                                    ; preds = %if.else99.us
   %call102.us = call noundef i32 @_ZN9PcgRandom5rangeEj(ptr noundef nonnull align 8 dereferenceable(16) %ps, i32 noundef 1000)
   %conv103.us = uitofp i32 %call102.us to float
-  %mul104.us = fmul nsz float %mul95.us, 1.000000e+03
+  %mul104.us = fmul nnan nsz float %mul95.us, 1.000000e+03
   %cmp105.us = fcmp nsz ult float %mul104.us, %conv103.us
   br i1 %cmp105.us, label %for.cond.cleanup118.us, label %for.body119.lr.ph.us
 

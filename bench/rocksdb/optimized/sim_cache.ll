@@ -2914,7 +2914,7 @@ _ZNSolsEPFRSoS_E.exit9:                           ; preds = %.noexc24
 
 84:                                               ; preds = %79
   %85 = uitofp i64 %83 to float
-  %86 = fmul float %85, 1.000000e+02
+  %86 = fmul nnan float %85, 1.000000e+02
   %87 = uitofp i64 %64 to float
   %88 = fdiv float %86, %87
   %89 = fpext float %88 to double

@@ -2137,7 +2137,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit428: ; preds = %699
 
 703:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit428
   %704 = sitofp i64 %701 to double
-  %705 = fmul double %704, 1.000000e+03
+  %705 = fmul nnan double %704, 1.000000e+03
   %706 = fdiv double %705, %702
   %707 = fdiv double %706, 1.000000e+01
   %708 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %707)
@@ -2615,7 +2615,7 @@ define internal fastcc void @_ZL10drawArrowsRN2cv4UMatERKSt6vectorINS_6Point_IfE
   %51 = sitofp i32 %50 to double
   %52 = sub nsw i32 %29, %38
   %53 = sitofp i32 %52 to double
-  %54 = fmul double %53, %53
+  %54 = fmul nnan double %53, %53
   %55 = call double @llvm.fmuladd.f64(double %51, double %51, double %54)
   %sqrt = call double @llvm.sqrt.f64(double %55)
   %56 = fcmp olt double %sqrt, 1.000000e+00
@@ -2627,7 +2627,7 @@ define internal fastcc void @_ZL10drawArrowsRN2cv4UMatERKSt6vectorINS_6Point_IfE
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %58 = call double @cos(double noundef %49) #19, !tbaa !53
-  %59 = fmul double %sqrt, -3.000000e+00
+  %59 = fmul nnan double %sqrt, -3.000000e+00
   %60 = call double @llvm.fmuladd.f64(double %59, double %58, double %46)
   %61 = fptosi double %60 to i32
   %62 = call double @sin(double noundef %49) #19, !tbaa !53

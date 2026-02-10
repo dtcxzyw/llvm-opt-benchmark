@@ -6661,8 +6661,8 @@ if.then4.i:                                       ; preds = %if.end.i24
   br label %_ZN5boost4math3cdfIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_24chi_squared_distributionIS6_T0_EERKS6_.exit
 
 if.end7.i:                                        ; preds = %if.end.i24
-  %div.i = fmul double %1, 5.000000e-01
-  %div8.i = fmul double %3, 5.000000e-01
+  %div.i = fmul nnan double %1, 5.000000e-01
+  %div8.i = fmul nnan double %3, 5.000000e-01
   %conv.i.i = fpext double %div.i to x86_fp80
   %conv1.i.i = fpext double %div8.i to x86_fp80
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i)
@@ -6717,8 +6717,8 @@ if.then5.i:                                       ; preds = %if.end.i33
   br label %_ZN5boost4math3cdfIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEET_RKNS0_18complemented2_typeINS0_24chi_squared_distributionIS6_T0_EES6_EE.exit
 
 if.end8.i35:                                      ; preds = %if.end.i33
-  %div.i36 = fmul double %6, 5.000000e-01
-  %div9.i = fmul double %8, 5.000000e-01
+  %div.i36 = fmul nnan double %6, 5.000000e-01
+  %div9.i = fmul nnan double %8, 5.000000e-01
   %conv.i.i37 = fpext double %div.i36 to x86_fp80
   %conv1.i.i38 = fpext double %div9.i to x86_fp80
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i28)
@@ -7343,9 +7343,9 @@ if.end5:                                          ; preds = %if.end
   br i1 %or.cond, label %if.end90, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  %mul = fmul x86_fp80 %a, 0xK40018000000000000000
+  %mul = fmul nnan x86_fp80 %a, 0xK40018000000000000000
   %cmp10 = fcmp olt x86_fp80 %mul, %x
-  %or.cond132 = and i1 %cmp10, %invert
+  %or.cond132 = select i1 %invert, i1 %cmp10, i1 false
   br i1 %or.cond132, label %if.then11, label %if.else
 
 if.then11:                                        ; preds = %if.then7
@@ -7378,7 +7378,7 @@ do.body.i.i.i:                                    ; preds = %do.body.i.i.i, %if.
   %inc.i17.i.i.i = add nuw nsw i32 %3, 1
   %add.i18.i.i.i = fadd x86_fp80 %add.i1833.i.i.i, 0xK40008000000000000000
   %conv.i19.i.i.i = uitofp nneg i32 %inc.i17.i.i.i to x86_fp80
-  %sub.i21.i.i.i = fsub x86_fp80 %a, %conv.i19.i.i.i
+  %sub.i21.i.i.i = fsub nnan x86_fp80 %a, %conv.i19.i.i.i
   %mul.i22.i.i.i = fmul x86_fp80 %sub.i21.i.i.i, %conv.i19.i.i.i
   %4 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i22.i.i.i, x86_fp80 %D.0.i.i.i, x86_fp80 %add.i18.i.i.i)
   %cmp7.i.i.i = fcmp oeq x86_fp80 %4, 0xK00000000000000000000
@@ -7445,10 +7445,10 @@ if.else35.thread:                                 ; preds = %land.lhs.true21
   br i1 %cmp38155, label %if.else63, label %if.else77
 
 if.then41:                                        ; preds = %if.else35
-  %mul42 = fmul x86_fp80 %a, 0xK4002C000000000000000
+  %mul42 = fmul nnan x86_fp80 %a, 0xK4002C000000000000000
   %div43 = fdiv x86_fp80 0xK3FFF8000000000000000, %mul42
   %add44 = fadd x86_fp80 %div43, 0xK3FFF8000000000000000
-  %mul45 = fmul x86_fp80 %a, 0xK40079000000000000000
+  %mul45 = fmul nnan x86_fp80 %a, 0xK40079000000000000000
   %mul46 = fmul x86_fp80 %a, %mul45
   %div47 = fdiv x86_fp80 0xK3FFF8000000000000000, %mul46
   %add48 = fadd x86_fp80 %add44, %div47
@@ -7583,7 +7583,7 @@ if.else159:                                       ; preds = %if.else150
   br i1 %cmp160, label %if.then161, label %if.else167
 
 if.then161:                                       ; preds = %if.else159
-  %mul162 = fmul x86_fp80 %x, 0xK3FFEC000000000000000
+  %mul162 = fmul nnan x86_fp80 %x, 0xK3FFEC000000000000000
   %cmp163 = fcmp olt x86_fp80 %mul162, %a
   br i1 %cmp163, label %sw.bb228, label %sw.bb283
 
@@ -7950,7 +7950,7 @@ if.then382:                                       ; preds = %if.then343, %if.the
   %37 = load x86_fp80, ptr %x.addr, align 16, !tbaa !159
   %cmp383 = fcmp olt x86_fp80 %37, 0xK3FFF8000000000000000
   %.pre240 = load x86_fp80, ptr %p_derivative, align 16, !tbaa !159
-  %mul386 = fmul x86_fp80 %37, 0xK7FFEFFFFFFFFFFFFFFFF
+  %mul386 = fmul nnan x86_fp80 %37, 0xK7FFEFFFFFFFFFFFFFFFF
   %cmp387 = fcmp olt x86_fp80 %mul386, %.pre240
   %or.cond260 = select i1 %cmp383, i1 %cmp387, i1 false
   br i1 %or.cond260, label %if.then388, label %if.end391
@@ -8246,7 +8246,7 @@ for.body:                                         ; preds = %if.then, %for.body
   %n.029 = phi i32 [ %inc, %for.body ], [ 2, %if.then ]
   %sum.028 = phi x86_fp80 [ %add, %for.body ], [ %div7, %if.then ]
   %term.027 = phi x86_fp80 [ %mul11, %for.body ], [ %div7, %if.then ]
-  %sub = fadd x86_fp80 %conv30, 0xKBFFE8000000000000000
+  %sub = fadd nnan x86_fp80 %conv30, 0xKBFFE8000000000000000
   %div10 = fdiv x86_fp80 %term.027, %sub
   %mul11 = fmul x86_fp80 %x, %div10
   %add = fadd x86_fp80 %sum.028, %mul11
@@ -8367,8 +8367,8 @@ if.end9.i:                                        ; preds = %if.end4.i
   br i1 %cmp11.i, label %if.then12.i, label %do.body.i.i.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %mul.i = fmul x86_fp80 %div, %fneg13.i
-  %div.i = fmul x86_fp80 %mul.i, 0xK3FFE8000000000000000
+  %mul.i = fmul nnan x86_fp80 %div, %fneg13.i
+  %div.i = fmul nnan x86_fp80 %mul.i, 0xK3FFE8000000000000000
   br label %_ZN5boost4math7log1pmxIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit
 
 do.body.i.i.i:                                    ; preds = %if.end9.i, %land.rhs.i.i.i
@@ -8751,8 +8751,8 @@ if.end9.i:                                        ; preds = %if.end4.i
   br i1 %cmp11.i, label %if.then12.i, label %do.body.i.i.i
 
 if.then12.i:                                      ; preds = %if.end9.i
-  %mul.i = fmul x86_fp80 %div, %fneg13.i
-  %div.i = fmul x86_fp80 %mul.i, 0xK3FFE8000000000000000
+  %mul.i = fmul nnan x86_fp80 %div, %fneg13.i
+  %div.i = fmul nnan x86_fp80 %mul.i, 0xK3FFE8000000000000000
   br label %_ZN5boost4math7log1pmxIeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_fffffE4typeESC_RKT0_.exit
 
 do.body.i.i.i:                                    ; preds = %if.end9.i, %land.rhs.i.i.i
@@ -10245,7 +10245,7 @@ if.then22:                                        ; preds = %if.then20
 
 if.end24:                                         ; preds = %if.then20
   %4 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %z)
-  %mul = fmul x86_fp80 %4, 0xK40018000000000000000
+  %mul = fmul nnan x86_fp80 %4, 0xK40018000000000000000
   %cmp27 = fcmp olt x86_fp80 %mul, 0xK3FC08000000000000000
   br i1 %cmp27, label %if.then28, label %if.else32
 
@@ -11098,7 +11098,7 @@ if.then15:                                        ; preds = %_ZN5boost4math6deta
   %5 = tail call x86_fp80 @llvm.copysign.f80(x86_fp80 0xK3FFF8000000000000000, x86_fp80 %4)
   %6 = load ptr, ptr @_ZZN5boost4math6detail9gamma_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos17m64EEET_SD_RKT0_RKT1_E8function, align 8, !tbaa !3
   tail call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_erroreEEvPKcS6_(ptr noundef %6, ptr noundef nonnull @.str.61)
-  %7 = fmul x86_fp80 %5, 0xK7FFF8000000000000000
+  %7 = fmul nnan x86_fp80 %5, 0xK7FFF8000000000000000
   %mul18 = select i1 %cmp.i21, x86_fp80 0xK7FFFC000000000000000, x86_fp80 %7
   br label %cleanup110
 
@@ -11193,8 +11193,8 @@ if.then50:                                        ; preds = %if.then46
 
 if.end52:                                         ; preds = %if.then50, %if.then46
   %result.3 = phi x86_fp80 [ 0xK7FFF8000000000000000, %if.then50 ], [ %result.0, %if.then46 ]
-  %div53 = fdiv x86_fp80 0xK3FFF8000000000000000, %9
-  %sub55 = fadd x86_fp80 %div53, 0xKBFFE93C467E37DB0C7A5
+  %div53 = fdiv nnan x86_fp80 0xK3FFF8000000000000000, %9
+  %sub55 = fadd nnan x86_fp80 %div53, 0xKBFFE93C467E37DB0C7A5
   %mul56 = fmul x86_fp80 %result.3, %sub55
   br label %cleanup110
 
@@ -11210,7 +11210,7 @@ if.else57:                                        ; preds = %if.else
   br i1 %cmp68, label %if.then69, label %if.else96
 
 if.then69:                                        ; preds = %if.else57
-  %div71 = fmul x86_fp80 %mul66, 0xK3FFE8000000000000000
+  %div71 = fmul nnan x86_fp80 %mul66, 0xK3FFE8000000000000000
   %cmp73 = fcmp ogt x86_fp80 %div71, 0xK400CB170000000000000
   br i1 %cmp73, label %if.then74, label %if.end79
 
@@ -11219,7 +11219,7 @@ if.then74:                                        ; preds = %if.then69
   %19 = call x86_fp80 @llvm.copysign.f80(x86_fp80 0xK3FFF8000000000000000, x86_fp80 %mul59)
   %20 = load ptr, ptr @_ZZN5boost4math6detail9gamma_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos17m64EEET_SD_RKT0_RKT1_E8function, align 8, !tbaa !3
   call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_erroreEEvPKcS6_(ptr noundef %20, ptr noundef nonnull @.str.61)
-  %21 = fmul x86_fp80 %19, 0xK7FFF8000000000000000
+  %21 = fmul nnan x86_fp80 %19, 0xK7FFF8000000000000000
   %mul78 = select i1 %cmp.i26, x86_fp80 0xK7FFFC000000000000000, x86_fp80 %21
   br label %cleanup110
 
@@ -11239,7 +11239,7 @@ cleanup:                                          ; preds = %if.end79
   %22 = call x86_fp80 @llvm.copysign.f80(x86_fp80 0xK3FFF8000000000000000, x86_fp80 %mul85)
   %23 = load ptr, ptr @_ZZN5boost4math6detail9gamma_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EENS0_7lanczos12lanczos17m64EEET_SD_RKT0_RKT1_E8function, align 8, !tbaa !3
   call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_erroreEEvPKcS6_(ptr noundef %23, ptr noundef nonnull @.str.61)
-  %24 = fmul x86_fp80 %22, 0xK7FFF8000000000000000
+  %24 = fmul nnan x86_fp80 %22, 0xK7FFF8000000000000000
   %mul93 = select i1 %cmp.i32, x86_fp80 0xK7FFFC000000000000000, x86_fp80 %24
   br label %cleanup110
 
@@ -12340,23 +12340,23 @@ if.else20:                                        ; preds = %if.then17
   br i1 %cmp21, label %if.then22, label %if.else24
 
 if.then22:                                        ; preds = %if.else20
-  %mul23 = fmul x86_fp80 %z, 0xK3FF6DD750429B6D11AE4
+  %mul23 = fmul nnan x86_fp80 %z, 0xK3FF6DD750429B6D11AE4
   %1 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %z, x86_fp80 0xK3FFF9000000000000000, x86_fp80 %mul23)
   br label %if.end179
 
 if.else24:                                        ; preds = %if.else20
   %mul = fmul x86_fp80 %z, %z
   %mul.i.i = fmul x86_fp80 %mul, %mul
-  %2 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i, x86_fp80 0xKBFEFA8074E43D24097CE, x86_fp80 0xKBFF8944285E81FBF83D8)
-  %3 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i, x86_fp80 0xKBFF4804FAF66DE9A0391, x86_fp80 0xKBFFAD0BBB83D297702A9)
+  %2 = tail call nnan x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i, x86_fp80 0xKBFEFA8074E43D24097CE, x86_fp80 0xKBFF8944285E81FBF83D8)
+  %3 = tail call nnan x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i, x86_fp80 0xKBFF4804FAF66DE9A0391, x86_fp80 0xKBFFAD0BBB83D297702A9)
   %mul9.i.i = fmul x86_fp80 %mul.i.i, %2
   %mul11.i.i = fmul x86_fp80 %mul.i.i, %3
   %add.i.i = fadd x86_fp80 %mul9.i.i, 0xKBFFDAD1B164B5A1DB008
   %add16.i.i = fadd x86_fp80 %mul11.i.i, 0xK3FFBAADDA8214DB688D7
   %mul18.i.i = fmul x86_fp80 %mul, %add.i.i
   %add21.i.i = fadd x86_fp80 %add16.i.i, %mul18.i.i
-  %4 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i, x86_fp80 0xK3FEF9EFDCC6E0F0EA523, x86_fp80 0xK3FF8A84D00D85436EB8E)
-  %5 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i, x86_fp80 0xK3FF4AA871AD05748BC2A, x86_fp80 0xK3FFBBBB4F42204978A07)
+  %4 = tail call nnan x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i, x86_fp80 0xK3FEF9EFDCC6E0F0EA523, x86_fp80 0xK3FF8A84D00D85436EB8E)
+  %5 = tail call nnan x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i, x86_fp80 0xK3FF4AA871AD05748BC2A, x86_fp80 0xK3FFBBBB4F42204978A07)
   %mul9.i.i47 = fmul x86_fp80 %mul.i.i, %4
   %mul11.i.i48 = fmul x86_fp80 %mul.i.i, %5
   %add.i.i49 = fadd x86_fp80 %mul9.i.i47, 0xK3FFDE960E29D55581A44
@@ -12387,8 +12387,8 @@ if.then37:                                        ; preds = %cond.false, %cond.t
 if.then41:                                        ; preds = %if.then37
   %sub43 = fadd x86_fp80 %z, 0xKBFFE8000000000000000
   %mul.i.i53 = fmul x86_fp80 %sub43, %sub43
-  %6 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i53, x86_fp80 0xK3FE5E5158BDC1B22FBD1, x86_fp80 0xK3FF7CDECA06B102635F7)
-  %7 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i53, x86_fp80 0xK3FF3E759CECCB50520E0, x86_fp80 0xK3FFA9D4F59D42AE1C54B)
+  %6 = tail call nnan x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i53, x86_fp80 0xK3FE5E5158BDC1B22FBD1, x86_fp80 0xK3FF7CDECA06B102635F7)
+  %7 = tail call nnan x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i53, x86_fp80 0xK3FF3E759CECCB50520E0, x86_fp80 0xK3FFA9D4F59D42AE1C54B)
   %mul9.i.i54 = fmul x86_fp80 %mul.i.i53, %6
   %mul11.i.i55 = fmul x86_fp80 %mul.i.i53, %7
   %add.i.i56 = fadd x86_fp80 %mul9.i.i54, 0xK3FFC825BF5917A4673AA
@@ -12399,8 +12399,8 @@ if.then41:                                        ; preds = %if.then37
   %add26.i.i = fadd x86_fp80 %mul20.i.i, 0xKBFFBC8E3B86CE9E1A6A7
   %mul28.i.i = fmul x86_fp80 %sub43, %add23.i.i
   %add31.i.i = fadd x86_fp80 %add26.i.i, %mul28.i.i
-  %8 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i53, x86_fp80 0xK3FF6B6FD61E05235C6BA, x86_fp80 0xK3FFCFDFA6CBA5EEAB3C5)
-  %9 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i53, x86_fp80 0xK3FFAA277BA7AB5875857, x86_fp80 0xK3FFEDE3156544FAF6DA0)
+  %8 = tail call nnan x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i53, x86_fp80 0xK3FF6B6FD61E05235C6BA, x86_fp80 0xK3FFCFDFA6CBA5EEAB3C5)
+  %9 = tail call nnan x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i53, x86_fp80 0xK3FFAA277BA7AB5875857, x86_fp80 0xK3FFEDE3156544FAF6DA0)
   %mul9.i.i60 = fmul x86_fp80 %mul.i.i53, %8
   %mul11.i.i61 = fmul x86_fp80 %mul.i.i53, %9
   %add.i.i62 = fadd x86_fp80 %mul9.i.i60, 0xK3FFFE44B83F6795657D3
@@ -12420,7 +12420,7 @@ if.then41:                                        ; preds = %if.then37
   %call.i67 = tail call noundef x86_fp80 @ldexpl(x86_fp80 noundef %13, i32 noundef %sub53) #31, !tbaa !45
   %sub55 = fsub x86_fp80 %z, %call.i67
   %14 = fneg x86_fp80 %z
-  %neg = fmul x86_fp80 %z, %14
+  %neg = fmul nnan x86_fp80 %z, %14
   %15 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %call.i67, x86_fp80 %call.i67, x86_fp80 %neg)
   %mul58 = fmul x86_fp80 %call.i67, 0xK40008000000000000000
   %16 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul58, x86_fp80 %sub55, x86_fp80 %15)
@@ -12458,7 +12458,7 @@ if.then70:                                        ; preds = %if.else68
   %call.i71 = call noundef x86_fp80 @ldexpl(x86_fp80 noundef %21, i32 noundef %sub85) #31, !tbaa !45
   %sub87 = fsub x86_fp80 %z, %call.i71
   %22 = fneg x86_fp80 %z
-  %neg92 = fmul x86_fp80 %z, %22
+  %neg92 = fmul nnan x86_fp80 %z, %22
   %23 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %call.i71, x86_fp80 %call.i71, x86_fp80 %neg92)
   %mul93 = fmul x86_fp80 %call.i71, 0xK40008000000000000000
   %24 = call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul93, x86_fp80 %sub87, x86_fp80 %23)
@@ -12478,7 +12478,7 @@ if.else103:                                       ; preds = %if.else68
   %28 = extractvalue { x86_fp80, i32 } %26, 0
   %sub120 = add nsw i32 %27, -32
   %29 = fneg x86_fp80 %z
-  %neg127 = fmul x86_fp80 %z, %29
+  %neg127 = fmul nnan x86_fp80 %z, %29
   br i1 %cmp104, label %if.then105, label %if.else138
 
 if.then105:                                       ; preds = %if.else103
@@ -12829,7 +12829,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %sub = fadd x86_fp80 %x, 0xKBFFF8000000000000000
+  %sub = fadd nnan x86_fp80 %x, 0xKBFFF8000000000000000
   %mul = fmul x86_fp80 %y, %sub
   %0 = tail call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %mul)
   %cmp1 = fcmp olt x86_fp80 %0, 0xK3FFE8000000000000000
@@ -12839,7 +12839,7 @@ if.then:                                          ; preds = %entry
   br i1 %or.cond, label %if.then4, label %if.end30
 
 if.then4:                                         ; preds = %if.then
-  %call.i = tail call x86_fp80 @llvm.log.f80(x86_fp80 %x), !tbaa !45
+  %call.i = tail call nnan x86_fp80 @llvm.log.f80(x86_fp80 %x)
   %mul6 = fmul x86_fp80 %y, %call.i
   %cmp7 = fcmp olt x86_fp80 %mul6, 0xK3FFE8000000000000000
   br i1 %cmp7, label %if.then8, label %if.end
@@ -12872,8 +12872,8 @@ if.end9.i.i:                                      ; preds = %if.then8
 
 if.end13.i.i:                                     ; preds = %if.end9.i.i
   %mul.i.i.i.i = fmul x86_fp80 %mul6, %mul6
-  %3 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i.i.i, x86_fp80 0xKBFEABFCEC161BC8F087D, x86_fp80 0xKBFF4BD8A4173C506D43D)
-  %4 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i.i.i, x86_fp80 0xK3FF0BBABA1A58A13534F, x86_fp80 0xK3FF8D756C5F86B5E4FC6)
+  %3 = tail call nnan x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i.i.i, x86_fp80 0xKBFEABFCEC161BC8F087D, x86_fp80 0xKBFF4BD8A4173C506D43D)
+  %4 = tail call nnan x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i.i.i, x86_fp80 0xK3FF0BBABA1A58A13534F, x86_fp80 0xK3FF8D756C5F86B5E4FC6)
   %mul9.i.i.i.i = fmul x86_fp80 %mul.i.i.i.i, %3
   %mul11.i.i.i.i = fmul x86_fp80 %mul.i.i.i.i, %4
   %add.i.i.i.i = fadd x86_fp80 %mul9.i.i.i.i, 0xKBFFB88C1CAD383A586E7
@@ -12883,8 +12883,8 @@ if.end13.i.i:                                     ; preds = %if.end9.i.i
   %mul23.i.i.i.i = fmul x86_fp80 %mul6, %add16.i.i.i.i
   %add26.i.i.i.i = fadd x86_fp80 %mul23.i.i.i.i, %add21.i.i.i.i
   %mul15.i.i = fmul x86_fp80 %mul6, %add26.i.i.i.i
-  %5 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i.i.i, x86_fp80 0xK3FEAD8C12268C7FDDF3D, x86_fp80 0xK3FF4E4EEB557BBC8FE5C)
-  %6 = tail call x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i.i.i, x86_fp80 0xKBFF0A2B4E4DE8E6E97B9, x86_fp80 0xKBFF8BED8E9B75D34144C)
+  %5 = tail call nnan x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i.i.i, x86_fp80 0xK3FEAD8C12268C7FDDF3D, x86_fp80 0xK3FF4E4EEB557BBC8FE5C)
+  %6 = tail call nnan x86_fp80 @llvm.fmuladd.f80(x86_fp80 %mul.i.i.i.i, x86_fp80 0xKBFF0A2B4E4DE8E6E97B9, x86_fp80 0xKBFF8BED8E9B75D34144C)
   %mul9.i.i4.i.i = fmul x86_fp80 %mul.i.i.i.i, %5
   %mul11.i.i5.i.i = fmul x86_fp80 %mul.i.i.i.i, %6
   %add.i.i6.i.i = fadd x86_fp80 %mul9.i.i4.i.i, 0xK3FFBC4DC872BCEC4A136

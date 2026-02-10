@@ -6206,7 +6206,7 @@ _ZN6duckdb20BitpackingPrimitives15MinimumBitWidthImLb0EEEhT_.exit: ; preds = %1,
   %21 = mul i64 %20, %18
   %22 = add i64 %21, %16
   %23 = uitofp i64 %22 to float
-  %24 = fmul float %23, 0x3FF3333340000000
+  %24 = fmul nnan float %23, 0x3FF3333340000000
   %25 = fptoui float %24 to i64
   ret i64 %25
 }
@@ -16160,7 +16160,7 @@ define noundef i64 @_ZN6duckdb11ZSTDStorage18StringFinalAnalyzeERNS_12AnalyzeSta
 
 19:                                               ; preds = %11
   %20 = uitofp i64 %13 to double
-  %21 = fmul double %20, 5.000000e-01
+  %21 = fmul nnan double %20, 5.000000e-01
   %22 = fptoui double %21 to i64
   %23 = shl i64 %3, 2
   %24 = lshr i64 %3, 11
@@ -17310,7 +17310,7 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
 
 29:                                               ; preds = %24
   %30 = uitofp i32 %28 to double
-  %31 = fmul double %30, 3.125000e-02
+  %31 = fmul nnan double %30, 3.125000e-02
   %32 = call double @llvm.ceil.f64(double %31)
   %33 = fptoui double %32 to i32
   %34 = call noundef i32 @llvm.umax.i32(i32 %33, i32 1)
@@ -17869,11 +17869,11 @@ _ZN6duckdb3alp16AlpRDCompressionIfLb1EE18FindBestDictionaryERKNS_6vectorIjLb1EEE
   %34 = fmul double %33, 1.250000e-01
   %35 = load i64, ptr %2, align 8, !tbaa !944
   %36 = uitofp i64 %35 to double
-  %37 = fmul double %36, 0x3F50000000000000
+  %37 = fmul nnan double %36, 0x3F50000000000000
   %38 = tail call double @llvm.ceil.f64(double %37)
   %39 = fptoui double %38 to i32
   %40 = uitofp i32 %39 to double
-  %41 = fmul double %40, 6.000000e+00
+  %41 = fmul nnan double %40, 6.000000e+00
   %42 = tail call double @llvm.fmuladd.f64(double %34, double %24, double %41)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !164
@@ -18514,7 +18514,7 @@ _ZN6duckdb3alp8AlpUtils33MustSkipSamplingFromCurrentVectorEmmm.exit: ; preds = %
 
 29:                                               ; preds = %24
   %30 = uitofp i32 %28 to double
-  %31 = fmul double %30, 3.125000e-02
+  %31 = fmul nnan double %30, 3.125000e-02
   %32 = call double @llvm.ceil.f64(double %31)
   %33 = fptoui double %32 to i32
   %34 = call noundef i32 @llvm.umax.i32(i32 %33, i32 1)
@@ -19073,11 +19073,11 @@ _ZN6duckdb3alp16AlpRDCompressionIdLb1EE18FindBestDictionaryERKNS_6vectorImLb1EEE
   %34 = fmul double %33, 1.250000e-01
   %35 = load i64, ptr %2, align 8, !tbaa !988
   %36 = uitofp i64 %35 to double
-  %37 = fmul double %36, 0x3F50000000000000
+  %37 = fmul nnan double %36, 0x3F50000000000000
   %38 = tail call double @llvm.ceil.f64(double %37)
   %39 = fptoui double %38 to i32
   %40 = uitofp i32 %39 to double
-  %41 = fmul double %40, 6.000000e+00
+  %41 = fmul nnan double %40, 6.000000e+00
   %42 = tail call double @llvm.fmuladd.f64(double %34, double %24, double %41)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !164
@@ -20690,7 +20690,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %.noexc75, %_Z
   %160 = lshr i64 %159, 3
   %161 = add i64 %160, %.039.lcssa153
   %162 = uitofp i64 %161 to double
-  %163 = fmul double %162, 4.000000e+00
+  %163 = fmul nnan double %162, 4.000000e+00
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %165 = load i64, ptr %164, align 8, !tbaa !164
   %166 = add i64 %165, -2304

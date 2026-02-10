@@ -2489,11 +2489,11 @@ _ZN3vcg9GLPickTriI6CMeshOE12ComputeDCBoxEiiii.exit: ; preds = %25, %23, %20
   call void @_ZN3vcg9GLPickTriI6CMeshOE22glGetMatrixAndViewportERN5Eigen6MatrixIfLi4ELi4ELi0ELi4ELi4EEEPf(ptr noundef nonnull align 16 dereferenceable(64) %9, ptr noundef nonnull %10)
   %27 = sitofp i32 %0 to float
   %28 = sitofp i32 %4 to float
-  %29 = fmul float %28, 5.000000e-01
+  %29 = fmul nnan float %28, 5.000000e-01
   %30 = fsub float %27, %29
   %31 = sitofp i32 %1 to float
   %32 = sitofp i32 %5 to float
-  %33 = fmul float %32, 5.000000e-01
+  %33 = fmul nnan float %32, 5.000000e-01
   %34 = fsub float %31, %33
   %35 = fadd float %29, %27
   %36 = fadd float %33, %31
@@ -2679,7 +2679,7 @@ _ZN3vcg9GLPickTriI6CMeshOE12ComputeDCBoxEiiii.exit: ; preds = %25, %23, %20
   %141 = load float, ptr %140, align 4
   %142 = fcmp ugt float %.sroa.0.0, %141
   %143 = fcmp ugt float %141, %.sroa.8.0
-  %or.cond11.i = or i1 %142, %143
+  %or.cond11.i = select i1 %142, i1 true, i1 %143
   br i1 %or.cond11.i, label %_ZNSt6vectorIP8CVertexOSaIS1_EE9push_backEOS1_.exit, label %144
 
 144:                                              ; preds = %138
@@ -2687,7 +2687,7 @@ _ZN3vcg9GLPickTriI6CMeshOE12ComputeDCBoxEiiii.exit: ; preds = %25, %23, %20
   %146 = load float, ptr %145, align 4
   %147 = fcmp ugt float %.sroa.3.0, %146
   %148 = fcmp ugt float %146, %.sroa.11.0
-  %or.cond.i = or i1 %147, %148
+  %or.cond.i = select i1 %147, i1 true, i1 %148
   br i1 %or.cond.i, label %_ZNSt6vectorIP8CVertexOSaIS1_EE9push_backEOS1_.exit, label %149
 
 149:                                              ; preds = %144
@@ -6689,11 +6689,11 @@ define linkonce_odr noundef i32 @_ZN3vcg9GLPickTriI6CMeshOE8PickFaceEiiRS1_RSt6v
   store float -1.000000e+00, ptr %34, align 4
   %35 = sitofp i32 %0 to float
   %36 = sitofp i32 %4 to float
-  %37 = fmul float %36, 5.000000e-01
+  %37 = fmul nnan float %36, 5.000000e-01
   %38 = fsub float %35, %37
   %39 = sitofp i32 %1 to float
   %40 = sitofp i32 %5 to float
-  %41 = fmul float %40, 5.000000e-01
+  %41 = fmul nnan float %40, 5.000000e-01
   %42 = fsub float %39, %41
   store float %38, ptr %30, align 4
   store float %42, ptr %32, align 4

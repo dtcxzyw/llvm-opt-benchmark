@@ -1558,7 +1558,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_130RollingGuidanceFilterTest_
   %45 = and i64 %44, 4294967295
   %46 = or disjoint i64 %45, %40
   %47 = uitofp i64 %46 to double
-  %48 = fmul double %47, 0x3BF0000000000000
+  %48 = fmul nnan double %47, 0x3BF0000000000000
   %49 = call noundef double @llvm.fmuladd.f64(double %48, double 2.540000e+02, double 1.000000e+00)
   %50 = mul nuw i64 %45, 4164903690
   %51 = lshr i64 %44, 32
@@ -1570,7 +1570,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_130RollingGuidanceFilterTest_
   %57 = and i64 %56, 4294967295
   %58 = or disjoint i64 %57, %53
   %59 = uitofp i64 %58 to double
-  %60 = fmul double %59, 0x3BF0000000000000
+  %60 = fmul nnan double %59, 0x3BF0000000000000
   %61 = call noundef double @llvm.fmuladd.f64(double %60, double 4.000000e+00, double 1.000000e+00)
   %62 = fptosi double %61 to i32
   %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper10iterationsEj(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef 1)

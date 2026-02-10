@@ -104400,7 +104400,7 @@ default.unreachable47:                            ; preds = %9
   br label %.thread
 
 18:                                               ; preds = %9
-  %19 = fadd double %13, -1.000000e+00
+  %19 = fadd nnan double %13, -1.000000e+00
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = load double, ptr %20, align 8, !noundef !6
   %22 = fmul double %19, %21
@@ -104424,7 +104424,7 @@ default.unreachable47:                            ; preds = %9
   br label %41
 
 33:                                               ; preds = %9, %9, %9
-  %34 = fadd double %13, -1.000000e+00
+  %34 = fadd nnan double %13, -1.000000e+00
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %36 = load double, ptr %35, align 8, !noundef !6
   %37 = fmul double %34, %36
@@ -104591,7 +104591,7 @@ default.unreachable49:                            ; preds = %9
   br label %.thread
 
 18:                                               ; preds = %9
-  %19 = fadd double %13, -1.000000e+00
+  %19 = fadd nnan double %13, -1.000000e+00
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %21 = load double, ptr %20, align 8, !noundef !6
   %22 = fmul double %19, %21
@@ -104615,7 +104615,7 @@ default.unreachable49:                            ; preds = %9
   br label %41
 
 33:                                               ; preds = %9, %9, %9
-  %34 = fadd double %13, -1.000000e+00
+  %34 = fadd nnan double %13, -1.000000e+00
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %36 = load double, ptr %35, align 8, !noundef !6
   %37 = fmul double %34, %36
@@ -106182,7 +106182,7 @@ default.unreachable:                              ; preds = %442, %"_ZN14polars_
           to label %"_ZN14polars_compute7rolling15quantile_filter23QuantileUpdate$LT$M$GT$8quantile17h8546d7f307367babE.exit" unwind label %.loopexit
 
 360:                                              ; preds = %"_ZN14polars_compute7rolling15quantile_filter14Block$LT$A$GT$8undelete17h0b7a03275d0ee939E.exit"
-  %361 = fadd double %353, -1.000000e+00
+  %361 = fadd nnan double %353, -1.000000e+00
   %362 = fmul double %6, %361
   %363 = call double @llvm.floor.f64(double %362)
   %364 = call i64 @llvm.fptoui.sat.i64.f64(double %363)
@@ -106191,7 +106191,7 @@ default.unreachable:                              ; preds = %442, %"_ZN14polars_
   br label %.invoke133
 
 366:                                              ; preds = %"_ZN14polars_compute7rolling15quantile_filter14Block$LT$A$GT$8undelete17h0b7a03275d0ee939E.exit"
-  %367 = fadd double %353, -1.000000e+00
+  %367 = fadd nnan double %353, -1.000000e+00
   %368 = fmul double %6, %367
   %369 = call double @llvm.ceil.f64(double %368)
   %370 = call i64 @llvm.fptoui.sat.i64.f64(double %369)
@@ -106204,7 +106204,7 @@ default.unreachable:                              ; preds = %442, %"_ZN14polars_
   %374 = call i64 @llvm.fptoui.sat.i64.f64(double %373)
   %375 = add i64 %352, -1
   %.sroa.0.0.sroa.speculated.i37.i = call noundef i64 @llvm.umin.i64(i64 %375, i64 %374)
-  %376 = fadd double %353, -1.000000e+00
+  %376 = fadd nnan double %353, -1.000000e+00
   %377 = fmul double %6, %376
   %378 = call double @llvm.ceil.f64(double %377)
   %379 = call i64 @llvm.fptoui.sat.i64.f64(double %378)
@@ -106217,7 +106217,7 @@ default.unreachable:                              ; preds = %442, %"_ZN14polars_
   br i1 %382, label %"_ZN14polars_compute7rolling15quantile_filter23QuantileUpdate$LT$M$GT$8quantile17h8546d7f307367babE.exit", label %399
 
 383:                                              ; preds = %"_ZN14polars_compute7rolling15quantile_filter14Block$LT$A$GT$8undelete17h0b7a03275d0ee939E.exit"
-  %384 = fadd double %353, -1.000000e+00
+  %384 = fadd nnan double %353, -1.000000e+00
   %385 = fmul double %6, %384
   %386 = call double @llvm.floor.f64(double %385)
   %387 = call i64 @llvm.fptoui.sat.i64.f64(double %386)
@@ -106388,7 +106388,7 @@ default.unreachable:                              ; preds = %442, %"_ZN14polars_
   br label %.invoke
 
 451:                                              ; preds = %442
-  %452 = fadd double %446, -1.000000e+00
+  %452 = fadd nnan double %446, -1.000000e+00
   %453 = fmul double %6, %452
   %454 = call double @llvm.floor.f64(double %453)
   %455 = call i64 @llvm.fptoui.sat.i64.f64(double %454)
@@ -106397,7 +106397,7 @@ default.unreachable:                              ; preds = %442, %"_ZN14polars_
   br label %.invoke
 
 457:                                              ; preds = %442
-  %458 = fadd double %446, -1.000000e+00
+  %458 = fadd nnan double %446, -1.000000e+00
   %459 = fmul double %6, %458
   %460 = call double @llvm.ceil.f64(double %459)
   %461 = call i64 @llvm.fptoui.sat.i64.f64(double %460)
@@ -106410,7 +106410,7 @@ default.unreachable:                              ; preds = %442, %"_ZN14polars_
   %465 = call i64 @llvm.fptoui.sat.i64.f64(double %464)
   %466 = add i64 %445, -1
   %.sroa.0.0.sroa.speculated.i25.i = call noundef i64 @llvm.umin.i64(i64 %466, i64 %465)
-  %467 = fadd double %446, -1.000000e+00
+  %467 = fadd nnan double %446, -1.000000e+00
   %468 = fmul double %6, %467
   %469 = call double @llvm.ceil.f64(double %468)
   %470 = call i64 @llvm.fptoui.sat.i64.f64(double %469)
@@ -106423,7 +106423,7 @@ default.unreachable:                              ; preds = %442, %"_ZN14polars_
   br i1 %473, label %"_ZN14polars_compute7rolling15quantile_filter23QuantileUpdate$LT$M$GT$8quantile17h49ae260c40181ccdE.exit", label %492
 
 474:                                              ; preds = %442
-  %475 = fadd double %446, -1.000000e+00
+  %475 = fadd nnan double %446, -1.000000e+00
   %476 = fmul double %6, %475
   %477 = call double @llvm.floor.f64(double %476)
   %478 = call i64 @llvm.fptoui.sat.i64.f64(double %477)
@@ -107214,7 +107214,7 @@ default.unreachable:                              ; preds = %443, %"_ZN14polars_
           to label %"_ZN14polars_compute7rolling15quantile_filter23QuantileUpdate$LT$M$GT$8quantile17h8a43ae55134cb301E.exit" unwind label %.loopexit
 
 360:                                              ; preds = %"_ZN14polars_compute7rolling15quantile_filter14Block$LT$A$GT$8undelete17h41d44e53b9feb34bE.exit"
-  %361 = fadd double %353, -1.000000e+00
+  %361 = fadd nnan double %353, -1.000000e+00
   %362 = fmul double %6, %361
   %363 = call double @llvm.floor.f64(double %362)
   %364 = call i64 @llvm.fptoui.sat.i64.f64(double %363)
@@ -107223,7 +107223,7 @@ default.unreachable:                              ; preds = %443, %"_ZN14polars_
   br label %.invoke133
 
 366:                                              ; preds = %"_ZN14polars_compute7rolling15quantile_filter14Block$LT$A$GT$8undelete17h41d44e53b9feb34bE.exit"
-  %367 = fadd double %353, -1.000000e+00
+  %367 = fadd nnan double %353, -1.000000e+00
   %368 = fmul double %6, %367
   %369 = call double @llvm.ceil.f64(double %368)
   %370 = call i64 @llvm.fptoui.sat.i64.f64(double %369)
@@ -107236,7 +107236,7 @@ default.unreachable:                              ; preds = %443, %"_ZN14polars_
   %374 = call i64 @llvm.fptoui.sat.i64.f64(double %373)
   %375 = add i64 %352, -1
   %.sroa.0.0.sroa.speculated.i37.i = call noundef i64 @llvm.umin.i64(i64 %375, i64 %374)
-  %376 = fadd double %353, -1.000000e+00
+  %376 = fadd nnan double %353, -1.000000e+00
   %377 = fmul double %6, %376
   %378 = call double @llvm.ceil.f64(double %377)
   %379 = call i64 @llvm.fptoui.sat.i64.f64(double %378)
@@ -107249,7 +107249,7 @@ default.unreachable:                              ; preds = %443, %"_ZN14polars_
   br i1 %382, label %"_ZN14polars_compute7rolling15quantile_filter23QuantileUpdate$LT$M$GT$8quantile17h8a43ae55134cb301E.exit", label %399
 
 383:                                              ; preds = %"_ZN14polars_compute7rolling15quantile_filter14Block$LT$A$GT$8undelete17h41d44e53b9feb34bE.exit"
-  %384 = fadd double %353, -1.000000e+00
+  %384 = fadd nnan double %353, -1.000000e+00
   %385 = fmul double %6, %384
   %386 = call double @llvm.floor.f64(double %385)
   %387 = call i64 @llvm.fptoui.sat.i64.f64(double %386)
@@ -107421,7 +107421,7 @@ default.unreachable:                              ; preds = %443, %"_ZN14polars_
   br label %.invoke
 
 452:                                              ; preds = %443
-  %453 = fadd double %447, -1.000000e+00
+  %453 = fadd nnan double %447, -1.000000e+00
   %454 = fmul double %6, %453
   %455 = call double @llvm.floor.f64(double %454)
   %456 = call i64 @llvm.fptoui.sat.i64.f64(double %455)
@@ -107430,7 +107430,7 @@ default.unreachable:                              ; preds = %443, %"_ZN14polars_
   br label %.invoke
 
 458:                                              ; preds = %443
-  %459 = fadd double %447, -1.000000e+00
+  %459 = fadd nnan double %447, -1.000000e+00
   %460 = fmul double %6, %459
   %461 = call double @llvm.ceil.f64(double %460)
   %462 = call i64 @llvm.fptoui.sat.i64.f64(double %461)
@@ -107443,7 +107443,7 @@ default.unreachable:                              ; preds = %443, %"_ZN14polars_
   %466 = call i64 @llvm.fptoui.sat.i64.f64(double %465)
   %467 = add i64 %446, -1
   %.sroa.0.0.sroa.speculated.i25.i = call noundef i64 @llvm.umin.i64(i64 %467, i64 %466)
-  %468 = fadd double %447, -1.000000e+00
+  %468 = fadd nnan double %447, -1.000000e+00
   %469 = fmul double %6, %468
   %470 = call double @llvm.ceil.f64(double %469)
   %471 = call i64 @llvm.fptoui.sat.i64.f64(double %470)
@@ -107456,7 +107456,7 @@ default.unreachable:                              ; preds = %443, %"_ZN14polars_
   br i1 %474, label %"_ZN14polars_compute7rolling15quantile_filter23QuantileUpdate$LT$M$GT$8quantile17h3c7b02d162776075E.exit", label %493
 
 475:                                              ; preds = %443
-  %476 = fadd double %447, -1.000000e+00
+  %476 = fadd nnan double %447, -1.000000e+00
   %477 = fmul double %6, %476
   %478 = call double @llvm.floor.f64(double %477)
   %479 = call i64 @llvm.fptoui.sat.i64.f64(double %478)
@@ -109559,7 +109559,7 @@ default.unreachable:                              ; preds = %819, %594
   br label %677
 
 604:                                              ; preds = %594
-  %605 = fadd double %595, -1.000000e+00
+  %605 = fadd nnan double %595, -1.000000e+00
   %606 = fmul double %80, %605
   %607 = call double @llvm.floor.f64(double %606)
   %608 = call i64 @llvm.fptoui.sat.i64.f64(double %607)
@@ -109575,7 +109575,7 @@ default.unreachable:                              ; preds = %819, %594
   br label %677
 
 614:                                              ; preds = %594
-  %615 = fadd double %595, -1.000000e+00
+  %615 = fadd nnan double %595, -1.000000e+00
   %616 = fmul double %80, %615
   %617 = call double @llvm.ceil.f64(double %616)
   %618 = call i64 @llvm.fptoui.sat.i64.f64(double %617)
@@ -109595,7 +109595,7 @@ default.unreachable:                              ; preds = %819, %594
   %626 = call i64 @llvm.fptoui.sat.i64.f64(double %625)
   %627 = add i64 %589, -1
   %.sroa.0.0.sroa.speculated.i38.i.i = call noundef i64 @llvm.umin.i64(i64 %627, i64 %626)
-  %628 = fadd double %595, -1.000000e+00
+  %628 = fadd nnan double %595, -1.000000e+00
   %629 = fmul double %80, %628
   %630 = call double @llvm.ceil.f64(double %629)
   %631 = call i64 @llvm.fptoui.sat.i64.f64(double %630)
@@ -109610,7 +109610,7 @@ default.unreachable:                              ; preds = %819, %594
   br i1 %634, label %677, label %659
 
 637:                                              ; preds = %594
-  %638 = fadd double %595, -1.000000e+00
+  %638 = fadd nnan double %595, -1.000000e+00
   %639 = fmul double %80, %638
   %640 = call double @llvm.floor.f64(double %639)
   %641 = call i64 @llvm.fptoui.sat.i64.f64(double %640)
@@ -110079,7 +110079,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit5.i
   br label %902
 
 829:                                              ; preds = %819
-  %830 = fadd double %820, -1.000000e+00
+  %830 = fadd nnan double %820, -1.000000e+00
   %831 = fmul double %80, %830
   %832 = call double @llvm.floor.f64(double %831)
   %833 = call i64 @llvm.fptoui.sat.i64.f64(double %832)
@@ -110095,7 +110095,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit5.i
   br label %902
 
 839:                                              ; preds = %819
-  %840 = fadd double %820, -1.000000e+00
+  %840 = fadd nnan double %820, -1.000000e+00
   %841 = fmul double %80, %840
   %842 = call double @llvm.ceil.f64(double %841)
   %843 = call i64 @llvm.fptoui.sat.i64.f64(double %842)
@@ -110115,7 +110115,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit5.i
   %851 = call i64 @llvm.fptoui.sat.i64.f64(double %850)
   %852 = add i64 %814, -1
   %.sroa.0.0.sroa.speculated.i26.i.i = call noundef i64 @llvm.umin.i64(i64 %852, i64 %851)
-  %853 = fadd double %820, -1.000000e+00
+  %853 = fadd nnan double %820, -1.000000e+00
   %854 = fmul double %80, %853
   %855 = call double @llvm.ceil.f64(double %854)
   %856 = call i64 @llvm.fptoui.sat.i64.f64(double %855)
@@ -110130,7 +110130,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit5.i
   br i1 %859, label %902, label %884
 
 862:                                              ; preds = %819
-  %863 = fadd double %820, -1.000000e+00
+  %863 = fadd nnan double %820, -1.000000e+00
   %864 = fmul double %80, %863
   %865 = call double @llvm.floor.f64(double %864)
   %866 = call i64 @llvm.fptoui.sat.i64.f64(double %865)
@@ -111653,7 +111653,7 @@ default.unreachable:                              ; preds = %819, %594
   br label %677
 
 604:                                              ; preds = %594
-  %605 = fadd double %595, -1.000000e+00
+  %605 = fadd nnan double %595, -1.000000e+00
   %606 = fmul double %80, %605
   %607 = call double @llvm.floor.f64(double %606)
   %608 = call i64 @llvm.fptoui.sat.i64.f64(double %607)
@@ -111669,7 +111669,7 @@ default.unreachable:                              ; preds = %819, %594
   br label %677
 
 614:                                              ; preds = %594
-  %615 = fadd double %595, -1.000000e+00
+  %615 = fadd nnan double %595, -1.000000e+00
   %616 = fmul double %80, %615
   %617 = call double @llvm.ceil.f64(double %616)
   %618 = call i64 @llvm.fptoui.sat.i64.f64(double %617)
@@ -111689,7 +111689,7 @@ default.unreachable:                              ; preds = %819, %594
   %626 = call i64 @llvm.fptoui.sat.i64.f64(double %625)
   %627 = add i64 %589, -1
   %.sroa.0.0.sroa.speculated.i38.i.i = call noundef i64 @llvm.umin.i64(i64 %627, i64 %626)
-  %628 = fadd double %595, -1.000000e+00
+  %628 = fadd nnan double %595, -1.000000e+00
   %629 = fmul double %80, %628
   %630 = call double @llvm.ceil.f64(double %629)
   %631 = call i64 @llvm.fptoui.sat.i64.f64(double %630)
@@ -111704,7 +111704,7 @@ default.unreachable:                              ; preds = %819, %594
   br i1 %634, label %677, label %659
 
 637:                                              ; preds = %594
-  %638 = fadd double %595, -1.000000e+00
+  %638 = fadd nnan double %595, -1.000000e+00
   %639 = fmul double %80, %638
   %640 = call double @llvm.floor.f64(double %639)
   %641 = call i64 @llvm.fptoui.sat.i64.f64(double %640)
@@ -112173,7 +112173,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit5.i
   br label %902
 
 829:                                              ; preds = %819
-  %830 = fadd double %820, -1.000000e+00
+  %830 = fadd nnan double %820, -1.000000e+00
   %831 = fmul double %80, %830
   %832 = call double @llvm.floor.f64(double %831)
   %833 = call i64 @llvm.fptoui.sat.i64.f64(double %832)
@@ -112189,7 +112189,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit5.i
   br label %902
 
 839:                                              ; preds = %819
-  %840 = fadd double %820, -1.000000e+00
+  %840 = fadd nnan double %820, -1.000000e+00
   %841 = fmul double %80, %840
   %842 = call double @llvm.ceil.f64(double %841)
   %843 = call i64 @llvm.fptoui.sat.i64.f64(double %842)
@@ -112209,7 +112209,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit5.i
   %851 = call i64 @llvm.fptoui.sat.i64.f64(double %850)
   %852 = add i64 %814, -1
   %.sroa.0.0.sroa.speculated.i26.i.i = call noundef i64 @llvm.umin.i64(i64 %852, i64 %851)
-  %853 = fadd double %820, -1.000000e+00
+  %853 = fadd nnan double %820, -1.000000e+00
   %854 = fmul double %80, %853
   %855 = call double @llvm.ceil.f64(double %854)
   %856 = call i64 @llvm.fptoui.sat.i64.f64(double %855)
@@ -112224,7 +112224,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit5.i
   br i1 %859, label %902, label %884
 
 862:                                              ; preds = %819
-  %863 = fadd double %820, -1.000000e+00
+  %863 = fadd nnan double %820, -1.000000e+00
   %864 = fmul double %80, %863
   %865 = call double @llvm.floor.f64(double %864)
   %866 = call i64 @llvm.fptoui.sat.i64.f64(double %865)

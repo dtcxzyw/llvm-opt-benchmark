@@ -35500,7 +35500,7 @@ for.body32:                                       ; preds = %for.end23, %for.inc
 
 land.lhs.true:                                    ; preds = %for.body32
   %conv = uitofp i64 %add36 to double
-  %mul = fmul double %conv, 1.000000e+02
+  %mul = fmul nnan double %conv, 1.000000e+02
   %div = fdiv double %mul, %19
   %arrayidx.i.i = getelementptr inbounds nuw double, ptr @_ZZ13print_latencyI16async_rpc_clientEvRSt5dequeIT_SaIS2_EEE5table, i64 %pos.060
   %21 = load double, ptr %arrayidx.i.i, align 8

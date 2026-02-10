@@ -1179,7 +1179,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %225
 
 .critedge6.loopexit:                              ; preds = %252
   %266 = uitofp nneg i32 %.1 to double
-  %267 = fmul double %266, 1.000000e+02
+  %267 = fmul nnan double %266, 1.000000e+02
   br label %.critedge6
 
 .critedge6:                                       ; preds = %Vec_PtrFree.exit, %.critedge6.loopexit

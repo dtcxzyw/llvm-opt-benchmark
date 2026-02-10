@@ -271,7 +271,7 @@ _ZN4llvm8dyn_castINS_15PseudoProbeInstEKNS_11InstructionEEEDcPT0_.exit: ; preds 
   %.0.in.i.i15 = select i1 %48, ptr %45, ptr %49
   %.0.i.i16 = load i64, ptr %.0.in.i.i15, align 8, !tbaa !61
   %50 = uitofp i64 %.0.i.i16 to float
-  %51 = fmul float %50, 0x3BF0000000000000
+  %51 = fmul nnan float %50, 0x3BF0000000000000
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %53 = load ptr, ptr %52, align 8, !tbaa !22
   %.not = icmp eq ptr %53, null
@@ -467,7 +467,7 @@ _ZN4llvm8dyn_castINS_15PseudoProbeInstENS_11InstructionEEEDcPT0_.exit: ; preds =
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEC2EPNS_11InstructionEPNS_6MDNodeENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE(ptr noundef nonnull align 8 dereferenceable(144) %3, ptr noundef nonnull %0, ptr noundef null, ptr null, i64 0)
   %23 = fcmp olt float %1, 1.000000e+00
-  %24 = fmul float %1, 0x43F0000000000000
+  %24 = fmul nnan float %1, 0x43F0000000000000
   %25 = fptoui float %24 to i64
   %.0 = select i1 %23, i64 %25, i64 -1
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -585,7 +585,7 @@ _ZNK4llvm10DILocation16getDiscriminatorEv.exit:   ; preds = %_ZNK4llvm10DILocati
   %88 = and i32 %80, 201326592
   %89 = and i32 %80, 458752
   %90 = fcmp olt float %1, 1.000000e+00
-  %91 = fmul float %1, 1.000000e+02
+  %91 = fmul nnan float %1, 1.000000e+02
   %92 = fptoui float %91 to i32
   %93 = shl nuw nsw i32 %.0.i, 3
   %94 = shl i32 %92, 19

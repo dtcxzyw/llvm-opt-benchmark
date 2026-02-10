@@ -322,7 +322,7 @@ define ptr @Gia_ManAigSyn2(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 71:                                               ; preds = %68
   %72 = sub nsw i32 %63, %60
   %73 = sitofp i32 %72 to double
-  %74 = fmul double %73, 1.000000e+02
+  %74 = fmul nnan double %73, 1.000000e+02
   %75 = sitofp i32 %63 to double
   %76 = fdiv double %74, %75
   %77 = fcmp olt double %76, 3.000000e+00

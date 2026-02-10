@@ -1117,7 +1117,7 @@ define void @statevec_multiControlledMultiRotatePauli(ptr noundef readonly byval
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store double 0.000000e+00, ptr %14, align 8, !tbaa !13
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %16 = fmul double %11, 0x3FE6A09E667F3BCC
+  %16 = fmul nnan double %11, 0x3FE6A09E667F3BCC
   store double %16, ptr %15, align 8, !tbaa !13
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store double %16, ptr %17, align 8, !tbaa !13
@@ -2932,8 +2932,8 @@ tailrecurse:                                      ; preds = %8, %4
 8:                                                ; preds = %tailrecurse
   %9 = add nsw i32 %.tr23, -1
   %10 = sitofp i32 %9 to double
-  %11 = fdiv double 1.000000e+00, %10
-  %mul = fmul double %11, 2.000000e+00
+  %11 = fdiv nnan double 1.000000e+00, %10
+  %mul = fmul nnan double %11, 2.000000e+00
   %exp2 = tail call double @exp2(double %mul) #22
   %12 = fsub double 4.000000e+00, %exp2
   %13 = fdiv double 1.000000e+00, %12

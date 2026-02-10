@@ -13553,7 +13553,7 @@ _ZN10QByteArrayD2Ev.exit2074:                     ; preds = %2765, %_ZN9QtPrivat
   store i64 %2770, ptr %2772, align 4
   %2773 = trunc i64 %2770 to i32
   %2774 = sitofp i32 %2773 to double
-  %2775 = fmul double %2774, 5.000000e-01
+  %2775 = fmul nnan double %2774, 5.000000e-01
   %2776 = fptosi double %2775 to i32
   %2777 = sitofp i32 %2776 to float
   %2778 = getelementptr inbounds nuw i8, ptr %.sroa.02407.02759, i64 36
@@ -13561,7 +13561,7 @@ _ZN10QByteArrayD2Ev.exit2074:                     ; preds = %2765, %_ZN9QtPrivat
   %2779 = lshr i64 %2770, 32
   %2780 = trunc nuw i64 %2779 to i32
   %2781 = sitofp i32 %2780 to double
-  %2782 = fmul double %2781, 5.000000e-01
+  %2782 = fmul nnan double %2781, 5.000000e-01
   %2783 = fptosi double %2782 to i32
   %2784 = sitofp i32 %2783 to float
   %2785 = getelementptr inbounds nuw i8, ptr %.sroa.02407.02759, i64 40
@@ -14235,13 +14235,13 @@ _ZN7QStringD2Ev.exit2177:                         ; preds = %_ZN7QStringD2Ev.exi
   %2967 = getelementptr inbounds nuw i8, ptr %2966, i64 8
   store i32 %2952, ptr %2967, align 4
   %2968 = sitofp i32 %2937 to float
-  %2969 = fmul float %2968, 5.000000e-01
+  %2969 = fmul nnan float %2968, 5.000000e-01
   %2970 = load ptr, ptr %210, align 8
   %2971 = getelementptr inbounds %"class.vcg::Shot", ptr %2970, i64 %2896
   %2972 = getelementptr inbounds nuw i8, ptr %2971, i64 20
   store float %2969, ptr %2972, align 4
   %2973 = sitofp i32 %2952 to float
-  %2974 = fmul float %2973, 5.000000e-01
+  %2974 = fmul nnan float %2973, 5.000000e-01
   br label %.sink.split
 
 2975:                                             ; preds = %_ZN7QStringD2Ev.exit2121, %2880

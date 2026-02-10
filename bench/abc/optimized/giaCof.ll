@@ -2757,7 +2757,7 @@ Cof_ManResetTravId.exit:                          ; preds = %.lr.ph.split.i.i, %
   %33 = load i32, ptr %20, align 8, !tbaa !37
   %34 = shl nsw i32 %33, 2
   %35 = sitofp i32 %34 to double
-  %36 = fmul double %35, 0x3EB0000000000000
+  %36 = fmul nnan double %35, 0x3EB0000000000000
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.23, double noundef %36)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.24)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

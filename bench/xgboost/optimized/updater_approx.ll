@@ -23103,7 +23103,7 @@ define linkonce_odr void @_ZN7xgboost4tree17ColumnSplitHelperC2EmPNS_6common16Pa
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %3, ptr %9, align 8, !tbaa !926
   %10 = uitofp i64 %1 to double
-  %11 = fmul double %10, 1.250000e-01
+  %11 = fmul nnan double %10, 1.250000e-01
   %12 = tail call double @llvm.ceil.f64(double %11)
   %13 = fptoui double %12 to i64
   invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %13)
@@ -104804,7 +104804,7 @@ _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_
   %159 = add nsw i32 %27, 1
   %160 = sext i32 %159 to i64
   %161 = uitofp i64 %160 to double
-  %162 = fmul double %161, 3.125000e-02
+  %162 = fmul nnan double %161, 3.125000e-02
   %163 = call double @llvm.ceil.f64(double %162)
   %164 = fptoui double %163 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -105121,7 +105121,7 @@ _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_
 
 114:                                              ; preds = %._crit_edge
   %115 = uitofp i64 %44 to double
-  %116 = fmul double %115, 3.125000e-02
+  %116 = fmul nnan double %115, 3.125000e-02
   %117 = call double @llvm.ceil.f64(double %116)
   %118 = fptoui double %117 to i64
   %119 = icmp ugt i64 %118, 2305843009213693951
@@ -105607,7 +105607,7 @@ _ZN7xgboost4tree19SplitEntryContainerINS0_9GradStatsEE6UpdateIS2_EEbfjfbbRKT_S7_
 
 114:                                              ; preds = %._crit_edge
   %115 = uitofp i64 %44 to double
-  %116 = fmul double %115, 3.125000e-02
+  %116 = fmul nnan double %115, 3.125000e-02
   %117 = call double @llvm.ceil.f64(double %116)
   %118 = fptoui double %117 to i64
   %119 = icmp ugt i64 %118, 2305843009213693951

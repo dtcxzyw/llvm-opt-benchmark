@@ -3074,7 +3074,7 @@ switch.lookup:                                    ; preds = %955
   store i32 33619968, ptr %120, align 8, !tbaa !45
   store ptr %113, ptr %1029, align 8, !tbaa !47
   %1031 = uitofp nneg i32 %328 to double
-  %1032 = fmul double %1031, 1.600000e+01
+  %1032 = fmul nnan double %1031, 1.600000e+01
   %1033 = fdiv double 2.550000e+02, %1032
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) %112, ptr noundef nonnull align 8 dereferenceable(24) %120, i32 noundef 0, double noundef %1033, double noundef 0.000000e+00)
           to label %1034 unwind label %1035

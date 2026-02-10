@@ -505,7 +505,7 @@ define hidden void @_ZN5zxing6qrcode22AlignmentPatternFinder20handlePossibleCent
   %14 = sub nsw i32 %4, %12
   %15 = sitofp i32 %14 to float
   %16 = sitofp i32 %9 to float
-  %17 = fmul float %16, 5.000000e-01
+  %17 = fmul nnan float %16, 5.000000e-01
   %18 = fsub float %15, %17
   %19 = fptosi float %18 to i32
   %20 = shl nsw i32 %9, 1
@@ -751,7 +751,7 @@ define hidden noundef float @_ZN5zxing6qrcode22AlignmentPatternFinder13centerFro
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !27
   %10 = sitofp i32 %9 to float
-  %11 = fmul float %10, 5.000000e-01
+  %11 = fmul nnan float %10, 5.000000e-01
   %12 = fsub float %7, %11
   ret float %12
 }
@@ -926,7 +926,7 @@ _ZN5zxing6qrcode22AlignmentPatternFinder17foundPatternCrossERSt6vectorIiSaIiEE.e
   %84 = sub nsw i32 %.3.lcssa, %63
   %85 = sitofp i32 %84 to float
   %86 = sitofp i32 %49 to float
-  %87 = fmul float %86, 5.000000e-01
+  %87 = fmul nnan float %86, 5.000000e-01
   %88 = fsub float %85, %87
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 

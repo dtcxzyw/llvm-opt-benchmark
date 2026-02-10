@@ -2072,7 +2072,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__21UsdUtilsTimeCodeRange5beginEv.exit: ; pr
 _ZNK32pxrInternal_v0_24__pxrReserved__11UsdTimeCode8GetValueEv.exit: ; preds = %.noexc378, %.lr.ph
   %604 = phi double [ %.pre.i377, %.noexc378 ], [ %601, %.lr.ph ]
   %605 = uitofp i64 %.047989 to double
-  %606 = fmul double %605, 1.000000e-01
+  %606 = fmul nnan double %605, 1.000000e-01
   %607 = fcmp oeq double %604, %606
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   br i1 %607, label %608, label %.invoke

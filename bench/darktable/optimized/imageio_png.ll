@@ -415,20 +415,20 @@ define range(i32 0, 9) i32 @dt_imageio_open_png(ptr noundef %0, ptr noundef %1, 
   %58 = getelementptr inbounds nuw i8, ptr %20, i64 %57
   %59 = load i8, ptr %58, align 1, !tbaa !42
   %60 = uitofp i8 %59 to float
-  %61 = fmul reassoc nsz arcp contract afn float %60, 0x3F70101020000000
+  %61 = fmul reassoc nnan nsz arcp contract afn float %60, 0x3F70101020000000
   %.idx74 = shl i64 %.06777, 4
   %62 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx74
   store float %61, ptr %62, align 4, !tbaa !43
   %63 = getelementptr i8, ptr %58, i64 1
   %64 = load i8, ptr %63, align 1, !tbaa !42
   %65 = uitofp i8 %64 to float
-  %66 = fmul reassoc nsz arcp contract afn float %65, 0x3F70101020000000
+  %66 = fmul reassoc nnan nsz arcp contract afn float %65, 0x3F70101020000000
   %67 = getelementptr inbounds nuw i8, ptr %62, i64 4
   store float %66, ptr %67, align 4, !tbaa !43
   %68 = getelementptr i8, ptr %58, i64 2
   %69 = load i8, ptr %68, align 1, !tbaa !42
   %70 = uitofp i8 %69 to float
-  %71 = fmul reassoc nsz arcp contract afn float %70, 0x3F70101020000000
+  %71 = fmul reassoc nnan nsz arcp contract afn float %70, 0x3F70101020000000
   %72 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store float %71, ptr %72, align 4, !tbaa !43
   %73 = add nuw i64 %.06777, 1
@@ -446,34 +446,34 @@ define range(i32 0, 9) i32 @dt_imageio_open_png(ptr noundef %0, ptr noundef %1, 
   %77 = getelementptr inbounds nuw i8, ptr %20, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !42
   %79 = uitofp i8 %78 to float
-  %80 = fmul reassoc nsz arcp contract afn float %79, 2.560000e+02
+  %80 = fmul reassoc nnan nsz arcp contract afn float %79, 2.560000e+02
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 1
   %82 = load i8, ptr %81, align 1, !tbaa !42
   %83 = uitofp i8 %82 to float
-  %84 = fadd reassoc nsz arcp contract afn float %80, %83
-  %85 = fmul reassoc nsz arcp contract afn float %84, 0x3EF0001000000000
+  %84 = fadd reassoc nnan nsz arcp contract afn float %80, %83
+  %85 = fmul reassoc nnan nsz arcp contract afn float %84, 0x3EF0001000000000
   %.idx = shl i64 %.076, 4
   %86 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx
   store float %85, ptr %86, align 4, !tbaa !43
   %87 = getelementptr i8, ptr %77, i64 2
   %88 = load i8, ptr %87, align 1, !tbaa !42
   %89 = uitofp i8 %88 to float
-  %90 = fmul reassoc nsz arcp contract afn float %89, 2.560000e+02
+  %90 = fmul reassoc nnan nsz arcp contract afn float %89, 2.560000e+02
   %91 = getelementptr i8, ptr %77, i64 3
   %92 = load i8, ptr %91, align 1, !tbaa !42
   %93 = uitofp i8 %92 to float
-  %94 = fadd reassoc nsz arcp contract afn float %90, %93
-  %95 = fmul reassoc nsz arcp contract afn float %94, 0x3EF0001000000000
+  %94 = fadd reassoc nnan nsz arcp contract afn float %90, %93
+  %95 = fmul reassoc nnan nsz arcp contract afn float %94, 0x3EF0001000000000
   %96 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store float %95, ptr %96, align 4, !tbaa !43
   %97 = getelementptr i8, ptr %77, i64 4
   %98 = load i8, ptr %97, align 1, !tbaa !42
   %99 = uitofp i8 %98 to float
-  %100 = fmul reassoc nsz arcp contract afn float %99, 2.560000e+02
+  %100 = fmul reassoc nnan nsz arcp contract afn float %99, 2.560000e+02
   %101 = load i8, ptr %91, align 1, !tbaa !42
   %102 = uitofp i8 %101 to float
-  %103 = fadd reassoc nsz arcp contract afn float %100, %102
-  %104 = fmul reassoc nsz arcp contract afn float %103, 0x3EF0001000000000
+  %103 = fadd reassoc nnan nsz arcp contract afn float %100, %102
+  %104 = fmul reassoc nnan nsz arcp contract afn float %103, 0x3EF0001000000000
   %105 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store float %104, ptr %105, align 4, !tbaa !43
   %106 = add nuw i64 %.076, 1

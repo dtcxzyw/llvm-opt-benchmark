@@ -496,7 +496,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   %12 = load i32, ptr %11, align 8, !tbaa !20
   %13 = icmp eq i32 %12, 11
   %14 = uitofp i1 %13 to double
-  %15 = fadd nsz double %14, 1.000000e+00
+  %15 = fadd nnan nsz double %14, 1.000000e+00
   %16 = fmul nsz double %10, %15
   %17 = fdiv nsz double %16, 4.000000e+01
   %18 = fmul nsz double %17, 0x400A934F0979A371

@@ -86,7 +86,7 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET_S7_S7_.
   %add.ptr.i = getelementptr inbounds i64, ptr %0, i64 %conv
   %6 = load i64, ptr %add.ptr.i, align 8
   %conv15 = uitofp i64 %5 to double
-  %mul = fmul double %conv15, 1.100000e+00
+  %mul = fmul nnan double %conv15, 1.100000e+00
   %conv16 = fptosi double %mul to i64
   %.sroa.speculated = tail call i64 @llvm.smax.i64(i64 %6, i64 %conv16)
   store i64 %.sroa.speculated, ptr %add.ptr.i, align 8

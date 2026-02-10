@@ -1067,7 +1067,7 @@ define internal noundef i32 @cluster_preview_draw(ptr noundef %0, ptr noundef %1
   %56 = fpext reassoc nsz arcp contract afn float %46 to double
   %57 = fmul reassoc nsz arcp contract afn double %56, 0x3FD5555555555555
   %58 = sitofp i32 %32 to double
-  %59 = fmul reassoc nsz arcp contract afn double %58, 0x3FD5555555555555
+  %59 = fmul reassoc nnan nsz arcp contract afn double %58, 0x3FD5555555555555
   %60 = fadd reassoc nsz arcp contract afn float %46, %37
   %61 = fpext reassoc nsz arcp contract afn float %60 to double
   br label %.preheader60
@@ -1094,7 +1094,7 @@ define internal noundef i32 @cluster_preview_draw(ptr noundef %0, ptr noundef %1
   %67 = add nsw i32 %.05562, 1
   %68 = mul nsw i32 %67, %32
   %69 = sitofp i32 %68 to double
-  %70 = fmul reassoc nsz arcp contract afn double %69, 0x3FD5555555555555
+  %70 = fmul reassoc nnan nsz arcp contract afn double %69, 0x3FD5555555555555
   br label %76
 
 71:                                               ; preds = %75
@@ -1372,7 +1372,7 @@ define internal void @process_clusters(ptr readnone captures(none) %0, ptr nound
   %75 = sitofp i32 %74 to float
   %76 = load i32, ptr %67, align 4, !tbaa !90
   %77 = sitofp i32 %76 to float
-  %78 = fmul reassoc nsz arcp contract afn float %75, 2.048000e+03
+  %78 = fmul reassoc nnan nsz arcp contract afn float %75, 2.048000e+03
   %79 = fdiv reassoc nsz arcp contract afn float %78, %77
   %80 = fcmp reassoc nsz arcp contract afn ogt float %79, 2.047000e+03
   br i1 %80, label %85, label %81
@@ -1400,7 +1400,7 @@ capture_histogram.exit:                           ; preds = %85
   %indvars.iv.i78 = phi i64 [ 0, %capture_histogram.exit ], [ %indvars.iv.next.i79, %88 ]
   %89 = trunc nuw nsw i64 %indvars.iv.i78 to i32
   %90 = uitofp nneg i32 %89 to float
-  %91 = fmul reassoc nsz arcp contract afn float %90, 0x3FA9000000000000
+  %91 = fmul reassoc nnan nsz arcp contract afn float %90, 0x3FA9000000000000
   %92 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv.i78
   store float %91, ptr %92, align 4, !tbaa !89
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
@@ -1428,7 +1428,7 @@ capture_histogram.exit:                           ; preds = %85
 98:                                               ; preds = %.lr.ph.i
   %99 = trunc nsw i64 %indvars.iv30.i to i32
   %100 = sitofp i32 %99 to float
-  %101 = fmul reassoc nsz arcp contract afn float %100, 0x3FA9000000000000
+  %101 = fmul reassoc nnan nsz arcp contract afn float %100, 0x3FA9000000000000
   %102 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv34.i
   store float %101, ptr %102, align 4, !tbaa !89
   br label %.loopexit.i
@@ -1551,7 +1551,7 @@ invert_histogram.exit:                            ; preds = %.loopexit.i
   %150 = sitofp i32 %149 to float
   %151 = load i32, ptr %142, align 4, !tbaa !90
   %152 = sitofp i32 %151 to float
-  %153 = fmul reassoc nsz arcp contract afn float %150, 2.048000e+03
+  %153 = fmul reassoc nnan nsz arcp contract afn float %150, 2.048000e+03
   %154 = fdiv reassoc nsz arcp contract afn float %153, %152
   %155 = fcmp reassoc nsz arcp contract afn ogt float %154, 2.047000e+03
   br i1 %155, label %160, label %156

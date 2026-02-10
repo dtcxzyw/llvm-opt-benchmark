@@ -6344,11 +6344,11 @@ _ZNK5drjit9ArrayBaseINS_5ArrayIN7mitsuba8SpectrumIfLm4EEELm4EEELb0ENS_6MatrixIS4
   %83 = icmp eq i32 %82, 0
   %84 = fcmp contract oeq float %74, 0x7FF0000000000000
   %85 = sitofp i32 %78 to float
-  %86 = fmul contract float %85, 0x3FE9200000000000
+  %86 = fmul nnan contract float %85, 0x3FE9200000000000
   %87 = fsub contract float %74, %86
-  %88 = fmul contract float %85, 0x3F2FB40000000000
+  %88 = fmul nnan contract float %85, 0x3F2FB40000000000
   %89 = fsub contract float %87, %88
-  %90 = fmul contract float %85, 0x3E64442D20000000
+  %90 = fmul nnan contract float %85, 0x3E64442D20000000
   %91 = fsub contract float %89, %90
   %92 = fmul contract float %91, %91
   %93 = select i1 %84, float 0xFFFFFFFFE0000000, float %92

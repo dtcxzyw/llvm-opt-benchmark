@@ -614,7 +614,7 @@ define void @_ZN6icu_7714HebrewCalendar19handleComputeFieldsEiR10UErrorCode(ptr 
 6:                                                ; preds = %3
   %7 = add nsw i32 %1, -347997
   %8 = sitofp i32 %7 to double
-  %9 = fmul double %8, 2.592000e+04
+  %9 = fmul nnan double %8, 2.592000e+04
   %10 = fdiv double %9, 7.654330e+05
   %11 = tail call noundef double @uprv_floor_77(double noundef %10)
   %12 = tail call double @llvm.fmuladd.f64(double %11, double 1.900000e+01, double 2.340000e+02)

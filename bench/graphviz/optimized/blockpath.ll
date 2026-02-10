@@ -2276,7 +2276,7 @@ reduce_edge_crossings.exit:                       ; preds = %reduce.exit.i, %pla
 .lr.ph136:                                        ; preds = %.critedge, %.loopexit
   %1076 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1077 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1078 = fdiv double 0x401921FB54442D18, %1053
+  %1078 = fdiv nnan double 0x401921FB54442D18, %1053
   br label %1079
 
 ._crit_edge:                                      ; preds = %1079, %.loopexit

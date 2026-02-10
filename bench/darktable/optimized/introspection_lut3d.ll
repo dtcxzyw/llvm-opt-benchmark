@@ -495,7 +495,7 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   br i1 %199, label %202, label %200
 
 200:                                              ; preds = %198
-  %201 = fmul reassoc nsz arcp contract afn float %196, %11
+  %201 = fmul reassoc nnan nsz arcp contract afn float %196, %11
   br label %202
 
 202:                                              ; preds = %194, %200, %198
@@ -585,7 +585,7 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
   br i1 %58, label %61, label %59
 
 59:                                               ; preds = %57
-  %60 = fmul reassoc nsz arcp contract afn float %55, %11
+  %60 = fmul reassoc nnan nsz arcp contract afn float %55, %11
   br label %61
 
 61:                                               ; preds = %53, %59, %57
@@ -1016,7 +1016,7 @@ define hidden void @correct_pixel_pyramid(ptr noundef readonly captures(none) %0
   br i1 %57, label %60, label %58
 
 58:                                               ; preds = %56
-  %59 = fmul reassoc nsz arcp contract afn float %54, %11
+  %59 = fmul reassoc nnan nsz arcp contract afn float %54, %11
   br label %60
 
 60:                                               ; preds = %52, %58, %56
@@ -1572,11 +1572,11 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr readnone captures(none) %
   %109 = getelementptr inbounds nuw i8, ptr %74, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !73
   %111 = uitofp i8 %110 to float
-  %112 = fmul reassoc nsz arcp contract afn float %111, 2.560000e+02
+  %112 = fmul reassoc nnan nsz arcp contract afn float %111, 2.560000e+02
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 1
   %114 = load i8, ptr %113, align 1, !tbaa !73
   %115 = uitofp i8 %114 to float
-  %116 = fadd reassoc nsz arcp contract afn float %112, %115
+  %116 = fadd reassoc nnan nsz arcp contract afn float %112, %115
   %117 = fmul reassoc nsz arcp contract afn float %116, %100
   %118 = getelementptr inbounds nuw float, ptr %94, i64 %.076
   store float %117, ptr %118, align 4, !tbaa !18
@@ -1697,7 +1697,7 @@ sub_1101:                                         ; preds = %sub_095
   br label %.preheader104
 
 27:                                               ; preds = %.tail99, %.tail94
-  %28 = fmul reassoc nsz arcp contract afn double %.074, 0x7FF0000000000000
+  %28 = fmul reassoc nnan nsz arcp contract afn double %.074, 0x7FF0000000000000
   br label %73
 
 .preheader104:                                    ; preds = %.preheader104.preheader, %.preheader104

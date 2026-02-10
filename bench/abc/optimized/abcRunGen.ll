@@ -363,7 +363,7 @@ Vec_IntGrow.exit.i.i:                             ; preds = %77, %75, %85, %83, 
 
 115:                                              ; preds = %112
   %116 = sitofp i32 %114 to double
-  %117 = fmul double %116, 1.000000e+02
+  %117 = fmul nnan double %116, 1.000000e+02
   %118 = fdiv double %117, %43
   %119 = trunc nuw nsw i64 %indvars.iv109 to i32
   %120 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %119, i32 noundef %114, double noundef %118)

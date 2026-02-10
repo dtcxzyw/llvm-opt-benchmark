@@ -304,8 +304,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %136 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %137 = load float, ptr %136, align 4, !tbaa !94
   %138 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %137, float 0x3F1A36E2E0000000)
-  %139 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %138)
-  %140 = fmul reassoc nsz arcp contract afn float %139, 0xBFF7154760000000
+  %139 = tail call reassoc nnan nsz arcp contract afn float @llvm.log.f32(float %138)
+  %140 = fmul reassoc nnan nsz arcp contract afn float %139, 0xBFF7154760000000
   %141 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %142 = load i32, ptr %141, align 4, !tbaa !37
   %143 = sext i32 %142 to i64
@@ -340,7 +340,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %165 = fmul reassoc nsz arcp contract afn float %164, 0x3F847AE140000000
   %166 = fadd reassoc nsz arcp contract afn float %165, 1.000000e+00
   %167 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %166, float 0x3F1A36E2E0000000)
-  %168 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %167)
+  %168 = tail call reassoc nnan nsz arcp contract afn float @llvm.log.f32(float %167)
   %169 = fmul reassoc nsz arcp contract afn float %165, %159
   %170 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %169, float %140)
   %171 = fmul reassoc nsz arcp contract afn float %170, 8.000000e+00
@@ -391,12 +391,12 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %202 = fadd reassoc nsz arcp contract afn float %201, 0xBF70624DE0000000
   %203 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %202, float 0.000000e+00)
   %204 = fpext reassoc nsz arcp contract afn float %203 to double
-  %205 = fmul reassoc nsz arcp contract afn double %204, 6.200000e+00
-  %206 = fadd reassoc nsz arcp contract afn double %205, 5.000000e-01
-  %207 = fadd reassoc nsz arcp contract afn double %205, 1.700000e+00
+  %205 = fmul reassoc nnan nsz arcp contract afn double %204, 6.200000e+00
+  %206 = fadd reassoc nnan nsz arcp contract afn double %205, 5.000000e-01
+  %207 = fadd reassoc nnan nsz arcp contract afn double %205, 1.700000e+00
   %208 = fmul reassoc nsz arcp contract afn double %207, %204
   %209 = fadd reassoc nsz arcp contract afn double %208, 6.000000e-02
-  %210 = fmul reassoc nsz arcp contract afn double %204, 1.000000e+02
+  %210 = fmul reassoc nnan nsz arcp contract afn double %204, 1.000000e+02
   %211 = fmul reassoc nsz arcp contract afn double %210, %206
   %212 = fdiv reassoc nsz arcp contract afn double %211, %209
   %213 = fptrunc reassoc nsz arcp contract afn double %212 to float

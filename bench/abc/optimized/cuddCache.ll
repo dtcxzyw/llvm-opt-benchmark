@@ -1215,7 +1215,7 @@ define range(i32 0, 2) i32 @cuddCacheProfile(ptr noundef readonly captures(none)
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %14 = uitofp nneg i32 %13 to double
-  %15 = fmul double %14, 1.000000e+02
+  %15 = fmul nnan double %14, 1.000000e+02
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2

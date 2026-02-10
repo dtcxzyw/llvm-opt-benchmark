@@ -21376,7 +21376,7 @@ _ZZNK11V3ExecGraph14ThreadSchedule11dumpDotFileERK7V3GraphRKNSt7__cxx1112basic_s
   %95 = load i32, ptr %94, align 8, !tbaa !511
   %96 = sub i32 %95, %51
   %97 = uitofp i32 %96 to double
-  %98 = fmul double %97, 2.000000e+00
+  %98 = fmul nnan double %97, 2.000000e+00
   %99 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !548
   %101 = load i32, ptr %100, align 4, !tbaa !47

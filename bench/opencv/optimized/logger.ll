@@ -868,7 +868,7 @@ define void @_ZN2cv5utils7logging8internal15writeLogMessageENS1_8LogLevelEPKc(i3
 
 41:                                               ; preds = %39
   %42 = sitofp i64 %40 to double
-  %43 = fmul double %42, 1.000000e-09
+  %43 = fmul nnan double %42, 1.000000e-09
   invoke void (ptr, ptr, ...) @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull @.str.2, i32 noundef %9, double noundef %43)
           to label %44 unwind label %74
 

@@ -3184,7 +3184,7 @@ pagetable_update_parameters.exit:                 ; preds = %pagetable_allocate.
   store i32 %46, ptr %47, align 4
   %48 = icmp eq i64 %.0.i.i.i, 4294967296
   %49 = uitofp i64 %.0.i.i.i to double
-  %50 = fmul double %49, 9.000000e-01
+  %50 = fmul nnan double %49, 9.000000e-01
   %51 = fptoui double %50 to i32
   %.sink.i = select i1 %48, i32 -85899346, i32 %51
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16

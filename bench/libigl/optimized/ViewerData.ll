@@ -3995,7 +3995,7 @@ thread-pre-split.i.i.i.i.i.i.i:                   ; preds = %15
   %38 = sitofp i64 %37 to double
   %39 = insertelement <2 x double> poison, double %38, i64 0
   %40 = shufflevector <2 x double> %39, <2 x double> poison, <2 x i32> zeroinitializer
-  %41 = fadd <2 x double> %40, <double 0.000000e+00, double 1.000000e+00>
+  %41 = fadd nnan <2 x double> %40, <double 0.000000e+00, double 1.000000e+00>
   %42 = fmul <2 x double> %35, %41
   %43 = fadd <2 x double> %42, splat (double 1.000000e+00)
   %.not5.i.i.i.i.i.i.us.i.i.i.i.i.i.i = icmp eq i64 %.012.i.us.i.i.i.i.i.i.i, 0
@@ -4061,7 +4061,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %64 = uitofp nneg i64 %.012.i.i.i.i.i.i.i.i to double
   %65 = insertelement <2 x double> poison, double %64, i64 0
   %66 = shufflevector <2 x double> %65, <2 x double> poison, <2 x i32> zeroinitializer
-  %67 = fadd <2 x double> %66, <double 0.000000e+00, double 1.000000e+00>
+  %67 = fadd nnan <2 x double> %66, <double 0.000000e+00, double 1.000000e+00>
   %68 = fmul <2 x double> %35, %67
   %69 = fadd <2 x double> %33, %68
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.012.i.i.i.i.i.i.i.i, %36

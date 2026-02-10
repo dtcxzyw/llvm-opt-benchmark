@@ -3430,7 +3430,7 @@ define internal void @subc_assign_range(ptr noundef %0, i32 noundef %1) #1 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @ofdma_ir_pow_ctrl_start_pow(ptr noundef %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 2.500000e-01
+  %4 = fmul nnan double %3, 2.500000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1600, double noundef %4)
   ret void
 }
@@ -3438,7 +3438,7 @@ define internal void @ofdma_ir_pow_ctrl_start_pow(ptr noundef %0, i32 noundef %1
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @ofdma_ir_pow_ctrl_step_size(ptr noundef %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 2.500000e-01
+  %4 = fmul nnan double %3, 2.500000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1601, double noundef %4)
   ret void
 }
@@ -3446,7 +3446,7 @@ define internal void @ofdma_ir_pow_ctrl_step_size(ptr noundef %0, i32 noundef %1
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @two_compl_frac(ptr noundef %0, i16 noundef signext %1) #1 {
   %3 = sitofp i16 %1 to double
-  %4 = fmul double %3, 0x3F10000000000000
+  %4 = fmul nnan double %3, 0x3F10000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1629, double noundef %4)
   ret void
 }
@@ -3454,7 +3454,7 @@ define internal void @two_compl_frac(ptr noundef %0, i16 noundef signext %1) #1 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @fourth_db(ptr noundef %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 2.500000e-01
+  %4 = fmul nnan double %3, 2.500000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1601, double noundef %4)
   ret void
 }
@@ -10976,12 +10976,12 @@ define internal fastcc void @dissect_rngrsp_transmit_equalization_encodings_scdm
   %sext = shl i32 %32, 16
   %33 = ashr exact i32 %sext, 16
   %34 = sitofp i32 %33 to double
-  %35 = fmul double %34, 0x3F10000000000000
+  %35 = fmul nnan double %34, 0x3F10000000000000
   %36 = load i32, ptr %6, align 4
   %sext30 = shl i32 %36, 16
   %37 = ashr exact i32 %sext30, 16
   %38 = sitofp i32 %37 to double
-  %39 = fmul double %38, 0x3F10000000000000
+  %39 = fmul nnan double %38, 0x3F10000000000000
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.2158, double noundef %35, double noundef %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -11032,12 +11032,12 @@ define internal fastcc void @dissect_rngrsp_transmit_equalization_encodings_ofdm
   %sext = shl i32 %31, 16
   %32 = ashr exact i32 %sext, 16
   %33 = sitofp i32 %32 to double
-  %34 = fmul double %33, 0x3F10000000000000
+  %34 = fmul nnan double %33, 0x3F10000000000000
   %35 = load i32, ptr %7, align 4
   %sext28 = shl i32 %35, 16
   %36 = ashr exact i32 %sext28, 16
   %37 = sitofp i32 %36 to double
-  %38 = fmul double %37, 0x3F10000000000000
+  %38 = fmul nnan double %37, 0x3F10000000000000
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.2158, double noundef %34, double noundef %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

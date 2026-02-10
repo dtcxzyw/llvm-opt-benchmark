@@ -2080,21 +2080,21 @@ Abc_Clock.exit138:                                ; preds = %.thread, %244
   %254 = sitofp i64 %120 to double
   %.not.i139 = icmp eq i64 %253, 0
   %255 = sitofp i64 %253 to double
-  %256 = fmul double %254, 1.000000e+02
+  %256 = fmul nnan double %254, 1.000000e+02
   %257 = fdiv double %256, %255
   %258 = select i1 %.not.i139, double 0.000000e+00, double %257
   %259 = fdiv double %254, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.13, double noundef %259, double noundef %258)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.3)
   %260 = sitofp i64 %.189145 to double
-  %261 = fmul double %260, 1.000000e+02
+  %261 = fmul nnan double %260, 1.000000e+02
   %262 = fdiv double %261, %255
   %263 = select i1 %.not.i139, double 0.000000e+00, double %262
   %264 = fdiv double %260, 1.000000e+06
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.13, double noundef %264, double noundef %263)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.4)
   %265 = sitofp i64 %.087167 to double
-  %266 = fmul double %265, 1.000000e+02
+  %266 = fmul nnan double %265, 1.000000e+02
   %267 = fdiv double %266, %255
   %268 = select i1 %.not.i139, double 0.000000e+00, double %267
   %269 = fdiv double %265, 1.000000e+06
@@ -2104,7 +2104,7 @@ Abc_Clock.exit138:                                ; preds = %.thread, %244
   %272 = sub i64 %253, %271
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.5)
   %273 = sitofp i64 %272 to double
-  %274 = fmul double %273, 1.000000e+02
+  %274 = fmul nnan double %273, 1.000000e+02
   %275 = fdiv double %274, %255
   %276 = select i1 %.not.i139, double 0.000000e+00, double %275
   %277 = fdiv double %273, 1.000000e+06

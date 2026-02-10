@@ -28907,7 +28907,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %_ZNK3sat6solver8num
   %110 = fdiv double %108, %109
   %111 = select i1 %107, double 0.000000e+00, double %110
   %112 = uitofp i64 %52 to double
-  %113 = fmul double %112, 0x3EB0000000000000
+  %113 = fmul nnan double %112, 0x3EB0000000000000
   %114 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, double noundef %111)
   %115 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %114, ptr noundef nonnull @.str.11, i64 noundef 1)
   %116 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.101, i64 noundef 19)
@@ -46790,7 +46790,7 @@ _ZNK3sat6solver15init_trail_sizeEv.exit:          ; preds = %84, %88, %91
   store i64 7, ptr %115, align 8, !tbaa !602
   %116 = tail call noundef i64 @_ZN6memory19get_allocation_sizeEv()
   %117 = uitofp i64 %116 to double
-  %118 = fmul double %117, 0x3EB0000000000000
+  %118 = fmul nnan double %117, 0x3EB0000000000000
   %119 = load ptr, ptr %1, align 8, !tbaa !8
   %120 = getelementptr i8, ptr %119, i64 -24
   %121 = load i64, ptr %120, align 8

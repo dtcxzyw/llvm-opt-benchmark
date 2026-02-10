@@ -2481,7 +2481,7 @@ Psr_ManMemory.exit:                               ; preds = %24, %10
   %126 = call i32 @Abc_NamMemUsed(ptr noundef %125) #19
   %127 = add nsw i32 %126, %.0.lcssa.i
   %128 = sitofp i32 %127 to double
-  %129 = fmul double %128, 0x3EB0000000000000
+  %129 = fmul nnan double %128, 0x3EB0000000000000
   %130 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, double noundef %129)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %131 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %1) #19

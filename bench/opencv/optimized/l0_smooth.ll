@@ -766,7 +766,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc258, %278
 
 287:                                              ; preds = %283
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
-  %288 = fmul double %2, 2.000000e+00
+  %288 = fmul nnan double %2, 2.000000e+00
   %289 = fcmp olt double %288, 1.000000e+05
   br i1 %289, label %.lr.ph427, label %._crit_edge428
 

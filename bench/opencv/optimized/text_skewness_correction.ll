@@ -609,11 +609,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171: ; preds = %.b
   %198 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %199 = load i32, ptr %198, align 4, !tbaa !68
   %200 = sitofp i32 %199 to float
-  %201 = fmul float %200, 5.000000e-01
+  %201 = fmul nnan float %200, 5.000000e-01
   %202 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %203 = load i32, ptr %202, align 8, !tbaa !75
   %204 = sitofp i32 %203 to float
-  %205 = fmul float %204, 5.000000e-01
+  %205 = fmul nnan float %204, 5.000000e-01
   %.sroa.0267.0.vec.insert = insertelement <2 x float> poison, float %201, i64 0
   %.sroa.0267.4.vec.insert = insertelement <2 x float> %.sroa.0267.0.vec.insert, float %205, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %31)

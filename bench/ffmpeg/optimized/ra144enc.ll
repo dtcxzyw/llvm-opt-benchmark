@@ -499,7 +499,7 @@ put_bits.exit134:                                 ; preds = %228, %235, %221
   %252 = getelementptr inbounds nuw i16, ptr %243, i64 %indvars.iv.i
   %253 = load i16, ptr %252, align 2, !tbaa !41
   %254 = sitofp i16 %253 to double
-  %255 = fmul nsz double %254, 0x3F30000000000000
+  %255 = fmul nnan nsz double %254, 0x3F30000000000000
   %256 = fptrunc nsz double %255 to float
   %257 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv.i
   store float %256, ptr %257, align 4, !tbaa !60
@@ -1058,7 +1058,7 @@ fixed_cb_search.exit:                             ; preds = %get_match_score.exi
   %470 = zext i8 %469 to i32
   %471 = lshr i32 %467, %470
   %472 = uitofp i32 %471 to double
-  %473 = fmul nsz double %472, 0x3F30000000000000
+  %473 = fmul nnan nsz double %472, 0x3F30000000000000
   %474 = fptrunc nsz double %473 to float
   %475 = getelementptr inbounds nuw i8, ptr %463, i64 4
   %476 = load i16, ptr %475, align 2, !tbaa !41
@@ -1066,7 +1066,7 @@ fixed_cb_search.exit:                             ; preds = %get_match_score.exi
   %478 = mul i32 %461, %477
   %479 = lshr i32 %478, %470
   %480 = uitofp i32 %479 to double
-  %481 = fmul nsz double %480, 0x3F30000000000000
+  %481 = fmul nnan nsz double %480, 0x3F30000000000000
   %482 = fptrunc nsz double %481 to float
   br i1 %.not114.i191, label %.preheader.i, label %483
 
@@ -1076,7 +1076,7 @@ fixed_cb_search.exit:                             ; preds = %get_match_score.exi
   %486 = mul i32 %.sroa.07.0.i192, %485
   %487 = lshr i32 %486, %470
   %488 = uitofp i32 %487 to double
-  %489 = fmul nsz double %488, 0x3F30000000000000
+  %489 = fmul nnan nsz double %488, 0x3F30000000000000
   %490 = fptrunc nsz double %489 to float
   br label %491
 

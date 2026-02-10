@@ -25840,7 +25840,7 @@ define linkonce_odr hidden void @_ZN11VSharedDataC2Ev(ptr noundef nonnull align 
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 592
   %10 = load i32, ptr %9, align 8
   %11 = uitofp i32 %10 to double
-  %12 = fmul double %11, 1.100000e+00
+  %12 = fmul nnan double %11, 1.100000e+00
   %13 = fptosi double %12 to i32
   %14 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %13, i32 noundef 4, ptr noundef nonnull %0) #17
   store i32 0, ptr %2, align 8

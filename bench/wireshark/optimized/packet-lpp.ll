@@ -14723,9 +14723,9 @@ define hidden void @proto_register_lpp() local_unnamed_addr #0 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_degreesLatitude_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
-  %4 = fpext float %3 to double
-  %5 = fdiv double %4, 0x415FFFFFC0000000
-  %6 = fmul double %5, 9.000000e+01
+  %4 = fpext nnan ninf float %3 to double
+  %5 = fdiv nnan double %4, 0x415FFFFFC0000000
+  %6 = fmul nnan double %5, 9.000000e+01
   %7 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7006, double noundef %6, i32 noundef %1)
   ret void
 }
@@ -14733,9 +14733,9 @@ define internal void @lpp_degreesLatitude_fmt(ptr noundef %0, i32 noundef %1) #2
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_degreesLongitude_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to float
-  %4 = fpext float %3 to double
-  %5 = fmul double %4, 0x3E80000000000000
-  %6 = fmul double %5, 1.800000e+02
+  %4 = fpext nnan ninf float %3 to double
+  %5 = fmul nnan double %4, 0x3E80000000000000
+  %6 = fmul nnan double %5, 1.800000e+02
   %7 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7007, double noundef %6, i32 noundef %1)
   ret void
 }
@@ -14819,7 +14819,7 @@ define internal void @lpp_measurementLimit_fmt(ptr noundef %0, i32 noundef %1) #
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_nr_LTE_fineTiming_Offset_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
-  %4 = fmul float %3, 5.000000e-01
+  %4 = fmul nnan float %3, 5.000000e-01
   %5 = fpext float %4 to double
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7565, double noundef %5, i32 noundef %1)
   ret void
@@ -14910,7 +14910,7 @@ define internal void @lpp_rstd_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_relativeTimeDifference_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 5.000000e-01
+  %4 = fmul nnan double %3, 5.000000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7699, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -14928,7 +14928,7 @@ define internal void @lpp_referenceTimeUnc_fmt(ptr noundef %0, i32 noundef %1) #
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_fractionalSecondsFromFrameStructureStart_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
-  %4 = fmul float %3, 2.500000e-01
+  %4 = fmul nnan float %3, 2.500000e-01
   %5 = fpext float %4 to double
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7734, double noundef %5, i32 noundef %1)
   ret void
@@ -14937,7 +14937,7 @@ define internal void @lpp_fractionalSecondsFromFrameStructureStart_fmt(ptr nound
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_frameDrift_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E10000000000000
+  %4 = fmul nnan double %3, 0x3E10000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7740, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -14945,7 +14945,7 @@ define internal void @lpp_frameDrift_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_alpha0_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E10000000000000
+  %4 = fmul nnan double %3, 0x3E10000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -14953,7 +14953,7 @@ define internal void @lpp_alpha0_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_alpha1_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E40000000000000
+  %4 = fmul nnan double %3, 0x3E40000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7748, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -14961,7 +14961,7 @@ define internal void @lpp_alpha1_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_alpha2_3_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E70000000000000
+  %4 = fmul nnan double %3, 0x3E70000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7748, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -14969,7 +14969,7 @@ define internal void @lpp_alpha2_3_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_beta0_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 2.048000e+03
+  %4 = fmul nnan double %3, 2.048000e+03
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -14977,7 +14977,7 @@ define internal void @lpp_beta0_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_beta1_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 1.638400e+04
+  %4 = fmul nnan double %3, 1.638400e+04
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7748, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -14985,7 +14985,7 @@ define internal void @lpp_beta1_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_beta2_3_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 6.553600e+04
+  %4 = fmul nnan double %3, 6.553600e+04
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7748, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -14993,7 +14993,7 @@ define internal void @lpp_beta2_3_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_ai0_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 2.500000e-01
+  %4 = fmul nnan double %3, 2.500000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7749, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15001,7 +15001,7 @@ define internal void @lpp_ai0_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_ai1_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 3.906250e-03
+  %4 = fmul nnan double %3, 3.906250e-03
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7750, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15009,7 +15009,7 @@ define internal void @lpp_ai1_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_ai2_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F00000000000000
+  %4 = fmul nnan double %3, 0x3F00000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7751, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15024,7 +15024,7 @@ define internal void @lpp_teop_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_pmX_Y_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EB0000000000000
+  %4 = fmul nnan double %3, 0x3EB0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7753, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15032,7 +15032,7 @@ define internal void @lpp_pmX_Y_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_pmX_Ydot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EA0000000000000
+  %4 = fmul nnan double %3, 0x3EA0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7754, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15040,7 +15040,7 @@ define internal void @lpp_pmX_Ydot_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_deltaUT1_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E70000000000000
+  %4 = fmul nnan double %3, 0x3E70000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15048,7 +15048,7 @@ define internal void @lpp_deltaUT1_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_deltaUT1dot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E60000000000000
+  %4 = fmul nnan double %3, 0x3E60000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7755, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15072,8 +15072,8 @@ define internal void @lpp_1_1000m_32_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_aux_master_delta_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 2.500000e+01
-  %5 = fmul double %4, 0x3EB0C6F7A0B5ED8D
+  %4 = fmul nnan double %3, 2.500000e+01
+  %5 = fmul nnan double %4, 0x3EB0C6F7A0B5ED8D
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7786, double noundef %5, i32 noundef %1)
   ret void
 }
@@ -15088,7 +15088,7 @@ define internal void @lpp_gnss_TimeModelRefTime_fmt(ptr noundef %0, i32 noundef 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_tA0_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3DC0000000000000
+  %4 = fmul nnan double %3, 0x3DC0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15096,7 +15096,7 @@ define internal void @lpp_tA0_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_tA1_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3CC0000000000000
+  %4 = fmul nnan double %3, 0x3CC0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7740, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15104,7 +15104,7 @@ define internal void @lpp_tA1_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_tA2_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3BB0000000000000
+  %4 = fmul nnan double %3, 0x3BB0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7790, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15112,7 +15112,7 @@ define internal void @lpp_tA2_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_pseudoRangeCor_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 3.200000e-01
+  %4 = fmul nnan double %3, 3.200000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7810, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15120,7 +15120,7 @@ define internal void @lpp_pseudoRangeCor_fmt(ptr noundef %0, i32 noundef %1) #2 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_rangeRateCor_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 3.200000e-02
+  %4 = fmul nnan double %3, 3.200000e-02
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7811, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15135,7 +15135,7 @@ define internal void @lpp_stanClockToc_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_stanClockAF2_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3C40000000000000
+  %4 = fmul nnan double %3, 0x3C40000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7790, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15143,7 +15143,7 @@ define internal void @lpp_stanClockAF2_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_stanClockAF1_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3D10000000000000
+  %4 = fmul nnan double %3, 0x3D10000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7740, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15151,7 +15151,7 @@ define internal void @lpp_stanClockAF1_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_stanClockAF0_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3DD0000000000000
+  %4 = fmul nnan double %3, 0x3DD0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15159,7 +15159,7 @@ define internal void @lpp_stanClockAF0_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_stanClockTgd_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3DF0000000000000
+  %4 = fmul nnan double %3, 0x3DF0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15229,7 +15229,7 @@ define internal void @lpp_navToc_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navaf2_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3C80000000000000
+  %4 = fmul nnan double %3, 0x3C80000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7790, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15237,7 +15237,7 @@ define internal void @lpp_navaf2_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navaf1_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3D40000000000000
+  %4 = fmul nnan double %3, 0x3D40000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7740, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15245,7 +15245,7 @@ define internal void @lpp_navaf1_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navaf0_navTgd_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E00000000000000
+  %4 = fmul nnan double %3, 0x3E00000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7740, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15260,7 +15260,7 @@ define internal void @lpp_cnavToc_cnavTop_fmt(ptr noundef %0, i32 noundef %1) #2
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_cnavAf2_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3C30000000000000
+  %4 = fmul nnan double %3, 0x3C30000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7790, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15268,7 +15268,7 @@ define internal void @lpp_cnavAf2_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_cnavAf1_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3CF0000000000000
+  %4 = fmul nnan double %3, 0x3CF0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7740, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15276,7 +15276,7 @@ define internal void @lpp_cnavAf1_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_cnavX_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3DC0000000000000
+  %4 = fmul nnan double %3, 0x3DC0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15284,7 +15284,7 @@ define internal void @lpp_cnavX_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_gloTau_gloDeltaTau_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E10000000000000
+  %4 = fmul nnan double %3, 0x3E10000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15292,7 +15292,7 @@ define internal void @lpp_gloTau_gloDeltaTau_fmt(ptr noundef %0, i32 noundef %1)
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_gloGamma_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3D70000000000000
+  %4 = fmul nnan double %3, 0x3D70000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7839, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15307,7 +15307,7 @@ define internal void @lpp_sbasTo_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_sbasAgfo_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E00000000000000
+  %4 = fmul nnan double %3, 0x3E00000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15315,7 +15315,7 @@ define internal void @lpp_sbasAgfo_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_sbasAgf1_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3D70000000000000
+  %4 = fmul nnan double %3, 0x3D70000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7740, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15349,7 +15349,7 @@ define internal void @lpp_bdsAODC_AODE_r12_fmt(ptr noundef %0, i32 noundef %1) #
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsToc_Toe_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 8.000000e+00
+  %4 = fmul nnan double %3, 8.000000e+00
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15357,7 +15357,7 @@ define internal void @lpp_bdsToc_Toe_r12_fmt(ptr noundef %0, i32 noundef %1) #2 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsA0_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3DE0000000000000
+  %4 = fmul nnan double %3, 0x3DE0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15365,7 +15365,7 @@ define internal void @lpp_bdsA0_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsA1_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3CD0000000000000
+  %4 = fmul nnan double %3, 0x3CD0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7740, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15373,7 +15373,7 @@ define internal void @lpp_bdsA1_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsA2_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3BD0000000000000
+  %4 = fmul nnan double %3, 0x3BD0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7790, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15381,8 +15381,8 @@ define internal void @lpp_bdsA2_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsTgd1_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to float
-  %4 = fpext float %3 to double
-  %5 = fmul double %4, 1.000000e-01
+  %4 = fpext nnan ninf float %3 to double
+  %5 = fmul nnan double %4, 1.000000e-01
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7843, double noundef %5, i32 noundef %1)
   ret void
 }
@@ -15397,7 +15397,7 @@ define internal void @lpp_keplerToe_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_keplerW_M0_I0_Omega0_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E00000000000000
+  %4 = fmul nnan double %3, 0x3E00000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7844, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15405,7 +15405,7 @@ define internal void @lpp_keplerW_M0_I0_Omega0_fmt(ptr noundef %0, i32 noundef %
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_keplerDeltaN_OmegaDot_IDot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3D40000000000000
+  %4 = fmul nnan double %3, 0x3D40000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7845, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15413,7 +15413,7 @@ define internal void @lpp_keplerDeltaN_OmegaDot_IDot_fmt(ptr noundef %0, i32 nou
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_keplerE_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3DE0000000000000
+  %4 = fmul nnan double %3, 0x3DE0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7846, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15421,7 +15421,7 @@ define internal void @lpp_keplerE_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_keplerAPowerHalf_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EC0000000000000
+  %4 = fmul nnan double %3, 0x3EC0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7847, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15429,7 +15429,7 @@ define internal void @lpp_keplerAPowerHalf_fmt(ptr noundef %0, i32 noundef %1) #
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_keplerCrs_Crc_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 3.125000e-02
+  %4 = fmul nnan double %3, 3.125000e-02
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7760, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15437,7 +15437,7 @@ define internal void @lpp_keplerCrs_Crc_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_keplerCx_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E20000000000000
+  %4 = fmul nnan double %3, 0x3E20000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7848, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15452,7 +15452,7 @@ define internal void @lpp_navToe_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navOmega_M0_I0_OmegaA0_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E00000000000000
+  %4 = fmul nnan double %3, 0x3E00000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7844, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15460,7 +15460,7 @@ define internal void @lpp_navOmega_M0_I0_OmegaA0_fmt(ptr noundef %0, i32 noundef
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navDeltaN_OmegaADot_IDot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3D40000000000000
+  %4 = fmul nnan double %3, 0x3D40000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7845, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15468,7 +15468,7 @@ define internal void @lpp_navDeltaN_OmegaADot_IDot_fmt(ptr noundef %0, i32 nound
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navE_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3DE0000000000000
+  %4 = fmul nnan double %3, 0x3DE0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7846, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15476,7 +15476,7 @@ define internal void @lpp_navE_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navAPowerHalf_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EC0000000000000
+  %4 = fmul nnan double %3, 0x3EC0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7847, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15484,7 +15484,7 @@ define internal void @lpp_navAPowerHalf_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navCrs_Crc_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 3.125000e-02
+  %4 = fmul nnan double %3, 3.125000e-02
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7760, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15492,7 +15492,7 @@ define internal void @lpp_navCrs_Crc_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navCx_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E20000000000000
+  %4 = fmul nnan double %3, 0x3E20000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7848, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15500,7 +15500,7 @@ define internal void @lpp_navCx_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_cnavDeltaA_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F60000000000000
+  %4 = fmul nnan double %3, 0x3F60000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7760, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15508,7 +15508,7 @@ define internal void @lpp_cnavDeltaA_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_cnavAdot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EA0000000000000
+  %4 = fmul nnan double %3, 0x3EA0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7849, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15516,7 +15516,7 @@ define internal void @lpp_cnavAdot_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_cnavDeltaNo_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3D30000000000000
+  %4 = fmul nnan double %3, 0x3D30000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7845, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15524,7 +15524,7 @@ define internal void @lpp_cnavDeltaNo_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_cnavDeltaNoDot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3C60000000000000
+  %4 = fmul nnan double %3, 0x3C60000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7850, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15532,7 +15532,7 @@ define internal void @lpp_cnavDeltaNoDot_fmt(ptr noundef %0, i32 noundef %1) #2 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_cnavDeltaOmegaDot_IoDot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3D30000000000000
+  %4 = fmul nnan double %3, 0x3D30000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7845, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15540,7 +15540,7 @@ define internal void @lpp_cnavDeltaOmegaDot_IoDot_fmt(ptr noundef %0, i32 nounde
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_cnavCx_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E10000000000000
+  %4 = fmul nnan double %3, 0x3E10000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7848, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15548,7 +15548,7 @@ define internal void @lpp_cnavCx_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_cnavCrs_Crc_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 3.906250e-03
+  %4 = fmul nnan double %3, 3.906250e-03
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7760, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15556,7 +15556,7 @@ define internal void @lpp_cnavCrs_Crc_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_gloX_Y_Z_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F40000000000000
+  %4 = fmul nnan double %3, 0x3F40000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7851, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15564,7 +15564,7 @@ define internal void @lpp_gloX_Y_Z_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_gloXdot_Ydot_Zdot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EB0000000000000
+  %4 = fmul nnan double %3, 0x3EB0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7852, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15572,7 +15572,7 @@ define internal void @lpp_gloXdot_Ydot_Zdot_fmt(ptr noundef %0, i32 noundef %1) 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_gloXdotdot_Ydotdot_Zdotdot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E10000000000000
+  %4 = fmul nnan double %3, 0x3E10000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7853, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15580,7 +15580,7 @@ define internal void @lpp_gloXdotdot_Ydotdot_Zdotdot_fmt(ptr noundef %0, i32 nou
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_sbasXg_Yg_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 8.000000e-02
+  %4 = fmul nnan double %3, 8.000000e-02
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7810, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15588,7 +15588,7 @@ define internal void @lpp_sbasXg_Yg_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_sbasZg_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 4.000000e-01
+  %4 = fmul nnan double %3, 4.000000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7810, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15596,7 +15596,7 @@ define internal void @lpp_sbasZg_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_sbasXgDot_YgDot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 6.250000e-04
+  %4 = fmul nnan double %3, 6.250000e-04
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7811, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15604,7 +15604,7 @@ define internal void @lpp_sbasXgDot_YgDot_fmt(ptr noundef %0, i32 noundef %1) #2
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_sbasZgDot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 4.000000e-03
+  %4 = fmul nnan double %3, 4.000000e-03
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7811, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15612,7 +15612,7 @@ define internal void @lpp_sbasZgDot_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_sbasXgDotDot_YgDotDot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 1.250000e-05
+  %4 = fmul nnan double %3, 1.250000e-05
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7854, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15620,7 +15620,7 @@ define internal void @lpp_sbasXgDotDot_YgDotDot_fmt(ptr noundef %0, i32 noundef 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_sbasZgDotDot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 6.250000e-05
+  %4 = fmul nnan double %3, 6.250000e-05
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7854, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15628,7 +15628,7 @@ define internal void @lpp_sbasZgDotDot_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsAPowerHalf_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EC0000000000000
+  %4 = fmul nnan double %3, 0x3EC0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7847, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15636,7 +15636,7 @@ define internal void @lpp_bdsAPowerHalf_r12_fmt(ptr noundef %0, i32 noundef %1) 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsE_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3DE0000000000000
+  %4 = fmul nnan double %3, 0x3DE0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7846, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15644,7 +15644,7 @@ define internal void @lpp_bdsE_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsW_M0_Omega0_I0_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E00000000000000
+  %4 = fmul nnan double %3, 0x3E00000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7844, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15652,7 +15652,7 @@ define internal void @lpp_bdsW_M0_Omega0_I0_r12_fmt(ptr noundef %0, i32 noundef 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsDeltaN_OmegaDot_IDot_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3D40000000000000
+  %4 = fmul nnan double %3, 0x3D40000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7845, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15660,7 +15660,7 @@ define internal void @lpp_bdsDeltaN_OmegaDot_IDot_r12_fmt(ptr noundef %0, i32 no
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsCuc_Cus_Cic_Cis_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E00000000000000
+  %4 = fmul nnan double %3, 0x3E00000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7848, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15668,7 +15668,7 @@ define internal void @lpp_bdsCuc_Cus_Cic_Cis_r12_fmt(ptr noundef %0, i32 noundef
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsCrc_Crs_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 1.562500e-02
+  %4 = fmul nnan double %3, 1.562500e-02
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7848, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15676,7 +15676,7 @@ define internal void @lpp_bdsCrc_Crs_r12_fmt(ptr noundef %0, i32 noundef %1) #2 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_doppler0_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 5.000000e-01
+  %4 = fmul nnan double %3, 5.000000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7811, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15693,7 +15693,7 @@ define internal void @lpp_doppler1_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_codePhase_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F50000000000000
+  %4 = fmul nnan double %3, 0x3F50000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7862, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15701,8 +15701,8 @@ define internal void @lpp_codePhase_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_azimuth_elevation_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
-  %4 = fpext float %3 to double
-  %5 = fmul double %4, 7.031250e-01
+  %4 = fpext nnan ninf float %3 to double
+  %5 = fmul nnan double %4, 7.031250e-01
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7006, double noundef %5, i32 noundef %1)
   ret void
 }
@@ -15710,7 +15710,7 @@ define internal void @lpp_azimuth_elevation_fmt(ptr noundef %0, i32 noundef %1) 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_kepAlmanacE_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EF0000000000000
+  %4 = fmul nnan double %3, 0x3EF0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7846, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15718,7 +15718,7 @@ define internal void @lpp_kepAlmanacE_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_kepAlmanacDeltaI_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F10000000000000
+  %4 = fmul nnan double %3, 0x3F10000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7844, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15726,7 +15726,7 @@ define internal void @lpp_kepAlmanacDeltaI_fmt(ptr noundef %0, i32 noundef %1) #
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_kepAlmanacOmegaDot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3DE0000000000000
+  %4 = fmul nnan double %3, 0x3DE0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7845, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15734,7 +15734,7 @@ define internal void @lpp_kepAlmanacOmegaDot_fmt(ptr noundef %0, i32 noundef %1)
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_kepAlmanacAPowerHalf_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F60000000000000
+  %4 = fmul nnan double %3, 0x3F60000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7904, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15742,7 +15742,7 @@ define internal void @lpp_kepAlmanacAPowerHalf_fmt(ptr noundef %0, i32 noundef %
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_kepAlmanacOmega0_W_M0_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F00000000000000
+  %4 = fmul nnan double %3, 0x3F00000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7844, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15750,7 +15750,7 @@ define internal void @lpp_kepAlmanacOmega0_W_M0_fmt(ptr noundef %0, i32 noundef 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_kepAlmanacAF0_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EC0000000000000
+  %4 = fmul nnan double %3, 0x3EC0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15758,7 +15758,7 @@ define internal void @lpp_kepAlmanacAF0_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_kepAlmanacAF1_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3D90000000000000
+  %4 = fmul nnan double %3, 0x3D90000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7740, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15766,7 +15766,7 @@ define internal void @lpp_kepAlmanacAF1_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navAlmE_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EA0000000000000
+  %4 = fmul nnan double %3, 0x3EA0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7846, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15774,7 +15774,7 @@ define internal void @lpp_navAlmE_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navAlmDeltaI_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EC0000000000000
+  %4 = fmul nnan double %3, 0x3EC0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7844, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15782,7 +15782,7 @@ define internal void @lpp_navAlmDeltaI_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navAlmOMEGADOT_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3D90000000000000
+  %4 = fmul nnan double %3, 0x3D90000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7845, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15790,7 +15790,7 @@ define internal void @lpp_navAlmOMEGADOT_fmt(ptr noundef %0, i32 noundef %1) #2 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navAlmSqrtA_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F40000000000000
+  %4 = fmul nnan double %3, 0x3F40000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7847, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15798,7 +15798,7 @@ define internal void @lpp_navAlmSqrtA_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navAlmOMEGAo_Omega_Mo_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E80000000000000
+  %4 = fmul nnan double %3, 0x3E80000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7844, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15806,7 +15806,7 @@ define internal void @lpp_navAlmOMEGAo_Omega_Mo_fmt(ptr noundef %0, i32 noundef 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navAlmaf0_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EB0000000000000
+  %4 = fmul nnan double %3, 0x3EB0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15814,7 +15814,7 @@ define internal void @lpp_navAlmaf0_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_navAlmaf1_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3D90000000000000
+  %4 = fmul nnan double %3, 0x3D90000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7740, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15829,7 +15829,7 @@ define internal void @lpp_redAlmDeltaA_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_redAlmOmega0_Phi0_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 1.562500e-02
+  %4 = fmul nnan double %3, 1.562500e-02
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7844, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15837,7 +15837,7 @@ define internal void @lpp_redAlmOmega0_Phi0_fmt(ptr noundef %0, i32 noundef %1) 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_midiAlmE_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EF0000000000000
+  %4 = fmul nnan double %3, 0x3EF0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7846, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15845,7 +15845,7 @@ define internal void @lpp_midiAlmE_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_midiAlmDeltaI_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F10000000000000
+  %4 = fmul nnan double %3, 0x3F10000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7844, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15853,7 +15853,7 @@ define internal void @lpp_midiAlmDeltaI_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_midiAlmOmegaDot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3DE0000000000000
+  %4 = fmul nnan double %3, 0x3DE0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7845, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15861,8 +15861,8 @@ define internal void @lpp_midiAlmOmegaDot_fmt(ptr noundef %0, i32 noundef %1) #2
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_midiAlmSqrtA_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
-  %4 = fpext float %3 to double
-  %5 = fmul double %4, 6.250000e-02
+  %4 = fpext nnan ninf float %3 to double
+  %5 = fmul nnan double %4, 6.250000e-02
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7906, double noundef %5, i32 noundef %1)
   ret void
 }
@@ -15870,7 +15870,7 @@ define internal void @lpp_midiAlmSqrtA_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_midiAlmOmega0_Omega_Mo_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F00000000000000
+  %4 = fmul nnan double %3, 0x3F00000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7844, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15878,7 +15878,7 @@ define internal void @lpp_midiAlmOmega0_Omega_Mo_fmt(ptr noundef %0, i32 noundef
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_midiAlmaf0_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EB0000000000000
+  %4 = fmul nnan double %3, 0x3EB0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15886,7 +15886,7 @@ define internal void @lpp_midiAlmaf0_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_midiAlmaf1_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3DA0000000000000
+  %4 = fmul nnan double %3, 0x3DA0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7740, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15894,7 +15894,7 @@ define internal void @lpp_midiAlmaf1_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_gloAlmLambdaA_DeltaIa_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EB0000000000000
+  %4 = fmul nnan double %3, 0x3EB0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7844, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15902,8 +15902,8 @@ define internal void @lpp_gloAlmLambdaA_DeltaIa_fmt(ptr noundef %0, i32 noundef 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_gloAlmtlambdaA_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
-  %4 = fpext float %3 to double
-  %5 = fmul double %4, 3.125000e-02
+  %4 = fpext nnan ninf float %3 to double
+  %5 = fmul nnan double %4, 3.125000e-02
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7907, double noundef %5, i32 noundef %1)
   ret void
 }
@@ -15911,7 +15911,7 @@ define internal void @lpp_gloAlmtlambdaA_fmt(ptr noundef %0, i32 noundef %1) #2 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_gloAlmDeltaTA_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F60000000000000
+  %4 = fmul nnan double %3, 0x3F60000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7908, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15919,7 +15919,7 @@ define internal void @lpp_gloAlmDeltaTA_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_gloAlmDeltaTdotA_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F10000000000000
+  %4 = fmul nnan double %3, 0x3F10000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7908, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15927,7 +15927,7 @@ define internal void @lpp_gloAlmDeltaTdotA_fmt(ptr noundef %0, i32 noundef %1) #
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_gloAlmEpsilonA_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EB0000000000000
+  %4 = fmul nnan double %3, 0x3EB0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7846, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15935,7 +15935,7 @@ define internal void @lpp_gloAlmEpsilonA_fmt(ptr noundef %0, i32 noundef %1) #2 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_gloAlmOmegaA_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F00000000000000
+  %4 = fmul nnan double %3, 0x3F00000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7844, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15943,7 +15943,7 @@ define internal void @lpp_gloAlmOmegaA_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_gloAlmTauA_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3ED0000000000000
+  %4 = fmul nnan double %3, 0x3ED0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15951,7 +15951,7 @@ define internal void @lpp_gloAlmTauA_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_sbasAlmXg_Yg_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 2.600000e+00
+  %4 = fmul nnan double %3, 2.600000e+00
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7909, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15973,7 +15973,7 @@ define internal void @lpp_sbasAlmXgdot_YgDot_fmt(ptr noundef %0, i32 noundef %1)
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_sbasAlmZgDot_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 4.096000e+01
+  %4 = fmul nnan double %3, 4.096000e+01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7811, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -15995,7 +15995,7 @@ define internal void @lpp_bdsAlmToa_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsAlmSqrtA_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F40000000000000
+  %4 = fmul nnan double %3, 0x3F40000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7847, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16003,7 +16003,7 @@ define internal void @lpp_bdsAlmSqrtA_r12_fmt(ptr noundef %0, i32 noundef %1) #2
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsAlmE_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EA0000000000000
+  %4 = fmul nnan double %3, 0x3EA0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7847, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16011,7 +16011,7 @@ define internal void @lpp_bdsAlmE_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsAlmW_M0_Omega0_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E80000000000000
+  %4 = fmul nnan double %3, 0x3E80000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7844, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16019,7 +16019,7 @@ define internal void @lpp_bdsAlmW_M0_Omega0_r12_fmt(ptr noundef %0, i32 noundef 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsAlmOmegaDot_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3D90000000000000
+  %4 = fmul nnan double %3, 0x3D90000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7845, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16027,7 +16027,7 @@ define internal void @lpp_bdsAlmOmegaDot_r12_fmt(ptr noundef %0, i32 noundef %1)
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsAlmDeltaI_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EC0000000000000
+  %4 = fmul nnan double %3, 0x3EC0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7844, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16035,7 +16035,7 @@ define internal void @lpp_bdsAlmDeltaI_r12_fmt(ptr noundef %0, i32 noundef %1) #
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsAlmA0_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EB0000000000000
+  %4 = fmul nnan double %3, 0x3EB0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16043,7 +16043,7 @@ define internal void @lpp_bdsAlmA0_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bdsAlmA1_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3D90000000000000
+  %4 = fmul nnan double %3, 0x3D90000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7740, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16051,7 +16051,7 @@ define internal void @lpp_bdsAlmA1_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_gnss_Utc_A1_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3CD0000000000000
+  %4 = fmul nnan double %3, 0x3CD0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7740, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16059,7 +16059,7 @@ define internal void @lpp_gnss_Utc_A1_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_gnss_Utc_A0_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E10000000000000
+  %4 = fmul nnan double %3, 0x3E10000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16074,7 +16074,7 @@ define internal void @lpp_gnss_Utc_Tot_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_tauC_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E00000000000000
+  %4 = fmul nnan double %3, 0x3E00000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16082,7 +16082,7 @@ define internal void @lpp_tauC_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_b1_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F50000000000000
+  %4 = fmul nnan double %3, 0x3F50000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7747, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16090,7 +16090,7 @@ define internal void @lpp_b1_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_b2_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EF0000000000000
+  %4 = fmul nnan double %3, 0x3EF0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7912, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16106,8 +16106,8 @@ define internal void @lpp_bds_ECC_DeltaT_r12_fmt(ptr noundef %0, i32 noundef %1)
 
 6:                                                ; preds = %2
   %7 = sitofp i32 %1 to float
-  %8 = fpext float %7 to double
-  %9 = fmul double %8, 1.000000e-01
+  %8 = fpext nnan ninf float %7 to double
+  %9 = fmul nnan double %8, 1.000000e-01
   %10 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7760, double noundef %9, i32 noundef %1)
   br label %11
 
@@ -16118,8 +16118,8 @@ define internal void @lpp_bds_ECC_DeltaT_r12_fmt(ptr noundef %0, i32 noundef %1)
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_bds_GridIonElement_dt_r12_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to float
-  %4 = fpext float %3 to double
-  %5 = fmul double %4, 1.250000e-01
+  %4 = fpext nnan ninf float %3 to double
+  %5 = fmul nnan double %4, 1.250000e-01
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7760, double noundef %5, i32 noundef %1)
   ret void
 }
@@ -16127,7 +16127,7 @@ define internal void @lpp_bds_GridIonElement_dt_r12_fmt(ptr noundef %0, i32 noun
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_fine_PseudoRange_r15_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E20000000000000
+  %4 = fmul nnan double %3, 0x3E20000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7959, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16135,7 +16135,7 @@ define internal void @lpp_fine_PseudoRange_r15_fmt(ptr noundef %0, i32 noundef %
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_fine_PhaseRange_r15_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E00000000000000
+  %4 = fmul nnan double %3, 0x3E00000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7959, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16143,7 +16143,7 @@ define internal void @lpp_fine_PhaseRange_r15_fmt(ptr noundef %0, i32 noundef %1
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_carrier_to_noise_ratio_r15_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 6.250000e-02
+  %4 = fmul nnan double %3, 6.250000e-02
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7960, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16199,8 +16199,8 @@ define internal void @lpp_1_10000m_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_4_10000m_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fdiv double %3, 1.000000e+04
-  %5 = fmul double %4, 4.000000e+00
+  %4 = fdiv nnan double %3, 1.000000e+04
+  %5 = fmul nnan double %4, 4.000000e+00
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7760, double noundef %5, i32 noundef %1)
   ret void
 }
@@ -16216,8 +16216,8 @@ define internal void @lpp_1_1000000m_s_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_4_1000000m_s_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fdiv double %3, 1.000000e+06
-  %5 = fmul double %4, 4.000000e+00
+  %4 = fdiv nnan double %3, 1.000000e+06
+  %5 = fmul nnan double %4, 4.000000e+00
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7849, double noundef %5, i32 noundef %1)
   ret void
 }
@@ -16225,8 +16225,8 @@ define internal void @lpp_4_1000000m_s_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_2_100000000m_s2_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fdiv double %3, 1.000000e+08
-  %5 = fmul double %4, 2.000000e+00
+  %4 = fdiv nnan double %3, 1.000000e+08
+  %5 = fmul nnan double %4, 2.000000e+00
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7854, double noundef %5, i32 noundef %1)
   ret void
 }
@@ -16242,7 +16242,7 @@ define internal void @lpp_1_100000m_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_GNSS_SatMeas_codePhase_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EA0000000000000
+  %4 = fmul nnan double %3, 0x3EA0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7862, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16284,7 +16284,7 @@ define internal void @lpp_codePhaseRMSError_fmt(ptr noundef %0, i32 noundef %1) 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_doppler_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 4.000000e-02
+  %4 = fmul nnan double %3, 4.000000e-02
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7849, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16292,7 +16292,7 @@ define internal void @lpp_doppler_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_adr_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3F50000000000000
+  %4 = fmul nnan double %3, 0x3F50000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.8051, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16307,7 +16307,7 @@ define internal void @lpp_adrMSB_r15_fmt(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_GNSS_SatMeas_delta_codePhase_r15_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E70000000000000
+  %4 = fmul nnan double %3, 0x3E70000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7862, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16362,11 +16362,11 @@ define internal void @lpp_rsrq_Result_fmt(ptr noundef %0, i32 noundef %1) #2 {
 
 8:                                                ; preds = %6
   %9 = uitofp nneg i32 %1 to float
-  %10 = fmul float %9, 5.000000e-01
+  %10 = fmul nnan float %9, 5.000000e-01
   %11 = fadd float %10, -2.000000e+01
   %12 = fpext float %11 to double
-  %13 = fadd float %9, 1.000000e+00
-  %14 = fmul float %13, 5.000000e-01
+  %13 = fadd nnan float %9, 1.000000e+00
+  %14 = fmul nnan float %13, 5.000000e-01
   %15 = fadd float %14, -2.000000e+01
   %16 = fpext float %15 to double
   %17 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.8090, double noundef %12, double noundef %16, i32 noundef %1)
@@ -16460,11 +16460,11 @@ define internal void @lpp_nrsrq_Result_fmt(ptr noundef %0, i32 noundef %1) #2 {
 
 8:                                                ; preds = %6
   %9 = uitofp nneg i32 %1 to float
-  %10 = fadd float %9, -1.000000e+00
-  %11 = fmul float %10, 5.000000e-01
+  %10 = fadd nnan float %9, -1.000000e+00
+  %11 = fmul nnan float %10, 5.000000e-01
   %12 = fadd float %11, -3.400000e+01
   %13 = fpext float %12 to double
-  %14 = fmul float %9, 5.000000e-01
+  %14 = fmul nnan float %9, 5.000000e-01
   %15 = fadd float %14, -3.400000e+01
   %16 = fpext float %15 to double
   %17 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.8099, double noundef %13, double noundef %16, i32 noundef %1)
@@ -16512,11 +16512,11 @@ define internal void @lpp_rsrq_Result_v1470_fmt(ptr noundef %0, i32 noundef %1) 
 
 8:                                                ; preds = %6
   %9 = uitofp nneg i32 %1 to float
-  %10 = fmul float %9, 5.000000e-01
+  %10 = fmul nnan float %9, 5.000000e-01
   %11 = fadd float %10, -2.000000e+01
   %12 = fpext float %11 to double
-  %13 = fadd float %9, 1.000000e+00
-  %14 = fmul float %13, 5.000000e-01
+  %13 = fadd nnan float %9, 1.000000e+00
+  %14 = fmul nnan float %13, 5.000000e-01
   %15 = fadd float %14, -2.000000e+01
   %16 = fpext float %15 to double
   %17 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.8104, double noundef %12, double noundef %16, i32 noundef %1)
@@ -16533,7 +16533,7 @@ define internal void @lpp_rsrq_Result_v1470_fmt(ptr noundef %0, i32 noundef %1) 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_mbs_beaconMeasElt_codePhase_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EA0000000000000
+  %4 = fmul nnan double %3, 0x3EA0000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.7862, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -16541,8 +16541,8 @@ define internal void @lpp_mbs_beaconMeasElt_codePhase_fmt(ptr noundef %0, i32 no
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_transmitterLatitude_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 4.000000e+00
-  %5 = fmul double %4, 0x3EB0000000000000
+  %4 = fmul nnan double %3, 4.000000e+00
+  %5 = fmul nnan double %4, 0x3EB0000000000000
   %6 = fadd double %5, -9.000000e+01
   %7 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.8122, double noundef %6, i32 noundef %1)
   ret void
@@ -16551,8 +16551,8 @@ define internal void @lpp_transmitterLatitude_fmt(ptr noundef %0, i32 noundef %1
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @lpp_transmitterLongitude_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 4.000000e+00
-  %5 = fmul double %4, 0x3EB0000000000000
+  %4 = fmul nnan double %3, 4.000000e+00
+  %5 = fmul nnan double %4, 0x3EB0000000000000
   %6 = fadd double %5, -1.800000e+02
   %7 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.8122, double noundef %6, i32 noundef %1)
   ret void
@@ -19960,7 +19960,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %19 = ashr i32 %18, 3
   %20 = load i64, ptr %6, align 8
   %21 = sitofp i64 %20 to double
-  %22 = fmul double %21, 0x3DF0000000000000
+  %22 = fmul nnan double %21, 0x3DF0000000000000
   %23 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_int64_format_value(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %17, i32 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.6926, double noundef %22, i64 noundef %20)
   store ptr %23, ptr %8, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -19997,7 +19997,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %19 = ashr i32 %18, 3
   %20 = load i64, ptr %6, align 8
   %21 = uitofp i64 %20 to double
-  %22 = fmul double %21, 0x3DD0000000000000
+  %22 = fmul nnan double %21, 0x3DD0000000000000
   %23 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_uint64_format_value(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %17, i32 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.6927, double noundef %22, i64 noundef %20)
   store ptr %23, ptr %8, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -20034,7 +20034,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %19 = ashr i32 %18, 3
   %20 = load i64, ptr %6, align 8
   %21 = sitofp i64 %20 to double
-  %22 = fmul double %21, 0x3DF0000000000000
+  %22 = fmul nnan double %21, 0x3DF0000000000000
   %23 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_int64_format_value(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %17, i32 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.6926, double noundef %22, i64 noundef %20)
   store ptr %23, ptr %8, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -20071,7 +20071,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %19 = ashr i32 %18, 3
   %20 = load i64, ptr %6, align 8
   %21 = sitofp i64 %20 to double
-  %22 = fmul double %21, 0x3DF0000000000000
+  %22 = fmul nnan double %21, 0x3DF0000000000000
   %23 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_int64_format_value(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %17, i32 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.6926, double noundef %22, i64 noundef %20)
   store ptr %23, ptr %8, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -20108,7 +20108,7 @@ proto_item_set_hidden.exit:                       ; preds = %5, %10, %13
   %19 = ashr i32 %18, 3
   %20 = load i64, ptr %6, align 8
   %21 = sitofp i64 %20 to double
-  %22 = fmul double %21, 0x3DF0000000000000
+  %22 = fmul nnan double %21, 0x3DF0000000000000
   %23 = call ptr (ptr, i32, ptr, i32, i32, i64, ptr, ...) @proto_tree_add_int64_format_value(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %17, i32 noundef %19, i64 noundef %20, ptr noundef nonnull @.str.6926, double noundef %22, i64 noundef %20)
   store ptr %23, ptr %8, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

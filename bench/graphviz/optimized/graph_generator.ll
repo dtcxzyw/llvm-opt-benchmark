@@ -863,7 +863,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 define dso_local void @makeTetrix(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = add i32 %0, -1
   %4 = uitofp i32 %3 to double
-  %mul = fmul double %4, 2.000000e+00
+  %mul = fmul nnan double %4, 2.000000e+00
   %exp2 = tail call double @exp2(double %mul) #15
   %5 = fadd double %exp2, 5.000000e-01
   %6 = fptoui double %5 to i32
@@ -1716,7 +1716,7 @@ define dso_local void @makeRandomTree(ptr noundef captures(none) initializes((24
   %21 = uitofp i32 %20 to double
   %22 = tail call i32 @rand() #15
   %23 = sitofp i32 %22 to double
-  %24 = fdiv double %23, 0x41DFFFFFFFC00000
+  %24 = fdiv nnan double %23, 0x41DFFFFFFFC00000
   %25 = fmul double %24, %21
   %26 = tail call double @llvm.floor.f64(double %25)
   br label %.loopexit.i.outer

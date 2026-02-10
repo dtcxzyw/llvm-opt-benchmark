@@ -984,7 +984,7 @@ Ssw_MatchingCountUnmached.exit:                   ; preds = %33, %13
   %37 = add i32 %.val66, %.val62
   %38 = add i32 %37, %.val67
   %39 = sitofp i32 %.0.lcssa.i to double
-  %40 = fmul double %39, 1.000000e+02
+  %40 = fmul nnan double %39, 1.000000e+02
   %41 = sitofp i32 %38 to double
   %42 = fdiv double %40, %41
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, i32 noundef 0, i32 noundef %38, i32 noundef %.0.lcssa.i, double noundef %42)
@@ -1155,7 +1155,7 @@ Ssw_MatchingCountUnmached.exit97:                 ; preds = %94, %75
   %96 = add i32 %.val70, %.val64
   %97 = add i32 %96, %.val71
   %98 = sitofp i32 %.0.lcssa.i82 to double
-  %99 = fmul double %98, 1.000000e+02
+  %99 = fmul nnan double %98, 1.000000e+02
   %100 = sitofp i32 %97 to double
   %101 = fdiv double %99, %100
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, i32 noundef %95, i32 noundef %97, i32 noundef %.0.lcssa.i82, double noundef %101)

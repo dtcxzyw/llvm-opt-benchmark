@@ -528,7 +528,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %80, %
 
 152:                                              ; preds = %85
   %153 = uitofp i64 %151 to double
-  %154 = fmul double %153, 0x3EF0000000000000
+  %154 = fmul nnan double %153, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, double noundef %154)
           to label %155 unwind label %162
 

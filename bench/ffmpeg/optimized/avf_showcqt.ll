@@ -566,7 +566,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %64 ]
   %65 = trunc nuw nsw i64 %indvars.iv.i to i32
   %66 = uitofp nneg i32 %65 to double
-  %67 = fadd nsz double %66, 5.000000e-01
+  %67 = fadd nnan nsz double %66, 5.000000e-01
   %68 = fmul nsz double %63, %67
   %69 = tail call nsz double @llvm.fmuladd.f64(double %68, double %56, double %60)
   %70 = tail call nsz double @llvm.exp.f64(double %69)
@@ -897,7 +897,7 @@ init_volume.exit:                                 ; preds = %clip_with_log.exit4
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %236 ]
   %237 = trunc nuw nsw i64 %indvars.iv to i32
   %238 = uitofp nneg i32 %237 to double
-  %239 = fmul nsz double %238, 0x400921FB54442D18
+  %239 = fmul nnan nsz double %238, 0x400921FB54442D18
   %240 = fdiv nsz double %239, %235
   %241 = call nsz double @llvm.cos.f64(double %240)
   %242 = call nsz double @llvm.fmuladd.f64(double %241, double 4.873960e-01, double 3.557680e-01)
@@ -971,7 +971,7 @@ init_volume.exit:                                 ; preds = %clip_with_log.exit4
   %280 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %281 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %282 = sitofp i32 %266 to double
-  %283 = fmul nsz double %282, 5.000000e-01
+  %283 = fmul nnan nsz double %282, 5.000000e-01
   br label %284
 
 284:                                              ; preds = %378, %.lr.ph123.i
@@ -1026,7 +1026,7 @@ clip_with_log.exit.i189:                          ; preds = %305, %303, %301, %2
   %.0.i.i190 = phi nsz double [ %295, %297 ], [ 1.000000e-03, %301 ], [ %295, %305 ], [ %294, %303 ]
   %307 = load i32, ptr %181, align 4, !tbaa !84
   %308 = sitofp i32 %307 to double
-  %309 = fmul nsz double %308, 8.000000e+00
+  %309 = fmul nnan nsz double %308, 8.000000e+00
   %310 = fmul nsz double %.0.i.i190, %282
   %311 = fdiv nsz double %309, %310
   %312 = load ptr, ptr %73, align 8, !tbaa !73
@@ -1074,7 +1074,7 @@ clip_with_log.exit.i189:                          ; preds = %305, %303, %301, %2
   %342 = fdiv nsz double 1.000000e+00, %311
   %343 = load i32, ptr %181, align 4, !tbaa !84
   %344 = sitofp i32 %343 to double
-  %345 = fdiv nsz double 1.000000e+00, %344
+  %345 = fdiv nnan nsz double 1.000000e+00, %344
   %346 = getelementptr inbounds nuw i8, ptr %341, i64 8
   %347 = load i32, ptr %346, align 8, !tbaa !103
   %348 = sext i32 %320 to i64
@@ -1327,7 +1327,7 @@ define internal fastcc void @common_uninit(ptr noundef %0) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = sitofp i64 %3 to double
-  %8 = fmul nsz double %7, 0x3EB0C6F7A0B5ED8D
+  %8 = fmul nnan nsz double %7, 0x3EB0C6F7A0B5ED8D
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %6, i32 noundef 48, ptr noundef nonnull @.str.9, double noundef %8) #16
   br label %9
 
@@ -1341,7 +1341,7 @@ define internal fastcc void @common_uninit(ptr noundef %0) unnamed_addr #1 {
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !20
   %15 = sitofp i64 %11 to double
-  %16 = fmul nsz double %15, 0x3EB0C6F7A0B5ED8D
+  %16 = fmul nnan nsz double %15, 0x3EB0C6F7A0B5ED8D
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %14, i32 noundef 48, ptr noundef nonnull @.str.10, double noundef %16) #16
   br label %17
 
@@ -1355,7 +1355,7 @@ define internal fastcc void @common_uninit(ptr noundef %0) unnamed_addr #1 {
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !20
   %23 = sitofp i64 %19 to double
-  %24 = fmul nsz double %23, 0x3EB0C6F7A0B5ED8D
+  %24 = fmul nnan nsz double %23, 0x3EB0C6F7A0B5ED8D
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %22, i32 noundef 48, ptr noundef nonnull @.str.11, double noundef %24) #16
   br label %25
 
@@ -1369,7 +1369,7 @@ define internal fastcc void @common_uninit(ptr noundef %0) unnamed_addr #1 {
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !20
   %31 = sitofp i64 %27 to double
-  %32 = fmul nsz double %31, 0x3EB0C6F7A0B5ED8D
+  %32 = fmul nnan nsz double %31, 0x3EB0C6F7A0B5ED8D
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %30, i32 noundef 48, ptr noundef nonnull @.str.12, double noundef %32) #16
   br label %33
 
@@ -1383,7 +1383,7 @@ define internal fastcc void @common_uninit(ptr noundef %0) unnamed_addr #1 {
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !20
   %39 = sitofp i64 %35 to double
-  %40 = fmul nsz double %39, 0x3EB0C6F7A0B5ED8D
+  %40 = fmul nnan nsz double %39, 0x3EB0C6F7A0B5ED8D
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %38, i32 noundef 48, ptr noundef nonnull @.str.13, double noundef %40) #16
   br label %41
 
@@ -1397,7 +1397,7 @@ define internal fastcc void @common_uninit(ptr noundef %0) unnamed_addr #1 {
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !20
   %47 = sitofp i64 %43 to double
-  %48 = fmul nsz double %47, 0x3EB0C6F7A0B5ED8D
+  %48 = fmul nnan nsz double %47, 0x3EB0C6F7A0B5ED8D
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %46, i32 noundef 48, ptr noundef nonnull @.str.14, double noundef %48) #16
   br label %49
 
@@ -1411,7 +1411,7 @@ define internal fastcc void @common_uninit(ptr noundef %0) unnamed_addr #1 {
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !20
   %55 = sitofp i64 %51 to double
-  %56 = fmul nsz double %55, 0x3EB0C6F7A0B5ED8D
+  %56 = fmul nnan nsz double %55, 0x3EB0C6F7A0B5ED8D
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %54, i32 noundef 48, ptr noundef nonnull @.str.15, double noundef %56) #16
   br label %57
 
@@ -1425,7 +1425,7 @@ define internal fastcc void @common_uninit(ptr noundef %0) unnamed_addr #1 {
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !20
   %63 = sitofp i64 %59 to double
-  %64 = fmul nsz double %63, 0x3EB0C6F7A0B5ED8D
+  %64 = fmul nnan nsz double %63, 0x3EB0C6F7A0B5ED8D
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %62, i32 noundef 48, ptr noundef nonnull @.str.16, double noundef %64) #16
   %.pre = load i64, ptr %58, align 8, !tbaa !127
   br label %65
@@ -1453,7 +1453,7 @@ define internal fastcc void @common_uninit(ptr noundef %0) unnamed_addr #1 {
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !20
   %84 = sitofp i64 %80 to double
-  %85 = fmul nsz double %84, 0x3EB0C6F7A0B5ED8D
+  %85 = fmul nnan nsz double %84, 0x3EB0C6F7A0B5ED8D
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %83, i32 noundef 48, ptr noundef nonnull @.str.17, double noundef %85) #16
   br label %86
 
@@ -1728,7 +1728,7 @@ define internal void @draw_bar_rgb(ptr noundef readonly captures(none) %0, ptr n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i32, ptr %7, align 8, !tbaa !147
   %9 = sitofp i32 %4 to float
-  %10 = fdiv nsz float 1.000000e+00, %9
+  %10 = fdiv nnan nsz float 1.000000e+00, %9
   %11 = fdiv nsz float 1.000000e+00, %5
   %12 = load ptr, ptr %0, align 8, !tbaa !130
   %13 = icmp sgt i32 %4, 0
@@ -1894,7 +1894,7 @@ define internal void @draw_axis_rgb(ptr noundef readonly captures(none) %0, ptr 
 
 50:                                               ; preds = %24
   %51 = uitofp i8 %26 to float
-  %52 = fmul nsz float %51, 0x3F70101020000000
+  %52 = fmul nnan nsz float %51, 0x3F70101020000000
   %53 = load i8, ptr %.059.us, align 1, !tbaa !148
   %54 = uitofp i8 %53 to float
   %55 = fsub nsz float 1.000000e+00, %52
@@ -2617,7 +2617,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 97:                                               ; preds = %.lr.ph667
   %98 = uitofp i8 %76 to float
-  %99 = fmul nsz float %98, 0x3F70101020000000
+  %99 = fmul nnan nsz float %98, 0x3F70101020000000
   %100 = load i8, ptr %.0563662, align 1, !tbaa !148
   %101 = uitofp i8 %100 to float
   %102 = fsub nsz float 1.000000e+00, %99
@@ -2697,7 +2697,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 158:                                              ; preds = %128
   %159 = uitofp i8 %136 to float
-  %160 = fmul nsz float %159, 0x3F70101020000000
+  %160 = fmul nnan nsz float %159, 0x3F70101020000000
   %161 = load i8, ptr %132, align 1, !tbaa !148
   %162 = uitofp i8 %161 to float
   %163 = fsub nsz float 1.000000e+00, %160
@@ -2783,10 +2783,10 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 209:                                              ; preds = %.lr.ph658
   %210 = uitofp i8 %200 to float
-  %211 = fmul nsz float %210, 0x3F70101020000000
+  %211 = fmul nnan nsz float %210, 0x3F70101020000000
   %212 = load i8, ptr %.1564653, align 1, !tbaa !148
   %213 = uitofp i8 %212 to float
-  %214 = fsub nsz float 1.000000e+00, %211
+  %214 = fsub nnan nsz float 1.000000e+00, %211
   %215 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv698
   %216 = load float, ptr %215, align 4, !tbaa !148
   %217 = fadd nsz float %216, 1.600000e+01
@@ -2840,9 +2840,9 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 .thread:                                          ; preds = %222, %226, %239
   %244 = uitofp i8 %225 to float
-  %245 = fmul nsz float %244, 0x3F60101020000000
+  %245 = fmul nnan nsz float %244, 0x3F60101020000000
   %246 = uitofp i8 %.pre717 to float
-  %247 = fmul nsz float %246, 0x3F60101020000000
+  %247 = fmul nnan nsz float %246, 0x3F60101020000000
   %248 = fsub nsz float 1.000000e+00, %245
   %249 = fsub nsz float %248, %247
   %250 = load i8, ptr %.1570652, align 1, !tbaa !148
@@ -2904,10 +2904,10 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 293:                                              ; preds = %277
   %294 = uitofp i8 %283 to float
-  %295 = fmul nsz float %294, 0x3F70101020000000
+  %295 = fmul nnan nsz float %294, 0x3F70101020000000
   %296 = load i8, ptr %224, align 1, !tbaa !148
   %297 = uitofp i8 %296 to float
-  %298 = fsub nsz float 1.000000e+00, %295
+  %298 = fsub nnan nsz float 1.000000e+00, %295
   %299 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv698
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 12
   %301 = load float, ptr %300, align 4, !tbaa !148
@@ -2957,10 +2957,10 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 321:                                              ; preds = %.lr.ph
   %322 = uitofp i8 %312 to float
-  %323 = fmul nsz float %322, 0x3F70101020000000
+  %323 = fmul nnan nsz float %322, 0x3F70101020000000
   %324 = load i8, ptr %.2565645, align 1, !tbaa !148
   %325 = uitofp i8 %324 to float
-  %326 = fsub nsz float 1.000000e+00, %323
+  %326 = fsub nnan nsz float 1.000000e+00, %323
   %327 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv
   %328 = load float, ptr %327, align 4, !tbaa !148
   %329 = fadd nsz float %328, 1.600000e+01
@@ -3039,17 +3039,17 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 .thread630:                                       ; preds = %334, %338, %339, %342, %363, %359, %357
   %370 = phi i8 [ %.pre, %357 ], [ %.pre, %338 ], [ 0, %339 ], [ 0, %342 ], [ -1, %363 ], [ -1, %359 ], [ %.pre, %334 ]
   %371 = uitofp i8 %337 to float
-  %372 = fmul nsz float %371, 0x3F50101020000000
+  %372 = fmul nnan nsz float %371, 0x3F50101020000000
   %373 = uitofp i8 %370 to float
-  %374 = fmul nsz float %373, 0x3F50101020000000
+  %374 = fmul nnan nsz float %373, 0x3F50101020000000
   %375 = getelementptr inbounds i8, ptr %.2581642, i64 %45
   %376 = load i8, ptr %375, align 1, !tbaa !148
   %377 = uitofp i8 %376 to float
-  %378 = fmul nsz float %377, 0x3F50101020000000
+  %378 = fmul nnan nsz float %377, 0x3F50101020000000
   %379 = getelementptr i8, ptr %375, i64 1
   %380 = load i8, ptr %379, align 1, !tbaa !148
   %381 = uitofp i8 %380 to float
-  %382 = fmul nsz float %381, 0x3F50101020000000
+  %382 = fmul nnan nsz float %381, 0x3F50101020000000
   %383 = fsub nsz float 1.000000e+00, %372
   %384 = fsub nsz float %383, %374
   %385 = fsub nsz float %384, %378
@@ -3129,10 +3129,10 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 446:                                              ; preds = %430
   %447 = uitofp i8 %436 to float
-  %448 = fmul nsz float %447, 0x3F70101020000000
+  %448 = fmul nnan nsz float %447, 0x3F70101020000000
   %449 = load i8, ptr %336, align 1, !tbaa !148
   %450 = uitofp i8 %449 to float
-  %451 = fsub nsz float 1.000000e+00, %448
+  %451 = fsub nnan nsz float 1.000000e+00, %448
   %452 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv
   %453 = getelementptr inbounds nuw i8, ptr %452, i64 12
   %454 = load float, ptr %453, align 4, !tbaa !148
@@ -3220,7 +3220,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 502:                                              ; preds = %.lr.ph690
   %503 = uitofp i8 %481 to float
-  %504 = fmul nsz float %503, 0x3F70101020000000
+  %504 = fmul nnan nsz float %503, 0x3F70101020000000
   %505 = load i8, ptr %.3566685, align 1, !tbaa !148
   %506 = uitofp i8 %505 to float
   %507 = fsub nsz float 1.000000e+00, %504
@@ -3300,7 +3300,7 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 563:                                              ; preds = %533
   %564 = uitofp i8 %541 to float
-  %565 = fmul nsz float %564, 0x3F70101020000000
+  %565 = fmul nnan nsz float %564, 0x3F70101020000000
   %566 = load i8, ptr %537, align 1, !tbaa !148
   %567 = uitofp i8 %566 to float
   %568 = fsub nsz float 1.000000e+00, %565
@@ -3386,10 +3386,10 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 614:                                              ; preds = %.lr.ph681
   %615 = uitofp i8 %605 to float
-  %616 = fmul nsz float %615, 0x3F70101020000000
+  %616 = fmul nnan nsz float %615, 0x3F70101020000000
   %617 = load i8, ptr %.4567676, align 1, !tbaa !148
   %618 = uitofp i8 %617 to float
-  %619 = fsub nsz float 1.000000e+00, %616
+  %619 = fsub nnan nsz float 1.000000e+00, %616
   %620 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv707
   %621 = load float, ptr %620, align 4, !tbaa !148
   %622 = fadd nsz float %621, 1.600000e+01
@@ -3443,9 +3443,9 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 .thread631:                                       ; preds = %627, %631, %644
   %649 = uitofp i8 %630 to float
-  %650 = fmul nsz float %649, 0x3F60101020000000
+  %650 = fmul nnan nsz float %649, 0x3F60101020000000
   %651 = uitofp i8 %.pre719 to float
-  %652 = fmul nsz float %651, 0x3F60101020000000
+  %652 = fmul nnan nsz float %651, 0x3F60101020000000
   %653 = fsub nsz float 1.000000e+00, %650
   %654 = fsub nsz float %653, %652
   %655 = load i8, ptr %.4573675, align 1, !tbaa !148
@@ -3507,10 +3507,10 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 698:                                              ; preds = %682
   %699 = uitofp i8 %688 to float
-  %700 = fmul nsz float %699, 0x3F70101020000000
+  %700 = fmul nnan nsz float %699, 0x3F70101020000000
   %701 = load i8, ptr %629, align 1, !tbaa !148
   %702 = uitofp i8 %701 to float
-  %703 = fsub nsz float 1.000000e+00, %700
+  %703 = fsub nnan nsz float 1.000000e+00, %700
   %704 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv707
   %705 = getelementptr inbounds nuw i8, ptr %704, i64 12
   %706 = load float, ptr %705, align 4, !tbaa !148
@@ -3556,10 +3556,10 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 726:                                              ; preds = %.lr.ph672
   %727 = uitofp i8 %717 to float
-  %728 = fmul nsz float %727, 0x3F70101020000000
+  %728 = fmul nnan nsz float %727, 0x3F70101020000000
   %729 = load i8, ptr %.5568669, align 1, !tbaa !148
   %730 = uitofp i8 %729 to float
-  %731 = fsub nsz float 1.000000e+00, %728
+  %731 = fsub nnan nsz float 1.000000e+00, %728
   %732 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv704
   %733 = load float, ptr %732, align 4, !tbaa !148
   %734 = fadd nsz float %733, 1.600000e+01
@@ -3596,10 +3596,10 @@ define internal void @draw_axis_yuv(ptr noundef readonly captures(none) %0, ptr 
 
 753:                                              ; preds = %739
   %754 = uitofp i8 %743 to float
-  %755 = fmul nsz float %754, 0x3F70101020000000
+  %755 = fmul nnan nsz float %754, 0x3F70101020000000
   %756 = load i8, ptr %741, align 1, !tbaa !148
   %757 = uitofp i8 %756 to float
-  %758 = fsub nsz float 1.000000e+00, %755
+  %758 = fsub nnan nsz float 1.000000e+00, %755
   %759 = getelementptr inbounds nuw %union.ColorFloat, ptr %2, i64 %indvars.iv704
   %760 = getelementptr inbounds nuw i8, ptr %759, i64 12
   %761 = load float, ptr %760, align 4, !tbaa !148
@@ -4076,8 +4076,8 @@ render_default_font.exit:                         ; preds = %57
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %77 ]
   %79 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %80 = uitofp nneg i32 %79 to double
-  %81 = fadd nsz double %80, 5.000000e-01
-  %82 = fmul nsz double %81, 0x401BB9D3BEB8C86A
+  %81 = fadd nnan nsz double %80, 5.000000e-01
+  %82 = fmul nnan nsz double %81, 0x401BB9D3BEB8C86A
   %83 = tail call nsz double @llvm.fmuladd.f64(double %82, double 0x3F41111111111111, double 0x4007F8D19BD56E1B)
   %84 = tail call nsz double @llvm.exp.f64(double %83)
   %85 = getelementptr inbounds nuw double, ptr %78, i64 %indvars.iv.i.i
@@ -4451,7 +4451,7 @@ define internal double @r_func(ptr readnone captures(none) %0, double noundef %1
   %4 = select nsz i1 %3, double %1, double 0.000000e+00
   %5 = fcmp nsz ogt double %4, 1.000000e+00
   %..i = select nsz i1 %5, double 1.000000e+00, double %4
-  %6 = fmul nsz double %..i, 2.550000e+02
+  %6 = fmul nnan nsz double %..i, 2.550000e+02
   %7 = tail call i64 @llvm.lrint.i64.f64(double %6)
   %8 = shl i64 %7, 16
   %9 = sitofp i64 %8 to double
@@ -4464,7 +4464,7 @@ define internal double @g_func(ptr readnone captures(none) %0, double noundef %1
   %4 = select nsz i1 %3, double %1, double 0.000000e+00
   %5 = fcmp nsz ogt double %4, 1.000000e+00
   %..i = select nsz i1 %5, double 1.000000e+00, double %4
-  %6 = fmul nsz double %..i, 2.550000e+02
+  %6 = fmul nnan nsz double %..i, 2.550000e+02
   %7 = tail call i64 @llvm.lrint.i64.f64(double %6)
   %8 = shl i64 %7, 8
   %9 = sitofp i64 %8 to double
@@ -4477,7 +4477,7 @@ define internal double @b_func(ptr readnone captures(none) %0, double noundef %1
   %4 = select nsz i1 %3, double %1, double 0.000000e+00
   %5 = fcmp nsz ogt double %4, 1.000000e+00
   %..i = select nsz i1 %5, double 1.000000e+00, double %4
-  %6 = fmul nsz double %..i, 2.550000e+02
+  %6 = fmul nnan nsz double %..i, 2.550000e+02
   %7 = tail call i64 @llvm.lrint.i64.f64(double %6)
   %8 = sitofp i64 %7 to double
   ret double %8
@@ -4523,7 +4523,7 @@ switch.lookup:                                    ; preds = %1
   %.0 = phi nsz double [ 1.140000e-01, %5 ], [ %switch.load27, %switch.lookup ]
   %11 = fsub nsz double 1.000000e+00, %.025
   %12 = fsub nsz double %11, %.0
-  %13 = fmul nsz double %.025, 2.190000e+02
+  %13 = fmul nnan nsz double %.025, 2.190000e+02
   %14 = fptrunc nsz double %13 to float
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store float %14, ptr %15, align 8, !tbaa !61
@@ -4531,11 +4531,11 @@ switch.lookup:                                    ; preds = %1
   %17 = fptrunc nsz double %16 to float
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 212
   store float %17, ptr %18, align 4, !tbaa !61
-  %19 = fmul nsz double %.0, 2.190000e+02
+  %19 = fmul nnan nsz double %.0, 2.190000e+02
   %20 = fptrunc nsz double %19 to float
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store float %20, ptr %21, align 8, !tbaa !61
-  %22 = fmul nsz double %.025, -1.120000e+02
+  %22 = fmul nnan nsz double %.025, -1.120000e+02
   %23 = fsub nsz double 1.000000e+00, %.0
   %24 = fdiv nsz double %22, %23
   %25 = fptrunc nsz double %24 to float
@@ -4554,7 +4554,7 @@ switch.lookup:                                    ; preds = %1
   %34 = fptrunc nsz double %33 to float
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 236
   store float %34, ptr %35, align 4, !tbaa !61
-  %36 = fmul nsz double %.0, -1.120000e+02
+  %36 = fmul nnan nsz double %.0, -1.120000e+02
   %37 = fdiv nsz double %36, %11
   %38 = fptrunc nsz double %37 to float
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -5101,7 +5101,7 @@ define internal fastcc range(i32 -12, 1) i32 @plot_cqt(ptr %.56.val.0.val, ptr %
 
 78:                                               ; preds = %._crit_edge.i
   %79 = uitofp nneg i32 %76 to float
-  %80 = fdiv nsz float 1.000000e+00, %79
+  %80 = fdiv nnan nsz float 1.000000e+00, %79
   %81 = getelementptr inbounds nuw i8, ptr %.72.val, i64 384
   %82 = load i32, ptr %81, align 8, !tbaa !33
   %83 = icmp sgt i32 %82, 0

@@ -3396,7 +3396,7 @@ define internal void @yuv2planeX_floatBE_c(ptr noundef readonly captures(none) %
   %.0.i.i.us = trunc nsw i32 %23 to i16
   %24 = xor i16 %.0.i.i.us, -32768
   %25 = uitofp i16 %24 to float
-  %26 = fmul nsz float %25, 0x3EF0001000000000
+  %26 = fmul nnan nsz float %25, 0x3EF0001000000000
   %27 = bitcast float %26 to i32
   %28 = tail call i32 @llvm.bswap.i32(i32 %27)
   %29 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv10
@@ -3430,7 +3430,7 @@ define internal void @yuv2plane1_floatBE_c(ptr noundef readonly captures(none) %
   %13 = trunc nuw i32 %10 to i16
   %.0.i.i = select i1 %11, i16 %12, i16 %13
   %14 = uitofp i16 %.0.i.i to float
-  %15 = fmul nsz float %14, 0x3EF0001000000000
+  %15 = fmul nnan nsz float %14, 0x3EF0001000000000
   %16 = bitcast float %15 to i32
   %17 = tail call i32 @llvm.bswap.i32(i32 %16)
   %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
@@ -3489,7 +3489,7 @@ define internal void @yuv2planeX_floatLE_c(ptr noundef readonly captures(none) %
   %.0.i.i.us = trunc nsw i32 %23 to i16
   %24 = xor i16 %.0.i.i.us, -32768
   %25 = uitofp i16 %24 to float
-  %26 = fmul nsz float %25, 0x3EF0001000000000
+  %26 = fmul nnan nsz float %25, 0x3EF0001000000000
   %27 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv10
   store float %26, ptr %27, align 4, !tbaa !61
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
@@ -3521,7 +3521,7 @@ define internal void @yuv2plane1_floatLE_c(ptr noundef readonly captures(none) %
   %13 = trunc nuw i32 %10 to i16
   %.0.i.i = select i1 %11, i16 %12, i16 %13
   %14 = uitofp i16 %.0.i.i to float
-  %15 = fmul nsz float %14, 0x3EF0001000000000
+  %15 = fmul nnan nsz float %14, 0x3EF0001000000000
   %16 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %15, ptr %16, align 4, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -21226,15 +21226,15 @@ define internal void @yuv2gbrpf32_full_X_c(ptr noundef readonly captures(none) %
   %100 = select i1 %isnotneg.inv.i119, i32 0, i32 65535
   %.0.i120 = select i1 %.not.i118, i32 %99, i32 %100
   %101 = sitofp i32 %.0.i117 to float
-  %102 = fmul nsz float %101, 0x3EF0001000000000
+  %102 = fmul nnan nsz float %101, 0x3EF0001000000000
   %103 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv161
   store float %102, ptr %103, align 4, !tbaa !49
   %104 = sitofp i32 %.0.i120 to float
-  %105 = fmul nsz float %104, 0x3EF0001000000000
+  %105 = fmul nnan nsz float %104, 0x3EF0001000000000
   %106 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv161
   store float %105, ptr %106, align 4, !tbaa !49
   %107 = sitofp i32 %.0.i to float
-  %108 = fmul nsz float %107, 0x3EF0001000000000
+  %108 = fmul nnan nsz float %107, 0x3EF0001000000000
   %109 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv161
   store float %108, ptr %109, align 4, !tbaa !49
   br i1 %.not190, label %118, label %110
@@ -21244,7 +21244,7 @@ define internal void @yuv2gbrpf32_full_X_c(ptr noundef readonly captures(none) %
   %112 = tail call i32 @llvm.umin.i32(i32 %111, i32 1073741823)
   %113 = lshr i32 %112, 14
   %114 = uitofp nneg i32 %113 to float
-  %115 = fmul nsz float %114, 0x3EF0001000000000
+  %115 = fmul nnan nsz float %114, 0x3EF0001000000000
   %116 = load ptr, ptr %35, align 8, !tbaa !48
   %117 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv161
   store float %115, ptr %117, align 4, !tbaa !49

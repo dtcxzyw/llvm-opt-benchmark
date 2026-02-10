@@ -115,7 +115,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Slider16mouse_drag_eventERKNS_5Arr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %13 = load i32, ptr %12, align 4
   %14 = sitofp i32 %13 to float
-  %15 = fmul float %14, 0x3FD99999A0000000
+  %15 = fmul nnan float %14, 0x3FD99999A0000000
   %16 = fptosi float %15 to i32
   %17 = sitofp i32 %16 to float
   %18 = fadd float %17, 3.000000e+00
@@ -182,7 +182,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Slider18mouse_button_eventERKNS_5A
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %14 = load i32, ptr %13, align 4
   %15 = sitofp i32 %14 to float
-  %16 = fmul float %15, 0x3FD99999A0000000
+  %16 = fmul nnan float %15, 0x3FD99999A0000000
   %17 = fptosi float %16 to i32
   %18 = sitofp i32 %17 to float
   %19 = fadd float %18, 3.000000e+00
@@ -282,7 +282,7 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %29 = load i32, ptr %28, align 4
   %30 = sitofp i32 %29 to float
-  %31 = fmul float %30, 5.000000e-01
+  %31 = fmul nnan float %30, 5.000000e-01
   %32 = fadd float %31, %26
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %34 = load i32, ptr %33, align 4
@@ -390,7 +390,7 @@ _ZN7nanogui5ArrayIfLm3EEC2Ef.exit.i.i90:          ; preds = %_ZN7nanogui5ArrayIf
 
 _ZN7nanogui5ColorC2Eii.exit101:                   ; preds = %69
   %77 = sitofp i32 %34 to float
-  %78 = fmul float %77, 0x3FD99999A0000000
+  %78 = fmul nnan float %77, 0x3FD99999A0000000
   %79 = fptosi float %78 to i32
   %80 = sitofp i32 %79 to float
   %81 = fadd float %80, 3.000000e+00
@@ -566,7 +566,7 @@ _ZN7nanogui5ColorC2Eii.exit121:                   ; preds = %118
   call void @nvgStroke(ptr noundef %1)
   call void @nvgFill(ptr noundef %1)
   call void @nvgBeginPath(ptr noundef %1)
-  %150 = fmul float %80, 5.000000e-01
+  %150 = fmul nnan float %80, 5.000000e-01
   call void @nvgCircle(ptr noundef %1, float noundef %89, float noundef %90, float noundef %150)
   %151 = load i8, ptr %43, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

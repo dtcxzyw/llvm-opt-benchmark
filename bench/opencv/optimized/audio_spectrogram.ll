@@ -6466,7 +6466,7 @@ define linkonce_odr hidden void @_ZN12AudioDrawing4STFTERKSt6vectorIiSaIiEE(ptr 
   %.sroa.11.0210 = phi ptr [ %.sroa.11.2, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ], [ null, %17 ]
   %.sroa.17.0209 = phi ptr [ %.sroa.17.2, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ], [ null, %17 ]
   %22 = sitofp i32 %.0212 to double
-  %23 = fmul double %22, 0x400921FB54442D18
+  %23 = fmul nnan double %22, 0x400921FB54442D18
   %24 = add nsw i32 %21, -1
   %25 = sitofp i32 %24 to double
   %26 = fdiv double %23, %25
@@ -6568,7 +6568,7 @@ _ZNSt6vectorIdSaIdEE9push_backEOd.exit:           ; preds = %_ZNSt6vectorIdSaIdE
   %.sroa.11.1206 = phi ptr [ %.sroa.11.3, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit83 ], [ null, %56 ]
   %.sroa.17.1205 = phi ptr [ %.sroa.17.3, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit83 ], [ null, %56 ]
   %61 = sitofp i32 %.061208 to double
-  %62 = fmul double %61, 0x400921FB54442D18
+  %62 = fmul nnan double %61, 0x400921FB54442D18
   %63 = add nsw i32 %60, -1
   %64 = sitofp i32 %63 to double
   %65 = fdiv double %62, %64

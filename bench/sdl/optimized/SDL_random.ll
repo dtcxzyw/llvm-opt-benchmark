@@ -108,7 +108,7 @@ define hidden float @SDL_randf_REAL() local_unnamed_addr #0 {
   %sum.shift.i = lshr i64 %6, 40
   %7 = trunc nuw nsw i64 %sum.shift.i to i32
   %8 = uitofp nneg i32 %7 to float
-  %9 = fmul float %8, 0x3E70000000000000
+  %9 = fmul nnan float %8, 0x3E70000000000000
   ret float %9
 }
 
@@ -125,7 +125,7 @@ define hidden float @SDL_randf_r_REAL(ptr noundef captures(address_is_null) %0) 
   %sum.shift = lshr i64 %5, 40
   %6 = trunc nuw nsw i64 %sum.shift to i32
   %7 = uitofp nneg i32 %6 to float
-  %8 = fmul float %7, 0x3E70000000000000
+  %8 = fmul nnan float %7, 0x3E70000000000000
   br label %SDL_rand_bits_r_REAL.exit
 
 SDL_rand_bits_r_REAL.exit:                        ; preds = %1, %2

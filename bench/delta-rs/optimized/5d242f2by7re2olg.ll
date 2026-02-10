@@ -25447,7 +25447,7 @@ define hidden { i64, i32 } @"_ZN95_$LT$backoff..exponential..ExponentialBackoff$
 _ZN4rand6random17h8c9d4ab399b6558bE.exit:         ; preds = %"_ZN62_$LT$core..time..Duration$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h81d469b509eb3d2eE.exit.thread30"
   %31 = lshr i64 %26, 11
   %32 = uitofp nneg i64 %31 to double
-  %33 = fmul double %32, 0x3CA0000000000000
+  %33 = fmul nnan double %32, 0x3CA0000000000000
   call void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcaf854dd0e0f0089E.llvm.7909737541732249412"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -25457,7 +25457,7 @@ _ZN4rand6random17h8c9d4ab399b6558bE.exit:         ; preds = %"_ZN62_$LT$core..ti
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %39 = load i32, ptr %38, align 8, !range !3595, !noundef !5
   %40 = uitofp i64 %37 to double
-  %41 = fmul double %40, 1.000000e+09
+  %41 = fmul nnan double %40, 1.000000e+09
   %42 = uitofp nneg i32 %39 to double
   %43 = fadd double %41, %42
   %44 = fmul double %35, %43
@@ -25474,7 +25474,7 @@ _ZN4rand6random17h8c9d4ab399b6558bE.exit:         ; preds = %"_ZN62_$LT$core..ti
   %54 = load i64, ptr %36, align 8, !alias.scope !3755, !noundef !5
   %55 = load i32, ptr %38, align 8, !range !3595, !alias.scope !3755, !noundef !5
   %56 = uitofp i64 %54 to double
-  %57 = fmul double %56, 1.000000e+09
+  %57 = fmul nnan double %56, 1.000000e+09
   %58 = uitofp nneg i32 %55 to double
   %59 = fadd double %57, %58
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -25482,7 +25482,7 @@ _ZN4rand6random17h8c9d4ab399b6558bE.exit:         ; preds = %"_ZN62_$LT$core..ti
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %63 = load i32, ptr %62, align 8, !range !3595, !alias.scope !3755, !noundef !5
   %64 = uitofp i64 %61 to double
-  %65 = fmul double %64, 1.000000e+09
+  %65 = fmul nnan double %64, 1.000000e+09
   %66 = uitofp nneg i32 %63 to double
   %67 = fadd double %65, %66
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24

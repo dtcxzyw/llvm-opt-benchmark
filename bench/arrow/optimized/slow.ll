@@ -165,8 +165,8 @@ define void @_ZN5arrow2io16LatencyGenerator5SleepEv(ptr noundef nonnull align 8 
 8:                                                ; preds = %1
   %9 = fptosi double %6 to i64
   %10 = sitofp i64 %9 to double
-  %11 = fsub double %6, %10
-  %12 = fmul double %11, 1.000000e+09
+  %11 = fsub nnan double %6, %10
+  %12 = fmul nnan double %11, 1.000000e+09
   %13 = fptosi double %12 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %9, ptr %2, align 8, !tbaa !6
@@ -629,8 +629,8 @@ define void @_ZN5arrow2io15SlowInputStream4ReadElPv(ptr dead_on_unwind noalias w
 13:                                               ; preds = %4
   %14 = fptosi double %11 to i64
   %15 = sitofp i64 %14 to double
-  %16 = fsub double %11, %15
-  %17 = fmul double %16, 1.000000e+09
+  %16 = fsub nnan double %11, %15
+  %17 = fmul nnan double %16, 1.000000e+09
   %18 = fptosi double %17 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %14, ptr %5, align 8, !tbaa !6
@@ -686,8 +686,8 @@ define void @_ZTv0_n32_N5arrow2io15SlowInputStream4ReadElPv(ptr dead_on_unwind n
 17:                                               ; preds = %4
   %18 = fptosi double %15 to i64
   %19 = sitofp i64 %18 to double
-  %20 = fsub double %15, %19
-  %21 = fmul double %20, 1.000000e+09
+  %20 = fsub nnan double %15, %19
+  %21 = fmul nnan double %20, 1.000000e+09
   %22 = fptosi double %21 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !55
   store i64 %18, ptr %5, align 8, !tbaa !6, !noalias !55
@@ -739,8 +739,8 @@ define void @_ZN5arrow2io15SlowInputStream4ReadEl(ptr dead_on_unwind noalias wri
 12:                                               ; preds = %3
   %13 = fptosi double %10 to i64
   %14 = sitofp i64 %13 to double
-  %15 = fsub double %10, %14
-  %16 = fmul double %15, 1.000000e+09
+  %15 = fsub nnan double %10, %14
+  %16 = fmul nnan double %15, 1.000000e+09
   %17 = fptosi double %16 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %13, ptr %4, align 8, !tbaa !6
@@ -796,8 +796,8 @@ define void @_ZTv0_n40_N5arrow2io15SlowInputStream4ReadEl(ptr dead_on_unwind noa
 16:                                               ; preds = %3
   %17 = fptosi double %14 to i64
   %18 = sitofp i64 %17 to double
-  %19 = fsub double %14, %18
-  %20 = fmul double %19, 1.000000e+09
+  %19 = fsub nnan double %14, %18
+  %20 = fmul nnan double %19, 1.000000e+09
   %21 = fptosi double %20 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !58
   store i64 %17, ptr %4, align 8, !tbaa !6, !noalias !58
@@ -1343,8 +1343,8 @@ define void @_ZN5arrow2io20SlowRandomAccessFile4ReadElPv(ptr dead_on_unwind noal
 13:                                               ; preds = %4
   %14 = fptosi double %11 to i64
   %15 = sitofp i64 %14 to double
-  %16 = fsub double %11, %15
-  %17 = fmul double %16, 1.000000e+09
+  %16 = fsub nnan double %11, %15
+  %17 = fmul nnan double %16, 1.000000e+09
   %18 = fptosi double %17 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %14, ptr %5, align 8, !tbaa !6
@@ -1400,8 +1400,8 @@ define void @_ZTv0_n32_N5arrow2io20SlowRandomAccessFile4ReadElPv(ptr dead_on_unw
 17:                                               ; preds = %4
   %18 = fptosi double %15 to i64
   %19 = sitofp i64 %18 to double
-  %20 = fsub double %15, %19
-  %21 = fmul double %20, 1.000000e+09
+  %20 = fsub nnan double %15, %19
+  %21 = fmul nnan double %20, 1.000000e+09
   %22 = fptosi double %21 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !76
   store i64 %18, ptr %5, align 8, !tbaa !6, !noalias !76
@@ -1453,8 +1453,8 @@ define void @_ZN5arrow2io20SlowRandomAccessFile4ReadEl(ptr dead_on_unwind noalia
 12:                                               ; preds = %3
   %13 = fptosi double %10 to i64
   %14 = sitofp i64 %13 to double
-  %15 = fsub double %10, %14
-  %16 = fmul double %15, 1.000000e+09
+  %15 = fsub nnan double %10, %14
+  %16 = fmul nnan double %15, 1.000000e+09
   %17 = fptosi double %16 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %13, ptr %4, align 8, !tbaa !6
@@ -1510,8 +1510,8 @@ define void @_ZTv0_n40_N5arrow2io20SlowRandomAccessFile4ReadEl(ptr dead_on_unwin
 16:                                               ; preds = %3
   %17 = fptosi double %14 to i64
   %18 = sitofp i64 %17 to double
-  %19 = fsub double %14, %18
-  %20 = fmul double %19, 1.000000e+09
+  %19 = fsub nnan double %14, %18
+  %20 = fmul nnan double %19, 1.000000e+09
   %21 = fptosi double %20 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !79
   store i64 %17, ptr %4, align 8, !tbaa !6, !noalias !79
@@ -1563,8 +1563,8 @@ define void @_ZN5arrow2io20SlowRandomAccessFile6ReadAtEllPv(ptr dead_on_unwind n
 14:                                               ; preds = %5
   %15 = fptosi double %12 to i64
   %16 = sitofp i64 %15 to double
-  %17 = fsub double %12, %16
-  %18 = fmul double %17, 1.000000e+09
+  %17 = fsub nnan double %12, %16
+  %18 = fmul nnan double %17, 1.000000e+09
   %19 = fptosi double %18 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %15, ptr %6, align 8, !tbaa !6
@@ -1612,8 +1612,8 @@ define void @_ZN5arrow2io20SlowRandomAccessFile6ReadAtEll(ptr dead_on_unwind noa
 13:                                               ; preds = %4
   %14 = fptosi double %11 to i64
   %15 = sitofp i64 %14 to double
-  %16 = fsub double %11, %15
-  %17 = fmul double %16, 1.000000e+09
+  %16 = fsub nnan double %11, %15
+  %17 = fmul nnan double %16, 1.000000e+09
   %18 = fptosi double %17 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %14, ptr %5, align 8, !tbaa !6
@@ -2035,7 +2035,7 @@ _ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647
 
 53:                                               ; preds = %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27
   store i64 %37, ptr %1, align 8, !tbaa !21
-  %54 = tail call double @llvm.log.f64(double %49), !tbaa !11
+  %54 = tail call ninf double @llvm.log.f64(double %49)
   %55 = fmul double %54, -2.000000e+00
   %56 = fdiv double %55, %49
   %57 = tail call double @sqrt(double noundef %56) #27, !tbaa !11

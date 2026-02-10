@@ -7676,7 +7676,7 @@ _ZNK10OpenSubdiv6v3_6_03Far17PatchTableBuilder21getRefinerFVarChannelEi.exit: ; 
 
 89:                                               ; preds = %_ZNK10OpenSubdiv6v3_6_03Far17PatchTableBuilder21getRefinerFVarChannelEi.exit
   %90 = sitofp i32 %.1 to float
-  %91 = fmul float %90, 5.000000e-01
+  %91 = fmul nnan float %90, 5.000000e-01
   %92 = fptosi float %91 to i32
   br label %_ZNK10OpenSubdiv6v3_6_03Far17PatchTableBuilder19isFVarChannelLinearEi.exit.thread
 

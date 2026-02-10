@@ -1723,7 +1723,7 @@ define internal fastcc void @_display_datetime(ptr noundef readonly captures(non
   call void @gtk_entry_set_text(ptr noundef %42, ptr noundef nonnull %5) #16
   %43 = call i32 @g_date_time_get_microsecond(ptr noundef nonnull %1) #16
   %44 = sitofp i32 %43 to double
-  %45 = fmul reassoc nsz arcp contract afn double %44, 1.000000e-03
+  %45 = fmul reassoc nnan nsz arcp contract afn double %44, 1.000000e-03
   %46 = fptosi double %45 to i32
   %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 8, ptr noundef nonnull @.str.77, i32 noundef %46) #16
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1949,7 +1949,7 @@ define internal void @_datetime_entry_changed(ptr readnone captures(none) %0, pt
   %49 = trunc i64 %48 to i32
   %50 = sitofp i32 %43 to double
   %51 = sitofp i32 %49 to double
-  %52 = fmul reassoc nsz arcp contract afn double %51, 1.000000e-03
+  %52 = fmul reassoc nnan nsz arcp contract afn double %51, 1.000000e-03
   %53 = fadd reassoc nsz arcp contract afn double %52, %50
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3328), align 8, !tbaa !80
   %55 = tail call ptr @g_date_time_new(ptr noundef %54, i32 noundef %13, i32 noundef %19, i32 noundef %25, i32 noundef %31, i32 noundef %37, double noundef %53) #16

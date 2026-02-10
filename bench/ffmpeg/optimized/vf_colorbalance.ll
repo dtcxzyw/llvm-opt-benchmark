@@ -306,7 +306,7 @@ define internal noundef i32 @color_balance8_p(ptr noundef readonly captures(none
   %123 = select nsz i1 %122, float %121, float 0.000000e+00
   %124 = fcmp nsz ogt float %123, 1.000000e+00
   %..i.i = select nsz i1 %124, float 1.000000e+00, float %123
-  %125 = fmul nsz float %..i.i, 0x3FE6666660000000
+  %125 = fmul nnan nsz float %..i.i, 0x3FE6666660000000
   %126 = fmul nsz float %117, %125
   %127 = fadd nsz float %116, 0xBFD54FDF40000000
   %128 = tail call nsz float @llvm.fmuladd.f32(float %127, float 4.000000e+00, float 5.000000e-01)
@@ -767,7 +767,7 @@ define internal noundef i32 @color_balance16_p(ptr noundef readonly captures(non
   %148 = select nsz i1 %147, float %146, float 0.000000e+00
   %149 = fcmp nsz ogt float %148, 1.000000e+00
   %..i.i.us = select nsz i1 %149, float 1.000000e+00, float %148
-  %150 = fmul nsz float %..i.i.us, 0x3FE6666660000000
+  %150 = fmul nnan nsz float %..i.i.us, 0x3FE6666660000000
   %151 = fmul nsz float %115, %150
   %152 = fadd nsz float %144, 0xBFD54FDF40000000
   %153 = tail call nsz float @llvm.fmuladd.f32(float %152, float 4.000000e+00, float 5.000000e-01)
@@ -1125,7 +1125,7 @@ define internal noundef i32 @color_balance8(ptr noundef readonly captures(none) 
   %97 = select nsz i1 %96, float %95, float 0.000000e+00
   %98 = fcmp nsz ogt float %97, 1.000000e+00
   %..i.i = select nsz i1 %98, float 1.000000e+00, float %97
-  %99 = fmul nsz float %..i.i, 0x3FE6666660000000
+  %99 = fmul nnan nsz float %..i.i, 0x3FE6666660000000
   %100 = fmul nsz float %91, %99
   %101 = fadd nsz float %90, 0xBFD54FDF40000000
   %102 = tail call nsz float @llvm.fmuladd.f32(float %101, float 4.000000e+00, float 5.000000e-01)
@@ -1517,7 +1517,7 @@ define internal noundef i32 @color_balance16(ptr noundef readonly captures(none)
   %115 = select nsz i1 %114, float %113, float 0.000000e+00
   %116 = fcmp nsz ogt float %115, 1.000000e+00
   %..i.i.us = select nsz i1 %116, float 1.000000e+00, float %115
-  %117 = fmul nsz float %..i.i.us, 0x3FE6666660000000
+  %117 = fmul nnan nsz float %..i.i.us, 0x3FE6666660000000
   %118 = fmul nsz float %73, %117
   %119 = fadd nsz float %111, 0xBFD54FDF40000000
   %120 = tail call nsz float @llvm.fmuladd.f32(float %119, float 4.000000e+00, float 5.000000e-01)

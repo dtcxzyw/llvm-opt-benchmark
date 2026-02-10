@@ -17361,7 +17361,7 @@ _ZNSt6vectorIPN2cv4gapi5fluid6BufferESaIS4_EE12emplace_backIJS4_EEEvDpOT_.exit: 
 
 1546:                                             ; preds = %1533
   %1547 = uitofp i64 %1545 to float
-  %1548 = fmul float %1547, 0x3F50000000000000
+  %1548 = fmul nnan float %1547, 0x3F50000000000000
   %1549 = fpext float %1548 to double
   %1550 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1531, double noundef %1549)
           to label %_ZNSolsEf.exit unwind label %1601

@@ -11966,8 +11966,8 @@ define linkonce_odr noundef double @_ZN3vcg4math18SubtractiveRingRNG14generate01
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(248) %0, i32 noundef -1)
   %6 = uitofp i32 %5 to double
-  %7 = fadd double %6, 5.000000e-01
-  %8 = fmul double %7, 0x3DF0000000100000
+  %7 = fadd nnan double %6, 5.000000e-01
+  %8 = fmul nnan double %7, 0x3DF0000000100000
   ret double %8
 }
 

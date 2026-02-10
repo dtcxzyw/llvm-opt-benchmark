@@ -103,9 +103,9 @@ define internal i32 @cng_encode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %32, label %33, label %43
 
 33:                                               ; preds = %._crit_edge
-  %34 = fdiv nsz double %31, 0x41D01C1B75C00000
-  %35 = tail call nsz double @llvm.log10.f64(double %34)
-  %36 = fmul nsz double %35, 1.000000e+01
+  %34 = fdiv nnan nsz double %31, 0x41D01C1B75C00000
+  %35 = tail call nnan nsz double @llvm.log10.f64(double %34)
+  %36 = fmul nnan nsz double %35, 1.000000e+01
   %37 = tail call nsz double @llvm.floor.f64(double %36)
   %38 = fneg nsz double %37
   %39 = fptosi double %38 to i32

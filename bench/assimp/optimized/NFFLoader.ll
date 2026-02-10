@@ -5904,16 +5904,16 @@ _ZN6Assimp9strtoul16EPKcPS1_.exit1305:            ; preds = %1067
   %1093 = lshr i32 %.0.i1299, 8
   %1094 = and i32 %1093, 15
   %1095 = uitofp nneg i32 %1094 to float
-  %1096 = fmul float %1095, 6.250000e-02
+  %1096 = fmul nnan float %1095, 6.250000e-02
   store float %1096, ptr %34, align 4
   %1097 = lshr i32 %.0.i1299, 4
   %1098 = and i32 %1097, 15
   %1099 = uitofp nneg i32 %1098 to float
-  %1100 = fmul float %1099, 6.250000e-02
+  %1100 = fmul nnan float %1099, 6.250000e-02
   store float %1100, ptr %249, align 4
   %1101 = and i32 %.0.i1299, 15
   %1102 = uitofp nneg i32 %1101 to float
-  %1103 = fmul float %1102, 6.250000e-02
+  %1103 = fmul nnan float %1102, 6.250000e-02
   br label %.outer2923.outer6699.backedge
 
 1104:                                             ; preds = %_ZN6Assimp9IsLineEndIcEEbT_.exit1292.tail, %1049

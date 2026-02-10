@@ -6700,8 +6700,8 @@ _ZN2cv6stereo8Matching5minimEPsiidi.exit64:       ; preds = %61, %45
   br i1 %103, label %104, label %111
 
 104:                                              ; preds = %102
-  %105 = fmul double %97, %97
-  %106 = fmul double %96, %96
+  %105 = fmul nnan double %97, %97
+  %106 = fmul nnan double %96, %96
   %107 = fdiv double %105, %106
   %108 = fdiv double %97, %96
   %109 = fadd double %108, %107
@@ -6709,8 +6709,8 @@ _ZN2cv6stereo8Matching5minimEPsiidi.exit64:       ; preds = %61, %45
   br label %119
 
 111:                                              ; preds = %102
-  %112 = fmul double %96, %96
-  %113 = fmul double %97, %97
+  %112 = fmul nnan double %96, %96
+  %113 = fmul nnan double %97, %97
   %114 = fdiv double %112, %113
   %115 = fdiv double %96, %97
   %116 = fadd double %115, %114
@@ -6767,8 +6767,8 @@ _ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit: ; preds = %68, %100,
   br i1 %147, label %148, label %155
 
 148:                                              ; preds = %146
-  %149 = fmul double %141, %141
-  %150 = fmul double %140, %140
+  %149 = fmul nnan double %141, %141
+  %150 = fmul nnan double %140, %140
   %151 = fdiv double %149, %150
   %152 = fdiv double %141, %140
   %153 = fadd double %152, %151
@@ -6776,8 +6776,8 @@ _ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit: ; preds = %68, %100,
   br label %163
 
 155:                                              ; preds = %146
-  %156 = fmul double %140, %140
-  %157 = fmul double %141, %141
+  %156 = fmul nnan double %140, %140
+  %157 = fmul nnan double %141, %141
   %158 = fdiv double %156, %157
   %159 = fdiv double %140, %141
   %160 = fadd double %159, %158
@@ -6854,8 +6854,8 @@ _ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73: ; preds = %125, %1
   br i1 %204, label %205, label %212
 
 205:                                              ; preds = %203
-  %206 = fmul double %198, %198
-  %207 = fmul double %197, %197
+  %206 = fmul nnan double %198, %198
+  %207 = fmul nnan double %197, %197
   %208 = fdiv double %206, %207
   %209 = fdiv double %198, %197
   %210 = fadd double %209, %208
@@ -6863,8 +6863,8 @@ _ZN2cv6stereo8Matching22symetricVInterpolationEPsiiii.exit73: ; preds = %125, %1
   br label %220
 
 212:                                              ; preds = %203
-  %213 = fmul double %197, %197
-  %214 = fmul double %198, %198
+  %213 = fmul nnan double %197, %197
+  %214 = fmul nnan double %198, %198
   %215 = fdiv double %213, %214
   %216 = fdiv double %197, %198
   %217 = fadd double %216, %215

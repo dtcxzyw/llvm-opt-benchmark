@@ -989,7 +989,7 @@ agxbfree.exit:                                    ; preds = %365, %367
 ._crit_edge233:                                   ; preds = %379
   %.pre235 = load i32, ptr %383, align 4, !tbaa !72
   %384 = sitofp i32 %.pre235 to double
-  %385 = fmul double %384, 0x3F48000000000000
+  %385 = fmul nnan double %384, 0x3F48000000000000
   br label %387
 
 386:                                              ; preds = %379
@@ -999,14 +999,14 @@ agxbfree.exit:                                    ; preds = %365, %367
 387:                                              ; preds = %._crit_edge233, %386
   %388 = phi double [ %385, %._crit_edge233 ], [ 0.000000e+00, %386 ]
   %389 = sitofp i32 %381 to double
-  %390 = fmul double %389, 0x3F48000000000000
+  %390 = fmul nnan double %389, 0x3F48000000000000
   %391 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store double %390, ptr %391, align 8, !tbaa !73
   %392 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store double %388, ptr %392, align 8, !tbaa !74
   %393 = call i32 @pango_layout_get_baseline(ptr noundef %372) #17
   %394 = sitofp i32 %393 to double
-  %395 = fmul double %394, 0x3F48000000000000
+  %395 = fmul nnan double %394, 0x3F48000000000000
   %396 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store double %395, ptr %396, align 8, !tbaa !75
   %397 = load ptr, ptr %153, align 8, !tbaa !15

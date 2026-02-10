@@ -2990,7 +2990,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit435.thread:          ; preds = %613, %614
   %650 = getelementptr inbounds nuw i8, ptr %647, i64 4
   %651 = load i32, ptr %650, align 4, !tbaa !64
   %652 = sitofp i32 %651 to float
-  %653 = fmul float %652, 0x3FE6666660000000
+  %653 = fmul nnan float %652, 0x3FE6666660000000
   %654 = fcmp ogt float %653, %649
   br i1 %654, label %655, label %691
 
@@ -13343,7 +13343,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_7HammingIhEEE21choo
   %18 = trunc i64 %17 to i32
   %19 = and i32 %18, 2147483647
   %20 = uitofp nneg i32 %19 to double
-  %21 = fmul double %20, 0x3E00000000000000
+  %21 = fmul nnan double %20, 0x3E00000000000000
   %22 = fmul double %21, %11
   %23 = fptosi double %22 to i32
   %24 = sext i32 %23 to i64
@@ -13556,7 +13556,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_7HammingIhEEE21choo
   %25 = trunc i64 %24 to i32
   %26 = and i32 %25, 2147483647
   %27 = uitofp nneg i32 %26 to double
-  %28 = fmul double %27, 0x3E00000000000000
+  %28 = fmul nnan double %27, 0x3E00000000000000
   %29 = fmul double %28, %18
   %30 = fptosi double %29 to i32
   %31 = sext i32 %30 to i64
@@ -13740,7 +13740,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_7HammingIhEEE21choo
   %109 = trunc i64 %108 to i32
   %110 = and i32 %109, 2147483647
   %111 = uitofp nneg i32 %110 to double
-  %112 = fmul double %111, 0x3E00000000000000
+  %112 = fmul nnan double %111, 0x3E00000000000000
   %113 = tail call noundef double @llvm.fmuladd.f64(double %.1162, double %112, double 0.000000e+00)
   br label %.lr.ph145
 
@@ -21379,7 +21379,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_7Ha
   %18 = trunc i64 %17 to i32
   %19 = and i32 %18, 2147483647
   %20 = uitofp nneg i32 %19 to double
-  %21 = fmul double %20, 0x3E00000000000000
+  %21 = fmul nnan double %20, 0x3E00000000000000
   %22 = fmul double %21, %11
   %23 = fptosi double %22 to i32
   %24 = sext i32 %23 to i64
@@ -21592,7 +21592,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_7Ha
   %25 = trunc i64 %24 to i32
   %26 = and i32 %25, 2147483647
   %27 = uitofp nneg i32 %26 to double
-  %28 = fmul double %27, 0x3E00000000000000
+  %28 = fmul nnan double %27, 0x3E00000000000000
   %29 = fmul double %28, %18
   %30 = fptosi double %29 to i32
   %31 = sext i32 %30 to i64
@@ -21776,7 +21776,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_7Ha
   %109 = trunc i64 %108 to i32
   %110 = and i32 %109, 2147483647
   %111 = uitofp nneg i32 %110 to double
-  %112 = fmul double %111, 0x3E00000000000000
+  %112 = fmul nnan double %111, 0x3E00000000000000
   %113 = tail call noundef double @llvm.fmuladd.f64(double %.1162, double %112, double 0.000000e+00)
   br label %.lr.ph145
 
@@ -22003,7 +22003,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_7Ha
   %25 = trunc i64 %24 to i32
   %26 = and i32 %25, 2147483647
   %27 = uitofp nneg i32 %26 to double
-  %28 = fmul double %27, 0x3E00000000000000
+  %28 = fmul nnan double %27, 0x3E00000000000000
   %29 = fmul double %28, %18
   %30 = fptosi double %29 to i32
   %31 = sext i32 %30 to i64
@@ -22191,7 +22191,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_7Ha
   %104 = load i32, ptr %103, align 4, !tbaa !64
   %105 = sitofp i32 %104 to float
   %106 = sitofp i32 %.061131.us to float
-  %107 = fmul float %106, 0x3FF4CCCCC0000000
+  %107 = fmul nnan float %106, 0x3FF4CCCCC0000000
   %108 = fcmp olt float %107, %105
   br i1 %108, label %.preheader.us, label %111
 
@@ -27077,7 +27077,7 @@ _ZNSt6vectorIN7cvflann3lsh8LshTableIhEESaIS3_EE6resizeEm.exit: ; preds = %15, %1
   %35 = load i64, ptr %34, align 8, !tbaa !608
   %36 = add i64 %35, %.sroa.06.0.copyload
   %37 = uitofp i64 %36 to double
-  %38 = fmul double %37, 1.200000e+00
+  %38 = fmul nnan double %37, 1.200000e+00
   %39 = fptoui double %38 to i64
   call void @_ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(56) %33, i64 noundef %39)
   %.not.i = icmp eq i64 %.sroa.06.0.copyload, 0

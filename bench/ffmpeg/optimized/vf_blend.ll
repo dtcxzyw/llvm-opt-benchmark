@@ -2134,7 +2134,7 @@ define internal void @blend_multiply128_8bit(ptr noundef readonly captures(none)
   %24 = zext i8 %23 to i32
   %25 = mul nsw i32 %21, %24
   %26 = sitofp i32 %25 to float
-  %27 = fmul nsz float %26, 3.125000e-02
+  %27 = fmul nnan nsz float %26, 3.125000e-02
   %28 = fadd nsz float %27, 1.280000e+02
   %29 = fptosi float %28 to i32
   %.not.i.us = icmp ult i32 %29, 256
@@ -3185,7 +3185,7 @@ define internal void @blend_interpolate_8bit(ptr noundef readonly captures(none)
   %18 = load i8, ptr %17, align 1, !tbaa !89
   %19 = uitofp i8 %18 to float
   %20 = uitofp i8 %18 to double
-  %21 = fmul nsz double %20, 0x400921FB54442D18
+  %21 = fmul nnan nsz double %20, 0x400921FB54442D18
   %22 = fdiv nsz double %21, 2.550000e+02
   %23 = fptrunc nsz double %22 to float
   %24 = tail call nsz float @llvm.cos.f32(float %23)
@@ -3193,7 +3193,7 @@ define internal void @blend_interpolate_8bit(ptr noundef readonly captures(none)
   %26 = getelementptr inbounds nuw i8, ptr %.03136.us, i64 %indvars.iv
   %27 = load i8, ptr %26, align 1, !tbaa !89
   %28 = uitofp i8 %27 to double
-  %29 = fmul nsz double %28, 0x400921FB54442D18
+  %29 = fmul nnan nsz double %28, 0x400921FB54442D18
   %30 = fdiv nsz double %29, 2.550000e+02
   %31 = fptrunc nsz double %30 to float
   %32 = tail call nsz float @llvm.cos.f32(float %31)
@@ -4503,7 +4503,7 @@ define internal void @blend_multiply128_9bit(ptr noundef readonly captures(none)
   %27 = zext i16 %26 to i32
   %28 = mul nsw i32 %24, %27
   %29 = sitofp i32 %28 to float
-  %30 = fmul nsz float %29, 1.562500e-02
+  %30 = fmul nnan nsz float %29, 1.562500e-02
   %31 = fadd nsz float %30, 2.560000e+02
   %32 = fptosi float %31 to i32
   %33 = tail call i32 @llvm.smax.i32(i32 %32, i32 0)
@@ -5594,7 +5594,7 @@ define internal void @blend_interpolate_9bit(ptr noundef readonly captures(none)
   %21 = load i16, ptr %20, align 2, !tbaa !85
   %22 = uitofp i16 %21 to float
   %23 = uitofp i16 %21 to double
-  %24 = fmul nsz double %23, 0x400921FB54442D18
+  %24 = fmul nnan nsz double %23, 0x400921FB54442D18
   %25 = fdiv nsz double %24, 5.110000e+02
   %26 = fptrunc nsz double %25 to float
   %27 = tail call nsz float @llvm.cos.f32(float %26)
@@ -5602,7 +5602,7 @@ define internal void @blend_interpolate_9bit(ptr noundef readonly captures(none)
   %29 = getelementptr inbounds nuw i16, ptr %.03136.us, i64 %indvars.iv
   %30 = load i16, ptr %29, align 2, !tbaa !85
   %31 = uitofp i16 %30 to double
-  %32 = fmul nsz double %31, 0x400921FB54442D18
+  %32 = fmul nnan nsz double %31, 0x400921FB54442D18
   %33 = fdiv nsz double %32, 5.110000e+02
   %34 = fptrunc nsz double %33 to float
   %35 = tail call nsz float @llvm.cos.f32(float %34)
@@ -6900,7 +6900,7 @@ define internal void @blend_multiply128_10bit(ptr noundef readonly captures(none
   %27 = zext i16 %26 to i32
   %28 = mul nsw i32 %24, %27
   %29 = sitofp i32 %28 to float
-  %30 = fmul nsz float %29, 7.812500e-03
+  %30 = fmul nnan nsz float %29, 7.812500e-03
   %31 = fadd nsz float %30, 5.120000e+02
   %32 = fptosi float %31 to i32
   %33 = tail call i32 @llvm.smax.i32(i32 %32, i32 0)
@@ -7939,7 +7939,7 @@ define internal void @blend_interpolate_10bit(ptr noundef readonly captures(none
   %21 = load i16, ptr %20, align 2, !tbaa !85
   %22 = uitofp i16 %21 to float
   %23 = uitofp i16 %21 to double
-  %24 = fmul nsz double %23, 0x400921FB54442D18
+  %24 = fmul nnan nsz double %23, 0x400921FB54442D18
   %25 = fdiv nsz double %24, 1.023000e+03
   %26 = fptrunc nsz double %25 to float
   %27 = tail call nsz float @llvm.cos.f32(float %26)
@@ -7947,7 +7947,7 @@ define internal void @blend_interpolate_10bit(ptr noundef readonly captures(none
   %29 = getelementptr inbounds nuw i16, ptr %.03136.us, i64 %indvars.iv
   %30 = load i16, ptr %29, align 2, !tbaa !85
   %31 = uitofp i16 %30 to double
-  %32 = fmul nsz double %31, 0x400921FB54442D18
+  %32 = fmul nnan nsz double %31, 0x400921FB54442D18
   %33 = fdiv nsz double %32, 1.023000e+03
   %34 = fptrunc nsz double %33 to float
   %35 = tail call nsz float @llvm.cos.f32(float %34)
@@ -9245,7 +9245,7 @@ define internal void @blend_multiply128_12bit(ptr noundef readonly captures(none
   %27 = zext i16 %26 to i32
   %28 = mul nsw i32 %24, %27
   %29 = sitofp i32 %28 to float
-  %30 = fmul nsz float %29, 0x3F60000000000000
+  %30 = fmul nnan nsz float %29, 0x3F60000000000000
   %31 = fadd nsz float %30, 2.048000e+03
   %32 = fptosi float %31 to i32
   %33 = tail call i32 @llvm.smax.i32(i32 %32, i32 0)
@@ -10284,7 +10284,7 @@ define internal void @blend_interpolate_12bit(ptr noundef readonly captures(none
   %21 = load i16, ptr %20, align 2, !tbaa !85
   %22 = uitofp i16 %21 to float
   %23 = uitofp i16 %21 to double
-  %24 = fmul nsz double %23, 0x400921FB54442D18
+  %24 = fmul nnan nsz double %23, 0x400921FB54442D18
   %25 = fdiv nsz double %24, 4.095000e+03
   %26 = fptrunc nsz double %25 to float
   %27 = tail call nsz float @llvm.cos.f32(float %26)
@@ -10292,7 +10292,7 @@ define internal void @blend_interpolate_12bit(ptr noundef readonly captures(none
   %29 = getelementptr inbounds nuw i16, ptr %.03136.us, i64 %indvars.iv
   %30 = load i16, ptr %29, align 2, !tbaa !85
   %31 = uitofp i16 %30 to double
-  %32 = fmul nsz double %31, 0x400921FB54442D18
+  %32 = fmul nnan nsz double %31, 0x400921FB54442D18
   %33 = fdiv nsz double %32, 4.095000e+03
   %34 = fptrunc nsz double %33 to float
   %35 = tail call nsz float @llvm.cos.f32(float %34)
@@ -11590,7 +11590,7 @@ define internal void @blend_multiply128_14bit(ptr noundef readonly captures(none
   %27 = zext i16 %26 to i32
   %28 = mul nsw i32 %24, %27
   %29 = sitofp i32 %28 to float
-  %30 = fmul nsz float %29, 0x3F40000000000000
+  %30 = fmul nnan nsz float %29, 0x3F40000000000000
   %31 = fadd nsz float %30, 8.192000e+03
   %32 = fptosi float %31 to i32
   %33 = tail call i32 @llvm.smax.i32(i32 %32, i32 0)
@@ -12629,7 +12629,7 @@ define internal void @blend_interpolate_14bit(ptr noundef readonly captures(none
   %21 = load i16, ptr %20, align 2, !tbaa !85
   %22 = uitofp i16 %21 to float
   %23 = uitofp i16 %21 to double
-  %24 = fmul nsz double %23, 0x400921FB54442D18
+  %24 = fmul nnan nsz double %23, 0x400921FB54442D18
   %25 = fdiv nsz double %24, 1.638300e+04
   %26 = fptrunc nsz double %25 to float
   %27 = tail call nsz float @llvm.cos.f32(float %26)
@@ -12637,7 +12637,7 @@ define internal void @blend_interpolate_14bit(ptr noundef readonly captures(none
   %29 = getelementptr inbounds nuw i16, ptr %.03136.us, i64 %indvars.iv
   %30 = load i16, ptr %29, align 2, !tbaa !85
   %31 = uitofp i16 %30 to double
-  %32 = fmul nsz double %31, 0x400921FB54442D18
+  %32 = fmul nnan nsz double %31, 0x400921FB54442D18
   %33 = fdiv nsz double %32, 1.638300e+04
   %34 = fptrunc nsz double %33 to float
   %35 = tail call nsz float @llvm.cos.f32(float %34)
@@ -13931,7 +13931,7 @@ define internal void @blend_multiply128_16bit(ptr noundef readonly captures(none
   %27 = zext i16 %26 to i32
   %28 = mul nsw i32 %24, %27
   %29 = sitofp i32 %28 to float
-  %30 = fmul nsz float %29, 0x3F20000000000000
+  %30 = fmul nnan nsz float %29, 0x3F20000000000000
   %31 = fadd nsz float %30, 3.276800e+04
   %32 = fptosi float %31 to i32
   %33 = tail call i32 @llvm.smax.i32(i32 %32, i32 0)
@@ -14961,7 +14961,7 @@ define internal void @blend_interpolate_16bit(ptr noundef readonly captures(none
   %21 = load i16, ptr %20, align 2, !tbaa !85
   %22 = uitofp i16 %21 to float
   %23 = uitofp i16 %21 to double
-  %24 = fmul nsz double %23, 0x400921FB54442D18
+  %24 = fmul nnan nsz double %23, 0x400921FB54442D18
   %25 = fdiv nsz double %24, 6.553500e+04
   %26 = fptrunc nsz double %25 to float
   %27 = tail call nsz float @llvm.cos.f32(float %26)
@@ -14969,7 +14969,7 @@ define internal void @blend_interpolate_16bit(ptr noundef readonly captures(none
   %29 = getelementptr inbounds nuw i16, ptr %.03136.us, i64 %indvars.iv
   %30 = load i16, ptr %29, align 2, !tbaa !85
   %31 = uitofp i16 %30 to double
-  %32 = fmul nsz double %31, 0x400921FB54442D18
+  %32 = fmul nnan nsz double %31, 0x400921FB54442D18
   %33 = fdiv nsz double %32, 6.553500e+04
   %34 = fptrunc nsz double %33 to float
   %35 = tail call nsz float @llvm.cos.f32(float %34)
@@ -16510,7 +16510,7 @@ define internal void @blend_pinlight_32bit(ptr noundef readonly captures(none) %
   br label %32
 
 29:                                               ; preds = %19
-  %30 = fmul nsz float %23, 2.000000e+00
+  %30 = fmul nnan nsz float %23, 2.000000e+00
   %31 = fcmp nsz ogt float %21, %30
   %..us = select nsz i1 %31, float %30, float %21
   br label %32
@@ -16805,7 +16805,7 @@ define internal void @blend_vividlight_32bit(ptr noundef readonly captures(none)
   br label %51
 
 38:                                               ; preds = %20
-  %39 = fmul nsz float %22, 2.000000e+00
+  %39 = fmul nnan nsz float %22, 2.000000e+00
   %40 = fpext nsz float %39 to double
   %41 = fcmp nsz ugt float %39, 0.000000e+00
   br i1 %41, label %42, label %51

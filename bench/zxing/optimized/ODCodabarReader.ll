@@ -80,7 +80,7 @@ define noundef zeroext i1 @_ZN5ZXing4OneD11IsLeftGuardERKNS_11PatternViewEi(ptr 
 
 _ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i
   %12 = uitofp i16 %10 to float
-  %13 = fmul float %12, 5.000000e-01
+  %13 = fmul nnan float %12, 5.000000e-01
   br label %_ZNK5ZXing11PatternView3sumEi.exit
 
 _ZNK5ZXing11PatternView3sumEi.exit:               ; preds = %2, %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i
@@ -308,7 +308,7 @@ define void @_ZNK5ZXing4OneD13CodabarReader13decodePatternEiRNS_11PatternViewERS
 
 _ZNK5ZXing11PatternView3sumEi.exit.i102:          ; preds = %.lr.ph.i.i.i.i97
   %28 = uitofp i16 %27 to float
-  %29 = fmul float %28, 5.000000e-01
+  %29 = fmul nnan float %28, 5.000000e-01
   %30 = fcmp olt float %29, 0x41E0000000000000
   br i1 %30, label %.lr.ph.i.i.i.i.i.i104, label %._crit_edge.i
 
@@ -364,7 +364,7 @@ _ZN5ZXing4OneD11IsLeftGuardERKNS_11PatternViewEi.exit105: ; preds = %.lr.ph.i.i.
 
 _ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i.i92: ; preds = %.lr.ph.i.i.i.i88
   %48 = uitofp i16 %46 to float
-  %49 = fmul float %48, 5.000000e-01
+  %49 = fmul nnan float %48, 5.000000e-01
   br label %_ZNK5ZXing11PatternView3sumEi.exit.i93
 
 _ZNK5ZXing11PatternView3sumEi.exit.i93:           ; preds = %_ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i.i92, %.lr.ph.i
@@ -932,7 +932,7 @@ _ZN5ZXing6ResultC2Ev.exit62:                      ; preds = %240
 
 _ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit: ; preds = %.lr.ph.i.i.i.i
   %283 = uitofp i16 %281 to float
-  %284 = fmul float %283, 5.000000e-01
+  %284 = fmul nnan float %283, 5.000000e-01
   %285 = fcmp ugt float %284, %278
   br i1 %285, label %286, label %_ZNK5ZXing11PatternView17hasQuietZoneAfterILb1EEEbf.exit.thread
 

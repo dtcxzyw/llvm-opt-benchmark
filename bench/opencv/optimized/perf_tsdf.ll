@@ -2252,7 +2252,7 @@ _ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i:         ; preds = %78
 
 90:                                               ; preds = %_ZNK2cv4MatxIfLi1ELi3EE3dotERKS1_.exit.i
   %91 = uitofp nneg i32 %.01240 to double
-  %92 = fmul double %91, 0x401921FB54442D18
+  %92 = fmul nnan double %91, 0x401921FB54442D18
   %93 = sitofp i32 %60 to double
   %94 = fdiv double %92, %93
   %95 = fptrunc double %94 to float

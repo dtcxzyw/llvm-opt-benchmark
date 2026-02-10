@@ -6486,7 +6486,7 @@ _ZN7xgboost8BatchSetINS_16GHistIndexMatrixEE3endEv.exit.us: ; preds = %_ZN7xgboo
   %296 = load i32, ptr %295, align 8, !tbaa !127
   store i32 %296, ptr %76, align 4, !tbaa !95
   %297 = uitofp i64 %spec.select.i.i.i.us to double
-  %298 = fmul double %297, 1.562500e-02
+  %298 = fmul nnan double %297, 1.562500e-02
   %299 = call double @llvm.ceil.f64(double %298)
   %300 = fptoui double %299 to i64
   store ptr %75, ptr %65, align 8
@@ -7634,7 +7634,7 @@ _ZN7xgboost8BatchSetINS_10SparsePageEE3endEv.exit.us: ; preds = %_ZN7xgboost8Bat
   %613 = load i32, ptr %612, align 8, !tbaa !127
   store i32 %613, ptr %40, align 4, !tbaa !95
   %614 = uitofp i64 %spec.select.i.i.i225.us to double
-  %615 = fmul double %614, 1.562500e-02
+  %615 = fmul nnan double %614, 1.562500e-02
   %616 = call double @llvm.ceil.f64(double %615)
   %617 = fptoui double %616 to i64
   store ptr %39, ptr %29, align 8
@@ -9463,14 +9463,14 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 24
   %213 = load i32, ptr %212, align 8, !tbaa !127
   %214 = uitofp i64 %spec.select.i.i.i to double
-  %215 = fmul double %214, 1.562500e-02
+  %215 = fmul nnan double %214, 1.562500e-02
   %216 = call double @llvm.ceil.f64(double %215)
   %217 = fptoui double %216 to i64
   store i64 %spec.select.i.i.i, ptr %55, align 8, !tbaa !368
   %218 = load i64, ptr %56, align 8, !tbaa !350
   %219 = mul i64 %218, %spec.select.i.i.i
   %220 = uitofp i64 %219 to double
-  %221 = fmul double %220, 1.250000e-01
+  %221 = fmul nnan double %220, 1.250000e-01
   %222 = call double @llvm.ceil.f64(double %221)
   %223 = fptoui double %222 to i64
   invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %57, i64 noundef %223)
@@ -18779,7 +18779,7 @@ _ZN7xgboost6linalg6detail10UnrollLoopILi2EZNS0_10TensorViewIfLi2EEC1ImLi2EEENS_6
   %237 = load i32, ptr %236, align 8, !tbaa !127
   store i32 %237, ptr %25, align 4, !tbaa !95
   %238 = uitofp i64 %.val.val.i to double
-  %239 = fmul double %238, 1.562500e-02
+  %239 = fmul nnan double %238, 1.562500e-02
   %240 = call double @llvm.ceil.f64(double %239)
   %241 = fptoui double %240 to i64
   store ptr %24, ptr %13, align 8
@@ -21136,7 +21136,7 @@ _ZN7xgboost6linalg6detail10UnrollLoopILi2EZNS0_10TensorViewIfLi2EEC1ImLi2EEENS_6
   %238 = load i32, ptr %237, align 8, !tbaa !127
   store i32 %238, ptr %25, align 4, !tbaa !95
   %239 = uitofp i64 %218 to double
-  %240 = fmul double %239, 1.562500e-02
+  %240 = fmul nnan double %239, 1.562500e-02
   %241 = call double @llvm.ceil.f64(double %240)
   %242 = fptoui double %241 to i64
   store ptr %24, ptr %13, align 8
@@ -23499,7 +23499,7 @@ _ZNK7xgboost9predictor12_GLOBAL__N_111AdapterViewINS_4data15ColumnarAdapterEE4Si
   %266 = load i32, ptr %265, align 8, !tbaa !127
   store i32 %266, ptr %25, align 4, !tbaa !95
   %267 = uitofp i64 %.0.i.i.i to double
-  %268 = fmul double %267, 1.562500e-02
+  %268 = fmul nnan double %267, 1.562500e-02
   %269 = call double @llvm.ceil.f64(double %268)
   %270 = fptoui double %269 to i64
   store ptr %24, ptr %13, align 8
@@ -27038,14 +27038,14 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 24
   %209 = load i32, ptr %208, align 8, !tbaa !127
   %210 = uitofp i64 %spec.select.i.i.i to double
-  %211 = fmul double %210, 1.562500e-02
+  %211 = fmul nnan double %210, 1.562500e-02
   %212 = call double @llvm.ceil.f64(double %211)
   %213 = fptoui double %212 to i64
   store i64 %spec.select.i.i.i, ptr %57, align 8, !tbaa !368
   %214 = load i64, ptr %58, align 8, !tbaa !350
   %215 = mul i64 %214, %spec.select.i.i.i
   %216 = uitofp i64 %215 to double
-  %217 = fmul double %216, 1.250000e-01
+  %217 = fmul nnan double %216, 1.250000e-01
   %218 = call double @llvm.ceil.f64(double %217)
   %219 = fptoui double %218 to i64
   invoke void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %59, i64 noundef %219)

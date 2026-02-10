@@ -879,7 +879,7 @@ thread-pre-split:                                 ; preds = %._crit_edge1786
   br i1 %or.cond, label %596, label %643
 
 596:                                              ; preds = %590
-  %597 = fmul double %586, 1.000000e+01
+  %597 = fmul nnan double %586, 1.000000e+01
   %598 = fcmp ole double %597, %544
   %599 = select i1 %598, double %597, double %544
   br label %643

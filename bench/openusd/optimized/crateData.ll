@@ -6600,7 +6600,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %.sroa.speculated.i9 = select i1 %71, float %70, float 0x3FEE666660000000
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i9, ptr %72, align 4
-  %73 = fmul float %.sroa.speculated.i9, %64
+  %73 = fmul nnan float %.sroa.speculated.i9, %64
   %74 = fptoui float %73 to i64
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %74, ptr %75, align 8
@@ -14093,7 +14093,7 @@ define linkonce_odr void @_ZN3tbb6detail2d19start_forINS1_13blocked_rangeImEEZN3
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = uitofp i64 %17 to float
-  %19 = fmul float %15, %18
+  %19 = fmul nnan float %15, %18
   %20 = load i64, ptr %3, align 8
   %21 = add i64 %20, %17
   %22 = uitofp i64 %21 to float

@@ -433,7 +433,7 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   br i1 %.not195, label %205, label %252
 
 205:                                              ; preds = %203
-  %206 = fmul reassoc nsz arcp contract afn double %82, 2.000000e-02
+  %206 = fmul reassoc nnan nsz arcp contract afn double %82, 2.000000e-02
   %207 = call reassoc nsz arcp contract afn double @llvm.minnum.f64(double %206, double 2.400000e+01)
   %208 = load i32, ptr %112, align 4, !tbaa !108
   %.not196 = icmp eq i32 %208, 0
@@ -443,14 +443,14 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   %210 = getelementptr inbounds nuw i8, ptr %11, i64 1424
   %211 = load double, ptr %210, align 8, !tbaa !105
   %212 = fmul reassoc nsz arcp contract afn double %211, %82
-  %213 = fmul reassoc nsz arcp contract afn double %207, 5.000000e-01
+  %213 = fmul reassoc nnan nsz arcp contract afn double %207, 5.000000e-01
   %214 = fsub reassoc nsz arcp contract afn double %212, %213
-  %215 = fmul reassoc nsz arcp contract afn double %84, 5.000000e-01
+  %215 = fmul reassoc nnan nsz arcp contract afn double %84, 5.000000e-01
   br label %223
 
 216:                                              ; preds = %205
-  %217 = fmul reassoc nsz arcp contract afn double %82, 5.000000e-01
-  %218 = fmul reassoc nsz arcp contract afn double %207, 5.000000e-01
+  %217 = fmul reassoc nnan nsz arcp contract afn double %82, 5.000000e-01
+  %218 = fmul reassoc nnan nsz arcp contract afn double %207, 5.000000e-01
   %219 = fsub reassoc nsz arcp contract afn double %217, %218
   %220 = getelementptr inbounds nuw i8, ptr %11, i64 1432
   %221 = load double, ptr %220, align 8, !tbaa !106
@@ -587,10 +587,10 @@ define internal fastcc void @_draw_sym(ptr noundef %0, float noundef %1, float n
   br i1 %.not21, label %37, label %25
 
 25:                                               ; preds = %5
-  %26 = fmul reassoc nsz arcp contract afn double %7, 0x3FF3333340000000
-  %27 = fmul reassoc nsz arcp contract afn double %26, %21
+  %26 = fmul reassoc nnan nsz arcp contract afn double %7, 0x3FF3333340000000
+  %27 = fmul reassoc nnan nsz arcp contract afn double %26, %21
   %28 = fsub reassoc nsz arcp contract afn double %18, %27
-  %29 = fmul reassoc nsz arcp contract afn float %24, 5.000000e-01
+  %29 = fmul reassoc nnan nsz arcp contract afn float %24, 5.000000e-01
   %30 = fsub reassoc nsz arcp contract afn float %2, %29
   %31 = fpext reassoc nsz arcp contract afn float %30 to double
   %32 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !56
@@ -602,17 +602,17 @@ define internal fastcc void @_draw_sym(ptr noundef %0, float noundef %1, float n
   br label %49
 
 37:                                               ; preds = %5
-  %38 = fmul reassoc nsz arcp contract afn double %21, 5.000000e-01
+  %38 = fmul reassoc nnan nsz arcp contract afn double %21, 5.000000e-01
   %39 = fsub reassoc nsz arcp contract afn double %18, %38
   %40 = fpext reassoc nsz arcp contract afn float %2 to double
-  %41 = fmul reassoc nsz arcp contract afn float %24, 0x3FF3333340000000
-  %42 = fpext reassoc nsz arcp contract afn float %41 to double
+  %41 = fmul reassoc nnan nsz arcp contract afn float %24, 0x3FF3333340000000
+  %42 = fpext reassoc nnan nsz arcp contract afn float %41 to double
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !56
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1424
   %45 = load double, ptr %44, align 8, !tbaa !107
   %.neg = fmul reassoc nsz arcp contract afn double %45, -2.000000e+00
   %46 = fadd reassoc nsz arcp contract afn double %.neg, %40
-  %47 = fmul reassoc nsz arcp contract afn double %7, %42
+  %47 = fmul reassoc nnan nsz arcp contract afn double %7, %42
   %48 = fsub reassoc nsz arcp contract afn double %46, %47
   call void @cairo_move_to(ptr noundef %0, double noundef %39, double noundef %48) #15
   br label %49

@@ -51,7 +51,7 @@ define internal void @X11_XsettingsNotify(ptr noundef %0, i32 noundef %1, ptr no
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %12
-  %19 = fmul float %15, 0x3F50000000000000
+  %19 = fmul nnan float %15, 0x3F50000000000000
   %20 = fdiv float %19, 9.600000e+01
   br label %21
 

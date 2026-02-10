@@ -3578,11 +3578,11 @@ define hidden void @SDL_WarpMouseInWindow_REAL(ptr noundef %0, float noundef %1,
   %14 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 32
   %15 = load i32, ptr %14, align 8
   %16 = sitofp i32 %15 to float
-  %17 = fmul float %16, 5.000000e-01
+  %17 = fmul nnan float %16, 5.000000e-01
   %18 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 36
   %19 = load i32, ptr %18, align 4
   %20 = sitofp i32 %19 to float
-  %21 = fmul float %20, 5.000000e-01
+  %21 = fmul nnan float %20, 5.000000e-01
   %22 = tail call float @SDL_floorf_REAL(float noundef %17) #13
   %23 = fcmp ult float %1, %22
   br i1 %23, label %.sink.split.i, label %24

@@ -629,7 +629,7 @@ define range(i32 -9998, 806) i32 @SUNLinSolSolve_SPTFQMR(ptr noundef readonly ca
 210:                                              ; preds = %209, %208
   %211 = add nuw nsw i32 %.0459612, 1
   %212 = uitofp nneg i32 %211 to double
-  %sqrt536 = call double @llvm.sqrt.f64(double %212)
+  %sqrt536 = call nnan ninf double @llvm.sqrt.f64(double %212)
   %213 = fmul double %sqrt536, %202
   store double %213, ptr %44, align 8, !tbaa !54
   %214 = fcmp ugt double %213, %4

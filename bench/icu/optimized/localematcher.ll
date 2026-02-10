@@ -3616,7 +3616,7 @@ _ZN6icu_773LSRD2Ev.exit:                          ; preds = %58, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %65 = and i32 %57, 1023
   %66 = uitofp nneg i32 %65 to double
-  %67 = fmul double %66, 1.250000e-01
+  %67 = fmul nnan double %66, 1.250000e-01
   %68 = fsub double 1.000000e+02, %67
   %69 = fdiv double %68, 1.000000e+02
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

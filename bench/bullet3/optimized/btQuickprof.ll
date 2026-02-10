@@ -162,7 +162,7 @@ define dso_local noundef float @_ZN7btClock14getTimeSecondsEv(ptr noundef nonnul
   %14 = add nsw i64 %13, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %15 = uitofp i64 %14 to float
-  %16 = fmul float %15, 0x3EB0C6F7A0000000
+  %16 = fmul nnan float %15, 0x3EB0C6F7A0000000
   ret float %16
 }
 

@@ -729,7 +729,7 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   %246 = load i64, ptr %245, align 8, !tbaa !24
   %247 = sub i64 %244, %246
   %248 = sitofp i64 %247 to double
-  %249 = fmul double %248, 1.000000e+03
+  %249 = fmul nnan double %248, 1.000000e+03
   %250 = fdiv double %249, 1.000000e+06
   %251 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv742
   store double %250, ptr %251, align 8, !tbaa !26
@@ -745,7 +745,7 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   %256 = load i64, ptr %255, align 8, !tbaa !24
   %257 = sub i64 %254, %256
   %258 = sitofp i64 %257 to double
-  %259 = fmul double %258, 1.000000e+03
+  %259 = fmul nnan double %258, 1.000000e+03
   %260 = fdiv double %259, 1.000000e+06
   %261 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv739
   %262 = load double, ptr %261, align 8, !tbaa !26

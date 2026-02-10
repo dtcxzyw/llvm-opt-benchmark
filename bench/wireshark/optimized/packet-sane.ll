@@ -2045,7 +2045,7 @@ dissect_sane_word.exit96.i.i:                     ; preds = %497, %490
 
 507:                                              ; preds = %dissect_sane_word.exit96.i.i
   %508 = sitofp i32 %.0119.i.i to double
-  %509 = fmul double %508, 0x3EF0000000000000
+  %509 = fmul nnan double %508, 0x3EF0000000000000
   br i1 %.not.i.i.i, label %512, label %510
 
 510:                                              ; preds = %507
@@ -3042,7 +3042,7 @@ dissect_sane_word.exit25:                         ; preds = %64, %74
   %100 = add i32 %99, 4
   store i32 %100, ptr %84, align 4
   %101 = sitofp i32 %96 to double
-  %102 = fmul double %101, 0x3EF0000000000000
+  %102 = fmul nnan double %101, 0x3EF0000000000000
   br label %dissect_sane_word.exit26.us
 
 dissect_sane_word.exit26.us:                      ; preds = %93, %.lr.ph.split.us
@@ -3185,7 +3185,7 @@ define internal fastcc void @append_option_value(ptr noundef %0, i32 noundef %1,
 
 9:                                                ; preds = %4
   %10 = sitofp i32 %1 to double
-  %11 = fmul double %10, 0x3EF0000000000000
+  %11 = fmul nnan double %10, 0x3EF0000000000000
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %14, label %12
 

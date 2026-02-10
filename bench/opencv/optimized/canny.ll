@@ -450,7 +450,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %94, %96
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %122
-  %129 = fmul double %.sroa.speculated209, %.sroa.speculated209
+  %129 = fmul nnan double %.sroa.speculated209, %.sroa.speculated209
   br label %130
 
 130:                                              ; preds = %122, %128, %120
@@ -932,7 +932,7 @@ _ZN2cv9finalPassC2ERKNS_3MatERS1_.exit:           ; preds = %304
 
 313:                                              ; preds = %_ZN2cv9finalPassC2ERKNS_3MatERS1_.exit
   %314 = uitofp i64 %312 to double
-  %315 = fmul double %314, 0x3EF0000000000000
+  %315 = fmul nnan double %314, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %32, double noundef %315)
           to label %316 unwind label %350
 
@@ -1717,7 +1717,7 @@ _ZNK2cv11_InputArray6getMatEi.exit133:            ; preds = %116, %119
   br label %358
 
 134:                                              ; preds = %120
-  %135 = fmul double %.sroa.speculated177, %.sroa.speculated177
+  %135 = fmul nnan double %.sroa.speculated177, %.sroa.speculated177
   br label %136
 
 136:                                              ; preds = %120, %134, %_ZNK2cv11_InputArray6getMatEi.exit133
@@ -2195,7 +2195,7 @@ _ZN2cv9finalPassC2ERKNS_3MatERS1_.exit:           ; preds = %306
 
 315:                                              ; preds = %_ZN2cv9finalPassC2ERKNS_3MatERS1_.exit
   %316 = uitofp i64 %314 to double
-  %317 = fmul double %316, 0x3EF0000000000000
+  %317 = fmul nnan double %316, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %34, double noundef %317)
           to label %318 unwind label %351
 

@@ -740,7 +740,7 @@ define internal fastcc void @slidingwindow(ptr noundef captures(none) %0, ptr no
 54:                                               ; preds = %49
   store i32 %.1, ptr %51, align 4
   %55 = sitofp i32 %.1 to double
-  %56 = fmul double %55, 1.000000e+03
+  %56 = fmul nnan double %55, 1.000000e+03
   %57 = uitofp i16 %30 to double
   %58 = fdiv double %56, %57
   %59 = uitofp i32 %2 to double

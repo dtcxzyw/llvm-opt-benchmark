@@ -77,7 +77,7 @@ define void @_ZN3g2o11OdomConvert17convertToVelocityERKNS_17MotionMeasurementE(p
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load double, ptr %9, align 8, !tbaa !3
   %11 = tail call double @hypot(double noundef %8, double noundef %10) #9, !tbaa !21
-  %12 = fmul double %4, 5.000000e-01
+  %12 = fmul nnan double %4, 5.000000e-01
   %13 = tail call double @sin(double noundef %12) #9, !tbaa !21
   %14 = fmul double %13, 2.000000e+00
   %15 = fdiv double %11, %14

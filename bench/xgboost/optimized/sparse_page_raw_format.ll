@@ -2308,7 +2308,7 @@ _ZN7xgboost6common25AlignedResourceReadStream7ConsumeEm.exit: ; preds = %16
   %25 = load i64, ptr %24, align 8, !tbaa !89
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 %25
   %27 = uitofp i64 %9 to double
-  %28 = fmul double %27, 1.250000e-01
+  %28 = fmul nnan double %27, 1.250000e-01
   %29 = call double @llvm.ceil.f64(double %28)
   %30 = fptoui double %29 to i64
   %31 = shl i64 %30, 3
@@ -2528,7 +2528,7 @@ _ZN7xgboost6common25AlignedResourceReadStream7ConsumeEm.exit: ; preds = %16
   %25 = load i64, ptr %24, align 8, !tbaa !89
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 %25
   %27 = uitofp i64 %9 to double
-  %28 = fmul double %27, 1.250000e-01
+  %28 = fmul nnan double %27, 1.250000e-01
   %29 = call double @llvm.ceil.f64(double %28)
   %30 = fptoui double %29 to i64
   %31 = shl i64 %30, 3
@@ -4501,7 +4501,7 @@ define linkonce_odr noundef i64 @_ZN7xgboost6common18AlignedWriteStream5WriteEPK
   %11 = alloca %"class.dmlc::LogMessageFatal", align 1
   store i64 %2, ptr %4, align 8, !tbaa !68
   %12 = uitofp i64 %2 to double
-  %13 = fmul double %12, 1.250000e-01
+  %13 = fmul nnan double %12, 1.250000e-01
   %14 = tail call double @llvm.ceil.f64(double %13)
   %15 = fptoui double %14 to i64
   %16 = shl i64 %15, 3

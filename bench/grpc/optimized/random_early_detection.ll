@@ -89,7 +89,7 @@ _ZN4absl12lts_202407229BitGenRef10InvokeMockEPKvPvS4_.exit.thread.i.i.i: ; preds
 
 31:                                               ; preds = %25
   %32 = uitofp nneg i64 %27 to double
-  %33 = fmul double %32, 0x3DF0000000000000
+  %33 = fmul nnan double %32, 0x3DF0000000000000
   %34 = fsub double %.013.i.i.i.i.i, %33
   %35 = fmul double %34, 0x41F0000000000000
   %36 = fcmp une double %35, 0.000000e+00

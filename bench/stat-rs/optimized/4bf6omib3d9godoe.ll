@@ -501,7 +501,7 @@ define { i64, i64 } @"_ZN134_$LT$statrs..distribution..bernoulli..Bernoulli$u20$
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !alias.scope !74, !noundef !7
   %20 = uitofp i64 %19 to double
-  %21 = fadd double %20, 1.000000e+00
+  %21 = fadd nnan double %20, 1.000000e+00
   %22 = fmul double %2, %21
   %23 = tail call double @llvm.floor.f64(double %22)
   %24 = tail call i64 @llvm.fptoui.sat.i64.f64(double %23)
@@ -698,15 +698,15 @@ define { i64, double } @"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$st
 
 15:                                               ; preds = %5
   %16 = tail call double @llvm.sqrt.f64(double %2)
-  %17 = fdiv double 2.500000e-01, %2
-  %18 = fadd double %17, 1.000000e+00
+  %17 = fdiv nnan double 2.500000e-01, %2
+  %18 = fadd nnan double %17, 1.000000e+00
   %19 = fmul double %2, %2
-  %20 = fdiv double 3.125000e-02, %19
-  %21 = fadd double %20, 1.000000e+00
-  %22 = fmul double %18, %21
-  %23 = fmul double %2, %19
-  %24 = fdiv double 4.687500e-02, %23
-  %25 = fsub double 1.000000e+00, %24
+  %20 = fdiv nnan double 3.125000e-02, %19
+  %21 = fadd nnan double %20, 1.000000e+00
+  %22 = fmul nnan double %18, %21
+  %23 = fmul nnan double %2, %19
+  %24 = fdiv nnan double 4.687500e-02, %23
+  %25 = fsub nnan double 1.000000e+00, %24
   %26 = fmul double %22, %25
   %27 = fdiv double %16, %26
   br label %28
@@ -743,15 +743,15 @@ define { i64, double } @"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$st
 
 15:                                               ; preds = %5
   %16 = tail call double @llvm.sqrt.f64(double %2)
-  %17 = fdiv double 2.500000e-01, %2
-  %18 = fadd double %17, 1.000000e+00
+  %17 = fdiv nnan double 2.500000e-01, %2
+  %18 = fadd nnan double %17, 1.000000e+00
   %19 = fmul double %2, %2
-  %20 = fdiv double 3.125000e-02, %19
-  %21 = fadd double %20, 1.000000e+00
-  %22 = fmul double %18, %21
-  %23 = fmul double %2, %19
-  %24 = fdiv double 4.687500e-02, %23
-  %25 = fsub double 1.000000e+00, %24
+  %20 = fdiv nnan double 3.125000e-02, %19
+  %21 = fadd nnan double %20, 1.000000e+00
+  %22 = fmul nnan double %18, %21
+  %23 = fmul nnan double %2, %19
+  %24 = fdiv nnan double 4.687500e-02, %23
+  %25 = fsub nnan double 1.000000e+00, %24
   %26 = fmul double %22, %25
   %27 = fdiv double %16, %26
   br label %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread"
@@ -833,30 +833,30 @@ define { i64, double } @"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$st
 
 25:                                               ; preds = %5
   %26 = tail call double @llvm.sqrt.f64(double %2)
-  %27 = fdiv double 2.500000e-01, %2
-  %28 = fadd double %27, 1.000000e+00
+  %27 = fdiv nnan double 2.500000e-01, %2
+  %28 = fadd nnan double %27, 1.000000e+00
   %29 = fmul double %2, %2
-  %30 = fdiv double 3.125000e-02, %29
-  %31 = fadd double %30, 1.000000e+00
-  %32 = fmul double %28, %31
-  %33 = fmul double %2, %29
-  %34 = fdiv double 4.687500e-02, %33
-  %35 = fsub double 1.000000e+00, %34
+  %30 = fdiv nnan double 3.125000e-02, %29
+  %31 = fadd nnan double %30, 1.000000e+00
+  %32 = fmul nnan double %28, %31
+  %33 = fmul nnan double %2, %29
+  %34 = fdiv nnan double 4.687500e-02, %33
+  %35 = fsub nnan double 1.000000e+00, %34
   %36 = fmul double %32, %35
   %37 = fdiv double %26, %36
   %38 = fmul double %37, %37
   %39 = fsub double %2, %38
   %40 = tail call double @llvm.sqrt.f64(double %39)
   %41 = tail call double @llvm.sqrt.f64(double %2)
-  %42 = fdiv double 2.500000e-01, %2
-  %43 = fadd double %42, 1.000000e+00
+  %42 = fdiv nnan double 2.500000e-01, %2
+  %43 = fadd nnan double %42, 1.000000e+00
   %44 = fmul double %2, %2
-  %45 = fdiv double 3.125000e-02, %44
-  %46 = fadd double %45, 1.000000e+00
-  %47 = fmul double %43, %46
-  %48 = fmul double %2, %44
-  %49 = fdiv double 4.687500e-02, %48
-  %50 = fsub double 1.000000e+00, %49
+  %45 = fdiv nnan double 3.125000e-02, %44
+  %46 = fadd nnan double %45, 1.000000e+00
+  %47 = fmul nnan double %43, %46
+  %48 = fmul nnan double %2, %44
+  %49 = fdiv nnan double 4.687500e-02, %48
+  %50 = fsub nnan double 1.000000e+00, %49
   %51 = fmul double %47, %50
   %52 = fdiv double %41, %51
   br label %55
@@ -922,8 +922,8 @@ define noundef double @"_ZN100_$LT$statrs..distribution..chi..Chi$u20$as$u20$sta
   br label %31
 
 "_ZN100_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..distribution..Continuous$LT$f64$C$f64$GT$$GT$6ln_pdf17h9f7d54e4ebe88f01E.exit": ; preds = %6
-  %21 = fmul double %9, 0x3FE62E42FEFA39EF
-  %22 = tail call noundef double @llvm.log.f64(double %1)
+  %21 = fmul nnan double %9, 0x3FE62E42FEFA39EF
+  %22 = tail call ninf double @llvm.log.f64(double %1)
   %23 = fmul double %22, %10
   %24 = fadd double %23, %21
   %25 = fmul double %1, %1
@@ -952,7 +952,7 @@ define noundef double @"_ZN100_$LT$statrs..distribution..chi..Chi$u20$as$u20$sta
   %8 = fsub double 1.000000e+00, %7
   %9 = fmul double %8, 0x3FE62E42FEFA39EF
   %10 = fadd double %3, -1.000000e+00
-  %11 = tail call noundef double @llvm.log.f64(double %1)
+  %11 = tail call ninf double @llvm.log.f64(double %1)
   %12 = fmul double %11, %10
   %13 = fadd double %12, %9
   %14 = fmul double %1, %1

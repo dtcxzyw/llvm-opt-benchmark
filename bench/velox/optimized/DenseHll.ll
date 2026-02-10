@@ -926,7 +926,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 
 land.lhs.true:                                    ; preds = %for.end
   %conv7 = sitofp i32 %shl to double
-  %mul = fmul double %conv7, 4.000000e-01
+  %mul = fmul nnan double %conv7, 4.000000e-01
   %cmp8 = fcmp olt double %mul, %baselineCount.0.lcssa
   br i1 %cmp8, label %if.then9, label %if.end12
 

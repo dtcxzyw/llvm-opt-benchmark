@@ -144,7 +144,7 @@ define internal void @uninit(ptr noundef %0) #1 {
   br i1 %22, label %23, label %ssim_db.exit
 
 23:                                               ; preds = %._crit_edge
-  %24 = fdiv nsz double %18, %20
+  %24 = fdiv nnan nsz double %18, %20
   %25 = call nsz double @llvm.log10.f64(double %24)
   %26 = fmul nsz double %25, 1.000000e+01
   br label %ssim_db.exit
@@ -184,7 +184,7 @@ ssim_db.exit:                                     ; preds = %._crit_edge, %23
   br i1 %47, label %48, label %ssim_db.exit51
 
 48:                                               ; preds = %34
-  %49 = fdiv nsz double %43, %45
+  %49 = fdiv nnan nsz double %43, %45
   %50 = call nsz double @llvm.log10.f64(double %49)
   %51 = fmul nsz double %50, 1.000000e+01
   br label %ssim_db.exit51
@@ -424,7 +424,7 @@ define internal range(i32 -22, 1) i32 @config_input_ref(ptr noundef readonly cap
   %92 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv130
   %93 = load i32, ptr %92, align 4, !tbaa !34
   %94 = sitofp i32 %93 to double
-  %95 = fmul nsz double %91, %94
+  %95 = fmul nnan nsz double %91, %94
   %96 = fdiv nsz double %95, %74
   %97 = getelementptr inbounds nuw double, ptr %75, i64 %indvars.iv130
   store double %96, ptr %97, align 8, !tbaa !41
@@ -543,11 +543,11 @@ define internal noundef i32 @ssim_plane_16bit(ptr readnone captures(none) %0, pt
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %24 = add nsw i32 %2, 1
   %25 = sitofp i32 %18 to double
-  %26 = fmul nsz double %25, 1.000000e-04
+  %26 = fmul nnan nsz double %25, 1.000000e-04
   %27 = fmul nsz double %26, %25
   %28 = tail call nsz double @llvm.fmuladd.f64(double %27, double 6.400000e+01, double 5.000000e-01)
   %29 = fptosi double %28 to i64
-  %30 = fmul nsz double %25, 9.000000e-04
+  %30 = fmul nnan nsz double %25, 9.000000e-04
   %31 = fmul nsz double %30, %25
   %32 = fmul nsz double %31, 6.400000e+01
   %33 = tail call nsz double @llvm.fmuladd.f64(double %32, double 6.300000e+01, double 5.000000e-01)
@@ -795,13 +795,13 @@ ssim_4x4xn_16bit.exit:                            ; preds = %.lr.ph, %ssim_4x4xn
   %156 = add i64 %.neg28.i.i, %34
   %157 = add i64 %156, %154
   %158 = sitofp i64 %157 to float
-  %159 = fmul nsz float %153, %158
+  %159 = fmul nnan nsz float %153, %158
   %160 = add nsw i64 %149, %29
   %161 = sitofp i64 %160 to float
   %162 = sub i64 %34, %149
   %163 = add i64 %162, %146
   %164 = sitofp i64 %163 to float
-  %165 = fmul nsz float %161, %164
+  %165 = fmul nnan nsz float %161, %164
   %166 = fdiv nsz float %159, %165
   %167 = fadd nsz float %.03738.i, %166
   %exitcond.not.i72 = icmp eq i64 %indvars.iv.next.i71, %wide.trip.count.i69
@@ -1101,13 +1101,13 @@ define internal double @ssim_endn_8bit(ptr noundef readonly captures(none) %0, p
   %51 = add i32 %.neg20.i, 235963
   %52 = add i32 %51, %49
   %53 = sitofp i32 %52 to float
-  %54 = fmul nsz float %48, %53
+  %54 = fmul nnan nsz float %48, %53
   %55 = add nuw nsw i32 %44, 416
   %56 = uitofp nneg i32 %55 to float
   %reass.sub = sub i32 %41, %44
   %57 = add i32 %reass.sub, 235963
   %58 = sitofp i32 %57 to float
-  %59 = fmul nsz float %56, %58
+  %59 = fmul nnan nsz float %56, %58
   %60 = fdiv nsz float %54, %59
   %61 = fpext nsz float %60 to double
   %62 = fadd nsz double %.03637, %61
@@ -1562,7 +1562,7 @@ set_meta.exit:                                    ; preds = %162, %166
   br i1 %180, label %181, label %ssim_db.exit
 
 181:                                              ; preds = %._crit_edge126
-  %182 = fdiv nsz double 1.000000e+00, %178
+  %182 = fdiv nnan nsz double 1.000000e+00, %178
   %183 = call nsz double @llvm.log10.f64(double %182)
   %184 = fmul nsz double %183, 1.000000e+01
   %185 = fptrunc nsz double %184 to float
@@ -1626,7 +1626,7 @@ ssim_db.exit:                                     ; preds = %._crit_edge126, %18
   br i1 %180, label %220, label %ssim_db.exit111
 
 220:                                              ; preds = %._crit_edge130
-  %221 = fdiv nsz double 1.000000e+00, %178
+  %221 = fdiv nnan nsz double 1.000000e+00, %178
   %222 = call nsz double @llvm.log10.f64(double %221)
   %223 = fmul nsz double %222, 1.000000e+01
   br label %ssim_db.exit111

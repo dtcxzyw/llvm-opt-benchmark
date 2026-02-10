@@ -997,7 +997,7 @@ define void @Abc_NtkDelayTracePrint(ptr noundef %0, i32 noundef %1, i32 noundef 
   %20 = fptoui float %19 to i64
   %21 = shl i64 %20, 2
   %22 = tail call noalias ptr @malloc(i64 noundef %21) #17
-  %23 = fmul float %19, 4.000000e+00
+  %23 = fmul nnan float %19, 4.000000e+00
   %24 = fptoui float %23 to i64
   tail call void @llvm.memset.p0.i64(ptr align 4 %22, i8 0, i64 %24, i1 false)
   %25 = tail call float @Abc_NtkDelayTraceLut(ptr noundef %0, i32 noundef %1)
@@ -1079,7 +1079,7 @@ define void @Abc_NtkDelayTracePrint(ptr noundef %0, i32 noundef %1, i32 noundef 
   %64 = add nsw i32 %63, %.04360.us
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %65 = sitofp i32 %64 to double
-  %66 = fmul double %65, 1.000000e+02
+  %66 = fmul nnan double %65, 1.000000e+02
   %.val55.us = load i32, ptr %61, align 4, !tbaa !31
   %67 = sitofp i32 %.val55.us to double
   %68 = fdiv double %66, %67
@@ -1100,7 +1100,7 @@ define void @Abc_NtkDelayTracePrint(ptr noundef %0, i32 noundef %1, i32 noundef 
   %78 = add i32 %77, 5
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %79 = sitofp i32 %75 to double
-  %80 = fmul double %79, 1.000000e+02
+  %80 = fmul nnan double %79, 1.000000e+02
   %.val55 = load i32, ptr %61, align 4, !tbaa !31
   %81 = sitofp i32 %.val55 to double
   %82 = fdiv double %80, %81
@@ -3986,7 +3986,7 @@ define void @Abc_NtkPowerPrint(ptr noundef readonly captures(none) %0, ptr nound
   %94 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv110
   %95 = load i32, ptr %94, align 4, !tbaa !31
   %96 = sitofp i32 %95 to double
-  %97 = fmul double %96, 1.000000e+02
+  %97 = fmul nnan double %96, 1.000000e+02
   %98 = fdiv double %97, %.048.lcssa
   %99 = trunc nuw nsw i64 %indvars.iv110 to i32
   %100 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i32 noundef %99, i32 noundef %indvars, double noundef %98)

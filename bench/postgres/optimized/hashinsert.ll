@@ -499,7 +499,7 @@ _hash_vacuum_one_page.exit:                       ; preds = %BufferGetPage.exit.
   %272 = load i32, ptr %271, align 8
   %273 = add i32 %272, 1
   %274 = uitofp i32 %273 to double
-  %275 = fmul double %270, %274
+  %275 = fmul nnan double %270, %274
   %276 = fcmp ogt double %267, %275
   call void @MarkBufferDirty(i32 noundef %15) #5
   %277 = getelementptr inbounds nuw i8, ptr %0, i64 56

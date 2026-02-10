@@ -3016,7 +3016,7 @@ _Z9b2MakeRotf.exit69:                             ; preds = %40
   store i32 2, ptr %13, align 8, !tbaa !53
   %79 = trunc nuw nsw i64 %indvars.iv to i32
   %80 = uitofp nneg i32 %79 to float
-  %81 = fmul float %80, 4.000000e+00
+  %81 = fmul nnan float %80, 4.000000e+00
   %82 = fadd float %81, -1.500000e+01
   store float %82, ptr %48, align 4, !tbaa !15
   store float 2.800000e+01, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
@@ -3115,7 +3115,7 @@ define linkonce_odr dso_local void @_ZN17RollingResistance11CreateSceneEv(ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store float -4.000000e+01, ptr %5, align 4, !tbaa !84
   %19 = uitofp nneg i32 %.016 to float
-  %20 = fmul float %19, 2.000000e+00
+  %20 = fmul nnan float %19, 2.000000e+00
   store float %20, ptr %7, align 4, !tbaa !85
   store float 4.000000e+01, ptr %8, align 4, !tbaa !84
   %21 = load float, ptr %10, align 4, !tbaa !34
@@ -3161,7 +3161,7 @@ define linkonce_odr dso_local void @_ZN17RollingResistance4StepER8Settings(ptr n
 5:                                                ; preds = %2, %5
   %.06 = phi i32 [ 0, %2 ], [ %12, %5 ]
   %6 = uitofp nneg i32 %.06 to float
-  %7 = fmul float %6, 2.000000e+00
+  %7 = fmul nnan float %6, 2.000000e+00
   %8 = fadd float %7, 1.000000e+00
   %.sroa.0.4.vec.insert = insertelement <2 x float> <float -4.150000e+01, float poison>, float %8, i64 1
   %9 = load float, ptr %3, align 8, !tbaa !36
@@ -3380,7 +3380,7 @@ define linkonce_odr dso_local void @_ZN12ConveyorBeltC2ER8Settings(ptr noundef n
 62:                                               ; preds = %61
   store i32 2, ptr %11, align 8, !tbaa !53
   %63 = uitofp nneg i32 %.03346 to float
-  %64 = fmul float %63, 2.000000e+00
+  %64 = fmul nnan float %63, 2.000000e+00
   %65 = fadd float %64, -1.000000e+01
   store float %65, ptr %35, align 4, !tbaa !15
   store float 7.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
@@ -4509,8 +4509,8 @@ define linkonce_odr dso_local void @_ZN13RoundedShapesC2ER8Settings(ptr noundef 
   store i32 %66, ptr @g_seed, align 4, !tbaa !69
   %67 = and i32 %66, 32767
   %68 = uitofp nneg i32 %67 to float
-  %69 = fdiv float %68, 3.276700e+04
-  %70 = fmul float %69, 0x3FC99999A0000000
+  %69 = fdiv nnan float %68, 3.276700e+04
+  %70 = fmul nnan float %69, 0x3FC99999A0000000
   %71 = fadd float %70, 0x3FA99999A0000000
   store float %71, ptr %32, align 4, !tbaa !111
   %72 = invoke i64 @b2CreatePolygonShape(i64 %57, ptr noundef nonnull %9, ptr noundef nonnull %10)
@@ -4898,7 +4898,7 @@ define linkonce_odr dso_local void @_ZN9ExplosionC2ER8Settings(ptr noundef nonnu
 45:                                               ; preds = %20, %_ZNSt6vectorI9b2JointIdSaIS0_EE9push_backERKS0_.exit
   %.02637.int = phi i32 [ 0, %20 ], [ %.int, %_ZNSt6vectorI9b2JointIdSaIS0_EE9push_backERKS0_.exit ]
   %indvar.conv = uitofp nneg i32 %.02637.int to float
-  %46 = fmul float %indvar.conv, 0x400921FB60000000
+  %46 = fmul nnan float %indvar.conv, 0x400921FB60000000
   %47 = fdiv float %46, 1.800000e+02
   %48 = invoke <2 x float> @b2ComputeCosSin(float noundef %47)
           to label %49 unwind label %86

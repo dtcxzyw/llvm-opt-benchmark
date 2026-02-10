@@ -875,7 +875,7 @@ define internal void @_main_icons_register_size(ptr noundef %0, ptr noundef read
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @gtk_style_context_get_margin(ptr noundef %37, i32 noundef %8, ptr noundef nonnull %7) #10
   %38 = sitofp i32 %32 to float
-  %39 = fpext reassoc nsz arcp contract afn float %38 to double
+  %39 = fpext fast float %38 to double
   %40 = load i16, ptr %7, align 2, !tbaa !109
   %41 = sext i16 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 2
@@ -883,9 +883,9 @@ define internal void @_main_icons_register_size(ptr noundef %0, ptr noundef read
   %44 = sext i16 %43 to i32
   %45 = add nsw i32 %44, %41
   %46 = sitofp i32 %45 to float
-  %47 = fmul reassoc nsz arcp contract afn float %46, 0x3F847AE140000000
-  %48 = fpext reassoc nsz arcp contract afn float %47 to double
-  %49 = fsub reassoc nsz arcp contract afn double 1.000000e+00, %48
+  %47 = fmul reassoc nnan nsz arcp contract afn float %46, 0x3F847AE140000000
+  %48 = fpext reassoc nnan nsz arcp contract afn float %47 to double
+  %49 = fsub reassoc nnan nsz arcp contract afn double 1.000000e+00, %48
   %50 = fmul reassoc nsz arcp contract afn double %49, %39
   %51 = call reassoc nsz arcp contract afn double @llvm.round.f64(double %50)
   %52 = fptosi double %51 to i32
@@ -1492,7 +1492,7 @@ define internal fastcc void @_set_mapping_mode_cursor(ptr noundef %0) unnamed_ad
 30:                                               ; preds = %.critedge.thread
   %31 = tail call i32 @gdk_display_get_default_cursor_size(ptr noundef %2) #10
   %32 = uitofp i32 %31 to double
-  %33 = fmul reassoc nsz arcp contract afn double %32, 1.500000e+00
+  %33 = fmul reassoc nnan nsz arcp contract afn double %32, 1.500000e+00
   %34 = fptosi double %33 to i32
   %35 = tail call ptr @cairo_image_surface_create(i32 noundef 0, i32 noundef %34, i32 noundef %31) #10
   %36 = tail call ptr @cairo_create(ptr noundef %35) #10

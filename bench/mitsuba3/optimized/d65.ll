@@ -1094,7 +1094,7 @@ define weak_odr <4 x float> @_ZNK7mitsuba11D65SpectrumIfN5drjit6MatrixINS_8Spect
   %26 = tail call contract noundef float @llvm.fabs.f32(float %23)
   %27 = fcmp contract oeq float %26, 0x7FF0000000000000
   %28 = tail call float @llvm.copysign.f32(float 1.000000e+00, float %23)
-  %29 = tail call contract noundef float @llvm.fma.f32(float %28, float 5.000000e-01, float 5.000000e-01)
+  %29 = tail call nnan contract float @llvm.fma.f32(float %28, float 5.000000e-01, float 5.000000e-01)
   %30 = fmul contract <4 x float> %25, splat (float 5.000000e-01)
   %31 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %25, <4 x float> %25, <4 x float> splat (float 1.000000e+00))
   %32 = tail call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %31, <4 x float> zeroinitializer, i8 -1)
@@ -1171,7 +1171,7 @@ define weak_odr void @_ZNK7mitsuba11D65SpectrumIfN5drjit6MatrixINS_8SpectrumIfLm
   %36 = call contract noundef float @llvm.fabs.f32(float %33)
   %37 = fcmp contract oeq float %36, 0x7FF0000000000000
   %38 = call float @llvm.copysign.f32(float 1.000000e+00, float %33)
-  %39 = call contract noundef float @llvm.fma.f32(float %38, float 5.000000e-01, float 5.000000e-01)
+  %39 = call nnan contract float @llvm.fma.f32(float %38, float 5.000000e-01, float 5.000000e-01)
   %40 = fmul contract <4 x float> %35, splat (float 5.000000e-01)
   %41 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %35, <4 x float> %35, <4 x float> splat (float 1.000000e+00))
   %42 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %41, <4 x float> zeroinitializer, i8 -1)

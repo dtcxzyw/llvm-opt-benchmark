@@ -706,7 +706,7 @@ define void @_ZN7mitsuba4util10mem_stringEmb(ptr dead_on_unwind noalias writable
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.06 = phi i32 [ %10, %.lr.ph ], [ 0, %3 ]
   %8 = phi float [ %9, %.lr.ph ], [ %6, %3 ]
-  %9 = fmul contract float %8, 0x3F50000000000000
+  %9 = fmul nnan contract float %8, 0x3F50000000000000
   %10 = add nuw nsw i32 %.06, 1
   %11 = icmp samesign ult i32 %.06, 5
   %12 = fcmp contract ogt float %9, 1.024000e+03

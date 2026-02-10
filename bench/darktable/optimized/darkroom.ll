@@ -826,15 +826,15 @@ switch.lookup:                                    ; preds = %104
   call void @pango_layout_get_pixel_extents(ptr noundef %138, ptr noundef nonnull %11, ptr noundef null) #19
   %139 = sitofp i32 %2 to double
   %140 = sitofp i32 %3 to double
-  %141 = fmul reassoc nsz arcp contract afn double %140, 8.800000e-01
+  %141 = fmul reassoc nnan nsz arcp contract afn double %140, 8.800000e-01
   %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !130
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 1424
   %144 = load double, ptr %143, align 8, !tbaa !152
   %145 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %146 = load i32, ptr %145, align 4, !tbaa !161
   %147 = sitofp i32 %146 to double
-  %148 = fsub reassoc nsz arcp contract afn double %139, %147
-  %149 = fmul reassoc nsz arcp contract afn double %148, 5.000000e-01
+  %148 = fsub reassoc nnan nsz arcp contract afn double %139, %147
+  %149 = fmul reassoc nnan nsz arcp contract afn double %148, 5.000000e-01
   %150 = fpext reassoc nsz arcp contract afn float %.0216 to double
   %.neg293 = fmul reassoc nsz arcp contract afn double %144, -1.000000e+01
   %151 = fmul reassoc nsz arcp contract afn double %150, 0xBFE5555555555556
@@ -998,13 +998,13 @@ _preview2_request.exit.thread:                    ; preds = %182, %189, %191, %_
   %219 = call reassoc nsz arcp contract afn float @dt_dev_get_zoom_scale(ptr noundef nonnull %21, i32 noundef %215, i32 noundef %218, i32 noundef 1) #19
   store float %219, ptr %16, align 4, !tbaa !139
   %220 = sitofp i32 %2 to double
-  %221 = fmul reassoc nsz arcp contract afn double %213, 2.000000e+00
+  %221 = fmul reassoc nnan nsz arcp contract afn double %213, 2.000000e+00
   %222 = fsub reassoc nsz arcp contract afn double %220, %221
   %223 = sitofp i32 %3 to double
   %224 = fsub reassoc nsz arcp contract afn double %223, %221
   call void @cairo_rectangle(ptr noundef %1, double noundef %213, double noundef %213, double noundef %222, double noundef %224) #19
-  %225 = fmul reassoc nsz arcp contract afn double %220, 5.000000e-01
-  %226 = fmul reassoc nsz arcp contract afn double %223, 5.000000e-01
+  %225 = fmul reassoc nnan nsz arcp contract afn double %220, 5.000000e-01
+  %226 = fmul reassoc nnan nsz arcp contract afn double %223, 5.000000e-01
   call void @cairo_translate(ptr noundef %1, double noundef %225, double noundef %226) #19
   %227 = fpext reassoc nsz arcp contract afn float %219 to double
   call void @cairo_scale(ptr noundef %1, double noundef %227, double noundef %227) #19
@@ -1495,7 +1495,7 @@ define internal fastcc void @_darkroom_pickers_draw(ptr noundef readonly capture
   %.not101 = phi i1 [ %.not92, %26 ], [ true, %15 ]
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %31 = select reassoc nsz arcp contract afn i1 %24, double 5.000000e+00, double 4.000000e+00
-  %invariant.op = fmul reassoc nsz arcp contract afn double %31, 2.000000e+00
+  %invariant.op = fmul reassoc nnan nsz arcp contract afn double %31, 2.000000e+00
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %34 = getelementptr inbounds nuw i8, ptr %10, i64 12
@@ -1938,7 +1938,7 @@ define range(i32 0, 2) i32 @try_enter(ptr noundef readnone captures(none) %0) lo
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !223
   %49 = sitofp i64 %48 to double
-  %50 = fmul reassoc nsz arcp contract afn double %49, 0x3EB0C6F7A0B5ED8D
+  %50 = fmul reassoc nnan nsz arcp contract afn double %49, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %51 = fadd reassoc nsz arcp contract afn double %46, 1.000000e+01
   %52 = fadd reassoc nsz arcp contract afn double %51, %50
@@ -4661,7 +4661,7 @@ define void @enter(ptr noundef %0) local_unnamed_addr #1 {
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !223
   %49 = sitofp i64 %48 to double
-  %50 = fmul reassoc nsz arcp contract afn double %49, 0x3EB0C6F7A0B5ED8D
+  %50 = fmul reassoc nnan nsz arcp contract afn double %49, 0x3EB0C6F7A0B5ED8D
   %51 = fadd reassoc nsz arcp contract afn double %50, %46
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.158, double noundef %51) #19
@@ -5552,7 +5552,7 @@ define void @leave(ptr noundef %0) local_unnamed_addr #1 {
   %181 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %182 = load i64, ptr %181, align 8, !tbaa !223
   %183 = sitofp i64 %182 to double
-  %184 = fmul reassoc nsz arcp contract afn double %183, 0x3EB0C6F7A0B5ED8D
+  %184 = fmul reassoc nnan nsz arcp contract afn double %183, 0x3EB0C6F7A0B5ED8D
   %185 = fadd reassoc nsz arcp contract afn double %184, %180
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   tail call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.170, double noundef %185) #19
@@ -6343,7 +6343,7 @@ _get_zoom_pos.exit174:                            ; preds = %43
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 156
   %96 = load i32, ptr %95, align 4, !tbaa !174
   %97 = sitofp i32 %96 to float
-  %98 = fmul reassoc nsz arcp contract afn float %97, 0x3F947AE140000000
+  %98 = fmul reassoc nnan nsz arcp contract afn float %97, 0x3F947AE140000000
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 160
   %100 = load i32, ptr %99, align 16, !tbaa !346
   %101 = sitofp i32 %100 to float
@@ -7411,7 +7411,7 @@ dt_dev_gui_module.exit.thread:                    ; preds = %89, %95, %dt_dev_gu
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %111 = load i64, ptr %110, align 8, !tbaa !223
   %112 = sitofp i64 %111 to double
-  %113 = fmul reassoc nsz arcp contract afn double %112, 0x3EB0C6F7A0B5ED8D
+  %113 = fmul reassoc nnan nsz arcp contract afn double %112, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %114 = fadd reassoc nsz arcp contract afn double %109, 1.000000e+01
   %115 = fadd reassoc nsz arcp contract afn double %114, %113

@@ -265,7 +265,7 @@ define internal noundef i32 @luaB_collectgarbage(ptr noundef %0) #0 {
   %10 = tail call i32 @lua_gc(ptr noundef %0, i32 noundef 4, i32 noundef 0) #8
   %11 = sitofp i32 %8 to double
   %12 = sitofp i32 %10 to double
-  %13 = fmul double %12, 0x3F50000000000000
+  %13 = fmul nnan double %12, 0x3F50000000000000
   %14 = fadd double %13, %11
   tail call void @lua_pushnumber(ptr noundef %0, double noundef %14) #8
   br label %18

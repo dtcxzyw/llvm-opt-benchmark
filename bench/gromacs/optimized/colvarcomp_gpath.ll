@@ -1653,12 +1653,12 @@ define void @_ZN6colvar6gspath14calc_gradientsEv(ptr noundef nonnull align 8 der
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %17 = load i64, ptr %16, align 8, !tbaa !145
   %18 = sitofp i64 %17 to double
-  %19 = fmul double %18, -5.000000e-01
+  %19 = fmul nnan double %18, -5.000000e-01
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1896
   %21 = load ptr, ptr %20, align 8, !tbaa !146
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 2080
   %23 = load double, ptr %22, align 8, !tbaa !147
-  %24 = fmul double %18, 5.000000e-01
+  %24 = fmul nnan double %18, 5.000000e-01
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1920
   %26 = load ptr, ptr %25, align 8, !tbaa !146
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1672
@@ -9435,7 +9435,7 @@ define linkonce_odr void @_ZN15GeometricPathCV17GeometricPathBaseIN12colvarmodul
   br i1 %163, label %164, label %237
 
 164:                                              ; preds = %161
-  %165 = fmul double %162, 2.000000e+00
+  %165 = fmul nnan double %162, 2.000000e+00
   %166 = fdiv double 1.000000e+00, %165
   %167 = load double, ptr %62, align 8, !tbaa !152, !noalias !419
   %168 = fmul double %167, 2.000000e+00
@@ -16285,7 +16285,7 @@ _ZN11colvarvalueD2Ev.exit57:                      ; preds = %_ZNSt6vectorIdSaIdE
 
 158:                                              ; preds = %154
   %159 = sitofp i64 %149 to double
-  %160 = fmul double %159, -5.000000e-01
+  %160 = fmul nnan double %159, -5.000000e-01
   %161 = fmul double %160, %155
   %162 = fdiv double %161, %156
   store double %162, ptr %157, align 8, !tbaa !136
@@ -16303,7 +16303,7 @@ _ZN11colvarvalueD2Ev.exit57:                      ; preds = %_ZNSt6vectorIdSaIdE
 
 171:                                              ; preds = %167
   %172 = sitofp i64 %163 to double
-  %173 = fmul double %172, 5.000000e-01
+  %173 = fmul nnan double %172, 5.000000e-01
   %174 = fmul double %173, %168
   %175 = fdiv double %174, %169
   store double %175, ptr %170, align 8, !tbaa !136
@@ -16792,7 +16792,7 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %114, %113, %112, %1
 
 141:                                              ; preds = %137
   %142 = sitofp i64 %132 to double
-  %143 = fmul double %142, -5.000000e-01
+  %143 = fmul nnan double %142, -5.000000e-01
   %144 = fmul double %143, %138
   %145 = fdiv double %144, %139
   store double %145, ptr %140, align 8, !tbaa !136
@@ -16810,7 +16810,7 @@ _ZNK11colvarvalue4sizeEv.exit:                    ; preds = %114, %113, %112, %1
 
 154:                                              ; preds = %150
   %155 = sitofp i64 %146 to double
-  %156 = fmul double %155, 5.000000e-01
+  %156 = fmul nnan double %155, 5.000000e-01
   %157 = fmul double %156, %151
   %158 = fdiv double %157, %152
   store double %158, ptr %153, align 8, !tbaa !136
@@ -28787,7 +28787,7 @@ _ZN11colvarvalueD2Ev.exit279:                     ; preds = %_ZNSt6vectorIdSaIdE
 1083:                                             ; preds = %1080
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  %1084 = fmul double %1081, 2.000000e+00
+  %1084 = fmul nnan double %1081, 2.000000e+00
   %1085 = fdiv double 1.000000e+00, %1084
   store double %1085, ptr %46, align 8, !tbaa !136
   call void @llvm.lifetime.start.p0(ptr nonnull %47)

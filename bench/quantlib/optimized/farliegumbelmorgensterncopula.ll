@@ -625,9 +625,9 @@ do.end75:                                         ; preds = %do.body30
   %34 = load double, ptr %this, align 8, !tbaa !3
   %mul76 = fmul double %x, %34
   %mul77 = fmul double %y, %mul76
-  %sub = fsub double 1.000000e+00, %x
+  %sub = fsub nnan double 1.000000e+00, %x
   %mul78 = fmul double %sub, %mul77
-  %sub79 = fsub double 1.000000e+00, %y
+  %sub79 = fsub nnan double 1.000000e+00, %y
   %mul80 = fmul double %sub79, %mul78
   %35 = tail call double @llvm.fmuladd.f64(double %x, double %y, double %mul80)
   ret double %35

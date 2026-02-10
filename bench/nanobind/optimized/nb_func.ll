@@ -6733,7 +6733,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEES
   %.sroa.speculated.i11 = select i1 %65, float %64, float 0x3FEE666660000000
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i11, ptr %66, align 4
-  %67 = fmul float %.sroa.speculated.i11, %58
+  %67 = fmul nnan float %.sroa.speculated.i11, %58
   %68 = fptoui float %67 to i64
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %68, ptr %69, align 8

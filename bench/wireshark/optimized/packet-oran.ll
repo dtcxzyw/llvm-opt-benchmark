@@ -7031,10 +7031,10 @@ dissect_csf.exit:                                 ; preds = %724, %729
   %737 = trunc i32 %734 to i16
   %738 = and i16 %737, 2047
   %739 = uitofp nneg i16 %738 to double
-  %740 = fmul double %739, 0x3F40000000000000
+  %740 = fmul nnan double %739, 0x3F40000000000000
   %741 = shl nuw nsw i32 1, %736
   %742 = uitofp nneg i32 %741 to double
-  %743 = fdiv double 1.000000e+00, %742
+  %743 = fdiv nnan double 1.000000e+00, %742
   %744 = fmul double %740, %743
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %732, ptr noundef nonnull @.str.1287, double noundef %744)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
@@ -7115,10 +7115,10 @@ dissect_csf.exit1599:                             ; preds = %757, %769
   %780 = trunc i64 %776 to i16
   %781 = and i16 %780, 2047
   %782 = uitofp nneg i16 %781 to double
-  %783 = fmul double %782, 0x3F40000000000000
+  %783 = fmul nnan double %782, 0x3F40000000000000
   %784 = shl nuw nsw i32 1, %779
   %785 = uitofp nneg i32 %784 to double
-  %786 = fdiv double 1.000000e+00, %785
+  %786 = fdiv nnan double 1.000000e+00, %785
   %787 = fmul double %783, %786
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %775, ptr noundef nonnull @.str.1287, double noundef %787)
   %788 = add i32 %.014551845, 28

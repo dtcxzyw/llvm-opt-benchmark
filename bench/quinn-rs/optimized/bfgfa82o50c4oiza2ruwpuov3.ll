@@ -951,7 +951,7 @@ define void @_ZN4perf5stats5Stats5print17hb16c670982d0219bE(ptr noalias noundef 
   %125 = call noundef double @"_ZN12hdrhistogram18Histogram$LT$T$GT$4mean17h211761300fa6b223E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %124)
   %126 = call noundef i64 @llvm.fptoui.sat.i64.f64(double %125)
   %127 = uitofp i64 %126 to double
-  %128 = fmul double %127, 8.000000e+00
+  %128 = fmul nnan double %127, 8.000000e+00
   %129 = fdiv double %128, 1.000000e+03
   %130 = fdiv double %129, 1.000000e+03
   store double %130, ptr %43, align 8, !noalias !103
@@ -960,7 +960,7 @@ define void @_ZN4perf5stats5Stats5print17hb16c670982d0219bE(ptr noalias noundef 
   %132 = call noundef double @"_ZN12hdrhistogram18Histogram$LT$T$GT$4mean17h211761300fa6b223E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %131)
   %133 = call noundef i64 @llvm.fptoui.sat.i64.f64(double %132)
   %134 = uitofp i64 %133 to double
-  %135 = fmul double %134, 8.000000e+00
+  %135 = fmul nnan double %134, 8.000000e+00
   %136 = fdiv double %135, 1.000000e+03
   %137 = fdiv double %136, 1.000000e+03
   store double %137, ptr %42, align 8, !noalias !103
@@ -1043,14 +1043,14 @@ define void @_ZN4perf5stats5Stats5print17hb16c670982d0219bE(ptr noalias noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !106
   %167 = call noundef i64 @"_ZN12hdrhistogram18Histogram$LT$T$GT$17value_at_quantile17h281ea9a48a1d36d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %124, double noundef 0.000000e+00)
   %168 = uitofp i64 %167 to double
-  %169 = fmul double %168, 8.000000e+00
+  %169 = fmul nnan double %168, 8.000000e+00
   %170 = fdiv double %169, 1.000000e+03
   %171 = fdiv double %170, 1.000000e+03
   store double %171, ptr %35, align 8, !noalias !106
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !106
   %172 = call noundef i64 @"_ZN12hdrhistogram18Histogram$LT$T$GT$17value_at_quantile17h281ea9a48a1d36d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %131, double noundef 0.000000e+00)
   %173 = uitofp i64 %172 to double
-  %174 = fmul double %173, 8.000000e+00
+  %174 = fmul nnan double %173, 8.000000e+00
   %175 = fdiv double %174, 1.000000e+03
   %176 = fdiv double %175, 1.000000e+03
   store double %176, ptr %34, align 8, !noalias !106
@@ -1133,14 +1133,14 @@ define void @_ZN4perf5stats5Stats5print17hb16c670982d0219bE(ptr noalias noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !109
   %206 = call noundef i64 @"_ZN12hdrhistogram18Histogram$LT$T$GT$17value_at_quantile17h281ea9a48a1d36d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %124, double noundef 1.000000e-01)
   %207 = uitofp i64 %206 to double
-  %208 = fmul double %207, 8.000000e+00
+  %208 = fmul nnan double %207, 8.000000e+00
   %209 = fdiv double %208, 1.000000e+03
   %210 = fdiv double %209, 1.000000e+03
   store double %210, ptr %27, align 8, !noalias !109
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !109
   %211 = call noundef i64 @"_ZN12hdrhistogram18Histogram$LT$T$GT$17value_at_quantile17h281ea9a48a1d36d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %131, double noundef 1.000000e-01)
   %212 = uitofp i64 %211 to double
-  %213 = fmul double %212, 8.000000e+00
+  %213 = fmul nnan double %212, 8.000000e+00
   %214 = fdiv double %213, 1.000000e+03
   %215 = fdiv double %214, 1.000000e+03
   store double %215, ptr %26, align 8, !noalias !109
@@ -1223,14 +1223,14 @@ define void @_ZN4perf5stats5Stats5print17hb16c670982d0219bE(ptr noalias noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !112
   %245 = call noundef i64 @"_ZN12hdrhistogram18Histogram$LT$T$GT$17value_at_quantile17h281ea9a48a1d36d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %124, double noundef 5.000000e-01)
   %246 = uitofp i64 %245 to double
-  %247 = fmul double %246, 8.000000e+00
+  %247 = fmul nnan double %246, 8.000000e+00
   %248 = fdiv double %247, 1.000000e+03
   %249 = fdiv double %248, 1.000000e+03
   store double %249, ptr %19, align 8, !noalias !112
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !112
   %250 = call noundef i64 @"_ZN12hdrhistogram18Histogram$LT$T$GT$17value_at_quantile17h281ea9a48a1d36d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %131, double noundef 5.000000e-01)
   %251 = uitofp i64 %250 to double
-  %252 = fmul double %251, 8.000000e+00
+  %252 = fmul nnan double %251, 8.000000e+00
   %253 = fdiv double %252, 1.000000e+03
   %254 = fdiv double %253, 1.000000e+03
   store double %254, ptr %18, align 8, !noalias !112
@@ -1313,14 +1313,14 @@ define void @_ZN4perf5stats5Stats5print17hb16c670982d0219bE(ptr noalias noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !115
   %284 = call noundef i64 @"_ZN12hdrhistogram18Histogram$LT$T$GT$17value_at_quantile17h281ea9a48a1d36d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %124, double noundef 9.000000e-01)
   %285 = uitofp i64 %284 to double
-  %286 = fmul double %285, 8.000000e+00
+  %286 = fmul nnan double %285, 8.000000e+00
   %287 = fdiv double %286, 1.000000e+03
   %288 = fdiv double %287, 1.000000e+03
   store double %288, ptr %11, align 8, !noalias !115
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !115
   %289 = call noundef i64 @"_ZN12hdrhistogram18Histogram$LT$T$GT$17value_at_quantile17h281ea9a48a1d36d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %131, double noundef 9.000000e-01)
   %290 = uitofp i64 %289 to double
-  %291 = fmul double %290, 8.000000e+00
+  %291 = fmul nnan double %290, 8.000000e+00
   %292 = fdiv double %291, 1.000000e+03
   %293 = fdiv double %292, 1.000000e+03
   store double %293, ptr %10, align 8, !noalias !115
@@ -1403,14 +1403,14 @@ define void @_ZN4perf5stats5Stats5print17hb16c670982d0219bE(ptr noalias noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !118
   %323 = call noundef i64 @"_ZN12hdrhistogram18Histogram$LT$T$GT$17value_at_quantile17h281ea9a48a1d36d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %124, double noundef 1.000000e+00)
   %324 = uitofp i64 %323 to double
-  %325 = fmul double %324, 8.000000e+00
+  %325 = fmul nnan double %324, 8.000000e+00
   %326 = fdiv double %325, 1.000000e+03
   %327 = fdiv double %326, 1.000000e+03
   store double %327, ptr %3, align 8, !noalias !118
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !118
   %328 = call noundef i64 @"_ZN12hdrhistogram18Histogram$LT$T$GT$17value_at_quantile17h281ea9a48a1d36d2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %131, double noundef 1.000000e+00)
   %329 = uitofp i64 %328 to double
-  %330 = fmul double %329, 8.000000e+00
+  %330 = fmul nnan double %329, 8.000000e+00
   %331 = fdiv double %330, 1.000000e+03
   %332 = fdiv double %331, 1.000000e+03
   store double %332, ptr %2, align 8, !noalias !118

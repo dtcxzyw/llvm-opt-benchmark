@@ -17535,7 +17535,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit77: ; preds = %_ZN
   %243 = fsub double %240, %242
   %244 = getelementptr inbounds nuw i8, ptr %0, i64 3232
   %245 = load double, ptr %244, align 8, !tbaa !296
-  %246 = fmul double %220, 5.000000e-01
+  %246 = fmul nnan double %220, 5.000000e-01
   %247 = fsub double %245, %246
   %248 = fcmp olt double %243, %247
   br i1 %248, label %249, label %251
@@ -18788,7 +18788,7 @@ define noundef zeroext i1 @_ZNK6colvar19periodic_boundariesEv(ptr noundef nonnul
   %38 = fsub double %35, %37
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 3232
   %40 = load double, ptr %39, align 8, !tbaa !296
-  %41 = fmul double %15, 5.000000e-01
+  %41 = fmul nnan double %15, 5.000000e-01
   %42 = fsub double %40, %41
   %43 = fcmp olt double %38, %42
   br i1 %43, label %44, label %46
@@ -69052,7 +69052,7 @@ define noundef zeroext i1 @_ZNK6colvar19periodic_boundariesERK11colvarvalueS2_(p
   %30 = fsub double %27, %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 3232
   %32 = load double, ptr %31, align 8, !tbaa !296
-  %33 = fmul double %5, 5.000000e-01
+  %33 = fmul nnan double %5, 5.000000e-01
   %34 = fsub double %32, %33
   %35 = fcmp olt double %30, %34
   br i1 %35, label %36, label %38
@@ -75405,7 +75405,7 @@ _ZNK6colvar5dist2ERK11colvarvalueS2_.exit145:     ; preds = %417, %424, %431
   %439 = load i64, ptr %59, align 8, !tbaa !388
   %440 = add i64 %439, -1
   %441 = uitofp i64 %440 to double
-  %442 = fdiv double 1.000000e+00, %441
+  %442 = fdiv nnan double 1.000000e+00, %441
   %443 = fmul double %438, %442
   store double %443, ptr %319, align 8, !tbaa !948
   %444 = load i64, ptr %64, align 8, !tbaa !21

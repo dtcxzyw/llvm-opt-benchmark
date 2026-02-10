@@ -2003,7 +2003,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %39, %41
 45:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit11
   %46 = load i64, ptr %28, align 8, !tbaa !15
   %47 = uitofp i64 %46 to float
-  %48 = fmul float %47, 1.000000e+02
+  %48 = fmul nnan float %47, 1.000000e+02
   %49 = uitofp i32 %44 to float
   %50 = fdiv float %48, %49
   br label %51
@@ -2066,7 +2066,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17:               ; preds = %78, %80
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %83 = load i32, ptr %.sroa.022.027, align 8, !tbaa !10
   %84 = uitofp i32 %83 to float
-  %85 = fmul float %84, 1.000000e+02
+  %85 = fmul nnan float %84, 1.000000e+02
   %86 = fdiv float %85, 1.000000e+06
   store ptr @.str.24, ptr %25, align 8, !tbaa !77, !alias.scope !87
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJfEEE, i64 16), ptr %4, align 8, !tbaa !82, !alias.scope !87

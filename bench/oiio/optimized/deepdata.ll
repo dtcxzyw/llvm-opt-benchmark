@@ -4142,49 +4142,49 @@ _ZNK9Imath_3_14halfcvfEv.exit:                    ; preds = %58, %60, %62, %63
 72:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %73 = load i32, ptr %42, align 4, !tbaa !84
   %74 = uitofp i32 %73 to float
-  %75 = fmul float %74, 0x3DF0000000000000
+  %75 = fmul nnan float %74, 0x3DF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
 76:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %77 = load i8, ptr %42, align 1, !tbaa !46
   %78 = uitofp i8 %77 to float
-  %79 = fmul float %78, 0x3F70101020000000
+  %79 = fmul nnan float %78, 0x3F70101020000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
 80:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %81 = load i8, ptr %42, align 1, !tbaa !46
   %82 = sitofp i8 %81 to float
-  %83 = fmul float %82, 0x3F80204080000000
+  %83 = fmul nnan float %82, 0x3F80204080000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
 84:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %85 = load i16, ptr %42, align 2, !tbaa !144
   %86 = uitofp i16 %85 to float
-  %87 = fmul float %86, 0x3EF0001000000000
+  %87 = fmul nnan float %86, 0x3EF0001000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
 88:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %89 = load i16, ptr %42, align 2, !tbaa !144
   %90 = sitofp i16 %89 to float
-  %91 = fmul float %90, 0x3F00002000000000
+  %91 = fmul nnan float %90, 0x3F00002000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
 92:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %93 = load i32, ptr %42, align 4, !tbaa !84
   %94 = sitofp i32 %93 to float
-  %95 = fmul float %94, 0x3E00000000000000
+  %95 = fmul nnan float %94, 0x3E00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
 96:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %97 = load i64, ptr %42, align 8, !tbaa !145
   %98 = uitofp i64 %97 to float
-  %99 = fmul float %98, 0x3BF0000000000000
+  %99 = fmul nnan float %98, 0x3BF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
 100:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %101 = load i64, ptr %42, align 8, !tbaa !145
   %102 = sitofp i64 %101 to float
-  %103 = fmul float %102, 0x3C00000000000000
+  %103 = fmul nnan float %102, 0x3C00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData8data_ptrElii.exit.thread
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
@@ -4359,7 +4359,7 @@ _ZNK11OpenImageIO6v3_1_019ConstDataArrayProxyIN9Imath_3_14halfEjEixEi.exit: ; pr
 94:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %95 = load i8, ptr %42, align 1, !tbaa !46
   %96 = sitofp i8 %95 to double
-  %97 = fmul double %96, 0x4180204080F1E3C7
+  %97 = fmul nnan double %96, 0x4180204080F1E3C7
   %98 = fcmp olt double %97, 0.000000e+00
   %99 = select i1 %98, double -5.000000e-01, double 5.000000e-01
   %100 = fadd double %97, %99
@@ -4382,7 +4382,7 @@ _ZNK11OpenImageIO6v3_1_019ConstDataArrayProxyIN9Imath_3_14halfEjEixEi.exit: ; pr
 109:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %110 = load i16, ptr %42, align 2, !tbaa !144
   %111 = sitofp i16 %110 to double
-  %112 = fmul double %111, 0x4100002000300060
+  %112 = fmul nnan double %111, 0x4100002000300060
   %113 = fcmp olt double %112, 0.000000e+00
   %114 = select i1 %113, double -5.000000e-01, double 5.000000e-01
   %115 = fadd double %112, %114
@@ -4396,7 +4396,7 @@ _ZNK11OpenImageIO6v3_1_019ConstDataArrayProxyIN9Imath_3_14halfEjEixEi.exit: ; pr
 118:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %119 = load i32, ptr %42, align 4, !tbaa !84
   %120 = sitofp i32 %119 to double
-  %121 = fmul double %120, 0x4000000000100000
+  %121 = fmul nnan double %120, 0x4000000000100000
   %122 = fcmp olt double %121, 0.000000e+00
   %123 = select i1 %122, double -5.000000e-01, double 5.000000e-01
   %124 = fadd double %121, %123
@@ -4419,7 +4419,7 @@ _ZNK11OpenImageIO6v3_1_019ConstDataArrayProxyIN9Imath_3_14halfEjEixEi.exit: ; pr
 133:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %134 = load i64, ptr %42, align 8, !tbaa !145
   %135 = sitofp i64 %134 to double
-  %136 = fmul double %135, 0x3DFFFFFFFFE00000
+  %136 = fmul nnan double %135, 0x3DFFFFFFFFE00000
   %137 = fcmp olt double %136, 0.000000e+00
   %138 = select i1 %137, double -5.000000e-01, double 5.000000e-01
   %139 = fadd double %136, %138
@@ -4721,13 +4721,13 @@ _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit: ; preds = %7
 
 17:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %18 = uitofp i32 %4 to float
-  %19 = fmul float %18, 0x3DF0000000000000
+  %19 = fmul nnan float %18, 0x3DF0000000000000
   store float %19, ptr %6, align 4, !tbaa !138
   br label %104
 
 20:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit
   %21 = uitofp i32 %4 to float
-  %22 = fmul float %21, 0x3DF0000000000000
+  %22 = fmul nnan float %21, 0x3DF0000000000000
   %23 = bitcast float %22 to i32
   %24 = icmp samesign ugt i32 %23, 947912703
   br i1 %24, label %25, label %46
@@ -5714,49 +5714,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i:                  ; preds = %151, %150, %148, %1
 160:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %161 = load i32, ptr %130, align 4, !tbaa !84
   %162 = uitofp i32 %161 to float
-  %163 = fmul float %162, 0x3DF0000000000000
+  %163 = fmul nnan float %162, 0x3DF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 164:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %165 = load i8, ptr %130, align 1, !tbaa !46
   %166 = uitofp i8 %165 to float
-  %167 = fmul float %166, 0x3F70101020000000
+  %167 = fmul nnan float %166, 0x3F70101020000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 168:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %169 = load i8, ptr %130, align 1, !tbaa !46
   %170 = sitofp i8 %169 to float
-  %171 = fmul float %170, 0x3F80204080000000
+  %171 = fmul nnan float %170, 0x3F80204080000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 172:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %173 = load i16, ptr %130, align 2, !tbaa !144
   %174 = uitofp i16 %173 to float
-  %175 = fmul float %174, 0x3EF0001000000000
+  %175 = fmul nnan float %174, 0x3EF0001000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 176:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %177 = load i16, ptr %130, align 2, !tbaa !144
   %178 = sitofp i16 %177 to float
-  %179 = fmul float %178, 0x3F00002000000000
+  %179 = fmul nnan float %178, 0x3F00002000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 180:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %181 = load i32, ptr %130, align 4, !tbaa !84
   %182 = sitofp i32 %181 to float
-  %183 = fmul float %182, 0x3E00000000000000
+  %183 = fmul nnan float %182, 0x3E00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 184:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %185 = load i64, ptr %130, align 8, !tbaa !145
   %186 = uitofp i64 %185 to float
-  %187 = fmul float %186, 0x3BF0000000000000
+  %187 = fmul nnan float %186, 0x3BF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 188:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %189 = load i64, ptr %130, align 8, !tbaa !145
   %190 = sitofp i64 %189 to float
-  %191 = fmul float %190, 0x3C00000000000000
+  %191 = fmul nnan float %190, 0x3C00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
@@ -5935,49 +5935,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i159:               ; preds = %279, %278, %276, %2
 288:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %289 = load i32, ptr %258, align 4, !tbaa !84
   %290 = uitofp i32 %289 to float
-  %291 = fmul float %290, 0x3DF0000000000000
+  %291 = fmul nnan float %290, 0x3DF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
 292:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %293 = load i8, ptr %258, align 1, !tbaa !46
   %294 = uitofp i8 %293 to float
-  %295 = fmul float %294, 0x3F70101020000000
+  %295 = fmul nnan float %294, 0x3F70101020000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
 296:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %297 = load i8, ptr %258, align 1, !tbaa !46
   %298 = sitofp i8 %297 to float
-  %299 = fmul float %298, 0x3F80204080000000
+  %299 = fmul nnan float %298, 0x3F80204080000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
 300:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %301 = load i16, ptr %258, align 2, !tbaa !144
   %302 = uitofp i16 %301 to float
-  %303 = fmul float %302, 0x3EF0001000000000
+  %303 = fmul nnan float %302, 0x3EF0001000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
 304:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %305 = load i16, ptr %258, align 2, !tbaa !144
   %306 = sitofp i16 %305 to float
-  %307 = fmul float %306, 0x3F00002000000000
+  %307 = fmul nnan float %306, 0x3F00002000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
 308:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %309 = load i32, ptr %258, align 4, !tbaa !84
   %310 = sitofp i32 %309 to float
-  %311 = fmul float %310, 0x3E00000000000000
+  %311 = fmul nnan float %310, 0x3E00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
 312:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %313 = load i64, ptr %258, align 8, !tbaa !145
   %314 = uitofp i64 %313 to float
-  %315 = fmul float %314, 0x3BF0000000000000
+  %315 = fmul nnan float %314, 0x3BF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
 316:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %317 = load i64, ptr %258, align 8, !tbaa !145
   %318 = sitofp i64 %317 to float
-  %319 = fmul float %318, 0x3C00000000000000
+  %319 = fmul nnan float %318, 0x3C00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit162
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i161: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
@@ -6358,49 +6358,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i:                  ; preds = %99, %98, %96, %94
 108:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %109 = load i32, ptr %78, align 4, !tbaa !84
   %110 = uitofp i32 %109 to float
-  %111 = fmul float %110, 0x3DF0000000000000
+  %111 = fmul nnan float %110, 0x3DF0000000000000
   br label %144
 
 112:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %113 = load i8, ptr %78, align 1, !tbaa !46
   %114 = uitofp i8 %113 to float
-  %115 = fmul float %114, 0x3F70101020000000
+  %115 = fmul nnan float %114, 0x3F70101020000000
   br label %144
 
 116:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %117 = load i8, ptr %78, align 1, !tbaa !46
   %118 = sitofp i8 %117 to float
-  %119 = fmul float %118, 0x3F80204080000000
+  %119 = fmul nnan float %118, 0x3F80204080000000
   br label %144
 
 120:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %121 = load i16, ptr %78, align 2, !tbaa !144
   %122 = uitofp i16 %121 to float
-  %123 = fmul float %122, 0x3EF0001000000000
+  %123 = fmul nnan float %122, 0x3EF0001000000000
   br label %144
 
 124:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %125 = load i16, ptr %78, align 2, !tbaa !144
   %126 = sitofp i16 %125 to float
-  %127 = fmul float %126, 0x3F00002000000000
+  %127 = fmul nnan float %126, 0x3F00002000000000
   br label %144
 
 128:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %129 = load i32, ptr %78, align 4, !tbaa !84
   %130 = sitofp i32 %129 to float
-  %131 = fmul float %130, 0x3E00000000000000
+  %131 = fmul nnan float %130, 0x3E00000000000000
   br label %144
 
 132:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %133 = load i64, ptr %78, align 8, !tbaa !145
   %134 = uitofp i64 %133 to float
-  %135 = fmul float %134, 0x3BF0000000000000
+  %135 = fmul nnan float %134, 0x3BF0000000000000
   br label %144
 
 136:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %137 = load i64, ptr %78, align 8, !tbaa !145
   %138 = sitofp i64 %137 to float
-  %139 = fmul float %138, 0x3C00000000000000
+  %139 = fmul nnan float %138, 0x3C00000000000000
   br label %144
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
@@ -6533,49 +6533,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i142:               ; preds = %197, %196, %194, %1
 206:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i138
   %207 = load i32, ptr %176, align 4, !tbaa !84
   %208 = uitofp i32 %207 to float
-  %209 = fmul float %208, 0x3DF0000000000000
+  %209 = fmul nnan float %208, 0x3DF0000000000000
   br label %242
 
 210:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i138
   %211 = load i8, ptr %176, align 1, !tbaa !46
   %212 = uitofp i8 %211 to float
-  %213 = fmul float %212, 0x3F70101020000000
+  %213 = fmul nnan float %212, 0x3F70101020000000
   br label %242
 
 214:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i138
   %215 = load i8, ptr %176, align 1, !tbaa !46
   %216 = sitofp i8 %215 to float
-  %217 = fmul float %216, 0x3F80204080000000
+  %217 = fmul nnan float %216, 0x3F80204080000000
   br label %242
 
 218:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i138
   %219 = load i16, ptr %176, align 2, !tbaa !144
   %220 = uitofp i16 %219 to float
-  %221 = fmul float %220, 0x3EF0001000000000
+  %221 = fmul nnan float %220, 0x3EF0001000000000
   br label %242
 
 222:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i138
   %223 = load i16, ptr %176, align 2, !tbaa !144
   %224 = sitofp i16 %223 to float
-  %225 = fmul float %224, 0x3F00002000000000
+  %225 = fmul nnan float %224, 0x3F00002000000000
   br label %242
 
 226:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i138
   %227 = load i32, ptr %176, align 4, !tbaa !84
   %228 = sitofp i32 %227 to float
-  %229 = fmul float %228, 0x3E00000000000000
+  %229 = fmul nnan float %228, 0x3E00000000000000
   br label %242
 
 230:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i138
   %231 = load i64, ptr %176, align 8, !tbaa !145
   %232 = uitofp i64 %231 to float
-  %233 = fmul float %232, 0x3BF0000000000000
+  %233 = fmul nnan float %232, 0x3BF0000000000000
   br label %242
 
 234:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i138
   %235 = load i64, ptr %176, align 8, !tbaa !145
   %236 = sitofp i64 %235 to float
-  %237 = fmul float %236, 0x3C00000000000000
+  %237 = fmul nnan float %236, 0x3C00000000000000
   br label %242
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i144: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i138
@@ -6709,49 +6709,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i159:               ; preds = %296, %295, %293, %2
 305:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %306 = load i32, ptr %275, align 4, !tbaa !84
   %307 = uitofp i32 %306 to float
-  %308 = fmul float %307, 0x3DF0000000000000
+  %308 = fmul nnan float %307, 0x3DF0000000000000
   br label %341
 
 309:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %310 = load i8, ptr %275, align 1, !tbaa !46
   %311 = uitofp i8 %310 to float
-  %312 = fmul float %311, 0x3F70101020000000
+  %312 = fmul nnan float %311, 0x3F70101020000000
   br label %341
 
 313:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %314 = load i8, ptr %275, align 1, !tbaa !46
   %315 = sitofp i8 %314 to float
-  %316 = fmul float %315, 0x3F80204080000000
+  %316 = fmul nnan float %315, 0x3F80204080000000
   br label %341
 
 317:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %318 = load i16, ptr %275, align 2, !tbaa !144
   %319 = uitofp i16 %318 to float
-  %320 = fmul float %319, 0x3EF0001000000000
+  %320 = fmul nnan float %319, 0x3EF0001000000000
   br label %341
 
 321:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %322 = load i16, ptr %275, align 2, !tbaa !144
   %323 = sitofp i16 %322 to float
-  %324 = fmul float %323, 0x3F00002000000000
+  %324 = fmul nnan float %323, 0x3F00002000000000
   br label %341
 
 325:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %326 = load i32, ptr %275, align 4, !tbaa !84
   %327 = sitofp i32 %326 to float
-  %328 = fmul float %327, 0x3E00000000000000
+  %328 = fmul nnan float %327, 0x3E00000000000000
   br label %341
 
 329:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %330 = load i64, ptr %275, align 8, !tbaa !145
   %331 = uitofp i64 %330 to float
-  %332 = fmul float %331, 0x3BF0000000000000
+  %332 = fmul nnan float %331, 0x3BF0000000000000
   br label %341
 
 333:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
   %334 = load i64, ptr %275, align 8, !tbaa !145
   %335 = sitofp i64 %334 to float
-  %336 = fmul float %335, 0x3C00000000000000
+  %336 = fmul nnan float %335, 0x3C00000000000000
   br label %341
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i161: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i155
@@ -6881,49 +6881,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i176:               ; preds = %392, %391, %389, %3
 401:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i172
   %402 = load i32, ptr %371, align 4, !tbaa !84
   %403 = uitofp i32 %402 to float
-  %404 = fmul float %403, 0x3DF0000000000000
+  %404 = fmul nnan float %403, 0x3DF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit179
 
 405:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i172
   %406 = load i8, ptr %371, align 1, !tbaa !46
   %407 = uitofp i8 %406 to float
-  %408 = fmul float %407, 0x3F70101020000000
+  %408 = fmul nnan float %407, 0x3F70101020000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit179
 
 409:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i172
   %410 = load i8, ptr %371, align 1, !tbaa !46
   %411 = sitofp i8 %410 to float
-  %412 = fmul float %411, 0x3F80204080000000
+  %412 = fmul nnan float %411, 0x3F80204080000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit179
 
 413:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i172
   %414 = load i16, ptr %371, align 2, !tbaa !144
   %415 = uitofp i16 %414 to float
-  %416 = fmul float %415, 0x3EF0001000000000
+  %416 = fmul nnan float %415, 0x3EF0001000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit179
 
 417:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i172
   %418 = load i16, ptr %371, align 2, !tbaa !144
   %419 = sitofp i16 %418 to float
-  %420 = fmul float %419, 0x3F00002000000000
+  %420 = fmul nnan float %419, 0x3F00002000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit179
 
 421:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i172
   %422 = load i32, ptr %371, align 4, !tbaa !84
   %423 = sitofp i32 %422 to float
-  %424 = fmul float %423, 0x3E00000000000000
+  %424 = fmul nnan float %423, 0x3E00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit179
 
 425:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i172
   %426 = load i64, ptr %371, align 8, !tbaa !145
   %427 = uitofp i64 %426 to float
-  %428 = fmul float %427, 0x3BF0000000000000
+  %428 = fmul nnan float %427, 0x3BF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit179
 
 429:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i172
   %430 = load i64, ptr %371, align 8, !tbaa !145
   %431 = sitofp i64 %430 to float
-  %432 = fmul float %431, 0x3C00000000000000
+  %432 = fmul nnan float %431, 0x3C00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit179
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i178: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i172
@@ -7184,49 +7184,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i194:               ; preds = %570, %569, %567, %5
 579:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
   %580 = load i32, ptr %549, align 4, !tbaa !84
   %581 = uitofp i32 %580 to float
-  %582 = fmul float %581, 0x3DF0000000000000
+  %582 = fmul nnan float %581, 0x3DF0000000000000
   br label %615
 
 583:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
   %584 = load i8, ptr %549, align 1, !tbaa !46
   %585 = uitofp i8 %584 to float
-  %586 = fmul float %585, 0x3F70101020000000
+  %586 = fmul nnan float %585, 0x3F70101020000000
   br label %615
 
 587:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
   %588 = load i8, ptr %549, align 1, !tbaa !46
   %589 = sitofp i8 %588 to float
-  %590 = fmul float %589, 0x3F80204080000000
+  %590 = fmul nnan float %589, 0x3F80204080000000
   br label %615
 
 591:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
   %592 = load i16, ptr %549, align 2, !tbaa !144
   %593 = uitofp i16 %592 to float
-  %594 = fmul float %593, 0x3EF0001000000000
+  %594 = fmul nnan float %593, 0x3EF0001000000000
   br label %615
 
 595:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
   %596 = load i16, ptr %549, align 2, !tbaa !144
   %597 = sitofp i16 %596 to float
-  %598 = fmul float %597, 0x3F00002000000000
+  %598 = fmul nnan float %597, 0x3F00002000000000
   br label %615
 
 599:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
   %600 = load i32, ptr %549, align 4, !tbaa !84
   %601 = sitofp i32 %600 to float
-  %602 = fmul float %601, 0x3E00000000000000
+  %602 = fmul nnan float %601, 0x3E00000000000000
   br label %615
 
 603:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
   %604 = load i64, ptr %549, align 8, !tbaa !145
   %605 = uitofp i64 %604 to float
-  %606 = fmul float %605, 0x3BF0000000000000
+  %606 = fmul nnan float %605, 0x3BF0000000000000
   br label %615
 
 607:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
   %608 = load i64, ptr %549, align 8, !tbaa !145
   %609 = sitofp i64 %608 to float
-  %610 = fmul float %609, 0x3C00000000000000
+  %610 = fmul nnan float %609, 0x3C00000000000000
   br label %615
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i196: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i190
@@ -7359,49 +7359,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i211:               ; preds = %668, %667, %665, %6
 677:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
   %678 = load i32, ptr %647, align 4, !tbaa !84
   %679 = uitofp i32 %678 to float
-  %680 = fmul float %679, 0x3DF0000000000000
+  %680 = fmul nnan float %679, 0x3DF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
 681:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
   %682 = load i8, ptr %647, align 1, !tbaa !46
   %683 = uitofp i8 %682 to float
-  %684 = fmul float %683, 0x3F70101020000000
+  %684 = fmul nnan float %683, 0x3F70101020000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
 685:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
   %686 = load i8, ptr %647, align 1, !tbaa !46
   %687 = sitofp i8 %686 to float
-  %688 = fmul float %687, 0x3F80204080000000
+  %688 = fmul nnan float %687, 0x3F80204080000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
 689:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
   %690 = load i16, ptr %647, align 2, !tbaa !144
   %691 = uitofp i16 %690 to float
-  %692 = fmul float %691, 0x3EF0001000000000
+  %692 = fmul nnan float %691, 0x3EF0001000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
 693:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
   %694 = load i16, ptr %647, align 2, !tbaa !144
   %695 = sitofp i16 %694 to float
-  %696 = fmul float %695, 0x3F00002000000000
+  %696 = fmul nnan float %695, 0x3F00002000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
 697:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
   %698 = load i32, ptr %647, align 4, !tbaa !84
   %699 = sitofp i32 %698 to float
-  %700 = fmul float %699, 0x3E00000000000000
+  %700 = fmul nnan float %699, 0x3E00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
 701:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
   %702 = load i64, ptr %647, align 8, !tbaa !145
   %703 = uitofp i64 %702 to float
-  %704 = fmul float %703, 0x3BF0000000000000
+  %704 = fmul nnan float %703, 0x3BF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
 705:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
   %706 = load i64, ptr %647, align 8, !tbaa !145
   %707 = sitofp i64 %706 to float
-  %708 = fmul float %707, 0x3C00000000000000
+  %708 = fmul nnan float %707, 0x3C00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit214
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i213: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i207
@@ -10304,49 +10304,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i64:                ; preds = %90, %89, %87, %85
 99:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i60
   %100 = load i32, ptr %69, align 4, !tbaa !84
   %101 = uitofp i32 %100 to float
-  %102 = fmul float %101, 0x3DF0000000000000
+  %102 = fmul nnan float %101, 0x3DF0000000000000
   br label %135
 
 103:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i60
   %104 = load i8, ptr %69, align 1, !tbaa !46
   %105 = uitofp i8 %104 to float
-  %106 = fmul float %105, 0x3F70101020000000
+  %106 = fmul nnan float %105, 0x3F70101020000000
   br label %135
 
 107:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i60
   %108 = load i8, ptr %69, align 1, !tbaa !46
   %109 = sitofp i8 %108 to float
-  %110 = fmul float %109, 0x3F80204080000000
+  %110 = fmul nnan float %109, 0x3F80204080000000
   br label %135
 
 111:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i60
   %112 = load i16, ptr %69, align 2, !tbaa !144
   %113 = uitofp i16 %112 to float
-  %114 = fmul float %113, 0x3EF0001000000000
+  %114 = fmul nnan float %113, 0x3EF0001000000000
   br label %135
 
 115:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i60
   %116 = load i16, ptr %69, align 2, !tbaa !144
   %117 = sitofp i16 %116 to float
-  %118 = fmul float %117, 0x3F00002000000000
+  %118 = fmul nnan float %117, 0x3F00002000000000
   br label %135
 
 119:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i60
   %120 = load i32, ptr %69, align 4, !tbaa !84
   %121 = sitofp i32 %120 to float
-  %122 = fmul float %121, 0x3E00000000000000
+  %122 = fmul nnan float %121, 0x3E00000000000000
   br label %135
 
 123:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i60
   %124 = load i64, ptr %69, align 8, !tbaa !145
   %125 = uitofp i64 %124 to float
-  %126 = fmul float %125, 0x3BF0000000000000
+  %126 = fmul nnan float %125, 0x3BF0000000000000
   br label %135
 
 127:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i60
   %128 = load i64, ptr %69, align 8, !tbaa !145
   %129 = sitofp i64 %128 to float
-  %130 = fmul float %129, 0x3C00000000000000
+  %130 = fmul nnan float %129, 0x3C00000000000000
   br label %135
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i66: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i60
@@ -10477,49 +10477,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i47:                ; preds = %188, %187, %185, %1
 197:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i43
   %198 = load i32, ptr %167, align 4, !tbaa !84
   %199 = uitofp i32 %198 to float
-  %200 = fmul float %199, 0x3DF0000000000000
+  %200 = fmul nnan float %199, 0x3DF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit50
 
 201:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i43
   %202 = load i8, ptr %167, align 1, !tbaa !46
   %203 = uitofp i8 %202 to float
-  %204 = fmul float %203, 0x3F70101020000000
+  %204 = fmul nnan float %203, 0x3F70101020000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit50
 
 205:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i43
   %206 = load i8, ptr %167, align 1, !tbaa !46
   %207 = sitofp i8 %206 to float
-  %208 = fmul float %207, 0x3F80204080000000
+  %208 = fmul nnan float %207, 0x3F80204080000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit50
 
 209:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i43
   %210 = load i16, ptr %167, align 2, !tbaa !144
   %211 = uitofp i16 %210 to float
-  %212 = fmul float %211, 0x3EF0001000000000
+  %212 = fmul nnan float %211, 0x3EF0001000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit50
 
 213:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i43
   %214 = load i16, ptr %167, align 2, !tbaa !144
   %215 = sitofp i16 %214 to float
-  %216 = fmul float %215, 0x3F00002000000000
+  %216 = fmul nnan float %215, 0x3F00002000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit50
 
 217:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i43
   %218 = load i32, ptr %167, align 4, !tbaa !84
   %219 = sitofp i32 %218 to float
-  %220 = fmul float %219, 0x3E00000000000000
+  %220 = fmul nnan float %219, 0x3E00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit50
 
 221:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i43
   %222 = load i64, ptr %167, align 8, !tbaa !145
   %223 = uitofp i64 %222 to float
-  %224 = fmul float %223, 0x3BF0000000000000
+  %224 = fmul nnan float %223, 0x3BF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit50
 
 225:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i43
   %226 = load i64, ptr %167, align 8, !tbaa !145
   %227 = sitofp i64 %226 to float
-  %228 = fmul float %227, 0x3C00000000000000
+  %228 = fmul nnan float %227, 0x3C00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit50
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i49: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i43
@@ -10655,49 +10655,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i30:                ; preds = %287, %286, %284, %2
 296:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i26
   %297 = load i32, ptr %266, align 4, !tbaa !84
   %298 = uitofp i32 %297 to float
-  %299 = fmul float %298, 0x3DF0000000000000
+  %299 = fmul nnan float %298, 0x3DF0000000000000
   br label %332
 
 300:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i26
   %301 = load i8, ptr %266, align 1, !tbaa !46
   %302 = uitofp i8 %301 to float
-  %303 = fmul float %302, 0x3F70101020000000
+  %303 = fmul nnan float %302, 0x3F70101020000000
   br label %332
 
 304:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i26
   %305 = load i8, ptr %266, align 1, !tbaa !46
   %306 = sitofp i8 %305 to float
-  %307 = fmul float %306, 0x3F80204080000000
+  %307 = fmul nnan float %306, 0x3F80204080000000
   br label %332
 
 308:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i26
   %309 = load i16, ptr %266, align 2, !tbaa !144
   %310 = uitofp i16 %309 to float
-  %311 = fmul float %310, 0x3EF0001000000000
+  %311 = fmul nnan float %310, 0x3EF0001000000000
   br label %332
 
 312:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i26
   %313 = load i16, ptr %266, align 2, !tbaa !144
   %314 = sitofp i16 %313 to float
-  %315 = fmul float %314, 0x3F00002000000000
+  %315 = fmul nnan float %314, 0x3F00002000000000
   br label %332
 
 316:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i26
   %317 = load i32, ptr %266, align 4, !tbaa !84
   %318 = sitofp i32 %317 to float
-  %319 = fmul float %318, 0x3E00000000000000
+  %319 = fmul nnan float %318, 0x3E00000000000000
   br label %332
 
 320:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i26
   %321 = load i64, ptr %266, align 8, !tbaa !145
   %322 = uitofp i64 %321 to float
-  %323 = fmul float %322, 0x3BF0000000000000
+  %323 = fmul nnan float %322, 0x3BF0000000000000
   br label %332
 
 324:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i26
   %325 = load i64, ptr %266, align 8, !tbaa !145
   %326 = sitofp i64 %325 to float
-  %327 = fmul float %326, 0x3C00000000000000
+  %327 = fmul nnan float %326, 0x3C00000000000000
   br label %332
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i32: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i26
@@ -10828,49 +10828,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i:                  ; preds = %385, %384, %382, %3
 394:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %395 = load i32, ptr %364, align 4, !tbaa !84
   %396 = uitofp i32 %395 to float
-  %397 = fmul float %396, 0x3DF0000000000000
+  %397 = fmul nnan float %396, 0x3DF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 398:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %399 = load i8, ptr %364, align 1, !tbaa !46
   %400 = uitofp i8 %399 to float
-  %401 = fmul float %400, 0x3F70101020000000
+  %401 = fmul nnan float %400, 0x3F70101020000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 402:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %403 = load i8, ptr %364, align 1, !tbaa !46
   %404 = sitofp i8 %403 to float
-  %405 = fmul float %404, 0x3F80204080000000
+  %405 = fmul nnan float %404, 0x3F80204080000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 406:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %407 = load i16, ptr %364, align 2, !tbaa !144
   %408 = uitofp i16 %407 to float
-  %409 = fmul float %408, 0x3EF0001000000000
+  %409 = fmul nnan float %408, 0x3EF0001000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 410:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %411 = load i16, ptr %364, align 2, !tbaa !144
   %412 = sitofp i16 %411 to float
-  %413 = fmul float %412, 0x3F00002000000000
+  %413 = fmul nnan float %412, 0x3F00002000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 414:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %415 = load i32, ptr %364, align 4, !tbaa !84
   %416 = sitofp i32 %415 to float
-  %417 = fmul float %416, 0x3E00000000000000
+  %417 = fmul nnan float %416, 0x3E00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 418:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %419 = load i64, ptr %364, align 8, !tbaa !145
   %420 = uitofp i64 %419 to float
-  %421 = fmul float %420, 0x3BF0000000000000
+  %421 = fmul nnan float %420, 0x3BF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 422:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %423 = load i64, ptr %364, align 8, !tbaa !145
   %424 = sitofp i64 %423 to float
-  %425 = fmul float %424, 0x3C00000000000000
+  %425 = fmul nnan float %424, 0x3C00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
@@ -11490,49 +11490,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i99:                ; preds = %92, %91, %89, %87
 101:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i95
   %102 = load i32, ptr %71, align 4, !tbaa !84
   %103 = uitofp i32 %102 to float
-  %104 = fmul float %103, 0x3DF0000000000000
+  %104 = fmul nnan float %103, 0x3DF0000000000000
   br label %137
 
 105:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i95
   %106 = load i8, ptr %71, align 1, !tbaa !46
   %107 = uitofp i8 %106 to float
-  %108 = fmul float %107, 0x3F70101020000000
+  %108 = fmul nnan float %107, 0x3F70101020000000
   br label %137
 
 109:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i95
   %110 = load i8, ptr %71, align 1, !tbaa !46
   %111 = sitofp i8 %110 to float
-  %112 = fmul float %111, 0x3F80204080000000
+  %112 = fmul nnan float %111, 0x3F80204080000000
   br label %137
 
 113:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i95
   %114 = load i16, ptr %71, align 2, !tbaa !144
   %115 = uitofp i16 %114 to float
-  %116 = fmul float %115, 0x3EF0001000000000
+  %116 = fmul nnan float %115, 0x3EF0001000000000
   br label %137
 
 117:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i95
   %118 = load i16, ptr %71, align 2, !tbaa !144
   %119 = sitofp i16 %118 to float
-  %120 = fmul float %119, 0x3F00002000000000
+  %120 = fmul nnan float %119, 0x3F00002000000000
   br label %137
 
 121:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i95
   %122 = load i32, ptr %71, align 4, !tbaa !84
   %123 = sitofp i32 %122 to float
-  %124 = fmul float %123, 0x3E00000000000000
+  %124 = fmul nnan float %123, 0x3E00000000000000
   br label %137
 
 125:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i95
   %126 = load i64, ptr %71, align 8, !tbaa !145
   %127 = uitofp i64 %126 to float
-  %128 = fmul float %127, 0x3BF0000000000000
+  %128 = fmul nnan float %127, 0x3BF0000000000000
   br label %137
 
 129:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i95
   %130 = load i64, ptr %71, align 8, !tbaa !145
   %131 = sitofp i64 %130 to float
-  %132 = fmul float %131, 0x3C00000000000000
+  %132 = fmul nnan float %131, 0x3C00000000000000
   br label %137
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i101: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i95
@@ -11663,49 +11663,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i82:                ; preds = %190, %189, %187, %1
 199:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i78
   %200 = load i32, ptr %169, align 4, !tbaa !84
   %201 = uitofp i32 %200 to float
-  %202 = fmul float %201, 0x3DF0000000000000
+  %202 = fmul nnan float %201, 0x3DF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit85
 
 203:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i78
   %204 = load i8, ptr %169, align 1, !tbaa !46
   %205 = uitofp i8 %204 to float
-  %206 = fmul float %205, 0x3F70101020000000
+  %206 = fmul nnan float %205, 0x3F70101020000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit85
 
 207:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i78
   %208 = load i8, ptr %169, align 1, !tbaa !46
   %209 = sitofp i8 %208 to float
-  %210 = fmul float %209, 0x3F80204080000000
+  %210 = fmul nnan float %209, 0x3F80204080000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit85
 
 211:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i78
   %212 = load i16, ptr %169, align 2, !tbaa !144
   %213 = uitofp i16 %212 to float
-  %214 = fmul float %213, 0x3EF0001000000000
+  %214 = fmul nnan float %213, 0x3EF0001000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit85
 
 215:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i78
   %216 = load i16, ptr %169, align 2, !tbaa !144
   %217 = sitofp i16 %216 to float
-  %218 = fmul float %217, 0x3F00002000000000
+  %218 = fmul nnan float %217, 0x3F00002000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit85
 
 219:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i78
   %220 = load i32, ptr %169, align 4, !tbaa !84
   %221 = sitofp i32 %220 to float
-  %222 = fmul float %221, 0x3E00000000000000
+  %222 = fmul nnan float %221, 0x3E00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit85
 
 223:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i78
   %224 = load i64, ptr %169, align 8, !tbaa !145
   %225 = uitofp i64 %224 to float
-  %226 = fmul float %225, 0x3BF0000000000000
+  %226 = fmul nnan float %225, 0x3BF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit85
 
 227:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i78
   %228 = load i64, ptr %169, align 8, !tbaa !145
   %229 = sitofp i64 %228 to float
-  %230 = fmul float %229, 0x3C00000000000000
+  %230 = fmul nnan float %229, 0x3C00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit85
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i84: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i78
@@ -11842,49 +11842,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i65:                ; preds = %290, %289, %287, %2
 299:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i61
   %300 = load i32, ptr %269, align 4, !tbaa !84
   %301 = uitofp i32 %300 to float
-  %302 = fmul float %301, 0x3DF0000000000000
+  %302 = fmul nnan float %301, 0x3DF0000000000000
   br label %335
 
 303:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i61
   %304 = load i8, ptr %269, align 1, !tbaa !46
   %305 = uitofp i8 %304 to float
-  %306 = fmul float %305, 0x3F70101020000000
+  %306 = fmul nnan float %305, 0x3F70101020000000
   br label %335
 
 307:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i61
   %308 = load i8, ptr %269, align 1, !tbaa !46
   %309 = sitofp i8 %308 to float
-  %310 = fmul float %309, 0x3F80204080000000
+  %310 = fmul nnan float %309, 0x3F80204080000000
   br label %335
 
 311:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i61
   %312 = load i16, ptr %269, align 2, !tbaa !144
   %313 = uitofp i16 %312 to float
-  %314 = fmul float %313, 0x3EF0001000000000
+  %314 = fmul nnan float %313, 0x3EF0001000000000
   br label %335
 
 315:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i61
   %316 = load i16, ptr %269, align 2, !tbaa !144
   %317 = sitofp i16 %316 to float
-  %318 = fmul float %317, 0x3F00002000000000
+  %318 = fmul nnan float %317, 0x3F00002000000000
   br label %335
 
 319:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i61
   %320 = load i32, ptr %269, align 4, !tbaa !84
   %321 = sitofp i32 %320 to float
-  %322 = fmul float %321, 0x3E00000000000000
+  %322 = fmul nnan float %321, 0x3E00000000000000
   br label %335
 
 323:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i61
   %324 = load i64, ptr %269, align 8, !tbaa !145
   %325 = uitofp i64 %324 to float
-  %326 = fmul float %325, 0x3BF0000000000000
+  %326 = fmul nnan float %325, 0x3BF0000000000000
   br label %335
 
 327:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i61
   %328 = load i64, ptr %269, align 8, !tbaa !145
   %329 = sitofp i64 %328 to float
-  %330 = fmul float %329, 0x3C00000000000000
+  %330 = fmul nnan float %329, 0x3C00000000000000
   br label %335
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i67: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i61
@@ -12015,49 +12015,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i:                  ; preds = %388, %387, %385, %3
 397:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %398 = load i32, ptr %367, align 4, !tbaa !84
   %399 = uitofp i32 %398 to float
-  %400 = fmul float %399, 0x3DF0000000000000
+  %400 = fmul nnan float %399, 0x3DF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 401:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %402 = load i8, ptr %367, align 1, !tbaa !46
   %403 = uitofp i8 %402 to float
-  %404 = fmul float %403, 0x3F70101020000000
+  %404 = fmul nnan float %403, 0x3F70101020000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 405:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %406 = load i8, ptr %367, align 1, !tbaa !46
   %407 = sitofp i8 %406 to float
-  %408 = fmul float %407, 0x3F80204080000000
+  %408 = fmul nnan float %407, 0x3F80204080000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 409:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %410 = load i16, ptr %367, align 2, !tbaa !144
   %411 = uitofp i16 %410 to float
-  %412 = fmul float %411, 0x3EF0001000000000
+  %412 = fmul nnan float %411, 0x3EF0001000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 413:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %414 = load i16, ptr %367, align 2, !tbaa !144
   %415 = sitofp i16 %414 to float
-  %416 = fmul float %415, 0x3F00002000000000
+  %416 = fmul nnan float %415, 0x3F00002000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 417:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %418 = load i32, ptr %367, align 4, !tbaa !84
   %419 = sitofp i32 %418 to float
-  %420 = fmul float %419, 0x3E00000000000000
+  %420 = fmul nnan float %419, 0x3E00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 421:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %422 = load i64, ptr %367, align 8, !tbaa !145
   %423 = uitofp i64 %422 to float
-  %424 = fmul float %423, 0x3BF0000000000000
+  %424 = fmul nnan float %423, 0x3BF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 425:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
   %426 = load i64, ptr %367, align 8, !tbaa !145
   %427 = sitofp i64 %426 to float
-  %428 = fmul float %427, 0x3C00000000000000
+  %428 = fmul nnan float %427, 0x3C00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i
@@ -12301,49 +12301,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i167:               ; preds = %524, %523, %521, %5
 533:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i163
   %534 = load i32, ptr %503, align 4, !tbaa !84
   %535 = uitofp i32 %534 to float
-  %536 = fmul float %535, 0x3DF0000000000000
+  %536 = fmul nnan float %535, 0x3DF0000000000000
   br label %569
 
 537:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i163
   %538 = load i8, ptr %503, align 1, !tbaa !46
   %539 = uitofp i8 %538 to float
-  %540 = fmul float %539, 0x3F70101020000000
+  %540 = fmul nnan float %539, 0x3F70101020000000
   br label %569
 
 541:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i163
   %542 = load i8, ptr %503, align 1, !tbaa !46
   %543 = sitofp i8 %542 to float
-  %544 = fmul float %543, 0x3F80204080000000
+  %544 = fmul nnan float %543, 0x3F80204080000000
   br label %569
 
 545:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i163
   %546 = load i16, ptr %503, align 2, !tbaa !144
   %547 = uitofp i16 %546 to float
-  %548 = fmul float %547, 0x3EF0001000000000
+  %548 = fmul nnan float %547, 0x3EF0001000000000
   br label %569
 
 549:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i163
   %550 = load i16, ptr %503, align 2, !tbaa !144
   %551 = sitofp i16 %550 to float
-  %552 = fmul float %551, 0x3F00002000000000
+  %552 = fmul nnan float %551, 0x3F00002000000000
   br label %569
 
 553:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i163
   %554 = load i32, ptr %503, align 4, !tbaa !84
   %555 = sitofp i32 %554 to float
-  %556 = fmul float %555, 0x3E00000000000000
+  %556 = fmul nnan float %555, 0x3E00000000000000
   br label %569
 
 557:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i163
   %558 = load i64, ptr %503, align 8, !tbaa !145
   %559 = uitofp i64 %558 to float
-  %560 = fmul float %559, 0x3BF0000000000000
+  %560 = fmul nnan float %559, 0x3BF0000000000000
   br label %569
 
 561:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i163
   %562 = load i64, ptr %503, align 8, !tbaa !145
   %563 = sitofp i64 %562 to float
-  %564 = fmul float %563, 0x3C00000000000000
+  %564 = fmul nnan float %563, 0x3C00000000000000
   br label %569
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i169: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i163
@@ -12474,49 +12474,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i150:               ; preds = %622, %621, %619, %6
 631:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i146
   %632 = load i32, ptr %601, align 4, !tbaa !84
   %633 = uitofp i32 %632 to float
-  %634 = fmul float %633, 0x3DF0000000000000
+  %634 = fmul nnan float %633, 0x3DF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit153
 
 635:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i146
   %636 = load i8, ptr %601, align 1, !tbaa !46
   %637 = uitofp i8 %636 to float
-  %638 = fmul float %637, 0x3F70101020000000
+  %638 = fmul nnan float %637, 0x3F70101020000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit153
 
 639:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i146
   %640 = load i8, ptr %601, align 1, !tbaa !46
   %641 = sitofp i8 %640 to float
-  %642 = fmul float %641, 0x3F80204080000000
+  %642 = fmul nnan float %641, 0x3F80204080000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit153
 
 643:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i146
   %644 = load i16, ptr %601, align 2, !tbaa !144
   %645 = uitofp i16 %644 to float
-  %646 = fmul float %645, 0x3EF0001000000000
+  %646 = fmul nnan float %645, 0x3EF0001000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit153
 
 647:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i146
   %648 = load i16, ptr %601, align 2, !tbaa !144
   %649 = sitofp i16 %648 to float
-  %650 = fmul float %649, 0x3F00002000000000
+  %650 = fmul nnan float %649, 0x3F00002000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit153
 
 651:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i146
   %652 = load i32, ptr %601, align 4, !tbaa !84
   %653 = sitofp i32 %652 to float
-  %654 = fmul float %653, 0x3E00000000000000
+  %654 = fmul nnan float %653, 0x3E00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit153
 
 655:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i146
   %656 = load i64, ptr %601, align 8, !tbaa !145
   %657 = uitofp i64 %656 to float
-  %658 = fmul float %657, 0x3BF0000000000000
+  %658 = fmul nnan float %657, 0x3BF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit153
 
 659:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i146
   %660 = load i64, ptr %601, align 8, !tbaa !145
   %661 = sitofp i64 %660 to float
-  %662 = fmul float %661, 0x3C00000000000000
+  %662 = fmul nnan float %661, 0x3C00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit153
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i152: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i146
@@ -12653,49 +12653,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i133:               ; preds = %722, %721, %719, %7
 731:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i129
   %732 = load i32, ptr %701, align 4, !tbaa !84
   %733 = uitofp i32 %732 to float
-  %734 = fmul float %733, 0x3DF0000000000000
+  %734 = fmul nnan float %733, 0x3DF0000000000000
   br label %767
 
 735:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i129
   %736 = load i8, ptr %701, align 1, !tbaa !46
   %737 = uitofp i8 %736 to float
-  %738 = fmul float %737, 0x3F70101020000000
+  %738 = fmul nnan float %737, 0x3F70101020000000
   br label %767
 
 739:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i129
   %740 = load i8, ptr %701, align 1, !tbaa !46
   %741 = sitofp i8 %740 to float
-  %742 = fmul float %741, 0x3F80204080000000
+  %742 = fmul nnan float %741, 0x3F80204080000000
   br label %767
 
 743:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i129
   %744 = load i16, ptr %701, align 2, !tbaa !144
   %745 = uitofp i16 %744 to float
-  %746 = fmul float %745, 0x3EF0001000000000
+  %746 = fmul nnan float %745, 0x3EF0001000000000
   br label %767
 
 747:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i129
   %748 = load i16, ptr %701, align 2, !tbaa !144
   %749 = sitofp i16 %748 to float
-  %750 = fmul float %749, 0x3F00002000000000
+  %750 = fmul nnan float %749, 0x3F00002000000000
   br label %767
 
 751:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i129
   %752 = load i32, ptr %701, align 4, !tbaa !84
   %753 = sitofp i32 %752 to float
-  %754 = fmul float %753, 0x3E00000000000000
+  %754 = fmul nnan float %753, 0x3E00000000000000
   br label %767
 
 755:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i129
   %756 = load i64, ptr %701, align 8, !tbaa !145
   %757 = uitofp i64 %756 to float
-  %758 = fmul float %757, 0x3BF0000000000000
+  %758 = fmul nnan float %757, 0x3BF0000000000000
   br label %767
 
 759:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i129
   %760 = load i64, ptr %701, align 8, !tbaa !145
   %761 = sitofp i64 %760 to float
-  %762 = fmul float %761, 0x3C00000000000000
+  %762 = fmul nnan float %761, 0x3C00000000000000
   br label %767
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i135: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i129
@@ -12826,49 +12826,49 @@ _ZNK9Imath_3_14halfcvfEv.exit.i116:               ; preds = %820, %819, %817, %8
 829:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i112
   %830 = load i32, ptr %799, align 4, !tbaa !84
   %831 = uitofp i32 %830 to float
-  %832 = fmul float %831, 0x3DF0000000000000
+  %832 = fmul nnan float %831, 0x3DF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit119
 
 833:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i112
   %834 = load i8, ptr %799, align 1, !tbaa !46
   %835 = uitofp i8 %834 to float
-  %836 = fmul float %835, 0x3F70101020000000
+  %836 = fmul nnan float %835, 0x3F70101020000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit119
 
 837:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i112
   %838 = load i8, ptr %799, align 1, !tbaa !46
   %839 = sitofp i8 %838 to float
-  %840 = fmul float %839, 0x3F80204080000000
+  %840 = fmul nnan float %839, 0x3F80204080000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit119
 
 841:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i112
   %842 = load i16, ptr %799, align 2, !tbaa !144
   %843 = uitofp i16 %842 to float
-  %844 = fmul float %843, 0x3EF0001000000000
+  %844 = fmul nnan float %843, 0x3EF0001000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit119
 
 845:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i112
   %846 = load i16, ptr %799, align 2, !tbaa !144
   %847 = sitofp i16 %846 to float
-  %848 = fmul float %847, 0x3F00002000000000
+  %848 = fmul nnan float %847, 0x3F00002000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit119
 
 849:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i112
   %850 = load i32, ptr %799, align 4, !tbaa !84
   %851 = sitofp i32 %850 to float
-  %852 = fmul float %851, 0x3E00000000000000
+  %852 = fmul nnan float %851, 0x3E00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit119
 
 853:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i112
   %854 = load i64, ptr %799, align 8, !tbaa !145
   %855 = uitofp i64 %854 to float
-  %856 = fmul float %855, 0x3BF0000000000000
+  %856 = fmul nnan float %855, 0x3BF0000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit119
 
 857:                                              ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i112
   %858 = load i64, ptr %799, align 8, !tbaa !145
   %859 = sitofp i64 %858 to float
-  %860 = fmul float %859, 0x3C00000000000000
+  %860 = fmul nnan float %859, 0x3C00000000000000
   br label %_ZNK11OpenImageIO6v3_1_08DeepData10deep_valueElii.exit119
 
 _ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit24.i118: ; preds = %_ZNK11OpenImageIO6v3_1_08DeepData11channeltypeEi.exit.i112

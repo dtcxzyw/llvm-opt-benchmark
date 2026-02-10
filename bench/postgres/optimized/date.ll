@@ -1216,7 +1216,7 @@ define dso_local range(i64 -211813488000000000, -9223372036854775807) i64 @date2
 declare i32 @DetermineTimeZoneOffset(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef double @date2timestamp_no_overflow(i32 noundef %0) local_unnamed_addr #6 {
+define dso_local double @date2timestamp_no_overflow(i32 noundef %0) local_unnamed_addr #6 {
   switch i32 %0, label %3 [
     i32 -2147483648, label %6
     i32 2147483647, label %2
@@ -1227,7 +1227,7 @@ define dso_local noundef double @date2timestamp_no_overflow(i32 noundef %0) loca
 
 3:                                                ; preds = %1
   %4 = sitofp i32 %0 to double
-  %5 = fmul double %4, 8.640000e+10
+  %5 = fmul nnan double %4, 8.640000e+10
   br label %6
 
 6:                                                ; preds = %1, %2, %3
@@ -3701,7 +3701,7 @@ define dso_local zeroext i1 @float_time_overflows(i32 noundef %0, i32 noundef %1
   br i1 %or.cond21, label %20, label %6
 
 6:                                                ; preds = %3
-  %7 = fmul double %2, 1.000000e+06
+  %7 = fmul nnan double %2, 1.000000e+06
   %8 = tail call double @llvm.rint.f64(double %7)
   %9 = fcmp olt double %8, 0.000000e+00
   %10 = fcmp ogt double %8, 6.000000e+07
@@ -3933,7 +3933,7 @@ define dso_local range(i64 -9223372036854775808, 86400000001) i64 @make_time(ptr
   br i1 %or.cond21.i, label %float_time_overflows.exit.thread, label %12
 
 12:                                               ; preds = %1
-  %13 = fmul double %9, 1.000000e+06
+  %13 = fmul nnan double %9, 1.000000e+06
   %14 = tail call double @llvm.rint.f64(double %13)
   %15 = fcmp olt double %14, 0.000000e+00
   %16 = fcmp ogt double %14, 6.000000e+07

@@ -448,7 +448,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8_Lab(ptr noundef nonn
   %.04453.us.us = phi ptr [ %41, %.lr.ph.split.us.us ], [ %17, %.lr.ph.us ]
   %34 = load i8, ptr %.04453.us.us, align 1, !tbaa !6
   %35 = uitofp i8 %34 to float
-  %36 = fmul reassoc nsz arcp contract afn float %35, 0x3FD9191920000000
+  %36 = fmul reassoc nnan nsz arcp contract afn float %35, 0x3FD9191920000000
   store float %36, ptr %.04254.us.us, align 4, !tbaa !85
   %37 = getelementptr inbounds nuw i8, ptr %.04254.us.us, i64 8
   store float 0.000000e+00, ptr %37, align 4, !tbaa !85
@@ -468,7 +468,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8_Lab(ptr noundef nonn
   %.04453.us58.us = phi ptr [ %56, %.lr.ph.split.us65 ], [ %17, %.lr.ph.us ]
   %43 = load i8, ptr %.04453.us58.us, align 1, !tbaa !6
   %44 = uitofp i8 %43 to float
-  %45 = fmul reassoc nsz arcp contract afn float %44, 0x3FD9191920000000
+  %45 = fmul reassoc nnan nsz arcp contract afn float %44, 0x3FD9191920000000
   store float %45, ptr %.04254.us57.us, align 4, !tbaa !85
   %46 = getelementptr inbounds nuw i8, ptr %.04453.us58.us, i64 1
   %47 = load i8, ptr %46, align 1, !tbaa !6
@@ -520,7 +520,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8_Lab(ptr noundef nonn
   %.04453.us = phi ptr [ %79, %.lr.ph.split.us ], [ %58, %.lr.ph ]
   %72 = load i8, ptr %.04453.us, align 1, !tbaa !6
   %73 = uitofp i8 %72 to float
-  %74 = fmul reassoc nsz arcp contract afn float %73, 0x3FD9191920000000
+  %74 = fmul reassoc nnan nsz arcp contract afn float %73, 0x3FD9191920000000
   store float %74, ptr %.04254.us, align 4, !tbaa !85
   %75 = getelementptr inbounds nuw i8, ptr %.04254.us, i64 8
   store float 0.000000e+00, ptr %75, align 4, !tbaa !85
@@ -540,7 +540,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8_Lab(ptr noundef nonn
   %.04453 = phi ptr [ %96, %.lr.ph.split ], [ %58, %.lr.ph ]
   %81 = load i8, ptr %.04453, align 1, !tbaa !6
   %82 = uitofp i8 %81 to float
-  %83 = fmul reassoc nsz arcp contract afn float %82, 0x3FD9191920000000
+  %83 = fmul reassoc nnan nsz arcp contract afn float %82, 0x3FD9191920000000
   store float %83, ptr %.04254, align 4, !tbaa !85
   %84 = getelementptr inbounds nuw i8, ptr %.04453, i64 1
   %85 = load i8, ptr %84, align 1, !tbaa !6
@@ -639,7 +639,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16_Lab(ptr noundef non
   %.04655.us.us = phi ptr [ %42, %.lr.ph.split.us.us ], [ %18, %.lr.ph.us ]
   %35 = load i16, ptr %.04655.us.us, align 2, !tbaa !32
   %36 = uitofp i16 %35 to float
-  %37 = fmul reassoc nsz arcp contract afn float %16, %36
+  %37 = fmul reassoc nnan nsz arcp contract afn float %16, %36
   store float %37, ptr %.04456.us.us, align 4, !tbaa !85
   %38 = getelementptr inbounds nuw i8, ptr %.04456.us.us, i64 8
   store float 0.000000e+00, ptr %38, align 4, !tbaa !85
@@ -659,18 +659,18 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16_Lab(ptr noundef non
   %.04655.us60.us = phi ptr [ %59, %.lr.ph.split.us67 ], [ %18, %.lr.ph.us ]
   %44 = load i16, ptr %.04655.us60.us, align 2, !tbaa !32
   %45 = uitofp i16 %44 to float
-  %46 = fmul reassoc nsz arcp contract afn float %16, %45
+  %46 = fmul reassoc nnan nsz arcp contract afn float %16, %45
   store float %46, ptr %.04456.us59.us, align 4, !tbaa !85
   %47 = getelementptr inbounds nuw i8, ptr %.04655.us60.us, i64 2
   %48 = load i16, ptr %47, align 2, !tbaa !32
   %49 = sitofp i16 %48 to float
-  %50 = fmul reassoc nsz arcp contract afn float %49, 3.906250e-03
+  %50 = fmul reassoc nnan nsz arcp contract afn float %49, 3.906250e-03
   %51 = getelementptr inbounds nuw i8, ptr %.04456.us59.us, i64 4
   store float %50, ptr %51, align 4, !tbaa !85
   %52 = getelementptr inbounds nuw i8, ptr %.04655.us60.us, i64 4
   %53 = load i16, ptr %52, align 2, !tbaa !32
   %54 = sitofp i16 %53 to float
-  %55 = fmul reassoc nsz arcp contract afn float %54, 3.906250e-03
+  %55 = fmul reassoc nnan nsz arcp contract afn float %54, 3.906250e-03
   %56 = getelementptr inbounds nuw i8, ptr %.04456.us59.us, i64 8
   store float %55, ptr %56, align 4, !tbaa !85
   %57 = getelementptr inbounds nuw i8, ptr %.04456.us59.us, i64 12
@@ -713,7 +713,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16_Lab(ptr noundef non
   %.04655.us = phi ptr [ %82, %.lr.ph.split.us ], [ %61, %.lr.ph ]
   %75 = load i16, ptr %.04655.us, align 2, !tbaa !32
   %76 = uitofp i16 %75 to float
-  %77 = fmul reassoc nsz arcp contract afn float %16, %76
+  %77 = fmul reassoc nnan nsz arcp contract afn float %16, %76
   store float %77, ptr %.04456.us, align 4, !tbaa !85
   %78 = getelementptr inbounds nuw i8, ptr %.04456.us, i64 8
   store float 0.000000e+00, ptr %78, align 4, !tbaa !85
@@ -733,19 +733,19 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16_Lab(ptr noundef non
   %.04655 = phi ptr [ %101, %.lr.ph.split ], [ %61, %.lr.ph ]
   %84 = load i16, ptr %.04655, align 2, !tbaa !32
   %85 = uitofp i16 %84 to float
-  %86 = fmul reassoc nsz arcp contract afn float %16, %85
+  %86 = fmul reassoc nnan nsz arcp contract afn float %16, %85
   store float %86, ptr %.04456, align 4, !tbaa !85
   %87 = getelementptr inbounds nuw i8, ptr %.04655, i64 2
   %88 = load i16, ptr %87, align 2, !tbaa !32
   %89 = uitofp i16 %88 to float
-  %90 = fmul reassoc nsz arcp contract afn float %89, 3.906250e-03
+  %90 = fmul reassoc nnan nsz arcp contract afn float %89, 3.906250e-03
   %91 = fadd reassoc nsz arcp contract afn float %90, -1.280000e+02
   %92 = getelementptr inbounds nuw i8, ptr %.04456, i64 4
   store float %91, ptr %92, align 4, !tbaa !85
   %93 = getelementptr inbounds nuw i8, ptr %.04655, i64 4
   %94 = load i16, ptr %93, align 2, !tbaa !32
   %95 = uitofp i16 %94 to float
-  %96 = fmul reassoc nsz arcp contract afn float %95, 3.906250e-03
+  %96 = fmul reassoc nnan nsz arcp contract afn float %95, 3.906250e-03
   %97 = fadd reassoc nsz arcp contract afn float %96, -1.280000e+02
   %98 = getelementptr inbounds nuw i8, ptr %.04456, i64 8
   store float %97, ptr %98, align 4, !tbaa !85
@@ -818,7 +818,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8(ptr noundef nonnull 
   %.03036.us = phi ptr [ %31, %.lr.ph.split.us ], [ %10, %.lr.ph ]
   %24 = load i8, ptr %.03036.us, align 1, !tbaa !6
   %25 = uitofp i8 %24 to float
-  %26 = fmul reassoc nsz arcp contract afn float %25, 0x3F70101020000000
+  %26 = fmul reassoc nnan nsz arcp contract afn float %25, 0x3F70101020000000
   store float %26, ptr %.02937.us, align 4, !tbaa !85
   %27 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 8
   store float %26, ptr %27, align 4, !tbaa !85
@@ -838,18 +838,18 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_8(ptr noundef nonnull 
   %.03036 = phi ptr [ %48, %.lr.ph.split ], [ %10, %.lr.ph ]
   %33 = load i8, ptr %.03036, align 1, !tbaa !6
   %34 = uitofp i8 %33 to float
-  %35 = fmul reassoc nsz arcp contract afn float %34, 0x3F70101020000000
+  %35 = fmul reassoc nnan nsz arcp contract afn float %34, 0x3F70101020000000
   store float %35, ptr %.02937, align 4, !tbaa !85
   %36 = getelementptr inbounds nuw i8, ptr %.03036, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !6
   %38 = uitofp i8 %37 to float
-  %39 = fmul reassoc nsz arcp contract afn float %38, 0x3F70101020000000
+  %39 = fmul reassoc nnan nsz arcp contract afn float %38, 0x3F70101020000000
   %40 = getelementptr inbounds nuw i8, ptr %.02937, i64 4
   store float %39, ptr %40, align 4, !tbaa !85
   %41 = getelementptr inbounds nuw i8, ptr %.03036, i64 2
   %42 = load i8, ptr %41, align 1, !tbaa !6
   %43 = uitofp i8 %42 to float
-  %44 = fmul reassoc nsz arcp contract afn float %43, 0x3F70101020000000
+  %44 = fmul reassoc nnan nsz arcp contract afn float %43, 0x3F70101020000000
   %45 = getelementptr inbounds nuw i8, ptr %.02937, i64 8
   store float %44, ptr %45, align 4, !tbaa !85
   %46 = getelementptr inbounds nuw i8, ptr %.02937, i64 12
@@ -919,7 +919,7 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16(ptr noundef nonnull
   %.03036.us = phi ptr [ %31, %.lr.ph.split.us ], [ %10, %.lr.ph ]
   %24 = load i16, ptr %.03036.us, align 2, !tbaa !32
   %25 = uitofp i16 %24 to float
-  %26 = fmul reassoc nsz arcp contract afn float %25, 0x3EF0001000000000
+  %26 = fmul reassoc nnan nsz arcp contract afn float %25, 0x3EF0001000000000
   store float %26, ptr %.02937.us, align 4, !tbaa !85
   %27 = getelementptr inbounds nuw i8, ptr %.02937.us, i64 8
   store float %26, ptr %27, align 4, !tbaa !85
@@ -939,18 +939,18 @@ define internal fastcc range(i32 -1, 2) i32 @_read_chunky_16(ptr noundef nonnull
   %.03036 = phi ptr [ %48, %.lr.ph.split ], [ %10, %.lr.ph ]
   %33 = load i16, ptr %.03036, align 2, !tbaa !32
   %34 = uitofp i16 %33 to float
-  %35 = fmul reassoc nsz arcp contract afn float %34, 0x3EF0001000000000
+  %35 = fmul reassoc nnan nsz arcp contract afn float %34, 0x3EF0001000000000
   store float %35, ptr %.02937, align 4, !tbaa !85
   %36 = getelementptr inbounds nuw i8, ptr %.03036, i64 2
   %37 = load i16, ptr %36, align 2, !tbaa !32
   %38 = uitofp i16 %37 to float
-  %39 = fmul reassoc nsz arcp contract afn float %38, 0x3EF0001000000000
+  %39 = fmul reassoc nnan nsz arcp contract afn float %38, 0x3EF0001000000000
   %40 = getelementptr inbounds nuw i8, ptr %.02937, i64 4
   store float %39, ptr %40, align 4, !tbaa !85
   %41 = getelementptr inbounds nuw i8, ptr %.03036, i64 4
   %42 = load i16, ptr %41, align 2, !tbaa !32
   %43 = uitofp i16 %42 to float
-  %44 = fmul reassoc nsz arcp contract afn float %43, 0x3EF0001000000000
+  %44 = fmul reassoc nnan nsz arcp contract afn float %43, 0x3EF0001000000000
   %45 = getelementptr inbounds nuw i8, ptr %.02937, i64 8
   store float %44, ptr %45, align 4, !tbaa !85
   %46 = getelementptr inbounds nuw i8, ptr %.02937, i64 12

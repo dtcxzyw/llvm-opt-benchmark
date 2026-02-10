@@ -816,7 +816,7 @@ define { i64, i64 } @_ZNK3net18TcpCubicSenderBase13TimeUntilSendENS_8QuicTimeEm(
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef i64 %41(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %43 = uitofp i64 %42 to float
-  %44 = fmul float %43, 1.500000e+00
+  %44 = fmul nnan float %43, 1.500000e+00
   %45 = uitofp i64 %2 to float
   %46 = fcmp ogt float %44, %45
   br i1 %46, label %48, label %47
@@ -873,7 +873,7 @@ define i64 @_ZNK3net18TcpCubicSenderBase10PacingRateEm(ptr noundef nonnull align
 27:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %28 = sitofp i64 %17 to float
-  %29 = fmul float %28, 7.500000e-01
+  %29 = fmul nnan float %28, 7.500000e-01
   %30 = tail call noundef i64 @llroundf(float noundef %29) #16, !tbaa !58
   call void @_ZN3net13QuicBandwidthC1El(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %30)
   %31 = load i64, ptr %4, align 8
@@ -905,7 +905,7 @@ define i64 @_ZNK3net18TcpCubicSenderBase10PacingRateEm(ptr noundef nonnull align
   %48 = phi float [ 2.000000e+00, %32 ], [ 1.250000e+00, %37 ], [ %46, %41 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %49 = sitofp i64 %17 to float
-  %50 = fmul float %48, %49
+  %50 = fmul nnan float %48, %49
   %51 = tail call noundef i64 @llroundf(float noundef %50) #16, !tbaa !58
   call void @_ZN3net13QuicBandwidthC1El(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %51)
   %52 = load i64, ptr %3, align 8

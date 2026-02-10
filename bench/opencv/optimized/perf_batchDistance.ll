@@ -2852,10 +2852,10 @@ _ZNK2cv3Mat3rowEi.exit:                           ; preds = %66
   %84 = trunc i64 %83 to i32
   %85 = urem i32 %84, 500
   %86 = uitofp nneg i32 %.04261 to float
-  %87 = fmul float %44, %86
+  %87 = fmul nnan float %44, %86
   %88 = add nuw nsw i32 %.04261, 1
   %89 = uitofp nneg i32 %88 to float
-  %90 = fmul float %44, %89
+  %90 = fmul nnan float %44, %89
   %91 = and i64 %83, 4294967295
   %92 = mul nuw i64 %91, 4164903690
   %93 = lshr i64 %83, 32
@@ -2863,7 +2863,7 @@ _ZNK2cv3Mat3rowEi.exit:                           ; preds = %66
   store i64 %94, ptr %25, align 8, !tbaa !184
   %95 = trunc i64 %94 to i32
   %96 = uitofp i32 %95 to float
-  %97 = fmul float %96, 0x3DF0000000000000
+  %97 = fmul nnan float %96, 0x3DF0000000000000
   %98 = fsub float %90, %87
   %99 = call noundef float @llvm.fmuladd.f32(float %97, float %98, float %87)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)

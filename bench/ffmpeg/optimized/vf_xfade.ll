@@ -3944,7 +3944,7 @@ define internal void @distance8_transition(ptr noundef readonly captures(none) %
   %88 = tail call nsz float @llvm.sqrt.f32(float %85)
   %89 = fcmp nsz ole float %88, %4
   %90 = uitofp i1 %89 to float
-  %91 = fsub nsz float 1.000000e+00, %90
+  %91 = fsub nnan nsz float 1.000000e+00, %90
   br label %24
 
 ._crit_edge77.us:                                 ; preds = %._crit_edge75.us
@@ -4070,7 +4070,7 @@ define internal void @distance16_transition(ptr noundef readonly captures(none) 
   %84 = tail call nsz float @llvm.sqrt.f32(float %83)
   %85 = fcmp nsz ole float %84, %4
   %86 = uitofp i1 %85 to float
-  %87 = fsub nsz float 1.000000e+00, %86
+  %87 = fsub nnan nsz float 1.000000e+00, %86
   br label %25
 
 ._crit_edge76.us.us.us.us.us:                     ; preds = %25
@@ -6180,7 +6180,7 @@ define internal void @vertopen8_transition(ptr noundef readonly captures(none) %
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %10 = load i32, ptr %9, align 8, !tbaa !85
   %11 = sitofp i32 %10 to double
-  %12 = fmul nsz double %11, 5.000000e-01
+  %12 = fmul nnan nsz double %11, 5.000000e-01
   %13 = fptrunc nsz double %12 to float
   %14 = icmp slt i32 %5, %6
   br i1 %14, label %.preheader.lr.ph, label %._crit_edge46
@@ -6298,7 +6298,7 @@ define internal void @vertopen16_transition(ptr noundef readonly captures(none) 
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %10 = load i32, ptr %9, align 8, !tbaa !85
   %11 = sitofp i32 %10 to double
-  %12 = fmul nsz double %11, 5.000000e-01
+  %12 = fmul nnan nsz double %11, 5.000000e-01
   %13 = fptrunc nsz double %12 to float
   %14 = icmp slt i32 %5, %6
   br i1 %14, label %.preheader.lr.ph, label %._crit_edge
@@ -6408,7 +6408,7 @@ define internal void @vertclose8_transition(ptr noundef readonly captures(none) 
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %14 = load i32, ptr %13, align 8, !tbaa !85
   %15 = sitofp i32 %14 to double
-  %16 = fmul nsz double %15, 5.000000e-01
+  %16 = fmul nnan nsz double %15, 5.000000e-01
   %17 = fptrunc nsz double %16 to float
   %18 = icmp slt i32 %5, %6
   br i1 %18, label %.preheader.lr.ph, label %._crit_edge
@@ -6512,7 +6512,7 @@ define internal void @vertclose16_transition(ptr noundef readonly captures(none)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %14 = load i32, ptr %13, align 8, !tbaa !85
   %15 = sitofp i32 %14 to double
-  %16 = fmul nsz double %15, 5.000000e-01
+  %16 = fmul nnan nsz double %15, 5.000000e-01
   %17 = fptrunc nsz double %16 to float
   %18 = icmp slt i32 %5, %6
   br i1 %18, label %.preheader.lr.ph, label %._crit_edge
@@ -6618,7 +6618,7 @@ define internal void @horzopen8_transition(ptr noundef readonly captures(none) %
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 108
   %16 = load i32, ptr %15, align 4, !tbaa !88
   %17 = sitofp i32 %16 to double
-  %18 = fmul nsz double %17, 5.000000e-01
+  %18 = fmul nnan nsz double %17, 5.000000e-01
   %19 = fptrunc nsz double %18 to float
   %20 = icmp slt i32 %5, %6
   br i1 %20, label %.lr.ph, label %._crit_edge
@@ -6723,7 +6723,7 @@ define internal void @horzopen16_transition(ptr noundef readonly captures(none) 
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 108
   %16 = load i32, ptr %15, align 4, !tbaa !88
   %17 = sitofp i32 %16 to double
-  %18 = fmul nsz double %17, 5.000000e-01
+  %18 = fmul nnan nsz double %17, 5.000000e-01
   %19 = fptrunc nsz double %18 to float
   %20 = icmp slt i32 %5, %6
   br i1 %20, label %.lr.ph, label %._crit_edge
@@ -6828,7 +6828,7 @@ define internal void @horzclose8_transition(ptr noundef readonly captures(none) 
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 108
   %16 = load i32, ptr %15, align 4, !tbaa !88
   %17 = sitofp i32 %16 to double
-  %18 = fmul nsz double %17, 5.000000e-01
+  %18 = fmul nnan nsz double %17, 5.000000e-01
   %19 = fptrunc nsz double %18 to float
   %20 = icmp slt i32 %5, %6
   br i1 %20, label %.lr.ph, label %._crit_edge
@@ -6933,7 +6933,7 @@ define internal void @horzclose16_transition(ptr noundef readonly captures(none)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 108
   %16 = load i32, ptr %15, align 4, !tbaa !88
   %17 = sitofp i32 %16 to double
-  %18 = fmul nsz double %17, 5.000000e-01
+  %18 = fmul nnan nsz double %17, 5.000000e-01
   %19 = fptrunc nsz double %18 to float
   %20 = icmp slt i32 %5, %6
   br i1 %20, label %.lr.ph, label %._crit_edge
@@ -7057,7 +7057,7 @@ define internal void @dissolve8_transition(ptr noundef readonly captures(none) %
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge42.split.us.us.us
   %.047.us.us = phi i32 [ %66, %._crit_edge42.split.us.us.us ], [ %5, %.preheader.us.us.preheader ]
   %22 = sitofp i32 %.047.us.us to float
-  %23 = fmul nsz float %22, 0x40538EE980000000
+  %23 = fmul nnan nsz float %22, 0x40538EE980000000
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
@@ -7166,7 +7166,7 @@ define internal void @dissolve16_transition(ptr noundef readonly captures(none) 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge42.split.us.us.us
   %.047.us.us = phi i32 [ %66, %._crit_edge42.split.us.us.us ], [ %5, %.preheader.us.us.preheader ]
   %22 = sitofp i32 %.047.us.us to float
-  %23 = fmul nsz float %22, 0x40538EE980000000
+  %23 = fmul nnan nsz float %22, 0x40538EE980000000
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
@@ -7838,7 +7838,7 @@ define internal void @diagtr8_transition(ptr noundef readonly captures(none) %0,
 
 .preheader.lr.ph:                                 ; preds = %8
   %20 = icmp sgt i32 %14, 0
-  %21 = fadd nsz float %15, -1.000000e+00
+  %21 = fadd nnan nsz float %15, -1.000000e+00
   %22 = fneg nsz float %4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -7861,7 +7861,7 @@ define internal void @diagtr8_transition(ptr noundef readonly captures(none) %0,
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
   %28 = trunc nuw nsw i64 %indvars.iv56 to i32
   %29 = uitofp nneg i32 %28 to float
-  %30 = fsub nsz float %21, %29
+  %30 = fsub nnan nsz float %21, %29
   %31 = fdiv nsz float %30, %15
   %32 = fmul nsz float %31, %27
   %33 = fdiv nsz float %32, %18
@@ -7946,7 +7946,7 @@ define internal void @diagtr16_transition(ptr noundef readonly captures(none) %0
 
 .preheader.lr.ph:                                 ; preds = %8
   %20 = icmp sgt i32 %14, 0
-  %21 = fadd nsz float %15, -1.000000e+00
+  %21 = fadd nnan nsz float %15, -1.000000e+00
   %22 = fneg nsz float %4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -7969,7 +7969,7 @@ define internal void @diagtr16_transition(ptr noundef readonly captures(none) %0
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
   %28 = trunc nuw nsw i64 %indvars.iv56 to i32
   %29 = uitofp nneg i32 %28 to float
-  %30 = fsub nsz float %21, %29
+  %30 = fsub nnan nsz float %21, %29
   %31 = fdiv nsz float %30, %15
   %32 = fmul nsz float %31, %27
   %33 = fdiv nsz float %32, %18
@@ -8054,7 +8054,7 @@ define internal void @diagbl8_transition(ptr noundef readonly captures(none) %0,
 
 .preheader.lr.ph:                                 ; preds = %8
   %20 = icmp sgt i32 %14, 0
-  %21 = fadd nsz float %18, -1.000000e+00
+  %21 = fadd nnan nsz float %18, -1.000000e+00
   %22 = fneg nsz float %4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -8071,7 +8071,7 @@ define internal void @diagbl8_transition(ptr noundef readonly captures(none) %0,
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge47.split.us.us.us
   %.048.us.us = phi i32 [ %75, %._crit_edge47.split.us.us.us ], [ %5, %.preheader.us.us.preheader ]
   %27 = sitofp i32 %.048.us.us to float
-  %28 = fsub nsz float %21, %27
+  %28 = fsub nnan nsz float %21, %27
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
@@ -8162,7 +8162,7 @@ define internal void @diagbl16_transition(ptr noundef readonly captures(none) %0
 
 .preheader.lr.ph:                                 ; preds = %8
   %20 = icmp sgt i32 %14, 0
-  %21 = fadd nsz float %18, -1.000000e+00
+  %21 = fadd nnan nsz float %18, -1.000000e+00
   %22 = fneg nsz float %4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -8179,7 +8179,7 @@ define internal void @diagbl16_transition(ptr noundef readonly captures(none) %0
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge47.split.us.us.us
   %.048.us.us = phi i32 [ %75, %._crit_edge47.split.us.us.us ], [ %5, %.preheader.us.us.preheader ]
   %27 = sitofp i32 %.048.us.us to float
-  %28 = fsub nsz float %21, %27
+  %28 = fsub nnan nsz float %21, %27
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
@@ -8270,8 +8270,8 @@ define internal void @diagbr8_transition(ptr noundef readonly captures(none) %0,
 
 .preheader.lr.ph:                                 ; preds = %8
   %20 = icmp sgt i32 %14, 0
-  %21 = fadd nsz float %15, -1.000000e+00
-  %22 = fadd nsz float %18, -1.000000e+00
+  %21 = fadd nnan nsz float %15, -1.000000e+00
+  %22 = fadd nnan nsz float %18, -1.000000e+00
   %23 = fneg nsz float %4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -8288,14 +8288,14 @@ define internal void @diagbr8_transition(ptr noundef readonly captures(none) %0,
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge48.split.us.us.us
   %.049.us.us = phi i32 [ %77, %._crit_edge48.split.us.us.us ], [ %5, %.preheader.us.us.preheader ]
   %28 = sitofp i32 %.049.us.us to float
-  %29 = fsub nsz float %22, %28
+  %29 = fsub nnan nsz float %22, %28
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
   %30 = trunc nuw nsw i64 %indvars.iv57 to i32
   %31 = uitofp nneg i32 %30 to float
-  %32 = fsub nsz float %21, %31
+  %32 = fsub nnan nsz float %21, %31
   %33 = fdiv nsz float %32, %15
   %34 = fmul nsz float %29, %33
   %35 = fdiv nsz float %34, %18
@@ -8380,8 +8380,8 @@ define internal void @diagbr16_transition(ptr noundef readonly captures(none) %0
 
 .preheader.lr.ph:                                 ; preds = %8
   %20 = icmp sgt i32 %14, 0
-  %21 = fadd nsz float %15, -1.000000e+00
-  %22 = fadd nsz float %18, -1.000000e+00
+  %21 = fadd nnan nsz float %15, -1.000000e+00
+  %22 = fadd nnan nsz float %18, -1.000000e+00
   %23 = fneg nsz float %4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 64
@@ -8398,14 +8398,14 @@ define internal void @diagbr16_transition(ptr noundef readonly captures(none) %0
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge48.split.us.us.us
   %.049.us.us = phi i32 [ %77, %._crit_edge48.split.us.us.us ], [ %5, %.preheader.us.us.preheader ]
   %28 = sitofp i32 %.049.us.us to float
-  %29 = fsub nsz float %22, %28
+  %29 = fsub nnan nsz float %22, %28
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader.us.us
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %._crit_edge.us.us.us ], [ 0, %.preheader.us.us ]
   %30 = trunc nuw nsw i64 %indvars.iv57 to i32
   %31 = uitofp nneg i32 %30 to float
-  %32 = fsub nsz float %21, %31
+  %32 = fsub nnan nsz float %21, %31
   %33 = fdiv nsz float %32, %15
   %34 = fmul nsz float %29, %33
   %35 = fdiv nsz float %34, %18
@@ -8519,13 +8519,13 @@ define internal void @hlslice8_transition(ptr noundef readonly captures(none) %0
   %32 = fmul nsz float %..i.i.us.us.us, %..i.i.us.us.us
   %33 = tail call nsz float @llvm.fmuladd.f32(float %..i.i.us.us.us, float -2.000000e+00, float 3.000000e+00)
   %34 = fmul nsz float %32, %33
-  %35 = fmul nsz float %24, 1.000000e+01
+  %35 = fmul nnan nsz float %24, 1.000000e+01
   %36 = fdiv nsz float %35, %15
   %37 = tail call nsz float @llvm.floor.f32(float %36)
   %38 = fsub nsz float %36, %37
   %39 = fcmp nsz ole float %34, %38
   %40 = select nsz i1 %39, float 0.000000e+00, float 1.000000e+00
-  %41 = fsub nsz float 1.000000e+00, %40
+  %41 = fsub nnan nsz float 1.000000e+00, %40
   br label %42
 
 42:                                               ; preds = %42, %.lr.ph.us.us.us
@@ -8626,13 +8626,13 @@ define internal void @hlslice16_transition(ptr noundef readonly captures(none) %
   %32 = fmul nsz float %..i.i.us.us.us, %..i.i.us.us.us
   %33 = tail call nsz float @llvm.fmuladd.f32(float %..i.i.us.us.us, float -2.000000e+00, float 3.000000e+00)
   %34 = fmul nsz float %32, %33
-  %35 = fmul nsz float %24, 1.000000e+01
+  %35 = fmul nnan nsz float %24, 1.000000e+01
   %36 = fdiv nsz float %35, %15
   %37 = tail call nsz float @llvm.floor.f32(float %36)
   %38 = fsub nsz float %36, %37
   %39 = fcmp nsz ole float %34, %38
   %40 = select nsz i1 %39, float 0.000000e+00, float 1.000000e+00
-  %41 = fsub nsz float 1.000000e+00, %40
+  %41 = fsub nnan nsz float 1.000000e+00, %40
   br label %42
 
 42:                                               ; preds = %42, %.lr.ph.us.us.us
@@ -8740,7 +8740,7 @@ define internal void @hrslice8_transition(ptr noundef readonly captures(none) %0
   %39 = fsub nsz float %37, %38
   %40 = fcmp nsz ole float %36, %39
   %41 = select nsz i1 %40, float 0.000000e+00, float 1.000000e+00
-  %42 = fsub nsz float 1.000000e+00, %41
+  %42 = fsub nnan nsz float 1.000000e+00, %41
   br label %43
 
 43:                                               ; preds = %43, %.lr.ph.us.us.us
@@ -8848,7 +8848,7 @@ define internal void @hrslice16_transition(ptr noundef readonly captures(none) %
   %39 = fsub nsz float %37, %38
   %40 = fcmp nsz ole float %36, %39
   %41 = select nsz i1 %40, float 0.000000e+00, float 1.000000e+00
-  %42 = fsub nsz float 1.000000e+00, %41
+  %42 = fsub nnan nsz float 1.000000e+00, %41
   br label %43
 
 43:                                               ; preds = %43, %.lr.ph.us.us.us
@@ -8946,13 +8946,13 @@ define internal void @vuslice8_transition(ptr noundef readonly captures(none) %0
   %33 = fmul nsz float %..i.i.us.us, %..i.i.us.us
   %34 = tail call nsz float @llvm.fmuladd.f32(float %..i.i.us.us, float -2.000000e+00, float 3.000000e+00)
   %35 = fmul nsz float %33, %34
-  %36 = fmul nsz float %25, 1.000000e+01
+  %36 = fmul nnan nsz float %25, 1.000000e+01
   %37 = fdiv nsz float %36, %17
   %38 = tail call nsz float @llvm.floor.f32(float %37)
   %39 = fsub nsz float %37, %38
   %40 = fcmp nsz ole float %35, %39
   %41 = select nsz i1 %40, float 0.000000e+00, float 1.000000e+00
-  %42 = fsub nsz float 1.000000e+00, %41
+  %42 = fsub nnan nsz float 1.000000e+00, %41
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader.lr.ph.us.us
@@ -9054,13 +9054,13 @@ define internal void @vuslice16_transition(ptr noundef readonly captures(none) %
   %33 = fmul nsz float %..i.i.us.us, %..i.i.us.us
   %34 = tail call nsz float @llvm.fmuladd.f32(float %..i.i.us.us, float -2.000000e+00, float 3.000000e+00)
   %35 = fmul nsz float %33, %34
-  %36 = fmul nsz float %25, 1.000000e+01
+  %36 = fmul nnan nsz float %25, 1.000000e+01
   %37 = fdiv nsz float %36, %17
   %38 = tail call nsz float @llvm.floor.f32(float %37)
   %39 = fsub nsz float %37, %38
   %40 = fcmp nsz ole float %35, %39
   %41 = select nsz i1 %40, float 0.000000e+00, float 1.000000e+00
-  %42 = fsub nsz float 1.000000e+00, %41
+  %42 = fsub nnan nsz float 1.000000e+00, %41
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader.lr.ph.us.us
@@ -9169,7 +9169,7 @@ define internal void @vdslice8_transition(ptr noundef readonly captures(none) %0
   %40 = fsub nsz float %38, %39
   %41 = fcmp nsz ole float %37, %40
   %42 = select nsz i1 %41, float 0.000000e+00, float 1.000000e+00
-  %43 = fsub nsz float 1.000000e+00, %42
+  %43 = fsub nnan nsz float 1.000000e+00, %42
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader.lr.ph.us.us
@@ -9278,7 +9278,7 @@ define internal void @vdslice16_transition(ptr noundef readonly captures(none) %
   %40 = fsub nsz float %38, %39
   %41 = fcmp nsz ole float %37, %40
   %42 = select nsz i1 %41, float 0.000000e+00, float 1.000000e+00
-  %43 = fsub nsz float 1.000000e+00, %42
+  %43 = fsub nnan nsz float 1.000000e+00, %42
   br label %.preheader.us.us.us
 
 .preheader.us.us.us:                              ; preds = %._crit_edge.us.us.us, %.preheader.lr.ph.us.us
@@ -11373,7 +11373,7 @@ define internal void @squeezeh8_transition(ptr noundef readonly captures(none) %
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %22 = icmp sgt i32 %14, 0
-  %23 = fadd nsz float %13, -1.000000e+00
+  %23 = fadd nnan nsz float %13, -1.000000e+00
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %25 = icmp sgt i32 %.fr95, 0
   %or.cond = and i1 %22, %25
@@ -11492,7 +11492,7 @@ define internal void @squeezeh16_transition(ptr noundef readonly captures(none) 
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %22 = icmp sgt i32 %14, 0
-  %23 = fadd nsz float %13, -1.000000e+00
+  %23 = fadd nnan nsz float %13, -1.000000e+00
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %25 = icmp sgt i32 %.fr95, 0
   %or.cond = and i1 %22, %25
@@ -11608,7 +11608,7 @@ define internal void @squeezev8_transition(ptr noundef readonly captures(none) %
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %21 = icmp sgt i32 %14, 0
-  %22 = fadd nsz float %13, -1.000000e+00
+  %22 = fadd nnan nsz float %13, -1.000000e+00
   %23 = icmp sgt i32 %12, 0
   %or.cond = select i1 %21, i1 %23, i1 false
   br i1 %or.cond, label %.preheader.lr.ph.us.us.preheader, label %._crit_edge
@@ -11717,7 +11717,7 @@ define internal void @squeezev16_transition(ptr noundef readonly captures(none) 
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %21 = icmp sgt i32 %14, 0
-  %22 = fadd nsz float %13, -1.000000e+00
+  %22 = fadd nnan nsz float %13, -1.000000e+00
   %23 = icmp sgt i32 %12, 0
   %or.cond = select i1 %21, i1 %23, i1 false
   br i1 %or.cond, label %.preheader.lr.ph.us.us.preheader, label %._crit_edge
@@ -11835,16 +11835,16 @@ define internal void @zoomin8_transition(ptr noundef readonly captures(none) %0,
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %30 = icmp slt i32 %5, %6
-  %31 = fadd nsz float %13, -1.000000e+00
-  %32 = fadd nsz float %16, -1.000000e+00
+  %31 = fadd nnan nsz float %13, -1.000000e+00
+  %32 = fadd nnan nsz float %16, -1.000000e+00
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %34 = fmul nsz float %4, 2.000000e+00
   %35 = fcmp nsz ogt float %34, 0.000000e+00
   %36 = select nsz i1 %35, float %34, float 0.000000e+00
   %37 = fcmp nsz ogt float %36, 1.000000e+00
   %..i.i54 = select nsz i1 %37, float 1.000000e+00, float %36
-  %38 = fmul nsz float %..i.i54, %..i.i54
-  %39 = tail call nsz float @llvm.fmuladd.f32(float %..i.i54, float -2.000000e+00, float 3.000000e+00)
+  %38 = fmul nnan nsz float %..i.i54, %..i.i54
+  %39 = tail call nnan nsz float @llvm.fmuladd.f32(float %..i.i54, float -2.000000e+00, float 3.000000e+00)
   %40 = fmul nsz float %38, %39
   %41 = fsub nsz float 1.000000e+00, %40
   %42 = icmp sgt i32 %12, 0
@@ -11968,16 +11968,16 @@ define internal void @zoomin16_transition(ptr noundef readonly captures(none) %0
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %30 = icmp slt i32 %5, %6
-  %31 = fadd nsz float %13, -1.000000e+00
-  %32 = fadd nsz float %16, -1.000000e+00
+  %31 = fadd nnan nsz float %13, -1.000000e+00
+  %32 = fadd nnan nsz float %16, -1.000000e+00
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %34 = fmul nsz float %4, 2.000000e+00
   %35 = fcmp nsz ogt float %34, 0.000000e+00
   %36 = select nsz i1 %35, float %34, float 0.000000e+00
   %37 = fcmp nsz ogt float %36, 1.000000e+00
   %..i.i54 = select nsz i1 %37, float 1.000000e+00, float %36
-  %38 = fmul nsz float %..i.i54, %..i.i54
-  %39 = tail call nsz float @llvm.fmuladd.f32(float %..i.i54, float -2.000000e+00, float 3.000000e+00)
+  %38 = fmul nnan nsz float %..i.i54, %..i.i54
+  %39 = tail call nnan nsz float @llvm.fmuladd.f32(float %..i.i54, float -2.000000e+00, float 3.000000e+00)
   %40 = fmul nsz float %38, %39
   %41 = fsub nsz float 1.000000e+00, %40
   %42 = icmp sgt i32 %12, 0
@@ -12558,7 +12558,7 @@ define internal void @hlwind8_transition(ptr noundef readonly captures(none) %0,
   %24 = phi i32 [ %86, %._crit_edge45.us ], [ %21, %.lr.ph44.us.preheader ]
   %.046.us = phi i32 [ %87, %._crit_edge45.us ], [ %5, %.lr.ph44.us.preheader ]
   %25 = sitofp i32 %.046.us to float
-  %26 = fmul nsz float %25, 0x40538EE980000000
+  %26 = fmul nnan nsz float %25, 0x40538EE980000000
   %27 = tail call nsz float @llvm.sin.f32(float %26)
   %28 = fmul nsz float %27, 0x40E55DD180000000
   %29 = tail call nsz float @llvm.floor.f32(float %28)
@@ -12680,7 +12680,7 @@ define internal void @hlwind16_transition(ptr noundef readonly captures(none) %0
 .lr.ph44.us.us:                                   ; preds = %.lr.ph44.us.us.preheader, %._crit_edge45.split.us.us.us
   %.046.us.us = phi i32 [ %76, %._crit_edge45.split.us.us.us ], [ %5, %.lr.ph44.us.us.preheader ]
   %23 = sitofp i32 %.046.us.us to float
-  %24 = fmul nsz float %23, 0x40538EE980000000
+  %24 = fmul nnan nsz float %23, 0x40538EE980000000
   %25 = tail call nsz float @llvm.sin.f32(float %24)
   %26 = fmul nsz float %25, 0x40E55DD180000000
   %27 = tail call nsz float @llvm.floor.f32(float %26)
@@ -12792,7 +12792,7 @@ define internal void @hrwind8_transition(ptr noundef readonly captures(none) %0,
   %24 = phi i32 [ %85, %._crit_edge45.us ], [ %21, %.lr.ph44.us.preheader ]
   %.046.us = phi i32 [ %86, %._crit_edge45.us ], [ %5, %.lr.ph44.us.preheader ]
   %25 = sitofp i32 %.046.us to float
-  %26 = fmul nsz float %25, 0x40538EE980000000
+  %26 = fmul nnan nsz float %25, 0x40538EE980000000
   %27 = tail call nsz float @llvm.sin.f32(float %26)
   %28 = fmul nsz float %27, 0x40E55DD180000000
   %29 = tail call nsz float @llvm.floor.f32(float %28)
@@ -12913,7 +12913,7 @@ define internal void @hrwind16_transition(ptr noundef readonly captures(none) %0
 .lr.ph44.us.us:                                   ; preds = %.lr.ph44.us.us.preheader, %._crit_edge45.split.us.us.us
   %.046.us.us = phi i32 [ %75, %._crit_edge45.split.us.us.us ], [ %5, %.lr.ph44.us.us.preheader ]
   %23 = sitofp i32 %.046.us.us to float
-  %24 = fmul nsz float %23, 0x40538EE980000000
+  %24 = fmul nnan nsz float %23, 0x40538EE980000000
   %25 = tail call nsz float @llvm.sin.f32(float %24)
   %26 = fmul nsz float %25, 0x40E55DD180000000
   %27 = tail call nsz float @llvm.floor.f32(float %26)
@@ -13086,7 +13086,7 @@ define internal void @vuwind8_transition(ptr noundef readonly captures(none) %0,
 .lr.ph.us:                                        ; preds = %.lr.ph43.split.us52
   %69 = trunc nuw nsw i64 %indvars.iv57 to i32
   %70 = uitofp nneg i32 %69 to float
-  %71 = fmul nsz float %70, 0x4029FAC720000000
+  %71 = fmul nnan nsz float %70, 0x4029FAC720000000
   %72 = tail call nsz float @llvm.sin.f32(float %71)
   %73 = fmul nsz float %72, 0x40E55DD180000000
   %74 = tail call nsz float @llvm.floor.f32(float %73)
@@ -13158,7 +13158,7 @@ define internal void @vuwind16_transition(ptr noundef readonly captures(none) %0
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %._crit_edge.us.us.us ], [ 0, %.lr.ph43.us.us ]
   %28 = trunc nuw nsw i64 %indvars.iv53 to i32
   %29 = uitofp nneg i32 %28 to float
-  %30 = fmul nsz float %29, 0x4029FAC720000000
+  %30 = fmul nnan nsz float %29, 0x4029FAC720000000
   %31 = tail call nsz float @llvm.sin.f32(float %30)
   %32 = fmul nsz float %31, 0x40E55DD180000000
   %33 = tail call nsz float @llvm.floor.f32(float %32)
@@ -13323,7 +13323,7 @@ define internal void @vdwind8_transition(ptr noundef readonly captures(none) %0,
 .lr.ph.us:                                        ; preds = %.lr.ph43.split.us52
   %68 = trunc nuw nsw i64 %indvars.iv57 to i32
   %69 = uitofp nneg i32 %68 to float
-  %70 = fmul nsz float %69, 0x4029FAC720000000
+  %70 = fmul nnan nsz float %69, 0x4029FAC720000000
   %71 = tail call nsz float @llvm.sin.f32(float %70)
   %72 = fmul nsz float %71, 0x40E55DD180000000
   %73 = tail call nsz float @llvm.floor.f32(float %72)
@@ -13394,7 +13394,7 @@ define internal void @vdwind16_transition(ptr noundef readonly captures(none) %0
   %indvars.iv53 = phi i64 [ %indvars.iv.next54, %._crit_edge.us.us.us ], [ 0, %.lr.ph43.us.us ]
   %27 = trunc nuw nsw i64 %indvars.iv53 to i32
   %28 = uitofp nneg i32 %27 to float
-  %29 = fmul nsz float %28, 0x4029FAC720000000
+  %29 = fmul nnan nsz float %28, 0x4029FAC720000000
   %30 = tail call nsz float @llvm.sin.f32(float %29)
   %31 = fmul nsz float %30, 0x40E55DD180000000
   %32 = tail call nsz float @llvm.floor.f32(float %31)

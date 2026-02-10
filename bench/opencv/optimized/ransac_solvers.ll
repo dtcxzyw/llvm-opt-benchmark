@@ -1073,7 +1073,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit: ; pr
   %64 = load i32, ptr %63, align 4, !tbaa !46
   %65 = add nsw i32 %64, %61
   %66 = sitofp i32 %65 to double
-  %67 = fmul double %66, 5.000000e-01
+  %67 = fmul nnan double %66, 5.000000e-01
   br label %70
 
 68:                                               ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEEvT_S7_.exit
@@ -12749,14 +12749,14 @@ _ZNSt12__shared_ptrIN2cv4usac21FundamentalDegeneracyELN9__gnu_cxx12_Lock_policyE
 
 ._crit_edge1089:                                  ; preds = %1337
   %.pre1090 = sitofp i32 %.pre1083 to double
-  %.pre1092 = fmul double %.pre1090, 8.000000e-01
+  %.pre1092 = fmul nnan double %.pre1090, 8.000000e-01
   br label %1355
 
 1340:                                             ; preds = %1337
   %1341 = load i32, ptr %69, align 8, !tbaa !404
   %1342 = sitofp i32 %1341 to double
   %1343 = sitofp i32 %.pre1083 to double
-  %1344 = fmul double %1343, 8.000000e-01
+  %1344 = fmul nnan double %1343, 8.000000e-01
   %1345 = fcmp olt double %1344, %1342
   br i1 %1345, label %1346, label %1355
 
@@ -15509,7 +15509,7 @@ define linkonce_odr hidden void @_ZN2cv4usac6Ransac10initializeEiRNS_3PtrINS0_13
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %115 = load i32, ptr %114, align 8, !tbaa !211
   %116 = sitofp i32 %115 to double
-  %117 = fmul double %116, 5.000000e-01
+  %117 = fmul nnan double %116, 5.000000e-01
   %118 = fptosi double %117 to i32
   %.sroa.speculated1107 = tail call i32 @llvm.smin.i32(i32 %118, i32 100)
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 272

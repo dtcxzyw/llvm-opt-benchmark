@@ -19406,7 +19406,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %._crit_edge153
   %738 = add nsw i32 %734, %737
   %739 = call i32 @llvm.smax.i32(i32 %726, i32 %732)
   %740 = sitofp i32 %739 to double
-  %741 = fmul double %740, 6.000000e-01
+  %741 = fmul nnan double %740, 6.000000e-01
   %742 = fptosi double %741 to i32
   %743 = add nsw i32 %739, %742
   call void @llvm.lifetime.start.p0(ptr nonnull %62)

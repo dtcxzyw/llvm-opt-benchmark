@@ -3255,7 +3255,7 @@ _ZNSt6vectorI17VerletbufAtomtypeSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6v
 
 _ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit: ; preds = %.lr.ph370
   %803 = sitofp i16 %.fr to float
-  %804 = fmul float %803, 0x3FD99999A0000000
+  %804 = fmul nnan float %803, 0x3FD99999A0000000
   %805 = fcmp olt float %804, %785
   %spec.select = select i1 %805, ptr @.str.45, ptr @.str.42
   br label %_ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit.thread
@@ -3667,7 +3667,7 @@ _ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit.i: ; preds = %42
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 10
   %48 = load i16, ptr %47, align 2, !tbaa !21
   %49 = sitofp i16 %48 to float
-  %50 = fmul float %49, 0x3FD99999A0000000
+  %50 = fmul nnan float %49, 0x3FD99999A0000000
   %51 = sitofp i16 %.pre.i to float
   %52 = fcmp olt float %50, %51
   br i1 %52, label %53, label %_ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit.thread.i
@@ -3743,7 +3743,7 @@ _ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit.i87: ; preds = %90
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 10
   %96 = load i16, ptr %95, align 2, !tbaa !21
   %97 = sitofp i16 %96 to float
-  %98 = fmul float %97, 0x3FD99999A0000000
+  %98 = fmul nnan float %97, 0x3FD99999A0000000
   %99 = sitofp i16 %.pre.i81 to float
   %100 = fcmp olt float %98, %99
   br i1 %100, label %101, label %_ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit.thread.i84
@@ -3830,7 +3830,7 @@ _ZL15get_atom_sigma2fRK33AtomNonbondedAndKineticPropertiesPfS2_.exit89: ; preds 
 163:                                              ; preds = %_ZL15get_atom_sigma2fRK33AtomNonbondedAndKineticPropertiesPfS2_.exit89
   %164 = load i16, ptr %85, align 2, !tbaa !21
   %165 = sitofp i16 %164 to float
-  %166 = fmul float %165, 0x3FD99999A0000000
+  %166 = fmul nnan float %165, 0x3FD99999A0000000
   %167 = load i16, ptr %43, align 4, !tbaa !22
   %168 = sitofp i16 %167 to float
   %169 = fcmp olt float %166, %168
@@ -3844,7 +3844,7 @@ _ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit: ; preds = %_ZL15g
   %172 = getelementptr inbounds nuw i8, ptr %91, i64 10
   %173 = load i16, ptr %172, align 2, !tbaa !21
   %174 = sitofp i16 %173 to float
-  %175 = fmul float %174, 0x3FD99999A0000000
+  %175 = fmul nnan float %174, 0x3FD99999A0000000
   %176 = sitofp i16 %.pre.i81 to float
   %177 = fcmp olt float %175, %176
   br label %_ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit90
@@ -3883,7 +3883,7 @@ _ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit90: ; preds = %_ZNK
 201:                                              ; preds = %_ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit90
   %202 = load i16, ptr %85, align 2, !tbaa !21
   %203 = sitofp i16 %202 to float
-  %204 = fmul float %203, 0x3FD99999A0000000
+  %204 = fmul nnan float %203, 0x3FD99999A0000000
   %205 = load i16, ptr %43, align 4, !tbaa !22
   %206 = sitofp i16 %205 to float
   %207 = fcmp olt float %204, %206
@@ -3899,7 +3899,7 @@ _ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit91: ; preds = %_ZNK
   %212 = getelementptr inbounds nuw i8, ptr %91, i64 10
   %213 = load i16, ptr %212, align 2, !tbaa !21
   %214 = sitofp i16 %213 to float
-  %215 = fmul float %214, 0x3FD99999A0000000
+  %215 = fmul nnan float %214, 0x3FD99999A0000000
   %216 = load i16, ptr %91, align 4, !tbaa !22
   %217 = sitofp i16 %216 to float
   %218 = fcmp olt float %215, %217
@@ -3918,15 +3918,15 @@ _ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit92: ; preds = %_ZNK
 226:                                              ; preds = %_ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit92
   %227 = add nsw i32 %223, -1
   %228 = sitofp i32 %227 to double
-  %229 = fmul double %224, %228
-  %230 = fmul double %229, 5.000000e-01
+  %229 = fmul nnan double %224, %228
+  %230 = fmul nnan double %229, 5.000000e-01
   br label %236
 
 231:                                              ; preds = %_ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit92
   %232 = getelementptr inbounds nuw i8, ptr %91, i64 28
   %233 = load i32, ptr %232, align 4, !tbaa !284
   %234 = sitofp i32 %233 to double
-  %235 = fmul double %224, %234
+  %235 = fmul nnan double %224, %234
   br label %236
 
 236:                                              ; preds = %231, %226
@@ -4242,7 +4242,7 @@ _ZL20displacementVarianceRK10t_inputrecff.exit:   ; preds = %88, %._crit_edge.i,
 114:                                              ; preds = %_ZL20displacementVarianceRK10t_inputrecff.exit
   %115 = sub nsw i32 %.sroa.speculated68, %.04385
   %116 = sitofp i32 %115 to double
-  %117 = fmul double %116, 5.000000e-01
+  %117 = fmul nnan double %116, 5.000000e-01
   %118 = fadd float %.04484, %106
   %119 = fpext float %118 to double
   %120 = fpext float %.1 to double
@@ -5304,7 +5304,7 @@ _ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.us.us:
   %124 = add nsw i32 %.048131.us, %.049130.us
   %125 = sdiv i32 %124, 2
   %126 = sitofp i32 %125 to float
-  %127 = fmul float %126, 0x3F50624DE0000000
+  %127 = fmul nnan float %126, 0x3F50624DE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !295
   %128 = fdiv float 1.000000e+00, %127
@@ -5334,7 +5334,7 @@ _ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit.i.i.us: ; preds = 
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.0.041.i.us, i64 10
   %137 = load i16, ptr %136, align 2, !tbaa !21
   %138 = sitofp i16 %137 to float
-  %139 = fmul float %138, 0x3FD99999A0000000
+  %139 = fmul nnan float %138, 0x3FD99999A0000000
   %140 = sitofp i16 %.pre.i.i.us to float
   %141 = fcmp olt float %139, %140
   %142 = getelementptr inbounds nuw i8, ptr %.sroa.0.041.i.us, i64 16
@@ -5494,7 +5494,7 @@ _ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit23.i.us: ; preds = 
   %263 = getelementptr inbounds nuw i8, ptr %.sroa.0.041.i.us, i64 10
   %264 = load i16, ptr %263, align 2, !tbaa !21
   %265 = sitofp i16 %264 to float
-  %266 = fmul float %265, 0x3FD99999A0000000
+  %266 = fmul nnan float %265, 0x3FD99999A0000000
   %267 = sitofp i16 %.pre.i.i.us to float
   %268 = fcmp olt float %266, %267
   br i1 %268, label %269, label %_ZNK33AtomNonbondedAndKineticProperties13hasConstraintEv.exit23.thread.i.us
@@ -5547,7 +5547,7 @@ _ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.loopex
   %297 = add nsw i32 %.048131, %.049130
   %298 = sdiv i32 %297, 2
   %299 = sitofp i32 %298 to float
-  %300 = fmul float %299, 0x3F50624DE0000000
+  %300 = fmul nnan float %299, 0x3F50624DE0000000
   %301 = load ptr, ptr %108, align 8, !tbaa !310
   %302 = load ptr, ptr %107, align 8, !tbaa !207
   %303 = ptrtoint ptr %301 to i64
@@ -5581,8 +5581,8 @@ _ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.loopex
   br i1 %.not48.i, label %_ZL31chanceOfUpdateGroupCrossingCellRK10gmx_mtop_tN3gmx8ArrayRefIKNS2_17RangePartitioningEEEff.exit, label %.lr.ph.i68
 
 .lr.ph.i68:                                       ; preds = %309
-  %312 = fdiv float 1.000000e+00, %300
-  %313 = fmul float %312, 5.000000e-01
+  %312 = fdiv nnan float 1.000000e+00, %300
+  %313 = fmul nnan float %312, 5.000000e-01
   br label %314
 
 314:                                              ; preds = %_ZL31chanceOfUpdateGroupCrossingCellRK13gmx_moltype_tRK14gmx_ffparams_tRKN3gmx17RangePartitioningEff.exit.i, %.lr.ph.i68
@@ -6167,12 +6167,12 @@ _ZL31chanceOfUpdateGroupCrossingCellRK10gmx_mtop_tN3gmx8ArrayRefIKNS2_17RangePar
 
 _ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit.loopexit: ; preds = %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.us.us.us
   %605 = sitofp i32 %120 to float
-  %606 = fmul float %605, 0x3F50624DE0000000
+  %606 = fmul nnan float %605, 0x3F50624DE0000000
   br label %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit.loopexit208: ; preds = %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.us.us
   %607 = sitofp i32 %122 to float
-  %608 = fmul float %607, 0x3F50624DE0000000
+  %608 = fmul nnan float %607, 0x3F50624DE0000000
   br label %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit: ; preds = %_ZL31chanceOfUpdateGroupCrossingCellRK10gmx_mtop_tN3gmx8ArrayRefIKNS2_17RangePartitioningEEEff.exit, %_ZL24chanceOfAtomCrossingCellN3gmx8ArrayRefIK17VerletbufAtomtypeEEff.exit.loopexit.us, %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit.loopexit208, %_ZNSt6vectorI17VerletbufAtomtypeSaIS0_EED2Ev.exit.loopexit, %.loopexit96

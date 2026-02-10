@@ -37884,7 +37884,7 @@ define linkonce_odr void @_ZZN7xgboost6common19SketchContainerImplINS0_15WQuanti
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %11 = load i32, ptr %10, align 8, !tbaa !141
   %12 = sitofp i32 %11 to float
-  %13 = fmul float %12, 8.000000e+00
+  %13 = fmul nnan float %12, 8.000000e+00
   %14 = fptoui float %13 to i64
   %15 = load i64, ptr %9, align 8, !tbaa !55
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %15, i64 %14)
@@ -43899,7 +43899,7 @@ define linkonce_odr void @_ZZN7xgboost6common19SketchContainerImplINS0_16WXQuant
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %11 = load i32, ptr %10, align 8, !tbaa !421
   %12 = sitofp i32 %11 to float
-  %13 = fmul float %12, 8.000000e+00
+  %13 = fmul nnan float %12, 8.000000e+00
   %14 = fptoui float %13 to i64
   %15 = load i64, ptr %9, align 8, !tbaa !55
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %15, i64 %14)
@@ -49475,7 +49475,7 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
 
 _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread: ; preds = %1, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit
   %24 = uitofp i64 %.sroa.speculated to float
-  %25 = fmul float %24, 8.000000e+00
+  %25 = fmul nnan float %24, 8.000000e+00
   %26 = fpext float %25 to double
   %27 = fdiv double 1.000000e+00, %26
   %28 = load ptr, ptr %.0.val, align 8, !tbaa !152

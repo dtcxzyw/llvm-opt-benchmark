@@ -2824,7 +2824,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %94 = fdiv double %92, %93
   %95 = call i32 @Sto_ManMemoryReport(ptr noundef nonnull %82) #17
   %96 = sitofp i32 %95 to double
-  %97 = fmul double %96, 0x3EB0000000000000
+  %97 = fmul nnan double %96, 0x3EB0000000000000
   %98 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.26, i32 noundef %83, i32 noundef %85, i32 noundef %88, i32 noundef %90, double noundef %94, double noundef %97)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %99 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #17

@@ -3823,7 +3823,7 @@ rv_alloc.exit.i568:                               ; preds = %75, %70
   %121 = fmul double %120, 0x3FD287A7636F4361
   %122 = fadd double %121, 0x3FC68A288B60C8B3
   %123 = sitofp i32 %.0458 to double
-  %124 = fmul double %123, 0x3FD34413509F79FB
+  %124 = fmul nnan double %123, 0x3FD34413509F79FB
   %125 = fadd double %124, %122
   %126 = fptosi double %125 to i32
   %127 = fcmp olt double %125, 0.000000e+00
@@ -4106,7 +4106,7 @@ rv_alloc.exit:                                    ; preds = %175, %185
 
 236:                                              ; preds = %234
   %237 = add nsw i32 %.1442, -1
-  %238 = fmul double %231, 1.000000e+01
+  %238 = fmul nnan double %231, 1.000000e+01
   %239 = add nsw i32 %.3477, 1
   br label %240
 

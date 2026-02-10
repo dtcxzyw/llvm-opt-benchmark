@@ -2320,7 +2320,7 @@ pow_10.exit:                                      ; preds = %.lr.ph.i
 .lr.ph:                                           ; preds = %.preheader317, %.lr.ph
   %.2206330 = phi i64 [ %40, %.lr.ph ], [ 0, %.preheader317 ]
   %.1224329 = phi double [ %39, %.lr.ph ], [ %4, %.preheader317 ]
-  %39 = fmul double %.1224329, 1.000000e+01
+  %39 = fmul nnan double %.1224329, 1.000000e+01
   %40 = add nsw i64 %.2206330, -1
   %41 = fcmp olt double %39, 1.000000e+00
   br i1 %41, label %.lr.ph, label %.preheader315, !llvm.loop !32

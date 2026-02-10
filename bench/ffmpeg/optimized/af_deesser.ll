@@ -93,7 +93,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %35 = fdiv nsz double %34, 4.410000e+04
   %36 = select nsz i1 %31, double %33, double %35
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %38 = fdiv nsz double 8.192000e+03, %36
+  %38 = fdiv nnan nsz double 8.192000e+03, %36
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 112

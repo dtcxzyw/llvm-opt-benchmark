@@ -37861,7 +37861,7 @@ define void @_ZN7testing8internal27FormatTimeInMillisAsSecondsB5cxx11Ex(ptr dead
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = sitofp i64 %1 to double
-  %6 = fmul double %5, 1.000000e-03
+  %6 = fmul nnan double %5, 1.000000e-03
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %6)
           to label %_ZNSolsEd.exit unwind label %47
 
@@ -48252,7 +48252,7 @@ define internal fastcc void @_ZN7testing8internalL28FormatTimeInMillisAsDuration
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %3)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = sitofp i64 %1 to double
-  %6 = fmul double %5, 1.000000e-03
+  %6 = fmul nnan double %5, 1.000000e-03
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, double noundef %6)
           to label %_ZNSolsEd.exit unwind label %48
 

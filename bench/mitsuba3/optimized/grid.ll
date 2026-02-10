@@ -4425,7 +4425,7 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %263 = call contract noundef float @llvm.fabs.f32(float %.sroa.02697.8.vec.extract)
   %264 = fcmp contract oeq float %263, 0x7FF0000000000000
   %265 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02697.8.vec.extract)
-  %266 = call contract noundef float @llvm.fma.f32(float %265, float 5.000000e-01, float 5.000000e-01)
+  %266 = call nnan contract float @llvm.fma.f32(float %265, float 5.000000e-01, float 5.000000e-01)
   %267 = fmul contract <4 x float> %262, splat (float 5.000000e-01)
   %268 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %262, <4 x float> %262, <4 x float> splat (float 1.000000e+00))
   %269 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %268, <4 x float> zeroinitializer, i8 -1)
@@ -4481,7 +4481,7 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %317 = call contract noundef float @llvm.fabs.f32(float %.sroa.02687.8.vec.extract)
   %318 = fcmp contract oeq float %317, 0x7FF0000000000000
   %319 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02687.8.vec.extract)
-  %320 = call contract noundef float @llvm.fma.f32(float %319, float 5.000000e-01, float 5.000000e-01)
+  %320 = call nnan contract float @llvm.fma.f32(float %319, float 5.000000e-01, float 5.000000e-01)
   %321 = fmul contract <4 x float> %316, splat (float 5.000000e-01)
   %322 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %316, <4 x float> %316, <4 x float> splat (float 1.000000e+00))
   %323 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %322, <4 x float> zeroinitializer, i8 -1)
@@ -4537,7 +4537,7 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %371 = call contract noundef float @llvm.fabs.f32(float %.sroa.02677.8.vec.extract)
   %372 = fcmp contract oeq float %371, 0x7FF0000000000000
   %373 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02677.8.vec.extract)
-  %374 = call contract noundef float @llvm.fma.f32(float %373, float 5.000000e-01, float 5.000000e-01)
+  %374 = call nnan contract float @llvm.fma.f32(float %373, float 5.000000e-01, float 5.000000e-01)
   %375 = fmul contract <4 x float> %370, splat (float 5.000000e-01)
   %376 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %370, <4 x float> %370, <4 x float> splat (float 1.000000e+00))
   %377 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %376, <4 x float> zeroinitializer, i8 -1)
@@ -4593,7 +4593,7 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %425 = call contract noundef float @llvm.fabs.f32(float %.sroa.02667.8.vec.extract)
   %426 = fcmp contract oeq float %425, 0x7FF0000000000000
   %427 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02667.8.vec.extract)
-  %428 = call contract noundef float @llvm.fma.f32(float %427, float 5.000000e-01, float 5.000000e-01)
+  %428 = call nnan contract float @llvm.fma.f32(float %427, float 5.000000e-01, float 5.000000e-01)
   %429 = fmul contract <4 x float> %424, splat (float 5.000000e-01)
   %430 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %424, <4 x float> %424, <4 x float> splat (float 1.000000e+00))
   %431 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %430, <4 x float> zeroinitializer, i8 -1)
@@ -4710,7 +4710,7 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %528 = call contract noundef float @llvm.fabs.f32(float %.sroa.02610.8.vec.extract)
   %529 = fcmp contract oeq float %528, 0x7FF0000000000000
   %530 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02610.8.vec.extract)
-  %531 = call contract noundef float @llvm.fma.f32(float %530, float 5.000000e-01, float 5.000000e-01)
+  %531 = call nnan contract float @llvm.fma.f32(float %530, float 5.000000e-01, float 5.000000e-01)
   %532 = fmul contract <4 x float> %527, splat (float 5.000000e-01)
   %533 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %527, <4 x float> %527, <4 x float> splat (float 1.000000e+00))
   %534 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %533, <4 x float> zeroinitializer, i8 -1)
@@ -5176,7 +5176,7 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %224 = call contract noundef float @llvm.fabs.f32(float %.sroa.02602.8.vec.extract)
   %225 = fcmp contract oeq float %224, 0x7FF0000000000000
   %226 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02602.8.vec.extract)
-  %227 = call contract noundef float @llvm.fma.f32(float %226, float 5.000000e-01, float 5.000000e-01)
+  %227 = call nnan contract float @llvm.fma.f32(float %226, float 5.000000e-01, float 5.000000e-01)
   %228 = fmul contract <4 x float> %223, splat (float 5.000000e-01)
   %229 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %223, <4 x float> %223, <4 x float> splat (float 1.000000e+00))
   %230 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %229, <4 x float> zeroinitializer, i8 -1)
@@ -5232,7 +5232,7 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %278 = call contract noundef float @llvm.fabs.f32(float %.sroa.02592.8.vec.extract)
   %279 = fcmp contract oeq float %278, 0x7FF0000000000000
   %280 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02592.8.vec.extract)
-  %281 = call contract noundef float @llvm.fma.f32(float %280, float 5.000000e-01, float 5.000000e-01)
+  %281 = call nnan contract float @llvm.fma.f32(float %280, float 5.000000e-01, float 5.000000e-01)
   %282 = fmul contract <4 x float> %277, splat (float 5.000000e-01)
   %283 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %277, <4 x float> %277, <4 x float> splat (float 1.000000e+00))
   %284 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %283, <4 x float> zeroinitializer, i8 -1)
@@ -5288,7 +5288,7 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %332 = call contract noundef float @llvm.fabs.f32(float %.sroa.02582.8.vec.extract)
   %333 = fcmp contract oeq float %332, 0x7FF0000000000000
   %334 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02582.8.vec.extract)
-  %335 = call contract noundef float @llvm.fma.f32(float %334, float 5.000000e-01, float 5.000000e-01)
+  %335 = call nnan contract float @llvm.fma.f32(float %334, float 5.000000e-01, float 5.000000e-01)
   %336 = fmul contract <4 x float> %331, splat (float 5.000000e-01)
   %337 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %331, <4 x float> %331, <4 x float> splat (float 1.000000e+00))
   %338 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %337, <4 x float> zeroinitializer, i8 -1)
@@ -5344,7 +5344,7 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %386 = call contract noundef float @llvm.fabs.f32(float %.sroa.02572.8.vec.extract)
   %387 = fcmp contract oeq float %386, 0x7FF0000000000000
   %388 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.02572.8.vec.extract)
-  %389 = call contract noundef float @llvm.fma.f32(float %388, float 5.000000e-01, float 5.000000e-01)
+  %389 = call nnan contract float @llvm.fma.f32(float %388, float 5.000000e-01, float 5.000000e-01)
   %390 = fmul contract <4 x float> %385, splat (float 5.000000e-01)
   %391 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %385, <4 x float> %385, <4 x float> splat (float 1.000000e+00))
   %392 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %391, <4 x float> zeroinitializer, i8 -1)
@@ -5462,7 +5462,7 @@ _ZNK5drjit7TextureIfLm3EE19eval_fetch_nonaccelERKNS_5ArrayIfLm3EEERNS2_IPfLm8EEE
   %490 = call contract noundef float @llvm.fabs.f32(float %.sroa.0.8.vec.extract)
   %491 = fcmp contract oeq float %490, 0x7FF0000000000000
   %492 = call float @llvm.copysign.f32(float 1.000000e+00, float %.sroa.0.8.vec.extract)
-  %493 = call contract noundef float @llvm.fma.f32(float %492, float 5.000000e-01, float 5.000000e-01)
+  %493 = call nnan contract float @llvm.fma.f32(float %492, float 5.000000e-01, float 5.000000e-01)
   %494 = fmul contract <4 x float> %489, splat (float 5.000000e-01)
   %495 = call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %489, <4 x float> %489, <4 x float> splat (float 1.000000e+00))
   %496 = call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %495, <4 x float> zeroinitializer, i8 -1)

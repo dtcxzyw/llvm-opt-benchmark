@@ -1297,7 +1297,7 @@ define hidden zeroext range(i8 0, 2) i8 @GetScaledImageName(ptr noundef readonly
   %10 = tail call noalias ptr @malloc(i64 noundef %3) #22
   %11 = tail call noalias ptr @strdup(ptr noundef %0) #21
   %12 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 46) #23
-  %13 = fmul float %7, 1.000000e+02
+  %13 = fmul nnan float %7, 1.000000e+02
   %14 = fptosi float %7 to i32
   %15 = mul nsw i32 %14, 100
   %16 = sitofp i32 %15 to float

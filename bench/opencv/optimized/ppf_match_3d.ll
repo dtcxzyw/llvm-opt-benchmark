@@ -5071,7 +5071,7 @@ _ZN2cvplIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit:   ; preds = %417
 
 ._crit_edge404.loopexit:                          ; preds = %._crit_edge
   %498 = sitofp i32 %.1128.lcssa to double
-  %499 = fmul double %498, 0x402921FB54442D18
+  %499 = fmul nnan double %498, 0x402921FB54442D18
   %500 = zext i32 %.1131.lcssa to i64
   br label %._crit_edge404
 
@@ -5957,7 +5957,7 @@ _ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i: ; preds = %.preheader
   br i1 %30, label %31, label %_ZN2cv12ppf_match_3dL11TNormalize3ERNS_3VecIdLi3EEE.exit
 
 31:                                               ; preds = %_ZN2cvL4normIdLi3ELi1EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit.i
-  %32 = fdiv double 1.000000e+00, %29
+  %32 = fdiv nnan double 1.000000e+00, %29
   br label %33
 
 33:                                               ; preds = %33, %31

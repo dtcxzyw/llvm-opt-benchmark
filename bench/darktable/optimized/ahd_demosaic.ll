@@ -52,7 +52,7 @@ define void @_ZN6LibRaw6cielabEPtPs(ptr noundef nonnull readonly align 8 capture
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %30 ], [ 0, %13 ]
   %19 = trunc nuw nsw i64 %indvars.iv83 to i32
   %20 = uitofp nneg i32 %19 to double
-  %21 = fmul reassoc nsz arcp contract afn double %20, 0x3EF0001000100010
+  %21 = fmul reassoc nnan nsz arcp contract afn double %20, 0x3EF0001000100010
   %22 = fptrunc reassoc nsz arcp contract afn double %21 to float
   %23 = fpext reassoc nsz arcp contract afn float %22 to double
   %24 = fcmp reassoc nsz arcp contract afn ogt double %23, 8.856000e-03
@@ -63,7 +63,7 @@ define void @_ZN6LibRaw6cielabEPtPs(ptr noundef nonnull readonly align 8 capture
   br label %30
 
 27:                                               ; preds = %.preheader64
-  %28 = fmul reassoc nsz arcp contract afn float %22, 0x401F25E360000000
+  %28 = fmul reassoc nnan nsz arcp contract afn float %22, 0x401F25E360000000
   %29 = fadd reassoc nsz arcp contract afn float %28, 0x3FC1A7B960000000
   br label %30
 
@@ -1052,7 +1052,7 @@ define void @_ZN6LibRaw15ahd_interpolateEv(ptr noundef nonnull align 8 dereferen
   %indvars.iv83.i = phi i64 [ %indvars.iv.next84.i, %20 ], [ 0, %1 ]
   %9 = trunc nuw nsw i64 %indvars.iv83.i to i32
   %10 = uitofp nneg i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 0x3EF0001000100010
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 0x3EF0001000100010
   %12 = fptrunc reassoc nsz arcp contract afn double %11 to float
   %13 = fpext reassoc nsz arcp contract afn float %12 to double
   %14 = fcmp reassoc nsz arcp contract afn ogt double %13, 8.856000e-03
@@ -1063,7 +1063,7 @@ define void @_ZN6LibRaw15ahd_interpolateEv(ptr noundef nonnull align 8 dereferen
   br label %20
 
 17:                                               ; preds = %.preheader64.i
-  %18 = fmul reassoc nsz arcp contract afn float %12, 0x401F25E360000000
+  %18 = fmul reassoc nnan nsz arcp contract afn float %12, 0x401F25E360000000
   %19 = fadd reassoc nsz arcp contract afn float %18, 0x3FC1A7B960000000
   br label %20
 

@@ -769,7 +769,7 @@ _ZNSt16allocator_traitsISaISt6vectorIN2cv6Point_IfEESaIS3_EEEE9constructIS5_JRKS
   %49 = add nuw i64 %47, %48
   %50 = trunc i64 %49 to i32
   %51 = uitofp i32 %50 to float
-  %52 = fmul float %51, 0x3DF0000000000000
+  %52 = fmul nnan float %51, 0x3DF0000000000000
   %53 = fsub float %45, %44
   %54 = call noundef float @llvm.fmuladd.f32(float %52, float %53, float %44)
   %55 = load float, ptr %8, align 8, !tbaa !81
@@ -780,7 +780,7 @@ _ZNSt16allocator_traitsISaISt6vectorIN2cv6Point_IfEESaIS3_EEEE9constructIS5_JRKS
   %60 = add nuw i64 %58, %59
   %61 = trunc i64 %60 to i32
   %62 = uitofp i32 %61 to float
-  %63 = fmul float %62, 0x3DF0000000000000
+  %63 = fmul nnan float %62, 0x3DF0000000000000
   %64 = fsub float %56, %55
   %65 = call noundef float @llvm.fmuladd.f32(float %63, float %64, float %55)
   %66 = load ptr, ptr %11, align 8, !tbaa !75

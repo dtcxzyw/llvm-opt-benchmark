@@ -104,7 +104,7 @@ define hidden void @_ZN6HdrSeq3addEd(ptr noundef nonnull align 8 dereferenceable
   %.142 = phi i32 [ %10, %.lr.ph43 ], [ %.030.lcssa, %.preheader ]
   %.13241 = phi double [ %11, %.lr.ph43 ], [ %.031.lcssa, %.preheader ]
   %10 = add nsw i32 %.142, -1
-  %11 = fmul double %.13241, 1.000000e+01
+  %11 = fmul nnan double %.13241, 1.000000e+01
   %12 = fcmp olt double %11, 1.000000e-01
   br i1 %12, label %.lr.ph43, label %.loopexit, !llvm.loop !10
 

@@ -2394,7 +2394,7 @@ if.then:                                          ; preds = %entry
   %neg = fneg float %conv26
   %13 = tail call float @llvm.fmuladd.f32(float %neg, float 3.000000e+00, float %conv.sink)
   %div = fdiv float %13, %conv.i
-  %mul16 = fmul float %conv26, 5.000000e-01
+  %mul16 = fmul nnan float %conv26, 5.000000e-01
   %14 = tail call float @llvm.fmuladd.f32(float %conv33, float %div, float %mul16)
   %conv17 = fptosi float %14 to i32
   store i32 %conv17, ptr %DrawPos39, align 8, !tbaa !93

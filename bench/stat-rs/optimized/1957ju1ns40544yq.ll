@@ -1012,7 +1012,7 @@ define noundef double @"_ZN111_$LT$statrs..distribution..laplace..Laplace$u20$as
   br label %21
 
 17:                                               ; preds = %6
-  %18 = tail call noundef double @llvm.log.f64(double %11)
+  %18 = tail call nnan double @llvm.log.f64(double %11)
   %19 = fmul double %18, %10
   %20 = fadd double %8, %19
   br label %21
@@ -1257,7 +1257,7 @@ define noundef double @"_ZN116_$LT$statrs..distribution..log_normal..LogNormal$u
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load double, ptr %10, align 8, !noundef !4
   %12 = fmul double %11, 0x3FF6A09E667F3BCD
-  %13 = fmul double %1, 2.000000e+00
+  %13 = fmul nnan double %1, 2.000000e+00
   %14 = fcmp ugt double %13, 0.000000e+00
   br i1 %14, label %15, label %_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit
 
@@ -1563,7 +1563,7 @@ define noundef double @"_ZN109_$LT$statrs..distribution..normal..Normal$u20$as$u
   %7 = load double, ptr %0, align 8, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load double, ptr %8, align 8, !noundef !4
-  %10 = fmul double %1, 2.000000e+00
+  %10 = fmul nnan double %1, 2.000000e+00
   %11 = fcmp ugt double %10, 0.000000e+00
   br i1 %11, label %12, label %_ZN6statrs8function3erf8erfc_inv17h585e6b0253ab674dE.exit
 
@@ -1781,9 +1781,9 @@ define void @_ZN6statrs10statistics16slice_statistics16handle_rank_ties17hcf6583
 
 9:                                                ; preds = %7
   %10 = uitofp i64 %5 to double
-  %11 = fmul double %10, 5.000000e-01
+  %11 = fmul nnan double %10, 5.000000e-01
   %12 = uitofp i64 %4 to double
-  %13 = fmul double %12, 5.000000e-01
+  %13 = fmul nnan double %12, 5.000000e-01
   %14 = fadd double %13, %11
   %15 = fadd double %14, 5.000000e-01
   br label %22

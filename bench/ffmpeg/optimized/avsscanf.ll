@@ -4130,8 +4130,8 @@ ffshgetc.exit232.i.i:                             ; preds = %1717, %1701, %1681
   %1831 = tail call ptr @__errno_location() #13
   store i32 34, ptr %1831, align 4, !tbaa !28
   %1832 = sitofp i32 %.0115.i to double
-  %1833 = fmul nsz double %1832, 0x7FEFFFFFFFFFFFFF
-  %1834 = fmul nsz double %1833, 0x7FEFFFFFFFFFFFFF
+  %1833 = fmul nnan nsz double %1832, 0x7FEFFFFFFFFFFFFF
+  %1834 = fmul nnan nsz double %1833, 0x7FEFFFFFFFFFFFFF
   br label %fffloatscan.exit
 
 1835:                                             ; preds = %1826
@@ -4148,8 +4148,8 @@ ffshgetc.exit232.i.i:                             ; preds = %1717, %1701, %1681
   %1841 = tail call ptr @__errno_location() #13
   store i32 34, ptr %1841, align 4, !tbaa !28
   %1842 = sitofp i32 %.0115.i to double
-  %1843 = fmul nsz double %1842, 0x10000000000000
-  %1844 = fmul nsz double %1843, 0x10000000000000
+  %1843 = fmul nnan nsz double %1842, 0x10000000000000
+  %1844 = fmul nnan nsz double %1843, 0x10000000000000
   br label %fffloatscan.exit
 
 .lr.ph278.i.i:                                    ; preds = %.preheader.i.i, %.lr.ph278.i.i
@@ -4809,7 +4809,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2078, %2062, %2059,
 2120:                                             ; preds = %2117
   %2121 = sitofp i32 %.0115.i1018102410291038 to double
   %2122 = uitofp i32 %2113 to double
-  %2123 = fmul nsz double %2121, %2122
+  %2123 = fmul nnan nsz double %2121, %2122
   br label %decfloat.exit.i
 
 2124:                                             ; preds = %2117, %2114
@@ -4822,8 +4822,8 @@ ffshgetc.exit488.i.i:                             ; preds = %2078, %2062, %2059,
   %2129 = tail call ptr @__errno_location() #13
   store i32 34, ptr %2129, align 4, !tbaa !28
   %2130 = sitofp i32 %.0115.i1018102410291038 to double
-  %2131 = fmul nsz double %2130, 0x7FEFFFFFFFFFFFFF
-  %2132 = fmul nsz double %2131, 0x7FEFFFFFFFFFFFFF
+  %2131 = fmul nnan nsz double %2130, 0x7FEFFFFFFFFFFFFF
+  %2132 = fmul nnan nsz double %2131, 0x7FEFFFFFFFFFFFFF
   br label %decfloat.exit.i
 
 2133:                                             ; preds = %2124
@@ -4836,8 +4836,8 @@ ffshgetc.exit488.i.i:                             ; preds = %2078, %2062, %2059,
   %2138 = tail call ptr @__errno_location() #13
   store i32 34, ptr %2138, align 4, !tbaa !28
   %2139 = sitofp i32 %.0115.i1018102410291038 to double
-  %2140 = fmul nsz double %2139, 0x10000000000000
-  %2141 = fmul nsz double %2140, 0x10000000000000
+  %2140 = fmul nnan nsz double %2139, 0x10000000000000
+  %2141 = fmul nnan nsz double %2140, 0x10000000000000
   br label %decfloat.exit.i
 
 2142:                                             ; preds = %2133
@@ -4890,7 +4890,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2078, %2062, %2059,
   %2161 = sitofp i32 %.0115.i1018102410291038 to double
   %2162 = load i32, ptr %8, align 16, !tbaa !28
   %2163 = uitofp i32 %2162 to double
-  %2164 = fmul nsz double %2161, %2163
+  %2164 = fmul nnan nsz double %2161, %2163
   br label %decfloat.exit.i
 
 2165:                                             ; preds = %2158
@@ -4901,7 +4901,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2078, %2062, %2059,
   %2168 = sitofp i32 %.0115.i1018102410291038 to double
   %2169 = load i32, ptr %8, align 16, !tbaa !28
   %2170 = uitofp i32 %2169 to double
-  %2171 = fmul nsz double %2168, %2170
+  %2171 = fmul nnan nsz double %2168, %2170
   %2172 = sub nsw i64 8, %.5364508.i.i
   %2173 = getelementptr inbounds nuw i32, ptr @decfloat.p10s, i64 %2172
   %2174 = load i32, ptr %2173, align 4, !tbaa !28
@@ -4923,7 +4923,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2078, %2062, %2059,
 2182:                                             ; preds = %2177
   %2183 = sitofp i32 %.0115.i1018102410291038 to double
   %2184 = uitofp i32 %.pre.i281.i to double
-  %2185 = fmul nsz double %2183, %2184
+  %2185 = fmul nnan nsz double %2183, %2184
   %2186 = shl nuw nsw i64 %.5364508.i.i, 32
   %sext.i.i = add nsw i64 %2186, -42949672960
   %2187 = ashr exact i64 %sext.i.i, 30
@@ -5358,7 +5358,7 @@ ffshgetc.exit488.i.i:                             ; preds = %2078, %2062, %2059,
   %2395 = call nsz double @llvm.fabs.f64(double %2390)
   %2396 = fcmp nsz oge double %2395, 0x4340000000000000
   %2397 = icmp ne i32 %.0283.i.i, %2347
-  %2398 = fmul nsz double %2390, 5.000000e-01
+  %2398 = fmul nnan nsz double %2390, 5.000000e-01
   %2399 = zext i1 %2396 to i32
   %.4335.i.i = add nsw i32 %.1332.i.i, %2399
   %not..i.i = xor i1 %2396, true

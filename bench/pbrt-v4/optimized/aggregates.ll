@@ -924,7 +924,7 @@ _ZNSt6vectorIN4pbrt12BVHPrimitiveESaIS1_EE13shrink_to_fitEv.exit: ; preds = %_ZN
   %187 = sext i32 %186 to i64
   %188 = shl nsw i64 %187, 5
   %189 = uitofp i64 %188 to float
-  %190 = fmul float %189, 0x3EB0000000000000
+  %190 = fmul nnan float %189, 0x3EB0000000000000
   store float %190, ptr %19, align 4, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %191 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -8646,7 +8646,7 @@ define dso_local void @_ZN4pbrt15KdTreeAggregateC2ESt6vectorINS_9PrimitiveESaIS2
   %40 = trunc nuw nsw i64 %39 to i32
   %41 = xor i32 %40, 63
   %42 = uitofp nneg i32 %41 to float
-  %43 = fmul float %42, 0x3FF4CCCCC0000000
+  %43 = fmul nnan float %42, 0x3FF4CCCCC0000000
   %44 = fadd float %43, 8.000000e+00
   %45 = tail call noundef float @llvm.round.f32(float %44)
   %46 = fptosi float %45 to i32
@@ -9427,7 +9427,7 @@ define dso_local void @_ZN4pbrt15KdTreeAggregate9buildTreeEiRKNS_7Bounds3IfEERKS
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %90 = fmul float %60, 4.000000e+00
+  %90 = fmul nnan float %60, 4.000000e+00
   %91 = icmp ult i64 %5, 16
   %92 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %93 = getelementptr inbounds nuw i8, ptr %16, i64 16

@@ -65,7 +65,7 @@ define void @ff_atrac_init_gain_compensation(ptr noundef writeonly captures(none
 
 .preheader:                                       ; preds = %10
   %8 = sitofp i32 %5 to float
-  %9 = fdiv nsz float -1.000000e+00, %8
+  %9 = fdiv nnan nsz float -1.000000e+00, %8
   br label %14
 
 10:                                               ; preds = %3, %10

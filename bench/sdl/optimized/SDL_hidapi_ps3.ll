@@ -609,24 +609,24 @@ HIDAPI_DriverPS3_UpdateEffects.exit:              ; preds = %115, %129
   %225 = sext i16 %224 to i32
   %226 = add nsw i32 %225, -511
   %227 = sitofp i32 %226 to float
-  %228 = fdiv float %227, 1.130000e+02
-  %229 = fmul float %228, 0x40239D0140000000
+  %228 = fdiv nnan float %227, 1.130000e+02
+  %229 = fmul nnan float %228, 0x40239D0140000000
   store float %229, ptr %3, align 4
   %230 = load i16, ptr %36, align 1
   %231 = call i16 @llvm.bswap.i16(i16 %230)
   %232 = sext i16 %231 to i32
   %233 = add nsw i32 %232, -511
   %234 = sitofp i32 %233 to float
-  %235 = fdiv float %234, 1.130000e+02
-  %236 = fmul float %235, 0xC0239D0140000000
+  %235 = fdiv nnan float %234, 1.130000e+02
+  %236 = fmul nnan float %235, 0xC0239D0140000000
   store float %236, ptr %37, align 4
   %237 = load i16, ptr %38, align 1
   %238 = call i16 @llvm.bswap.i16(i16 %237)
   %239 = sext i16 %238 to i32
   %240 = add nsw i32 %239, -511
   %241 = sitofp i32 %240 to float
-  %242 = fdiv float %241, 1.130000e+02
-  %243 = fmul float %242, 0xC0239D0140000000
+  %242 = fdiv nnan float %241, 1.130000e+02
+  %243 = fmul nnan float %242, 0xC0239D0140000000
   store float %243, ptr %39, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %139, ptr noundef nonnull %15, i32 noundef 1, i64 noundef %139, ptr noundef nonnull %3, i32 noundef 3) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1796,8 +1796,8 @@ define internal noundef zeroext i1 @HIDAPI_DriverPS3SonySixaxis_UpdateDevice(ptr
   %128 = sext i16 %127 to i32
   %129 = add nsw i32 %128, -511
   %130 = sitofp i32 %129 to float
-  %131 = fdiv float %130, 1.130000e+02
-  %132 = fmul float %131, 0x40239D0140000000
+  %131 = fdiv nnan float %130, 1.130000e+02
+  %132 = fmul nnan float %131, 0x40239D0140000000
   store float %132, ptr %4, align 4
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 46
   %134 = load i16, ptr %133, align 2
@@ -1805,8 +1805,8 @@ define internal noundef zeroext i1 @HIDAPI_DriverPS3SonySixaxis_UpdateDevice(ptr
   %136 = sext i16 %135 to i32
   %137 = add nsw i32 %136, -511
   %138 = sitofp i32 %137 to float
-  %139 = fdiv float %138, 1.130000e+02
-  %140 = fmul float %139, 0xC0239D0140000000
+  %139 = fdiv nnan float %138, 1.130000e+02
+  %140 = fmul nnan float %139, 0xC0239D0140000000
   %141 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %140, ptr %141, align 4
   %142 = getelementptr inbounds nuw i8, ptr %5, i64 44
@@ -1815,8 +1815,8 @@ define internal noundef zeroext i1 @HIDAPI_DriverPS3SonySixaxis_UpdateDevice(ptr
   %145 = sext i16 %144 to i32
   %146 = add nsw i32 %145, -511
   %147 = sitofp i32 %146 to float
-  %148 = fdiv float %147, 1.130000e+02
-  %149 = fmul float %148, 0xC0239D0140000000
+  %148 = fdiv nnan float %147, 1.130000e+02
+  %149 = fmul nnan float %148, 0xC0239D0140000000
   %150 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float %149, ptr %150, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %27, ptr noundef nonnull %15, i32 noundef 1, i64 noundef %27, ptr noundef nonnull %4, i32 noundef 3) #10

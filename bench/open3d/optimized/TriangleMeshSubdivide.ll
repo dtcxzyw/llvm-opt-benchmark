@@ -2887,7 +2887,7 @@ thread-pre-split.i:                               ; preds = %_ZNSt7__cxx1112basi
 
 470:                                              ; preds = %.thread.i
   %471 = uitofp i64 %468 to double
-  %472 = fmul double %471, 8.000000e+00
+  %472 = fmul nnan double %471, 8.000000e+00
   %473 = fdiv double 3.000000e+00, %472
   %474 = fneg double %471
   %475 = call double @llvm.fmuladd.f64(double %474, double %473, double 1.000000e+00)
@@ -4037,7 +4037,7 @@ _ZNKSt13unordered_mapIN5Eigen6MatrixIiLi2ELi1ELi0ELi2ELi1EEESt13unordered_setIiS
   %.sroa.029.1 = select i1 %85, <2 x double> %162, <2 x double> %.sroa.029.0
   %.sroa.12.1 = select i1 %85, double %163, double %.sroa.12.0
   %164 = uitofp i64 %147 to double
-  %165 = fmul double %164, 4.000000e+00
+  %165 = fmul nnan double %164, 4.000000e+00
   %166 = fdiv double 1.000000e+00, %165
   %167 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i67, i64 32
   %.sroa.012.079 = load ptr, ptr %167, align 8, !tbaa !67

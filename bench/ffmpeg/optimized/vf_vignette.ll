@@ -229,7 +229,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 68:                                               ; preds = %.lr.ph
   %69 = load i32, ptr %50, align 8, !tbaa !60
   %70 = uitofp i32 %69 to double
-  %71 = fmul nsz double %70, 0x3DF0000000000000
+  %71 = fmul nnan nsz double %70, 0x3DF0000000000000
   %72 = mul i32 %69, 1664525
   %73 = add i32 %72, 1013904223
   store i32 %73, ptr %50, align 8, !tbaa !60
@@ -257,7 +257,7 @@ get_dither_value.exit:                            ; preds = %.lr.ph, %68
 84:                                               ; preds = %get_dither_value.exit
   %85 = load i32, ptr %50, align 8, !tbaa !60
   %86 = uitofp i32 %85 to double
-  %87 = fmul nsz double %86, 0x3DF0000000000000
+  %87 = fmul nnan nsz double %86, 0x3DF0000000000000
   %88 = mul i32 %85, 1664525
   %89 = add i32 %88, 1013904223
   store i32 %89, ptr %50, align 8, !tbaa !60
@@ -286,7 +286,7 @@ get_dither_value.exit149:                         ; preds = %get_dither_value.ex
 101:                                              ; preds = %get_dither_value.exit149
   %102 = load i32, ptr %50, align 8, !tbaa !60
   %103 = uitofp i32 %102 to double
-  %104 = fmul nsz double %103, 0x3DF0000000000000
+  %104 = fmul nnan nsz double %103, 0x3DF0000000000000
   %105 = mul i32 %102, 1664525
   %106 = add i32 %105, 1013904223
   store i32 %106, ptr %50, align 8, !tbaa !60
@@ -409,7 +409,7 @@ get_dither_value.exit152:                         ; preds = %get_dither_value.ex
 167:                                              ; preds = %165
   %168 = load i32, ptr %38, align 8, !tbaa !60
   %169 = uitofp i32 %168 to double
-  %170 = fmul nsz double %169, 0x3DF0000000000000
+  %170 = fmul nnan nsz double %169, 0x3DF0000000000000
   %171 = mul i32 %168, 1664525
   %172 = add i32 %171, 1013904223
   store i32 %172, ptr %38, align 8, !tbaa !60
@@ -467,7 +467,7 @@ get_dither_value.exit155.us.us.us:                ; preds = %167, %165
 194:                                              ; preds = %192
   %195 = load i32, ptr %38, align 8, !tbaa !60
   %196 = uitofp i32 %195 to double
-  %197 = fmul nsz double %196, 0x3DF0000000000000
+  %197 = fmul nnan nsz double %196, 0x3DF0000000000000
   %198 = mul i32 %195, 1664525
   %199 = add i32 %198, 1013904223
   store i32 %199, ptr %38, align 8, !tbaa !60
@@ -632,8 +632,8 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   store float %.sink63, ptr %59, align 8, !tbaa !75
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 180
   store float %.sink, ptr %60, align 4, !tbaa !76
-  %61 = fmul nsz double %13, 5.000000e-01
-  %62 = fmul nsz double %17, 5.000000e-01
+  %61 = fmul nnan nsz double %13, 5.000000e-01
+  %62 = fmul nnan nsz double %17, 5.000000e-01
   %63 = tail call nsz double @hypot(double noundef %61, double noundef %62) #7
   %64 = getelementptr inbounds nuw i8, ptr %5, i64 168
   store double %63, ptr %64, align 8, !tbaa !77

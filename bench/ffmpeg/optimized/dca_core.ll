@@ -7025,7 +7025,7 @@ map_prm_ch_to_spkr.exit.thread229.i:              ; preds = %420, %map_prm_ch_to
   %509 = getelementptr inbounds nuw i8, ptr %0, i64 9668
   %510 = load i32, ptr %509, align 4, !tbaa !126
   %511 = sitofp i32 %510 to float
-  %512 = fmul nsz float %511, 0x3EF0000000000000
+  %512 = fmul nnan nsz float %511, 0x3EF0000000000000
   %513 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %514 = load i32, ptr %513, align 4, !tbaa !42
   %515 = sext i32 %514 to i64
@@ -7191,7 +7191,7 @@ map_prm_ch_to_spkr.exit226.i:                     ; preds = %570, %548, %541
   %597 = load ptr, ptr %596, align 8, !tbaa !253
   %598 = load ptr, ptr %582, align 8, !tbaa !253
   %599 = sitofp i32 %591 to float
-  %600 = fmul nsz float %599, 0xBF00000000000000
+  %600 = fmul nnan nsz float %599, 0xBF00000000000000
   tail call void %595(ptr noundef %597, ptr noundef %598, float noundef %600, i32 noundef %298) #11
   %.pre301.i = load i32, ptr %521, align 4, !tbaa !122
   br label %601

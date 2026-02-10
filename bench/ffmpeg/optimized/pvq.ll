@@ -877,9 +877,9 @@ opus_rc_tell_frac.exit:                           ; preds = %362
   %465 = add nsw i32 %464, 16384
   %466 = ashr i32 %465, 15
   %467 = sitofp i16 %399 to float
-  %468 = fmul nsz float %467, 0x3F00000000000000
+  %468 = fmul nnan nsz float %467, 0x3F00000000000000
   %469 = sitofp i16 %418 to float
-  %470 = fmul nsz float %469, 0x3F00000000000000
+  %470 = fmul nnan nsz float %469, 0x3F00000000000000
   br label %471
 
 471:                                              ; preds = %381, %377, %374
@@ -1695,7 +1695,7 @@ celt_haar1.exit146:                               ; preds = %._crit_edge.us.i143
 
 863:                                              ; preds = %._crit_edge281
   %864 = uitofp i32 %6 to float
-  %865 = tail call nsz float @llvm.sqrt.f32(float %864)
+  %865 = tail call nnan ninf nsz float @llvm.sqrt.f32(float %864)
   %.not292 = icmp eq i32 %6, 0
   br i1 %.not292, label %.loopexit, label %.lr.ph285.preheader
 
@@ -2409,9 +2409,9 @@ opus_rc_tell_frac.exit:                           ; preds = %283
   %386 = add nsw i32 %385, 16384
   %387 = ashr i32 %386, 15
   %388 = sitofp i16 %320 to float
-  %389 = fmul nsz float %388, 0x3F00000000000000
+  %389 = fmul nnan nsz float %388, 0x3F00000000000000
   %390 = sitofp i16 %339 to float
-  %391 = fmul nsz float %390, 0x3F00000000000000
+  %391 = fmul nnan nsz float %390, 0x3F00000000000000
   br label %392
 
 392:                                              ; preds = %302, %298, %295
@@ -2861,7 +2861,7 @@ celt_decode_pulses.exit.i:                        ; preds = %640, %554
   %661 = add i64 %654, %660
   store i32 %658, ptr %655, align 4, !tbaa !22
   %662 = uitofp i64 %661 to float
-  %663 = tail call nsz float @llvm.sqrt.f32(float %662)
+  %663 = tail call nnan ninf nsz float @llvm.sqrt.f32(float %662)
   %664 = fdiv nsz float %13, %663
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !82)
@@ -3326,7 +3326,7 @@ celt_haar1.exit121:                               ; preds = %._crit_edge.us.i118
 
 834:                                              ; preds = %._crit_edge251
   %835 = uitofp i32 %6 to float
-  %836 = tail call nsz float @llvm.sqrt.f32(float %835)
+  %836 = tail call nnan ninf nsz float @llvm.sqrt.f32(float %835)
   %.not262 = icmp eq i32 %6, 0
   br i1 %.not262, label %.loopexit, label %.lr.ph255.preheader
 

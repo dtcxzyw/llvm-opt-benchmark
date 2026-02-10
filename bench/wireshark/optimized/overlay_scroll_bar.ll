@@ -596,7 +596,7 @@ _ZN5QListIiEaSERKS0_.exit:                        ; preds = %_ZN17QArrayDataPoin
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef i32 %31(ptr noundef nonnull align 8 dereferenceable_or_null(10) %28, i32 noundef 12)
   %33 = sitofp i32 %32 to double
-  %34 = fmul double %33, 0x3EF0000000000000
+  %34 = fmul nnan double %33, 0x3EF0000000000000
   %35 = fcmp olt double %34, %27
   br i1 %35, label %43, label %36
 
@@ -606,7 +606,7 @@ _ZN5QListIiEaSERKS0_.exit:                        ; preds = %_ZN17QArrayDataPoin
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef i32 %39(ptr noundef nonnull align 8 dereferenceable_or_null(10) %28, i32 noundef 12)
   %41 = sitofp i32 %40 to double
-  %42 = fmul double %41, 0x3EF0000000000000
+  %42 = fmul nnan double %41, 0x3EF0000000000000
   br label %43
 
 43:                                               ; preds = %_ZN5QListIiEaSERKS0_.exit, %36
@@ -624,7 +624,7 @@ _ZN5QListIiEaSERKS0_.exit:                        ; preds = %_ZN17QArrayDataPoin
   %51 = load ptr, ptr %50, align 8
   %52 = tail call noundef i32 %51(ptr noundef nonnull align 8 dereferenceable_or_null(10) %28, i32 noundef 12)
   %53 = sitofp i32 %52 to double
-  %54 = fmul double %53, 0x3EF0000000000000
+  %54 = fmul nnan double %53, 0x3EF0000000000000
   %55 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable_or_null(24) %8)
   %56 = sitofp i32 %55 to double
   %57 = fdiv double %56, %54
@@ -659,7 +659,7 @@ define void @_ZN16OverlayScrollBar20setMarkedPacketImageER6QImage(ptr noundef al
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable_or_null(10) %3, i32 noundef 12)
   %8 = sitofp i32 %7 to double
-  %9 = fmul double %8, 0x3EF0000000000000
+  %9 = fmul nnan double %8, 0x3EF0000000000000
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %11 = tail call noundef align 8 dereferenceable(24) ptr @_ZN6QImageaSERKS_(ptr noundef nonnull align 8 dereferenceable_or_null(24) %10, ptr noundef align 8 dereferenceable(24) %1)
   %12 = tail call noundef i32 @_ZNK6QImage5widthEv(ptr noundef align 8 dereferenceable_or_null(24) %1)
@@ -797,7 +797,7 @@ define void @_ZN16OverlayScrollBar10paintEventEP11QPaintEvent(ptr noundef align 
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i32 %21(ptr noundef nonnull align 8 dereferenceable_or_null(10) %18, i32 noundef 12)
   %23 = sitofp i32 %22 to double
-  %24 = fmul double %23, 0x3EF0000000000000
+  %24 = fmul nnan double %23, 0x3EF0000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %26 = load i32, ptr %25, align 8
@@ -1386,7 +1386,7 @@ _ZN16OverlayScrollBar10grooveRectEv.exit:         ; preds = %41
   %53 = load ptr, ptr %52, align 8
   %54 = call noundef i32 %53(ptr noundef nonnull align 8 dereferenceable_or_null(10) %50, i32 noundef 12)
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %55, 0x3EF0000000000000
+  %56 = fmul nnan double %55, 0x3EF0000000000000
   %.sroa.049.0.extract.trunc = trunc i64 %48 to i32
   %.sroa.450.0.extract.shift = lshr i64 %48, 32
   %.sroa.450.0.extract.trunc = trunc nuw i64 %.sroa.450.0.extract.shift to i32

@@ -3829,7 +3829,7 @@ define void @_ZN3nix9showBytesB5cxx11Em(ptr dead_on_unwind noalias writable sret
 
 8:                                                ; preds = %2
   %9 = uitofp i64 %1 to double
-  %10 = fmul double %9, 0x3EB0000000000000
+  %10 = fmul nnan double %9, 0x3EB0000000000000
   store double %10, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   invoke void @_ZN5boost12basic_formatIcSt11char_traitsIcESaIcEEC2ERKNSt7__cxx1112basic_stringIcS2_S3_EE(ptr noundef nonnull align 8 dereferenceable(224) %4, ptr noundef nonnull align 8 dereferenceable(32) %5)

@@ -13472,7 +13472,7 @@ define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118WeightedRoundRobin14En
   %29 = fcmp ogt float %4, 0.000000e+00
   %or.cond3 = and i1 %28, %29
   %30 = fdiv double %2, %1
-  %31 = fpext float %4 to double
+  %31 = fpext nnan float %4 to double
   %32 = fmul double %30, %31
   %.085 = select i1 %or.cond3, double %32, double 0.000000e+00
   %33 = fadd double %3, %.085

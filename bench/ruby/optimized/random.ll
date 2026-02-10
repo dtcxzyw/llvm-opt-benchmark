@@ -242,8 +242,8 @@ default_mt.exit:                                  ; preds = %default_rand.exit.i
   %16 = lshr i32 %14, 6
   %17 = uitofp nneg i32 %15 to double
   %18 = uitofp nneg i32 %16 to double
-  %19 = tail call double @llvm.fmuladd.f64(double %17, double 0x4190000000000000, double %18)
-  %20 = fmul double %19, 0x3CA0000000000000
+  %19 = tail call nnan double @llvm.fmuladd.f64(double %17, double 0x4190000000000000, double %18)
+  %20 = fmul nnan double %19, 0x3CA0000000000000
   ret double %20
 }
 
@@ -622,7 +622,7 @@ define dso_local double @rb_int_pair_to_real(i32 noundef %0, i32 noundef %1, i32
   %6 = lshr i32 %1, 6
   %7 = uitofp nneg i32 %5 to double
   %8 = uitofp nneg i32 %6 to double
-  %9 = tail call double @llvm.fmuladd.f64(double %7, double 0x4190000000000000, double %8)
+  %9 = tail call nnan double @llvm.fmuladd.f64(double %7, double 0x4190000000000000, double %8)
   br label %19
 
 10:                                               ; preds = %3
@@ -638,7 +638,7 @@ define dso_local double @rb_int_pair_to_real(i32 noundef %0, i32 noundef %1, i32
 
 19:                                               ; preds = %10, %4
   %.0.in = phi double [ %9, %4 ], [ %18, %10 ]
-  %.0 = fmul double %.0.in, 0x3CA0000000000000
+  %.0 = fmul nnan double %.0.in, 0x3CA0000000000000
   ret double %.0
 }
 
@@ -715,8 +715,8 @@ try_rand_if.exit.i:                               ; preds = %22, %default_rand.e
   %37 = lshr i32 %35, 6
   %38 = uitofp nneg i32 %36 to double
   %39 = uitofp nneg i32 %37 to double
-  %40 = tail call double @llvm.fmuladd.f64(double %38, double 0x4190000000000000, double %39)
-  %.0.i25.i = fmul double %40, 0x3CA0000000000000
+  %40 = tail call nnan double @llvm.fmuladd.f64(double %38, double 0x4190000000000000, double %39)
+  %.0.i25.i = fmul nnan double %40, 0x3CA0000000000000
   br label %random_real.exit
 
 random_real.exit:                                 ; preds = %32, %30, %10
@@ -802,7 +802,7 @@ try_rand_if.exit:                                 ; preds = %default_rand.exit.i
   %34 = lshr i32 %.017, 6
   %35 = uitofp nneg i32 %33 to double
   %36 = uitofp nneg i32 %34 to double
-  %37 = call double @llvm.fmuladd.f64(double %35, double 0x4190000000000000, double %36)
+  %37 = call nnan double @llvm.fmuladd.f64(double %35, double 0x4190000000000000, double %36)
   br label %rb_int_pair_to_real.exit
 
 38:                                               ; preds = %31
@@ -818,7 +818,7 @@ try_rand_if.exit:                                 ; preds = %default_rand.exit.i
 
 rb_int_pair_to_real.exit:                         ; preds = %32, %38
   %.0.in.i = phi double [ %37, %32 ], [ %46, %38 ]
-  %.0.i25 = fmul double %.0.in.i, 0x3CA0000000000000
+  %.0.i25 = fmul nnan double %.0.in.i, 0x3CA0000000000000
   br label %47
 
 47:                                               ; preds = %29, %rb_int_pair_to_real.exit
@@ -3387,7 +3387,7 @@ rb_float_value_inline.exit.i:                     ; preds = %90, %84, %83
   unreachable
 
 float_value.exit:                                 ; preds = %rb_float_value_inline.exit.i
-  %97 = fmul double %.0.i.i, 5.000000e-01
+  %97 = fmul nnan double %.0.i.i, 5.000000e-01
   %98 = call i64 @rb_to_float(i64 noundef %14) #24
   %99 = and i64 %98, 3
   %100 = icmp eq i64 %99, 2
@@ -3423,7 +3423,7 @@ rb_float_value_inline.exit.i55:                   ; preds = %108, %102, %101
   unreachable
 
 float_value.exit59:                               ; preds = %rb_float_value_inline.exit.i55
-  %115 = fmul double %.0.i.i56, 5.000000e-01
+  %115 = fmul nnan double %.0.i.i56, 5.000000e-01
   %116 = fadd double %97, %115
   %117 = fsub double %115, %97
   br label %121

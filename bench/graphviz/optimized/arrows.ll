@@ -1868,8 +1868,8 @@ define internal fastcc { double, double } @arrow_type_normal0(double %0, double 
   %9 = alloca %struct.triangle, align 8
   %10 = alloca %struct.triangle, align 8
   %11 = fcmp ogt double %4, 4.000000e+00
-  %12 = fmul double %4, 2.500000e-01
-  %13 = fmul double %12, 3.500000e-01
+  %12 = fmul nnan double %4, 2.500000e-01
+  %13 = fmul nnan double %12, 3.500000e-01
   %.0 = select i1 %11, double %13, double 3.500000e-01
   %14 = fneg double %3
   %15 = fmul double %.0, %14
@@ -2171,8 +2171,8 @@ define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1
   %.0 = select i1 %or.cond306, double 4.500000e-01, double %17
   %18 = fcmp ule double %5, 1.000000e+00
   %or.cond307 = or i1 %18, %.not
-  %19 = fadd double %5, -1.000000e+00
-  %20 = fmul double %19, 5.000000e-02
+  %19 = fadd nnan double %5, -1.000000e+00
+  %20 = fmul nnan double %19, 5.000000e-02
   %21 = fdiv double %20, %4
   %.0298 = select i1 %or.cond307, double 0.000000e+00, double %21
   %22 = fneg double %3

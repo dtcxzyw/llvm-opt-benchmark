@@ -10819,7 +10819,7 @@ define linkonce_odr dso_local void @_ZN5Eigen31CompleteOrthogonalDecompositionIN
   %17 = load i64, ptr %16, align 8, !tbaa !55
   %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smin.i64(i64 %17, i64 %15)
   %18 = sitofp i64 %.sroa.speculated.i.i.i to double
-  %19 = fmul double %18, 0x3CB0000000000000
+  %19 = fmul nnan double %18, 0x3CB0000000000000
   br label %_ZNK5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE9thresholdEv.exit.i
 
 _ZNK5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE9thresholdEv.exit.i: ; preds = %13, %10
@@ -13852,7 +13852,7 @@ define linkonce_odr dso_local void @_ZNK5Eigen31CompleteOrthogonalDecompositionI
   %23 = load i64, ptr %22, align 8, !tbaa !55
   %.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.smin.i64(i64 %23, i64 %21)
   %24 = sitofp i64 %.sroa.speculated.i.i.i.i to double
-  %25 = fmul double %24, 0x3CB0000000000000
+  %25 = fmul nnan double %24, 0x3CB0000000000000
   br label %_ZNK5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE9thresholdEv.exit.i.i
 
 _ZNK5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE9thresholdEv.exit.i.i: ; preds = %19, %16
@@ -14263,24 +14263,24 @@ define linkonce_odr dso_local void @_ZNK5Eigen31CompleteOrthogonalDecompositionI
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 121
   %9 = load i8, ptr %8, align 1, !tbaa !421, !range !28, !noundef !29
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %11, label %15
+  br i1 %10, label %11, label %14
 
 11:                                               ; preds = %2
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %13 = load double, ptr %12, align 8, !tbaa !423
-  %14 = freeze double %13
   br label %_ZNK5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE9thresholdEv.exit.i.i
 
-15:                                               ; preds = %2
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = load i64, ptr %16, align 8, !tbaa !4
-  %.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.smin.i64(i64 %.fr105, i64 %17)
-  %18 = sitofp i64 %.sroa.speculated.i.i.i.i to double
-  %19 = fmul double %18, 0x3CB0000000000000
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load i64, ptr %15, align 8, !tbaa !4
+  %.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.smin.i64(i64 %.fr105, i64 %16)
+  %17 = sitofp i64 %.sroa.speculated.i.i.i.i to double
+  %18 = fmul nnan double %17, 0x3CB0000000000000
   br label %_ZNK5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE9thresholdEv.exit.i.i
 
-_ZNK5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE9thresholdEv.exit.i.i: ; preds = %15, %11
-  %.fr = phi double [ %14, %11 ], [ %19, %15 ]
+_ZNK5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE9thresholdEv.exit.i.i: ; preds = %14, %11
+  %19 = phi double [ %13, %11 ], [ %18, %14 ]
+  %.fr = freeze double %19
   %20 = fmul double %7, %.fr
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %22 = load i64, ptr %21, align 8, !tbaa !424

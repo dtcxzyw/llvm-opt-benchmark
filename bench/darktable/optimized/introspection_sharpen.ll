@@ -243,7 +243,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %64 = mul i32 %63, %63
   %65 = sub i32 0, %64
   %66 = sitofp i32 %65 to float
-  %67 = fmul reassoc nsz arcp contract afn float %66, 5.000000e-01
+  %67 = fmul reassoc nnan nsz arcp contract afn float %66, 5.000000e-01
   %68 = fmul reassoc nsz arcp contract afn float %67, %61
   %69 = call reassoc nsz arcp contract afn float @llvm.exp.f32(float %68)
   %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv.i

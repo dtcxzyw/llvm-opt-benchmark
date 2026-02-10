@@ -6100,7 +6100,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %76
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %131)
   %132 = load i32, ptr %117, align 8, !tbaa !58
   %133 = sitofp i32 %132 to double
-  %mul.i.i = fmul double %133, 2.000000e+00
+  %mul.i.i = fmul nnan double %133, 2.000000e+00
   %exp2.i.i106 = invoke double @exp2(double %mul.i.i)
           to label %134 unwind label %148
 
@@ -6280,7 +6280,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7
   %ldexp.i.i110 = call double @ldexp(double 1.000000e+00, i32 %203)
   %204 = load i32, ptr %189, align 8, !tbaa !58
   %205 = sitofp i32 %204 to double
-  %mul.i.i111 = fmul double %205, 2.000000e+00
+  %mul.i.i111 = fmul nnan double %205, 2.000000e+00
   %exp2.i.i112 = invoke double @exp2(double %mul.i.i111)
           to label %206 unwind label %219
 
@@ -6846,7 +6846,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %76
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %131)
   %132 = load i32, ptr %117, align 8, !tbaa !58
   %133 = sitofp i32 %132 to double
-  %mul.i.i = fmul double %133, 2.000000e+00
+  %mul.i.i = fmul nnan double %133, 2.000000e+00
   %exp2.i.i106 = invoke double @exp2(double %mul.i.i)
           to label %134 unwind label %148
 
@@ -7026,7 +7026,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi1EEEEC2ERNS_3MatES7_S7
   %ldexp.i.i110 = call double @ldexp(double 1.000000e+00, i32 %203)
   %204 = load i32, ptr %189, align 8, !tbaa !58
   %205 = sitofp i32 %204 to double
-  %mul.i.i111 = fmul double %205, 2.000000e+00
+  %mul.i.i111 = fmul nnan double %205, 2.000000e+00
   %exp2.i.i112 = invoke double @exp2(double %mul.i.i111)
           to label %206 unwind label %219
 
@@ -7592,7 +7592,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %76
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %131)
   %132 = load i32, ptr %117, align 8, !tbaa !58
   %133 = sitofp i32 %132 to double
-  %mul.i.i = fmul double %133, 2.000000e+00
+  %mul.i.i = fmul nnan double %133, 2.000000e+00
   %exp2.i.i106 = invoke double @exp2(double %mul.i.i)
           to label %134 unwind label %148
 
@@ -7772,7 +7772,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7
   %ldexp.i.i110 = call double @ldexp(double 1.000000e+00, i32 %203)
   %204 = load i32, ptr %189, align 8, !tbaa !58
   %205 = sitofp i32 %204 to double
-  %mul.i.i111 = fmul double %205, 2.000000e+00
+  %mul.i.i111 = fmul nnan double %205, 2.000000e+00
   %exp2.i.i112 = invoke double @exp2(double %mul.i.i111)
           to label %206 unwind label %219
 
@@ -8338,7 +8338,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %76
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %131)
   %132 = load i32, ptr %117, align 8, !tbaa !58
   %133 = sitofp i32 %132 to double
-  %mul.i.i = fmul double %133, 2.000000e+00
+  %mul.i.i = fmul nnan double %133, 2.000000e+00
   %exp2.i.i106 = invoke double @exp2(double %mul.i.i)
           to label %134 unwind label %148
 
@@ -8518,7 +8518,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi2EEEEC2ERNS_3MatES7_S7
   %ldexp.i.i110 = call double @ldexp(double 1.000000e+00, i32 %203)
   %204 = load i32, ptr %189, align 8, !tbaa !58
   %205 = sitofp i32 %204 to double
-  %mul.i.i111 = fmul double %205, 2.000000e+00
+  %mul.i.i111 = fmul nnan double %205, 2.000000e+00
   %exp2.i.i112 = invoke double @exp2(double %mul.i.i111)
           to label %206 unwind label %219
 
@@ -9084,7 +9084,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %76
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %131)
   %132 = load i32, ptr %117, align 8, !tbaa !58
   %133 = sitofp i32 %132 to double
-  %mul.i.i = fmul double %133, 2.000000e+00
+  %mul.i.i = fmul nnan double %133, 2.000000e+00
   %exp2.i.i106 = invoke double @exp2(double %mul.i.i)
           to label %134 unwind label %148
 
@@ -9264,7 +9264,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7
   %ldexp.i.i110 = call double @ldexp(double 1.000000e+00, i32 %203)
   %204 = load i32, ptr %189, align 8, !tbaa !58
   %205 = sitofp i32 %204 to double
-  %mul.i.i111 = fmul double %205, 2.000000e+00
+  %mul.i.i111 = fmul nnan double %205, 2.000000e+00
   %exp2.i.i112 = invoke double @exp2(double %mul.i.i111)
           to label %206 unwind label %219
 
@@ -9830,7 +9830,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %76
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %131)
   %132 = load i32, ptr %117, align 8, !tbaa !58
   %133 = sitofp i32 %132 to double
-  %mul.i.i = fmul double %133, 2.000000e+00
+  %mul.i.i = fmul nnan double %133, 2.000000e+00
   %exp2.i.i106 = invoke double @exp2(double %mul.i.i)
           to label %134 unwind label %148
 
@@ -10010,7 +10010,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi3EEEEC2ERNS_3MatES7_S7
   %ldexp.i.i110 = call double @ldexp(double 1.000000e+00, i32 %203)
   %204 = load i32, ptr %189, align 8, !tbaa !58
   %205 = sitofp i32 %204 to double
-  %mul.i.i111 = fmul double %205, 2.000000e+00
+  %mul.i.i111 = fmul nnan double %205, 2.000000e+00
   %exp2.i.i112 = invoke double @exp2(double %mul.i.i111)
           to label %206 unwind label %219
 
@@ -10576,7 +10576,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %76
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %131)
   %132 = load i32, ptr %117, align 8, !tbaa !58
   %133 = sitofp i32 %132 to double
-  %mul.i.i = fmul double %133, 2.000000e+00
+  %mul.i.i = fmul nnan double %133, 2.000000e+00
   %exp2.i.i106 = invoke double @exp2(double %mul.i.i)
           to label %134 unwind label %148
 
@@ -10756,7 +10756,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7
   %ldexp.i.i110 = call double @ldexp(double 1.000000e+00, i32 %203)
   %204 = load i32, ptr %189, align 8, !tbaa !58
   %205 = sitofp i32 %204 to double
-  %mul.i.i111 = fmul double %205, 2.000000e+00
+  %mul.i.i111 = fmul nnan double %205, 2.000000e+00
   %exp2.i.i112 = invoke double @exp2(double %mul.i.i111)
           to label %206 unwind label %219
 
@@ -11322,7 +11322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %76
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %131)
   %132 = load i32, ptr %117, align 8, !tbaa !58
   %133 = sitofp i32 %132 to double
-  %mul.i.i = fmul double %133, 2.000000e+00
+  %mul.i.i = fmul nnan double %133, 2.000000e+00
   %exp2.i.i106 = invoke double @exp2(double %mul.i.i)
           to label %134 unwind label %148
 
@@ -11502,7 +11502,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7
   %ldexp.i.i110 = call double @ldexp(double 1.000000e+00, i32 %203)
   %204 = load i32, ptr %189, align 8, !tbaa !58
   %205 = sitofp i32 %204 to double
-  %mul.i.i111 = fmul double %205, 2.000000e+00
+  %mul.i.i111 = fmul nnan double %205, 2.000000e+00
   %exp2.i.i112 = invoke double @exp2(double %mul.i.i111)
           to label %206 unwind label %219
 
@@ -12201,7 +12201,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %47)
   %48 = load i32, ptr %45, align 8, !tbaa !58
   %49 = sitofp i32 %48 to double
-  %mul.i.i = fmul double %49, 2.000000e+00
+  %mul.i.i = fmul nnan double %49, 2.000000e+00
   %exp2.i.i21 = invoke double @exp2(double %mul.i.i)
           to label %50 unwind label %67
 
@@ -12286,7 +12286,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -12337,7 +12337,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -12780,7 +12780,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_P
   %40 = uitofp i8 %39 to float
   %41 = load i8, ptr %35, align 1, !tbaa !47
   %42 = uitofp i8 %41 to float
-  %43 = fsub float %40, %42
+  %43 = fsub nnan float %40, %42
   %44 = tail call noundef float @llvm.fabs.f32(float %43)
   %45 = tail call noundef float @llvm.fmuladd.f32(float %38, float %44, float 1.000000e+00)
   %46 = load float, ptr %26, align 8, !tbaa !282
@@ -12904,7 +12904,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_
   %41 = uitofp i8 %40 to float
   %42 = load i8, ptr %36, align 1, !tbaa !47
   %43 = uitofp i8 %42 to float
-  %44 = fsub float %41, %43
+  %44 = fsub nnan float %41, %43
   %45 = tail call noundef float @llvm.fabs.f32(float %44)
   %46 = tail call noundef float @llvm.fmuladd.f32(float %39, float %45, float 1.000000e+00)
   %47 = load float, ptr %26, align 8, !tbaa !283
@@ -13034,7 +13034,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %47)
   %48 = load i32, ptr %45, align 8, !tbaa !58
   %49 = sitofp i32 %48 to double
-  %mul.i.i = fmul double %49, 2.000000e+00
+  %mul.i.i = fmul nnan double %49, 2.000000e+00
   %exp2.i.i21 = invoke double @exp2(double %mul.i.i)
           to label %50 unwind label %67
 
@@ -13119,7 +13119,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -13170,7 +13170,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -13838,7 +13838,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %47)
   %48 = load i32, ptr %45, align 8, !tbaa !58
   %49 = sitofp i32 %48 to double
-  %mul.i.i = fmul double %49, 2.000000e+00
+  %mul.i.i = fmul nnan double %49, 2.000000e+00
   %exp2.i.i21 = invoke double @exp2(double %mul.i.i)
           to label %50 unwind label %67
 
@@ -13923,7 +13923,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -13974,7 +13974,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -14698,7 +14698,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %47)
   %48 = load i32, ptr %45, align 8, !tbaa !58
   %49 = sitofp i32 %48 to double
-  %mul.i.i = fmul double %49, 2.000000e+00
+  %mul.i.i = fmul nnan double %49, 2.000000e+00
   %exp2.i.i21 = invoke double @exp2(double %mul.i.i)
           to label %50 unwind label %67
 
@@ -14783,7 +14783,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -14834,7 +14834,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -15550,7 +15550,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %47)
   %48 = load i32, ptr %45, align 8, !tbaa !58
   %49 = sitofp i32 %48 to double
-  %mul.i.i = fmul double %49, 2.000000e+00
+  %mul.i.i = fmul nnan double %49, 2.000000e+00
   %exp2.i.i21 = invoke double @exp2(double %mul.i.i)
           to label %50 unwind label %67
 
@@ -15635,7 +15635,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -15686,7 +15686,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -16414,7 +16414,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %47)
   %48 = load i32, ptr %45, align 8, !tbaa !58
   %49 = sitofp i32 %48 to double
-  %mul.i.i = fmul double %49, 2.000000e+00
+  %mul.i.i = fmul nnan double %49, 2.000000e+00
   %exp2.i.i21 = invoke double @exp2(double %mul.i.i)
           to label %50 unwind label %67
 
@@ -16499,7 +16499,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -16550,7 +16550,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -17270,7 +17270,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %47)
   %48 = load i32, ptr %45, align 8, !tbaa !58
   %49 = sitofp i32 %48 to double
-  %mul.i.i = fmul double %49, 2.000000e+00
+  %mul.i.i = fmul nnan double %49, 2.000000e+00
   %exp2.i.i21 = invoke double @exp2(double %mul.i.i)
           to label %50 unwind label %67
 
@@ -17355,7 +17355,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -17406,7 +17406,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -18134,7 +18134,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU26ComputeDTandIDTHo
   %ldexp.i.i = call double @ldexp(double 1.000000e+00, i32 %47)
   %48 = load i32, ptr %45, align 8, !tbaa !58
   %49 = sitofp i32 %48 to double
-  %mul.i.i = fmul double %49, 2.000000e+00
+  %mul.i.i = fmul nnan double %49, 2.000000e+00
   %exp2.i.i21 = invoke double @exp2(double %mul.i.i)
           to label %50 unwind label %67
 
@@ -18219,7 +18219,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU22ComputeA0DTHor_Pa
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -18270,7 +18270,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc11DTFilterCPU23ComputeA0DTVert_P
   %ldexp.i.i = tail call double @ldexp(double 1.000000e+00, i32 %18)
   %19 = load i32, ptr %16, align 8, !tbaa !58
   %20 = sitofp i32 %19 to double
-  %mul.i.i = fmul double %20, 2.000000e+00
+  %mul.i.i = fmul nnan double %20, 2.000000e+00
   %exp2.i.i4 = invoke double @exp2(double %mul.i.i)
           to label %21 unwind label %32
 
@@ -19284,7 +19284,7 @@ _ZN2cv8ximgproc11DTFilterCPU12getLeftBoundEPfif.exit: ; preds = %63
   %81 = fsub float %.val, %.val38
   %82 = sub nsw i32 %76, %74
   %83 = sitofp i32 %82 to float
-  %84 = fdiv float 1.000000e+00, %83
+  %84 = fdiv nnan float 1.000000e+00, %83
   %85 = fmul float %84, %81
   %86 = load ptr, ptr %25, align 8, !tbaa !522
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
@@ -20213,7 +20213,7 @@ _ZN2cv8ximgproc11DTFilterCPU13getRightBoundEPfif.exit: ; preds = %71
   %89 = trunc nsw i64 %indvars.iv.i39 to i32
   %90 = sub nsw i32 %76, %89
   %91 = sitofp i32 %90 to float
-  %92 = fdiv float 1.000000e+00, %91
+  %92 = fdiv nnan float 1.000000e+00, %91
   %93 = fmul float %92, %83
   %94 = fmul float %92, %88
   %95 = load ptr, ptr %25, align 8, !tbaa !557
@@ -21240,7 +21240,7 @@ _ZN2cvmiIfLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit:   ; preds = %87
   %95 = sub nsw i32 %82, %94
   %96 = sitofp i32 %95 to float
   tail call void @llvm.experimental.noalias.scope.decl(metadata !621)
-  %97 = fdiv float 1.000000e+00, %96
+  %97 = fdiv nnan float 1.000000e+00, %96
   br label %98
 
 98:                                               ; preds = %98, %_ZN2cvmiIfLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit
@@ -22657,7 +22657,7 @@ _ZN2cvmiIfLi4EEENS_3VecIT_XT0_EEERKS3_S5_.exit:   ; preds = %87
   %95 = sub nsw i32 %82, %94
   %96 = sitofp i32 %95 to float
   tail call void @llvm.experimental.noalias.scope.decl(metadata !729)
-  %97 = fdiv float 1.000000e+00, %96
+  %97 = fdiv nnan float 1.000000e+00, %96
   br label %98
 
 98:                                               ; preds = %98, %_ZN2cvmiIfLi4EEENS_3VecIT_XT0_EEERKS3_S5_.exit

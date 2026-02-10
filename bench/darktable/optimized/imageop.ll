@@ -6036,7 +6036,7 @@ define internal void @_header_size_callback(ptr readnone captures(none) %0, ptr 
   %58 = load i32, ptr %57, align 4, !tbaa !396
   %59 = add nsw i32 %58, -250
   %60 = sitofp i32 %59 to double
-  %61 = fmul reassoc nsz arcp contract afn double %60, 1.000000e-02
+  %61 = fmul reassoc nnan nsz arcp contract afn double %60, 1.000000e-02
   br label %63
 
 62:                                               ; preds = %54

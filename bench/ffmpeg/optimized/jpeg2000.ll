@@ -604,9 +604,9 @@ define i32 @ff_jpeg2000_init_component(ptr noundef %0, ptr noundef readonly capt
   %174 = getelementptr inbounds i16, ptr %67, i64 %indvars.iv177
   %175 = load i16, ptr %174, align 2, !tbaa !26
   %176 = uitofp i16 %175 to double
-  %177 = fmul nsz double %176, 0x3F40000000000000
-  %178 = fadd nsz double %177, 1.000000e+00
-  %179 = fpext nsz float %172 to double
+  %177 = fmul nnan nsz double %176, 0x3F40000000000000
+  %178 = fadd nnan nsz double %177, 1.000000e+00
+  %179 = fpext nnan nsz float %172 to double
   %180 = fmul nsz double %178, %179
   %181 = fptrunc nsz double %180 to float
   store float %181, ptr %173, align 8, !tbaa !68

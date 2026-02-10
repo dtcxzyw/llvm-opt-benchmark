@@ -2339,7 +2339,7 @@ get_chancount.exit:                               ; preds = %._crit_edge.i, %.lo
   %257 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %256)
   %258 = lshr i16 %257, 1
   %259 = uitofp nneg i16 %258 to double
-  %260 = fmul double %259, 0x40DDCD6500000000
+  %260 = fmul nnan double %259, 0x40DDCD6500000000
   %261 = call i64 @lround(double noundef %260) #9
   %262 = trunc i64 %261 to i32
   store i32 %262, ptr %64, align 8

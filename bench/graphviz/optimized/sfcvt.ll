@@ -555,7 +555,7 @@ define nonnull ptr @_sfcvt(ptr noundef readonly captures(none) %0, i32 noundef %
   br i1 %or.cond, label %.preheader322, label %.loopexit323
 
 .preheader322:                                    ; preds = %260
-  %263 = fmul double %.4, 1.000000e+01
+  %263 = fmul nnan double %.4, 1.000000e+01
   %264 = fptosi double %263 to i32
   %265 = icmp eq i32 %264, 0
   br i1 %265, label %.lr.ph330, label %.loopexit323

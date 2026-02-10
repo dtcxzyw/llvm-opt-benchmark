@@ -4014,7 +4014,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK5draco17GeometryAttribute1
   %179 = load i32, ptr %.02032.us43.i134, align 4, !tbaa !73
   %180 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv57.i133
   %181 = sitofp i32 %179 to float
-  %182 = fmul float %181, 0x3E00000000000000
+  %182 = fmul nnan float %181, 0x3E00000000000000
   store float %182, ptr %180, align 4, !tbaa !137
   %indvars.iv.next58.i135 = add nuw nsw i64 %indvars.iv57.i133, 1
   %183 = load i8, ptr %168, align 8, !tbaa !31
@@ -4091,7 +4091,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK5draco17GeometryAttribute1
   %216 = load i32, ptr %.02032.us43.i157, align 4, !tbaa !73
   %217 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv57.i156
   %218 = uitofp i32 %216 to float
-  %219 = fmul float %218, 0x3DF0000000000000
+  %219 = fmul nnan float %218, 0x3DF0000000000000
   store float %219, ptr %217, align 4, !tbaa !137
   %indvars.iv.next58.i158 = add nuw nsw i64 %indvars.iv57.i156, 1
   %220 = load i8, ptr %205, align 8, !tbaa !31
@@ -4168,7 +4168,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK5draco17GeometryAttribute1
   %253 = load i64, ptr %.02032.us43.i180, align 8, !tbaa !164
   %254 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv57.i179
   %255 = sitofp i64 %253 to float
-  %256 = fmul float %255, 0x3C00000000000000
+  %256 = fmul nnan float %255, 0x3C00000000000000
   store float %256, ptr %254, align 4, !tbaa !137
   %indvars.iv.next58.i181 = add nuw nsw i64 %indvars.iv57.i179, 1
   %257 = load i8, ptr %242, align 8, !tbaa !31
@@ -4245,7 +4245,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK5draco17GeometryAttribute1
   %290 = load i64, ptr %.02032.us43.i203, align 8, !tbaa !164
   %291 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv57.i202
   %292 = uitofp i64 %290 to float
-  %293 = fmul float %292, 0x3BF0000000000000
+  %293 = fmul nnan float %292, 0x3BF0000000000000
   store float %293, ptr %291, align 4, !tbaa !137
   %indvars.iv.next58.i204 = add nuw nsw i64 %indvars.iv57.i202, 1
   %294 = load i8, ptr %279, align 8, !tbaa !31

@@ -6826,7 +6826,7 @@ invoke.cont:                                      ; preds = %while.end
   %4 = select i1 %cmp.i17, double %3, double %upperBoundary.0
   %cmp.i19 = fcmp olt double %a, %4
   %.sroa.speculated186 = select i1 %cmp.i19, double %4, double %a
-  %mul13 = fmul double %a, 2.000000e+00
+  %mul13 = fmul nnan double %a, 2.000000e+00
   %cmp14 = fcmp ogt double %.sroa.speculated186, %mul13
   %5 = ptrtoint ptr %integrand to i64
   br i1 %cmp14, label %invoke.cont18, label %if.else
@@ -9699,7 +9699,7 @@ entry:
   %q_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %q_, align 8, !tbaa !132
   %conv2 = sitofp i32 %1 to double
-  %mul = fmul double %conv, %conv2
+  %mul = fmul nnan double %conv, %conv2
   %div = fdiv double %x, %conv2
   %add = fadd double %div, 1.000000e+00
   %delta_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -9729,7 +9729,7 @@ entry:
   %q_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %q_, align 8, !tbaa !132
   %conv2 = sitofp i32 %1 to double
-  %mul = fmul double %conv, %conv2
+  %mul = fmul nnan double %conv, %conv2
   %div = fdiv double %x, %conv2
   %add = fadd double %div, 1.000000e+00
   %delta_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -9770,7 +9770,7 @@ entry:
   %q_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load i32, ptr %q_, align 8, !tbaa !132
   %conv2 = sitofp i32 %1 to double
-  %mul = fmul double %conv, %conv2
+  %mul = fmul nnan double %conv, %conv2
   %div = fdiv double %x, %conv2
   %add = fadd double %div, 1.000000e+00
   %delta_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -9801,7 +9801,7 @@ entry:
   %mul40 = fmul double %sub37, %sub37
   %8 = load i32, ptr %q_, align 8, !tbaa !132
   %conv42 = sitofp i32 %8 to double
-  %div43 = fdiv double 1.000000e+00, %conv42
+  %div43 = fdiv nnan double 1.000000e+00, %conv42
   %mul44 = fmul double %7, %div43
   %div45 = fdiv double %mul44, %mul40
   %call47 = tail call double @pow(double noundef %add, double noundef %2) #36, !tbaa !58
@@ -9828,8 +9828,8 @@ entry:
   %mul76 = fmul double %sub65, %call75
   %call77 = tail call double @pow(double noundef %add, double noundef %mul) #36, !tbaa !58
   %sub78 = fadd double %call77, -1.000000e+00
-  %mul80 = fmul double %mul, 2.000000e+00
-  %mul82 = fmul double %sub65, 2.000000e+00
+  %mul80 = fmul nnan double %mul, 2.000000e+00
+  %mul82 = fmul nnan double %sub65, 2.000000e+00
   %call83 = tail call double @pow(double noundef %add, double noundef %mul82) #36, !tbaa !58
   %12 = fneg double %call83
   %neg85 = fmul double %mul80, %12

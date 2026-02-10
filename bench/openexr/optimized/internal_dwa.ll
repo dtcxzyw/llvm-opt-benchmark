@@ -6751,13 +6751,13 @@ define internal fastcc range(i32 0, 4) i32 @DwaCompressor_initializeBuffers(ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %2, i8 0, i64 24, i1 false), !tbaa !74
   %9 = sitofp i32 %4 to float
-  %10 = fmul float %9, 1.250000e-01
+  %10 = fmul nnan float %9, 1.250000e-01
   %11 = tail call float @llvm.ceil.f32(float %10)
   %12 = fptoui float %11 to i64
   %13 = sub nsw i32 %6, %8
   %14 = add nsw i32 %13, 1
   %15 = sitofp i32 %14 to float
-  %16 = fmul float %15, 1.250000e-01
+  %16 = fmul nnan float %15, 1.250000e-01
   %17 = tail call float @llvm.ceil.f32(float %16)
   %18 = fptoui float %17 to i64
   %19 = mul i64 %18, %12
@@ -7568,13 +7568,13 @@ define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr noundef 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 52
   %9 = load i32, ptr %8, align 4, !tbaa !204
   %10 = sitofp i32 %9 to float
-  %11 = fmul float %10, 1.250000e-01
+  %11 = fmul nnan float %10, 1.250000e-01
   %12 = tail call float @llvm.ceil.f32(float %11)
   %13 = fptosi float %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %15 = load i32, ptr %14, align 8, !tbaa !205
   %16 = sitofp i32 %15 to float
-  %17 = fmul float %16, 1.250000e-01
+  %17 = fmul nnan float %16, 1.250000e-01
   %18 = tail call float @llvm.ceil.f32(float %17)
   %19 = fptosi float %18 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

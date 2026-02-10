@@ -1245,7 +1245,7 @@ backup_file_lookup.exit:                          ; preds = %.lr.ph.i.i, %.lr.ph
   %100 = shl i32 %99, 13
   %101 = uitofp i32 %100 to double
   %102 = uitofp nneg i64 %7 to double
-  %103 = fmul double %102, 9.000000e-01
+  %103 = fmul nnan double %102, 9.000000e-01
   %104 = fcmp olt double %103, %101
   br i1 %104, label %backup_file_lookup.exit78.thread, label %105
 
@@ -1422,7 +1422,7 @@ backup_file_update_parameters.exit:               ; preds = %backup_file_compute
   store i32 %30, ptr %31, align 4
   %32 = icmp eq i64 %.0.i.i.i, 4294967296
   %33 = uitofp i64 %.0.i.i.i to double
-  %34 = fmul double %33, 9.000000e-01
+  %34 = fmul nnan double %33, 9.000000e-01
   %35 = fptoui double %34 to i32
   %.sink.i = select i1 %32, i32 -85899346, i32 %35
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16

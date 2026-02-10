@@ -6682,10 +6682,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   %2231 = fadd float %2230, -1.000000e+00
   %2232 = fmul float %2231, %2231
   %2233 = fmul float %2232, %2232
-  %2234 = fmul contract float %2231, 0x3F831161A0000000
-  %2235 = fsub contract float 0x3FAAA83920000000, %2234
-  %2236 = fmul contract float %2231, 0x3FDEA2C5A0000000
-  %2237 = fadd contract float %2236, 0xBFE713CA80000000
+  %2234 = fmul nnan contract float %2231, 0x3F831161A0000000
+  %2235 = fsub nnan contract float 0x3FAAA83920000000, %2234
+  %2236 = fmul nnan contract float %2231, 0x3FDEA2C5A0000000
+  %2237 = fadd nnan contract float %2236, 0xBFE713CA80000000
   %2238 = fmul contract float %2231, %2235
   %2239 = fadd contract float %2238, 0xBFC19A9FA0000000
   %2240 = fmul contract float %2231, %2239
@@ -6704,8 +6704,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
 
 2252:                                             ; preds = %.noexc
   %2253 = fsub float -2.500000e+00, %2250
-  %2254 = fmul contract float %2253, 0x3E5E2CB100000000
-  %2255 = fadd contract float %2254, 0x3E970966C0000000
+  %2254 = fmul nnan contract float %2253, 0x3E5E2CB100000000
+  %2255 = fadd nnan contract float %2254, 0x3E970966C0000000
   %2256 = fmul contract float %2253, %2255
   %2257 = fadd contract float %2256, 0xBECD8E6AE0000000
   %2258 = fmul contract float %2253, %2257
@@ -55044,7 +55044,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %44, %47
 _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %._ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread_crit_edge, %36, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit
   %53 = phi i32 [ %.pre37, %._ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread_crit_edge ], [ %.pre38, %36 ], [ %.pre38, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit ]
   %54 = sitofp i32 %.pre to float
-  %55 = fadd float %54, 5.000000e-01
+  %55 = fadd nnan float %54, 5.000000e-01
   %56 = fdiv float %55, %15
   %57 = sitofp i32 %53 to float
   %58 = fsub float %27, %57
@@ -55319,14 +55319,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIfEvRKN11OpenImageIO6v3
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %84)
   %86 = fsub float 1.000000e+00, %47
   %87 = sitofp i32 %.1.i to float
-  %88 = fadd float %87, 5.000000e-01
-  %89 = fmul float %88, 0x400921FB60000000
+  %88 = fadd nnan float %87, 5.000000e-01
+  %89 = fmul nnan float %88, 0x400921FB60000000
   %90 = fdiv float %89, %24
   %91 = call float @llvm.sin.f32(float %90)
   %92 = fmul float %86, %91
   %93 = sitofp i32 %.1.i88 to float
-  %94 = fadd float %93, 5.000000e-01
-  %95 = fmul float %94, 0x400921FB60000000
+  %94 = fadd nnan float %93, 5.000000e-01
+  %95 = fmul nnan float %94, 0x400921FB60000000
   %96 = fdiv float %95, %24
   %97 = call float @llvm.sin.f32(float %96)
   %98 = fmul float %47, %97
@@ -55713,7 +55713,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %44, %47
 _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %._ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread_crit_edge, %36, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit
   %51 = phi i32 [ %.pre37, %._ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread_crit_edge ], [ %.pre38, %36 ], [ %.pre38, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit ]
   %52 = sitofp i32 %.pre to float
-  %53 = fadd float %52, 5.000000e-01
+  %53 = fadd nnan float %52, 5.000000e-01
   %54 = fdiv float %53, %15
   %55 = sitofp i32 %51 to float
   %56 = fsub float %27, %55
@@ -55926,7 +55926,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv
   %64 = load i8, ptr %63, align 1, !tbaa !19
   %65 = uitofp i8 %64 to float
-  %66 = fmul float %65, 0x3F70101020000000
+  %66 = fmul nnan float %65, 0x3F70101020000000
   %67 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
   store float %66, ptr %67, align 4, !tbaa !196
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -55956,7 +55956,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 %indvars.iv111
   %74 = load i8, ptr %73, align 1, !tbaa !19
   %75 = uitofp i8 %74 to float
-  %76 = fmul float %75, 0x3F70101020000000
+  %76 = fmul nnan float %75, 0x3F70101020000000
   %77 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !196
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
@@ -55981,7 +55981,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
   %81 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv116
   %82 = load i8, ptr %81, align 1, !tbaa !19
   %83 = uitofp i8 %82 to float
-  %84 = fmul float %83, 0x3F70101020000000
+  %84 = fmul nnan float %83, 0x3F70101020000000
   %85 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv116
   store float %84, ptr %85, align 4, !tbaa !196
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
@@ -55996,7 +55996,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv121
   %88 = load i8, ptr %87, align 1, !tbaa !19
   %89 = uitofp i8 %88 to float
-  %90 = fmul float %89, 0x3F70101020000000
+  %90 = fmul nnan float %89, 0x3F70101020000000
   %91 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv121
   store float %90, ptr %91, align 4, !tbaa !196
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
@@ -56027,14 +56027,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIhEvRKN11OpenImageIO6v3
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %100)
   %102 = fsub float 1.000000e+00, %47
   %103 = sitofp i32 %.1.i to float
-  %104 = fadd float %103, 5.000000e-01
-  %105 = fmul float %104, 0x400921FB60000000
+  %104 = fadd nnan float %103, 5.000000e-01
+  %105 = fmul nnan float %104, 0x400921FB60000000
   %106 = fdiv float %105, %24
   %107 = call float @llvm.sin.f32(float %106)
   %108 = fmul float %102, %107
   %109 = sitofp i32 %.1.i88 to float
-  %110 = fadd float %109, 5.000000e-01
-  %111 = fmul float %110, 0x400921FB60000000
+  %110 = fadd nnan float %109, 5.000000e-01
+  %111 = fmul nnan float %110, 0x400921FB60000000
   %112 = fdiv float %111, %24
   %113 = call float @llvm.sin.f32(float %112)
   %114 = fmul float %47, %113
@@ -56262,7 +56262,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %44, %47
 _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %._ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread_crit_edge, %36, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit
   %51 = phi i32 [ %.pre37, %._ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread_crit_edge ], [ %.pre38, %36 ], [ %.pre38, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit ]
   %52 = sitofp i32 %.pre to float
-  %53 = fadd float %52, 5.000000e-01
+  %53 = fadd nnan float %52, 5.000000e-01
   %54 = fdiv float %53, %15
   %55 = sitofp i32 %51 to float
   %56 = fsub float %27, %55
@@ -56716,14 +56716,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIN9Imath_3_14halfEEvRKN
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %180)
   %182 = fsub float 1.000000e+00, %47
   %183 = sitofp i32 %.1.i to float
-  %184 = fadd float %183, 5.000000e-01
-  %185 = fmul float %184, 0x400921FB60000000
+  %184 = fadd nnan float %183, 5.000000e-01
+  %185 = fmul nnan float %184, 0x400921FB60000000
   %186 = fdiv float %185, %24
   %187 = call float @llvm.sin.f32(float %186)
   %188 = fmul float %182, %187
   %189 = sitofp i32 %.1.i88 to float
-  %190 = fadd float %189, 5.000000e-01
-  %191 = fmul float %190, 0x400921FB60000000
+  %190 = fadd nnan float %189, 5.000000e-01
+  %191 = fmul nnan float %190, 0x400921FB60000000
   %192 = fdiv float %191, %24
   %193 = call float @llvm.sin.f32(float %192)
   %194 = fmul float %47, %193
@@ -56951,7 +56951,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit: ; preds = %44, %47
 _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %._ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread_crit_edge, %36, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit
   %51 = phi i32 [ %.pre37, %._ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread_crit_edge ], [ %.pre38, %36 ], [ %.pre38, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit ]
   %52 = sitofp i32 %.pre to float
-  %53 = fadd float %52, 5.000000e-01
+  %53 = fadd nnan float %52, 5.000000e-01
   %54 = fdiv float %53, %15
   %55 = sitofp i32 %51 to float
   %56 = fsub float %27, %55
@@ -57164,7 +57164,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
   %63 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv
   %64 = load i16, ptr %63, align 2, !tbaa !807
   %65 = uitofp i16 %64 to float
-  %66 = fmul float %65, 0x3EF0001000000000
+  %66 = fmul nnan float %65, 0x3EF0001000000000
   %67 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
   store float %66, ptr %67, align 4, !tbaa !196
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -57194,7 +57194,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
   %73 = getelementptr inbounds nuw i16, ptr %61, i64 %indvars.iv111
   %74 = load i16, ptr %73, align 2, !tbaa !807
   %75 = uitofp i16 %74 to float
-  %76 = fmul float %75, 0x3EF0001000000000
+  %76 = fmul nnan float %75, 0x3EF0001000000000
   %77 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !196
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
@@ -57219,7 +57219,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
   %81 = getelementptr inbounds nuw i16, ptr %69, i64 %indvars.iv116
   %82 = load i16, ptr %81, align 2, !tbaa !807
   %83 = uitofp i16 %82 to float
-  %84 = fmul float %83, 0x3EF0001000000000
+  %84 = fmul nnan float %83, 0x3EF0001000000000
   %85 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv116
   store float %84, ptr %85, align 4, !tbaa !196
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
@@ -57234,7 +57234,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
   %87 = getelementptr inbounds nuw i16, ptr %79, i64 %indvars.iv121
   %88 = load i16, ptr %87, align 2, !tbaa !807
   %89 = uitofp i16 %88 to float
-  %90 = fmul float %89, 0x3EF0001000000000
+  %90 = fmul nnan float %89, 0x3EF0001000000000
   %91 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv121
   store float %90, ptr %91, align 4, !tbaa !196
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
@@ -57265,14 +57265,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedItEvRKN11OpenImageIO6v3
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %100)
   %102 = fsub float 1.000000e+00, %47
   %103 = sitofp i32 %.1.i to float
-  %104 = fadd float %103, 5.000000e-01
-  %105 = fmul float %104, 0x400921FB60000000
+  %104 = fadd nnan float %103, 5.000000e-01
+  %105 = fmul nnan float %104, 0x400921FB60000000
   %106 = fdiv float %105, %24
   %107 = call float @llvm.sin.f32(float %106)
   %108 = fmul float %102, %107
   %109 = sitofp i32 %.1.i88 to float
-  %110 = fadd float %109, 5.000000e-01
-  %111 = fmul float %110, 0x400921FB60000000
+  %110 = fadd nnan float %109, 5.000000e-01
+  %111 = fmul nnan float %110, 0x400921FB60000000
   %112 = fdiv float %111, %24
   %113 = call float @llvm.sin.f32(float %112)
   %114 = fmul float %47, %113
@@ -58182,7 +58182,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %2
   %48 = load ptr, ptr %22, align 8, !tbaa !1151
   %49 = load i8, ptr %48, align 1, !tbaa !19
   %50 = uitofp i8 %49 to float
-  %51 = fmul float %50, 0x3F70101020000000
+  %51 = fmul nnan float %50, 0x3F70101020000000
   %52 = getelementptr inbounds nuw float, ptr @_ZZL14sobel_gradientItEvRKN11OpenImageIO6v3_1_08ImageBufERKNS2_8IteratorIffEEPfS9_S9_E14sobelweight_ds, i64 %indvars.iv
   %53 = load float, ptr %52, align 4, !tbaa !196
   %54 = load float, ptr %3, align 4, !tbaa !196
@@ -59282,7 +59282,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %2
   %48 = load ptr, ptr %22, align 8, !tbaa !1151
   %49 = load i16, ptr %48, align 2, !tbaa !807
   %50 = uitofp i16 %49 to float
-  %51 = fmul float %50, 0x3EF0001000000000
+  %51 = fmul nnan float %50, 0x3EF0001000000000
   %52 = getelementptr inbounds nuw float, ptr @_ZZL14sobel_gradientItEvRKN11OpenImageIO6v3_1_08ImageBufERKNS2_8IteratorIffEEPfS9_S9_E14sobelweight_ds, i64 %indvars.iv
   %53 = load float, ptr %52, align 4, !tbaa !196
   %54 = load float, ptr %3, align 4, !tbaa !196
@@ -60419,7 +60419,7 @@ define internal fastcc void @_ZL18resize_block_2passIhEbRN11OpenImageIO6v3_1_08I
   %68 = zext i8 %67 to i32
   %69 = add nuw nsw i32 %68, %65
   %70 = uitofp nneg i32 %69 to float
-  %71 = fmul float %70, 5.000000e-01
+  %71 = fmul nnan float %70, 5.000000e-01
   store float %71, ptr %.120.us.i.us, align 4, !tbaa !196
   %72 = add nuw nsw i32 %.021.us.i.us, 1
   %73 = getelementptr inbounds nuw i8, ptr %.120.us.i.us, i64 4
@@ -60454,7 +60454,7 @@ define internal fastcc void @_ZL18resize_block_2passIhEbRN11OpenImageIO6v3_1_08I
   %84 = zext i8 %83 to i32
   %85 = add nuw nsw i32 %84, %81
   %86 = uitofp nneg i32 %85 to float
-  %87 = fmul float %86, 5.000000e-01
+  %87 = fmul nnan float %86, 5.000000e-01
   store float %87, ptr %.120.us.i76.us, align 4, !tbaa !196
   %88 = add nuw nsw i32 %.021.us.i75.us, 1
   %89 = getelementptr inbounds nuw i8, ptr %.120.us.i76.us, i64 4
@@ -61139,7 +61139,7 @@ define internal fastcc void @_ZL18resize_block_2passItEbRN11OpenImageIO6v3_1_08I
   %68 = zext i16 %67 to i32
   %69 = add nuw nsw i32 %68, %65
   %70 = uitofp nneg i32 %69 to float
-  %71 = fmul float %70, 5.000000e-01
+  %71 = fmul nnan float %70, 5.000000e-01
   store float %71, ptr %.120.us.i.us, align 4, !tbaa !196
   %72 = add nuw nsw i32 %.021.us.i.us, 1
   %73 = getelementptr inbounds nuw i8, ptr %.120.us.i.us, i64 4
@@ -61174,7 +61174,7 @@ define internal fastcc void @_ZL18resize_block_2passItEbRN11OpenImageIO6v3_1_08I
   %84 = zext i16 %83 to i32
   %85 = add nuw nsw i32 %84, %81
   %86 = uitofp nneg i32 %85 to float
-  %87 = fmul float %86, 5.000000e-01
+  %87 = fmul nnan float %86, 5.000000e-01
   store float %87, ptr %.120.us.i76.us, align 4, !tbaa !196
   %88 = add nuw nsw i32 %.021.us.i75.us, 1
   %89 = getelementptr inbounds nuw i8, ptr %.120.us.i76.us, i64 4
@@ -61381,7 +61381,7 @@ define internal fastcc void @_ZL18resize_block_2passIcEbRN11OpenImageIO6v3_1_08I
   %68 = sext i8 %67 to i32
   %69 = add nsw i32 %68, %65
   %70 = sitofp i32 %69 to float
-  %71 = fmul float %70, 5.000000e-01
+  %71 = fmul nnan float %70, 5.000000e-01
   store float %71, ptr %.120.us.i.us, align 4, !tbaa !196
   %72 = add nuw nsw i32 %.021.us.i.us, 1
   %73 = getelementptr inbounds nuw i8, ptr %.120.us.i.us, i64 4
@@ -61416,7 +61416,7 @@ define internal fastcc void @_ZL18resize_block_2passIcEbRN11OpenImageIO6v3_1_08I
   %84 = sext i8 %83 to i32
   %85 = add nsw i32 %84, %81
   %86 = sitofp i32 %85 to float
-  %87 = fmul float %86, 5.000000e-01
+  %87 = fmul nnan float %86, 5.000000e-01
   store float %87, ptr %.120.us.i76.us, align 4, !tbaa !196
   %88 = add nuw nsw i32 %.021.us.i75.us, 1
   %89 = getelementptr inbounds nuw i8, ptr %.120.us.i76.us, i64 4
@@ -61623,7 +61623,7 @@ define internal fastcc void @_ZL18resize_block_2passIsEbRN11OpenImageIO6v3_1_08I
   %68 = sext i16 %67 to i32
   %69 = add nsw i32 %68, %65
   %70 = sitofp i32 %69 to float
-  %71 = fmul float %70, 5.000000e-01
+  %71 = fmul nnan float %70, 5.000000e-01
   store float %71, ptr %.120.us.i.us, align 4, !tbaa !196
   %72 = add nuw nsw i32 %.021.us.i.us, 1
   %73 = getelementptr inbounds nuw i8, ptr %.120.us.i.us, i64 4
@@ -61658,7 +61658,7 @@ define internal fastcc void @_ZL18resize_block_2passIsEbRN11OpenImageIO6v3_1_08I
   %84 = sext i16 %83 to i32
   %85 = add nsw i32 %84, %81
   %86 = sitofp i32 %85 to float
-  %87 = fmul float %86, 5.000000e-01
+  %87 = fmul nnan float %86, 5.000000e-01
   store float %87, ptr %.120.us.i76.us, align 4, !tbaa !196
   %88 = add nuw nsw i32 %.021.us.i75.us, 1
   %89 = getelementptr inbounds nuw i8, ptr %.120.us.i76.us, i64 4
@@ -61863,7 +61863,7 @@ define internal fastcc void @_ZL18resize_block_2passIjEbRN11OpenImageIO6v3_1_08I
   %66 = load i32, ptr %65, align 4, !tbaa !24
   %67 = add i32 %66, %64
   %68 = uitofp i32 %67 to float
-  %69 = fmul float %68, 5.000000e-01
+  %69 = fmul nnan float %68, 5.000000e-01
   store float %69, ptr %.120.us.i.us, align 4, !tbaa !196
   %70 = add nuw nsw i32 %.021.us.i.us, 1
   %71 = getelementptr inbounds nuw i8, ptr %.120.us.i.us, i64 4
@@ -61896,7 +61896,7 @@ define internal fastcc void @_ZL18resize_block_2passIjEbRN11OpenImageIO6v3_1_08I
   %80 = load i32, ptr %79, align 4, !tbaa !24
   %81 = add i32 %80, %78
   %82 = uitofp i32 %81 to float
-  %83 = fmul float %82, 5.000000e-01
+  %83 = fmul nnan float %82, 5.000000e-01
   store float %83, ptr %.120.us.i76.us, align 4, !tbaa !196
   %84 = add nuw nsw i32 %.021.us.i75.us, 1
   %85 = getelementptr inbounds nuw i8, ptr %.120.us.i76.us, i64 4
@@ -62101,7 +62101,7 @@ define internal fastcc void @_ZL18resize_block_2passIiEbRN11OpenImageIO6v3_1_08I
   %66 = load i32, ptr %65, align 4, !tbaa !24
   %67 = add nsw i32 %66, %64
   %68 = sitofp i32 %67 to float
-  %69 = fmul float %68, 5.000000e-01
+  %69 = fmul nnan float %68, 5.000000e-01
   store float %69, ptr %.120.us.i.us, align 4, !tbaa !196
   %70 = add nuw nsw i32 %.021.us.i.us, 1
   %71 = getelementptr inbounds nuw i8, ptr %.120.us.i.us, i64 4
@@ -62134,7 +62134,7 @@ define internal fastcc void @_ZL18resize_block_2passIiEbRN11OpenImageIO6v3_1_08I
   %80 = load i32, ptr %79, align 4, !tbaa !24
   %81 = add nsw i32 %80, %78
   %82 = sitofp i32 %81 to float
-  %83 = fmul float %82, 5.000000e-01
+  %83 = fmul nnan float %82, 5.000000e-01
   store float %83, ptr %.120.us.i76.us, align 4, !tbaa !196
   %84 = add nuw nsw i32 %.021.us.i75.us, 1
   %85 = getelementptr inbounds nuw i8, ptr %.120.us.i76.us, i64 4
@@ -65843,7 +65843,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv
   %64 = load i8, ptr %63, align 1, !tbaa !19
   %65 = sitofp i8 %64 to float
-  %66 = fmul float %65, 0x3F80204080000000
+  %66 = fmul nnan float %65, 0x3F80204080000000
   %67 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
   store float %66, ptr %67, align 4, !tbaa !196
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -65873,7 +65873,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 %indvars.iv111
   %74 = load i8, ptr %73, align 1, !tbaa !19
   %75 = sitofp i8 %74 to float
-  %76 = fmul float %75, 0x3F80204080000000
+  %76 = fmul nnan float %75, 0x3F80204080000000
   %77 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !196
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
@@ -65898,7 +65898,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
   %81 = getelementptr inbounds nuw i8, ptr %69, i64 %indvars.iv116
   %82 = load i8, ptr %81, align 1, !tbaa !19
   %83 = sitofp i8 %82 to float
-  %84 = fmul float %83, 0x3F80204080000000
+  %84 = fmul nnan float %83, 0x3F80204080000000
   %85 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv116
   store float %84, ptr %85, align 4, !tbaa !196
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
@@ -65913,7 +65913,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 %indvars.iv121
   %88 = load i8, ptr %87, align 1, !tbaa !19
   %89 = sitofp i8 %88 to float
-  %90 = fmul float %89, 0x3F80204080000000
+  %90 = fmul nnan float %89, 0x3F80204080000000
   %91 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv121
   store float %90, ptr %91, align 4, !tbaa !196
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
@@ -65944,14 +65944,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIcEvRKN11OpenImageIO6v3
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %100)
   %102 = fsub float 1.000000e+00, %47
   %103 = sitofp i32 %.1.i to float
-  %104 = fadd float %103, 5.000000e-01
-  %105 = fmul float %104, 0x400921FB60000000
+  %104 = fadd nnan float %103, 5.000000e-01
+  %105 = fmul nnan float %104, 0x400921FB60000000
   %106 = fdiv float %105, %24
   %107 = call float @llvm.sin.f32(float %106)
   %108 = fmul float %102, %107
   %109 = sitofp i32 %.1.i88 to float
-  %110 = fadd float %109, 5.000000e-01
-  %111 = fmul float %110, 0x400921FB60000000
+  %110 = fadd nnan float %109, 5.000000e-01
+  %111 = fmul nnan float %110, 0x400921FB60000000
   %112 = fdiv float %111, %24
   %113 = call float @llvm.sin.f32(float %112)
   %114 = fmul float %47, %113
@@ -66136,7 +66136,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
   %63 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv
   %64 = load i16, ptr %63, align 2, !tbaa !807
   %65 = sitofp i16 %64 to float
-  %66 = fmul float %65, 0x3F00002000000000
+  %66 = fmul nnan float %65, 0x3F00002000000000
   %67 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
   store float %66, ptr %67, align 4, !tbaa !196
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -66166,7 +66166,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
   %73 = getelementptr inbounds nuw i16, ptr %61, i64 %indvars.iv111
   %74 = load i16, ptr %73, align 2, !tbaa !807
   %75 = sitofp i16 %74 to float
-  %76 = fmul float %75, 0x3F00002000000000
+  %76 = fmul nnan float %75, 0x3F00002000000000
   %77 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !196
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
@@ -66191,7 +66191,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
   %81 = getelementptr inbounds nuw i16, ptr %69, i64 %indvars.iv116
   %82 = load i16, ptr %81, align 2, !tbaa !807
   %83 = sitofp i16 %82 to float
-  %84 = fmul float %83, 0x3F00002000000000
+  %84 = fmul nnan float %83, 0x3F00002000000000
   %85 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv116
   store float %84, ptr %85, align 4, !tbaa !196
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
@@ -66206,7 +66206,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
   %87 = getelementptr inbounds nuw i16, ptr %79, i64 %indvars.iv121
   %88 = load i16, ptr %87, align 2, !tbaa !807
   %89 = sitofp i16 %88 to float
-  %90 = fmul float %89, 0x3F00002000000000
+  %90 = fmul nnan float %89, 0x3F00002000000000
   %91 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv121
   store float %90, ptr %91, align 4, !tbaa !196
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
@@ -66237,14 +66237,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIsEvRKN11OpenImageIO6v3
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %100)
   %102 = fsub float 1.000000e+00, %47
   %103 = sitofp i32 %.1.i to float
-  %104 = fadd float %103, 5.000000e-01
-  %105 = fmul float %104, 0x400921FB60000000
+  %104 = fadd nnan float %103, 5.000000e-01
+  %105 = fmul nnan float %104, 0x400921FB60000000
   %106 = fdiv float %105, %24
   %107 = call float @llvm.sin.f32(float %106)
   %108 = fmul float %102, %107
   %109 = sitofp i32 %.1.i88 to float
-  %110 = fadd float %109, 5.000000e-01
-  %111 = fmul float %110, 0x400921FB60000000
+  %110 = fadd nnan float %109, 5.000000e-01
+  %111 = fmul nnan float %110, 0x400921FB60000000
   %112 = fdiv float %111, %24
   %113 = call float @llvm.sin.f32(float %112)
   %114 = fmul float %47, %113
@@ -66429,7 +66429,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
   %63 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !24
   %65 = uitofp i32 %64 to float
-  %66 = fmul float %65, 0x3DF0000000000000
+  %66 = fmul nnan float %65, 0x3DF0000000000000
   %67 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
   store float %66, ptr %67, align 4, !tbaa !196
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -66459,7 +66459,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
   %73 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv111
   %74 = load i32, ptr %73, align 4, !tbaa !24
   %75 = uitofp i32 %74 to float
-  %76 = fmul float %75, 0x3DF0000000000000
+  %76 = fmul nnan float %75, 0x3DF0000000000000
   %77 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !196
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
@@ -66484,7 +66484,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
   %81 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv116
   %82 = load i32, ptr %81, align 4, !tbaa !24
   %83 = uitofp i32 %82 to float
-  %84 = fmul float %83, 0x3DF0000000000000
+  %84 = fmul nnan float %83, 0x3DF0000000000000
   %85 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv116
   store float %84, ptr %85, align 4, !tbaa !196
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
@@ -66499,7 +66499,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
   %87 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv121
   %88 = load i32, ptr %87, align 4, !tbaa !24
   %89 = uitofp i32 %88 to float
-  %90 = fmul float %89, 0x3DF0000000000000
+  %90 = fmul nnan float %89, 0x3DF0000000000000
   %91 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv121
   store float %90, ptr %91, align 4, !tbaa !196
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
@@ -66530,14 +66530,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIjEvRKN11OpenImageIO6v3
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %100)
   %102 = fsub float 1.000000e+00, %47
   %103 = sitofp i32 %.1.i to float
-  %104 = fadd float %103, 5.000000e-01
-  %105 = fmul float %104, 0x400921FB60000000
+  %104 = fadd nnan float %103, 5.000000e-01
+  %105 = fmul nnan float %104, 0x400921FB60000000
   %106 = fdiv float %105, %24
   %107 = call float @llvm.sin.f32(float %106)
   %108 = fmul float %102, %107
   %109 = sitofp i32 %.1.i88 to float
-  %110 = fadd float %109, 5.000000e-01
-  %111 = fmul float %110, 0x400921FB60000000
+  %110 = fadd nnan float %109, 5.000000e-01
+  %111 = fmul nnan float %110, 0x400921FB60000000
   %112 = fdiv float %111, %24
   %113 = call float @llvm.sin.f32(float %112)
   %114 = fmul float %47, %113
@@ -66722,7 +66722,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
   %63 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !24
   %65 = sitofp i32 %64 to float
-  %66 = fmul float %65, 0x3E00000000000000
+  %66 = fmul nnan float %65, 0x3E00000000000000
   %67 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
   store float %66, ptr %67, align 4, !tbaa !196
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -66752,7 +66752,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
   %73 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv111
   %74 = load i32, ptr %73, align 4, !tbaa !24
   %75 = sitofp i32 %74 to float
-  %76 = fmul float %75, 0x3E00000000000000
+  %76 = fmul nnan float %75, 0x3E00000000000000
   %77 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv111
   store float %76, ptr %77, align 4, !tbaa !196
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
@@ -66777,7 +66777,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
   %81 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv116
   %82 = load i32, ptr %81, align 4, !tbaa !24
   %83 = sitofp i32 %82 to float
-  %84 = fmul float %83, 0x3E00000000000000
+  %84 = fmul nnan float %83, 0x3E00000000000000
   %85 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv116
   store float %84, ptr %85, align 4, !tbaa !196
   %indvars.iv.next117 = add nuw nsw i64 %indvars.iv116, 1
@@ -66792,7 +66792,7 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
   %87 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv121
   %88 = load i32, ptr %87, align 4, !tbaa !24
   %89 = sitofp i32 %88 to float
-  %90 = fmul float %89, 0x3E00000000000000
+  %90 = fmul nnan float %89, 0x3E00000000000000
   %91 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv121
   store float %90, ptr %91, align 4, !tbaa !196
   %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
@@ -66823,14 +66823,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIiEvRKN11OpenImageIO6v3
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %100)
   %102 = fsub float 1.000000e+00, %47
   %103 = sitofp i32 %.1.i to float
-  %104 = fadd float %103, 5.000000e-01
-  %105 = fmul float %104, 0x400921FB60000000
+  %104 = fadd nnan float %103, 5.000000e-01
+  %105 = fmul nnan float %104, 0x400921FB60000000
   %106 = fdiv float %105, %24
   %107 = call float @llvm.sin.f32(float %106)
   %108 = fmul float %102, %107
   %109 = sitofp i32 %.1.i88 to float
-  %110 = fadd float %109, 5.000000e-01
-  %111 = fmul float %110, 0x400921FB60000000
+  %110 = fadd nnan float %109, 5.000000e-01
+  %111 = fmul nnan float %110, 0x400921FB60000000
   %112 = fdiv float %111, %24
   %113 = call float @llvm.sin.f32(float %112)
   %114 = fmul float %47, %113
@@ -67112,14 +67112,14 @@ define internal fastcc void @_ZL23interppixel_NDC_clampedIdEvRKN11OpenImageIO6v3
   %.1.i = call i32 @llvm.smin.i32(i32 %spec.select.i, i32 %96)
   %98 = fsub float 1.000000e+00, %47
   %99 = sitofp i32 %.1.i to float
-  %100 = fadd float %99, 5.000000e-01
-  %101 = fmul float %100, 0x400921FB60000000
+  %100 = fadd nnan float %99, 5.000000e-01
+  %101 = fmul nnan float %100, 0x400921FB60000000
   %102 = fdiv float %101, %24
   %103 = call float @llvm.sin.f32(float %102)
   %104 = fmul float %98, %103
   %105 = sitofp i32 %.1.i88 to float
-  %106 = fadd float %105, 5.000000e-01
-  %107 = fmul float %106, 0x400921FB60000000
+  %106 = fadd nnan float %105, 5.000000e-01
+  %107 = fmul nnan float %106, 0x400921FB60000000
   %108 = fdiv float %107, %24
   %109 = call float @llvm.sin.f32(float %108)
   %110 = fmul float %47, %109
@@ -67329,7 +67329,7 @@ define internal fastcc void @_ZL14fix_latl_edgesRN11OpenImageIO6v3_1_08ImageBufE
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !147
   %14 = sitofp i32 %13 to float
-  %15 = fdiv float 1.000000e+00, %14
+  %15 = fdiv nnan float 1.000000e+00, %14
   %16 = icmp sgt i32 %2, 0
   %17 = zext i32 %2 to i64
   %18 = shl nuw nsw i64 %17, 2

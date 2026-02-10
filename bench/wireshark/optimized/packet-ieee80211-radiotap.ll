@@ -2507,7 +2507,7 @@ dissect_radiotap_flags.exit:                      ; preds = %268, %.sink.split.i
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %305, i32 noundef 23, ptr noundef nonnull @.str.1287, i32 noundef %306, i32 noundef %308)
   %309 = load i32, ptr @hf_radiotap_datarate, align 4
   %310 = uitofp i8 %295 to float
-  %311 = fmul float %310, 5.000000e-01
+  %311 = fmul nnan float %310, 5.000000e-01
   %312 = fpext float %311 to double
   %313 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format(ptr noundef %.0744, i32 noundef %309, ptr noundef %0, i32 noundef %219, i32 noundef 1, float noundef %311, ptr noundef nonnull @.str.1279, double noundef %312)
   %314 = load i16, ptr %78, align 8

@@ -1308,7 +1308,7 @@ _ZN2cv4Mat_IfEC2Eii.exit:                         ; preds = %453
   %486 = add nuw i64 %484, %485
   %487 = trunc i64 %486 to i32
   %488 = uitofp i32 %487 to float
-  %489 = fmul float %488, 0x3DF0000000000000
+  %489 = fmul nnan float %488, 0x3DF0000000000000
   %490 = call noundef float @llvm.fmuladd.f32(float %489, float 1.000000e+01, float 1.000000e+01)
   store float %490, ptr %482, align 4, !tbaa !75
   %.not.i.i.i427 = icmp eq ptr %481, null
@@ -1399,7 +1399,7 @@ _ZN2cv20MatCommaInitializer_IfEcmIiEERS1_T_.exit433: ; preds = %501
   %514 = add i64 %512, %513
   %515 = trunc i64 %514 to i32
   %516 = uitofp i32 %515 to float
-  %517 = fmul float %516, 0x3DF0000000000000
+  %517 = fmul nnan float %516, 0x3DF0000000000000
   %518 = call noundef float @llvm.fmuladd.f32(float %517, float 1.000000e+01, float 1.000000e+01)
   store float %518, ptr %511, align 4, !tbaa !75
   %.not.i.i.i438 = icmp eq ptr %510, null
@@ -1533,9 +1533,9 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit: ; preds = %_ZN2cv20MatCom
   %561 = and i64 %560, 4294967295
   %562 = or disjoint i64 %561, %556
   %563 = uitofp i64 %562 to double
-  %564 = fmul double %563, 0x3BF0000000000000
-  %565 = call noundef double @llvm.fmuladd.f64(double %564, double 4.000000e+00, double -2.000000e+00)
-  %566 = fmul double %565, 0x400921FB54442D18
+  %564 = fmul nnan double %563, 0x3BF0000000000000
+  %565 = call nnan double @llvm.fmuladd.f64(double %564, double 4.000000e+00, double -2.000000e+00)
+  %566 = fmul nnan double %565, 0x400921FB54442D18
   %567 = fdiv double %566, 1.800000e+02
   %568 = fadd double %567, 0x3FBACEE9F37BEBD5
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
@@ -1628,7 +1628,7 @@ _ZN2cv4Mat_IfEC2Eii.exit445:                      ; preds = %551
   %605 = add nuw i64 %603, %604
   %606 = trunc i64 %605 to i32
   %607 = uitofp i32 %606 to float
-  %608 = fmul float %607, 0x3DF0000000000000
+  %608 = fmul nnan float %607, 0x3DF0000000000000
   %609 = call noundef float @llvm.fmuladd.f32(float %608, float 1.000000e+01, float 1.000000e+01)
   store float %609, ptr %602, align 4, !tbaa !75
   %.not.i.i.i454 = icmp eq ptr %601, null
@@ -1720,7 +1720,7 @@ _ZN2cv20MatCommaInitializer_IfEcmIdEERS1_T_.exit461: ; preds = %._ZN2cv20MatComm
   %640 = add i64 %638, %639
   %641 = trunc i64 %640 to i32
   %642 = uitofp i32 %641 to float
-  %643 = fmul float %642, 0x3DF0000000000000
+  %643 = fmul nnan float %642, 0x3DF0000000000000
   %644 = call noundef float @llvm.fmuladd.f32(float %643, float 1.000000e+01, float 1.000000e+01)
   store float %644, ptr %637, align 4, !tbaa !75
   %.not.i.i.i466 = icmp eq ptr %636, null
@@ -1861,7 +1861,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit472: ; preds = %_ZN2cv20Mat
 .noexc479:                                        ; preds = %678
   %683 = trunc i64 %682 to i32
   %684 = uitofp i32 %683 to float
-  %685 = fmul float %684, 0x3DF0000000000000
+  %685 = fmul nnan float %684, 0x3DF0000000000000
   %686 = call noundef float @llvm.fmuladd.f32(float %685, float 0x3FB99999A0000000, float 0xBFA99999A0000000)
   %687 = fsub float 1.000000e+00, %686
   %688 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -1914,7 +1914,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit472: ; preds = %_ZN2cv20Mat
   %714 = add nuw i64 %712, %713
   %715 = trunc i64 %714 to i32
   %716 = uitofp i32 %715 to float
-  %717 = fmul float %716, 0x3DF0000000000000
+  %717 = fmul nnan float %716, 0x3DF0000000000000
   %718 = call noundef float @llvm.fmuladd.f32(float %717, float 0x3FAEB851E0000000, float 0xBF9EB851E0000000)
   store float %718, ptr %699, align 4, !tbaa !75
   %.not.i.i.i481 = icmp eq ptr %700, null
@@ -1945,7 +1945,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit472: ; preds = %_ZN2cv20Mat
   %728 = add nuw i64 %726, %727
   %729 = trunc i64 %728 to i32
   %730 = uitofp i32 %729 to float
-  %731 = fmul float %730, 0x3DF0000000000000
+  %731 = fmul nnan float %730, 0x3DF0000000000000
   %732 = call noundef float @llvm.fmuladd.f32(float %731, float 1.000000e+01, float 1.000000e+01)
   store float %732, ptr %724, align 4, !tbaa !75
   %.not.i.i.i485 = icmp eq ptr %723, null
@@ -1978,7 +1978,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit472: ; preds = %_ZN2cv20Mat
   %744 = add nuw i64 %742, %743
   %745 = trunc i64 %744 to i32
   %746 = uitofp i32 %745 to float
-  %747 = fmul float %746, 0x3DF0000000000000
+  %747 = fmul nnan float %746, 0x3DF0000000000000
   %748 = call noundef float @llvm.fmuladd.f32(float %747, float 0x3FAEB851E0000000, float 0xBF9EB851E0000000)
   store float %748, ptr %740, align 4, !tbaa !75
   %.not.i.i.i489 = icmp eq ptr %739, null
@@ -2011,7 +2011,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit472: ; preds = %_ZN2cv20Mat
   %760 = add nuw i64 %758, %759
   %761 = trunc i64 %760 to i32
   %762 = uitofp i32 %761 to float
-  %763 = fmul float %762, 0x3DF0000000000000
+  %763 = fmul nnan float %762, 0x3DF0000000000000
   %764 = call noundef float @llvm.fmuladd.f32(float %763, float 0x3FB99999A0000000, float 0xBFA99999A0000000)
   %765 = fsub float 1.000000e+00, %764
   store float %765, ptr %756, align 4, !tbaa !75
@@ -2044,7 +2044,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit472: ; preds = %_ZN2cv20Mat
   %776 = add i64 %774, %775
   %777 = trunc i64 %776 to i32
   %778 = uitofp i32 %777 to float
-  %779 = fmul float %778, 0x3DF0000000000000
+  %779 = fmul nnan float %778, 0x3DF0000000000000
   %780 = call noundef float @llvm.fmuladd.f32(float %779, float 1.000000e+01, float 1.000000e+01)
   store float %780, ptr %773, align 4, !tbaa !75
   %.not.i.i.i497 = icmp eq ptr %772, null
@@ -2185,7 +2185,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit503: ; preds = %_ZN2cv20Mat
 .noexc510:                                        ; preds = %814
   %819 = trunc i64 %818 to i32
   %820 = uitofp i32 %819 to float
-  %821 = fmul float %820, 0x3DF0000000000000
+  %821 = fmul nnan float %820, 0x3DF0000000000000
   %822 = call noundef float @llvm.fmuladd.f32(float %821, float 0x3FB99999A0000000, float 0xBFA99999A0000000)
   %823 = fsub float 1.000000e+00, %822
   %824 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -2238,7 +2238,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit503: ; preds = %_ZN2cv20Mat
   %850 = add nuw i64 %848, %849
   %851 = trunc i64 %850 to i32
   %852 = uitofp i32 %851 to float
-  %853 = fmul float %852, 0x3DF0000000000000
+  %853 = fmul nnan float %852, 0x3DF0000000000000
   %854 = call noundef float @llvm.fmuladd.f32(float %853, float 0x3FAEB851E0000000, float 0xBF9EB851E0000000)
   store float %854, ptr %835, align 4, !tbaa !75
   %.not.i.i.i513 = icmp eq ptr %836, null
@@ -2269,7 +2269,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit503: ; preds = %_ZN2cv20Mat
   %864 = add nuw i64 %862, %863
   %865 = trunc i64 %864 to i32
   %866 = uitofp i32 %865 to float
-  %867 = fmul float %866, 0x3DF0000000000000
+  %867 = fmul nnan float %866, 0x3DF0000000000000
   %868 = call noundef float @llvm.fmuladd.f32(float %867, float 1.000000e+01, float 1.000000e+01)
   store float %868, ptr %860, align 4, !tbaa !75
   %.not.i.i.i517 = icmp eq ptr %859, null
@@ -2302,7 +2302,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit503: ; preds = %_ZN2cv20Mat
   %880 = add nuw i64 %878, %879
   %881 = trunc i64 %880 to i32
   %882 = uitofp i32 %881 to float
-  %883 = fmul float %882, 0x3DF0000000000000
+  %883 = fmul nnan float %882, 0x3DF0000000000000
   %884 = call noundef float @llvm.fmuladd.f32(float %883, float 0x3FAEB851E0000000, float 0xBF9EB851E0000000)
   store float %884, ptr %876, align 4, !tbaa !75
   %.not.i.i.i521 = icmp eq ptr %875, null
@@ -2335,7 +2335,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit503: ; preds = %_ZN2cv20Mat
   %896 = add nuw i64 %894, %895
   %897 = trunc i64 %896 to i32
   %898 = uitofp i32 %897 to float
-  %899 = fmul float %898, 0x3DF0000000000000
+  %899 = fmul nnan float %898, 0x3DF0000000000000
   %900 = call noundef float @llvm.fmuladd.f32(float %899, float 0x3FB99999A0000000, float 0xBFA99999A0000000)
   %901 = fsub float 1.000000e+00, %900
   store float %901, ptr %892, align 4, !tbaa !75
@@ -2369,7 +2369,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit503: ; preds = %_ZN2cv20Mat
   %913 = add nuw i64 %911, %912
   %914 = trunc i64 %913 to i32
   %915 = uitofp i32 %914 to float
-  %916 = fmul float %915, 0x3DF0000000000000
+  %916 = fmul nnan float %915, 0x3DF0000000000000
   %917 = call noundef float @llvm.fmuladd.f32(float %916, float 1.000000e+01, float 1.000000e+01)
   store float %917, ptr %909, align 4, !tbaa !75
   %.not.i.i.i529 = icmp eq ptr %908, null
@@ -2402,7 +2402,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit503: ; preds = %_ZN2cv20Mat
   %929 = add nuw i64 %927, %928
   %930 = trunc i64 %929 to i32
   %931 = uitofp i32 %930 to float
-  %932 = fmul float %931, 0x3DF0000000000000
+  %932 = fmul nnan float %931, 0x3DF0000000000000
   %933 = call noundef float @llvm.fmuladd.f32(float %932, float 0x3F2A36E300000000, float 0x3F1A36E2E0000000)
   store float %933, ptr %925, align 4, !tbaa !75
   %.not.i.i.i533 = icmp eq ptr %924, null
@@ -2434,7 +2434,7 @@ _ZNK2cv20MatCommaInitializer_IfEcvNS_4Mat_IfEEEv.exit503: ; preds = %_ZN2cv20Mat
   %944 = add i64 %942, %943
   %945 = trunc i64 %944 to i32
   %946 = uitofp i32 %945 to float
-  %947 = fmul float %946, 0x3DF0000000000000
+  %947 = fmul nnan float %946, 0x3DF0000000000000
   %948 = call noundef float @llvm.fmuladd.f32(float %947, float 0x3F2A36E300000000, float 0x3F1A36E2E0000000)
   store float %948, ptr %941, align 4, !tbaa !75
   %.not.i.i.i537 = icmp eq ptr %940, null

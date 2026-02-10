@@ -1520,7 +1520,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %.lr.ph.
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn23GatherElementsLayerImpl12forward_implIhEEvRKNS0_3MatESA_RS8_EUlS3_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %65, align 8, !tbaa !122
   %69 = mul nsw i32 %.024.i, %40
   %70 = sitofp i32 %69 to double
-  %71 = fmul double %70, 0x3F50000000000000
+  %71 = fmul nnan double %70, 0x3F50000000000000
   %72 = fptoui double %71 to i64
   %73 = uitofp i64 %72 to double
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef %14, double noundef %73)
@@ -1819,7 +1819,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %.lr.ph.
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn23GatherElementsLayerImpl12forward_implIiEEvRKNS0_3MatESA_RS8_EUlS3_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %66, align 8, !tbaa !122
   %70 = mul nsw i32 %.024.i, %40
   %71 = sitofp i32 %70 to double
-  %72 = fmul double %71, 0x3F50000000000000
+  %72 = fmul nnan double %71, 0x3F50000000000000
   %73 = fptoui double %72 to i64
   %74 = uitofp i64 %73 to double
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef %14, double noundef %74)
@@ -2118,7 +2118,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKSt6vectorIiSaIiEEii.exit: ; preds = %.lr.ph.
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn23GatherElementsLayerImpl12forward_implIfEEvRKNS0_3MatESA_RS8_EUlS3_E_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation, ptr %66, align 8, !tbaa !122
   %70 = mul nsw i32 %.024.i, %40
   %71 = sitofp i32 %70 to double
-  %72 = fmul double %71, 0x3F50000000000000
+  %72 = fmul nnan double %71, 0x3F50000000000000
   %73 = fptoui double %72 to i64
   %74 = uitofp i64 %73 to double
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %13, ptr noundef %14, double noundef %74)

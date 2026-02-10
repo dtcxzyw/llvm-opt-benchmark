@@ -388,7 +388,7 @@ _ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i: ; preds = %.
   %96 = uitofp i16 %93 to float
   %97 = fdiv float %96, 1.500000e+01
   %98 = uitofp i16 %95 to float
-  %99 = fmul float %98, 6.250000e-02
+  %99 = fmul nnan float %98, 6.250000e-02
   %100 = fdiv float %99, %97
   %101 = fadd float %100, -1.000000e+00
   %102 = call noundef float @llvm.fabs.f32(float %101)
@@ -557,7 +557,7 @@ _ZN5ZXing4OneD7DataBar11IsCharacterERKNS_11PatternViewEif.exit.i.i85: ; preds = 
 
 _ZN5ZXing4OneDL11IsRightPairERKNS_11PatternViewE.exit: ; preds = %.lr.ph.i.i.i.i8.i.i86
   %182 = uitofp i16 %181 to float
-  %183 = fmul float %182, 6.250000e-02
+  %183 = fmul nnan float %182, 6.250000e-02
   %184 = fdiv float %183, %173
   %185 = fadd float %184, -1.000000e+00
   %186 = call noundef float @llvm.fabs.f32(float %185)

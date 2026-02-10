@@ -333,7 +333,7 @@ define internal i32 @config_input(ptr noundef %0) #1 {
   %62 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %63 = load i32, ptr %62, align 8, !tbaa !59
   %64 = sitofp i32 %63 to float
-  %65 = fmul nsz float %64, 1.500000e+00
+  %65 = fmul nnan nsz float %64, 1.500000e+00
   %66 = fdiv nsz float 1.000000e+00, %65
   store float %66, ptr %5, align 4, !tbaa !67
   %67 = sext i32 %63 to i64
@@ -367,7 +367,7 @@ define internal i32 @config_input(ptr noundef %0) #1 {
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %80 ]
   %81 = trunc nuw nsw i64 %indvars.iv.i to i32
   %82 = uitofp nneg i32 %81 to double
-  %83 = fmul nsz double %82, 0x400921FB54442D18
+  %83 = fmul nnan nsz double %82, 0x400921FB54442D18
   %84 = fdiv nsz double %83, %75
   %85 = fptrunc nsz double %84 to float
   %86 = tail call nsz float @llvm.sin.f32(float %85)
@@ -408,7 +408,7 @@ de_tx_init_float.exit:                            ; preds = %60, %._crit_edge.i,
   %100 = getelementptr inbounds nuw i8, ptr %.val44, i64 32
   %101 = load i32, ptr %100, align 8, !tbaa !59
   %102 = sitofp i32 %101 to float
-  %103 = fmul nsz float %102, 1.500000e+00
+  %103 = fmul nnan nsz float %102, 1.500000e+00
   %104 = fpext nsz float %103 to double
   %105 = fdiv nsz double 1.000000e+00, %104
   store double %105, ptr %3, align 8, !tbaa !72
@@ -443,7 +443,7 @@ de_tx_init_float.exit:                            ; preds = %60, %._crit_edge.i,
   %indvars.iv.i51 = phi i64 [ 0, %.lr.ph.i49 ], [ %indvars.iv.next.i52, %119 ]
   %120 = trunc nuw nsw i64 %indvars.iv.i51 to i32
   %121 = uitofp nneg i32 %120 to double
-  %122 = fmul nsz double %121, 0x400921FB54442D18
+  %122 = fmul nnan nsz double %121, 0x400921FB54442D18
   %123 = fdiv nsz double %122, %114
   %124 = tail call nsz double @llvm.sin.f64(double %123)
   %125 = getelementptr inbounds nuw double, ptr %107, i64 %indvars.iv.i51

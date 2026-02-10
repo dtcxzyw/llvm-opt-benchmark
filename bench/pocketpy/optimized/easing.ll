@@ -3073,7 +3073,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN3$_68__invo
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
-  %9 = fmul double %6, 2.000000e+00
+  %9 = fmul nnan double %6, 2.000000e+00
   %10 = fmul double %6, %9
   br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_6clES1_NS_8ArgsViewE.exit"
 
@@ -3137,7 +3137,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN3$_98__invo
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %3
-  %9 = fmul double %6, 4.000000e+00
+  %9 = fmul nnan double %6, 4.000000e+00
   %10 = fmul double %6, %9
   %11 = fmul double %6, %10
   br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK3$_9clES1_NS_8ArgsViewE.exit"
@@ -3411,7 +3411,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_218__inv
   br i1 %7, label %8, label %13
 
 8:                                                ; preds = %3
-  %9 = fmul double %6, 2.000000e+00
+  %9 = fmul nnan double %6, 2.000000e+00
   %square5.i.i = fmul double %9, %9
   %10 = fsub double 1.000000e+00, %square5.i.i
   %11 = tail call double @sqrt(double noundef %10) #21
@@ -3483,9 +3483,9 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_248__inv
   br i1 %7, label %8, label %12
 
 8:                                                ; preds = %3
-  %9 = fmul double %6, 2.000000e+00
+  %9 = fmul nnan double %6, 2.000000e+00
   %square7.i.i = fmul double %9, %9
-  %10 = tail call double @llvm.fmuladd.f64(double %6, double 0x401CC25FE974A340, double 0xC004C25FE974A340)
+  %10 = tail call nnan double @llvm.fmuladd.f64(double %6, double 0x401CC25FE974A340, double 0xC004C25FE974A340)
   %11 = fmul double %10, %square7.i.i
   br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_24clES1_NS_8ArgsViewE.exit"
 
@@ -3626,7 +3626,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_288__inv
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %3
-  %10 = fmul double %7, 7.562500e+00
+  %10 = fmul nnan double %7, 7.562500e+00
   %11 = fmul double %7, %10
   br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_28clES1_NS_8ArgsViewE.exit"
 
@@ -3636,7 +3636,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_288__inv
 
 14:                                               ; preds = %12
   %15 = fadd double %7, 0xBFE1745D1745D174
-  %16 = fmul double %15, 7.562500e+00
+  %16 = fmul nnan double %15, 7.562500e+00
   %17 = tail call double @llvm.fmuladd.f64(double %16, double %15, double 7.500000e-01)
   br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_28clES1_NS_8ArgsViewE.exit"
 
@@ -3646,7 +3646,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_288__inv
 
 20:                                               ; preds = %18
   %21 = fadd double %7, 0xBFEA2E8BA2E8BA2F
-  %22 = fmul double %21, 7.562500e+00
+  %22 = fmul nnan double %21, 7.562500e+00
   %23 = tail call double @llvm.fmuladd.f64(double %22, double %21, double 9.375000e-01)
   br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_28clES1_NS_8ArgsViewE.exit"
 
@@ -3676,7 +3676,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_298__inv
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
-  %9 = fmul double %6, 7.562500e+00
+  %9 = fmul nnan double %6, 7.562500e+00
   %10 = fmul double %6, %9
   br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_29clES1_NS_8ArgsViewE.exit"
 
@@ -3686,7 +3686,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_298__inv
 
 13:                                               ; preds = %11
   %14 = fadd double %6, 0xBFE1745D1745D174
-  %15 = fmul double %14, 7.562500e+00
+  %15 = fmul nnan double %14, 7.562500e+00
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %14, double 7.500000e-01)
   br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_29clES1_NS_8ArgsViewE.exit"
 
@@ -3696,7 +3696,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_298__inv
 
 19:                                               ; preds = %17
   %20 = fadd double %6, 0xBFEA2E8BA2E8BA2F
-  %21 = fmul double %20, 7.562500e+00
+  %21 = fmul nnan double %20, 7.562500e+00
   %22 = tail call double @llvm.fmuladd.f64(double %21, double %20, double 9.375000e-01)
   br label %"_ZZN4pkpy17add_module_easingEPNS_2VMEENK4$_29clES1_NS_8ArgsViewE.exit"
 
@@ -3730,7 +3730,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_308__inv
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %8
-  %12 = fmul double %9, 7.562500e+00
+  %12 = fmul nnan double %9, 7.562500e+00
   %13 = fmul double %9, %12
   br label %_ZN4pkpyL13easeOutBounceEd.exit.i.i
 
@@ -3740,7 +3740,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_308__inv
 
 16:                                               ; preds = %14
   %17 = fadd double %9, 0xBFE1745D1745D174
-  %18 = fmul double %17, 7.562500e+00
+  %18 = fmul nnan double %17, 7.562500e+00
   %19 = tail call double @llvm.fmuladd.f64(double %18, double %17, double 7.500000e-01)
   br label %_ZN4pkpyL13easeOutBounceEd.exit.i.i
 
@@ -3750,7 +3750,7 @@ define internal noundef ptr @"_ZZN4pkpy17add_module_easingEPNS_2VMEEN4$_308__inv
 
 22:                                               ; preds = %20
   %23 = fadd double %9, 0xBFEA2E8BA2E8BA2F
-  %24 = fmul double %23, 7.562500e+00
+  %24 = fmul nnan double %23, 7.562500e+00
   %25 = tail call double @llvm.fmuladd.f64(double %24, double %23, double 9.375000e-01)
   br label %_ZN4pkpyL13easeOutBounceEd.exit.i.i
 
@@ -3771,7 +3771,7 @@ _ZN4pkpyL13easeOutBounceEd.exit.i.i:              ; preds = %26, %22, %16, %11
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %31
-  %35 = fmul double %32, 7.562500e+00
+  %35 = fmul nnan double %32, 7.562500e+00
   %36 = fmul double %32, %35
   br label %_ZN4pkpyL13easeOutBounceEd.exit4.i.i
 
@@ -3781,7 +3781,7 @@ _ZN4pkpyL13easeOutBounceEd.exit.i.i:              ; preds = %26, %22, %16, %11
 
 39:                                               ; preds = %37
   %40 = fadd double %32, 0xBFE1745D1745D174
-  %41 = fmul double %40, 7.562500e+00
+  %41 = fmul nnan double %40, 7.562500e+00
   %42 = tail call double @llvm.fmuladd.f64(double %41, double %40, double 7.500000e-01)
   br label %_ZN4pkpyL13easeOutBounceEd.exit4.i.i
 
@@ -3791,7 +3791,7 @@ _ZN4pkpyL13easeOutBounceEd.exit.i.i:              ; preds = %26, %22, %16, %11
 
 45:                                               ; preds = %43
   %46 = fadd double %32, 0xBFEA2E8BA2E8BA2F
-  %47 = fmul double %46, 7.562500e+00
+  %47 = fmul nnan double %46, 7.562500e+00
   %48 = tail call double @llvm.fmuladd.f64(double %47, double %46, double 9.375000e-01)
   br label %_ZN4pkpyL13easeOutBounceEd.exit4.i.i
 

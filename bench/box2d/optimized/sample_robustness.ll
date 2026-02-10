@@ -301,17 +301,17 @@ define linkonce_odr dso_local void @_ZN14HighMassRatio1C2ER8Settings(ptr noundef
 43:                                               ; preds = %.preheader63, %70
   %.05167 = phi i32 [ 0, %.preheader63 ], [ %71, %70 ]
   %44 = uitofp nneg i32 %.05167 to float
-  %45 = fmul float %44, 2.200000e+01
+  %45 = fmul nnan float %44, 2.200000e+01
   %46 = fadd float %45, -2.000000e+01
-  %47 = fadd float %44, 1.000000e+00
-  %48 = fmul float %47, 1.000000e+02
+  %47 = fadd nnan float %44, 1.000000e+00
+  %48 = fmul nnan float %47, 1.000000e+02
   br label %.preheader
 
 .preheader:                                       ; preds = %43, %55
   %.05266 = phi i32 [ 10, %43 ], [ %56, %55 ]
   %.05365 = phi float [ 1.000000e+00, %43 ], [ %52, %55 ]
   %49 = uitofp nneg i32 %.05266 to float
-  %50 = fmul float %49, 5.000000e-01
+  %50 = fmul nnan float %49, 5.000000e-01
   %51 = icmp eq i32 %.05266, 1
   %52 = fadd float %.05365, 2.000000e+00
   %53 = select i1 %51, float %52, float %.05365
@@ -326,8 +326,8 @@ define linkonce_odr dso_local void @_ZN14HighMassRatio1C2ER8Settings(ptr noundef
 58:                                               ; preds = %.preheader, %66
   %.05464 = phi i32 [ 0, %.preheader ], [ %67, %66 ]
   %59 = uitofp nneg i32 %.05464 to float
-  %60 = fsub float %59, %50
-  %61 = fmul float %60, 2.000000e+00
+  %60 = fsub nnan float %59, %50
+  %61 = fmul nnan float %60, 2.000000e+00
   %62 = fadd float %46, %61
   store float %62, ptr %24, align 4, !tbaa !15
   store float %53, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15

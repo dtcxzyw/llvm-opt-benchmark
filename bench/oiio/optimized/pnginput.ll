@@ -1610,9 +1610,9 @@ _ZN11OpenImageIO6v3_1_09ImageSpecD2Ev.exit:       ; preds = %_ZNSt6vectorINSt7__
   br i1 %or.cond, label %175, label %181
 
 175:                                              ; preds = %168
-  %176 = fdiv double 1.000000e+00, %173
-  %177 = fptrunc double %176 to float
-  %178 = fmul float %177, 1.000000e+02
+  %176 = fdiv nnan double 1.000000e+00, %173
+  %177 = fptrunc nnan double %176 to float
+  %178 = fmul nnan float %177, 1.000000e+02
   %179 = call float @llvm.round.f32(float %178)
   %180 = fdiv float %179, 1.000000e+02
   call void @_ZN11OpenImageIO6v3_1_027set_colorspace_rec709_gammaERNS0_9ImageSpecEf(ptr noundef nonnull align 8 dereferenceable(160) %6, float noundef %180)
@@ -2392,14 +2392,14 @@ _ZN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEEC2EPKc.exit168: ;
 497:                                              ; preds = %494
   %498 = load i32, ptr %72, align 4, !tbaa !102
   %499 = uitofp i32 %498 to float
-  %500 = fmul float %499, 0x3F9A027520000000
+  %500 = fmul nnan float %499, 0x3F9A027520000000
   %501 = load i32, ptr %73, align 4, !tbaa !102
   %502 = uitofp i32 %501 to float
-  %503 = fmul float %502, 0x3F9A027520000000
-  %504 = fmul float %500, 1.000000e+01
+  %503 = fmul nnan float %502, 0x3F9A027520000000
+  %504 = fmul nnan float %500, 1.000000e+01
   %505 = call noundef float @llvm.round.f32(float %504)
   %506 = fdiv float %505, 1.000000e+01
-  %507 = fmul float %503, 1.000000e+01
+  %507 = fmul nnan float %503, 1.000000e+01
   %508 = call noundef float @llvm.round.f32(float %507)
   %509 = fdiv float %508, 1.000000e+01
   store ptr @.str.77, ptr %74, align 8, !tbaa !69
@@ -3810,7 +3810,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PNGInput14associateAlph
   %16 = getelementptr inbounds i16, ptr %.054115.us, i64 %12
   %17 = load i16, ptr %16, align 2, !tbaa !130
   %18 = uitofp i16 %17 to float
-  %19 = fmul float %18, 0x3EF0001000000000
+  %19 = fmul nnan float %18, 0x3EF0001000000000
   %20 = fcmp une float %19, 1.000000e+00
   br i1 %20, label %.preheader.us, label %..loopexit_crit_edge.us
 
@@ -3829,17 +3829,17 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PNGInput14associateAlph
   %24 = getelementptr inbounds nuw i16, ptr %.054115.us, i64 %indvars.iv131
   %25 = load i16, ptr %24, align 2, !tbaa !130
   %26 = uitofp i16 %25 to float
-  %27 = fmul float %26, 0x3EF0001000000000
+  %27 = fmul nnan float %26, 0x3EF0001000000000
   %28 = fcmp ugt float %27, 0x3FA4B5DCC0000000
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %23
-  %30 = fmul float %27, 0x3FB3D07220000000
+  %30 = fmul nnan float %27, 0x3FB3D07220000000
   br label %_ZN11OpenImageIO6v3_1_014sRGB_to_linearEf.exit.us
 
 31:                                               ; preds = %23
-  %32 = fadd float %27, 0x3FAC28F5C0000000
-  %33 = fmul float %32, 0x3FEE54EDE0000000
+  %32 = fadd nnan float %27, 0x3FAC28F5C0000000
+  %33 = fmul nnan float %32, 0x3FEE54EDE0000000
   %34 = tail call float @llvm.pow.f32(float %33, float 0x4003333340000000)
   br label %_ZN11OpenImageIO6v3_1_014sRGB_to_linearEf.exit.us
 
@@ -3850,7 +3850,7 @@ _ZN11OpenImageIO6v3_1_014sRGB_to_linearEf.exit.us: ; preds = %31, %29
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %_ZN11OpenImageIO6v3_1_014sRGB_to_linearEf.exit.us
-  %39 = fmul float %36, 0x4029D70A40000000
+  %39 = fmul nnan float %36, 0x4029D70A40000000
   br label %_ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us
 
 40:                                               ; preds = %_ZN11OpenImageIO6v3_1_014sRGB_to_linearEf.exit.us
@@ -3903,7 +3903,7 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
   %58 = getelementptr inbounds i16, ptr %.2105.us, i64 %54
   %59 = load i16, ptr %58, align 2, !tbaa !130
   %60 = uitofp i16 %59 to float
-  %61 = fmul float %60, 0x3EF0001000000000
+  %61 = fmul nnan float %60, 0x3EF0001000000000
   %62 = fcmp une float %61, 1.000000e+00
   br i1 %62, label %.preheader99.us, label %..loopexit100_crit_edge.us
 
@@ -3922,7 +3922,7 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
   %66 = getelementptr inbounds nuw i16, ptr %.2105.us, i64 %indvars.iv
   %67 = load i16, ptr %66, align 2, !tbaa !130
   %68 = uitofp i16 %67 to float
-  %69 = fmul float %68, 0x3EF0001000000000
+  %69 = fmul nnan float %68, 0x3EF0001000000000
   %70 = fmul float %61, %69
   %71 = fmul float %70, 6.553500e+04
   %72 = fadd float %71, 5.000000e-01
@@ -3961,7 +3961,7 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
   %83 = getelementptr inbounds i16, ptr %.1110.us, i64 %79
   %84 = load i16, ptr %83, align 2, !tbaa !130
   %85 = uitofp i16 %84 to float
-  %86 = fmul float %85, 0x3EF0001000000000
+  %86 = fmul nnan float %85, 0x3EF0001000000000
   %87 = fcmp une float %86, 1.000000e+00
   br i1 %87, label %.preheader96.us, label %..loopexit97_crit_edge.us
 
@@ -3980,7 +3980,7 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
   %91 = getelementptr inbounds nuw i16, ptr %.1110.us, i64 %indvars.iv125
   %92 = load i16, ptr %91, align 2, !tbaa !130
   %93 = uitofp i16 %92 to float
-  %94 = fmul float %93, 0x3EF0001000000000
+  %94 = fmul nnan float %93, 0x3EF0001000000000
   %95 = tail call float @llvm.pow.f32(float %94, float %6)
   %96 = fmul float %86, %95
   %97 = tail call float @llvm.pow.f32(float %96, float %77)
@@ -4034,7 +4034,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PNGInput14associateAlph
   %16 = getelementptr inbounds i8, ptr %.054115.us, i64 %12
   %17 = load i8, ptr %16, align 1, !tbaa !14
   %18 = uitofp i8 %17 to float
-  %19 = fmul float %18, 0x3F70101020000000
+  %19 = fmul nnan float %18, 0x3F70101020000000
   %20 = fcmp une float %19, 1.000000e+00
   br i1 %20, label %.preheader.us, label %..loopexit_crit_edge.us
 
@@ -4053,17 +4053,17 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PNGInput14associateAlph
   %24 = getelementptr inbounds nuw i8, ptr %.054115.us, i64 %indvars.iv131
   %25 = load i8, ptr %24, align 1, !tbaa !14
   %26 = uitofp i8 %25 to float
-  %27 = fmul float %26, 0x3F70101020000000
+  %27 = fmul nnan float %26, 0x3F70101020000000
   %28 = fcmp ugt float %27, 0x3FA4B5DCC0000000
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %23
-  %30 = fmul float %27, 0x3FB3D07220000000
+  %30 = fmul nnan float %27, 0x3FB3D07220000000
   br label %_ZN11OpenImageIO6v3_1_014sRGB_to_linearEf.exit.us
 
 31:                                               ; preds = %23
-  %32 = fadd float %27, 0x3FAC28F5C0000000
-  %33 = fmul float %32, 0x3FEE54EDE0000000
+  %32 = fadd nnan float %27, 0x3FAC28F5C0000000
+  %33 = fmul nnan float %32, 0x3FEE54EDE0000000
   %34 = tail call float @llvm.pow.f32(float %33, float 0x4003333340000000)
   br label %_ZN11OpenImageIO6v3_1_014sRGB_to_linearEf.exit.us
 
@@ -4074,7 +4074,7 @@ _ZN11OpenImageIO6v3_1_014sRGB_to_linearEf.exit.us: ; preds = %31, %29
   br i1 %37, label %40, label %38
 
 38:                                               ; preds = %_ZN11OpenImageIO6v3_1_014sRGB_to_linearEf.exit.us
-  %39 = fmul float %36, 0x4029D70A40000000
+  %39 = fmul nnan float %36, 0x4029D70A40000000
   br label %_ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us
 
 40:                                               ; preds = %_ZN11OpenImageIO6v3_1_014sRGB_to_linearEf.exit.us
@@ -4127,7 +4127,7 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
   %58 = getelementptr inbounds i8, ptr %.2105.us, i64 %54
   %59 = load i8, ptr %58, align 1, !tbaa !14
   %60 = uitofp i8 %59 to float
-  %61 = fmul float %60, 0x3F70101020000000
+  %61 = fmul nnan float %60, 0x3F70101020000000
   %62 = fcmp une float %61, 1.000000e+00
   br i1 %62, label %.preheader99.us, label %..loopexit100_crit_edge.us
 
@@ -4146,7 +4146,7 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
   %66 = getelementptr inbounds nuw i8, ptr %.2105.us, i64 %indvars.iv
   %67 = load i8, ptr %66, align 1, !tbaa !14
   %68 = uitofp i8 %67 to float
-  %69 = fmul float %68, 0x3F70101020000000
+  %69 = fmul nnan float %68, 0x3F70101020000000
   %70 = fmul float %61, %69
   %71 = fmul float %70, 2.550000e+02
   %72 = fadd float %71, 5.000000e-01
@@ -4185,7 +4185,7 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
   %83 = getelementptr inbounds i8, ptr %.1110.us, i64 %79
   %84 = load i8, ptr %83, align 1, !tbaa !14
   %85 = uitofp i8 %84 to float
-  %86 = fmul float %85, 0x3F70101020000000
+  %86 = fmul nnan float %85, 0x3F70101020000000
   %87 = fcmp une float %86, 1.000000e+00
   br i1 %87, label %.preheader96.us, label %..loopexit97_crit_edge.us
 
@@ -4204,7 +4204,7 @@ _ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us: ; preds = %40, %38
   %91 = getelementptr inbounds nuw i8, ptr %.1110.us, i64 %indvars.iv125
   %92 = load i8, ptr %91, align 1, !tbaa !14
   %93 = uitofp i8 %92 to float
-  %94 = fmul float %93, 0x3F70101020000000
+  %94 = fmul nnan float %93, 0x3F70101020000000
   %95 = tail call float @llvm.pow.f32(float %94, float %6)
   %96 = fmul float %86, %95
   %97 = tail call float @llvm.pow.f32(float %96, float %77)

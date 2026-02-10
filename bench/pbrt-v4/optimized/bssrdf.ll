@@ -374,7 +374,7 @@ define dso_local noundef float @_ZN4pbrt15BeamDiffusionSSEfffff(float noundef %0
   %9 = fadd float %8, -1.000000e+00
   %10 = fcmp ogt float %9, 0.000000e+00
   %.sroa.speculated.i = select i1 %10, float %9, float 0.000000e+00
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i)
+  %sqrt.i = tail call nnan float @llvm.sqrt.f32(float %.sroa.speculated.i)
   %11 = fmul float %4, %sqrt.i
   %12 = fmul float %4, %4
   %13 = fneg float %6

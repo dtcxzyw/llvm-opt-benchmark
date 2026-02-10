@@ -18302,7 +18302,7 @@ define hidden void @_ZN10tokenizers6models3bpe4word4Word9merge_all17hac6ce551d9e
 102:                                              ; preds = %92
   %103 = lshr i32 %95, 8
   %104 = uitofp nneg i32 %103 to float
-  %105 = fmul float %104, 0x3E70000000000000
+  %105 = fmul nnan float %104, 0x3E70000000000000
   %106 = fcmp olt float %105, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre205 = load i64, ptr %50, align 8, !alias.scope !3924, !noalias !3927

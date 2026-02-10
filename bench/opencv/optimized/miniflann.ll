@@ -19016,7 +19016,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_10HammingLUTEE21cho
   %14 = trunc i64 %13 to i32
   %15 = and i32 %14, 2147483647
   %16 = uitofp nneg i32 %15 to double
-  %17 = fmul double %16, 0x3E00000000000000
+  %17 = fmul nnan double %16, 0x3E00000000000000
   %18 = fmul double %17, %7
   %19 = fptosi double %18 to i32
   %20 = sext i32 %19 to i64
@@ -19209,7 +19209,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_10HammingLUTEE21cho
   %19 = trunc i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = uitofp nneg i32 %20 to double
-  %22 = fmul double %21, 0x3E00000000000000
+  %22 = fmul nnan double %21, 0x3E00000000000000
   %23 = fmul double %22, %12
   %24 = fptosi double %23 to i32
   %25 = sext i32 %24 to i64
@@ -19304,7 +19304,7 @@ _ZNK7cvflann10HammingLUTclIPhEEiPKhT_m.exit.loopexit: ; preds = %.lr.ph.i
   %70 = trunc i64 %69 to i32
   %71 = and i32 %70, 2147483647
   %72 = uitofp nneg i32 %71 to double
-  %73 = fmul double %72, 0x3E00000000000000
+  %73 = fmul nnan double %72, 0x3E00000000000000
   %74 = tail call noundef double @llvm.fmuladd.f64(double %.1132, double %73, double 0.000000e+00)
   br label %.lr.ph114
 
@@ -26428,7 +26428,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_10H
   %14 = trunc i64 %13 to i32
   %15 = and i32 %14, 2147483647
   %16 = uitofp nneg i32 %15 to double
-  %17 = fmul double %16, 0x3E00000000000000
+  %17 = fmul nnan double %16, 0x3E00000000000000
   %18 = fmul double %17, %7
   %19 = fptosi double %18 to i32
   %20 = sext i32 %19 to i64
@@ -26621,7 +26621,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_10H
   %19 = trunc i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = uitofp nneg i32 %20 to double
-  %22 = fmul double %21, 0x3E00000000000000
+  %22 = fmul nnan double %21, 0x3E00000000000000
   %23 = fmul double %22, %12
   %24 = fptosi double %23 to i32
   %25 = sext i32 %24 to i64
@@ -26716,7 +26716,7 @@ _ZNK7cvflann10HammingLUTclIPhEEiPKhT_m.exit.loopexit: ; preds = %.lr.ph.i
   %70 = trunc i64 %69 to i32
   %71 = and i32 %70, 2147483647
   %72 = uitofp nneg i32 %71 to double
-  %73 = fmul double %72, 0x3E00000000000000
+  %73 = fmul nnan double %72, 0x3E00000000000000
   %74 = tail call noundef double @llvm.fmuladd.f64(double %.1132, double %73, double 0.000000e+00)
   br label %.lr.ph114
 
@@ -26906,7 +26906,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_10H
   %19 = trunc i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = uitofp nneg i32 %20 to double
-  %22 = fmul double %21, 0x3E00000000000000
+  %22 = fmul nnan double %21, 0x3E00000000000000
   %23 = fmul double %22, %12
   %24 = fptosi double %23 to i32
   %25 = sext i32 %24 to i64
@@ -27015,7 +27015,7 @@ _ZNK7cvflann10HammingLUTclIPhEEiPKhT_m.exit85.loopexit.us: ; preds = %.lr.ph.i80
   %70 = load i32, ptr %69, align 4, !tbaa !28
   %71 = sitofp i32 %70 to float
   %72 = sitofp i32 %.061103.us.us to float
-  %73 = fmul float %72, 0x3FF4CCCCC0000000
+  %73 = fmul nnan float %72, 0x3FF4CCCCC0000000
   %74 = fcmp olt float %73, %71
   br i1 %74, label %.preheader.us.us, label %77
 
@@ -31764,7 +31764,7 @@ _ZNSt6vectorIN7cvflann3lsh8LshTableIhEESaIS3_EE6resizeEm.exit: ; preds = %15, %1
   %35 = load i64, ptr %34, align 8, !tbaa !583
   %36 = add i64 %35, %.sroa.06.0.copyload
   %37 = uitofp i64 %36 to double
-  %38 = fmul double %37, 1.200000e+00
+  %38 = fmul nnan double %37, 1.200000e+00
   %39 = fptoui double %38 to i64
   call void @_ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(56) %33, i64 noundef %39)
   %.not.i = icmp eq i64 %.sroa.06.0.copyload, 0
@@ -43967,7 +43967,7 @@ _ZN7cvflann11KDTreeIndexINS_2L2IfEEE14selectDivisionEPf.exit: ; preds = %._crit_
   %100 = trunc i64 %99 to i32
   %101 = and i32 %100, 2147483647
   %102 = uitofp nneg i32 %101 to double
-  %103 = fmul double %102, 0x3E00000000000000
+  %103 = fmul nnan double %102, 0x3E00000000000000
   %104 = fmul double %.0.lcssa.i, %103
   %105 = fptosi double %104 to i32
   %106 = sext i32 %105 to i64
@@ -46939,7 +46939,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE21chooseCen
   %14 = trunc i64 %13 to i32
   %15 = and i32 %14, 2147483647
   %16 = uitofp nneg i32 %15 to double
-  %17 = fmul double %16, 0x3E00000000000000
+  %17 = fmul nnan double %16, 0x3E00000000000000
   %18 = fmul double %17, %7
   %19 = fptosi double %18 to i32
   %20 = sext i32 %19 to i64
@@ -47283,7 +47283,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE21chooseCen
   %19 = trunc i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = uitofp nneg i32 %20 to double
-  %22 = fmul double %21, 0x3E00000000000000
+  %22 = fmul nnan double %21, 0x3E00000000000000
   %23 = fmul double %22, %12
   %24 = fptosi double %23 to i32
   %25 = sext i32 %24 to i64
@@ -47447,7 +47447,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   %111 = trunc i64 %110 to i32
   %112 = and i32 %111, 2147483647
   %113 = uitofp nneg i32 %112 to double
-  %114 = fmul double %113, 0x3E00000000000000
+  %114 = fmul nnan double %113, 0x3E00000000000000
   %115 = tail call noundef double @llvm.fmuladd.f64(double %.1155, double %114, double 0.000000e+00)
   br label %.lr.ph138
 
@@ -51836,7 +51836,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE11findExact
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %.loopexit57
-  %55 = fmul float %52, %52
+  %55 = fmul nnan float %52, %52
   %56 = fmul float %46, 4.000000e+00
   %57 = fmul float %56, %50
   %58 = fcmp ogt float %55, %57
@@ -52536,7 +52536,7 @@ tailrecurse:                                      ; preds = %137, %7
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %.loopexit68
-  %59 = fmul float %56, %56
+  %59 = fmul nnan float %56, %56
   %60 = fmul float %50, 4.000000e+00
   %61 = fmul float %60, %54
   %62 = fcmp ogt float %59, %61
@@ -56021,7 +56021,7 @@ _ZSt4copyIPfS0_ET0_T_S2_S1_.exit.i:               ; preds = %.noexc52
   %79 = trunc i64 %75 to i32
   %80 = and i32 %79, 2147483647
   %81 = uitofp nneg i32 %80 to double
-  %82 = fmul double %81, 0x3E00000000000000
+  %82 = fmul nnan double %81, 0x3E00000000000000
   %83 = sub i64 %69, %.034.i
   %84 = trunc i64 %83 to i32
   %85 = sitofp i32 %84 to double
@@ -61310,7 +61310,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L2
   %14 = trunc i64 %13 to i32
   %15 = and i32 %14, 2147483647
   %16 = uitofp nneg i32 %15 to double
-  %17 = fmul double %16, 0x3E00000000000000
+  %17 = fmul nnan double %16, 0x3E00000000000000
   %18 = fmul double %17, %7
   %19 = fptosi double %18 to i32
   %20 = sext i32 %19 to i64
@@ -61654,7 +61654,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L2
   %19 = trunc i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = uitofp nneg i32 %20 to double
-  %22 = fmul double %21, 0x3E00000000000000
+  %22 = fmul nnan double %21, 0x3E00000000000000
   %23 = fmul double %22, %12
   %24 = fptosi double %23 to i32
   %25 = sext i32 %24 to i64
@@ -61818,7 +61818,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   %111 = trunc i64 %110 to i32
   %112 = and i32 %111, 2147483647
   %113 = uitofp nneg i32 %112 to double
-  %114 = fmul double %113, 0x3E00000000000000
+  %114 = fmul nnan double %113, 0x3E00000000000000
   %115 = tail call noundef double @llvm.fmuladd.f64(double %.1155, double %114, double 0.000000e+00)
   br label %.lr.ph138
 
@@ -62063,7 +62063,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L2
   %19 = trunc i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = uitofp nneg i32 %20 to double
-  %22 = fmul double %21, 0x3E00000000000000
+  %22 = fmul nnan double %21, 0x3E00000000000000
   %23 = fmul double %22, %12
   %24 = fptosi double %23 to i32
   %25 = sext i32 %24 to i64
@@ -67213,7 +67213,7 @@ _ZNSt6vectorIN7cvflann3lsh8LshTableIfEESaIS3_EE6resizeEm.exit: ; preds = %17, %1
   %37 = load i64, ptr %36, align 8, !tbaa !583
   %38 = add i64 %37, %.sroa.05.0.copyload
   %39 = uitofp i64 %38 to double
-  %40 = fmul double %39, 1.200000e+00
+  %40 = fmul nnan double %39, 1.200000e+00
   %41 = fptoui double %40 to i64
   call void @_ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(56) %35, i64 noundef %41)
   %.not.i = icmp eq i64 %.sroa.05.0.copyload, 0
@@ -76838,7 +76838,7 @@ _ZN7cvflann11KDTreeIndexINS_2L1IfEEE14selectDivisionEPf.exit: ; preds = %._crit_
   %100 = trunc i64 %99 to i32
   %101 = and i32 %100, 2147483647
   %102 = uitofp nneg i32 %101 to double
-  %103 = fmul double %102, 0x3E00000000000000
+  %103 = fmul nnan double %102, 0x3E00000000000000
   %104 = fmul double %.0.lcssa.i, %103
   %105 = fptosi double %104 to i32
   %106 = sext i32 %105 to i64
@@ -79826,7 +79826,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L1IfEEE21chooseCen
   %14 = trunc i64 %13 to i32
   %15 = and i32 %14, 2147483647
   %16 = uitofp nneg i32 %15 to double
-  %17 = fmul double %16, 0x3E00000000000000
+  %17 = fmul nnan double %16, 0x3E00000000000000
   %18 = fmul double %17, %7
   %19 = fptosi double %18 to i32
   %20 = sext i32 %19 to i64
@@ -80062,7 +80062,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L1IfEEE21chooseCen
   %19 = trunc i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = uitofp nneg i32 %20 to double
-  %22 = fmul double %21, 0x3E00000000000000
+  %22 = fmul nnan double %21, 0x3E00000000000000
   %23 = fmul double %22, %12
   %24 = fptosi double %23 to i32
   %25 = sext i32 %24 to i64
@@ -80236,7 +80236,7 @@ _ZNK7cvflann2L1IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %_ZNK7cvflann2L1IfEc
   %118 = trunc i64 %117 to i32
   %119 = and i32 %118, 2147483647
   %120 = uitofp nneg i32 %119 to double
-  %121 = fmul double %120, 0x3E00000000000000
+  %121 = fmul nnan double %120, 0x3E00000000000000
   %122 = tail call noundef double @llvm.fmuladd.f64(double %.1155, double %121, double 0.000000e+00)
   br label %.lr.ph138
 
@@ -88440,7 +88440,7 @@ _ZSt4copyIPfS0_ET0_T_S2_S1_.exit.i:               ; preds = %.noexc52
   %79 = trunc i64 %75 to i32
   %80 = and i32 %79, 2147483647
   %81 = uitofp nneg i32 %80 to double
-  %82 = fmul double %81, 0x3E00000000000000
+  %82 = fmul nnan double %81, 0x3E00000000000000
   %83 = sub i64 %69, %.034.i
   %84 = trunc i64 %83 to i32
   %85 = sitofp i32 %84 to double
@@ -92506,7 +92506,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L1
   %14 = trunc i64 %13 to i32
   %15 = and i32 %14, 2147483647
   %16 = uitofp nneg i32 %15 to double
-  %17 = fmul double %16, 0x3E00000000000000
+  %17 = fmul nnan double %16, 0x3E00000000000000
   %18 = fmul double %17, %7
   %19 = fptosi double %18 to i32
   %20 = sext i32 %19 to i64
@@ -92742,7 +92742,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L1
   %19 = trunc i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = uitofp nneg i32 %20 to double
-  %22 = fmul double %21, 0x3E00000000000000
+  %22 = fmul nnan double %21, 0x3E00000000000000
   %23 = fmul double %22, %12
   %24 = fptosi double %23 to i32
   %25 = sext i32 %24 to i64
@@ -92916,7 +92916,7 @@ _ZNK7cvflann2L1IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %_ZNK7cvflann2L1IfEc
   %118 = trunc i64 %117 to i32
   %119 = and i32 %118, 2147483647
   %120 = uitofp nneg i32 %119 to double
-  %121 = fmul double %120, 0x3E00000000000000
+  %121 = fmul nnan double %120, 0x3E00000000000000
   %122 = tail call noundef double @llvm.fmuladd.f64(double %.1155, double %121, double 0.000000e+00)
   br label %.lr.ph138
 
@@ -93171,7 +93171,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L1
   %19 = trunc i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = uitofp nneg i32 %20 to double
-  %22 = fmul double %21, 0x3E00000000000000
+  %22 = fmul nnan double %21, 0x3E00000000000000
   %23 = fmul double %22, %12
   %24 = fptosi double %23 to i32
   %25 = sext i32 %24 to i64
@@ -98328,7 +98328,7 @@ _ZNSt6vectorIN7cvflann3lsh8LshTableIfEESaIS3_EE6resizeEm.exit: ; preds = %17, %1
   %37 = load i64, ptr %36, align 8, !tbaa !583
   %38 = add i64 %37, %.sroa.05.0.copyload
   %39 = uitofp i64 %38 to double
-  %40 = fmul double %39, 1.200000e+00
+  %40 = fmul nnan double %39, 1.200000e+00
   %41 = fptoui double %40 to i64
   call void @_ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(56) %35, i64 noundef %41)
   %.not.i = icmp eq i64 %.sroa.05.0.copyload, 0

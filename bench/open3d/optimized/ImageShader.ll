@@ -1176,7 +1176,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %50
   %.sroa.speculated4.i = select i1 %132, float %129, float 0.000000e+00
   %133 = fcmp olt float %.sroa.speculated4.i, 1.000000e+00
   %.sroa.speculated.i = select i1 %133, float %.sroa.speculated4.i, float 1.000000e+00
-  %134 = fmul float %.sroa.speculated.i, 2.550000e+02
+  %134 = fmul nnan float %.sroa.speculated.i, 2.550000e+02
   %135 = fptoui float %134 to i8
   br label %_ZN6open3d13visualization4glsl12_GLOBAL__N_135ConvertColorFromFloatToUnsignedCharEf.exit
 
@@ -1236,7 +1236,7 @@ _ZN6open3d13visualization4glsl12_GLOBAL__N_135ConvertColorFromFloatToUnsignedCha
   %.sroa.speculated4.i117 = select i1 %166, float %163, float 0.000000e+00
   %167 = fcmp olt float %.sroa.speculated4.i117, 1.000000e+00
   %.sroa.speculated.i118 = select i1 %167, float %.sroa.speculated4.i117, float 1.000000e+00
-  %168 = fmul float %.sroa.speculated.i118, 2.550000e+02
+  %168 = fmul nnan float %.sroa.speculated.i118, 2.550000e+02
   %169 = fptoui float %168 to i8
   br label %_ZN6open3d13visualization4glsl12_GLOBAL__N_135ConvertColorFromFloatToUnsignedCharEf.exit120
 

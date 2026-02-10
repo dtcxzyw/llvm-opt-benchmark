@@ -4118,7 +4118,7 @@ update_minmax.exit598:                            ; preds = %424, %427
   %.0555721 = phi ptr [ %458, %.lr.ph723 ], [ %484, %483 ]
   %462 = load i64, ptr %.0555721, align 8, !tbaa !42
   %463 = sitofp i64 %462 to double
-  %464 = fmul nsz double %463, 0x3C00000000000000
+  %464 = fmul nnan nsz double %463, 0x3C00000000000000
   tail call fastcc void @update_stat(ptr noundef nonnull %6, ptr noundef %456, double noundef %463, double noundef %464, i64 noundef %462)
   %465 = load i32, ptr %445, align 4, !tbaa !64
   %.not576 = icmp eq i32 %465, 0
@@ -4285,7 +4285,7 @@ update_minmax.exit601:                            ; preds = %500, %503
   %.0558707 = phi ptr [ %542, %.lr.ph709 ], [ %567, %566 ]
   %545 = load i64, ptr %.0558707, align 8, !tbaa !42
   %546 = sitofp i64 %545 to double
-  %547 = fmul nsz double %546, 0x3C00000000000000
+  %547 = fmul nnan nsz double %546, 0x3C00000000000000
   tail call fastcc void @update_stat(ptr noundef nonnull %6, ptr noundef %538, double noundef %546, double noundef %547, i64 noundef %545)
   %548 = load i32, ptr %524, align 4, !tbaa !64
   %.not573 = icmp eq i32 %548, 0
@@ -5332,7 +5332,7 @@ define internal fastcc void @update_stat(ptr noundef readonly captures(none) %0,
   %168 = select nsz i1 %167, double %166, double 0.000000e+00
   %169 = fcmp nsz ogt double %168, 1.000000e+00
   %..i192 = select nsz i1 %169, double 1.000000e+00, double %168
-  %170 = fmul nsz double %..i192, 8.191000e+03
+  %170 = fmul nnan nsz double %..i192, 8.191000e+03
   %171 = tail call i64 @llvm.lrint.i64.f64(double %170)
   %172 = trunc i64 %171 to i32
   %173 = tail call i32 @llvm.smax.i32(i32 %172, i32 0)

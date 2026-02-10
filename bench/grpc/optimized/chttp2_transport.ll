@@ -5958,9 +5958,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi7EEERS2_RAT__Kc.exit.i: ; p
 
 460:                                              ; preds = %.noexc129
   %461 = sitofp i64 %.sroa.015.0.copyload.i to double
-  %462 = fmul double %461, 2.000000e+00
-  %463 = fdiv double %462, 1.000000e+03
-  %464 = fmul double %463, 1.000000e+03
+  %462 = fmul nnan double %461, 2.000000e+00
+  %463 = fdiv nnan double %462, 1.000000e+03
+  %464 = fmul nnan double %463, 1.000000e+03
   %465 = fcmp ult double %464, 0x43E0000000000000
   br i1 %465, label %466, label %_ZN9grpc_coremlENS_8DurationEd.exit.thread436.i
 
@@ -6436,7 +6436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit203.i: ; preds = %
   %642 = and i64 %641, 4294967296
   %.not21.i.i = icmp eq i64 %642, 0
   %643 = sitofp i32 %.sroa.08.0.extract.trunc.i.i to double
-  %644 = fmul double %643, 8.000000e-01
+  %644 = fmul nnan double %643, 8.000000e-01
   %645 = fptosi double %644 to i32
   %646 = call i32 @llvm.smax.i32(i32 %645, i32 8192)
   %.sroa.speculated.i.i = select i1 %.not21.i.i, i32 8192, i32 %646
@@ -6548,7 +6548,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi28EEERS2_RAT__Kc.exit.i: ; 
   %.0.i13.i.i = select i1 %.not.i228.i, i32 -1, i32 %.sroa.018.0.extract.trunc.i.i
   %674 = icmp ult i32 %.0.i13.i.i, 1717986918
   %675 = uitofp nneg i32 %.0.i13.i.i to double
-  %676 = fmul double %675, 1.250000e+00
+  %676 = fmul nnan double %675, 1.250000e+00
   %677 = fptosi double %676 to i32
   %678 = select i1 %674, i32 %677, i32 %.0.i13.i.i
   %.sroa.speculated.i229.i = call i32 @llvm.smax.i32(i32 %678, i32 16384)

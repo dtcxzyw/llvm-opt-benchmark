@@ -87,7 +87,7 @@ define internal void @uninit(ptr noundef %0) #1 {
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %11 = load i64, ptr %10, align 8, !tbaa !32
   %12 = uitofp i64 %11 to double
-  %13 = fmul nsz double %12, 1.000000e+02
+  %13 = fmul nnan nsz double %12, 1.000000e+02
   %14 = uitofp i64 %5 to double
   %15 = fdiv nsz double %13, %14
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.30, ptr noundef nonnull %9, i64 noundef %11, i64 noundef %5, double noundef %15) #15
@@ -1432,7 +1432,7 @@ define internal range(i32 -12, 1) i32 @filter_channel(ptr noundef readonly captu
   %53 = shl nsw i64 %52, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %51, i8 0, i64 %53, i1 false)
   %54 = sitofp i32 %45 to double
-  %55 = fdiv nsz double 1.000000e+00, %54
+  %55 = fdiv nnan nsz double 1.000000e+00, %54
   %.not20.i.i = icmp slt i32 %43, 0
   br i1 %.not20.i.i, label %autocorrelation.exit.i, label %.preheader.preheader.i.i
 

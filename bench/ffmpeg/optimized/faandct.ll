@@ -67,8 +67,8 @@ define void @ff_faandct(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   store float %52, ptr %53, align 16, !tbaa !8
   %54 = add nsw i32 %47, %44
   %55 = sitofp i32 %54 to float
-  %56 = fpext nsz float %55 to double
-  %57 = fmul nsz double %56, 0x3FE6A09E667F3BCD
+  %56 = fpext nnan ninf nsz float %55 to double
+  %57 = fmul nnan nsz double %56, 0x3FE6A09E667F3BCD
   %58 = fptrunc nsz double %57 to float
   %59 = fadd nsz float %45, %58
   %60 = getelementptr inbounds nuw float, ptr %2, i64 %24
@@ -85,14 +85,14 @@ define void @ff_faandct(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %69 = sitofp i32 %68 to float
   %70 = fpext nsz float %65 to double
   %71 = fpext nsz float %69 to double
-  %72 = fmul nsz double %71, 0xBFD87DE2A6AEA963
+  %72 = fmul nnan nsz double %71, 0xBFD87DE2A6AEA963
   %73 = tail call nsz double @llvm.fmuladd.f64(double %70, double 0x3FED906BCF328D46, double %72)
   %74 = fptrunc nsz double %73 to float
-  %75 = fmul nsz double %70, 0x3FD87DE2A6AEA963
+  %75 = fmul nnan nsz double %70, 0x3FD87DE2A6AEA963
   %76 = tail call nsz double @llvm.fmuladd.f64(double %71, double 0x3FED906BCF328D46, double %75)
   %77 = fptrunc nsz double %76 to float
-  %78 = fpext nsz float %67 to double
-  %79 = fmul nsz double %78, 0x3FE6A09E667F3BCD
+  %78 = fpext nnan ninf nsz float %67 to double
+  %79 = fmul nnan nsz double %78, 0x3FE6A09E667F3BCD
   %80 = fptrunc nsz double %79 to float
   %81 = fadd nsz float %13, %80
   %82 = fsub nsz float %13, %80
@@ -310,8 +310,8 @@ define void @ff_faandct248(ptr noundef captures(none) %0) local_unnamed_addr #0 
   store float %52, ptr %53, align 16, !tbaa !8
   %54 = add nsw i32 %47, %44
   %55 = sitofp i32 %54 to float
-  %56 = fpext nsz float %55 to double
-  %57 = fmul nsz double %56, 0x3FE6A09E667F3BCD
+  %56 = fpext nnan ninf nsz float %55 to double
+  %57 = fmul nnan nsz double %56, 0x3FE6A09E667F3BCD
   %58 = fptrunc nsz double %57 to float
   %59 = fadd nsz float %45, %58
   %60 = getelementptr inbounds nuw float, ptr %2, i64 %24
@@ -328,14 +328,14 @@ define void @ff_faandct248(ptr noundef captures(none) %0) local_unnamed_addr #0 
   %69 = sitofp i32 %68 to float
   %70 = fpext nsz float %65 to double
   %71 = fpext nsz float %69 to double
-  %72 = fmul nsz double %71, 0xBFD87DE2A6AEA963
+  %72 = fmul nnan nsz double %71, 0xBFD87DE2A6AEA963
   %73 = tail call nsz double @llvm.fmuladd.f64(double %70, double 0x3FED906BCF328D46, double %72)
   %74 = fptrunc nsz double %73 to float
-  %75 = fmul nsz double %70, 0x3FD87DE2A6AEA963
+  %75 = fmul nnan nsz double %70, 0x3FD87DE2A6AEA963
   %76 = tail call nsz double @llvm.fmuladd.f64(double %71, double 0x3FED906BCF328D46, double %75)
   %77 = fptrunc nsz double %76 to float
-  %78 = fpext nsz float %67 to double
-  %79 = fmul nsz double %78, 0x3FE6A09E667F3BCD
+  %78 = fpext nnan ninf nsz float %67 to double
+  %79 = fmul nnan nsz double %78, 0x3FE6A09E667F3BCD
   %80 = fptrunc nsz double %79 to float
   %81 = fadd nsz float %13, %80
   %82 = fsub nsz float %13, %80

@@ -51010,7 +51010,7 @@ _ZNSt10unique_ptrIN7rocksdb11FSDirectoryESt14default_deleteIS1_EED2Ev.exit568: ;
   %.val228 = load i64, ptr %1982, align 8, !tbaa !493
   %1983 = uitofp i64 %.val228 to double
   %1984 = uitofp i64 %980 to double
-  %1985 = fmul double %1984, 0x3FF0C6F7A0B5ED8D
+  %1985 = fmul nnan double %1984, 0x3FF0C6F7A0B5ED8D
   %1986 = fdiv double %1983, %1985
   %1987 = load ptr, ptr %267, align 8, !tbaa !204
   %1988 = getelementptr i8, ptr %.val217, i64 120

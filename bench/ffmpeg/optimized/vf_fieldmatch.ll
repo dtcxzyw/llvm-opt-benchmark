@@ -555,7 +555,7 @@ define internal range(i32 -2147483648, 1) i32 @config_input(ptr noundef readonly
   %12 = load i32, ptr %11, align 4, !tbaa !65
   %13 = mul nsw i32 %12, %10
   %14 = sitofp i32 %13 to double
-  %15 = fmul nsz double %14, 2.550000e+02
+  %15 = fmul nnan nsz double %14, 2.550000e+02
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %17 = load double, ptr %16, align 8, !tbaa !67
   %18 = fmul nsz double %17, %15

@@ -2337,7 +2337,7 @@ basic_iter_next.exit.thread:                      ; preds = %15
 
 26:                                               ; preds = %23
   %27 = sitofp i64 %.val5.i28.pre to double
-  %28 = fmul double %27, 1.000000e+02
+  %28 = fmul nnan double %27, 1.000000e+02
   %29 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %30 = load i64, ptr %29, align 8, !tbaa !22
   %31 = sitofp i64 %30 to double

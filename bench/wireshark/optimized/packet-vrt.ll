@@ -785,7 +785,7 @@ define hidden void @proto_register_vrt() local_unnamed_addr #0 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @format_hertz(ptr noundef %0, i64 noundef %1) #1 {
   %3 = sitofp i64 %1 to double
-  %4 = fmul double %3, 0x3EB0000000000000
+  %4 = fmul nnan double %3, 0x3EB0000000000000
   %5 = tail call double @llvm.fabs.f64(double %4)
   %6 = tail call double @log10(double noundef %5) #8
   %7 = fdiv double %6, 3.000000e+00
@@ -831,7 +831,7 @@ define internal void @format_hertz(ptr noundef %0, i64 noundef %1) #1 {
 .sink.split.i:                                    ; preds = %18, %17, %16, %15, %14, %13, %12, %11, %2
   %.sink11.i = phi double [ 0x3D719799812DEA11, %18 ], [ 1.000000e-09, %17 ], [ 0x3EB0C6F7A0B5ED8D, %16 ], [ 1.000000e-03, %15 ], [ 1.000000e+03, %14 ], [ 1.000000e+06, %13 ], [ 1.000000e+09, %12 ], [ 1.000000e+12, %11 ], [ 1.000000e+15, %2 ]
   %.0.ph.i = phi ptr [ @.str.476, %18 ], [ @.str.475, %17 ], [ @.str.474, %16 ], [ @.str.473, %15 ], [ @.str.472, %14 ], [ @.str.471, %13 ], [ @.str.470, %12 ], [ @.str.469, %11 ], [ @.str.468, %2 ]
-  %19 = fmul double %4, %.sink11.i
+  %19 = fmul nnan double %4, %.sink11.i
   br label %get_engr_prefix.exit
 
 get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
@@ -844,7 +844,7 @@ get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @format_decibel_milliwatt(ptr noundef %0, i16 noundef signext %1) #1 {
   %3 = sitofp i16 %1 to double
-  %4 = fmul double %3, 7.812500e-03
+  %4 = fmul nnan double %3, 7.812500e-03
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.477, double noundef %4)
   ret void
 }
@@ -852,7 +852,7 @@ define internal void @format_decibel_milliwatt(ptr noundef %0, i16 noundef signe
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @format_decibel(ptr noundef %0, i16 noundef signext %1) #1 {
   %3 = sitofp i16 %1 to double
-  %4 = fmul double %3, 7.812500e-03
+  %4 = fmul nnan double %3, 7.812500e-03
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.478, double noundef %4)
   ret void
 }
@@ -860,7 +860,7 @@ define internal void @format_decibel(ptr noundef %0, i16 noundef signext %1) #1 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @format_second(ptr noundef %0, i64 noundef %1) #1 {
   %3 = sitofp i64 %1 to double
-  %4 = fmul double %3, 1.000000e-15
+  %4 = fmul nnan double %3, 1.000000e-15
   %5 = tail call double @llvm.fabs.f64(double %4)
   %6 = tail call double @log10(double noundef %5) #8
   %7 = fdiv double %6, 3.000000e+00
@@ -906,7 +906,7 @@ define internal void @format_second(ptr noundef %0, i64 noundef %1) #1 {
 .sink.split.i:                                    ; preds = %18, %17, %16, %15, %14, %13, %12, %11, %2
   %.sink11.i = phi double [ 0x3D719799812DEA11, %18 ], [ 1.000000e-09, %17 ], [ 0x3EB0C6F7A0B5ED8D, %16 ], [ 1.000000e-03, %15 ], [ 1.000000e+03, %14 ], [ 1.000000e+06, %13 ], [ 1.000000e+09, %12 ], [ 1.000000e+12, %11 ], [ 1.000000e+15, %2 ]
   %.0.ph.i = phi ptr [ @.str.476, %18 ], [ @.str.475, %17 ], [ @.str.474, %16 ], [ @.str.473, %15 ], [ @.str.472, %14 ], [ @.str.471, %13 ], [ @.str.470, %12 ], [ @.str.469, %11 ], [ @.str.468, %2 ]
-  %19 = fmul double %4, %.sink11.i
+  %19 = fmul nnan double %4, %.sink11.i
   br label %get_engr_prefix.exit
 
 get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
@@ -919,7 +919,7 @@ get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @format_celsius(ptr noundef %0, i16 noundef signext %1) #1 {
   %3 = sitofp i16 %1 to double
-  %4 = fmul double %3, 1.562500e-02
+  %4 = fmul nnan double %3, 1.562500e-02
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.480, double noundef %4)
   ret void
 }
@@ -927,7 +927,7 @@ define internal void @format_celsius(ptr noundef %0, i16 noundef signext %1) #1 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @format_degrees(ptr noundef %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3E90000000000000
+  %4 = fmul nnan double %3, 0x3E90000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.508, double noundef %4)
   ret void
 }
@@ -935,7 +935,7 @@ define internal void @format_degrees(ptr noundef %0, i32 noundef %1) #1 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @format_meter(ptr noundef %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 3.125000e-02
+  %4 = fmul nnan double %3, 3.125000e-02
   %5 = tail call double @llvm.fabs.f64(double %4)
   %6 = tail call double @log10(double noundef %5) #8
   %7 = fdiv double %6, 3.000000e+00
@@ -981,7 +981,7 @@ define internal void @format_meter(ptr noundef %0, i32 noundef %1) #1 {
 .sink.split.i:                                    ; preds = %18, %17, %16, %15, %14, %13, %12, %11, %2
   %.sink11.i = phi double [ 0x3D719799812DEA11, %18 ], [ 1.000000e-09, %17 ], [ 0x3EB0C6F7A0B5ED8D, %16 ], [ 1.000000e-03, %15 ], [ 1.000000e+03, %14 ], [ 1.000000e+06, %13 ], [ 1.000000e+09, %12 ], [ 1.000000e+12, %11 ], [ 1.000000e+15, %2 ]
   %.0.ph.i = phi ptr [ @.str.476, %18 ], [ @.str.475, %17 ], [ @.str.474, %16 ], [ @.str.473, %15 ], [ @.str.472, %14 ], [ @.str.471, %13 ], [ @.str.470, %12 ], [ @.str.469, %11 ], [ @.str.468, %2 ]
-  %19 = fmul double %4, %.sink11.i
+  %19 = fmul nnan double %4, %.sink11.i
   br label %get_engr_prefix.exit
 
 get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
@@ -994,7 +994,7 @@ get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @format_meters_per_second(ptr noundef %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 0x3EF0000000000000
+  %4 = fmul nnan double %3, 0x3EF0000000000000
   %5 = tail call double @llvm.fabs.f64(double %4)
   %6 = tail call double @log10(double noundef %5) #8
   %7 = fdiv double %6, 3.000000e+00
@@ -1040,7 +1040,7 @@ define internal void @format_meters_per_second(ptr noundef %0, i32 noundef %1) #
 .sink.split.i:                                    ; preds = %18, %17, %16, %15, %14, %13, %12, %11, %2
   %.sink11.i = phi double [ 0x3D719799812DEA11, %18 ], [ 1.000000e-09, %17 ], [ 0x3EB0C6F7A0B5ED8D, %16 ], [ 1.000000e-03, %15 ], [ 1.000000e+03, %14 ], [ 1.000000e+06, %13 ], [ 1.000000e+09, %12 ], [ 1.000000e+12, %11 ], [ 1.000000e+15, %2 ]
   %.0.ph.i = phi ptr [ @.str.476, %18 ], [ @.str.475, %17 ], [ @.str.474, %16 ], [ @.str.473, %15 ], [ @.str.472, %14 ], [ @.str.471, %13 ], [ @.str.470, %12 ], [ @.str.469, %11 ], [ @.str.468, %2 ]
-  %19 = fmul double %4, %.sink11.i
+  %19 = fmul nnan double %4, %.sink11.i
   br label %get_engr_prefix.exit
 
 get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
@@ -1053,7 +1053,7 @@ get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @format_radian_phase(ptr noundef %0, i16 noundef signext %1) #1 {
   %3 = sitofp i16 %1 to double
-  %4 = fmul double %3, 7.812500e-03
+  %4 = fmul nnan double %3, 7.812500e-03
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.511, double noundef %4)
   ret void
 }
@@ -1061,7 +1061,7 @@ define internal void @format_radian_phase(ptr noundef %0, i16 noundef signext %1
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @format_radian_pol(ptr noundef %0, i16 noundef signext %1) #1 {
   %3 = sitofp i16 %1 to double
-  %4 = fmul double %3, 0x3F20000000000000
+  %4 = fmul nnan double %3, 0x3F20000000000000
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.511, double noundef %4)
   ret void
 }
@@ -1069,7 +1069,7 @@ define internal void @format_radian_pol(ptr noundef %0, i16 noundef signext %1) 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @format_meter_unsigned(ptr noundef %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 1.562500e-02
+  %4 = fmul nnan double %3, 1.562500e-02
   %5 = tail call double @log10(double noundef %4) #8
   %6 = fdiv double %5, 3.000000e+00
   %7 = tail call double @llvm.floor.f64(double %6)
@@ -1114,7 +1114,7 @@ define internal void @format_meter_unsigned(ptr noundef %0, i32 noundef %1) #1 {
 .sink.split.i:                                    ; preds = %17, %16, %15, %14, %13, %12, %11, %10, %2
   %.sink11.i = phi double [ 0x3D719799812DEA11, %17 ], [ 1.000000e-09, %16 ], [ 0x3EB0C6F7A0B5ED8D, %15 ], [ 1.000000e-03, %14 ], [ 1.000000e+03, %13 ], [ 1.000000e+06, %12 ], [ 1.000000e+09, %11 ], [ 1.000000e+12, %10 ], [ 1.000000e+15, %2 ]
   %.0.ph.i = phi ptr [ @.str.476, %17 ], [ @.str.475, %16 ], [ @.str.474, %15 ], [ @.str.473, %14 ], [ @.str.472, %13 ], [ @.str.471, %12 ], [ @.str.470, %11 ], [ @.str.469, %10 ], [ @.str.468, %2 ]
-  %18 = fmul double %4, %.sink11.i
+  %18 = fmul nnan double %4, %.sink11.i
   br label %get_engr_prefix.exit
 
 get_engr_prefix.exit:                             ; preds = %2, %.sink.split.i

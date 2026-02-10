@@ -705,7 +705,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229: ; preds = %173
   %213 = load i16, ptr %197, align 1
   store ptr %206, ptr %33, align 8
   %214 = sitofp i16 %205 to float
-  %215 = fmul float %214, 0x3EF0000000000000
+  %215 = fmul nnan float %214, 0x3EF0000000000000
   %216 = sitofp i16 %213 to float
   %217 = fcmp une float %215, 0.000000e+00
   %.0158 = select i1 %217, float %215, float 1.000000e+00

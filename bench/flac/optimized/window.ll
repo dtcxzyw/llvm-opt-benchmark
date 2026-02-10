@@ -49,7 +49,7 @@ define hidden void @FLAC__window_bartlett(ptr noundef writeonly captures(none) %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %16 = trunc nuw nsw i64 %indvars.iv to i32
   %17 = uitofp nneg i32 %16 to float
-  %18 = fmul reassoc nsz arcp float %17, 2.000000e+00
+  %18 = fmul reassoc nnan nsz arcp float %17, 2.000000e+00
   %19 = fmul reassoc nsz arcp float %18, %8
   %20 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %19, ptr %20, align 4, !tbaa !3
@@ -61,7 +61,7 @@ define hidden void @FLAC__window_bartlett(ptr noundef writeonly captures(none) %
   %indvars.iv54 = phi i64 [ %13, %.lr.ph43 ], [ %indvars.iv.next55, %21 ]
   %22 = trunc nuw nsw i64 %indvars.iv54 to i32
   %23 = uitofp nneg i32 %22 to float
-  %24 = fmul reassoc nsz arcp float %23, 2.000000e+00
+  %24 = fmul reassoc nnan nsz arcp float %23, 2.000000e+00
   %25 = fmul reassoc nsz arcp float %24, %14
   %26 = fsub reassoc nsz arcp float 2.000000e+00, %25
   %27 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv54
@@ -86,7 +86,7 @@ define hidden void @FLAC__window_bartlett(ptr noundef writeonly captures(none) %
   %indvars.iv59 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next60, %31 ]
   %32 = trunc nuw nsw i64 %indvars.iv59 to i32
   %33 = uitofp nneg i32 %32 to float
-  %34 = fmul reassoc nsz arcp float %33, 2.000000e+00
+  %34 = fmul reassoc nnan nsz arcp float %33, 2.000000e+00
   %35 = fmul reassoc nsz arcp float %34, %11
   %36 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv59
   store float %35, ptr %36, align 4, !tbaa !3
@@ -98,7 +98,7 @@ define hidden void @FLAC__window_bartlett(ptr noundef writeonly captures(none) %
   %indvars.iv64 = phi i64 [ %29, %.lr.ph50 ], [ %indvars.iv.next65, %37 ]
   %38 = trunc nuw nsw i64 %indvars.iv64 to i32
   %39 = uitofp nneg i32 %38 to float
-  %40 = fmul reassoc nsz arcp float %39, 2.000000e+00
+  %40 = fmul reassoc nnan nsz arcp float %39, 2.000000e+00
   %41 = fmul reassoc nsz arcp float %40, %30
   %42 = fsub reassoc nsz arcp float 2.000000e+00, %41
   %43 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv64
@@ -172,12 +172,12 @@ define hidden void @FLAC__window_blackman(ptr noundef writeonly captures(none) %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = uitofp nneg i32 %9 to double
-  %11 = fmul reassoc nsz arcp double %10, 0x401921FB54442D18
+  %11 = fmul reassoc nnan nsz arcp double %10, 0x401921FB54442D18
   %12 = fmul reassoc nsz arcp double %11, %6
   %13 = fptrunc reassoc nsz arcp double %12 to float
   %14 = tail call reassoc nsz arcp float @cosf(float noundef %13) #6, !tbaa !12
   %15 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %14, float -5.000000e-01, float 0x3FDAE147A0000000)
-  %16 = fmul reassoc nsz arcp double %10, 0x402921FB54442D18
+  %16 = fmul reassoc nnan nsz arcp double %10, 0x402921FB54442D18
   %17 = fmul reassoc nsz arcp double %16, %7
   %18 = fptrunc reassoc nsz arcp double %17 to float
   %19 = tail call reassoc nsz arcp float @cosf(float noundef %18) #6, !tbaa !12
@@ -210,17 +210,17 @@ define hidden void @FLAC__window_blackman_harris_4term_92db_sidelobe(ptr noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   %10 = uitofp nneg i32 %9 to double
-  %11 = fmul reassoc nsz arcp double %10, 0x401921FB54442D18
+  %11 = fmul reassoc nnan nsz arcp double %10, 0x401921FB54442D18
   %12 = fmul reassoc nsz arcp double %11, %5
   %13 = fptrunc reassoc nsz arcp double %12 to float
   %14 = tail call reassoc nsz arcp float @cosf(float noundef %13) #6, !tbaa !12
   %15 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %14, float 0xBFDF4024C0000000, float 0x3FD6F5C280000000)
-  %16 = fmul reassoc nsz arcp double %10, 0x402921FB54442D18
+  %16 = fmul reassoc nnan nsz arcp double %10, 0x402921FB54442D18
   %17 = fmul reassoc nsz arcp double %16, %6
   %18 = fptrunc reassoc nsz arcp double %17 to float
   %19 = tail call reassoc nsz arcp float @cosf(float noundef %18) #6, !tbaa !12
   %20 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %19, float 0x3FC2157680000000, float %15)
-  %21 = fmul reassoc nsz arcp double %10, 0x4032D97C7F3321D2
+  %21 = fmul reassoc nnan nsz arcp double %10, 0x4032D97C7F3321D2
   %22 = fmul reassoc nsz arcp double %21, %7
   %23 = fptrunc reassoc nsz arcp double %22 to float
   %24 = tail call reassoc nsz arcp float @cosf(float noundef %23) #6, !tbaa !12
@@ -239,7 +239,7 @@ define hidden void @FLAC__window_blackman_harris_4term_92db_sidelobe(ptr noundef
 define hidden void @FLAC__window_connes(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = add nsw i32 %1, -1
   %4 = sitofp i32 %3 to double
-  %5 = fmul reassoc nsz arcp double %4, 5.000000e-01
+  %5 = fmul reassoc nnan nsz arcp double %4, 5.000000e-01
   %.not.not13 = icmp sgt i32 %1, 0
   br i1 %.not.not13, label %.lr.ph.preheader, label %._crit_edge
 
@@ -252,8 +252,8 @@ define hidden void @FLAC__window_connes(ptr noundef writeonly captures(none) %0,
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = uitofp nneg i32 %7 to double
-  %9 = fsub reassoc nsz arcp double %8, %5
-  %10 = fmul reassoc nsz arcp double %9, 2.000000e+00
+  %9 = fsub reassoc nnan nsz arcp double %8, %5
+  %10 = fmul reassoc nnan nsz arcp double %9, 2.000000e+00
   %11 = fmul reassoc nsz arcp double %10, %6
   %12 = fneg reassoc nsz arcp double %11
   %13 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %12, double %11, double 1.000000e+00)
@@ -291,22 +291,22 @@ define hidden void @FLAC__window_flattop(ptr noundef writeonly captures(none) %0
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %11 = trunc nuw nsw i64 %indvars.iv to i32
   %12 = uitofp nneg i32 %11 to double
-  %13 = fmul reassoc nsz arcp double %12, 0x401921FB54442D18
+  %13 = fmul reassoc nnan nsz arcp double %12, 0x401921FB54442D18
   %14 = fmul reassoc nsz arcp double %13, %6
   %15 = fptrunc reassoc nsz arcp double %14 to float
   %16 = tail call reassoc nsz arcp float @cosf(float noundef %15) #6, !tbaa !12
   %17 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %16, float 0xBFDAAA1780000000, float 0x3FCB981740000000)
-  %18 = fmul reassoc nsz arcp double %12, 0x402921FB54442D18
+  %18 = fmul reassoc nnan nsz arcp double %12, 0x402921FB54442D18
   %19 = fmul reassoc nsz arcp double %18, %7
   %20 = fptrunc reassoc nsz arcp double %19 to float
   %21 = tail call reassoc nsz arcp float @cosf(float noundef %20) #6, !tbaa !12
   %22 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %21, float 0x3FD1BEAE00000000, float %17)
-  %23 = fmul reassoc nsz arcp double %12, 0x4032D97C7F3321D2
+  %23 = fmul reassoc nnan nsz arcp double %12, 0x4032D97C7F3321D2
   %24 = fmul reassoc nsz arcp double %23, %8
   %25 = fptrunc reassoc nsz arcp double %24 to float
   %26 = tail call reassoc nsz arcp float @cosf(float noundef %25) #6, !tbaa !12
   %27 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %26, float 0xBFB5656E00000000, float %22)
-  %28 = fmul reassoc nsz arcp double %12, 0x403921FB54442D18
+  %28 = fmul reassoc nnan nsz arcp double %12, 0x403921FB54442D18
   %29 = fmul reassoc nsz arcp double %28, %9
   %30 = fptrunc reassoc nsz arcp double %29 to float
   %31 = tail call reassoc nsz arcp float @cosf(float noundef %30) #6, !tbaa !12
@@ -325,7 +325,7 @@ define hidden void @FLAC__window_flattop(ptr noundef writeonly captures(none) %0
 define hidden void @FLAC__window_gauss(ptr noundef writeonly captures(none) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #1 {
   %4 = add nsw i32 %1, -1
   %5 = sitofp i32 %4 to double
-  %6 = fmul reassoc nsz arcp double %5, 5.000000e-01
+  %6 = fmul reassoc nnan nsz arcp double %5, 5.000000e-01
   %7 = fcmp reassoc nsz arcp ogt float %2, 0.000000e+00
   %8 = fcmp reassoc nsz arcp ole float %2, 5.000000e-01
   %or.cond = and i1 %7, %8
@@ -337,7 +337,7 @@ define hidden void @FLAC__window_gauss(ptr noundef writeonly captures(none) %0, 
 
 .lr.ph:                                           ; preds = %.preheader18
   %9 = fdiv reassoc nsz arcp double 8.000000e+00, %5
-  %invariant.op = fmul reassoc nsz arcp double %9, -5.000000e-01
+  %invariant.op = fmul reassoc nnan nsz arcp double %9, -5.000000e-01
   %wide.trip.count = zext nneg i32 %1 to i64
   br label %13
 
@@ -345,10 +345,10 @@ define hidden void @FLAC__window_gauss(ptr noundef writeonly captures(none) %0, 
   br i1 %.not.not22, label %.lr.ph24, label %FLAC__window_gauss.exit
 
 .lr.ph24:                                         ; preds = %.preheader
-  %10 = fpext reassoc nsz arcp float %2 to double
-  %11 = fmul reassoc nsz arcp double %6, %10
+  %10 = fpext reassoc nnan ninf nsz arcp float %2 to double
+  %11 = fmul reassoc nnan nsz arcp double %6, %10
   %12 = fdiv reassoc nsz arcp double 1.000000e+00, %11
-  %invariant.op25 = fmul reassoc nsz arcp double %12, -5.000000e-01
+  %invariant.op25 = fmul reassoc nnan nsz arcp double %12, -5.000000e-01
   %wide.trip.count32 = zext nneg i32 %1 to i64
   br label %22
 
@@ -407,7 +407,7 @@ define hidden void @FLAC__window_hamming(ptr noundef writeonly captures(none) %0
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = uitofp nneg i32 %8 to double
-  %10 = fmul reassoc nsz arcp double %9, 0x401921FB54442D18
+  %10 = fmul reassoc nnan nsz arcp double %9, 0x401921FB54442D18
   %11 = fmul reassoc nsz arcp double %10, %6
   %12 = fptrunc reassoc nsz arcp double %11 to float
   %13 = tail call reassoc nsz arcp float @cosf(float noundef %12) #6, !tbaa !12
@@ -438,7 +438,7 @@ define hidden void @FLAC__window_hann(ptr noundef writeonly captures(none) %0, i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = uitofp nneg i32 %8 to double
-  %10 = fmul reassoc nsz arcp double %9, 0x401921FB54442D18
+  %10 = fmul reassoc nnan nsz arcp double %9, 0x401921FB54442D18
   %11 = fmul reassoc nsz arcp double %10, %6
   %12 = fptrunc reassoc nsz arcp double %11 to float
   %13 = tail call reassoc nsz arcp float @cosf(float noundef %12) #6, !tbaa !12
@@ -471,17 +471,17 @@ define hidden void @FLAC__window_kaiser_bessel(ptr noundef writeonly captures(no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = uitofp nneg i32 %10 to double
-  %12 = fmul reassoc nsz arcp double %11, 0x401921FB54442D18
+  %12 = fmul reassoc nnan nsz arcp double %11, 0x401921FB54442D18
   %13 = fmul reassoc nsz arcp double %12, %6
   %14 = fptrunc reassoc nsz arcp double %13 to float
   %15 = tail call reassoc nsz arcp float @cosf(float noundef %14) #6, !tbaa !12
   %16 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %15, float 0xBFDFDF3B60000000, float 0x3FD9BA5E40000000)
-  %17 = fmul reassoc nsz arcp double %11, 0x402921FB54442D18
+  %17 = fmul reassoc nnan nsz arcp double %11, 0x402921FB54442D18
   %18 = fmul reassoc nsz arcp double %17, %7
   %19 = fptrunc reassoc nsz arcp double %18 to float
   %20 = tail call reassoc nsz arcp float @cosf(float noundef %19) #6, !tbaa !12
   %21 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %20, float 0x3FB9168720000000, float %16)
-  %22 = fmul reassoc nsz arcp double %11, 0x4032D97C7F3321D2
+  %22 = fmul reassoc nnan nsz arcp double %11, 0x4032D97C7F3321D2
   %23 = fmul reassoc nsz arcp double %22, %8
   %24 = fptrunc reassoc nsz arcp double %23 to float
   %25 = tail call reassoc nsz arcp float @cosf(float noundef %24) #6, !tbaa !12
@@ -514,17 +514,17 @@ define hidden void @FLAC__window_nuttall(ptr noundef writeonly captures(none) %0
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = uitofp nneg i32 %10 to double
-  %12 = fmul reassoc nsz arcp double %11, 0x401921FB54442D18
+  %12 = fmul reassoc nnan nsz arcp double %11, 0x401921FB54442D18
   %13 = fmul reassoc nsz arcp double %12, %6
   %14 = fptrunc reassoc nsz arcp double %13 to float
   %15 = tail call reassoc nsz arcp float @cosf(float noundef %14) #6, !tbaa !12
   %16 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %15, float 0xBFDF4EAF20000000, float 0x3FD744ED00000000)
-  %17 = fmul reassoc nsz arcp double %11, 0x402921FB54442D18
+  %17 = fmul reassoc nnan nsz arcp double %11, 0x402921FB54442D18
   %18 = fmul reassoc nsz arcp double %17, %7
   %19 = fptrunc reassoc nsz arcp double %18 to float
   %20 = tail call reassoc nsz arcp float @cosf(float noundef %19) #6, !tbaa !12
   %21 = tail call reassoc nsz arcp float @llvm.fmuladd.f32(float %20, float 0x3FC17C17A0000000, float %16)
-  %22 = fmul reassoc nsz arcp double %11, 0x4032D97C7F3321D2
+  %22 = fmul reassoc nnan nsz arcp double %11, 0x4032D97C7F3321D2
   %23 = fmul reassoc nsz arcp double %22, %8
   %24 = fptrunc reassoc nsz arcp double %23 to float
   %25 = tail call reassoc nsz arcp float @cosf(float noundef %24) #6, !tbaa !12
@@ -610,7 +610,7 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = uitofp nneg i32 %20 to float
-  %22 = fmul reassoc nsz arcp float %21, 2.000000e+00
+  %22 = fmul reassoc nnan nsz arcp float %21, 2.000000e+00
   %23 = fmul reassoc nsz arcp float %22, %9
   %24 = getelementptr float, ptr %0, i64 %indvars.iv
   %25 = getelementptr i8, ptr %24, i64 -4
@@ -652,7 +652,7 @@ define hidden void @FLAC__window_triangle(ptr noundef writeonly captures(none) %
   %indvars.iv60 = phi i64 [ 1, %.lr.ph47 ], [ %indvars.iv.next61, %40 ]
   %41 = trunc nuw nsw i64 %indvars.iv60 to i32
   %42 = uitofp nneg i32 %41 to float
-  %43 = fmul reassoc nsz arcp float %42, 2.000000e+00
+  %43 = fmul reassoc nnan nsz arcp float %42, 2.000000e+00
   %44 = fmul reassoc nsz arcp float %43, %14
   %45 = getelementptr float, ptr %0, i64 %indvars.iv60
   %46 = getelementptr i8, ptr %45, i64 -4
@@ -720,7 +720,7 @@ define hidden void @FLAC__window_tukey(ptr noundef writeonly captures(none) %0, 
   %indvars.iv.i34 = phi i64 [ 0, %.lr.ph.i32 ], [ %indvars.iv.next.i35, %15 ]
   %16 = trunc nuw nsw i64 %indvars.iv.i34 to i32
   %17 = uitofp nneg i32 %16 to double
-  %18 = fmul reassoc nsz arcp double %17, 0x401921FB54442D18
+  %18 = fmul reassoc nnan nsz arcp double %17, 0x401921FB54442D18
   %19 = fmul reassoc nsz arcp double %18, %14
   %20 = fptrunc reassoc nsz arcp double %19 to float
   %21 = tail call reassoc nsz arcp float @cosf(float noundef %20) #6, !tbaa !12
@@ -739,7 +739,7 @@ define hidden void @FLAC__window_tukey(ptr noundef writeonly captures(none) %0, 
 
 27:                                               ; preds = %24
   %28 = sitofp i32 %1 to float
-  %29 = fmul reassoc nsz arcp float %28, 2.500000e-01
+  %29 = fmul reassoc nnan nsz arcp float %28, 2.500000e-01
   %30 = fptosi float %29 to i32
   %31 = add nsw i32 %30, -1
   %32 = icmp sgt i32 %1, 0
@@ -775,7 +775,7 @@ FLAC__window_rectangle.exit50:                    ; preds = %.lr.ph.i46, %27
   %indvars.iv = phi i64 [ 0, %.preheader52 ], [ %indvars.iv.next, %40 ]
   %41 = trunc nuw nsw i64 %indvars.iv to i32
   %42 = uitofp nneg i32 %41 to double
-  %43 = fmul reassoc nsz arcp double %42, 0x400921FB54442D18
+  %43 = fmul reassoc nnan nsz arcp double %42, 0x400921FB54442D18
   %44 = fmul reassoc nsz arcp double %43, %38
   %45 = fptrunc reassoc nsz arcp double %44 to float
   %46 = tail call reassoc nsz arcp float @cosf(float noundef %45) #6, !tbaa !12
@@ -785,7 +785,7 @@ FLAC__window_rectangle.exit50:                    ; preds = %.lr.ph.i46, %27
   %49 = trunc i64 %indvars.iv to i32
   %50 = add i32 %31, %49
   %51 = sitofp i32 %50 to double
-  %52 = fmul reassoc nsz arcp double %51, 0x400921FB54442D18
+  %52 = fmul reassoc nnan nsz arcp double %51, 0x400921FB54442D18
   %53 = fmul reassoc nsz arcp double %52, %39
   %54 = fptrunc reassoc nsz arcp double %53 to float
   %55 = tail call reassoc nsz arcp float @cosf(float noundef %54) #6, !tbaa !12
@@ -797,7 +797,7 @@ FLAC__window_rectangle.exit50:                    ; preds = %.lr.ph.i46, %27
   br i1 %exitcond.not, label %FLAC__window_rectangle.exit, label %40, !llvm.loop !29
 
 57:                                               ; preds = %24
-  %58 = fmul reassoc nsz arcp float %2, 5.000000e-01
+  %58 = fmul reassoc nnan nsz arcp float %2, 5.000000e-01
   %59 = sitofp i32 %1 to float
   %60 = fmul reassoc nsz arcp float %58, %59
   %61 = fptosi float %60 to i32
@@ -835,7 +835,7 @@ FLAC__window_rectangle.exit43:                    ; preds = %.lr.ph.i39, %57
   %indvars.iv62 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next63, %71 ]
   %72 = trunc nuw nsw i64 %indvars.iv62 to i32
   %73 = uitofp nneg i32 %72 to double
-  %74 = fmul reassoc nsz arcp double %73, 0x400921FB54442D18
+  %74 = fmul reassoc nnan nsz arcp double %73, 0x400921FB54442D18
   %75 = fmul reassoc nsz arcp double %74, %69
   %76 = fptrunc reassoc nsz arcp double %75 to float
   %77 = tail call reassoc nsz arcp float @cosf(float noundef %76) #6, !tbaa !12
@@ -845,7 +845,7 @@ FLAC__window_rectangle.exit43:                    ; preds = %.lr.ph.i39, %57
   %80 = trunc i64 %indvars.iv62 to i32
   %81 = add i32 %62, %80
   %82 = sitofp i32 %81 to double
-  %83 = fmul reassoc nsz arcp double %82, 0x400921FB54442D18
+  %83 = fmul reassoc nnan nsz arcp double %82, 0x400921FB54442D18
   %84 = fmul reassoc nsz arcp double %83, %70
   %85 = fptrunc reassoc nsz arcp double %84 to float
   %86 = tail call reassoc nsz arcp float @cosf(float noundef %85) #6, !tbaa !12
@@ -873,7 +873,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
 
 13:                                               ; preds = %5
   %14 = sitofp i32 %11 to float
-  %15 = fmul reassoc nsz arcp float %14, 0x3F999999A0000000
+  %15 = fmul reassoc nnan nsz arcp float %14, 0x3F999999A0000000
   %16 = fptosi float %15 to i32
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %8, i32 %1)
   %17 = icmp sgt i32 %invariant.smin, 0
@@ -914,7 +914,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   %indvars.iv = phi i64 [ %23, %.lr.ph107 ], [ %indvars.iv.next, %28 ]
   %.0.i106 = phi i32 [ 1, %.lr.ph107 ], [ %36, %28 ]
   %29 = uitofp nneg i32 %.0.i106 to double
-  %30 = fmul reassoc nsz arcp double %29, 0x400921FB54442D18
+  %30 = fmul reassoc nnan nsz arcp double %29, 0x400921FB54442D18
   %31 = fmul reassoc nsz arcp double %30, %24
   %32 = fptrunc reassoc nsz arcp double %31 to float
   %33 = tail call reassoc nsz arcp float @cosf(float noundef %32) #6, !tbaa !12
@@ -956,7 +956,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   %indvars.iv204 = phi i64 [ %39, %.lr.ph116 ], [ %indvars.iv.next205, %45 ]
   %.1.i115 = phi i32 [ %16, %.lr.ph116 ], [ %53, %45 ]
   %46 = sitofp i32 %.1.i115 to double
-  %47 = fmul reassoc nsz arcp double %46, 0x400921FB54442D18
+  %47 = fmul reassoc nnan nsz arcp double %46, 0x400921FB54442D18
   %48 = fmul reassoc nsz arcp double %47, %40
   %49 = fptrunc reassoc nsz arcp double %48 to float
   %50 = tail call reassoc nsz arcp float @cosf(float noundef %49) #6, !tbaa !12
@@ -975,7 +975,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
 
 58:                                               ; preds = %56
   %59 = sitofp i32 %11 to float
-  %60 = fmul reassoc nsz arcp float %59, 0x3FDE666660000000
+  %60 = fmul reassoc nnan nsz arcp float %59, 0x3FDE666660000000
   %61 = fptosi float %60 to i32
   %invariant.smin120 = tail call i32 @llvm.smin.i32(i32 %8, i32 %1)
   %62 = icmp sgt i32 %invariant.smin120, 0
@@ -1016,7 +1016,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   %indvars.iv215 = phi i64 [ %68, %.lr.ph127 ], [ %indvars.iv.next216, %73 ]
   %.0.i71126 = phi i32 [ 1, %.lr.ph127 ], [ %81, %73 ]
   %74 = uitofp nneg i32 %.0.i71126 to double
-  %75 = fmul reassoc nsz arcp double %74, 0x400921FB54442D18
+  %75 = fmul reassoc nnan nsz arcp double %74, 0x400921FB54442D18
   %76 = fmul reassoc nsz arcp double %75, %69
   %77 = fptrunc reassoc nsz arcp double %76 to float
   %78 = tail call reassoc nsz arcp float @cosf(float noundef %77) #6, !tbaa !12
@@ -1058,7 +1058,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   %indvars.iv223 = phi i64 [ %84, %.lr.ph136 ], [ %indvars.iv.next224, %90 ]
   %.1.i74135 = phi i32 [ %61, %.lr.ph136 ], [ %98, %90 ]
   %91 = sitofp i32 %.1.i74135 to double
-  %92 = fmul reassoc nsz arcp double %91, 0x400921FB54442D18
+  %92 = fmul reassoc nnan nsz arcp double %91, 0x400921FB54442D18
   %93 = fmul reassoc nsz arcp double %92, %85
   %94 = fptrunc reassoc nsz arcp double %93 to float
   %95 = tail call reassoc nsz arcp float @cosf(float noundef %94) #6, !tbaa !12
@@ -1079,7 +1079,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
 
 104:                                              ; preds = %101
   %105 = sitofp i32 %11 to float
-  %106 = fmul reassoc nsz arcp float %105, 2.500000e-01
+  %106 = fmul reassoc nnan nsz arcp float %105, 2.500000e-01
   %107 = fptosi float %106 to i32
   %invariant.smin140 = tail call i32 @llvm.smin.i32(i32 %8, i32 %1)
   %108 = icmp sgt i32 %invariant.smin140, 0
@@ -1120,7 +1120,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   %indvars.iv235 = phi i64 [ %114, %.lr.ph147 ], [ %indvars.iv.next236, %119 ]
   %.0.i79146 = phi i32 [ 1, %.lr.ph147 ], [ %127, %119 ]
   %120 = uitofp nneg i32 %.0.i79146 to double
-  %121 = fmul reassoc nsz arcp double %120, 0x400921FB54442D18
+  %121 = fmul reassoc nnan nsz arcp double %120, 0x400921FB54442D18
   %122 = fmul reassoc nsz arcp double %121, %115
   %123 = fptrunc reassoc nsz arcp double %122 to float
   %124 = tail call reassoc nsz arcp float @cosf(float noundef %123) #6, !tbaa !12
@@ -1162,7 +1162,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   %indvars.iv243 = phi i64 [ %130, %.lr.ph156 ], [ %indvars.iv.next244, %136 ]
   %.1.i82155 = phi i32 [ %107, %.lr.ph156 ], [ %144, %136 ]
   %137 = sitofp i32 %.1.i82155 to double
-  %138 = fmul reassoc nsz arcp double %137, 0x400921FB54442D18
+  %138 = fmul reassoc nnan nsz arcp double %137, 0x400921FB54442D18
   %139 = fmul reassoc nsz arcp double %138, %131
   %140 = fptrunc reassoc nsz arcp double %139 to float
   %141 = tail call reassoc nsz arcp float @cosf(float noundef %140) #6, !tbaa !12
@@ -1176,7 +1176,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   br i1 %146, label %136, label %.preheader88, !llvm.loop !32
 
 147:                                              ; preds = %101
-  %148 = fmul reassoc nsz arcp float %2, 5.000000e-01
+  %148 = fmul reassoc nnan nsz arcp float %2, 5.000000e-01
   %149 = sitofp i32 %11 to float
   %150 = fmul reassoc nsz arcp float %148, %149
   %151 = fptosi float %150 to i32
@@ -1219,7 +1219,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   %indvars.iv255 = phi i64 [ %158, %.lr.ph167 ], [ %indvars.iv.next256, %163 ]
   %.0166 = phi i32 [ 1, %.lr.ph167 ], [ %171, %163 ]
   %164 = uitofp nneg i32 %.0166 to double
-  %165 = fmul reassoc nsz arcp double %164, 0x400921FB54442D18
+  %165 = fmul reassoc nnan nsz arcp double %164, 0x400921FB54442D18
   %166 = fmul reassoc nsz arcp double %165, %159
   %167 = fptrunc reassoc nsz arcp double %166 to float
   %168 = tail call reassoc nsz arcp float @cosf(float noundef %167) #6, !tbaa !12
@@ -1261,7 +1261,7 @@ define hidden void @FLAC__window_partial_tukey(ptr noundef writeonly captures(no
   %indvars.iv263 = phi i64 [ %174, %.lr.ph176 ], [ %indvars.iv.next264, %180 ]
   %.1175 = phi i32 [ %151, %.lr.ph176 ], [ %188, %180 ]
   %181 = sitofp i32 %.1175 to double
-  %182 = fmul reassoc nsz arcp double %181, 0x400921FB54442D18
+  %182 = fmul reassoc nnan nsz arcp double %181, 0x400921FB54442D18
   %183 = fmul reassoc nsz arcp double %182, %175
   %184 = fptrunc reassoc nsz arcp double %183 to float
   %185 = tail call reassoc nsz arcp float @cosf(float noundef %184) #6, !tbaa !12
@@ -1320,7 +1320,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
   %15 = fptosi float %14 to i32
   %16 = fmul reassoc nsz arcp float %4, %13
   %17 = fptosi float %16 to i32
-  %18 = fmul reassoc nsz arcp float %.tr96, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp float %.tr96, 5.000000e-01
   %19 = sitofp i32 %15 to float
   %20 = fmul reassoc nsz arcp float %18, %19
   %21 = fptosi float %20 to i32
@@ -1354,7 +1354,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %.0109 = phi i32 [ 1, %.lr.ph ], [ %40, %32 ]
   %33 = uitofp nneg i32 %.0109 to double
-  %34 = fmul reassoc nsz arcp double %33, 0x400921FB54442D18
+  %34 = fmul reassoc nnan nsz arcp double %33, 0x400921FB54442D18
   %35 = fmul reassoc nsz arcp double %34, %28
   %36 = fptrunc reassoc nsz arcp double %35 to float
   %37 = tail call reassoc nsz arcp float @cosf(float noundef %36) #6, !tbaa !12
@@ -1408,7 +1408,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
   %indvars.iv146 = phi i64 [ %43, %.lr.ph117 ], [ %indvars.iv.next147, %54 ]
   %.1116 = phi i32 [ %21, %.lr.ph117 ], [ %62, %54 ]
   %55 = sitofp i32 %.1116 to double
-  %56 = fmul reassoc nsz arcp double %55, 0x400921FB54442D18
+  %56 = fmul reassoc nnan nsz arcp double %55, 0x400921FB54442D18
   %57 = fmul reassoc nsz arcp double %56, %44
   %58 = fptrunc reassoc nsz arcp double %57 to float
   %59 = tail call reassoc nsz arcp float @cosf(float noundef %58) #6, !tbaa !12
@@ -1462,7 +1462,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
   %indvars.iv152 = phi i64 [ %68, %.lr.ph126 ], [ %indvars.iv.next153, %78 ]
   %.2125 = phi i32 [ 1, %.lr.ph126 ], [ %86, %78 ]
   %79 = uitofp nneg i32 %.2125 to double
-  %80 = fmul reassoc nsz arcp double %79, 0x400921FB54442D18
+  %80 = fmul reassoc nnan nsz arcp double %79, 0x400921FB54442D18
   %81 = fmul reassoc nsz arcp double %80, %71
   %82 = fptrunc reassoc nsz arcp double %81 to float
   %83 = tail call reassoc nsz arcp float @cosf(float noundef %82) #6, !tbaa !12
@@ -1499,7 +1499,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
   %indvars.iv159 = phi i64 [ %89, %.lr.ph134 ], [ %indvars.iv.next160, %94 ]
   %.3133 = phi i32 [ %25, %.lr.ph134 ], [ %102, %94 ]
   %95 = sitofp i32 %.3133 to double
-  %96 = fmul reassoc nsz arcp double %95, 0x400921FB54442D18
+  %96 = fmul reassoc nnan nsz arcp double %95, 0x400921FB54442D18
   %97 = fmul reassoc nsz arcp double %96, %90
   %98 = fptrunc reassoc nsz arcp double %97 to float
   %99 = tail call reassoc nsz arcp float @cosf(float noundef %98) #6, !tbaa !12
@@ -1519,7 +1519,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %7, %9
 define hidden void @FLAC__window_welch(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = add nsw i32 %1, -1
   %4 = sitofp i32 %3 to double
-  %5 = fmul reassoc nsz arcp double %4, 5.000000e-01
+  %5 = fmul reassoc nnan nsz arcp double %4, 5.000000e-01
   %.not.not11 = icmp sgt i32 %1, 0
   br i1 %.not.not11, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1532,8 +1532,8 @@ define hidden void @FLAC__window_welch(ptr noundef writeonly captures(none) %0, 
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %7 = trunc nuw nsw i64 %indvars.iv to i32
   %8 = uitofp nneg i32 %7 to double
-  %9 = fsub reassoc nsz arcp double %8, %5
-  %10 = fmul reassoc nsz arcp double %9, 2.000000e+00
+  %9 = fsub reassoc nnan nsz arcp double %8, %5
+  %10 = fmul reassoc nnan nsz arcp double %9, 2.000000e+00
   %11 = fmul reassoc nsz arcp double %10, %6
   %12 = fneg reassoc nsz arcp double %11
   %13 = tail call reassoc nsz arcp double @llvm.fmuladd.f64(double %12, double %11, double 1.000000e+00)

@@ -1735,7 +1735,7 @@ dump_fir.exit._crit_edge.thread279:               ; preds = %88
 
 .lr.ph224:                                        ; preds = %143
   %150 = sitofp i32 %149 to double
-  %151 = fdiv nsz double 0x400921FB54442D18, %150
+  %151 = fdiv nnan nsz double 0x400921FB54442D18, %150
   %152 = load i32, ptr %77, align 8, !tbaa !129
   %switch = icmp ult i32 %152, 10
   br i1 %switch, label %.lr.ph224.split, label %224
@@ -1743,10 +1743,10 @@ dump_fir.exit._crit_edge.thread279:               ; preds = %88
 .lr.ph224.split:                                  ; preds = %.lr.ph224
   %153 = load i32, ptr %67, align 8, !tbaa !79
   %154 = sitofp i32 %153 to double
-  %155 = fdiv nsz double 2.000000e+00, %154
+  %155 = fdiv nnan nsz double 2.000000e+00, %154
   %156 = load i32, ptr %63, align 4, !tbaa !47
   %157 = sitofp i32 %156 to double
-  %158 = fdiv nsz double 2.000000e+00, %157
+  %158 = fdiv nnan nsz double 2.000000e+00, %157
   %159 = fmul nsz double %155, %158
   %160 = load ptr, ptr %75, align 8, !tbaa !82
   %161 = sext i32 %153 to i64
@@ -2322,7 +2322,7 @@ generate_min_phase_kernel.exit:                   ; preds = %344, %._crit_edge95
   %486 = shl nuw nsw i64 %indvars.iv37.i, 1
   %487 = trunc nuw nsw i64 %indvars.iv37.i to i32
   %488 = uitofp nneg i32 %487 to double
-  %489 = fmul nsz double %384, %488
+  %489 = fmul nnan nsz double %384, %488
   %490 = sitofp i32 %485 to double
   %491 = fdiv nsz double %489, %490
   br i1 %482, label %492, label %495

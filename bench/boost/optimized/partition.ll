@@ -38243,7 +38243,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %28, %30
 
 36:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
   %37 = uitofp i32 %34 to double
-  %38 = fdiv double %37, 5.000000e+01
+  %38 = fdiv nnan double %37, 5.000000e+01
   %39 = load i64, ptr %13, align 8, !tbaa !799
   %40 = uitofp i64 %39 to double
   %41 = fmul double %38, %40
@@ -72689,7 +72689,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i.i.i.us: ; preds = %
   %53 = select i1 %52, double %48, double %45
   %54 = fcmp olt double %53, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.us = select i1 %54, double 1.000000e+00, double %53
-  %55 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.us, 0x3CB0000000000000
+  %55 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.us, 0x3CB0000000000000
   %56 = fcmp ugt double %51, %55
   br i1 %56, label %_ZN5boost8geometry6equalsI10point_itemS2_EEbRKT_RKT0_.exit.thread.us, label %_ZN5boost8geometry6equalsI10point_itemS2_EEbRKT_RKT0_.exit.us
 
@@ -72729,7 +72729,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i.i: ; preds = %65
   %71 = select i1 %70, double %66, double %33
   %72 = fcmp olt double %71, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i.i.i = select i1 %72, double 1.000000e+00, double %71
-  %73 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %73 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
   %74 = fcmp ugt double %69, %73
   br i1 %74, label %_ZN5boost8geometry6equalsI10point_itemS2_EEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.i.i.i
 
@@ -72757,7 +72757,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i.i.i: ; preds = %82
   %88 = select i1 %87, double %83, double %80
   %89 = fcmp olt double %88, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i.i.i.i = select i1 %89, double 1.000000e+00, double %88
-  %90 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %90 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
   %91 = fcmp ugt double %86, %90
   br i1 %91, label %_ZN5boost8geometry6equalsI10point_itemS2_EEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry6equalsI10point_itemS2_EEbRKT_RKT0_.exit
 
@@ -73795,7 +73795,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i.i.i.i.us: ; preds =
   %206 = select i1 %205, double %201, double %198
   %207 = fcmp olt double %206, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.us = select i1 %207, double 1.000000e+00, double %206
-  %208 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.us, 0x3CB0000000000000
+  %208 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.us, 0x3CB0000000000000
   %209 = fcmp ugt double %204, %208
   br i1 %209, label %_ZN13point_visitor5applyI10point_itemEEbRKT_S4_.exit.us, label %_ZN5boost8geometry6equalsI10point_itemS2_EEbRKT_RKT0_.exit.i.us
 
@@ -73832,7 +73832,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i.i.i: ; preds = %219
   %225 = select i1 %224, double %220, double %185
   %226 = fcmp olt double %225, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i.i.i.i = select i1 %226, double 1.000000e+00, double %225
-  %227 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %227 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
   %228 = fcmp ugt double %223, %227
   br i1 %228, label %_ZN13point_visitor5applyI10point_itemEEbRKT_S4_.exit, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.i.i.i.i
 
@@ -73860,7 +73860,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i.i.i.i: ; preds = %2
   %242 = select i1 %241, double %237, double %234
   %243 = fcmp olt double %242, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i = select i1 %243, double 1.000000e+00, double %242
-  %244 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %244 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
   %245 = fcmp ugt double %240, %244
   br i1 %245, label %_ZN13point_visitor5applyI10point_itemEEbRKT_S4_.exit, label %_ZN5boost8geometry6equalsI10point_itemS2_EEbRKT_RKT0_.exit.i
 
@@ -79933,7 +79933,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %178
 
 .noexc51:                                         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %183 = uitofp i64 %181 to double
-  %184 = fmul double %183, 0x3EB0C6F7A0B5ED8D
+  %184 = fmul nnan double %183, 0x3EB0C6F7A0B5ED8D
   %185 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %42, double noundef %184)
           to label %.noexc52 unwind label %459
 
@@ -81391,7 +81391,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72: ; preds = %208
 
 .noexc74:                                         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72
   %213 = uitofp i64 %211 to double
-  %214 = fmul double %213, 0x3EB0C6F7A0B5ED8D
+  %214 = fmul nnan double %213, 0x3EB0C6F7A0B5ED8D
   %215 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %191, double noundef %214)
           to label %.noexc75 unwind label %259
 
@@ -145246,7 +145246,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i.i.i.i.us: ; preds =
   %39 = select i1 %38, double %34, double %31
   %40 = fcmp olt double %39, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.us = select i1 %40, double 1.000000e+00, double %39
-  %41 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.us, 0x3CB0000000000000
+  %41 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i.us, 0x3CB0000000000000
   %42 = fcmp ugt double %37, %41
   br i1 %42, label %_ZN13point_visitor5applyI10point_itemEEbRKT_S4_.exit.us, label %_ZN5boost8geometry6equalsI10point_itemS2_EEbRKT_RKT0_.exit.i.us
 
@@ -145284,7 +145284,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i.i.i: ; preds = %53
   %59 = select i1 %58, double %54, double %17
   %60 = fcmp olt double %59, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i.i.i.i = select i1 %60, double 1.000000e+00, double %59
-  %61 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %61 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
   %62 = fcmp ugt double %57, %61
   br i1 %62, label %_ZN13point_visitor5applyI10point_itemEEbRKT_S4_.exit, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread7.i.i.i.i.i.i.i
 
@@ -145312,7 +145312,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i.i.i.i: ; preds = %7
   %76 = select i1 %75, double %71, double %68
   %77 = fcmp olt double %76, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i = select i1 %77, double 1.000000e+00, double %76
-  %78 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %78 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i.i.i.i.i, 0x3CB0000000000000
   %79 = fcmp ugt double %74, %78
   br i1 %79, label %_ZN13point_visitor5applyI10point_itemEEbRKT_S4_.exit, label %_ZN5boost8geometry6equalsI10point_itemS2_EEbRKT_RKT0_.exit.i
 

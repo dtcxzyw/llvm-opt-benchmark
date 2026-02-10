@@ -1181,15 +1181,15 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
 
 53:                                               ; preds = %41
   %54 = sitofp i32 %.pre to float
-  %55 = fmul float %54, 2.000000e+00
-  %56 = fmul float %55, 5.000000e-01
+  %55 = fmul nnan float %54, 2.000000e+00
+  %56 = fmul nnan float %55, 5.000000e-01
   %57 = fadd float %56, -1.000000e+00
   br label %._crit_edge135
 
 58:                                               ; preds = %41
   %59 = sitofp i32 %.pre to float
-  %60 = fmul float %59, 2.500000e+00
-  %61 = fmul float %60, 5.000000e-01
+  %60 = fmul nnan float %59, 2.500000e+00
+  %61 = fmul nnan float %60, 5.000000e-01
   br label %._crit_edge135
 
 ._crit_edge135:                                   ; preds = %41, %58, %53
@@ -1234,7 +1234,7 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
   %.0110124 = phi i32 [ %.1111.lcssa, %._crit_edge ], [ 0, %.lr.ph127 ]
   %.0112123 = phi i32 [ %82, %._crit_edge ], [ 0, %.lr.ph127 ]
   %74 = uitofp nneg i32 %.0112123 to float
-  %75 = fmul float %.0106, %74
+  %75 = fmul nnan float %.0106, %74
   %76 = fsub float %75, %.0107
   %77 = icmp sgt i32 %73, 0
   br i1 %77, label %.lr.ph.preheader, label %._crit_edge
@@ -1262,7 +1262,7 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
   %.2121 = phi float [ %.1125, %.lr.ph.preheader ], [ %89, %224 ]
   %.0113119 = phi i32 [ 0, %.lr.ph.preheader ], [ %225, %224 ]
   %84 = uitofp nneg i32 %.0113119 to float
-  %85 = fmul float %.0109, %84
+  %85 = fmul nnan float %.0109, %84
   %86 = fadd float %85, 0x3FE2666660000000
   %87 = fadd float %63, %86
   %88 = fadd float %76, %.2121
@@ -1293,8 +1293,8 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
   store i32 %100, ptr @g_seed, align 4, !tbaa !44
   %101 = and i32 %100, 32767
   %102 = uitofp nneg i32 %101 to float
-  %103 = fdiv float %102, 3.276700e+04
-  %104 = fmul float %103, 5.000000e-01
+  %103 = fdiv nnan float %102, 3.276700e+04
+  %104 = fmul nnan float %103, 5.000000e-01
   %105 = fadd float %104, 2.500000e-01
   store float %105, ptr %49, align 4, !tbaa !66
   store float 0x3FC99999A0000000, ptr %69, align 8, !tbaa !72
@@ -1316,8 +1316,8 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
   %116 = xor i32 %115, %114
   %117 = and i32 %116, 32767
   %118 = uitofp nneg i32 %117 to float
-  %119 = fdiv float %118, 3.276700e+04
-  %120 = fmul float %119, 2.500000e-01
+  %119 = fdiv nnan float %118, 3.276700e+04
+  %120 = fmul nnan float %119, 2.500000e-01
   %121 = fadd float %120, 2.500000e-01
   store float %121, ptr %47, align 4, !tbaa !64
   %122 = shl i32 %116, 13
@@ -1329,13 +1329,13 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
   store i32 %127, ptr @g_seed, align 4, !tbaa !44
   %128 = and i32 %127, 32767
   %129 = uitofp nneg i32 %128 to float
-  %130 = fdiv float %129, 3.276700e+04
-  %131 = fmul float %130, 7.500000e-01
+  %130 = fdiv nnan float %129, 3.276700e+04
+  %131 = fmul nnan float %130, 7.500000e-01
   %132 = fadd float %131, 2.500000e-01
-  %133 = fmul float %132, -5.000000e-01
+  %133 = fmul nnan float %132, -5.000000e-01
   store float 0.000000e+00, ptr %4, align 4, !tbaa !15
   store float %133, ptr %44, align 4, !tbaa !15
-  %134 = fmul float %132, 5.000000e-01
+  %134 = fmul nnan float %132, 5.000000e-01
   store float 0.000000e+00, ptr %45, align 4, !tbaa !15
   store float %134, ptr %46, align 4, !tbaa !15
   store float 0x3FC99999A0000000, ptr %69, align 8, !tbaa !72
@@ -1367,8 +1367,8 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
   store i32 %147, ptr @g_seed, align 4, !tbaa !44
   %149 = and i32 %147, 32767
   %150 = uitofp nneg i32 %149 to float
-  %151 = fdiv float %150, 3.276700e+04
-  %152 = fmul float %151, 5.000000e-01
+  %151 = fdiv nnan float %150, 3.276700e+04
+  %152 = fmul nnan float %151, 5.000000e-01
   %153 = fadd float %152, 2.500000e-01
   store float %153, ptr %49, align 4, !tbaa !66
   %.sroa.026.0.copyload = load i64, ptr %138, align 8
@@ -1378,8 +1378,8 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
 155:                                              ; preds = %136
   %156 = and i32 %147, 32767
   %157 = uitofp nneg i32 %156 to float
-  %158 = fdiv float %157, 3.276700e+04
-  %159 = fmul float %158, 2.500000e-01
+  %158 = fdiv nnan float %157, 3.276700e+04
+  %159 = fmul nnan float %158, 2.500000e-01
   %160 = fadd float %159, 2.500000e-01
   store float %160, ptr %47, align 4, !tbaa !64
   %161 = shl i32 %147, 13
@@ -1391,13 +1391,13 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
   store i32 %166, ptr @g_seed, align 4, !tbaa !44
   %167 = and i32 %166, 32767
   %168 = uitofp nneg i32 %167 to float
-  %169 = fdiv float %168, 3.276700e+04
-  %170 = fmul float %169, 7.500000e-01
+  %169 = fdiv nnan float %168, 3.276700e+04
+  %170 = fmul nnan float %169, 7.500000e-01
   %171 = fadd float %170, 2.500000e-01
-  %172 = fmul float %171, -5.000000e-01
+  %172 = fmul nnan float %171, -5.000000e-01
   store float 0.000000e+00, ptr %4, align 4, !tbaa !15
   store float %172, ptr %44, align 4, !tbaa !15
-  %173 = fmul float %171, 5.000000e-01
+  %173 = fmul nnan float %171, 5.000000e-01
   store float 0.000000e+00, ptr %45, align 4, !tbaa !15
   store float %173, ptr %46, align 4, !tbaa !15
   %.sroa.019.0.copyload = load i64, ptr %138, align 8
@@ -1407,8 +1407,8 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
 175:                                              ; preds = %136
   %176 = and i32 %147, 32767
   %177 = uitofp nneg i32 %176 to float
-  %178 = fdiv float %177, 3.276700e+04
-  %179 = fmul float %178, 0x3FD99999A0000000
+  %178 = fdiv nnan float %177, 3.276700e+04
+  %179 = fmul nnan float %178, 0x3FD99999A0000000
   %180 = fadd float %179, 0x3FB99999A0000000
   %181 = shl i32 %147, 13
   %182 = xor i32 %181, %147
@@ -1419,8 +1419,8 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
   store i32 %186, ptr @g_seed, align 4, !tbaa !44
   %187 = and i32 %186, 32767
   %188 = uitofp nneg i32 %187 to float
-  %189 = fdiv float %188, 3.276700e+04
-  %190 = fmul float %189, 2.500000e-01
+  %189 = fdiv nnan float %188, 3.276700e+04
+  %190 = fmul nnan float %189, 2.500000e-01
   %191 = fadd float %190, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @b2MakeBox(ptr dead_on_unwind nonnull writable sret(%struct.b2Polygon) align 4 %14, float noundef %180, float noundef %191)
@@ -1434,12 +1434,12 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
   store i32 %198, ptr @g_seed, align 4, !tbaa !44
   %199 = and i32 %198, 32767
   %200 = uitofp nneg i32 %199 to float
-  %201 = fdiv float %200, 3.276700e+04
-  %202 = fmul float %201, 2.000000e+00
+  %201 = fdiv nnan float %200, 3.276700e+04
+  %202 = fmul nnan float %201, 2.000000e+00
   %203 = fadd float %202, -1.000000e+00
   %204 = fcmp olt float %203, 0.000000e+00
   %205 = select i1 %204, float 0.000000e+00, float %203
-  %206 = fmul float %205, 2.500000e-01
+  %206 = fmul nnan float %205, 2.500000e-01
   store float %206, ptr %67, align 4, !tbaa !73
   %.sroa.014.0.copyload = load i64, ptr %138, align 8
   %207 = call i64 @b2CreatePolygonShape(i64 %.sroa.014.0.copyload, ptr noundef nonnull %3, ptr noundef nonnull %14)
@@ -1450,8 +1450,8 @@ define linkonce_odr dso_local void @_ZN15BenchmarkBarrel11CreateSceneEv(ptr noun
   store i32 %147, ptr @g_seed, align 4, !tbaa !44
   %209 = and i32 %147, 32767
   %210 = uitofp nneg i32 %209 to float
-  %211 = fdiv float %210, 3.276700e+04
-  %212 = fmul float %211, 0x3FC3333340000000
+  %211 = fdiv nnan float %210, 3.276700e+04
+  %212 = fmul nnan float %211, 0x3FC3333340000000
   %213 = fadd float %212, 0x3FB99999A0000000
   store float %213, ptr %68, align 4, !tbaa !73
   %.sroa.012.0.copyload = load i64, ptr %138, align 8
@@ -1695,7 +1695,7 @@ define linkonce_odr dso_local void @_ZN21BenchmarkManyTumblers11CreateSceneEv(pt
 
 .lr.ph43.split.preheader:                         ; preds = %.lr.ph43
   %46 = uitofp nneg i32 %31 to float
-  %47 = fmul float %46, -4.000000e+00
+  %47 = fmul nnan float %46, -4.000000e+00
   br label %.lr.ph43.split
 
 48:                                               ; preds = %.lr.ph32, %48
@@ -1736,7 +1736,7 @@ define linkonce_odr dso_local void @_ZN21BenchmarkManyTumblers11CreateSceneEv(pt
 
 .lr.ph37.preheader:                               ; preds = %.lr.ph43.split
   %64 = uitofp nneg i32 %62 to float
-  %65 = fmul float %64, -4.000000e+00
+  %65 = fmul nnan float %64, -4.000000e+00
   %66 = sext i32 %.02441 to i64
   br label %.lr.ph37
 
@@ -2206,7 +2206,7 @@ define linkonce_odr dso_local void @_ZN22BenchmarkCreateDestroy11CreateSceneEv(p
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40660
   %14 = load i32, ptr %13, align 4, !tbaa !95
   %15 = sitofp i32 %14 to float
-  %16 = fmul float %15, 5.000000e-01
+  %16 = fmul nnan float %15, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3)
   store i32 2, ptr %3, align 8, !tbaa !51
@@ -2270,7 +2270,7 @@ define linkonce_odr dso_local void @_ZN22BenchmarkCreateDestroy11CreateSceneEv(p
   %.04046 = phi i32 [ 0, %.lr.ph ], [ %41, %40 ]
   %35 = uitofp nneg i32 %.04046 to float
   %36 = fadd float %35, 1.500000e+00
-  %37 = fmul float %35, 5.000000e-01
+  %37 = fmul nnan float %35, 5.000000e-01
   %38 = sext i32 %.03947 to i64
   %39 = add i32 %.03947, %indvars.iv52
   br label %42
@@ -2422,7 +2422,7 @@ define linkonce_odr dso_local void @_ZN14BenchmarkSleep11CreateSceneEv(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40652
   %8 = load i32, ptr %7, align 4, !tbaa !106
   %9 = sitofp i32 %8 to float
-  %10 = fmul float %9, 5.000000e-01
+  %10 = fmul nnan float %9, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %2)
   store i32 2, ptr %2, align 8, !tbaa !51
@@ -2476,7 +2476,7 @@ define linkonce_odr dso_local void @_ZN14BenchmarkSleep11CreateSceneEv(ptr nound
   %.03945 = phi i32 [ 0, %.lr.ph ], [ %29, %28 ]
   %23 = uitofp nneg i32 %.03945 to float
   %24 = fadd float %23, 1.500000e+00
-  %25 = fmul float %23, 5.000000e-01
+  %25 = fmul nnan float %23, 5.000000e-01
   %26 = sext i32 %.03846 to i64
   %27 = add i32 %.03846, %indvars.iv51
   br label %30
@@ -3133,7 +3133,7 @@ _ZNSt6vectorI6b2Vec2SaIS0_EE6resizeEm.exit27:     ; preds = %32, %30, %29, %27
   %47 = xor i32 %46, %45
   %48 = and i32 %47, 32767
   %49 = uitofp nneg i32 %48 to float
-  %50 = fdiv float %49, 3.276700e+04
+  %50 = fdiv nnan float %49, 3.276700e+04
   %51 = fmul float %36, %50
   %52 = fadd float %51, 0.000000e+00
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %52, i64 0
@@ -3145,7 +3145,7 @@ _ZNSt6vectorI6b2Vec2SaIS0_EE6resizeEm.exit27:     ; preds = %32, %30, %29, %27
   %58 = xor i32 %57, %56
   %59 = and i32 %58, 32767
   %60 = uitofp nneg i32 %59 to float
-  %61 = fdiv float %60, 3.276700e+04
+  %61 = fdiv nnan float %60, 3.276700e+04
   %62 = fmul float %36, %61
   %63 = fadd float %62, 0.000000e+00
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %63, i64 1
@@ -3157,7 +3157,7 @@ _ZNSt6vectorI6b2Vec2SaIS0_EE6resizeEm.exit27:     ; preds = %32, %30, %29, %27
   %69 = xor i32 %68, %67
   %70 = and i32 %69, 32767
   %71 = uitofp nneg i32 %70 to float
-  %72 = fdiv float %71, 3.276700e+04
+  %72 = fdiv nnan float %71, 3.276700e+04
   %73 = fmul float %36, %72
   %74 = fadd float %73, 0.000000e+00
   %75 = shl i32 %69, 13
@@ -3169,7 +3169,7 @@ _ZNSt6vectorI6b2Vec2SaIS0_EE6resizeEm.exit27:     ; preds = %32, %30, %29, %27
   store i32 %80, ptr @g_seed, align 4, !tbaa !44
   %81 = and i32 %80, 32767
   %82 = uitofp nneg i32 %81 to float
-  %83 = fdiv float %82, 3.276700e+04
+  %83 = fdiv nnan float %82, 3.276700e+04
   %84 = fmul float %36, %83
   %85 = fadd float %84, 0.000000e+00
   %86 = load ptr, ptr %3, align 8, !tbaa !152
@@ -3318,7 +3318,7 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast10BuildSceneEv(ptr noundef
   store i32 %44, ptr @g_seed, align 4, !tbaa !44
   %45 = and i32 %44, 32767
   %46 = uitofp nneg i32 %45 to float
-  %47 = fdiv float %46, 3.276700e+04
+  %47 = fdiv nnan float %46, 3.276700e+04
   %48 = load float, ptr %15, align 4, !tbaa !143
   %49 = fcmp ugt float %47, %48
   br i1 %49, label %106, label %50
@@ -3338,7 +3338,7 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast10BuildSceneEv(ptr noundef
   %59 = xor i32 %58, %57
   %60 = and i32 %59, 32767
   %61 = uitofp nneg i32 %60 to float
-  %62 = fdiv float %61, 3.276700e+04
+  %62 = fdiv nnan float %61, 3.276700e+04
   %63 = fadd float %52, -1.000000e+00
   %64 = fmul float %63, %62
   %65 = fadd float %64, 1.000000e+00
@@ -3350,8 +3350,8 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast10BuildSceneEv(ptr noundef
   %71 = xor i32 %70, %69
   %72 = and i32 %71, 32767
   %73 = uitofp nneg i32 %72 to float
-  %74 = fdiv float %73, 3.276700e+04
-  %75 = fmul float %74, 0x3FC99999A0000000
+  %74 = fdiv nnan float %73, 3.276700e+04
+  %75 = fmul nnan float %74, 0x3FC99999A0000000
   %76 = fadd float %75, 0x3FA99999A0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %77 = shl i32 %71, 13
@@ -3363,8 +3363,8 @@ define linkonce_odr dso_local void @_ZN13BenchmarkCast10BuildSceneEv(ptr noundef
   store i32 %82, ptr @g_seed, align 4, !tbaa !44
   %83 = and i32 %82, 32767
   %84 = uitofp nneg i32 %83 to float
-  %85 = fdiv float %84, 3.276700e+04
-  %86 = fmul float %85, 2.000000e+00
+  %85 = fdiv nnan float %84, 3.276700e+04
+  %86 = fmul nnan float %85, 2.000000e+00
   %87 = fadd float %86, -1.000000e+00
   %88 = fcmp ogt float %87, 0.000000e+00
   %89 = fmul float %65, %76

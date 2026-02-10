@@ -2506,8 +2506,8 @@ define weak_odr <4 x float> @_ZN7mitsuba21spectrum_list_to_srgbIfEENS_5ColorIT_L
   %.0212 = phi i32 [ 0, %4 ], [ %79, %77 ]
   %13 = phi <4 x float> [ zeroinitializer, %4 ], [ %78, %77 ]
   %14 = uitofp nneg i32 %.0212 to float
-  %15 = fdiv contract float %14, 9.990000e+02
-  %16 = fmul contract float %15, 4.700000e+02
+  %15 = fdiv nnan contract float %14, 9.990000e+02
+  %16 = fmul nnan contract float %15, 4.700000e+02
   %17 = fadd contract float %16, 3.600000e+02
   %18 = load ptr, ptr %0, align 8
   %19 = load float, ptr %18, align 4
@@ -3047,8 +3047,8 @@ define weak_odr <4 x double> @_ZN7mitsuba21spectrum_list_to_srgbIdEENS_5ColorIT_
   %.0212 = phi i32 [ 0, %4 ], [ %79, %77 ]
   %13 = phi <4 x double> [ zeroinitializer, %4 ], [ %78, %77 ]
   %14 = uitofp nneg i32 %.0212 to double
-  %15 = fdiv contract double %14, 9.990000e+02
-  %16 = fmul contract double %15, 4.700000e+02
+  %15 = fdiv nnan contract double %14, 9.990000e+02
+  %16 = fmul nnan contract double %15, 4.700000e+02
   %17 = fadd contract double %16, 3.600000e+02
   %18 = load ptr, ptr %0, align 8
   %19 = load double, ptr %18, align 8

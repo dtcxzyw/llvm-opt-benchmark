@@ -270,7 +270,7 @@ define linkonce_odr dso_local void @_ZN10LargeWorldC2ER8Settings(ptr noundef non
   %.097134 = phi i32 [ 0, %.lr.ph136 ], [ %.198, %.loopexit ]
   %.0102133 = phi i32 [ 0, %.lr.ph136 ], [ %133, %.loopexit ]
   %81 = uitofp nneg i32 %.0102133 to float
-  %82 = fadd float %81, 5.000000e-01
+  %82 = fadd nnan float %81, 5.000000e-01
   %83 = load float, ptr %13, align 4, !tbaa !7
   %84 = fmul float %82, %83
   %85 = fadd float %84, -1.200000e+04
@@ -584,7 +584,7 @@ define linkonce_odr dso_local void @_ZN10LargeWorld4StepER8Settings(ptr noundef 
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 308
   %48 = load i32, ptr %47, align 4, !tbaa !59
   %49 = sitofp i32 %48 to float
-  %50 = fadd float %49, 5.000000e-01
+  %50 = fadd nnan float %49, 5.000000e-01
   %51 = load float, ptr %4, align 4, !tbaa !7
   %52 = fmul float %51, %50
   %53 = fsub float %52, %10

@@ -777,7 +777,7 @@ define internal fastcc void @compressor(ptr noundef captures(none) %0, ptr nound
   %76 = load double, ptr %29, align 8, !tbaa !49
   %77 = load double, ptr %30, align 8, !tbaa !50
   %78 = tail call nsz double @llvm.log.f64(double %61)
-  %79 = fmul nsz double %78, 5.000000e-01
+  %79 = fmul nnan nsz double %78, 5.000000e-01
   %.031.i = select nsz i1 %.not, double %78, double %79
   %80 = fadd nsz double %71, 0xC1F0000000000000
   %81 = tail call nsz double @llvm.fabs.f64(double %80)

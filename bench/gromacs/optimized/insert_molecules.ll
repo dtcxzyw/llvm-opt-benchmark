@@ -1982,9 +1982,9 @@ define internal noundef i32 @_ZN3gmx12_GLOBAL__N_115InsertMolecules3runEv(ptr no
   br i1 %120, label %121, label %137
 
 121:                                              ; preds = %117
-  %122 = fmul float %103, %119
-  %123 = fpext float %122 to double
-  %124 = fmul double %123, 0x44DFE185CA57C517
+  %122 = fmul nnan float %103, %119
+  %123 = fpext nnan float %122 to double
+  %124 = fmul nnan double %123, 0x44DFE185CA57C517
   %125 = fdiv double %124, 0x44EA784379D99DB4
   %126 = call double @llvm.rint.f64(double %125)
   %127 = fptosi double %126 to i32
@@ -4580,7 +4580,7 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
 
 278:                                              ; preds = %275
   %279 = uitofp i64 %277 to float
-  %280 = fmul float %279, 0x3BF0000000000000
+  %280 = fmul nnan float %279, 0x3BF0000000000000
   %281 = fcmp oeq float %280, 1.000000e+00
   %.013.i.i.i = select i1 %281, float 0.000000e+00, float %280
   %282 = fmul float %276, %.013.i.i.i
@@ -4595,12 +4595,12 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
 
 288:                                              ; preds = %285
   %289 = uitofp i64 %284 to float
-  %290 = fmul float %289, 0x3BF0000000000000
+  %290 = fmul nnan float %289, 0x3BF0000000000000
   %291 = fcmp oeq float %290, 1.000000e+00
   %.013.i.i.i178 = select i1 %291, float 0.000000e+00, float %290
   %292 = fmul float %283, %.013.i.i.i178
   %293 = uitofp i64 %287 to float
-  %294 = fmul float %293, 0x3BF0000000000000
+  %294 = fmul nnan float %293, 0x3BF0000000000000
   %295 = fcmp oeq float %294, 1.000000e+00
   %.013.i.i.i181 = select i1 %295, float 0.000000e+00, float %294
   %296 = fmul float %286, %.013.i.i.i181
@@ -4668,9 +4668,9 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
 
 335:                                              ; preds = %327
   %336 = uitofp i64 %334 to float
-  %337 = fmul float %336, 0x3BF0000000000000
+  %337 = fmul nnan float %336, 0x3BF0000000000000
   %338 = fcmp oeq float %337, 1.000000e+00
-  %339 = call float @llvm.fmuladd.f32(float %337, float 2.000000e+00, float -1.000000e+00)
+  %339 = call nnan float @llvm.fmuladd.f32(float %337, float 2.000000e+00, float -1.000000e+00)
   %340 = select i1 %338, float -1.000000e+00, float %339
   %341 = fmul float %333, %340
   %342 = fpext float %341 to double
@@ -4697,18 +4697,18 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
 
 360:                                              ; preds = %352
   %361 = uitofp i64 %351 to float
-  %362 = fmul float %361, 0x3BF0000000000000
+  %362 = fmul nnan float %361, 0x3BF0000000000000
   %363 = fcmp oeq float %362, 1.000000e+00
-  %364 = call float @llvm.fmuladd.f32(float %362, float 2.000000e+00, float -1.000000e+00)
+  %364 = call nnan float @llvm.fmuladd.f32(float %362, float 2.000000e+00, float -1.000000e+00)
   %365 = select i1 %363, float -1.000000e+00, float %364
   %366 = fmul float %350, %365
   %367 = fpext float %366 to double
   %368 = fadd double %349, %367
   %369 = fptrunc double %368 to float
   %370 = uitofp i64 %359 to float
-  %371 = fmul float %370, 0x3BF0000000000000
+  %371 = fmul nnan float %370, 0x3BF0000000000000
   %372 = fcmp oeq float %371, 1.000000e+00
-  %373 = call float @llvm.fmuladd.f32(float %371, float 2.000000e+00, float -1.000000e+00)
+  %373 = call nnan float @llvm.fmuladd.f32(float %371, float 2.000000e+00, float -1.000000e+00)
   %374 = select i1 %372, float -1.000000e+00, float %373
   %375 = fmul float %358, %374
   %376 = fpext float %375 to double
@@ -4746,12 +4746,12 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
 
 .noexc195:                                        ; preds = %.noexc194
   %388 = uitofp i64 %386 to float
-  %389 = fmul float %388, 0x3BF0000000000000
+  %389 = fmul nnan float %388, 0x3BF0000000000000
   %390 = fcmp oeq float %389, 1.000000e+00
   %391 = call float @llvm.fmuladd.f32(float %389, float 0x401921FB60000000, float 0.000000e+00)
   %392 = select i1 %390, float 0.000000e+00, float %391
   %393 = uitofp i64 %387 to float
-  %394 = fmul float %393, 0x3BF0000000000000
+  %394 = fmul nnan float %393, 0x3BF0000000000000
   %395 = fcmp oeq float %394, 1.000000e+00
   %396 = call float @llvm.fmuladd.f32(float %394, float 0x401921FB60000000, float 0.000000e+00)
   %397 = select i1 %395, float 0.000000e+00, float %396
@@ -4824,7 +4824,7 @@ _ZNSt16allocator_traitsISaIN3gmx11BasicVectorIfEEEE8allocateERS3_m.exit.i.i.i.i:
 
 .noexc196:                                        ; preds = %409
   %411 = uitofp i64 %410 to float
-  %412 = fmul float %411, 0x3BF0000000000000
+  %412 = fmul nnan float %411, 0x3BF0000000000000
   %413 = fcmp oeq float %412, 1.000000e+00
   %414 = call float @llvm.fmuladd.f32(float %412, float 0x401921FB60000000, float 0.000000e+00)
   %415 = select i1 %413, float 0.000000e+00, float %414

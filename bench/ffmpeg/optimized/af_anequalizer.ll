@@ -172,7 +172,7 @@ define internal range(i32 -38, 1) i32 @process_command(ptr noundef %0, ptr nound
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %30 = load i32, ptr %29, align 8, !tbaa !34
   %31 = sitofp i32 %30 to double
-  %32 = fmul nsz double %31, 5.000000e-01
+  %32 = fmul nnan nsz double %31, 5.000000e-01
   %33 = fcmp nsz ogt double %26, %32
   br i1 %33, label %.sink.split, label %34
 
@@ -374,7 +374,7 @@ define internal range(i32 -22, 1) i32 @config_input(ptr noundef readonly capture
 55:                                               ; preds = %47
   %56 = load i32, ptr %23, align 8, !tbaa !34
   %57 = sitofp i32 %56 to double
-  %58 = fmul nsz double %57, 5.000000e-01
+  %58 = fmul nnan nsz double %57, 5.000000e-01
   %59 = fcmp nsz ogt double %53, %58
   br i1 %59, label %60, label %61
 
@@ -659,7 +659,7 @@ define internal fastcc void @equalizer(ptr noundef %0, double noundef %1) unname
   br i1 %or.cond.i, label %21, label %23
 
 21:                                               ; preds = %19
-  %22 = fmul nsz double %15, 5.000000e-01
+  %22 = fmul nnan nsz double %15, 5.000000e-01
   br label %butterworth_compute_bw_gain_db.exit
 
 23:                                               ; preds = %19
@@ -679,8 +679,8 @@ butterworth_compute_bw_gain_db.exit:              ; preds = %17, %21, %23, %25
   %29 = fdiv nsz double %15, 2.000000e+01
   %30 = fmul nsz double %29, 0x400A934F0979A371
   %31 = tail call nsz double @llvm.exp2.f64(double %30)
-  %32 = fdiv nsz double %.0.i, 2.000000e+01
-  %33 = fmul nsz double %32, 0x400A934F0979A371
+  %32 = fdiv nnan nsz double %.0.i, 2.000000e+01
+  %33 = fmul nnan nsz double %32, 0x400A934F0979A371
   %34 = tail call nsz double @llvm.exp2.f64(double %33)
   %35 = fneg nsz double %34
   %36 = fmul nsz double %34, %35
@@ -721,10 +721,10 @@ butterworth_fo_section.exit.us.i:                 ; preds = %28, %butterworth_fo
   %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %butterworth_fo_section.exit.us.i ], [ 1, %28 ]
   %67 = trunc nuw nsw i64 %indvars.iv49.i to i32
   %68 = uitofp nneg i32 %67 to double
-  %69 = tail call nsz double @llvm.fmuladd.f64(double %68, double 2.000000e+00, double -1.000000e+00)
-  %70 = fmul nsz double %69, 2.500000e-01
-  %71 = fmul nsz double %70, 0x400921FB54442D18
-  %72 = fmul nsz double %71, 5.000000e-01
+  %69 = tail call nnan nsz double @llvm.fmuladd.f64(double %68, double 2.000000e+00, double -1.000000e+00)
+  %70 = fmul nnan nsz double %69, 2.500000e-01
+  %71 = fmul nnan nsz double %70, 0x400921FB54442D18
+  %72 = fmul nnan nsz double %71, 5.000000e-01
   %73 = tail call nsz double @llvm.sin.f64(double %72)
   %74 = fmul nsz double %73, 2.000000e+00
   %75 = fmul nsz double %45, %74
@@ -771,10 +771,10 @@ butterworth_fo_section.exit.i:                    ; preds = %28, %butterworth_fo
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %butterworth_fo_section.exit.i ], [ 1, %28 ]
   %102 = trunc nuw nsw i64 %indvars.iv.i to i32
   %103 = uitofp nneg i32 %102 to double
-  %104 = tail call nsz double @llvm.fmuladd.f64(double %103, double 2.000000e+00, double -1.000000e+00)
-  %105 = fmul nsz double %104, 2.500000e-01
-  %106 = fmul nsz double %105, 0x400921FB54442D18
-  %107 = fmul nsz double %106, 5.000000e-01
+  %104 = tail call nnan nsz double @llvm.fmuladd.f64(double %103, double 2.000000e+00, double -1.000000e+00)
+  %105 = fmul nnan nsz double %104, 2.500000e-01
+  %106 = fmul nnan nsz double %105, 0x400921FB54442D18
+  %107 = fmul nnan nsz double %106, 5.000000e-01
   %108 = tail call nsz double @llvm.sin.f64(double %107)
   %109 = fmul nsz double %108, 2.000000e+00
   %110 = fmul nsz double %45, %109
@@ -851,7 +851,7 @@ butterworth_fo_section.exit.i:                    ; preds = %28, %butterworth_fo
   br i1 %or.cond.i24, label %161, label %163
 
 161:                                              ; preds = %159
-  %162 = fmul nsz double %155, 9.000000e-01
+  %162 = fmul nnan nsz double %155, 9.000000e-01
   br label %chebyshev1_compute_bw_gain_db.exit
 
 163:                                              ; preds = %159
@@ -871,8 +871,8 @@ chebyshev1_compute_bw_gain_db.exit:               ; preds = %157, %161, %163, %1
   %169 = fdiv nsz double %155, 2.000000e+01
   %170 = fmul nsz double %169, 0x400A934F0979A371
   %171 = tail call nsz double @llvm.exp2.f64(double %170)
-  %172 = fdiv nsz double %.0.i23, 2.000000e+01
-  %173 = fmul nsz double %172, 0x400A934F0979A371
+  %172 = fdiv nnan nsz double %.0.i23, 2.000000e+01
+  %173 = fmul nnan nsz double %172, 0x400A934F0979A371
   %174 = tail call nsz double @llvm.exp2.f64(double %173)
   %175 = fneg nsz double %174
   %176 = fmul nsz double %174, %175
@@ -915,10 +915,10 @@ chebyshev1_fo_section.exit.us.i:                  ; preds = %168, %chebyshev1_fo
   %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %chebyshev1_fo_section.exit.us.i ], [ 1, %168 ]
   %209 = trunc nuw nsw i64 %indvars.iv69.i to i32
   %210 = uitofp nneg i32 %209 to double
-  %211 = tail call nsz double @llvm.fmuladd.f64(double %210, double 2.000000e+00, double -1.000000e+00)
-  %212 = fmul nsz double %211, 2.500000e-01
-  %213 = fmul nsz double %212, 0x400921FB54442D18
-  %214 = fmul nsz double %213, 5.000000e-01
+  %211 = tail call nnan nsz double @llvm.fmuladd.f64(double %210, double 2.000000e+00, double -1.000000e+00)
+  %212 = fmul nnan nsz double %211, 2.500000e-01
+  %213 = fmul nnan nsz double %212, 0x400921FB54442D18
+  %214 = fmul nnan nsz double %213, 5.000000e-01
   %215 = tail call nsz double @llvm.cos.f64(double %214)
   %216 = tail call nsz double @llvm.sin.f64(double %214)
   %217 = fmul nsz double %215, %215
@@ -974,10 +974,10 @@ chebyshev1_fo_section.exit.i:                     ; preds = %168, %chebyshev1_fo
   %indvars.iv.i26 = phi i64 [ %indvars.iv.next.i27, %chebyshev1_fo_section.exit.i ], [ 1, %168 ]
   %253 = trunc nuw nsw i64 %indvars.iv.i26 to i32
   %254 = uitofp nneg i32 %253 to double
-  %255 = tail call nsz double @llvm.fmuladd.f64(double %254, double 2.000000e+00, double -1.000000e+00)
-  %256 = fmul nsz double %255, 2.500000e-01
-  %257 = fmul nsz double %256, 0x400921FB54442D18
-  %258 = fmul nsz double %257, 5.000000e-01
+  %255 = tail call nnan nsz double @llvm.fmuladd.f64(double %254, double 2.000000e+00, double -1.000000e+00)
+  %256 = fmul nnan nsz double %255, 2.500000e-01
+  %257 = fmul nnan nsz double %256, 0x400921FB54442D18
+  %258 = fmul nnan nsz double %257, 5.000000e-01
   %259 = tail call nsz double @llvm.cos.f64(double %258)
   %260 = tail call nsz double @llvm.sin.f64(double %258)
   %261 = fmul nsz double %259, %259
@@ -1063,7 +1063,7 @@ chebyshev1_fo_section.exit.i:                     ; preds = %168, %chebyshev1_fo
   br i1 %or.cond.i30, label %323, label %325
 
 323:                                              ; preds = %321
-  %324 = fmul nsz double %319, 3.000000e-01
+  %324 = fmul nnan nsz double %319, 3.000000e-01
   br label %chebyshev2_compute_bw_gain_db.exit
 
 325:                                              ; preds = %321
@@ -1082,8 +1082,8 @@ chebyshev2_compute_bw_gain_db.exit:               ; preds = %317, %323, %325, %3
   %330 = fdiv nsz double %319, 2.000000e+01
   %331 = fmul nsz double %330, 0x400A934F0979A371
   %332 = tail call nsz double @llvm.exp2.f64(double %331)
-  %333 = fdiv nsz double %.0.i29, 2.000000e+01
-  %334 = fmul nsz double %333, 0x400A934F0979A371
+  %333 = fdiv nnan nsz double %.0.i29, 2.000000e+01
+  %334 = fmul nnan nsz double %333, 0x400A934F0979A371
   %335 = tail call nsz double @llvm.exp2.f64(double %334)
   %336 = fneg nsz double %335
   %337 = fmul nsz double %335, %336
@@ -1139,10 +1139,10 @@ chebyshev2_fo_section.exit.us.i:                  ; preds = %329, %chebyshev2_fo
   %indvars.iv69.i35 = phi i64 [ %indvars.iv.next70.i36, %chebyshev2_fo_section.exit.us.i ], [ 1, %329 ]
   %383 = trunc nuw nsw i64 %indvars.iv69.i35 to i32
   %384 = uitofp nneg i32 %383 to double
-  %385 = tail call nsz double @llvm.fmuladd.f64(double %384, double 2.000000e+00, double -1.000000e+00)
-  %386 = fmul nsz double %385, 2.500000e-01
-  %387 = fmul nsz double %386, 0x400921FB54442D18
-  %388 = fmul nsz double %387, 5.000000e-01
+  %385 = tail call nnan nsz double @llvm.fmuladd.f64(double %384, double 2.000000e+00, double -1.000000e+00)
+  %386 = fmul nnan nsz double %385, 2.500000e-01
+  %387 = fmul nnan nsz double %386, 0x400921FB54442D18
+  %388 = fmul nnan nsz double %387, 5.000000e-01
   %389 = tail call nsz double @llvm.cos.f64(double %388)
   %390 = tail call nsz double @llvm.sin.f64(double %388)
   %391 = fmul nsz double %360, %390
@@ -1200,10 +1200,10 @@ chebyshev2_fo_section.exit.i:                     ; preds = %329, %chebyshev2_fo
   %indvars.iv.i32 = phi i64 [ %indvars.iv.next.i33, %chebyshev2_fo_section.exit.i ], [ 1, %329 ]
   %429 = trunc nuw nsw i64 %indvars.iv.i32 to i32
   %430 = uitofp nneg i32 %429 to double
-  %431 = tail call nsz double @llvm.fmuladd.f64(double %430, double 2.000000e+00, double -1.000000e+00)
-  %432 = fmul nsz double %431, 2.500000e-01
-  %433 = fmul nsz double %432, 0x400921FB54442D18
-  %434 = fmul nsz double %433, 5.000000e-01
+  %431 = tail call nnan nsz double @llvm.fmuladd.f64(double %430, double 2.000000e+00, double -1.000000e+00)
+  %432 = fmul nnan nsz double %431, 2.500000e-01
+  %433 = fmul nnan nsz double %432, 0x400921FB54442D18
+  %434 = fmul nnan nsz double %433, 5.000000e-01
   %435 = tail call nsz double @llvm.cos.f64(double %434)
   %436 = tail call nsz double @llvm.sin.f64(double %434)
   %437 = fmul nsz double %360, %436

@@ -1005,7 +1005,7 @@ define double @Abc_NtkConstraintRatio(ptr noundef readonly captures(none) %0, pt
   tail call void @Aig_ManStop(ptr noundef %3) #4
   tail call void @Fra_SmlStop(ptr noundef %4) #4
   %9 = sitofp i32 %8 to double
-  %10 = fmul double %9, 0x3F20000000000000
+  %10 = fmul nnan double %9, 0x3F20000000000000
   ret double %10
 }
 

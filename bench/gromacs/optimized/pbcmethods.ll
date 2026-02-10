@@ -327,8 +327,8 @@ define void @_Z16calc_pbc_clusteriiP10t_topology7PbcTypePA3_fPKiS3_(i32 noundef 
   %148 = load i32, ptr %72, align 4, !tbaa !28
   %149 = sub nsw i32 %.lcssa, %148
   %150 = sitofp i32 %149 to double
-  %151 = fdiv double 1.000000e+00, %150
-  %152 = fptrunc double %151 to float
+  %151 = fdiv nnan double 1.000000e+00, %150
+  %152 = fptrunc nnan double %151 to float
   %153 = getelementptr inbounds nuw [3 x float], ptr %19, i64 %indvars.iv284
   br label %154
 

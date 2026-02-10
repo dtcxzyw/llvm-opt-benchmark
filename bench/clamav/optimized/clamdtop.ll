@@ -1918,7 +1918,7 @@ detail_is_selected.exit.i.i:                      ; preds = %806, %output_stats.
 
 839:                                              ; preds = %835
   %840 = fcmp ult double %833, 1.024000e+03
-  %841 = fmul double %833, 0x3F50000000000000
+  %841 = fmul nnan double %833, 0x3F50000000000000
   %.096.i.i = select i1 %840, i32 77, i32 71
   %.0.i.i69 = select i1 %840, double %833, double %841
   %842 = fcmp ult double %.0.i.i69, 9.995000e+01

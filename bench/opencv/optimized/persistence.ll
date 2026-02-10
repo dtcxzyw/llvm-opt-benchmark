@@ -7259,7 +7259,7 @@ _ZN2cv11FileStorage4Impl12getsFromFileEPci.exit:  ; preds = %68, %72
   %100 = ptrtoint ptr %98 to i64
   %101 = sub i64 %99, %100
   %102 = uitofp i64 %101 to double
-  %103 = fmul double %102, 1.500000e+00
+  %103 = fmul nnan double %102, 1.500000e+00
   %104 = fptoui double %103 to i64
   tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %52, i64 noundef %104)
   br label %.backedge

@@ -2769,9 +2769,9 @@ define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4Type11SizeInBytesEv(
 
 18:                                               ; preds = %12
   %19 = uitofp nneg i32 %16 to double
-  %20 = fmul double %19, 1.250000e-01
-  %21 = tail call double @llvm.ceil.f64(double %20)
-  %22 = fmul double %21, 8.000000e+00
+  %20 = fmul nnan double %19, 1.250000e-01
+  %21 = tail call nnan double @llvm.ceil.f64(double %20)
+  %22 = fmul nnan double %21, 8.000000e+00
   %23 = fptosi double %22 to i32
   br label %29
 

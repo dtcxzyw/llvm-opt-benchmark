@@ -723,7 +723,7 @@ define ptr @ggml_aligned_malloc(i64 noundef %0) local_unnamed_addr #3 {
 9:                                                ; preds = %5, %8, %7
   %.0 = phi ptr [ @.str.3, %5 ], [ @.str.4, %7 ], [ @.str.5, %8 ]
   %10 = uitofp i64 %0 to double
-  %11 = fmul double %10, 0x3EB0000000000000
+  %11 = fmul nnan double %10, 0x3EB0000000000000
   call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.ggml_aligned_malloc, ptr noundef nonnull %.0, double noundef %11)
   br label %14
 
@@ -2078,7 +2078,7 @@ ggml_malloc.exit:                                 ; preds = %20
 38:                                               ; preds = %37, %36, %34
   %.0.i = phi ptr [ @.str.3, %34 ], [ @.str.4, %36 ], [ @.str.5, %37 ]
   %39 = uitofp i64 %29 to double
-  %40 = fmul double %39, 0x3EB0000000000000
+  %40 = fmul nnan double %39, 0x3EB0000000000000
   call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__.ggml_aligned_malloc, ptr noundef nonnull %.0.i, double noundef %40)
   br label %43
 
@@ -12783,7 +12783,7 @@ ggml_hash_size.exit:                              ; preds = %13, %16
 
 25:                                               ; preds = %22
   %26 = uitofp i64 %19 to double
-  %27 = fmul double %26, 0x3EB0000000000000
+  %27 = fmul nnan double %26, 0x3EB0000000000000
   tail call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 4, ptr noundef nonnull @.str.448, ptr noundef nonnull @__func__.ggml_malloc, double noundef %27)
   tail call void (ptr, i32, ptr, ...) @ggml_abort(ptr noundef nonnull @.str.12, i32 noundef 324, ptr noundef nonnull @.str.449) #47
   unreachable

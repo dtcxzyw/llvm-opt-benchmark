@@ -785,7 +785,7 @@ define hidden void @_ZN2cv25VariationalRefinementImpl17splitCheckerboardERNS0_14
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !36
   %7 = sitofp i32 %6 to double
-  %8 = fmul double %7, 5.000000e-01
+  %8 = fmul nnan double %7, 5.000000e-01
   %9 = call double @llvm.ceil.f64(double %8)
   %10 = fptosi double %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1556,7 +1556,7 @@ define hidden void @_ZN2cv25VariationalRefinementImpl14RedBlackBuffer6createENS_
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv25VariationalRefinementImpl14RedBlackBuffer6createENS_5Size_IiEEE25__cv_trace_location_fn396)
   %4 = sitofp i32 %.sroa.0.0.extract.trunc to double
-  %5 = fmul double %4, 5.000000e-01
+  %5 = fmul nnan double %4, 5.000000e-01
   %6 = call double @llvm.ceil.f64(double %5)
   %7 = fptosi double %6 to i32
   %8 = add nsw i32 %7, 2

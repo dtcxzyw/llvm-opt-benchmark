@@ -9513,7 +9513,7 @@ _ZN11quinn_proto10congestion3bbr3Bbr18is_min_rtt_expired17hbc043f20403b5858E.exi
   %315 = add i64 %310, %314
   %316 = mul i64 %315, %308
   %317 = uitofp i64 %316 to double
-  %318 = fmul double %317, 7.500000e-01
+  %318 = fmul nnan double %317, 7.500000e-01
   %319 = fdiv double %318, 1.000000e+06
   %320 = call i64 @llvm.fptoui.sat.i64.f64(double %319)
   %321 = icmp eq i64 %320, 0
@@ -9813,7 +9813,7 @@ _ZN11quinn_proto10congestion3bbr3Bbr25calculate_recovery_window17h4442dd958501d5
   %478 = getelementptr inbounds nuw i8, ptr %0, i64 744
   %479 = load i64, ptr %478, align 8, !alias.scope !660, !noundef !3
   %480 = uitofp i64 %479 to double
-  %481 = fmul double %480, 1.250000e+00
+  %481 = fmul nnan double %480, 1.250000e+00
   %482 = call i64 @llvm.fptoui.sat.i64.f64(double %481)
   %483 = call noundef i64 @_ZN11quinn_proto10congestion3bbr13bw_estimation19BandwidthEstimation12get_estimate17h8d0f17323b2b4ab3E(ptr noalias noundef nonnull readonly align 8 dereferenceable(160) %11)
   %.not.i34 = icmp ult i64 %483, %482
@@ -9893,7 +9893,7 @@ define noundef i64 @"_ZN89_$LT$quinn_proto..congestion..bbr..Bbr$u20$as$u20$quin
   %14 = add i64 %9, %13
   %15 = mul i64 %14, %7
   %16 = uitofp i64 %15 to double
-  %17 = fmul double %16, 7.500000e-01
+  %17 = fmul nnan double %16, 7.500000e-01
   %18 = fdiv double %17, 1.000000e+06
   %19 = tail call i64 @llvm.fptoui.sat.i64.f64(double %18)
   %20 = icmp eq i64 %19, 0

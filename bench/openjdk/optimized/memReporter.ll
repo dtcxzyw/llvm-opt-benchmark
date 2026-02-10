@@ -789,7 +789,7 @@ define hidden void @_ZNK18MemSummaryReporter15report_metadataEN9Metaspace12Metad
 
 17:                                               ; preds = %5
   %18 = uitofp i64 %16 to float
-  %19 = fmul float %18, 1.000000e+02
+  %19 = fmul nnan float %18, 1.000000e+02
   %20 = uitofp i64 %13 to float
   %21 = fdiv float %19, %20
   %22 = fpext float %21 to double
@@ -2191,7 +2191,7 @@ define hidden void @_ZNK22MemSummaryDiffReporter20print_metaspace_diffEPKcRK14Me
 
 50:                                               ; preds = %47
   %51 = uitofp i64 %32 to float
-  %52 = fmul float %51, 1.000000e+02
+  %52 = fmul nnan float %51, 1.000000e+02
   %53 = uitofp i64 %48 to float
   %54 = fdiv float %52, %53
   %55 = fpext float %54 to double

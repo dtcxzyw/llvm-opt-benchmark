@@ -13475,7 +13475,7 @@ _ZN5alloc7raw_vec14handle_reserve17h6d2580e795318bfaE.exit.i: ; preds = %.noexc1
   br i1 %171, label %.invoke.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %170
-  %172 = fmul double %.0.lcssa.i, 0x3FEFFFFFFFFFFFFE
+  %172 = fmul nnan double %.0.lcssa.i, 0x3FEFFFFFFFFFFFFE
   %173 = fcmp ult double %172, %.0.lcssa.i
   br i1 %173, label %"_ZN4rand13distributions14weighted_index22WeightedIndex$LT$X$GT$3new17hfcdb0c89c4ed5e4fE.exit", label %.lr.ph.preheader.i.i
 
@@ -13622,7 +13622,7 @@ _ZN5alloc7raw_vec14handle_reserve17h6d2580e795318bfaE.exit.i: ; preds = %.noexc1
   %218 = lshr i64 %217, 12
   %219 = or disjoint i64 %218, 4607182418800017408
   %220 = bitcast i64 %219 to double
-  %221 = fadd double %220, -1.000000e+00
+  %221 = fadd nnan double %220, -1.000000e+00
   %222 = load double, ptr %.sroa.14.0..sroa_idx, align 8, !alias.scope !3092, !noalias !3095, !noundef !14
   %223 = fmul double %221, %222
   %224 = load double, ptr %.sroa.13.0..sroa_idx, align 8, !alias.scope !3092, !noalias !3095, !noundef !14

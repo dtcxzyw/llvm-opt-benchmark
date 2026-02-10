@@ -4965,7 +4965,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc48
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.0.i.i.i.i.i45.ph, ptr %76, align 8
   %77 = sitofp i32 %61 to double
-  %square61 = fmul double %77, %77
+  %square61 = fmul nnan double %77, %77
   br label %78
 
 78:                                               ; preds = %.lr.ph73, %78
@@ -4977,9 +4977,9 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc48
   %83 = load i32, ptr %82, align 4
   %84 = sub nsw i32 %.035.lcssa, %83
   %85 = sitofp i32 %83 to double
-  %square = fmul double %85, %85
+  %square = fmul nnan double %85, %85
   %86 = sitofp i32 %84 to double
-  %square60 = fmul double %86, %86
+  %square60 = fmul nnan double %86, %86
   %87 = fadd double %square, %square60
   %88 = fsub double %87, %square61
   %89 = getelementptr inbounds nuw double, ptr %69, i64 %indvars.iv78
@@ -5307,7 +5307,7 @@ define noundef double @_ZNK10open_spiel9coin_game8CoinGame10MaxUtilityEv(ptr nou
   %5 = load i32, ptr %4, align 4
   %6 = mul nsw i32 %5, %3
   %7 = sitofp i32 %6 to double
-  %square = fmul double %7, %7
+  %square = fmul nnan double %7, %7
   ret double %square
 }
 

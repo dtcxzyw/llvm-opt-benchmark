@@ -71,7 +71,7 @@ define dso_local noundef double @_ZN4Luau9TimeTrace8getClockEv() local_unnamed_a
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !12
   %27 = sitofp i64 %26 to double
-  %28 = call noundef double @llvm.fmuladd.f64(double %24, double 1.000000e+09, double %27)
+  %28 = call nnan double @llvm.fmuladd.f64(double %24, double 1.000000e+09, double %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %29 = load double, ptr @_ZZN4Luau9TimeTrace8getClockEvE5start, align 8, !tbaa !5
   %30 = fsub double %28, %29
@@ -138,7 +138,7 @@ define dso_local noundef i32 @_ZN4Luau9TimeTrace20getClockMicrosecondsEv() local
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !12
   %27 = sitofp i64 %26 to double
-  %28 = call noundef double @llvm.fmuladd.f64(double %24, double 1.000000e+09, double %27)
+  %28 = call nnan double @llvm.fmuladd.f64(double %24, double 1.000000e+09, double %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %29 = load double, ptr @_ZZN4Luau9TimeTrace20getClockMicrosecondsEvE5start, align 8, !tbaa !5
   %30 = fsub double %28, %29

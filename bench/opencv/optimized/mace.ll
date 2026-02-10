@@ -3915,7 +3915,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit113.i:          ; preds = %_ZNK2cv3MatclERKNS_
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %243 = load i32, ptr %64, align 8, !tbaa !26
   %244 = sitofp i32 %243 to double
-  %245 = fmul double %244, 7.031250e-01
+  %245 = fmul nnan double %244, 7.031250e-01
   %246 = call double @llvm.floor.f64(double %245)
   %247 = fptosi double %246 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
@@ -3935,7 +3935,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit113.i:          ; preds = %_ZNK2cv3MatclERKNS_
           to label %251 unwind label %300
 
 251:                                              ; preds = %242
-  %252 = fmul double %244, 4.218750e-01
+  %252 = fmul nnan double %244, 4.218750e-01
   %253 = call double @llvm.floor.f64(double %252)
   %254 = fptosi double %253 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %52)

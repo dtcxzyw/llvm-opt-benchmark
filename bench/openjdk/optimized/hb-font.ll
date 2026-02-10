@@ -5486,7 +5486,7 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i.i: ; preds = %15, 
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %21 = load i32, ptr %20, align 4
   %22 = sitofp i32 %21 to double
-  %23 = fmul double %22, 8.000000e-01
+  %23 = fmul nnan double %22, 8.000000e-01
   %24 = fptosi double %23 to i32
   store i32 %24, ptr %2, align 4
   %25 = load i32, ptr %20, align 4
@@ -7353,7 +7353,7 @@ define hidden void @hb_font_set_variations(ptr noundef %0, ptr noundef readonly 
   %81 = zext i8 %80 to i32
   %82 = or disjoint i32 %78, %81
   %83 = sitofp i32 %82 to float
-  %84 = fmul float %83, 0x3EF0000000000000
+  %84 = fmul nnan float %83, 0x3EF0000000000000
   %85 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv
   store float %84, ptr %85, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7701,7 +7701,7 @@ define hidden void @hb_font_set_variation(ptr noundef %0, i32 noundef %1, float 
   %70 = zext i8 %69 to i32
   %71 = or disjoint i32 %67, %70
   %72 = sitofp i32 %71 to float
-  %73 = fmul float %72, 0x3EF0000000000000
+  %73 = fmul nnan float %72, 0x3EF0000000000000
   %74 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv72
   store float %73, ptr %74, align 4
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
@@ -7902,7 +7902,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT4fvar22unnormalize_axis_valueEj
   %40 = zext i8 %39 to i32
   %41 = or disjoint i32 %37, %40
   %42 = sitofp i32 %41 to float
-  %43 = fmul float %42, 0x3EF0000000000000
+  %43 = fmul nnan float %42, 0x3EF0000000000000
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
@@ -7922,7 +7922,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT4fvar22unnormalize_axis_valueEj
   %60 = zext i8 %59 to i32
   %61 = or disjoint i32 %57, %60
   %62 = sitofp i32 %61 to float
-  %63 = fmul float %62, 0x3EF0000000000000
+  %63 = fmul nnan float %62, 0x3EF0000000000000
   %64 = fcmp ole float %43, %63
   %.sroa.speculated7.i.i = select i1 %64, float %43, float %63
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
@@ -7944,7 +7944,7 @@ define linkonce_odr hidden noundef float @_ZNK2OT4fvar22unnormalize_axis_valueEj
   %81 = zext i8 %80 to i32
   %82 = or disjoint i32 %78, %81
   %83 = sitofp i32 %82 to float
-  %84 = fmul float %83, 0x3EF0000000000000
+  %84 = fmul nnan float %83, 0x3EF0000000000000
   %85 = fcmp oge float %43, %84
   %.sroa.speculated.i.i = select i1 %85, float %43, float %84
   %86 = icmp eq i32 %2, 0
@@ -8602,7 +8602,7 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %55 = load i32, ptr %54, align 4
   %56 = sitofp i32 %55 to double
-  %57 = fmul double %56, 8.000000e-01
+  %57 = fmul nnan double %56, 8.000000e-01
   %58 = fptosi double %57 to i32
   br label %_ZN9hb_font_t29guess_v_origin_minus_h_originEjPiS0_.exit
 
@@ -8719,7 +8719,7 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %56 = load i32, ptr %55, align 4
   %57 = sitofp i32 %56 to double
-  %58 = fmul double %57, 8.000000e-01
+  %58 = fmul nnan double %57, 8.000000e-01
   %59 = fptosi double %58 to i32
   br label %_ZN9hb_font_t29guess_v_origin_minus_h_originEjPiS0_.exit
 
@@ -8941,7 +8941,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %148 = sitofp i32 %147 to float
   %149 = sub nsw i32 %1, %125
   %150 = sitofp i32 %149 to float
-  %151 = fmul float %150, %148
+  %151 = fmul nnan float %150, %148
   %152 = sitofp i32 %126 to float
   %153 = fdiv float %151, %152
   %154 = fadd float %153, %136

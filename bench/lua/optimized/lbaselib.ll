@@ -137,7 +137,7 @@ define internal noundef i32 @luaB_collectgarbage(ptr noundef %0) #0 {
 10:                                               ; preds = %6
   %11 = sitofp i32 %7 to double
   %12 = sitofp i32 %8 to double
-  %13 = fmul double %12, 0x3F50000000000000
+  %13 = fmul nnan double %12, 0x3F50000000000000
   %14 = fadd double %13, %11
   tail call void @lua_pushnumber(ptr noundef %0, double noundef %14) #9
   br label %pushmode.exit

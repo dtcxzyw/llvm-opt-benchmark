@@ -4202,7 +4202,7 @@ define dso_local void @_ZN19CurvatureCalculator15applyMontecarloERKSt6vectorIiSa
   %.sroa.09.014 = phi ptr [ %9, %.lr.ph ], [ %54, %_ZNSt6vectorIiSaIiEE9push_backERKi.exit ]
   %23 = tail call i32 @rand() #31
   %24 = sitofp i32 %23 to float
-  %25 = fmul float %24, 0x3E00000000000000
+  %25 = fmul nnan float %24, 0x3E00000000000000
   %26 = fcmp olt float %25, %19
   br i1 %26, label %27, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -23912,7 +23912,7 @@ define linkonce_odr dso_local void @_ZNK5Eigen7SVDBaseINS_9JacobiSVDINS_6MatrixI
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %24 = load double, ptr %23, align 8
   %25 = uitofp nneg i64 %.sroa.speculated.i.i to double
-  %26 = fmul double %25, 0x3CB0000000000000
+  %26 = fmul nnan double %25, 0x3CB0000000000000
   %27 = select i1 %22, double %24, double %26
   %28 = fmul double %17, %27
   %29 = fcmp olt double %28, 0x10000000000000

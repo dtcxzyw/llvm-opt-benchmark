@@ -17104,7 +17104,7 @@ switch.lookup379:                                 ; preds = %313
   %switch.select33.i.i = select i1 %switch.selectcmp32.i.i, i32 60, i32 %switch.select.i.i
   %482 = load i32, ptr @hf_ieee80211_ff_mimo_csi_snr, align 4
   %483 = sitofp i8 %480 to double
-  %484 = fmul double %483, 2.500000e-01
+  %484 = fmul nnan double %483, 2.500000e-01
   %485 = fadd double %484, 2.200000e+01
   %486 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %479, i32 noundef %482, ptr noundef %1, i32 noundef %.03038.i.i, i32 noundef 1, i32 noundef %481, ptr noundef nonnull @.str.7713, i32 noundef %.03137.i.i, i32 noundef %switch.select33.i.i, double noundef %485)
   %487 = add i32 %.03038.i.i, 1
@@ -18670,7 +18670,7 @@ add_ff_action_unprotected_dmg.exit:               ; preds = %1411, %1419, %1431
   %switch.select133.i.i = select i1 %switch.selectcmp132.i.i, i32 60, i32 %switch.select.i.i160
   %1470 = load i32, ptr @hf_ieee80211_vht_compressed_beamforming_report_snr, align 4
   %1471 = sitofp i8 %1468 to double
-  %1472 = fmul double %1471, 2.500000e-01
+  %1472 = fmul nnan double %1471, 2.500000e-01
   %1473 = fadd double %1472, 2.200000e+01
   %1474 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %1465, i32 noundef %1470, ptr noundef %1, i32 noundef %.0106140.i.i, i32 noundef 1, i32 noundef %1469, ptr noundef nonnull @.str.7713, i32 noundef %.0120139.i.i, i32 noundef %switch.select133.i.i, double noundef %1473)
   %1475 = add i32 %.0106140.i.i, 1
@@ -19547,8 +19547,8 @@ add_ff_action_protected_s1g.exit:                 ; preds = %1757, %1765, %1775,
   %1874 = select i1 %1873, ptr @.str.7734, ptr @.str.7735
   %1875 = select i1 %1872, ptr @.str.7733, ptr %1874
   %1876 = sitofp i8 %1869 to float
-  %1877 = fadd float %1876, 8.800000e+01
-  %1878 = fmul float %1877, 2.500000e-01
+  %1877 = fadd nnan float %1876, 8.800000e+01
+  %1878 = fmul nnan float %1877, 2.500000e-01
   %1879 = fpext float %1878 to double
   %1880 = zext i8 %1869 to i32
   %1881 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %1867, i32 noundef %1870, ptr noundef %1, i32 noundef %.075106.i.i, i32 noundef 1, i32 noundef %1871, ptr noundef nonnull @.str.7732, i32 noundef %.076105.i.i, ptr noundef nonnull %1875, double noundef %1879, i32 noundef %1880)
@@ -22934,7 +22934,7 @@ define internal void @extra_one_mul_two_base_custom(ptr noundef %0, i32 noundef 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @beacon_interval_base_custom(ptr noundef %0, i32 noundef %1) #3 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 1.024000e+03
+  %4 = fmul nnan double %3, 1.024000e+03
   %5 = fdiv double %4, 1.000000e+06
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.8091, double noundef %5)
   ret void
@@ -22943,7 +22943,7 @@ define internal void @beacon_interval_base_custom(ptr noundef %0, i32 noundef %1
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @aoa_azimuth_custom(ptr noundef %0, i32 noundef %1) #3 {
   %3 = uitofp i32 %1 to float
-  %4 = fmul float %3, 0x3FC6800000000000
+  %4 = fmul nnan float %3, 0x3FC6800000000000
   %5 = fpext float %4 to double
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.8295, double noundef %5)
   ret void
@@ -22953,7 +22953,7 @@ define internal void @aoa_azimuth_custom(ptr noundef %0, i32 noundef %1) #3 {
 define internal void @aoa_elevation_custom(ptr noundef %0, i32 noundef %1) #3 {
   %3 = add i32 %1, -512
   %4 = uitofp i32 %3 to float
-  %5 = fmul float %4, 0x3FC6800000000000
+  %5 = fmul nnan float %4, 0x3FC6800000000000
   %6 = fpext float %5 to double
   %7 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.8295, double noundef %6)
   ret void
@@ -22962,7 +22962,7 @@ define internal void @aoa_elevation_custom(ptr noundef %0, i32 noundef %1) #3 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @aoa_accuracy_custom(ptr noundef %0, i32 noundef %1) #3 {
   %3 = uitofp i32 %1 to float
-  %4 = fmul float %3, 0x3FD6800000000000
+  %4 = fmul nnan float %3, 0x3FD6800000000000
   switch i32 %1, label %12 [
     i32 127, label %5
     i32 126, label %7
@@ -22994,7 +22994,7 @@ define internal void @aoa_accuracy_custom(ptr noundef %0, i32 noundef %1) #3 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @hundred_us_base_custom(ptr noundef %0, i32 noundef %1) #3 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 1.000000e+02
+  %4 = fmul nnan double %3, 1.000000e+02
   %5 = fdiv double %4, 1.000000e+03
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.8301, double noundef %5, i32 noundef %1)
   ret void
@@ -23141,7 +23141,7 @@ define internal void @tpe_psd_custom(ptr noundef %0, i8 noundef zeroext %1) #3 {
 
 7:                                                ; preds = %2
   %8 = sitofp i8 %1 to double
-  %9 = fmul double %8, 5.000000e-01
+  %9 = fmul nnan double %8, 5.000000e-01
   %10 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.8869, double noundef %9)
   br label %11
 
@@ -23274,7 +23274,7 @@ define internal void @s1g_recovery_time_duration_custom(ptr noundef %0, i16 noun
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @vht_tpe_custom(ptr noundef %0, i8 noundef zeroext %1) #3 {
   %3 = sitofp i8 %1 to double
-  %4 = fmul double %3, 5.000000e-01
+  %4 = fmul nnan double %3, 5.000000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.9019, double noundef %4)
   ret void
 }
@@ -23286,8 +23286,8 @@ define internal void @rsni_base_custom(ptr noundef %0, i8 noundef zeroext %1) #3
 
 3:                                                ; preds = %2
   %4 = uitofp i8 %1 to double
-  %5 = fadd double %4, -2.000000e+01
-  %6 = fmul double %5, 5.000000e-01
+  %5 = fadd nnan double %4, -2.000000e+01
+  %6 = fmul nnan double %5, 5.000000e-01
   %7 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.9095, double noundef %6)
   br label %10
 
@@ -23321,7 +23321,7 @@ define internal void @rcpi_and_power_level_custom(ptr noundef %0, i8 noundef zer
 
 10:                                               ; preds = %8
   %11 = uitofp i8 %1 to double
-  %12 = fmul double %11, 5.000000e-01
+  %12 = fmul nnan double %11, 5.000000e-01
   %13 = fadd double %12, -1.100000e+02
   %14 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.9099, i32 noundef %3, double noundef %13)
   br label %20
@@ -23345,7 +23345,7 @@ define internal void @rcpi_and_power_level_custom(ptr noundef %0, i8 noundef zer
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @mesh_active_window_base_custom(ptr noundef %0, i32 noundef %1) #3 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 1.024000e+03
+  %4 = fmul nnan double %3, 1.024000e+03
   %5 = fdiv double %4, 1.000000e+06
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.8091, double noundef %5)
   ret void
@@ -39467,8 +39467,8 @@ define internal fastcc i32 @add_ff_eht_su_beamforming_rpt(ptr noundef %0, ptr no
   %23 = select i1 %22, ptr @.str.7734, ptr @.str.7735
   %24 = select i1 %21, ptr @.str.7733, ptr %23
   %25 = sitofp i8 %18 to float
-  %26 = fadd float %25, 8.800000e+01
-  %27 = fmul float %26, 2.500000e-01
+  %26 = fadd nnan float %25, 8.800000e+01
+  %27 = fmul nnan float %26, 2.500000e-01
   %28 = fpext float %27 to double
   %29 = zext i8 %18 to i32
   %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_int_format(ptr noundef %16, i32 noundef %19, ptr noundef %1, i32 noundef %.0151, i32 noundef 1, i32 noundef %20, ptr noundef nonnull @.str.7732, i32 noundef %indvars.iv, ptr noundef nonnull %24, double noundef %28, i32 noundef %29)

@@ -4948,7 +4948,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit107:              ; preds = %69, %67, %_ZN4llvm1
 _ZN4llvm11raw_ostreamlsEPKc.exit111:              ; preds = %78, %80
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %83 = uitofp i64 %14 to double
-  %84 = fmul double %83, 1.250000e-01
+  %84 = fmul nnan double %83, 1.250000e-01
   %85 = lshr i64 %14, 5
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @.str.94, ptr %86, align 8, !tbaa !288, !alias.scope !395
@@ -5477,7 +5477,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit192:              ; preds = %359, %361
   %365 = load i64, ptr %364, align 8, !tbaa !358
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %366 = uitofp i64 %365 to double
-  %367 = fmul double %366, 1.250000e-01
+  %367 = fmul nnan double %366, 1.250000e-01
   %368 = lshr i64 %365, 5
   store ptr @.str.94, ptr %221, align 8, !tbaa !288, !alias.scope !405
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmdmEEE, i64 16), ptr %6, align 8, !tbaa !51, !alias.scope !405
@@ -5507,7 +5507,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit196:              ; preds = %373, %375
   %378 = phi ptr [ %.pre379, %373 ], [ %377, %375 ]
   %379 = load i64, ptr %364, align 8, !tbaa !358
   %380 = uitofp i64 %379 to double
-  %381 = fmul double %380, 1.000000e+02
+  %381 = fmul nnan double %380, 1.000000e+02
   %382 = fdiv double %381, %83
   %383 = load ptr, ptr %15, align 8, !tbaa !11
   %384 = ptrtoint ptr %383 to i64
@@ -5958,7 +5958,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit248:              ; preds = %625, %623, %555, %5
   %631 = getelementptr inbounds nuw i8, ptr %.sroa.0346.0372, i64 68
   %632 = load i32, ptr %631, align 4, !tbaa !376
   %633 = uitofp i32 %632 to double
-  %634 = fmul double %633, 1.000000e+02
+  %634 = fmul nnan double %633, 1.000000e+02
   %635 = uitofp i32 %629 to double
   %636 = fdiv double %634, %635
   %637 = load ptr, ptr %15, align 8, !tbaa !11

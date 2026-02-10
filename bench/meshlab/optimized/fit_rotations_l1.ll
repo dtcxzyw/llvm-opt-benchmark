@@ -3705,7 +3705,7 @@ _ZN5Eigen8internal28conditional_aligned_new_autoIdLb1EEEPT_m.exit.i.i.i77.thread
   %.1.i = phi double [ %.0339382.i, %540 ], [ %508, %.lr.ph.i.i.i.i.i.i.i.i.i.i ], [ %508, %._crit_edge.i.i.i.i.i.i.i.i.i ], [ %546, %._crit_edge.i.i.i.i.i.i.i.i100.i ], [ %546, %.lr.ph.i.i.i.i.i.i.i.i.i101.i ]
   %563 = load i64, ptr %48, align 8
   %564 = sitofp i64 %563 to double
-  %565 = fmul double %564, 2.000000e+00
+  %565 = fmul nnan double %564, 2.000000e+00
   %566 = call double @sqrt(double noundef %565) #28
   %567 = load ptr, ptr %.0.val, align 8
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 16

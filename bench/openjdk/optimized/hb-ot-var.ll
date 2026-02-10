@@ -226,7 +226,7 @@ _ZNK10hb_array_tIKN2OT10AxisRecordEE9sub_arrayEjPj.exit: ; preds = %4
   %73 = zext i8 %72 to i32
   %74 = or disjoint i32 %70, %73
   %75 = sitofp i32 %74 to float
-  %76 = fmul float %75, 0x3EF0000000000000
+  %76 = fmul nnan float %75, 0x3EF0000000000000
   store float %76, ptr %55, align 4
   %77 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %78 = load i8, ptr %77, align 1
@@ -247,7 +247,7 @@ _ZNK10hb_array_tIKN2OT10AxisRecordEE9sub_arrayEjPj.exit: ; preds = %4
   %93 = zext i8 %92 to i32
   %94 = or disjoint i32 %90, %93
   %95 = sitofp i32 %94 to float
-  %96 = fmul float %95, 0x3EF0000000000000
+  %96 = fmul nnan float %95, 0x3EF0000000000000
   %97 = fcmp ole float %76, %96
   %.sroa.speculated7.i.i = select i1 %97, float %76, float %96
   store float %.sroa.speculated7.i.i, ptr %54, align 4
@@ -270,7 +270,7 @@ _ZNK10hb_array_tIKN2OT10AxisRecordEE9sub_arrayEjPj.exit: ; preds = %4
   %114 = zext i8 %113 to i32
   %115 = or disjoint i32 %111, %114
   %116 = sitofp i32 %115 to float
-  %117 = fmul float %116, 0x3EF0000000000000
+  %117 = fmul nnan float %116, 0x3EF0000000000000
   %118 = fcmp oge float %76, %117
   %.sroa.speculated.i.i = select i1 %118, float %76, float %117
   store float %.sroa.speculated.i.i, ptr %56, align 4
@@ -433,7 +433,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar20find_axis_deprecate
   %93 = zext i8 %92 to i32
   %94 = or disjoint i32 %90, %93
   %95 = sitofp i32 %94 to float
-  %96 = fmul float %95, 0x3EF0000000000000
+  %96 = fmul nnan float %95, 0x3EF0000000000000
   store float %96, ptr %75, align 4
   %97 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %98 = load i8, ptr %97, align 1
@@ -454,7 +454,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar20find_axis_deprecate
   %113 = zext i8 %112 to i32
   %114 = or disjoint i32 %110, %113
   %115 = sitofp i32 %114 to float
-  %116 = fmul float %115, 0x3EF0000000000000
+  %116 = fmul nnan float %115, 0x3EF0000000000000
   %117 = fcmp ole float %96, %116
   %.sroa.speculated7.i.i = select i1 %117, float %96, float %116
   store float %.sroa.speculated7.i.i, ptr %74, align 4
@@ -477,7 +477,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar20find_axis_deprecate
   %134 = zext i8 %133 to i32
   %135 = or disjoint i32 %131, %134
   %136 = sitofp i32 %135 to float
-  %137 = fmul float %136, 0x3EF0000000000000
+  %137 = fmul nnan float %136, 0x3EF0000000000000
   %138 = fcmp oge float %96, %137
   %.sroa.speculated.i.i = select i1 %138, float %96, float %137
   store float %.sroa.speculated.i.i, ptr %76, align 4
@@ -609,7 +609,7 @@ _ZNK10hb_array_tIKN2OT10AxisRecordEE9sub_arrayEjPj.exit: ; preds = %4
   %85 = zext i8 %84 to i32
   %86 = or disjoint i32 %82, %85
   %87 = sitofp i32 %86 to float
-  %88 = fmul float %87, 0x3EF0000000000000
+  %88 = fmul nnan float %87, 0x3EF0000000000000
   store float %88, ptr %67, align 4
   %89 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %90 = load i8, ptr %89, align 1
@@ -630,7 +630,7 @@ _ZNK10hb_array_tIKN2OT10AxisRecordEE9sub_arrayEjPj.exit: ; preds = %4
   %105 = zext i8 %104 to i32
   %106 = or disjoint i32 %102, %105
   %107 = sitofp i32 %106 to float
-  %108 = fmul float %107, 0x3EF0000000000000
+  %108 = fmul nnan float %107, 0x3EF0000000000000
   %109 = fcmp ole float %88, %108
   %.sroa.speculated7.i.i = select i1 %109, float %88, float %108
   store float %.sroa.speculated7.i.i, ptr %66, align 4
@@ -653,7 +653,7 @@ _ZNK10hb_array_tIKN2OT10AxisRecordEE9sub_arrayEjPj.exit: ; preds = %4
   %126 = zext i8 %125 to i32
   %127 = or disjoint i32 %123, %126
   %128 = sitofp i32 %127 to float
-  %129 = fmul float %128, 0x3EF0000000000000
+  %129 = fmul nnan float %128, 0x3EF0000000000000
   %130 = fcmp oge float %88, %129
   %.sroa.speculated.i.i = select i1 %130, float %88, float %129
   store float %.sroa.speculated.i.i, ptr %68, align 4
@@ -815,7 +815,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar14find_axis_infoEjP21
   %102 = zext i8 %101 to i32
   %103 = or disjoint i32 %99, %102
   %104 = sitofp i32 %103 to float
-  %105 = fmul float %104, 0x3EF0000000000000
+  %105 = fmul nnan float %104, 0x3EF0000000000000
   store float %105, ptr %84, align 4
   %106 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %107 = load i8, ptr %106, align 1
@@ -836,7 +836,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar14find_axis_infoEjP21
   %122 = zext i8 %121 to i32
   %123 = or disjoint i32 %119, %122
   %124 = sitofp i32 %123 to float
-  %125 = fmul float %124, 0x3EF0000000000000
+  %125 = fmul nnan float %124, 0x3EF0000000000000
   %126 = fcmp ole float %105, %125
   %.sroa.speculated7.i.i = select i1 %126, float %105, float %125
   store float %.sroa.speculated7.i.i, ptr %83, align 4
@@ -859,7 +859,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT4fvar14find_axis_infoEjP21
   %143 = zext i8 %142 to i32
   %144 = or disjoint i32 %140, %143
   %145 = sitofp i32 %144 to float
-  %146 = fmul float %145, 0x3EF0000000000000
+  %146 = fmul nnan float %145, 0x3EF0000000000000
   %147 = fcmp oge float %105, %146
   %.sroa.speculated.i.i = select i1 %147, float %105, float %146
   store float %.sroa.speculated.i.i, ptr %85, align 4
@@ -1151,7 +1151,7 @@ _ZNK10hb_array_tIKN2OT7HBFixedINS0_7IntTypeIiLj4EEELj16EEEE9sub_arrayEjPj.exit.i
   %77 = zext i8 %76 to i32
   %78 = or disjoint i32 %74, %77
   %79 = sitofp i32 %78 to float
-  %80 = fmul float %79, 0x3EF0000000000000
+  %80 = fmul nnan float %79, 0x3EF0000000000000
   %81 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i
   store float %80, ptr %81, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1292,7 +1292,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT4fvar20normalize_axis_valueEjf(pt
   %40 = zext i8 %39 to i32
   %41 = or disjoint i32 %37, %40
   %42 = sitofp i32 %41 to float
-  %43 = fmul float %42, 0x3EF0000000000000
+  %43 = fmul nnan float %42, 0x3EF0000000000000
   %44 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
@@ -1312,7 +1312,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT4fvar20normalize_axis_valueEjf(pt
   %60 = zext i8 %59 to i32
   %61 = or disjoint i32 %57, %60
   %62 = sitofp i32 %61 to float
-  %63 = fmul float %62, 0x3EF0000000000000
+  %63 = fmul nnan float %62, 0x3EF0000000000000
   %64 = fcmp ole float %43, %63
   %.sroa.speculated7.i.i = select i1 %64, float %43, float %63
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 12
@@ -1334,7 +1334,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT4fvar20normalize_axis_valueEjf(pt
   %81 = zext i8 %80 to i32
   %82 = or disjoint i32 %78, %81
   %83 = sitofp i32 %82 to float
-  %84 = fmul float %83, 0x3EF0000000000000
+  %84 = fmul nnan float %83, 0x3EF0000000000000
   %85 = fcmp oge float %43, %84
   %.sroa.speculated.i.i = select i1 %85, float %43, float %84
   %86 = fcmp oge float %2, %.sroa.speculated7.i.i
@@ -2004,7 +2004,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %148 = sitofp i32 %147 to float
   %149 = sub nsw i32 %1, %125
   %150 = sitofp i32 %149 to float
-  %151 = fmul float %150, %148
+  %151 = fmul nnan float %150, %148
   %152 = sitofp i32 %126 to float
   %153 = fdiv float %151, %152
   %154 = fadd float %153, %136

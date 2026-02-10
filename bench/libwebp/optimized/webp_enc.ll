@@ -671,7 +671,7 @@ define internal fastcc void @StoreStats(ptr noundef nonnull readonly captures(no
 
 29:                                               ; preds = %22
   %30 = uitofp i64 %24 to double
-  %31 = fmul double %30, 6.502500e+04
+  %31 = fmul nnan double %30, 6.502500e+04
   %32 = uitofp i64 %26 to double
   %33 = fdiv double %31, %32
   %34 = tail call double @log10(double noundef %33) #8, !tbaa !12
@@ -693,7 +693,7 @@ GetPSNR.exit.i:                                   ; preds = %29, %22
 
 44:                                               ; preds = %GetPSNR.exit.i
   %45 = uitofp nneg i64 %41 to double
-  %46 = fmul double %45, 6.502500e+04
+  %46 = fmul nnan double %45, 6.502500e+04
   %47 = uitofp i64 %40 to double
   %48 = fdiv double %46, %47
   %49 = tail call double @log10(double noundef %48) #8, !tbaa !12
@@ -713,7 +713,7 @@ GetPSNR.exit20.i:                                 ; preds = %44, %GetPSNR.exit.i
 
 57:                                               ; preds = %GetPSNR.exit20.i
   %58 = uitofp nneg i64 %41 to double
-  %59 = fmul double %58, 6.502500e+04
+  %59 = fmul nnan double %58, 6.502500e+04
   %60 = uitofp i64 %55 to double
   %61 = fdiv double %59, %60
   %62 = tail call double @log10(double noundef %61) #8, !tbaa !12
@@ -736,7 +736,7 @@ GetPSNR.exit22.i:                                 ; preds = %57, %GetPSNR.exit20
 
 73:                                               ; preds = %GetPSNR.exit22.i
   %74 = uitofp nneg i64 %70 to double
-  %75 = fmul double %74, 6.502500e+04
+  %75 = fmul nnan double %74, 6.502500e+04
   %76 = uitofp i64 %68 to double
   %77 = fdiv double %75, %76
   %78 = tail call double @log10(double noundef %77) #8, !tbaa !12
@@ -756,7 +756,7 @@ GetPSNR.exit24.i:                                 ; preds = %73, %GetPSNR.exit22
 
 86:                                               ; preds = %GetPSNR.exit24.i
   %87 = uitofp i64 %24 to double
-  %88 = fmul double %87, 6.502500e+04
+  %88 = fmul nnan double %87, 6.502500e+04
   %89 = uitofp i64 %84 to double
   %90 = fdiv double %88, %89
   %91 = tail call double @log10(double noundef %90) #8, !tbaa !12

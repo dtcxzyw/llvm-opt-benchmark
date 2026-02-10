@@ -1381,8 +1381,8 @@ define linkonce_odr void @_ZNSt20poisson_distributionIlE10param_type13_M_initial
   %11 = tail call double @sqrt(double noundef %6) #35, !tbaa !114
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %11, ptr %12, align 8, !tbaa !118
-  %13 = fmul double %6, 2.000000e+00
-  %14 = fmul double %6, 3.200000e+01
+  %13 = fmul nnan double %6, 2.000000e+00
+  %14 = fmul nnan double %6, 3.200000e+01
   %15 = fdiv double %14, 0x3FE921FB54442D18
   %16 = tail call double @log(double noundef %15) #35, !tbaa !114
   %17 = fmul double %13, %16
@@ -1876,7 +1876,7 @@ _ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647
 
 53:                                               ; preds = %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27
   store i64 %37, ptr %1, align 8, !tbaa !92
-  %54 = tail call double @llvm.log.f64(double %49), !tbaa !114
+  %54 = tail call ninf double @llvm.log.f64(double %49)
   %55 = fmul double %54, -2.000000e+00
   %56 = fdiv double %55, %49
   %57 = tail call double @sqrt(double noundef %56) #35, !tbaa !114

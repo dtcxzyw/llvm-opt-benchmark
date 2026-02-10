@@ -422,7 +422,7 @@ entry:
   %xor42.i = xor i32 %xor21.i, %xor7.i
   %xor45.i = xor i32 %xor42.i, %xor35.i
   %conv = sitofp i32 %xor45.i to float
-  %mul = fmul float %conv, 0x3DF0000000000000
+  %mul = fmul nnan float %conv, 0x3DF0000000000000
   %conv2 = fpext float %mul to double
   %add = fadd double %conv2, 5.000000e-01
   %cmp = fcmp ogt double %add, 0x3FEFFFFE00000000

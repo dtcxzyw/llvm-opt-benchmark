@@ -3536,21 +3536,21 @@ proto_item_set_hidden.exit:                       ; preds = %adv_pdu_type_str_ge
   %512 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %503, i32 noundef %511, ptr noundef %0, i32 noundef %510, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %15)
   %513 = load i32, ptr %15, align 4
   %514 = uitofp i32 %513 to double
-  %515 = fmul double %514, 1.250000e+00
+  %515 = fmul nnan double %514, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %512, ptr noundef nonnull @.str.974, double noundef %515)
   %516 = add i32 %448, 8
   %517 = load i32, ptr @hf_link_layer_data_window_offset, align 4
   %518 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %503, i32 noundef %517, ptr noundef %0, i32 noundef %516, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %15)
   %519 = load i32, ptr %15, align 4
   %520 = uitofp i32 %519 to double
-  %521 = fmul double %520, 1.250000e+00
+  %521 = fmul nnan double %520, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %518, ptr noundef nonnull @.str.974, double noundef %521)
   %522 = add i32 %448, 10
   %523 = load i32, ptr @hf_link_layer_data_interval, align 4
   %524 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %503, i32 noundef %523, ptr noundef %0, i32 noundef %522, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %15)
   %525 = load i32, ptr %15, align 4
   %526 = uitofp i32 %525 to double
-  %527 = fmul double %526, 1.250000e+00
+  %527 = fmul nnan double %526, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %524, ptr noundef nonnull @.str.974, double noundef %527)
   %528 = add i32 %448, 12
   %529 = load i32, ptr @hf_link_layer_data_latency, align 4
@@ -3959,7 +3959,7 @@ proto_item_set_hidden.exit:                       ; preds = %adv_pdu_type_str_ge
   %760 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %709, i32 noundef %759, ptr noundef %0, i32 noundef %758, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %21)
   %761 = load i32, ptr %21, align 4
   %762 = uitofp i32 %761 to double
-  %763 = fmul double %762, 1.250000e+00
+  %763 = fmul nnan double %762, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %760, ptr noundef nonnull @.str.974, double noundef %763)
   %764 = add i32 %.6, 4
   %765 = load i32, ptr @hf_extended_advertising_sync_info_channel_map, align 4
@@ -5344,21 +5344,21 @@ proto_item_set_hidden.exit:                       ; preds = %284, %296, %299
   %477 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %476, ptr noundef %0, i32 noundef %470, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %15)
   %478 = load i32, ptr %15, align 4
   %479 = uitofp i32 %478 to double
-  %480 = fmul double %479, 1.250000e+00
+  %480 = fmul nnan double %479, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %477, ptr noundef nonnull @.str.974, double noundef %480)
   %481 = add nuw nsw i32 %.0, 2
   %482 = load i32, ptr @hf_control_window_offset, align 4
   %483 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %482, ptr noundef %0, i32 noundef %481, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %15)
   %484 = load i32, ptr %15, align 4
   %485 = uitofp i32 %484 to double
-  %486 = fmul double %485, 1.250000e+00
+  %486 = fmul nnan double %485, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %483, ptr noundef nonnull @.str.974, double noundef %486)
   %487 = or disjoint i32 %.0, 4
   %488 = load i32, ptr @hf_control_interval, align 4
   %489 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %3, i32 noundef %488, ptr noundef %0, i32 noundef %487, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %15)
   %490 = load i32, ptr %15, align 4
   %491 = uitofp i32 %490 to double
-  %492 = fmul double %491, 1.250000e+00
+  %492 = fmul nnan double %491, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %489, ptr noundef nonnull @.str.974, double noundef %492)
   %493 = add nuw nsw i32 %.0, 6
   %494 = load i32, ptr @hf_control_latency, align 4
@@ -8881,7 +8881,7 @@ define internal fastcc noundef i32 @dissect_periodic_sync_ind(ptr noundef %0, pt
   %36 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %8)
   %37 = load i32, ptr %8, align 4
   %38 = uitofp i32 %37 to double
-  %39 = fmul double %38, 1.250000e+00
+  %39 = fmul nnan double %38, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %36, ptr noundef nonnull @.str.974, double noundef %39)
   %40 = add nuw nsw i32 %2, 6
   %41 = load i32, ptr @hf_control_sync_info_channel_map, align 4
@@ -8995,7 +8995,7 @@ define internal fastcc range(i32 38, 40) i32 @dissect_cis_req(ptr noundef %0, pt
   %65 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %64, ptr noundef %0, i32 noundef %63, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %4)
   %66 = load i32, ptr %4, align 4
   %67 = uitofp i32 %66 to double
-  %68 = fmul double %67, 1.250000e+00
+  %68 = fmul nnan double %67, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %65, ptr noundef nonnull @.str.974, double noundef %68)
   %69 = add nuw nsw i32 %2, 27
   %70 = load i32, ptr @hf_control_cis_offset_min, align 4
@@ -9427,7 +9427,7 @@ define internal fastcc range(i32 31, 33) i32 @dissect_cs_req(ptr noundef %0, ptr
   %20 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 2, i32 noundef -2147483648, ptr noundef nonnull %4)
   %21 = load i32, ptr %4, align 4
   %22 = uitofp i32 %21 to double
-  %23 = fmul double %22, 6.250000e-01
+  %23 = fmul nnan double %22, 6.250000e-01
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %20, ptr noundef nonnull @.str.974, double noundef %23)
   %24 = add nuw nsw i32 %2, 11
   %25 = load i32, ptr @hf_control_cs_req_event_interval, align 4

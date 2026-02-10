@@ -5496,7 +5496,7 @@ define hidden noundef float @"_ZN112_$LT$core..ops..range..RangeInclusive$LT$T$G
   br i1 %12, label %17, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %8
-  %13 = fmul float %10, 0x3FEFFFFFC0000000
+  %13 = fmul nnan float %10, 0x3FEFFFFFC0000000
   %14 = fadd float %4, %13
   %15 = fcmp ule float %14, %5
   br i1 %15, label %"_ZN118_$LT$rand..distributions..uniform..UniformFloat$LT$f32$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$13new_inclusive17ha6c426f641beceefE.llvm.5396057584344544046.exit.i", label %.lr.ph.preheader.i.i
@@ -5539,7 +5539,7 @@ _ZN4rand13distributions7uniform14UniformSampler23sample_single_inclusive17he00cd
   %32 = lshr i32 %30, 9
   %33 = or disjoint i32 %32, 1065353216
   %34 = bitcast i32 %33 to float
-  %35 = fadd float %34, -1.000000e+00
+  %35 = fadd nnan float %34, -1.000000e+00
   %36 = fmul float %.sroa.0.0.lcssa.i.i, %35
   %37 = fadd float %4, %36
   ret float %37
@@ -6895,7 +6895,7 @@ define hidden { float, float } @"_ZN118_$LT$rand..distributions..uniform..Unifor
   br i1 %11, label %16, label %.preheader
 
 .preheader:                                       ; preds = %7
-  %12 = fmul float %9, 0x3FEFFFFFC0000000
+  %12 = fmul nnan float %9, 0x3FEFFFFFC0000000
   %13 = fadd float %3, %12
   %14 = fcmp ule float %13, %4
   br i1 %14, label %._crit_edge, label %.lr.ph.preheader
@@ -6945,7 +6945,7 @@ _ZN4rand3rng3Rng3gen17ha42313eb7f1577d3E.llvm.5396057584344544046.exit: ; preds 
   %12 = lshr i32 %10, 9
   %13 = or disjoint i32 %12, 1065353216
   %14 = bitcast i32 %13 to float
-  %15 = fadd float %14, -1.000000e+00
+  %15 = fadd nnan float %14, -1.000000e+00
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load float, ptr %16, align 4, !noundef !4
   %18 = fmul float %17, %15
@@ -19627,7 +19627,7 @@ define hidden noundef float @_ZN4rand13distributions7uniform14UniformSampler23sa
   br i1 %12, label %17, label %.preheader.i
 
 .preheader.i:                                     ; preds = %8
-  %13 = fmul float %10, 0x3FEFFFFFC0000000
+  %13 = fmul nnan float %10, 0x3FEFFFFFC0000000
   %14 = fadd float %4, %13
   %15 = fcmp ule float %14, %5
   br i1 %15, label %"_ZN118_$LT$rand..distributions..uniform..UniformFloat$LT$f32$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$13new_inclusive17ha6c426f641beceefE.llvm.5396057584344544046.exit", label %.lr.ph.preheader.i
@@ -19670,7 +19670,7 @@ define hidden noundef float @_ZN4rand13distributions7uniform14UniformSampler23sa
   %32 = lshr i32 %30, 9
   %33 = or disjoint i32 %32, 1065353216
   %34 = bitcast i32 %33 to float
-  %35 = fadd float %34, -1.000000e+00
+  %35 = fadd nnan float %34, -1.000000e+00
   %36 = fmul float %.sroa.0.0.lcssa.i, %35
   %37 = fadd float %4, %36
   ret float %37
@@ -19717,7 +19717,7 @@ define hidden noundef float @_ZN4rand3rng3Rng9gen_range17h71d81e13ca1f2a08E(ptr 
   br i1 %11, label %16, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %7
-  %12 = fmul float %9, 0x3FEFFFFFC0000000
+  %12 = fmul nnan float %9, 0x3FEFFFFFC0000000
   %13 = fadd float %4, %12
   %14 = fcmp ule float %13, %5
   br i1 %14, label %"_ZN118_$LT$rand..distributions..uniform..UniformFloat$LT$f32$GT$$u20$as$u20$rand..distributions..uniform..UniformSampler$GT$13new_inclusive17ha6c426f641beceefE.llvm.5396057584344544046.exit.i.i", label %.lr.ph.preheader.i.i.i
@@ -19760,7 +19760,7 @@ define hidden noundef float @_ZN4rand3rng3Rng9gen_range17h71d81e13ca1f2a08E(ptr 
   %31 = lshr i32 %29, 9
   %32 = or disjoint i32 %31, 1065353216
   %33 = bitcast i32 %32 to float
-  %34 = fadd float %33, -1.000000e+00
+  %34 = fadd nnan float %33, -1.000000e+00
   %35 = fmul float %.sroa.0.0.lcssa.i.i.i, %34
   %36 = fadd float %4, %35
   ret float %36

@@ -2255,7 +2255,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit59: ; preds = %_ZN2cv3dnn14dnn4
   %80 = add i64 %64, %72
   %81 = mul i64 %80, %73
   %82 = uitofp i64 %81 to double
-  %83 = fmul double %82, 0x3F50000000000000
+  %83 = fmul nnan double %82, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, double noundef %83)
           to label %84 unwind label %100
 
@@ -2617,7 +2617,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit59: ; preds = %_ZN2cv3dnn14dnn4
   %80 = add i64 %64, %72
   %81 = mul i64 %80, %73
   %82 = uitofp i64 %81 to double
-  %83 = fmul double %82, 0x3F50000000000000
+  %83 = fmul nnan double %82, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, double noundef %83)
           to label %84 unwind label %100
 
@@ -2979,7 +2979,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit59: ; preds = %_ZN2cv3dnn14dnn4
   %80 = add i64 %64, %72
   %81 = mul i64 %80, %73
   %82 = uitofp i64 %81 to double
-  %83 = fmul double %82, 0x3F50000000000000
+  %83 = fmul nnan double %82, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, double noundef %83)
           to label %84 unwind label %100
 
@@ -3341,7 +3341,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit59: ; preds = %_ZN2cv3dnn14dnn4
   %80 = add i64 %64, %72
   %81 = mul i64 %80, %73
   %82 = uitofp i64 %81 to double
-  %83 = fmul double %82, 0x3F50000000000000
+  %83 = fmul nnan double %82, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, double noundef %83)
           to label %84 unwind label %100
 
@@ -3703,7 +3703,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit59: ; preds = %_ZN2cv3dnn14dnn4
   %80 = add i64 %64, %72
   %81 = mul i64 %80, %73
   %82 = uitofp i64 %81 to double
-  %83 = fmul double %82, 0x3F50000000000000
+  %83 = fmul nnan double %82, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, double noundef %83)
           to label %84 unwind label %100
 
@@ -5286,7 +5286,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit59: ; preds = %_ZN2cv3dnn14dnn4
   %81 = add i64 %65, %73
   %82 = mul i64 %81, %74
   %83 = uitofp i64 %82 to double
-  %84 = fmul double %83, 0x3F50000000000000
+  %84 = fmul nnan double %83, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, double noundef %84)
           to label %85 unwind label %101
 
@@ -5649,7 +5649,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit59: ; preds = %_ZN2cv3dnn14dnn4
   %81 = add i64 %65, %73
   %82 = mul i64 %81, %74
   %83 = uitofp i64 %82 to double
-  %84 = fmul double %83, 0x3F50000000000000
+  %84 = fmul nnan double %83, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, double noundef %84)
           to label %85 unwind label %101
 
@@ -6012,7 +6012,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit59: ; preds = %_ZN2cv3dnn14dnn4
   %81 = add i64 %65, %73
   %82 = mul i64 %81, %74
   %83 = uitofp i64 %82 to double
-  %84 = fmul double %83, 0x3F50000000000000
+  %84 = fmul nnan double %83, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, double noundef %84)
           to label %85 unwind label %101
 
@@ -6375,7 +6375,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit59: ; preds = %_ZN2cv3dnn14dnn4
   %81 = add i64 %65, %73
   %82 = mul i64 %81, %74
   %83 = uitofp i64 %82 to double
-  %84 = fmul double %83, 0x3F50000000000000
+  %84 = fmul nnan double %83, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, double noundef %84)
           to label %85 unwind label %101
 
@@ -6738,7 +6738,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit59: ; preds = %_ZN2cv3dnn14dnn4
   %81 = add i64 %65, %73
   %82 = mul i64 %81, %74
   %83 = uitofp i64 %82 to double
-  %84 = fmul double %83, 0x3F50000000000000
+  %84 = fmul nnan double %83, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, double noundef %84)
           to label %85 unwind label %101
 
@@ -8219,7 +8219,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit59: ; preds = %_ZN2cv3dnn14dnn4
   %81 = add i64 %65, %73
   %82 = mul i64 %81, %74
   %83 = uitofp i64 %82 to double
-  %84 = fmul double %83, 0x3F50000000000000
+  %84 = fmul nnan double %83, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, double noundef %84)
           to label %85 unwind label %101
 
@@ -8582,7 +8582,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit59: ; preds = %_ZN2cv3dnn14dnn4
   %81 = add i64 %65, %73
   %82 = mul i64 %81, %74
   %83 = uitofp i64 %82 to double
-  %84 = fmul double %83, 0x3F50000000000000
+  %84 = fmul nnan double %83, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, double noundef %84)
           to label %85 unwind label %101
 
@@ -8945,7 +8945,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit59: ; preds = %_ZN2cv3dnn14dnn4
   %81 = add i64 %65, %73
   %82 = mul i64 %81, %74
   %83 = uitofp i64 %82 to double
-  %84 = fmul double %83, 0x3F50000000000000
+  %84 = fmul nnan double %83, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, double noundef %84)
           to label %85 unwind label %101
 
@@ -9308,7 +9308,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit59: ; preds = %_ZN2cv3dnn14dnn4
   %81 = add i64 %65, %73
   %82 = mul i64 %81, %74
   %83 = uitofp i64 %82 to double
-  %84 = fmul double %83, 0x3F50000000000000
+  %84 = fmul nnan double %83, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, double noundef %84)
           to label %85 unwind label %101
 
@@ -9671,7 +9671,7 @@ _ZN2cv3dnn14dnn4_v20241223L5shapeERKNS_3MatE.exit59: ; preds = %_ZN2cv3dnn14dnn4
   %81 = add i64 %65, %73
   %82 = mul i64 %81, %74
   %83 = uitofp i64 %82 to double
-  %84 = fmul double %83, 0x3F50000000000000
+  %84 = fmul nnan double %83, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef %13, double noundef %84)
           to label %85 unwind label %101
 

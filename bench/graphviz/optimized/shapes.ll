@@ -3294,13 +3294,13 @@ gv_alloc.exit:                                    ; preds = %1
   br i1 %86, label %87, label %95
 
 87:                                               ; preds = %80
-  %88 = fmul double %83, 7.200000e+01
+  %88 = fmul nnan double %83, 7.200000e+01
   %89 = call double @llvm.fmuladd.f64(double %88, double 2.000000e+00, double %.sroa.0385.0.copyload)
   %.not530 = icmp eq i32 %81, 1
   br i1 %.not530, label %93, label %90
 
 90:                                               ; preds = %87
-  %91 = fmul double %85, 7.200000e+01
+  %91 = fmul nnan double %85, 7.200000e+01
   %92 = call double @llvm.fmuladd.f64(double %91, double 2.000000e+00, double %.sroa.20.0.copyload)
   br label %101
 
@@ -3337,7 +3337,7 @@ gv_alloc.exit:                                    ; preds = %1
   br i1 %114, label %115, label %123
 
 115:                                              ; preds = %101
-  %116 = fmul double %113, 7.200000e+01
+  %116 = fmul nnan double %113, 7.200000e+01
   %117 = fdiv double %.sroa.0385.0, %116
   %118 = call double @llvm.ceil.f64(double %117)
   %119 = fmul double %116, %118
@@ -3868,7 +3868,7 @@ gv_calloc.exit546:                                ; preds = %.thread.i545, %374
 396:                                              ; preds = %gv_calloc.exit546
   %397 = uitofp i64 %.1492 to double
   %398 = fdiv double 0x401921FB54442D18, %397
-  %399 = fmul double %398, 5.000000e-01
+  %399 = fmul nnan double %398, 5.000000e-01
   %400 = call double @sin(double noundef %399) #28, !tbaa !17
   %401 = call double @llvm.fabs.f64(double %.0480)
   %402 = call double @llvm.fabs.f64(double %.0481)
@@ -3878,14 +3878,14 @@ gv_calloc.exit546:                                ; preds = %.thread.i545, %374
   %406 = call double @cos(double noundef %399) #28, !tbaa !17
   %407 = fdiv double %405, %406
   %408 = fmul double %.0481, 5.000000e-01
-  %409 = fadd double %398, 0xC00921FB54442D18
-  %410 = fmul double %409, 5.000000e-01
+  %409 = fadd nnan double %398, 0xC00921FB54442D18
+  %410 = fmul nnan double %409, 5.000000e-01
   %411 = call double @sin(double noundef %410) #28, !tbaa !17
   %412 = call double @cos(double noundef %410) #28, !tbaa !17
   %413 = fmul double %412, 5.000000e-01
   %414 = fmul double %411, 5.000000e-01
-  %415 = fsub double 0x400921FB54442D18, %398
-  %416 = fmul double %415, 5.000000e-01
+  %415 = fsub nnan double 0x400921FB54442D18, %398
+  %416 = fmul nnan double %415, 5.000000e-01
   %417 = fadd double %410, %416
   %418 = fdiv double %61, 1.800000e+02
   %419 = load double, ptr %4, align 8, !tbaa !16
@@ -4500,7 +4500,7 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %49
   br i1 %or.cond105, label %76, label %86
 
 76:                                               ; preds = %74
-  %77 = fmul double %39, 5.000000e-01
+  %77 = fmul nnan double %39, 5.000000e-01
   %78 = fadd double %77, %.sroa.0.1
   %79 = fadd double %77, %.sroa.15.1
   %80 = fneg double %78

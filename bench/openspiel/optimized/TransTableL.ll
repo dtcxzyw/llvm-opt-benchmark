@@ -1078,7 +1078,7 @@ define noundef double @_ZNK11TransTableL11MemoryInUseEv(ptr noundef nonnull read
   %4 = mul nsw i32 %3, 6512000
   %5 = add nsw i32 %4, 7045120
   %6 = sitofp i32 %5 to double
-  %7 = fmul double %6, 0x3F50000000000000
+  %7 = fmul nnan double %6, 0x3F50000000000000
   ret double %7
 }
 
@@ -4928,7 +4928,7 @@ _ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i.exit: ; preds = %54
   %.044 = phi double [ 0.000000e+00, %68 ], [ %66, %56 ], [ 0.000000e+00, %_ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i.exit ]
   %.043 = phi double [ %59, %68 ], [ %59, %56 ], [ 0.000000e+00, %_ZNK11TransTableL13MakeHistStatsEPKiRiS2_S2_S2_i.exit ]
   %70 = sitofp i32 %.174 to double
-  %71 = fmul double %70, 9.000000e-01
+  %71 = fmul nnan double %70, 9.000000e-01
   br label %.lr.ph.i50
 
 .lr.ph.i50:                                       ; preds = %77, %69
@@ -6705,7 +6705,7 @@ _ZNK11TransTableL18EffectOfBlockBoundEPKii.exit:  ; preds = %_ZNK11TransTableL13
   %87 = phi double [ %85, %78 ], [ 0.000000e+00, %_ZNK11TransTableL18EffectOfBlockBoundEPKii.exit ]
   %88 = fcmp olt double %87, 0.000000e+00
   %.066 = select i1 %88, double 0.000000e+00, double %87
-  %89 = fmul double %75, 9.000000e-01
+  %89 = fmul nnan double %75, 9.000000e-01
   br label %.lr.ph.i77
 
 .lr.ph.i77:                                       ; preds = %95, %86
@@ -6802,7 +6802,7 @@ _ZNK11TransTableL11BlocksInUseEv.exit:            ; preds = %139
   %152 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St13_Setprecision(ptr noundef nonnull align 8 dereferenceable(8) %151, i32 2)
   %153 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %152, ptr noundef nonnull @_ZSt5fixedRSt8ios_base)
   %154 = sitofp i32 %74 to double
-  %155 = fmul double %154, 1.000000e+02
+  %155 = fmul nnan double %154, 1.000000e+02
   %156 = mul nsw i32 %71, 125
   %157 = sitofp i32 %156 to double
   %158 = fdiv double %155, %157

@@ -288,9 +288,9 @@ alloc_tea_states.exit.i:                          ; preds = %23, %17
 
 encrypt_tea.exit.us.i:                            ; preds = %36
   %55 = uitofp i32 %45 to float
-  %56 = fmul reassoc nsz arcp contract afn float %55, 0x3DF0000000000000
+  %56 = fmul reassoc nnan nsz arcp contract afn float %55, 0x3DF0000000000000
   %57 = fcmp reassoc nsz arcp contract afn olt float %56, 5.000000e-01
-  %58 = fmul reassoc nsz arcp contract afn float %55, 0x3E00000000000000
+  %58 = fmul reassoc nnan nsz arcp contract afn float %55, 0x3E00000000000000
   br i1 %57, label %63, label %59
 
 59:                                               ; preds = %encrypt_tea.exit.us.i
@@ -572,9 +572,9 @@ _get_dither_parameters.exit.thread.i:             ; preds = %switch.lookup, %152
 
 .lr.ph128.i:                                      ; preds = %.preheader.i
   %wide.trip.count185.i = zext nneg i32 %183 to i64
-  %factor.op.fmul = fmul reassoc nsz arcp contract afn float %179, 0x3FBC28F5C0000000
-  %factor.op.fmul70 = fmul reassoc nsz arcp contract afn float %179, 0x3FD3333340000000
-  %factor.op.fmul71 = fmul reassoc nsz arcp contract afn float %179, 0x3FE2E147A0000000
+  %factor.op.fmul = fmul reassoc nnan nsz arcp contract afn float %179, 0x3FBC28F5C0000000
+  %factor.op.fmul70 = fmul reassoc nnan nsz arcp contract afn float %179, 0x3FD3333340000000
+  %factor.op.fmul71 = fmul reassoc nnan nsz arcp contract afn float %179, 0x3FE2E147A0000000
   br label %185
 
 185:                                              ; preds = %_nearest_color.exit.i, %.lr.ph128.i
@@ -674,16 +674,16 @@ _nearest_color.exit.i:                            ; preds = %209, %.preheader.i.
 
 .lr.ph79.i:                                       ; preds = %225
   %233 = add nsw i32 %114, -2
-  %factor.op.fmul42.i = fmul reassoc nsz arcp contract afn float %179, 0x3FBC28F5C0000000
-  %factor.op.fmul44.i = fmul reassoc nsz arcp contract afn float %179, 0x3FD3333340000000
-  %factor.op.fmul46.i = fmul reassoc nsz arcp contract afn float %179, 0x3FE2E147A0000000
+  %factor.op.fmul42.i = fmul reassoc nnan nsz arcp contract afn float %179, 0x3FBC28F5C0000000
+  %factor.op.fmul44.i = fmul reassoc nnan nsz arcp contract afn float %179, 0x3FD3333340000000
+  %factor.op.fmul46.i = fmul reassoc nnan nsz arcp contract afn float %179, 0x3FE2E147A0000000
   %234 = zext nneg i32 %233 to i64
   br label %253
 
 .lr.ph111.i:                                      ; preds = %225
-  %factor.op.fmul98.i = fmul reassoc nsz arcp contract afn float %179, 0x3FBC28F5C0000000
-  %factor.op.fmul100.i = fmul reassoc nsz arcp contract afn float %179, 0x3FD3333340000000
-  %factor.op.fmul102.i = fmul reassoc nsz arcp contract afn float %179, 0x3FE2E147A0000000
+  %factor.op.fmul98.i = fmul reassoc nnan nsz arcp contract afn float %179, 0x3FBC28F5C0000000
+  %factor.op.fmul100.i = fmul reassoc nnan nsz arcp contract afn float %179, 0x3FD3333340000000
+  %factor.op.fmul102.i = fmul reassoc nnan nsz arcp contract afn float %179, 0x3FE2E147A0000000
   %235 = add nsw i32 %114, -1
   %wide.trip.count175.i = zext nneg i32 %235 to i64
   br label %1015

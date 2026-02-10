@@ -55,7 +55,7 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %19 = load i32, ptr %18, align 4, !tbaa !27
   %20 = sitofp i32 %19 to double
-  %21 = tail call nsz double @llvm.fmuladd.f64(double %17, double 1.000000e+02, double %20)
+  %21 = tail call nnan nsz double @llvm.fmuladd.f64(double %17, double 1.000000e+02, double %20)
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !28
   %24 = sitofp i32 %23 to double
@@ -63,8 +63,8 @@ define internal range(i32 -2147483648, 1) i32 @process_command(ptr noundef %0, p
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %27 = load i32, ptr %26, align 8, !tbaa !29
   %28 = sitofp i32 %27 to double
-  %29 = fadd nsz double %28, 2.731500e+02
-  %30 = fdiv nsz double %29, 2.731500e+02
+  %29 = fadd nnan nsz double %28, 2.731500e+02
+  %30 = fdiv nnan nsz double %29, 2.731500e+02
   %31 = tail call nsz double @llvm.sqrt.f64(double %30)
   %32 = fmul nsz double %31, 6.439500e+02
   %33 = fmul nsz double %32, 1.853250e+00
@@ -225,7 +225,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef %0) #1 {
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %10 = load i32, ptr %9, align 4, !tbaa !27
   %11 = sitofp i32 %10 to double
-  %12 = tail call nsz double @llvm.fmuladd.f64(double %8, double 1.000000e+02, double %11)
+  %12 = tail call nnan nsz double @llvm.fmuladd.f64(double %8, double 1.000000e+02, double %11)
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !28
   %15 = sitofp i32 %14 to double
@@ -233,8 +233,8 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef %0) #1 {
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %18 = load i32, ptr %17, align 8, !tbaa !29
   %19 = sitofp i32 %18 to double
-  %20 = fadd nsz double %19, 2.731500e+02
-  %21 = fdiv nsz double %20, 2.731500e+02
+  %20 = fadd nnan nsz double %19, 2.731500e+02
+  %21 = fdiv nnan nsz double %20, 2.731500e+02
   %22 = tail call nsz double @llvm.sqrt.f64(double %21)
   %23 = fmul nsz double %22, 6.439500e+02
   %24 = fmul nsz double %23, 1.853250e+00
@@ -249,7 +249,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef %0) #1 {
   %33 = fptoui double %32 to i32
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 44
   store i32 %33, ptr %34, align 4, !tbaa !39
-  %35 = fmul nsz double %31, 0x3FD1EDDB73ABFF56
+  %35 = fmul nnan nsz double %31, 0x3FD1EDDB73ABFF56
   %36 = fptoui double %35 to i32
   br label %37
 

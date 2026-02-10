@@ -7094,7 +7094,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintE21expandNonInitializingE
 110:                                              ; preds = %98
   %111 = getelementptr inbounds nuw i8, ptr %52, i64 68
   %112 = load float, ptr %111, align 4, !tbaa !64
-  %113 = fmul float %106, %106
+  %113 = fmul nnan float %106, %106
   %114 = tail call float @llvm.fmuladd.f32(float %112, float %112, float %113)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %114)
   %115 = fdiv float 1.000000e+00, %sqrt.i

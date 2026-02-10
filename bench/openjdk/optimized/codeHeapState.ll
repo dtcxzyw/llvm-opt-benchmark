@@ -1237,7 +1237,7 @@ _ZN13CodeHeapState22holding_required_locksEv.exit.thread: ; preds = %_ZN13CodeHe
   %86 = lshr i64 %35, 10
   %87 = lshr i64 %35, 20
   %88 = uitofp i64 %34 to double
-  %89 = fmul double %88, 1.000000e+02
+  %89 = fmul nnan double %88, 1.000000e+02
   %90 = uitofp i64 %35 to double
   %91 = fdiv double %89, %90
   %92 = fptoui double %91 to i32
@@ -2503,53 +2503,53 @@ _ZN13CodeHeapState20discard_TopSizeArrayEP12outputStream.exit1046.thread.thread:
   call void @_ZN13CodeHeapState8printBoxEP12outputStreamcPKcS3_(ptr noundef nonnull %4, i8 noundef signext 45, ptr noundef nonnull @.str.49, ptr noundef %.0.i)
   %645 = lshr i64 %.0833.lcssa1637, 10
   %646 = uitofp i64 %.0833.lcssa1637 to double
-  %647 = fmul double %646, 1.000000e+02
+  %647 = fmul nnan double %646, 1.000000e+02
   %648 = fdiv double %647, %88
   %649 = fdiv double %647, %90
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.50, i64 noundef %645, i32 noundef %.1761.lcssa1643, double noundef %648, double noundef %649) #13
   %650 = lshr i64 %.0863.lcssa1630, 10
   %651 = uitofp i64 %.0863.lcssa1630 to double
-  %652 = fmul double %651, 1.000000e+02
+  %652 = fmul nnan double %651, 1.000000e+02
   %653 = fdiv double %652, %88
   %654 = fdiv double %652, %90
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.51, i64 noundef %650, i32 noundef %.0770.lcssa1642, double noundef %653, double noundef %654) #13
   %655 = lshr i64 %.0858.lcssa1631, 10
   %656 = load i32, ptr @_ZL10nBlocks_t1, align 4
   %657 = uitofp i64 %.0858.lcssa1631 to double
-  %658 = fmul double %657, 1.000000e+02
+  %658 = fmul nnan double %657, 1.000000e+02
   %659 = fdiv double %658, %88
   %660 = fdiv double %658, %90
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.52, i64 noundef %655, i32 noundef %656, double noundef %659, double noundef %660) #13
   %661 = lshr i64 %.0853.lcssa1632, 10
   %662 = load i32, ptr @_ZL10nBlocks_t2, align 4
   %663 = uitofp i64 %.0853.lcssa1632 to double
-  %664 = fmul double %663, 1.000000e+02
+  %664 = fmul nnan double %663, 1.000000e+02
   %665 = fdiv double %664, %88
   %666 = fdiv double %664, %90
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.53, i64 noundef %661, i32 noundef %662, double noundef %665, double noundef %666) #13
   %667 = lshr i64 %.0848.lcssa1633, 10
   %668 = load i32, ptr @_ZL13nBlocks_alive, align 4
   %669 = uitofp i64 %.0848.lcssa1633 to double
-  %670 = fmul double %669, 1.000000e+02
+  %670 = fmul nnan double %669, 1.000000e+02
   %671 = fdiv double %670, %88
   %672 = fdiv double %670, %90
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.54, i64 noundef %667, i32 noundef %668, double noundef %671, double noundef %672) #13
   %673 = lshr i64 %.0843.lcssa1634, 10
   %674 = uitofp i64 %.0843.lcssa1634 to double
-  %675 = fmul double %674, 1.000000e+02
+  %675 = fmul nnan double %674, 1.000000e+02
   %676 = fdiv double %675, %88
   %677 = fdiv double %675, %90
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.55, i64 noundef %673, i32 noundef %.0780.lcssa1640, double noundef %676, double noundef %677) #13
   %678 = lshr i64 %.0838.lcssa1635, 10
   %679 = uitofp i64 %.0838.lcssa1635 to double
-  %680 = fmul double %679, 1.000000e+02
+  %680 = fmul nnan double %679, 1.000000e+02
   %681 = fdiv double %680, %88
   %682 = fdiv double %680, %90
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.56, i64 noundef %678, i32 noundef %.0794.lcssa1639, double noundef %681, double noundef %682) #13
   %683 = lshr i64 %.0835.lcssa1636, 10
   %684 = load i32, ptr @_ZL12nBlocks_stub, align 4
   %685 = uitofp i64 %.0835.lcssa1636 to double
-  %686 = fmul double %685, 1.000000e+02
+  %686 = fmul nnan double %685, 1.000000e+02
   %687 = fdiv double %686, %88
   %688 = fdiv double %686, %90
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.57, i64 noundef %683, i32 noundef %684, double noundef %687, double noundef %688) #13

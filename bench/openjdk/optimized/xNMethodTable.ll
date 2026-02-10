@@ -386,15 +386,15 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_94ELS1_0ELS1_
 define hidden void @_ZN13XNMethodTable17rebuild_if_neededEv() local_unnamed_addr #1 align 2 {
   %1 = load i64, ptr @_ZN13XNMethodTable5_sizeE, align 8
   %2 = uitofp i64 %1 to double
-  %3 = fmul double %2, 6.500000e-01
+  %3 = fmul nnan double %2, 6.500000e-01
   %4 = fptoui double %3 to i64
-  %5 = fmul double %2, 0x3FE6666666666666
+  %5 = fmul nnan double %2, 0x3FE6666666666666
   %6 = fptoui double %5 to i64
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %.sink.split, label %8
 
 8:                                                ; preds = %0
-  %9 = fmul double %2, 3.000000e-01
+  %9 = fmul nnan double %2, 3.000000e-01
   %10 = fptoui double %9 to i64
   %11 = load i64, ptr @_ZN13XNMethodTable12_nregisteredE, align 8
   %12 = icmp ult i64 %11, %10
@@ -443,15 +443,15 @@ define hidden noundef i64 @_ZN13XNMethodTable21unregistered_nmethodsEv() local_u
 define hidden void @_ZN13XNMethodTable16register_nmethodEP7nmethod(ptr noundef %0) local_unnamed_addr #1 align 2 {
   %2 = load i64, ptr @_ZN13XNMethodTable5_sizeE, align 8
   %3 = uitofp i64 %2 to double
-  %4 = fmul double %3, 6.500000e-01
+  %4 = fmul nnan double %3, 6.500000e-01
   %5 = fptoui double %4 to i64
-  %6 = fmul double %3, 0x3FE6666666666666
+  %6 = fmul nnan double %3, 0x3FE6666666666666
   %7 = fptoui double %6 to i64
   %8 = icmp eq i64 %2, 0
   br i1 %8, label %.sink.split.i, label %9
 
 9:                                                ; preds = %1
-  %10 = fmul double %3, 3.000000e-01
+  %10 = fmul nnan double %3, 3.000000e-01
   %11 = fptoui double %10 to i64
   %12 = load i64, ptr @_ZN13XNMethodTable12_nregisteredE, align 8
   %13 = icmp ult i64 %12, %11

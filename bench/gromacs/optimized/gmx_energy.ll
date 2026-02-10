@@ -4972,7 +4972,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit186.i.i: ; preds =
 
 1886:                                             ; preds = %1890
   %fputc.i.i = call i32 @fputc(i32 10, ptr %1777)
-  %1887 = fadd double %1883, 5.000000e-01
+  %1887 = fadd nnan double %1883, 5.000000e-01
   %1888 = fmul double %.0259.i, %1887
   %1889 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1804, ptr noundef nonnull @.str.272, double noundef %1888) #27
   br label %1897
@@ -5785,7 +5785,7 @@ _ZL12remove_driftiiifP10enerdata_t.exit.i:        ; preds = %.noexc499, %2064
 2265:                                             ; preds = %2264
   %2266 = fmul double %.0128.i, 0x44DFE185CA57C517
   %2267 = sitofp i32 %2060 to double
-  %2268 = fmul double %2267, 1.000000e+03
+  %2268 = fmul nnan double %2267, 1.000000e+03
   %2269 = fdiv double %2266, %2268
   %2270 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2056, ptr noundef nonnull @.str.287, double noundef %2269) #27
   br label %2271

@@ -2280,15 +2280,15 @@ define hidden { i64, i32 } @_ZN11quinn_proto10connection6pacing5Pacer5delay17hd5
   %139 = icmp ult i32 %.sroa.3.0, 1000000000
   call void @llvm.assume(i1 %139)
   %140 = uitofp nneg i32 %.sroa.3.0 to double
-  %141 = fdiv double %140, 1.000000e+09
+  %141 = fdiv nnan double %140, 1.000000e+09
   %142 = fadd double %.sroa.09.0, %141
   %143 = uitofp i64 %1 to double
   %144 = uitofp nneg i32 %2 to double
-  %145 = fdiv double %144, 1.000000e+09
-  %146 = fadd double %145, %143
+  %145 = fdiv nnan double %144, 1.000000e+09
+  %146 = fadd nnan double %145, %143
   %147 = fdiv double %142, %146
   %148 = uitofp i32 %50 to double
-  %149 = fmul double %148, 1.250000e+00
+  %149 = fmul nnan double %148, 1.250000e+00
   %150 = fmul double %149, %147
   %151 = call i64 @llvm.fptoui.sat.i64.f64(double %150)
   %152 = call i64 @llvm.uadd.sat.i64(i64 %30, i64 %151)
@@ -7320,9 +7320,9 @@ _ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit.thread35: ; preds =
   %69 = fmul double %59, 0x3FE6666666666666
   %70 = uitofp i64 %38 to double
   %71 = uitofp nneg i32 %39 to double
-  %72 = fdiv double %71, 1.000000e+09
-  %73 = fadd double %72, %70
-  %74 = fmul double %73, 0x3FE0F0F0F0F0F0F2
+  %72 = fdiv nnan double %71, 1.000000e+09
+  %73 = fadd nnan double %72, %70
+  %74 = fmul nnan double %73, 0x3FE0F0F0F0F0F0F2
   %75 = uitofp i64 %.sroa.0.0.i to double
   %76 = uitofp nneg i32 %spec.select.i to double
   %77 = fdiv double %76, 1.000000e+09
@@ -7398,11 +7398,11 @@ define void @"_ZN93_$LT$quinn_proto..congestion..cubic..Cubic$u20$as$u20$quinn_p
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load double, ptr %20, align 8, !noundef !3
   %22 = fcmp ogt double %21, %18
-  %23 = fmul double %18, 1.700000e+00
-  %24 = fmul double %23, 5.000000e-01
+  %23 = fmul nnan double %18, 1.700000e+00
+  %24 = fmul nnan double %23, 5.000000e-01
   %storemerge = select i1 %22, double %24, double %18
   store double %storemerge, ptr %20, align 8
-  %25 = fmul double %storemerge, 0x3FE6666666666666
+  %25 = fmul nnan double %storemerge, 0x3FE6666666666666
   %26 = tail call i64 @llvm.fptoui.sat.i64.f64(double %25)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val7 = load i64, ptr %27, align 8, !noundef !3
@@ -7420,7 +7420,7 @@ define void @"_ZN93_$LT$quinn_proto..congestion..cubic..Cubic$u20$as$u20$quinn_p
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load i64, ptr %35, align 8, !noundef !3
   %37 = uitofp i64 %36 to double
-  %38 = fmul double %37, 0x3FE6666666666666
+  %38 = fmul nnan double %37, 0x3FE6666666666666
   %39 = tail call i64 @llvm.fptoui.sat.i64.f64(double %38)
   store i64 %39, ptr %35, align 8
   br i1 %5, label %41, label %40
@@ -7432,7 +7432,7 @@ define void @"_ZN93_$LT$quinn_proto..congestion..cubic..Cubic$u20$as$u20$quinn_p
   store i32 1000000000, ptr %9, align 8
   %42 = uitofp i64 %.sroa.0.0.sroa.speculated.i to double
   store double %42, ptr %20, align 8
-  %43 = fmul double %42, 0x3FE6666666666666
+  %43 = fmul nnan double %42, 0x3FE6666666666666
   %44 = tail call i64 @llvm.fptoui.sat.i64.f64(double %43)
   %.sroa.0.0.sroa.speculated.i9 = tail call noundef i64 @llvm.umax.i64(i64 %28, i64 %44)
   store i64 %.sroa.0.0.sroa.speculated.i9, ptr %29, align 8

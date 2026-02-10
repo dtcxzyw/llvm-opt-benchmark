@@ -524,8 +524,8 @@ BitCost.exit.i.i:                                 ; preds = %227, %224, %216
   %256 = mul i64 %.0116137.i.i, %195
   %257 = icmp ult i64 %.0116137.i.i, 2000
   %258 = uitofp nneg i64 %.0116137.i.i to double
-  %259 = tail call double @llvm.fmuladd.f64(double %258, double 0x3F02599ED7C6FBD3, double 7.700000e-01)
-  %260 = fmul double %259, 2.810000e+01
+  %259 = tail call nnan double @llvm.fmuladd.f64(double %258, double 0x3F02599ED7C6FBD3, double 7.700000e-01)
+  %260 = fmul nnan double %259, 2.810000e+01
   %.0113.i.i = select i1 %257, double %260, double 2.810000e+01
   %261 = getelementptr i8, ptr %185, i64 %256
   br label %262
@@ -1710,8 +1710,8 @@ BitCost.exit.i.i100:                              ; preds = %791, %788, %780
   %820 = mul i64 %.0116137.i.i104, %759
   %821 = icmp ult i64 %.0116137.i.i104, 2000
   %822 = uitofp nneg i64 %.0116137.i.i104 to double
-  %823 = tail call double @llvm.fmuladd.f64(double %822, double 0x3F02599ED7C6FBD3, double 7.700000e-01)
-  %824 = fmul double %823, 1.350000e+01
+  %823 = tail call nnan double @llvm.fmuladd.f64(double %822, double 0x3F02599ED7C6FBD3, double 7.700000e-01)
+  %824 = fmul nnan double %823, 1.350000e+01
   %.0113.i.i109 = select i1 %821, double %824, double 1.350000e+01
   %825 = getelementptr i8, ptr %749, i64 %820
   br label %826
@@ -2919,8 +2919,8 @@ BitCost.exit.i.i277:                              ; preds = %1369, %1366, %1358
   %1398 = mul i64 %.0116137.i.i281, %1337
   %1399 = icmp ult i64 %.0116137.i.i281, 2000
   %1400 = uitofp nneg i64 %.0116137.i.i281 to double
-  %1401 = tail call double @llvm.fmuladd.f64(double %1400, double 0x3F02599ED7C6FBD3, double 7.700000e-01)
-  %1402 = fmul double %1401, 1.460000e+01
+  %1401 = tail call nnan double @llvm.fmuladd.f64(double %1400, double 0x3F02599ED7C6FBD3, double 7.700000e-01)
+  %1402 = fmul nnan double %1401, 1.460000e+01
   %.0113.i.i286 = select i1 %1399, double %1402, double 1.460000e+01
   %1403 = getelementptr i8, ptr %1327, i64 %1398
   br label %1404

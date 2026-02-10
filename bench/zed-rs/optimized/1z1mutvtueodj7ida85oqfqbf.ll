@@ -53956,7 +53956,7 @@ default.unreachable:                              ; preds = %226
   store i64 %.sroa.8113.0.copyload.i.i, ptr %51, align 8, !noalias !14138
   call void @llvm.lifetime.start.p0(ptr nonnull %50), !noalias !14138
   %549 = uitofp i64 %.sroa.8113.0.copyload.i.i to double
-  %550 = fmul double %549, 1.000000e+02
+  %550 = fmul nnan double %549, 1.000000e+02
   %551 = load i64, ptr %61, align 8, !noalias !14138, !noundef !5
   %552 = uitofp i64 %551 to double
   %553 = fdiv double %550, %552

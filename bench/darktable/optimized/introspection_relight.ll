@@ -182,7 +182,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %47 = fcmp reassoc nsz arcp contract afn ult float %46, 0.000000e+00
   %48 = fcmp reassoc nsz arcp contract afn ole float %46, 1.000000e+00
   %49 = select reassoc nsz arcp contract afn i1 %48, float %46, float 1.000000e+00
-  %50 = fmul reassoc nsz arcp contract afn float %49, 1.000000e+02
+  %50 = fmul reassoc nnan nsz arcp contract afn float %49, 1.000000e+02
   %51 = select i1 %47, float 0.000000e+00, float %50
   %.sroa.0.0.vec.insert = insertelement <4 x float> %.sroa.0.0.copyload, float %51, i64 0
   store <4 x float> %.sroa.0.0.vec.insert, ptr %32, align 16, !tbaa !83, !alias.scope !84, !nontemporal !87
@@ -300,7 +300,7 @@ define void @color_picker_apply(ptr noundef readonly captures(none) %0, ptr noun
   %17 = fmul reassoc nsz arcp contract afn float %16, 0x3F847AE140000000
   %18 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %17, float 0.000000e+00)
   %19 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %18, float 1.000000e+00)
-  %20 = fmul reassoc nsz arcp contract afn float %7, 0x3F847AE140000000
+  %20 = fmul reassoc nnan nsz arcp contract afn float %7, 0x3F847AE140000000
   %21 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %20, float 0.000000e+00)
   %22 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %21, float 1.000000e+00)
   %23 = fpext reassoc nsz arcp contract afn float %14 to double

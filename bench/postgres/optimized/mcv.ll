@@ -177,7 +177,7 @@ build_distinct_groups.exit:                       ; preds = %56, %count_distinct
   store i32 %spec.store.select, ptr %4, align 4
   %60 = sitofp i32 %36 to double
   %61 = fsub double %1, %60
-  %62 = fmul double %60, 4.000000e-02
+  %62 = fmul nnan double %60, 4.000000e-02
   %63 = fadd double %1, -1.000000e+00
   %64 = call double @llvm.fmuladd.f64(double %62, double %63, double %61)
   %65 = fcmp oeq double %64, 0.000000e+00

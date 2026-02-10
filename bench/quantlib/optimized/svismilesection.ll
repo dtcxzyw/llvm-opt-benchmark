@@ -1974,7 +1974,7 @@ ehcleanup171:                                     ; preds = %if.then.i.i156, %eh
   br label %eh.resume
 
 do.body175:                                       ; preds = %do.body116
-  %add = fadd double %17, 1.000000e+00
+  %add = fadd nnan double %17, 1.000000e+00
   %mul176 = fmul double %b, %add
   %cmp177 = fcmp ugt double %mul176, 4.000000e+00
   br i1 %cmp177, label %if.then178, label %do.end223

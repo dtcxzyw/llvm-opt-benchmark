@@ -39,7 +39,7 @@ define void @_ZN7Imf_3_48RationalC2Ed(ptr noundef nonnull writeonly align 4 capt
 14:                                               ; preds = %10
   %15 = fcmp olt double %.0, 1.000000e+00
   %16 = select i1 %15, double 1.000000e+00, double %.0
-  %17 = fmul double %16, 0x3E10000000000000
+  %17 = fmul nnan double %16, 0x3E10000000000000
   %18 = tail call fastcc noundef double @_ZN7Imf_3_412_GLOBAL__N_15denomEdd(double noundef %.0, double noundef %17)
   %19 = fptoui double %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4

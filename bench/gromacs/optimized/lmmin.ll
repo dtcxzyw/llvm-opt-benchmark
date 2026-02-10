@@ -2952,7 +2952,7 @@ _Z8lm_enormiPKd.exit787:                          ; preds = %1233, %1243, %1249,
   br i1 %or.cond3, label %1324, label %1327
 
 1324:                                             ; preds = %1321
-  %1325 = fmul double %.062.i, 2.000000e+00
+  %1325 = fmul nnan double %.062.i, 2.000000e+00
   %1326 = fmul double %.6830, 5.000000e-01
   br label %1327
 

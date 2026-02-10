@@ -7199,7 +7199,7 @@ define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIhfEEvRKNS_3MatES4_S4
   %77 = getelementptr inbounds nuw i8, ptr %65, i64 %73
   %78 = load i8, ptr %77, align 1, !tbaa !11
   %79 = uitofp i8 %78 to double
-  %80 = fmul double %76, %79
+  %80 = fmul nnan double %76, %79
   %81 = tail call double @llvm.fmuladd.f64(double %69, double %72, double %80)
   %82 = or disjoint i64 %indvars.iv241, 2
   %83 = getelementptr inbounds nuw i8, ptr %63, i64 %82
@@ -8193,7 +8193,7 @@ define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIhdEEvRKNS_3MatES4_S4
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 %71
   %76 = load i8, ptr %75, align 1, !tbaa !11
   %77 = uitofp i8 %76 to double
-  %78 = fmul double %74, %77
+  %78 = fmul nnan double %74, %77
   %79 = tail call double @llvm.fmuladd.f64(double %67, double %70, double %78)
   %80 = or disjoint i64 %indvars.iv241, 2
   %81 = getelementptr inbounds nuw i8, ptr %61, i64 %80
@@ -9172,7 +9172,7 @@ define internal void @_ZN2cv12cpu_baselineL14MulTransposedLItfEEvRKNS_3MatES4_S4
   %78 = getelementptr inbounds nuw i16, ptr %66, i64 %74
   %79 = load i16, ptr %78, align 2, !tbaa !29
   %80 = uitofp i16 %79 to double
-  %81 = fmul double %77, %80
+  %81 = fmul nnan double %77, %80
   %82 = tail call double @llvm.fmuladd.f64(double %70, double %73, double %81)
   %83 = or disjoint i64 %indvars.iv241, 2
   %84 = getelementptr inbounds nuw i16, ptr %64, i64 %83
@@ -10168,7 +10168,7 @@ define internal void @_ZN2cv12cpu_baselineL14MulTransposedLItdEEvRKNS_3MatES4_S4
   %76 = getelementptr inbounds nuw i16, ptr %64, i64 %72
   %77 = load i16, ptr %76, align 2, !tbaa !29
   %78 = uitofp i16 %77 to double
-  %79 = fmul double %75, %78
+  %79 = fmul nnan double %75, %78
   %80 = tail call double @llvm.fmuladd.f64(double %68, double %71, double %79)
   %81 = or disjoint i64 %indvars.iv241, 2
   %82 = getelementptr inbounds nuw i16, ptr %62, i64 %81
@@ -11147,7 +11147,7 @@ define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIsfEEvRKNS_3MatES4_S4
   %78 = getelementptr inbounds nuw i16, ptr %66, i64 %74
   %79 = load i16, ptr %78, align 2, !tbaa !29
   %80 = sitofp i16 %79 to double
-  %81 = fmul double %77, %80
+  %81 = fmul nnan double %77, %80
   %82 = tail call double @llvm.fmuladd.f64(double %70, double %73, double %81)
   %83 = or disjoint i64 %indvars.iv241, 2
   %84 = getelementptr inbounds nuw i16, ptr %64, i64 %83
@@ -12143,7 +12143,7 @@ define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIsdEEvRKNS_3MatES4_S4
   %76 = getelementptr inbounds nuw i16, ptr %64, i64 %72
   %77 = load i16, ptr %76, align 2, !tbaa !29
   %78 = sitofp i16 %77 to double
-  %79 = fmul double %75, %78
+  %79 = fmul nnan double %75, %78
   %80 = tail call double @llvm.fmuladd.f64(double %68, double %71, double %79)
   %81 = or disjoint i64 %indvars.iv241, 2
   %82 = getelementptr inbounds nuw i16, ptr %62, i64 %81

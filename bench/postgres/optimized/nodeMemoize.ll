@@ -1278,7 +1278,7 @@ memoize_create.exit:                              ; preds = %memoize_compute_siz
   store i32 %38, ptr %39, align 4
   %40 = icmp eq i64 %.0.i.i.i.i, 4294967296
   %41 = uitofp i64 %.0.i.i.i.i to double
-  %42 = fmul double %41, 9.000000e-01
+  %42 = fmul nnan double %41, 9.000000e-01
   %43 = fptoui double %42 to i32
   %.sink.i.i = select i1 %40, i32 -85899346, i32 %43
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2072,7 +2072,7 @@ memoize_update_parameters.exit:                   ; preds = %memoize_compute_siz
   store i32 %30, ptr %31, align 4
   %32 = icmp eq i64 %.0.i.i.i, 4294967296
   %33 = uitofp i64 %.0.i.i.i to double
-  %34 = fmul double %33, 9.000000e-01
+  %34 = fmul nnan double %33, 9.000000e-01
   %35 = fptoui double %34 to i32
   %.sink.i = select i1 %32, i32 -85899346, i32 %35
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16

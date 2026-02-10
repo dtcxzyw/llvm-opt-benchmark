@@ -3049,7 +3049,7 @@ define hidden void @_ZN2cv6detail8tracking15contrib_feature15CvHaarEvaluator11Fe
   %32 = fptosi float %31 to i32
   %33 = tail call i32 @rand() #32
   %34 = sitofp i32 %33 to float
-  %35 = fmul float %34, 0x3E00000000000000
+  %35 = fmul nnan float %34, 0x3E00000000000000
   %36 = fcmp olt float %35, 0x3FC99999A0000000
   br i1 %36, label %37, label %71
 
@@ -3596,7 +3596,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %283, 
   store float %.sink, ptr %11, align 8, !tbaa !157
   %289 = load i32, ptr %7, align 4, !tbaa !140
   %290 = sitofp i32 %289 to float
-  %291 = fmul float %290, 0x40B5555560000000
+  %291 = fmul nnan float %290, 0x40B5555560000000
   %292 = tail call noundef float @sqrtf(float noundef %291) #32, !tbaa !52
   store float %292, ptr %12, align 4, !tbaa !158
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 64

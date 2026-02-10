@@ -1584,7 +1584,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_129JointBilateralFilterTest_p
   %54 = and i64 %53, 4294967295
   %55 = or disjoint i64 %54, %50
   %56 = uitofp i64 %55 to double
-  %57 = fmul double %56, 0x3BF0000000000000
+  %57 = fmul nnan double %56, 0x3BF0000000000000
   %58 = call noundef double @llvm.fmuladd.f64(double %57, double 2.540000e+02, double 1.000000e+00)
   %59 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper10iterationsEj(ptr noundef nonnull align 8 dereferenceable(8) %26, i32 noundef 1)
           to label %.preheader unwind label %.loopexit.split-lp

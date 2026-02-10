@@ -3252,11 +3252,11 @@ agxbuse.exit.i:                                   ; preds = %357, %agxbclear.exi
 
 409:                                              ; preds = %395
   %410 = sitofp i32 %.sroa.05.0.i.i to double
-  %411 = fmul double %410, 5.000000e-01
+  %411 = fmul nnan double %410, 5.000000e-01
   %412 = fsub double %368, %411
   %413 = call double @llvm.fmuladd.f64(double %369, double %412, double %398)
   %414 = sitofp i32 %.sroa.6.0.i.i to double
-  %415 = fmul double %414, 5.000000e-01
+  %415 = fmul nnan double %414, 5.000000e-01
   %416 = fsub double %373, %415
   %417 = call double @llvm.fmuladd.f64(double %374, double %416, double %399)
   %418 = fadd double %369, %413
@@ -8981,9 +8981,9 @@ gv_calloc.exit357.thread.i:                       ; preds = %1244
 
 .lr.ph416.i:                                      ; preds = %1262
   %1269 = uitofp i64 %.0307.i to double
-  %1270 = fadd double %1269, 2.000000e+00
+  %1270 = fadd nnan double %1269, 2.000000e+00
   %1271 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %1272 = fmul double %1270, -5.000000e-01
+  %1272 = fmul nnan double %1270, -5.000000e-01
   br label %1283
 
 ._crit_edge417.i:                                 ; preds = %._crit_edge.i96, %gv_calloc.exit357.thread.i

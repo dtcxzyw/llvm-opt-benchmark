@@ -868,7 +868,7 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %.0141.us.us.us = phi i32 [ %.us-phi.us.us.us.us.us.us, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader110.us.us.us.preheader ]
   %.087140.us.us.us = phi i32 [ %83, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader110.us.us.us.preheader ]
   %30 = uitofp nneg i32 %.087140.us.us.us to float
-  %31 = fmul reassoc nsz arcp contract afn float %8, %30
+  %31 = fmul reassoc nnan nsz arcp contract afn float %8, %30
   %32 = fadd reassoc nsz arcp contract afn float %31, %6
   br label %.preheader.us.us.us.us.us
 
@@ -884,7 +884,7 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %.2114.us.us.us.us.us.us = phi i32 [ %.1134.us.us.us.us.us, %.preheader.us.us.us.us.us ], [ %.us-phi.us.us.us.us.us.us, %._crit_edge.us.us.us.us.us.us ]
   %.089113.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us ], [ %81, %._crit_edge.us.us.us.us.us.us ]
   %36 = uitofp nneg i32 %.089113.us.us.us.us.us.us to float
-  %37 = fadd reassoc nsz arcp contract afn float %36, 5.000000e-01
+  %37 = fadd reassoc nnan nsz arcp contract afn float %36, 5.000000e-01
   %38 = fmul reassoc nsz arcp contract afn float %8, %37
   %39 = fmul reassoc nsz arcp contract afn float %38, %28
   %40 = fadd reassoc nsz arcp contract afn float %32, %39

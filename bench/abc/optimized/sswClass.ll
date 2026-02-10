@@ -1143,7 +1143,7 @@ Abc_Clock.exit:                                   ; preds = %7, %19
   %29 = shl nuw nsw i64 %28, 3
   %30 = mul i64 %29, %27
   %31 = uitofp i64 %30 to double
-  %32 = fmul double %31, 0x3EB0000000000000
+  %32 = fmul nnan double %31, 0x3EB0000000000000
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %32)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, i32 noundef %14, i32 noundef 2)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10)

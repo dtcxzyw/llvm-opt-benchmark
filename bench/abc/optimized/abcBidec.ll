@@ -52,10 +52,10 @@ Extra_TruthNot.exit:                              ; preds = %select.unfold.i, %1
   br i1 %23, label %Extra_TruthNot.exit82, label %24
 
 24:                                               ; preds = %Extra_TruthNot.exit
-  %25 = fpext float %6 to double
-  %26 = fmul float %6, 2.000000e+00
-  %27 = fpext float %26 to double
-  %28 = fsub double 1.000000e+00, %25
+  %25 = fpext nnan float %6 to double
+  %26 = fmul nnan float %6, 2.000000e+00
+  %27 = fpext nnan float %26 to double
+  %28 = fsub nnan double 1.000000e+00, %25
   %29 = fmul double %28, %27
   %30 = fptrunc double %29 to float
   %31 = fpext float %30 to double

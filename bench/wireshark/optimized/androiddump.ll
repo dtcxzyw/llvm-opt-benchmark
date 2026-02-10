@@ -1787,7 +1787,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   %93 = call i64 @mktime(ptr noundef nonnull %81) #23
   %94 = load i32, ptr %7, align 4
   %95 = sitofp i32 %94 to double
-  %96 = fmul double %95, 1.000000e+06
+  %96 = fmul nnan double %95, 1.000000e+06
   %97 = fptosi double %96 to i32
   br label %98
 

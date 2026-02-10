@@ -3497,7 +3497,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %808 = call noundef float @expf(float noundef %807) #23, !tbaa !62
   %809 = load i32, ptr %102, align 4, !tbaa !74
   %810 = sitofp i32 %809 to float
-  %811 = fmul float %810, 2.000000e+00
+  %811 = fmul nnan float %810, 2.000000e+00
   %812 = fdiv float %808, %811
   %813 = fpext float %812 to double
   %814 = fadd double %.0166759, %813
@@ -3530,7 +3530,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   %834 = call noundef float @expf(float noundef %833) #23, !tbaa !62
   %835 = load i32, ptr %132, align 4, !tbaa !74
   %836 = sitofp i32 %835 to float
-  %837 = fmul float %836, 2.000000e+00
+  %837 = fmul nnan float %836, 2.000000e+00
   %838 = fdiv float %834, %837
   %839 = fpext float %838 to double
   %840 = fadd double %.1167763, %839

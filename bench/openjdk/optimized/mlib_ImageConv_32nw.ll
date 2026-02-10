@@ -32,7 +32,7 @@ define hidden range(i32 0, 2) i32 @mlib_convMxNnw_s32(ptr noundef readonly captu
   %.0770 = select i1 %24, i32 %25, i32 %7
   %26 = shl nuw i32 1, %.0770
   %27 = sitofp i32 %26 to double
-  %28 = fdiv double %.0775, %27
+  %28 = fdiv nnan double %.0775, %27
   %29 = mul nsw i32 %4, %3
   %30 = icmp sgt i32 %29, 256
   br i1 %30, label %31, label %35

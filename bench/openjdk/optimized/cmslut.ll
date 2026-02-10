@@ -1643,7 +1643,7 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLut16bit(ptr noundef readonly 
   %57 = urem i32 %.05472.us, %56
   %58 = udiv i32 %.05472.us, %56
   %59 = uitofp nneg i32 %57 to double
-  %60 = fmul double %59, 6.553500e+04
+  %60 = fmul nnan double %59, 6.553500e+04
   %61 = add i32 %56, -1
   %62 = uitofp i32 %61 to double
   %63 = fdiv double %60, %62
@@ -1985,7 +1985,7 @@ define hidden range(i32 0, 2) i32 @cmsStageSampleCLutFloat(ptr noundef readonly 
   %57 = urem i32 %.05472.us, %56
   %58 = udiv i32 %.05472.us, %56
   %59 = uitofp nneg i32 %57 to double
-  %60 = fmul double %59, 6.553500e+04
+  %60 = fmul nnan double %59, 6.553500e+04
   %61 = add i32 %56, -1
   %62 = uitofp i32 %61 to double
   %63 = fdiv double %60, %62
@@ -2200,7 +2200,7 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpace16(i32 noundef %0, ptr noundef r
   %23 = urem i32 %.02432.us, %22
   %24 = udiv i32 %.02432.us, %22
   %25 = uitofp nneg i32 %23 to double
-  %26 = fmul double %25, 6.553500e+04
+  %26 = fmul nnan double %25, 6.553500e+04
   %27 = add i32 %22, -1
   %28 = uitofp i32 %27 to double
   %29 = fdiv double %26, %28
@@ -2302,7 +2302,7 @@ define hidden range(i32 0, 2) i32 @cmsSliceSpaceFloat(i32 noundef %0, ptr nounde
   %23 = urem i32 %.02432.us, %22
   %24 = udiv i32 %.02432.us, %22
   %25 = uitofp nneg i32 %23 to double
-  %26 = fmul double %25, 6.553500e+04
+  %26 = fmul nnan double %25, 6.553500e+04
   %27 = add i32 %22, -1
   %28 = uitofp i32 %27 to double
   %29 = fdiv double %26, %28

@@ -4467,7 +4467,7 @@ _ZN5drjit6gatherIPKN7mitsuba5ShapeIfNS_6MatrixINS1_8SpectrumIfLm4EEELm4EEEEELb0E
   br i1 %66, label %67, label %.thread620
 
 67:                                               ; preds = %.thread620condstore.split
-  %68 = fmul contract float %34, 2.000000e+00
+  %68 = fmul nnan contract float %34, 2.000000e+00
   %69 = select i1 %65, float %68, float %34
   %70 = fmul contract float %69, 2.000000e+00
   %71 = fadd contract float %70, -1.000000e+00

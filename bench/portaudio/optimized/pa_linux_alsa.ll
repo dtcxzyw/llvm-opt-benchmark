@@ -7419,7 +7419,7 @@ define internal fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef %0) unnamed_addr
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !134
   %19 = sitofp i64 %18 to double
-  %20 = call double @llvm.fmuladd.f64(double %19, double 1.000000e-09, double %16)
+  %20 = call nnan double @llvm.fmuladd.f64(double %19, double 1.000000e-09, double %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %21 = fsub double %5, %20
   %22 = fmul double %21, 1.000000e+03
@@ -7457,7 +7457,7 @@ define internal fastcc i32 @PaAlsaStream_HandleXrun(ptr noundef %0) unnamed_addr
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load i64, ptr %40, align 8, !tbaa !134
   %42 = sitofp i64 %41 to double
-  %43 = call double @llvm.fmuladd.f64(double %42, double 1.000000e-09, double %39)
+  %43 = call nnan double @llvm.fmuladd.f64(double %42, double 1.000000e-09, double %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %44 = fsub double %5, %43
   %45 = fmul double %44, 1.000000e+03

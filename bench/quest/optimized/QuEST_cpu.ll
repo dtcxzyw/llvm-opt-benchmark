@@ -5116,7 +5116,7 @@ define internal void @statevec_initDebugState.omp_outlined(ptr noalias noundef r
   %.019 = phi i64 [ %17, %.lr.ph ], [ %30, %21 ]
   %22 = add nsw i64 %18, %.019
   %23 = sitofp i64 %22 to double
-  %24 = fmul double %23, 2.000000e+00
+  %24 = fmul nnan double %23, 2.000000e+00
   %25 = fdiv double %24, 1.000000e+01
   %26 = getelementptr inbounds double, ptr %19, i64 %.019
   store double %25, ptr %26, align 8, !tbaa !4

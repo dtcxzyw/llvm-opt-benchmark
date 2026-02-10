@@ -775,7 +775,7 @@ define internal fastcc range(i32 -22, 1) i32 @init_pattern_from_string(ptr nound
 13:                                               ; preds = %1
   store i32 %7, ptr %8, align 8, !tbaa !20
   %14 = sitofp i32 %7 to double
-  %15 = fmul nsz double %14, 0x3FF9E3779B97F4A8
+  %15 = fmul nnan nsz double %14, 0x3FF9E3779B97F4A8
   %16 = fptosi double %15 to i32
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 %16, ptr %17, align 4, !tbaa !31

@@ -7089,9 +7089,9 @@ cond.true.i.i11:                                  ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i11
-  %87 = call float @llvm.fmuladd.f32(float %mul.i8, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i12 = fmul float %mul.i8, %87
-  %mul3.i.i = fmul float %mul.i8, %mul.i.i12
+  %87 = call nnan float @llvm.fmuladd.f32(float %mul.i8, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i12 = fmul nnan float %mul.i8, %87
+  %mul3.i.i = fmul nnan float %mul.i8, %mul.i.i12
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i11, %call.i.noexc
@@ -8940,9 +8940,9 @@ cond.true.i.i9:                                   ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i9
-  %83 = call float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i = fmul float %mul.i, %83
-  %mul3.i.i = fmul float %mul.i, %mul.i.i
+  %83 = call nnan float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i = fmul nnan float %mul.i, %83
+  %mul3.i.i = fmul nnan float %mul.i, %mul.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i9, %call.i.noexc
@@ -9944,9 +9944,9 @@ cond.true.i.i9:                                   ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i9
-  %87 = call float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i10 = fmul float %mul.i, %87
-  %mul3.i.i = fmul float %mul.i, %mul.i.i10
+  %87 = call nnan float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i10 = fmul nnan float %mul.i, %87
+  %mul3.i.i = fmul nnan float %mul.i, %mul.i.i10
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i9, %call.i.noexc
@@ -12250,9 +12250,9 @@ cond.true.i.i9:                                   ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i9
-  %87 = call float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i10 = fmul float %mul.i, %87
-  %mul3.i.i = fmul float %mul.i, %mul.i.i10
+  %87 = call nnan float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i10 = fmul nnan float %mul.i, %87
+  %mul3.i.i = fmul nnan float %mul.i, %mul.i.i10
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i9, %call.i.noexc
@@ -14560,9 +14560,9 @@ cond.true.i.i9:                                   ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i9
-  %87 = call float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i10 = fmul float %mul.i, %87
-  %mul3.i.i = fmul float %mul.i, %mul.i.i10
+  %87 = call nnan float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i10 = fmul nnan float %mul.i, %87
+  %mul3.i.i = fmul nnan float %mul.i, %mul.i.i10
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i9, %call.i.noexc
@@ -19410,9 +19410,9 @@ cond.true.i.i11:                                  ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i11
-  %87 = call float @llvm.fmuladd.f32(float %mul.i8, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i12 = fmul float %mul.i8, %87
-  %mul3.i.i = fmul float %mul.i8, %mul.i.i12
+  %87 = call nnan float @llvm.fmuladd.f32(float %mul.i8, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i12 = fmul nnan float %mul.i8, %87
+  %mul3.i.i = fmul nnan float %mul.i8, %mul.i.i12
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i11, %call.i.noexc
@@ -21263,9 +21263,9 @@ cond.true.i.i9:                                   ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i9
-  %83 = call float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i = fmul float %mul.i, %83
-  %mul3.i.i = fmul float %mul.i, %mul.i.i
+  %83 = call nnan float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i = fmul nnan float %mul.i, %83
+  %mul3.i.i = fmul nnan float %mul.i, %mul.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i9, %call.i.noexc
@@ -22268,9 +22268,9 @@ cond.true.i.i9:                                   ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i9
-  %87 = call float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i10 = fmul float %mul.i, %87
-  %mul3.i.i = fmul float %mul.i, %mul.i.i10
+  %87 = call nnan float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i10 = fmul nnan float %mul.i, %87
+  %mul3.i.i = fmul nnan float %mul.i, %mul.i.i10
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i9, %call.i.noexc
@@ -24578,9 +24578,9 @@ cond.true.i.i9:                                   ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i9
-  %87 = call float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i10 = fmul float %mul.i, %87
-  %mul3.i.i = fmul float %mul.i, %mul.i.i10
+  %87 = call nnan float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i10 = fmul nnan float %mul.i, %87
+  %mul3.i.i = fmul nnan float %mul.i, %mul.i.i10
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i9, %call.i.noexc
@@ -26892,9 +26892,9 @@ cond.true.i.i9:                                   ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i9
-  %87 = call float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i10 = fmul float %mul.i, %87
-  %mul3.i.i = fmul float %mul.i, %mul.i.i10
+  %87 = call nnan float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i10 = fmul nnan float %mul.i, %87
+  %mul3.i.i = fmul nnan float %mul.i, %mul.i.i10
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i9, %call.i.noexc
@@ -34309,7 +34309,7 @@ invoke.cont235:                                   ; preds = %invoke.cont232
 
 invoke.cont237:                                   ; preds = %invoke.cont235
   %conv239 = uitofp i64 %call167 to double
-  %mul240 = fmul double %conv239, 1.000000e+02
+  %mul240 = fmul nnan double %conv239, 1.000000e+02
   %conv241 = uitofp i64 %mul215 to double
   %div = fdiv double %mul240, %conv241
   %call243 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.73)
@@ -34337,9 +34337,9 @@ if.then255:                                       ; preds = %invoke.cont252
 
 invoke.cont261:                                   ; preds = %if.then255
   %conv256 = uitofp i64 %call171 to double
-  %mul257 = fmul double %conv256, 1.000000e+02
+  %mul257 = fmul nnan double %conv256, 1.000000e+02
   %conv258 = uitofp i32 %15 to double
-  %mul259 = fmul double %conv258, 5.120000e+02
+  %mul259 = fmul nnan double %conv258, 5.120000e+02
   %div260 = fdiv double %mul257, %mul259
   %call264 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call262, double noundef %div260)
           to label %invoke.cont263 unwind label %lpad82.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -34627,7 +34627,7 @@ invoke.cont359:                                   ; preds = %invoke.cont357
 
 invoke.cont365:                                   ; preds = %invoke.cont359
   %conv367 = uitofp i64 %call315 to double
-  %mul368 = fmul double %conv367, 1.000000e+02
+  %mul368 = fmul nnan double %conv367, 1.000000e+02
   %conv369 = uitofp i64 %totalVoxels.0 to double
   %div370 = fdiv double %mul368, %conv369
   %call372 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call366, double noundef %div370)
@@ -34643,7 +34643,7 @@ invoke.cont373:                                   ; preds = %invoke.cont371
 
 invoke.cont375:                                   ; preds = %invoke.cont373
   %conv377 = uitofp i64 %call171 to double
-  %mul378 = fmul double %conv377, 1.000000e+02
+  %mul378 = fmul nnan double %conv377, 1.000000e+02
   %div380 = fdiv double %mul378, %conv367
   %call382 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call376, double noundef %div380)
           to label %invoke.cont381 unwind label %lpad82.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -126502,9 +126502,9 @@ cond.true.i.i4:                                   ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i4
-  %18 = call float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i = fmul float %mul.i, %18
-  %mul3.i.i = fmul float %mul.i, %mul.i.i
+  %18 = call nnan float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i = fmul nnan float %mul.i, %18
+  %mul3.i.i = fmul nnan float %mul.i, %mul.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i4, %call.i.noexc
@@ -127402,9 +127402,9 @@ cond.true.i.i6:                                   ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i6
-  %23 = call float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i = fmul float %mul.i, %23
-  %mul3.i.i = fmul float %mul.i, %mul.i.i
+  %23 = call nnan float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i = fmul nnan float %mul.i, %23
+  %mul3.i.i = fmul nnan float %mul.i, %mul.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i6, %call.i.noexc
@@ -128342,9 +128342,9 @@ cond.true.i.i6:                                   ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i6
-  %23 = call float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i = fmul float %mul.i, %23
-  %mul3.i.i = fmul float %mul.i, %mul.i.i
+  %23 = call nnan float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i = fmul nnan float %mul.i, %23
+  %mul3.i.i = fmul nnan float %mul.i, %mul.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i6, %call.i.noexc
@@ -162903,9 +162903,9 @@ cond.true.i.i4:                                   ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i4
-  %18 = call float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i = fmul float %mul.i, %18
-  %mul3.i.i = fmul float %mul.i, %mul.i.i
+  %18 = call nnan float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i = fmul nnan float %mul.i, %18
+  %mul3.i.i = fmul nnan float %mul.i, %mul.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i4, %call.i.noexc
@@ -163804,9 +163804,9 @@ cond.true.i.i6:                                   ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i6
-  %23 = call float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i = fmul float %mul.i, %23
-  %mul3.i.i = fmul float %mul.i, %mul.i.i
+  %23 = call nnan float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i = fmul nnan float %mul.i, %23
+  %mul3.i.i = fmul nnan float %mul.i, %mul.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i6, %call.i.noexc
@@ -164745,9 +164745,9 @@ cond.true.i.i6:                                   ; preds = %call.i.noexc
   br i1 %cmp1.i.i, label %cond.true2.i.i, label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 cond.true2.i.i:                                   ; preds = %cond.true.i.i6
-  %23 = call float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
-  %mul.i.i = fmul float %mul.i, %23
-  %mul3.i.i = fmul float %mul.i, %mul.i.i
+  %23 = call nnan float @llvm.fmuladd.f32(float %mul.i, float -2.000000e+00, float 3.000000e+00)
+  %mul.i.i = fmul nnan float %mul.i, %23
+  %mul3.i.i = fmul nnan float %mul.i, %mul.i.i
   br label %_ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i
 
 _ZN7openvdb5v11_04math14SmoothUnitStepIfEET_S3_.exit.i: ; preds = %cond.true2.i.i, %cond.true.i.i6, %call.i.noexc

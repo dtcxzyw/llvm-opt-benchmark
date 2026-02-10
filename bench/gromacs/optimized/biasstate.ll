@@ -2188,8 +2188,8 @@ define noundef i32 @_ZNK3gmx9BiasState25warnForHistogramAnomaliesERKNS_8BiasGrid
   unreachable
 
 32:                                               ; preds = %29
-  %33 = fdiv double 1.000000e+00, %.158
-  %34 = fdiv double 1.000000e+00, %.160
+  %33 = fdiv nnan double 1.000000e+00, %.158
+  %34 = fdiv nnan double 1.000000e+00, %.160
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !20
   %37 = load ptr, ptr %1, align 8, !tbaa !23
@@ -5936,7 +5936,7 @@ _ZNSt6vectorIdSaIdEEC2EmRKS0_.exit.i:             ; preds = %.noexc21.i
 
 311:                                              ; preds = %._crit_edge.i99
   %312 = sitofp i32 %274 to double
-  %313 = fdiv double 1.000000e+00, %312
+  %313 = fdiv nnan double 1.000000e+00, %312
   br i1 %.not.i.i.i.i.i, label %._crit_edge44.i, label %.lr.ph43.preheader.i
 
 .lr.ph43.preheader.i:                             ; preds = %311
@@ -6825,7 +6825,7 @@ _ZNSt6vectorIdN3gmx9AllocatorIdNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
   unreachable
 
 127:                                              ; preds = %._crit_edge83
-  %128 = fdiv double 1.000000e+00, %60
+  %128 = fdiv nnan double 1.000000e+00, %60
   %129 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %130 = load ptr, ptr %129, align 8, !tbaa !243
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 32

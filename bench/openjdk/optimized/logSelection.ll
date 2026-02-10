@@ -785,7 +785,7 @@ define hidden noundef double @_ZNK12LogSelection10similarityERKS_(ptr noundef no
 
 ._crit_edge.loopexit21:                           ; preds = %..loopexit_crit_edge.us
   %17 = uitofp i64 %.1.us to double
-  %18 = fmul double %17, 2.000000e+00
+  %18 = fmul nnan double %17, 2.000000e+00
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.preheader.lr.ph, %._crit_edge.loopexit21, %2
@@ -916,7 +916,7 @@ define hidden void @_ZNK12LogSelection24suggest_similar_matchingEP12outputStream
 
 ._crit_edge.loopexit21.i:                         ; preds = %..loopexit_crit_edge.us.i
   %50 = uitofp i64 %.1.us.i to double
-  %51 = fmul double %50, 2.000000e+00
+  %51 = fmul nnan double %50, 2.000000e+00
   br label %_ZNK12LogSelection10similarityERKS_.exit
 
 _ZNK12LogSelection10similarityERKS_.exit:         ; preds = %38, %._crit_edge.loopexit21.i
@@ -995,7 +995,7 @@ _ZNK12LogSelection10similarityERKS_.exit60.us:    ; preds = %.preheader, %_ZNK12
 
 ._crit_edge.loopexit21.i58:                       ; preds = %..loopexit_crit_edge.us.i55
   %79 = uitofp i64 %.1.us.i56 to double
-  %80 = fmul double %79, 2.000000e+00
+  %80 = fmul nnan double %79, 2.000000e+00
   br label %_ZNK12LogSelection10similarityERKS_.exit60
 
 _ZNK12LogSelection10similarityERKS_.exit60:       ; preds = %.preheader.lr.ph.i48, %._crit_edge.loopexit21.i58
@@ -1184,7 +1184,7 @@ define linkonce_odr hidden noundef i64 @_ZN9QuickSort10find_pivotI12LogSelection
 
 ._crit_edge.loopexit21.i.i:                       ; preds = %..loopexit_crit_edge.us.i.i
   %23 = uitofp i64 %.1.us.i.i to double
-  %24 = fmul double %23, 2.000000e+00
+  %24 = fmul nnan double %23, 2.000000e+00
   br label %.preheader.lr.ph.i14.i
 
 _ZNK12LogSelection10similarityERKS_.exit.i:       ; preds = %3
@@ -1234,7 +1234,7 @@ _ZNK12LogSelection10similarityERKS_.exit.i:       ; preds = %3
 
 ._crit_edge.loopexit21.i24.i:                     ; preds = %..loopexit_crit_edge.us.i21.i
   %42 = uitofp i64 %.1.us.i22.i to double
-  %43 = fmul double %42, 2.000000e+00
+  %43 = fmul nnan double %42, 2.000000e+00
   br label %_ZNK12LogSelection10similarityERKS_.exit26.i
 
 _ZNK12LogSelection10similarityERKS_.exit26.i:     ; preds = %._crit_edge.loopexit21.i24.i, %.preheader.lr.ph.i14.i, %_ZNK12LogSelection10similarityERKS_.exit.i
@@ -1327,7 +1327,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread90: ; preds = %51, %
 
 ._crit_edge.loopexit21.i.i31:                     ; preds = %..loopexit_crit_edge.us.i.i28
   %80 = uitofp i64 %.1.us.i.i29 to double
-  %81 = fmul double %80, 2.000000e+00
+  %81 = fmul nnan double %80, 2.000000e+00
   br label %.preheader.lr.ph.i14.i32
 
 _ZNK12LogSelection10similarityERKS_.exit.i50:     ; preds = %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread90
@@ -1377,7 +1377,7 @@ _ZNK12LogSelection10similarityERKS_.exit.i50:     ; preds = %_ZNK20SimilarityCom
 
 ._crit_edge.loopexit21.i24.i44:                   ; preds = %..loopexit_crit_edge.us.i21.i41
   %99 = uitofp i64 %.1.us.i22.i42 to double
-  %100 = fmul double %99, 2.000000e+00
+  %100 = fmul nnan double %99, 2.000000e+00
   br label %_ZNK12LogSelection10similarityERKS_.exit26.i45
 
 _ZNK12LogSelection10similarityERKS_.exit26.i45:   ; preds = %._crit_edge.loopexit21.i24.i44, %.preheader.lr.ph.i14.i32, %_ZNK12LogSelection10similarityERKS_.exit.i50
@@ -1469,7 +1469,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit52.thread94: ; preds = %108
 
 ._crit_edge.loopexit21.i.i65:                     ; preds = %..loopexit_crit_edge.us.i.i62
   %135 = uitofp i64 %.1.us.i.i63 to double
-  %136 = fmul double %135, 2.000000e+00
+  %136 = fmul nnan double %135, 2.000000e+00
   br label %.preheader.lr.ph.i14.i66
 
 _ZNK12LogSelection10similarityERKS_.exit.i84:     ; preds = %_ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit52.thread94
@@ -1519,7 +1519,7 @@ _ZNK12LogSelection10similarityERKS_.exit.i84:     ; preds = %_ZNK20SimilarityCom
 
 ._crit_edge.loopexit21.i24.i78:                   ; preds = %..loopexit_crit_edge.us.i21.i75
   %154 = uitofp i64 %.1.us.i22.i76 to double
-  %155 = fmul double %154, 2.000000e+00
+  %155 = fmul nnan double %154, 2.000000e+00
   br label %_ZNK12LogSelection10similarityERKS_.exit26.i79
 
 _ZNK12LogSelection10similarityERKS_.exit26.i79:   ; preds = %._crit_edge.loopexit21.i24.i78, %.preheader.lr.ph.i14.i66, %_ZNK12LogSelection10similarityERKS_.exit.i84
@@ -1661,7 +1661,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us: ; preds = %27, %24
 
 ._crit_edge.loopexit21.i.i:                       ; preds = %..loopexit_crit_edge.us.i.i
   %46 = uitofp i64 %.1.us.i.i to double
-  %47 = fmul double %46, 2.000000e+00
+  %47 = fmul nnan double %46, 2.000000e+00
   br label %.preheader.lr.ph.i14.i
 
 .preheader.lr.ph.i14.i:                           ; preds = %._crit_edge.loopexit21.i.i, %.preheader.lr.ph.i.i
@@ -1703,7 +1703,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.us: ; preds = %27, %24
 
 ._crit_edge.loopexit21.i24.i:                     ; preds = %..loopexit_crit_edge.us.i21.i
   %61 = uitofp i64 %.1.us.i22.i to double
-  %62 = fmul double %61, 2.000000e+00
+  %62 = fmul nnan double %61, 2.000000e+00
   br label %_ZNK12LogSelection10similarityERKS_.exit26.i
 
 _ZNK12LogSelection10similarityERKS_.exit26.i:     ; preds = %._crit_edge.loopexit21.i24.i, %.preheader.lr.ph.i14.i
@@ -1787,7 +1787,7 @@ _ZNK20SimilarityComparatorclERK12LogSelectionS2_.exit.thread: ; preds = %69, %_Z
 
 ._crit_edge.loopexit21.i.i30:                     ; preds = %..loopexit_crit_edge.us.i.i27
   %94 = uitofp i64 %.1.us.i.i28 to double
-  %95 = fmul double %94, 2.000000e+00
+  %95 = fmul nnan double %94, 2.000000e+00
   br label %.preheader.lr.ph.i14.i31
 
 _ZNK12LogSelection10similarityERKS_.exit.i49:     ; preds = %81
@@ -1833,7 +1833,7 @@ _ZNK12LogSelection10similarityERKS_.exit.i49:     ; preds = %81
 
 ._crit_edge.loopexit21.i24.i43:                   ; preds = %..loopexit_crit_edge.us.i21.i40
   %109 = uitofp i64 %.1.us.i22.i41 to double
-  %110 = fmul double %109, 2.000000e+00
+  %110 = fmul nnan double %109, 2.000000e+00
   br label %_ZNK12LogSelection10similarityERKS_.exit26.i44
 
 _ZNK12LogSelection10similarityERKS_.exit26.i44:   ; preds = %._crit_edge.loopexit21.i24.i43, %.preheader.lr.ph.i14.i31, %_ZNK12LogSelection10similarityERKS_.exit.i49

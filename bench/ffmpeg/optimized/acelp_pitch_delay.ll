@@ -84,9 +84,9 @@ define signext i16 @ff_acelp_decode_gain_code(ptr noundef readonly captures(none
   %.015.lcssa = phi i32 [ %9, %8 ], [ %18, %.lr.ph ]
   %19 = sitofp i32 %1 to double
   %20 = sitofp i32 %.015.lcssa to double
-  %21 = fdiv nsz double %20, 0x41A4000000000000
-  %22 = fmul nsz double %21, 0x400A934F0979A371
-  %23 = tail call nsz double @llvm.exp2.f64(double %22)
+  %21 = fdiv nnan nsz double %20, 0x41A4000000000000
+  %22 = fmul nnan nsz double %21, 0x400A934F0979A371
+  %23 = tail call nnan nsz double @llvm.exp2.f64(double %22)
   %24 = fmul nsz double %23, %19
   %25 = load ptr, ptr %0, align 8, !tbaa !11
   %26 = tail call i32 %25(ptr noundef %2, ptr noundef %2, i32 noundef %6) #6

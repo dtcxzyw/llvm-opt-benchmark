@@ -1488,8 +1488,8 @@ _ZN10duckdb_hll16hllDenseRegHistoEPhPi.exit:      ; preds = %137, %8, %89, %._cr
   %141 = getelementptr inbounds nuw i8, ptr %3, i64 212
   %142 = load i32, ptr %141, align 4, !tbaa !11
   %143 = sitofp i32 %142 to double
-  %144 = fsub double 4.096000e+03, %143
-  %145 = fmul double %144, 0x3F30000000000000
+  %144 = fsub nnan double 4.096000e+03, %143
+  %145 = fmul nnan double %144, 0x3F30000000000000
   %146 = fcmp oeq double %145, 0.000000e+00
   %147 = fcmp oeq double %145, 1.000000e+00
   %or.cond.i28 = or i1 %146, %147
@@ -1536,7 +1536,7 @@ _ZN10duckdb_hll6hllTauEd.exit:                    ; preds = %_ZN10duckdb_hll6hll
 167:                                              ; preds = %_ZN10duckdb_hll6hllTauEd.exit
   %168 = load i32, ptr %3, align 16, !tbaa !11
   %169 = sitofp i32 %168 to double
-  %170 = fmul double %169, 0x3F30000000000000
+  %170 = fmul nnan double %169, 0x3F30000000000000
   %171 = fcmp oeq double %170, 1.000000e+00
   br i1 %171, label %_ZN10duckdb_hll8hllSigmaEd.exit, label %.preheader.i
 

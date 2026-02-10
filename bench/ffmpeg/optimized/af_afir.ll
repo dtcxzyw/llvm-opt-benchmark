@@ -853,7 +853,7 @@ check_ir.exit:                                    ; preds = %40
 207:                                              ; preds = %204
   store float 1.000000e+00, ptr %3, align 8, !tbaa !39
   %208 = sitofp i32 %.0276413.i to float
-  %209 = fmul nsz float %208, 2.000000e+00
+  %209 = fmul nnan nsz float %208, 2.000000e+00
   %210 = call nsz float @llvm.sqrt.f32(float %209)
   %211 = fdiv nsz float 1.000000e+00, %210
   store float %211, ptr %4, align 8, !tbaa !39
@@ -863,7 +863,7 @@ check_ir.exit:                                    ; preds = %40
 212:                                              ; preds = %204
   store double 1.000000e+00, ptr %3, align 8, !tbaa !39
   %213 = sitofp i32 %.0276413.i to double
-  %214 = fmul nsz double %213, 2.000000e+00
+  %214 = fmul nnan nsz double %213, 2.000000e+00
   %215 = call nsz double @llvm.sqrt.f64(double %214)
   %216 = fdiv nsz double 1.000000e+00, %215
   store double %216, ptr %4, align 8, !tbaa !39

@@ -541,7 +541,7 @@ define internal fastcc void @dissect_wlan_radio_phdr(ptr noundef %0, ptr noundef
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %18 = load i16, ptr %17, align 8
   %19 = uitofp i16 %18 to float
-  %20 = fmul float %19, 5.000000e-01
+  %20 = fmul nnan float %19, 5.000000e-01
   br label %21
 
 21:                                               ; preds = %16, %4
@@ -1806,7 +1806,7 @@ ieee80211_he_ofdm_rate.exit.thread:               ; preds = %ieee80211_eht_rate.
   %753 = shl i32 %spec.select, 3
   %754 = add i32 %753, 22
   %755 = uitofp i32 %754 to float
-  %756 = fmul float %.1907, 4.000000e+00
+  %756 = fmul nnan float %.1907, 4.000000e+00
   %757 = fdiv float %755, %756
   %758 = tail call float @llvm.ceil.f32(float %757)
   %759 = fptoui float %758 to i32

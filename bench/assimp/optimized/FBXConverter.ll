@@ -33772,7 +33772,7 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit234:
   store ptr %580, ptr %584, align 8
   %585 = load i64, ptr %557, align 8
   %586 = sitofp i64 %585 to double
-  %587 = fdiv double %586, 0x422581D1AF600000
+  %587 = fdiv nnan double %586, 0x422581D1AF600000
   %588 = load double, ptr %512, align 8
   %589 = fmul double %588, %587
   %590 = load ptr, ptr %546, align 8
@@ -33891,12 +33891,12 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit234:
 
 640:                                              ; preds = %.loopexit310
   %641 = sitofp i64 %252 to double
-  %642 = fdiv double %641, 0x422581D1AF600000
+  %642 = fdiv nnan double %641, 0x422581D1AF600000
   %643 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %644 = load double, ptr %643, align 8
   %645 = fmul double %642, %644
   %646 = sitofp i64 %457 to double
-  %647 = fdiv double %646, 0x422581D1AF600000
+  %647 = fdiv nnan double %646, 0x422581D1AF600000
   %648 = fmul double %647, %644
   br label %652
 
@@ -38762,7 +38762,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit265: ; preds = %35
   %364 = getelementptr inbounds nuw i64, ptr %236, i64 %.0166427
   %365 = load i64, ptr %364, align 8
   %366 = sitofp i64 %365 to double
-  %367 = fdiv double %366, 0x422581D1AF600000
+  %367 = fdiv nnan double %366, 0x422581D1AF600000
   %368 = fmul double %334, %367
   %369 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %290, i64 %.0166427
   store double %368, ptr %369, align 8
@@ -38915,7 +38915,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit265: ; preds = %35
   %459 = getelementptr inbounds nuw i64, ptr %236, i64 %.0168429
   %460 = load i64, ptr %459, align 8
   %461 = sitofp i64 %460 to double
-  %462 = fdiv double %461, 0x422581D1AF600000
+  %462 = fdiv nnan double %461, 0x422581D1AF600000
   %463 = fmul double %455, %462
   %464 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %303, i64 %.0168429
   store double %463, ptr %464, align 8
@@ -38969,7 +38969,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit265: ; preds = %35
   %484 = getelementptr inbounds nuw i64, ptr %236, i64 %.0169432
   %485 = load i64, ptr %484, align 8
   %486 = sitofp i64 %485 to double
-  %487 = fdiv double %486, 0x422581D1AF600000
+  %487 = fdiv nnan double %486, 0x422581D1AF600000
   %488 = fmul double %480, %487
   %489 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %316, i64 %.0169432
   store double %488, ptr %489, align 8
@@ -41186,9 +41186,9 @@ _ZNSt6vectorIfSaIfEE9push_backERKf.exit:          ; preds = %_ZNKSt6vectorIfSaIf
   %.1200353 = phi i64 [ %172, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit111 ], [ %.0199359, %.preheader ]
   %165 = sub nsw i64 %.0195361, %.1200353
   %166 = sitofp i64 %165 to double
-  %167 = fpext float %163 to double
-  %168 = fdiv double %166, %167
-  %169 = fmul double %168, 1.790000e+02
+  %167 = fpext nnan float %163 to double
+  %168 = fdiv nnan double %166, %167
+  %169 = fmul nnan double %168, 1.790000e+02
   %170 = call double @llvm.floor.f64(double %169)
   %171 = fptosi double %170 to i64
   %172 = add nsw i64 %.1200353, %171
@@ -42906,7 +42906,7 @@ _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %7, %18
 
 ._crit_edge.us:                                   ; preds = %105
   %107 = sitofp i64 %27 to double
-  %108 = fdiv double %107, 0x422581D1AF600000
+  %108 = fdiv nnan double %107, 0x422581D1AF600000
   %109 = load double, ptr %26, align 8
   %110 = fmul double %108, %109
   store double %110, ptr %.0112.us, align 8
@@ -42967,7 +42967,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %._crit_edge114, %12
   %137 = load float, ptr %23, align 4
   %138 = load float, ptr %25, align 4
   %139 = sitofp i64 %135 to double
-  %140 = fdiv double %139, 0x422581D1AF600000
+  %140 = fdiv nnan double %139, 0x422581D1AF600000
   %141 = load double, ptr %26, align 8
   %142 = fmul double %140, %141
   store double %142, ptr %.0112, align 8

@@ -226,8 +226,8 @@ define hidden void @_ZN5zxing6qrcode17FormatInformation25doDecodeFormatInformati
   %50 = add nsw i32 %45, %49
   %51 = call i32 @llvm.smin.i32(i32 %50, i32 16)
   %52 = sitofp i32 %51 to double
-  %53 = fsub double 1.600000e+01, %52
-  %54 = fmul double %53, 6.250000e-02
+  %53 = fsub nnan double 1.600000e+01, %52
+  %54 = fmul nnan double %53, 6.250000e-02
   %55 = fptrunc double %54 to float
   %56 = load i32, ptr @_ZN5zxing6qrcode17FormatInformation28N_FORMAT_INFO_DECODE_LOOKUPSE, align 4, !tbaa !18
   %.not5896 = icmp sgt i32 %56, 0

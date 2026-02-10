@@ -33,7 +33,7 @@ define dso_local noundef double @_Z9lua_clockv() local_unnamed_addr #0 personali
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !12
   %13 = sitofp i64 %12 to double
-  %14 = call noundef double @llvm.fmuladd.f64(double %10, double 1.000000e+09, double %13)
+  %14 = call nnan double @llvm.fmuladd.f64(double %10, double 1.000000e+09, double %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %15 = load double, ptr @_ZZ9lua_clockvE6period, align 8, !tbaa !5
   %16 = fmul double %14, %15

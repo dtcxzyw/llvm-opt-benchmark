@@ -465,8 +465,8 @@ define internal noundef i32 @do_chromakey16_slice(ptr noundef readonly captures(
   %38 = load i32, ptr %31, align 4, !tbaa !46
   %39 = load i32, ptr %30, align 4, !tbaa !52
   %40 = sitofp i32 %39 to double
-  %41 = fmul nsz double %40, %40
-  %42 = fmul nsz double %41, 2.000000e+00
+  %41 = fmul nnan nsz double %40, %40
+  %42 = fmul nnan nsz double %41, 2.000000e+00
   %43 = load float, ptr %29, align 4, !tbaa !67
   %44 = fpext nsz float %43 to double
   %45 = fcmp nsz ogt double %44, 1.000000e-04
@@ -788,8 +788,8 @@ define internal noundef i32 @do_chromahold16_slice(ptr noundef readonly captures
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 14
-  %31 = fmul nsz double %22, %22
-  %32 = fmul nsz double %31, 2.000000e+00
+  %31 = fmul nnan nsz double %22, %22
+  %32 = fmul nnan nsz double %31, 2.000000e+00
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %35 = trunc i32 %18 to i16

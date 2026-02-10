@@ -116,7 +116,7 @@ define void @Sfm_NtkPrintStats(ptr noundef captures(none) initializes((7720, 772
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 292
   %46 = load i32, ptr %45, align 4, !tbaa !44
   %47 = sitofp i32 %44 to double
-  %48 = fmul double %47, 1.000000e+02
+  %48 = fmul nnan double %47, 1.000000e+02
   %49 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %46, i32 1)
   %50 = uitofp nneg i32 %49 to double
   %51 = fdiv double %48, %50
@@ -125,7 +125,7 @@ define void @Sfm_NtkPrintStats(ptr noundef captures(none) initializes((7720, 772
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %55 = load i32, ptr %54, align 4, !tbaa !45
   %56 = sitofp i32 %53 to double
-  %57 = fmul double %56, 1.000000e+02
+  %57 = fmul nnan double %56, 1.000000e+02
   %58 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %55, i32 1)
   %59 = uitofp nneg i32 %58 to double
   %60 = fdiv double %57, %59
@@ -142,7 +142,7 @@ define void @Sfm_NtkPrintStats(ptr noundef captures(none) initializes((7720, 772
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %69 = load i32, ptr %68, align 8, !tbaa !49
   %70 = sitofp i32 %67 to double
-  %71 = fmul double %70, 1.000000e+02
+  %71 = fmul nnan double %70, 1.000000e+02
   %72 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %69, i32 1)
   %73 = uitofp nneg i32 %72 to double
   %74 = fdiv double %71, %73
@@ -158,7 +158,7 @@ define void @Sfm_NtkPrintStats(ptr noundef captures(none) initializes((7720, 772
   %81 = load i32, ptr %80, align 8, !tbaa !51
   %82 = sub nsw i32 %79, %81
   %83 = sitofp i32 %82 to double
-  %84 = fmul double %83, 1.000000e+02
+  %84 = fmul nnan double %83, 1.000000e+02
   %85 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %79, i32 1)
   %86 = uitofp nneg i32 %85 to double
   %87 = fdiv double %84, %86
@@ -169,7 +169,7 @@ define void @Sfm_NtkPrintStats(ptr noundef captures(none) initializes((7720, 772
   %92 = load i32, ptr %91, align 4, !tbaa !53
   %93 = sub nsw i32 %90, %92
   %94 = sitofp i32 %93 to double
-  %95 = fmul double %94, 1.000000e+02
+  %95 = fmul nnan double %94, 1.000000e+02
   %96 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %90, i32 1)
   %97 = uitofp nneg i32 %96 to double
   %98 = fdiv double %95, %97
@@ -182,7 +182,7 @@ define void @Sfm_NtkPrintStats(ptr noundef captures(none) initializes((7720, 772
   %103 = load i64, ptr %2, align 8, !tbaa !16
   %.not71 = icmp eq i64 %103, 0
   %104 = sitofp i64 %103 to double
-  %105 = fmul double %101, 1.000000e+02
+  %105 = fmul nnan double %101, 1.000000e+02
   %106 = fdiv double %105, %104
   %107 = select i1 %.not71, double 0.000000e+00, double %106
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %102, double noundef %107)
@@ -193,7 +193,7 @@ define void @Sfm_NtkPrintStats(ptr noundef captures(none) initializes((7720, 772
   %111 = load i64, ptr %2, align 8, !tbaa !16
   %.not72 = icmp eq i64 %111, 0
   %112 = sitofp i64 %111 to double
-  %113 = fmul double %109, 1.000000e+02
+  %113 = fmul nnan double %109, 1.000000e+02
   %114 = fdiv double %113, %112
   %115 = select i1 %.not72, double 0.000000e+00, double %114
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %110, double noundef %115)
@@ -204,7 +204,7 @@ define void @Sfm_NtkPrintStats(ptr noundef captures(none) initializes((7720, 772
   %119 = load i64, ptr %2, align 8, !tbaa !16
   %.not73 = icmp eq i64 %119, 0
   %120 = sitofp i64 %119 to double
-  %121 = fmul double %117, 1.000000e+02
+  %121 = fmul nnan double %117, 1.000000e+02
   %122 = fdiv double %121, %120
   %123 = select i1 %.not73, double 0.000000e+00, double %122
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %118, double noundef %123)
@@ -215,7 +215,7 @@ define void @Sfm_NtkPrintStats(ptr noundef captures(none) initializes((7720, 772
   %127 = load i64, ptr %2, align 8, !tbaa !16
   %.not74 = icmp eq i64 %127, 0
   %128 = sitofp i64 %127 to double
-  %129 = fmul double %125, 1.000000e+02
+  %129 = fmul nnan double %125, 1.000000e+02
   %130 = fdiv double %129, %128
   %131 = select i1 %.not74, double 0.000000e+00, double %130
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %126, double noundef %131)
@@ -226,7 +226,7 @@ define void @Sfm_NtkPrintStats(ptr noundef captures(none) initializes((7720, 772
   %135 = load i64, ptr %2, align 8, !tbaa !16
   %.not75 = icmp eq i64 %135, 0
   %136 = sitofp i64 %135 to double
-  %137 = fmul double %133, 1.000000e+02
+  %137 = fmul nnan double %133, 1.000000e+02
   %138 = fdiv double %137, %136
   %139 = select i1 %.not75, double 0.000000e+00, double %138
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, double noundef %134, double noundef %139)
@@ -234,7 +234,7 @@ define void @Sfm_NtkPrintStats(ptr noundef captures(none) initializes((7720, 772
   %140 = load i64, ptr %2, align 8, !tbaa !16
   %141 = sitofp i64 %140 to double
   %.not76 = icmp eq i64 %140, 0
-  %142 = fmul double %141, 1.000000e+02
+  %142 = fmul nnan double %141, 1.000000e+02
   %143 = fdiv double %142, %141
   %144 = select i1 %.not76, double 0.000000e+00, double %143
   %145 = fdiv double %141, 1.000000e+06

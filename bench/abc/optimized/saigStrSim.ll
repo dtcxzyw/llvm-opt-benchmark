@@ -1913,7 +1913,7 @@ Aig_ObjRepr.exit108.thread:                       ; preds = %98, %94, %107, %105
   %.0.lcssa131 = phi i32 [ 0, %2 ], [ %.1, %Aig_ObjRepr.exit108.thread ]
   %.057.lcssa130 = phi i32 [ 0, %2 ], [ %.158, %Aig_ObjRepr.exit108.thread ]
   %111 = sitofp i32 %.0.lcssa131 to double
-  %112 = fmul double %111, 1.000000e+02
+  %112 = fmul nnan double %111, 1.000000e+02
   %113 = sitofp i32 %.057.lcssa130 to double
   %114 = fdiv double %112, %113
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, i32 noundef %.057.lcssa130, i32 noundef %.0.lcssa131, double noundef %114)
@@ -2211,7 +2211,7 @@ Aig_ObjRepr.exit.thread:                          ; preds = %27, %23, %37, %34, 
   %.032.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.133, %Aig_ObjRepr.exit.thread ]
   %.0.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.1, %Aig_ObjRepr.exit.thread ]
   %42 = sitofp i32 %.0.lcssa to double
-  %43 = fmul double %42, 1.000000e+02
+  %43 = fmul nnan double %42, 1.000000e+02
   %44 = sitofp i32 %.032.lcssa to double
   %45 = fdiv double %43, %44
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, i32 noundef %.032.lcssa, i32 noundef %.0.lcssa, double noundef %45)
@@ -2929,7 +2929,7 @@ Ssw_StrSimMatchingCountUnmached.exit:             ; preds = %39, %13
   %43 = add i32 %.val78, %.val74
   %44 = add i32 %43, %.val79
   %45 = sitofp i32 %.0.lcssa.i to double
-  %46 = fmul double %45, 1.000000e+02
+  %46 = fmul nnan double %45, 1.000000e+02
   %47 = sitofp i32 %44 to double
   %48 = fdiv double %46, %47
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, i32 noundef 0, i32 noundef %44, i32 noundef %.0.lcssa.i, double noundef %48)
@@ -3138,7 +3138,7 @@ Ssw_StrSimMatchingCountUnmached.exit115:          ; preds = %114, %90
   %116 = add i32 %.val82, %.val76
   %117 = add i32 %116, %.val83
   %118 = sitofp i32 %.0.lcssa.i97 to double
-  %119 = fmul double %118, 1.000000e+02
+  %119 = fmul nnan double %118, 1.000000e+02
   %120 = sitofp i32 %117 to double
   %121 = fdiv double %119, %120
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, i32 noundef %115, i32 noundef %117, i32 noundef %.0.lcssa.i97, double noundef %121)
@@ -3308,9 +3308,9 @@ Saig_StrSimSetInitMatching.exit:                  ; preds = %53, %30
   %65 = getelementptr i8, ptr %.val53, i64 4
   %.val53.val = load i32, ptr %65, align 4, !tbaa !32
   %66 = sitofp i32 %.val53.val to double
-  %67 = fmul double %66, 1.600000e+01
-  %68 = fmul double %67, 4.000000e+00
-  %69 = fmul double %68, 0x3EB0000000000000
+  %67 = fmul nnan double %66, 1.600000e+01
+  %68 = fmul nnan double %67, 4.000000e+00
+  %69 = fmul nnan double %68, 0x3EB0000000000000
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %69)
   %70 = load ptr, ptr %11, align 8, !tbaa !90
   %71 = getelementptr i8, ptr %70, i64 32
@@ -3318,9 +3318,9 @@ Saig_StrSimSetInitMatching.exit:                  ; preds = %53, %30
   %72 = getelementptr i8, ptr %.val52, i64 4
   %.val52.val = load i32, ptr %72, align 4, !tbaa !32
   %73 = sitofp i32 %.val52.val to double
-  %74 = fmul double %73, 1.600000e+01
-  %75 = fmul double %74, 4.000000e+00
-  %76 = fmul double %75, 0x3EB0000000000000
+  %74 = fmul nnan double %73, 1.600000e+01
+  %75 = fmul nnan double %74, 4.000000e+00
+  %76 = fmul nnan double %75, 0x3EB0000000000000
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %76)
   br label %Saig_StrSimSetInitMatching.exit74
 
@@ -3520,11 +3520,11 @@ Aig_ObjRepr.exit.i89:                             ; preds = %155, %154
 Saig_StrSimCountMatchedNodes.exit:                ; preds = %163, %Saig_StrSimCountMatchedFlops.exit
   %.0.lcssa.i84 = phi i32 [ 0, %Saig_StrSimCountMatchedFlops.exit ], [ %.1.i, %163 ]
   %164 = sitofp i32 %.0.lcssa.i to double
-  %165 = fmul double %164, 1.000000e+02
+  %165 = fmul nnan double %164, 1.000000e+02
   %166 = sitofp i32 %.val11.i to double
   %167 = fdiv double %165, %166
   %168 = sitofp i32 %.0.lcssa.i84 to double
-  %169 = fmul double %168, 1.000000e+02
+  %169 = fmul nnan double %168, 1.000000e+02
   %170 = getelementptr i8, ptr %122, i64 148
   %.val54 = load i32, ptr %170, align 4, !tbaa !6
   %171 = getelementptr i8, ptr %122, i64 152

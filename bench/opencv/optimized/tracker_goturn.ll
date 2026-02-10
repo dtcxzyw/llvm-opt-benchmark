@@ -425,24 +425,24 @@ define hidden noundef zeroext i1 @_ZN2cv17TrackerGOTURNImpl6updateERKNS_11_Input
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %8) #18
-  %56 = fmul double %52, 5.000000e-01
+  %56 = fmul nnan double %52, 5.000000e-01
   %57 = fadd double %56, %46
   %58 = fptrunc double %57 to float
-  %59 = fmul double %55, 5.000000e-01
+  %59 = fmul nnan double %55, 5.000000e-01
   %60 = fadd double %59, %49
   %61 = fptrunc double %60 to float
-  %62 = fmul double %52, 2.000000e+00
+  %62 = fmul nnan double %52, 2.000000e+00
   %63 = fptrunc double %62 to float
-  %64 = fmul double %55, 2.000000e+00
+  %64 = fmul nnan double %55, 2.000000e+00
   %65 = fptrunc double %64 to float
   %66 = fpext float %58 to double
-  %67 = fmul double %62, 5.000000e-01
+  %67 = fmul nnan double %62, 5.000000e-01
   %68 = fsub double %66, %67
   %69 = fpext float %63 to double
   %70 = fadd double %68, %69
   %71 = fptrunc double %70 to float
   %72 = fpext float %61 to double
-  %73 = fmul double %64, 5.000000e-01
+  %73 = fmul nnan double %64, 5.000000e-01
   %74 = fsub double %72, %73
   %75 = fpext float %65 to double
   %76 = fadd double %74, %75
@@ -459,16 +459,16 @@ define hidden noundef zeroext i1 @_ZN2cv17TrackerGOTURNImpl6updateERKNS_11_Input
   %.sroa.speculated169 = select i1 %85, float %84, float %65
   %86 = sub nsw i32 0, %79
   %87 = sitofp i32 %86 to float
-  %88 = fmul float %87, 5.000000e-01
-  %89 = fmul float %80, 1.500000e+00
+  %88 = fmul nnan float %87, 5.000000e-01
+  %89 = fmul nnan float %80, 1.500000e+00
   %90 = fcmp olt float %89, %71
   %91 = select i1 %90, float %89, float %71
   %92 = fcmp olt float %88, %91
   %.sroa.speculated165 = select i1 %92, float %91, float %88
   %93 = sub nsw i32 0, %83
   %94 = sitofp i32 %93 to float
-  %95 = fmul float %94, 5.000000e-01
-  %96 = fmul float %84, 1.500000e+00
+  %95 = fmul nnan float %94, 5.000000e-01
+  %96 = fmul nnan float %84, 1.500000e+00
   %97 = fcmp olt float %96, %77
   %98 = select i1 %97, float %96, float %77
   %99 = fcmp olt float %95, %98

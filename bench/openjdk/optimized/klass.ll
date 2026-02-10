@@ -1707,7 +1707,7 @@ _ZN5Klass17compute_home_slotEPS_m.exit.i:         ; preds = %25, %20
 ._crit_edge.loopexit.i:                           ; preds = %_ZN5Klass17compute_home_slotEPS_m.exit.i
   %42 = uitofp i32 %36 to double
   %43 = uitofp i32 %.sroa.8.1.i to double
-  %44 = fmul double %43, 1.000000e+02
+  %44 = fmul nnan double %43, 1.000000e+02
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %14
@@ -1719,7 +1719,7 @@ _ZN5Klass17compute_home_slotEPS_m.exit.i:         ; preds = %25, %20
   %.sroa.12.0.lcssa.i = phi double [ 0.000000e+00, %14 ], [ %42, %._crit_edge.loopexit.i ]
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.62) #22
   %45 = uitofp i32 %.sroa.19.0.lcssa.i to double
-  %46 = fmul double %45, 1.000000e+02
+  %46 = fmul nnan double %45, 1.000000e+02
   %47 = uitofp nneg i32 %.sroa.0.0.lcssa.i to double
   %48 = fdiv double %46, %47
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.63, i32 noundef %.sroa.15.0.lcssa.i, double noundef %48) #22
@@ -1769,18 +1769,18 @@ _ZN11LookupStats6sampleEj.exit.i:                 ; preds = %_ZN11LookupStats6sa
 64:                                               ; preds = %_ZN11LookupStats6sampleEj.exit.i
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.65) #22
   %65 = uitofp i32 %.sroa.19.1.i18 to double
-  %66 = fmul double %65, 1.000000e+02
-  %67 = fmul double %66, 1.562500e-02
+  %66 = fmul nnan double %65, 1.000000e+02
+  %67 = fmul nnan double %66, 1.562500e-02
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.63, i32 noundef %.sroa.15.1.i19, double noundef %67) #22
   %68 = icmp ult i32 %.sroa.19.1.i18, 64
   br i1 %68, label %69, label %_ZL27print_negative_lookup_statsmP12outputStream.exit
 
 69:                                               ; preds = %64
   %70 = uitofp i32 %57 to double
-  %71 = fmul double %70, 1.562500e-02
+  %71 = fmul nnan double %70, 1.562500e-02
   %72 = uitofp i32 %.sroa.8.1.i17 to double
-  %73 = fmul double %72, 1.000000e+02
-  %74 = fmul double %73, 1.562500e-02
+  %73 = fmul nnan double %72, 1.000000e+02
+  %74 = fmul nnan double %73, 1.562500e-02
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.64, double noundef %71, i32 noundef %.sroa.5.1.i16, double noundef %74) #22
   br label %_ZL27print_negative_lookup_statsmP12outputStream.exit
 

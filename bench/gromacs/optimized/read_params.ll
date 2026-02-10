@@ -7982,13 +7982,13 @@ _ZN3gmxL28intervalIsInPeriodicIntervalEddd.exit.thread.i: ; preds = %83, %82
 
 104:                                              ; preds = %98
   %105 = fcmp ult double %71, %65
-  %106 = fmul double %69, 5.000000e-01
+  %106 = fmul nnan double %69, 5.000000e-01
   %107 = fcmp ugt double %71, %106
-  %or.cond.i.i = or i1 %105, %107
+  %or.cond.i.i = select i1 %105, i1 true, i1 %107
   br i1 %or.cond.i.i, label %108, label %_ZN3gmxL17valueIsInIntervalEdddd.exit.thread.i
 
 108:                                              ; preds = %104
-  %109 = fmul double %69, -5.000000e-01
+  %109 = fmul nnan double %69, -5.000000e-01
   %110 = fcmp oge double %71, %109
   %111 = fcmp ole double %71, %67
   %112 = and i1 %110, %111

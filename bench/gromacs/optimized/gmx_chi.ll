@@ -3028,7 +3028,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit280.i:     ; preds = %_ZNSt10filesystem7_
   %1044 = uitofp nneg i32 %.0142373.i to double
   %1045 = call double @llvm.fmuladd.f64(double %1044, double 1.200000e+00, double %.0324.lcssa.i)
   %1046 = fptrunc double %1045 to float
-  %1047 = fmul double %1044, -1.000000e-01
+  %1047 = fmul nnan double %1044, -1.000000e-01
   %1048 = fptrunc double %1047 to float
   %1049 = invoke noundef i32 @_Z24gmx_fprintf_pdb_atomlineP8_IO_FILE13PdbRecordTypeiPKccS3_cicfffffS3_(ptr noundef %1003, i32 noundef 0, i32 noundef %1041, ptr noundef nonnull @.str.248, i8 noundef signext 32, ptr noundef nonnull @.str.249, i8 noundef signext 32, i32 noundef %1043, i8 noundef signext 32, float noundef %.0326.lcssa.i, float noundef %.0325.lcssa.i, float noundef %1046, float noundef 0.000000e+00, float noundef %1048, ptr noundef nonnull @.str.20)
           to label %1050 unwind label %1051

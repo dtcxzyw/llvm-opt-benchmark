@@ -6135,8 +6135,8 @@ common.resume:                                    ; preds = %64, %59
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !1535
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !1535
   %148 = uitofp i64 %.val20.i.i.i.i.i.i.i to double
-  %149 = fmul double %148, 0x3F50000000000000
-  %150 = fmul double %149, 0x3F50000000000000
+  %149 = fmul nnan double %148, 0x3F50000000000000
+  %150 = fmul nnan double %149, 0x3F50000000000000
   store double %150, ptr %21, align 8, !noalias !1535
   store ptr %21, ptr %22, align 8, !noalias !1535
   store ptr @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$3fmt17hac90c54b90620e24E", ptr %145, align 8, !noalias !1535
@@ -6276,8 +6276,8 @@ common.resume:                                    ; preds = %64, %59
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1585
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !1585
   %185 = uitofp i64 %.val20.i.i.i.i.i.i.i159 to double
-  %186 = fmul double %185, 0x3F50000000000000
-  %187 = fmul double %186, 0x3F50000000000000
+  %186 = fmul nnan double %185, 0x3F50000000000000
+  %187 = fmul nnan double %186, 0x3F50000000000000
   store double %187, ptr %15, align 8, !noalias !1585
   store ptr %15, ptr %16, align 8, !noalias !1585
   store ptr @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$3fmt17hac90c54b90620e24E", ptr %182, align 8, !noalias !1585

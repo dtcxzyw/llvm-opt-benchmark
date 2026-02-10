@@ -58,7 +58,7 @@ tailrecurse:                                      ; preds = %tailrecurse, %2
 .lr.ph:                                           ; preds = %.preheader
   %8 = sitofp i32 %0 to double
   %9 = uitofp nneg i32 %.tr19 to double
-  %10 = fsub double %8, %9
+  %10 = fsub nnan double %8, %9
   br label %14
 
 11:                                               ; preds = %6
@@ -73,7 +73,7 @@ tailrecurse:                                      ; preds = %tailrecurse, %2
   %.022 = phi i32 [ 1, %.lr.ph ], [ %19, %14 ]
   %.01621 = phi double [ 1.000000e+00, %.lr.ph ], [ %18, %14 ]
   %15 = uitofp nneg i32 %.022 to double
-  %16 = fadd double %10, %15
+  %16 = fadd nnan double %10, %15
   %17 = fdiv double %16, %15
   %18 = fmul double %.01621, %17
   %19 = add nuw i32 %.022, 1
@@ -145,7 +145,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i, %23
 .lr.ph.i:                                         ; preds = %.preheader.i
   %30 = sitofp i32 %24 to double
   %31 = uitofp nneg i32 %.tr19.i to double
-  %32 = fsub double %30, %31
+  %32 = fsub nnan double %30, %31
   br label %36
 
 33:                                               ; preds = %28
@@ -160,7 +160,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i, %23
   %.022.i = phi i32 [ 1, %.lr.ph.i ], [ %41, %36 ]
   %.01621.i = phi double [ 1.000000e+00, %.lr.ph.i ], [ %40, %36 ]
   %37 = uitofp nneg i32 %.022.i to double
-  %38 = fadd double %32, %37
+  %38 = fadd nnan double %32, %37
   %39 = fdiv double %38, %37
   %40 = fmul double %.01621.i, %39
   %41 = add nuw nsw i32 %.022.i, 1

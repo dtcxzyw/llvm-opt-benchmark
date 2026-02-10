@@ -16054,7 +16054,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112
   %44 = select i1 %43, float %3, float 0x3FC99999A0000000
   %45 = fcmp olt float %44, 0x3FEE666660000000
   %.sroa.speculated.i14.i = select i1 %45, float %44, float 0x3FEE666660000000
-  %46 = fmul float %.sroa.speculated.i14.i, %.0691922.i
+  %46 = fmul nnan float %.sroa.speculated.i14.i, %.0691922.i
   %47 = fptoui float %46 to i64
   %48 = icmp samesign ult i64 %.sroa.21.0, 4294967297
   %.val.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !tbaa !406

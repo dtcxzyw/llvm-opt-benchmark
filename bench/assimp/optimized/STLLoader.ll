@@ -847,24 +847,24 @@ define hidden noundef zeroext i1 @_ZN6Assimp11STLImporter14LoadBinaryFileEv(ptr 
   %49 = getelementptr inbounds nuw i8, ptr %.ptr134, i64 1
   %50 = load i8, ptr %.ptr134, align 1
   %51 = uitofp i8 %50 to float
-  %52 = fmul float %51, 0x3F70101020000000
+  %52 = fmul nnan float %51, 0x3F70101020000000
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store float %52, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %.ptr134, i64 2
   %55 = load i8, ptr %49, align 1
   %56 = uitofp i8 %55 to float
-  %57 = fmul float %56, 0x3F70101020000000
+  %57 = fmul nnan float %56, 0x3F70101020000000
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store float %57, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %.ptr134, i64 3
   %60 = load i8, ptr %54, align 1
   %61 = uitofp i8 %60 to float
-  %62 = fmul float %61, 0x3F70101020000000
+  %62 = fmul nnan float %61, 0x3F70101020000000
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store float %62, ptr %63, align 8
   %64 = load i8, ptr %59, align 1
   %65 = uitofp i8 %64 to float
-  %66 = fmul float %65, 0x3F70101020000000
+  %66 = fmul nnan float %65, 0x3F70101020000000
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store float %66, ptr %67, align 4
   %.pre = load ptr, ptr %27, align 8
@@ -1146,14 +1146,14 @@ _ZN6Assimp14addFacesToMeshEP6aiMesh.exit:         ; preds = %127, %.loopexit.thr
   %.200 = select i1 %71, i32 %186, i32 %161
   %.sink.in.in = and i32 %.200, 31
   %.sink.in = uitofp nneg i32 %.sink.in.in to float
-  %.sink = fmul float %.sink.in, 0x3FA0842100000000
+  %.sink = fmul nnan float %.sink.in, 0x3FA0842100000000
   %.sink191.in.in.in = lshr i32 %161, 5
   %.sink191.in.in = and i32 %.sink191.in.in.in, 31
   %.sink191.in = uitofp nneg i32 %.sink191.in.in to float
-  %.sink191 = fmul float %.sink191.in, 0x3FA0842100000000
+  %.sink191 = fmul nnan float %.sink191.in, 0x3FA0842100000000
   %.sink192.in.in = and i32 %., 31
   %.sink192.in = uitofp nneg i32 %.sink192.in.in to float
-  %.sink192 = fmul float %.sink192.in, 0x3FA0842100000000
+  %.sink192 = fmul nnan float %.sink192.in, 0x3FA0842100000000
   store float %.sink192, ptr %184, align 4
   %187 = getelementptr inbounds nuw i8, ptr %184, i64 4
   store float %.sink191, ptr %187, align 4

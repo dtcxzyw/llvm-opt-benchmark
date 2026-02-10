@@ -408,17 +408,17 @@ RemapValClamped.exit168.i:                        ; preds = %225, %RemapValClamp
   call void @SDL_SendJoystickSensor(i64 noundef %57, ptr noundef nonnull %14, i32 noundef 2, i64 noundef %57, ptr noundef nonnull %3, i32 noundef 3) #9
   %230 = load i16, ptr %48, align 2
   %231 = sitofp i16 %230 to float
-  %232 = fmul float %231, 0x3F639D0140000000
+  %232 = fmul nnan float %231, 0x3F639D0140000000
   store float %232, ptr %46, align 4
   %233 = load i16, ptr %49, align 4
   %234 = sext i16 %233 to i32
   %235 = sub nsw i32 0, %234
   %236 = sitofp i32 %235 to float
-  %237 = fmul float %236, 0x3F639D0140000000
+  %237 = fmul nnan float %236, 0x3F639D0140000000
   store float %237, ptr %44, align 4
   %238 = load i16, ptr %50, align 2
   %239 = sitofp i16 %238 to float
-  %240 = fmul float %239, 0x3F639D0140000000
+  %240 = fmul nnan float %239, 0x3F639D0140000000
   store float %240, ptr %3, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %57, ptr noundef nonnull %14, i32 noundef 1, i64 noundef %57, ptr noundef nonnull %3, i32 noundef 3) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

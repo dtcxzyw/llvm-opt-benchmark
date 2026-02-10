@@ -114,7 +114,7 @@ define noalias noundef ptr @Gia_Sim2Create(ptr noundef %0, ptr noundef %1) local
 
 13:                                               ; preds = %2
   %14 = sitofp i32 %5 to double
-  %15 = fmul double %14, 4.000000e+00
+  %15 = fmul nnan double %14, 4.000000e+00
   %16 = sitofp i32 %.val to double
   %17 = fmul double %15, %16
   %18 = fmul double %17, 0x3E10000000000000
@@ -148,10 +148,10 @@ define noalias noundef ptr @Gia_Sim2Create(ptr noundef %0, ptr noundef %1) local
 
 32:                                               ; preds = %19
   %33 = sitofp i32 %.val to double
-  %34 = fmul double %33, 1.200000e+01
-  %35 = fmul double %34, 0x3EB0000000000000
+  %34 = fmul nnan double %33, 1.200000e+01
+  %35 = fmul nnan double %34, 0x3EB0000000000000
   %36 = sitofp i32 %5 to double
-  %37 = fmul double %36, 4.000000e+00
+  %37 = fmul nnan double %36, 4.000000e+00
   %38 = fmul double %37, %33
   %39 = fmul double %38, 0x3EB0000000000000
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1, double noundef %35, double noundef %39)

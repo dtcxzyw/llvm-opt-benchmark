@@ -1743,7 +1743,7 @@ define internal fastcc void @_ZL7do_shamPKcS0_S0_S0_S0_S0_S0_S0_iiPPfbiS2_fffPKf
   %109 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv1272
   %110 = load i32, ptr %109, align 4, !tbaa !4
   %111 = sitofp i32 %110 to double
-  %112 = fmul double %111, 2.000000e+00
+  %112 = fmul nnan double %111, 2.000000e+00
   %113 = getelementptr inbounds nuw float, ptr %100, i64 %indvars.iv1272
   br label %114
 

@@ -1676,7 +1676,7 @@ declare noundef i32 @_ZNK14dtNavMeshQuery15findRandomPointEPK13dtQueryFilterPFfv
 define internal noundef float @_ZL5frandv() #3 {
   %1 = tail call i32 @rand() #14
   %2 = sitofp i32 %1 to float
-  %3 = fmul float %2, 0x3E00000000000000
+  %3 = fmul nnan float %2, 0x3E00000000000000
   ret float %3
 }
 

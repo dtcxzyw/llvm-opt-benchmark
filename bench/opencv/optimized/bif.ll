@@ -199,7 +199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59.i.i: ; preds = 
   %38 = getelementptr inbounds nuw i8, ptr %12, i64 12
   store i32 %2, ptr %38, align 4, !tbaa !23
   %39 = uitofp nneg i32 %2 to double
-  %40 = fdiv double 0x400921FB54442D18, %39
+  %40 = fdiv nnan double 0x400921FB54442D18, %39
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 192
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %43 = getelementptr inbounds nuw i8, ptr %4, i64 16

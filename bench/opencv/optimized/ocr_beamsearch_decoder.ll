@@ -8202,7 +8202,7 @@ define linkonce_odr hidden noundef double @_ZN2cv4text24OCRBeamSearchDecoderImpl
   %64 = getelementptr inbounds nuw i32, ptr %36, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !84
   %66 = sitofp i32 %65 to float
-  %67 = fmul float %40, %66
+  %67 = fmul nnan float %40, %66
   %68 = call float @llvm.fmuladd.f32(float %59, float %39, float %67)
   %69 = ashr exact i64 %52, 32
   %70 = mul i64 %45, %69

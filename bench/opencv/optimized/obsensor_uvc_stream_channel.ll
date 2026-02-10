@@ -1647,8 +1647,8 @@ define hidden void @_ZN2cv8obsensor19DepthFrameProcessorC2ERKNS0_16OBExtensionPa
 17:                                               ; preds = %15
   %18 = trunc nuw nsw i64 %indvars.iv to i16
   %19 = uitofp nneg i16 %18 to double
-  %20 = fmul double %19, 1.250000e-01
-  %21 = fsub double 2.003750e+02, %20
+  %20 = fmul nnan double %19, 1.250000e-01
+  %21 = fsub nnan double 2.003750e+02, %20
   %22 = fmul double %21, %11
   %23 = fdiv double %22, %13
   %24 = fadd double %23, 1.000000e+00
@@ -2902,8 +2902,8 @@ define internal fastcc void @_ZN2cvL7makePtrINS_8obsensor19DepthFrameProcessorEJ
 20:                                               ; preds = %18
   %21 = trunc nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i to i16
   %22 = uitofp nneg i16 %21 to double
-  %23 = fmul double %22, 1.250000e-01
-  %24 = fsub double 2.003750e+02, %23
+  %23 = fmul nnan double %22, 1.250000e-01
+  %24 = fsub nnan double 2.003750e+02, %23
   %25 = fmul double %24, %15
   %26 = fdiv double %25, %17
   %27 = fadd double %26, 1.000000e+00

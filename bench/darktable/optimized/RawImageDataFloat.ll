@@ -1155,7 +1155,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat13setWithLookUpEtPSt4bytePj(p
 
 7:                                                ; preds = %4
   %8 = uitofp i16 %1 to float
-  %9 = fmul float %8, 0x3EF0001000000000
+  %9 = fmul nnan float %8, 0x3EF0001000000000
   store float %9, ptr %2, align 4, !tbaa !82
   ret void
 

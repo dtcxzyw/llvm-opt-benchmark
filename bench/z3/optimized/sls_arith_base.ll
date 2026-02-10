@@ -8452,7 +8452,7 @@ _ZNK6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE4sizeEv.e
   %64 = lshr i32 %63, 16
   %65 = and i32 %64, 32767
   %66 = uitofp nneg i32 %65 to double
-  %67 = fdiv double %66, 3.276700e+04
+  %67 = fdiv nnan double %66, 3.276700e+04
   %68 = fmul double %.13480128, %67
   br label %69
 
@@ -49457,7 +49457,7 @@ _ZNK6vectorIN3sls10arith_baseI8rationalE10var_changeELb1EjE4sizeEv.exit52: ; pre
   %128 = lshr i32 %127, 16
   %129 = and i32 %128, 32767
   %130 = uitofp nneg i32 %129 to double
-  %131 = fdiv double %130, 3.276700e+04
+  %131 = fdiv nnan double %130, 3.276700e+04
   %132 = fmul double %.140, %131
   br label %133
 

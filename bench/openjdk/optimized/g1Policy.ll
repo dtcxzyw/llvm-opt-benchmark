@@ -1490,7 +1490,7 @@ _ZNK8G1Policy25predict_eden_copy_time_msEjPm.exit: ; preds = %7, %10
   %51 = fptoui double %50 to i64
   %52 = load i32, ptr @G1ConfidencePercent, align 4
   %53 = uitofp i32 %52 to double
-  %54 = fdiv double 1.000000e+02, %53
+  %54 = fdiv nnan double 1.000000e+02, %53
   %55 = load i32, ptr @TargetPLABWastePct, align 4
   %56 = add i32 %55, 100
   %57 = uitofp i32 %56 to double
@@ -2214,7 +2214,7 @@ define hidden void @_ZN8G1Policy29record_young_collection_startEv(ptr noundef no
   %14 = uitofp i64 %13 to double
   %15 = load i32, ptr @TargetSurvivorRatio, align 4
   %16 = uitofp i32 %15 to double
-  %17 = fmul double %16, %14
+  %17 = fmul nnan double %16, %14
   %18 = fdiv double %17, 1.000000e+02
   %19 = fptoui double %18 to i64
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -2302,7 +2302,7 @@ define hidden void @_ZN8G1Policy23update_survivors_policyEv(ptr noundef nonnull 
   %13 = uitofp i64 %12 to double
   %14 = load i32, ptr @TargetSurvivorRatio, align 4
   %15 = uitofp i32 %14 to double
-  %16 = fmul double %15, %13
+  %16 = fmul nnan double %15, %13
   %17 = fdiv double %16, 1.000000e+02
   %18 = fptoui double %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -3949,7 +3949,7 @@ _ZNK12G1HeapRegion20surv_rate_predictionERK13G1Predictions.exit: ; preds = %16, 
   %51 = select i1 %50, double %49, double 0.000000e+00
   %52 = fcmp olt double %51, 1.000000e+00
   %53 = select i1 %52, double %51, double 1.000000e+00
-  %54 = fmul double %53, %18
+  %54 = fmul nnan double %53, %18
   %55 = fptoui double %54 to i64
   br label %56
 
@@ -4124,7 +4124,7 @@ define hidden noundef i64 @_ZNK8G1Policy21desired_survivor_sizeEj(ptr noundef no
   %6 = uitofp i64 %5 to double
   %7 = load i32, ptr @TargetSurvivorRatio, align 4
   %8 = uitofp i32 %7 to double
-  %9 = fmul double %6, %8
+  %9 = fmul nnan double %6, %8
   %10 = fdiv double %9, 1.000000e+02
   %11 = fptoui double %10 to i64
   ret i64 %11
@@ -4655,7 +4655,7 @@ define hidden noundef i32 @_ZNK8G1Policy24calc_max_old_cset_lengthEv(ptr noundef
   %6 = uitofp i32 %5 to double
   %7 = load i32, ptr @G1OldCSetRegionThresholdPercent, align 4
   %8 = uitofp i32 %7 to double
-  %9 = fmul double %6, %8
+  %9 = fmul nnan double %6, %8
   %10 = fdiv double %9, 1.000000e+02
   %11 = tail call double @llvm.ceil.f64(double %10)
   %12 = fptoui double %11 to i32
@@ -4683,7 +4683,7 @@ define hidden noundef double @_ZN8G1Policy30select_candidates_from_markingEP25G1
   %23 = uitofp i32 %22 to double
   %24 = load i32, ptr @G1OldCSetRegionThresholdPercent, align 4
   %25 = uitofp i32 %24 to double
-  %26 = fmul double %23, %25
+  %26 = fmul nnan double %23, %25
   %27 = fdiv double %26, 1.000000e+02
   %28 = tail call double @llvm.ceil.f64(double %27)
   %29 = fptoui double %28 to i32

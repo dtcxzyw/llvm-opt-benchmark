@@ -1073,7 +1073,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit217: ; preds = %32
   %338 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %339 = load i32, ptr %338, align 8, !tbaa !26
   %340 = sitofp i32 %339 to double
-  %341 = fmul double %340, 8.000000e-01
+  %341 = fmul nnan double %340, 8.000000e-01
   %342 = fptosi double %341 to i32
   %343 = load i64, ptr %97, align 8, !tbaa !10
   %344 = icmp eq i64 %343, 0
@@ -2106,7 +2106,7 @@ _ZL23build_rtrees_classifierRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %773 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %774 = load i32, ptr %773, align 8, !tbaa !26
   %775 = sitofp i32 %774 to double
-  %776 = fmul double %775, 5.000000e-01
+  %776 = fmul nnan double %775, 5.000000e-01
   %777 = fptosi double %776 to i32
   %778 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %779 = load i32, ptr %778, align 4, !tbaa !90
@@ -3529,7 +3529,7 @@ _ZL22build_boost_classifierRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   %1432 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %1433 = load i32, ptr %1432, align 8, !tbaa !26
   %1434 = sitofp i32 %1433 to double
-  %1435 = fmul double %1434, 8.000000e-01
+  %1435 = fmul nnan double %1434, 8.000000e-01
   %1436 = fptosi double %1435 to i32
   %1437 = load i64, ptr %97, align 8, !tbaa !10
   %1438 = icmp eq i64 %1437, 0
@@ -4558,7 +4558,7 @@ _ZL20build_mlp_classifierRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
   %1844 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %1845 = load i32, ptr %1844, align 8, !tbaa !26
   %1846 = sitofp i32 %1845 to double
-  %1847 = fmul double %1846, 8.000000e-01
+  %1847 = fmul nnan double %1846, 8.000000e-01
   %1848 = fptosi double %1847 to i32
   %1849 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.12, i64 noundef 28)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i329 unwind label %1971
@@ -4939,7 +4939,7 @@ _ZL25build_knearest_classifierRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %1994 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %1995 = load i32, ptr %1994, align 8, !tbaa !26
   %1996 = sitofp i32 %1995 to double
-  %1997 = fmul double %1996, 8.000000e-01
+  %1997 = fmul nnan double %1996, 8.000000e-01
   %1998 = fptosi double %1997 to i32
   %1999 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.12, i64 noundef 28)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i352 unwind label %2161
@@ -5422,7 +5422,7 @@ _ZL23build_nbayes_classifierRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %2183 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %2184 = load i32, ptr %2183, align 8, !tbaa !26
   %2185 = sitofp i32 %2184 to double
-  %2186 = fmul double %2185, 8.000000e-01
+  %2186 = fmul nnan double %2185, 8.000000e-01
   %2187 = fptosi double %2186 to i32
   %2188 = load i64, ptr %97, align 8, !tbaa !10
   %2189 = icmp eq i64 %2188, 0

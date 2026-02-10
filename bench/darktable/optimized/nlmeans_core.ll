@@ -49,7 +49,7 @@ define void @nlmeans_denoise(ptr noundef readonly captures(none) %0, ptr noundef
   %35 = shl nsw i32 %34, 1
   %36 = or disjoint i32 %35, 1
   %37 = sitofp i32 %36 to float
-  %38 = fmul reassoc nsz arcp contract afn float %37, %37
+  %38 = fmul reassoc nnan nsz arcp contract afn float %37, %37
   %39 = fmul reassoc nsz arcp contract afn float %38, %32
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store float %39, ptr %13, align 16, !tbaa !14
@@ -101,7 +101,7 @@ define void @nlmeans_denoise(ptr noundef readonly captures(none) %0, ptr noundef
   %69 = mul nsw i32 %68, %67
   %70 = uitofp nneg i32 %69 to double
   %71 = uitofp nneg i32 %67 to double
-  %72 = fmul reassoc nsz arcp contract afn double %71, 7.000000e+00
+  %72 = fmul reassoc nnan nsz arcp contract afn double %71, 7.000000e+00
   %.lobit.neg.i.i.i = ashr i32 %.05790.i, 31
   %isnotnull.i.i.i = icmp ne i32 %.05790.i, 0
   %isnotnull.zext.i.i.i = zext i1 %isnotnull.i.i.i to i32
@@ -109,8 +109,8 @@ define void @nlmeans_denoise(ptr noundef readonly captures(none) %0, ptr noundef
   %74 = sitofp i32 %73 to double
   %75 = fmul reassoc nsz arcp contract afn double %66, %74
   %76 = sitofp i32 %.05790.i to double
-  %77 = tail call reassoc nsz arcp contract afn double @llvm.sqrt.f64(double %71)
-  %78 = fmul reassoc nsz arcp contract afn double %77, 7.000000e+00
+  %77 = tail call fast double @llvm.sqrt.f64(double %71)
+  %78 = fmul reassoc nnan nsz arcp contract afn double %77, 7.000000e+00
   br label %80
 
 ._crit_edge.i:                                    ; preds = %117
@@ -135,7 +135,7 @@ define void @nlmeans_denoise(ptr noundef readonly captures(none) %0, ptr noundef
   %.2.i = phi i32 [ %82, %81 ], [ 0, %80 ]
   %85 = tail call i32 @llvm.abs.i32(i32 range(i32 -2147483647, -2147483648) %.05683.i, i1 true)
   %86 = uitofp nneg i32 %85 to double
-  %87 = tail call reassoc nsz arcp contract afn double @llvm.sqrt.f64(double %86)
+  %87 = tail call fast double @llvm.sqrt.f64(double %86)
   %88 = fmul reassoc nsz arcp contract afn double %72, %87
   %89 = fadd reassoc nsz arcp contract afn double %88, %70
   %90 = fmul reassoc nsz arcp contract afn double %75, %89
@@ -838,7 +838,7 @@ pixel_difference.exit:                            ; preds = %446
   %469 = fdiv reassoc nsz arcp contract afn float %468, %467
   %470 = fadd reassoc nsz arcp contract afn float %469, -2.000000e+00
   %471 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %470, float 0.000000e+00)
-  %472 = fmul reassoc nsz arcp contract afn float %471, 0xC160000000000000
+  %472 = fmul reassoc nnan nsz arcp contract afn float %471, 0xC160000000000000
   %473 = fptosi float %472 to i32
   %474 = add nsw i32 %473, 1065353216
   %475 = icmp sgt i32 %473, -1056964609

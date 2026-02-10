@@ -3349,8 +3349,8 @@ define internal fastcc void @adjustRanks(ptr noundef %0, i32 noundef %1) unnamed
   %106 = load i32, ptr %105, align 4, !tbaa !36
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 336
   %108 = load i32, ptr %107, align 8, !tbaa !35
-  %109 = fadd double %96, 1.000000e+00
-  %110 = fmul double %109, 5.000000e-01
+  %109 = fadd nnan double %96, 1.000000e+00
+  %110 = fmul nnan double %109, 5.000000e-01
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 136
   %112 = load double, ptr %111, align 8, !tbaa !151
   %113 = fadd double %110, %112

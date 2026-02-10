@@ -789,8 +789,8 @@ next_field.exit387:                               ; preds = %.lr.ph19.i380, %.pr
   %405 = getelementptr inbounds nuw i8, ptr %1, i64 288
   store i64 %404, ptr %405, align 8, !tbaa !52
   %406 = sitofp i32 %403 to double
-  %407 = fsub double %402, %406
-  %408 = fmul double %407, 1.000000e+06
+  %407 = fsub nnan double %402, %406
+  %408 = fmul nnan double %407, 1.000000e+06
   %409 = fptosi double %408 to i32
   %410 = sext i32 %409 to i64
   %411 = getelementptr inbounds nuw i8, ptr %1, i64 296
@@ -2141,7 +2141,7 @@ local_getline.exit:                               ; preds = %1113
   br i1 %.not4.i, label %convert_value.exit, label %1149
 
 1149:                                             ; preds = %1147
-  %1150 = fmul float %1145, 0x3F50000000000000
+  %1150 = fmul nnan float %1145, 0x3F50000000000000
   br label %convert_value.exit
 
 convert_value.exit:                               ; preds = %1143, %1147, %1149
@@ -2169,7 +2169,7 @@ convert_value.exit:                               ; preds = %1143, %1147, %1149
   br i1 %.not4.i731, label %convert_value.exit733, label %1160
 
 1160:                                             ; preds = %1158
-  %1161 = fmul float %1156, 0x3F50000000000000
+  %1161 = fmul nnan float %1156, 0x3F50000000000000
   br label %convert_value.exit733
 
 convert_value.exit733:                            ; preds = %1154, %1158, %1160
@@ -2197,7 +2197,7 @@ convert_value.exit733:                            ; preds = %1154, %1158, %1160
   br i1 %.not4.i735, label %convert_value.exit737, label %1171
 
 1171:                                             ; preds = %1169
-  %1172 = fmul float %1167, 0x3F50000000000000
+  %1172 = fmul nnan float %1167, 0x3F50000000000000
   br label %convert_value.exit737
 
 convert_value.exit737:                            ; preds = %1165, %1169, %1171
@@ -2326,7 +2326,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not4.i757, label %convert_value.exit759, label %1225
 
 1225:                                             ; preds = %1223
-  %1226 = fmul float %1221, 0x3F50000000000000
+  %1226 = fmul nnan float %1221, 0x3F50000000000000
   br label %convert_value.exit759
 
 convert_value.exit759:                            ; preds = %1219, %1223, %1225
@@ -2481,7 +2481,7 @@ local_getline.exit764:                            ; preds = %1268
   br i1 %.not4.i779, label %convert_value.exit781, label %1304
 
 1304:                                             ; preds = %1302
-  %1305 = fmul float %1300, 0x3F50000000000000
+  %1305 = fmul nnan float %1300, 0x3F50000000000000
   br label %convert_value.exit781
 
 convert_value.exit781:                            ; preds = %1298, %1302, %1304
@@ -2509,7 +2509,7 @@ convert_value.exit781:                            ; preds = %1298, %1302, %1304
   br i1 %.not4.i783, label %convert_value.exit785, label %1315
 
 1315:                                             ; preds = %1313
-  %1316 = fmul float %1311, 0x3F50000000000000
+  %1316 = fmul nnan float %1311, 0x3F50000000000000
   br label %convert_value.exit785
 
 convert_value.exit785:                            ; preds = %1309, %1313, %1315
@@ -2537,7 +2537,7 @@ convert_value.exit785:                            ; preds = %1309, %1313, %1315
   br i1 %.not4.i787, label %convert_value.exit789, label %1326
 
 1326:                                             ; preds = %1324
-  %1327 = fmul float %1322, 0x3F50000000000000
+  %1327 = fmul nnan float %1322, 0x3F50000000000000
   br label %convert_value.exit789
 
 convert_value.exit789:                            ; preds = %1320, %1324, %1326
@@ -2565,7 +2565,7 @@ convert_value.exit789:                            ; preds = %1320, %1324, %1326
   br i1 %.not4.i791, label %convert_value.exit793, label %1337
 
 1337:                                             ; preds = %1335
-  %1338 = fmul float %1333, 0x3F50000000000000
+  %1338 = fmul nnan float %1333, 0x3F50000000000000
   br label %convert_value.exit793
 
 convert_value.exit793:                            ; preds = %1331, %1335, %1337
@@ -2593,7 +2593,7 @@ convert_value.exit793:                            ; preds = %1331, %1335, %1337
   br i1 %.not4.i795, label %convert_value.exit797, label %1348
 
 1348:                                             ; preds = %1346
-  %1349 = fmul float %1344, 0x3F50000000000000
+  %1349 = fmul nnan float %1344, 0x3F50000000000000
   br label %convert_value.exit797
 
 convert_value.exit797:                            ; preds = %1342, %1346, %1348
@@ -2621,7 +2621,7 @@ convert_value.exit797:                            ; preds = %1342, %1346, %1348
   br i1 %.not4.i799, label %convert_value.exit801, label %1359
 
 1359:                                             ; preds = %1357
-  %1360 = fmul float %1355, 0x3F50000000000000
+  %1360 = fmul nnan float %1355, 0x3F50000000000000
   br label %convert_value.exit801
 
 convert_value.exit801:                            ; preds = %1353, %1357, %1359
@@ -2649,7 +2649,7 @@ convert_value.exit801:                            ; preds = %1353, %1357, %1359
   br i1 %.not4.i803, label %convert_value.exit805, label %1370
 
 1370:                                             ; preds = %1368
-  %1371 = fmul float %1366, 0x3F50000000000000
+  %1371 = fmul nnan float %1366, 0x3F50000000000000
   br label %convert_value.exit805
 
 convert_value.exit805:                            ; preds = %1364, %1368, %1370
@@ -3423,7 +3423,7 @@ define internal fastcc float @convert_value(ptr noundef nonnull %0) unnamed_addr
   br i1 %.not4, label %10, label %8
 
 8:                                                ; preds = %6
-  %9 = fmul float %4, 0x3F50000000000000
+  %9 = fmul nnan float %4, 0x3F50000000000000
   br label %10
 
 10:                                               ; preds = %8, %6, %1

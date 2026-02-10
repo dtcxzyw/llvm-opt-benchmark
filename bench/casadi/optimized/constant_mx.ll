@@ -16425,8 +16425,8 @@ define linkonce_odr hidden noundef double @_ZN6casadi6erfinvEd(double noundef %0
   br i1 %12, label %13, label %26
 
 13:                                               ; preds = %11
-  %14 = fadd double %0, 1.000000e+00
-  %15 = fmul double %14, 5.000000e-01
+  %14 = fadd nnan double %0, 1.000000e+00
+  %15 = fmul nnan double %14, 5.000000e-01
   %16 = tail call double @log(double noundef %15) #31, !tbaa !244
   %17 = fneg double %16
   %18 = tail call double @sqrt(double noundef %17) #31, !tbaa !244
@@ -16445,7 +16445,7 @@ define linkonce_odr hidden noundef double @_ZN6casadi6erfinvEd(double noundef %0
 
 28:                                               ; preds = %26
   %29 = fmul double %0, %0
-  %30 = tail call double @llvm.fmuladd.f64(double %29, double 0xBFC1FD52E9286F82, double 0x3FED449B6C715C28)
+  %30 = tail call nnan double @llvm.fmuladd.f64(double %29, double 0xBFC1FD52E9286F82, double 0x3FED449B6C715C28)
   %31 = tail call double @llvm.fmuladd.f64(double %30, double %29, double 0xBFFA535A1FCAE55B)
   %32 = tail call double @llvm.fmuladd.f64(double %31, double %29, double 0x3FEC5BF883814BBC)
   %33 = fmul double %0, %32

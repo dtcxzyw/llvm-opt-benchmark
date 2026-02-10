@@ -6098,7 +6098,7 @@ define internal i32 @dissect_dis(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %32 = and i32 %31, 1
   %33 = lshr i32 %31, 1
   %34 = uitofp nneg i32 %33 to double
-  %35 = fmul double %34, 3.600000e+09
+  %35 = fmul nnan double %34, 3.600000e+09
   %36 = fdiv double %35, 0x41DFFFFFFFC00000
   %37 = fptoui double %36 to i64
   %38 = sdiv i64 %37, 1000000

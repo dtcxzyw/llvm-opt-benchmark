@@ -2548,7 +2548,7 @@ define dso_local i32 @MultiXactMemberFreezeThreshold() local_unnamed_addr #0 {
 23:                                               ; preds = %17
   %24 = add i32 %18, -2147483647
   %25 = uitofp i32 %24 to double
-  %26 = fdiv double %25, 0x41D0000000400000
+  %26 = fdiv nnan double %25, 0x41D0000000400000
   %27 = uitofp i32 %19 to double
   %28 = fmul double %26, %27
   %29 = fptoui double %28 to i32

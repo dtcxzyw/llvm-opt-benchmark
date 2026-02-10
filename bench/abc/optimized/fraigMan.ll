@@ -702,8 +702,8 @@ define void @Fraig_ManPrintStats(ptr noundef %0) local_unnamed_addr #4 {
   %17 = shl nsw i64 %16, 2
   %18 = add nsw i64 %17, 160
   %19 = uitofp i64 %18 to double
-  %20 = fmul double %10, %19
-  %21 = fmul double %20, 0x3EB0000000000000
+  %20 = fmul nnan double %10, %19
+  %21 = fmul nnan double %20, 0x3EB0000000000000
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %23 = load i32, ptr %22, align 4, !tbaa !94
   %24 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %12, i32 noundef %14, i32 noundef %23, double noundef %21)

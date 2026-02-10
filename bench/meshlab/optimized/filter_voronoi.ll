@@ -14324,10 +14324,10 @@ define linkonce_odr void @_ZN3vcg3tri15PoissonSamplingI6CMeshOEEvRT_RSt6vectorIN
 
 _ZN3vcg3tri15SurfaceSamplingI6CMeshONS0_14TrivialSamplerIS2_EEE23ComputePoissonSampleNumERS2_f.exit: ; preds = %26, %._crit_edge.loopexit.i.i
   %.0.lcssa.i.i = phi double [ 0.000000e+00, %26 ], [ %81, %._crit_edge.loopexit.i.i ]
-  %82 = fmul float %23, %23
-  %83 = fpext float %82 to double
-  %84 = fmul double %83, 0x400921FB54442D18
-  %85 = fmul double %84, 0x3FE6666666666666
+  %82 = fmul nnan float %23, %23
+  %83 = fpext nnan float %82 to double
+  %84 = fmul nnan double %83, 0x400921FB54442D18
+  %85 = fmul nnan double %84, 0x3FE6666666666666
   %86 = fdiv double %.0.lcssa.i.i, %85
   %87 = fptosi double %86 to i32
   br label %88
@@ -22913,7 +22913,7 @@ define linkonce_odr noundef i32 @_ZN3vcg4math18MarsenneTwisterRNG8generateEj(ptr
 define linkonce_odr noundef double @_ZN3vcg4math18MarsenneTwisterRNG10generate01Ev(ptr noundef nonnull align 8 dereferenceable(2508) %0) unnamed_addr #4 comdat align 2 {
   %2 = tail call noundef i32 @_ZN3vcg4math18MarsenneTwisterRNG8generateEv(ptr noundef nonnull align 8 dereferenceable(2508) %0)
   %3 = uitofp i32 %2 to double
-  %4 = fmul double %3, 0x3DF0000000000000
+  %4 = fmul nnan double %3, 0x3DF0000000000000
   ret double %4
 }
 
@@ -22921,7 +22921,7 @@ define linkonce_odr noundef double @_ZN3vcg4math18MarsenneTwisterRNG10generate01
 define linkonce_odr noundef double @_ZN3vcg4math18MarsenneTwisterRNG16generate01closedEv(ptr noundef nonnull align 8 dereferenceable(2508) %0) unnamed_addr #4 comdat align 2 {
   %2 = tail call noundef i32 @_ZN3vcg4math18MarsenneTwisterRNG8generateEv(ptr noundef nonnull align 8 dereferenceable(2508) %0)
   %3 = uitofp i32 %2 to double
-  %4 = fmul double %3, 0x3DF0000000100000
+  %4 = fmul nnan double %3, 0x3DF0000000100000
   ret double %4
 }
 
@@ -22929,8 +22929,8 @@ define linkonce_odr noundef double @_ZN3vcg4math18MarsenneTwisterRNG16generate01
 define linkonce_odr noundef double @_ZN3vcg4math18MarsenneTwisterRNG14generate01openEv(ptr noundef nonnull align 8 dereferenceable(2508) %0) unnamed_addr #4 comdat align 2 {
   %2 = tail call noundef i32 @_ZN3vcg4math18MarsenneTwisterRNG8generateEv(ptr noundef nonnull align 8 dereferenceable(2508) %0)
   %3 = uitofp i32 %2 to double
-  %4 = fadd double %3, 5.000000e-01
-  %5 = fmul double %4, 0x3DF0000000000000
+  %4 = fadd nnan double %3, 5.000000e-01
+  %5 = fmul nnan double %4, 0x3DF0000000000000
   ret double %5
 }
 
@@ -29819,7 +29819,7 @@ _ZN3vcg3tri4StatI6CMeshOE28ComputeFaceEdgeLengthAverageERS2_b.exit: ; preds = %.
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %47 = load i32, ptr %46, align 8
   %48 = sitofp i32 %47 to double
-  %49 = fmul double %48, 3.000000e+00
+  %49 = fmul nnan double %48, 3.000000e+00
   %50 = fdiv double %.09.lcssa.i, %49
   %51 = fptrunc double %50 to float
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -33087,7 +33087,7 @@ define linkonce_odr void @_ZN3vcg3tri8MidPointI6CMeshONS0_16BaseInterpolatorIS2_
   %67 = uitofp i8 %66 to float
   %68 = load i8, ptr %64, align 1
   %69 = uitofp i8 %68 to float
-  %70 = fmul float %69, 5.000000e-01
+  %70 = fmul nnan float %69, 5.000000e-01
   %71 = tail call float @llvm.fmuladd.f32(float %67, float 5.000000e-01, float %70)
   %72 = fptoui float %71 to i8
   store i8 %72, ptr %63, align 8
@@ -33097,7 +33097,7 @@ define linkonce_odr void @_ZN3vcg3tri8MidPointI6CMeshONS0_16BaseInterpolatorIS2_
   %76 = getelementptr inbounds nuw i8, ptr %spec.select57, i64 41
   %77 = load i8, ptr %76, align 1
   %78 = uitofp i8 %77 to float
-  %79 = fmul float %78, 5.000000e-01
+  %79 = fmul nnan float %78, 5.000000e-01
   %80 = tail call float @llvm.fmuladd.f32(float %75, float 5.000000e-01, float %79)
   %81 = fptoui float %80 to i8
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 41
@@ -33108,7 +33108,7 @@ define linkonce_odr void @_ZN3vcg3tri8MidPointI6CMeshONS0_16BaseInterpolatorIS2_
   %86 = getelementptr inbounds nuw i8, ptr %spec.select57, i64 42
   %87 = load i8, ptr %86, align 1
   %88 = uitofp i8 %87 to float
-  %89 = fmul float %88, 5.000000e-01
+  %89 = fmul nnan float %88, 5.000000e-01
   %90 = tail call float @llvm.fmuladd.f32(float %85, float 5.000000e-01, float %89)
   %91 = fptoui float %90 to i8
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 42
@@ -33119,7 +33119,7 @@ define linkonce_odr void @_ZN3vcg3tri8MidPointI6CMeshONS0_16BaseInterpolatorIS2_
   %96 = getelementptr inbounds nuw i8, ptr %spec.select57, i64 43
   %97 = load i8, ptr %96, align 1
   %98 = uitofp i8 %97 to float
-  %99 = fmul float %98, 5.000000e-01
+  %99 = fmul nnan float %98, 5.000000e-01
   %100 = tail call float @llvm.fmuladd.f32(float %95, float 5.000000e-01, float %99)
   %101 = fptoui float %100 to i8
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 43
@@ -40882,7 +40882,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit95:                  ; preds = %._crit_edge132
   %110 = sub i64 %108, %109
   %111 = ashr exact i64 %110, 2
   %112 = uitofp i64 %111 to double
-  %113 = fmul double %112, 5.000000e-01
+  %113 = fmul nnan double %112, 5.000000e-01
   %114 = fptoui double %113 to i64
   %115 = getelementptr inbounds float, ptr %.sroa.0.0.lcssa, i64 %114
   %116 = load float, ptr %115, align 4
@@ -103151,7 +103151,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %18, %21
 .preheader156.lr.ph:                              ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit
   %26 = icmp sgt i32 %0, 0
   %27 = sitofp i32 %0 to double
-  %28 = fdiv double 0x401921FB54442D18, %27
+  %28 = fdiv nnan double 0x401921FB54442D18, %27
   %29 = uitofp nneg i32 %1 to float
   br i1 %26, label %.preheader156.us, label %.preheader155
 

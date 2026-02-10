@@ -2134,7 +2134,7 @@ _ZNSt12_Vector_baseIN3vcg11SimpleVoxelIfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i
 .preheader87.us:                                  ; preds = %._crit_edge90.split.us.us, %.preheader87.lr.ph
   %storemerge91.us = phi i32 [ 0, %.preheader87.lr.ph ], [ %153, %._crit_edge90.split.us.us ]
   %127 = uitofp nneg i32 %storemerge91.us to double
-  %128 = fmul double %127, 2.000000e-01
+  %128 = fmul nnan double %127, 2.000000e-01
   %129 = mul nuw nsw i32 %storemerge91.us, %58
   %130 = udiv i32 %129, 5
   %131 = uitofp nneg i32 %130 to float
@@ -2143,7 +2143,7 @@ _ZNSt12_Vector_baseIN3vcg11SimpleVoxelIfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i
 .preheader.us.us:                                 ; preds = %._crit_edge.us.us, %.preheader87.us
   %storemerge3389.us.us = phi i32 [ 0, %.preheader87.us ], [ %152, %._crit_edge.us.us ]
   %132 = uitofp nneg i32 %storemerge3389.us.us to double
-  %133 = fmul double %132, 2.000000e-01
+  %133 = fmul nnan double %132, 2.000000e-01
   %134 = sub nsw i32 %storemerge3389.us.us, %126
   %135 = mul nsw i32 %134, %134
   br label %136
@@ -2151,7 +2151,7 @@ _ZNSt12_Vector_baseIN3vcg11SimpleVoxelIfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i
 136:                                              ; preds = %140, %.preheader.us.us
   %storemerge3488.us.us = phi i32 [ 0, %.preheader.us.us ], [ %151, %140 ]
   %137 = uitofp nneg i32 %storemerge3488.us.us to double
-  %138 = fmul double %137, 2.000000e-01
+  %138 = fmul nnan double %137, 2.000000e-01
   %139 = invoke noundef double @_ZN3vcg4math6Perlin5NoiseEddd(double noundef %128, double noundef %133, double noundef %138)
           to label %140 unwind label %.loopexit.split.us.split.us
 

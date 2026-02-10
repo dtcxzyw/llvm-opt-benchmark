@@ -1461,7 +1461,7 @@ _ZN16btManifoldResult20refreshContactPointsEv.exit295: ; preds = %332, %.sink.sp
   br i1 %625, label %626, label %633
 
 626:                                              ; preds = %619
-  %627 = fmul float %623, %623
+  %627 = fmul nnan float %623, %623
   %628 = call float @llvm.fmuladd.f32(float %622, float %622, float %627)
   %sqrt.i = call float @llvm.sqrt.f32(float %628)
   %629 = fdiv float 1.000000e+00, %sqrt.i
@@ -1576,7 +1576,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %633, %626
   %690 = uitofp nneg i32 %.0219533.us to float
   %691 = load i32, ptr %599, align 4, !tbaa !34
   %692 = sitofp i32 %691 to float
-  %693 = fdiv float 0x401921FB60000000, %692
+  %693 = fdiv nnan float 0x401921FB60000000, %692
   %694 = fmul float %693, %690
   %695 = fmul float %694, 5.000000e-01
   %696 = call noundef float @sinf(float noundef %695) #22, !tbaa !104
@@ -2074,7 +2074,7 @@ _ZL21segmentsClosestPointsR9btVector3S0_S0_RfS1_RKS_S3_fS3_f.exit: ; preds = %68
   br i1 %98, label %100, label %108
 
 100:                                              ; preds = %96
-  %101 = fmul float %20, %20
+  %101 = fmul nnan float %20, %20
   %102 = tail call float @llvm.fmuladd.f32(float %19, float %19, float %101)
   %sqrt.i32 = tail call float @llvm.sqrt.f32(float %102)
   %103 = fdiv float 1.000000e+00, %sqrt.i32

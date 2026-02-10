@@ -1385,7 +1385,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   %101 = getelementptr inbounds nuw i8, ptr %23, i64 108
   %102 = load i16, ptr %101, align 4
   %103 = uitofp i16 %102 to float
-  %104 = fmul float %100, %103
+  %104 = fmul nnan float %100, %103
   %105 = getelementptr inbounds nuw i8, ptr %23, i64 106
   %106 = load i16, ptr %105, align 2
   %107 = uitofp i16 %106 to float
@@ -1462,7 +1462,7 @@ HIDAPI_DriverPS4_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   %156 = getelementptr inbounds nuw i8, ptr %23, i64 112
   %157 = load i16, ptr %156, align 8
   %158 = uitofp i16 %157 to float
-  %159 = fmul float %158, 2.000000e+00
+  %159 = fmul nnan float %158, 2.000000e+00
   %160 = getelementptr inbounds nuw i8, ptr %23, i64 110
   %161 = load i16, ptr %160, align 2
   %162 = uitofp i16 %161 to float
@@ -2066,9 +2066,9 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %33 = shl nuw nsw i32 %32, 4
   %34 = or disjoint i32 %33, %29
   %35 = uitofp nneg i32 %28 to float
-  %36 = fmul float %35, 0x3F41111120000000
+  %36 = fmul nnan float %35, 0x3F41111120000000
   %37 = uitofp nneg i32 %34 to float
-  %38 = fmul float %37, 0x3F51CF06A0000000
+  %38 = fmul nnan float %37, 0x3F51CF06A0000000
   %39 = select i1 %19, float 1.000000e+00, float 0.000000e+00
   tail call void @SDL_SendJoystickTouchpad(i64 noundef %6, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext %19, float noundef %36, float noundef %38, float noundef %39) #9
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 38
@@ -2090,9 +2090,9 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %56 = shl nuw nsw i32 %55, 4
   %57 = or disjoint i32 %56, %52
   %58 = uitofp nneg i32 %51 to float
-  %59 = fmul float %58, 0x3F41111120000000
+  %59 = fmul nnan float %58, 0x3F41111120000000
   %60 = uitofp nneg i32 %57 to float
-  %61 = fmul float %60, 0x3F51CF06A0000000
+  %61 = fmul nnan float %60, 0x3F51CF06A0000000
   %62 = select i1 %42, float 1.000000e+00, float 0.000000e+00
   tail call void @SDL_SendJoystickTouchpad(i64 noundef %6, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext %42, float noundef %59, float noundef %61, float noundef %62) #9
   br label %63
@@ -2316,7 +2316,7 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %191 = sitofp i16 %189 to float
   %192 = load i16, ptr %190, align 4
   %193 = sitofp i16 %192 to float
-  %194 = fsub float %191, %193
+  %194 = fsub nnan float %191, %193
   %195 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %196 = load float, ptr %195, align 8
   %197 = fmul float %196, %194
@@ -2327,7 +2327,7 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %201 = sitofp i16 %199 to float
   %202 = load i16, ptr %200, align 4
   %203 = sitofp i16 %202 to float
-  %204 = fsub float %201, %203
+  %204 = fsub nnan float %201, %203
   %205 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %206 = load float, ptr %205, align 8
   %207 = fmul float %206, %204
@@ -2339,7 +2339,7 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %212 = sitofp i16 %210 to float
   %213 = load i16, ptr %211, align 4
   %214 = sitofp i16 %213 to float
-  %215 = fsub float %212, %214
+  %215 = fsub nnan float %212, %214
   %216 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %217 = load float, ptr %216, align 8
   %218 = fmul float %217, %215
@@ -2352,7 +2352,7 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %223 = sitofp i16 %221 to float
   %224 = load i16, ptr %222, align 4
   %225 = sitofp i16 %224 to float
-  %226 = fsub float %223, %225
+  %226 = fsub nnan float %223, %225
   %227 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %228 = load float, ptr %227, align 8
   %229 = fmul float %228, %226
@@ -2363,7 +2363,7 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %233 = sitofp i16 %231 to float
   %234 = load i16, ptr %232, align 4
   %235 = sitofp i16 %234 to float
-  %236 = fsub float %233, %235
+  %236 = fsub nnan float %233, %235
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %238 = load float, ptr %237, align 8
   %239 = fmul float %238, %236
@@ -2374,7 +2374,7 @@ define internal fastcc void @HIDAPI_DriverPS4_HandleStatePacket(ptr noundef nonn
   %243 = sitofp i16 %241 to float
   %244 = load i16, ptr %242, align 4
   %245 = sitofp i16 %244 to float
-  %246 = fsub float %243, %245
+  %246 = fsub nnan float %243, %245
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %248 = load float, ptr %247, align 8
   %249 = fmul float %248, %246

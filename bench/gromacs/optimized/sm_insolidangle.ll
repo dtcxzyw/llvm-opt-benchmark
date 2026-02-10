@@ -236,8 +236,8 @@ define internal void @_ZL17init_insolidanglePK10gmx_mtop_tiP18gmx_ana_selparam_t
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 320
   store i32 %34, ptr %35, align 8, !tbaa !28
   %36 = sitofp i32 %34 to double
-  %37 = fdiv double 1.800000e+02, %36
-  %38 = fmul double %37, 0x3F91DF46A2529D39
+  %37 = fdiv nnan double 1.800000e+02, %36
+  %38 = fmul nnan double %37, 0x3F91DF46A2529D39
   %39 = fptrunc double %38 to float
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 324
   store float %39, ptr %40, align 4, !tbaa !29
@@ -486,7 +486,7 @@ _ZL19free_surface_pointsP23methoddata_insolidangle.exit: ; preds = %15, %2
   %indvars.iv.i18 = phi i64 [ 0, %35 ], [ %indvars.iv.next.i19, %55 ]
   %56 = trunc nuw nsw i64 %indvars.iv.i18 to i32
   %57 = uitofp nneg i32 %56 to double
-  %58 = fmul double %57, 0x401921FB54442D18
+  %58 = fmul nnan double %57, 0x401921FB54442D18
   %59 = fdiv double %58, %51
   %60 = fadd double %59, 0xC00921FB54442D18
   %61 = fadd double %60, -1.000000e-04

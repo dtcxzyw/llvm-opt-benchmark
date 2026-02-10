@@ -490,7 +490,7 @@ define internal void @samples_sequence_number(ptr noundef %0, i8 noundef zeroext
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @samples_temperature(ptr noundef %0, i16 noundef signext %1) #2 {
   %3 = sitofp i16 %1 to float
-  %4 = fmul float %3, 2.500000e-01
+  %4 = fmul nnan float %3, 2.500000e-01
   %5 = fpext float %4 to double
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.120, double noundef %5)
   ret void
@@ -992,7 +992,7 @@ add_rms_values.exit122:                           ; preds = %145
   store i8 %storemerge.i.i, ptr %9, align 2
   %.not123.i.i = icmp eq i64 %.0114.i.i, 0
   %242 = uitofp nneg i64 %.0114.i.i to double
-  %243 = fmul double %242, 1.000000e-09
+  %243 = fmul nnan double %242, 1.000000e-09
   %244 = fdiv double 1.000000e+00, %243
   br i1 %.not123.i.i, label %245, label %.thread.i.i
 

@@ -1055,7 +1055,7 @@ define { <2 x float>, <2 x float> } @b2ComputePolygonMass(ptr noundef readonly c
 
 .lr.ph165:                                        ; preds = %.preheader
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %70 = fmul float %64, 0x3FF6978D40000000
+  %70 = fmul nnan float %64, 0x3FF6978D40000000
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %71
 

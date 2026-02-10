@@ -2336,7 +2336,7 @@ define linkonce_odr hidden ptr @_ZN8nanobind6detail15duration_casterINSt6chrono8
   %5 = fdiv float %4, 8.640000e+04
   %6 = fptosi float %5 to i32
   %7 = sitofp i32 %6 to float
-  %8 = fmul float %7, 8.640000e+04
+  %8 = fmul nnan float %7, 8.640000e+04
   %9 = fsub float %4, %8
   %10 = fptosi float %9 to i32
   %11 = sitofp i32 %10 to float

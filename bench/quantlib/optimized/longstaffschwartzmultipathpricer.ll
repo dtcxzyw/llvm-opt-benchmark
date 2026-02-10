@@ -4505,7 +4505,7 @@ invoke.cont106:                                   ; preds = %invoke.cont103
 
 invoke.cont110:                                   ; preds = %invoke.cont106
   %conv = uitofp i64 %0 to double
-  %mul = fmul double %conv, 0x3CB0000000000000
+  %mul = fmul nnan double %conv, 0x3CB0000000000000
   %55 = load ptr, ptr %call111, align 8, !tbaa !18
   %56 = load double, ptr %55, align 8, !tbaa !27
   %mul113 = fmul double %mul, %56

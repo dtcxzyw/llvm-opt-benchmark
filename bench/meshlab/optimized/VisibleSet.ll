@@ -915,7 +915,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit137: ; preds = %_Z
   br i1 %263, label %266, label %264
 
 264:                                              ; preds = %251
-  %265 = fmul float %.2, %262
+  %265 = fmul nnan float %.2, %262
   br label %266
 
 266:                                              ; preds = %251, %264, %156

@@ -1068,8 +1068,8 @@ define linkonce_odr hidden void @_ZN4nori13ChiSquareTest8activateEv(ptr noundef 
   %109 = lshr i32 %108, 9
   %110 = or disjoint i32 %109, 1065353216
   %111 = bitcast i32 %110 to float
-  %112 = fadd float %111, -1.000000e+00
-  %113 = fmul float %112, 0x401921FB60000000
+  %112 = fadd nnan float %111, -1.000000e+00
+  %113 = fmul nnan float %112, 0x401921FB60000000
   call void @sincosf(float noundef %113, ptr noundef nonnull %12, ptr noundef nonnull %13) #24
   %114 = load float, ptr %13, align 4
   %115 = fmul float %101, %114
@@ -1320,13 +1320,13 @@ _ZNK5Eigen9DenseBaseINS_13CwiseBinaryOpINS_8internal13scalar_cmp_opIffLNS2_14Com
 .noexc:                                           ; preds = %.lr.ph179
   %238 = shl nuw nsw i32 %236, 1
   %239 = uitofp nneg i32 %238 to float
-  %240 = fmul float %239, 0x400921FB60000000
+  %240 = fmul nnan float %239, 0x400921FB60000000
   %241 = sitofp i32 %235 to float
   %242 = fdiv float %240, %241
   %243 = fpext float %242 to double
   %244 = shl nuw nsw i32 %.043177, 1
   %245 = uitofp nneg i32 %244 to float
-  %246 = fmul float %245, 0x400921FB60000000
+  %246 = fmul nnan float %245, 0x400921FB60000000
   %247 = fdiv float %246, %241
   %248 = fpext float %247 to double
   store ptr %18, ptr %237, align 16
@@ -3351,7 +3351,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
 
 .lr.ph151:                                        ; preds = %.preheader
   %33 = sitofp i32 %4 to double
-  %34 = fmul double %33, 1.000000e-05
+  %34 = fmul nnan double %33, 1.000000e-05
   br label %35
 
 35:                                               ; preds = %.lr.ph151, %102
@@ -3596,7 +3596,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPZN10hypothesis9chi2_testB5cxx11EiPKdS4
 
 156:                                              ; preds = %150
   %157 = uitofp nneg i32 %125 to double
-  %158 = fmul double %157, 5.000000e-01
+  %158 = fmul nnan double %157, 5.000000e-01
   %159 = fmul double %.291, 5.000000e-01
   %160 = invoke noundef double @_ZN6cephes7rlgammaEdd(double noundef %158, double noundef %159)
           to label %_ZN10hypothesis8chi2_cdfEdi.exit unwind label %56
@@ -5463,7 +5463,7 @@ define linkonce_odr hidden noundef double @_ZN6cephes7rlgammaEdd(double noundef 
 
 63:                                               ; preds = %60
   %64 = fmul double %.076, 0x3CB0000000000000
-  %65 = fmul double %50, 0x3CB0000000000000
+  %65 = fmul nnan double %50, 0x3CB0000000000000
   %66 = fmul double %.074, 0x3CB0000000000000
   %67 = fmul double %52, 0x3CB0000000000000
   br label %68

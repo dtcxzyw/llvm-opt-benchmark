@@ -245,7 +245,7 @@ define internal range(i32 0, 2) i32 @componentstatusprotocol_stat_packet(ptr nou
   %39 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef 0, i32 noundef 2)
   store i32 4, ptr %39, align 8
   %40 = uitofp i32 %35 to double
-  %41 = fmul double %40, 1.000000e+02
+  %41 = fmul nnan double %40, 1.000000e+02
   %42 = load i64, ptr @componentstatusprotocol_total_msgs, align 8
   %43 = uitofp i64 %42 to double
   %44 = fdiv double %41, %43
@@ -255,7 +255,7 @@ define internal range(i32 0, 2) i32 @componentstatusprotocol_stat_packet(ptr nou
   %46 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef 0, i32 noundef 4)
   store i32 4, ptr %46, align 8
   %47 = uitofp i32 %38 to double
-  %48 = fmul double %47, 1.000000e+02
+  %48 = fmul nnan double %47, 1.000000e+02
   %49 = load i64, ptr @componentstatusprotocol_total_bytes, align 8
   %50 = uitofp i64 %49 to double
   %51 = fdiv double %48, %50
@@ -532,8 +532,8 @@ define internal i32 @dissect_componentstatusprotocol(ptr noundef %0, ptr noundef
 76:                                               ; preds = %60
   %77 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 284)
   %78 = uitofp i16 %77 to float
-  %79 = fdiv float %78, 6.553400e+04
-  %80 = fmul float %79, 1.000000e+02
+  %79 = fdiv nnan float %78, 6.553400e+04
+  %80 = fmul nnan float %79, 1.000000e+02
   %81 = fpext float %80 to double
   %82 = load i32, ptr @hf_cspreport_workload, align 4
   %83 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format_value(ptr noundef %20, i32 noundef %82, ptr noundef %0, i32 noundef 284, i32 noundef 2, float noundef %80, ptr noundef nonnull @.str.73, double noundef %81)

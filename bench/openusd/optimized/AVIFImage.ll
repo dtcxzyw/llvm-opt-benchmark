@@ -1005,11 +1005,11 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %.0189245 = phi float [ 0.000000e+00, %.lr.ph.preheader ], [ %.1190, %.lr.ph ]
   %55 = trunc nuw nsw i64 %indvars.iv to i32
   %56 = uitofp nneg i32 %55 to float
-  %57 = fadd float %56, -5.000000e-01
+  %57 = fadd nnan float %56, -5.000000e-01
   %58 = fdiv float %57, %40
   %59 = fmul float %58, 0x3FE6A09E60000000
   %60 = tail call noundef float @erff(float noundef %59) #25
-  %61 = fadd float %56, 5.000000e-01
+  %61 = fadd nnan float %56, 5.000000e-01
   %62 = fdiv float %61, %40
   %63 = fmul float %62, 0x3FE6A09E60000000
   %64 = tail call noundef float @erff(float noundef %63) #25
@@ -1090,11 +1090,11 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %.2253 = phi float [ 0.000000e+00, %.lr.ph255.preheader ], [ %.3, %.lr.ph255 ]
   %88 = trunc nuw nsw i64 %indvars.iv325 to i32
   %89 = uitofp nneg i32 %88 to float
-  %90 = fadd float %89, -5.000000e-01
+  %90 = fadd nnan float %89, -5.000000e-01
   %91 = fdiv float %90, %41
   %92 = fmul float %91, 0x3FE6A09E60000000
   %93 = tail call noundef float @erff(float noundef %92) #25
-  %94 = fadd float %89, 5.000000e-01
+  %94 = fadd nnan float %89, 5.000000e-01
   %95 = fdiv float %94, %41
   %96 = fmul float %95, 0x3FE6A09E60000000
   %97 = tail call noundef float @erff(float noundef %96) #25

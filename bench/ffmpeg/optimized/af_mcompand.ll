@@ -1222,7 +1222,7 @@ count_items.exit250:                              ; preds = %.lr.ph.i247, %140
   %343 = fcmp nsz uge double %342, 0.000000e+00
   %.pre = load i32, ptr %26, align 8, !tbaa !97
   %.pre355 = sitofp i32 %.pre to double
-  %.pre356 = fmul nsz double %.pre355, 5.000000e-01
+  %.pre356 = fmul nnan nsz double %.pre355, 5.000000e-01
   %344 = fcmp nsz ult double %342, %.pre356
   %or.cond412 = select i1 %343, i1 %344, i1 false
   br i1 %or.cond412, label %345, label %split

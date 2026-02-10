@@ -45678,7 +45678,7 @@ default.unreachable:                              ; preds = %49
 .thread213.i.i:                                   ; preds = %101, %91
   %.sroa.088.0216.i.i = phi i32 [ %.sroa.088.0.i.i, %101 ], [ 1, %91 ]
   %102 = uitofp i32 %.sroa.088.0216.i.i to float
-  %103 = fdiv float 2.550000e+02, %102
+  %103 = fdiv nnan float 2.550000e+02, %102
   %104 = getelementptr inbounds i8, ptr %2, i64 %3
   %105 = icmp eq i64 %3, 0
   br i1 %105, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hf99ef48839ffc1fcE.exit.i.i", label %.lr.ph.i.i.i
@@ -45884,7 +45884,7 @@ default.unreachable:                              ; preds = %49
 .thread213.i32.i:                                 ; preds = %158, %148
   %.sroa.088.0216.i33.i = phi i32 [ %.sroa.088.0.i30.i, %158 ], [ 1, %148 ]
   %159 = uitofp i32 %.sroa.088.0216.i33.i to float
-  %160 = fdiv float 2.550000e+02, %159
+  %160 = fdiv nnan float 2.550000e+02, %159
   %161 = getelementptr inbounds i8, ptr %2, i64 %3
   %162 = icmp eq i64 %3, 0
   br i1 %162, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h930c7381f65d342eE.exit.i.i", label %.lr.ph.i.i34.i
@@ -46097,7 +46097,7 @@ default.unreachable:                              ; preds = %49
 .thread213.i:                                     ; preds = %219, %209
   %.sroa.088.0216.i = phi i32 [ %.sroa.088.0.i23, %219 ], [ 1, %209 ]
   %220 = uitofp i32 %.sroa.088.0216.i to float
-  %221 = fdiv float 2.550000e+02, %220
+  %221 = fdiv nnan float 2.550000e+02, %220
   %222 = getelementptr inbounds i8, ptr %2, i64 %3
   %223 = icmp eq i64 %3, 0
   br i1 %223, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17ha37058b7c010ff78E.exit.i", label %.lr.ph.i.i
@@ -46311,7 +46311,7 @@ default.unreachable:                              ; preds = %49
 .thread221.i:                                     ; preds = %281, %271
   %.sroa.088.0224.i = phi i32 [ %.sroa.088.0.i, %281 ], [ 1, %271 ]
   %282 = uitofp i32 %.sroa.088.0224.i to float
-  %283 = fdiv float 6.553500e+04, %282
+  %283 = fdiv nnan float 6.553500e+04, %282
   %284 = and i64 %3, -2
   %285 = icmp eq i64 %284, 0
   br i1 %285, label %.loopexit.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h59b2a21229ed7044E.exit.i"

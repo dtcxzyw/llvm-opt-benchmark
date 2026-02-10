@@ -948,7 +948,7 @@ define internal fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_
 
 90:                                               ; preds = %.noexc237
   %91 = sitofp i32 %80 to double
-  %92 = fmul double %91, 5.000000e-01
+  %92 = fmul nnan double %91, 5.000000e-01
   %exp2108.i238 = invoke double @exp2(double %92)
           to label %exp2108.i.noexc unwind label %206
 
@@ -1006,7 +1006,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.invoke.i: ; preds =
 
 109:                                              ; preds = %.noexc237
   %110 = sitofp i32 %80 to double
-  %111 = fmul double %110, 5.000000e-01
+  %111 = fmul nnan double %110, 5.000000e-01
   %exp2.i239 = invoke double @exp2(double %111)
           to label %exp2.i.noexc unwind label %206
 

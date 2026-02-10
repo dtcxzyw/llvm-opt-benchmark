@@ -144,7 +144,7 @@ define internal range(i32 -22, 1) i32 @mpa_encode_init(ptr noundef initializes((
   %50 = mul nsw i32 %.0105.ph, 1152000
   %51 = uitofp nneg i32 %50 to double
   %52 = sitofp i32 %5 to double
-  %53 = fmul nsz double %52, 8.000000e+00
+  %53 = fmul nnan nsz double %52, 8.000000e+00
   %54 = fdiv nsz double %51, %53
   %55 = fptrunc nsz double %54 to float
   %56 = fptosi float %55 to i32
@@ -231,9 +231,9 @@ define internal range(i32 -22, 1) i32 @mpa_encode_init(ptr noundef initializes((
   %100 = trunc i64 %indvars.iv153 to i32
   %101 = sub i32 3, %100
   %102 = sitofp i32 %101 to double
-  %103 = fdiv nsz double %102, 3.000000e+00
-  %104 = tail call nsz double @llvm.exp2.f64(double %103)
-  %105 = fmul nsz double %104, 0x4130000000000000
+  %103 = fdiv nnan nsz double %102, 3.000000e+00
+  %104 = tail call nnan nsz double @llvm.exp2.f64(double %103)
+  %105 = fmul nnan nsz double %104, 0x4130000000000000
   %106 = fptosi double %105 to i32
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %106, i32 1)
   %107 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv153
@@ -248,9 +248,9 @@ define internal range(i32 -22, 1) i32 @mpa_encode_init(ptr noundef initializes((
   store i8 %110, ptr %111, align 1, !tbaa !50
   %112 = urem i8 %.lhs.trunc, 3
   %113 = uitofp nneg i8 %112 to double
-  %114 = fdiv nsz double %113, 3.000000e+00
-  %115 = tail call nsz double @llvm.exp2.f64(double %114)
-  %116 = fmul nsz double %115, 3.276800e+04
+  %114 = fdiv nnan nsz double %113, 3.000000e+00
+  %115 = tail call nnan nsz double @llvm.exp2.f64(double %114)
+  %116 = fmul nnan nsz double %115, 3.276800e+04
   %117 = fptoui double %116 to i16
   %118 = getelementptr inbounds nuw i16, ptr %83, i64 %indvars.iv153
   store i16 %117, ptr %118, align 2, !tbaa !50
@@ -260,9 +260,9 @@ define internal range(i32 -22, 1) i32 @mpa_encode_init(ptr noundef initializes((
   %120 = trunc i64 %indvars.iv153 to i32
   %121 = add i32 %120, -3
   %122 = sitofp i32 %121 to double
-  %123 = fdiv nsz double %122, 3.000000e+00
-  %124 = tail call nsz double @llvm.exp2.f64(double %123)
-  %125 = fmul nsz double %124, 0x3EB0000000000000
+  %123 = fdiv nnan nsz double %122, 3.000000e+00
+  %124 = tail call nnan nsz double @llvm.exp2.f64(double %123)
+  %125 = fmul nnan nsz double %124, 0x3EB0000000000000
   %126 = fptrunc nsz double %125 to float
   %127 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv153
   store float %126, ptr %127, align 4, !tbaa !50

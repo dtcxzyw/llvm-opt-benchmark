@@ -96,7 +96,7 @@ define ptr @SuiteSparse_malloc(i64 noundef %0, i64 noundef %1) local_unnamed_add
   %4 = uitofp i64 %3 to double
   %5 = uitofp i64 %spec.store.select to double
   %6 = uitofp i64 %spec.store.select1 to double
-  %7 = fmul double %5, %6
+  %7 = fmul nnan double %5, %6
   %8 = fcmp une double %7, %4
   br i1 %8, label %12, label %9
 
@@ -119,7 +119,7 @@ define ptr @SuiteSparse_realloc(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
   %7 = uitofp i64 %6 to double
   %8 = uitofp i64 %spec.store.select2 to double
   %9 = uitofp i64 %spec.store.select1 to double
-  %10 = fmul double %8, %9
+  %10 = fmul nnan double %8, %9
   %11 = fcmp une double %10, %7
   br i1 %11, label %23, label %12
 

@@ -2035,7 +2035,7 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl19ransacInterpolat
   %52 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 1, ptr %52, align 8, !tbaa !123
   %53 = sitofp i32 %36 to double
-  %54 = fmul double %53, 2.500000e-01
+  %54 = fmul nnan double %53, 2.500000e-01
   %55 = call double @llvm.ceil.f64(double %54)
   %56 = fptosi double %55 to i32
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 52
@@ -2078,7 +2078,7 @@ define hidden void @_ZN2cv8ximgproc25EdgeAwareInterpolatorImpl19ransacInterpolat
   store i32 -1, ptr %69, align 8, !tbaa !123
   %70 = load i32, ptr %17, align 8, !tbaa !61
   %71 = sitofp i32 %70 to double
-  %72 = fmul double %71, 2.500000e-01
+  %72 = fmul nnan double %71, 2.500000e-01
   %73 = call double @llvm.ceil.f64(double %72)
   %74 = fptosi double %73 to i32
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 52

@@ -2892,7 +2892,7 @@ _ZN2cv4Mat_IdEC2ERKNS_3MatE.exit:                 ; preds = %59
   %106 = load double, ptr %20, align 8, !tbaa !46
   %.sroa.7.8.extract.trunc = trunc i64 %69 to i32
   %107 = sitofp i32 %.sroa.7.8.extract.trunc to double
-  %108 = fmul double %107, 5.000000e-01
+  %108 = fmul nnan double %107, 5.000000e-01
   %109 = fsub double %106, %108
   %110 = fcmp ogt double %109, 0.000000e+00
   %.sroa.speculated90 = select i1 %110, double %109, double 0.000000e+00
@@ -2910,7 +2910,7 @@ _ZN2cv4Mat_IdEC2ERKNS_3MatE.exit:                 ; preds = %59
   %.sroa.7.12.extract.shift = lshr i64 %69, 32
   %.sroa.7.12.extract.trunc = trunc nuw i64 %.sroa.7.12.extract.shift to i32
   %119 = sitofp i32 %.sroa.7.12.extract.trunc to double
-  %120 = fmul double %119, 5.000000e-01
+  %120 = fmul nnan double %119, 5.000000e-01
   %121 = fsub double %118, %120
   %122 = fcmp ogt double %121, 0.000000e+00
   %.sroa.speculated80 = select i1 %122, double %121, double 0.000000e+00
@@ -11079,7 +11079,7 @@ define hidden { i64, i64 } @_ZN2cv4face15FacemarkLBFImpl7getBBoxERNS_3MatENS_4Ma
   %.sroa.8.0.copyload = load i64, ptr %.sroa.8.0..sroa_idx, align 4
   %.sroa.8.8.extract.trunc61 = trunc i64 %.sroa.8.0.copyload to i32
   %66 = sitofp i32 %.sroa.8.8.extract.trunc61 to double
-  %67 = fmul double %66, 1.500000e+00
+  %67 = fmul nnan double %66, 1.500000e+00
   %68 = fcmp ogt double %50, %67
   br i1 %68, label %89, label %69
 
@@ -11087,7 +11087,7 @@ define hidden { i64, i64 } @_ZN2cv4face15FacemarkLBFImpl7getBBoxERNS_3MatENS_4Ma
   %.sroa.8.12.extract.shift69 = lshr i64 %.sroa.8.0.copyload, 32
   %.sroa.8.12.extract.trunc70 = trunc nuw i64 %.sroa.8.12.extract.shift69 to i32
   %70 = sitofp i32 %.sroa.8.12.extract.trunc70 to double
-  %71 = fmul double %70, 1.500000e+00
+  %71 = fmul nnan double %70, 1.500000e+00
   %72 = fcmp ogt double %51, %71
   br i1 %72, label %89, label %73
 
@@ -13993,7 +13993,7 @@ _ZN2cv4Mat_IiEC2Eii.exit.preheader:               ; preds = %._crit_edge
   %116 = and i64 %115, 4294967295
   %117 = or disjoint i64 %116, %111
   %118 = uitofp i64 %117 to double
-  %119 = fmul double %118, 0x3BF0000000000000
+  %119 = fmul nnan double %118, 0x3BF0000000000000
   %120 = call noundef double @llvm.fmuladd.f64(double %119, double 2.000000e+00, double -1.000000e+00)
   %121 = mul nuw i64 %116, 4164903690
   %122 = lshr i64 %115, 32
@@ -14006,7 +14006,7 @@ _ZN2cv4Mat_IiEC2Eii.exit.preheader:               ; preds = %._crit_edge
   %129 = and i64 %128, 4294967295
   %130 = or disjoint i64 %129, %124
   %131 = uitofp i64 %130 to double
-  %132 = fmul double %131, 0x3BF0000000000000
+  %132 = fmul nnan double %131, 0x3BF0000000000000
   %133 = call noundef double @llvm.fmuladd.f64(double %132, double 2.000000e+00, double -1.000000e+00)
   %134 = mul nuw i64 %129, 4164903690
   %135 = lshr i64 %128, 32
@@ -14019,7 +14019,7 @@ _ZN2cv4Mat_IiEC2Eii.exit.preheader:               ; preds = %._crit_edge
   %142 = and i64 %141, 4294967295
   %143 = or disjoint i64 %142, %137
   %144 = uitofp i64 %143 to double
-  %145 = fmul double %144, 0x3BF0000000000000
+  %145 = fmul nnan double %144, 0x3BF0000000000000
   %146 = call noundef double @llvm.fmuladd.f64(double %145, double 2.000000e+00, double -1.000000e+00)
   %147 = mul nuw i64 %142, 4164903690
   %148 = lshr i64 %141, 32
@@ -14032,7 +14032,7 @@ _ZN2cv4Mat_IiEC2Eii.exit.preheader:               ; preds = %._crit_edge
   %155 = and i64 %154, 4294967295
   %156 = or disjoint i64 %155, %150
   %157 = uitofp i64 %156 to double
-  %158 = fmul double %157, 0x3BF0000000000000
+  %158 = fmul nnan double %157, 0x3BF0000000000000
   %159 = call noundef double @llvm.fmuladd.f64(double %158, double 2.000000e+00, double -1.000000e+00)
   %160 = fmul double %133, %133
   %161 = call double @llvm.fmuladd.f64(double %120, double %120, double %160)
@@ -14645,8 +14645,8 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit:                ; preds = %_ZNSt6vectorIdSaIdE
   %467 = and i64 %466, 4294967295
   %468 = or disjoint i64 %467, %462
   %469 = uitofp i64 %468 to double
-  %470 = fmul double %469, 0x3BF0000000000000
-  %471 = call noundef double @llvm.fmuladd.f64(double %470, double 0x3FECCCCCCCCCCCCC, double 5.000000e-02)
+  %470 = fmul nnan double %469, 0x3BF0000000000000
+  %471 = call nnan double @llvm.fmuladd.f64(double %470, double 0x3FECCCCCCCCCCCCC, double 5.000000e-02)
   %472 = fmul double %471, %361
   %473 = fptosi double %472 to i32
   %474 = load ptr, ptr %401, align 8, !tbaa !151
@@ -19107,7 +19107,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit262.thread:          ; preds = %35
   br i1 %.not.i.i.i.i, label %._crit_edge428, label %.lr.ph427
 
 .lr.ph427:                                        ; preds = %._crit_edge421
-  %198 = fmul double %40, 5.000000e-01
+  %198 = fmul nnan double %40, 5.000000e-01
   %smax456 = tail call i32 @llvm.smax.i32(i32 %4, i32 1)
   %wide.trip.count457 = zext nneg i32 %smax456 to i64
   br label %199

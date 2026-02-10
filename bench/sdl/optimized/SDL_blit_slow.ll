@@ -4071,7 +4071,7 @@ define internal fastcc void @ReadFloatPixel(ptr noundef readonly captures(none) 
   %509 = shl nuw nsw i32 %508, 13
   %510 = and i32 %509, 268427264
   %511 = bitcast i32 %510 to float
-  %512 = fmul float %511, 0x46F0000000000000
+  %512 = fmul nnan float %511, 0x46F0000000000000
   %513 = bitcast float %512 to i32
   %514 = fcmp ult float %512, 6.553600e+04
   %515 = or i32 %513, 2139095040
@@ -4086,7 +4086,7 @@ define internal fastcc void @ReadFloatPixel(ptr noundef readonly captures(none) 
   %522 = shl nuw nsw i32 %521, 13
   %523 = and i32 %522, 268427264
   %524 = bitcast i32 %523 to float
-  %525 = fmul float %524, 0x46F0000000000000
+  %525 = fmul nnan float %524, 0x46F0000000000000
   %526 = bitcast float %525 to i32
   %527 = fcmp ult float %525, 6.553600e+04
   %528 = or i32 %526, 2139095040
@@ -4101,7 +4101,7 @@ define internal fastcc void @ReadFloatPixel(ptr noundef readonly captures(none) 
   %535 = shl nuw nsw i32 %534, 13
   %536 = and i32 %535, 268427264
   %537 = bitcast i32 %536 to float
-  %538 = fmul float %537, 0x46F0000000000000
+  %538 = fmul nnan float %537, 0x46F0000000000000
   %539 = bitcast float %538 to i32
   %540 = fcmp ult float %538, 6.553600e+04
   %541 = or i32 %539, 2139095040
@@ -4122,7 +4122,7 @@ define internal fastcc void @ReadFloatPixel(ptr noundef readonly captures(none) 
   %552 = shl nuw nsw i32 %551, 13
   %553 = and i32 %552, 268427264
   %554 = bitcast i32 %553 to float
-  %555 = fmul float %554, 0x46F0000000000000
+  %555 = fmul nnan float %554, 0x46F0000000000000
   %556 = bitcast float %555 to i32
   %557 = fcmp ult float %555, 6.553600e+04
   %558 = or i32 %556, 2139095040

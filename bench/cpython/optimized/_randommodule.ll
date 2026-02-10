@@ -324,8 +324,8 @@ define internal ptr @_random_Random_random(ptr noundef captures(none) %0, ptr re
   %6 = lshr i32 %5, 6
   %7 = uitofp nneg i32 %4 to double
   %8 = uitofp nneg i32 %6 to double
-  %9 = tail call double @llvm.fmuladd.f64(double %7, double 0x4190000000000000, double %8)
-  %10 = fmul double %9, 0x3CA0000000000000
+  %9 = tail call nnan double @llvm.fmuladd.f64(double %7, double 0x4190000000000000, double %8)
+  %10 = fmul nnan double %9, 0x3CA0000000000000
   %11 = tail call ptr @PyFloat_FromDouble(double noundef %10) #8
   ret ptr %11
 }

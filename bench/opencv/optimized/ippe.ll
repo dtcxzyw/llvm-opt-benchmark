@@ -9928,7 +9928,7 @@ _ZN2cv3Mat2atINS_3VecIdLi2EEEEERT_i.exit95.us:    ; preds = %215, %211, %201
 ._crit_edge:                                      ; preds = %_ZN2cv3Mat2atINS_3VecIdLi2EEEEERT_i.exit95.us, %95, %._crit_edge.split
   %224 = phi float [ %.promoted, %95 ], [ %359, %._crit_edge.split ], [ %223, %_ZN2cv3Mat2atINS_3VecIdLi2EEEEERT_i.exit95.us ]
   %225 = sitofp i32 %96 to float
-  %226 = fmul float %225, 2.000000e+00
+  %226 = fmul nnan float %225, 2.000000e+00
   %227 = fdiv float %224, %226
   %228 = call noundef float @sqrtf(float noundef %227) #18, !tbaa !103
   store float %228, ptr %4, align 4, !tbaa !34

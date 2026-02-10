@@ -1293,7 +1293,7 @@ define float @Gia_ManDelayTraceLutPrint(ptr noundef %0, i32 noundef %1) local_un
   %19 = fptoui float %18 to i64
   %20 = shl i64 %19, 2
   %21 = tail call noalias ptr @malloc(i64 noundef %20) #16
-  %22 = fmul float %18, 4.000000e+00
+  %22 = fmul nnan float %18, 4.000000e+00
   %23 = fptoui float %22 to i64
   tail call void @llvm.memset.p0.i64(ptr align 4 %21, i8 0, i64 %23, i1 false)
   %24 = tail call float @Gia_ManDelayTraceLut(ptr noundef nonnull %0)
@@ -1374,7 +1374,7 @@ define float @Gia_ManDelayTraceLutPrint(ptr noundef %0, i32 noundef %1) local_un
   %60 = add nsw i32 %59, %.04961.us
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %61 = sitofp i32 %60 to double
-  %62 = fmul double %61, 1.000000e+02
+  %62 = fmul nnan double %61, 1.000000e+02
   %63 = tail call i32 @Gia_ManLutNum(ptr noundef nonnull %0) #15
   %64 = sitofp i32 %63 to double
   %65 = fdiv double %62, %64
@@ -1395,7 +1395,7 @@ define float @Gia_ManDelayTraceLutPrint(ptr noundef %0, i32 noundef %1) local_un
   %75 = add i32 %74, 5
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %76 = sitofp i32 %72 to double
-  %77 = fmul double %76, 1.000000e+02
+  %77 = fmul nnan double %76, 1.000000e+02
   %78 = tail call i32 @Gia_ManLutNum(ptr noundef nonnull %0) #15
   %79 = sitofp i32 %78 to double
   %80 = fdiv double %77, %79

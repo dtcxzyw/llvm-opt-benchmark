@@ -11844,8 +11844,8 @@ define internal fastcc void @get_time_value(ptr noundef %0, ptr noundef %1, i32 
   %75 = add i32 %2, 4
   %76 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %75)
   %77 = uitofp i32 %76 to double
-  %78 = fmul double %77, 0x3DF0000000000000
-  %79 = fmul double %78, 1.000000e+09
+  %78 = fmul nnan double %77, 0x3DF0000000000000
+  %79 = fmul nnan double %78, 1.000000e+09
   %80 = fptosi double %79 to i32
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %80, ptr %81, align 8
@@ -11908,8 +11908,8 @@ define internal fastcc void @get_time_value(ptr noundef %0, ptr noundef %1, i32 
   %103 = add i32 %2, 4
   %104 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %103)
   %105 = uitofp i32 %104 to double
-  %106 = fmul double %105, 0x3DF0000000000000
-  %107 = fmul double %106, 1.000000e+09
+  %106 = fmul nnan double %105, 0x3DF0000000000000
+  %107 = fmul nnan double %106, 1.000000e+09
   %108 = fptosi double %107 to i32
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %108, ptr %109, align 8
@@ -12014,8 +12014,8 @@ define internal fastcc void @get_time_value(ptr noundef %0, ptr noundef %1, i32 
   %155 = add i32 %2, 4
   %156 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %155)
   %157 = uitofp i32 %156 to double
-  %158 = fmul double %157, 0x3DF0000000000000
-  %159 = fmul double %158, 1.000000e+09
+  %158 = fmul nnan double %157, 0x3DF0000000000000
+  %159 = fmul nnan double %158, 1.000000e+09
   %160 = fptosi double %159 to i32
   %161 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %160, ptr %161, align 8
@@ -12047,8 +12047,8 @@ define internal fastcc void @get_time_value(ptr noundef %0, ptr noundef %1, i32 
   %172 = add i32 %2, 4
   %173 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %172)
   %174 = uitofp i32 %173 to double
-  %175 = fmul double %174, 0x3DF0000000000000
-  %176 = fmul double %175, 1.000000e+09
+  %175 = fmul nnan double %174, 0x3DF0000000000000
+  %176 = fmul nnan double %175, 1.000000e+09
   %177 = fptosi double %176 to i32
   %178 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %177, ptr %178, align 8
@@ -12093,8 +12093,8 @@ define internal fastcc void @get_time_value(ptr noundef %0, ptr noundef %1, i32 
   %196 = shl nuw i32 %195, 16
   store i64 %187, ptr %5, align 8
   %197 = uitofp i32 %196 to double
-  %198 = fmul double %197, 0x3DF0000000000000
-  %199 = fmul double %198, 1.000000e+09
+  %198 = fmul nnan double %197, 0x3DF0000000000000
+  %199 = fmul nnan double %198, 1.000000e+09
   %200 = fptosi double %199 to i32
   %201 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %200, ptr %201, align 8
@@ -12341,8 +12341,8 @@ report_type_length_mismatch.exit465:              ; preds = %297
   %309 = add i32 %2, 6
   %310 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %309)
   %311 = uitofp i16 %310 to double
-  %312 = fmul double %311, 0x3EF0000000000000
-  %313 = fmul double %312, 1.000000e+09
+  %312 = fmul nnan double %311, 0x3EF0000000000000
+  %313 = fmul nnan double %312, 1.000000e+09
   %314 = fptosi double %313 to i32
   %315 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %314, ptr %315, align 8
@@ -12373,8 +12373,8 @@ report_type_length_mismatch.exit465:              ; preds = %297
   store i64 %325, ptr %5, align 8
   %326 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %2)
   %327 = uitofp i16 %326 to double
-  %328 = fmul double %327, 0x3EF0000000000000
-  %329 = fmul double %328, 1.000000e+09
+  %328 = fmul nnan double %327, 0x3EF0000000000000
+  %329 = fmul nnan double %328, 1.000000e+09
   %330 = fptosi double %329 to i32
   %331 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %330, ptr %331, align 8

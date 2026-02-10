@@ -265,7 +265,7 @@ define void @dsyequb_(ptr noundef %0, ptr noundef %1, ptr noundef readonly captu
 
 ._crit_edge556:                                   ; preds = %.lr.ph555, %.loopexit532
   %135 = sitofp i32 %33 to double
-  %136 = fmul double %135, 2.000000e+00
+  %136 = fmul nnan double %135, 2.000000e+00
   %137 = tail call double @sqrt(double noundef %136) #8, !tbaa !3
   %138 = fdiv double 1.000000e+00, %137
   %139 = add i32 %13, 1

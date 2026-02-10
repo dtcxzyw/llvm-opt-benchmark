@@ -255,7 +255,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141: ; preds = %97
 
 105:                                              ; preds = %102
   %106 = uitofp nneg i32 %2 to double
-  %107 = fmul double %106, 5.000000e+00
+  %107 = fmul nnan double %106, 5.000000e+00
   store double %107, ptr %7, align 8, !tbaa !3
   br label %108
 
@@ -268,9 +268,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141: ; preds = %97
   %112 = and i32 %111, 511
   %113 = add nuw nsw i32 %112, 1
   %114 = uitofp nneg i32 %113 to float
-  %sqrt = call float @llvm.sqrt.f32(float %114)
-  %115 = fpext float %sqrt to double
-  %116 = fmul double %115, 5.000000e-02
+  %sqrt = call nnan ninf float @llvm.sqrt.f32(float %114)
+  %115 = fpext nnan ninf float %sqrt to double
+  %116 = fmul nnan double %115, 5.000000e-02
   br label %117
 
 117:                                              ; preds = %108, %110

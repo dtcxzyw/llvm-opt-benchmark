@@ -467,8 +467,8 @@ _ZNSt6vectorIN5Eigen10QuaternionIdLi0EEENS0_17aligned_allocatorIS2_EEE6resizeEm.
   %72 = call noundef nonnull align 16 dereferenceable(560) ptr @_ZN5Eigen9JacobiSVDINS_6MatrixIdLi2ELi3ELi0ELi2ELi3EEELi2EE7computeERKS2_j(ptr noundef nonnull align 16 dereferenceable(560) %7, ptr noundef nonnull align 16 dereferenceable(48) %6, i32 noundef 16)
   %73 = load <2 x double>, ptr %40, align 16, !tbaa !25
   %74 = load double, ptr %41, align 16, !tbaa !26
-  %75 = fadd double %.sroa.speculated.i, 1.000000e+00
-  %76 = fmul double %75, 5.000000e-01
+  %75 = fadd nnan double %.sroa.speculated.i, 1.000000e+00
+  %76 = fmul nnan double %75, 5.000000e-01
   %77 = call double @sqrt(double noundef %76) #22, !tbaa !16
   %78 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store double %77, ptr %78, align 8, !tbaa !26

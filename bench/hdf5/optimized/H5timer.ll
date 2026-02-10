@@ -87,7 +87,7 @@ define void @H5_bandwidth(ptr noundef captures(none) %0, i64 noundef %1, double 
   br i1 %22, label %23, label %27
 
 23:                                               ; preds = %21
-  %24 = fmul double %8, 0x3F50000000000000
+  %24 = fmul nnan double %8, 0x3F50000000000000
   %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.3, double noundef %24) #11
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %26, ptr noundef nonnull align 1 dereferenceable(6) @.str.5, i64 6, i1 false) #11
@@ -98,7 +98,7 @@ define void @H5_bandwidth(ptr noundef captures(none) %0, i64 noundef %1, double 
   br i1 %28, label %29, label %33
 
 29:                                               ; preds = %27
-  %30 = fmul double %8, 0x3EB0000000000000
+  %30 = fmul nnan double %8, 0x3EB0000000000000
   %31 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.3, double noundef %30) #11
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %32, ptr noundef nonnull align 1 dereferenceable(6) @.str.6, i64 6, i1 false) #11
@@ -109,7 +109,7 @@ define void @H5_bandwidth(ptr noundef captures(none) %0, i64 noundef %1, double 
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %33
-  %36 = fmul double %8, 0x3E10000000000000
+  %36 = fmul nnan double %8, 0x3E10000000000000
   %37 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.3, double noundef %36) #11
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %38, ptr noundef nonnull align 1 dereferenceable(6) @.str.7, i64 6, i1 false) #11
@@ -120,7 +120,7 @@ define void @H5_bandwidth(ptr noundef captures(none) %0, i64 noundef %1, double 
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %39
-  %42 = fmul double %8, 0x3D70000000000000
+  %42 = fmul nnan double %8, 0x3D70000000000000
   %43 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.3, double noundef %42) #11
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %44, ptr noundef nonnull align 1 dereferenceable(6) @.str.8, i64 6, i1 false) #11
@@ -131,7 +131,7 @@ define void @H5_bandwidth(ptr noundef captures(none) %0, i64 noundef %1, double 
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %45
-  %48 = fmul double %8, 0x3CD0000000000000
+  %48 = fmul nnan double %8, 0x3CD0000000000000
   %49 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.3, double noundef %48) #11
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %50, ptr noundef nonnull align 1 dereferenceable(6) @.str.9, i64 6, i1 false) #11
@@ -637,7 +637,7 @@ define noalias noundef ptr @H5_timer_get_time_string(double noundef %0) local_un
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %27
-  %30 = fmul double %0, 1.000000e+09
+  %30 = fmul nnan double %0, 1.000000e+09
   %31 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 1536, ptr noundef nonnull @.str.13, double noundef %30) #11
   br label %56
 
@@ -646,7 +646,7 @@ define noalias noundef ptr @H5_timer_get_time_string(double noundef %0) local_un
   br i1 %33, label %34, label %37
 
 34:                                               ; preds = %32
-  %35 = fmul double %0, 1.000000e+06
+  %35 = fmul nnan double %0, 1.000000e+06
   %36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 1536, ptr noundef nonnull @.str.14, double noundef %35) #11
   br label %56
 
@@ -655,7 +655,7 @@ define noalias noundef ptr @H5_timer_get_time_string(double noundef %0) local_un
   br i1 %38, label %39, label %42
 
 39:                                               ; preds = %37
-  %40 = fmul double %0, 1.000000e+03
+  %40 = fmul nnan double %0, 1.000000e+03
   %41 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 1536, ptr noundef nonnull @.str.15, double noundef %40) #11
   br label %56
 

@@ -678,8 +678,8 @@ declare i32 @ff_vlc_init_sparse(ptr noundef, i32 noundef, i32 noundef, ptr nound
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(argmem: write) uwtable
 define internal fastcc void @wma_lsp_to_curve_init(ptr noundef writeonly captures(none) %0, i32 noundef %1) unnamed_addr #4 {
   %3 = sitofp i32 %1 to double
-  %4 = fdiv nsz double 0x400921FB54442D18, %3
-  %5 = fptrunc nsz double %4 to float
+  %4 = fdiv nnan nsz double 0x400921FB54442D18, %3
+  %5 = fptrunc nnan nsz double %4 to float
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph, label %.preheader28
 
@@ -717,7 +717,7 @@ define internal fastcc void @wma_lsp_to_curve_init(ptr noundef writeonly capture
   %21 = trunc i64 %indvars.iv34 to i32
   %22 = add i32 %21, -126
   %23 = sitofp i32 %22 to double
-  %24 = fmul nsz double %23, -2.500000e-01
+  %24 = fmul nnan nsz double %23, -2.500000e-01
   %25 = fptrunc nsz double %24 to float
   %26 = tail call nsz float @llvm.exp2.f32(float %25)
   %27 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv34
@@ -732,7 +732,7 @@ define internal fastcc void @wma_lsp_to_curve_init(ptr noundef writeonly capture
   %29 = trunc i64 %indvars.iv38 to i32
   %30 = add i32 %29, 128
   %31 = uitofp nneg i32 %30 to float
-  %32 = fmul nsz float %31, 3.906250e-03
+  %32 = fmul nnan nsz float %31, 3.906250e-03
   %33 = fpext nsz float %32 to double
   %34 = tail call nsz double @llvm.sqrt.f64(double %33)
   %35 = tail call nsz double @llvm.sqrt.f64(double %34)
@@ -1804,8 +1804,8 @@ align_get_bits.exit.i:                            ; preds = %586, %583, %580
 
 594:                                              ; preds = %._crit_edge559.i
   %595 = sitofp i32 %591 to double
-  %596 = tail call nsz double @llvm.sqrt.f64(double %595)
-  %597 = fpext nsz float %593 to double
+  %596 = tail call ninf nsz double @llvm.sqrt.f64(double %595)
+  %597 = fpext nnan nsz float %593 to double
   %598 = fmul nsz double %596, %597
   %599 = fptrunc nsz double %598 to float
   br label %.lr.ph629.i
@@ -1813,9 +1813,9 @@ align_get_bits.exit.i:                            ; preds = %586, %583, %580
 .lr.ph629.i:                                      ; preds = %594, %._crit_edge559.i
   %.0443.i = phi nsz float [ %599, %594 ], [ %593, %._crit_edge559.i ]
   %600 = uitofp nneg i32 %201 to double
-  %601 = fmul nsz double %600, 5.000000e-02
-  %602 = fmul nsz double %601, 0x400A934F0979A371
-  %603 = tail call nsz double @llvm.exp2.f64(double %602)
+  %601 = fmul nnan nsz double %600, 5.000000e-02
+  %602 = fmul nnan nsz double %601, 0x400A934F0979A371
+  %603 = tail call nnan nsz double @llvm.exp2.f64(double %602)
   %604 = getelementptr inbounds i32, ptr %27, i64 %203
   %605 = getelementptr inbounds i32, ptr %50, i64 %203
   %.neg476.i = shl nsw i32 -1, %141
@@ -2021,9 +2021,9 @@ align_get_bits.exit.i:                            ; preds = %586, %583, %580
   %715 = getelementptr inbounds nuw i32, ptr %691, i64 %703
   %716 = load i32, ptr %715, align 4, !tbaa !79
   %717 = sitofp i32 %716 to double
-  %718 = fmul nsz double %717, 5.000000e-02
-  %719 = fmul nsz double %718, 0x400A934F0979A371
-  %720 = tail call nsz double @llvm.exp2.f64(double %719)
+  %718 = fmul nnan nsz double %717, 5.000000e-02
+  %719 = fmul nnan nsz double %718, 0x400A934F0979A371
+  %720 = tail call nnan nsz double @llvm.exp2.f64(double %719)
   %721 = fmul nsz double %720, %714
   %722 = fptrunc nsz double %721 to float
   %723 = load float, ptr %616, align 4, !tbaa !48

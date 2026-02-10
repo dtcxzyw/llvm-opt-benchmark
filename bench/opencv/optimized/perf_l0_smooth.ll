@@ -1484,7 +1484,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_117L0SmoothTest_perf12PerfTes
   %41 = and i64 %40, 4294967295
   %42 = or disjoint i64 %41, %36
   %43 = uitofp i64 %42 to double
-  %44 = fmul double %43, 0x3BF0000000000000
+  %44 = fmul nnan double %43, 0x3BF0000000000000
   %45 = call noundef double @llvm.fmuladd.f64(double %44, double 4.000000e-02, double 1.000000e-02)
   %46 = mul nuw i64 %41, 4164903690
   %47 = lshr i64 %40, 32
@@ -1496,7 +1496,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_117L0SmoothTest_perf12PerfTes
   %53 = and i64 %52, 4294967295
   %54 = or disjoint i64 %53, %49
   %55 = uitofp i64 %54 to double
-  %56 = fmul double %55, 0x3BF0000000000000
+  %56 = fmul nnan double %55, 0x3BF0000000000000
   %57 = call noundef double @llvm.fmuladd.f64(double %56, double 2.000000e+00, double 1.000000e+00)
   %58 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase14_declareHelper10iterationsEj(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef 1)
           to label %.preheader unwind label %.loopexit.split-lp

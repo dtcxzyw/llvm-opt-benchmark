@@ -667,7 +667,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   br i1 %or.cond149, label %.loopexit131, label %303
 
 303:                                              ; preds = %296
-  %304 = fmul reassoc nsz arcp contract afn double %298, 5.000000e-01
+  %304 = fmul reassoc nnan nsz arcp contract afn double %298, 5.000000e-01
   %305 = fptrunc reassoc nsz arcp contract afn double %304 to float
   %306 = call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %305)
   %or.cond.i.i125 = fcmp reassoc nsz arcp contract afn ogt float %306, 6.400000e+01

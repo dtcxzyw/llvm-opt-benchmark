@@ -3492,13 +3492,13 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZN8rawspeed18RawIm
   %222 = add nuw nsw i32 %201, %211
   %223 = add nuw nsw i32 %222, %221
   %224 = uitofp nneg i32 %223 to float
-  %225 = fmul float %224, 5.000000e-01
+  %225 = fmul nnan float %224, 5.000000e-01
   %226 = lshr i32 %217, 4
   %227 = shl nuw nsw i32 %219, 4
   %228 = add nuw nsw i32 %226, %205
   %229 = add nuw nsw i32 %228, %227
   %230 = uitofp nneg i32 %229 to float
-  %231 = fmul float %230, 5.000000e-01
+  %231 = fmul nnan float %230, 5.000000e-01
   br label %234
 
 232:                                              ; preds = %319, %299, %280, %271, %249, %234
@@ -4628,7 +4628,7 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit:           ; preds = %_ZN8rawspeed10ByteS
   %.0.copyload.i.i.i.i.i.i110 = load i16, ptr %231, align 1
   %232 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i110)
   %233 = uitofp i16 %232 to float
-  %234 = fmul float %233, 3.906250e-03
+  %234 = fmul nnan float %233, 3.906250e-03
   %235 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %236 = load ptr, ptr %235, align 8, !tbaa !25
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 256
@@ -4652,7 +4652,7 @@ _ZN8rawspeed10ByteStream6getU16Ev.exit114:        ; preds = %_ZN8rawspeed10ByteS
   %.0.copyload.i.i.i.i.i.i112 = load i16, ptr %244, align 1
   %245 = tail call i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i112)
   %246 = uitofp i16 %245 to float
-  %247 = fmul float %246, 3.906250e-03
+  %247 = fmul nnan float %246, 3.906250e-03
   %248 = getelementptr inbounds nuw i8, ptr %236, i64 264
   store float %247, ptr %248, align 4, !tbaa !186
   br label %_ZNK8rawspeed10ByteStream12hasPatternAtESt17basic_string_viewIcSt11char_traitsIcEEj.exit
@@ -4759,7 +4759,7 @@ _ZN8rawspeed10ByteStream6getU32Ev.exit:           ; preds = %_ZN8rawspeed10ByteS
   %288 = getelementptr inbounds nuw i8, ptr %.sroa.0153.0.copyload, i64 %283
   %.0.copyload.i.i.i.i.i.i127 = load i32, ptr %288, align 1
   %289 = uitofp i32 %.0.copyload.i.i.i.i.i.i127 to float
-  %290 = fmul float %289, 4.000000e+00
+  %290 = fmul nnan float %289, 4.000000e+00
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %292 = load ptr, ptr %291, align 8, !tbaa !25
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 256
@@ -4816,7 +4816,7 @@ _ZN8rawspeed10ByteStream6getU32Ev.exit140:        ; preds = %_ZN8rawspeed10ByteS
   %315 = getelementptr inbounds nuw i8, ptr %.sroa.0153.0.copyload, i64 %310
   %.0.copyload.i.i.i.i.i.i138 = load i32, ptr %315, align 1
   %316 = uitofp i32 %.0.copyload.i.i.i.i.i.i138 to float
-  %317 = fmul float %316, 4.000000e+00
+  %317 = fmul nnan float %316, 4.000000e+00
   %318 = getelementptr inbounds nuw i8, ptr %292, i64 264
   store float %317, ptr %318, align 4, !tbaa !186
   br label %_ZNK8rawspeed10ByteStream12hasPatternAtESt17basic_string_viewIcSt11char_traitsIcEEj.exit
@@ -5314,7 +5314,7 @@ define hidden void @_ZN8rawspeed10NefDecoder10gammaCurveEddi(ptr dead_on_unwind 
   br i1 %8, label %38, label %9
 
 9:                                                ; preds = %.cont30
-  %10 = fadd double %2, -1.000000e+00
+  %10 = fadd nnan double %2, -1.000000e+00
   %11 = fadd double %1, -1.000000e+00
   %12 = fmul double %11, %10
   %13 = fcmp ugt double %12, 0.000000e+00
@@ -5369,8 +5369,8 @@ define hidden void @_ZN8rawspeed10NefDecoder10gammaCurveEddi(ptr dead_on_unwind 
   br label %38
 
 .split.us:                                        ; preds = %.preheader.split
-  %35 = fdiv double 1.000000e+00, %1
-  %36 = fadd double %35, -1.000000e+00
+  %35 = fdiv nnan double 1.000000e+00, %1
+  %36 = fadd nnan double %35, -1.000000e+00
   %37 = fmul double %36, %26
   br label %38
 

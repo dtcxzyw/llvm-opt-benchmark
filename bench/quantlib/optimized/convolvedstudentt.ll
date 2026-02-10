@@ -1192,8 +1192,8 @@ _ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i92: ; preds = %call5.i.i.i.i2
 
 invoke.cont30:                                    ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i.i.i92
   %conv24 = uitofp nneg i64 %k.0321 to double
-  %4 = tail call double @llvm.fmuladd.f64(double %conv24, double 2.000000e+00, double 1.000000e+00)
-  %5 = tail call double @llvm.fmuladd.f64(double %conv24, double 2.000000e+00, double -1.000000e+00)
+  %4 = tail call nnan double @llvm.fmuladd.f64(double %conv24, double 2.000000e+00, double 1.000000e+00)
+  %5 = tail call nnan double @llvm.fmuladd.f64(double %conv24, double 2.000000e+00, double -1.000000e+00)
   %mul28 = fmul double %4, %5
   %div = fdiv double %conv, %mul28
   %add.ptr.i.i.i100 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i112, i64 16
@@ -2972,7 +2972,7 @@ for.body.i.i.i.i:                                 ; preds = %if.end.i.i.i.i, %fo
   %ref.tmp.sroa.23.0 = select i1 %cmp.i341.i, double %mul, double 1.000000e+06
   %ref.tmp.sroa.36.0 = select i1 %cmp.i341.i, double %sub.i.i, double %sub.i182.i
   %sub.i343.i = fsub double %div, %ref.tmp.sroa.23.0
-  %mul45.i.i = fmul double %.sroa.speculated.i, 5.000000e-01
+  %mul45.i.i = fmul nnan double %.sroa.speculated.i, 5.000000e-01
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %"_ZZNK8QuantLib30InverseCumulativeBehrensFisherclEdENK3$_0clEd.exit147.i.i", %"_ZZNK8QuantLib30InverseCumulativeBehrensFisherclEdENK3$_0clEd.exit.i.i"

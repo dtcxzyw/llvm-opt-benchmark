@@ -626,7 +626,7 @@ define internal range(i32 -22, 1) i32 @config_props(ptr noundef readonly capture
   %51 = sub i32 %50, %40
   %52 = sitofp i32 %51 to double
   %53 = fneg nsz double %52
-  %54 = fmul nsz double %52, %53
+  %54 = fmul nnan nsz double %52, %53
   %55 = fdiv nsz double %54, %42
   %56 = tail call nsz double @llvm.exp.f64(double %55)
   %57 = fdiv nsz double %56, %43
@@ -726,7 +726,7 @@ define internal range(i32 -22, 1) i32 @config_props(ptr noundef readonly capture
   %94 = trunc i64 %indvars.iv182.i to i32
   %95 = sub i32 %94, %66
   %96 = sitofp i32 %95 to double
-  %square.i = fmul nsz double %96, %96
+  %square.i = fmul nnan nsz double %96, %96
   %97 = fdiv nsz double %square.i, %86
   %98 = fsub nsz double %97, %87
   %99 = getelementptr inbounds nuw double, ptr %88, i64 %indvars.iv182.i
@@ -749,7 +749,7 @@ define internal range(i32 -22, 1) i32 @config_props(ptr noundef readonly capture
   %108 = trunc i64 %indvars.iv187.i to i32
   %109 = sub i32 %108, %66
   %110 = sitofp i32 %109 to double
-  %111 = fmul nsz double %110, 5.000000e-01
+  %111 = fmul nnan nsz double %110, 5.000000e-01
   %112 = fmul nsz double %111, %110
   %113 = tail call nsz double @llvm.fmuladd.f64(double %112, double %107, double %.0100146.i)
   %indvars.iv.next188.i = add nuw nsw i64 %indvars.iv187.i, 1

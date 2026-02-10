@@ -25755,7 +25755,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 
 84:                                               ; preds = %73
   %85 = uitofp nneg i64 %78 to float
-  %86 = fmul float %85, 1.000000e+10
+  %86 = fmul nnan float %85, 1.000000e+10
   br label %87
 
 87:                                               ; preds = %95, %91, %84
@@ -26541,7 +26541,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 
 84:                                               ; preds = %73
   %85 = uitofp nneg i64 %78 to double
-  %86 = fmul double %85, 1.000000e+22
+  %86 = fmul nnan double %85, 1.000000e+22
   br label %87
 
 87:                                               ; preds = %95, %91, %84
@@ -36763,7 +36763,7 @@ _ZN3std4sync6poison4once4Once9call_once17h24a03b47283a33a5E.exit: ; preds = %._c
   %48 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %48, align 8, !noalias !4058
   %49 = uitofp i64 %.sroa.8.0.lcssa to float
-  %50 = fmul float %49, 7.500000e-01
+  %50 = fmul nnan float %49, 7.500000e-01
   %51 = call i64 @llvm.fptoui.sat.i64.f32(float %50)
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !4058
   %.sroa.532.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -48395,7 +48395,7 @@ define internal fastcc void @_ZN9polars_io6ndjson4core19get_line_stats_json17h2b
   store i64 0, ptr %18, align 8
   %19 = lshr i64 %3, 1
   %20 = uitofp i64 %2 to float
-  %21 = fmul float %20, 7.500000e-01
+  %21 = fmul nnan float %20, 7.500000e-01
   %22 = tail call i64 @llvm.fptoui.sat.i64.f32(float %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.sroa.530.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8

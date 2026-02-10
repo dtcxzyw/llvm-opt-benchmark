@@ -2574,7 +2574,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit966:       ; preds = %_ZL13gmx_snew_implI
 
 991:                                              ; preds = %988
   %992 = sitofp i32 %.1655 to double
-  %993 = fmul double %992, 5.000000e-01
+  %993 = fmul nnan double %992, 5.000000e-01
   %994 = call double @log(double noundef %993) #23, !tbaa !4
   %995 = fmul double %994, 0x4027154760000000
   %996 = call double @llvm.rint.f64(double %995)
@@ -2671,7 +2671,7 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit976:    ; preds = %1018, %.loopexit142
   %1025 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %1026 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %1027 = sitofp i32 %.0705 to double
-  %1028 = fmul double %1027, 0x400921FB54442D18
+  %1028 = fmul nnan double %1027, 0x400921FB54442D18
   %wide.trip.count1871 = zext nneg i32 %.1655 to i64
   %wide.trip.count1864 = zext nneg i32 %.2 to i64
   %wide.trip.count1854 = zext nneg i32 %.0701 to i64
@@ -2981,7 +2981,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit980:       ; preds = %1046
 1172:                                             ; preds = %._crit_edge1626
   %1173 = sitofp i32 %.1655 to float
   %1174 = sitofp i32 %.2 to float
-  %1175 = fmul float %1173, %1174
+  %1175 = fmul nnan float %1173, %1174
   %1176 = fdiv float %.0793.lcssa, %1175
   br label %1185
 
@@ -2989,7 +2989,7 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit980:       ; preds = %1046
   %1178 = add nsw i32 %.1655, -1
   %1179 = mul nsw i32 %1178, %.1655
   %1180 = sitofp i32 %1179 to double
-  %1181 = fmul double %1180, 5.000000e-01
+  %1181 = fmul nnan double %1180, 5.000000e-01
   %1182 = fpext float %.0793.lcssa to double
   %1183 = fdiv double %1182, %1181
   %1184 = fptrunc double %1183 to float

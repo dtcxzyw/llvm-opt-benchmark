@@ -8646,8 +8646,8 @@ define linkonce_odr dso_local void @_ZZN3igl14DualContouringIdE21dual_vertex_pos
   br label %265
 
 ._crit_edge:                                      ; preds = %2
-  %42 = fadd double %19, 1.000000e-02
-  %43 = fmul double %42, 1.000000e-02
+  %42 = fadd nnan double %19, 1.000000e-02
+  %43 = fmul nnan double %42, 1.000000e-02
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 248
   %45 = load ptr, ptr %44, align 8, !tbaa !136
@@ -14889,8 +14889,8 @@ define linkonce_odr dso_local void @_ZZN3igl14DualContouringIfE21dual_vertex_pos
 
 ._crit_edge:                                      ; preds = %2
   %42 = sitofp i32 %16 to double
-  %43 = fadd double %42, 1.000000e-02
-  %44 = fmul double %43, 1.000000e-02
+  %43 = fadd nnan double %42, 1.000000e-02
+  %44 = fmul nnan double %43, 1.000000e-02
   %45 = fptrunc double %44 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %46 = getelementptr inbounds nuw i8, ptr %9, i64 224

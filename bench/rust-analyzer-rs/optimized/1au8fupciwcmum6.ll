@@ -73879,7 +73879,7 @@ default.unreachable194:                           ; preds = %.critedge
           to label %76 unwind label %139
 
 73:                                               ; preds = %69
-  %74 = fmul double %6, 1.000000e+02
+  %74 = fmul nnan double %6, 1.000000e+02
   %75 = call i32 @llvm.fptoui.sat.i32.f64(double %74)
   br label %64
 

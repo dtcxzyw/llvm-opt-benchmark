@@ -984,19 +984,19 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 define { <2 x float>, float } @_Z18getRandomDirectionv() local_unnamed_addr #12 {
   %1 = tail call i32 @rand() #30
   %2 = sitofp i32 %1 to float
-  %3 = fmul float %2, 0x3E00000000000000
+  %3 = fmul nnan float %2, 0x3E00000000000000
   %4 = tail call i32 @rand() #30
   %5 = sitofp i32 %4 to float
-  %6 = fmul float %5, 0x3E00000000000000
+  %6 = fmul nnan float %5, 0x3E00000000000000
   %7 = tail call i32 @rand() #30
   %8 = sitofp i32 %7 to float
-  %9 = fmul float %8, 0x3E00000000000000
-  %10 = fadd float %3, -5.000000e-01
-  %11 = fadd float %6, -5.000000e-01
-  %12 = fadd float %9, -5.000000e-01
-  %13 = fmul float %10, 0x3FD3333340000000
-  %14 = fmul float %11, 0x3FD3333340000000
-  %15 = fmul float %12, 0x3FD3333340000000
+  %9 = fmul nnan float %8, 0x3E00000000000000
+  %10 = fadd nnan float %3, -5.000000e-01
+  %11 = fadd nnan float %6, -5.000000e-01
+  %12 = fadd nnan float %9, -5.000000e-01
+  %13 = fmul nnan float %10, 0x3FD3333340000000
+  %14 = fmul nnan float %11, 0x3FD3333340000000
+  %15 = fmul nnan float %12, 0x3FD3333340000000
   %.sroa.0.0.vec.insert.i11 = insertelement <2 x float> poison, float %13, i64 0
   %.sroa.0.4.vec.insert.i12 = insertelement <2 x float> %.sroa.0.0.vec.insert.i11, float %14, i64 1
   %.fca.0.insert.i13 = insertvalue { <2 x float>, float } poison, <2 x float> %.sroa.0.4.vec.insert.i12, 0
@@ -1186,12 +1186,12 @@ _ZN3vcg4math18MarsenneTwisterRNGC2Ev.exit:        ; preds = %6
 18:                                               ; preds = %_ZN3vcg4math18MarsenneTwisterRNGC2Ev.exit, %3, %0
   %19 = tail call noundef i32 @_ZN3vcg4math18MarsenneTwisterRNG8generateEv(ptr noundef nonnull align 8 dereferenceable(2508) @_ZZ17RandomBaricentricvE3rnd)
   %20 = uitofp i32 %19 to double
-  %21 = fmul double %20, 0x3DF0000000000000
+  %21 = fmul nnan double %20, 0x3DF0000000000000
   %22 = fptrunc double %21 to float
   %.sroa.0.4.vec.insert = insertelement <2 x float> <float undef, float poison>, float %22, i64 1
   %23 = tail call noundef i32 @_ZN3vcg4math18MarsenneTwisterRNG8generateEv(ptr noundef nonnull align 8 dereferenceable(2508) @_ZZ17RandomBaricentricvE3rnd)
   %24 = uitofp i32 %23 to double
-  %25 = fmul double %24, 0x3DF0000000000000
+  %25 = fmul nnan double %24, 0x3DF0000000000000
   %26 = fptrunc double %25 to float
   %27 = fadd float %22, %26
   %28 = fcmp ogt float %27, 1.000000e+00
@@ -1224,7 +1224,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 define linkonce_odr noundef double @_ZN3vcg4math18MarsenneTwisterRNG10generate01Ev(ptr noundef nonnull align 8 dereferenceable(2508) %0) unnamed_addr #4 comdat align 2 {
   %2 = tail call noundef i32 @_ZN3vcg4math18MarsenneTwisterRNG8generateEv(ptr noundef nonnull align 8 dereferenceable(2508) %0)
   %3 = uitofp i32 %2 to double
-  %4 = fmul double %3, 0x3DF0000000000000
+  %4 = fmul nnan double %3, 0x3DF0000000000000
   ret double %4
 }
 
@@ -1274,7 +1274,7 @@ define linkonce_odr noundef i32 @_ZN3vcg4math18MarsenneTwisterRNG8generateEj(ptr
 define linkonce_odr noundef double @_ZN3vcg4math18MarsenneTwisterRNG16generate01closedEv(ptr noundef nonnull align 8 dereferenceable(2508) %0) unnamed_addr #4 comdat align 2 {
   %2 = tail call noundef i32 @_ZN3vcg4math18MarsenneTwisterRNG8generateEv(ptr noundef nonnull align 8 dereferenceable(2508) %0)
   %3 = uitofp i32 %2 to double
-  %4 = fmul double %3, 0x3DF0000000100000
+  %4 = fmul nnan double %3, 0x3DF0000000100000
   ret double %4
 }
 
@@ -1282,8 +1282,8 @@ define linkonce_odr noundef double @_ZN3vcg4math18MarsenneTwisterRNG16generate01
 define linkonce_odr noundef double @_ZN3vcg4math18MarsenneTwisterRNG14generate01openEv(ptr noundef nonnull align 8 dereferenceable(2508) %0) unnamed_addr #4 comdat align 2 {
   %2 = tail call noundef i32 @_ZN3vcg4math18MarsenneTwisterRNG8generateEv(ptr noundef nonnull align 8 dereferenceable(2508) %0)
   %3 = uitofp i32 %2 to double
-  %4 = fadd double %3, 5.000000e-01
-  %5 = fmul double %4, 0x3DF0000000000000
+  %4 = fadd nnan double %3, 5.000000e-01
+  %5 = fmul nnan double %4, 0x3DF0000000000000
   ret double %5
 }
 
@@ -5040,7 +5040,7 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit70.us: ; preds = %._crit_edge.i6
   %170 = lshr i32 %169, 18
   %171 = xor i32 %170, %169
   %172 = uitofp i32 %171 to double
-  %173 = fmul double %172, 0x3DF0000000000000
+  %173 = fmul nnan double %172, 0x3DF0000000000000
   %174 = fptrunc double %173 to float
   %175 = icmp sgt i32 %157, 622
   br i1 %175, label %.preheader27.i.us, label %223
@@ -5134,7 +5134,7 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit70.us: ; preds = %._crit_edge.i6
   %237 = lshr i32 %236, 18
   %238 = xor i32 %237, %236
   %239 = uitofp i32 %238 to double
-  %240 = fmul double %239, 0x3DF0000000000000
+  %240 = fmul nnan double %239, 0x3DF0000000000000
   %241 = fptrunc double %240 to float
   %242 = fadd float %174, %241
   %243 = fcmp ogt float %242, 1.000000e+00
@@ -10903,7 +10903,7 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit82: ; preds = %_Z17RandomBaricen
   %135 = lshr i32 %134, 18
   %136 = xor i32 %135, %134
   %137 = uitofp i32 %136 to double
-  %138 = fmul double %137, 0x3DF0000000000000
+  %138 = fmul nnan double %137, 0x3DF0000000000000
   %139 = fptrunc double %138 to float
   %140 = icmp sgt i32 %122, 622
   br i1 %140, label %.preheader27.i, label %_ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit
@@ -10997,7 +10997,7 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit: ; preds = %_ZN3vcg4math18Marse
   %201 = lshr i32 %200, 18
   %202 = xor i32 %201, %200
   %203 = uitofp i32 %202 to double
-  %204 = fmul double %203, 0x3DF0000000000000
+  %204 = fmul nnan double %203, 0x3DF0000000000000
   %205 = fptrunc double %204 to float
   %206 = fadd float %139, %205
   %207 = fcmp ogt float %206, 1.000000e+00
@@ -22262,19 +22262,19 @@ _Z17CheckFallPositionP6CFaceON3vcg6Point3IfEEf.exit.thread: ; preds = %9, %_Z17C
 42:                                               ; preds = %_Z17CheckFallPositionP6CFaceON3vcg6Point3IfEEf.exit.thread
   %43 = tail call i32 @rand() #30
   %44 = sitofp i32 %43 to float
-  %45 = fmul float %44, 0x3E00000000000000
+  %45 = fmul nnan float %44, 0x3E00000000000000
   %46 = tail call i32 @rand() #30
   %47 = sitofp i32 %46 to float
-  %48 = fmul float %47, 0x3E00000000000000
+  %48 = fmul nnan float %47, 0x3E00000000000000
   %49 = tail call i32 @rand() #30
   %50 = sitofp i32 %49 to float
-  %51 = fmul float %50, 0x3E00000000000000
-  %52 = fadd float %45, -5.000000e-01
-  %53 = fadd float %48, -5.000000e-01
-  %54 = fadd float %51, -5.000000e-01
-  %55 = fmul float %52, 0x3FD3333340000000
-  %56 = fmul float %53, 0x3FD3333340000000
-  %57 = fmul float %54, 0x3FD3333340000000
+  %51 = fmul nnan float %50, 0x3E00000000000000
+  %52 = fadd nnan float %45, -5.000000e-01
+  %53 = fadd nnan float %48, -5.000000e-01
+  %54 = fadd nnan float %51, -5.000000e-01
+  %55 = fmul nnan float %52, 0x3FD3333340000000
+  %56 = fmul nnan float %53, 0x3FD3333340000000
+  %57 = fmul nnan float %54, 0x3FD3333340000000
   br label %58
 
 58:                                               ; preds = %42, %_Z17CheckFallPositionP6CFaceON3vcg6Point3IfEEf.exit.thread
@@ -22595,7 +22595,7 @@ _Z17CheckFallPositionP6CFaceON3vcg6Point3IfEEf.exit148.thread: ; preds = %159, %
   %257 = fdiv float %245, %240
   %258 = fdiv float %246, %240
   %259 = fdiv float %247, %240
-  %260 = fmul float %223, %223
+  %260 = fmul nnan float %223, %223
   %261 = fmul float %260, %257
   %262 = fmul float %260, %258
   %263 = fmul float %260, %259
@@ -22942,7 +22942,7 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit67: ; preds = %_Z17RandomBaricen
   %174 = lshr i32 %173, 18
   %175 = xor i32 %174, %173
   %176 = uitofp i32 %175 to double
-  %177 = fmul double %176, 0x3DF0000000000000
+  %177 = fmul nnan double %176, 0x3DF0000000000000
   %178 = fptrunc double %177 to float
   %179 = icmp sgt i32 %161, 622
   br i1 %179, label %.preheader27.i, label %227
@@ -23036,7 +23036,7 @@ _ZN3vcg4math18MarsenneTwisterRNG8generateEv.exit67: ; preds = %_Z17RandomBaricen
   %241 = lshr i32 %240, 18
   %242 = xor i32 %241, %240
   %243 = uitofp i32 %242 to double
-  %244 = fmul double %243, 0x3DF0000000000000
+  %244 = fmul nnan double %243, 0x3DF0000000000000
   %245 = fptrunc double %244 to float
   %246 = fadd float %178, %245
   %247 = fcmp ogt float %246, 1.000000e+00

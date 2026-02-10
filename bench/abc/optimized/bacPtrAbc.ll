@@ -2367,7 +2367,7 @@ Abc_Clock.exit:                                   ; preds = %1, %7
   %18 = call ptr @Ptr_AbcDeriveDes(ptr noundef %0)
   %19 = call i32 @Bac_PtrMemory(ptr noundef %18) #19
   %20 = sitofp i32 %19 to double
-  %21 = fmul double %20, 0x3EB0000000000000
+  %21 = fmul nnan double %20, 0x3EB0000000000000
   %22 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, double noundef %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %23 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #19

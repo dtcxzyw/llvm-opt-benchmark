@@ -535,7 +535,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %166 = fmul nsz float %165, 5.000000e-01
   %167 = load i32, ptr %132, align 8, !tbaa !71
   %168 = sitofp i32 %167 to float
-  %169 = fadd nsz float %168, -1.000000e+00
+  %169 = fadd nnan nsz float %168, -1.000000e+00
   %170 = fmul nsz float %166, %169
   %171 = fptosi float %170 to i32
   %172 = load ptr, ptr %.0140.i, align 8, !tbaa !20
@@ -603,7 +603,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %208 = fadd nsz float %199, 1.000000e+00
   %209 = fmul nsz float %208, 5.000000e-01
   %210 = sitofp i32 %207 to float
-  %211 = fadd nsz float %210, -1.000000e+00
+  %211 = fadd nnan nsz float %210, -1.000000e+00
   %212 = fmul nsz float %209, %211
   %213 = fptosi float %212 to i32
   %214 = shl nsw i32 %213, 2

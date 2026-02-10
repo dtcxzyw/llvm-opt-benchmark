@@ -107357,7 +107357,7 @@ define internal fastcc void @_ZN11polars_plan5plans9optimizer3cse8cse_expr22Comm
 147:                                              ; preds = %.split494.us
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %148 = uitofp i64 %3 to double
-  %149 = fmul double %148, 1.300000e+00
+  %149 = fmul nnan double %148, 1.300000e+00
   %150 = call i64 @llvm.fptoui.sat.i64.f64(double %149)
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !11915
   call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$15try_allocate_in17h27ddb3f02f34ca52E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %18, i64 noundef %150, i1 noundef zeroext false, i64 noundef 16, i64 noundef 112), !noalias !11915

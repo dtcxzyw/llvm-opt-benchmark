@@ -769,8 +769,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %99,
 
 106:                                              ; preds = %105
   %107 = uitofp i64 %104 to double
-  %108 = fmul double %107, 0x3F50000000000000
-  %109 = fmul double %108, 0x3F50000000000000
+  %108 = fmul nnan double %107, 0x3F50000000000000
+  %109 = fmul nnan double %108, 0x3F50000000000000
   invoke void @_ZN7V3Stats11addStatPerfERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr noundef nonnull align 8 dereferenceable(32) %8, double noundef %109)
           to label %110 unwind label %141
 
@@ -2767,8 +2767,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZStl
 51:                                               ; preds = %.noexc
   %52 = fptoui double %50 to i64
   %53 = uitofp i64 %52 to double
-  %54 = fmul double %53, 0x3F50000000000000
-  %55 = fmul double %54, 0x3F50000000000000
+  %54 = fmul nnan double %53, 0x3F50000000000000
+  %55 = fmul nnan double %54, 0x3F50000000000000
   %56 = load ptr, ptr %12, align 8, !tbaa !11
   %57 = icmp eq ptr %56, %44
   br i1 %57, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
@@ -2806,8 +2806,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %51,
 67:                                               ; preds = %.noexc69
   %68 = fptoui double %66 to i64
   %69 = uitofp i64 %68 to double
-  %70 = fmul double %69, 0x3F50000000000000
-  %71 = fmul double %70, 0x3F50000000000000
+  %70 = fmul nnan double %69, 0x3F50000000000000
+  %71 = fmul nnan double %70, 0x3F50000000000000
   %72 = load ptr, ptr %13, align 8, !tbaa !11
   %73 = icmp eq ptr %72, %60
   br i1 %73, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73
@@ -3132,8 +3132,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %_Z
   %194 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %193, ptr noundef nonnull @.str.41, i64 noundef 8)
   %195 = call noundef i64 @_ZN4VlOs13memUsageBytesEv()
   %196 = uitofp i64 %195 to double
-  %197 = fmul double %196, 0x3F50000000000000
-  %198 = fmul double %197, 0x3F50000000000000
+  %197 = fmul nnan double %196, 0x3F50000000000000
+  %198 = fmul nnan double %197, 0x3F50000000000000
   %199 = fcmp une double %198, 0.000000e+00
   br i1 %199, label %200, label %291, !prof !92
 

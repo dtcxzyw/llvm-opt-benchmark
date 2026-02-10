@@ -3022,7 +3022,7 @@ define internal fastcc range(i32 -1, 1) i32 @resize_buffer(ptr noundef %0, i64 n
 14:                                               ; preds = %12
   %15 = uitofp nneg i64 %1 to double
   %16 = uitofp nneg i64 %.val21 to double
-  %17 = fmul double %16, 1.125000e+00
+  %17 = fmul nnan double %16, 1.125000e+00
   %18 = fcmp ult double %17, %15
   br i1 %18, label %25, label %19
 

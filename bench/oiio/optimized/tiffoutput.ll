@@ -5123,15 +5123,15 @@ define hidden noundef ptr @_ZN11OpenImageIO6v3_1_010TIFFOutput15convert_to_cmykE
   %.02244.i = phi ptr [ %86, %.lr.ph.i ], [ %32, %.lr.ph.i.preheader ]
   %33 = load i8, ptr %.02145.i, align 1, !tbaa !13
   %34 = uitofp i8 %33 to float
-  %35 = fmul float %34, 0x3F70101020000000
+  %35 = fmul nnan float %34, 0x3F70101020000000
   %36 = getelementptr inbounds nuw i8, ptr %.02145.i, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !13
   %38 = uitofp i8 %37 to float
-  %39 = fmul float %38, 0x3F70101020000000
+  %39 = fmul nnan float %38, 0x3F70101020000000
   %40 = getelementptr inbounds nuw i8, ptr %.02145.i, i64 2
   %41 = load i8, ptr %40, align 1, !tbaa !13
   %42 = uitofp i8 %41 to float
-  %43 = fmul float %42, 0x3F70101020000000
+  %43 = fmul nnan float %42, 0x3F70101020000000
   %44 = fcmp olt float %39, %43
   %45 = select i1 %44, float %43, float %39
   %46 = fcmp olt float %35, %45
@@ -5146,7 +5146,7 @@ define hidden noundef ptr @_ZN11OpenImageIO6v3_1_010TIFFOutput15convert_to_cmykE
   %54 = fmul float %53, %50
   %55 = fsub float %.sroa.speculated.i, %43
   %56 = fmul float %55, %50
-  %57 = fsub float 1.000000e+00, %.sroa.speculated.i
+  %57 = fsub nnan float 1.000000e+00, %.sroa.speculated.i
   %58 = fmul float %52, 2.550000e+02
   %59 = fcmp olt float %58, 0.000000e+00
   %60 = select i1 %59, float -5.000000e-01, float 5.000000e-01
@@ -5179,7 +5179,7 @@ define hidden noundef ptr @_ZN11OpenImageIO6v3_1_010TIFFOutput15convert_to_cmykE
   %76 = fptoui float %.1.i.i.i29.i to i8
   %77 = getelementptr inbounds nuw i8, ptr %.02244.i, i64 2
   store i8 %76, ptr %77, align 1, !tbaa !13
-  %78 = fmul float %57, 2.550000e+02
+  %78 = fmul nnan float %57, 2.550000e+02
   %79 = fcmp olt float %78, 0.000000e+00
   %80 = select i1 %79, float -5.000000e-01, float 5.000000e-01
   %81 = fadd float %78, %80
@@ -5221,15 +5221,15 @@ define hidden noundef ptr @_ZN11OpenImageIO6v3_1_010TIFFOutput15convert_to_cmykE
   %.02244.i16 = phi ptr [ %151, %.lr.ph.i13 ], [ %97, %.lr.ph.i13.preheader ]
   %98 = load i16, ptr %.02145.i15, align 2, !tbaa !127
   %99 = uitofp i16 %98 to float
-  %100 = fmul float %99, 0x3EF0001000000000
+  %100 = fmul nnan float %99, 0x3EF0001000000000
   %101 = getelementptr inbounds nuw i8, ptr %.02145.i15, i64 2
   %102 = load i16, ptr %101, align 2, !tbaa !127
   %103 = uitofp i16 %102 to float
-  %104 = fmul float %103, 0x3EF0001000000000
+  %104 = fmul nnan float %103, 0x3EF0001000000000
   %105 = getelementptr inbounds nuw i8, ptr %.02145.i15, i64 4
   %106 = load i16, ptr %105, align 2, !tbaa !127
   %107 = uitofp i16 %106 to float
-  %108 = fmul float %107, 0x3EF0001000000000
+  %108 = fmul nnan float %107, 0x3EF0001000000000
   %109 = fcmp olt float %104, %108
   %110 = select i1 %109, float %108, float %104
   %111 = fcmp olt float %100, %110
@@ -5244,7 +5244,7 @@ define hidden noundef ptr @_ZN11OpenImageIO6v3_1_010TIFFOutput15convert_to_cmykE
   %119 = fmul float %118, %115
   %120 = fsub float %.sroa.speculated.i17, %108
   %121 = fmul float %120, %115
-  %122 = fsub float 1.000000e+00, %.sroa.speculated.i17
+  %122 = fsub nnan float 1.000000e+00, %.sroa.speculated.i17
   %123 = fmul float %117, 6.553500e+04
   %124 = fcmp olt float %123, 0.000000e+00
   %125 = select i1 %124, float -5.000000e-01, float 5.000000e-01
@@ -5277,7 +5277,7 @@ define hidden noundef ptr @_ZN11OpenImageIO6v3_1_010TIFFOutput15convert_to_cmykE
   %141 = fptoui float %.1.i.i.i29.i26 to i16
   %142 = getelementptr inbounds nuw i8, ptr %.02244.i16, i64 4
   store i16 %141, ptr %142, align 2, !tbaa !127
-  %143 = fmul float %122, 6.553500e+04
+  %143 = fmul nnan float %122, 6.553500e+04
   %144 = fcmp olt float %143, 0.000000e+00
   %145 = select i1 %144, float -5.000000e-01, float 5.000000e-01
   %146 = fadd float %143, %145

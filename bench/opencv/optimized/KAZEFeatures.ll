@@ -3122,8 +3122,8 @@ define hidden void @_ZN2cv12KAZEFeatures24Compute_Main_OrientationERNS_8KeyPoint
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %21 = sitofp i32 %18 to float
-  %22 = fmul float %21, 2.500000e+00
-  %23 = fmul float %22, 2.000000e+00
+  %22 = fmul nnan float %21, 2.500000e+00
+  %23 = fmul nnan float %22, 2.000000e+00
   %24 = fmul float %22, %23
   %25 = sext i32 %13 to i64
   br label %.preheader162
@@ -3407,8 +3407,8 @@ define hidden void @_ZNK2cv23KAZE_Descriptor_Invoker30Get_KAZE_Upright_Descripto
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i32, ptr %14, align 4, !tbaa !149
   %16 = sitofp i32 %13 to float
-  %17 = fmul float %16, 2.500000e+00
-  %18 = fmul float %17, 2.000000e+00
+  %17 = fmul nnan float %16, 2.500000e+00
+  %18 = fmul nnan float %17, 2.000000e+00
   %19 = fmul float %17, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -3642,8 +3642,8 @@ define hidden void @_ZNK2cv23KAZE_Descriptor_Invoker22Get_KAZE_Descriptor_64ERKN
   %19 = tail call noundef float @cosf(float noundef %16) #23, !tbaa !10
   %20 = tail call noundef float @sinf(float noundef %16) #23, !tbaa !10
   %21 = sitofp i32 %13 to float
-  %22 = fmul float %21, 2.500000e+00
-  %23 = fmul float %22, 2.000000e+00
+  %22 = fmul nnan float %21, 2.500000e+00
+  %23 = fmul nnan float %22, 2.000000e+00
   %24 = fmul float %22, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -3888,8 +3888,8 @@ define hidden void @_ZNK2cv23KAZE_Descriptor_Invoker31Get_KAZE_Upright_Descripto
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %15 = load i32, ptr %14, align 4, !tbaa !149
   %16 = sitofp i32 %13 to float
-  %17 = fmul float %16, 2.500000e+00
-  %18 = fmul float %17, 2.000000e+00
+  %17 = fmul nnan float %16, 2.500000e+00
+  %18 = fmul nnan float %17, 2.000000e+00
   %19 = fmul float %17, %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -4179,8 +4179,8 @@ define hidden void @_ZNK2cv23KAZE_Descriptor_Invoker23Get_KAZE_Descriptor_128ERK
   %19 = tail call noundef float @cosf(float noundef %16) #23, !tbaa !10
   %20 = tail call noundef float @sinf(float noundef %16) #23, !tbaa !10
   %21 = sitofp i32 %13 to float
-  %22 = fmul float %21, 2.500000e+00
-  %23 = fmul float %22, 2.000000e+00
+  %22 = fmul nnan float %21, 2.500000e+00
+  %23 = fmul nnan float %22, 2.000000e+00
   %24 = fmul float %22, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 52

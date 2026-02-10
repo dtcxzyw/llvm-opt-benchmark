@@ -1807,7 +1807,7 @@ define internal fastcc void @cvtstr(double noundef %0, ptr noundef nonnull %1) u
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = fmul double %0, 0x3C30000000000000
+  %5 = fmul nnan double %0, 0x3C30000000000000
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 60, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.46, double noundef %5) #26
   br label %34
 
@@ -1816,7 +1816,7 @@ define internal fastcc void @cvtstr(double noundef %0, ptr noundef nonnull %1) u
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = fmul double %0, 0x3CD0000000000000
+  %10 = fmul nnan double %0, 0x3CD0000000000000
   %11 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 60, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.46, double noundef %10) #26
   br label %34
 
@@ -1825,7 +1825,7 @@ define internal fastcc void @cvtstr(double noundef %0, ptr noundef nonnull %1) u
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %12
-  %15 = fmul double %0, 0x3D70000000000000
+  %15 = fmul nnan double %0, 0x3D70000000000000
   %16 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 60, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.46, double noundef %15) #26
   br label %34
 
@@ -1834,7 +1834,7 @@ define internal fastcc void @cvtstr(double noundef %0, ptr noundef nonnull %1) u
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %17
-  %20 = fmul double %0, 0x3E10000000000000
+  %20 = fmul nnan double %0, 0x3E10000000000000
   %21 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 60, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.46, double noundef %20) #26
   br label %34
 
@@ -1843,7 +1843,7 @@ define internal fastcc void @cvtstr(double noundef %0, ptr noundef nonnull %1) u
   br i1 %23, label %27, label %24
 
 24:                                               ; preds = %22
-  %25 = fmul double %0, 0x3EB0000000000000
+  %25 = fmul nnan double %0, 0x3EB0000000000000
   %26 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 60, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.46, double noundef %25) #26
   br label %34
 
@@ -1852,7 +1852,7 @@ define internal fastcc void @cvtstr(double noundef %0, ptr noundef nonnull %1) u
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %27
-  %30 = fmul double %0, 0x3F50000000000000
+  %30 = fmul nnan double %0, 0x3F50000000000000
   %31 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %1, i64 noundef 60, i32 noundef 1, i64 noundef -1, ptr noundef nonnull @.str.46, double noundef %30) #26
   br label %34
 

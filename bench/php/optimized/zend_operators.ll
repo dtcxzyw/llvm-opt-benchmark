@@ -3268,7 +3268,7 @@ define dso_local range(i32 -1, 1) i32 @mul_function(ptr noundef %0, ptr noundef 
   %15 = extractvalue { i64, i1 } %13, 0
   %16 = sitofp i64 %11 to double
   %17 = sitofp i64 %12 to double
-  %18 = fmul double %16, %17
+  %18 = fmul nnan double %16, %17
   %19 = bitcast double %18 to i64
   %20 = select i1 %14, i32 5, i32 4
   %storemerge.i = select i1 %14, i64 %19, i64 %15
@@ -3366,7 +3366,7 @@ define internal fastcc range(i32 -1, 1) i32 @mul_function_slow(ptr noundef %0, p
   %31 = extractvalue { i64, i1 } %29, 0
   %32 = sitofp i64 %27 to double
   %33 = sitofp i64 %28 to double
-  %34 = fmul double %32, %33
+  %34 = fmul nnan double %32, %33
   %35 = bitcast double %34 to i64
   %36 = select i1 %30, i32 5, i32 4
   %storemerge.i39 = select i1 %30, i64 %35, i64 %31
@@ -3515,7 +3515,7 @@ zendi_try_convert_scalar_to_number.exit43:        ; preds = %84
   %108 = extractvalue { i64, i1 } %106, 0
   %109 = sitofp i64 %104 to double
   %110 = sitofp i64 %105 to double
-  %111 = fmul double %109, %110
+  %111 = fmul nnan double %109, %110
   %112 = bitcast double %111 to i64
   %113 = select i1 %107, i32 5, i32 4
   %storemerge.i = select i1 %107, i64 %112, i64 %108
@@ -3767,7 +3767,7 @@ define internal fastcc range(i32 -1, 1) i32 @pow_function_base(ptr noundef write
 26:                                               ; preds = %21
   %27 = sitofp i64 %.072102 to double
   %28 = sitofp i64 %.076101 to double
-  %29 = fmul double %28, %27
+  %29 = fmul nnan double %28, %27
   %30 = uitofp nneg i64 %22 to double
   %31 = tail call double @pow(double noundef %28, double noundef %30) #28, !tbaa !95
   %32 = fmul double %29, %31
@@ -3783,7 +3783,7 @@ define internal fastcc range(i32 -1, 1) i32 @pow_function_base(ptr noundef write
 
 38:                                               ; preds = %33
   %39 = sitofp i64 %.076101 to double
-  %40 = fmul double %39, %39
+  %40 = fmul nnan double %39, %39
   %41 = sitofp i64 %.072102 to double
   %42 = uitofp nneg i64 %34 to double
   %43 = tail call double @pow(double noundef %40, double noundef %42) #28, !tbaa !95

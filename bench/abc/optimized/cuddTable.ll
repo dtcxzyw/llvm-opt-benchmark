@@ -819,7 +819,7 @@ define void @cuddSlowTableGrowth(ptr noundef initializes((128, 136)) %0) local_u
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %20 = load i32, ptr %19, align 8, !tbaa !50
   %21 = uitofp i32 %20 to double
-  %22 = fmul double %21, 2.000000e-01
+  %22 = fmul nnan double %21, 2.000000e-01
   %23 = fptoui double %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %23, ptr %24, align 8, !tbaa !52
@@ -3362,7 +3362,7 @@ ddResizeTable.exit:                               ; preds = %316
   %425 = load i32, ptr %424, align 8, !tbaa !64
   %426 = uitofp i32 %425 to double
   %427 = uitofp i32 %407 to double
-  %428 = fmul double %427, 0x3FEE666666666666
+  %428 = fmul nnan double %427, 0x3FEE666666666666
   %429 = fcmp olt double %428, %426
   br i1 %429, label %430, label %432
 
@@ -3584,7 +3584,7 @@ thread-pre-split:                                 ; preds = %6, %2
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %22 = load i32, ptr %21, align 8, !tbaa !50
   %23 = uitofp i32 %22 to double
-  %24 = fmul double %23, 2.000000e-01
+  %24 = fmul nnan double %23, 2.000000e-01
   %25 = fptoui double %24 to i32
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store i32 %25, ptr %26, align 8, !tbaa !52

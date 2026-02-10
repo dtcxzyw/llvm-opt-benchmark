@@ -16,7 +16,7 @@ define void @srand_generate(ptr noundef writeonly captures(none) %0, i32 noundef
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %4 = tail call i32 @rand() #6
   %5 = sitofp i32 %4 to float
-  %6 = fmul float %5, 0x3E00000000000000
+  %6 = fmul nnan float %5, 0x3E00000000000000
   %7 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %6, ptr %7, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

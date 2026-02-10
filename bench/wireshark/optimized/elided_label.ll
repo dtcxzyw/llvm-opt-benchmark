@@ -159,7 +159,7 @@ define void @_ZN11ElidedLabel10updateTextEv(ptr noundef align 8 dereferenceable_
   %21 = add i32 %19, 1
   %22 = sub i32 %21, %20
   %23 = sitofp i32 %22 to double
-  %24 = fmul double %23, 1.200000e+00
+  %24 = fmul nnan double %23, 1.200000e+00
   %25 = select i1 %14, double %24, double %23
   %26 = fptosi double %25 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

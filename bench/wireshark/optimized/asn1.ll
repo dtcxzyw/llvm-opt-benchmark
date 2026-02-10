@@ -565,8 +565,8 @@ default.unreachable:                              ; preds = %9
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.047.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %52, %._crit_edge.loopexit ]
-  %53 = fneg double %.047.lcssa
-  %54 = select i1 %.not64, double %.047.lcssa, double %53
+  %53 = fneg nnan double %.047.lcssa
+  %54 = select nnan i1 %.not64, double %.047.lcssa, double %53
   %55 = zext nneg i8 %17 to i32
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %55)
   %56 = fmul double %54, %ldexp

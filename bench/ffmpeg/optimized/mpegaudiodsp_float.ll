@@ -645,7 +645,7 @@ define internal fastcc void @mpa_synth_init() unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i32, ptr @ff_mpa_enwindow, i64 %indvars.iv
   %3 = load i32, ptr %2, align 4, !tbaa !4
   %4 = sitofp i32 %3 to float
-  %5 = fmul nsz float %4, 0x3D80000000000000
+  %5 = fmul nnan nsz float %4, 0x3D80000000000000
   %6 = getelementptr inbounds nuw float, ptr @ff_mpa_synth_window_float, i64 %indvars.iv
   store float %5, ptr %6, align 4, !tbaa !8
   %.not35 = icmp eq i64 %indvars.iv, 0

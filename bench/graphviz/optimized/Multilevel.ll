@@ -145,7 +145,7 @@ define internal fastcc noundef ptr @Multilevel_establish(ptr noundef returned %0
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !27
   %13 = sitofp i32 %12 to double
-  %14 = fmul double %13, 7.500000e-01
+  %14 = fmul nnan double %13, 7.500000e-01
   br label %15
 
 15:                                               ; preds = %221, %8

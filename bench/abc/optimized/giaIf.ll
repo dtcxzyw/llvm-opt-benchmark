@@ -1723,7 +1723,7 @@ define i32 @Gia_ManCountDupLut(ptr noundef %0) local_unnamed_addr #6 {
 
 104:                                              ; preds = %._crit_edge
   %105 = sitofp i32 %103 to double
-  %106 = fmul double %105, 1.000000e+02
+  %106 = fmul nnan double %105, 1.000000e+02
   %.val.i = load i32, ptr %4, align 8, !tbaa !27
   %107 = icmp sgt i32 %.val.i, 1
   br i1 %107, label %.lr.ph.i, label %Gia_ManLutNum.exit
@@ -2028,8 +2028,8 @@ define void @Gia_ManPrintMappingStats(ptr noundef %0, ptr noundef readonly captu
   %122 = add i32 %.0132.lcssa, %121
   %123 = add i32 %122, %.val
   %124 = sitofp i32 %123 to double
-  %125 = fmul double %124, 4.000000e+00
-  %126 = fmul double %125, 0x3EB0000000000000
+  %125 = fmul nnan double %124, 4.000000e+00
+  %126 = fmul nnan double %125, 0x3EB0000000000000
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.11, double noundef %126)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.12)
   br i1 %.0.lcssa, label %129, label %127
@@ -2313,7 +2313,7 @@ define void @Gia_ManPrintNodeProfile(ptr noundef readonly captures(none) %0, i32
   %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv39
   %15 = load i32, ptr %14, align 4, !tbaa !48
   %16 = sitofp i32 %15 to double
-  %17 = fmul double %16, 1.000000e+02
+  %17 = fmul nnan double %16, 1.000000e+02
   %18 = fdiv double %17, %11
   %19 = trunc nuw nsw i64 %indvars.iv39 to i32
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.25, i32 noundef %19, i32 noundef %15, double noundef %18)
@@ -4332,8 +4332,8 @@ Abc_UtilStrsav.exit:                              ; preds = %6, %8
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 720
   %17 = load i32, ptr %16, align 8, !tbaa !136
   %18 = sitofp i32 %17 to double
-  %19 = fmul double %15, %18
-  %20 = fmul double %19, 0x3E10000000000000
+  %19 = fmul nnan double %15, %18
+  %20 = fmul nnan double %19, 0x3E10000000000000
   %21 = fcmp ogt double %20, 1.000000e+00
   br i1 %21, label %22, label %24
 
@@ -17055,13 +17055,13 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   tail call void @Gia_ObjComputeTruthTableStop(ptr noundef nonnull %0) #29
   %91 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, i32 noundef %90)
   %92 = sitofp i32 %88 to double
-  %93 = fmul double %92, 1.000000e+02
+  %93 = fmul nnan double %92, 1.000000e+02
   %94 = tail call noundef i32 @llvm.smax.i32(i32 %89, i32 1)
   %95 = uitofp nneg i32 %94 to double
   %96 = fdiv double %93, %95
   %97 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, i32 noundef %89, i32 noundef %88, double noundef %96)
   %98 = sitofp i32 %86 to double
-  %99 = fmul double %98, 1.000000e+02
+  %99 = fmul nnan double %98, 1.000000e+02
   %100 = tail call noundef i32 @llvm.smax.i32(i32 %87, i32 1)
   %101 = uitofp nneg i32 %100 to double
   %102 = fdiv double %99, %101

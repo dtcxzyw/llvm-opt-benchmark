@@ -523,7 +523,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheIdLb1EEEED2Ev
   br i1 %or.cond3.i, label %113, label %123
 
 113:                                              ; preds = %103
-  %114 = fmul double %109, 3.000000e+00
+  %114 = fmul nnan double %109, 3.000000e+00
   %115 = fmul double %106, 2.000000e+00
   %116 = call double @llvm.fmuladd.f64(double %114, double %.pre.i, double %115)
   %117 = getelementptr inbounds nuw i8, ptr %98, i64 64

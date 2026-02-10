@@ -1152,7 +1152,7 @@ common.resume:                                    ; preds = %897, %502
   %773 = sitofp i32 %772 to float
   %774 = fsub float %771, %773
   %775 = fmul float %774, %774
-  %776 = fmul float %768, %773
+  %776 = fmul nnan float %768, %773
   %777 = fptosi float %776 to i32
   %778 = sext i32 %777 to i64
   %779 = getelementptr inbounds float, ptr %765, i64 %778
@@ -1757,7 +1757,7 @@ _ZL16do_pairs_generalIL18BondedKernelFlavor2EEfiiPKiPK9t_iparamsPA3_KfPA4_fPA3_f
   %1165 = sitofp i32 %1164 to float
   %1166 = fsub float %1163, %1165
   %1167 = fmul float %1166, %1166
-  %1168 = fmul float %1160, %1165
+  %1168 = fmul nnan float %1160, %1165
   %1169 = fptosi float %1168 to i32
   %1170 = sext i32 %1169 to i64
   %1171 = getelementptr inbounds float, ptr %1157, i64 %1170
@@ -2356,7 +2356,7 @@ cdce.end:                                         ; preds = %21, %cdce.call
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %34
-  %38 = fmul float %35, 5.000000e-01
+  %38 = fmul nnan float %35, 5.000000e-01
   %39 = fdiv float %38, %32
   %40 = fcmp olt float %39, %29
   br i1 %40, label %41, label %42
@@ -2654,7 +2654,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
   br i1 %29, label %30, label %33
 
 30:                                               ; preds = %27
-  %31 = fmul float %28, 5.000000e-01
+  %31 = fmul nnan float %28, 5.000000e-01
   %32 = fdiv float %31, %25
   br label %33
 
@@ -2825,7 +2825,7 @@ define internal fastcc noundef float @_ZL27free_energy_evaluate_singleIL18Kernel
 143:                                              ; preds = %139
   %144 = load float, ptr %indvars.iv14.sroa.phi, align 4, !tbaa !155
   %145 = fmul float %144, 0x400DB6DB60000000
-  %146 = fsub float 1.000000e+00, %141
+  %146 = fsub nnan float 1.000000e+00, %141
   %147 = fmul float %146, %145
   %148 = tail call noundef float @cbrtf(float noundef %147) #20
   %149 = tail call noundef float @sqrtf(float noundef %148) #18, !tbaa !154

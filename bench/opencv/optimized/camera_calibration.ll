@@ -2357,8 +2357,8 @@ _ZNSt12__shared_ptrIN2cv18SimpleBlobDetectorELN9__gnu_cxx12_Lock_policyE2EED2Ev.
   %882 = sitofp i64 %881 to double
   %883 = load i32, ptr %547, align 8, !tbaa !156
   %884 = sitofp i32 %883 to double
-  %885 = fmul double %884, 1.000000e-03
-  %886 = fmul double %885, 1.000000e+06
+  %885 = fmul nnan double %884, 1.000000e-03
+  %886 = fmul nnan double %885, 1.000000e+06
   %887 = fcmp olt double %886, %882
   br i1 %887, label %888, label %914
 

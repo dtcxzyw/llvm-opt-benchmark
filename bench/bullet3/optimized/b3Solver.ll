@@ -208,7 +208,7 @@ define dso_local void @_Z13b3PlaneSpace1RK9b3Vector3PS_S2_(ptr noundef nonnull r
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = load float, ptr %10, align 4, !tbaa !4
-  %12 = fmul float %5, %5
+  %12 = fmul nnan float %5, %5
   %13 = tail call float @llvm.fmuladd.f32(float %11, float %11, float %12)
   %sqrt = tail call float @llvm.sqrt.f32(float %13)
   %14 = fdiv float 1.000000e+00, %sqrt
@@ -705,7 +705,7 @@ define dso_local void @_Z14setConstraint4RK9b3Vector3S1_S1_fRK11b3Matrix3x3S1_S1
 
 211:                                              ; preds = %201
   %212 = load float, ptr %36, align 4, !tbaa !4
-  %213 = fmul float %207, %207
+  %213 = fmul nnan float %207, %207
   %214 = tail call float @llvm.fmuladd.f32(float %212, float %212, float %213)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %214)
   %215 = fdiv float 1.000000e+00, %sqrt.i
@@ -3315,7 +3315,7 @@ _ZL12solveContactILb0EEvR16b3GpuConstraint4RK9b3Vector3RS2_S5_fRK11b3Matrix3x3S4
   br i1 %289, label %290, label %299
 
 290:                                              ; preds = %278
-  %291 = fmul float %286, %286
+  %291 = fmul nnan float %286, %286
   %292 = tail call float @llvm.fmuladd.f32(float %283, float %283, float %291)
   %sqrt.i.i = tail call float @llvm.sqrt.f32(float %292)
   %293 = fdiv float 1.000000e+00, %sqrt.i.i

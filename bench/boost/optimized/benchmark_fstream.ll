@@ -3657,9 +3657,9 @@ _ZN5boost6nowide4test8test_monEv.exit.i69:        ; preds = %53, %51, %47
   %.sroa.0.0.copyload.i2.i = load i64, ptr %23, align 8, !tbaa !14
   %66 = sub nsw i64 %63, %.sroa.0.0.copyload.i2.i
   %67 = sitofp i64 %66 to double
-  %68 = fdiv double %67, 1.000000e+06
-  %69 = fdiv double 0x4190000000000000, %68
-  %70 = fmul double %69, 0x3F50000000000000
+  %68 = fdiv nnan double %67, 1.000000e+06
+  %69 = fdiv nnan double 0x4190000000000000, %68
+  %70 = fmul nnan double %69, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %42, ptr %9, align 8, !tbaa !14
   %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImdSt4lessImESaISt4pairIKmdEEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -3933,9 +3933,9 @@ _ZN5boost6nowide4test8test_monEv.exit.i92:        ; preds = %168, %166, %163
   %.sroa.0.0.copyload.i2.i91 = load i64, ptr %23, align 8, !tbaa !14
   %178 = sub nsw i64 %177, %.sroa.0.0.copyload.i2.i91
   %179 = sitofp i64 %178 to double
-  %180 = fdiv double %179, 1.000000e+06
-  %181 = fdiv double 0x4190000000000000, %180
-  %182 = fmul double %181, 0x3F50000000000000
+  %180 = fdiv nnan double %179, 1.000000e+06
+  %181 = fdiv nnan double 0x4190000000000000, %180
+  %182 = fmul nnan double %181, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 %144, ptr %10, align 8, !tbaa !14
   %183 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImdSt4lessImESaISt4pairIKmdEEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %10)
@@ -5364,9 +5364,9 @@ _ZN10io_fstreamISt13basic_fstreamIcSt11char_traitsIcEEE5flushEv.exit: ; preds = 
   %.sroa.0.0.copyload.i2.i = load i64, ptr %21, align 8, !tbaa !14
   %73 = sub nsw i64 %70, %.sroa.0.0.copyload.i2.i
   %74 = sitofp i64 %73 to double
-  %75 = fdiv double %74, 1.000000e+06
-  %76 = fdiv double 0x4190000000000000, %75
-  %77 = fmul double %76, 0x3F50000000000000
+  %75 = fdiv nnan double %74, 1.000000e+06
+  %76 = fdiv nnan double 0x4190000000000000, %75
+  %77 = fmul nnan double %76, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %40, ptr %6, align 8, !tbaa !14
   %78 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImdSt4lessImESaISt4pairIKmdEEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -5667,9 +5667,9 @@ _ZN10io_fstreamISt13basic_fstreamIcSt11char_traitsIcEEE4readEPci.exit: ; preds =
   %.sroa.0.0.copyload.i2.i89 = load i64, ptr %21, align 8, !tbaa !14
   %198 = sub nsw i64 %197, %.sroa.0.0.copyload.i2.i89
   %199 = sitofp i64 %198 to double
-  %200 = fdiv double %199, 1.000000e+06
-  %201 = fdiv double 0x4190000000000000, %200
-  %202 = fmul double %201, 0x3F50000000000000
+  %200 = fdiv nnan double %199, 1.000000e+06
+  %201 = fdiv nnan double 0x4190000000000000, %200
+  %202 = fmul nnan double %201, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %161, ptr %8, align 8, !tbaa !14
   %203 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImdSt4lessImESaISt4pairIKmdEEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -6140,9 +6140,9 @@ _ZN10io_fstreamIN5boost6nowide13basic_fstreamIcSt11char_traitsIcEEEE5flushEv.exi
   %.sroa.0.0.copyload.i2.i = load i64, ptr %21, align 8, !tbaa !14
   %69 = sub nsw i64 %66, %.sroa.0.0.copyload.i2.i
   %70 = sitofp i64 %69 to double
-  %71 = fdiv double %70, 1.000000e+06
-  %72 = fdiv double 0x4190000000000000, %71
-  %73 = fmul double %72, 0x3F50000000000000
+  %71 = fdiv nnan double %70, 1.000000e+06
+  %72 = fdiv nnan double 0x4190000000000000, %71
+  %73 = fmul nnan double %72, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %36, ptr %6, align 8, !tbaa !14
   %74 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImdSt4lessImESaISt4pairIKmdEEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(8) %6)
@@ -6416,9 +6416,9 @@ _ZN10io_fstreamIN5boost6nowide13basic_fstreamIcSt11char_traitsIcEEEE4readEPci.ex
   %.sroa.0.0.copyload.i2.i88 = load i64, ptr %21, align 8, !tbaa !14
   %182 = sub nsw i64 %181, %.sroa.0.0.copyload.i2.i88
   %183 = sitofp i64 %182 to double
-  %184 = fdiv double %183, 1.000000e+06
-  %185 = fdiv double 0x4190000000000000, %184
-  %186 = fmul double %185, 0x3F50000000000000
+  %184 = fdiv nnan double %183, 1.000000e+06
+  %185 = fdiv nnan double 0x4190000000000000, %184
+  %186 = fmul nnan double %185, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 %145, ptr %8, align 8, !tbaa !14
   %187 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapImdSt4lessImESaISt4pairIKmdEEEixEOm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %8)

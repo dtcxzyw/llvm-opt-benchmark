@@ -1563,7 +1563,7 @@ _ZNK9stopwatch19get_current_secondsEv.exit:       ; preds = %1, %_ZN9stopwatch4s
   %22 = load i64, ptr %21, align 8, !tbaa !107
   %23 = sub i64 %20, %22
   %24 = uitofp i64 %23 to double
-  %25 = fmul double %16, 1.000000e+03
+  %25 = fmul nnan double %16, 1.000000e+03
   %26 = fdiv double %24, %25
   br label %27
 
@@ -3054,7 +3054,7 @@ thread-pre-split:                                 ; preds = %49
   %79 = lshr i32 %78, 16
   %80 = and i32 %79, 32767
   %81 = uitofp nneg i32 %80 to double
-  %82 = fmul double %81, 0x3F00000000000000
+  %82 = fmul nnan double %81, 0x3F00000000000000
   %83 = fmul double %.043.lcssa, %82
   %84 = load ptr, ptr %4, align 8, !tbaa !3
   %85 = load i32, ptr %3, align 8, !tbaa !96

@@ -425,7 +425,7 @@ define dso_local void @SDLTest_LogAllocations() local_unnamed_addr #0 {
 
 54:                                               ; preds = %._crit_edge
   %55 = uitofp i64 %.1.lcssa to double
-  %56 = fmul double %55, 0x3F50000000000000
+  %56 = fmul nnan double %55, 0x3F50000000000000
   %57 = call i32 (ptr, i64, ptr, ...) @SDL_snprintf(ptr noundef nonnull %1, i64 noundef 256, ptr noundef nonnull @.str.13, double noundef %56, i32 noundef %.169.lcssa) #4
   %58 = call i64 @SDL_strlen(ptr noundef nonnull %1) #4
   %59 = add i64 %.173.lcssa, 1

@@ -17636,7 +17636,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ImporterSTLI4MeshE9OpenAsciiERS
 35:                                               ; preds = %32
   %36 = call i64 @ftell(ptr noundef nonnull %7)
   %37 = sitofp i64 %36 to double
-  %38 = fmul double %37, 1.000000e+02
+  %38 = fmul nnan double %37, 1.000000e+02
   %39 = fdiv double %38, %17
   %40 = fptosi double %39 to i32
   %41 = call noundef zeroext i1 %2(i32 noundef %40, ptr noundef nonnull @.str.102)
@@ -24029,8 +24029,8 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri2io11ImporterOBJI4MeshE8LoadM
 50:                                               ; preds = %43
   %51 = trunc i64 %46 to i32
   %52 = sitofp i32 %51 to float
-  %53 = fpext float %52 to double
-  %54 = fmul double %53, 1.000000e+02
+  %53 = fpext nnan ninf float %52 to double
+  %54 = fmul nnan double %53, 1.000000e+02
   %55 = fdiv double %54, %32
   %56 = fptosi double %55 to i32
   %57 = invoke noundef zeroext i1 %47(i32 noundef %56, ptr noundef nonnull @.str.126)

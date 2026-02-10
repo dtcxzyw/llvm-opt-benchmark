@@ -3189,7 +3189,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit215: ;
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %62) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %63) #16
   %547 = uitofp nneg i32 %.043402 to double
-  %548 = fmul double %547, 0x401921FB54442D18
+  %548 = fmul nnan double %547, 0x401921FB54442D18
   %549 = load i32, ptr %28, align 4
   %550 = sitofp i32 %549 to double
   %551 = fdiv double %548, %550

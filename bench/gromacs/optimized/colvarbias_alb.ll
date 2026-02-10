@@ -1967,7 +1967,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %35
   br i1 %426, label %427, label %431
 
 427:                                              ; preds = %424
-  %428 = fmul double %425, 3.000000e+00
+  %428 = fmul nnan double %425, 3.000000e+00
   %429 = load double, ptr %422, align 8, !tbaa !172
   %430 = fmul double %428, %429
   br label %434

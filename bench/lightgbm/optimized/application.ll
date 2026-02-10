@@ -5146,7 +5146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit48: ; pred
 
 89:                                               ; preds = %79
   %90 = uitofp i64 %83 to double
-  %91 = fmul double %90, 0x3E10000000000000
+  %91 = fmul nnan double %90, 0x3E10000000000000
   %92 = load ptr, ptr %11, align 8, !tbaa !204
   call void (ptr, ...) @_ZN8LightGBM3Log5DebugEPKcz(ptr noundef nonnull @.str.27, double noundef %91, ptr noundef %92)
   br label %93
@@ -8619,8 +8619,8 @@ _ZNSt6vectorISt10unique_ptrIN8LightGBM7DatasetESt14default_deleteIS2_EESaIS5_EE1
   %371 = call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #22
   %372 = sub nsw i64 %371, %14
   %373 = sitofp i64 %372 to double
-  %374 = fdiv double %373, 1.000000e+06
-  %375 = fmul double %374, 1.000000e-03
+  %374 = fdiv nnan double %373, 1.000000e+06
+  %375 = fmul nnan double %374, 1.000000e-03
   invoke void (ptr, ...) @_ZN8LightGBM3Log4InfoEPKcz(ptr noundef nonnull @.str.41, double %375)
           to label %376 unwind label %384
 
@@ -9267,7 +9267,7 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEED2Ev.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %213 = load i32, ptr %180, align 8, !tbaa !417
   %214 = sitofp i32 %213 to double
-  %215 = fmul double %214, 1.000000e-02
+  %215 = fmul nnan double %214, 1.000000e-02
   %216 = fptoui double %215 to i64
   br i1 %5, label %217, label %235
 
@@ -21281,7 +21281,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit54: ; pred
 
 164:                                              ; preds = %154
   %165 = uitofp i64 %158 to double
-  %166 = fmul double %165, 0x3E10000000000000
+  %166 = fmul nnan double %165, 0x3E10000000000000
   %167 = load ptr, ptr %14, align 8, !tbaa !524
   call void (ptr, ...) @_ZN8LightGBM3Log5DebugEPKcz(ptr noundef nonnull @.str.27, double noundef %166, ptr noundef %167)
   br label %168
@@ -22133,7 +22133,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit48: ; pred
 
 89:                                               ; preds = %79
   %90 = uitofp i64 %83 to double
-  %91 = fmul double %90, 0x3E10000000000000
+  %91 = fmul nnan double %90, 0x3E10000000000000
   %92 = load ptr, ptr %11, align 8, !tbaa !524
   call void (ptr, ...) @_ZN8LightGBM3Log5DebugEPKcz(ptr noundef nonnull @.str.27, double noundef %91, ptr noundef %92)
   br label %93

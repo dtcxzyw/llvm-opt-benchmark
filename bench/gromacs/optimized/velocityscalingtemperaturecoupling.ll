@@ -2392,7 +2392,7 @@ define linkonce_odr noundef float @_ZN3gmx27VRescaleTemperatureCoupling5applyEli
   %38 = fpext float %37 to double
   %39 = fmul double %38, 5.000000e-01
   %40 = fmul double %39, 0x3F81072C483AF26D
-  %41 = fpext float %19 to double
+  %41 = fpext nnan float %19 to double
   %42 = fmul double %40, %41
   %43 = fptrunc double %42 to float
   %44 = fpext float %12 to double
@@ -2822,7 +2822,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit21:          ; preds = %44, %42, %40, %38
   %62 = fpext float %59 to double
   %63 = fdiv double %62, 0x401921FB54442D18
   %64 = fmul double %63, %63
-  %65 = fpext float %55 to double
+  %65 = fpext nnan float %55 to double
   %66 = fmul double %64, %65
   %67 = fdiv double 1.000000e+00, %66
   %68 = fptrunc double %67 to float

@@ -162,7 +162,7 @@ define noundef float @_Z7fit_ahxiP4t_bbiiPiPA3_fiS1_b(i32 noundef %0, ptr nounde
   store float %62, ptr %63, align 4, !tbaa !18
   %64 = trunc nuw nsw i64 %indvars.iv to i32
   %65 = uitofp nneg i32 %64 to float
-  %66 = fmul float %65, 0x3FC3333340000000
+  %66 = fmul nnan float %65, 0x3FC3333340000000
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store float %66, ptr %67, align 4, !tbaa !18
   %68 = getelementptr inbounds nuw float, ptr %53, i64 %59

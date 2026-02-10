@@ -13726,7 +13726,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit20: ; preds = %_ZStl
 59:                                               ; preds = %34, %49, %_ZNK7xgboost6common15RefResourceViewIjE8ResourceEv.exit, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit20, %_ZNSt12__shared_ptrIN7xgboost6common15ResourceHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %60 = uitofp i64 %1 to double
-  %61 = fmul double %60, 3.125000e-02
+  %61 = fmul nnan double %60, 3.125000e-02
   %62 = call double @llvm.ceil.f64(double %61)
   %63 = fptoui double %62 to i64
   store i64 %63, ptr %5, align 8, !tbaa !9

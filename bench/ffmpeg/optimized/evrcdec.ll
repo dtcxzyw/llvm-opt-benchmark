@@ -76,7 +76,7 @@ define internal noundef i32 @evrc_decode_init(ptr noundef %0) #0 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = trunc nuw nsw i64 %indvars.iv.next to i32
   %12 = uitofp nneg i32 %11 to double
-  %13 = fmul nsz double %12, 4.800000e-02
+  %13 = fmul nnan nsz double %12, 4.800000e-02
   %14 = fptrunc nsz double %13 to float
   %15 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   store float %14, ptr %15, align 4, !tbaa !31
@@ -114,7 +114,7 @@ define internal noundef i32 @evrc_decode_init(ptr noundef %0) #0 {
   %.04249 = phi i32 [ 0, %19 ], [ %33, %57 ]
   %28 = add nsw i32 %.250, -4
   %29 = sitofp i32 %28 to double
-  %30 = fmul nsz double %29, 1.250000e-01
+  %30 = fmul nnan nsz double %29, 1.250000e-01
   %31 = fptrunc nsz double %30 to float
   %32 = sext i32 %.04249 to i64
   %33 = add i32 %.04249, 17
@@ -126,16 +126,16 @@ define internal noundef i32 @evrc_decode_init(ptr noundef %0) #0 {
   %35 = sitofp i32 %.04148 to float
   %36 = fsub nsz float %31, %35
   %37 = fpext nsz float %36 to double
-  %38 = fmul nsz double %37, 0x40069E9565708EFC
+  %38 = fmul nnan nsz double %37, 0x40069E9565708EFC
   %39 = fptrunc nsz double %38 to float
   %40 = getelementptr inbounds float, ptr %26, i64 %indvars.iv56
   %41 = fcmp nsz une float %39, 0.000000e+00
   br i1 %41, label %42, label %55
 
 42:                                               ; preds = %34
-  %43 = fmul nsz double %37, 0x400921FB54442D18
-  %44 = fptrunc nsz double %43 to float
-  %45 = fmul nsz float %44, 0x3FBE1E1E20000000
+  %43 = fmul nnan nsz double %37, 0x400921FB54442D18
+  %44 = fptrunc nnan nsz double %43 to float
+  %45 = fmul nnan nsz float %44, 0x3FBE1E1E20000000
   %46 = fpext nsz float %45 to double
   %47 = tail call nsz double @llvm.cos.f64(double %46)
   %48 = tail call nsz double @llvm.fmuladd.f64(double %47, double 4.600000e-01, double 5.400000e-01)
@@ -1308,7 +1308,7 @@ bandwidth_expansion.exit:                         ; preds = %.preheader249, %754
   %769 = zext i8 %768 to i32
   %770 = add nuw nsw i32 %769, 1
   %771 = uitofp nneg i32 %770 to double
-  %772 = fmul nsz double %766, %771
+  %772 = fmul nnan nsz double %766, %771
   %773 = call nsz double @llvm.exp.f64(double %772)
   %774 = fptrunc nsz double %773 to float
   %775 = getelementptr inbounds nuw i8, ptr %698, i64 %indvars.iv293
@@ -1598,8 +1598,8 @@ decode_lspf.exit.thread:                          ; preds = %526, %572, %579, %5
   %indvars.iv.next.i220 = add nuw nsw i64 %indvars.iv.i219, 1
   %928 = trunc nuw nsw i64 %indvars.iv.next.i220 to i32
   %929 = uitofp nneg i32 %928 to double
-  %930 = fmul nsz double %929, 1.250000e-01
-  %931 = fmul nsz double %930, 4.800000e-02
+  %930 = fmul nnan nsz double %929, 1.250000e-01
+  %931 = fmul nnan nsz double %930, 4.800000e-02
   %932 = tail call nsz double @llvm.fmuladd.f64(double %927, double 8.750000e-01, double %931)
   %933 = fptrunc nsz double %932 to float
   %934 = getelementptr inbounds nuw float, ptr %924, i64 %indvars.iv.i219

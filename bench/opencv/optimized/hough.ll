@@ -853,7 +853,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN2cv12hough_cmp_gt
   %220 = trunc i64 %219 to i32
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %6, i32 %220)
   %221 = sitofp i32 %96 to double
-  %222 = fdiv double 1.000000e+00, %221
+  %222 = fdiv nnan double 1.000000e+00, %221
   invoke void @_ZNK2cv12_OutputArray6createEiiiibNS0_9DepthMaskE(ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %.sroa.speculated, i32 noundef 1, i32 noundef %2, i32 noundef -1, i1 noundef zeroext false, i32 noundef 0)
           to label %223 unwind label %288
 
@@ -906,7 +906,7 @@ _ZNK2cv11_InputArray6getMatEi.exit174:            ; preds = %229, %226
   %248 = xor i32 %247, -1
   %249 = add i32 %241, %248
   %250 = sitofp i32 %249 to float
-  %251 = call float @llvm.fmuladd.f32(float %233, float 5.000000e-01, float %250)
+  %251 = call nnan float @llvm.fmuladd.f32(float %233, float 5.000000e-01, float %250)
   %252 = fmul float %3, %251
   %253 = sitofp i32 %246 to float
   %254 = call float @llvm.fmuladd.f32(float %253, float %4, float %234)
@@ -1291,7 +1291,7 @@ _ZNKSt6vectorIN2cv11hough_indexESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds 
   %74 = fdiv float 1.000000e+00, %72
   %75 = sitofp i32 %64 to double
   %76 = sitofp i32 %66 to double
-  %77 = fmul double %76, %76
+  %77 = fmul nnan double %76, %76
   %78 = call double @llvm.fmuladd.f64(double %75, double %75, double %77)
   %sqrt = call double @llvm.sqrt.f64(double %78)
   %79 = fpext float %67 to double
@@ -1510,7 +1510,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit364:            ; preds = %_ZSt6fill_nIPimiET_
   %142 = uitofp nneg i32 %141 to float
   %143 = fadd float %142, 5.000000e-01
   %144 = fpext float %143 to double
-  %145 = fmul double %144, %144
+  %145 = fmul nnan double %144, %144
   %invariant.gep857 = getelementptr i8, ptr %60, i64 %140
   br label %146
 
@@ -1816,7 +1816,7 @@ _ZNSt6vectorIhSaIhEEC2EmRKS0_.exit:               ; preds = %247, %.noexc376, %_
   %257 = mul nuw nsw i64 %indvars.iv754, %256
   %258 = trunc nuw nsw i64 %indvars.iv754 to i32
   %259 = uitofp nneg i32 %258 to float
-  %260 = fmul float %254, %259
+  %260 = fmul nnan float %254, %259
   %261 = fmul float %3, %259
   %invariant.gep863 = getelementptr inbounds nuw i8, ptr %.sroa.0442.0, i64 %257
   br label %262
@@ -4129,7 +4129,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEN2cv12hough_cmp_gt
   %228 = lshr exact i64 %.pre220, 2
   %229 = trunc i64 %228 to i32
   %230 = sitofp i32 %130 to double
-  %231 = fdiv double 1.000000e+00, %230
+  %231 = fdiv nnan double 1.000000e+00, %230
   %232 = icmp sgt i32 %229, 0
   br i1 %232, label %.lr.ph, label %._crit_edge
 
@@ -5435,10 +5435,10 @@ _ZNSt12_Vector_baseIN2cv3VecIfLi3EEESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds 
   %.recomposed = srem i32 %389, %376
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
   %392 = sitofp i32 %.recomposed to float
-  %393 = fadd float %392, 5.000000e-01
+  %393 = fadd nnan float %392, 5.000000e-01
   %394 = fmul float %.sroa.speculated262.i, %393
   %395 = sitofp i32 %390 to float
-  %396 = fadd float %395, 5.000000e-01
+  %396 = fadd nnan float %395, 5.000000e-01
   %397 = fmul float %.sroa.speculated262.i, %396
   store float %394, ptr %83, align 4, !tbaa !50
   store float %397, ptr %384, align 4, !tbaa !50
@@ -5630,11 +5630,11 @@ _ZN2cv32HoughCircleEstimateRadiusInvokerINS_11NZPointListEEC2ERKS1_iRKSt6vectorI
   %458 = getelementptr inbounds nuw i8, ptr %109, i64 72
   store ptr %96, ptr %458, align 8, !tbaa !183
   %459 = uitofp nneg i32 %.sroa.speculated468 to float
-  %460 = fmul float %459, %459
+  %460 = fmul nnan float %459, %459
   %461 = getelementptr inbounds nuw i8, ptr %109, i64 64
   store float %460, ptr %461, align 8, !tbaa !219
   %462 = sitofp i32 %.0 to float
-  %463 = fmul float %462, %462
+  %463 = fmul nnan float %462, %462
   %464 = getelementptr inbounds nuw i8, ptr %109, i64 68
   store float %463, ptr %464, align 4, !tbaa !220
   %465 = load ptr, ptr %355, align 8, !tbaa !157
@@ -5722,11 +5722,11 @@ _ZN2cv32HoughCircleEstimateRadiusInvokerINS_10NZPointSetEEC2ERKS1_iRKSt6vectorIi
   %493 = getelementptr inbounds nuw i8, ptr %111, i64 72
   store ptr %96, ptr %493, align 8, !tbaa !183
   %494 = uitofp nneg i32 %.sroa.speculated468 to float
-  %495 = fmul float %494, %494
+  %495 = fmul nnan float %494, %494
   %496 = getelementptr inbounds nuw i8, ptr %111, i64 64
   store float %495, ptr %496, align 8, !tbaa !229
   %497 = sitofp i32 %.0 to float
-  %498 = fmul float %497, %497
+  %498 = fmul nnan float %497, %497
   %499 = getelementptr inbounds nuw i8, ptr %111, i64 68
   store float %498, ptr %499, align 4, !tbaa !230
   %500 = load ptr, ptr %355, align 8, !tbaa !157
@@ -7126,10 +7126,10 @@ _ZNSt12_Vector_baseIN2cv3VecIfLi4EEESaIS2_EE11_M_allocateEm.exit.i.i.i: ; preds 
   %.recomposed122 = srem i32 %1006, %992
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   %1009 = sitofp i32 %.recomposed122 to float
-  %1010 = fadd float %1009, 5.000000e-01
+  %1010 = fadd nnan float %1009, 5.000000e-01
   %1011 = fmul float %.sroa.speculated261.i, %1010
   %1012 = sitofp i32 %1007 to float
-  %1013 = fadd float %1012, 5.000000e-01
+  %1013 = fadd nnan float %1012, 5.000000e-01
   %1014 = fmul float %.sroa.speculated261.i, %1013
   %1015 = sitofp i32 %1006 to float
   store float %1011, ptr %52, align 4, !tbaa !50
@@ -7323,11 +7323,11 @@ _ZN2cv32HoughCircleEstimateRadiusInvokerINS_11NZPointListEEC2ERKS1_iRKSt6vectorI
   %1076 = getelementptr inbounds nuw i8, ptr %78, i64 72
   store ptr %65, ptr %1076, align 8, !tbaa !183
   %1077 = uitofp nneg i32 %.sroa.speculated468 to float
-  %1078 = fmul float %1077, %1077
+  %1078 = fmul nnan float %1077, %1077
   %1079 = getelementptr inbounds nuw i8, ptr %78, i64 64
   store float %1078, ptr %1079, align 8, !tbaa !219
   %1080 = sitofp i32 %.0 to float
-  %1081 = fmul float %1080, %1080
+  %1081 = fmul nnan float %1080, %1080
   %1082 = getelementptr inbounds nuw i8, ptr %78, i64 68
   store float %1081, ptr %1082, align 4, !tbaa !220
   %1083 = load ptr, ptr %971, align 8, !tbaa !157
@@ -7415,11 +7415,11 @@ _ZN2cv32HoughCircleEstimateRadiusInvokerINS_10NZPointSetEEC2ERKS1_iRKSt6vectorIi
   %1111 = getelementptr inbounds nuw i8, ptr %80, i64 72
   store ptr %65, ptr %1111, align 8, !tbaa !183
   %1112 = uitofp nneg i32 %.sroa.speculated468 to float
-  %1113 = fmul float %1112, %1112
+  %1113 = fmul nnan float %1112, %1112
   %1114 = getelementptr inbounds nuw i8, ptr %80, i64 64
   store float %1113, ptr %1114, align 8, !tbaa !229
   %1115 = sitofp i32 %.0 to float
-  %1116 = fmul float %1115, %1115
+  %1116 = fmul nnan float %1115, %1115
   %1117 = getelementptr inbounds nuw i8, ptr %80, i64 68
   store float %1116, ptr %1117, align 4, !tbaa !230
   %1118 = load ptr, ptr %971, align 8, !tbaa !157
@@ -8531,7 +8531,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %1487, %1490
   %.pre779.i = load i32, ptr %.phi.trans.insert778.i, align 4, !tbaa !49
   %.pre787.i = call i32 @llvm.smin.i32(i32 %.pre.i, i32 %.pre779.i)
   %.pre788.i = sitofp i32 %.pre787.i to double
-  %.pre790.i = fmul double %.pre788.i, 5.000000e-01
+  %.pre790.i = fmul nnan double %.pre788.i, 5.000000e-01
   br label %1500
 
 1494:                                             ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
@@ -8539,7 +8539,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %1487, %1490
   %1496 = load i32, ptr %1495, align 4, !tbaa !49
   %1497 = call i32 @llvm.smin.i32(i32 %.pre.i, i32 %1496)
   %1498 = sitofp i32 %1497 to double
-  %1499 = fmul double %1498, 5.000000e-01
+  %1499 = fmul nnan double %1498, 5.000000e-01
   br label %1500
 
 1500:                                             ; preds = %1494, %._crit_edge777.i
@@ -9014,7 +9014,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backEOS2_.exit.i: ; preds = %_ZNSt6vec
   %1695 = sext i16 %1694 to i32
   %1696 = sitofp i16 %1691 to float
   %1697 = sitofp i16 %1694 to float
-  %1698 = fmul float %1697, %1697
+  %1698 = fmul nnan float %1697, %1697
   %1699 = call float @llvm.fmuladd.f32(float %1696, float %1696, float %1698)
   %sqrt.i = call float @llvm.sqrt.f32(float %1699)
   %1700 = sitofp i32 %.sroa.0.0.copyload.i to float
@@ -12190,7 +12190,7 @@ define linkonce_odr hidden void @_ZNK2cv24HoughCirclesAccumInvokerclERKNS_5Range
   br i1 %or.cond.us, label %.loopexit.us, label %105
 
 105:                                              ; preds = %95
-  %106 = fmul float %102, %102
+  %106 = fmul nnan float %102, %102
   %107 = call float @llvm.fmuladd.f32(float %99, float %99, float %106)
   %sqrt.us = call float @llvm.sqrt.f32(float %107)
   %108 = fcmp olt float %sqrt.us, 1.000000e+00
@@ -13264,11 +13264,11 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit107:          ; preds = %.noexc106, %_ZN2cv1
   %83 = mul nsw i32 %82, %81
   %.recomposed = srem i32 %80, %81
   %84 = sitofp i32 %.recomposed to float
-  %85 = fadd float %84, 5.000000e-01
+  %85 = fadd nnan float %84, 5.000000e-01
   %86 = load float, ptr %18, align 8, !tbaa !218
   %87 = fmul float %86, %85
   %88 = sitofp i32 %82 to float
-  %89 = fadd float %88, 5.000000e-01
+  %89 = fadd nnan float %88, 5.000000e-01
   %90 = fmul float %86, %89
   %91 = load ptr, ptr %61, align 8, !tbaa !361
   %92 = load ptr, ptr %91, align 8, !tbaa !203
@@ -13463,7 +13463,7 @@ _ZN2cv4Mat_IfEC2EiiPfm.exit:                      ; preds = %110
   %.079.lcssa = phi i32 [ 0, %.preheader ], [ %159, %.lr.ph150 ]
   %162 = add nsw i32 %.181.lcssa, %.080156
   %163 = uitofp nneg i32 %162 to float
-  %164 = fmul float %163, 5.000000e-01
+  %164 = fmul nnan float %163, 5.000000e-01
   %165 = fdiv float %164, 1.000000e+01
   %166 = call float @llvm.fmuladd.f32(float %165, float %120, float %122)
   %167 = sitofp i32 %.079.lcssa to float
@@ -14355,11 +14355,11 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit109:          ; preds = %.noexc108, %_ZN2cv1
   %83 = mul nsw i32 %82, %81
   %.recomposed = srem i32 %80, %81
   %84 = sitofp i32 %.recomposed to float
-  %85 = fadd float %84, 5.000000e-01
+  %85 = fadd nnan float %84, 5.000000e-01
   %86 = load float, ptr %18, align 8, !tbaa !228
   %87 = fmul float %86, %85
   %88 = sitofp i32 %82 to float
-  %89 = fadd float %88, 5.000000e-01
+  %89 = fadd nnan float %88, 5.000000e-01
   %90 = fmul float %86, %89
   %91 = load ptr, ptr %61, align 8, !tbaa !373
   %92 = load i32, ptr %12, align 4, !tbaa !227
@@ -14599,7 +14599,7 @@ _ZN2cv4Mat_IfEC2EiiPfm.exit:                      ; preds = %139
   %.080.lcssa = phi i32 [ 0, %.preheader ], [ %188, %.lr.ph158 ]
   %191 = add nsw i32 %.182.lcssa, %.081164
   %192 = uitofp nneg i32 %191 to float
-  %193 = fmul float %192, 5.000000e-01
+  %193 = fmul nnan float %192, 5.000000e-01
   %194 = fdiv float %193, 1.000000e+01
   %195 = call float @llvm.fmuladd.f32(float %194, float %149, float %151)
   %196 = sitofp i32 %.080.lcssa to float

@@ -110,8 +110,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %26 = load float, ptr %9, align 4, !tbaa !29
   %27 = fadd reassoc nsz arcp contract afn float %26, 1.000000e+00
   %28 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %27, float 1.000000e+02)
-  %29 = fpext float %28 to double
-  %30 = fmul reassoc nsz arcp contract afn double %29, 2.560000e+00
+  %29 = fpext nnan float %28 to double
+  %30 = fmul reassoc nnan nsz arcp contract afn double %29, 2.560000e+00
   %31 = fptosi double %30 to i32
   %32 = sitofp i32 %31 to float
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -128,11 +128,11 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %44 = load float, ptr %43, align 4, !tbaa !33
   %45 = fadd reassoc nsz arcp contract afn float %44, 1.000000e+00
   %46 = call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %45, float 1.000000e+02)
-  %47 = fpext float %46 to double
-  %48 = fmul reassoc nsz arcp contract afn double %47, -1.000000e-02
-  %49 = fptrunc reassoc nsz arcp contract afn double %48 to float
+  %47 = fpext nnan float %46 to double
+  %48 = fmul reassoc nnan nsz arcp contract afn double %47, -1.000000e-02
+  %49 = fptrunc reassoc nnan nsz arcp contract afn double %48 to float
   %50 = fneg reassoc nsz arcp contract afn float %49
-  %51 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %50)
+  %51 = call reassoc nnan nsz arcp contract afn float @llvm.exp2.f32(float %50)
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %53 = load float, ptr %52, align 4, !tbaa !34
   %.not69 = icmp eq i64 %25, 0
@@ -234,8 +234,8 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %8 = load float, ptr %7, align 4, !tbaa !29
   %9 = fadd reassoc nsz arcp contract afn float %8, 1.000000e+00
   %10 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %9, float 1.000000e+02)
-  %11 = fpext float %10 to double
-  %12 = fmul reassoc nsz arcp contract afn double %11, 2.560000e+00
+  %11 = fpext nnan float %10 to double
+  %12 = fmul reassoc nnan nsz arcp contract afn double %11, 2.560000e+00
   %13 = fptosi double %12 to i32
   %14 = sitofp i32 %13 to float
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16

@@ -1662,7 +1662,7 @@ _Py_NewRef.exit.i:                                ; preds = %108, %105
 
 135:                                              ; preds = %133
   %136 = uitofp nneg i64 %131 to double
-  %137 = fmul double %136, 1.125000e+00
+  %137 = fmul nnan double %136, 1.125000e+00
   %138 = fcmp ult double %137, 1.000000e+00
   br i1 %138, label %139, label %140
 
@@ -1708,7 +1708,7 @@ resize_buffer.exit.i:                             ; preds = %140
 
 158:                                              ; preds = %156
   %159 = uitofp nneg i64 %154 to double
-  %160 = fmul double %159, 1.125000e+00
+  %160 = fmul nnan double %159, 1.125000e+00
   %161 = fcmp ult double %160, 1.000000e+00
   br i1 %161, label %162, label %163
 
@@ -1855,7 +1855,7 @@ define internal fastcc range(i32 -1, 1) i32 @realize(ptr noundef captures(none) 
 23:                                               ; preds = %21
   %24 = uitofp nneg i64 %14 to double
   %25 = uitofp nneg i64 %13 to double
-  %26 = fmul double %25, 1.125000e+00
+  %26 = fmul nnan double %25, 1.125000e+00
   %27 = fcmp ult double %26, %24
   br i1 %27, label %34, label %28
 
@@ -1968,7 +1968,7 @@ define internal fastcc range(i32 -1, 1) i32 @resize_buffer(ptr noundef captures(
 14:                                               ; preds = %12
   %15 = uitofp nneg i64 %5 to double
   %16 = uitofp nneg i64 %4 to double
-  %17 = fmul double %16, 1.125000e+00
+  %17 = fmul nnan double %16, 1.125000e+00
   %18 = fcmp ult double %17, %15
   br i1 %18, label %25, label %19
 
@@ -2045,7 +2045,7 @@ define internal noundef ptr @_io_StringIO_close(ptr noundef captures(none) initi
 
 9:                                                ; preds = %7
   %10 = uitofp nneg i64 %5 to double
-  %11 = fmul double %10, 1.125000e+00
+  %11 = fmul nnan double %10, 1.125000e+00
   %12 = fcmp ult double %11, 1.000000e+00
   br i1 %12, label %13, label %14
 
@@ -2524,7 +2524,7 @@ define internal ptr @_io_StringIO_truncate(ptr noundef captures(none) %0, ptr no
 48:                                               ; preds = %46
   %49 = uitofp nneg i64 %41 to double
   %50 = uitofp nneg i64 %40 to double
-  %51 = fmul double %50, 1.125000e+00
+  %51 = fmul nnan double %50, 1.125000e+00
   %52 = fcmp ult double %51, %49
   br i1 %52, label %59, label %53
 
@@ -3371,7 +3371,7 @@ Py_DECREF.exit59:                                 ; preds = %20, %17, %14, %_Py_
 62:                                               ; preds = %60
   %63 = uitofp nneg i64 %53 to double
   %64 = uitofp nneg i64 %52 to double
-  %65 = fmul double %64, 1.125000e+00
+  %65 = fmul nnan double %64, 1.125000e+00
   %66 = fcmp ult double %65, %63
   br i1 %66, label %73, label %67
 

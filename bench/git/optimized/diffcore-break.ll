@@ -164,7 +164,7 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
   %76 = select i1 %75, i64 %spec.select71.i, i64 %73
   %77 = sub i64 %70, %spec.select.i
   %78 = uitofp i64 %77 to double
-  %79 = fmul double %78, 6.000000e+04
+  %79 = fmul nnan double %78, 6.000000e+04
   %80 = uitofp i64 %70 to double
   %81 = fdiv double %79, %80
   %82 = fptosi double %81 to i32
@@ -174,7 +174,7 @@ define dso_local void @diffcore_break(ptr noundef %0, i32 noundef %1) local_unna
 84:                                               ; preds = %69
   %85 = add i64 %76, %77
   %86 = uitofp i64 %85 to double
-  %87 = fmul double %86, 6.000000e+04
+  %87 = fmul nnan double %86, 6.000000e+04
   %88 = uitofp i64 %..i to double
   %89 = fdiv double %87, %88
   %90 = fcmp olt double %89, %13

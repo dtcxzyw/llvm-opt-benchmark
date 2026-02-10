@@ -6863,7 +6863,7 @@ define internal range(i32 -1, 1) i32 @diff_opt_break_rewrites(ptr noundef readon
 
 29:                                               ; preds = %.loopexit.i
   %30 = uitofp i64 %.025.i to double
-  %31 = fmul double %30, 6.000000e+04
+  %31 = fmul nnan double %30, 6.000000e+04
   %32 = uitofp i64 %.2.i to double
   %33 = fdiv double %31, %32
   %34 = fptosi double %33 to i32
@@ -6949,7 +6949,7 @@ _.exit:                                           ; preds = %37, %39
 
 62:                                               ; preds = %.loopexit.i19
   %63 = uitofp i64 %.025.i14.ph.ph to double
-  %64 = fmul double %63, 6.000000e+04
+  %64 = fmul nnan double %63, 6.000000e+04
   %65 = uitofp i64 %.2.i20 to double
   %66 = fdiv double %64, %65
   %67 = fptosi double %66 to i32
@@ -7057,7 +7057,7 @@ define internal range(i32 -1, 1) i32 @diff_opt_find_renames(ptr noundef readonly
 
 29:                                               ; preds = %.loopexit.i
   %30 = uitofp i64 %.025.i to double
-  %31 = fmul double %30, 6.000000e+04
+  %31 = fmul nnan double %30, 6.000000e+04
   %32 = uitofp i64 %.2.i to double
   %33 = fdiv double %31, %32
   %34 = fptosi double %33 to i32
@@ -7165,7 +7165,7 @@ define internal range(i32 -1, 1) i32 @diff_opt_find_copies(ptr noundef readonly 
 
 29:                                               ; preds = %.loopexit.i
   %30 = uitofp i64 %.025.i to double
-  %31 = fmul double %30, 6.000000e+04
+  %31 = fmul nnan double %30, 6.000000e+04
   %32 = uitofp i64 %.2.i to double
   %33 = fdiv double %31, %32
   %34 = fptosi double %33 to i32
@@ -8315,7 +8315,7 @@ define dso_local i32 @parse_rename_score(ptr noundef captures(none) %0) local_un
 
 24:                                               ; preds = %.loopexit
   %25 = uitofp i64 %.025 to double
-  %26 = fmul double %25, 6.000000e+04
+  %26 = fmul nnan double %25, 6.000000e+04
   %27 = uitofp i64 %.2 to double
   %28 = fdiv double %26, %27
   %29 = fptosi double %28 to i32

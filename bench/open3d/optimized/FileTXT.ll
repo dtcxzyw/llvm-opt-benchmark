@@ -1746,7 +1746,7 @@ _ZN6open3d4core11SmallVectorIlLj4EED2Ev.exit149:  ; preds = %167, %_ZNSt7__cxx11
 
 199:                                              ; preds = %197
   %200 = sitofp i64 %191 to double
-  %201 = fmul double %200, 1.000000e+02
+  %201 = fmul nnan double %200, 1.000000e+02
   %202 = uitofp nneg i64 %195 to double
   %203 = fdiv double %201, %202
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -34630,7 +34630,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
 
 330:                                              ; preds = %328
   %331 = uitofp i32 %321 to double
-  %332 = fmul double %331, 1.000000e+02
+  %332 = fmul nnan double %331, 1.000000e+02
   %333 = uitofp nneg i64 %326 to double
   %334 = fdiv double %332, %333
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -34783,7 +34783,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283: ; preds = %35
 
 388:                                              ; preds = %386
   %389 = uitofp nneg i32 %379 to double
-  %390 = fmul double %389, 1.000000e+02
+  %390 = fmul nnan double %389, 1.000000e+02
   %391 = uitofp nneg i64 %384 to double
   %392 = fdiv double %390, %391
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i285
@@ -34932,7 +34932,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit297: ; preds = %41
 
 445:                                              ; preds = %443
   %446 = uitofp nneg i32 %436 to double
-  %447 = fmul double %446, 1.000000e+02
+  %447 = fmul nnan double %446, 1.000000e+02
   %448 = uitofp nneg i64 %441 to double
   %449 = fdiv double %447, %448
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i299
@@ -35088,7 +35088,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit309: ; preds = %46
 
 512:                                              ; preds = %510
   %513 = uitofp nneg i32 %503 to double
-  %514 = fmul double %513, 1.000000e+02
+  %514 = fmul nnan double %513, 1.000000e+02
   %515 = uitofp nneg i64 %508 to double
   %516 = fdiv double %514, %515
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i311
@@ -35244,7 +35244,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit321: ; preds = %53
 
 580:                                              ; preds = %578
   %581 = uitofp nneg i32 %571 to double
-  %582 = fmul double %581, 1.000000e+02
+  %582 = fmul nnan double %581, 1.000000e+02
   %583 = uitofp nneg i64 %576 to double
   %584 = fdiv double %582, %583
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i323

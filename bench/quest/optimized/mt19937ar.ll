@@ -260,7 +260,7 @@ define range(i64 0, -9223372036854775808) i64 @genrand_int31() local_unnamed_add
 define double @genrand_real1() local_unnamed_addr #2 {
   %1 = tail call i64 @genrand_int32()
   %2 = uitofp i64 %1 to double
-  %3 = fmul double %2, 0x3DF0000000100000
+  %3 = fmul nnan double %2, 0x3DF0000000100000
   ret double %3
 }
 
@@ -268,7 +268,7 @@ define double @genrand_real1() local_unnamed_addr #2 {
 define double @genrand_real2() local_unnamed_addr #2 {
   %1 = tail call i64 @genrand_int32()
   %2 = uitofp i64 %1 to double
-  %3 = fmul double %2, 0x3DF0000000000000
+  %3 = fmul nnan double %2, 0x3DF0000000000000
   ret double %3
 }
 
@@ -276,8 +276,8 @@ define double @genrand_real2() local_unnamed_addr #2 {
 define double @genrand_real3() local_unnamed_addr #2 {
   %1 = tail call i64 @genrand_int32()
   %2 = uitofp i64 %1 to double
-  %3 = fadd double %2, 5.000000e-01
-  %4 = fmul double %3, 0x3DF0000000000000
+  %3 = fadd nnan double %2, 5.000000e-01
+  %4 = fmul nnan double %3, 0x3DF0000000000000
   ret double %4
 }
 
@@ -289,8 +289,8 @@ define double @genrand_res53() local_unnamed_addr #2 {
   %4 = lshr i64 %3, 6
   %5 = uitofp nneg i64 %2 to double
   %6 = uitofp nneg i64 %4 to double
-  %7 = tail call double @llvm.fmuladd.f64(double %5, double 0x4190000000000000, double %6)
-  %8 = fmul double %7, 0x3CA0000000000000
+  %7 = tail call nnan double @llvm.fmuladd.f64(double %5, double 0x4190000000000000, double %6)
+  %8 = fmul nnan double %7, 0x3CA0000000000000
   ret double %8
 }
 

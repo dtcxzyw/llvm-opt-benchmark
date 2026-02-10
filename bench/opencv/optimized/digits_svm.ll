@@ -2261,7 +2261,7 @@ _ZL14preprocess_hogRKSt6vectorIN2cv3MatESaIS1_EERS1_.exit: ; preds = %733, %455
   %805 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %806 = load i32, ptr %805, align 8, !tbaa !43
   %807 = sitofp i32 %806 to double
-  %808 = fmul double %807, 9.000000e-01
+  %808 = fmul nnan double %807, 9.000000e-01
   %809 = fptosi double %808 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %53) #21

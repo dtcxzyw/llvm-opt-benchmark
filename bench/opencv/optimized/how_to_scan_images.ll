@@ -965,8 +965,8 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i171: ; preds = %.noexc174, %
 
 400:                                              ; preds = %398
   %401 = sitofp i64 %383 to double
-  %402 = fsub double %401, %381
-  %403 = fmul double %402, 1.000000e+03
+  %402 = fsub nnan double %401, %381
+  %403 = fmul nnan double %402, 1.000000e+03
   %404 = fdiv double %403, %399
   %405 = fdiv double %404, 1.000000e+02
   %406 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.5, i64 noundef 54)
@@ -1084,8 +1084,8 @@ _ZNSolsEPFRSoS_E.exit127:                         ; preds = %.noexc187
 
 449:                                              ; preds = %447
   %450 = sitofp i64 %434 to double
-  %451 = fsub double %450, %432
-  %452 = fmul double %451, 1.000000e+03
+  %451 = fsub nnan double %450, %432
+  %452 = fmul nnan double %451, 1.000000e+03
   %453 = fdiv double %452, %448
   %454 = fdiv double %453, 1.000000e+02
   %455 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.8, i64 noundef 49)
@@ -1199,8 +1199,8 @@ _ZNSolsEPFRSoS_E.exit137:                         ; preds = %.noexc198
 
 496:                                              ; preds = %494
   %497 = sitofp i64 %483 to double
-  %498 = fsub double %497, %481
-  %499 = fmul double %498, 1.000000e+03
+  %498 = fsub nnan double %497, %481
+  %499 = fmul nnan double %498, 1.000000e+03
   %500 = fdiv double %499, %495
   %501 = fdiv double %500, 1.000000e+02
   %502 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.9, i64 noundef 84)
@@ -1349,8 +1349,8 @@ _ZNSolsEPFRSoS_E.exit147:                         ; preds = %.noexc209
 
 553:                                              ; preds = %551
   %554 = sitofp i64 %545 to double
-  %555 = fsub double %554, %535
-  %556 = fmul double %555, 1.000000e+03
+  %555 = fsub nnan double %554, %535
+  %556 = fmul nnan double %555, 1.000000e+03
   %557 = fdiv double %556, %552
   %558 = fdiv double %557, 1.000000e+02
   %559 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.10, i64 noundef 53)

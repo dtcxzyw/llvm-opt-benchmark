@@ -5917,8 +5917,8 @@ define dso_local void @_ZN23btDiscreteDynamicsWorld19debugDrawConstraintEP17btTy
 814:                                              ; preds = %770, %865
   %.0214565 = phi i32 [ 0, %770 ], [ %866, %865 ]
   %815 = uitofp nneg i32 %.0214565 to float
-  %816 = fmul float %815, 0x401921FB40000000
-  %817 = fmul float %816, 3.125000e-02
+  %816 = fmul nnan float %815, 0x401921FB40000000
+  %817 = fmul nnan float %816, 3.125000e-02
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %818 = call { <2 x float>, <2 x float> } @_ZNK21btConeTwistConstraint16GetPointForAngleEff(ptr noundef nonnull align 8 dereferenceable(632) %1, float noundef %817, float noundef %67)
   %819 = extractvalue { <2 x float>, <2 x float> } %818, 0

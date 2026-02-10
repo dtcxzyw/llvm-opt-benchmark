@@ -16036,10 +16036,10 @@ define internal fastcc i32 @dct_quantize_refine(ptr noundef readonly captures(no
   %14 = shl nuw nsw i64 %indvars.iv42.i, 3
   %15 = icmp eq i64 %indvars.iv42.i, 0
   %.024.i = select nsz i1 %15, double 0x40C6A09E667F3BCD, double 1.638400e+04
-  %16 = fmul nsz double %.024.i, 0x3FE6A09E667F3BCD
+  %16 = fmul nnan nsz double %.024.i, 0x3FE6A09E667F3BCD
   %17 = trunc nuw nsw i64 %indvars.iv42.i to i32
   %18 = uitofp nneg i32 %17 to double
-  %19 = fmul nsz double %18, 0x3FD921FB54442D18
+  %19 = fmul nnan nsz double %18, 0x3FD921FB54442D18
   %invariant.gep.i = getelementptr inbounds nuw i8, ptr %13, i64 %14
   br label %.preheader27.i
 
@@ -16050,14 +16050,14 @@ define internal fastcc i32 @dct_quantize_refine(ptr noundef readonly captures(no
   %.1.i = select nsz i1 %20, double %16, double %.024.i
   %21 = trunc nuw nsw i64 %indvars.iv38.i to i32
   %22 = uitofp nneg i32 %21 to double
-  %23 = fmul nsz double %22, 0x3FD921FB54442D18
+  %23 = fmul nnan nsz double %22, 0x3FD921FB54442D18
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %45, %.preheader27.i
   %indvars.iv34.i = phi i64 [ 0, %.preheader27.i ], [ %indvars.iv.next35.i, %45 ]
   %24 = trunc nuw nsw i64 %indvars.iv34.i to i32
   %25 = uitofp nneg i32 %24 to double
-  %26 = fadd nsz double %25, 5.000000e-01
+  %26 = fadd nnan nsz double %25, 5.000000e-01
   %27 = fmul nsz double %23, %26
   %28 = tail call nsz double @llvm.cos.f64(double %27)
   br label %29
@@ -16067,7 +16067,7 @@ define internal fastcc i32 @dct_quantize_refine(ptr noundef readonly captures(no
   %30 = load i8, ptr %gep.i, align 1, !tbaa !46
   %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   %32 = uitofp nneg i32 %31 to double
-  %33 = fadd nsz double %32, 5.000000e-01
+  %33 = fadd nnan nsz double %32, 5.000000e-01
   %34 = fmul nsz double %19, %33
   %35 = tail call nsz double @llvm.cos.f64(double %34)
   %36 = fmul nsz double %.1.i, %35

@@ -776,7 +776,7 @@ define internal void @decode_init_static() #0 {
   %29 = xor i32 %28, -1
   %30 = mul nsw i32 %22, %29
   %31 = sitofp i32 %30 to double
-  %32 = fmul nsz double %31, 2.500000e-01
+  %32 = fmul nnan nsz double %31, 2.500000e-01
   %33 = tail call nsz double @llvm.exp2.f64(double %32)
   %34 = tail call nsz double @llvm.fmuladd.f64(double %33, double 0x4160000000000000, double 5.000000e-01)
   %35 = fptosi double %34 to i32

@@ -393,15 +393,15 @@ define dso_local void @_ZNK4pbrt18CompactLightBounds8ToStringB5cxx11Ev(ptr dead_
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = load i16, ptr %1, align 4, !tbaa !21
   %16 = uitofp i16 %15 to float
-  %17 = fdiv float %16, 6.553500e+04
-  %18 = fmul float %17, 2.000000e+00
+  %17 = fdiv nnan float %16, 6.553500e+04
+  %18 = fmul nnan float %17, 2.000000e+00
   %19 = fadd float %18, -1.000000e+00
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %19, i64 0
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %21 = load i16, ptr %20, align 2, !tbaa !24
   %22 = uitofp i16 %21 to float
-  %23 = fdiv float %22, 6.553500e+04
-  %24 = fmul float %23, 2.000000e+00
+  %23 = fdiv nnan float %22, 6.553500e+04
+  %24 = fmul nnan float %23, 2.000000e+00
   %25 = fadd float %24, -1.000000e+00
   %.sroa.0.4.vec.insert25.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %25, i64 1
   %26 = tail call noundef float @llvm.fabs.f32(float %19)
@@ -412,13 +412,13 @@ define dso_local void @_ZNK4pbrt18CompactLightBounds8ToStringB5cxx11Ev(ptr dead_
   br i1 %30, label %31, label %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
 
 31:                                               ; preds = %2
-  %32 = fsub float 1.000000e+00, %27
+  %32 = fsub nnan float 1.000000e+00, %27
   %33 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %19)
-  %34 = fmul float %33, %32
+  %34 = fmul nnan float %33, %32
   %.sroa.0.0.vec.insert16.i = insertelement <2 x float> poison, float %34, i64 0
-  %35 = fsub float 1.000000e+00, %26
+  %35 = fsub nnan float 1.000000e+00, %26
   %36 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %25)
-  %37 = fmul float %35, %36
+  %37 = fmul nnan float %35, %36
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert16.i, float %37, i64 1
   br label %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
 
@@ -449,8 +449,8 @@ _ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %2, %31
   store i32 %49, ptr %4, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %50 = uitofp nneg i32 %49 to float
-  %51 = fdiv float %50, 3.276700e+04
-  %52 = fmul float %51, 2.000000e+00
+  %51 = fdiv nnan float %50, 3.276700e+04
+  %52 = fmul nnan float %51, 2.000000e+00
   %53 = fadd float %52, -1.000000e+00
   store float %53, ptr %5, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -459,8 +459,8 @@ _ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %2, %31
   store i32 %55, ptr %6, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %56 = uitofp nneg i32 %55 to float
-  %57 = fdiv float %56, 3.276700e+04
-  %58 = fmul float %57, 2.000000e+00
+  %57 = fdiv nnan float %56, 3.276700e+04
+  %58 = fmul nnan float %57, 2.000000e+00
   %59 = fadd float %58, -1.000000e+00
   store float %59, ptr %7, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -522,7 +522,7 @@ define dso_local void @_ZNK4pbrt18CompactLightBounds8ToStringB5cxx11ERKNS_7Bound
   %15 = load float, ptr %2, align 4, !tbaa !36, !noalias !32
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %17 = load float, ptr %16, align 4, !tbaa !36, !noalias !32
-  %18 = fsub float 1.000000e+00, %14
+  %18 = fsub nnan float 1.000000e+00, %14
   %19 = fmul float %15, %18
   %20 = fmul float %14, %17
   %21 = fadd float %20, %19
@@ -534,7 +534,7 @@ define dso_local void @_ZNK4pbrt18CompactLightBounds8ToStringB5cxx11ERKNS_7Bound
   %27 = load float, ptr %26, align 4, !tbaa !38, !noalias !32
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %29 = load float, ptr %28, align 4, !tbaa !38, !noalias !32
-  %30 = fsub float 1.000000e+00, %25
+  %30 = fsub nnan float 1.000000e+00, %25
   %31 = fmul float %27, %30
   %32 = fmul float %25, %29
   %33 = fadd float %32, %31
@@ -546,7 +546,7 @@ define dso_local void @_ZNK4pbrt18CompactLightBounds8ToStringB5cxx11ERKNS_7Bound
   %39 = load float, ptr %38, align 4, !tbaa !39, !noalias !32
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %41 = load float, ptr %40, align 4, !tbaa !39, !noalias !32
-  %42 = fsub float 1.000000e+00, %37
+  %42 = fsub nnan float 1.000000e+00, %37
   %43 = fmul float %39, %42
   %44 = fmul float %37, %41
   %45 = fadd float %44, %43
@@ -554,7 +554,7 @@ define dso_local void @_ZNK4pbrt18CompactLightBounds8ToStringB5cxx11ERKNS_7Bound
   %47 = load i16, ptr %46, align 2, !tbaa !35, !noalias !32
   %48 = uitofp i16 %47 to float
   %49 = fdiv float %48, 6.553500e+04
-  %50 = fsub float 1.000000e+00, %49
+  %50 = fsub nnan float 1.000000e+00, %49
   %51 = fmul float %15, %50
   %52 = fmul float %17, %49
   %53 = fadd float %52, %51
@@ -562,7 +562,7 @@ define dso_local void @_ZNK4pbrt18CompactLightBounds8ToStringB5cxx11ERKNS_7Bound
   %55 = load i16, ptr %54, align 4, !tbaa !35, !noalias !32
   %56 = uitofp i16 %55 to float
   %57 = fdiv float %56, 6.553500e+04
-  %58 = fsub float 1.000000e+00, %57
+  %58 = fsub nnan float 1.000000e+00, %57
   %59 = fmul float %27, %58
   %60 = fmul float %29, %57
   %61 = fadd float %60, %59
@@ -570,7 +570,7 @@ define dso_local void @_ZNK4pbrt18CompactLightBounds8ToStringB5cxx11ERKNS_7Bound
   %63 = load i16, ptr %62, align 2, !tbaa !35, !noalias !32
   %64 = uitofp i16 %63 to float
   %65 = fdiv float %64, 6.553500e+04
-  %66 = fsub float 1.000000e+00, %65
+  %66 = fsub nnan float 1.000000e+00, %65
   %67 = fmul float %39, %66
   %68 = fmul float %41, %65
   %69 = fadd float %68, %67
@@ -600,15 +600,15 @@ define dso_local void @_ZNK4pbrt18CompactLightBounds8ToStringB5cxx11ERKNS_7Bound
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %81 = load i16, ptr %1, align 4, !tbaa !21
   %82 = uitofp i16 %81 to float
-  %83 = fdiv float %82, 6.553500e+04
-  %84 = fmul float %83, 2.000000e+00
+  %83 = fdiv nnan float %82, 6.553500e+04
+  %84 = fmul nnan float %83, 2.000000e+00
   %85 = fadd float %84, -1.000000e+00
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %85, i64 0
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %87 = load i16, ptr %86, align 2, !tbaa !24
   %88 = uitofp i16 %87 to float
-  %89 = fdiv float %88, 6.553500e+04
-  %90 = fmul float %89, 2.000000e+00
+  %89 = fdiv nnan float %88, 6.553500e+04
+  %90 = fmul nnan float %89, 2.000000e+00
   %91 = fadd float %90, -1.000000e+00
   %.sroa.0.4.vec.insert25.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %91, i64 1
   %92 = tail call noundef float @llvm.fabs.f32(float %85)
@@ -619,13 +619,13 @@ define dso_local void @_ZNK4pbrt18CompactLightBounds8ToStringB5cxx11ERKNS_7Bound
   br i1 %96, label %97, label %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
 
 97:                                               ; preds = %3
-  %98 = fsub float 1.000000e+00, %93
+  %98 = fsub nnan float 1.000000e+00, %93
   %99 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %85)
-  %100 = fmul float %99, %98
+  %100 = fmul nnan float %99, %98
   %.sroa.0.0.vec.insert16.i = insertelement <2 x float> poison, float %100, i64 0
-  %101 = fsub float 1.000000e+00, %92
+  %101 = fsub nnan float 1.000000e+00, %92
   %102 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %91)
-  %103 = fmul float %101, %102
+  %103 = fmul nnan float %101, %102
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert16.i, float %103, i64 1
   br label %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
 
@@ -656,8 +656,8 @@ _ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %3, %97
   store i32 %115, ptr %6, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %116 = uitofp nneg i32 %115 to float
-  %117 = fdiv float %116, 3.276700e+04
-  %118 = fmul float %117, 2.000000e+00
+  %117 = fdiv nnan float %116, 3.276700e+04
+  %118 = fmul nnan float %117, 2.000000e+00
   %119 = fadd float %118, -1.000000e+00
   store float %119, ptr %7, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -666,8 +666,8 @@ _ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit: ; preds = %3, %97
   store i32 %121, ptr %8, align 4, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %122 = uitofp nneg i32 %121 to float
-  %123 = fdiv float %122, 3.276700e+04
-  %124 = fmul float %123, 2.000000e+00
+  %123 = fdiv nnan float %122, 3.276700e+04
+  %124 = fmul nnan float %123, 2.000000e+00
   %125 = fadd float %124, -1.000000e+00
   store float %125, ptr %9, align 4, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1212,12 +1212,12 @@ _ZN4pstd3pmr21polymorphic_allocatorINS_8optionalISt4pairIN4pbrt5LightEmEEEE9cons
   %indvars.iv.i = phi i64 [ 0, %71 ], [ %indvars.iv.next.i, %_ZN4pbrt21VisibleWavelengthsPDFEf.exit.i ]
   %77 = trunc nuw nsw i64 %indvars.iv.i to i32
   %78 = uitofp nneg i32 %77 to float
-  %79 = fmul float %78, 2.500000e-01
+  %79 = fmul nnan float %78, 2.500000e-01
   %80 = fadd float %79, 5.000000e-01
   %81 = fcmp ogt float %80, 1.000000e+00
-  %82 = fadd float %80, -1.000000e+00
+  %82 = fadd nnan float %80, -1.000000e+00
   %.0.i = select i1 %81, float %82, float %80
-  %83 = fmul float %.0.i, 0x3FFD3D72C0000000
+  %83 = fmul nnan float %.0.i, 0x3FFD3D72C0000000
   %84 = fsub float 0x3FEB6BCFE0000000, %83
   %85 = call noundef float @atanhf(float noundef %84) #27, !tbaa !25, !noalias !117
   %86 = fmul float %85, 0x40615C71C0000000
@@ -4249,9 +4249,9 @@ _ZN4pbrt16OctahedralVectorC2ENS_7Vector3IfEE.exit: ; preds = %22, %30
   unreachable
 
 _ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit: ; preds = %_ZN4pbrt16OctahedralVectorC2ENS_7Vector3IfEE.exit
-  %62 = fadd float %59, 1.000000e+00
-  %63 = fmul float %62, 5.000000e-01
-  %64 = fmul float %63, 3.276700e+04
+  %62 = fadd nnan float %59, 1.000000e+00
+  %63 = fmul nnan float %62, 5.000000e-01
+  %64 = fmul nnan float %63, 3.276700e+04
   %65 = tail call noundef float @llvm.floor.f32(float %64)
   %66 = fptoui float %65 to i32
   %67 = load i32, ptr %57, align 4
@@ -4270,9 +4270,9 @@ _ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit: ; preds = %_ZN4pbrt16Octahedra
   unreachable
 
 _ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit38: ; preds = %_ZN4pbrt18CompactLightBounds11QuantizeCosEf.exit
-  %75 = fadd float %72, 1.000000e+00
-  %76 = fmul float %75, 5.000000e-01
-  %77 = fmul float %76, 3.276700e+04
+  %75 = fadd nnan float %72, 1.000000e+00
+  %76 = fmul nnan float %75, 5.000000e-01
+  %77 = fmul nnan float %76, 3.276700e+04
   %78 = tail call noundef float @llvm.floor.f32(float %77)
   %79 = fptoui float %78 to i32
   %80 = shl i32 %79, 15
@@ -5334,7 +5334,7 @@ define dso_local void @_ZNK4pbrt22ExhaustiveLightSampler6SampleERKNS_18LightSamp
   %80 = trunc nuw nsw i64 %79 to i32
   %81 = tail call noundef i32 @llvm.fshr.i32(i32 %78, i32 %78, i32 %80)
   %82 = uitofp i32 %81 to float
-  %83 = fmul float %82, 0x3DF0000000000000
+  %83 = fmul nnan float %82, 0x3DF0000000000000
   %84 = fcmp olt float %83, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i = select i1 %84, float %83, float 0x3FEFFFFFE0000000
   %85 = fcmp olt float %.sroa.speculated.i.i, %74

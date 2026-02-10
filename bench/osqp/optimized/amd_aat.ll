@@ -38,7 +38,7 @@ define i64 @amd_l_aat(i64 noundef %0, ptr noundef readonly captures(none) %1, pt
 
 .preheader:                                       ; preds = %.loopexit122
   %17 = sitofp i64 %.1102128 to double
-  %18 = fmul double %17, 2.000000e+00
+  %18 = fmul nnan double %17, 2.000000e+00
   br label %.lr.ph154
 
 .lr.ph146:                                        ; preds = %.lr.ph146.preheader, %.loopexit122

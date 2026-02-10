@@ -21518,7 +21518,7 @@ _ZN10TestObjectD2Ev.exit12621:                    ; preds = %if.then.i.i.i12610,
   %4024 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i12626 = add nsw i64 %4024, 1
   store i64 %inc4.i12626, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mul5479 = fmul float %conv5467, 2.000000e+00
+  %mul5479 = fmul nnan float %conv5467, 2.000000e+00
   %4025 = load i64, ptr %mNumElements.i.i12576, align 8, !noalias !771
   %add.i.i12629 = add i64 %4025, 1
   %4026 = load i64, ptr %mNumCapacity.i.i12577, align 8, !noalias !771
@@ -42920,7 +42920,7 @@ _ZN10TestObjectD2Ev.exit12621:                    ; preds = %if.then.i.i.i12610,
   %3869 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i12626 = add nsw i64 %3869, 1
   store i64 %inc4.i12626, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mul5370 = fmul float %conv5358, 2.000000e+00
+  %mul5370 = fmul nnan float %conv5358, 2.000000e+00
   %3870 = load i64, ptr %mNumElements.i.i12576, align 8, !noalias !1605
   %add.i.i12629 = add i64 %3870, 1
   %3871 = load i64, ptr %mNumCapacity.i.i12577, align 8, !noalias !1605
@@ -63042,7 +63042,7 @@ if.then.i.i.i12838:                               ; preds = %_ZN10TestObjectD2Ev
   unreachable
 
 _ZN10TestObjectD2Ev.exit12849:                    ; preds = %_ZN10TestObjectD2Ev.exit12811
-  %mul5370 = fmul float %conv5358, 2.000000e+00
+  %mul5370 = fmul nnan float %conv5358, 2.000000e+00
   %mul = shl nuw nsw i32 %i5346.014410, 1
   %.pre.i.i12822 = load ptr, ptr %greaterThanVec, align 8, !noalias !2501
   %add.ptr.i.i12823 = getelementptr inbounds i8, ptr %.pre.i.i12822, i64 %3622

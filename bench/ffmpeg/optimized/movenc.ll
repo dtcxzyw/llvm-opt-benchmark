@@ -8158,7 +8158,7 @@ is_cover_image.exit.thread:                       ; preds = %139, %is_cover_imag
 
 181:                                              ; preds = %174
   %182 = sitofp i64 %180 to double
-  %183 = fmul nsz double %182, 0x3EF0000000000000
+  %183 = fmul nnan nsz double %182, 0x3EF0000000000000
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %1, i32 noundef 16, ptr noundef nonnull @.str.196, double noundef %183) #17
   br label %mov_write_uuidprof_tag.exit
 
@@ -14774,7 +14774,7 @@ mov_write_fiel_tag.exit:                          ; preds = %351, %347, %mov_wri
   br i1 %373, label %374, label %382
 
 374:                                              ; preds = %372
-  %375 = fmul nsz double %.0.i377, 6.553600e+04
+  %375 = fmul nnan nsz double %.0.i377, 6.553600e+04
   %376 = call i64 @llvm.lrint.i64.f64(double %375)
   %377 = trunc i64 %376 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.350, i32 noundef %377) #17

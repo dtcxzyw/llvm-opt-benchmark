@@ -2993,7 +2993,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23b3Generic6DofConstraint21get_
 
 369:                                              ; preds = %367
   %370 = fneg float %342
-  %371 = fmul float %366, %370
+  %371 = fmul nnan float %366, %370
   %372 = getelementptr inbounds float, ptr %256, i64 %257
   %373 = load float, ptr %372, align 4, !tbaa !16
   %374 = fcmp ogt float %371, %373
@@ -3009,7 +3009,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN23b3Generic6DofConstraint21get_
 
 378:                                              ; preds = %376
   %379 = fneg float %342
-  %380 = fmul float %366, %379
+  %380 = fmul nnan float %366, %379
   %381 = getelementptr inbounds float, ptr %256, i64 %257
   %382 = load float, ptr %381, align 4, !tbaa !16
   %383 = fcmp olt float %380, %382

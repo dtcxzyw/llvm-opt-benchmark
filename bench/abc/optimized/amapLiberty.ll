@@ -4378,7 +4378,7 @@ Amap_LibertyWipeOutComments.exit:                 ; preds = %Amap_LibertyWipeOut
   %69 = mul nsw i64 %68, 40
   %70 = add nsw i64 %69, %65
   %71 = uitofp i64 %70 to double
-  %72 = fmul double %71, 0x3EB0000000000000
+  %72 = fmul nnan double %71, 0x3EB0000000000000
   %73 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, double noundef %72)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4657,7 +4657,7 @@ Amap_LibertyWipeOutComments.exit:                 ; preds = %Amap_LibertyWipeOut
   %67 = mul nsw i64 %66, 40
   %68 = add nsw i64 %67, %63
   %69 = uitofp i64 %68 to double
-  %70 = fmul double %69, 0x3EB0000000000000
+  %70 = fmul nnan double %69, 0x3EB0000000000000
   %71 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, double noundef %70)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

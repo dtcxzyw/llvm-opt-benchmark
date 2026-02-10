@@ -909,7 +909,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsIjEclINS1_17NonsecureURB
 
 205:                                              ; preds = %_ZN4absl12lts_2024072215random_internal15FastUniformBitsIjEclINS1_17NonsecureURBGBaseINS1_13randen_engineImEENS1_17RandenPoolSeedSeqEEEEEjRT_.exit.i.i.i.i.i
   %206 = uitofp nneg i64 %192 to double
-  %207 = fmul double %206, 0x3DF0000000000000
+  %207 = fmul nnan double %206, 0x3DF0000000000000
   %208 = fsub double %.013.i.i.i.i.i, %207
   %209 = fmul double %208, 0x41F0000000000000
   %210 = fcmp une double %209, 0.000000e+00

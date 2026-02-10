@@ -10119,7 +10119,7 @@ define hidden noundef zeroext i1 @_ZN17CirclesGridFinder18isDetectionCorrectEv(p
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %90 = load i64, ptr %89, align 8, !tbaa !349
   %91 = uitofp i64 %90 to double
-  %92 = fmul double %91, 5.000000e-01
+  %92 = fmul nnan double %91, 5.000000e-01
   %93 = tail call double @llvm.ceil.f64(double %92)
   %94 = fptoui double %93 to i64
   %95 = tail call double @llvm.floor.f64(double %92)
@@ -11543,7 +11543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %29, %
   %58 = phi ptr [ %91, %._crit_edge.us ], [ null, %.preheader.lr.ph ]
   %.055137.us = phi i32 [ %93, %._crit_edge.us ], [ %52, %.preheader.lr.ph ]
   %59 = sitofp i32 %.055137.us to float
-  %60 = fmul float %59, 3.000000e+01
+  %60 = fmul nnan float %59, 3.000000e+01
   %61 = fadd float %60, 1.500000e+02
   br label %62
 
@@ -11551,7 +11551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %29, %
   %63 = phi ptr [ %58, %.preheader.us ], [ %91, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.us ]
   %.054135.us = phi i32 [ 0, %.preheader.us ], [ %92, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.us ]
   %64 = uitofp nneg i32 %.054135.us to float
-  %65 = fmul float %64, 3.000000e+01
+  %65 = fmul nnan float %64, 3.000000e+01
   %66 = fadd float %65, 1.500000e+02
   %.sroa.0.0.vec.insert.i.us = insertelement <2 x float> poison, float %66, i64 0
   %.sroa.0.4.vec.insert.i.us = insertelement <2 x float> %.sroa.0.0.vec.insert.i.us, float %61, i64 1

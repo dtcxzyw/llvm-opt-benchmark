@@ -1218,7 +1218,7 @@ define internal void @Int32_To_Float32(ptr noundef writeonly captures(none) %0, 
   %10 = add i32 %.0911, -1
   %11 = load i32, ptr %.0812, align 4, !tbaa !70
   %12 = sitofp i32 %11 to double
-  %13 = fmul double %12, 0x3E00000000000000
+  %13 = fmul nnan double %12, 0x3E00000000000000
   %14 = fptrunc double %13 to float
   store float %14, ptr %.013, align 4, !tbaa !68
   %15 = getelementptr inbounds i32, ptr %.0812, i64 %7
@@ -1451,7 +1451,7 @@ define internal void @Int24_To_Float32(ptr noundef writeonly captures(none) %0, 
   %18 = shl nuw i32 %17, 24
   %19 = or disjoint i32 %18, %14
   %20 = sitofp i32 %19 to double
-  %21 = fmul double %20, 0x3E00000000000000
+  %21 = fmul nnan double %20, 0x3E00000000000000
   %22 = fptrunc double %21 to float
   store float %22, ptr %.01317, align 4, !tbaa !68
   %23 = getelementptr inbounds i8, ptr %.01416, i64 %8
@@ -1680,7 +1680,7 @@ define internal void @Int16_To_Float32(ptr noundef writeonly captures(none) %0, 
   %10 = add i32 %.014, -1
   %11 = load i16, ptr %.01012, align 2, !tbaa !81
   %12 = sitofp i16 %11 to float
-  %13 = fmul float %12, 0x3F00000000000000
+  %13 = fmul nnan float %12, 0x3F00000000000000
   store float %13, ptr %.0913, align 4, !tbaa !68
   %14 = getelementptr inbounds i16, ptr %.01012, i64 %7
   %15 = getelementptr inbounds float, ptr %.0913, i64 %8
@@ -1832,7 +1832,7 @@ define internal void @Int8_To_Float32(ptr noundef writeonly captures(none) %0, i
   %10 = add i32 %.014, -1
   %11 = load i8, ptr %.01012, align 1, !tbaa !76
   %12 = sitofp i8 %11 to float
-  %13 = fmul float %12, 7.812500e-03
+  %13 = fmul nnan float %12, 7.812500e-03
   store float %13, ptr %.0913, align 4, !tbaa !68
   %14 = getelementptr inbounds i8, ptr %.01012, i64 %7
   %15 = getelementptr inbounds float, ptr %.0913, i64 %8
@@ -1976,7 +1976,7 @@ define internal void @UInt8_To_Float32(ptr noundef writeonly captures(none) %0, 
   %12 = zext i8 %11 to i32
   %13 = add nsw i32 %12, -128
   %14 = sitofp i32 %13 to float
-  %15 = fmul float %14, 7.812500e-03
+  %15 = fmul nnan float %14, 7.812500e-03
   store float %15, ptr %.0913, align 4, !tbaa !68
   %16 = getelementptr inbounds i8, ptr %.01012, i64 %7
   %17 = getelementptr inbounds float, ptr %.0913, i64 %8

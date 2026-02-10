@@ -1593,7 +1593,7 @@ _ZL11FindMinimumPKfi.exit437.i:                   ; preds = %_ZL11FindMinimumPKf
 
 513:                                              ; preds = %512
   %514 = fcmp ogt float %.0372.i, 0.000000e+00
-  %515 = fmul float %.0372.i, %.0372.i
+  %515 = fmul nnan float %.0372.i, %.0372.i
   %516 = fdiv float %.0370.i, %515
   %517 = fadd float %516, -1.000000e+00
   %.1364.i = select i1 %514, float %517, float 0.000000e+00
@@ -1601,7 +1601,7 @@ _ZL11FindMinimumPKfi.exit437.i:                   ; preds = %_ZL11FindMinimumPKf
 
 518:                                              ; preds = %513
   %519 = fcmp ogt float %.0368.i, 0.000000e+00
-  %520 = fmul float %.0368.i, %.0368.i
+  %520 = fmul nnan float %.0368.i, %.0368.i
   %521 = fdiv float %.0367.i, %520
   %522 = fadd float %521, -1.000000e+00
   %523 = fpext float %522 to double
@@ -1630,7 +1630,7 @@ _ZL11FindMinimumPKfi.exit437.i:                   ; preds = %_ZL11FindMinimumPKf
   %537 = fdiv double 1.000000e+00, %536
   %538 = fpext float %.1364.i to double
   %539 = uitofp nneg i32 %.0374.i to double
-  %540 = fdiv double 1.000000e+00, %539
+  %540 = fdiv nnan double 1.000000e+00, %539
   %541 = fmul double %540, %.0355.i
   %542 = tail call double @llvm.fmuladd.f64(double %537, double %538, double %541)
   %543 = fptrunc double %542 to float
@@ -1648,7 +1648,7 @@ _ZL11FindMinimumPKfi.exit437.i:                   ; preds = %_ZL11FindMinimumPKf
 
 546:                                              ; preds = %545
   %547 = fcmp ogt float %.0366.i, 0.000000e+00
-  %548 = fmul float %.0366.i, %.0366.i
+  %548 = fmul nnan float %.0366.i, %.0366.i
   %549 = fdiv float %.0365.i, %548
   %550 = fadd float %549, -1.000000e+00
   %551 = fpext float %550 to double
@@ -1676,7 +1676,7 @@ _ZL11FindMinimumPKfi.exit437.i:                   ; preds = %_ZL11FindMinimumPKf
   %564 = uitofp nneg i32 %.0373.i to double
   %565 = fdiv double 1.000000e+00, %564
   %566 = uitofp nneg i32 %433 to double
-  %567 = fdiv double 1.000000e+00, %566
+  %567 = fdiv nnan double 1.000000e+00, %566
   %568 = fmul double %567, 0.000000e+00
   %569 = tail call double @llvm.fmuladd.f64(double %565, double %.0.i, double %568)
   %570 = fptrunc double %569 to float
@@ -1758,8 +1758,8 @@ _ZL11FindMinimumPKfi.exit437.i:                   ; preds = %_ZL11FindMinimumPKf
   br i1 %exitcond574.not.i, label %._crit_edge529.i, label %386, !llvm.loop !194
 
 612:                                              ; preds = %_ZL11FindMinimumPKfi.exit437.i
-  %613 = tail call float @llvm.log.f32(float %384), !tbaa !44
-  %614 = fmul float %613, 5.000000e-01
+  %613 = tail call nnan float @llvm.log.f32(float %384)
+  %614 = fmul nnan float %613, 5.000000e-01
   br label %615
 
 615:                                              ; preds = %612, %_ZL11FindMinimumPKfi.exit437.i
@@ -2189,7 +2189,7 @@ _ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.thread.i: ; preds = %.lr.ph44.i.i
 
 .lr.ph386.preheader.i:                            ; preds = %.lr.ph382.i
   %850 = uitofp i64 %811 to float
-  %851 = fmul float %850, 0x3BF0000000000000
+  %851 = fmul nnan float %850, 0x3BF0000000000000
   %852 = fcmp oeq float %851, 1.000000e+00
   %.013.i.i.i.i = select i1 %852, float 0.000000e+00, float %851
   %853 = zext nneg i32 %.0216.i to i64
@@ -2263,7 +2263,7 @@ _ZL26GenerateGibbsProbabilitiesPKfPdS1_ii.exit.thread.i: ; preds = %.lr.ph44.i.i
 _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit264.i: ; preds = %879
   %.pre.pre.i = load double, ptr %870, align 8, !tbaa !56
   %881 = uitofp i64 %811 to float
-  %882 = fmul float %881, 0x3BF0000000000000
+  %882 = fmul nnan float %881, 0x3BF0000000000000
   %883 = fcmp oeq float %882, 1.000000e+00
   %.013.i.i.i262.i = select i1 %883, float 0.000000e+00, float %882
   %884 = zext nneg i32 %.0216.i to i64
@@ -2311,7 +2311,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i: 
   %901 = fptrunc double %899 to float
   %.3207.i = select i1 %900, float %901, float 1.000000e+00
   %902 = uitofp i64 %812 to float
-  %903 = fmul float %902, 0x3BF0000000000000
+  %903 = fmul nnan float %902, 0x3BF0000000000000
   %904 = fcmp oeq float %903, 1.000000e+00
   %.013.i.i.i270.i = select i1 %904, float 0.000000e+00, float %903
   %905 = fcmp olt float %.013.i.i.i270.i, %.3207.i
@@ -2428,7 +2428,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit272.i..
 
 _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit280.i: ; preds = %._crit_edge.i140, %._crit_edge.i140
   %951 = uitofp i64 %811 to float
-  %952 = fmul float %951, 0x3BF0000000000000
+  %952 = fmul nnan float %951, 0x3BF0000000000000
   %953 = fcmp oeq float %952, 1.000000e+00
   %954 = fcmp olt float %952, 5.000000e-01
   %955 = or i1 %953, %954
@@ -2521,7 +2521,7 @@ _ZN3gmx23UniformRealDistributionIfEclINS_12ThreeFry2x64ILj0EEEEEfRT_.exit288.i: 
   %1004 = getelementptr inbounds double, ptr %728, i64 %961
   store double %.sink519.i, ptr %1004, align 8, !tbaa !56
   %1005 = uitofp i64 %812 to float
-  %1006 = fmul float %1005, 0x3BF0000000000000
+  %1006 = fmul nnan float %1005, 0x3BF0000000000000
   %1007 = fcmp oeq float %1006, 1.000000e+00
   %.013.i.i.i286.i = select i1 %1007, float 0.000000e+00, float %1006
   %1008 = fcmp olt float %.013.i.i.i286.i, %.8.i
@@ -2634,7 +2634,7 @@ _ZL15ChooseNewLambdaiPK10t_expandedP12df_history_tiPKfPdll.exit: ; preds = %719,
   %1055 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %1056 = load float, ptr %1055, align 8, !tbaa !33
   %1057 = fpext float %1056 to double
-  %1058 = fadd double %.0124.lcssa, -1.000010e+00
+  %1058 = fadd nnan double %.0124.lcssa, -1.000010e+00
   %1059 = fdiv double %.0124.lcssa, %1058
   %1060 = fpext float %1054 to double
   %1061 = fmul double %1059, %1060

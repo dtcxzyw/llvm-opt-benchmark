@@ -181,7 +181,7 @@ define noundef i32 @_ZN5faiss15RandomGenerator8rand_intEi(ptr noundef nonnull al
 define noundef float @_ZN5faiss15RandomGenerator10rand_floatEv(ptr noundef nonnull align 8 dereferenceable(5000) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %0)
   %3 = uitofp i64 %2 to float
-  %4 = fmul float %3, 0x3DF0000000000000
+  %4 = fmul nnan float %3, 0x3DF0000000000000
   ret float %4
 }
 
@@ -283,7 +283,7 @@ define noundef float @_ZN5faiss25SplitMix64RandomGenerator10rand_floatEv(ptr nou
   %10 = lshr i64 %9, 31
   %11 = xor i64 %10, %9
   %12 = uitofp i64 %11 to float
-  %13 = fmul float %12, 0x3BF0000000000000
+  %13 = fmul nnan float %12, 0x3BF0000000000000
   ret float %13
 }
 
@@ -301,7 +301,7 @@ define noundef double @_ZN5faiss25SplitMix64RandomGenerator11rand_doubleEv(ptr n
   %10 = lshr i64 %9, 31
   %11 = xor i64 %10, %9
   %12 = uitofp i64 %11 to double
-  %13 = fmul double %12, 0x3BF0000000000000
+  %13 = fmul nnan double %12, 0x3BF0000000000000
   ret double %13
 }
 
@@ -503,7 +503,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %103 = lshr i64 %102, 18
   %104 = xor i64 %103, %102
   %105 = uitofp i64 %104 to float
-  %106 = fmul float %105, 0x3DF0000000000000
+  %106 = fmul nnan float %105, 0x3DF0000000000000
   %107 = getelementptr inbounds nuw float, ptr %39, i64 %.023
   store float %106, ptr %107, align 4, !tbaa !21
   %108 = add nuw i64 %.023, 1

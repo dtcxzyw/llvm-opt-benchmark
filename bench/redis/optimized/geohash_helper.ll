@@ -26,7 +26,7 @@ define dso_local zeroext range(i8 1, 27) i8 @geohashEstimateStepsByRadius(double
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.022 = phi i32 [ %6, %.lr.ph ], [ 1, %.preheader ]
   %.01921 = phi double [ %5, %.lr.ph ], [ %0, %.preheader ]
-  %5 = fmul double %.01921, 2.000000e+00
+  %5 = fmul nnan double %.01921, 2.000000e+00
   %6 = add nuw nsw i32 %.022, 1
   %7 = fcmp olt double %5, 0x41731C05E5EB851F
   br i1 %7, label %.lr.ph, label %._crit_edge, !llvm.loop !5
@@ -211,7 +211,7 @@ geohashBoundingBox.exit:                          ; preds = %2, %23
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.022.i = phi i32 [ %61, %.lr.ph.i ], [ 1, %.preheader.i ]
   %.01921.i = phi double [ %60, %.lr.ph.i ], [ %57, %.preheader.i ]
-  %60 = fmul double %.01921.i, 2.000000e+00
+  %60 = fmul nnan double %.01921.i, 2.000000e+00
   %61 = add nuw nsw i32 %.022.i, 1
   %62 = fcmp olt double %60, 0x41731C05E5EB851F
   br i1 %62, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !5

@@ -7412,7 +7412,7 @@ define void @_ZN13mini_lsm_mvcc5table5bloom5Bloom21build_from_key_hashes17hc643a
   %10 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %11 = alloca { ptr, i64, i64, ptr }, align 8
   %12 = uitofp i64 %3 to double
-  %13 = fmul double %12, 6.900000e-01
+  %13 = fmul nnan double %12, 6.900000e-01
   %14 = tail call i32 @llvm.fptoui.sat.i32.f64(double %13)
   %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
   %.0.sroa.speculated.i17 = tail call i32 @llvm.umin.i32(i32 %15, i32 30)

@@ -4262,7 +4262,7 @@ _ZSt8_DestroyIPN2cv3MatES1_EvT_S3_RSaIT0_E.exit.i.i71: ; preds = %.lr.ph.i.i.i.i
   store i64 %66, ptr %41, align 8, !tbaa !18
   %67 = trunc i64 %66 to i32
   %68 = uitofp i32 %67 to float
-  %69 = fmul float %68, 0x3DF0000000000000
+  %69 = fmul nnan float %68, 0x3DF0000000000000
   %70 = fcmp olt float %69, %40
   br i1 %70, label %71, label %90
 

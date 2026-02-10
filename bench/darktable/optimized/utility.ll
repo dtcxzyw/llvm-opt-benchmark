@@ -1269,12 +1269,12 @@ define double @dt_util_gps_string_to_number(ptr noundef %0) local_unnamed_addr #
   %39 = load ptr, ptr %13, align 8, !tbaa !6
   %40 = tail call i64 @g_ascii_strtoll(ptr noundef %39, ptr noundef null, i32 noundef 10) #28
   %41 = sitofp i64 %40 to double
-  %42 = fmul reassoc nsz arcp contract afn double %41, 0x3F91111111111111
+  %42 = fmul reassoc nnan nsz arcp contract afn double %41, 0x3F91111111111111
   %43 = fadd reassoc nsz arcp contract afn double %42, %38
   %44 = load ptr, ptr %20, align 8, !tbaa !6
   %45 = tail call i64 @g_ascii_strtoll(ptr noundef %44, ptr noundef null, i32 noundef 10) #28
   %46 = sitofp i64 %45 to double
-  %47 = fmul reassoc nsz arcp contract afn double %46, 0x3F323456789ABCDF
+  %47 = fmul reassoc nnan nsz arcp contract afn double %46, 0x3F323456789ABCDF
   %48 = fadd reassoc nsz arcp contract afn double %43, %47
   br label %49
 

@@ -1148,7 +1148,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %26, %.lr.ph.i18
 
 Abc_TtCountOnesVec.exit.loopexit:                 ; preds = %Abc_TtCountOnes2.exit.i
   %47 = uitofp nneg i32 %46 to double
-  %48 = fmul double %47, 1.000000e+02
+  %48 = fmul nnan double %47, 1.000000e+02
   br label %Abc_TtCountOnesVec.exit
 
 Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnesVec.exit.loopexit, %Vec_WrdStartRandom.exit
@@ -1481,7 +1481,7 @@ Abc_TtCountOnes2.exit.i:                          ; preds = %28, %.lr.ph.i31
 
 Abc_TtCountOnesVec.exit.loopexit:                 ; preds = %Abc_TtCountOnes2.exit.i
   %49 = uitofp nneg i32 %48 to double
-  %50 = fmul double %49, 1.000000e+02
+  %50 = fmul nnan double %49, 1.000000e+02
   br label %Abc_TtCountOnesVec.exit
 
 Abc_TtCountOnesVec.exit:                          ; preds = %Abc_TtCountOnesVec.exit.loopexit, %Vec_WrdStartRandom.exit
@@ -1535,7 +1535,7 @@ Abc_TtCountOnes2.exit.i42:                        ; preds = %56, %.lr.ph.i38
 
 Abc_TtCountOnesVec.exit45.loopexit:               ; preds = %Abc_TtCountOnes2.exit.i42
   %77 = uitofp nneg i32 %76 to double
-  %78 = fmul double %77, 1.000000e+02
+  %78 = fmul nnan double %77, 1.000000e+02
   br label %Abc_TtCountOnesVec.exit45
 
 Abc_TtCountOnesVec.exit45:                        ; preds = %Abc_TtCountOnesVec.exit45.loopexit, %Abc_TtCountOnesVec.exit
@@ -3407,8 +3407,8 @@ define i32 @Gia_ManFindDividerVar(ptr noundef readonly captures(none) %0, i32 no
   %21 = getelementptr i8, ptr %0, i64 24
   %.val19 = load i32, ptr %21, align 8, !tbaa !38
   %22 = sitofp i32 %.val19 to double
-  %23 = fmul double %20, %22
-  %24 = fmul double %23, 0x3EB0000000000000
+  %23 = fmul nnan double %20, %22
+  %24 = fmul nnan double %23, 0x3EB0000000000000
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %spec.select, i32 noundef %17, i32 noundef %19, double noundef %24)
   br label %26
 
@@ -3582,8 +3582,8 @@ Abc_Clock.exit:                                   ; preds = %2, %7
   %33 = getelementptr i8, ptr %0, i64 24
   %.val19.i = load i32, ptr %33, align 8, !tbaa !38
   %34 = sitofp i32 %.val19.i to double
-  %35 = fmul double %32, %34
-  %36 = fmul double %35, 0x3EB0000000000000
+  %35 = fmul nnan double %32, %34
+  %36 = fmul nnan double %35, 0x3EB0000000000000
   %37 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %spec.select.i, i32 noundef %29, i32 noundef %31, double noundef %36)
   %.val123.pre = load ptr, ptr %15, align 8, !tbaa !3
   %.phi.trans.insert = getelementptr i8, ptr %.val123.pre, i64 4
@@ -3877,7 +3877,7 @@ Gia_ManSimPatSimAnd.exit:                         ; preds = %.lr.ph8.i, %133, %.
   %157 = getelementptr i8, ptr %0, i64 32
   %158 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %159 = sitofp i32 %155 to double
-  %160 = fmul double %159, 5.000000e+00
+  %160 = fmul nnan double %159, 5.000000e+00
   %.not110 = icmp ne i32 %1, 0
   %smax = call i32 @llvm.smax.i32(i32 %155, i32 1)
   br label %220
@@ -6481,7 +6481,7 @@ define void @Gia_ManSimProfile(ptr noundef readonly captures(none) %0) local_unn
   %8 = call i32 @Gia_ManSimPatHashPatterns(ptr noundef %0, i32 noundef %7, ptr noundef %4, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %9 = shl nsw i32 %7, 6
   %10 = sitofp i32 %8 to double
-  %11 = fmul double %10, 1.000000e+02
+  %11 = fmul nnan double %10, 1.000000e+02
   %12 = getelementptr i8, ptr %0, i64 64
   %.val.i = load ptr, ptr %12, align 8, !tbaa !3
   %13 = getelementptr i8, ptr %.val.i, i64 4
@@ -8584,7 +8584,7 @@ Abc_Clock.exit:                                   ; preds = %3, %10
   %.019.lcssa = phi i32 [ 0, %Abc_Clock.exit ], [ %.019.lcssa.ph, %.critedge.loopexit ]
   %.lcssa = phi i32 [ %18, %Abc_Clock.exit ], [ %.lcssa.ph, %.critedge.loopexit ]
   %36 = sitofp i32 %.019.lcssa to double
-  %37 = fmul double %36, 1.000000e+02
+  %37 = fmul nnan double %36, 1.000000e+02
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %39 = load ptr, ptr %38, align 8, !tbaa !3
   %40 = getelementptr i8, ptr %39, i64 4
@@ -10126,7 +10126,7 @@ Abc_TtCountOnesVec.exit87.loopexit.us:            ; preds = %Abc_TtCountOnes2.ex
   %156 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv144
   %157 = load i32, ptr %156, align 4, !tbaa !30
   %158 = sitofp i32 %157 to double
-  %159 = fmul double %158, 1.000000e+02
+  %159 = fmul nnan double %158, 1.000000e+02
   %160 = fdiv double %159, %103
   %161 = trunc nuw nsw i64 %indvars.iv144 to i32
   %162 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %161, i32 noundef %129, i32 noundef %155, i32 noundef %157, double noundef %160)
@@ -10139,7 +10139,7 @@ Abc_TtCountOnesVec.exit87:                        ; preds = %.lr.ph.thread, %Abc
   %163 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv139
   %164 = load i32, ptr %163, align 4, !tbaa !30
   %165 = sitofp i32 %164 to double
-  %166 = fmul double %165, 1.000000e+02
+  %166 = fmul nnan double %165, 1.000000e+02
   %167 = fdiv double %166, %102
   %168 = trunc nuw nsw i64 %indvars.iv139 to i32
   %169 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %168, i32 noundef 0, i32 noundef 0, i32 noundef %164, double noundef %167)
@@ -15173,7 +15173,7 @@ define double @Gia_SimComputeScore(ptr noundef readonly captures(none) %0, ptr n
   %11 = load i32, ptr %10, align 4, !tbaa !30
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %9, i32 1)
   %12 = sitofp i32 %11 to double
-  %13 = fmul double %12, 1.000000e+03
+  %13 = fmul nnan double %12, 1.000000e+03
   %14 = sitofp i32 %spec.store.select to double
   %15 = fdiv double %13, %14
   %16 = fadd double %.017, %15
@@ -15240,7 +15240,7 @@ define i32 @Gia_SimQualityPatternsMax(ptr noundef captures(none) %0, ptr noundef
   %18 = load i32, ptr %17, align 4, !tbaa !30
   %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %16, i32 1)
   %19 = sitofp i32 %18 to double
-  %20 = fmul double %19, 1.000000e+03
+  %20 = fmul nnan double %19, 1.000000e+03
   %21 = sitofp i32 %spec.store.select.i to double
   %22 = fdiv double %20, %21
   %23 = fadd double %.017.i, %22
@@ -15339,7 +15339,7 @@ Vec_IntFree.exit:                                 ; preds = %Gia_SimComputeScore
   %64 = load i32, ptr %63, align 4, !tbaa !30
   %spec.store.select.i58 = tail call i32 @llvm.umax.i32(i32 %62, i32 1)
   %65 = sitofp i32 %64 to double
-  %66 = fmul double %65, 1.000000e+03
+  %66 = fmul nnan double %65, 1.000000e+03
   %67 = sitofp i32 %spec.store.select.i58 to double
   %68 = fdiv double %66, %67
   %69 = fadd double %.017.i57, %68
@@ -15744,7 +15744,7 @@ Abc_Clock.exit:                                   ; preds = %24, %27
   %37 = load i32, ptr %36, align 4, !tbaa !30
   %spec.store.select.i = call i32 @llvm.umax.i32(i32 %35, i32 1)
   %38 = sitofp i32 %37 to double
-  %39 = fmul double %38, 1.000000e+03
+  %39 = fmul nnan double %38, 1.000000e+03
   %40 = sitofp i32 %spec.store.select.i to double
   %41 = fdiv double %39, %40
   %42 = fadd double %.017.i, %41
@@ -15835,7 +15835,7 @@ Vec_IntFree.exit:                                 ; preds = %Gia_SimComputeScore
   %79 = load i32, ptr %78, align 4, !tbaa !30
   %spec.store.select.i78 = call i32 @llvm.umax.i32(i32 %77, i32 1)
   %80 = sitofp i32 %79 to double
-  %81 = fmul double %80, 1.000000e+03
+  %81 = fmul nnan double %80, 1.000000e+03
   %82 = sitofp i32 %spec.store.select.i78 to double
   %83 = fdiv double %81, %82
   %84 = fadd double %.017.i77, %83
@@ -19803,7 +19803,7 @@ Abc_TtNot.exit155:                                ; preds = %.lr.ph.i151, %Abc_T
   %.lcssa238 = phi i32 [ %79, %Vec_MemHashAlloc.exit ], [ %.lcssa238.ph, %.critedge.loopexit ]
   %123 = shl nsw i32 %2, 6
   %124 = sitofp i32 %.val119 to double
-  %125 = fmul double %124, 1.000000e+02
+  %125 = fmul nnan double %124, 1.000000e+02
   %.val.i = load ptr, ptr %13, align 8, !tbaa !3
   %126 = getelementptr i8, ptr %.val.i, i64 4
   %.val.val.i = load i32, ptr %126, align 4, !tbaa !28
@@ -20209,7 +20209,7 @@ Vec_WrdFree.exit218:                              ; preds = %Vec_WrdFree.exit216
 Vec_IntFree.exit:                                 ; preds = %Vec_WrdFree.exit218, %288
   call void @free(ptr noundef nonnull %35) #34
   %289 = sitofp i32 %.098.lcssa to double
-  %290 = fmul double %289, 1.000000e+02
+  %290 = fmul nnan double %289, 1.000000e+02
   %291 = getelementptr i8, ptr %0, i64 64
   %.val.i220 = load ptr, ptr %291, align 8, !tbaa !3
   %292 = getelementptr i8, ptr %.val.i220, i64 4
@@ -20227,10 +20227,10 @@ Vec_IntFree.exit:                                 ; preds = %Vec_WrdFree.exit218
   %302 = uitofp nneg i32 %301 to double
   %303 = fdiv double %290, %302
   %304 = sitofp i32 %.sroa.7.0.lcssa to double
-  %305 = fmul double %304, 1.000000e+02
+  %305 = fmul nnan double %304, 1.000000e+02
   %306 = fdiv double %305, %302
   %307 = sitofp i32 %.sroa.3.0.lcssa to double
-  %308 = fmul double %307, 1.000000e+02
+  %308 = fmul nnan double %307, 1.000000e+02
   %309 = fdiv double %308, %.0100.lcssa
   %310 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.92, i32 noundef %.098.lcssa, double noundef %303, i32 noundef %.sroa.7.0.lcssa, double noundef %306, i32 noundef %.sroa.3.0.lcssa, double noundef %309)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

@@ -275,7 +275,7 @@ define hidden void @_ZN6NFALUTC2Eidii(ptr noundef nonnull align 8 captures(none)
 
 _ZN6NFALUT4CombEdd.exit.i:                        ; preds = %.lr.ph.i.i, %.preheader.i.i, %24
   %.012.i.i = phi double [ 0.000000e+00, %24 ], [ 1.000000e+00, %.preheader.i.i ], [ %30, %.lr.ph.i.i ]
-  %mul.i = fmul double %25, -3.000000e+00
+  %mul.i = fmul nnan double %25, -3.000000e+00
   %exp2.i = tail call double @exp2(double %mul.i)
   %33 = fmul double %.012.i.i, %exp2.i
   %34 = sub nsw i32 %22, %.017.i
@@ -343,7 +343,7 @@ _ZN6NFALUT3nfaEii.exit:                           ; preds = %_ZN6NFALUT4CombEdd.
 
 _ZN6NFALUT4CombEdd.exit.i36:                      ; preds = %.lr.ph.i.i32, %.preheader.i.i31, %55
   %.012.i.i37 = phi double [ 0.000000e+00, %55 ], [ 1.000000e+00, %.preheader.i.i31 ], [ %61, %.lr.ph.i.i32 ]
-  %mul.i38 = fmul double %56, -3.000000e+00
+  %mul.i38 = fmul nnan double %56, -3.000000e+00
   %exp2.i39 = tail call double @exp2(double %mul.i38)
   %64 = fmul double %.012.i.i37, %exp2.i39
   %65 = sub nsw i32 %50, %.017.i29
@@ -445,7 +445,7 @@ define hidden noundef double @_ZN6NFALUT3nfaEii(ptr noundef nonnull readonly ali
 
 _ZN6NFALUT4CombEdd.exit:                          ; preds = %.lr.ph.i, %15, %.preheader.i
   %.012.i = phi double [ 0.000000e+00, %15 ], [ 1.000000e+00, %.preheader.i ], [ %21, %.lr.ph.i ]
-  %mul = fmul double %16, -3.000000e+00
+  %mul = fmul nnan double %16, -3.000000e+00
   %exp2 = tail call double @exp2(double %mul)
   %24 = fmul double %.012.i, %exp2
   %25 = sub nsw i32 %1, %.017
@@ -513,7 +513,7 @@ define hidden noundef zeroext i1 @_ZN6NFALUT20checkValidationByNFAEii(ptr nounde
 
 _ZN6NFALUT4CombEdd.exit.i:                        ; preds = %.lr.ph.i.i, %.preheader.i.i, %8
   %.012.i.i = phi double [ 0.000000e+00, %8 ], [ 1.000000e+00, %.preheader.i.i ], [ %14, %.lr.ph.i.i ]
-  %mul.i = fmul double %9, -3.000000e+00
+  %mul.i = fmul nnan double %9, -3.000000e+00
   %exp2.i = tail call double @exp2(double %mul.i)
   %17 = fmul double %.012.i.i, %exp2.i
   %18 = sub nsw i32 %1, %.017.i
@@ -8713,7 +8713,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl20ValidateLineSegmentsEv(ptr
 
 _ZN6NFALUT4CombEdd.exit.i.i:                      ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i, %67
   %.012.i.i.i = phi double [ 0.000000e+00, %67 ], [ 1.000000e+00, %.preheader.i.i.i ], [ %73, %.lr.ph.i.i.i ]
-  %mul.i.i = fmul double %68, -3.000000e+00
+  %mul.i.i = fmul nnan double %68, -3.000000e+00
   %exp2.i.i = tail call double @exp2(double %mul.i.i)
   %76 = fmul double %.012.i.i.i, %exp2.i.i
   %77 = sub nsw i32 %.180, %.017.i.i
@@ -9634,7 +9634,7 @@ define hidden noundef zeroext i1 @_ZN2cv8ximgproc15EdgeDrawingImpl23ValidateLine
 
 _ZN6NFALUT4CombEdd.exit.i.i:                      ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i, %40
   %.012.i.i.i = phi double [ 0.000000e+00, %40 ], [ 1.000000e+00, %.preheader.i.i.i ], [ %46, %.lr.ph.i.i.i ]
-  %mul.i.i = fmul double %41, -3.000000e+00
+  %mul.i.i = fmul nnan double %41, -3.000000e+00
   %exp2.i.i = tail call double @exp2(double %mul.i.i)
   %49 = fmul double %.012.i.i.i, %exp2.i.i
   %50 = sub nsw i32 %.052.lcssa8892, %.017.i.i
@@ -10835,7 +10835,7 @@ _ZNSt6vectorI13EDLineSegmentSaIS0_EE5clearEv.exit: ; preds = %_ZNSt6vectorI8mEll
   %190 = uitofp nneg i32 %154 to double
   %191 = fdiv double %190, 0x401921FB54442D18
   store double %191, ptr %4, align 8, !tbaa !36
-  %192 = fmul double %191, 2.500000e-01
+  %192 = fmul nnan double %191, 2.500000e-01
   %193 = fcmp ogt double %192, 3.000000e+00
   %.sroa.speculated = select i1 %193, double %192, double 3.000000e+00
   %194 = fcmp ugt double %sqrt, %.sroa.speculated
@@ -13415,7 +13415,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl9addCircleEP6CircleRiddddPdS
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store double %5, ptr %15, align 8, !tbaa !371
   %16 = sitofp i32 %8 to double
-  %17 = fdiv double %16, 0x401921FB54442D18
+  %17 = fdiv nnan double %16, 0x401921FB54442D18
   %18 = fmul double %4, %17
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 32
   store double %18, ptr %19, align 8, !tbaa !372
@@ -14156,7 +14156,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit: ; preds = %.
   %316 = getelementptr inbounds nuw i8, ptr %313, i64 24
   store double %.0594, ptr %316, align 8, !tbaa !371
   %317 = sitofp i32 %.6352 to double
-  %318 = fdiv double %317, 0x401921FB54442D18
+  %318 = fdiv nnan double %317, 0x401921FB54442D18
   %319 = fmul double %.0593, %318
   %320 = getelementptr inbounds nuw i8, ptr %313, i64 32
   store double %319, ptr %320, align 8, !tbaa !372
@@ -15365,7 +15365,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_.exit468: ; preds =
   store double %.1579.lcssa, ptr %1024, align 8, !tbaa !370
   %1025 = getelementptr inbounds nuw i8, ptr %1022, i64 24
   store double %.0574.lcssa, ptr %1025, align 8, !tbaa !371
-  %1026 = fdiv double %.pre-phi, 0x401921FB54442D18
+  %1026 = fdiv nnan double %.pre-phi, 0x401921FB54442D18
   %1027 = fmul double %.1579.lcssa, %1026
   %1028 = getelementptr inbounds nuw i8, ptr %1022, i64 32
   store double %1027, ptr %1028, align 8, !tbaa !372
@@ -16115,7 +16115,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %150, %.outer.i.i, %
   %223 = load i32, ptr %222, align 4, !tbaa !461
   %224 = sub nsw i32 %.0315886.ph, %223
   %225 = sitofp i32 %224 to double
-  %226 = fmul double %225, %225
+  %226 = fmul nnan double %225, %225
   %227 = tail call double @llvm.fmuladd.f64(double %221, double %221, double %226)
   %sqrt475 = tail call double @llvm.sqrt.f64(double %227)
   %228 = getelementptr inbounds nuw i8, ptr %122, i64 72
@@ -16126,7 +16126,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %150, %.outer.i.i, %
   %233 = load i32, ptr %232, align 4, !tbaa !463
   %234 = sub nsw i32 %.0315886.ph, %233
   %235 = sitofp i32 %234 to double
-  %236 = fmul double %235, %235
+  %236 = fmul nnan double %235, %235
   %237 = tail call double @llvm.fmuladd.f64(double %231, double %231, double %236)
   %sqrt474 = tail call double @llvm.sqrt.f64(double %237)
   %238 = fcmp olt double %sqrt474, %sqrt475
@@ -16136,7 +16136,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %150, %.outer.i.i, %
   %240 = sitofp i32 %239 to double
   %241 = sub nsw i32 %.0303888.ph926, %223
   %242 = sitofp i32 %241 to double
-  %243 = fmul double %242, %242
+  %243 = fmul nnan double %242, %242
   %244 = tail call double @llvm.fmuladd.f64(double %240, double %240, double %243)
   %sqrt473 = tail call double @llvm.sqrt.f64(double %244)
   %245 = fcmp olt double %sqrt473, %.0265
@@ -16146,7 +16146,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %150, %.outer.i.i, %
   %247 = sitofp i32 %246 to double
   %248 = sub nsw i32 %.0303888.ph926, %233
   %249 = sitofp i32 %248 to double
-  %250 = fmul double %249, %249
+  %250 = fmul nnan double %249, %249
   %251 = tail call double @llvm.fmuladd.f64(double %247, double %247, double %250)
   %sqrt = tail call double @llvm.sqrt.f64(double %251)
   %252 = fcmp olt double %sqrt, %.1266
@@ -16866,7 +16866,7 @@ _ZN8AngleSet20computeStartEndThetaERdS0_.exit:    ; preds = %561, %._crit_edge.i
   %609 = getelementptr inbounds nuw i8, ptr %606, i64 24
   store double %.0288890, ptr %609, align 8, !tbaa !371
   %610 = sitofp i32 %.0327884 to double
-  %611 = fdiv double %610, 0x401921FB54442D18
+  %611 = fdiv nnan double %610, 0x401921FB54442D18
   %612 = fmul double %.0278891, %611
   %613 = getelementptr inbounds nuw i8, ptr %606, i64 32
   store double %612, ptr %613, align 8, !tbaa !372
@@ -17418,7 +17418,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %144, %.outer.i.i, %
   %217 = load i32, ptr %216, align 4, !tbaa !461
   %218 = sub nsw i32 %.0276727, %217
   %219 = sitofp i32 %218 to double
-  %220 = fmul double %219, %219
+  %220 = fmul nnan double %219, %219
   %221 = tail call double @llvm.fmuladd.f64(double %215, double %215, double %220)
   %sqrt381 = tail call double @llvm.sqrt.f64(double %221)
   %222 = getelementptr inbounds nuw i8, ptr %113, i64 72
@@ -17429,7 +17429,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %144, %.outer.i.i, %
   %227 = load i32, ptr %226, align 4, !tbaa !463
   %228 = sub nsw i32 %.0276727, %227
   %229 = sitofp i32 %228 to double
-  %230 = fmul double %229, %229
+  %230 = fmul nnan double %229, %229
   %231 = tail call double @llvm.fmuladd.f64(double %225, double %225, double %230)
   %sqrt380 = tail call double @llvm.sqrt.f64(double %231)
   %232 = fcmp olt double %sqrt380, %sqrt381
@@ -17439,7 +17439,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %144, %.outer.i.i, %
   %234 = sitofp i32 %233 to double
   %235 = sub nsw i32 %.0287725, %217
   %236 = sitofp i32 %235 to double
-  %237 = fmul double %236, %236
+  %237 = fmul nnan double %236, %236
   %238 = tail call double @llvm.fmuladd.f64(double %234, double %234, double %237)
   %sqrt379 = tail call double @llvm.sqrt.f64(double %238)
   %239 = fcmp olt double %sqrt379, %.0247
@@ -17449,7 +17449,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %144, %.outer.i.i, %
   %241 = sitofp i32 %240 to double
   %242 = sub nsw i32 %.0287725, %227
   %243 = sitofp i32 %242 to double
-  %244 = fmul double %243, %243
+  %244 = fmul nnan double %243, %243
   %245 = tail call double @llvm.fmuladd.f64(double %241, double %241, double %244)
   %sqrt = tail call double @llvm.sqrt.f64(double %245)
   %246 = fcmp olt double %sqrt, %.1248
@@ -18075,7 +18075,7 @@ _ZN8AngleSet20computeStartEndThetaERdS0_.exit:    ; preds = %499, %._crit_edge.i
   %552 = getelementptr inbounds nuw i8, ptr %549, i64 24
   store double %540, ptr %552, align 8, !tbaa !371
   %553 = sitofp i32 %.0282726 to double
-  %554 = fdiv double %553, 0x401921FB54442D18
+  %554 = fdiv nnan double %553, 0x401921FB54442D18
   %555 = fmul double %554, %546
   %556 = getelementptr inbounds nuw i8, ptr %549, i64 32
   store double %555, ptr %556, align 8, !tbaa !372
@@ -18638,7 +18638,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %135, %.outer.i.i, %
   %208 = load i32, ptr %207, align 4, !tbaa !461
   %209 = sub nsw i32 %.0301745, %208
   %210 = sitofp i32 %209 to double
-  %211 = fmul double %210, %210
+  %211 = fmul nnan double %210, %210
   %212 = tail call double @llvm.fmuladd.f64(double %206, double %206, double %211)
   %sqrt399 = tail call double @llvm.sqrt.f64(double %212)
   %213 = getelementptr inbounds nuw i8, ptr %112, i64 72
@@ -18649,7 +18649,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %135, %.outer.i.i, %
   %218 = load i32, ptr %217, align 4, !tbaa !463
   %219 = sub nsw i32 %.0301745, %218
   %220 = sitofp i32 %219 to double
-  %221 = fmul double %220, %220
+  %221 = fmul nnan double %220, %220
   %222 = tail call double @llvm.fmuladd.f64(double %216, double %216, double %221)
   %sqrt398 = tail call double @llvm.sqrt.f64(double %222)
   %223 = fcmp olt double %sqrt398, %sqrt399
@@ -18659,7 +18659,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %135, %.outer.i.i, %
   %225 = sitofp i32 %224 to double
   %226 = sub nsw i32 %.0289747, %208
   %227 = sitofp i32 %226 to double
-  %228 = fmul double %227, %227
+  %228 = fmul nnan double %227, %227
   %229 = tail call double @llvm.fmuladd.f64(double %225, double %225, double %228)
   %sqrt397 = tail call double @llvm.sqrt.f64(double %229)
   %230 = fcmp olt double %sqrt397, %.0257
@@ -18669,7 +18669,7 @@ _ZN8AngleSet7overlapEdd.exit:                     ; preds = %135, %.outer.i.i, %
   %232 = sitofp i32 %231 to double
   %233 = sub nsw i32 %.0289747, %218
   %234 = sitofp i32 %233 to double
-  %235 = fmul double %234, %234
+  %235 = fmul nnan double %234, %234
   %236 = tail call double @llvm.fmuladd.f64(double %232, double %232, double %235)
   %sqrt = tail call double @llvm.sqrt.f64(double %236)
   %237 = fcmp olt double %sqrt, %.1258
@@ -19331,7 +19331,7 @@ _ZN8AngleSet20computeStartEndThetaERdS0_.exit:    ; preds = %510, %._crit_edge.i
   %563 = getelementptr inbounds nuw i8, ptr %560, i64 24
   store double %551, ptr %563, align 8, !tbaa !371
   %564 = sitofp i32 %.0284748 to double
-  %565 = fdiv double %564, 0x401921FB54442D18
+  %565 = fdiv nnan double %564, 0x401921FB54442D18
   %566 = fmul double %565, %557
   %567 = getelementptr inbounds nuw i8, ptr %560, i64 32
   store double %566, ptr %567, align 8, !tbaa !372
@@ -19627,7 +19627,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl24GenerateCandidateCirclesEv
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 24
   store double %95, ptr %113, align 8, !tbaa !371
   %114 = sitofp i32 %107 to double
-  %115 = fdiv double %114, 0x401921FB54442D18
+  %115 = fdiv nnan double %114, 0x401921FB54442D18
   %116 = fmul double %101, %115
   %117 = getelementptr inbounds nuw i8, ptr %110, i64 32
   store double %116, ptr %117, align 8, !tbaa !372
@@ -19705,7 +19705,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl24GenerateCandidateCirclesEv
   %165 = getelementptr inbounds nuw i8, ptr %162, i64 24
   store double %147, ptr %165, align 8, !tbaa !371
   %166 = sitofp i32 %159 to double
-  %167 = fdiv double %166, 0x401921FB54442D18
+  %167 = fdiv nnan double %166, 0x401921FB54442D18
   %168 = fmul double %153, %167
   %169 = getelementptr inbounds nuw i8, ptr %162, i64 32
   store double %168, ptr %169, align 8, !tbaa !372
@@ -20423,7 +20423,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl19ComputeCirclePointsEdddPdS2_Pi.exit: ; preds =
 
 _ZN6NFALUT4CombEdd.exit.i.i:                      ; preds = %.lr.ph.i.i.i, %.preheader.i.i.i, %385
   %.012.i.i.i = phi double [ 0.000000e+00, %385 ], [ 1.000000e+00, %.preheader.i.i.i ], [ %391, %.lr.ph.i.i.i ]
-  %mul.i.i = fmul double %386, -3.000000e+00
+  %mul.i.i = fmul nnan double %386, -3.000000e+00
   %exp2.i.i = tail call double @exp2(double %mul.i.i)
   %394 = fmul double %.012.i.i.i, %exp2.i.i
   %395 = sub nsw i32 %.0220.lcssa, %.017.i.i
@@ -23513,7 +23513,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl15joinLastTwoArcsEP5MyArcRi(
   %51 = load i32, ptr %50, align 4, !tbaa !461
   %52 = sub nsw i32 %49, %51
   %53 = sitofp i32 %52 to double
-  %54 = fmul double %53, %53
+  %54 = fmul nnan double %53, %53
   %55 = tail call double @llvm.fmuladd.f64(double %47, double %47, double %54)
   %sqrt = tail call double @llvm.sqrt.f64(double %55)
   %56 = fcmp ogt double %sqrt, 1.000000e+01

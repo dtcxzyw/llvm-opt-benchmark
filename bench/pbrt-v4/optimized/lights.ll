@@ -2338,7 +2338,7 @@ _ZNK4pbrt6Tuple3INS_7Normal3EfEneENS1_IfEE.exit.thread: ; preds = %115
   %131 = fsub float 1.000000e+00, %130
   %132 = fcmp ogt float %131, 0.000000e+00
   %.sroa.speculated.i127 = select i1 %132, float %131, float 0.000000e+00
-  %sqrt.i128 = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i127)
+  %sqrt.i128 = tail call nnan float @llvm.sqrt.f32(float %.sroa.speculated.i127)
   %133 = fcmp ogt float %129, %.sroa.3.12.vec.extract
   %134 = fmul float %129, %.sroa.3.12.vec.extract
   %135 = fmul float %sqrt.i128, %sqrt.i118
@@ -3004,7 +3004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %70,
   %.fca.0.extract = extractvalue { <2 x float>, float } %51, 0
   %75 = fcmp ogt float %42, 0.000000e+00
   %76 = fdiv float %31, %38
-  %77 = fdiv float %42, 0x402921FB60000000
+  %77 = fdiv nnan float %42, 0x402921FB60000000
   %78 = fmul float %76, %77
   %.0 = select i1 %75, float %78, float %76
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -5995,13 +5995,13 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %_ZN4pbrt15SampledSp
   %73 = fdiv float %49, %72
   %74 = load float, ptr %15, align 4, !tbaa !232
   %75 = load float, ptr %16, align 4, !tbaa !232
-  %76 = fsub float 1.000000e+00, %71
+  %76 = fsub nnan float 1.000000e+00, %71
   %77 = fmul float %76, %74
   %78 = fmul float %71, %75
   %79 = fadd float %77, %78
   %80 = load float, ptr %17, align 8, !tbaa !257
   %81 = load float, ptr %18, align 8, !tbaa !257
-  %82 = fsub float 1.000000e+00, %73
+  %82 = fsub nnan float 1.000000e+00, %73
   %83 = fmul float %82, %80
   %84 = fmul float %73, %81
   %85 = fadd float %83, %84
@@ -7575,7 +7575,7 @@ define dso_local void @_ZNK4pbrt15ProjectionLight8SampleLeENS_6Point2IfEES2_RNS_
 _ZN4pbrtmlEfRKNS_15SampledSpectrumE.exit:         ; preds = %117
   %121 = fmul float %94, %97
   %122 = fmul float %16, %121
-  %123 = fmul float %87, %87
+  %123 = fmul nnan float %87, %87
   %124 = fmul float %87, %123
   %125 = fmul float %124, %99
   %126 = fdiv float %122, %125
@@ -8995,11 +8995,11 @@ _ZN4pbrt9TransformC2Ev.exit253:                   ; preds = %235
   %.sroa.423.0.extract.trunc = trunc nuw i64 %.sroa.423.0.extract.shift to i32
   %335 = sitofp i32 %.sroa.423.0.extract.trunc to float
   %336 = fdiv float %318, %335
-  %337 = fsub float 1.000000e+00, %334
+  %337 = fsub nnan float 1.000000e+00, %334
   %338 = fmul float %.sroa.0332.0.vec.extract, %337
   %339 = fmul float %.sroa.9.8.vec.extract, %334
   %340 = fadd float %339, %338
-  %341 = fsub float 1.000000e+00, %336
+  %341 = fsub nnan float 1.000000e+00, %336
   %342 = fmul float %.sroa.0332.4.vec.extract, %341
   %343 = fmul float %.sroa.9.12.vec.extract, %336
   %344 = fadd float %343, %342
@@ -14865,7 +14865,7 @@ _ZN4pstd8optionalIN4pbrt11ShapeSampleEEptEv.exit: ; preds = %6
   %93 = xor i64 %92, %91
   %94 = trunc i64 %93 to i32
   %95 = uitofp i32 %94 to float
-  %96 = fmul float %95, 0x3DF0000000000000
+  %96 = fmul nnan float %95, 0x3DF0000000000000
   %97 = fcmp ogt float %96, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -15087,7 +15087,7 @@ _ZNK4pbrt16DiffuseAreaLight11AlphaMaskedERKNS_11InteractionE.exit: ; preds = %44
   %61 = xor i64 %60, %59
   %62 = trunc i64 %61 to i32
   %63 = uitofp i32 %62 to float
-  %64 = fmul float %63, 0x3DF0000000000000
+  %64 = fmul nnan float %63, 0x3DF0000000000000
   %65 = fcmp ogt float %64, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -16410,7 +16410,7 @@ define dso_local void @_ZNK4pbrt16DiffuseAreaLight8SampleLeENS_6Point2IfEES2_RNS
   %68 = xor i64 %67, %66
   %69 = trunc i64 %68 to i32
   %70 = uitofp i32 %69 to float
-  %71 = fmul float %70, 0x3DF0000000000000
+  %71 = fmul nnan float %70, 0x3DF0000000000000
   %72 = fcmp ogt float %71, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -16432,10 +16432,10 @@ define dso_local void @_ZNK4pbrt16DiffuseAreaLight8SampleLeENS_6Point2IfEES2_RNS
   br i1 %79, label %80, label %111
 
 80:                                               ; preds = %78
-  %81 = fmul float %.sroa.0169.0.vec.extract, 2.000000e+00
+  %81 = fmul nnan float %.sroa.0169.0.vec.extract, 2.000000e+00
   %82 = fcmp ogt float %81, 0x3FEFFFFFE0000000
   %.sroa.speculated161 = select i1 %82, float 0x3FEFFFFFE0000000, float %81
-  %83 = fmul float %.sroa.speculated161, 2.000000e+00
+  %83 = fmul nnan float %.sroa.speculated161, 2.000000e+00
   %.sroa.0.4.vec.extract.i.i.i = extractelement <2 x float> %3, i64 1
   %84 = fmul float %.sroa.0.4.vec.extract.i.i.i, 2.000000e+00
   %85 = fadd float %83, -1.000000e+00
@@ -22375,7 +22375,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit.preheader:
 
 .lr.ph:                                           ; preds = %.preheader
   %28 = uitofp nneg i32 %.0138 to float
-  %29 = fadd float %28, 5.000000e-01
+  %29 = fadd nnan float %28, 5.000000e-01
   br label %75
 
 _ZN4pbrt15SampledSpectrumC2Ef.exit._crit_edge:    ; preds = %_ZN4pbrt15SampledSpectrumC2Ef.exit, %_ZN4pbrt15SampledSpectrumC2Ef.exit.preheader
@@ -22487,18 +22487,18 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit:               ; preds = %_ZN4pbrt15SampledSp
 
 76:                                               ; preds = %_ZN4pbrt3RGBixEi.exit
   %77 = uitofp nneg i32 %.038134 to float
-  %78 = fadd float %77, 5.000000e-01
+  %78 = fadd nnan float %77, 5.000000e-01
   %.sroa.0.0.copyload.i50 = load i64, ptr %13, align 4
   %.sroa.019.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i50 to i32
   %79 = sitofp i32 %.sroa.019.0.extract.trunc to float
-  %80 = fdiv float %78, %79
+  %80 = fdiv nnan float %78, %79
   %.sroa.318.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i50, 32
   %.sroa.318.0.extract.trunc = trunc nuw i64 %.sroa.318.0.extract.shift to i32
   %81 = sitofp i32 %.sroa.318.0.extract.trunc to float
-  %82 = fdiv float %29, %81
-  %83 = fmul float %80, 0x400921FB60000000
+  %82 = fdiv nnan float %29, %81
+  %83 = fmul nnan float %80, 0x400921FB60000000
   %84 = fadd float %83, 0xBFF921FB60000000
-  %85 = fmul float %82, 0x400921FB60000000
+  %85 = fmul nnan float %82, 0x400921FB60000000
   %86 = fadd float %85, 0xBFF921FB60000000
   %87 = call noundef float @tanf(float noundef %84) #39, !tbaa !86
   %88 = call noundef float @tanf(float noundef %86) #39, !tbaa !86
@@ -27938,7 +27938,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303: ; preds = %14
   %173 = load float, ptr %16, align 4, !tbaa !77
   %174 = fdiv float %173, %171
   %175 = fcmp ogt float %148, 0.000000e+00
-  %176 = fdiv float %148, 0x400921FB60000000
+  %176 = fdiv nnan float %148, 0x400921FB60000000
   %177 = fmul float %176, %174
   %storemerge259 = select i1 %175, float %177, float %174
   store float %storemerge259, ptr %16, align 4, !tbaa !77
@@ -28110,7 +28110,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit324: ; preds = %21
   %242 = load float, ptr %16, align 4, !tbaa !77
   %243 = fdiv float %242, %240
   %244 = fcmp ogt float %148, 0.000000e+00
-  %245 = fdiv float %148, 0x400921FB60000000
+  %245 = fdiv nnan float %148, 0x400921FB60000000
   %246 = fmul float %245, %243
   %storemerge = select i1 %244, float %246, float %243
   store float %storemerge, ptr %16, align 4, !tbaa !77
@@ -28720,7 +28720,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit348: ; preds = %.p
   %.sroa.016.0.extract.trunc = trunc i64 %.sroa.0.0.copyload.i.lcssa to i32
   %465 = mul nsw i32 %.sroa.343.0.extract.trunc.lcssa, %.sroa.016.0.extract.trunc
   %466 = sitofp i32 %465 to float
-  %467 = fdiv float 0x401921FB60000000, %466
+  %467 = fdiv nnan float 0x401921FB60000000, %466
   %468 = fmul float %.0210.lcssa, %467
   %469 = fdiv float %148, %468
   %470 = load float, ptr %16, align 4, !tbaa !77
@@ -47739,7 +47739,7 @@ _ZN4pstd8optionalIN4pbrt11ShapeSampleEED2Ev.exit: ; preds = %209, %_ZN4pstd8opti
   %236 = fmul float %.sroa.0464.0.vec.extract, %225
   %237 = fsub float 1.000000e+00, %236
   %238 = tail call noundef float @sqrtf(float noundef %237) #39, !tbaa !86
-  %239 = fmul float %225, 5.000000e-01
+  %239 = fmul nnan float %225, 5.000000e-01
   br label %240
 
 240:                                              ; preds = %235, %215
@@ -50597,7 +50597,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEED2Ev.exit115: ; preds = %171, %_ZN4
   %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i)
   %229 = fsub float 1.000000e+00, %sqrt.i
   %230 = fcmp olt float %226, 0x3F46742040000000
-  %231 = fmul float %226, 5.000000e-01
+  %231 = fmul nnan float %226, 5.000000e-01
   %.0 = select i1 %230, float %231, float %229
   %232 = fmul float %.0, 0x401921FB60000000
   %233 = fdiv float 1.000000e+00, %232
@@ -55581,7 +55581,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt8Cylinder27InteractionFromIntersect
   %64 = fadd float %62, %63
   %65 = fmul float %56, 0.000000e+00
   %66 = fadd float %65, %64
-  %67 = fmul float %35, %35
+  %67 = fmul ninf float %35, %35
   %68 = fneg float %67
   %69 = tail call noundef float @llvm.fma.f32(float %30, float %36, float %68)
   %70 = fneg float %35
@@ -55590,7 +55590,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt8Cylinder27InteractionFromIntersect
   %73 = fcmp oeq float %72, 0.000000e+00
   %74 = fdiv float 1.000000e+00, %72
   %75 = select i1 %73, float 0.000000e+00, float %74
-  %76 = fmul float %35, %66
+  %76 = fmul ninf float %35, %66
   %77 = fmul float %36, %61
   %78 = fsub float %76, %77
   %79 = fmul float %75, %78
@@ -74357,7 +74357,7 @@ _ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit.i.i
   %54 = load float, ptr %44, align 4, !tbaa !232
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %56 = load float, ptr %55, align 4, !tbaa !232
-  %57 = fsub float 1.000000e+00, %50
+  %57 = fsub nnan float 1.000000e+00, %50
   %58 = fmul float %54, %57
   %59 = fmul float %50, %56
   %60 = fadd float %58, %59
@@ -93648,7 +93648,7 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt24PortalImageInfinite
   %.val2 = load i64, ptr %1, align 8, !tbaa !21
   %11 = trunc i64 %.val2 to i32
   %12 = sitofp i32 %11 to float
-  %13 = fadd float %12, 5.000000e-01
+  %13 = fadd nnan float %12, 5.000000e-01
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %.sroa.238.0..sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 208
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 212
@@ -93666,14 +93666,14 @@ define internal void @"_ZNSt17_Function_handlerIFvlEZN4pbrt24PortalImageInfinite
   %.sroa.0.0.copyload.i333.i.i.i = phi i64 [ %.sroa.0.0.copyload.i330.i.i.i, %.lr.ph.i.i.i ], [ %.sroa.0.0.copyload.i.i.i.i, %98 ]
   %20 = trunc nuw nsw i64 %indvars.iv341.i.i.i to i32
   %21 = uitofp nneg i32 %20 to float
-  %22 = fadd float %21, 5.000000e-01
+  %22 = fadd nnan float %21, 5.000000e-01
   %23 = sitofp i32 %.sroa.033.0.extract.trunc334.i.i.i to float
-  %24 = fdiv float %22, %23
+  %24 = fdiv nnan float %22, %23
   %.sroa.3.0.extract.shift.i.i.i = lshr i64 %.sroa.0.0.copyload.i333.i.i.i, 32
   %.sroa.3.0.extract.trunc.i.i.i = trunc nuw i64 %.sroa.3.0.extract.shift.i.i.i to i32
   %25 = sitofp i32 %.sroa.3.0.extract.trunc.i.i.i to float
   %26 = fdiv float %13, %25
-  %27 = fmul float %24, 0x400921FB60000000
+  %27 = fmul nnan float %24, 0x400921FB60000000
   %28 = fadd float %27, 0xBFF921FB60000000
   %29 = fmul float %26, 0x400921FB60000000
   %30 = fadd float %29, 0xBFF921FB60000000
@@ -94661,7 +94661,7 @@ _ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEED2Ev.exit.i.i
   %53 = load float, ptr %43, align 4, !tbaa !232
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %55 = load float, ptr %54, align 4, !tbaa !232
-  %56 = fsub float 1.000000e+00, %49
+  %56 = fsub nnan float 1.000000e+00, %49
   %57 = fmul float %53, %56
   %58 = fmul float %49, %55
   %59 = fadd float %57, %58

@@ -216,7 +216,7 @@ define void @_ZNK22DDBalanceRegionHandler18closeRegionGpuImplEf27DdBalanceRegion
   %20 = add i64 %19, %16
   %21 = uitofp i64 %20 to float
   %22 = icmp eq i32 %2, 0
-  %23 = fmul float %21, 5.000000e-01
+  %23 = fmul nnan float %21, 5.000000e-01
   %spec.select = select i1 %22, float %23, float %21
   %24 = getelementptr inbounds nuw i8, ptr %.val.val, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !123

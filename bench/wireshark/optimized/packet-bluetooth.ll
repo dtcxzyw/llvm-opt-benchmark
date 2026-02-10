@@ -4929,7 +4929,7 @@ declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unna
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define hidden void @bluetooth_unit_0p625_ms(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 6.250000e-01
+  %4 = fmul nnan double %3, 6.250000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1272, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -4940,7 +4940,7 @@ declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define hidden void @bluetooth_unit_1p25_ms(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 1.250000e+00
+  %4 = fmul nnan double %3, 1.250000e+00
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1273, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -4948,7 +4948,7 @@ define hidden void @bluetooth_unit_1p25_ms(ptr noundef %0, i32 noundef %1) local
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define hidden void @bluetooth_unit_0p01_sec(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 1.000000e-02
+  %4 = fmul nnan double %3, 1.000000e-02
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1274, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -4956,7 +4956,7 @@ define hidden void @bluetooth_unit_0p01_sec(ptr noundef %0, i32 noundef %1) loca
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define hidden void @bluetooth_unit_0p125_ms(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 1.250000e-01
+  %4 = fmul nnan double %3, 1.250000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1275, double noundef %4, i32 noundef %1)
   ret void
 }

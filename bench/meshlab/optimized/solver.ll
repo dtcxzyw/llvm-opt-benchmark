@@ -620,7 +620,7 @@ define noundef double @_ZN6SolverclEiPd(ptr noundef nonnull align 8 dereferencea
   %56 = sitofp i32 %55 to float
   %57 = call noundef i32 @_ZNK6QColor5greenEv(ptr noundef nonnull align 4 dereferenceable(14) %5) #23
   %58 = sitofp i32 %57 to float
-  %59 = fmul float %58, 0x3FE2E147A0000000
+  %59 = fmul nnan float %58, 0x3FE2E147A0000000
   %60 = call float @llvm.fmuladd.f32(float %56, float 0x3FD3333340000000, float %59)
   %61 = call noundef i32 @_ZNK6QColor4blueEv(ptr noundef nonnull align 4 dereferenceable(14) %5) #23
   %62 = sitofp i32 %61 to float
@@ -2470,7 +2470,7 @@ define linkonce_odr noundef double @_Z10min_newuoaId6SolverET_iPS1_RT0_S1_S1_i(i
   %.040896.i.i.i = phi i32 [ 0, %._crit_edge89.i.i.i ], [ %.1409.i.i.i, %667 ]
   %.895.i.i.i = phi i32 [ 1, %._crit_edge89.i.i.i ], [ %668, %667 ]
   %652 = uitofp nneg i32 %.895.i.i.i to double
-  %653 = fmul double %652, 0x3FC015BF9217271A
+  %653 = fmul nnan double %652, 0x3FC015BF9217271A
   %654 = call double @cos(double noundef %653) #23
   %655 = call double @sin(double noundef %653) #23
   %656 = call double @llvm.fmuladd.f64(double %648, double %654, double %.0403.lcssa.i.i.i)
@@ -3482,7 +3482,7 @@ _ZL7biglag_Id6SolverEiiiPT_S2_S2_S2_PiS3_S3_S2_S2_S2_S2_S2_S2_S2_S2_RT0_.exit.i.
   %.0876163.i.i.i = phi i32 [ 0, %1072 ], [ %.1877.i.i.i, %1153 ]
   %.10908162.i.i.i = phi i32 [ 1, %1072 ], [ %1154, %1153 ]
   %1118 = uitofp nneg i32 %.10908162.i.i.i to double
-  %1119 = fmul double %1118, 0x3FC015BF9217271A
+  %1119 = fmul nnan double %1118, 0x3FC015BF9217271A
   %1120 = call double @cos(double noundef %1119) #23
   store double %1120, ptr %171, align 8
   %1121 = call double @sin(double noundef %1119) #23
@@ -5126,7 +5126,7 @@ define linkonce_odr noundef i32 @_Z7trsapp_IdEiiiPT_S1_S1_S1_S1_S1_S1_S1_S1_S1_S
   %.0393532 = phi i32 [ 0, %._crit_edge527 ], [ %.1394, %179 ]
   %.7531 = phi i32 [ 1, %._crit_edge527 ], [ %180, %179 ]
   %166 = uitofp nneg i32 %.7531 to double
-  %167 = fmul double %166, 0x3FC015BF9217271A
+  %167 = fmul nnan double %166, 0x3FC015BF9217271A
   %168 = tail call double @cos(double noundef %167) #23
   %169 = tail call double @sin(double noundef %167) #23
   %170 = tail call double @llvm.fmuladd.f64(double %163, double %168, double %.0377.ph)
@@ -5391,7 +5391,7 @@ define noundef i32 @_ZN6Solver9iterativeEP8AlignSetP10MutualInfoRN3vcg4ShotIfNS4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %14 = load i32, ptr %13, align 8
   %15 = sitofp i32 %14 to double
-  %16 = fmul double %15, 2.500000e-01
+  %16 = fmul nnan double %15, 2.500000e-01
   %17 = fptosi double %16 to i32
   store i32 %17, ptr %13, align 8
   store double 6.000000e+00, ptr %9, align 8

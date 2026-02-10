@@ -512,7 +512,7 @@ define internal noundef i32 @filter_channel(ptr noundef readonly captures(none) 
   %32 = shl nsw i32 %10, 2
   %33 = or disjoint i32 %32, 2
   %34 = sitofp i32 %33 to float
-  %35 = fdiv nsz float 6.553600e+04, %34
+  %35 = fdiv nnan nsz float 6.553600e+04, %34
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %37 = load float, ptr %36, align 8, !tbaa !73
   %38 = tail call nsz float @llvm.sqrt.f32(float %37)

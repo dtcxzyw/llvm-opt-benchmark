@@ -3168,7 +3168,7 @@ pgstat_snapshot_update_parameters.exit:           ; preds = %pgstat_snapshot_com
   store i32 %30, ptr %31, align 4
   %32 = icmp eq i64 %.0.i.i.i, 4294967296
   %33 = uitofp i64 %.0.i.i.i to double
-  %34 = fmul double %33, 9.000000e-01
+  %34 = fmul nnan double %33, 9.000000e-01
   %35 = fptoui double %34 to i32
   %.sink.i = select i1 %32, i32 -85899346, i32 %35
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16

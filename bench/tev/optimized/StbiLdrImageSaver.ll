@@ -3935,18 +3935,18 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19s
   %172 = getelementptr inbounds i8, ptr %4, i64 %171
   %173 = load i8, ptr %172, align 1
   %174 = uitofp i8 %173 to float
-  %175 = fmul float %169, 0x3FE2C8B440000000
+  %175 = fmul nnan float %169, 0x3FE2C8B440000000
   %176 = call float @llvm.fmuladd.f32(float %164, float 0x3FD322D0E0000000, float %175)
   %177 = call float @llvm.fmuladd.f32(float %174, float 0x3FBD2F1AA0000000, float %176)
   %178 = fadd float %177, -1.280000e+02
   %179 = getelementptr inbounds float, ptr %22, i64 %indvars.iv249
   store float %178, ptr %179, align 4
-  %180 = fmul float %169, 0xBFD5335D20000000
+  %180 = fmul nnan float %169, 0xBFD5335D20000000
   %181 = call float @llvm.fmuladd.f32(float %164, float 0xBFC59945C0000000, float %180)
   %182 = call float @llvm.fmuladd.f32(float %174, float 5.000000e-01, float %181)
   %183 = getelementptr inbounds float, ptr %23, i64 %indvars.iv249
   store float %182, ptr %183, align 4
-  %184 = fmul float %169, 0xBFDACBD120000000
+  %184 = fmul nnan float %169, 0xBFDACBD120000000
   %185 = call float @llvm.fmuladd.f32(float %164, float 5.000000e-01, float %184)
   %186 = call float @llvm.fmuladd.f32(float %174, float 0xBFB4D0BB60000000, float %185)
   %187 = getelementptr inbounds float, ptr %24, i64 %indvars.iv249
@@ -4007,18 +4007,18 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL19stbi_write_jpg_coreP19s
   %206 = getelementptr inbounds i8, ptr %4, i64 %205
   %207 = load i8, ptr %206, align 1
   %208 = uitofp i8 %207 to float
-  %209 = fmul float %203, 0x3FE2C8B440000000
+  %209 = fmul nnan float %203, 0x3FE2C8B440000000
   %210 = call float @llvm.fmuladd.f32(float %198, float 0x3FD322D0E0000000, float %209)
   %211 = call float @llvm.fmuladd.f32(float %208, float 0x3FBD2F1AA0000000, float %210)
   %212 = fadd float %211, -1.280000e+02
   %213 = getelementptr inbounds float, ptr %22, i64 %indvars.iv255
   store float %212, ptr %213, align 4
-  %214 = fmul float %203, 0xBFD5335D20000000
+  %214 = fmul nnan float %203, 0xBFD5335D20000000
   %215 = call float @llvm.fmuladd.f32(float %198, float 0xBFC59945C0000000, float %214)
   %216 = call float @llvm.fmuladd.f32(float %208, float 5.000000e-01, float %215)
   %217 = getelementptr inbounds float, ptr %23, i64 %indvars.iv255
   store float %216, ptr %217, align 4
-  %218 = fmul float %203, 0xBFDACBD120000000
+  %218 = fmul nnan float %203, 0xBFDACBD120000000
   %219 = call float @llvm.fmuladd.f32(float %198, float 5.000000e-01, float %218)
   %220 = call float @llvm.fmuladd.f32(float %208, float 0xBFB4D0BB60000000, float %219)
   %221 = getelementptr inbounds float, ptr %24, i64 %indvars.iv255

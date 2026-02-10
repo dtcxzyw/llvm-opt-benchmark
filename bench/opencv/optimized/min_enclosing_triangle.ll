@@ -908,7 +908,7 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %519 = call noundef double @llvm.fabs.f64(double %518)
   %520 = fcmp ogt double %519, 1.000000e+00
   %.sroa.speculated2.i.i.i.i.i.i.i.i = select i1 %520, double %519, double 1.000000e+00
-  %521 = fmul double %.sroa.speculated2.i.i.i.i.i.i.i.i, 1.000000e-05
+  %521 = fmul nnan double %.sroa.speculated2.i.i.i.i.i.i.i.i, 1.000000e-05
   %522 = fcmp ugt double %519, %521
   br i1 %522, label %523, label %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i
 
@@ -924,7 +924,7 @@ _ZN20minEnclosingTriangleL18searchForBTangencyERKSt6vectorIN2cv6Point_IfEESaIS3_
   %530 = call noundef double @llvm.fabs.f64(double %529)
   %531 = fcmp ogt double %530, 1.000000e+00
   %.sroa.speculated2.i.i.i29.i.i.i.i.i = select i1 %531, double %530, double 1.000000e+00
-  %532 = fmul double %.sroa.speculated2.i.i.i29.i.i.i.i.i, 1.000000e-05
+  %532 = fmul nnan double %.sroa.speculated2.i.i.i29.i.i.i.i.i, 1.000000e-05
   %533 = fcmp ugt double %530, %532
   br i1 %533, label %534, label %_ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjjjRjRS3_S9_S9_S9_RKS3_SB_.exit.i.i.i
 
@@ -1186,7 +1186,7 @@ _ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjj
   %673 = call noundef double @llvm.fabs.f64(double %672)
   %674 = fcmp ogt double %673, 1.000000e+00
   %.sroa.speculated2.i.i.i.i63.i.i.i = select i1 %674, double %673, double 1.000000e+00
-  %675 = fmul double %.sroa.speculated2.i.i.i.i63.i.i.i, 1.000000e-05
+  %675 = fmul nnan double %.sroa.speculated2.i.i.i.i63.i.i.i, 1.000000e-05
   %676 = fcmp ugt double %673, %675
   br i1 %676, label %677, label %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i
 
@@ -1217,7 +1217,7 @@ _ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjj
   %701 = call noundef double @llvm.fabs.f64(double %700)
   %702 = fcmp ogt double %701, 1.000000e+00
   %.sroa.speculated2.i.i.i71.i.i.i.i = select i1 %702, double %701, double 1.000000e+00
-  %703 = fmul double %.sroa.speculated2.i.i.i71.i.i.i.i, 1.000000e-05
+  %703 = fmul nnan double %.sroa.speculated2.i.i.i71.i.i.i.i, 1.000000e-05
   %704 = fcmp ugt double %701, %703
   br i1 %704, label %705, label %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i
 
@@ -1241,7 +1241,7 @@ _ZN20minEnclosingTriangleL13updateSidesBAERKSt6vectorIN2cv6Point_IfEESaIS3_EEjjj
   %722 = call noundef double @llvm.fabs.f64(double %721)
   %723 = fcmp ogt double %722, 1.000000e+00
   %.sroa.speculated2.i.i.i73.i.i.i.i = select i1 %723, double %722, double 1.000000e+00
-  %724 = fmul double %.sroa.speculated2.i.i.i73.i.i.i.i, 1.000000e-05
+  %724 = fmul nnan double %.sroa.speculated2.i.i.i73.i.i.i.i, 1.000000e-05
   %725 = fcmp ugt double %722, %724
   br i1 %725, label %726, label %_ZN20minEnclosingTriangleL34updateMinimumAreaEnclosingTriangleERSt6vectorIN2cv6Point_IfEESaIS3_EERdRKS3_S9_S9_.exit.i.i.i
 
@@ -2164,7 +2164,7 @@ define internal fastcc noundef zeroext i1 @_ZN20minEnclosingTriangleL27findGamma
   %63 = tail call noundef double @llvm.fabs.f64(double %62)
   %64 = fcmp ogt double %63, 1.000000e+00
   %.sroa.speculated2.i.i.i.i = select i1 %64, double %63, double 1.000000e+00
-  %65 = fmul double %.sroa.speculated2.i.i.i.i, 1.000000e-05
+  %65 = fmul nnan double %.sroa.speculated2.i.i.i.i, 1.000000e-05
   %66 = fcmp ugt double %63, %65
   br i1 %66, label %_ZN20minEnclosingTriangleL20areIntersectingLinesERKSt6vectorIdSaIdEES4_dRN2cv6Point_IfEES8_.exit.thread, label %_ZN20minEnclosingTriangleL20areIntersectingLinesERKSt6vectorIdSaIdEES4_dRN2cv6Point_IfEES8_.exit
 
@@ -2732,7 +2732,7 @@ _ZN20minEnclosingTriangleL11lessOrEqualEdd.exit:  ; preds = %11
   %.sroa.speculated2.i.i.i = select i1 %16, double %15, double 1.000000e+00
   %17 = fcmp olt double %.sroa.speculated2.i.i.i, 3.600000e+02
   %.sroa.speculated.i.i.i = select i1 %17, double 3.600000e+02, double %.sroa.speculated2.i.i.i
-  %18 = fmul double %.sroa.speculated.i.i.i, 1.000000e-05
+  %18 = fmul nnan double %.sroa.speculated.i.i.i, 1.000000e-05
   %19 = fcmp ugt double %14, %18
   br i1 %19, label %20, label %_ZN20minEnclosingTriangleL14isAngleBetweenEddd.exit
 
@@ -2746,7 +2746,7 @@ _ZN20minEnclosingTriangleL11lessOrEqualEdd.exit:  ; preds = %11
   %25 = tail call noundef double @llvm.fabs.f64(double %0)
   %26 = fcmp ogt double %25, 1.000000e+00
   %.sroa.speculated.i.i.i25 = select i1 %26, double %25, double 1.000000e+00
-  %27 = fmul double %.sroa.speculated.i.i.i25, 1.000000e-05
+  %27 = fmul nnan double %.sroa.speculated.i.i.i25, 1.000000e-05
   %28 = fcmp ole double %24, %27
   br label %_ZN20minEnclosingTriangleL11lessOrEqualEdd.exit26
 
@@ -2772,7 +2772,7 @@ _ZN20minEnclosingTriangleL11lessOrEqualEdd.exit29: ; preds = %34
   %.sroa.speculated2.i.i.i27 = select i1 %39, double %38, double 1.000000e+00
   %40 = fcmp olt double %.sroa.speculated2.i.i.i27, 3.600000e+02
   %.sroa.speculated.i.i.i28 = select i1 %40, double 3.600000e+02, double %.sroa.speculated2.i.i.i27
-  %41 = fmul double %.sroa.speculated.i.i.i28, 1.000000e-05
+  %41 = fmul nnan double %.sroa.speculated.i.i.i28, 1.000000e-05
   %42 = fcmp ugt double %37, %41
   br i1 %42, label %43, label %_ZN20minEnclosingTriangleL14isAngleBetweenEddd.exit
 
@@ -2786,7 +2786,7 @@ _ZN20minEnclosingTriangleL11lessOrEqualEdd.exit29: ; preds = %34
   %48 = tail call noundef double @llvm.fabs.f64(double %0)
   %49 = fcmp ogt double %48, 1.000000e+00
   %.sroa.speculated.i.i.i30 = select i1 %49, double %48, double 1.000000e+00
-  %50 = fmul double %.sroa.speculated.i.i.i30, 1.000000e-05
+  %50 = fmul nnan double %.sroa.speculated.i.i.i30, 1.000000e-05
   %51 = fcmp ole double %47, %50
   br label %_ZN20minEnclosingTriangleL11lessOrEqualEdd.exit31
 

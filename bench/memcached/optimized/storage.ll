@@ -3198,7 +3198,7 @@ define dso_local ptr @storage_init(ptr noundef %0) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8, !tbaa !230
   %8 = load i32, ptr %7, align 8, !tbaa !213
   %9 = uitofp i32 %8 to double
-  %10 = fmul double %9, 1.000000e-02
+  %10 = fmul nnan double %9, 1.000000e-02
   %11 = fptoui double %10 to i32
   store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 300), align 4, !tbaa !217
   store i32 %11, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 304), align 8, !tbaa !218

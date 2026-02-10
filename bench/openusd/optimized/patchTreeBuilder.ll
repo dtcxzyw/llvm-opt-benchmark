@@ -9813,10 +9813,10 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1
   %67 = phi i1 [ %52, %.loopexit ], [ undef, %26 ]
   %68 = select i1 %66, double 4.700000e-01, double 2.500000e-01
   %69 = select i1 %67, double 4.700000e-01, double 2.500000e-01
-  %70 = fadd double %68, %69
-  %71 = fmul double %70, 5.000000e-01
-  %72 = tail call double @llvm.fmuladd.f64(double %71, double -2.000000e+00, double 1.000000e+00)
-  %73 = fmul double %72, 5.000000e-01
+  %70 = fadd nnan double %68, %69
+  %71 = fmul nnan double %70, 5.000000e-01
+  %72 = tail call nnan double @llvm.fmuladd.f64(double %71, double -2.000000e+00, double 1.000000e+00)
+  %73 = fmul nnan double %72, 5.000000e-01
   br label %.loopexit44.sink.split.sink.split
 
 .loopexit44.sink.split.sink.split:                ; preds = %.loopexit, %.loopexit.thread
@@ -10543,8 +10543,8 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
 
 36:                                               ; preds = %16
   %37 = sitofp i32 %24 to double
-  %38 = fdiv double 2.000000e+00, %37
-  %39 = fmul double %38, 1.250000e-01
+  %38 = fdiv nnan double 2.000000e+00, %37
+  %39 = fmul nnan double %38, 1.250000e-01
   %40 = icmp sgt i32 %24, 0
   br i1 %40, label %.lr.ph.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_.exit
 
@@ -10654,8 +10654,8 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
 
 93:                                               ; preds = %.thread55
   %94 = sitofp i32 %79 to double
-  %95 = fdiv double 2.000000e+00, %94
-  %96 = fmul double %95, 1.250000e-01
+  %95 = fdiv nnan double 2.000000e+00, %94
+  %96 = fmul nnan double %95, 1.250000e-01
   %97 = icmp sgt i32 %79, 0
   br i1 %97, label %.lr.ph.i41, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_.exit46
 
@@ -10757,7 +10757,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
 18:                                               ; preds = %10
   %19 = sitofp i32 %12 to double
   %20 = fdiv double 1.000000e+00, %19
-  %21 = fmul double %20, 0x401921FB54442D18
+  %21 = fmul nnan double %20, 0x401921FB54442D18
   %22 = tail call double @cos(double noundef %21) #19
   %23 = tail call double @llvm.fmuladd.f64(double %22, double 2.500000e-01, double 3.750000e-01)
   %24 = fneg double %23
@@ -10884,7 +10884,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal15VertexInterface19GetSharpnessPerEdgeEPf.ex
 85:                                               ; preds = %77
   %86 = sitofp i32 %79 to double
   %87 = fdiv double 1.000000e+00, %86
-  %88 = fmul double %87, 0x401921FB54442D18
+  %88 = fmul nnan double %87, 0x401921FB54442D18
   %89 = call double @cos(double noundef %88) #19
   %90 = call double @llvm.fmuladd.f64(double %89, double 2.500000e-01, double 3.750000e-01)
   %91 = fneg double %90
@@ -11056,7 +11056,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignCreaseMaskForVer
 171:                                              ; preds = %164
   %172 = sitofp i32 %166 to double
   %173 = fdiv double 1.000000e+00, %172
-  %174 = fmul double %173, 0x401921FB54442D18
+  %174 = fmul nnan double %173, 0x401921FB54442D18
   %175 = call double @cos(double noundef %174) #19
   %176 = call double @llvm.fmuladd.f64(double %175, double 2.500000e-01, double 3.750000e-01)
   %177 = fneg double %176
@@ -11954,10 +11954,10 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE1
   %67 = phi i1 [ %52, %.loopexit ], [ undef, %26 ]
   %68 = select i1 %66, float 0x3FDE147AE0000000, float 2.500000e-01
   %69 = select i1 %67, float 0x3FDE147AE0000000, float 2.500000e-01
-  %70 = fadd float %68, %69
-  %71 = fmul float %70, 5.000000e-01
-  %72 = tail call float @llvm.fmuladd.f32(float %71, float -2.000000e+00, float 1.000000e+00)
-  %73 = fmul float %72, 5.000000e-01
+  %70 = fadd nnan float %68, %69
+  %71 = fmul nnan float %70, 5.000000e-01
+  %72 = tail call nnan float @llvm.fmuladd.f32(float %71, float -2.000000e+00, float 1.000000e+00)
+  %73 = fmul nnan float %72, 5.000000e-01
   br label %.loopexit44.sink.split.sink.split
 
 .loopexit44.sink.split.sink.split:                ; preds = %.loopexit, %.loopexit.thread
@@ -12590,8 +12590,8 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
 
 36:                                               ; preds = %16
   %37 = sitofp i32 %24 to float
-  %38 = fdiv float 2.000000e+00, %37
-  %39 = fmul float %38, 1.250000e-01
+  %38 = fdiv nnan float 2.000000e+00, %37
+  %39 = fmul nnan float %38, 1.250000e-01
   %40 = icmp sgt i32 %24, 0
   br i1 %40, label %.lr.ph.i, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit
 
@@ -12701,8 +12701,8 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
 
 93:                                               ; preds = %.thread55
   %94 = sitofp i32 %79 to float
-  %95 = fdiv float 2.000000e+00, %94
-  %96 = fmul float %95, 1.250000e-01
+  %95 = fdiv nnan float 2.000000e+00, %94
+  %96 = fmul nnan float %95, 1.250000e-01
   %97 = icmp sgt i32 %79, 0
   br i1 %97, label %.lr.ph.i41, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit46
 
@@ -12803,7 +12803,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
 18:                                               ; preds = %10
   %19 = sitofp i32 %12 to double
   %20 = fdiv double 1.000000e+00, %19
-  %21 = fmul double %20, 0x401921FB54442D18
+  %21 = fmul nnan double %20, 0x401921FB54442D18
   %22 = tail call double @cos(double noundef %21) #19
   %23 = tail call double @llvm.fmuladd.f64(double %22, double 2.500000e-01, double 3.750000e-01)
   %24 = fneg double %23
@@ -12933,7 +12933,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr8internal15VertexInterface19GetSharpnessPerEdgeEPf.ex
 88:                                               ; preds = %80
   %89 = sitofp i32 %82 to double
   %90 = fdiv double 1.000000e+00, %89
-  %91 = fmul double %90, 0x401921FB54442D18
+  %91 = fmul nnan double %90, 0x401921FB54442D18
   %92 = call double @cos(double noundef %91) #19
   %93 = call double @llvm.fmuladd.f64(double %92, double 2.500000e-01, double 3.750000e-01)
   %94 = fneg double %93
@@ -13108,7 +13108,7 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE25assignCreaseMaskForVer
 177:                                              ; preds = %170
   %178 = sitofp i32 %172 to double
   %179 = fdiv double 1.000000e+00, %178
-  %180 = fmul double %179, 0x401921FB54442D18
+  %180 = fmul nnan double %179, 0x401921FB54442D18
   %181 = call double @cos(double noundef %180) #19
   %182 = call double @llvm.fmuladd.f64(double %181, double 2.500000e-01, double 3.750000e-01)
   %183 = fneg double %182

@@ -3789,13 +3789,13 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit470:       ; preds = %_ZNSt10filesystem7_
   br i1 %exitcond136.not.i, label %._crit_edge.i, label %.lr.ph104.i, !llvm.loop !122
 
 ._crit_edge.i:                                    ; preds = %.lr.ph104.i, %1714
-  %1722 = fmul float %.378107.i, 1.000000e+01
-  %1723 = fmul float %.382106.i, 1.000000e+01
+  %1722 = fmul nnan float %.378107.i, 1.000000e+01
+  %1723 = fmul nnan float %.382106.i, 1.000000e+01
   %1724 = call noundef float @llvm.fabs.f32(float %1722)
   %1725 = fcmp olt float %1724, 5.000000e-01
   %1726 = call float @llvm.fabs.f32(float %1723)
   %1727 = fcmp olt float %1726, 5.000000e-01
-  %or.cond.i = and i1 %1725, %1727
+  %or.cond.i = select i1 %1725, i1 %1727, i1 false
   br i1 %or.cond.i, label %1714, label %.critedge.preheader.i, !llvm.loop !123
 
 .critedge.i:                                      ; preds = %.critedge.i, %.lr.ph110.i

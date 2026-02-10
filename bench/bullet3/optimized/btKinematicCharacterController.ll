@@ -2515,7 +2515,7 @@ define dso_local void @_ZN30btKinematicCharacterController17setLinearVelocityERK
   %34 = tail call noundef float @acosf(float noundef %.1.i) #29, !tbaa !54
   %35 = fsub float 0x3FF921FB60000000, %34
   %36 = tail call noundef float @sinf(float noundef %35) #29, !tbaa !54
-  %sqrt.i = tail call noundef float @llvm.sqrt.f32(float %11)
+  %sqrt.i = tail call nnan float @llvm.sqrt.f32(float %11)
   %37 = fmul float %sqrt.i, %36
   %38 = fmul float %22, %37
   %39 = fmul float %24, %37
@@ -3367,7 +3367,7 @@ _ZNK9btVector3eqERKS_.exit.thread:                ; preds = %2, %16, %_ZNK9btVec
   br i1 %73, label %74, label %81
 
 74:                                               ; preds = %71
-  %75 = fmul float %62, %62
+  %75 = fmul nnan float %62, %62
   %76 = tail call float @llvm.fmuladd.f32(float %61, float %61, float %75)
   %sqrt.i.i5.i = tail call float @llvm.sqrt.f32(float %76)
   %77 = fdiv float 1.000000e+00, %sqrt.i.i5.i
@@ -3727,7 +3727,7 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_Z25shortestArcQuatN
   br i1 %36, label %37, label %44
 
 37:                                               ; preds = %34
-  %38 = fmul float %28, %28
+  %38 = fmul nnan float %28, %28
   %39 = tail call float @llvm.fmuladd.f32(float %27, float %27, float %38)
   %sqrt.i.i5 = tail call float @llvm.sqrt.f32(float %39)
   %40 = fdiv float 1.000000e+00, %sqrt.i.i5

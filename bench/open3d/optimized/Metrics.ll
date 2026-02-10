@@ -2622,7 +2622,7 @@ _ZNK6open3d4core6Tensor11NumElementsEv.exit:      ; preds = %693
 
 _ZNK6open3d4core6Tensor11NumElementsEv.exit219:   ; preds = %696
   %707 = sitofp i64 %697 to double
-  %708 = fdiv double 1.000000e+02, %707
+  %708 = fdiv nnan double 1.000000e+02, %707
   %709 = fpext float %.039 to double
   %710 = fmul double %708, %709
   %711 = fptrunc double %710 to float
@@ -2669,7 +2669,7 @@ _ZNK6open3d4core6Tensor11NumElementsEv.exit223:   ; preds = %715
 
 728:                                              ; preds = %_ZNK6open3d4core6Tensor11NumElementsEv.exit223
   %729 = sitofp i64 %716 to double
-  %730 = fdiv double 1.000000e+02, %729
+  %730 = fdiv nnan double 1.000000e+02, %729
   %731 = fpext float %.038 to double
   %732 = fmul double %730, %731
   %733 = fptrunc double %732 to float

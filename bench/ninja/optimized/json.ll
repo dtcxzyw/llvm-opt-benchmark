@@ -29,7 +29,7 @@ define dso_local void @_Z16EncodeJSONStringRKNSt7__cxx1112basic_stringIcSt11char
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !10
   %7 = uitofp i64 %6 to double
-  %8 = fmul double %7, 1.200000e+00
+  %8 = fmul nnan double %7, 1.200000e+00
   %9 = fptoui double %8 to i64
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %9)
           to label %10 unwind label %13

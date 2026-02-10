@@ -955,7 +955,7 @@ define void @_ZN6icu_7715ChineseCalendar4rollE19UCalendarDateFieldsiR10UErrorCod
 29:                                               ; preds = %25
   %30 = load double, ptr @_ZN6icu_7718CalendarAstronomer13SYNODIC_MONTHE, align 8, !tbaa !30
   %31 = sitofp i32 %13 to double
-  %32 = fadd double %31, -5.000000e-01
+  %32 = fadd nnan double %31, -5.000000e-01
   %33 = fmul double %32, %30
   %34 = fptosi double %33 to i32
   %35 = sub nsw i32 %24, %34
@@ -2119,7 +2119,7 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZN6icu_7712_GLOBAL__N_114m
 
 9:                                                ; preds = %3
   %10 = sitofp i32 %1 to double
-  %11 = fmul double %10, 8.640000e+07
+  %11 = fmul nnan double %10, 8.640000e+07
   %.not11.i = icmp eq ptr %0, null
   br i1 %.not11.i, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread, label %12
 
@@ -2283,7 +2283,7 @@ define internal fastcc noundef i32 @_ZN6icu_7712_GLOBAL__N_114winterSolsticeERKN
 
 23:                                               ; preds = %19
   %24 = sitofp i64 %20 to double
-  %25 = fmul double %24, 8.640000e+07
+  %25 = fmul nnan double %24, 8.640000e+07
   %.not11.i = icmp eq ptr %11, null
   br i1 %.not11.i, label %_ZN6icu_7712_GLOBAL__N_112daysToMillisEPKNS_8TimeZoneEdR10UErrorCode.exit.thread, label %26
 

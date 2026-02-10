@@ -20085,11 +20085,11 @@ define linkonce_odr hidden void @_ZN7mitsuba9TransformINS_5PointIdLm4EEEE6rotate
   %11 = and i64 %10, 4294967294
   %12 = uitofp nneg i64 %11 to double
   %13 = bitcast double %6 to i64
-  %14 = fmul contract double %12, 0x3FE921FB40000000
+  %14 = fmul nnan contract double %12, 0x3FE921FB40000000
   %15 = fsub contract double %7, %14
-  %16 = fmul contract double %12, 0x3E64442D00000000
+  %16 = fmul nnan contract double %12, 0x3E64442D00000000
   %17 = fsub contract double %15, %16
-  %18 = fmul contract double %12, 0x3CE8469898CC5170
+  %18 = fmul nnan contract double %12, 0x3CE8469898CC5170
   %19 = fsub contract double %17, %18
   %20 = fmul contract double %19, %19
   %21 = fcmp contract oeq double %7, 0x7FF0000000000000

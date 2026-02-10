@@ -6854,7 +6854,7 @@ entry:
   br i1 %cmp, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %entry
-  %mul = fmul double %1, %1
+  %mul = fmul nnan double %1, %1
   %k_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %2 = load double, ptr %k_, align 8, !tbaa !79
   %mul2 = fmul double %2, 2.000000e+00

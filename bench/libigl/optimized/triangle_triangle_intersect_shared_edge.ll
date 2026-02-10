@@ -115,7 +115,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl39triangle_triangle_interse
   br i1 %94, label %95, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS1_IKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EELi1ELi3ELb0EEEE16stableNormalizedEv.exit
 
 95:                                               ; preds = %7
-  %.scalar.i = tail call double @llvm.sqrt.f64(double %93)
+  %.scalar.i = tail call nnan double @llvm.sqrt.f64(double %93)
   %96 = fmul double %86, %.scalar.i
   %.sroa.6.16.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %96, i64 0
   %97 = shufflevector <2 x double> %.sroa.6.16.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
@@ -292,7 +292,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl39triangle_triangle_interse
   br i1 %93, label %94, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS1_IKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EELi1ELi3ELb0EEEE16stableNormalizedEv.exit
 
 94:                                               ; preds = %7
-  %.scalar.i = tail call double @llvm.sqrt.f64(double %92)
+  %.scalar.i = tail call nnan double @llvm.sqrt.f64(double %92)
   %95 = fmul double %85, %.scalar.i
   %.sroa.6.16.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %95, i64 0
   %96 = shufflevector <2 x double> %.sroa.6.16.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer
@@ -471,7 +471,7 @@ define weak_odr dso_local noundef zeroext i1 @_ZN3igl39triangle_triangle_interse
   br i1 %94, label %95, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddEEKNS1_IKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1ELin1ELb0EEESA_EELi1ELi3ELb0EEEE16stableNormalizedEv.exit
 
 95:                                               ; preds = %7
-  %.scalar.i = tail call double @llvm.sqrt.f64(double %93)
+  %.scalar.i = tail call nnan double @llvm.sqrt.f64(double %93)
   %96 = fmul double %86, %.scalar.i
   %.sroa.6.16.vec.insert.i.i.i.i.i.i.i = insertelement <2 x double> poison, double %96, i64 0
   %97 = shufflevector <2 x double> %.sroa.6.16.vec.insert.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> zeroinitializer

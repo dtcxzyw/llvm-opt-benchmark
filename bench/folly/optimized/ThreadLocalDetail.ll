@@ -5529,7 +5529,7 @@ define noalias noundef ptr @_ZN5folly18threadlocal_detail14StaticMetaBase10reall
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %7 = add i32 %1, 5
   %8 = uitofp i32 %7 to double
-  %9 = fmul double %8, 1.100000e+00
+  %9 = fmul nnan double %8, 1.100000e+00
   %10 = fptoui double %9 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !104
@@ -5537,7 +5537,7 @@ define noalias noundef ptr @_ZN5folly18threadlocal_detail14StaticMetaBase10reall
   br i1 %.not, label %18, label %13
 
 13:                                               ; preds = %3
-  %14 = fmul double %8, 1.700000e+00
+  %14 = fmul nnan double %8, 1.700000e+00
   %15 = fptoui double %14 to i64
   %16 = load atomic i32, ptr %12 monotonic, align 4
   %17 = zext i32 %16 to i64

@@ -4817,7 +4817,7 @@ _ZN7QStringD2Ev.exit238:                          ; preds = %303, %_ZN9QtPrivate
   %.0120271 = phi i32 [ %345, %.lr.ph.split ], [ 0, %.lr.ph ]
   call void @_Z20MoveCloudMeshForwardP9MeshModelS0_N3vcg6Point3IfEES3_fffi(ptr noundef nonnull %217, ptr noundef nonnull %192, <2 x float> %.fca.0.extract, float %.fca.1.extract, <2 x float> %.fca.0.extract22, float %.fca.1.extract23, float noundef %279, float noundef %253, float noundef 1.000000e+00, i32 noundef 1)
   %341 = uitofp nneg i32 %.0120271 to float
-  %342 = fmul float %338, %341
+  %342 = fmul nnan float %338, %341
   %343 = fptosi float %342 to i32
   %344 = call noundef zeroext i1 %6(i32 noundef %343, ptr noundef nonnull @.str.65)
   %345 = add nuw nsw i32 %.0120271, 1

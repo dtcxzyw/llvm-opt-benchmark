@@ -92,12 +92,12 @@ define internal void @_freetype_outline_cb(ptr noundef %0) #0 {
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %17 = load i32, ptr %16, align 4, !tbaa !14
   %18 = sitofp i32 %17 to float
-  %19 = fmul float %18, 1.562500e-02
+  %19 = fmul nnan float %18, 1.562500e-02
   store float %19, ptr %2, align 4, !tbaa !15
   %20 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %21 = load i32, ptr %20, align 4, !tbaa !18
   %22 = sitofp i32 %21 to float
-  %23 = fmul float %22, -1.562500e-02
+  %23 = fmul nnan float %22, -1.562500e-02
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %23, ptr %24, align 4, !tbaa !19
   %25 = load ptr, ptr %7, align 8, !tbaa !8
@@ -110,12 +110,12 @@ define internal void @_freetype_outline_cb(ptr noundef %0) #0 {
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %28 = load i32, ptr %27, align 4, !tbaa !14
   %29 = sitofp i32 %28 to float
-  %30 = fmul float %29, 1.562500e-02
+  %30 = fmul nnan float %29, 1.562500e-02
   store float %30, ptr %3, align 4, !tbaa !15
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %32 = load i32, ptr %31, align 4, !tbaa !18
   %33 = sitofp i32 %32 to float
-  %34 = fmul float %33, -1.562500e-02
+  %34 = fmul nnan float %33, -1.562500e-02
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store float %34, ptr %35, align 4, !tbaa !19
   %36 = load ptr, ptr %7, align 8, !tbaa !8
@@ -128,36 +128,36 @@ define internal void @_freetype_outline_cb(ptr noundef %0) #0 {
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !20
   %40 = sitofp i32 %39 to float
-  %41 = fmul float %40, 1.562500e-02
+  %41 = fmul nnan float %40, 1.562500e-02
   store float %41, ptr %4, align 16, !tbaa !15
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %43 = load i32, ptr %42, align 4, !tbaa !21
   %44 = sitofp i32 %43 to float
-  %45 = fmul float %44, -1.562500e-02
+  %45 = fmul nnan float %44, -1.562500e-02
   %46 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %45, ptr %46, align 4, !tbaa !19
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 28
   %48 = load i32, ptr %47, align 4, !tbaa !22
   %49 = sitofp i32 %48 to float
-  %50 = fmul float %49, 1.562500e-02
+  %50 = fmul nnan float %49, 1.562500e-02
   %51 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float %50, ptr %51, align 8, !tbaa !15
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %53 = load i32, ptr %52, align 4, !tbaa !23
   %54 = sitofp i32 %53 to float
-  %55 = fmul float %54, -1.562500e-02
+  %55 = fmul nnan float %54, -1.562500e-02
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float %55, ptr %56, align 4, !tbaa !19
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %58 = load i32, ptr %57, align 4, !tbaa !14
   %59 = sitofp i32 %58 to float
-  %60 = fmul float %59, 1.562500e-02
+  %60 = fmul nnan float %59, 1.562500e-02
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store float %60, ptr %61, align 16, !tbaa !15
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %63 = load i32, ptr %62, align 4, !tbaa !18
   %64 = sitofp i32 %63 to float
-  %65 = fmul float %64, -1.562500e-02
+  %65 = fmul nnan float %64, -1.562500e-02
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store float %65, ptr %66, align 4, !tbaa !19
   %67 = load ptr, ptr %7, align 8, !tbaa !8
@@ -170,24 +170,24 @@ define internal void @_freetype_outline_cb(ptr noundef %0) #0 {
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %70 = load i32, ptr %69, align 4, !tbaa !20
   %71 = sitofp i32 %70 to float
-  %72 = fmul float %71, 1.562500e-02
+  %72 = fmul nnan float %71, 1.562500e-02
   store float %72, ptr %5, align 16, !tbaa !15
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %74 = load i32, ptr %73, align 4, !tbaa !21
   %75 = sitofp i32 %74 to float
-  %76 = fmul float %75, -1.562500e-02
+  %76 = fmul nnan float %75, -1.562500e-02
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %76, ptr %77, align 4, !tbaa !19
   %78 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %79 = load i32, ptr %78, align 4, !tbaa !14
   %80 = sitofp i32 %79 to float
-  %81 = fmul float %80, 1.562500e-02
+  %81 = fmul nnan float %80, 1.562500e-02
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store float %81, ptr %82, align 8, !tbaa !15
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %84 = load i32, ptr %83, align 4, !tbaa !18
   %85 = sitofp i32 %84 to float
-  %86 = fmul float %85, -1.562500e-02
+  %86 = fmul nnan float %85, -1.562500e-02
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 12
   store float %86, ptr %87, align 4, !tbaa !19
   %88 = load ptr, ptr %7, align 8, !tbaa !8

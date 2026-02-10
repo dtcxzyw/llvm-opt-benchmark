@@ -16506,7 +16506,7 @@ define internal fastcc i64 @dbl2big(double noundef %0) unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.024 = phi double [ %17, %.lr.ph ], [ %13, %.preheader ]
   %.02023 = phi i64 [ %18, %.lr.ph ], [ 0, %.preheader ]
-  %17 = fmul double %.024, 0x3DF0000000000000
+  %17 = fmul nnan double %.024, 0x3DF0000000000000
   %18 = add i64 %.02023, 1
   %19 = fcmp ult double %17, 1.000000e+00
   br i1 %19, label %._crit_edge, label %.lr.ph, !llvm.loop !194

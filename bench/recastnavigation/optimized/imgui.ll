@@ -130,19 +130,19 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_Z6inRectiiiib.exit
   store i8 0, ptr %34, align 1
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store i32 -1073741824, ptr %35, align 4
-  %36 = fmul float %30, 8.000000e+00
+  %36 = fmul nnan float %30, 8.000000e+00
   %37 = fptosi float %36 to i16
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i16 %37, ptr %38, align 8
-  %39 = fmul float %29, 8.000000e+00
+  %39 = fmul nnan float %29, 8.000000e+00
   %40 = fptosi float %39 to i16
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 10
   store i16 %40, ptr %41, align 2
-  %42 = fmul float %28, 8.000000e+00
+  %42 = fmul nnan float %28, 8.000000e+00
   %43 = fptosi float %42 to i16
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i16 %43, ptr %44, align 4
-  %45 = fmul float %27, 8.000000e+00
+  %45 = fmul nnan float %27, 8.000000e+00
   %46 = fptosi float %45 to i16
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 14
   store i16 %46, ptr %47, align 2
@@ -423,17 +423,17 @@ _ZL11buttonLogicjb.exit:                          ; preds = %63, %67
   store i8 0, ptr %99, align 1
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 4
   store i32 -1006632960, ptr %100, align 4
-  %101 = fmul float %92, 8.000000e+00
+  %101 = fmul nnan float %92, 8.000000e+00
   %102 = fptosi float %101 to i16
   %103 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i16 %102, ptr %103, align 8
-  %104 = fmul float %95, 8.000000e+00
+  %104 = fmul nnan float %95, 8.000000e+00
   %105 = fptosi float %104 to i16
   %106 = getelementptr inbounds nuw i8, ptr %98, i64 10
   store i16 %105, ptr %106, align 2
   %107 = getelementptr inbounds nuw i8, ptr %98, i64 12
   store i16 96, ptr %107, align 4
-  %108 = fmul float %19, 8.000000e+00
+  %108 = fmul nnan float %19, 8.000000e+00
   %109 = fptosi float %108 to i16
   %110 = getelementptr inbounds nuw i8, ptr %98, i64 14
   store i16 %109, ptr %110, align 2
@@ -469,17 +469,17 @@ _ZL20addGfxCmdRoundedRectfffffj.exit67.sink.split: ; preds = %114, %116
   store i8 0, ptr %122, align 1
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store i32 %spec.select.sink, ptr %123, align 4
-  %124 = fmul float %92, 8.000000e+00
+  %124 = fmul nnan float %92, 8.000000e+00
   %125 = fptosi float %124 to i16
   %126 = getelementptr inbounds nuw i8, ptr %121, i64 8
   store i16 %125, ptr %126, align 8
-  %127 = fmul float %118, 8.000000e+00
+  %127 = fmul nnan float %118, 8.000000e+00
   %128 = fptosi float %127 to i16
   %129 = getelementptr inbounds nuw i8, ptr %121, i64 10
   store i16 %128, ptr %129, align 2
   %130 = getelementptr inbounds nuw i8, ptr %121, i64 12
   store i16 96, ptr %130, align 4
-  %131 = fmul float %117, 8.000000e+00
+  %131 = fmul nnan float %117, 8.000000e+00
   %132 = fptosi float %131 to i16
   %133 = getelementptr inbounds nuw i8, ptr %121, i64 14
   store i16 %132, ptr %133, align 2
@@ -632,15 +632,15 @@ _ZL11buttonLogicjb.exit:                          ; preds = %41, %45
   store i8 0, ptr %55, align 1
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 %42, ptr %56, align 4
-  %57 = fmul float %51, 8.000000e+00
+  %57 = fmul nnan float %51, 8.000000e+00
   %58 = fptosi float %57 to i16
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i16 %58, ptr %59, align 8
-  %60 = fmul float %50, 8.000000e+00
+  %60 = fmul nnan float %50, 8.000000e+00
   %61 = fptosi float %60 to i16
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 10
   store i16 %61, ptr %62, align 2
-  %63 = fmul float %49, 8.000000e+00
+  %63 = fmul nnan float %49, 8.000000e+00
   %64 = fptosi float %63 to i16
   %65 = getelementptr inbounds nuw i8, ptr %54, i64 12
   store i16 %64, ptr %65, align 4
@@ -859,15 +859,15 @@ _Z6inRectiiiib.exit:                              ; preds = %18, %15, %2
   store i8 0, ptr %55, align 1
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store i32 %42, ptr %56, align 4
-  %57 = fmul float %51, 8.000000e+00
+  %57 = fmul nnan float %51, 8.000000e+00
   %58 = fptosi float %57 to i16
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store i16 %58, ptr %59, align 8
-  %60 = fmul float %50, 8.000000e+00
+  %60 = fmul nnan float %50, 8.000000e+00
   %61 = fptosi float %60 to i16
   %62 = getelementptr inbounds nuw i8, ptr %54, i64 10
   store i16 %61, ptr %62, align 2
-  %63 = fmul float %49, 8.000000e+00
+  %63 = fmul nnan float %49, 8.000000e+00
   %64 = fptosi float %63 to i16
   %65 = getelementptr inbounds nuw i8, ptr %54, i64 12
   store i16 %64, ptr %65, align 4
@@ -1082,8 +1082,8 @@ _ZL11buttonLogicjb.exit:                          ; preds = %42, %46
 
 53:                                               ; preds = %_ZL11buttonLogicjb.exit
   %54 = select i1 %43, i32 -998211456, i32 1619034240
-  %55 = fadd float %50, -3.000000e+00
-  %56 = fadd float %49, -3.000000e+00
+  %55 = fadd nnan float %50, -3.000000e+00
+  %56 = fadd nnan float %49, -3.000000e+00
   %57 = add nuw nsw i32 %51, 1
   store i32 %57, ptr @_ZL17g_gfxCmdQueueSize, align 4
   %58 = zext nneg i32 %51 to i64
@@ -1093,11 +1093,11 @@ _ZL11buttonLogicjb.exit:                          ; preds = %42, %46
   store i8 0, ptr %60, align 1
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 4
   store i32 %54, ptr %61, align 4
-  %62 = fmul float %56, 8.000000e+00
+  %62 = fmul nnan float %56, 8.000000e+00
   %63 = fptosi float %62 to i16
   %64 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i16 %63, ptr %64, align 8
-  %65 = fmul float %55, 8.000000e+00
+  %65 = fmul nnan float %55, 8.000000e+00
   %66 = fptosi float %65 to i16
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 10
   store i16 %66, ptr %67, align 2
@@ -1131,11 +1131,11 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_ZL11buttonLogicjb.
   store i8 0, ptr %80, align 1
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 4
   store i32 %76, ptr %81, align 4
-  %82 = fmul float %49, 8.000000e+00
+  %82 = fmul nnan float %49, 8.000000e+00
   %83 = fptosi float %82 to i16
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store i16 %83, ptr %84, align 8
-  %85 = fmul float %50, 8.000000e+00
+  %85 = fmul nnan float %50, 8.000000e+00
   %86 = fptosi float %85 to i16
   %87 = getelementptr inbounds nuw i8, ptr %79, i64 10
   store i16 %86, ptr %87, align 2
@@ -1160,11 +1160,11 @@ _ZL20addGfxCmdRoundedRectfffffj.exit:             ; preds = %_ZL11buttonLogicjb.
   store i8 0, ptr %96, align 1
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i32 -931102592, ptr %97, align 4
-  %98 = fmul float %49, 8.000000e+00
+  %98 = fmul nnan float %49, 8.000000e+00
   %99 = fptosi float %98 to i16
   %100 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i16 %99, ptr %100, align 8
-  %101 = fmul float %50, 8.000000e+00
+  %101 = fmul nnan float %50, 8.000000e+00
   %102 = fptosi float %101 to i16
   %103 = getelementptr inbounds nuw i8, ptr %95, i64 10
   store i16 %102, ptr %103, align 2
@@ -1388,12 +1388,12 @@ _ZL17addGfxCmdTriangleiiiiij.exit.sink.split:     ; preds = %_ZL11buttonLogicjb.
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
   store i32 %45, ptr %55, align 4
   %56 = sitofp i32 %14 to float
-  %57 = fmul float %56, 8.000000e+00
+  %57 = fmul nnan float %56, 8.000000e+00
   %58 = fptosi float %57 to i16
   %59 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i16 %58, ptr %59, align 8
   %60 = sitofp i32 %15 to float
-  %61 = fmul float %60, 8.000000e+00
+  %61 = fmul nnan float %60, 8.000000e+00
   %62 = fptosi float %61 to i16
   %63 = getelementptr inbounds nuw i8, ptr %53, i64 10
   store i16 %62, ptr %63, align 2
@@ -1689,15 +1689,15 @@ define dso_local noundef zeroext i1 @_Z11imguiSliderPKcPffffb(ptr noundef readon
   store i8 0, ptr %28, align 1
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i32 -2147483648, ptr %29, align 4
-  %30 = fmul float %24, 8.000000e+00
+  %30 = fmul nnan float %24, 8.000000e+00
   %31 = fptosi float %30 to i16
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i16 %31, ptr %32, align 8
-  %33 = fmul float %19, 8.000000e+00
+  %33 = fmul nnan float %19, 8.000000e+00
   %34 = fptosi float %33 to i16
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 10
   store i16 %34, ptr %35, align 2
-  %36 = fmul float %23, 8.000000e+00
+  %36 = fmul nnan float %23, 8.000000e+00
   %37 = fptosi float %36 to i16
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i16 %37, ptr %38, align 4
@@ -1883,11 +1883,11 @@ _ZL20addGfxCmdRoundedRectfffffj.exit69.sink.split: ; preds = %107, %111
   store i8 0, ptr %117, align 1
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 4
   store i32 %spec.select85.sink, ptr %118, align 4
-  %119 = fmul float %113, 8.000000e+00
+  %119 = fmul nnan float %113, 8.000000e+00
   %120 = fptosi float %119 to i16
   %121 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store i16 %120, ptr %121, align 8
-  %122 = fmul float %19, 8.000000e+00
+  %122 = fmul nnan float %19, 8.000000e+00
   %123 = fptosi float %122 to i16
   %124 = getelementptr inbounds nuw i8, ptr %116, i64 10
   store i16 %123, ptr %124, align 2
@@ -2162,15 +2162,15 @@ define dso_local void @_Z18imguiSeparatorLinev() local_unnamed_addr #0 {
   store i8 0, ptr %15, align 1
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 553648127, ptr %16, align 4
-  %17 = fmul float %11, 8.000000e+00
+  %17 = fmul nnan float %11, 8.000000e+00
   %18 = fptosi float %17 to i16
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i16 %18, ptr %19, align 8
-  %20 = fmul float %10, 8.000000e+00
+  %20 = fmul nnan float %10, 8.000000e+00
   %21 = fptosi float %20 to i16
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 10
   store i16 %21, ptr %22, align 2
-  %23 = fmul float %8, 8.000000e+00
+  %23 = fmul nnan float %8, 8.000000e+00
   %24 = fptosi float %23 to i16
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 12
   store i16 %24, ptr %25, align 4

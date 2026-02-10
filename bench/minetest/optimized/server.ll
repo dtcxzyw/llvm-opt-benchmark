@@ -1731,7 +1731,7 @@ invoke.cont125:                                   ; preds = %invoke.cont70, %_ZN
   %add.i219 = add i64 %mul.i216, %add.i.neg295
   %sub127 = add i64 %add.i219, %div.i218
   %conv128 = uitofp i64 %sub127 to float
-  %mul = fmul nsz float %conv128, 0x3EB0C6F7A0000000
+  %mul = fmul nnan nsz float %conv128, 0x3EB0C6F7A0000000
   call void @_ZN13ScopeProfilerD1Ev(ptr noundef nonnull align 8 dereferenceable(52) %spm) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %spm)
   %51 = load atomic i8, ptr %m_request_stop.i seq_cst, align 1
@@ -5012,11 +5012,11 @@ invoke.cont.i111:                                 ; preds = %call5.i.i.i.i4.i.i.
   %retval.sroa.0.0.insert.ext.i.i.i = zext nneg i32 %conv5.i.mask.i.i.i to i48
   %retval.sroa.0.0.insert.insert.i.i.i = or disjoint i48 %retval.sroa.2.0.insert.insert.i.i.i, %retval.sroa.0.0.insert.ext.i.i.i
   %370 = sitofp <2 x i16> %366 to <2 x float>
-  %371 = fmul nsz <2 x float> %370, splat (float 1.000000e+01)
+  %371 = fmul nnan nsz <2 x float> %370, splat (float 1.000000e+01)
   %p.sroa.3.0.extract.shift.i.i = lshr i48 %agg.tmp849.sroa.0.0.copyload, 32
   %p.sroa.3.0.extract.trunc.i.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i.i to i16
   %conv3.i.i = sitofp i16 %p.sroa.3.0.extract.trunc.i.i to float
-  %mul4.i.i = fmul nsz float %conv3.i.i, 1.000000e+01
+  %mul4.i.i = fmul nnan nsz float %conv3.i.i, 1.000000e+01
   invoke void @_ZN6Server17sendNodeChangePktER13NetworkPacketN3irr4core8vector3dIsEENS4_IfEEfPSt13unordered_setItSt4hashItESt8equal_toItESaItEE(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull align 8 dereferenceable(36) %pkt.i107, i48 %retval.sroa.0.0.insert.insert.i.i.i, <2 x float> %371, float %mul4.i.i, float noundef %conv853, ptr noundef nonnull %far_players)
           to label %invoke.cont10.i unwind label %lpad.i110
 
@@ -22675,9 +22675,9 @@ entry:
   %1 = insertelement <2 x i48> %0, i48 %p.sroa.2.0.extract.shift.i, i64 1
   %2 = trunc <2 x i48> %1 to <2 x i16>
   %3 = sitofp <2 x i16> %2 to <2 x float>
-  %4 = fmul nsz <2 x float> %3, splat (float 1.000000e+01)
+  %4 = fmul nnan nsz <2 x float> %3, splat (float 1.000000e+01)
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
-  %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
+  %mul4.i = fmul nnan nsz float %conv3.i, 1.000000e+01
   %5 = extractelement <2 x i16> %2, i64 0
   %conv.i.i.i = sext i16 %5 to i32
   %add.i.i.i = add nsw i32 %conv.i.i.i, -15
@@ -22828,11 +22828,11 @@ invoke.cont:                                      ; preds = %entry
   %retval.sroa.0.0.insert.ext.i.i = zext nneg i32 %conv5.i.mask.i.i to i48
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i48 %retval.sroa.2.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
   %7 = sitofp <2 x i16> %3 to <2 x float>
-  %8 = fmul nsz <2 x float> %7, splat (float 1.000000e+01)
+  %8 = fmul nnan nsz <2 x float> %7, splat (float 1.000000e+01)
   %p.sroa.3.0.extract.shift.i = lshr i48 %p.coerce, 32
   %p.sroa.3.0.extract.trunc.i = trunc nuw i48 %p.sroa.3.0.extract.shift.i to i16
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
-  %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
+  %mul4.i = fmul nnan nsz float %conv3.i, 1.000000e+01
   invoke void @_ZN6Server17sendNodeChangePktER13NetworkPacketN3irr4core8vector3dIsEENS4_IfEEfPSt13unordered_setItSt4hashItESt8equal_toItESaItEE(ptr noundef nonnull align 8 dereferenceable(1640) %this, ptr noundef nonnull align 8 dereferenceable(36) %pkt, i48 %retval.sroa.0.0.insert.insert.i.i, <2 x float> %8, float %mul4.i, float noundef %far_d_nodes, ptr noundef %far_players)
           to label %invoke.cont10 unwind label %lpad
 
@@ -31726,7 +31726,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %conv = sext i16 %call to i32
   %mul = shl nsw i32 %conv, 4
   %conv5 = sitofp i32 %mul to float
-  %mul6 = fmul nsz float %conv5, 1.000000e+01
+  %mul6 = fmul nnan nsz float %conv5, 1.000000e+01
   %1 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %1, %2
@@ -32117,7 +32117,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %conv = sext i16 %call to i32
   %mul = shl nsw i32 %conv, 4
   %conv5 = sitofp i32 %mul to float
-  %mul6 = fmul nsz float %conv5, 1.000000e+01
+  %mul6 = fmul nnan nsz float %conv5, 1.000000e+01
   %1 = load ptr, ptr %ref.tmp, align 8, !tbaa !11
   %2 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
   %cmp.i.i.i = icmp eq ptr %1, %2
@@ -42513,9 +42513,9 @@ cleanup:                                          ; preds = %if.then49
   %21 = insertelement <2 x i16> poison, i16 %p.sroa.0.0.extract.trunc.i, i64 0
   %22 = insertelement <2 x i16> %21, i16 %dec, i64 1
   %23 = sitofp <2 x i16> %22 to <2 x float>
-  %24 = fmul nsz <2 x float> %23, splat (float 1.000000e+01)
+  %24 = fmul nnan nsz <2 x float> %23, splat (float 1.000000e+01)
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
-  %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
+  %mul4.i = fmul nnan nsz float %conv3.i, 1.000000e+01
   store <2 x float> %24, ptr %nodeposf, align 8, !tbaa.struct !450
   store float %mul4.i, ptr %Z.i, align 8, !tbaa !275
   %25 = extractelement <2 x float> %24, i64 0

@@ -480,21 +480,21 @@ define internal noundef i32 @dt_iop_colorcorrection_draw(ptr noundef %0, ptr nou
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %45 = sitofp i32 %36 to float
-  %46 = fmul reassoc nsz arcp contract afn float %45, 1.250000e-01
+  %46 = fmul reassoc nnan nsz arcp contract afn float %45, 1.250000e-01
   %47 = fpext reassoc nsz arcp contract afn float %46 to double
   %48 = sitofp i32 %37 to float
-  %49 = fmul reassoc nsz arcp contract afn float %48, 1.250000e-01
+  %49 = fmul reassoc nnan nsz arcp contract afn float %48, 1.250000e-01
   %50 = fpext reassoc nsz arcp contract afn float %49 to double
   br label %.preheader
 
 .preheader:                                       ; preds = %3, %101
   %.083 = phi i32 [ 0, %3 ], [ %102, %101 ]
   %51 = uitofp nneg i32 %.083 to double
-  %52 = fmul reassoc nsz arcp contract afn double %51, 0x402E8232262A54E2
-  %53 = fadd reassoc nsz arcp contract afn double %52, 0xC04AB1EBE1650A46
+  %52 = fmul reassoc nnan nsz arcp contract afn double %51, 0x402E8232262A54E2
+  %53 = fadd reassoc nnan nsz arcp contract afn double %52, 0xC04AB1EBE1650A46
   %54 = mul nsw i32 %.083, %37
   %55 = sitofp i32 %54 to float
-  %56 = fmul reassoc nsz arcp contract afn float %55, 1.250000e-01
+  %56 = fmul reassoc nnan nsz arcp contract afn float %55, 1.250000e-01
   %57 = fpext reassoc nsz arcp contract afn float %56 to double
   br label %103
 
@@ -502,7 +502,7 @@ define internal noundef i32 @dt_iop_colorcorrection_draw(ptr noundef %0, ptr nou
   call void @cairo_set_antialias(ptr noundef %33, i32 noundef 0) #18
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %60 = load float, ptr %59, align 4, !tbaa !6
-  %61 = fmul reassoc nsz arcp contract afn float %45, 0x3F999999A0000000
+  %61 = fmul reassoc nnan nsz arcp contract afn float %45, 0x3F999999A0000000
   %62 = fmul reassoc nsz arcp contract afn float %61, %60
   %63 = fadd reassoc nsz arcp contract afn float %62, %45
   %64 = fmul reassoc nsz arcp contract afn float %63, 5.000000e-01
@@ -512,7 +512,7 @@ define internal noundef i32 @dt_iop_colorcorrection_draw(ptr noundef %0, ptr nou
   %68 = fmul reassoc nsz arcp contract afn float %67, 5.000000e-01
   %69 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %70 = load float, ptr %69, align 4, !tbaa !11
-  %71 = fmul reassoc nsz arcp contract afn float %48, 0x3F999999A0000000
+  %71 = fmul reassoc nnan nsz arcp contract afn float %48, 0x3F999999A0000000
   %72 = fmul reassoc nsz arcp contract afn float %71, %70
   %73 = fadd reassoc nsz arcp contract afn float %72, %48
   %74 = fmul reassoc nsz arcp contract afn float %73, 5.000000e-01
@@ -576,8 +576,8 @@ define internal noundef i32 @dt_iop_colorcorrection_draw(ptr noundef %0, ptr nou
   %104 = load float, ptr %41, align 4, !tbaa !14
   %105 = fpext reassoc nsz arcp contract afn float %104 to double
   %106 = uitofp nneg i32 %.08182 to double
-  %107 = fmul reassoc nsz arcp contract afn double %106, 0x402E8232262A54E2
-  %108 = fadd reassoc nsz arcp contract afn double %107, 0xC04AB1EBE1650A46
+  %107 = fmul reassoc nnan nsz arcp contract afn double %106, 0x402E8232262A54E2
+  %108 = fadd reassoc nnan nsz arcp contract afn double %107, 0xC04AB1EBE1650A46
   %109 = fmul reassoc nsz arcp contract afn double %108, %105
   store double %109, ptr %40, align 8, !tbaa !117
   %110 = fmul reassoc nsz arcp contract afn double %53, %105
@@ -590,7 +590,7 @@ define internal noundef i32 @dt_iop_colorcorrection_draw(ptr noundef %0, ptr nou
   call void @cairo_set_source_rgb(ptr noundef %33, double noundef %112, double noundef %113, double noundef %114) #18
   %115 = mul nsw i32 %.08182, %36
   %116 = sitofp i32 %115 to float
-  %117 = fmul reassoc nsz arcp contract afn float %116, 1.250000e-01
+  %117 = fmul reassoc nnan nsz arcp contract afn float %116, 1.250000e-01
   %118 = fpext reassoc nsz arcp contract afn float %117 to double
   %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !69
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 1424
@@ -862,7 +862,7 @@ define internal range(i32 0, 2) i32 @dt_iop_colorcorrection_scrolled(ptr noundef
   %15 = fpext reassoc nsz arcp contract afn float %14 to double
   %16 = load i32, ptr %4, align 4, !tbaa !132
   %17 = sitofp i32 %16 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 1.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 1.000000e-01
   %19 = fsub reassoc nsz arcp contract afn double %15, %18
   %20 = fcmp reassoc nsz arcp contract afn ogt double %19, 3.000000e+00
   br i1 %20, label %25, label %21

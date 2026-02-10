@@ -810,16 +810,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit256: ; preds = %28
 294:                                              ; preds = %251
   %295 = load i32, ptr %186, align 4, !tbaa !21
   %296 = sitofp i32 %295 to float
-  %297 = fmul float %296, 5.000000e-01
+  %297 = fmul nnan float %296, 5.000000e-01
   %298 = load i32, ptr %187, align 8, !tbaa !30
   %299 = sitofp i32 %298 to float
-  %300 = fmul float %299, 5.000000e-01
+  %300 = fmul nnan float %299, 5.000000e-01
   %.sroa.0328.0.vec.insert = insertelement <2 x float> poison, float %297, i64 0
   %.sroa.0328.4.vec.insert = insertelement <2 x float> %.sroa.0328.0.vec.insert, float %300, i64 1
   %301 = fcmp olt float %297, %300
   %302 = select i1 %301, float %297, float %300
-  %303 = fpext float %302 to double
-  %304 = fmul double %303, 0x3FE6666666666666
+  %303 = fpext nnan float %302 to double
+  %304 = fmul nnan double %303, 0x3FE6666666666666
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 0, ptr %188, align 8, !tbaa !31
   store i32 0, ptr %189, align 4, !tbaa !33
@@ -937,12 +937,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit256: ; preds = %28
 328:                                              ; preds = %316
   %329 = load i32, ptr %209, align 4, !tbaa !21
   %330 = sitofp i32 %329 to double
-  %331 = fmul double %330, 7.500000e-01
+  %331 = fmul nnan double %330, 7.500000e-01
   %332 = insertelement <2 x double> poison, double %331, i64 0
   %333 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %332)
   %334 = load i32, ptr %210, align 8, !tbaa !30
   %335 = sitofp i32 %334 to double
-  %336 = fmul double %335, 5.000000e-01
+  %336 = fmul nnan double %335, 5.000000e-01
   %337 = insertelement <2 x double> poison, double %336, i64 0
   %338 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %337)
   %339 = fdiv double %335, 0x401921FB54442D18

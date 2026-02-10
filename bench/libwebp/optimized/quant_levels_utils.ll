@@ -20,7 +20,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   %12 = mul i32 %2, %1
   %13 = sext i32 %12 to i64
   %14 = uitofp i64 %13 to double
-  %15 = fmul double %14, 1.000000e-04
+  %15 = fmul nnan double %14, 1.000000e-04
   %16 = icmp eq ptr %0, null
   br i1 %16, label %124, label %17
 
@@ -76,7 +76,7 @@ define hidden range(i32 0, 2) i32 @QuantizeLevels(ptr noundef captures(address_i
   %indvars.iv = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next, %38 ]
   %39 = trunc nuw nsw i64 %indvars.iv to i32
   %40 = uitofp nneg i32 %39 to double
-  %41 = fmul double %35, %40
+  %41 = fmul nnan double %35, %40
   %42 = fdiv double %41, %37
   %43 = fadd double %42, %33
   %44 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv

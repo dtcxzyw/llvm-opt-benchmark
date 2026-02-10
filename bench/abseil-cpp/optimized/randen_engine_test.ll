@@ -26336,7 +26336,7 @@ _ZSt8generateIPhSt17reference_wrapperIN4absl15random_internal13randen_engineIhEE
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %98 = add i64 %132, %reass.sub
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 6.000000e-01
+  %100 = fmul nnan double %99, 6.000000e-01
   store double %100, ptr %14, align 8, !tbaa !511
   %101 = uitofp i64 %143 to double
   %102 = fcmp ult double %100, %101
@@ -26552,7 +26552,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %174, %_ZNKSt14defau
   %183 = load i64, ptr %11, align 8, !tbaa !10
   %184 = add i64 %183, %144
   %185 = uitofp i64 %184 to double
-  %186 = fmul double %185, 4.000000e-01
+  %186 = fmul nnan double %185, 4.000000e-01
   store double %186, ptr %18, align 8, !tbaa !511
   %187 = uitofp i64 %183 to double
   %188 = fcmp ugt double %186, %187
@@ -28387,7 +28387,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %.0.i.i, %55
+  %56 = fmul nnan double %.0.i.i, %55
   %57 = fcmp une double %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 
@@ -28696,7 +28696,7 @@ _ZSt8generateIPtSt17reference_wrapperIN4absl15random_internal13randen_engineItEE
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %98 = add i64 %132, %reass.sub
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 6.000000e-01
+  %100 = fmul nnan double %99, 6.000000e-01
   store double %100, ptr %14, align 8, !tbaa !511
   %101 = uitofp i64 %143 to double
   %102 = fcmp ult double %100, %101
@@ -28912,7 +28912,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %174, %_ZNKSt14defau
   %183 = load i64, ptr %11, align 8, !tbaa !10
   %184 = add i64 %183, %144
   %185 = uitofp i64 %184 to double
-  %186 = fmul double %185, 4.000000e-01
+  %186 = fmul nnan double %185, 4.000000e-01
   store double %186, ptr %18, align 8, !tbaa !511
   %187 = uitofp i64 %183 to double
   %188 = fcmp ugt double %186, %187
@@ -29694,7 +29694,7 @@ _ZSt8generateIPjSt17reference_wrapperIN4absl15random_internal13randen_engineIjEE
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %98 = add i64 %132, %reass.sub
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 6.000000e-01
+  %100 = fmul nnan double %99, 6.000000e-01
   store double %100, ptr %14, align 8, !tbaa !511
   %101 = uitofp i64 %143 to double
   %102 = fcmp ult double %100, %101
@@ -29910,7 +29910,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %174, %_ZNKSt14defau
   %183 = load i64, ptr %11, align 8, !tbaa !10
   %184 = add i64 %183, %144
   %185 = uitofp i64 %184 to double
-  %186 = fmul double %185, 4.000000e-01
+  %186 = fmul nnan double %185, 4.000000e-01
   store double %186, ptr %18, align 8, !tbaa !511
   %187 = uitofp i64 %183 to double
   %188 = fcmp ugt double %186, %187
@@ -30692,7 +30692,7 @@ _ZSt8generateIPmSt17reference_wrapperIN4absl15random_internal13randen_engineImEE
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %98 = add i64 %132, %reass.sub
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 6.000000e-01
+  %100 = fmul nnan double %99, 6.000000e-01
   store double %100, ptr %14, align 8, !tbaa !511
   %101 = uitofp i64 %142 to double
   %102 = fcmp ult double %100, %101
@@ -30906,7 +30906,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %173, %_ZNKSt14defau
   %182 = load i64, ptr %11, align 8, !tbaa !10
   %183 = add i64 %182, %143
   %184 = uitofp i64 %183 to double
-  %185 = fmul double %184, 4.000000e-01
+  %185 = fmul nnan double %184, 4.000000e-01
   store double %185, ptr %18, align 8, !tbaa !511
   %186 = uitofp i64 %182 to double
   %187 = fcmp ugt double %185, %186

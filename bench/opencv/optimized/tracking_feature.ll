@@ -926,7 +926,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
   %47 = fptosi float %46 to i32
   %48 = tail call i32 @rand() #25
   %49 = sitofp i32 %48 to float
-  %50 = fmul float %49, 0x3E00000000000000
+  %50 = fmul nnan float %49, 0x3E00000000000000
   %51 = fcmp olt float %50, 0x3FC99999A0000000
   br i1 %51, label %52, label %86
 
@@ -1482,7 +1482,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %30
   store float %.sink, ptr %16, align 8, !tbaa !90
   %307 = load i32, ptr %12, align 4, !tbaa !82
   %308 = sitofp i32 %307 to float
-  %309 = fmul float %308, 0x40B5555560000000
+  %309 = fmul nnan float %308, 0x40B5555560000000
   %310 = tail call noundef float @sqrtf(float noundef %309) #25, !tbaa !73
   store float %310, ptr %17, align 4, !tbaa !91
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 64

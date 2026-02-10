@@ -2777,7 +2777,7 @@ define void @Cba_NtkPrintStatsFull(ptr noundef %0, i32 noundef %1, i32 noundef %
   %reass.add.i = shl i32 %184, 1
   %185 = add i32 %178, %reass.add.i
   %186 = sitofp i32 %185 to double
-  %187 = fmul double %186, 0x3EB0000000000000
+  %187 = fmul nnan double %186, 0x3EB0000000000000
   %188 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.30, double noundef %187)
   %putchar = call i32 @putchar(i32 10)
   %.not = icmp eq i32 %1, 0
@@ -2820,7 +2820,7 @@ define void @Cba_NtkPrintStatsFull(ptr noundef %0, i32 noundef %1, i32 noundef %
   %204 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %205 = load ptr, ptr %204, align 8, !tbaa !40
   %206 = sitofp i32 %202 to double
-  %207 = fmul double %206, 1.000000e+02
+  %207 = fmul nnan double %206, 1.000000e+02
   %208 = sitofp i32 %199 to double
   %209 = fdiv double %207, %208
   %210 = trunc nuw nsw i64 %indvars.iv to i32

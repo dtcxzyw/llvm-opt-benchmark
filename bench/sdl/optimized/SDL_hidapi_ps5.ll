@@ -1357,7 +1357,7 @@ HIDAPI_DriverPS5_UpdateEnhancedModeOnApplicationUsage.exit: ; preds = %3, %11
   %62 = sext i16 %48 to i32
   %63 = add nsw i32 %62, %61
   %64 = sitofp i32 %63 to float
-  %65 = fmul float %64, 1.024000e+03
+  %65 = fmul nnan float %64, 1.024000e+03
   %66 = getelementptr inbounds nuw i8, ptr %.val, i64 36
   store i16 %28, ptr %66, align 4
   %67 = sext i16 %34 to i32
@@ -2189,9 +2189,9 @@ define internal fastcc void @HIDAPI_DriverPS5_HandleStatePacketAlt(ptr noundef n
   %25 = shl nuw nsw i32 %24, 4
   %26 = or disjoint i32 %25, %21
   %27 = uitofp nneg i32 %20 to float
-  %28 = fmul float %27, 0x3F41111120000000
+  %28 = fmul nnan float %27, 0x3F41111120000000
   %29 = uitofp nneg i32 %26 to float
-  %30 = fmul float %29, 0x3F4E9FD220000000
+  %30 = fmul nnan float %29, 0x3F4E9FD220000000
   %31 = select i1 %11, float 1.000000e+00, float 0.000000e+00
   tail call void @SDL_SendJoystickTouchpad(i64 noundef %3, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext %11, float noundef %28, float noundef %30, float noundef %31) #9
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 35
@@ -2213,9 +2213,9 @@ define internal fastcc void @HIDAPI_DriverPS5_HandleStatePacketAlt(ptr noundef n
   %48 = shl nuw nsw i32 %47, 4
   %49 = or disjoint i32 %48, %44
   %50 = uitofp nneg i32 %43 to float
-  %51 = fmul float %50, 0x3F41111120000000
+  %51 = fmul nnan float %50, 0x3F41111120000000
   %52 = uitofp nneg i32 %49 to float
-  %53 = fmul float %52, 0x3F4E9FD220000000
+  %53 = fmul nnan float %52, 0x3F4E9FD220000000
   %54 = select i1 %34, float 1.000000e+00, float 0.000000e+00
   tail call void @SDL_SendJoystickTouchpad(i64 noundef %3, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext %34, float noundef %51, float noundef %53, float noundef %54) #9
   br label %55
@@ -2254,9 +2254,9 @@ define internal fastcc void @HIDAPI_DriverPS5_HandleStatePacket(ptr noundef nonn
   %25 = shl nuw nsw i32 %24, 4
   %26 = or disjoint i32 %25, %21
   %27 = uitofp nneg i32 %20 to float
-  %28 = fmul float %27, 0x3F41111120000000
+  %28 = fmul nnan float %27, 0x3F41111120000000
   %29 = uitofp nneg i32 %26 to float
-  %30 = fmul float %29, 0x3F4E9FD220000000
+  %30 = fmul nnan float %29, 0x3F4E9FD220000000
   %31 = select i1 %11, float 1.000000e+00, float 0.000000e+00
   tail call void @SDL_SendJoystickTouchpad(i64 noundef %3, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0, i1 noundef zeroext %11, float noundef %28, float noundef %30, float noundef %31) #9
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 36
@@ -2278,9 +2278,9 @@ define internal fastcc void @HIDAPI_DriverPS5_HandleStatePacket(ptr noundef nonn
   %48 = shl nuw nsw i32 %47, 4
   %49 = or disjoint i32 %48, %44
   %50 = uitofp nneg i32 %43 to float
-  %51 = fmul float %50, 0x3F41111120000000
+  %51 = fmul nnan float %50, 0x3F41111120000000
   %52 = uitofp nneg i32 %49 to float
-  %53 = fmul float %52, 0x3F4E9FD220000000
+  %53 = fmul nnan float %52, 0x3F4E9FD220000000
   %54 = select i1 %34, float 1.000000e+00, float 0.000000e+00
   tail call void @SDL_SendJoystickTouchpad(i64 noundef %3, ptr noundef nonnull %0, i32 noundef 0, i32 noundef 1, i1 noundef zeroext %34, float noundef %51, float noundef %53, float noundef %54) #9
   br label %55
@@ -2557,24 +2557,24 @@ define internal fastcc void @HIDAPI_DriverPS5_HandleStatePacketCommon(ptr nounde
 
 138:                                              ; preds = %132
   %139 = sitofp i16 %134 to float
-  %140 = fmul float %139, 6.400000e+01
-  %141 = fmul float %140, 0x3F50000000000000
-  %142 = fmul float %141, 0x400921FB60000000
+  %140 = fmul nnan float %139, 6.400000e+01
+  %141 = fmul nnan float %140, 0x3F50000000000000
+  %142 = fmul nnan float %141, 0x400921FB60000000
   %143 = fdiv float %142, 1.800000e+02
   store float %143, ptr %5, align 4
   %144 = getelementptr inbounds nuw i8, ptr %2, i64 17
   %145 = load i16, ptr %144, align 1
   %146 = sitofp i16 %145 to float
-  %147 = fmul float %146, 6.400000e+01
-  %148 = fmul float %147, 0x3F50000000000000
-  %149 = fmul float %148, 0x400921FB60000000
+  %147 = fmul nnan float %146, 6.400000e+01
+  %148 = fmul nnan float %147, 0x3F50000000000000
+  %149 = fmul nnan float %148, 0x400921FB60000000
   %150 = fdiv float %149, 1.800000e+02
   %151 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %150, ptr %151, align 4
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 19
   %153 = load i16, ptr %152, align 1
   %154 = sitofp i16 %153 to float
-  %155 = fmul float %154, 6.400000e+01
+  %155 = fmul nnan float %154, 6.400000e+01
   br label %HIDAPI_DriverPS5_ApplyCalibrationData.exit168
 
 156:                                              ; preds = %132
@@ -2637,14 +2637,14 @@ HIDAPI_DriverPS5_ApplyCalibrationData.exit168:    ; preds = %138, %156
 
 204:                                              ; preds = %HIDAPI_DriverPS5_ApplyCalibrationData.exit168
   %205 = sitofp i16 %201 to float
-  %206 = fmul float %205, 0x3F20000000000000
-  %207 = fmul float %206, 0x40239D0140000000
+  %206 = fmul nnan float %205, 0x3F20000000000000
+  %207 = fmul nnan float %206, 0x40239D0140000000
   store float %207, ptr %5, align 4
   %208 = getelementptr inbounds nuw i8, ptr %2, i64 23
   %209 = load i16, ptr %208, align 1
   %210 = sitofp i16 %209 to float
-  %211 = fmul float %210, 0x3F20000000000000
-  %212 = fmul float %211, 0x40239D0140000000
+  %211 = fmul nnan float %210, 0x3F20000000000000
+  %212 = fmul nnan float %211, 0x40239D0140000000
   store float %212, ptr %195, align 4
   %213 = getelementptr inbounds nuw i8, ptr %2, i64 25
   %214 = load i16, ptr %213, align 1

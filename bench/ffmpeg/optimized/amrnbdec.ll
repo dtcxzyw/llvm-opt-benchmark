@@ -136,14 +136,14 @@ define internal range(i32 -1163346256, 1) i32 @amrnb_decode_init(ptr noundef %0)
   %29 = sext i8 %28 to i32
   %30 = mul nsw i32 %29, 1000
   %31 = sitofp i32 %30 to float
-  %32 = fmul nsz float %31, 0x3F00000000000000
+  %32 = fmul nnan nsz float %31, 0x3F00000000000000
   %33 = fpext nsz float %32 to double
   %34 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv
   store double %33, ptr %34, align 8, !tbaa !41
   %35 = getelementptr inbounds nuw i16, ptr @lsp_avg_init, i64 %indvars.iv
   %36 = load i16, ptr %35, align 2, !tbaa !43
   %37 = sitofp i16 %36 to float
-  %38 = fmul nsz float %37, 0x3F00000000000000
+  %38 = fmul nnan nsz float %37, 0x3F00000000000000
   %39 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
   store float %38, ptr %39, align 4, !tbaa !45
   %40 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
@@ -396,7 +396,7 @@ define internal i32 @amrnb_decode_frame(ptr noundef %0, ptr noundef initializes(
   %147 = getelementptr inbounds nuw i16, ptr %145, i64 %indvars.iv.i
   %148 = load i16, ptr %147, align 2, !tbaa !43
   %149 = sitofp i16 %148 to double
-  %150 = fmul nsz double %149, 0x3FCF400000000000
+  %150 = fmul nnan nsz double %149, 0x3FCF400000000000
   %151 = getelementptr inbounds nuw float, ptr @lsf_5_mean, i64 %indvars.iv.i
   %152 = load float, ptr %151, align 4, !tbaa !45
   %153 = fpext nsz float %152 to double
@@ -534,12 +534,12 @@ lsf2lsp_for_mode12k2.exit.i:                      ; preds = %172
   %217 = trunc i64 %indvars.iv.i.i.i to i32
   %218 = sub i32 3, %217
   %219 = uitofp nneg i32 %218 to double
-  %220 = fmul nsz double %219, 2.500000e-01
+  %220 = fmul nnan nsz double %219, 2.500000e-01
   %221 = fptrunc nsz double %220 to float
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %222 = trunc nuw nsw i64 %indvars.iv.next.i.i.i to i32
   %223 = uitofp nneg i32 %222 to double
-  %224 = fmul nsz double %223, 2.500000e-01
+  %224 = fmul nnan nsz double %223, 2.500000e-01
   %225 = fptrunc nsz double %224 to float
   call void %215(ptr noundef nonnull %216, ptr noundef nonnull %213, ptr noundef nonnull %19, float noundef %221, float noundef %225, i32 noundef 10) #8
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -655,12 +655,12 @@ lsf2lsp_5.exit:                                   ; preds = %236
   %290 = trunc i64 %indvars.iv.i.i139 to i32
   %291 = sub i32 3, %290
   %292 = uitofp nneg i32 %291 to double
-  %293 = fmul nsz double %292, 2.500000e-01
+  %293 = fmul nnan nsz double %292, 2.500000e-01
   %294 = fptrunc nsz double %293 to float
   %indvars.iv.next.i.i140 = add nuw nsw i64 %indvars.iv.i.i139, 1
   %295 = trunc nuw nsw i64 %indvars.iv.next.i.i140 to i32
   %296 = uitofp nneg i32 %295 to double
-  %297 = fmul nsz double %296, 2.500000e-01
+  %297 = fmul nnan nsz double %296, 2.500000e-01
   %298 = fptrunc nsz double %297 to float
   call void %288(ptr noundef nonnull %289, ptr noundef nonnull %286, ptr noundef nonnull %17, float noundef %294, float noundef %298, i32 noundef 10) #8
   %exitcond.not.i.i141 = icmp eq i64 %indvars.iv.next.i.i140, 4
@@ -1140,7 +1140,7 @@ decode_fixed_sparse.exit:                         ; preds = %601, %415
   %613 = getelementptr inbounds nuw i16, ptr @qua_gain_pit, i64 %612
   %614 = load i16, ptr %613, align 2, !tbaa !43
   %615 = uitofp i16 %614 to double
-  %616 = fmul nsz double %615, 0x3F10000000000000
+  %616 = fmul nnan nsz double %615, 0x3F10000000000000
   %617 = fptrunc nsz double %616 to float
   store float %617, ptr %323, align 8, !tbaa !45
   %618 = getelementptr inbounds nuw i8, ptr %357, i64 4
@@ -1189,7 +1189,7 @@ decode_fixed_sparse.exit:                         ; preds = %601, %415
   %.0.i151 = phi ptr [ %629, %624 ], [ %635, %631 ], [ %644, %636 ]
   %647 = load i16, ptr %.0.i151, align 2, !tbaa !43
   %648 = uitofp i16 %647 to double
-  %649 = fmul nsz double %648, 0x3F10000000000000
+  %649 = fmul nnan nsz double %648, 0x3F10000000000000
   %650 = fptrunc nsz double %649 to float
   store float %650, ptr %323, align 8, !tbaa !45
   %651 = getelementptr inbounds nuw i8, ptr %.0.i151, i64 2
@@ -1202,7 +1202,7 @@ decode_gains.exit:                                ; preds = %609, %645
   %.sink19.i = phi double [ 0x3F30000000000000, %645 ], [ 0x3F40000000000000, %609 ]
   %.sink20.i = load i16, ptr %.sink20.in.i, align 2, !tbaa !43
   %654 = uitofp i16 %.sink20.i to double
-  %655 = fmul nsz double %.sink19.i, %654
+  %655 = fmul nnan nsz double %.sink19.i, %654
   %storemerge.i = fptrunc double %655 to float
   %656 = icmp eq i32 %652, 7
   br i1 %656, label %657, label %._crit_edge.i

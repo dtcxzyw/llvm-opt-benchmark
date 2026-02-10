@@ -224,16 +224,16 @@ _ZN3net8RttStats20UpdateWindowedMinRttENS_8QuicTime5DeltaES1_.exit: ; preds = %2
   %70 = sub nsw i64 %55, %.sroa.10.0
   %71 = tail call noundef i64 @llvm.abs.i64(i64 %70, i1 true)
   %72 = uitofp nneg i64 %71 to float
-  %73 = fmul float %72, 2.500000e-01
+  %73 = fmul nnan float %72, 2.500000e-01
   %74 = tail call float @llvm.fmuladd.f32(float %69, float 7.500000e-01, float %73)
   %75 = fptosi float %74 to i64
   store i64 0, ptr %66, align 8, !tbaa !15
   store i64 %75, ptr %67, align 8, !tbaa !16
   %76 = sitofp i64 %55 to double
-  %77 = fmul double %76, 8.750000e-01
+  %77 = fmul nnan double %76, 8.750000e-01
   %78 = tail call i64 @llround(double noundef %77) #10, !tbaa !17
   %79 = sitofp i64 %.sroa.10.0 to double
-  %80 = fmul double %79, 1.250000e-01
+  %80 = fmul nnan double %79, 1.250000e-01
   %81 = tail call i64 @llround(double noundef %80) #10, !tbaa !17
   %82 = add nsw i64 %81, %78
   store i64 0, ptr %52, align 8, !tbaa !15

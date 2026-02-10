@@ -3139,7 +3139,7 @@ define internal fastcc void @PrintBytes(i64 noundef %0) unnamed_addr #14 {
 9:                                                ; preds = %7
   %10 = load ptr, ptr @stderr, align 8, !tbaa !30
   %11 = uitofp nneg i64 %0 to double
-  %12 = fmul double %11, 0x3F50000000000000
+  %12 = fmul nnan double %11, 0x3F50000000000000
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.77, double noundef %12) #23
   br label %24
 
@@ -3150,12 +3150,12 @@ define internal fastcc void @PrintBytes(i64 noundef %0) unnamed_addr #14 {
   br i1 %15, label %18, label %21
 
 18:                                               ; preds = %14
-  %19 = fmul double %17, 0x3EB0000000000000
+  %19 = fmul nnan double %17, 0x3EB0000000000000
   %20 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.78, double noundef %19) #23
   br label %24
 
 21:                                               ; preds = %14
-  %22 = fmul double %17, 0x3E10000000000000
+  %22 = fmul nnan double %17, 0x3E10000000000000
   %23 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.79, double noundef %22) #23
   br label %24
 

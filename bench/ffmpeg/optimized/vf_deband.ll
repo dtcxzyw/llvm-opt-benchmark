@@ -307,7 +307,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
 
 .lr.ph:                                           ; preds = %.preheader
   %124 = uitofp nneg i32 %.089102 to float
-  %125 = fmul nsz float %124, 0x40538EE980000000
+  %125 = fmul nnan nsz float %124, 0x40538EE980000000
   br label %126
 
 126:                                              ; preds = %.lr.ph, %126

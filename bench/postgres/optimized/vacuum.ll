@@ -2127,7 +2127,7 @@ define dso_local zeroext i1 @vacuum_get_cutoffs(ptr noundef %0, ptr noundef read
   %74 = sitofp i32 %spec.select83 to double
   %75 = load i32, ptr @autovacuum_freeze_max_age, align 4
   %76 = sitofp i32 %75 to double
-  %77 = fmul double %76, 0x3FEE666666666666
+  %77 = fmul nnan double %76, 0x3FEE666666666666
   %78 = fcmp ogt double %77, %74
   %79 = select i1 %78, double %74, double %77
   %80 = fptosi double %79 to i32
@@ -2143,7 +2143,7 @@ define dso_local zeroext i1 @vacuum_get_cutoffs(ptr noundef %0, ptr noundef read
   %spec.select84 = select i1 %85, i32 %86, i32 %11
   %87 = sitofp i32 %spec.select84 to double
   %88 = sitofp i32 %27 to double
-  %89 = fmul double %88, 0x3FEE666666666666
+  %89 = fmul nnan double %88, 0x3FEE666666666666
   %90 = fcmp ogt double %89, %87
   %91 = select i1 %90, double %87, double %89
   %92 = fptosi double %91 to i32
@@ -2184,7 +2184,7 @@ define dso_local zeroext i1 @vacuum_xid_failsafe_check(ptr noundef readonly capt
   %6 = sitofp i32 %5 to double
   %7 = load i32, ptr @autovacuum_freeze_max_age, align 4
   %8 = sitofp i32 %7 to double
-  %9 = fmul double %8, 1.050000e+00
+  %9 = fmul nnan double %8, 1.050000e+00
   %10 = fcmp olt double %9, %6
   %. = select i1 %10, double %6, double %9
   %11 = fptosi double %. to i32
@@ -2200,7 +2200,7 @@ define dso_local zeroext i1 @vacuum_xid_failsafe_check(ptr noundef readonly capt
   %18 = sitofp i32 %17 to double
   %19 = load i32, ptr @autovacuum_multixact_freeze_max_age, align 4
   %20 = sitofp i32 %19 to double
-  %21 = fmul double %20, 1.050000e+00
+  %21 = fmul nnan double %20, 1.050000e+00
   %22 = fcmp olt double %21, %18
   %.15 = select i1 %22, double %18, double %21
   %23 = fptosi double %.15 to i32
@@ -2235,7 +2235,7 @@ define dso_local double @vac_estimate_reltuples(ptr noundef readonly captures(no
 14:                                               ; preds = %12
   %15 = uitofp i32 %2 to double
   %16 = uitofp i32 %1 to double
-  %17 = fmul double %16, 2.000000e-02
+  %17 = fmul nnan double %16, 2.000000e-02
   %18 = fcmp ogt double %17, %15
   %19 = icmp ult i32 %2, 2
   %or.cond30 = or i1 %19, %18

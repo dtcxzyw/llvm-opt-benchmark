@@ -567,11 +567,11 @@ define void @dt_image_cache_print(ptr noundef readonly captures(none) %0) local_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8, !tbaa !115
   %4 = uitofp i64 %3 to double
-  %5 = fmul reassoc nsz arcp contract afn double %4, 0x3EB0000000000000
+  %5 = fmul reassoc nnan nsz arcp contract afn double %4, 0x3EB0000000000000
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load i64, ptr %6, align 8, !tbaa !117
   %8 = uitofp i64 %7 to double
-  %9 = fmul reassoc nsz arcp contract afn double %8, 0x3EB0000000000000
+  %9 = fmul reassoc nnan nsz arcp contract afn double %8, 0x3EB0000000000000
   %10 = uitofp i64 %3 to float
   %11 = uitofp i64 %7 to float
   %12 = fdiv reassoc nsz arcp contract afn float %10, %11
@@ -711,7 +711,7 @@ define void @dt_image_cache_write_release_info(ptr noundef %0, ptr noundef %1, i
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !120
   %25 = sitofp i64 %24 to double
-  %26 = fmul reassoc nsz arcp contract afn double %25, 0x3EB0C6F7A0B5ED8D
+  %26 = fmul reassoc nnan nsz arcp contract afn double %25, 0x3EB0C6F7A0B5ED8D
   %27 = fadd reassoc nsz arcp contract afn double %26, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dt_get_debug_wtime.exit
@@ -1464,7 +1464,7 @@ dt_get_debug_wtime.exit184:                       ; preds = %504
 
 513:                                              ; preds = %dt_get_debug_wtime.exit184
   %514 = sitofp i64 %510 to double
-  %515 = fmul reassoc nsz arcp contract afn double %514, 0x3EB0C6F7A0B5ED8D
+  %515 = fmul reassoc nnan nsz arcp contract afn double %514, 0x3EB0C6F7A0B5ED8D
   %516 = add nsw i64 %508, -1290608000
   %517 = sitofp i64 %516 to double
   %518 = fadd reassoc nsz arcp contract afn double %515, %517

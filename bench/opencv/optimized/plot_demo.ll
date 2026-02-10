@@ -113,7 +113,7 @@ define hidden noundef i32 @main() local_unnamed_addr #3 personality ptr @__gxx_p
   %30 = sitofp i32 %29 to double
   %31 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv
   store double %30, ptr %31, align 8, !tbaa !18
-  %32 = fmul double %30, %30
+  %32 = fmul nnan double %30, %30
   %33 = fmul double %32, %30
   %34 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
   store double %33, ptr %34, align 8, !tbaa !18

@@ -1437,7 +1437,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %120
   %138 = zext i8 %137 to i32
   %139 = or disjoint i32 %136, %138
   %140 = uitofp nneg i32 %139 to float
-  %141 = fmul float %140, 3.906250e-03
+  %141 = fmul nnan float %140, 3.906250e-03
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !47
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 256
@@ -1451,7 +1451,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit44: ; preds = %120
   %150 = zext i8 %149 to i32
   %151 = or disjoint i32 %148, %150
   %152 = uitofp nneg i32 %151 to float
-  %153 = fmul float %152, 3.906250e-03
+  %153 = fmul nnan float %152, 3.906250e-03
   %154 = load ptr, ptr %142, align 8, !tbaa !47
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 264
   store float %153, ptr %155, align 4, !tbaa !67

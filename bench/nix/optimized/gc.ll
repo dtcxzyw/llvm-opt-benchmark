@@ -13291,7 +13291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit366: ; preds = %72
   %743 = add i64 %.0122, %742
   %744 = sub i64 %.0125, %743
   %745 = sitofp i64 %744 to double
-  %746 = fmul double %745, 0x3EB0000000000000
+  %746 = fmul nnan double %745, 0x3EB0000000000000
   store double %746, ptr %77, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZN5boost12basic_formatIcSt11char_traitsIcESaIcEEC2ERKNSt7__cxx1112basic_stringIcS2_S3_EE(ptr noundef nonnull align 8 dereferenceable(224) %5, ptr noundef nonnull align 8 dereferenceable(32) %75)
@@ -16383,7 +16383,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %90, %
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %120 = load i64, ptr %119, align 8
   %121 = uitofp i64 %120 to double
-  %122 = fmul double %121, 0x3FEF0A3D70A3D70A
+  %122 = fmul nnan double %121, 0x3FEF0A3D70A3D70A
   %123 = fcmp olt double %122, %118
   br i1 %123, label %_ZN3nix4SyncINS_10LocalStore5StateESt5mutexE4LockD2Ev.exit.thread, label %124
 

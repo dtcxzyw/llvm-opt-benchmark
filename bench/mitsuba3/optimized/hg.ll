@@ -410,11 +410,11 @@ define weak_odr void @_ZNK7mitsuba15HGPhaseFunctionIfN5drjit6MatrixINS_8Spectrum
   %39 = and i32 %38, -2
   %40 = sitofp i32 %39 to float
   %41 = bitcast float %34 to i32
-  %42 = fmul contract float %40, 0x3FE9200000000000
+  %42 = fmul nnan contract float %40, 0x3FE9200000000000
   %43 = fsub contract float %35, %42
-  %44 = fmul contract float %40, 0x3F2FB40000000000
+  %44 = fmul nnan contract float %40, 0x3F2FB40000000000
   %45 = fsub contract float %43, %44
-  %46 = fmul contract float %40, 0x3E64442D20000000
+  %46 = fmul nnan contract float %40, 0x3E64442D20000000
   %47 = fsub contract float %45, %46
   %48 = fmul contract float %47, %47
   %49 = fcmp contract oeq float %35, 0x7FF0000000000000

@@ -5238,7 +5238,7 @@ define void @_ZN10open_spiel10kuhn_poker16GetOptimalPolicyEd(ptr dead_on_unwind 
   br label %613
 
 60:                                               ; preds = %54
-  %61 = fmul double %1, 3.000000e+00
+  %61 = fmul nnan double %1, 3.000000e+00
   %62 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %62, ptr %12, align 8
   %63 = getelementptr inbounds nuw i8, ptr %12, i64 8

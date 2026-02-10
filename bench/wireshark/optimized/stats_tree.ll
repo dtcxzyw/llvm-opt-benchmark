@@ -2319,7 +2319,7 @@ define noalias ptr @stats_tree_get_values_from_node(ptr noundef readonly capture
 123:                                              ; preds = %120
   %124 = load i32, ptr %19, align 8
   %125 = sitofp i32 %124 to double
-  %126 = fmul double %125, 1.000000e+02
+  %126 = fmul nnan double %125, 1.000000e+02
   %127 = sitofp i32 %122 to double
   %128 = fdiv double %126, %127
   %129 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.24, double noundef %128)

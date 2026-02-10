@@ -2988,11 +2988,11 @@ _ZN2cv8saliency14ObjectnessBING12ValStructVecIfNS_6Point_IiEEED2Ev.exit: ; preds
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !83
   %152 = sitofp i32 %.sroa.0.0.copyload to double
-  %153 = fmul double %120, %152
+  %153 = fmul nnan double %120, %152
   %154 = insertelement <2 x double> poison, double %153, i64 0
   %155 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %154)
   %156 = sitofp i32 %.sroa.5.0.copyload to double
-  %157 = fmul double %122, %156
+  %157 = fmul nnan double %122, %156
   %158 = insertelement <2 x double> poison, double %157, i64 0
   %159 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %158)
   %160 = add nsw i32 %155, %.sroa.speculated67

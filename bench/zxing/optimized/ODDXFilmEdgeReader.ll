@@ -1762,7 +1762,7 @@ define internal fastcc noundef ptr @_ZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findC
   %17 = select i1 %16, float 3.100000e+01, float 2.300000e+01
   %18 = fdiv float %14, %17
   %19 = fpext float %18 to double
-  %20 = fmul double %19, 5.000000e-01
+  %20 = fmul nnan double %19, 5.000000e-01
   %21 = fptosi double %20 to i32
   %22 = sub nsw i32 %0, %10
   %23 = tail call i32 @llvm.abs.i32(i32 %22, i1 true)
@@ -1770,7 +1770,7 @@ define internal fastcc noundef ptr @_ZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findC
   br i1 %24, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit.thread.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %25 = fmul double %19, 4.000000e+00
+  %25 = fmul nnan double %19, 4.000000e+00
   %26 = fptosi double %25 to i32
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.041.058.i.i.i.i, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !95
@@ -1792,7 +1792,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockE
   %41 = select i1 %40, float 3.100000e+01, float 2.300000e+01
   %42 = fdiv float %38, %41
   %43 = fpext float %42 to double
-  %44 = fmul double %43, 5.000000e-01
+  %44 = fmul nnan double %43, 5.000000e-01
   %45 = fptosi double %44 to i32
   %46 = sub nsw i32 %0, %34
   %47 = tail call i32 @llvm.abs.i32(i32 %46, i1 true)
@@ -1800,7 +1800,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockE
   br i1 %48, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit33.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit33.thread.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit33.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit.thread.i.i.i.i
-  %49 = fmul double %43, 4.000000e+00
+  %49 = fmul nnan double %43, 4.000000e+00
   %50 = fptosi double %49 to i32
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.041.058.i.i.i.i, i64 20
   %52 = load i32, ptr %51, align 4, !tbaa !95
@@ -1822,7 +1822,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockE
   %65 = select i1 %64, float 3.100000e+01, float 2.300000e+01
   %66 = fdiv float %62, %65
   %67 = fpext float %66 to double
-  %68 = fmul double %67, 5.000000e-01
+  %68 = fmul nnan double %67, 5.000000e-01
   %69 = fptosi double %68 to i32
   %70 = sub nsw i32 %0, %58
   %71 = tail call i32 @llvm.abs.i32(i32 %70, i1 true)
@@ -1830,7 +1830,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockE
   br i1 %72, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit34.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit34.thread.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit34.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit33.thread.i.i.i.i
-  %73 = fmul double %67, 4.000000e+00
+  %73 = fmul nnan double %67, 4.000000e+00
   %74 = fptosi double %73 to i32
   %75 = getelementptr inbounds nuw i8, ptr %.sroa.041.058.i.i.i.i, i64 36
   %76 = load i32, ptr %75, align 4, !tbaa !95
@@ -1852,7 +1852,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockE
   %89 = select i1 %88, float 3.100000e+01, float 2.300000e+01
   %90 = fdiv float %86, %89
   %91 = fpext float %90 to double
-  %92 = fmul double %91, 5.000000e-01
+  %92 = fmul nnan double %91, 5.000000e-01
   %93 = fptosi double %92 to i32
   %94 = sub nsw i32 %0, %82
   %95 = tail call i32 @llvm.abs.i32(i32 %94, i1 true)
@@ -1860,7 +1860,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockE
   br i1 %96, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit35.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit35.thread.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit35.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit34.thread.i.i.i.i
-  %97 = fmul double %91, 4.000000e+00
+  %97 = fmul nnan double %91, 4.000000e+00
   %98 = fptosi double %97 to i32
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.041.058.i.i.i.i, i64 52
   %100 = load i32, ptr %99, align 4, !tbaa !95
@@ -1902,7 +1902,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockE
   %117 = select i1 %116, float 3.100000e+01, float 2.300000e+01
   %118 = fdiv float %114, %117
   %119 = fpext float %118 to double
-  %120 = fmul double %119, 5.000000e-01
+  %120 = fmul nnan double %119, 5.000000e-01
   %121 = fptosi double %120 to i32
   %122 = sub nsw i32 %0, %110
   %123 = tail call i32 @llvm.abs.i32(i32 %122, i1 true)
@@ -1910,7 +1910,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockE
   br i1 %124, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit36.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit36.thread.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit36.i.i.i.i: ; preds = %108
-  %125 = fmul double %119, 4.000000e+00
+  %125 = fmul nnan double %119, 4.000000e+00
   %126 = fptosi double %125 to i32
   %127 = getelementptr inbounds nuw i8, ptr %.sroa.041.0.lcssa.i.i.i.i, i64 4
   %128 = load i32, ptr %127, align 4, !tbaa !95
@@ -1936,7 +1936,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockE
   %142 = select i1 %141, float 3.100000e+01, float 2.300000e+01
   %143 = fdiv float %139, %142
   %144 = fpext float %143 to double
-  %145 = fmul double %144, 5.000000e-01
+  %145 = fmul nnan double %144, 5.000000e-01
   %146 = fptosi double %145 to i32
   %147 = sub nsw i32 %0, %135
   %148 = tail call i32 @llvm.abs.i32(i32 %147, i1 true)
@@ -1944,7 +1944,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockE
   br i1 %149, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit37.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit37.thread.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit37.i.i.i.i: ; preds = %133
-  %150 = fmul double %144, 4.000000e+00
+  %150 = fmul nnan double %144, 4.000000e+00
   %151 = fptosi double %150 to i32
   %152 = getelementptr inbounds nuw i8, ptr %.sroa.041.1.i.i.i.i, i64 4
   %153 = load i32, ptr %152, align 4, !tbaa !95
@@ -1970,7 +1970,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockE
   %167 = select i1 %166, float 3.100000e+01, float 2.300000e+01
   %168 = fdiv float %164, %167
   %169 = fpext float %168 to double
-  %170 = fmul double %169, 5.000000e-01
+  %170 = fmul nnan double %169, 5.000000e-01
   %171 = fptosi double %170 to i32
   %172 = sub nsw i32 %0, %160
   %173 = tail call i32 @llvm.abs.i32(i32 %172, i1 true)
@@ -1978,7 +1978,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockE
   br i1 %174, label %_ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit38.i.i.i.i, label %_ZN5ZXing6FindIfISt6vectorINS_4OneD12_GLOBAL__N_15ClockESaIS4_EEZNS3_9DXFEState9findClockEiiEUlRT_E_EEDTclsr3stdE5beginfp_EES9_T0_.exit.thread
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZN5ZXing4OneD12_GLOBAL__N_19DXFEState9findClockEiiEUlRT_E_EclINS_17__normal_iteratorIPNS4_5ClockESt6vectorISC_SaISC_EEEEEEbS6_.exit38.i.i.i.i: ; preds = %158
-  %175 = fmul double %169, 4.000000e+00
+  %175 = fmul nnan double %169, 4.000000e+00
   %176 = fptosi double %175 to i32
   %177 = getelementptr inbounds nuw i8, ptr %.sroa.041.2.i.i.i.i, i64 4
   %178 = load i32, ptr %177, align 4, !tbaa !95
@@ -2814,7 +2814,7 @@ define internal fastcc noundef zeroext i1 @_ZNK5ZXing4OneD12_GLOBAL__N_15Clock13
   %12 = select i1 %11, float 3.100000e+01, float 2.300000e+01
   %13 = fdiv float %9, %12
   %14 = fpext float %13 to double
-  %15 = fmul double %14, 5.000000e-01
+  %15 = fmul nnan double %14, 5.000000e-01
   %16 = fptosi double %15 to i32
   %17 = sub nsw i32 %1, %5
   %18 = tail call i32 @llvm.abs.i32(i32 %17, i1 true)
@@ -2822,7 +2822,7 @@ define internal fastcc noundef zeroext i1 @_ZNK5ZXing4OneD12_GLOBAL__N_15Clock13
   br i1 %19, label %20, label %_ZNK5ZXing4OneD12_GLOBAL__N_15Clock9isCloseToENS_6PointTIiEEi.exit
 
 20:                                               ; preds = %3
-  %21 = fmul double %14, 4.000000e+00
+  %21 = fmul nnan double %14, 4.000000e+00
   %22 = fptosi double %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !95

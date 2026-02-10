@@ -314,7 +314,7 @@ _ZN6icu_77L12binarySearchEPKtit.exit.thread:      ; preds = %56, %_ZN6icu_77L12b
 
 78:                                               ; preds = %75
   %79 = sitofp i32 %.us-phi63 to double
-  %80 = fmul double %79, 2.500000e-01
+  %80 = fmul nnan double %79, 2.500000e-01
   %81 = call double @log(double noundef %80) #13, !tbaa !26
   %82 = fdiv double 9.000000e+01, %81
   %83 = call double @log(double noundef %.us-phi) #13, !tbaa !26

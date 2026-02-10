@@ -606,7 +606,7 @@ _bt_deltasortsplits.exit:                         ; preds = %.lr.ph.split.i, %.l
   tail call void @pg_qsort(ptr noundef nonnull %50, i64 noundef %.pre-phi.i, i64 noundef 10, ptr noundef nonnull @_bt_splitcmp) #8
   %288 = sitofp i32 %33 to double
   %..i = select i1 %190, double 5.000000e-02, double 0x3FB3333333333333
-  %289 = fmul double %..i, %288
+  %289 = fmul nnan double %..i, %288
   %.033.i = fptosi double %289 to i16
   %290 = getelementptr inbounds nuw i8, ptr %50, i64 2
   %291 = load i16, ptr %290, align 2
@@ -883,7 +883,7 @@ _bt_split_firstright.exit56.i:                    ; preds = %_bt_split_lastleft.
   %406 = getelementptr inbounds nuw i8, ptr %402, i64 4
   %407 = load i16, ptr %406, align 2
   %408 = sitofp i16 %407 to double
-  %409 = fmul double %408, 0xBFA47AE147AE1480
+  %409 = fmul nnan double %408, 0xBFA47AE147AE1480
   %410 = tail call double @llvm.fmuladd.f64(double %405, double 0x3FEEB851EB851EB8, double %409)
   %411 = fptosi double %410 to i16
   %spec.select.us.i224 = tail call i16 @llvm.abs.i16(i16 %411, i1 false)

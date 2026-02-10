@@ -1072,8 +1072,8 @@ _ZL7dt_hashmPKvm.exit.i.i:                        ; preds = %38
   %indvars.iv.i.i = phi i64 [ 0, %48 ], [ %indvars.iv.next.i.i, %59 ]
   %60 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %61 = uitofp nneg i32 %60 to double
-  %62 = fmul reassoc nsz arcp contract afn double %61, 0x3F60080402010080
-  %63 = fsub reassoc nsz arcp contract afn double 1.000000e+00, %62
+  %62 = fmul reassoc nnan nsz arcp contract afn double %61, 0x3F60080402010080
+  %63 = fsub reassoc nnan nsz arcp contract afn double 1.000000e+00, %62
   %64 = fmul reassoc nsz arcp contract afn double %63, %55
   %65 = tail call reassoc nsz arcp contract afn double @llvm.tanh.f64(double %64)
   %66 = fmul reassoc nsz arcp contract afn double %65, %51
@@ -2490,11 +2490,11 @@ _ZL13_get_modifierPiiiPK18dt_iop_lens_data_tii.exit.i: ; preds = %18
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %84 = load i32, ptr %83, align 8, !tbaa !234
   %85 = sitofp i32 %84 to float
-  %86 = fmul reassoc nsz arcp contract afn float %85, 5.000000e-01
+  %86 = fmul reassoc nnan nsz arcp contract afn float %85, 5.000000e-01
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %88 = load i32, ptr %87, align 4, !tbaa !235
   %89 = sitofp i32 %88 to float
-  %90 = fmul reassoc nsz arcp contract afn float %89, 5.000000e-01
+  %90 = fmul reassoc nnan nsz arcp contract afn float %89, 5.000000e-01
   %91 = shl i64 %3, 1
   %.not21.i = icmp eq i64 %91, 0
   br i1 %.not21.i, label %_ZL21_distort_transform_lfP15dt_iop_module_tP22dt_dev_pixelpipe_iop_tPfm.exit, label %.lr.ph.i13
@@ -2768,11 +2768,11 @@ define range(i32 0, 2) i32 @distort_backtransform(ptr noundef readonly captures(
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %60 = load i32, ptr %59, align 8, !tbaa !234
   %61 = sitofp i32 %60 to float
-  %62 = fmul reassoc nsz arcp contract afn float %61, 5.000000e-01
+  %62 = fmul reassoc nnan nsz arcp contract afn float %61, 5.000000e-01
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %64 = load i32, ptr %63, align 4, !tbaa !235
   %65 = sitofp i32 %64 to float
-  %66 = fmul reassoc nsz arcp contract afn float %65, 5.000000e-01
+  %66 = fmul reassoc nnan nsz arcp contract afn float %65, 5.000000e-01
   %67 = fmul reassoc nsz arcp contract afn float %62, %62
   %68 = fmul reassoc nsz arcp contract afn float %66, %66
   %69 = fadd reassoc nsz arcp contract afn float %68, %67
@@ -4080,7 +4080,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit.us.i: ; preds = %393, %_ZL26_interp
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 16
   %432 = load i64, ptr %431, align 8, !tbaa !307
   %433 = uitofp i64 %432 to float
-  %434 = fmul reassoc nsz arcp contract afn float %433, 2.000000e+00
+  %434 = fmul reassoc nnan nsz arcp contract afn float %433, 2.000000e+00
   %435 = fsub reassoc nsz arcp contract afn float %.3.lcssa.i, %433
   %436 = fptosi float %435 to i32
   %437 = fsub reassoc nsz arcp contract afn float %.3172.lcssa.i, %433
@@ -4592,7 +4592,7 @@ _get_method.exit:                                 ; preds = %20, %24
   %.01716.int.i.i = phi i32 [ 0, %199 ], [ %.int.i.i, %.split.us.i.i ]
   %.01815.i.i = phi float [ 0.000000e+00, %199 ], [ %.us-phi.i.i, %.split.us.i.i ]
   %indvar.conv.i.i = uitofp nneg i32 %.01716.int.i.i to float
-  %204 = fmul reassoc nsz arcp contract afn float %indvar.conv.i.i, 0x3F649539E0000000
+  %204 = fmul reassoc nnan nsz arcp contract afn float %indvar.conv.i.i, 0x3F649539E0000000
   %205 = fadd reassoc nsz arcp contract afn float %204, 5.000000e-01
   %206 = fcmp reassoc nsz arcp contract afn olt float %205, %201
   br i1 %206, label %_ZL26_interpolate_linear_splinePKfS0_if.exit.thread.us.i.i, label %.preheader.i.i.i
@@ -5002,7 +5002,7 @@ _ZL20_get_autoscale_md_v1P15dt_iop_module_tP20dt_iop_lens_params_t.exit.i: ; pre
   %indvars.iv566.i.i = phi i64 [ 0, %.preheader438.i.i ], [ %indvars.iv.next567.i.i, %.critedge399.i.i ]
   %421 = trunc nuw nsw i64 %indvars.iv566.i.i to i32
   %422 = uitofp nneg i32 %421 to float
-  %423 = fmul reassoc nsz arcp contract afn float %422, 0x3FB1111120000000
+  %423 = fmul reassoc nnan nsz arcp contract afn float %422, 0x3FB1111120000000
   %424 = fcmp reassoc nsz arcp contract afn olt float %423, %371
   br i1 %424, label %_ZL26_interpolate_linear_splinePKfS0_if.exit.i66.i, label %.preheader.i.i64.i
 
@@ -5182,7 +5182,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit422.i.i: ; preds = %._crit_edge.i414
   %indvars.iv549.i.i = phi i64 [ 0, %.preheader440.i.i ], [ %indvars.iv.next550.i.i, %571 ]
   %505 = trunc nuw nsw i64 %indvars.iv549.i.i to i32
   %506 = uitofp nneg i32 %505 to float
-  %507 = fmul reassoc nsz arcp contract afn float %506, 0x3FB1111120000000
+  %507 = fmul reassoc nnan nsz arcp contract afn float %506, 0x3FB1111120000000
   %508 = getelementptr inbounds nuw float, ptr %271, i64 %indvars.iv549.i.i
   store float %507, ptr %508, align 4, !tbaa !52
   %509 = getelementptr inbounds nuw float, ptr %270, i64 %indvars.iv549.i.i
@@ -5353,7 +5353,7 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit422.i.i: ; preds = %._crit_edge.i414
   %indvars.iv.i55.i = phi i64 [ 0, %599 ], [ %indvars.iv.next.i56.i, %.critedge402.i.i ]
   %607 = trunc nuw nsw i64 %indvars.iv.i55.i to i32
   %608 = uitofp nneg i32 %607 to float
-  %609 = fmul reassoc nsz arcp contract afn float %608, 0x3FB1111120000000
+  %609 = fmul reassoc nnan nsz arcp contract afn float %608, 0x3FB1111120000000
   %610 = getelementptr inbounds nuw float, ptr %271, i64 %indvars.iv.i55.i
   store float %609, ptr %610, align 4, !tbaa !52
   %611 = getelementptr inbounds nuw float, ptr %270, i64 %indvars.iv.i55.i
@@ -5425,11 +5425,11 @@ _ZL26_interpolate_linear_splinePKfS0_if.exit422.i.i: ; preds = %._crit_edge.i414
   %650 = getelementptr inbounds nuw i8, ptr %177, i64 1500
   %651 = load i32, ptr %650, align 4, !tbaa !396
   %652 = sitofp i32 %651 to float
-  %653 = fmul reassoc nsz arcp contract afn float %652, 5.000000e-01
+  %653 = fmul reassoc nnan nsz arcp contract afn float %652, 5.000000e-01
   %654 = getelementptr inbounds nuw i8, ptr %177, i64 1504
   %655 = load i32, ptr %654, align 16, !tbaa !397
   %656 = sitofp i32 %655 to float
-  %657 = fmul reassoc nsz arcp contract afn float %656, 5.000000e-01
+  %657 = fmul reassoc nnan nsz arcp contract afn float %656, 5.000000e-01
   %658 = fmul reassoc nsz arcp contract afn float %653, %653
   %659 = fmul reassoc nsz arcp contract afn float %657, %657
   %660 = fadd reassoc nsz arcp contract afn float %659, %658
@@ -8846,15 +8846,15 @@ define internal fastcc noundef i32 @_ZL18_init_coeffs_md_v1PK10dt_image_tPK20dt_
   %64 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv266
   %65 = load i16, ptr %64, align 2, !tbaa !226
   %66 = sitofp i16 %65 to float
-  %67 = fmul reassoc nsz arcp contract afn float %66, 0x3EA0000000000000
-  %68 = fadd reassoc nsz arcp contract afn float %67, 1.000000e+00
+  %67 = fmul reassoc nnan nsz arcp contract afn float %66, 0x3EA0000000000000
+  %68 = fadd reassoc nnan nsz arcp contract afn float %67, 1.000000e+00
   %69 = fmul reassoc nsz arcp contract afn float %68, %.sink289
   store float %69, ptr %61, align 4, !tbaa !52
   %70 = getelementptr inbounds nuw i16, ptr %35, i64 %indvars.iv266
   %71 = load i16, ptr %70, align 2, !tbaa !226
   %72 = sitofp i16 %71 to float
-  %73 = fmul reassoc nsz arcp contract afn float %72, 0x3EA0000000000000
-  %74 = fadd reassoc nsz arcp contract afn float %73, 1.000000e+00
+  %73 = fmul reassoc nnan nsz arcp contract afn float %72, 0x3EA0000000000000
+  %74 = fadd reassoc nnan nsz arcp contract afn float %73, 1.000000e+00
   %75 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv266
   %76 = fmul reassoc nsz arcp contract afn float %74, %.sink289
   store float %76, ptr %75, align 4, !tbaa !52
@@ -9074,7 +9074,7 @@ define internal fastcc noundef i32 @_ZL18_init_coeffs_md_v1PK10dt_image_tPK20dt_
   %indvars.iv244 = phi i64 [ 0, %.preheader224 ], [ %indvars.iv.next245, %259 ]
   %183 = trunc nuw nsw i64 %indvars.iv244 to i32
   %184 = uitofp nneg i32 %183 to float
-  %185 = fmul reassoc nsz arcp contract afn float %184, 0x3FB1111120000000
+  %185 = fmul reassoc nnan nsz arcp contract afn float %184, 0x3FB1111120000000
   %186 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv244
   store float %185, ptr %186, align 4, !tbaa !52
   %187 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv244

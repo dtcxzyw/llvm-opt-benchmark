@@ -586,7 +586,7 @@ _ZN4llvh11raw_ostreamlsEc.exit:                   ; preds = %if.then.i, %if.end.
   br i1 %cmp22, label %if.then23, label %if.end33.critedge
 
 if.then23:                                        ; preds = %_ZN4llvh11raw_ostreamlsEc.exit
-  %mul = fmul double %N, 1.000000e+02
+  %mul = fmul nnan double %N, 1.000000e+02
   %14 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %15 = load i32, ptr %Capacity2.i.i.i.i.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %14, %15

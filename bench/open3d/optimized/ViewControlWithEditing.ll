@@ -303,13 +303,13 @@ define void @_ZN6open3d13visualization22ViewControlWithEditing6RotateEdddd(ptr n
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !43
   %17 = sitofp i32 %16 to double
-  %18 = fmul double %17, 5.000000e-01
+  %18 = fmul nnan double %17, 5.000000e-01
   %19 = fadd double %18, -5.000000e-01
   %20 = fsub double %3, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %22 = load i32, ptr %21, align 4, !tbaa !44
   %23 = sitofp i32 %22 to double
-  %24 = fmul double %23, 5.000000e-01
+  %24 = fmul nnan double %23, 5.000000e-01
   %25 = fadd double %24, -5.000000e-01
   %26 = fsub double %25, %4
   %27 = fadd double %1, %3

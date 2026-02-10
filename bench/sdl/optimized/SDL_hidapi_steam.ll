@@ -914,39 +914,39 @@ RemapValClamped.exit.i.i:                         ; preds = %154
   store i64 %387, ptr %102, align 8
   %388 = load i16, ptr %71, align 2
   %389 = sitofp i16 %388 to float
-  %390 = fmul float %389, 0x3F00000000000000
-  %391 = fmul float %390, 0x4041740B00000000
+  %390 = fmul nnan float %389, 0x3F00000000000000
+  %391 = fmul nnan float %390, 0x4041740B00000000
   store float %391, ptr %6, align 4
   %392 = load i16, ptr %79, align 2
   %393 = sitofp i16 %392 to float
-  %394 = fmul float %393, 0x3F00000000000000
-  %395 = fmul float %394, 0x4041740B00000000
+  %394 = fmul nnan float %393, 0x3F00000000000000
+  %395 = fmul nnan float %394, 0x4041740B00000000
   store float %395, ptr %103, align 4
   %396 = load i16, ptr %77, align 8
   %397 = sitofp i16 %396 to float
-  %398 = fmul float %397, 0x3F00000000000000
-  %399 = fmul float %398, 0x4041740B00000000
+  %398 = fmul nnan float %397, 0x3F00000000000000
+  %399 = fmul nnan float %398, 0x4041740B00000000
   store float %399, ptr %104, align 4
   call void @SDL_SendJoystickSensor(i64 noundef %309, ptr noundef nonnull %314, i32 noundef 2, i64 noundef %387, ptr noundef nonnull %6, i32 noundef 3) #9
   %400 = load i16, ptr %70, align 8
   %401 = sitofp i16 %400 to float
-  %402 = fmul float %401, 0x3F00000000000000
-  %403 = fmul float %402, 2.000000e+00
-  %404 = fmul float %403, 0x40239D0140000000
+  %402 = fmul nnan float %401, 0x3F00000000000000
+  %403 = fmul nnan float %402, 2.000000e+00
+  %404 = fmul nnan float %403, 0x40239D0140000000
   store float %404, ptr %6, align 4
   %405 = load i16, ptr %81, align 4
   %406 = sitofp i16 %405 to float
-  %407 = fmul float %406, 0x3F00000000000000
-  %408 = fmul float %407, 2.000000e+00
-  %409 = fmul float %408, 0x40239D0140000000
+  %407 = fmul nnan float %406, 0x3F00000000000000
+  %408 = fmul nnan float %407, 2.000000e+00
+  %409 = fmul nnan float %408, 0x40239D0140000000
   store float %409, ptr %103, align 4
   %410 = load i16, ptr %80, align 2
   %411 = sext i16 %410 to i32
   %412 = sub nsw i32 0, %411
   %413 = sitofp i32 %412 to float
-  %414 = fmul float %413, 0x3F00000000000000
-  %415 = fmul float %414, 2.000000e+00
-  %416 = fmul float %415, 0x40239D0140000000
+  %414 = fmul nnan float %413, 0x3F00000000000000
+  %415 = fmul nnan float %414, 2.000000e+00
+  %416 = fmul nnan float %415, 0x40239D0140000000
   store float %416, ptr %104, align 4
   %417 = load i64, ptr %102, align 8
   call void @SDL_SendJoystickSensor(i64 noundef %309, ptr noundef nonnull %314, i32 noundef 1, i64 noundef %417, ptr noundef nonnull %6, i32 noundef 3) #9

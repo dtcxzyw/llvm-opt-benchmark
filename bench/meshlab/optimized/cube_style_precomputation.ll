@@ -58094,7 +58094,7 @@ define linkonce_odr noundef i64 @_ZN5Eigen8internal12SparseLUImplIdiE6expandINS_
   %14 = add nsw i64 %13, 1
   store i64 %14, ptr %7, align 8
   %15 = sitofp i64 %13 to float
-  %16 = fmul float %15, 1.500000e+00
+  %16 = fmul nnan float %15, 1.500000e+00
   %17 = fptosi float %16 to i64
   store i64 %17, ptr %8, align 8
   %18 = icmp slt i64 %14, %17
@@ -58354,7 +58354,7 @@ define linkonce_odr noundef i64 @_ZN5Eigen8internal12SparseLUImplIdiE6expandINS_
   %14 = add nsw i64 %13, 1
   store i64 %14, ptr %7, align 8
   %15 = sitofp i64 %13 to float
-  %16 = fmul float %15, 1.500000e+00
+  %16 = fmul nnan float %15, 1.500000e+00
   %17 = fptosi float %16 to i64
   store i64 %17, ptr %8, align 8
   %18 = icmp slt i64 %14, %17
@@ -74993,7 +74993,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %25 = getelementptr inbounds nuw double, ptr %22, i64 %.05.i
   %26 = tail call i32 @rand() #16
   %27 = sitofp i32 %26 to double
-  %28 = fmul double %27, 2.000000e+00
+  %28 = fmul nnan double %27, 2.000000e+00
   %29 = fdiv double %28, 0x41DFFFFFFFC00000
   %30 = fadd double %29, -1.000000e+00
   store double %30, ptr %25, align 8

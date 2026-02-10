@@ -1607,7 +1607,7 @@ _ZN5ZXing11PatternView10skipSymbolEv.exit:        ; preds = %.thread285
 
 _ZN5ZXing6ReduceIPKttSt4plusItEEET0_T_S6_S5_T1_.exit.loopexit.i: ; preds = %.lr.ph.i.i.i
   %572 = uitofp i16 %570 to double
-  %573 = fmul double %572, 3.500000e+00
+  %573 = fmul nnan double %572, 3.500000e+00
   %574 = fptosi double %573 to i32
   br label %_ZN5ZXing11PatternView5shiftEi.exit.i
 
@@ -2254,7 +2254,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i:             ; preds = %.lr.ph.i.i.i.i
 
 23:                                               ; preds = %_ZNK5ZXing11PatternView3sumEi.exit.i
   %24 = uitofp i16 %21 to double
-  %25 = fmul double %24, 2.500000e-01
+  %25 = fmul nnan double %24, 2.500000e-01
   %26 = tail call double @llvm.fmuladd.f64(double %25, double 5.000000e-01, double 5.000000e-01)
   br label %28
 
@@ -2334,7 +2334,7 @@ _ZN5ZXing11PatternView10skipSymbolEv.exit:        ; preds = %53
 
 _ZNK5ZXing11PatternView3sumEi.exit.i37:           ; preds = %.lr.ph.i.i.i.i31
   %59 = uitofp i16 %58 to double
-  %60 = fmul double %59, 5.000000e-01
+  %60 = fmul nnan double %59, 5.000000e-01
   br label %62
 
 61:                                               ; preds = %62

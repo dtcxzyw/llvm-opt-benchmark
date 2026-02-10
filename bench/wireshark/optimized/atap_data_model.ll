@@ -4987,7 +4987,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit542:           ; preds = %167, %_ZN17QArrayDa
   %184 = load i64, ptr %183, align 8
   %185 = add i64 %184, %182
   %186 = sitofp i64 %185 to double
-  %187 = fmul double %186, 1.000000e+02
+  %187 = fmul nnan double %186, 1.000000e+02
   %188 = sitofp i64 %178 to double
   %189 = fdiv double %187, %188
   br label %190
@@ -7826,7 +7826,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit575:           ; preds = %249, %_ZN17QArrayDa
   %266 = load i64, ptr %265, align 8
   %267 = add i64 %266, %264
   %268 = sitofp i64 %267 to double
-  %269 = fmul double %268, 1.000000e+02
+  %269 = fmul nnan double %268, 1.000000e+02
   %270 = sitofp i64 %260 to double
   %271 = fdiv double %269, %270
   br label %272

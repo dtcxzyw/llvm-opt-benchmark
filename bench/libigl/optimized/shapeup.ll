@@ -915,7 +915,7 @@ _ZN5Eigen16CommaInitializerINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi1E
   %196 = getelementptr inbounds nuw double, ptr %180, i64 %indvars.iv440
   %197 = trunc nuw nsw i64 %indvars.iv440 to i32
   %198 = uitofp nneg i32 %197 to double
-  %199 = fmul double %198, 0x401921FB54442D18
+  %199 = fmul nnan double %198, 0x401921FB54442D18
   %200 = fdiv double %199, %181
   %201 = call double @cos(double noundef %200) #29, !tbaa !16
   store double %201, ptr %196, align 8, !tbaa !31, !noalias !63

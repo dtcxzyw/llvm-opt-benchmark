@@ -1996,7 +1996,7 @@ nsvg__pathQuadBezTo.exit.i:                       ; preds = %211, %203
   br i1 %or.cond9.i.i, label %374, label %376
 
 374:                                              ; preds = %365
-  %375 = fmul float %372, 5.000000e-01
+  %375 = fmul nnan float %372, 5.000000e-01
   br label %381
 
 376:                                              ; preds = %365

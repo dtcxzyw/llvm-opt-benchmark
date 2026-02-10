@@ -3364,7 +3364,7 @@ define { double, i32 } @llama_perf_sampler(ptr noundef readonly captures(address
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !201
   %11 = sitofp i64 %10 to double
-  %12 = fmul double %11, 1.000000e-03
+  %12 = fmul nnan double %11, 1.000000e-03
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %14 = load i32, ptr %13, align 8, !tbaa !27
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %14, i32 0)
@@ -3393,13 +3393,13 @@ llama_perf_sampler.exit:                          ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i64, ptr %8, align 8, !tbaa !201
   %10 = sitofp i64 %9 to double
-  %11 = fmul double %10, 1.000000e-03
+  %11 = fmul nnan double %10, 1.000000e-03
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %13 = load i32, ptr %12, align 8, !tbaa !27
   %.sroa.speculated.i = tail call i32 @llvm.smax.i32(i32 %13, i32 0)
   %14 = uitofp nneg i32 %.sroa.speculated.i to double
   %15 = fdiv double %11, %14
-  %16 = fdiv double 1.000000e+03, %11
+  %16 = fdiv nnan double 1.000000e+03, %11
   %17 = fmul double %16, %14
   tail call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.13, ptr noundef nonnull @__func__.llama_perf_sampler_print, double noundef %11, i32 noundef %.sroa.speculated.i, double noundef %15, double noundef %17)
   ret void

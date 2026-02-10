@@ -1396,7 +1396,7 @@ define hidden void @_ZNK12G1HeapRegion8print_onEP12outputStream(ptr noundef nonn
   %16 = ptrtoint ptr %13 to i64
   %17 = sub i64 %15, %16
   %18 = uitofp i64 %17 to double
-  %19 = fmul double %18, 1.000000e+02
+  %19 = fmul nnan double %18, 1.000000e+02
   %20 = load ptr, ptr %10, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = sub i64 %21, %16

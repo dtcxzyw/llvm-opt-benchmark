@@ -2599,7 +2599,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchPara
   %1397 = and i32 %.sroa.1.0.extract.trunc.i, 15
   %1398 = shl nuw nsw i32 1, %1397
   %1399 = uitofp nneg i32 %1398 to float
-  %1400 = fmul float %.083, %1399
+  %1400 = fmul nnan float %.083, %1399
   br i1 %1393, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %1396
@@ -2630,7 +2630,7 @@ _ZN10OpenSubdiv6v3_6_03OsdL31OsdEvaluatePatchBasisNormalizedEiNS1_13OsdPatchPara
   br i1 %or.cond9, label %1410, label %.loopexit
 
 1410:                                             ; preds = %._crit_edge
-  %1411 = fmul float %.083, %1400
+  %1411 = fmul nnan float %.083, %1400
   %1412 = fmul float %1400, %1411
   br i1 %1393, label %.lr.ph110.preheader, label %.loopexit
 

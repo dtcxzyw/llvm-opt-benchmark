@@ -3625,7 +3625,7 @@ define internal fastcc void @xdot_gradient_fillcolor(ptr noundef readonly captur
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %10 = load i32, ptr %9, align 8, !tbaa !126
   %11 = sitofp i32 %10 to double
-  %12 = fmul double %11, 0x400921FB54442D18
+  %12 = fmul nnan double %11, 0x400921FB54442D18
   %13 = fdiv double %12, 1.800000e+02
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %14 = load ptr, ptr @xd, align 8, !tbaa !36

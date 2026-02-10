@@ -159,7 +159,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef capture
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !20
   %8 = sitofp i32 %7 to float
-  %9 = fmul nsz float %8, 5.000000e-01
+  %9 = fmul nnan nsz float %8, 5.000000e-01
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %7, ptr %10, align 8, !tbaa !49
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -399,7 +399,7 @@ fir_to_phase.exit.thread:                         ; preds = %._crit_edge.i
   %.neg251.i = sext i1 %129 to i32
   %130 = add nsw i32 %.neg251.i, %128
   %131 = sitofp i32 %130 to float
-  %132 = fmul nsz float %131, 0x401921FB60000000
+  %132 = fmul nnan nsz float %131, 0x401921FB60000000
   %133 = fadd nsz float %.0229262.i, %132
   %134 = fadd nsz float %125, %133
   %135 = fsub nsz float %134, %.0228263.i
@@ -409,7 +409,7 @@ fir_to_phase.exit.thread:                         ; preds = %._crit_edge.i
   %.neg252.i = sext i1 %138 to i32
   %139 = add nsw i32 %.neg252.i, %137
   %140 = sitofp i32 %139 to float
-  %141 = fmul nsz float %140, 0x400921FB60000000
+  %141 = fmul nnan nsz float %140, 0x400921FB60000000
   %142 = call nsz float @llvm.fabs.f32(float %141)
   %143 = fadd nsz float %.0227264.i, %142
   %144 = lshr exact i64 %indvars.iv.i91, 1
@@ -447,7 +447,7 @@ safe_log.exit.i:                                  ; preds = %.lr.ph267.i
 
 .lr.ph271.i:                                      ; preds = %._crit_edge268.i
   %158 = uitofp nneg i32 %.0223.lcssa.i to float
-  %159 = fdiv nsz float 2.000000e+00, %158
+  %159 = fdiv nnan nsz float 2.000000e+00, %158
   %wide.trip.count.i93 = zext nneg i32 %.0223.lcssa.i to i64
   br label %162
 
@@ -573,7 +573,7 @@ safe_log.exit.i:                                  ; preds = %.lr.ph267.i
 .lr.ph285.i:                                      ; preds = %._crit_edge282.i..lr.ph285.i_crit_edge, %._crit_edge282.thread.i
   %wide.trip.count327.i.pre-phi = phi i64 [ %.pre174, %._crit_edge282.i..lr.ph285.i_crit_edge ], [ %203, %._crit_edge282.thread.i ]
   %218 = uitofp nneg i32 %.0223.lcssa.i to float
-  %219 = fdiv nsz float 2.000000e+00, %218
+  %219 = fdiv nnan nsz float 2.000000e+00, %218
   br label %228
 
 .preheader255.i:                                  ; preds = %228, %._crit_edge282.i
@@ -750,7 +750,7 @@ fir_to_phase.exit:                                ; preds = %282, %thread-pre-sp
   %302 = load float, ptr %301, align 4, !tbaa !56
   %303 = fpext nsz float %302 to double
   %304 = sitofp i32 %296 to float
-  %305 = fmul nsz float %304, 1.000000e+02
+  %305 = fmul nnan nsz float %304, 1.000000e+02
   %306 = add nsw i32 %.2, -1
   %307 = sitofp i32 %306 to float
   %308 = fdiv nsz float %305, %307
@@ -901,8 +901,8 @@ define internal fastcc noalias ptr @lpf(float noundef %0, float noundef %1, floa
   br i1 %65, label %66, label %69
 
 66:                                               ; preds = %64
-  %67 = fadd nsz float %15, 0xC021666660000000
-  %68 = fmul nsz float %67, 0x3FBC361140000000
+  %67 = fadd nnan nsz float %15, 0xC021666660000000
+  %68 = fmul nnan nsz float %67, 0x3FBC361140000000
   br label %kaiser_beta.exit.i
 
 69:                                               ; preds = %64
@@ -912,7 +912,7 @@ define internal fastcc noalias ptr @lpf(float noundef %0, float noundef %1, floa
 71:                                               ; preds = %69
   %72 = fadd nsz float %15, 0xC034F5C280000000
   %73 = tail call nsz float @llvm.pow.f32(float %72, float 0x3FD99999A0000000)
-  %74 = fmul nsz float %72, 0x3FB4302B40000000
+  %74 = fmul nnan nsz float %72, 0x3FB4302B40000000
   %75 = tail call nsz float @llvm.fmuladd.f32(float %73, float 0x3FE2B18540000000, float %74)
   br label %kaiser_beta.exit.i
 
@@ -981,8 +981,8 @@ kaiser_params.exit:                               ; preds = %87
   %118 = fdiv nsz double 1.000000e+00, %117
   %119 = fptrunc nsz double %118 to float
   %120 = sitofp i32 %113 to float
-  %121 = fmul nsz float %120, 5.000000e-01
-  %122 = fdiv nsz float 1.000000e+00, %121
+  %121 = fmul nnan nsz float %120, 5.000000e-01
+  %122 = fdiv nnan nsz float 1.000000e+00, %121
   %.not.i29 = icmp eq ptr %115, null
   br i1 %.not.i29, label %make_lpf.exit, label %123
 
@@ -1014,15 +1014,15 @@ kaiser_params.exit:                               ; preds = %87
   %indvars64.i = trunc i64 %indvars.iv.i to i32
   %132 = uitofp nneg i32 %indvars64.i to float
   %133 = tail call nsz float @llvm.fmuladd.f32(float %120, float -5.000000e-01, float %132)
-  %134 = fpext nsz float %133 to double
-  %135 = fmul nsz double %134, 0x400921FB54442D18
+  %134 = fpext nnan nsz float %133 to double
+  %135 = fmul nnan nsz double %134, 0x400921FB54442D18
   %136 = fptrunc nsz double %135 to float
   %137 = fmul nsz float %122, %133
   %138 = fcmp nsz une float %136, 0.000000e+00
   br i1 %138, label %139, label %143
 
 139:                                              ; preds = %131
-  %140 = fmul nsz float %8, %136
+  %140 = fmul nnan nsz float %8, %136
   %141 = tail call nsz float @llvm.sin.f32(float %140)
   %142 = fdiv nsz float %141, %136
   br label %143

@@ -3642,7 +3642,7 @@ _ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit:       ; preds = %.lr.ph.i.i
   br i1 %35, label %.lr.ph, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit303
 
 .lr.ph:                                           ; preds = %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit
-  %36 = fdiv double 1.000000e+00, %34
+  %36 = fdiv nnan double 1.000000e+00, %34
   br label %37
 
 37:                                               ; preds = %.lr.ph, %37
@@ -3766,7 +3766,7 @@ _ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit.thread.thread: ; preds = %.lr.ph.i
   br i1 %84, label %.lr.ph425, label %_ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit303
 
 .lr.ph425:                                        ; preds = %_ZN6casadi9casadi_mvIdEEvPKT_PKxS3_PS1_x.exit.thread.thread
-  %85 = fdiv double 1.000000e+00, %83
+  %85 = fdiv nnan double 1.000000e+00, %83
   br label %86
 
 86:                                               ; preds = %.lr.ph425, %86
@@ -3952,7 +3952,7 @@ _ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit340:    ; preds = %.lr.ph.i.i335
   br i1 %152, label %.lr.ph432, label %.loopexit
 
 .lr.ph432:                                        ; preds = %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit340
-  %153 = fdiv double 1.000000e+00, %151
+  %153 = fdiv nnan double 1.000000e+00, %151
   br label %154
 
 154:                                              ; preds = %.lr.ph432, %154
@@ -4094,7 +4094,7 @@ _ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit372:    ; preds = %.lr.ph.i.i367, %.pr
   br i1 %brmerge449, label %.loopexit, label %.lr.ph439
 
 .lr.ph439:                                        ; preds = %_ZN6casadi13casadi_norm_2IdEET_xPKS1_.exit372
-  %208 = fdiv double 1.000000e+00, %206
+  %208 = fdiv nnan double 1.000000e+00, %206
   br label %209
 
 209:                                              ; preds = %.lr.ph439, %209

@@ -4000,7 +4000,7 @@ if.end94:                                         ; preds = %for.cond.cleanup
   %agg.tmp98.sroa.0.0.copyload = load i48, ptr %cur_node, align 8, !tbaa.struct !117
   %p.sroa.0.0.extract.trunc.i = trunc i48 %agg.tmp98.sroa.0.0.copyload to i16
   %conv.i215 = sitofp i16 %p.sroa.0.0.extract.trunc.i to float
-  %mul.i = fmul nsz float %conv.i215, 1.000000e+01
+  %mul.i = fmul nnan nsz float %conv.i215, 1.000000e+01
   %retval.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %mul.i, i64 0
   %origin = getelementptr inbounds nuw i8, ptr %this, i64 48
   %ref.tmp97.sroa.4.0.origin.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -4013,7 +4013,7 @@ if.end94:                                         ; preds = %for.cond.cleanup
   %52 = lshr <2 x i48> %51, <i48 16, i48 32>
   %53 = trunc <2 x i48> %52 to <2 x i16>
   %54 = sitofp <2 x i16> %53 to <2 x float>
-  %55 = fmul nsz <2 x float> %54, splat (float 1.000000e+01)
+  %55 = fmul nnan nsz <2 x float> %54, splat (float 1.000000e+01)
   %56 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i, <2 x float> %55, <2 x i32> <i32 0, i32 2>
   store <2 x float> %56, ptr %origin, align 8, !tbaa.struct !101
   %57 = extractelement <2 x float> %55, i64 1
@@ -6211,13 +6211,13 @@ for.body22:                                       ; preds = %if.end83, %if.end18
   %conv28 = sitofp i32 %14 to float
   %15 = load i16, ptr %arrayidx26, align 2, !tbaa !37
   %conv31 = sitofp i16 %15 to float
-  %sub = fadd nsz float %conv31, -5.000000e-01
-  %mul = fmul nsz float %sub, 1.000000e+01
+  %sub = fadd nnan nsz float %conv31, -5.000000e-01
+  %mul = fmul nnan nsz float %sub, 1.000000e+01
   %Z33 = getelementptr inbounds nuw i8, ptr %arrayidx26, i64 4
   %16 = load i16, ptr %Z33, align 2, !tbaa !39
   %conv35 = sitofp i16 %16 to float
-  %sub36 = fadd nsz float %conv35, -5.000000e-01
-  %mul37 = fmul nsz float %sub36, 1.000000e+01
+  %sub36 = fadd nnan nsz float %conv35, -5.000000e-01
+  %mul37 = fmul nnan nsz float %sub36, 1.000000e+01
   %17 = and i64 %indvars.iv, 9223372036854775806
   %tobool40.not = icmp eq i64 %17, 2
   br i1 %tobool40.not, label %if.else, label %if.then41
@@ -9060,8 +9060,8 @@ land.lhs.true190:                                 ; preds = %land.lhs.true
 
 if.then196:                                       ; preds = %land.lhs.true190
   %conv198 = uitofp nneg i8 %and37 to float
-  %div = fdiv nsz float %conv198, 6.300000e+01
-  %64 = call nsz float @llvm.fmuladd.f32(float %div, float 2.000000e+00, float -1.000000e+00)
+  %div = fdiv nnan nsz float %conv198, 6.300000e+01
+  %64 = call nnan nsz float @llvm.fmuladd.f32(float %div, float 2.000000e+00, float -1.000000e+00)
   %special_tiles.i = getelementptr inbounds nuw i8, ptr %61, i64 720
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %tile914, ptr noundef nonnull align 8 dereferenceable(120) %special_tiles.i, i64 120, i1 false), !tbaa.struct !63
   %texture_id.i = getelementptr inbounds nuw i8, ptr %this, i64 188
@@ -9103,7 +9103,7 @@ _ZN21MapblockMeshGenerator14getSpecialTileEiP8TileSpecb.exit: ; preds = %if.then
   %cond215 = select nsz i1 %73, float 0x4011851EC0000000, float 0x4013E147A0000000
   %74 = extractelement <4 x i1> %71, i64 1
   %cond218 = select nsz i1 %74, float 0x4011851EC0000000, float 0x4013E147A0000000
-  %mul = fmul nsz float %64, %cond218
+  %mul = fmul nnan nsz float %64, %cond218
   %75 = extractelement <4 x i1> %71, i64 0
   %cond221 = select nsz i1 %75, float 0x4011851EC0000000, float 0x4013E147A0000000
   %76 = load <2 x i8>, ptr %arrayidx115.2, align 4, !tbaa !64
@@ -9824,9 +9824,9 @@ if.then:                                          ; preds = %entry
   %div.i = sdiv i32 %add.i, 65536
   %rem = and i32 %div.i, 15
   %conv30 = uitofp nneg i32 %rem to double
-  %div = fmul nsz double %conv30, 6.250000e-02
-  %mul31 = fmul nsz double %div, 1.250000e-01
-  %mul32 = fmul nsz double %mul31, -1.000000e+01
+  %div = fmul nnan nsz double %conv30, 6.250000e-02
+  %mul31 = fmul nnan nsz double %div, 1.250000e-01
+  %mul32 = fmul nnan nsz double %mul31, -1.000000e+01
   %conv33 = fptrunc double %mul32 to float
   %Y35 = getelementptr inbounds nuw i8, ptr %this, i64 636
   store float %conv33, ptr %Y35, align 4, !tbaa !174
@@ -10364,9 +10364,9 @@ if.then30:                                        ; preds = %if.end
   %div.i = sdiv i32 %add.i, 65536
   %rem = and i32 %div.i, 15
   %conv41 = uitofp nneg i32 %rem to double
-  %div = fmul nsz double %conv41, 6.250000e-02
-  %10 = tail call nsz double @llvm.fmuladd.f64(double %div, double 2.900000e-01, double -1.450000e-01)
-  %mul43 = fmul nsz double %10, 1.000000e+01
+  %div = fmul nnan nsz double %conv41, 6.250000e-02
+  %10 = tail call nnan nsz double @llvm.fmuladd.f64(double %div, double 2.900000e-01, double -1.450000e-01)
+  %mul43 = fmul nnan nsz double %10, 1.000000e+01
   %conv44 = fptrunc double %mul43 to float
   store float %conv44, ptr %offset, align 8, !tbaa !180
   %mul.i118 = mul i32 %add.i, 1103515245
@@ -10374,9 +10374,9 @@ if.then30:                                        ; preds = %if.end
   %div.i120 = sdiv i32 %add.i119, 65536
   %rem49 = and i32 %div.i120, 15
   %conv50 = uitofp nneg i32 %rem49 to double
-  %div51 = fmul nsz double %conv50, 6.250000e-02
-  %11 = tail call nsz double @llvm.fmuladd.f64(double %div51, double 2.900000e-01, double -1.450000e-01)
-  %mul53 = fmul nsz double %11, 1.000000e+01
+  %div51 = fmul nnan nsz double %conv50, 6.250000e-02
+  %11 = tail call nnan nsz double @llvm.fmuladd.f64(double %div51, double 2.900000e-01, double -1.450000e-01)
+  %mul53 = fmul nnan nsz double %11, 1.000000e+01
   %conv54 = fptrunc double %mul53 to float
   store float %conv54, ptr %ref.tmp.sroa.5.0.offset.sroa_idx, align 8, !tbaa !181
   br label %if.end58
@@ -10397,7 +10397,7 @@ sw.bb69:                                          ; preds = %entry, %entry
   %13 = load ptr, ptr %nodedef, align 8, !tbaa !35
   %call72 = tail call noundef zeroext i8 @_ZNK7MapNode12getDegRotateEPK14NodeDefManager(ptr noundef nonnull align 4 dereferenceable(4) %n71, ptr noundef %13)
   %conv74 = uitofp i8 %call72 to float
-  %mul75 = fmul nsz float %conv74, 1.500000e+00
+  %mul75 = fmul nnan nsz float %conv74, 1.500000e+00
   store float %mul75, ptr %rotate_degree, align 4, !tbaa !177
   br label %sw.epilog
 
@@ -10405,7 +10405,7 @@ sw.bb78:                                          ; preds = %entry
   %param281 = getelementptr inbounds nuw i8, ptr %this, i64 63
   %14 = load i8, ptr %param281, align 1, !tbaa !179
   %conv83 = uitofp i8 %14 to double
-  %div84 = fmul nsz double %conv83, 6.250000e-02
+  %div84 = fmul nnan nsz double %conv83, 6.250000e-02
   %conv85 = fptrunc double %div84 to float
   store float %conv85, ptr %plant_height, align 8, !tbaa !170
   br label %sw.epilog
@@ -10718,10 +10718,10 @@ entry:
   %5 = tail call nsz double @llvm.sin.f64(double %mul.i37)
   %6 = fneg nsz double %5
   %conv.i = fpext float %1 to double
-  %neg.i = fmul nsz double %3, -0.000000e+00
+  %neg.i = fmul ninf nsz double %3, -0.000000e+00
   %7 = tail call nsz double @llvm.fmuladd.f64(double %conv.i, double %2, double %neg.i)
   %conv10.i = fptrunc double %7 to float
-  %mul16.i = fmul nsz double %2, 0.000000e+00
+  %mul16.i = fmul ninf nsz double %2, 0.000000e+00
   %8 = tail call nsz double @llvm.fmuladd.f64(double %conv.i, double %3, double %mul16.i)
   %conv17.i = fptrunc double %8 to float
   %add = fadd nsz float %offset_h, %conv17.i
@@ -11520,13 +11520,13 @@ if.then63:                                        ; preds = %if.end61
   %Y.i.i342 = getelementptr inbounds nuw i8, ptr %vertices.i338, i64 4
   %Z.i.i343 = getelementptr inbounds nuw i8, ptr %vertices.i338, i64 8
   %conv17.i.i349 = fmul nsz float %211, 0.000000e+00
-  %conv8.i42.i351 = fpext float %conv17.i.i349 to double
+  %conv8.i42.i351 = fpext ninf float %conv17.i.i349 to double
   store float %211, ptr %Y.i.i342, align 4, !tbaa !104
   %Z2.i.1.i356 = getelementptr inbounds nuw i8, ptr %vertices.i338, i64 20
   %Y3.i.1.i357 = getelementptr inbounds nuw i8, ptr %vertices.i338, i64 16
   %212 = insertelement <2 x double> poison, double %conv8.i42.i351, i64 0
   %213 = shufflevector <2 x double> %212, <2 x double> poison, <2 x i32> zeroinitializer
-  %214 = fmul nsz <2 x double> %213, <double 0x3FE6A09E667F3BCD, double 0xBFE6A09E667F3BCC>
+  %214 = fmul ninf nsz <2 x double> %213, <double 0x3FE6A09E667F3BCD, double 0xBFE6A09E667F3BCC>
   %215 = insertelement <2 x float> poison, float %fneg.i341, i64 0
   %216 = insertelement <2 x float> %215, float %210, i64 1
   %217 = fpext <2 x float> %216 to <2 x double>
@@ -11576,13 +11576,13 @@ if.then63:                                        ; preds = %if.end61
   %Y.i.i375 = getelementptr inbounds nuw i8, ptr %vertices.i371, i64 4
   %Z.i.i376 = getelementptr inbounds nuw i8, ptr %vertices.i371, i64 8
   %conv17.i.i382 = fmul nsz float %235, 0.000000e+00
-  %conv8.i42.i384 = fpext float %conv17.i.i382 to double
+  %conv8.i42.i384 = fpext ninf float %conv17.i.i382 to double
   store float %235, ptr %Y.i.i375, align 4, !tbaa !104
   %Z2.i.1.i389 = getelementptr inbounds nuw i8, ptr %vertices.i371, i64 20
   %Y3.i.1.i390 = getelementptr inbounds nuw i8, ptr %vertices.i371, i64 16
   %236 = insertelement <2 x double> poison, double %conv8.i42.i384, i64 0
   %237 = shufflevector <2 x double> %236, <2 x double> poison, <2 x i32> zeroinitializer
-  %238 = fmul nsz <2 x double> %237, <double 0x3FE6A09E667F3BCD, double 0x3FE6A09E667F3BCC>
+  %238 = fmul ninf nsz <2 x double> %237, <double 0x3FE6A09E667F3BCD, double 0x3FE6A09E667F3BCC>
   %239 = insertelement <2 x float> poison, float %fneg.i374, i64 0
   %240 = insertelement <2 x float> %239, float %234, i64 1
   %241 = fpext <2 x float> %240 to <2 x double>
@@ -12232,7 +12232,7 @@ _ZN21MapblockMeshGenerator7useTileEihhb.exit:     ; preds = %if.then7.i, %if.end
 
 for.cond36.preheader:                             ; preds = %_ZN21MapblockMeshGenerator7useTileEihhb.exit
   %conv = sitofp i32 %angle.2 to double
-  %mul.i = fmul nsz double %conv, 0x3F91DF46A2529D39
+  %mul.i = fmul nnan nsz double %conv, 0x3F91DF46A2529D39
   %13 = tail call nsz double @llvm.cos.f64(double %mul.i)
   %14 = tail call nsz double @llvm.sin.f64(double %mul.i)
   %15 = insertelement <2 x double> poison, double %13, i64 0
@@ -14062,7 +14062,7 @@ if.else87:                                        ; preds = %if.then78
 
 if.then89:                                        ; preds = %if.else87
   %conv90 = uitofp nneg i32 %degrotate.0 to float
-  %mul = fmul nsz float %conv90, 1.500000e+00
+  %mul = fmul nnan nsz float %conv90, 1.500000e+00
   %conv91 = fpext float %mul to double
   tail call void @_Z14rotateMeshXZbyPN3irr5scene5IMeshEd(ptr noundef %call83, double noundef %conv91)
   br label %if.end93
@@ -14531,9 +14531,9 @@ sw.epilog:                                        ; preds = %entry
   %3 = insertelement <2 x i48> %2, i48 %p.sroa.2.0.extract.shift.i, i64 1
   %4 = trunc <2 x i48> %3 to <2 x i16>
   %5 = sitofp <2 x i16> %4 to <2 x float>
-  %6 = fmul nsz <2 x float> %5, splat (float 1.000000e+01)
+  %6 = fmul nnan nsz <2 x float> %5, splat (float 1.000000e+01)
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
-  %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
+  %mul4.i = fmul nnan nsz float %conv3.i, 1.000000e+01
   %origin = getelementptr inbounds nuw i8, ptr %this, i64 48
   store <2 x float> %6, ptr %origin, align 8, !tbaa.struct !101
   %ref.tmp.sroa.4.0.origin.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 56

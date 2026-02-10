@@ -2406,11 +2406,11 @@ _ZNSt5dequeIN6duckdb10unique_ptrINS0_9DataChunkESt14default_deleteIS2_ELb1EEESaI
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   %37 = load i64, ptr %36, align 8, !tbaa !42
   %38 = uitofp i64 %37 to double
-  %39 = fmul double %38, 6.000000e-01
+  %39 = fmul nnan double %38, 6.000000e-01
   %40 = fptoui double %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i64 %40, ptr %41, align 8, !tbaa !133
-  %42 = fmul double %38, 4.000000e-01
+  %42 = fmul nnan double %38, 4.000000e-01
   %43 = fptoui double %42 to i64
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i64 %43, ptr %44, align 8, !tbaa !143

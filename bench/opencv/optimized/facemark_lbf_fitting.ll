@@ -1743,7 +1743,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vector
 
 610:                                              ; preds = %608
   %611 = sitofp i64 %607 to double
-  %612 = fsub double %611, %600
+  %612 = fsub nnan double %611, %600
   %613 = fdiv double %612, %609
   %614 = load ptr, ptr %426, align 8, !tbaa !71
   %615 = load ptr, ptr %31, align 8, !tbaa !74

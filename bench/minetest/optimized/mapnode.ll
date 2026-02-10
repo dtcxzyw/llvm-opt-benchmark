@@ -795,9 +795,9 @@ if.end28.i:                                       ; preds = %if.then21.i, %if.en
 _ZNK7MapNode8getLevelEPK14NodeDefManager.exit:    ; preds = %if.end28.i, %if.then21.i, %if.then12.i, %if.then4.i, %_ZNK14NodeDefManager3getERK7MapNode.exit.i835
   %retval.1.i = phi i8 [ %35, %if.then4.i ], [ %37, %if.then12.i ], [ %39, %if.then21.i ], [ 8, %_ZNK14NodeDefManager3getERK7MapNode.exit.i835 ], [ %..i, %if.end28.i ]
   %conv20 = uitofp i8 %retval.1.i to float
-  %div = fmul nsz float %conv20, 1.562500e-02
-  %add21 = fadd nsz float %div, -5.000000e-01
-  %mul = fmul nsz float %add21, 1.000000e+01
+  %div = fmul nnan nsz float %conv20, 1.562500e-02
+  %add21 = fadd nnan nsz float %div, -5.000000e-01
+  %mul = fmul nnan nsz float %add21, 1.000000e+01
   br label %if.end
 
 if.end:                                           ; preds = %_ZNK7MapNode8getLevelEPK14NodeDefManager.exit, %for.body

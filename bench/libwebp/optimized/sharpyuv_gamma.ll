@@ -17,7 +17,7 @@ define hidden void @SharpYuvInitGammaTables() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %12 ], [ 0, %0 ]
   %2 = trunc nuw nsw i64 %indvars.iv to i32
   %3 = uitofp nneg i32 %2 to double
-  %4 = fmul double %3, 0x3F50000000000000
+  %4 = fmul nnan double %3, 0x3F50000000000000
   %5 = fcmp ugt double %4, 0x3FB4CC54FB6D1A6E
   br i1 %5, label %8, label %6
 
@@ -26,8 +26,8 @@ define hidden void @SharpYuvInitGammaTables() local_unnamed_addr #0 {
   br label %12
 
 8:                                                ; preds = %.preheader
-  %9 = fadd double %4, 0x3FB96B844FBE3D2B
-  %10 = fmul double %9, 0x3FED1C09536E448E
+  %9 = fadd nnan double %4, 0x3FB96B844FBE3D2B
+  %10 = fmul nnan double %9, 0x3FED1C09536E448E
   %11 = tail call double @pow(double noundef %10, double noundef 0x4001C71C71C71C72) #5, !tbaa !3
   br label %12
 
@@ -50,12 +50,12 @@ define hidden void @SharpYuvInitGammaTables() local_unnamed_addr #0 {
   %indvars.iv24 = phi i64 [ 0, %16 ], [ %indvars.iv.next25, %28 ]
   %19 = trunc nuw nsw i64 %indvars.iv24 to i32
   %20 = uitofp nneg i32 %19 to double
-  %21 = fmul double %20, 0x3F60000000000000
+  %21 = fmul nnan double %20, 0x3F60000000000000
   %22 = fcmp ugt double %21, 0x3F927CBD51448945
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %18
-  %24 = fmul double %21, 4.500000e+00
+  %24 = fmul nnan double %21, 4.500000e+00
   br label %28
 
 25:                                               ; preds = %18
@@ -193,7 +193,7 @@ define hidden i32 @SharpYuvGammaToLinear(i16 noundef zeroext %0, i32 noundef %1,
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %60
-  %63 = fmul float %35, 2.500000e-01
+  %63 = fmul nnan float %35, 2.500000e-01
   br label %ToLinear709.exit
 
 64:                                               ; preds = %60
@@ -219,8 +219,8 @@ define hidden i32 @SharpYuvGammaToLinear(i16 noundef zeroext %0, i32 noundef %1,
 76:                                               ; preds = %74
   %77 = fcmp olt float %35, 1.000000e+00
   %78 = select i1 %77, float %35, float 1.000000e+00
-  %79 = fadd float %78, -1.000000e+00
-  %80 = fmul float %79, 2.000000e+00
+  %79 = fadd nnan float %78, -1.000000e+00
+  %80 = fmul nnan float %79, 2.000000e+00
   %81 = fpext float %80 to double
   %82 = tail call double @pow(double noundef 1.000000e+01, double noundef %81) #5, !tbaa !3
   %83 = fptrunc double %82 to float
@@ -233,8 +233,8 @@ define hidden i32 @SharpYuvGammaToLinear(i16 noundef zeroext %0, i32 noundef %1,
 86:                                               ; preds = %84
   %87 = fcmp olt float %35, 1.000000e+00
   %88 = select i1 %87, float %35, float 1.000000e+00
-  %89 = fadd float %88, -1.000000e+00
-  %90 = fmul float %89, 2.500000e+00
+  %89 = fadd nnan float %88, -1.000000e+00
+  %90 = fmul nnan float %89, 2.500000e+00
   %91 = fpext float %90 to double
   %92 = tail call double @pow(double noundef 1.000000e+01, double noundef %91) #5, !tbaa !3
   %93 = fptrunc double %92 to float
@@ -310,8 +310,8 @@ define hidden i32 @SharpYuvGammaToLinear(i16 noundef zeroext %0, i32 noundef %1,
   br i1 %140, label %144, label %141
 
 141:                                              ; preds = %139
-  %142 = fmul float %35, %35
-  %143 = fmul float %142, 0x3FD5555560000000
+  %142 = fmul nnan float %35, %35
+  %143 = fmul nnan float %142, 0x3FD5555560000000
   br label %ToLinearHlg.exit
 
 144:                                              ; preds = %139
@@ -413,7 +413,7 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %33
-  %36 = fmul float %32, 4.500000e+00
+  %36 = fmul nnan float %32, 4.500000e+00
   br label %FromLinear709.exit
 
 37:                                               ; preds = %33
@@ -448,7 +448,7 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
   br i1 %57, label %58, label %60
 
 58:                                               ; preds = %56
-  %59 = fmul float %32, 4.000000e+00
+  %59 = fmul nnan float %32, 4.000000e+00
   br label %FromLinear709.exit
 
 60:                                               ; preds = %56
@@ -473,10 +473,10 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
 71:                                               ; preds = %69
   %72 = fcmp olt float %32, 1.000000e+00
   %73 = select i1 %72, float %32, float 1.000000e+00
-  %74 = fpext float %73 to double
-  %75 = tail call double @llvm.log10.f64(double %74), !tbaa !3
-  %76 = fptrunc double %75 to float
-  %77 = fmul float %76, 5.000000e-01
+  %74 = fpext nnan ninf float %73 to double
+  %75 = tail call nnan ninf double @llvm.log10.f64(double %74)
+  %76 = fptrunc nnan double %75 to float
+  %77 = fmul nnan float %76, 5.000000e-01
   %78 = fadd float %77, 1.000000e+00
   br label %FromLinear709.exit
 
@@ -499,7 +499,7 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %89
-  %92 = fmul float %32, 4.500000e+00
+  %92 = fmul nnan float %32, 4.500000e+00
   br label %FromLinear709.exit
 
 93:                                               ; preds = %89
@@ -514,7 +514,7 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %98
-  %101 = fmul float %32, 4.500000e+00
+  %101 = fmul nnan float %32, 4.500000e+00
   br label %FromLinear709.exit
 
 102:                                              ; preds = %98
@@ -547,7 +547,7 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
 121:                                              ; preds = %30
   %122 = fcmp ogt float %32, 0.000000e+00
   %123 = select i1 %122, float %32, float 0.000000e+00
-  %124 = fmul float %123, 0x3FED546BC0000000
+  %124 = fmul nnan float %123, 0x3FED546BC0000000
   %125 = fpext float %124 to double
   %126 = tail call double @pow(double noundef %125, double noundef 0x3FD89D89E0000000) #5, !tbaa !3
   %127 = fptrunc double %126 to float
@@ -565,7 +565,7 @@ define hidden zeroext i16 @SharpYuvLinearToGamma(i32 noundef %0, i32 noundef %1,
   br i1 %134, label %138, label %135
 
 135:                                              ; preds = %133
-  %136 = fmul float %131, 3.000000e+00
+  %136 = fmul nnan float %131, 3.000000e+00
   %137 = tail call float @sqrtf(float noundef %136) #5, !tbaa !3
   br label %FromLinear709.exit
 

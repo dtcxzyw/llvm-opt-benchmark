@@ -2120,9 +2120,9 @@ _Z15wallcycle_startP13gmx_wallcycle16WallCycleCounter.exit.i: ; preds = %259, %2
   %375 = uitofp nneg i32 %374 to double
   %376 = call i32 @rand() #19
   %377 = sitofp i32 %376 to double
-  %378 = fmul double %377, 1.000000e-01
-  %379 = fdiv double %378, 0x41DFFFFFFFC00000
-  %380 = fadd double %379, -5.000000e-02
+  %378 = fmul nnan double %377, 1.000000e-01
+  %379 = fdiv nnan double %378, 0x41DFFFFFFFC00000
+  %380 = fadd nnan double %379, -5.000000e-02
   %381 = call double @llvm.fmuladd.f64(double %375, double %380, double 1.000000e+00)
   %382 = fpext float %371 to double
   %383 = fmul double %381, %382
@@ -12037,7 +12037,7 @@ _ZL18clearCommSetupDataP20dd_comm_setup_work_t.exit: ; preds = %_ZNSt6vectorIiN3
   br i1 %281, label %282, label %295
 
 282:                                              ; preds = %._crit_edge89.i
-  %283 = fmul float %280, %280
+  %283 = fmul nnan float %280, %280
   %284 = load float, ptr %166, align 4, !tbaa !209
   %285 = call float @llvm.fmuladd.f32(float %283, float %284, float %.4.i)
   %286 = load float, ptr %158, align 4, !tbaa !209
@@ -12069,7 +12069,7 @@ _ZL18clearCommSetupDataP20dd_comm_setup_work_t.exit: ; preds = %_ZNSt6vectorIiN3
   br i1 %302, label %303, label %316
 
 303:                                              ; preds = %296
-  %304 = fmul float %301, %301
+  %304 = fmul nnan float %301, %301
   %305 = load float, ptr %166, align 4, !tbaa !209
   %306 = call float @llvm.fmuladd.f32(float %304, float %305, float %.3247.i)
   %307 = load float, ptr %161, align 4, !tbaa !209
@@ -12119,7 +12119,7 @@ _ZL18clearCommSetupDataP20dd_comm_setup_work_t.exit: ; preds = %_ZNSt6vectorIiN3
   br i1 %330, label %331, label %339
 
 331:                                              ; preds = %._crit_edge97.i
-  %332 = fmul float %329, %329
+  %332 = fmul nnan float %329, %329
   %333 = call float @llvm.fmuladd.f32(float %332, float %109, float %.5.i)
   br i1 %or.cond9.i, label %334, label %339
 
@@ -12148,7 +12148,7 @@ _ZL18clearCommSetupDataP20dd_comm_setup_work_t.exit: ; preds = %_ZNSt6vectorIiN3
   br i1 %346, label %347, label %355
 
 347:                                              ; preds = %340
-  %348 = fmul float %345, %345
+  %348 = fmul nnan float %345, %345
   %349 = call float @llvm.fmuladd.f32(float %348, float %109, float %.5249.i)
   br i1 %or.cond9.i, label %350, label %355
 

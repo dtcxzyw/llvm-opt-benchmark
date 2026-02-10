@@ -353,11 +353,11 @@ define weak_odr void @_ZNK7mitsuba21RayleighPhaseFunctionIfN5drjit6MatrixINS_8Sp
   %121 = and i32 %120, -2
   %122 = sitofp i32 %121 to float
   %123 = bitcast float %116 to i32
-  %124 = fmul contract float %122, 0x3FE9200000000000
+  %124 = fmul nnan contract float %122, 0x3FE9200000000000
   %125 = fsub contract float %117, %124
-  %126 = fmul contract float %122, 0x3F2FB40000000000
+  %126 = fmul nnan contract float %122, 0x3F2FB40000000000
   %127 = fsub contract float %125, %126
-  %128 = fmul contract float %122, 0x3E64442D20000000
+  %128 = fmul nnan contract float %122, 0x3E64442D20000000
   %129 = fsub contract float %127, %128
   %130 = fmul contract float %129, %129
   %131 = fcmp contract oeq float %117, 0x7FF0000000000000

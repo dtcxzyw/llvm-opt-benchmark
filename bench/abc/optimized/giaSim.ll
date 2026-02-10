@@ -782,7 +782,7 @@ define noundef ptr @Gia_ManSimCreate(ptr noundef %0, ptr noundef %1) local_unnam
 
 35:                                               ; preds = %34, %8
   %36 = sitofp i32 %11 to double
-  %37 = fmul double %36, 4.000000e+00
+  %37 = fmul nnan double %36, 4.000000e+00
   %38 = add nsw i32 %.val51.val, %14
   %39 = add nsw i32 %38, %.val55.val
   %40 = sitofp i32 %39 to double
@@ -893,11 +893,11 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %88 = getelementptr i8, ptr %87, i64 24
   %.val = load i32, ptr %88, align 8, !tbaa !43
   %89 = sitofp i32 %.val to double
-  %90 = fmul double %89, 1.200000e+01
-  %91 = fmul double %90, 0x3EB0000000000000
+  %90 = fmul nnan double %89, 1.200000e+01
+  %91 = fmul nnan double %90, 0x3EB0000000000000
   %92 = load i32, ptr %12, align 8, !tbaa !3
   %93 = sitofp i32 %92 to double
-  %94 = fmul double %93, 4.000000e+00
+  %94 = fmul nnan double %93, 4.000000e+00
   %95 = getelementptr inbounds nuw i8, ptr %87, i64 180
   %96 = load i32, ptr %95, align 4, !tbaa !62
   %97 = sitofp i32 %96 to double

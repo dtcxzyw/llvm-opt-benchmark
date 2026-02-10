@@ -259,7 +259,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   call void %64(ptr noundef %59, i64 noundef %58, ptr noundef %53, i64 noundef %52, i64 noundef %67, i64 noundef %70, ptr noundef nonnull %4) #14
   %71 = load i64, ptr %4, align 8, !tbaa !62
   %72 = uitofp i64 %71 to double
-  %73 = fmul nsz double %72, 1.000000e+02
+  %73 = fmul nnan nsz double %72, 1.000000e+02
   %74 = load i32, ptr %68, align 4, !tbaa !61
   %75 = load i32, ptr %65, align 8, !tbaa !60
   %76 = mul nsw i32 %75, %74

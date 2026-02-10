@@ -3077,7 +3077,7 @@ _ZNSt6vectorImSaImEE6resizeEmRKm.exit.i:          ; preds = %533, %531, %_ZNSt12
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %621 = load i64, ptr %27, align 8, !tbaa !40
   %622 = uitofp i64 %621 to double
-  %623 = fmul double %622, 1.000000e+02
+  %623 = fmul nnan double %622, 1.000000e+02
   %624 = fdiv double %623, %587
   store double %624, ptr %29, align 8, !tbaa !121
   invoke void @_ZN3fmt2v85printIA20_cJRmdEcEEvRSt13basic_ostreamIT1_St11char_traitsIS5_EERKT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 1 dereferenceable(20) @.str.81, ptr noundef nonnull align 8 dereferenceable(8) %27, ptr noundef nonnull align 8 dereferenceable(8) %29)
@@ -3927,7 +3927,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 
 60:                                               ; preds = %21
   %61 = sitofp i32 %2 to float
-  %62 = fmul float %1, %61
+  %62 = fmul nnan float %1, %61
   br i1 %3, label %63, label %101
 
 63:                                               ; preds = %60

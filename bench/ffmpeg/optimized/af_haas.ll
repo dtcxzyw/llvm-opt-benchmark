@@ -267,7 +267,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %7 = load i32, ptr %6, align 8, !tbaa !55
   %8 = mul nsw i32 %7, 40
   %9 = sitofp i32 %8 to double
-  %10 = fmul nsz double %9, 1.000000e-03
+  %10 = fmul nnan nsz double %9, 1.000000e-03
   %11 = fptoui double %10 to i64
   br label %12
 

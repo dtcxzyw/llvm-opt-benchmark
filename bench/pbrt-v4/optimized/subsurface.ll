@@ -10398,7 +10398,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %11 = load float, ptr %5, align 4, !tbaa !213, !noalias !579
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %13 = load float, ptr %12, align 4, !tbaa !213, !noalias !579
-  %14 = fsub float 1.000000e+00, %10
+  %14 = fsub nnan float 1.000000e+00, %10
   %15 = fmul float %11, %14
   %16 = fmul float %10, %13
   %17 = fadd float %16, %15
@@ -10410,7 +10410,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %23 = load float, ptr %22, align 4, !tbaa !214, !noalias !579
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = load float, ptr %24, align 4, !tbaa !214, !noalias !579
-  %26 = fsub float 1.000000e+00, %21
+  %26 = fsub nnan float 1.000000e+00, %21
   %27 = fmul float %23, %26
   %28 = fmul float %21, %25
   %29 = fadd float %28, %27
@@ -10422,7 +10422,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %35 = load float, ptr %34, align 4, !tbaa !215, !noalias !579
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %37 = load float, ptr %36, align 4, !tbaa !215, !noalias !579
-  %38 = fsub float 1.000000e+00, %33
+  %38 = fsub nnan float 1.000000e+00, %33
   %39 = fmul float %35, %38
   %40 = fmul float %33, %37
   %41 = fadd float %40, %39
@@ -10430,7 +10430,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %43 = load i16, ptr %42, align 2, !tbaa !576, !noalias !579
   %44 = uitofp i16 %43 to float
   %45 = fdiv float %44, 6.553500e+04
-  %46 = fsub float 1.000000e+00, %45
+  %46 = fsub nnan float 1.000000e+00, %45
   %47 = fmul float %11, %46
   %48 = fmul float %13, %45
   %49 = fadd float %48, %47
@@ -10438,7 +10438,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %51 = load i16, ptr %50, align 4, !tbaa !576, !noalias !579
   %52 = uitofp i16 %51 to float
   %53 = fdiv float %52, 6.553500e+04
-  %54 = fsub float 1.000000e+00, %53
+  %54 = fsub nnan float 1.000000e+00, %53
   %55 = fmul float %23, %54
   %56 = fmul float %25, %53
   %57 = fadd float %56, %55
@@ -10446,7 +10446,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %59 = load i16, ptr %58, align 2, !tbaa !576, !noalias !579
   %60 = uitofp i16 %59 to float
   %61 = fdiv float %60, 6.553500e+04
-  %62 = fsub float 1.000000e+00, %61
+  %62 = fsub nnan float 1.000000e+00, %61
   %63 = fmul float %35, %62
   %64 = fmul float %37, %61
   %65 = fadd float %64, %63
@@ -10466,14 +10466,14 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %77 = load i32, ptr %76, align 4
   %78 = and i32 %77, 32767
   %79 = uitofp nneg i32 %78 to float
-  %80 = fdiv float %79, 3.276700e+04
-  %81 = fmul float %80, 2.000000e+00
+  %80 = fdiv nnan float %79, 3.276700e+04
+  %81 = fmul nnan float %80, 2.000000e+00
   %82 = fadd float %81, -1.000000e+00
   %83 = lshr i32 %77, 15
   %84 = and i32 %83, 32767
   %85 = uitofp nneg i32 %84 to float
-  %86 = fdiv float %85, 3.276700e+04
-  %87 = fmul float %86, 2.000000e+00
+  %86 = fdiv nnan float %85, 3.276700e+04
+  %87 = fmul nnan float %86, 2.000000e+00
   %88 = fadd float %87, -1.000000e+00
   %89 = fadd float %72, %67
   %90 = fadd float %74, %69
@@ -10509,15 +10509,15 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %115 = fdiv float %97, %sqrt.i.i
   %116 = load i16, ptr %0, align 4, !tbaa !582
   %117 = uitofp i16 %116 to float
-  %118 = fdiv float %117, 6.553500e+04
-  %119 = fmul float %118, 2.000000e+00
+  %118 = fdiv nnan float %117, 6.553500e+04
+  %119 = fmul nnan float %118, 2.000000e+00
   %120 = fadd float %119, -1.000000e+00
   %.sroa.0.0.vec.insert.i122 = insertelement <2 x float> poison, float %120, i64 0
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %122 = load i16, ptr %121, align 2, !tbaa !584
   %123 = uitofp i16 %122 to float
-  %124 = fdiv float %123, 6.553500e+04
-  %125 = fmul float %124, 2.000000e+00
+  %124 = fdiv nnan float %123, 6.553500e+04
+  %125 = fmul nnan float %124, 2.000000e+00
   %126 = fadd float %125, -1.000000e+00
   %.sroa.0.4.vec.insert25.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i122, float %126, i64 1
   %127 = tail call noundef float @llvm.fabs.f32(float %120)
@@ -10528,13 +10528,13 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   br i1 %131, label %132, label %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
 
 132:                                              ; preds = %6
-  %133 = fsub float 1.000000e+00, %128
+  %133 = fsub nnan float 1.000000e+00, %128
   %134 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %120)
-  %135 = fmul float %134, %133
+  %135 = fmul nnan float %134, %133
   %.sroa.0.0.vec.insert16.i = insertelement <2 x float> poison, float %135, i64 0
-  %136 = fsub float 1.000000e+00, %127
+  %136 = fsub nnan float 1.000000e+00, %127
   %137 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %126)
-  %138 = fmul float %136, %137
+  %138 = fmul nnan float %136, %137
   %.sroa.0.4.vec.insert.i123 = insertelement <2 x float> %.sroa.0.0.vec.insert16.i, float %138, i64 1
   br label %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
 
@@ -10681,7 +10681,7 @@ _ZNK4pbrt6Tuple3INS_7Normal3EfEneENS1_IfEE.exit.thread: ; preds = %213
   %229 = fsub float 1.000000e+00, %228
   %230 = fcmp ogt float %229, 0.000000e+00
   %.sroa.speculated.i139 = select i1 %230, float %229, float 0.000000e+00
-  %sqrt.i140 = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i139)
+  %sqrt.i140 = tail call nnan float @llvm.sqrt.f32(float %.sroa.speculated.i139)
   %231 = fcmp ogt float %227, %.sroa.3.12.vec.extract
   %232 = fmul float %227, %.sroa.3.12.vec.extract
   %233 = fmul float %sqrt.i140, %sqrt.i130

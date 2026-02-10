@@ -230,16 +230,16 @@ _ZN3gmx9HashedMapIiE5clearEv.exit:                ; preds = %.lr.ph.i, %8, %14
 
 20:                                               ; preds = %_ZN3gmx9HashedMapIiE5clearEv.exit
   %21 = uitofp nneg i32 %3 to float
-  %22 = fmul float %21, 3.500000e+00
+  %22 = fmul nnan float %21, 3.500000e+00
   %23 = sitofp i32 %17 to float
   %24 = fcmp olt float %22, %23
-  %25 = fmul float %21, 0x3FF4CCCCC0000000
+  %25 = fmul nnan float %21, 0x3FF4CCCCC0000000
   %26 = fcmp ogt float %25, %23
-  %or.cond = or i1 %24, %26
+  %or.cond = select i1 %24, i1 true, i1 %26
   br i1 %or.cond, label %.preheader.i, label %51
 
 .preheader.i:                                     ; preds = %20
-  %27 = fmul float %21, 1.500000e+00
+  %27 = fmul nnan float %21, 1.500000e+00
   br label %28
 
 28:                                               ; preds = %31, %.preheader.i
@@ -3375,7 +3375,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %_ZNSt6vectorIiSaIiE
   %123 = sdiv i32 %114, 20
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %122, i32 %123)
   %124 = sitofp i32 %.sroa.speculated to float
-  %125 = fmul float %124, 1.500000e+00
+  %125 = fmul nnan float %124, 1.500000e+00
   br label %126
 
 126:                                              ; preds = %129, %.preheader.i.i.i

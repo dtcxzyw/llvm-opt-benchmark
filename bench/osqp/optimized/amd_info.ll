@@ -330,10 +330,10 @@ define void @amd_l_info(ptr noundef readonly captures(address_is_null) %0) local
   %156 = fadd double %8, %10
   %157 = tail call double @llvm.fmuladd.f64(double %12, double 2.000000e+00, double %156)
   %158 = tail call double @llvm.fmuladd.f64(double %12, double 2.000000e+00, double %10)
-  %159 = fmul double %12, 8.000000e+00
+  %159 = fmul nnan double %12, 8.000000e+00
   %160 = tail call double @llvm.fmuladd.f64(double %10, double 9.000000e+00, double %159)
   %161 = tail call double @llvm.fmuladd.f64(double %14, double 2.000000e+00, double %10)
-  %162 = fmul double %14, 8.000000e+00
+  %162 = fmul nnan double %14, 8.000000e+00
   %163 = tail call double @llvm.fmuladd.f64(double %10, double 9.000000e+00, double %162)
   %164 = tail call i32 (ptr, ...) %153(ptr noundef nonnull @.str.23, double noundef %157, double noundef %158, double noundef %160, double noundef %161, double noundef %163) #2
   br label %.thread206

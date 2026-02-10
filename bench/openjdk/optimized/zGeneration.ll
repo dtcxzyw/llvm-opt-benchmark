@@ -2874,7 +2874,7 @@ define hidden noundef i32 @_ZN16ZGenerationYoung26compute_tenuring_thresholdE27Z
   %50 = fdiv double %47, %49
   %51 = fcmp olt double %50, 1.000000e+00
   %52 = select i1 %51, double %50, double 1.000000e+00
-  %53 = fmul double %52, 1.600000e+01
+  %53 = fmul nnan double %52, 1.600000e+01
   %54 = fcmp ogt double %53, 2.000000e+00
   %55 = select i1 %54, double %53, double 2.000000e+00
   %56 = tail call double @log(double noundef %46) #19

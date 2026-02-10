@@ -747,7 +747,7 @@ define range(i32 0, 9) i32 @dt_imageio_open_qoi(ptr noundef %0, ptr noundef %1, 
   %44 = getelementptr inbounds nuw i8, ptr %19, i64 %.059
   %45 = load i8, ptr %44, align 1, !tbaa !14
   %46 = uitofp i8 %45 to float
-  %47 = fmul reassoc nsz arcp contract afn float %46, 0x3F70101020000000
+  %47 = fmul reassoc nnan nsz arcp contract afn float %46, 0x3F70101020000000
   %48 = getelementptr inbounds nuw float, ptr %29, i64 %.059
   store float %47, ptr %48, align 4, !tbaa !39
   %49 = add nuw i64 %.059, 1

@@ -945,10 +945,10 @@ define noundef i64 @_ZN12polars_utils18cardinality_sketch17CardinalitySketch8est
 
 20:                                               ; preds = %14
   %21 = uitofp i64 %12 to float
-  %22 = fdiv float 2.560000e+02, %21
-  %23 = tail call float @llvm.log.f32(float %22)
-  %24 = fpext float %23 to double
-  %25 = fmul double %24, 2.560000e+02
+  %22 = fdiv nnan float 2.560000e+02, %21
+  %23 = tail call nnan float @llvm.log.f32(float %22)
+  %24 = fpext nnan float %23 to double
+  %25 = fmul nnan double %24, 2.560000e+02
   br label %18
 }
 

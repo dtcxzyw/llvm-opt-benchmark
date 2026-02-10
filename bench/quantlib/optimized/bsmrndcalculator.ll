@@ -890,7 +890,7 @@ do.end:                                           ; preds = %entry
   %mul = fmul double %sigma, %sigma
   %derNormalizationFactor_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %mul, ptr %derNormalizationFactor_, align 8, !tbaa !37
-  %mul35 = fmul double %mul, 2.000000e+00
+  %mul35 = fmul nnan double %mul, 2.000000e+00
   %denominator_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store double %mul35, ptr %denominator_, align 8, !tbaa !34
   ret void

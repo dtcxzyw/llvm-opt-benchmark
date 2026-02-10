@@ -293,7 +293,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit240:                 ; preds = %96, %98
   %108 = load i32, ptr %82, align 8, !tbaa !168
   store i32 %108, ptr %0, align 4, !tbaa !169
   %109 = sitofp i32 %108 to double
-  %110 = fmul double %109, 5.000000e-01
+  %110 = fmul nnan double %109, 5.000000e-01
   %111 = fptrunc double %110 to float
   store float %111, ptr %83, align 4, !tbaa !172
   br i1 %85, label %112, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i

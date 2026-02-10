@@ -3229,7 +3229,7 @@ define dso_local void @_ZN5clang17GlobalModuleIndex10printStatsEv(ptr noundef no
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1492
   %9 = load i32, ptr %8, align 4, !tbaa !33
   %10 = uitofp i32 %9 to double
-  %11 = fmul double %10, 1.000000e+02
+  %11 = fmul nnan double %10, 1.000000e+02
   %12 = uitofp i32 %5 to double
   %13 = fdiv double %11, %12
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.5, i32 noundef %9, i32 noundef %5, double noundef %13) #33

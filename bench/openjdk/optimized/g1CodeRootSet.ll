@@ -672,7 +672,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE13get_size_l
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !7
   store volatile i64 %34, ptr %33, align 8
   %47 = uitofp i64 %31 to float
-  %48 = fmul float %47, 2.000000e+00
+  %48 = fmul nnan float %47, 2.000000e+00
   %49 = call noundef float @llvm.ceil.f32(float %48)
   %50 = fptoui float %49 to i64
   %.not.i.i3 = icmp eq i64 %50, 0
@@ -1783,7 +1783,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE13get_size_l
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !7
   store volatile i64 %34, ptr %33, align 8
   %47 = uitofp i64 %31 to float
-  %48 = fmul float %47, 2.000000e+00
+  %48 = fmul nnan float %47, 2.000000e+00
   %49 = call noundef float @llvm.ceil.f32(float %48)
   %50 = fptoui float %49 to i64
   %.not.i.i3 = icmp eq i64 %50, 0
@@ -2603,7 +2603,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE13get_size_l
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !7
   store volatile i64 %34, ptr %33, align 8
   %47 = uitofp i64 %31 to float
-  %48 = fmul float %47, 2.000000e+00
+  %48 = fmul nnan float %47, 2.000000e+00
   %49 = call noundef float @llvm.ceil.f32(float %48)
   %50 = fptoui float %49 to i64
   %.not.i.i3 = icmp eq i64 %50, 0

@@ -261,7 +261,7 @@ cdce.end:                                         ; preds = %106, %cdce.call
   %.pre-phi = phi double [ %124, %132 ], [ %124, %133 ], [ %.pre1985, %130 ]
   %136 = load i32, ptr %4, align 4, !tbaa !3
   %137 = sitofp i32 %136 to double
-  %138 = fmul double %.pre-phi, %137
+  %138 = fmul nnan double %.pre-phi, %137
   %139 = call double @sqrt(double noundef %138) #7, !tbaa !3
   %140 = fdiv double 1.000000e+00, %139
   store double %140, ptr %31, align 8, !tbaa !7

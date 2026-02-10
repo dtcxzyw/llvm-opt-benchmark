@@ -9358,7 +9358,7 @@ _ZN5Ipopt9TimedTask3EndEv.exit45:                 ; preds = %159, %163
   %242 = sitofp i32 %241 to double
   %243 = load i32, ptr %212, align 4, !tbaa !73
   %244 = sitofp i32 %243 to double
-  %245 = fmul double %244, 5.000000e-02
+  %245 = fmul nnan double %244, 5.000000e-02
   %246 = fcmp olt double %245, %242
   br i1 %246, label %247, label %255
 

@@ -5175,7 +5175,7 @@ proto_item_set_hidden.exit.i468:                  ; preds = %422, %419, %414
   %640 = load i32, ptr @hf_rsvp_flowspec_m, align 4
   %641 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %640, ptr noundef %0, i32 noundef %416, i32 noundef 2, i32 noundef 0)
   %642 = uitofp i16 %637 to double
-  %643 = fmul double %642, 1.250000e+01
+  %643 = fmul nnan double %642, 1.250000e+01
   %644 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %416)
   %645 = zext i16 %644 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %415, ptr noundef nonnull @.str.1713, double noundef %643, i32 noundef %645)
@@ -5523,7 +5523,7 @@ proto_item_set_hidden.exit.i473:                  ; preds = %660, %657, %652
   %887 = load i32, ptr @hf_rsvp_flowspec_m, align 4
   %888 = call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %887, ptr noundef %0, i32 noundef %654, i32 noundef 2, i32 noundef 0)
   %889 = uitofp i16 %884 to double
-  %890 = fmul double %889, 1.250000e+01
+  %890 = fmul nnan double %889, 1.250000e+01
   %891 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %654)
   %892 = zext i16 %891 to i32
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %653, ptr noundef nonnull @.str.1713, double noundef %890, i32 noundef %892)
@@ -6115,7 +6115,7 @@ switch.lookup:                                    ; preds = %1241
   %1271 = add i32 %.0711, 8
   %1272 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %1271)
   %1273 = sitofp i16 %1272 to float
-  %1274 = fmul float %1273, 1.250000e+01
+  %1274 = fmul nnan float %1273, 1.250000e+01
   %1275 = load i32, ptr @hf_rsvp_wavelength_cs3, align 4
   %1276 = call ptr @proto_tree_add_item(ptr noundef %1238, i32 noundef %1275, ptr noundef %0, i32 noundef %1129, i32 noundef 1, i32 noundef 0)
   %1277 = load i32, ptr @hf_rsvp_wavelength_n, align 4

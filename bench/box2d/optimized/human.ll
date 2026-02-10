@@ -1059,7 +1059,7 @@ define void @Human_ApplyRandomAngularImpulse(ptr noundef readonly captures(none)
   store i32 %9, ptr @g_seed, align 4, !tbaa !28
   %10 = and i32 %9, 32767
   %11 = uitofp nneg i32 %10 to float
-  %12 = fdiv float %11, 3.276700e+04
+  %12 = fdiv nnan float %11, 3.276700e+04
   %13 = fadd float %1, %1
   %14 = fmul float %13, %12
   %15 = fsub float %14, %1

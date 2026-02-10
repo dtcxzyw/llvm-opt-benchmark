@@ -437,9 +437,9 @@ _ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i: ; preds = %137
 
 157:                                              ; preds = %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i
   %158 = uitofp nneg i32 %.0926.i.i.i to float
-  %159 = fdiv float %158, 5.000000e+02
-  %sqrt.i.i = call float @llvm.sqrt.f32(float %159)
-  %160 = fmul float %sqrt.i.i, 2.550000e+02
+  %159 = fdiv nnan float %158, 5.000000e+02
+  %sqrt.i.i = call nnan float @llvm.sqrt.f32(float %159)
+  %160 = fmul nnan float %sqrt.i.i, 2.550000e+02
   %161 = insertelement <4 x float> poison, float %160, i64 0
   %162 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %161)
   %163 = trunc i32 %162 to i8
@@ -1046,9 +1046,9 @@ _ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i: ; preds = %31
 
 51:                                               ; preds = %_ZN12_GLOBAL__N_110mandelbrotERKSt7complexIfEi.exit.i.i.i.i
   %52 = uitofp nneg i32 %.0926.i.i.i.i.i to float
-  %53 = fdiv float %52, 5.000000e+02
-  %sqrt.i.i.i.i = tail call float @llvm.sqrt.f32(float %53)
-  %54 = fmul float %sqrt.i.i.i.i, 2.550000e+02
+  %53 = fdiv nnan float %52, 5.000000e+02
+  %sqrt.i.i.i.i = tail call nnan float @llvm.sqrt.f32(float %53)
+  %54 = fmul nnan float %sqrt.i.i.i.i, 2.550000e+02
   %55 = insertelement <4 x float> poison, float %54, i64 0
   %56 = tail call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %55)
   %57 = trunc i32 %56 to i8

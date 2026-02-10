@@ -2705,7 +2705,7 @@ do.end:                                           ; preds = %invoke.cont169
   %maxRho_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %84 = load double, ptr %maxRho_, align 8, !tbaa !74
   %fneg224 = fneg double %84
-  %mul226 = fmul double %57, %call170
+  %mul226 = fmul nnan double %57, %call170
   %call227 = call double @sqrt(double noundef %mul226) #25, !tbaa !73
   %div228 = fdiv double %83, %call227
   %cmp.i = fcmp ogt double %div228, %fneg224
@@ -2717,7 +2717,7 @@ do.end:                                           ; preds = %invoke.cont169
   br i1 %or.cond1, label %if.then247, label %land.lhs.true240
 
 land.lhs.true240:                                 ; preds = %do.end
-  %mul241 = fmul double %86, %86
+  %mul241 = fmul nnan double %86, %86
   %div244 = fdiv double %mul241, %47
   %sub245 = fsub double 1.000000e+00, %div244
   %cmp246 = fcmp ult double %sub245, 0.000000e+00

@@ -284,11 +284,11 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
 .lr.ph408.i:                                      ; preds = %.preheader378.i
   %27 = add nsw i32 %11, -1
   %28 = uitofp nneg i32 %27 to double
-  %29 = fmul nsz double %28, 5.000000e-01
+  %29 = fmul nnan nsz double %28, 5.000000e-01
   %30 = fptrunc nsz double %29 to float
   %31 = fpext nsz float %30 to double
-  %32 = fmul nsz double %31, 3.000000e-01
-  %33 = fmul nsz double %31, 0x3FE6666666666666
+  %32 = fmul nnan nsz double %31, 3.000000e-01
+  %33 = fmul nnan nsz double %31, 0x3FE6666666666666
   %wide.trip.count479.i = zext nneg i32 %11 to i64
   br label %271
 
@@ -300,8 +300,8 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %35 = add nsw i32 %11, -1
   %.neg560566.i = lshr i32 %35, 1
   %36 = uitofp nneg i32 %35 to double
-  %37 = fmul nsz double %36, 4.000000e-01
-  %38 = fmul nsz double %37, 5.000000e-01
+  %37 = fmul nnan nsz double %36, 4.000000e-01
+  %38 = fmul nnan nsz double %37, 5.000000e-01
   %wide.trip.count484.i = zext nneg i32 %11 to i64
   br label %261
 
@@ -382,7 +382,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
 .lr.ph435.i:                                      ; preds = %.preheader369.i
   %61 = add nsw i32 %11, -1
   %62 = uitofp nneg i32 %61 to double
-  %63 = fmul nsz double %62, 5.000000e-01
+  %63 = fmul nnan nsz double %62, 5.000000e-01
   %wide.trip.count524.i = zext nneg i32 %11 to i64
   br label %120
 
@@ -423,7 +423,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
 .lr.ph447.i:                                      ; preds = %.preheader365.i
   %74 = add nsw i32 %11, -1
   %75 = uitofp nneg i32 %74 to double
-  %76 = fmul nsz double %75, 5.000000e-01
+  %76 = fmul nnan nsz double %75, 5.000000e-01
   %wide.trip.count544.i = zext nneg i32 %11 to i64
   br label %79
 
@@ -462,7 +462,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %indvars.iv536.i = phi i64 [ 0, %.lr.ph444.i ], [ %indvars.iv.next537.i, %88 ]
   %89 = trunc nuw nsw i64 %indvars.iv536.i to i32
   %90 = uitofp nneg i32 %89 to double
-  %91 = fmul nsz double %90, 0x401921FB54442D18
+  %91 = fmul nnan nsz double %90, 0x401921FB54442D18
   %92 = fdiv nsz double %91, %72
   %93 = tail call nsz double @llvm.cos.f64(double %92)
   %94 = fsub nsz double 1.000000e+00, %93
@@ -478,7 +478,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %indvars.iv531.i = phi i64 [ 0, %.lr.ph441.i ], [ %indvars.iv.next532.i, %98 ]
   %99 = trunc nuw nsw i64 %indvars.iv531.i to i32
   %100 = uitofp nneg i32 %99 to double
-  %101 = fmul nsz double %100, 0x401921FB54442D18
+  %101 = fmul nnan nsz double %100, 0x401921FB54442D18
   %102 = fdiv nsz double %101, %69
   %103 = tail call nsz double @llvm.cos.f64(double %102)
   %104 = tail call nsz double @llvm.fmuladd.f64(double %103, double -4.600000e-01, double 5.400000e-01)
@@ -493,11 +493,11 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %indvars.iv526.i = phi i64 [ 0, %.lr.ph438.i ], [ %indvars.iv.next527.i, %107 ]
   %108 = trunc nuw nsw i64 %indvars.iv526.i to i32
   %109 = uitofp nneg i32 %108 to double
-  %110 = fmul nsz double %109, 0x401921FB54442D18
+  %110 = fmul nnan nsz double %109, 0x401921FB54442D18
   %111 = fdiv nsz double %110, %66
   %112 = tail call nsz double @llvm.cos.f64(double %111)
   %113 = tail call nsz double @llvm.fmuladd.f64(double %112, double -4.965600e-01, double 4.265900e-01)
-  %114 = fmul nsz double %109, 0x402921FB54442D18
+  %114 = fmul nnan nsz double %109, 0x402921FB54442D18
   %115 = fdiv nsz double %114, %66
   %116 = tail call nsz double @llvm.cos.f64(double %115)
   %117 = tail call nsz double @llvm.fmuladd.f64(double %116, double 7.684900e-02, double %113)
@@ -528,43 +528,43 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %indvars.iv516.i = phi i64 [ 0, %.lr.ph432.i ], [ %indvars.iv.next517.i, %130 ]
   %131 = trunc nuw nsw i64 %indvars.iv516.i to i32
   %132 = uitofp nneg i32 %131 to double
-  %133 = fmul nsz double %132, 0x401921FB54442D18
+  %133 = fmul nnan nsz double %132, 0x401921FB54442D18
   %134 = fdiv nsz double %133, %59
   %135 = tail call nsz double @llvm.cos.f64(double %134)
   %136 = tail call nsz double @llvm.fmuladd.f64(double %135, double 0xBFFFC60487BC5429, double 1.000000e+00)
-  %137 = fmul nsz double %132, 0x402921FB54442D18
+  %137 = fmul nnan nsz double %132, 0x402921FB54442D18
   %138 = fdiv nsz double %137, %59
   %139 = tail call nsz double @llvm.cos.f64(double %138)
   %140 = tail call nsz double @llvm.fmuladd.f64(double %139, double 0x3FFCA8A8A00BFC02, double %136)
-  %141 = fmul nsz double %132, 0x4032D97C7F3321D2
+  %141 = fmul nnan nsz double %132, 0x4032D97C7F3321D2
   %142 = fdiv nsz double %141, %59
   %143 = tail call nsz double @llvm.cos.f64(double %142)
   %144 = tail call nsz double @llvm.fmuladd.f64(double %143, double 0xBFF483615F7CFB71, double %140)
-  %145 = fmul nsz double %132, 0x403921FB54442D18
+  %145 = fmul nnan nsz double %132, 0x403921FB54442D18
   %146 = fdiv nsz double %145, %59
   %147 = tail call nsz double @llvm.cos.f64(double %146)
   %148 = tail call nsz double @llvm.fmuladd.f64(double %147, double 0x3FE55E6EFBAFE037, double %144)
-  %149 = fmul nsz double %132, 0x403F6A7A2955385E
+  %149 = fmul nnan nsz double %132, 0x403F6A7A2955385E
   %150 = fdiv nsz double %149, %59
   %151 = tail call nsz double @llvm.cos.f64(double %150)
   %152 = tail call nsz double @llvm.fmuladd.f64(double %151, double 0xBFCEBD96C789A119, double %148)
-  %153 = fmul nsz double %132, 0x4042D97C7F3321D2
+  %153 = fmul nnan nsz double %132, 0x4042D97C7F3321D2
   %154 = fdiv nsz double %153, %59
   %155 = tail call nsz double @llvm.cos.f64(double %154)
   %156 = tail call nsz double @llvm.fmuladd.f64(double %155, double 0x3FAD0210B59277DF, double %152)
-  %157 = fmul nsz double %132, 0x4045FDBBE9BBA775
+  %157 = fmul nnan nsz double %132, 0x4045FDBBE9BBA775
   %158 = fdiv nsz double %157, %59
   %159 = tail call nsz double @llvm.cos.f64(double %158)
   %160 = tail call nsz double @llvm.fmuladd.f64(double %159, double 0xBF80A911CABA9273, double %156)
-  %161 = fmul nsz double %132, 0x404921FB54442D18
+  %161 = fmul nnan nsz double %132, 0x404921FB54442D18
   %162 = fdiv nsz double %161, %59
   %163 = tail call nsz double @llvm.cos.f64(double %162)
   %164 = tail call nsz double @llvm.fmuladd.f64(double %163, double 0x3F44770F6C5EC1E5, double %160)
-  %165 = fmul nsz double %132, 0x404C463ABECCB2BB
+  %165 = fmul nnan nsz double %132, 0x404C463ABECCB2BB
   %166 = fdiv nsz double %165, %59
   %167 = tail call nsz double @llvm.cos.f64(double %166)
   %168 = tail call nsz double @llvm.fmuladd.f64(double %167, double 0xBEF4C56FFA2B6206, double %164)
-  %169 = fmul nsz double %132, 0x404F6A7A2955385E
+  %169 = fmul nnan nsz double %132, 0x404F6A7A2955385E
   %170 = fdiv nsz double %169, %59
   %171 = tail call nsz double @llvm.cos.f64(double %170)
   %172 = tail call nsz double @llvm.fmuladd.f64(double %171, double 1.329740e-07, double %168)
@@ -579,15 +579,15 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %indvars.iv511.i = phi i64 [ 0, %.lr.ph429.i ], [ %indvars.iv.next512.i, %175 ]
   %176 = trunc nuw nsw i64 %indvars.iv511.i to i32
   %177 = uitofp nneg i32 %176 to double
-  %178 = fmul nsz double %177, 0x401921FB54442D18
+  %178 = fmul nnan nsz double %177, 0x401921FB54442D18
   %179 = fdiv nsz double %178, %56
   %180 = tail call nsz double @llvm.cos.f64(double %179)
   %181 = tail call nsz double @llvm.fmuladd.f64(double %180, double -4.882900e-01, double 3.587500e-01)
-  %182 = fmul nsz double %177, 0x402921FB54442D18
+  %182 = fmul nnan nsz double %177, 0x402921FB54442D18
   %183 = fdiv nsz double %182, %56
   %184 = tail call nsz double @llvm.cos.f64(double %183)
   %185 = tail call nsz double @llvm.fmuladd.f64(double %184, double 1.412800e-01, double %181)
-  %186 = fmul nsz double %177, 0x4032D97C7F3321D2
+  %186 = fmul nnan nsz double %177, 0x4032D97C7F3321D2
   %187 = fdiv nsz double %186, %56
   %188 = tail call nsz double @llvm.cos.f64(double %187)
   %189 = tail call nsz double @llvm.fmuladd.f64(double %188, double -1.168000e-02, double %185)
@@ -602,15 +602,15 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %indvars.iv506.i = phi i64 [ 0, %.lr.ph426.i ], [ %indvars.iv.next507.i, %192 ]
   %193 = trunc nuw nsw i64 %indvars.iv506.i to i32
   %194 = uitofp nneg i32 %193 to double
-  %195 = fmul nsz double %194, 0x401921FB54442D18
+  %195 = fmul nnan nsz double %194, 0x401921FB54442D18
   %196 = fdiv nsz double %195, %53
   %197 = tail call nsz double @llvm.cos.f64(double %196)
   %198 = tail call nsz double @llvm.fmuladd.f64(double %197, double 0xBFDF4EAF251C193B, double 0x3FD744ED047AB904)
-  %199 = fmul nsz double %194, 0x402921FB54442D18
+  %199 = fmul nnan nsz double %194, 0x402921FB54442D18
   %200 = fdiv nsz double %199, %53
   %201 = tail call nsz double @llvm.cos.f64(double %200)
   %202 = tail call nsz double @llvm.fmuladd.f64(double %201, double 0x3FC17C17A89331A1, double %198)
-  %203 = fmul nsz double %194, 0x4032D97C7F3321D2
+  %203 = fmul nnan nsz double %194, 0x4032D97C7F3321D2
   %204 = fdiv nsz double %203, %53
   %205 = tail call nsz double @llvm.cos.f64(double %204)
   %206 = tail call nsz double @llvm.fmuladd.f64(double %205, double -1.064110e-02, double %202)
@@ -629,7 +629,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %213 = fadd nsz double %212, -5.000000e-01
   %214 = tail call nsz double @llvm.fabs.f64(double %213)
   %215 = tail call nsz double @llvm.fmuladd.f64(double %214, double -4.800000e-01, double 6.200000e-01)
-  %216 = fmul nsz double %211, 0x401921FB54442D18
+  %216 = fmul nnan nsz double %211, 0x401921FB54442D18
   %217 = fdiv nsz double %216, %50
   %218 = tail call nsz double @llvm.cos.f64(double %217)
   %219 = tail call nsz double @llvm.fmuladd.f64(double %218, double -3.800000e-01, double %215)
@@ -644,7 +644,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %indvars.iv496.i = phi i64 [ 0, %.lr.ph420.i ], [ %indvars.iv.next497.i, %222 ]
   %223 = trunc nuw nsw i64 %indvars.iv496.i to i32
   %224 = uitofp nneg i32 %223 to double
-  %225 = fmul nsz double %224, 0x400921FB54442D18
+  %225 = fmul nnan nsz double %224, 0x400921FB54442D18
   %226 = fdiv nsz double %225, %47
   %227 = tail call nsz double @llvm.sin.f64(double %226)
   %228 = fptrunc nsz double %227 to float
@@ -658,15 +658,15 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   %indvars.iv491.i = phi i64 [ 0, %.lr.ph417.i ], [ %indvars.iv.next492.i, %230 ]
   %231 = trunc nuw nsw i64 %indvars.iv491.i to i32
   %232 = uitofp nneg i32 %231 to double
-  %233 = fmul nsz double %232, 0x401921FB54442D18
+  %233 = fmul nnan nsz double %232, 0x401921FB54442D18
   %234 = fdiv nsz double %233, %44
   %235 = tail call nsz double @llvm.cos.f64(double %234)
   %236 = tail call nsz double @llvm.fmuladd.f64(double %235, double -4.873960e-01, double 3.557680e-01)
-  %237 = fmul nsz double %232, 0x402921FB54442D18
+  %237 = fmul nnan nsz double %232, 0x402921FB54442D18
   %238 = fdiv nsz double %237, %44
   %239 = tail call nsz double @llvm.cos.f64(double %238)
   %240 = tail call nsz double @llvm.fmuladd.f64(double %239, double 1.442320e-01, double %236)
-  %241 = fmul nsz double %232, 0x4032D97C7F3321D2
+  %241 = fmul nnan nsz double %232, 0x4032D97C7F3321D2
   %242 = fdiv nsz double %241, %44
   %243 = tail call nsz double @llvm.cos.f64(double %242)
   %244 = tail call nsz double @llvm.fmuladd.f64(double %243, double -1.260400e-02, double %240)
@@ -885,11 +885,11 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   br i1 %or.cond7.i, label %374, label %382
 
 374:                                              ; preds = %371
-  %375 = fmul nsz double %355, -2.400000e+01
+  %375 = fmul nnan nsz double %355, -2.400000e+01
   %376 = tail call nsz double @llvm.fmuladd.f64(double %375, double %355, double 1.000000e+00)
-  %377 = fmul nsz double %355, 4.800000e+01
+  %377 = fmul nnan nsz double %355, 4.800000e+01
   %378 = fneg nsz double %355
-  %379 = fmul nsz double %377, %378
+  %379 = fmul nnan nsz double %377, %378
   %380 = tail call nsz double @llvm.fmuladd.f64(double %379, double %355, double %376)
   %381 = fptrunc nsz double %380 to float
   br label %392
@@ -901,9 +901,9 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   br i1 %or.cond9.i, label %385, label %392
 
 385:                                              ; preds = %382
-  %386 = fmul nsz double %355, -2.400000e+01
+  %386 = fmul nnan nsz double %355, -2.400000e+01
   %387 = tail call nsz double @llvm.fmuladd.f64(double %386, double %355, double 1.000000e+00)
-  %388 = fmul nsz double %355, 4.800000e+01
+  %388 = fmul nnan nsz double %355, 4.800000e+01
   %389 = fmul nsz double %355, %388
   %390 = tail call nsz double @llvm.fmuladd.f64(double %389, double %355, double %387)
   %391 = fptrunc nsz double %390 to float
@@ -930,7 +930,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   br i1 %or.cond11.i, label %402, label %406
 
 402:                                              ; preds = %394
-  %403 = fmul nsz double %399, -6.000000e+00
+  %403 = fmul nnan nsz double %399, -6.000000e+00
   %404 = tail call nsz double @llvm.exp.f64(double %403)
   %405 = fptrunc nsz double %404 to float
   br label %413
@@ -942,7 +942,7 @@ define internal range(i32 -12, 1) i32 @config_props(ptr noundef readonly capture
   br i1 %or.cond13.i, label %409, label %413
 
 409:                                              ; preds = %406
-  %410 = fmul nsz double %399, 6.000000e+00
+  %410 = fmul nnan nsz double %399, 6.000000e+00
   %411 = tail call nsz double @llvm.exp.f64(double %410)
   %412 = fptrunc nsz double %411 to float
   br label %413
@@ -1031,7 +1031,7 @@ generate_window_func.exit:                        ; preds = %436, %415, %413, %3
 
 454:                                              ; preds = %450
   %455 = sitofp i32 %452 to double
-  %456 = fmul nsz double %455, 0x400921FB54442D18
+  %456 = fmul nnan nsz double %455, 0x400921FB54442D18
   %457 = fptrunc nsz double %456 to float
   %458 = tail call nsz float @llvm.cos.f32(float %457)
   %459 = fsub nsz float 1.000000e+00, %458

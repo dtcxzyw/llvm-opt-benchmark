@@ -1817,7 +1817,7 @@ define hidden { double, double } @"_ZN118_$LT$rand..distributions..uniform..Unif
   br i1 %8, label %13, label %.preheader
 
 .preheader:                                       ; preds = %5
-  %9 = fmul double %6, 0x3FEFFFFFFFFFFFFE
+  %9 = fmul nnan double %6, 0x3FEFFFFFFFFFFFFE
   %10 = fadd double %0, %9
   %11 = fcmp ult double %10, %1
   br i1 %11, label %._crit_edge, label %.lr.ph.preheader
@@ -1857,7 +1857,7 @@ define hidden noundef double @"_ZN118_$LT$rand..distributions..uniform..UniformF
   %6 = lshr i64 %5, 12
   %7 = or disjoint i64 %6, 4607182418800017408
   %8 = bitcast i64 %7 to double
-  %9 = fadd double %8, -1.000000e+00
+  %9 = fadd nnan double %8, -1.000000e+00
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load double, ptr %10, align 8, !noundef !4
   %12 = fmul double %11, %9

@@ -2758,7 +2758,7 @@ Vec_IntPush.exit..critedge.loopexit_crit_edge:    ; preds = %Vec_IntPush.exit
 
 Vec_IntSum.exit68.loopexit:                       ; preds = %.lr.ph.i62
   %90 = sitofp i32 %89 to double
-  %91 = fmul double %90, 1.000000e+02
+  %91 = fmul nnan double %90, 1.000000e+02
   br label %Vec_IntSum.exit68
 
 Vec_IntSum.exit68:                                ; preds = %Vec_IntSum.exit68.loopexit, %._crit_edge
@@ -4507,9 +4507,9 @@ define void @Bmcs_ManPrintFrame(ptr noundef readonly captures(none) %0, i32 noun
   %36 = load i32, ptr %35, align 8, !tbaa !32
   %37 = sext i32 %36 to i64
   %38 = uitofp i64 %37 to double
-  %39 = tail call double @llvm.fmuladd.f64(double %38, double 4.000000e+00, double 1.600000e+01)
-  %40 = fadd double %39, %34
-  %41 = fmul double %40, 0x3EB0000000000000
+  %39 = tail call nnan double @llvm.fmuladd.f64(double %38, double 4.000000e+00, double 1.600000e+01)
+  %40 = fadd nnan double %39, %34
+  %41 = fmul nnan double %40, 0x3EB0000000000000
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %42 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #25
@@ -4619,7 +4619,7 @@ define void @Bmcs_ManPrintTime(ptr noundef readonly captures(none) %0) local_unn
   %19 = fdiv double %18, 1.000000e+06
   %20 = sitofp i64 %16 to double
   %.not24 = icmp eq i64 %16, 0
-  %21 = fmul double %18, 1.000000e+02
+  %21 = fmul nnan double %18, 1.000000e+02
   %22 = fdiv double %21, %20
   %23 = select i1 %.not24, double 0.000000e+00, double %22
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %19, double noundef %23)
@@ -4627,7 +4627,7 @@ define void @Bmcs_ManPrintTime(ptr noundef readonly captures(none) %0) local_unn
   %24 = load i64, ptr %8, align 8, !tbaa !111
   %25 = sitofp i64 %24 to double
   %26 = fdiv double %25, 1.000000e+06
-  %27 = fmul double %25, 1.000000e+02
+  %27 = fmul nnan double %25, 1.000000e+02
   %28 = fdiv double %27, %20
   %29 = select i1 %.not24, double 0.000000e+00, double %28
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %26, double noundef %29)
@@ -4635,7 +4635,7 @@ define void @Bmcs_ManPrintTime(ptr noundef readonly captures(none) %0) local_unn
   %30 = load i64, ptr %7, align 8, !tbaa !118
   %31 = sitofp i64 %30 to double
   %32 = fdiv double %31, 1.000000e+06
-  %33 = fmul double %31, 1.000000e+02
+  %33 = fmul nnan double %31, 1.000000e+02
   %34 = fdiv double %33, %20
   %35 = select i1 %.not24, double 0.000000e+00, double %34
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %32, double noundef %35)
@@ -4643,13 +4643,13 @@ define void @Bmcs_ManPrintTime(ptr noundef readonly captures(none) %0) local_unn
   %36 = load i64, ptr %6, align 8, !tbaa !119
   %37 = sitofp i64 %36 to double
   %38 = fdiv double %37, 1.000000e+06
-  %39 = fmul double %37, 1.000000e+02
+  %39 = fmul nnan double %37, 1.000000e+02
   %40 = fdiv double %39, %20
   %41 = select i1 %.not24, double 0.000000e+00, double %40
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %38, double noundef %41)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.18)
   %42 = fdiv double %20, 1.000000e+06
-  %43 = fmul double %20, 1.000000e+02
+  %43 = fmul nnan double %20, 1.000000e+02
   %44 = fdiv double %43, %20
   %45 = select i1 %.not24, double 0.000000e+00, double %44
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %42, double noundef %45)

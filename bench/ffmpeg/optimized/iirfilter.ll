@@ -150,8 +150,8 @@ define internal fastcc range(i32 -1, 1) i32 @butterworth_init_coeffs(ptr noundef
   %34 = phi double [ 0.000000e+00, %._crit_edge ], [ %75, %71 ]
   %35 = add nuw nsw i32 %.2100, %17
   %36 = uitofp nneg i32 %35 to double
-  %37 = fadd nsz double %36, 5.000000e-01
-  %38 = fmul nsz double %37, 0x400921FB54442D18
+  %37 = fadd nnan nsz double %36, 5.000000e-01
+  %38 = fmul nnan nsz double %37, 0x400921FB54442D18
   %39 = fdiv nsz double %38, %31
   %40 = tail call nsz double @llvm.cos.f64(double %39)
   %41 = fmul nsz double %14, %40

@@ -2008,7 +2008,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %26, %28, %30, %32
   %39 = trunc nuw i64 %indvars.iv.i to i32
   %40 = uitofp i32 %39 to double
   %41 = fmul double %2, %40
-  %sqrt.i = tail call double @llvm.sqrt.f64(double %40)
+  %sqrt.i = tail call nnan ninf double @llvm.sqrt.f64(double %40)
   %42 = fmul double %37, %sqrt.i
   %43 = fadd double %41, 4.000000e+00
   %44 = fadd double %43, %42
@@ -2087,7 +2087,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit13:             ; preds = %64, %66, %68, %70
   %82 = trunc nuw i64 %indvars.iv.i16 to i32
   %83 = uitofp i32 %82 to double
   %84 = fmul double %73, %83
-  %sqrt.i17 = tail call double @llvm.sqrt.f64(double %83)
+  %sqrt.i17 = tail call nnan ninf double @llvm.sqrt.f64(double %83)
   %85 = fmul double %80, %sqrt.i17
   %86 = fadd double %84, 4.000000e+00
   %87 = fadd double %86, %85
@@ -2125,7 +2125,7 @@ define linkonce_odr hidden noundef double @_ZN2cv8RHO_HEST10fastRandomEv(ptr nou
   store i64 %12, ptr %4, align 8, !tbaa !113
   %13 = add i64 %12, %5
   %14 = uitofp i64 %13 to double
-  %15 = fmul double %14, 0x3BF0000000000000
+  %15 = fmul nnan double %14, 0x3BF0000000000000
   ret double %15
 }
 

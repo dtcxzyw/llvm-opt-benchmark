@@ -842,7 +842,7 @@ define internal void @dec_bark_env(ptr noundef captures(none) %0, ptr noundef re
   %41 = getelementptr inbounds nuw i16, ptr %28, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !81
   %43 = sitofp i16 %42 to double
-  %44 = fmul nsz double %43, 0x3F30000000000000
+  %44 = fmul nnan nsz double %43, 0x3F30000000000000
   %45 = fptrunc nsz double %44 to float
   %46 = fpext nsz float %45 to double
   %47 = fadd nsz double %46, 1.000000e+00
@@ -904,7 +904,7 @@ twinvq_memset_float.exit.us.us:                   ; preds = %.lr.ph.i.us.us, %34
   %69 = getelementptr inbounds nuw i16, ptr %28, i64 %68
   %70 = load i16, ptr %69, align 2, !tbaa !81
   %71 = sitofp i16 %70 to double
-  %72 = fmul nsz double %71, 0x3F30000000000000
+  %72 = fmul nnan nsz double %71, 0x3F30000000000000
   %73 = fptrunc nsz double %72 to float
   %74 = fpext nsz float %73 to double
   %75 = getelementptr inbounds float, ptr %15, i64 %indvars.iv
@@ -988,7 +988,7 @@ define internal void @decode_ppc(ptr noundef readonly captures(none) %0, i32 nou
   %35 = fdiv nsz double 2.500000e+04, %34
   %36 = fptrunc nsz double %35 to float
   %37 = sitofp i32 %2 to float
-  %38 = fmul nsz float %36, 5.000000e-01
+  %38 = fmul nnan nsz float %36, 5.000000e-01
   %39 = tail call nsz float @llvm.fmuladd.f32(float %36, float %37, float %38)
   %40 = fdiv nsz float %39, 2.500000e+04
   %41 = fcmp nsz ogt float %40, -1.000000e+00
@@ -997,7 +997,7 @@ define internal void @decode_ppc(ptr noundef readonly captures(none) %0, i32 nou
   %..i.i = select nsz i1 %43, float 1.000000e+00, float %42
   %44 = fcmp nsz ogt float %..i.i, 0.000000e+00
   %45 = select i1 %44, float 2.500000e+04, float -2.500000e+04
-  %46 = fpext nsz float %45 to double
+  %46 = fpext nnan ninf nsz float %45 to double
   %47 = tail call nsz float @llvm.fabs.f32(float %..i.i)
   %48 = fpext float %47 to double
   %49 = fmul nsz double %48, 0x401536958FD351F0

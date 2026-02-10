@@ -352,7 +352,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef captures(address_
   %71 = sitofp i32 %.082.us to double
   %72 = tail call double @llvm.fmuladd.f64(double %59, double %71, double %56)
   store double %72, ptr %3, align 8, !tbaa !4
-  %73 = fmul double %59, 1.000000e+02
+  %73 = fmul nnan double %59, 1.000000e+02
   %74 = fmul double %73, %71
   %75 = fdiv double %74, %44
   %76 = fadd double %.0105.us, %75
@@ -449,7 +449,7 @@ define void @_Z10print_flopP8_IO_FILEP6t_nrnbPdS3_(ptr noundef captures(address_
   %120 = load double, ptr %3, align 8, !tbaa !4
   %121 = tail call double @llvm.fmuladd.f64(double %94, double %119, double %120)
   store double %121, ptr %3, align 8, !tbaa !4
-  %122 = fmul double %94, 1.000000e+02
+  %122 = fmul nnan double %94, 1.000000e+02
   %123 = fmul double %122, %119
   %124 = fdiv double %123, %44
   %125 = fadd double %.0105, %124
@@ -582,7 +582,7 @@ _ZL11pr_difftimeP8_IO_FILEd.exit:                 ; preds = %.critedge.i, %49
   %60 = fmul double %55, 2.400000e+01
   %61 = fmul double %60, 3.600000e+00
   %62 = fdiv double %61, %2
-  %63 = fmul double %2, 1.000000e+03
+  %63 = fmul nnan double %2, 1.000000e+03
   %64 = fmul double %55, 3.600000e+03
   %65 = fdiv double %63, %64
   %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.153, double noundef %62, double noundef %65) #10
@@ -599,7 +599,7 @@ _ZL11pr_difftimeP8_IO_FILEd.exit:                 ; preds = %.critedge.i, %49
   %74 = fmul double %55, 2.400000e+01
   %75 = fmul double %74, 3.600000e+00
   %76 = fdiv double %75, %2
-  %77 = fmul double %2, 1.000000e+03
+  %77 = fmul nnan double %2, 1.000000e+03
   %78 = fmul double %55, 3.600000e+03
   %79 = fdiv double %77, %78
   %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.158, ptr noundef nonnull @.str.153, double noundef %71, double noundef %73, double noundef %76, double noundef %79) #10
@@ -613,7 +613,7 @@ _ZL11pr_difftimeP8_IO_FILEd.exit:                 ; preds = %.critedge.i, %49
 84:                                               ; preds = %81
   %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.159, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.160) #10
   %86 = sitofp i64 %3 to double
-  %87 = fmul double %86, 3.600000e+03
+  %87 = fmul nnan double %86, 3.600000e+03
   %88 = fdiv double %87, %2
   %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.161, ptr noundef nonnull @.str.153, double noundef %88) #10
   br label %100
@@ -626,7 +626,7 @@ _ZL11pr_difftimeP8_IO_FILEd.exit:                 ; preds = %.critedge.i, %49
   %94 = fdiv double %6, 1.000000e+03
   %95 = select i1 %91, double %94, double %6
   %96 = sitofp i64 %3 to double
-  %97 = fmul double %96, 3.600000e+03
+  %97 = fmul nnan double %96, 3.600000e+03
   %98 = fdiv double %97, %2
   %99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.163, ptr noundef nonnull @.str.153, double noundef %93, double noundef %95, double noundef %98) #10
   br label %100

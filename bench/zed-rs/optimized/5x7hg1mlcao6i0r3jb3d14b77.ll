@@ -65182,7 +65182,7 @@ default.unreachable:                              ; preds = %49
 .thread213.i.i:                                   ; preds = %101, %91
   %.sroa.088.0216.i.i = phi i32 [ %.sroa.088.0.i.i, %101 ], [ 1, %91 ]
   %102 = uitofp i32 %.sroa.088.0216.i.i to float
-  %103 = fdiv float 2.550000e+02, %102
+  %103 = fdiv nnan float 2.550000e+02, %102
   %104 = getelementptr inbounds i8, ptr %2, i64 %3
   %105 = icmp eq i64 %3, 0
   br i1 %105, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h5b571de4d9abf7aeE.exit.i.i", label %.lr.ph.i.i.i
@@ -65388,7 +65388,7 @@ default.unreachable:                              ; preds = %49
 .thread213.i32.i:                                 ; preds = %158, %148
   %.sroa.088.0216.i33.i = phi i32 [ %.sroa.088.0.i30.i, %158 ], [ 1, %148 ]
   %159 = uitofp i32 %.sroa.088.0216.i33.i to float
-  %160 = fdiv float 2.550000e+02, %159
+  %160 = fdiv nnan float 2.550000e+02, %159
   %161 = getelementptr inbounds i8, ptr %2, i64 %3
   %162 = icmp eq i64 %3, 0
   br i1 %162, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17h7f22edaf6cce49c3E.exit.i.i", label %.lr.ph.i.i34.i
@@ -65601,7 +65601,7 @@ default.unreachable:                              ; preds = %49
 .thread213.i:                                     ; preds = %219, %209
   %.sroa.088.0216.i = phi i32 [ %.sroa.088.0.i23, %219 ], [ 1, %209 ]
   %220 = uitofp i32 %.sroa.088.0216.i to float
-  %221 = fdiv float 2.550000e+02, %220
+  %221 = fdiv nnan float 2.550000e+02, %220
   %222 = getelementptr inbounds i8, ptr %2, i64 %3
   %223 = icmp eq i64 %3, 0
   br i1 %223, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8for_each17hea5f2b979d18665bE.exit.i", label %.lr.ph.i.i
@@ -65815,7 +65815,7 @@ default.unreachable:                              ; preds = %49
 .thread221.i:                                     ; preds = %281, %271
   %.sroa.088.0224.i = phi i32 [ %.sroa.088.0.i, %281 ], [ 1, %271 ]
   %282 = uitofp i32 %.sroa.088.0224.i to float
-  %283 = fdiv float 6.553500e+04, %282
+  %283 = fdiv nnan float 6.553500e+04, %282
   %284 = and i64 %3, -2
   %285 = icmp eq i64 %284, 0
   br i1 %285, label %.loopexit.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h0d573874a149a0faE.exit.i"
@@ -105895,7 +105895,7 @@ define noundef ptr @_ZN4gpui11text_system4line11WrappedLine5paint17hee34bd5b1f91
   %30 = getelementptr inbounds nuw i8, ptr %13, i64 52
   %31 = load float, ptr %30, align 4, !alias.scope !22398, !noalias !22405, !noundef !9
   %32 = uitofp i64 %.sink11.i7 to float
-  %33 = fadd float %32, 1.000000e+00
+  %33 = fadd nnan float %32, 1.000000e+00
   %34 = fmul float %3, %33
   store float %1, ptr %7, align 4, !noalias !22401
   %35 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -105939,7 +105939,7 @@ define hidden noundef ptr @_ZN4gpui11text_system4line10paint_line17hcec553bfd23d
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %16 = load float, ptr %15, align 4, !noundef !9
   %17 = uitofp i64 %7 to float
-  %18 = fadd float %17, 1.000000e+00
+  %18 = fadd nnan float %17, 1.000000e+00
   %19 = fmul float %3, %18
   store float %0, ptr %11, align 4
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 4

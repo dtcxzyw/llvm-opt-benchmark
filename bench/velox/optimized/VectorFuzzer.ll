@@ -2639,7 +2639,7 @@ for.cond.i.i:                                     ; preds = %call3.i.i.noexc, %l
 
 call3.i.i.noexc:                                  ; preds = %for.cond.i.i
   %conv6.i.i = uitofp i64 %call3.i.i25 to double
-  %mul.i.i = fmul double %conv6.i.i, 0x3DF0000000000000
+  %mul.i.i = fmul nnan double %conv6.i.i, 0x3DF0000000000000
   %cmp.i.i = fcmp olt double %mul.i.i, 1.000000e+00
   br i1 %cmp.i.i, label %land.end, label %for.cond.i.i, !llvm.loop !6
 
@@ -2657,7 +2657,7 @@ for.cond.i.i27:                                   ; preds = %call3.i.i.noexc32, 
 
 call3.i.i.noexc32:                                ; preds = %for.cond.i.i27
   %conv6.i.i28 = uitofp i64 %call3.i.i33 to double
-  %mul.i.i29 = fmul double %conv6.i.i28, 0x3DF0000000000000
+  %mul.i.i29 = fmul nnan double %conv6.i.i28, 0x3DF0000000000000
   %cmp.i.i30 = fcmp olt double %mul.i.i29, 1.000000e+00
   br i1 %cmp.i.i30, label %invoke.cont3, label %for.cond.i.i27, !llvm.loop !6
 
@@ -2712,7 +2712,7 @@ for.cond.i.i37:                                   ; preds = %call3.i.i.noexc42, 
 
 call3.i.i.noexc42:                                ; preds = %for.cond.i.i37
   %conv6.i.i38 = uitofp i64 %call3.i.i43 to double
-  %mul.i.i39 = fmul double %conv6.i.i38, 0x3DF0000000000000
+  %mul.i.i39 = fmul nnan double %conv6.i.i38, 0x3DF0000000000000
   %cmp.i.i40 = fcmp olt double %mul.i.i39, 1.000000e+00
   br i1 %cmp.i.i40, label %invoke.cont7, label %for.cond.i.i37, !llvm.loop !6
 
@@ -3297,7 +3297,7 @@ call3.i.i.noexc290:                               ; preds = %_ZNSt23mersenne_twi
   %shr8.i = lshr i64 %xor7.i, 18
   %xor9.i = xor i64 %shr8.i, %xor7.i
   %conv6.i.i286 = uitofp i64 %xor9.i to double
-  %mul.i.i287 = fmul double %conv6.i.i286, 0x3DF0000000000000
+  %mul.i.i287 = fmul nnan double %conv6.i.i286, 0x3DF0000000000000
   %cmp.i.i288 = fcmp olt double %mul.i.i287, 1.000000e+00
   br i1 %cmp.i.i288, label %invoke.cont40, label %for.cond.i.i285, !llvm.loop !6
 
@@ -3399,7 +3399,7 @@ call3.i.i.noexc299:                               ; preds = %_ZNSt23mersenne_twi
   %shr8.i452 = lshr i64 %xor7.i451, 18
   %xor9.i453 = xor i64 %shr8.i452, %xor7.i451
   %conv6.i.i295 = uitofp i64 %xor9.i453 to double
-  %mul.i.i296 = fmul double %conv6.i.i295, 0x3DF0000000000000
+  %mul.i.i296 = fmul nnan double %conv6.i.i295, 0x3DF0000000000000
   %cmp.i.i297 = fcmp olt double %mul.i.i296, 1.000000e+00
   br i1 %cmp.i.i297, label %invoke.cont46, label %for.cond.i.i294, !llvm.loop !6
 
@@ -3836,7 +3836,7 @@ land.lhs.true:                                    ; preds = %entry
 for.cond.i.i:                                     ; preds = %for.cond.i.i, %land.lhs.true
   %call3.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rng_.i)
   %conv6.i.i = uitofp i64 %call3.i.i to double
-  %mul.i.i = fmul double %conv6.i.i, 0x3DF0000000000000
+  %mul.i.i = fmul nnan double %conv6.i.i, 0x3DF0000000000000
   %cmp.i.i = fcmp olt double %mul.i.i, 1.000000e+00
   br i1 %cmp.i.i, label %_ZN8facebook5velox12VectorFuzzer8coinTossEd.exit, label %for.cond.i.i, !llvm.loop !6
 
@@ -3852,7 +3852,7 @@ if.then:                                          ; preds = %_ZN8facebook5velox1
 for.cond.i.i9:                                    ; preds = %for.cond.i.i9, %if.then
   %call3.i.i10 = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rng_.i)
   %conv6.i.i11 = uitofp i64 %call3.i.i10 to double
-  %mul.i.i12 = fmul double %conv6.i.i11, 0x3DF0000000000000
+  %mul.i.i12 = fmul nnan double %conv6.i.i11, 0x3DF0000000000000
   %cmp.i.i13 = fcmp olt double %mul.i.i12, 1.000000e+00
   br i1 %cmp.i.i13, label %_ZN8facebook5velox12VectorFuzzer8coinTossEd.exit15, label %for.cond.i.i9, !llvm.loop !6
 
@@ -6586,7 +6586,7 @@ call3.i.i.noexc.i.i.i:                            ; preds = %_ZNSt23mersenne_twi
   %shr8.i.i642.i.i = lshr i64 %xor7.i.i641.i.i, 18
   %xor9.i.i643.i.i = xor i64 %shr8.i.i642.i.i, %xor7.i.i641.i.i
   %conv6.i.i.i.i.i = uitofp i64 %xor9.i.i643.i.i to float
-  %mul.i.i.i.i.i = fmul float %conv6.i.i.i.i.i, 0x3DF0000000000000
+  %mul.i.i.i.i.i = fmul nnan float %conv6.i.i.i.i.i, 0x3DF0000000000000
   %cmp.i.i.i644.i.i = fcmp olt float %mul.i.i.i.i.i, 1.000000e+00
   br i1 %cmp.i.i.i644.i.i, label %invoke.cont6.i645.i.i, label %for.cond.i.i.i630.i.i, !llvm.loop !22
 
@@ -6835,7 +6835,7 @@ call3.i.i.noexc.i757.i.i:                         ; preds = %_ZNSt23mersenne_twi
   %shr8.i.i769.i.i = lshr i64 %xor7.i.i768.i.i, 18
   %xor9.i.i770.i.i = xor i64 %shr8.i.i769.i.i, %xor7.i.i768.i.i
   %conv6.i.i.i771.i.i = uitofp i64 %xor9.i.i770.i.i to double
-  %mul.i.i.i772.i.i = fmul double %conv6.i.i.i771.i.i, 0x3DF0000000000000
+  %mul.i.i.i772.i.i = fmul nnan double %conv6.i.i.i771.i.i, 0x3DF0000000000000
   %cmp.i.i.i773.i.i = fcmp olt double %mul.i.i.i772.i.i, 1.000000e+00
   br i1 %cmp.i.i.i773.i.i, label %invoke.cont6.i774.i.i, label %for.cond.i.i.i755.i.i, !llvm.loop !6
 
@@ -7464,7 +7464,7 @@ call3.i.i.noexc:                                  ; preds = %_ZNSt23mersenne_twi
   %shr8.i = lshr i64 %xor7.i, 18
   %xor9.i = xor i64 %shr8.i, %xor7.i
   %conv6.i.i = uitofp i64 %xor9.i to double
-  %mul.i.i = fmul double %conv6.i.i, 0x3DF0000000000000
+  %mul.i.i = fmul nnan double %conv6.i.i, 0x3DF0000000000000
   %cmp.i.i = fcmp olt double %mul.i.i, 1.000000e+00
   br i1 %cmp.i.i, label %invoke.cont17, label %for.cond.i.i, !llvm.loop !6
 
@@ -12076,7 +12076,7 @@ if.else12.i745.i:                                 ; preds = %dynamic_cast.notnul
 for.cond.i.i50.i746.i:                            ; preds = %for.cond.i.i50.i746.i, %if.else12.i745.i
   %call3.i.i.i.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rng_25.i), !noalias !148
   %conv6.i.i.i.i = uitofp i64 %call3.i.i.i.i to float
-  %mul.i.i.i.i = fmul float %conv6.i.i.i.i, 0x3DF0000000000000
+  %mul.i.i.i.i = fmul nnan float %conv6.i.i.i.i, 0x3DF0000000000000
   %cmp.i.i.i.i = fcmp olt float %mul.i.i.i.i, 1.000000e+00
   br i1 %cmp.i.i.i.i, label %_ZN8facebook5velox12_GLOBAL__N_14randIfEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit.i.i, label %for.cond.i.i50.i746.i, !llvm.loop !22
 
@@ -12334,7 +12334,7 @@ if.else12.i868.i:                                 ; preds = %dynamic_cast.notnul
 for.cond.i.i50.i869.i:                            ; preds = %for.cond.i.i50.i869.i, %if.else12.i868.i
   %call3.i.i.i870.i = tail call noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEclEv(ptr noundef nonnull align 8 dereferenceable(5000) %rng_29.i), !noalias !161
   %conv6.i.i.i871.i = uitofp i64 %call3.i.i.i870.i to double
-  %mul.i.i.i872.i = fmul double %conv6.i.i.i871.i, 0x3DF0000000000000
+  %mul.i.i.i872.i = fmul nnan double %conv6.i.i.i871.i, 0x3DF0000000000000
   %cmp.i.i.i873.i = fcmp olt double %mul.i.i.i872.i, 1.000000e+00
   br i1 %cmp.i.i.i873.i, label %_ZN8facebook5velox12_GLOBAL__N_14randIdEET_RSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE.exit.i.i, label %for.cond.i.i50.i869.i, !llvm.loop !6
 
@@ -16700,7 +16700,7 @@ call3.i.i.noexc:                                  ; preds = %_ZNSt23mersenne_twi
   %shr8.i = lshr i64 %xor7.i, 18
   %xor9.i = xor i64 %shr8.i, %xor7.i
   %conv6.i.i = uitofp i64 %xor9.i to double
-  %mul.i.i = fmul double %conv6.i.i, 0x3DF0000000000000
+  %mul.i.i = fmul nnan double %conv6.i.i, 0x3DF0000000000000
   %cmp.i.i = fcmp olt double %mul.i.i, 1.000000e+00
   br i1 %cmp.i.i, label %invoke.cont, label %for.cond.i.i, !llvm.loop !6
 
@@ -20785,7 +20785,7 @@ call3.i.i.noexc:                                  ; preds = %_ZNSt23mersenne_twi
   %shr8.i = lshr i64 %xor7.i, 18
   %xor9.i = xor i64 %shr8.i, %xor7.i
   %conv6.i.i = uitofp i64 %xor9.i to double
-  %mul.i.i = fmul double %conv6.i.i, 0x3DF0000000000000
+  %mul.i.i = fmul nnan double %conv6.i.i, 0x3DF0000000000000
   %cmp.i.i7 = fcmp olt double %mul.i.i, 1.000000e+00
   br i1 %cmp.i.i7, label %invoke.cont24, label %for.cond.i.i, !llvm.loop !6
 

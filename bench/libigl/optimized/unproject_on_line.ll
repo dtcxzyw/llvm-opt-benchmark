@@ -10849,7 +10849,7 @@ define linkonce_odr dso_local void @_ZNK5Eigen7SVDBaseINS_9JacobiSVDINS_6MatrixI
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %14 = load double, ptr %13, align 16
   %15 = uitofp nneg i64 %.sroa.speculated.i.i to double
-  %16 = fmul double %15, 0x3CB0000000000000
+  %16 = fmul nnan double %15, 0x3CB0000000000000
   %17 = select i1 %12, double %14, double %16
   %18 = fmul double %7, %17
   %19 = fcmp olt double %18, 0x10000000000000

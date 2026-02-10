@@ -345,7 +345,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %.lr.ph, %70
 
 56:                                               ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge
   %57 = sitofp i32 %52 to float
-  %58 = fmul float %57, %55
+  %58 = fmul nnan float %57, %55
   %59 = sitofp i32 %51 to float
   %60 = fdiv float %58, %59
   %61 = fsub float %60, %55
@@ -354,7 +354,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %.lr.ph, %70
 
 63:                                               ; preds = %_ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge
   %64 = sitofp i32 %51 to float
-  %65 = fmul float %64, %55
+  %65 = fmul nnan float %64, %55
   %66 = sitofp i32 %52 to float
   %67 = fdiv float %65, %66
   %68 = fsub float %67, %55

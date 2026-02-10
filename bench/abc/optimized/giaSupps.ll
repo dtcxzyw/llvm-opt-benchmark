@@ -9835,7 +9835,7 @@ Vec_WecSizeSize.exit:                             ; preds = %153, %143
   %.0.lcssa.i = phi i32 [ 0, %143 ], [ %156, %153 ]
   %157 = call i32 @Supp_ManMemory(ptr noundef nonnull %.0)
   %158 = sitofp i32 %157 to double
-  %159 = fmul double %158, 0x3EB0000000000000
+  %159 = fmul nnan double %158, 0x3EB0000000000000
   %160 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, i32 noundef %.val89.val, i32 noundef %.0.lcssa.i, double noundef %159)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %161 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %12) #34

@@ -3006,7 +3006,7 @@ define internal fastcc i32 @_piwigo_api_post_internal(ptr noundef captures(none)
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !151
   %30 = sitofp i64 %29 to double
-  %31 = fmul reassoc nsz arcp contract afn double %30, 0x3EB0C6F7A0B5ED8D
+  %31 = fmul reassoc nnan nsz arcp contract afn double %30, 0x3EB0C6F7A0B5ED8D
   %32 = fadd reassoc nsz arcp contract afn double %31, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %33 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull %6, double noundef %32) #16

@@ -397,7 +397,7 @@ define i32 @stress_majorization_with_hierarchy(ptr noundef %0, i32 noundef %1, p
 
 .lr.ph647.preheader:                              ; preds = %.loopexit593
   %167 = uitofp nneg i32 %149 to float
-  %168 = fpext float %167 to double
+  %168 = fpext nnan ninf float %167 to double
   %169 = add nsw i32 %1, -2
   br label %.lr.ph640.preheader
 

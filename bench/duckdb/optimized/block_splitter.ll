@@ -527,10 +527,10 @@ _ZL7BitCostm.exit.i.i:                            ; preds = %227, %224, %216
 
 258:                                              ; preds = %255
   %259 = uitofp nneg i64 %.0116137.i.i to double
-  %260 = fmul double %259, 7.000000e-02
-  %261 = fdiv double %260, 2.000000e+03
-  %262 = fadd double %261, 7.700000e-01
-  %263 = fmul double %262, 2.810000e+01
+  %260 = fmul nnan double %259, 7.000000e-02
+  %261 = fdiv nnan double %260, 2.000000e+03
+  %262 = fadd nnan double %261, 7.700000e-01
+  %263 = fmul nnan double %262, 2.810000e+01
   br label %264
 
 264:                                              ; preds = %258, %255
@@ -1719,10 +1719,10 @@ _ZL7BitCostm.exit.i.i100:                         ; preds = %794, %791, %783
 
 825:                                              ; preds = %822
   %826 = uitofp nneg i64 %.0116137.i.i104 to double
-  %827 = fmul double %826, 7.000000e-02
-  %828 = fdiv double %827, 2.000000e+03
-  %829 = fadd double %828, 7.700000e-01
-  %830 = fmul double %829, 1.350000e+01
+  %827 = fmul nnan double %826, 7.000000e-02
+  %828 = fdiv nnan double %827, 2.000000e+03
+  %829 = fadd nnan double %828, 7.700000e-01
+  %830 = fmul nnan double %829, 1.350000e+01
   br label %831
 
 831:                                              ; preds = %825, %822
@@ -2934,10 +2934,10 @@ _ZL7BitCostm.exit.i.i276:                         ; preds = %1375, %1372, %1364
 
 1406:                                             ; preds = %1403
   %1407 = uitofp nneg i64 %.0116137.i.i280 to double
-  %1408 = fmul double %1407, 7.000000e-02
-  %1409 = fdiv double %1408, 2.000000e+03
-  %1410 = fadd double %1409, 7.700000e-01
-  %1411 = fmul double %1410, 1.460000e+01
+  %1408 = fmul nnan double %1407, 7.000000e-02
+  %1409 = fdiv nnan double %1408, 2.000000e+03
+  %1410 = fadd nnan double %1409, 7.700000e-01
+  %1411 = fmul nnan double %1410, 1.460000e+01
   br label %1412
 
 1412:                                             ; preds = %1406, %1403

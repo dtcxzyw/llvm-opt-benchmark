@@ -14508,7 +14508,7 @@ Sbd_ManDelay.exit:                                ; preds = %261, %228
   %308 = load i64, ptr %222, align 8, !tbaa !68
   %.not196 = icmp eq i64 %308, 0
   %309 = sitofp i64 %308 to double
-  %310 = fmul double %306, 1.000000e+02
+  %310 = fmul nnan double %306, 1.000000e+02
   %311 = fdiv double %310, %309
   %312 = select i1 %.not196, double 0.000000e+00, double %311
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.37, double noundef %307, double noundef %312)
@@ -14519,7 +14519,7 @@ Sbd_ManDelay.exit:                                ; preds = %261, %228
   %316 = load i64, ptr %222, align 8, !tbaa !68
   %.not197 = icmp eq i64 %316, 0
   %317 = sitofp i64 %316 to double
-  %318 = fmul double %314, 1.000000e+02
+  %318 = fmul nnan double %314, 1.000000e+02
   %319 = fdiv double %318, %317
   %320 = select i1 %.not197, double 0.000000e+00, double %319
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.37, double noundef %315, double noundef %320)
@@ -14530,7 +14530,7 @@ Sbd_ManDelay.exit:                                ; preds = %261, %228
   %324 = load i64, ptr %222, align 8, !tbaa !68
   %.not198 = icmp eq i64 %324, 0
   %325 = sitofp i64 %324 to double
-  %326 = fmul double %322, 1.000000e+02
+  %326 = fmul nnan double %322, 1.000000e+02
   %327 = fdiv double %326, %325
   %328 = select i1 %.not198, double 0.000000e+00, double %327
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.37, double noundef %323, double noundef %328)
@@ -14541,7 +14541,7 @@ Sbd_ManDelay.exit:                                ; preds = %261, %228
   %332 = load i64, ptr %222, align 8, !tbaa !68
   %.not199 = icmp eq i64 %332, 0
   %333 = sitofp i64 %332 to double
-  %334 = fmul double %330, 1.000000e+02
+  %334 = fmul nnan double %330, 1.000000e+02
   %335 = fdiv double %334, %333
   %336 = select i1 %.not199, double 0.000000e+00, double %335
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.37, double noundef %331, double noundef %336)
@@ -14552,7 +14552,7 @@ Sbd_ManDelay.exit:                                ; preds = %261, %228
   %340 = load i64, ptr %222, align 8, !tbaa !68
   %.not200 = icmp eq i64 %340, 0
   %341 = sitofp i64 %340 to double
-  %342 = fmul double %338, 1.000000e+02
+  %342 = fmul nnan double %338, 1.000000e+02
   %343 = fdiv double %342, %341
   %344 = select i1 %.not200, double 0.000000e+00, double %343
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.37, double noundef %339, double noundef %344)
@@ -14563,7 +14563,7 @@ Sbd_ManDelay.exit:                                ; preds = %261, %228
   %348 = load i64, ptr %222, align 8, !tbaa !68
   %.not201 = icmp eq i64 %348, 0
   %349 = sitofp i64 %348 to double
-  %350 = fmul double %346, 1.000000e+02
+  %350 = fmul nnan double %346, 1.000000e+02
   %351 = fdiv double %350, %349
   %352 = select i1 %.not201, double 0.000000e+00, double %351
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.37, double noundef %347, double noundef %352)
@@ -14574,7 +14574,7 @@ Sbd_ManDelay.exit:                                ; preds = %261, %228
   %356 = load i64, ptr %222, align 8, !tbaa !68
   %.not202 = icmp eq i64 %356, 0
   %357 = sitofp i64 %356 to double
-  %358 = fmul double %354, 1.000000e+02
+  %358 = fmul nnan double %354, 1.000000e+02
   %359 = fdiv double %358, %357
   %360 = select i1 %.not202, double 0.000000e+00, double %359
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.37, double noundef %355, double noundef %360)
@@ -14583,7 +14583,7 @@ Sbd_ManDelay.exit:                                ; preds = %261, %228
   %362 = sitofp i64 %361 to double
   %363 = fdiv double %362, 1.000000e+06
   %.not203 = icmp eq i64 %361, 0
-  %364 = fmul double %362, 1.000000e+02
+  %364 = fmul nnan double %362, 1.000000e+02
   %365 = fdiv double %364, %362
   %366 = select i1 %.not203, double 0.000000e+00, double %365
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.37, double noundef %363, double noundef %366)

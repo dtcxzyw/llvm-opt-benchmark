@@ -156,7 +156,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 50:                                               ; preds = %46
   %51 = sitofp i32 %48 to double
-  %52 = fmul double %51, 1.000000e+02
+  %52 = fmul nnan double %51, 1.000000e+02
   %.val31 = load i32, ptr %2, align 4, !tbaa !3
   %53 = sitofp i32 %.val31 to double
   %54 = fdiv double %52, %53
@@ -183,7 +183,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %.val32 = phi i32 [ %.val3257, %.critedge.preheader ], [ %.val32.pre, %.critedge2.loopexit ]
   %.0.lcssa = phi i32 [ 0, %.critedge.preheader ], [ %.1, %.critedge2.loopexit ]
   %61 = sitofp i32 %.0.lcssa to double
-  %62 = fmul double %61, 1.000000e+02
+  %62 = fmul nnan double %61, 1.000000e+02
   %63 = sitofp i32 %.val32 to double
   %64 = fdiv double %62, %63
   %65 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.0.lcssa, double noundef %64)
@@ -1642,8 +1642,8 @@ Vec_IntFreeP.exit:                                ; preds = %549, %Vec_IntPush.e
   %599 = load ptr, ptr %82, align 8, !tbaa !39
   call void @Unr_ManProfileRanks(ptr noundef %599)
   %600 = sitofp i32 %.0193.lcssa to double
-  %601 = fmul double %600, 4.000000e+00
-  %602 = fmul double %601, 0x3EB0000000000000
+  %601 = fmul nnan double %600, 4.000000e+00
+  %602 = fmul nnan double %601, 0x3EB0000000000000
   %603 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, double noundef %602)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %604 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #19

@@ -2913,7 +2913,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %if.else11, label %if.then5
 
 if.then5:                                         ; preds = %if.else
-  %mul = fmul double %0, 1.000000e+03
+  %mul = fmul nnan double %0, 1.000000e+03
   %Fmt.i.i.i8 = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 8
   store ptr @.str.49, ptr %Fmt.i.i.i8, align 8, !alias.scope !34
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 16), ptr %ref.tmp6, align 8, !alias.scope !34
@@ -2988,7 +2988,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %div = fmul double %conv, 0x3E10000000000000
+  %div = fmul nnan double %conv, 0x3E10000000000000
   %Fmt.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
   store ptr @.str.53, ptr %Fmt.i.i.i, align 8, !alias.scope !40
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 16), ptr %ref.tmp, align 8, !alias.scope !40
@@ -3002,7 +3002,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp3, label %if.then4, label %if.else8
 
 if.then4:                                         ; preds = %if.else
-  %div5 = fmul double %conv, 0x3EB0000000000000
+  %div5 = fmul nnan double %conv, 0x3EB0000000000000
   %Fmt.i.i.i11 = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 8
   store ptr @.str.54, ptr %Fmt.i.i.i11, align 8, !alias.scope !43
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 16), ptr %ref.tmp6, align 8, !alias.scope !43
@@ -3016,7 +3016,7 @@ if.else8:                                         ; preds = %if.else
   br i1 %cmp10, label %if.then11, label %if.else15
 
 if.then11:                                        ; preds = %if.else8
-  %div12 = fmul double %conv, 0x3F50000000000000
+  %div12 = fmul nnan double %conv, 0x3F50000000000000
   %Fmt.i.i.i13 = getelementptr inbounds nuw i8, ptr %ref.tmp13, i64 8
   store ptr @.str.55, ptr %Fmt.i.i.i13, align 8, !alias.scope !46
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 16), ptr %ref.tmp13, align 8, !alias.scope !46
@@ -5278,7 +5278,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %4 = load i64, ptr %size14, align 8
   %conv15 = uitofp i64 %4 to double
   %cmp.i16.not = icmp eq i64 %4, 0
-  %mul.i = fmul double %conv, 1.000000e+02
+  %mul.i = fmul nnan double %conv, 1.000000e+02
   %div.i = fdiv double %mul.i, %conv15
   %cond.i = select i1 %cmp.i16.not, double 0.000000e+00, double %div.i
   call void (ptr, ptr, ...) @_ZN6hermes9hermesLogEPKcS1_z(ptr noundef nonnull @.str.44, ptr noundef %call9, ptr noundef %call10, i64 noundef %2, i64 noundef %3, double noundef %cond.i) #27
@@ -5308,7 +5308,7 @@ if.then26:                                        ; preds = %for.end
   %9 = load i64, ptr %size25, align 8
   %conv32 = uitofp i64 %9 to double
   %cmp.i18.not = icmp eq i64 %9, 0
-  %mul.i19 = fmul double %conv30, 1.000000e+02
+  %mul.i19 = fmul nnan double %conv30, 1.000000e+02
   %div.i20 = fdiv double %mul.i19, %conv32
   %cond.i21 = select i1 %cmp.i18.not, double 0.000000e+00, double %div.i20
   call void (ptr, ptr, ...) @_ZN6hermes9hermesLogEPKcS1_z(ptr noundef nonnull @.str.44, ptr noundef %call27, ptr noundef nonnull @.str.84, i64 noundef %sub29, i64 noundef %sub, double noundef %cond.i21) #27

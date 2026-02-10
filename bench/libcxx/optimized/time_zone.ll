@@ -4615,7 +4615,7 @@ define linkonce_odr hidden void @_ZNSt3__18__format19__allocating_bufferIcE15__p
   %4 = load i64, ptr %3, align 8, !tbaa !243
   %5 = add i64 %4, %1
   %6 = uitofp i64 %4 to double
-  %7 = fmul double %6, 1.600000e+00
+  %7 = fmul nnan double %6, 1.600000e+00
   %8 = fptoui double %7 to i64
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %5, i64 %8)
   %9 = icmp ult i64 %.sroa.speculated.i, 256

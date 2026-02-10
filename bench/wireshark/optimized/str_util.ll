@@ -805,8 +805,8 @@ define ptr @format_units(ptr noundef %0, double noundef %1, i32 noundef %2, i16 
   br i1 %20, label %.preheader, label %.preheader85
 
 .preheader85:                                     ; preds = %17
-  %21 = fmul double %19, %.0
-  %22 = fdiv double 1.000000e+00, %.0
+  %21 = fmul nnan double %19, %.0
+  %22 = fdiv nnan double 1.000000e+00, %.0
   %23 = select i1 %.not, i32 7, i32 1
   br label %29
 

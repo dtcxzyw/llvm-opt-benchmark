@@ -18298,7 +18298,7 @@ _ZN10TestObjectD2Ev.exit11930:                    ; preds = %if.then.i.i.i11919,
   %3201 = load i64, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
   %inc4.i11935 = add nsw i64 %3201, 1
   store i64 %inc4.i11935, ptr @_ZN10TestObject19sTODefaultCtorCountE, align 8
-  %mul5309 = fmul float %conv5297, 2.000000e+00
+  %mul5309 = fmul nnan float %conv5297, 2.000000e+00
   %3202 = load i64, ptr %mNumElements.i.i11937, align 8, !noalias !650
   %add.i.i11938 = add i64 %3202, 1
   %3203 = load i64, ptr %mNumCapacity.i13378, align 8, !noalias !650

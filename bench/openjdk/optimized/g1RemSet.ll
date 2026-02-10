@@ -8738,7 +8738,7 @@ define linkonce_odr hidden noundef double @_ZNK17G1RemSetScanState20G1ClearCardT
   %8 = load i32, ptr @_ZN12G1HeapRegion17LogCardsPerRegionE, align 4
   %9 = shl i32 %5, %8
   %10 = uitofp i32 %9 to double
-  %11 = fmul double %10, 0x3EB0000000000000
+  %11 = fmul nnan double %10, 0x3EB0000000000000
   %12 = tail call double @llvm.ceil.f64(double %11)
   br label %13
 

@@ -613,7 +613,7 @@ define { i64, double } @"_ZN118_$LT$statrs..distribution..categorical..Categoric
   br i1 %9, label %10, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i"
 
 10:                                               ; preds = %.preheader
-  %11 = tail call noundef double @llvm.log.f64(double %8)
+  %11 = tail call nnan double @llvm.log.f64(double %8)
   %12 = fmul double %8, %11
   %13 = fadd double %.sroa.07.0.i, %12
   br label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i"

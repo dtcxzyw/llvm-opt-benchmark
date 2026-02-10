@@ -7174,7 +7174,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT9glyf_impl20CompositeGlyph
   %53 = zext i8 %52 to i16
   %54 = or disjoint i16 %50, %53
   %55 = sitofp i16 %54 to float
-  %56 = fmul float %55, 0x3F10000000000000
+  %56 = fmul nnan float %55, 0x3F10000000000000
   store float %56, ptr %4, align 4
   store float %56, ptr %1, align 4
   br label %123
@@ -7193,7 +7193,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT9glyf_impl20CompositeGlyph
   %65 = zext i8 %64 to i16
   %66 = or disjoint i16 %62, %65
   %67 = sitofp i16 %66 to float
-  %68 = fmul float %67, 0x3F10000000000000
+  %68 = fmul nnan float %67, 0x3F10000000000000
   store float %68, ptr %1, align 4
   %69 = getelementptr inbounds nuw i8, ptr %.036, i64 2
   %70 = load i8, ptr %69, align 1
@@ -7204,7 +7204,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT9glyf_impl20CompositeGlyph
   %75 = zext i8 %74 to i16
   %76 = or disjoint i16 %72, %75
   %77 = sitofp i16 %76 to float
-  %78 = fmul float %77, 0x3F10000000000000
+  %78 = fmul nnan float %77, 0x3F10000000000000
   store float %78, ptr %4, align 4
   br label %123
 
@@ -7221,7 +7221,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT9glyf_impl20CompositeGlyph
   %86 = zext i8 %85 to i16
   %87 = or disjoint i16 %83, %86
   %88 = sitofp i16 %87 to float
-  %89 = fmul float %88, 0x3F10000000000000
+  %89 = fmul nnan float %88, 0x3F10000000000000
   store float %89, ptr %1, align 4
   %90 = getelementptr inbounds nuw i8, ptr %.036, i64 2
   %91 = load i8, ptr %90, align 1
@@ -7232,7 +7232,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT9glyf_impl20CompositeGlyph
   %96 = zext i8 %95 to i16
   %97 = or disjoint i16 %93, %96
   %98 = sitofp i16 %97 to float
-  %99 = fmul float %98, 0x3F10000000000000
+  %99 = fmul nnan float %98, 0x3F10000000000000
   store float %99, ptr %6, align 4
   %100 = getelementptr inbounds nuw i8, ptr %.036, i64 4
   %101 = load i8, ptr %100, align 1
@@ -7243,7 +7243,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT9glyf_impl20CompositeGlyph
   %106 = zext i8 %105 to i16
   %107 = or disjoint i16 %103, %106
   %108 = sitofp i16 %107 to float
-  %109 = fmul float %108, 0x3F10000000000000
+  %109 = fmul nnan float %108, 0x3F10000000000000
   store float %109, ptr %5, align 4
   %110 = getelementptr inbounds nuw i8, ptr %.036, i64 6
   %111 = load i8, ptr %110, align 1
@@ -7254,7 +7254,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK2OT9glyf_impl20CompositeGlyph
   %116 = zext i8 %115 to i16
   %117 = or disjoint i16 %113, %116
   %118 = sitofp i16 %117 to float
-  %119 = fmul float %118, 0x3F10000000000000
+  %119 = fmul nnan float %118, 0x3F10000000000000
   store float %119, ptr %4, align 4
   br label %123
 

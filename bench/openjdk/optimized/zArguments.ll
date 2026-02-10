@@ -164,7 +164,7 @@ thread-pre-split:                                 ; preds = %0
 
 31:                                               ; preds = %26
   %32 = uitofp i32 %.0 to double
-  %33 = fmul double %32, 9.000000e-01
+  %33 = fmul nnan double %32, 9.000000e-01
   %34 = fptoui double %33 to i32
   %35 = tail call noundef i32 @llvm.umax.i32(i32 %34, i32 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

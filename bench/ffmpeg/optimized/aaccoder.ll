@@ -57,7 +57,7 @@ define internal void @search_for_quantizers_twoloop(ptr noundef readonly capture
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load i64, ptr %16, align 8, !tbaa !8
   %18 = sitofp i64 %17 to double
-  %19 = fmul nsz double %18, 1.024000e+03
+  %19 = fmul nnan nsz double %18, 1.024000e+03
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %21 = load i32, ptr %20, align 8, !tbaa !28
   %22 = sitofp i32 %21 to double
@@ -159,7 +159,7 @@ define internal void @search_for_quantizers_twoloop(ptr noundef readonly capture
   %78 = tail call nsz float @llvm.sqrt.f32(float %..i)
   %79 = fpext nsz float %77 to double
   %80 = sitofp i32 %38 to float
-  %81 = fmul nsz float %80, 1.500000e+00
+  %81 = fmul nnan nsz float %80, 1.500000e+00
   %82 = sitofp i32 %21 to float
   %83 = fmul nsz float %81, %82
   %84 = fmul nsz float %83, 0x3F50000000000000
@@ -205,7 +205,7 @@ define internal void @search_for_quantizers_twoloop(ptr noundef readonly capture
 
 109:                                              ; preds = %106, %98
   %110 = sitofp i32 %103 to float
-  %111 = fmul nsz float %110, 0x3FF2666660000000
+  %111 = fmul nnan nsz float %110, 0x3FF2666660000000
   %112 = fptosi float %111 to i32
   br label %113
 
@@ -779,7 +779,7 @@ find_max_val.exit.thread.us2083:                  ; preds = %.lr.ph2077.split.us
   %357 = load i32, ptr %356, align 8, !tbaa !68
   %358 = icmp sgt i32 %357, 0
   %359 = sitofp i32 %142 to float
-  %360 = fmul nsz float %359, 7.500000e-01
+  %360 = fmul nnan nsz float %359, 7.500000e-01
   %361 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %wide.trip.count2388 = zext nneg i32 %357 to i64
   br label %362
@@ -857,7 +857,7 @@ find_max_val.exit.thread.us2083:                  ; preds = %.lr.ph2077.split.us
   %407 = fdiv nsz float 1.000000e+00, %406
   %408 = add nsw i32 %394, -1
   %409 = sitofp i32 %408 to float
-  %410 = fdiv nsz float 1.000000e+00, %409
+  %410 = fdiv nnan nsz float 1.000000e+00, %409
   %.not.i1785 = icmp eq i8 %390, 0
   br i1 %.not.i1785, label %find_form_factor.exit, label %.preheader.lr.ph.i
 
@@ -995,7 +995,7 @@ find_max_val.exit.thread.us2083:                  ; preds = %.lr.ph2077.split.us
   %465 = fdiv nsz float %460, %.072..us129.i
   %466 = tail call nsz float @llvm.sqrt.f32(float %465)
   %467 = fmul nsz float %460, %466
-  %468 = fmul nsz float %467, 2.000000e+00
+  %468 = fmul ninf nsz float %467, 2.000000e+00
   br label %.preheader.us124.i
 
 .preheader.us124.i:                               ; preds = %.preheader.us124.i, %.preheader.lr.ph.split.split.us.split.i
@@ -1134,7 +1134,7 @@ find_form_factor.exit:                            ; preds = %425, %.preheader.us
   %528 = fdiv nsz float %523, %.072..us129.i1841
   %529 = tail call nsz float @llvm.sqrt.f32(float %528)
   %530 = fmul nsz float %523, %529
-  %531 = fmul nsz float %530, 2.000000e+00
+  %531 = fmul ninf nsz float %530, 2.000000e+00
   br label %.preheader.us124.i1842
 
 .preheader.us124.i1842:                           ; preds = %.preheader.us124.i1842, %.preheader.lr.ph.split.split.us.split.i1840
@@ -1208,7 +1208,7 @@ find_form_factor.exit1847:                        ; preds = %503, %.preheader.us
   %574 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %575 = getelementptr inbounds nuw i8, ptr %2, i64 5644
   %576 = udiv i32 %573, 3
-  %577 = fmul nsz float %567, 2.500000e-01
+  %577 = fmul nnan nsz float %567, 2.500000e-01
   %578 = tail call i32 @llvm.smax.i32(i32 %145, i32 1)
   %579 = uitofp nneg i32 %578 to float
   br label %581
@@ -1606,7 +1606,7 @@ select.unfold:                                    ; preds = %.thread1924, %762, 
   %768 = icmp samesign ugt i32 %.01395, %566
   %769 = sub nsw i32 %.014101903, %.01395
   %770 = sitofp i32 %769 to float
-  %771 = fmul nsz float %770, 1.600000e+01
+  %771 = fmul nnan nsz float %770, 1.600000e+01
   %772 = fdiv nsz float %771, %567
   %773 = fadd nsz float %772, 1.000000e+00
   %774 = icmp ne i32 %.0135519321939, 0
@@ -3874,7 +3874,7 @@ define internal void @search_for_pns(ptr noundef %0, ptr noundef readonly captur
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %14 = load i32, ptr %13, align 8, !tbaa !28
   %15 = sitofp i32 %14 to float
-  %16 = fmul nsz float %15, 5.000000e-01
+  %16 = fmul nnan nsz float %15, 5.000000e-01
   %17 = sitofp i32 %7 to float
   %18 = fdiv nsz float %16, %17
   %19 = fdiv nsz float 1.000000e+02, %12
@@ -3903,7 +3903,7 @@ define internal void @search_for_pns(ptr noundef %0, ptr noundef readonly captur
 
 39:                                               ; preds = %3
   %40 = sitofp i64 %35 to double
-  %41 = fmul nsz double %40, 1.024000e+03
+  %41 = fmul nnan nsz double %40, 1.024000e+03
   %42 = sitofp i32 %14 to double
   %43 = fdiv nsz double %41, %42
   %44 = fmul nsz double %43, 5.000000e-01
@@ -3912,7 +3912,7 @@ define internal void @search_for_pns(ptr noundef %0, ptr noundef readonly captur
   %47 = fmul nsz double %44, %46
   %48 = fptosi double %47 to i32
   %49 = sitofp i32 %48 to float
-  %50 = fmul nsz float %49, 1.500000e+00
+  %50 = fmul nnan nsz float %49, 1.500000e+00
   %51 = fmul nsz float %50, %15
   %52 = fmul nsz float %51, 0x3F50000000000000
   br label %59
@@ -3929,7 +3929,7 @@ define internal void @search_for_pns(ptr noundef %0, ptr noundef readonly captur
   %60 = phi nsz float [ %52, %39 ], [ %58, %53 ]
   %61 = fptosi float %60 to i32
   %62 = sitofp i32 %61 to float
-  %63 = fmul nsz float %62, 0x3FF2666660000000
+  %63 = fmul nnan nsz float %62, 0x3FF2666660000000
   %64 = fptosi float %63 to i32
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %66 = load i32, ptr %65, align 8, !tbaa !66
@@ -4537,7 +4537,7 @@ define internal void @mark_pns(ptr noundef readonly captures(none) %0, ptr nound
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %10 = load i32, ptr %9, align 8, !tbaa !28
   %11 = sitofp i32 %10 to float
-  %12 = fmul nsz float %11, 5.000000e-01
+  %12 = fmul nnan nsz float %11, 5.000000e-01
   %13 = sitofp i32 %6 to float
   %14 = fdiv nsz float %12, %13
   %15 = fdiv nsz float %8, 1.000000e+02
@@ -4559,7 +4559,7 @@ define internal void @mark_pns(ptr noundef readonly captures(none) %0, ptr nound
 
 29:                                               ; preds = %3
   %30 = sitofp i64 %25 to double
-  %31 = fmul nsz double %30, 1.024000e+03
+  %31 = fmul nnan nsz double %30, 1.024000e+03
   %32 = sitofp i32 %10 to double
   %33 = fdiv nsz double %31, %32
   %34 = fmul nsz double %33, 5.000000e-01
@@ -4568,7 +4568,7 @@ define internal void @mark_pns(ptr noundef readonly captures(none) %0, ptr nound
   %37 = fmul nsz double %34, %36
   %38 = fptosi double %37 to i32
   %39 = sitofp i32 %38 to float
-  %40 = fmul nsz float %39, 1.500000e+00
+  %40 = fmul nnan nsz float %39, 1.500000e+00
   %41 = fmul nsz float %40, %11
   %42 = fmul nsz float %41, 0x3F50000000000000
   br label %49
@@ -4585,7 +4585,7 @@ define internal void @mark_pns(ptr noundef readonly captures(none) %0, ptr nound
   %50 = phi nsz float [ %42, %29 ], [ %48, %43 ]
   %51 = fptosi float %50 to i32
   %52 = sitofp i32 %51 to float
-  %53 = fmul nsz float %52, 0x3FF2666660000000
+  %53 = fmul nnan nsz float %52, 0x3FF2666660000000
   %54 = fptosi float %53 to i32
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %56 = load i32, ptr %55, align 8, !tbaa !66
@@ -5030,7 +5030,7 @@ ff_init_nextband_map.exit399:                     ; preds = %._crit_edge.i388, %
   %.1351468 = phi i32 [ %.0350478, %.lr.ph475 ], [ %.2352, %410 ]
   %122 = trunc nuw nsw i64 %indvars.iv513 to i32
   %123 = uitofp nneg i32 %122 to float
-  %124 = fmul nsz float %123, 1.700000e+01
+  %124 = fmul nnan nsz float %123, 1.700000e+01
   %125 = sitofp i32 %121 to float
   %126 = fdiv nsz float %124, %125
   %127 = fmul nsz float %126, %126
@@ -5581,7 +5581,7 @@ define internal void @search_for_quantizers_fast(ptr noundef readonly captures(n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i64, ptr %8, align 8, !tbaa !8
   %10 = sitofp i64 %9 to double
-  %11 = fmul nsz double %10, 1.024000e+03
+  %11 = fmul nnan nsz double %10, 1.024000e+03
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %13 = load i32, ptr %12, align 8, !tbaa !28
   %14 = sitofp i32 %13 to double
@@ -5880,7 +5880,7 @@ find_max_val.exit.us376:                          ; preds = %._crit_edge.us.i.us
   %148 = getelementptr inbounds nuw i8, ptr %1, i64 42964
   %149 = getelementptr inbounds nuw i8, ptr %1, i64 42960
   %150 = sitofp i32 %24 to double
-  %151 = fmul nsz double %150, 1.020000e+00
+  %151 = fmul nnan nsz double %150, 1.020000e+00
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 5644
   br label %153
 

@@ -10999,7 +10999,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit103: ; preds = %18
   br label %336
 
 190:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit100, %169
-  %191 = fmul double %.sroa.speculated, 8.000000e+00
+  %191 = fmul nnan double %.sroa.speculated, 8.000000e+00
   %192 = fcmp ogt double %67, %191
   br i1 %192, label %.noexc.i105, label %212
 

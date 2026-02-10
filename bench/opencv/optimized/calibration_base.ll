@@ -14703,8 +14703,8 @@ define hidden void @_ZN2cv22getUndistortRectanglesERKNS_11_InputArrayES2_S2_S2_N
   %.068109 = phi i32 [ 0, %7 ], [ %28, %27 ]
   %.093108 = phi i64 [ 0, %7 ], [ %indvars.iv.next, %27 ]
   %17 = uitofp nneg i32 %.068109 to double
-  %18 = fmul double %16, %17
-  %19 = fmul double %18, 1.250000e-01
+  %18 = fmul nnan double %16, %17
+  %19 = fmul nnan double %18, 1.250000e-01
   %sext = shl i64 %.093108, 32
   %20 = ashr exact i64 %sext, 32
   br label %21
@@ -14713,8 +14713,8 @@ define hidden void @_ZN2cv22getUndistortRectanglesERKNS_11_InputArrayES2_S2_S2_N
   %indvars.iv = phi i64 [ %20, %.preheader105 ], [ %indvars.iv.next, %21 ]
   %.0107 = phi i32 [ 0, %.preheader105 ], [ %26, %21 ]
   %22 = uitofp nneg i32 %.0107 to double
-  %23 = fmul double %14, %22
-  %24 = fmul double %23, 1.250000e-01
+  %23 = fmul nnan double %14, %22
+  %24 = fmul nnan double %23, 1.250000e-01
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %25 = getelementptr inbounds %"class.cv::Point_", ptr %12, i64 %indvars.iv
   store double %24, ptr %25, align 8, !tbaa !41
@@ -15013,10 +15013,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %47, %
   %63 = load double, ptr %62, align 8, !tbaa !41
   %64 = add nsw i32 %.sroa.0285.0.extract.trunc290, -1
   %65 = sitofp i32 %64 to double
-  %66 = fmul double %65, 5.000000e-01
+  %66 = fmul nnan double %65, 5.000000e-01
   %67 = add nsw i32 %.sroa.8.0.extract.trunc292, -1
   %68 = sitofp i32 %67 to double
-  %69 = fmul double %68, 5.000000e-01
+  %69 = fmul nnan double %68, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %16) #23

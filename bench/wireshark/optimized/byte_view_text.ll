@@ -2598,7 +2598,7 @@ _ZNK8QPalette4textEv.exit:                        ; preds = %143
 
 156:                                              ; preds = %150
   %157 = sitofp i32 %155 to double
-  %158 = fmul double %157, 0x3EF0000000000000
+  %158 = fmul nnan double %157, 0x3EF0000000000000
   %159 = fcmp ogt double %158, 1.000000e+00
   br i1 %159, label %160, label %165
 

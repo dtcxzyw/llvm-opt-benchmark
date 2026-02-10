@@ -1898,7 +1898,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vecto
 
 652:                                              ; preds = %650
   %653 = sitofp i64 %649 to double
-  %654 = fsub double %653, %642
+  %654 = fsub nnan double %653, %642
   %655 = fdiv double %654, %651
   %656 = load ptr, ptr %417, align 8, !tbaa !79
   %657 = load ptr, ptr %53, align 8, !tbaa !82

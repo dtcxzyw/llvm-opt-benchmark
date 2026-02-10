@@ -838,7 +838,7 @@ indent.exit187:                                   ; preds = %.lr.ph.i185, %210
   br i1 %233, label %234, label %238
 
 234:                                              ; preds = %230
-  %235 = fmul double %232, 5.000000e-01
+  %235 = fmul nnan double %232, 5.000000e-01
   %236 = fsub double %.sroa.0.2, %235
   %237 = fadd double %.sroa.33.2, %235
   br label %238
@@ -852,7 +852,7 @@ indent.exit187:                                   ; preds = %.lr.ph.i185, %210
   %240 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %241 = load i32, ptr %240, align 8
   %242 = uitofp i32 %241 to double
-  %243 = fmul double %242, 5.000000e-01
+  %243 = fmul nnan double %242, 5.000000e-01
   %.0159 = select i1 %239, double %243, double 0.000000e+00
   %244 = fsub double %.sroa.0.1, %.0159
   %245 = fadd double %.sroa.33.1, %.0159

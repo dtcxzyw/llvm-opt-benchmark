@@ -113,12 +113,12 @@ define hidden void @_ZN2cv3mcc6CChart10setCornersESt6vectorINS_6Point_IfEESaIS4_
   %39 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %38)
   %40 = sitofp i32 %27 to double
   %41 = sitofp i32 %29 to double
-  %42 = fmul double %41, %41
+  %42 = fmul nnan double %41, %41
   %43 = call double @llvm.fmuladd.f64(double %40, double %40, double %42)
   %sqrt.i = call noundef double @llvm.sqrt.f64(double %43)
   %44 = sitofp i32 %37 to double
   %45 = sitofp i32 %39 to double
-  %46 = fmul double %45, %45
+  %46 = fmul nnan double %45, %45
   %47 = call double @llvm.fmuladd.f64(double %44, double %44, double %46)
   %sqrt.i21 = call noundef double @llvm.sqrt.f64(double %47)
   %48 = fcmp olt double %sqrt.i, %sqrt.i21

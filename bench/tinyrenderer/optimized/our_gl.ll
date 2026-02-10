@@ -38,11 +38,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @_Z8viewportiiii(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = sitofp i32 %2 to double
-  %6 = fmul double %5, 5.000000e-01
+  %6 = fmul nnan double %5, 5.000000e-01
   %7 = sitofp i32 %0 to double
   %8 = fadd double %6, %7
   %9 = sitofp i32 %3 to double
-  %10 = fmul double %9, 5.000000e-01
+  %10 = fmul nnan double %9, 5.000000e-01
   %11 = sitofp i32 %1 to double
   %12 = fadd double %10, %11
   store double %6, ptr @Viewport, align 8

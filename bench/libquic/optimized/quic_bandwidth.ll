@@ -230,7 +230,7 @@ define void @_ZNK3net13QuicBandwidth12ToDebugValueB5cxx11Ev(ptr dead_on_unwind n
   %.0 = phi double [ 1.000000e+03, %7 ], [ %.8, %9 ]
   %12 = uitofp nneg i64 %3 to double
   %13 = fdiv double %12, %.0
-  %14 = fmul double %13, 1.250000e-01
+  %14 = fmul nnan double %13, 1.250000e-01
   tail call void (ptr, ptr, ...) @_ZN4base12StringPrintfB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.3, double noundef %13, i32 noundef %.06, double noundef %14, i32 noundef %.06)
   br label %15
 

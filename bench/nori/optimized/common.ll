@@ -1249,7 +1249,7 @@ define hidden void @_ZN4nori9memStringB5cxx11Emb(ptr dead_on_unwind noalias writ
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.012 = phi double [ %7, %.lr.ph ], [ %5, %3 ]
   %.01011 = phi i32 [ %8, %.lr.ph ], [ 0, %3 ]
-  %7 = fmul double %.012, 0x3F50000000000000
+  %7 = fmul nnan double %.012, 0x3F50000000000000
   %8 = add nuw nsw i32 %.01011, 1
   %9 = icmp samesign ult i32 %.01011, 4
   %10 = fcmp ogt double %7, 1.024000e+03
@@ -1486,7 +1486,7 @@ define hidden void @_ZNK4nori7Color3f6toSRGBEv(ptr dead_on_unwind noalias writab
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %5
-  %10 = fmul float %7, 0x4029D70A40000000
+  %10 = fmul nnan float %7, 0x4029D70A40000000
   br label %14
 
 11:                                               ; preds = %5
@@ -1526,7 +1526,7 @@ define hidden void @_ZNK4nori7Color3f11toLinearRGBEv(ptr dead_on_unwind noalias 
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %5
-  %10 = fmul float %7, 0x3FB3D07220000000
+  %10 = fmul nnan float %7, 0x3FB3D07220000000
   br label %15
 
 11:                                               ; preds = %5

@@ -12507,7 +12507,7 @@ _ZNK6vectorIN3sls10seq_plugin10str_updateELb1EjE4sizeEv.exit: ; preds = %_ZNK6ve
   %212 = lshr i32 %211, 16
   %213 = and i32 %212, 32767
   %214 = uitofp nneg i32 %213 to double
-  %215 = fdiv double %214, 3.276700e+04
+  %215 = fdiv nnan double %214, 3.276700e+04
   %216 = fmul double %.291, %215
   %.not116 = icmp eq i32 %.0.i, 0
   br i1 %.not116, label %.loopexit295, label %.preheader.preheader

@@ -11486,7 +11486,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_DumpPathStatsEv() local_
   %31 = getelementptr inbounds nuw i64, ptr %5, i64 %.02834
   %32 = load i64, ptr %31, align 8
   %33 = uitofp i64 %32 to double
-  %34 = fmul double %33, 1.000000e+02
+  %34 = fmul nnan double %33, 1.000000e+02
   %35 = fdiv double %34, %27
   %36 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, ptr noundef %30, i64 noundef %32, double noundef %35)
   %37 = add nuw nsw i64 %.02834, 1
@@ -15042,7 +15042,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %52 = select i1 %51, float %6, float 0x3FC99999A0000000
   %53 = fcmp olt float %52, 0x3FEE666660000000
   %.sroa.speculated.i13.i = select i1 %53, float %52, float 0x3FEE666660000000
-  %54 = fmul float %.sroa.speculated.i13.i, %.val.i.i
+  %54 = fmul nnan float %.sroa.speculated.i13.i, %.val.i.i
   %55 = fptoui float %54 to i64
   %56 = add nsw i64 %.sroa.21.0, -1
   %57 = icmp ult i64 %56, 4294967296
@@ -15901,7 +15901,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %52 = select i1 %51, float %6, float 0x3FC99999A0000000
   %53 = fcmp olt float %52, 0x3FEE666660000000
   %.sroa.speculated.i13.i = select i1 %53, float %52, float 0x3FEE666660000000
-  %54 = fmul float %.sroa.speculated.i13.i, %.val.i.i
+  %54 = fmul nnan float %.sroa.speculated.i13.i, %.val.i.i
   %55 = fptoui float %54 to i64
   %56 = add nsw i64 %.sroa.21.0, -1
   %57 = icmp ult i64 %56, 4294967296
@@ -16550,7 +16550,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %52 = select i1 %51, float %6, float 0x3FC99999A0000000
   %53 = fcmp olt float %52, 0x3FEE666660000000
   %.sroa.speculated.i13.i = select i1 %53, float %52, float 0x3FEE666660000000
-  %54 = fmul float %.sroa.speculated.i13.i, %.val.i.i
+  %54 = fmul nnan float %.sroa.speculated.i13.i, %.val.i.i
   %55 = fptoui float %54 to i64
   %56 = add nsw i64 %.sroa.21.0, -1
   %57 = icmp ult i64 %56, 4294967296
@@ -17582,7 +17582,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %52 = select i1 %51, float %6, float 0x3FC99999A0000000
   %53 = fcmp olt float %52, 0x3FEE666660000000
   %.sroa.speculated.i13.i = select i1 %53, float %52, float 0x3FEE666660000000
-  %54 = fmul float %.sroa.speculated.i13.i, %.val.i.i
+  %54 = fmul nnan float %.sroa.speculated.i13.i, %.val.i.i
   %55 = fptoui float %54 to i64
   %56 = add nsw i64 %.sroa.21.0, -1
   %57 = icmp ult i64 %56, 4294967296
@@ -18122,7 +18122,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %52 = select i1 %51, float %6, float 0x3FC99999A0000000
   %53 = fcmp olt float %52, 0x3FEE666660000000
   %.sroa.speculated.i13.i = select i1 %53, float %52, float 0x3FEE666660000000
-  %54 = fmul float %.sroa.speculated.i13.i, %.val.i.i
+  %54 = fmul nnan float %.sroa.speculated.i13.i, %.val.i.i
   %55 = fptoui float %54 to i64
   %56 = add nsw i64 %.sroa.18.0, -1
   %57 = icmp ult i64 %56, 4294967296

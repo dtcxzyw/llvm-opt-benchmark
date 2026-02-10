@@ -4133,10 +4133,10 @@ _ZNSolsEd.exit:                                   ; preds = %19
   %39 = call i64 @clock() #26
   %40 = sub nsw i64 %39, %35
   %41 = sitofp i64 %40 to double
-  %42 = fdiv double %41, 1.000000e+06
+  %42 = fdiv nnan double %41, 1.000000e+06
   %43 = shl i64 %10, 2
   %44 = uitofp i64 %43 to double
-  %45 = fmul double %42, 0x4130000000000000
+  %45 = fmul nnan double %42, 0x4130000000000000
   %46 = fdiv double %44, %45
   br i1 %4, label %47, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit119
 
@@ -4487,8 +4487,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %19
   %199 = call i64 @clock() #26
   %200 = sub nsw i64 %199, %184
   %201 = sitofp i64 %200 to double
-  %202 = fdiv double %201, 1.000000e+06
-  %203 = fmul double %202, 0x4130000000000000
+  %202 = fdiv nnan double %201, 1.000000e+06
+  %203 = fmul nnan double %202, 0x4130000000000000
   %204 = fdiv double %44, %203
   br i1 %4, label %205, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit152
 
@@ -22867,10 +22867,10 @@ _ZNSolsEd.exit:                                   ; preds = %19
   %39 = call i64 @clock() #26
   %40 = sub nsw i64 %39, %35
   %41 = sitofp i64 %40 to double
-  %42 = fdiv double %41, 1.000000e+06
+  %42 = fdiv nnan double %41, 1.000000e+06
   %43 = shl i64 %10, 3
   %44 = uitofp i64 %43 to double
-  %45 = fmul double %42, 0x4130000000000000
+  %45 = fmul nnan double %42, 0x4130000000000000
   %46 = fdiv double %44, %45
   br i1 %4, label %47, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit119
 
@@ -23221,8 +23221,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit146: ; preds = %19
   %199 = call i64 @clock() #26
   %200 = sub nsw i64 %199, %184
   %201 = sitofp i64 %200 to double
-  %202 = fdiv double %201, 1.000000e+06
-  %203 = fmul double %202, 0x4130000000000000
+  %202 = fdiv nnan double %201, 1.000000e+06
+  %203 = fmul nnan double %202, 0x4130000000000000
   %204 = fdiv double %44, %203
   br i1 %4, label %205, label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit152
 

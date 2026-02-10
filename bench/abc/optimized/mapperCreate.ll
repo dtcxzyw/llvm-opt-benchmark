@@ -1234,7 +1234,7 @@ define void @Map_ManCreateNodeDelays(ptr noundef captures(none) initializes((72,
 .lr.ph:                                           ; preds = %2
   %11 = load ptr, ptr %4, align 8, !tbaa !105
   %12 = sitofp i32 %1 to double
-  %13 = fmul double %12, 1.442600e-02
+  %13 = fmul nnan double %12, 1.442600e-02
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 176
   br label %15
 

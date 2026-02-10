@@ -3526,7 +3526,7 @@ set_downmix_coeffs.exit.thread:                   ; preds = %1662, %1634
   %1936 = call i32 @llvm.umin.i32(i32 %.pre67.i.i, i32 %1935)
   store i32 %1936, ptr %60, align 8, !tbaa !61
   %1937 = uitofp nneg i32 %1934 to float
-  %1938 = fmul nsz float %1937, 3.125000e-02
+  %1938 = fmul nnan nsz float %1937, 3.125000e-02
   %1939 = lshr i32 %1936, 3
   %1940 = zext nneg i32 %1939 to i64
   %1941 = getelementptr inbounds nuw i8, ptr %.pre68.i.i, i64 %1940
@@ -3603,7 +3603,7 @@ set_downmix_coeffs.exit.thread:                   ; preds = %1662, %1634
   %1997 = sub nuw nsw i32 %reass.sub.i.i, %1981
   %1998 = shl nuw nsw i32 %.051.i625.i, %1997
   %1999 = uitofp nneg i32 %1998 to float
-  %2000 = fmul nsz float %1999, 0x3E80000000000000
+  %2000 = fmul nnan nsz float %1999, 0x3E80000000000000
   %2001 = fmul nsz float %2000, %1970
   %2002 = getelementptr inbounds nuw float, ptr %1954, i64 %indvars.iv.i624.i
   store float %2001, ptr %2002, align 4, !tbaa !27

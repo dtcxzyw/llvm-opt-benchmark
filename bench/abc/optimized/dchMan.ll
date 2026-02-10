@@ -119,7 +119,7 @@ define void @Dch_ManPrintStats(ptr noundef captures(none) initializes((208, 216)
   %17 = add nsw i32 %.val50, %.val49
   %18 = sub nsw i32 %17, %7
   %19 = sitofp i32 %7 to double
-  %20 = fmul double %19, 1.000000e+02
+  %20 = fmul nnan double %19, 1.000000e+02
   %21 = sitofp i32 %17 to double
   %22 = fdiv double %20, %21
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.1, i32 noundef %17, i32 noundef %18, i32 noundef %7, double noundef %22)
@@ -169,7 +169,7 @@ define void @Dch_ManPrintStats(ptr noundef captures(none) initializes((208, 216)
   %60 = sitofp i64 %48 to double
   %.not.i = icmp eq i64 %46, 0
   %61 = sitofp i64 %46 to double
-  %62 = fmul double %60, 1.000000e+02
+  %62 = fmul nnan double %60, 1.000000e+02
   %63 = fdiv double %62, %61
   %64 = select i1 %.not.i, double 0.000000e+00, double %63
   %65 = fdiv double %60, 1.000000e+06
@@ -180,7 +180,7 @@ define void @Dch_ManPrintStats(ptr noundef captures(none) initializes((208, 216)
   %68 = sitofp i64 %66 to double
   %.not.i55 = icmp eq i64 %67, 0
   %69 = sitofp i64 %67 to double
-  %70 = fmul double %68, 1.000000e+02
+  %70 = fmul nnan double %68, 1.000000e+02
   %71 = fdiv double %70, %69
   %72 = select i1 %.not.i55, double 0.000000e+00, double %71
   %73 = fdiv double %68, 1.000000e+06
@@ -191,7 +191,7 @@ define void @Dch_ManPrintStats(ptr noundef captures(none) initializes((208, 216)
   %76 = sitofp i64 %74 to double
   %.not.i56 = icmp eq i64 %75, 0
   %77 = sitofp i64 %75 to double
-  %78 = fmul double %76, 1.000000e+02
+  %78 = fmul nnan double %76, 1.000000e+02
   %79 = fdiv double %78, %77
   %80 = select i1 %.not.i56, double 0.000000e+00, double %79
   %81 = fdiv double %76, 1.000000e+06
@@ -203,7 +203,7 @@ define void @Dch_ManPrintStats(ptr noundef captures(none) initializes((208, 216)
   %85 = sitofp i64 %83 to double
   %.not.i57 = icmp eq i64 %84, 0
   %86 = sitofp i64 %84 to double
-  %87 = fmul double %85, 1.000000e+02
+  %87 = fmul nnan double %85, 1.000000e+02
   %88 = fdiv double %87, %86
   %89 = select i1 %.not.i57, double 0.000000e+00, double %88
   %90 = fdiv double %85, 1.000000e+06
@@ -215,7 +215,7 @@ define void @Dch_ManPrintStats(ptr noundef captures(none) initializes((208, 216)
   %94 = sitofp i64 %92 to double
   %.not.i58 = icmp eq i64 %93, 0
   %95 = sitofp i64 %93 to double
-  %96 = fmul double %94, 1.000000e+02
+  %96 = fmul nnan double %94, 1.000000e+02
   %97 = fdiv double %96, %95
   %98 = select i1 %.not.i58, double 0.000000e+00, double %97
   %99 = fdiv double %94, 1.000000e+06
@@ -227,7 +227,7 @@ define void @Dch_ManPrintStats(ptr noundef captures(none) initializes((208, 216)
   %103 = sitofp i64 %101 to double
   %.not.i59 = icmp eq i64 %102, 0
   %104 = sitofp i64 %102 to double
-  %105 = fmul double %103, 1.000000e+02
+  %105 = fmul nnan double %103, 1.000000e+02
   %106 = fdiv double %105, %104
   %107 = select i1 %.not.i59, double 0.000000e+00, double %106
   %108 = fdiv double %103, 1.000000e+06
@@ -238,7 +238,7 @@ define void @Dch_ManPrintStats(ptr noundef captures(none) initializes((208, 216)
   %111 = sitofp i64 %109 to double
   %.not.i60 = icmp eq i64 %110, 0
   %112 = sitofp i64 %110 to double
-  %113 = fmul double %111, 1.000000e+02
+  %113 = fmul nnan double %111, 1.000000e+02
   %114 = fdiv double %113, %112
   %115 = select i1 %.not.i60, double 0.000000e+00, double %114
   %116 = fdiv double %111, 1.000000e+06
@@ -249,7 +249,7 @@ define void @Dch_ManPrintStats(ptr noundef captures(none) initializes((208, 216)
   %119 = sitofp i64 %117 to double
   %.not.i61 = icmp eq i64 %118, 0
   %120 = sitofp i64 %118 to double
-  %121 = fmul double %119, 1.000000e+02
+  %121 = fmul nnan double %119, 1.000000e+02
   %122 = fdiv double %121, %120
   %123 = select i1 %.not.i61, double 0.000000e+00, double %122
   %124 = fdiv double %119, 1.000000e+06
@@ -258,7 +258,7 @@ define void @Dch_ManPrintStats(ptr noundef captures(none) initializes((208, 216)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.14)
   %126 = sitofp i64 %125 to double
   %.not.i62 = icmp eq i64 %125, 0
-  %127 = fmul double %126, 1.000000e+02
+  %127 = fmul nnan double %126, 1.000000e+02
   %128 = fdiv double %127, %126
   %129 = select i1 %.not.i62, double 0.000000e+00, double %128
   %130 = fdiv double %126, 1.000000e+06

@@ -25571,7 +25571,7 @@ define linkonce_odr hidden void @_ZNK5Eigen7SVDBaseINS_9JacobiSVDINS_6MatrixIdLi
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %21 = load double, ptr %20, align 16
   %22 = uitofp nneg i64 %.sroa.speculated.i.i to double
-  %23 = fmul double %22, 0x3CB0000000000000
+  %23 = fmul nnan double %22, 0x3CB0000000000000
   %24 = select i1 %19, double %21, double %23
   %25 = fmul double %14, %24
   %26 = fcmp olt double %25, 0x10000000000000

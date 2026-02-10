@@ -130,7 +130,7 @@ define hidden void @ConvertAudioToFloat(ptr noundef captures(none) %0, ptr nound
   %55 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next.i47
   %56 = load i32, ptr %55, align 4
   %57 = sitofp i32 %56 to float
-  %58 = fmul float %57, 0x3E00000000000000
+  %58 = fmul nnan float %57, 0x3E00000000000000
   %59 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.next.i47
   store float %58, ptr %59, align 4
   %60 = icmp samesign ugt i64 %indvars.iv.i46, 1
@@ -161,7 +161,7 @@ define hidden void @ConvertAudioToFloat(ptr noundef captures(none) %0, ptr nound
   %67 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next.i57
   %68 = load i32, ptr %67, align 4
   %69 = sitofp i32 %68 to float
-  %70 = fmul float %69, 0x3E00000000000000
+  %70 = fmul nnan float %69, 0x3E00000000000000
   store float %70, ptr %67, align 4
   %71 = icmp samesign ugt i64 %indvars.iv.i56, 1
   br i1 %71, label %.lr.ph.i55, label %SDL_Convert_S8_to_F32_Scalar.exit, !llvm.loop !8

@@ -65600,8 +65600,8 @@ define linkonce_odr hidden noundef i32 @_ZN5o3dgc13SC3DMCDecoderItE13DecodePaylo
   %28 = load i64, ptr %27, align 8
   %29 = sub nsw i64 %26, %28
   %30 = sitofp i64 %29 to double
-  %31 = call double @llvm.fmuladd.f64(double %30, double 1.000000e-09, double %24)
-  %32 = fmul double %31, 1.000000e+03
+  %31 = call nnan double @llvm.fmuladd.f64(double %30, double 1.000000e-09, double %24)
+  %32 = fmul nnan double %31, 1.000000e+03
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4640
   store double %32, ptr %33, align 8
   %34 = load i64, ptr %0, align 8
@@ -65637,8 +65637,8 @@ define linkonce_odr hidden noundef i32 @_ZN5o3dgc13SC3DMCDecoderItE13DecodePaylo
   %55 = load i64, ptr %27, align 8
   %56 = sub nsw i64 %54, %55
   %57 = sitofp i64 %56 to double
-  %58 = call double @llvm.fmuladd.f64(double %57, double 1.000000e-09, double %53)
-  %59 = fmul double %58, 1.000000e+03
+  %58 = call nnan double @llvm.fmuladd.f64(double %57, double 1.000000e-09, double %53)
+  %59 = fmul nnan double %58, 1.000000e+03
   store double %59, ptr %10, align 8
   %60 = load i64, ptr %0, align 8
   %61 = load i64, ptr %37, align 8
@@ -65673,8 +65673,8 @@ define linkonce_odr hidden noundef i32 @_ZN5o3dgc13SC3DMCDecoderItE13DecodePaylo
   %83 = load i64, ptr %27, align 8
   %84 = sub nsw i64 %82, %83
   %85 = sitofp i64 %84 to double
-  %86 = call double @llvm.fmuladd.f64(double %85, double 1.000000e-09, double %81)
-  %87 = fmul double %86, 1.000000e+03
+  %86 = call nnan double @llvm.fmuladd.f64(double %85, double 1.000000e-09, double %81)
+  %87 = fmul nnan double %86, 1.000000e+03
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4632
   store double %87, ptr %88, align 8
   %89 = load i64, ptr %0, align 8
@@ -65742,8 +65742,8 @@ define linkonce_odr hidden noundef i32 @_ZN5o3dgc13SC3DMCDecoderItE13DecodePaylo
   %134 = load i64, ptr %27, align 8
   %135 = sub nsw i64 %133, %134
   %136 = sitofp i64 %135 to double
-  %137 = call double @llvm.fmuladd.f64(double %136, double 1.000000e-09, double %132)
-  %138 = fmul double %137, 1.000000e+03
+  %137 = call nnan double @llvm.fmuladd.f64(double %136, double 1.000000e-09, double %132)
+  %138 = fmul nnan double %137, 1.000000e+03
   %139 = getelementptr inbounds nuw double, ptr %102, i64 %.07185
   store double %138, ptr %139, align 8
   %140 = load i64, ptr %0, align 8
@@ -65778,8 +65778,8 @@ define linkonce_odr hidden noundef i32 @_ZN5o3dgc13SC3DMCDecoderItE13DecodePaylo
   %164 = load i64, ptr %27, align 8
   %165 = sub nsw i64 %163, %164
   %166 = sitofp i64 %165 to double
-  %167 = call double @llvm.fmuladd.f64(double %166, double 1.000000e-09, double %162)
-  %168 = fmul double %167, 1.000000e+03
+  %167 = call nnan double @llvm.fmuladd.f64(double %166, double 1.000000e-09, double %162)
+  %168 = fmul nnan double %167, 1.000000e+03
   %169 = getelementptr inbounds nuw double, ptr %111, i64 %.086
   store double %168, ptr %169, align 8
   %170 = load i64, ptr %0, align 8
@@ -65852,8 +65852,8 @@ _ZN5o3dgc19TriangleListDecoderItE7ReorderEv.exit: ; preds = %191, %180, %._crit_
   %216 = load i64, ptr %27, align 8
   %217 = sub nsw i64 %215, %216
   %218 = sitofp i64 %217 to double
-  %219 = call double @llvm.fmuladd.f64(double %218, double 1.000000e-09, double %214)
-  %220 = fmul double %219, 1.000000e+03
+  %219 = call nnan double @llvm.fmuladd.f64(double %218, double 1.000000e-09, double %214)
+  %220 = fmul nnan double %219, 1.000000e+03
   %221 = getelementptr inbounds nuw i8, ptr %0, i64 8744
   store double %220, ptr %221, align 8
   br label %222
@@ -71765,7 +71765,7 @@ _ZNK5o3dgc13AdjacencyInfo5BeginEl.exit:           ; preds = %28, %29
   %91 = sitofp i64 %.sroa.079.0.lcssa to double
   %92 = sitofp i64 %.sroa.8.0.lcssa to double
   %93 = sitofp i64 %.sroa.13.0.lcssa to double
-  %94 = fmul double %92, %92
+  %94 = fmul nnan double %92, %92
   %95 = tail call double @llvm.fmuladd.f64(double %91, double %91, double %94)
   %96 = tail call double @llvm.fmuladd.f64(double %93, double %93, double %95)
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %96)

@@ -3373,7 +3373,7 @@ gv_calloc.exit175:                                ; preds = %267, %.thread.i174,
 
 ._crit_edge52.loopexit.i:                         ; preds = %._crit_edge.i179
   %307 = uitofp nneg i32 %.0..i to double
-  %308 = fmul double %307, 8.000000e-01
+  %308 = fmul nnan double %307, 8.000000e-01
   br label %._crit_edge52.i
 
 ._crit_edge52.i:                                  ; preds = %._crit_edge52.loopexit.i, %.preheader.i177, %.preheader.thread.i
@@ -3387,7 +3387,7 @@ gv_calloc.exit175:                                ; preds = %267, %.thread.i174,
 
 314:                                              ; preds = %._crit_edge52.i
   %315 = sitofp i32 %278 to double
-  %316 = fmul double %315, 3.000000e-01
+  %316 = fmul nnan double %315, 3.000000e-01
   %317 = fcmp olt double %316, %312
   br i1 %317, label %318, label %power_law_graph.exit
 
@@ -3611,7 +3611,7 @@ gv_calloc.exit.preheader.i.i:                     ; preds = %gv_calloc.exit189
 
 413:                                              ; preds = %._crit_edge.i.i
   %414 = uitofp nneg i32 %.152.i.i to double
-  %415 = fdiv double 5.000000e-01, %414
+  %415 = fdiv nnan double 5.000000e-01, %414
   %416 = mul nuw nsw i64 %indvars.iv75.i.i, %325
   %invariant.gep84.i.i = getelementptr inbounds nuw double, ptr %.0142, i64 %416
   br label %417

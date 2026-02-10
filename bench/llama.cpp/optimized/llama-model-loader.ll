@@ -11039,12 +11039,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %10, %
   %17 = load i64, ptr %16, align 8, !tbaa !121
   %18 = icmp ult i64 %17, 1073741824
   %19 = uitofp i64 %17 to double
-  %20 = fmul double %19, 0x3F50000000000000
-  %21 = fmul double %20, 0x3F50000000000000
+  %20 = fmul nnan double %19, 0x3F50000000000000
+  %21 = fmul nnan double %20, 0x3F50000000000000
   br i1 %18, label %22, label %35
 
 22:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %23 = fmul double %19, 8.000000e+00
+  %23 = fmul nnan double %19, 8.000000e+00
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i64, ptr %24, align 8, !tbaa !120
   %26 = uitofp i64 %25 to double
@@ -11071,8 +11071,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4: ; preds = %28, 
   resume { ptr, i32 } %29
 
 35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %36 = fmul double %21, 0x3F50000000000000
-  %37 = fmul double %19, 8.000000e+00
+  %36 = fmul nnan double %21, 0x3F50000000000000
+  %37 = fmul nnan double %19, 8.000000e+00
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load i64, ptr %38, align 8, !tbaa !120
   %40 = uitofp i64 %39 to double

@@ -3603,8 +3603,8 @@ _ZN7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder29PickCompactionToReduceSiz
 
 .lr.ph:                                           ; preds = %1461
   %1467 = uitofp i32 %1444 to double
-  %1468 = fadd double %1467, 1.000000e+02
-  %1469 = fdiv double %1468, 1.000000e+02
+  %1468 = fadd nnan double %1467, 1.000000e+02
+  %1469 = fdiv nnan double %1468, 1.000000e+02
   br label %1470
 
 1470:                                             ; preds = %.lr.ph, %1470

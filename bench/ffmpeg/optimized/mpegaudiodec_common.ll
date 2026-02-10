@@ -236,7 +236,7 @@ define internal fastcc void @mpegaudiodec_common_tableinit() unnamed_addr #3 {
 7:                                                ; preds = %3
   %8 = lshr exact i32 %4, 2
   %9 = uitofp nneg i32 %8 to double
-  %10 = fdiv nsz double %9, 1.759000e+00
+  %10 = fdiv nnan nsz double %9, 1.759000e+00
   %11 = tail call nsz double @cbrt(double noundef %9) #11
   %12 = fmul nsz double %10, %11
   br label %13

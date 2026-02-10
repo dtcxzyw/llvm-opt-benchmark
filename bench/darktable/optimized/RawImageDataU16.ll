@@ -842,9 +842,9 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
   %83 = sub nsw i32 %12, %13
   %84 = sitofp i32 %83 to float
   %85 = fdiv float 6.553500e+04, %84
-  %86 = fmul float %85, 4.095000e+03
+  %86 = fmul nnan float %85, 4.095000e+03
   %87 = fptosi float %86 to i32
-  %88 = fmul float %85, 4.000000e+00
+  %88 = fmul nnan float %85, 4.000000e+00
   %89 = fptosi float %88 to i32
   %90 = trunc nuw i8 %66 to i1
   %spec.select205 = select i1 %90, <2 x i64> splat (i64 5593221364105289010), <2 x i64> zeroinitializer
@@ -1049,9 +1049,9 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
   %48 = sub nsw i32 %42, %43
   %49 = sitofp i32 %48 to float
   %50 = fdiv float 6.553500e+04, %49
-  %51 = fmul float %50, 4.000000e+00
+  %51 = fmul nnan float %50, 4.000000e+00
   %52 = fptosi float %51 to i32
-  %53 = fmul float %50, 4.095000e+03
+  %53 = fmul nnan float %50, 4.095000e+03
   %54 = fptosi float %53 to i32
   %55 = icmp sge i32 %1, %2
   %brmerge = or i1 %55, %33

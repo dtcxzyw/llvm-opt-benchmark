@@ -53235,12 +53235,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %151 = getelementptr inbounds i8, ptr %150, i64 %indvars.iv.i.i.i
   %152 = load i8, ptr %151, align 1, !tbaa !47
   %153 = uitofp i8 %152 to float
-  %154 = fmul float %153, 0x3F70101020000000
+  %154 = fmul nnan float %153, 0x3F70101020000000
   %155 = load ptr, ptr %22, align 8, !tbaa !710
   %156 = getelementptr inbounds i8, ptr %155, i64 %indvars.iv.i.i.i
   %157 = load i8, ptr %156, align 1, !tbaa !47
   %158 = uitofp i8 %157 to float
-  %159 = fmul float %158, 0x3F70101020000000
+  %159 = fmul nnan float %158, 0x3F70101020000000
   %160 = fcmp olt float %159, %154
   %.sroa.speculated.i.i.i = select i1 %160, float %159, float %154
   %161 = load ptr, ptr %3, align 8, !tbaa !702
@@ -53841,12 +53841,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %151 = getelementptr inbounds i8, ptr %150, i64 %indvars.iv.i.i.i
   %152 = load i8, ptr %151, align 1, !tbaa !47
   %153 = uitofp i8 %152 to float
-  %154 = fmul float %153, 0x3F70101020000000
+  %154 = fmul nnan float %153, 0x3F70101020000000
   %155 = load ptr, ptr %22, align 8, !tbaa !710
   %156 = getelementptr inbounds i8, ptr %155, i64 %indvars.iv.i.i.i
   %157 = load i8, ptr %156, align 1, !tbaa !47
   %158 = uitofp i8 %157 to float
-  %159 = fmul float %158, 0x3F70101020000000
+  %159 = fmul nnan float %158, 0x3F70101020000000
   %160 = fcmp olt float %159, %154
   %.sroa.speculated.i.i.i = select i1 %160, float %159, float %154
   %161 = load ptr, ptr %3, align 8, !tbaa !702
@@ -53864,7 +53864,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 165:                                              ; preds = %164, %.noexc.i.i.i
   %166 = load ptr, ptr %23, align 8, !tbaa !710
   %167 = getelementptr inbounds i8, ptr %166, i64 %indvars.iv.i.i.i
-  %168 = fmul float %.sroa.speculated.i.i.i, 2.550000e+02
+  %168 = fmul nnan float %.sroa.speculated.i.i.i, 2.550000e+02
   %169 = fadd float %168, 5.000000e-01
   %170 = fcmp ogt float %169, 2.550000e+02
   %.1.i.i.i.i.i.i.i.i.i = select i1 %170, float 2.550000e+02, float %169
@@ -55886,12 +55886,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %151 = getelementptr inbounds i16, ptr %150, i64 %indvars.iv.i.i.i
   %152 = load i16, ptr %151, align 2, !tbaa !648
   %153 = uitofp i16 %152 to float
-  %154 = fmul float %153, 0x3EF0001000000000
+  %154 = fmul nnan float %153, 0x3EF0001000000000
   %155 = load ptr, ptr %22, align 8, !tbaa !710
   %156 = getelementptr inbounds i16, ptr %155, i64 %indvars.iv.i.i.i
   %157 = load i16, ptr %156, align 2, !tbaa !648
   %158 = uitofp i16 %157 to float
-  %159 = fmul float %158, 0x3EF0001000000000
+  %159 = fmul nnan float %158, 0x3EF0001000000000
   %160 = fcmp olt float %159, %154
   %.sroa.speculated.i.i.i = select i1 %160, float %159, float %154
   %161 = load ptr, ptr %3, align 8, !tbaa !702
@@ -56492,12 +56492,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %151 = getelementptr inbounds i16, ptr %150, i64 %indvars.iv.i.i.i
   %152 = load i16, ptr %151, align 2, !tbaa !648
   %153 = uitofp i16 %152 to float
-  %154 = fmul float %153, 0x3EF0001000000000
+  %154 = fmul nnan float %153, 0x3EF0001000000000
   %155 = load ptr, ptr %22, align 8, !tbaa !710
   %156 = getelementptr inbounds i16, ptr %155, i64 %indvars.iv.i.i.i
   %157 = load i16, ptr %156, align 2, !tbaa !648
   %158 = uitofp i16 %157 to float
-  %159 = fmul float %158, 0x3EF0001000000000
+  %159 = fmul nnan float %158, 0x3EF0001000000000
   %160 = fcmp olt float %159, %154
   %.sroa.speculated.i.i.i = select i1 %160, float %159, float %154
   %161 = load ptr, ptr %3, align 8, !tbaa !702
@@ -56515,7 +56515,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 165:                                              ; preds = %164, %.noexc.i.i.i
   %166 = load ptr, ptr %23, align 8, !tbaa !710
   %167 = getelementptr inbounds i16, ptr %166, i64 %indvars.iv.i.i.i
-  %168 = fmul float %.sroa.speculated.i.i.i, 6.553500e+04
+  %168 = fmul nnan float %.sroa.speculated.i.i.i, 6.553500e+04
   %169 = fadd float %168, 5.000000e-01
   %170 = fcmp ogt float %169, 6.553500e+04
   %.1.i.i.i.i.i.i.i.i.i = select i1 %170, float 6.553500e+04, float %169
@@ -57515,7 +57515,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = getelementptr inbounds i8, ptr %124, i64 %indvars.iv.i.i.i
   %126 = load i8, ptr %125, align 1, !tbaa !47
   %127 = uitofp i8 %126 to float
-  %128 = fmul float %127, 0x3F70101020000000
+  %128 = fmul nnan float %127, 0x3F70101020000000
   %129 = load ptr, ptr %19, align 8, !tbaa !778
   %130 = load ptr, ptr %129, align 8, !tbaa !96
   %131 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv.i.i.i
@@ -58443,7 +58443,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = getelementptr inbounds i16, ptr %124, i64 %indvars.iv.i.i.i
   %126 = load i16, ptr %125, align 2, !tbaa !648
   %127 = uitofp i16 %126 to float
-  %128 = fmul float %127, 0x3EF0001000000000
+  %128 = fmul nnan float %127, 0x3EF0001000000000
   %129 = load ptr, ptr %19, align 8, !tbaa !788
   %130 = load ptr, ptr %129, align 8, !tbaa !96
   %131 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv.i.i.i
@@ -58889,7 +58889,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = getelementptr inbounds i8, ptr %124, i64 %indvars.iv.i.i.i
   %126 = load i8, ptr %125, align 1, !tbaa !47
   %127 = uitofp i8 %126 to float
-  %128 = fmul float %127, 0x3F70101020000000
+  %128 = fmul nnan float %127, 0x3F70101020000000
   %129 = load ptr, ptr %19, align 8, !tbaa !793
   %130 = load ptr, ptr %129, align 8, !tbaa !96
   %131 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv.i.i.i
@@ -59904,7 +59904,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = getelementptr inbounds i16, ptr %124, i64 %indvars.iv.i.i.i
   %126 = load i16, ptr %125, align 2, !tbaa !648
   %127 = uitofp i16 %126 to float
-  %128 = fmul float %127, 0x3EF0001000000000
+  %128 = fmul nnan float %127, 0x3EF0001000000000
   %129 = load ptr, ptr %19, align 8, !tbaa !803
   %130 = load ptr, ptr %129, align 8, !tbaa !96
   %131 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv.i.i.i
@@ -60995,12 +60995,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %151 = getelementptr inbounds i8, ptr %150, i64 %indvars.iv.i.i.i
   %152 = load i8, ptr %151, align 1, !tbaa !47
   %153 = uitofp i8 %152 to float
-  %154 = fmul float %153, 0x3F70101020000000
+  %154 = fmul nnan float %153, 0x3F70101020000000
   %155 = load ptr, ptr %22, align 8, !tbaa !710
   %156 = getelementptr inbounds i8, ptr %155, i64 %indvars.iv.i.i.i
   %157 = load i8, ptr %156, align 1, !tbaa !47
   %158 = uitofp i8 %157 to float
-  %159 = fmul float %158, 0x3F70101020000000
+  %159 = fmul nnan float %158, 0x3F70101020000000
   %160 = fcmp olt float %154, %159
   %.sroa.speculated.i.i.i = select i1 %160, float %159, float %154
   %161 = load ptr, ptr %3, align 8, !tbaa !702
@@ -61601,12 +61601,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %151 = getelementptr inbounds i8, ptr %150, i64 %indvars.iv.i.i.i
   %152 = load i8, ptr %151, align 1, !tbaa !47
   %153 = uitofp i8 %152 to float
-  %154 = fmul float %153, 0x3F70101020000000
+  %154 = fmul nnan float %153, 0x3F70101020000000
   %155 = load ptr, ptr %22, align 8, !tbaa !710
   %156 = getelementptr inbounds i8, ptr %155, i64 %indvars.iv.i.i.i
   %157 = load i8, ptr %156, align 1, !tbaa !47
   %158 = uitofp i8 %157 to float
-  %159 = fmul float %158, 0x3F70101020000000
+  %159 = fmul nnan float %158, 0x3F70101020000000
   %160 = fcmp olt float %154, %159
   %.sroa.speculated.i.i.i = select i1 %160, float %159, float %154
   %161 = load ptr, ptr %3, align 8, !tbaa !702
@@ -61624,7 +61624,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 165:                                              ; preds = %164, %.noexc.i.i.i
   %166 = load ptr, ptr %23, align 8, !tbaa !710
   %167 = getelementptr inbounds i8, ptr %166, i64 %indvars.iv.i.i.i
-  %168 = fmul float %.sroa.speculated.i.i.i, 2.550000e+02
+  %168 = fmul nnan float %.sroa.speculated.i.i.i, 2.550000e+02
   %169 = fadd float %168, 5.000000e-01
   %170 = fcmp ogt float %169, 2.550000e+02
   %.1.i.i.i.i.i.i.i.i.i = select i1 %170, float 2.550000e+02, float %169
@@ -63646,12 +63646,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %151 = getelementptr inbounds i16, ptr %150, i64 %indvars.iv.i.i.i
   %152 = load i16, ptr %151, align 2, !tbaa !648
   %153 = uitofp i16 %152 to float
-  %154 = fmul float %153, 0x3EF0001000000000
+  %154 = fmul nnan float %153, 0x3EF0001000000000
   %155 = load ptr, ptr %22, align 8, !tbaa !710
   %156 = getelementptr inbounds i16, ptr %155, i64 %indvars.iv.i.i.i
   %157 = load i16, ptr %156, align 2, !tbaa !648
   %158 = uitofp i16 %157 to float
-  %159 = fmul float %158, 0x3EF0001000000000
+  %159 = fmul nnan float %158, 0x3EF0001000000000
   %160 = fcmp olt float %154, %159
   %.sroa.speculated.i.i.i = select i1 %160, float %159, float %154
   %161 = load ptr, ptr %3, align 8, !tbaa !702
@@ -64252,12 +64252,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %151 = getelementptr inbounds i16, ptr %150, i64 %indvars.iv.i.i.i
   %152 = load i16, ptr %151, align 2, !tbaa !648
   %153 = uitofp i16 %152 to float
-  %154 = fmul float %153, 0x3EF0001000000000
+  %154 = fmul nnan float %153, 0x3EF0001000000000
   %155 = load ptr, ptr %22, align 8, !tbaa !710
   %156 = getelementptr inbounds i16, ptr %155, i64 %indvars.iv.i.i.i
   %157 = load i16, ptr %156, align 2, !tbaa !648
   %158 = uitofp i16 %157 to float
-  %159 = fmul float %158, 0x3EF0001000000000
+  %159 = fmul nnan float %158, 0x3EF0001000000000
   %160 = fcmp olt float %154, %159
   %.sroa.speculated.i.i.i = select i1 %160, float %159, float %154
   %161 = load ptr, ptr %3, align 8, !tbaa !702
@@ -64275,7 +64275,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 165:                                              ; preds = %164, %.noexc.i.i.i
   %166 = load ptr, ptr %23, align 8, !tbaa !710
   %167 = getelementptr inbounds i16, ptr %166, i64 %indvars.iv.i.i.i
-  %168 = fmul float %.sroa.speculated.i.i.i, 6.553500e+04
+  %168 = fmul nnan float %.sroa.speculated.i.i.i, 6.553500e+04
   %169 = fadd float %168, 5.000000e-01
   %170 = fcmp ogt float %169, 6.553500e+04
   %.1.i.i.i.i.i.i.i.i.i = select i1 %170, float 6.553500e+04, float %169
@@ -65273,7 +65273,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = getelementptr inbounds i8, ptr %124, i64 %indvars.iv.i.i.i
   %126 = load i8, ptr %125, align 1, !tbaa !47
   %127 = uitofp i8 %126 to float
-  %128 = fmul float %127, 0x3F70101020000000
+  %128 = fmul nnan float %127, 0x3F70101020000000
   %129 = load ptr, ptr %19, align 8, !tbaa !848
   %130 = load ptr, ptr %129, align 8, !tbaa !96
   %131 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv.i.i.i
@@ -66201,7 +66201,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = getelementptr inbounds i16, ptr %124, i64 %indvars.iv.i.i.i
   %126 = load i16, ptr %125, align 2, !tbaa !648
   %127 = uitofp i16 %126 to float
-  %128 = fmul float %127, 0x3EF0001000000000
+  %128 = fmul nnan float %127, 0x3EF0001000000000
   %129 = load ptr, ptr %19, align 8, !tbaa !858
   %130 = load ptr, ptr %129, align 8, !tbaa !96
   %131 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv.i.i.i
@@ -66647,7 +66647,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = getelementptr inbounds i8, ptr %124, i64 %indvars.iv.i.i.i
   %126 = load i8, ptr %125, align 1, !tbaa !47
   %127 = uitofp i8 %126 to float
-  %128 = fmul float %127, 0x3F70101020000000
+  %128 = fmul nnan float %127, 0x3F70101020000000
   %129 = load ptr, ptr %19, align 8, !tbaa !863
   %130 = load ptr, ptr %129, align 8, !tbaa !96
   %131 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv.i.i.i
@@ -67662,7 +67662,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = getelementptr inbounds i16, ptr %124, i64 %indvars.iv.i.i.i
   %126 = load i16, ptr %125, align 2, !tbaa !648
   %127 = uitofp i16 %126 to float
-  %128 = fmul float %127, 0x3EF0001000000000
+  %128 = fmul nnan float %127, 0x3EF0001000000000
   %129 = load ptr, ptr %19, align 8, !tbaa !873
   %130 = load ptr, ptr %129, align 8, !tbaa !96
   %131 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv.i.i.i
@@ -68848,7 +68848,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %135 = getelementptr inbounds i8, ptr %134, i64 %indvars.iv.i.i.i
   %136 = load i8, ptr %135, align 1, !tbaa !47
   %137 = uitofp i8 %136 to float
-  %138 = fmul float %137, 0x3F70101020000000
+  %138 = fmul nnan float %137, 0x3F70101020000000
   %139 = load ptr, ptr %20, align 8, !tbaa !886
   %140 = load ptr, ptr %139, align 8, !tbaa !52
   %141 = getelementptr inbounds float, ptr %140, i64 %indvars.iv.i.i.i
@@ -70302,7 +70302,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %135 = getelementptr inbounds i16, ptr %134, i64 %indvars.iv.i.i.i
   %136 = load i16, ptr %135, align 2, !tbaa !648
   %137 = uitofp i16 %136 to float
-  %138 = fmul float %137, 0x3EF0001000000000
+  %138 = fmul nnan float %137, 0x3EF0001000000000
   %139 = load ptr, ptr %20, align 8, !tbaa !900
   %140 = load ptr, ptr %139, align 8, !tbaa !52
   %141 = getelementptr inbounds float, ptr %140, i64 %indvars.iv.i.i.i
@@ -71011,7 +71011,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %135 = getelementptr inbounds i8, ptr %134, i64 %indvars.iv.i.i.i
   %136 = load i8, ptr %135, align 1, !tbaa !47
   %137 = uitofp i8 %136 to float
-  %138 = fmul float %137, 0x3F70101020000000
+  %138 = fmul nnan float %137, 0x3F70101020000000
   %139 = load ptr, ptr %20, align 8, !tbaa !907
   %140 = load ptr, ptr %139, align 8, !tbaa !52
   %141 = getelementptr inbounds float, ptr %140, i64 %indvars.iv.i.i.i
@@ -71285,7 +71285,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit50.thread.i.i.i: ; pr
   %278 = getelementptr inbounds i8, ptr %277, i64 %239
   %279 = load i8, ptr %278, align 1, !tbaa !47
   %280 = uitofp i8 %279 to float
-  %281 = fmul float %280, 0x3F70101020000000
+  %281 = fmul nnan float %280, 0x3F70101020000000
   %282 = fcmp ogt float %281, 1.000000e+00
   %.1.i.i.i.i = select i1 %282, float 1.000000e+00, float %281
   %283 = load ptr, ptr %5, align 8, !tbaa !702
@@ -71303,7 +71303,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit50.thread.i.i.i: ; pr
 287:                                              ; preds = %286, %.noexc60.i.i.i
   %288 = load ptr, ptr %238, align 8, !tbaa !710
   %289 = getelementptr inbounds i8, ptr %288, i64 %239
-  %290 = fmul float %.1.i.i.i.i, 2.550000e+02
+  %290 = fmul nnan float %.1.i.i.i.i, 2.550000e+02
   %291 = fadd float %290, 5.000000e-01
   %292 = fcmp ogt float %291, 2.550000e+02
   %.1.i.i.i.i.i.i59.i.i.i = select i1 %292, float 2.550000e+02, float %291
@@ -72675,7 +72675,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %135 = getelementptr inbounds i16, ptr %134, i64 %indvars.iv.i.i.i
   %136 = load i16, ptr %135, align 2, !tbaa !648
   %137 = uitofp i16 %136 to float
-  %138 = fmul float %137, 0x3EF0001000000000
+  %138 = fmul nnan float %137, 0x3EF0001000000000
   %139 = load ptr, ptr %20, align 8, !tbaa !921
   %140 = load ptr, ptr %139, align 8, !tbaa !52
   %141 = getelementptr inbounds float, ptr %140, i64 %indvars.iv.i.i.i
@@ -72949,7 +72949,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit50.thread.i.i.i: ; pr
   %278 = getelementptr inbounds i16, ptr %277, i64 %239
   %279 = load i16, ptr %278, align 2, !tbaa !648
   %280 = uitofp i16 %279 to float
-  %281 = fmul float %280, 0x3EF0001000000000
+  %281 = fmul nnan float %280, 0x3EF0001000000000
   %282 = fcmp ogt float %281, 1.000000e+00
   %.1.i.i.i.i = select i1 %282, float 1.000000e+00, float %281
   %283 = load ptr, ptr %5, align 8, !tbaa !702
@@ -72967,7 +72967,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit50.thread.i.i.i: ; pr
 287:                                              ; preds = %286, %.noexc60.i.i.i
   %288 = load ptr, ptr %238, align 8, !tbaa !710
   %289 = getelementptr inbounds i16, ptr %288, i64 %239
-  %290 = fmul float %.1.i.i.i.i, 6.553500e+04
+  %290 = fmul nnan float %.1.i.i.i.i, 6.553500e+04
   %291 = fadd float %290, 5.000000e-01
   %292 = fcmp ogt float %291, 6.553500e+04
   %.1.i.i.i.i.i.i59.i.i.i = select i1 %292, float 6.553500e+04, float %291
@@ -74013,12 +74013,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %151 = getelementptr inbounds i8, ptr %150, i64 %indvars.iv.i.i.i
   %152 = load i8, ptr %151, align 1, !tbaa !47
   %153 = uitofp i8 %152 to float
-  %154 = fmul float %153, 0x3F70101020000000
+  %154 = fmul nnan float %153, 0x3F70101020000000
   %155 = load ptr, ptr %22, align 8, !tbaa !710
   %156 = getelementptr inbounds i8, ptr %155, i64 %indvars.iv.i.i.i
   %157 = load i8, ptr %156, align 1, !tbaa !47
   %158 = uitofp i8 %157 to float
-  %159 = fmul float %158, 0x3F70101020000000
+  %159 = fmul nnan float %158, 0x3F70101020000000
   %160 = fsub float %154, %159
   %161 = call noundef float @llvm.fabs.f32(float %160)
   %162 = load ptr, ptr %3, align 8, !tbaa !702
@@ -74619,12 +74619,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %151 = getelementptr inbounds i8, ptr %150, i64 %indvars.iv.i.i.i
   %152 = load i8, ptr %151, align 1, !tbaa !47
   %153 = uitofp i8 %152 to float
-  %154 = fmul float %153, 0x3F70101020000000
+  %154 = fmul nnan float %153, 0x3F70101020000000
   %155 = load ptr, ptr %22, align 8, !tbaa !710
   %156 = getelementptr inbounds i8, ptr %155, i64 %indvars.iv.i.i.i
   %157 = load i8, ptr %156, align 1, !tbaa !47
   %158 = uitofp i8 %157 to float
-  %159 = fmul float %158, 0x3F70101020000000
+  %159 = fmul nnan float %158, 0x3F70101020000000
   %160 = fsub float %154, %159
   %161 = call noundef float @llvm.fabs.f32(float %160)
   %162 = load ptr, ptr %3, align 8, !tbaa !702
@@ -76652,12 +76652,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %151 = getelementptr inbounds i16, ptr %150, i64 %indvars.iv.i.i.i
   %152 = load i16, ptr %151, align 2, !tbaa !648
   %153 = uitofp i16 %152 to float
-  %154 = fmul float %153, 0x3EF0001000000000
+  %154 = fmul nnan float %153, 0x3EF0001000000000
   %155 = load ptr, ptr %22, align 8, !tbaa !710
   %156 = getelementptr inbounds i16, ptr %155, i64 %indvars.iv.i.i.i
   %157 = load i16, ptr %156, align 2, !tbaa !648
   %158 = uitofp i16 %157 to float
-  %159 = fmul float %158, 0x3EF0001000000000
+  %159 = fmul nnan float %158, 0x3EF0001000000000
   %160 = fsub float %154, %159
   %161 = call noundef float @llvm.fabs.f32(float %160)
   %162 = load ptr, ptr %3, align 8, !tbaa !702
@@ -77258,12 +77258,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %151 = getelementptr inbounds i16, ptr %150, i64 %indvars.iv.i.i.i
   %152 = load i16, ptr %151, align 2, !tbaa !648
   %153 = uitofp i16 %152 to float
-  %154 = fmul float %153, 0x3EF0001000000000
+  %154 = fmul nnan float %153, 0x3EF0001000000000
   %155 = load ptr, ptr %22, align 8, !tbaa !710
   %156 = getelementptr inbounds i16, ptr %155, i64 %indvars.iv.i.i.i
   %157 = load i16, ptr %156, align 2, !tbaa !648
   %158 = uitofp i16 %157 to float
-  %159 = fmul float %158, 0x3EF0001000000000
+  %159 = fmul nnan float %158, 0x3EF0001000000000
   %160 = fsub float %154, %159
   %161 = call noundef float @llvm.fabs.f32(float %160)
   %162 = load ptr, ptr %3, align 8, !tbaa !702
@@ -78281,7 +78281,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = getelementptr inbounds i8, ptr %124, i64 %indvars.iv.i.i.i
   %126 = load i8, ptr %125, align 1, !tbaa !47
   %127 = uitofp i8 %126 to float
-  %128 = fmul float %127, 0x3F70101020000000
+  %128 = fmul nnan float %127, 0x3F70101020000000
   %129 = load ptr, ptr %19, align 8, !tbaa !968
   %130 = load ptr, ptr %129, align 8, !tbaa !96
   %131 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv.i.i.i
@@ -79209,7 +79209,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = getelementptr inbounds i16, ptr %124, i64 %indvars.iv.i.i.i
   %126 = load i16, ptr %125, align 2, !tbaa !648
   %127 = uitofp i16 %126 to float
-  %128 = fmul float %127, 0x3EF0001000000000
+  %128 = fmul nnan float %127, 0x3EF0001000000000
   %129 = load ptr, ptr %19, align 8, !tbaa !978
   %130 = load ptr, ptr %129, align 8, !tbaa !96
   %131 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv.i.i.i
@@ -79655,7 +79655,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = getelementptr inbounds i8, ptr %124, i64 %indvars.iv.i.i.i
   %126 = load i8, ptr %125, align 1, !tbaa !47
   %127 = uitofp i8 %126 to float
-  %128 = fmul float %127, 0x3F70101020000000
+  %128 = fmul nnan float %127, 0x3F70101020000000
   %129 = load ptr, ptr %19, align 8, !tbaa !983
   %130 = load ptr, ptr %129, align 8, !tbaa !96
   %131 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv.i.i.i
@@ -80654,7 +80654,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %125 = getelementptr inbounds i16, ptr %124, i64 %indvars.iv.i.i.i
   %126 = load i16, ptr %125, align 2, !tbaa !648
   %127 = uitofp i16 %126 to float
-  %128 = fmul float %127, 0x3EF0001000000000
+  %128 = fmul nnan float %127, 0x3EF0001000000000
   %129 = load ptr, ptr %19, align 8, !tbaa !993
   %130 = load ptr, ptr %129, align 8, !tbaa !96
   %131 = getelementptr inbounds nuw float, ptr %130, i64 %indvars.iv.i.i.i
@@ -81586,7 +81586,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %136 = getelementptr inbounds i8, ptr %135, i64 %indvars.iv.i.i.i
   %137 = load i8, ptr %136, align 1, !tbaa !47
   %138 = uitofp i8 %137 to float
-  %139 = fmul float %138, 0x3F70101020000000
+  %139 = fmul nnan float %138, 0x3F70101020000000
   %140 = load ptr, ptr %19, align 8, !tbaa !1003
   %141 = load ptr, ptr %140, align 8, !tbaa !96
   %142 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv.i.i.i
@@ -82512,7 +82512,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %136 = getelementptr inbounds i16, ptr %135, i64 %indvars.iv.i.i.i
   %137 = load i16, ptr %136, align 2, !tbaa !648
   %138 = uitofp i16 %137 to float
-  %139 = fmul float %138, 0x3EF0001000000000
+  %139 = fmul nnan float %138, 0x3EF0001000000000
   %140 = load ptr, ptr %19, align 8, !tbaa !1013
   %141 = load ptr, ptr %140, align 8, !tbaa !96
   %142 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv.i.i.i
@@ -82957,7 +82957,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %136 = getelementptr inbounds i8, ptr %135, i64 %indvars.iv.i.i.i
   %137 = load i8, ptr %136, align 1, !tbaa !47
   %138 = uitofp i8 %137 to float
-  %139 = fmul float %138, 0x3F70101020000000
+  %139 = fmul nnan float %138, 0x3F70101020000000
   %140 = load ptr, ptr %19, align 8, !tbaa !1018
   %141 = load ptr, ptr %140, align 8, !tbaa !96
   %142 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv.i.i.i
@@ -83970,7 +83970,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %136 = getelementptr inbounds i16, ptr %135, i64 %indvars.iv.i.i.i
   %137 = load i16, ptr %136, align 2, !tbaa !648
   %138 = uitofp i16 %137 to float
-  %139 = fmul float %138, 0x3EF0001000000000
+  %139 = fmul nnan float %138, 0x3EF0001000000000
   %140 = load ptr, ptr %19, align 8, !tbaa !1028
   %141 = load ptr, ptr %140, align 8, !tbaa !96
   %142 = getelementptr inbounds nuw float, ptr %141, i64 %indvars.iv.i.i.i
@@ -84852,19 +84852,19 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %82 = load ptr, ptr %16, align 8, !tbaa !710
   %83 = load i8, ptr %82, align 1, !tbaa !47
   %84 = uitofp i8 %83 to float
-  %85 = fmul float %84, 0x3F70101020000000
+  %85 = fmul nnan float %84, 0x3F70101020000000
   %86 = load ptr, ptr %17, align 8, !tbaa !1040
   %87 = load float, ptr %86, align 4, !tbaa !54
   %88 = fsub float %85, %87
   %89 = getelementptr inbounds nuw i8, ptr %82, i64 1
   %90 = load i8, ptr %89, align 1, !tbaa !47
   %91 = uitofp i8 %90 to float
-  %92 = fmul float %91, 0x3F70101020000000
+  %92 = fmul nnan float %91, 0x3F70101020000000
   %93 = fsub float %92, %87
   %94 = getelementptr inbounds nuw i8, ptr %82, i64 2
   %95 = load i8, ptr %94, align 1, !tbaa !47
   %96 = uitofp i8 %95 to float
-  %97 = fmul float %96, 0x3F70101020000000
+  %97 = fmul nnan float %96, 0x3F70101020000000
   %98 = fsub float %97, %87
   %99 = fmul float %93, %93
   %100 = call float @llvm.fmuladd.f32(float %88, float %88, float %99)
@@ -84979,7 +84979,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 3
   %166 = load i8, ptr %165, align 1, !tbaa !47
   %167 = uitofp i8 %166 to float
-  %168 = fmul float %167, 0x3F70101020000000
+  %168 = fmul nnan float %167, 0x3F70101020000000
   %169 = load ptr, ptr %4, align 8, !tbaa !702
   %170 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %169)
           to label %.noexc66.i.i.i unwind label %188
@@ -84995,7 +84995,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 173:                                              ; preds = %172, %.noexc66.i.i.i
   %174 = load ptr, ptr %20, align 8, !tbaa !710
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 3
-  %176 = fmul float %168, 2.550000e+02
+  %176 = fmul nnan float %168, 2.550000e+02
   %177 = fadd float %176, 5.000000e-01
   %178 = fcmp ogt float %177, 2.550000e+02
   %.1.i.i.i.i.i.i65.i.i.i = select i1 %178, float 2.550000e+02, float %177
@@ -86427,19 +86427,19 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %82 = load ptr, ptr %16, align 8, !tbaa !710
   %83 = load i16, ptr %82, align 2, !tbaa !648
   %84 = uitofp i16 %83 to float
-  %85 = fmul float %84, 0x3EF0001000000000
+  %85 = fmul nnan float %84, 0x3EF0001000000000
   %86 = load ptr, ptr %17, align 8, !tbaa !1052
   %87 = load float, ptr %86, align 4, !tbaa !54
   %88 = fsub float %85, %87
   %89 = getelementptr inbounds nuw i8, ptr %82, i64 2
   %90 = load i16, ptr %89, align 2, !tbaa !648
   %91 = uitofp i16 %90 to float
-  %92 = fmul float %91, 0x3EF0001000000000
+  %92 = fmul nnan float %91, 0x3EF0001000000000
   %93 = fsub float %92, %87
   %94 = getelementptr inbounds nuw i8, ptr %82, i64 4
   %95 = load i16, ptr %94, align 2, !tbaa !648
   %96 = uitofp i16 %95 to float
-  %97 = fmul float %96, 0x3EF0001000000000
+  %97 = fmul nnan float %96, 0x3EF0001000000000
   %98 = fsub float %97, %87
   %99 = fmul float %93, %93
   %100 = call float @llvm.fmuladd.f32(float %88, float %88, float %99)
@@ -86554,7 +86554,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 6
   %166 = load i16, ptr %165, align 2, !tbaa !648
   %167 = uitofp i16 %166 to float
-  %168 = fmul float %167, 0x3EF0001000000000
+  %168 = fmul nnan float %167, 0x3EF0001000000000
   %169 = load ptr, ptr %4, align 8, !tbaa !702
   %170 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %169)
           to label %.noexc66.i.i.i unwind label %188
@@ -86570,7 +86570,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 173:                                              ; preds = %172, %.noexc66.i.i.i
   %174 = load ptr, ptr %20, align 8, !tbaa !710
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 6
-  %176 = fmul float %168, 6.553500e+04
+  %176 = fmul nnan float %168, 6.553500e+04
   %177 = fadd float %176, 5.000000e-01
   %178 = fcmp ogt float %177, 6.553500e+04
   %.1.i.i.i.i.i.i65.i.i.i = select i1 %178, float 6.553500e+04, float %177
@@ -87427,7 +87427,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %79 = getelementptr inbounds i8, ptr %72, i64 %indvars.iv.i.i.i
   %80 = load i8, ptr %79, align 1, !tbaa !47
   %81 = uitofp i8 %80 to float
-  %82 = fmul float %81, 0x3F70101020000000
+  %82 = fmul nnan float %81, 0x3F70101020000000
   %83 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv.i.i.i
   %84 = load float, ptr %83, align 4, !tbaa !54
   %85 = call float @llvm.fmuladd.f32(float %82, float %84, float %.01219.i.i.i)
@@ -88349,7 +88349,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %79 = getelementptr inbounds i16, ptr %72, i64 %indvars.iv.i.i.i
   %80 = load i16, ptr %79, align 2, !tbaa !648
   %81 = uitofp i16 %80 to float
-  %82 = fmul float %81, 0x3EF0001000000000
+  %82 = fmul nnan float %81, 0x3EF0001000000000
   %83 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv.i.i.i
   %84 = load float, ptr %83, align 4, !tbaa !54
   %85 = call float @llvm.fmuladd.f32(float %82, float %84, float %.01219.i.i.i)
@@ -88792,7 +88792,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %79 = getelementptr inbounds i8, ptr %72, i64 %indvars.iv.i.i.i
   %80 = load i8, ptr %79, align 1, !tbaa !47
   %81 = uitofp i8 %80 to float
-  %82 = fmul float %81, 0x3F70101020000000
+  %82 = fmul nnan float %81, 0x3F70101020000000
   %83 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv.i.i.i
   %84 = load float, ptr %83, align 4, !tbaa !54
   %85 = call float @llvm.fmuladd.f32(float %82, float %84, float %.01219.i.i.i)
@@ -89806,7 +89806,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %79 = getelementptr inbounds i16, ptr %72, i64 %indvars.iv.i.i.i
   %80 = load i16, ptr %79, align 2, !tbaa !648
   %81 = uitofp i16 %80 to float
-  %82 = fmul float %81, 0x3EF0001000000000
+  %82 = fmul nnan float %81, 0x3EF0001000000000
   %83 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv.i.i.i
   %84 = load float, ptr %83, align 4, !tbaa !54
   %85 = call float @llvm.fmuladd.f32(float %82, float %84, float %.01219.i.i.i)
@@ -91650,16 +91650,16 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit157.thread.i.i.i: ; p
   %290 = getelementptr i8, ptr %288, i64 %289
   %291 = load i8, ptr %290, align 1, !tbaa !47
   %292 = uitofp i8 %291 to float
-  %293 = fmul float %292, 0x3F70101020000000
+  %293 = fmul nnan float %292, 0x3F70101020000000
   %294 = getelementptr i8, ptr %290, i64 1
   %295 = load i8, ptr %294, align 1, !tbaa !47
   %296 = uitofp i8 %295 to float
-  %297 = fmul float %296, 0x3F70101020000000
+  %297 = fmul nnan float %296, 0x3F70101020000000
   %298 = getelementptr i8, ptr %290, i64 2
   %299 = load i8, ptr %298, align 1, !tbaa !47
   %300 = uitofp i8 %299 to float
-  %301 = fmul float %300, 0x3F70101020000000
-  %302 = fmul float %297, 0x3FE6E2AC40000000
+  %301 = fmul nnan float %300, 0x3F70101020000000
+  %302 = fmul nnan float %297, 0x3FE6E2AC40000000
   %303 = call float @llvm.fmuladd.f32(float %293, float 0x3FCB37C9A0000000, float %302)
   %304 = call float @llvm.fmuladd.f32(float %301, float 0x3FB27B0B40000000, float %303)
   %305 = fcmp ogt float %304, 0.000000e+00
@@ -91696,7 +91696,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit163.i.i.i: ; preds = %308, %306
   %321 = getelementptr inbounds i8, ptr %320, i64 %indvars.iv230.i.i.i
   %322 = load i8, ptr %321, align 1, !tbaa !47
   %323 = uitofp i8 %322 to float
-  %324 = fmul float %323, 0x3F70101020000000
+  %324 = fmul nnan float %323, 0x3F70101020000000
   br i1 %or.cond136.i.i.i, label %325, label %332
 
 325:                                              ; preds = %.lr.ph221.i.i.i
@@ -91765,7 +91765,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit163.i.i.i: ; preds = %308, %306
   %353 = getelementptr inbounds i8, ptr %352, i64 %indvars.iv.i.i.i
   %354 = load i8, ptr %353, align 1, !tbaa !47
   %355 = uitofp i8 %354 to float
-  %356 = fmul float %355, 0x3F70101020000000
+  %356 = fmul nnan float %355, 0x3F70101020000000
   br i1 %or.cond137.i.i.i, label %357, label %364
 
 357:                                              ; preds = %.lr.ph.i.i.i
@@ -93864,16 +93864,16 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit157.thread.i.i.i: ; p
   %290 = getelementptr i16, ptr %288, i64 %289
   %291 = load i16, ptr %290, align 2, !tbaa !648
   %292 = uitofp i16 %291 to float
-  %293 = fmul float %292, 0x3EF0001000000000
+  %293 = fmul nnan float %292, 0x3EF0001000000000
   %294 = getelementptr i8, ptr %290, i64 2
   %295 = load i16, ptr %294, align 2, !tbaa !648
   %296 = uitofp i16 %295 to float
-  %297 = fmul float %296, 0x3EF0001000000000
+  %297 = fmul nnan float %296, 0x3EF0001000000000
   %298 = getelementptr i8, ptr %290, i64 4
   %299 = load i16, ptr %298, align 2, !tbaa !648
   %300 = uitofp i16 %299 to float
-  %301 = fmul float %300, 0x3EF0001000000000
-  %302 = fmul float %297, 0x3FE6E2AC40000000
+  %301 = fmul nnan float %300, 0x3EF0001000000000
+  %302 = fmul nnan float %297, 0x3FE6E2AC40000000
   %303 = call float @llvm.fmuladd.f32(float %293, float 0x3FCB37C9A0000000, float %302)
   %304 = call float @llvm.fmuladd.f32(float %301, float 0x3FB27B0B40000000, float %303)
   %305 = fcmp ogt float %304, 0.000000e+00
@@ -93910,7 +93910,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit163.i.i.i: ; preds = %308, %306
   %321 = getelementptr inbounds i16, ptr %320, i64 %indvars.iv230.i.i.i
   %322 = load i16, ptr %321, align 2, !tbaa !648
   %323 = uitofp i16 %322 to float
-  %324 = fmul float %323, 0x3EF0001000000000
+  %324 = fmul nnan float %323, 0x3EF0001000000000
   br i1 %or.cond136.i.i.i, label %325, label %332
 
 325:                                              ; preds = %.lr.ph221.i.i.i
@@ -93979,7 +93979,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit163.i.i.i: ; preds = %308, %306
   %353 = getelementptr inbounds i16, ptr %352, i64 %indvars.iv.i.i.i
   %354 = load i16, ptr %353, align 2, !tbaa !648
   %355 = uitofp i16 %354 to float
-  %356 = fmul float %355, 0x3EF0001000000000
+  %356 = fmul nnan float %355, 0x3EF0001000000000
   br i1 %or.cond137.i.i.i, label %357, label %364
 
 357:                                              ; preds = %.lr.ph.i.i.i
@@ -94447,17 +94447,17 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %82 = getelementptr i8, ptr %80, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !47
   %84 = uitofp i8 %83 to float
-  %85 = fmul float %84, 0x3F70101020000000
+  %85 = fmul nnan float %84, 0x3F70101020000000
   %86 = getelementptr i8, ptr %82, i64 1
   %87 = load i8, ptr %86, align 1, !tbaa !47
   %88 = uitofp i8 %87 to float
-  %89 = fmul float %88, 0x3F70101020000000
-  %90 = fmul float %89, 0x3FE6E2AC40000000
+  %89 = fmul nnan float %88, 0x3F70101020000000
+  %90 = fmul nnan float %89, 0x3FE6E2AC40000000
   %91 = call float @llvm.fmuladd.f32(float %85, float 0x3FCB37C9A0000000, float %90)
   %92 = getelementptr i8, ptr %82, i64 2
   %93 = load i8, ptr %92, align 1, !tbaa !47
   %94 = uitofp i8 %93 to float
-  %95 = fmul float %94, 0x3F70101020000000
+  %95 = fmul nnan float %94, 0x3F70101020000000
   %96 = call float @llvm.fmuladd.f32(float %95, float 0x3FB27B0B40000000, float %91)
   %97 = fcmp ogt float %96, 0.000000e+00
   br i1 %97, label %98, label %106
@@ -94497,7 +94497,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit.i.i.i: ; preds = %100, %98
   %115 = getelementptr inbounds i8, ptr %114, i64 %indvars.iv255.i.i.i
   %116 = load i8, ptr %115, align 1, !tbaa !47
   %117 = uitofp i8 %116 to float
-  %118 = fmul float %117, 0x3F70101020000000
+  %118 = fmul nnan float %117, 0x3F70101020000000
   %119 = fmul float %107, %118
   %120 = load ptr, ptr %3, align 8, !tbaa !702
   %121 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %120)
@@ -94561,7 +94561,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit.i.i.i: ; preds = %100, %98
   %148 = getelementptr inbounds i8, ptr %147, i64 %indvars.iv250.i.i.i
   %149 = load i8, ptr %148, align 1, !tbaa !47
   %150 = uitofp i8 %149 to float
-  %151 = fmul float %150, 0x3F70101020000000
+  %151 = fmul nnan float %150, 0x3F70101020000000
   %152 = fcmp ugt float %151, 0x3FC70A3D80000000
   br i1 %152, label %153, label %_ZN11OpenImageIO6v3_1_013rangecompressEf.exit150.i.i.i
 
@@ -94864,16 +94864,16 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit160.thread.i.i.i: ; p
   %307 = getelementptr i8, ptr %305, i64 %306
   %308 = load i8, ptr %307, align 1, !tbaa !47
   %309 = uitofp i8 %308 to float
-  %310 = fmul float %309, 0x3F70101020000000
+  %310 = fmul nnan float %309, 0x3F70101020000000
   %311 = getelementptr i8, ptr %307, i64 1
   %312 = load i8, ptr %311, align 1, !tbaa !47
   %313 = uitofp i8 %312 to float
-  %314 = fmul float %313, 0x3F70101020000000
+  %314 = fmul nnan float %313, 0x3F70101020000000
   %315 = getelementptr i8, ptr %307, i64 2
   %316 = load i8, ptr %315, align 1, !tbaa !47
   %317 = uitofp i8 %316 to float
-  %318 = fmul float %317, 0x3F70101020000000
-  %319 = fmul float %314, 0x3FE6E2AC40000000
+  %318 = fmul nnan float %317, 0x3F70101020000000
+  %319 = fmul nnan float %314, 0x3FE6E2AC40000000
   %320 = call float @llvm.fmuladd.f32(float %310, float 0x3FCB37C9A0000000, float %319)
   %321 = call float @llvm.fmuladd.f32(float %318, float 0x3FB27B0B40000000, float %320)
   %322 = fcmp ogt float %321, 0.000000e+00
@@ -94910,7 +94910,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit166.i.i.i: ; preds = %325, %323
   %338 = getelementptr inbounds i8, ptr %337, i64 %indvars.iv245.i.i.i
   %339 = load i8, ptr %338, align 1, !tbaa !47
   %340 = uitofp i8 %339 to float
-  %341 = fmul float %340, 0x3F70101020000000
+  %341 = fmul nnan float %340, 0x3F70101020000000
   br i1 %or.cond136.i.i.i, label %342, label %356
 
 342:                                              ; preds = %.lr.ph236.i.i.i
@@ -94929,7 +94929,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit166.i.i.i: ; preds = %325, %323
 347:                                              ; preds = %346, %.noexc172.i.i.i
   %348 = load ptr, ptr %238, align 8, !tbaa !710
   %349 = getelementptr inbounds i8, ptr %348, i64 %indvars.iv245.i.i.i
-  %350 = fmul float %341, 2.550000e+02
+  %350 = fmul nnan float %341, 2.550000e+02
   %351 = fadd float %350, 5.000000e-01
   %352 = fcmp ogt float %351, 2.550000e+02
   %.1.i.i.i.i.i.i171.i.i.i = select i1 %352, float 2.550000e+02, float %351
@@ -95001,7 +95001,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit166.i.i.i: ; preds = %325, %323
   %384 = getelementptr inbounds i8, ptr %383, i64 %indvars.iv.i.i.i
   %385 = load i8, ptr %384, align 1, !tbaa !47
   %386 = uitofp i8 %385 to float
-  %387 = fmul float %386, 0x3F70101020000000
+  %387 = fmul nnan float %386, 0x3F70101020000000
   br i1 %or.cond137.i.i.i, label %388, label %402
 
 388:                                              ; preds = %.lr.ph.i.i.i
@@ -95020,7 +95020,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit166.i.i.i: ; preds = %325, %323
 393:                                              ; preds = %392, %.noexc188.i.i.i
   %394 = load ptr, ptr %238, align 8, !tbaa !710
   %395 = getelementptr inbounds i8, ptr %394, i64 %indvars.iv.i.i.i
-  %396 = fmul float %387, 2.550000e+02
+  %396 = fmul nnan float %387, 2.550000e+02
   %397 = fadd float %396, 5.000000e-01
   %398 = fcmp ogt float %397, 2.550000e+02
   %.1.i.i.i.i.i.i187.i.i.i = select i1 %398, float 2.550000e+02, float %397
@@ -97368,17 +97368,17 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %82 = getelementptr i16, ptr %80, i64 %81
   %83 = load i16, ptr %82, align 2, !tbaa !648
   %84 = uitofp i16 %83 to float
-  %85 = fmul float %84, 0x3EF0001000000000
+  %85 = fmul nnan float %84, 0x3EF0001000000000
   %86 = getelementptr i8, ptr %82, i64 2
   %87 = load i16, ptr %86, align 2, !tbaa !648
   %88 = uitofp i16 %87 to float
-  %89 = fmul float %88, 0x3EF0001000000000
-  %90 = fmul float %89, 0x3FE6E2AC40000000
+  %89 = fmul nnan float %88, 0x3EF0001000000000
+  %90 = fmul nnan float %89, 0x3FE6E2AC40000000
   %91 = call float @llvm.fmuladd.f32(float %85, float 0x3FCB37C9A0000000, float %90)
   %92 = getelementptr i8, ptr %82, i64 4
   %93 = load i16, ptr %92, align 2, !tbaa !648
   %94 = uitofp i16 %93 to float
-  %95 = fmul float %94, 0x3EF0001000000000
+  %95 = fmul nnan float %94, 0x3EF0001000000000
   %96 = call float @llvm.fmuladd.f32(float %95, float 0x3FB27B0B40000000, float %91)
   %97 = fcmp ogt float %96, 0.000000e+00
   br i1 %97, label %98, label %106
@@ -97418,7 +97418,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit.i.i.i: ; preds = %100, %98
   %115 = getelementptr inbounds i16, ptr %111, i64 %indvars.iv255.i.i.i
   %116 = load i16, ptr %115, align 2, !tbaa !648
   %117 = uitofp i16 %116 to float
-  %118 = fmul float %117, 0x3EF0001000000000
+  %118 = fmul nnan float %117, 0x3EF0001000000000
   %119 = fmul float %107, %118
   %120 = load ptr, ptr %3, align 8, !tbaa !702
   %121 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %120)
@@ -97483,7 +97483,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit.i.i.i: ; preds = %100, %98
   %149 = getelementptr inbounds i16, ptr %148, i64 %indvars.iv250.i.i.i
   %150 = load i16, ptr %149, align 2, !tbaa !648
   %151 = uitofp i16 %150 to float
-  %152 = fmul float %151, 0x3EF0001000000000
+  %152 = fmul nnan float %151, 0x3EF0001000000000
   %153 = fcmp ugt float %152, 0x3FC70A3D80000000
   br i1 %153, label %154, label %_ZN11OpenImageIO6v3_1_013rangecompressEf.exit150.i.i.i
 
@@ -97786,16 +97786,16 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit160.thread.i.i.i: ; p
   %308 = getelementptr i16, ptr %306, i64 %307
   %309 = load i16, ptr %308, align 2, !tbaa !648
   %310 = uitofp i16 %309 to float
-  %311 = fmul float %310, 0x3EF0001000000000
+  %311 = fmul nnan float %310, 0x3EF0001000000000
   %312 = getelementptr i8, ptr %308, i64 2
   %313 = load i16, ptr %312, align 2, !tbaa !648
   %314 = uitofp i16 %313 to float
-  %315 = fmul float %314, 0x3EF0001000000000
+  %315 = fmul nnan float %314, 0x3EF0001000000000
   %316 = getelementptr i8, ptr %308, i64 4
   %317 = load i16, ptr %316, align 2, !tbaa !648
   %318 = uitofp i16 %317 to float
-  %319 = fmul float %318, 0x3EF0001000000000
-  %320 = fmul float %315, 0x3FE6E2AC40000000
+  %319 = fmul nnan float %318, 0x3EF0001000000000
+  %320 = fmul nnan float %315, 0x3FE6E2AC40000000
   %321 = call float @llvm.fmuladd.f32(float %311, float 0x3FCB37C9A0000000, float %320)
   %322 = call float @llvm.fmuladd.f32(float %319, float 0x3FB27B0B40000000, float %321)
   %323 = fcmp ogt float %322, 0.000000e+00
@@ -97832,7 +97832,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit166.i.i.i: ; preds = %326, %324
   %339 = getelementptr inbounds i16, ptr %338, i64 %indvars.iv245.i.i.i
   %340 = load i16, ptr %339, align 2, !tbaa !648
   %341 = uitofp i16 %340 to float
-  %342 = fmul float %341, 0x3EF0001000000000
+  %342 = fmul nnan float %341, 0x3EF0001000000000
   br i1 %or.cond136.i.i.i, label %343, label %357
 
 343:                                              ; preds = %.lr.ph236.i.i.i
@@ -97851,7 +97851,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit166.i.i.i: ; preds = %326, %324
 348:                                              ; preds = %347, %.noexc172.i.i.i
   %349 = load ptr, ptr %239, align 8, !tbaa !710
   %350 = getelementptr inbounds i16, ptr %349, i64 %indvars.iv245.i.i.i
-  %351 = fmul float %342, 6.553500e+04
+  %351 = fmul nnan float %342, 6.553500e+04
   %352 = fadd float %351, 5.000000e-01
   %353 = fcmp ogt float %352, 6.553500e+04
   %.1.i.i.i.i.i.i171.i.i.i = select i1 %353, float 6.553500e+04, float %352
@@ -97923,7 +97923,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit166.i.i.i: ; preds = %326, %324
   %385 = getelementptr inbounds i16, ptr %384, i64 %indvars.iv.i.i.i
   %386 = load i16, ptr %385, align 2, !tbaa !648
   %387 = uitofp i16 %386 to float
-  %388 = fmul float %387, 0x3EF0001000000000
+  %388 = fmul nnan float %387, 0x3EF0001000000000
   br i1 %or.cond137.i.i.i, label %389, label %403
 
 389:                                              ; preds = %.lr.ph.i.i.i
@@ -97942,7 +97942,7 @@ _ZN11OpenImageIO6v3_1_013rangecompressEf.exit166.i.i.i: ; preds = %326, %324
 394:                                              ; preds = %393, %.noexc188.i.i.i
   %395 = load ptr, ptr %239, align 8, !tbaa !710
   %396 = getelementptr inbounds i16, ptr %395, i64 %indvars.iv.i.i.i
-  %397 = fmul float %388, 6.553500e+04
+  %397 = fmul nnan float %388, 6.553500e+04
   %398 = fadd float %397, 5.000000e-01
   %399 = fcmp ogt float %398, 6.553500e+04
   %.1.i.i.i.i.i.i187.i.i.i = select i1 %399, float 6.553500e+04, float %398
@@ -99810,16 +99810,16 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit162.thread.i.i.i: ; p
   %299 = getelementptr i8, ptr %297, i64 %298
   %300 = load i8, ptr %299, align 1, !tbaa !47
   %301 = uitofp i8 %300 to float
-  %302 = fmul float %301, 0x3F70101020000000
+  %302 = fmul nnan float %301, 0x3F70101020000000
   %303 = getelementptr i8, ptr %299, i64 1
   %304 = load i8, ptr %303, align 1, !tbaa !47
   %305 = uitofp i8 %304 to float
-  %306 = fmul float %305, 0x3F70101020000000
+  %306 = fmul nnan float %305, 0x3F70101020000000
   %307 = getelementptr i8, ptr %299, i64 2
   %308 = load i8, ptr %307, align 1, !tbaa !47
   %309 = uitofp i8 %308 to float
-  %310 = fmul float %309, 0x3F70101020000000
-  %311 = fmul float %306, 0x3FE6E2AC40000000
+  %310 = fmul nnan float %309, 0x3F70101020000000
+  %311 = fmul nnan float %306, 0x3FE6E2AC40000000
   %312 = call float @llvm.fmuladd.f32(float %302, float 0x3FCB37C9A0000000, float %311)
   %313 = call float @llvm.fmuladd.f32(float %310, float 0x3FB27B0B40000000, float %312)
   %314 = fcmp ogt float %313, 0.000000e+00
@@ -99862,7 +99862,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit169.i.i.i: ; preds = %317, %315
   %335 = getelementptr inbounds i8, ptr %334, i64 %indvars.iv237.i.i.i
   %336 = load i8, ptr %335, align 1, !tbaa !47
   %337 = uitofp i8 %336 to float
-  %338 = fmul float %337, 0x3F70101020000000
+  %338 = fmul nnan float %337, 0x3F70101020000000
   br i1 %or.cond140.i.i.i, label %339, label %346
 
 339:                                              ; preds = %.lr.ph228.i.i.i
@@ -99931,7 +99931,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit169.i.i.i: ; preds = %317, %315
   %367 = getelementptr inbounds i8, ptr %366, i64 %indvars.iv.i.i.i
   %368 = load i8, ptr %367, align 1, !tbaa !47
   %369 = uitofp i8 %368 to float
-  %370 = fmul float %369, 0x3F70101020000000
+  %370 = fmul nnan float %369, 0x3F70101020000000
   br i1 %or.cond141.i.i.i, label %371, label %378
 
 371:                                              ; preds = %.lr.ph.i.i.i
@@ -102069,16 +102069,16 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit162.thread.i.i.i: ; p
   %299 = getelementptr i16, ptr %297, i64 %298
   %300 = load i16, ptr %299, align 2, !tbaa !648
   %301 = uitofp i16 %300 to float
-  %302 = fmul float %301, 0x3EF0001000000000
+  %302 = fmul nnan float %301, 0x3EF0001000000000
   %303 = getelementptr i8, ptr %299, i64 2
   %304 = load i16, ptr %303, align 2, !tbaa !648
   %305 = uitofp i16 %304 to float
-  %306 = fmul float %305, 0x3EF0001000000000
+  %306 = fmul nnan float %305, 0x3EF0001000000000
   %307 = getelementptr i8, ptr %299, i64 4
   %308 = load i16, ptr %307, align 2, !tbaa !648
   %309 = uitofp i16 %308 to float
-  %310 = fmul float %309, 0x3EF0001000000000
-  %311 = fmul float %306, 0x3FE6E2AC40000000
+  %310 = fmul nnan float %309, 0x3EF0001000000000
+  %311 = fmul nnan float %306, 0x3FE6E2AC40000000
   %312 = call float @llvm.fmuladd.f32(float %302, float 0x3FCB37C9A0000000, float %311)
   %313 = call float @llvm.fmuladd.f32(float %310, float 0x3FB27B0B40000000, float %312)
   %314 = fcmp ogt float %313, 0.000000e+00
@@ -102121,7 +102121,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit169.i.i.i: ; preds = %317, %315
   %335 = getelementptr inbounds i16, ptr %334, i64 %indvars.iv237.i.i.i
   %336 = load i16, ptr %335, align 2, !tbaa !648
   %337 = uitofp i16 %336 to float
-  %338 = fmul float %337, 0x3EF0001000000000
+  %338 = fmul nnan float %337, 0x3EF0001000000000
   br i1 %or.cond140.i.i.i, label %339, label %346
 
 339:                                              ; preds = %.lr.ph228.i.i.i
@@ -102190,7 +102190,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit169.i.i.i: ; preds = %317, %315
   %367 = getelementptr inbounds i16, ptr %366, i64 %indvars.iv.i.i.i
   %368 = load i16, ptr %367, align 2, !tbaa !648
   %369 = uitofp i16 %368 to float
-  %370 = fmul float %369, 0x3EF0001000000000
+  %370 = fmul nnan float %369, 0x3EF0001000000000
   br i1 %or.cond141.i.i.i, label %371, label %378
 
 371:                                              ; preds = %.lr.ph.i.i.i
@@ -102664,17 +102664,17 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %82 = getelementptr i8, ptr %80, i64 %81
   %83 = load i8, ptr %82, align 1, !tbaa !47
   %84 = uitofp i8 %83 to float
-  %85 = fmul float %84, 0x3F70101020000000
+  %85 = fmul nnan float %84, 0x3F70101020000000
   %86 = getelementptr i8, ptr %82, i64 1
   %87 = load i8, ptr %86, align 1, !tbaa !47
   %88 = uitofp i8 %87 to float
-  %89 = fmul float %88, 0x3F70101020000000
-  %90 = fmul float %89, 0x3FE6E2AC40000000
+  %89 = fmul nnan float %88, 0x3F70101020000000
+  %90 = fmul nnan float %89, 0x3FE6E2AC40000000
   %91 = call float @llvm.fmuladd.f32(float %85, float 0x3FCB37C9A0000000, float %90)
   %92 = getelementptr i8, ptr %82, i64 2
   %93 = load i8, ptr %92, align 1, !tbaa !47
   %94 = uitofp i8 %93 to float
-  %95 = fmul float %94, 0x3F70101020000000
+  %95 = fmul nnan float %94, 0x3F70101020000000
   %96 = call float @llvm.fmuladd.f32(float %95, float 0x3FB27B0B40000000, float %91)
   %97 = fcmp ogt float %96, 0.000000e+00
   br i1 %97, label %98, label %111
@@ -102720,7 +102720,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit.i.i.i: ; preds = %100, %98
   %120 = getelementptr inbounds i8, ptr %119, i64 %indvars.iv262.i.i.i
   %121 = load i8, ptr %120, align 1, !tbaa !47
   %122 = uitofp i8 %121 to float
-  %123 = fmul float %122, 0x3F70101020000000
+  %123 = fmul nnan float %122, 0x3F70101020000000
   %124 = fmul float %112, %123
   %125 = load ptr, ptr %3, align 8, !tbaa !702
   %126 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %125)
@@ -102784,7 +102784,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit.i.i.i: ; preds = %100, %98
   %153 = getelementptr inbounds i8, ptr %152, i64 %indvars.iv257.i.i.i
   %154 = load i8, ptr %153, align 1, !tbaa !47
   %155 = uitofp i8 %154 to float
-  %156 = fmul float %155, 0x3F70101020000000
+  %156 = fmul nnan float %155, 0x3F70101020000000
   %157 = fcmp ugt float %156, 0x3FC70A3D80000000
   br i1 %157, label %158, label %_ZN11OpenImageIO6v3_1_011rangeexpandEf.exit155.i.i.i
 
@@ -103093,16 +103093,16 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit165.thread.i.i.i: ; p
   %317 = getelementptr i8, ptr %315, i64 %316
   %318 = load i8, ptr %317, align 1, !tbaa !47
   %319 = uitofp i8 %318 to float
-  %320 = fmul float %319, 0x3F70101020000000
+  %320 = fmul nnan float %319, 0x3F70101020000000
   %321 = getelementptr i8, ptr %317, i64 1
   %322 = load i8, ptr %321, align 1, !tbaa !47
   %323 = uitofp i8 %322 to float
-  %324 = fmul float %323, 0x3F70101020000000
+  %324 = fmul nnan float %323, 0x3F70101020000000
   %325 = getelementptr i8, ptr %317, i64 2
   %326 = load i8, ptr %325, align 1, !tbaa !47
   %327 = uitofp i8 %326 to float
-  %328 = fmul float %327, 0x3F70101020000000
-  %329 = fmul float %324, 0x3FE6E2AC40000000
+  %328 = fmul nnan float %327, 0x3F70101020000000
+  %329 = fmul nnan float %324, 0x3FE6E2AC40000000
   %330 = call float @llvm.fmuladd.f32(float %320, float 0x3FCB37C9A0000000, float %329)
   %331 = call float @llvm.fmuladd.f32(float %328, float 0x3FB27B0B40000000, float %330)
   %332 = fcmp ogt float %331, 0.000000e+00
@@ -103145,7 +103145,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit172.i.i.i: ; preds = %335, %333
   %353 = getelementptr inbounds i8, ptr %352, i64 %indvars.iv252.i.i.i
   %354 = load i8, ptr %353, align 1, !tbaa !47
   %355 = uitofp i8 %354 to float
-  %356 = fmul float %355, 0x3F70101020000000
+  %356 = fmul nnan float %355, 0x3F70101020000000
   br i1 %or.cond140.i.i.i, label %357, label %371
 
 357:                                              ; preds = %.lr.ph243.i.i.i
@@ -103164,7 +103164,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit172.i.i.i: ; preds = %335, %333
 362:                                              ; preds = %361, %.noexc178.i.i.i
   %363 = load ptr, ptr %248, align 8, !tbaa !710
   %364 = getelementptr inbounds i8, ptr %363, i64 %indvars.iv252.i.i.i
-  %365 = fmul float %356, 2.550000e+02
+  %365 = fmul nnan float %356, 2.550000e+02
   %366 = fadd float %365, 5.000000e-01
   %367 = fcmp ogt float %366, 2.550000e+02
   %.1.i.i.i.i.i.i177.i.i.i = select i1 %367, float 2.550000e+02, float %366
@@ -103236,7 +103236,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit172.i.i.i: ; preds = %335, %333
   %399 = getelementptr inbounds i8, ptr %398, i64 %indvars.iv.i.i.i
   %400 = load i8, ptr %399, align 1, !tbaa !47
   %401 = uitofp i8 %400 to float
-  %402 = fmul float %401, 0x3F70101020000000
+  %402 = fmul nnan float %401, 0x3F70101020000000
   br i1 %or.cond141.i.i.i, label %403, label %417
 
 403:                                              ; preds = %.lr.ph.i.i.i
@@ -103255,7 +103255,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit172.i.i.i: ; preds = %335, %333
 408:                                              ; preds = %407, %.noexc194.i.i.i
   %409 = load ptr, ptr %248, align 8, !tbaa !710
   %410 = getelementptr inbounds i8, ptr %409, i64 %indvars.iv.i.i.i
-  %411 = fmul float %402, 2.550000e+02
+  %411 = fmul nnan float %402, 2.550000e+02
   %412 = fadd float %411, 5.000000e-01
   %413 = fcmp ogt float %412, 2.550000e+02
   %.1.i.i.i.i.i.i193.i.i.i = select i1 %413, float 2.550000e+02, float %412
@@ -105631,17 +105631,17 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %82 = getelementptr i16, ptr %80, i64 %81
   %83 = load i16, ptr %82, align 2, !tbaa !648
   %84 = uitofp i16 %83 to float
-  %85 = fmul float %84, 0x3EF0001000000000
+  %85 = fmul nnan float %84, 0x3EF0001000000000
   %86 = getelementptr i8, ptr %82, i64 2
   %87 = load i16, ptr %86, align 2, !tbaa !648
   %88 = uitofp i16 %87 to float
-  %89 = fmul float %88, 0x3EF0001000000000
-  %90 = fmul float %89, 0x3FE6E2AC40000000
+  %89 = fmul nnan float %88, 0x3EF0001000000000
+  %90 = fmul nnan float %89, 0x3FE6E2AC40000000
   %91 = call float @llvm.fmuladd.f32(float %85, float 0x3FCB37C9A0000000, float %90)
   %92 = getelementptr i8, ptr %82, i64 4
   %93 = load i16, ptr %92, align 2, !tbaa !648
   %94 = uitofp i16 %93 to float
-  %95 = fmul float %94, 0x3EF0001000000000
+  %95 = fmul nnan float %94, 0x3EF0001000000000
   %96 = call float @llvm.fmuladd.f32(float %95, float 0x3FB27B0B40000000, float %91)
   %97 = fcmp ogt float %96, 0.000000e+00
   br i1 %97, label %98, label %111
@@ -105687,7 +105687,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit.i.i.i: ; preds = %100, %98
   %120 = getelementptr inbounds i16, ptr %116, i64 %indvars.iv262.i.i.i
   %121 = load i16, ptr %120, align 2, !tbaa !648
   %122 = uitofp i16 %121 to float
-  %123 = fmul float %122, 0x3EF0001000000000
+  %123 = fmul nnan float %122, 0x3EF0001000000000
   %124 = fmul float %112, %123
   %125 = load ptr, ptr %3, align 8, !tbaa !702
   %126 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %125)
@@ -105752,7 +105752,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit.i.i.i: ; preds = %100, %98
   %154 = getelementptr inbounds i16, ptr %153, i64 %indvars.iv257.i.i.i
   %155 = load i16, ptr %154, align 2, !tbaa !648
   %156 = uitofp i16 %155 to float
-  %157 = fmul float %156, 0x3EF0001000000000
+  %157 = fmul nnan float %156, 0x3EF0001000000000
   %158 = fcmp ugt float %157, 0x3FC70A3D80000000
   br i1 %158, label %159, label %_ZN11OpenImageIO6v3_1_011rangeexpandEf.exit155.i.i.i
 
@@ -106061,16 +106061,16 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit165.thread.i.i.i: ; p
   %318 = getelementptr i16, ptr %316, i64 %317
   %319 = load i16, ptr %318, align 2, !tbaa !648
   %320 = uitofp i16 %319 to float
-  %321 = fmul float %320, 0x3EF0001000000000
+  %321 = fmul nnan float %320, 0x3EF0001000000000
   %322 = getelementptr i8, ptr %318, i64 2
   %323 = load i16, ptr %322, align 2, !tbaa !648
   %324 = uitofp i16 %323 to float
-  %325 = fmul float %324, 0x3EF0001000000000
+  %325 = fmul nnan float %324, 0x3EF0001000000000
   %326 = getelementptr i8, ptr %318, i64 4
   %327 = load i16, ptr %326, align 2, !tbaa !648
   %328 = uitofp i16 %327 to float
-  %329 = fmul float %328, 0x3EF0001000000000
-  %330 = fmul float %325, 0x3FE6E2AC40000000
+  %329 = fmul nnan float %328, 0x3EF0001000000000
+  %330 = fmul nnan float %325, 0x3FE6E2AC40000000
   %331 = call float @llvm.fmuladd.f32(float %321, float 0x3FCB37C9A0000000, float %330)
   %332 = call float @llvm.fmuladd.f32(float %329, float 0x3FB27B0B40000000, float %331)
   %333 = fcmp ogt float %332, 0.000000e+00
@@ -106113,7 +106113,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit172.i.i.i: ; preds = %336, %334
   %354 = getelementptr inbounds i16, ptr %353, i64 %indvars.iv252.i.i.i
   %355 = load i16, ptr %354, align 2, !tbaa !648
   %356 = uitofp i16 %355 to float
-  %357 = fmul float %356, 0x3EF0001000000000
+  %357 = fmul nnan float %356, 0x3EF0001000000000
   br i1 %or.cond140.i.i.i, label %358, label %372
 
 358:                                              ; preds = %.lr.ph243.i.i.i
@@ -106132,7 +106132,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit172.i.i.i: ; preds = %336, %334
 363:                                              ; preds = %362, %.noexc178.i.i.i
   %364 = load ptr, ptr %249, align 8, !tbaa !710
   %365 = getelementptr inbounds i16, ptr %364, i64 %indvars.iv252.i.i.i
-  %366 = fmul float %357, 6.553500e+04
+  %366 = fmul nnan float %357, 6.553500e+04
   %367 = fadd float %366, 5.000000e-01
   %368 = fcmp ogt float %367, 6.553500e+04
   %.1.i.i.i.i.i.i177.i.i.i = select i1 %368, float 6.553500e+04, float %367
@@ -106204,7 +106204,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit172.i.i.i: ; preds = %336, %334
   %400 = getelementptr inbounds i16, ptr %399, i64 %indvars.iv.i.i.i
   %401 = load i16, ptr %400, align 2, !tbaa !648
   %402 = uitofp i16 %401 to float
-  %403 = fmul float %402, 0x3EF0001000000000
+  %403 = fmul nnan float %402, 0x3EF0001000000000
   br i1 %or.cond141.i.i.i, label %404, label %418
 
 404:                                              ; preds = %.lr.ph.i.i.i
@@ -106223,7 +106223,7 @@ _ZN11OpenImageIO6v3_1_011rangeexpandEf.exit172.i.i.i: ; preds = %336, %334
 409:                                              ; preds = %408, %.noexc194.i.i.i
   %410 = load ptr, ptr %249, align 8, !tbaa !710
   %411 = getelementptr inbounds i16, ptr %410, i64 %indvars.iv.i.i.i
-  %412 = fmul float %403, 6.553500e+04
+  %412 = fmul nnan float %403, 6.553500e+04
   %413 = fadd float %412, 5.000000e-01
   %414 = fcmp ogt float %413, 6.553500e+04
   %.1.i.i.i.i.i.i193.i.i.i = select i1 %414, float 6.553500e+04, float %413
@@ -107739,7 +107739,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
   %223 = getelementptr inbounds i8, ptr %222, i64 %157
   %224 = load i8, ptr %223, align 1, !tbaa !47
   %225 = uitofp i8 %224 to float
-  %226 = fmul float %225, 0x3F70101020000000
+  %226 = fmul nnan float %225, 0x3F70101020000000
   %227 = fcmp oeq float %226, 0.000000e+00
   %228 = fcmp oeq float %226, 1.000000e+00
   %or.cond3.i.i.i = or i1 %227, %228
@@ -107761,7 +107761,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
   %235 = getelementptr inbounds i8, ptr %234, i64 %indvars.iv137.i.i.i
   %236 = load i8, ptr %235, align 1, !tbaa !47
   %237 = uitofp i8 %236 to float
-  %238 = fmul float %237, 0x3F70101020000000
+  %238 = fmul nnan float %237, 0x3F70101020000000
   %239 = load ptr, ptr %5, align 8, !tbaa !702
   %240 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %239)
           to label %.noexc99.i.i.i unwind label %249
@@ -107805,7 +107805,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
   %256 = getelementptr inbounds i8, ptr %255, i64 %indvars.iv.i.i.i
   %257 = load i8, ptr %256, align 1, !tbaa !47
   %258 = uitofp i8 %257 to float
-  %259 = fmul float %258, 0x3F70101020000000
+  %259 = fmul nnan float %258, 0x3F70101020000000
   br i1 %or.cond85.i.i.i, label %268, label %260
 
 260:                                              ; preds = %.lr.ph.i.i.i
@@ -109441,7 +109441,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
   %223 = getelementptr inbounds i16, ptr %222, i64 %157
   %224 = load i16, ptr %223, align 2, !tbaa !648
   %225 = uitofp i16 %224 to float
-  %226 = fmul float %225, 0x3EF0001000000000
+  %226 = fmul nnan float %225, 0x3EF0001000000000
   %227 = fcmp oeq float %226, 0.000000e+00
   %228 = fcmp oeq float %226, 1.000000e+00
   %or.cond3.i.i.i = or i1 %227, %228
@@ -109463,7 +109463,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
   %235 = getelementptr inbounds i16, ptr %234, i64 %indvars.iv137.i.i.i
   %236 = load i16, ptr %235, align 2, !tbaa !648
   %237 = uitofp i16 %236 to float
-  %238 = fmul float %237, 0x3EF0001000000000
+  %238 = fmul nnan float %237, 0x3EF0001000000000
   %239 = load ptr, ptr %5, align 8, !tbaa !702
   %240 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %239)
           to label %.noexc99.i.i.i unwind label %249
@@ -109507,7 +109507,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
   %256 = getelementptr inbounds i16, ptr %255, i64 %indvars.iv.i.i.i
   %257 = load i16, ptr %256, align 2, !tbaa !648
   %258 = uitofp i16 %257 to float
-  %259 = fmul float %258, 0x3EF0001000000000
+  %259 = fmul nnan float %258, 0x3EF0001000000000
   br i1 %or.cond85.i.i.i, label %268, label %260
 
 260:                                              ; preds = %.lr.ph.i.i.i
@@ -109916,7 +109916,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %65 = getelementptr inbounds i8, ptr %64, i64 %28
   %66 = load i8, ptr %65, align 1, !tbaa !47
   %67 = uitofp i8 %66 to float
-  %68 = fmul float %67, 0x3F70101020000000
+  %68 = fmul nnan float %67, 0x3F70101020000000
   %69 = fcmp oeq float %68, 0.000000e+00
   %70 = fcmp oeq float %68, 1.000000e+00
   %or.cond.i.i.i = or i1 %69, %70
@@ -109945,7 +109945,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %81 = getelementptr inbounds i8, ptr %80, i64 %indvars.iv149.i.i.i
   %82 = load i8, ptr %81, align 1, !tbaa !47
   %83 = uitofp i8 %82 to float
-  %84 = fmul float %83, 0x3F70101020000000
+  %84 = fmul nnan float %83, 0x3F70101020000000
   %85 = fdiv float %84, %68
   %86 = load ptr, ptr %3, align 8, !tbaa !702
   %87 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %86)
@@ -110230,7 +110230,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
   %231 = getelementptr inbounds i8, ptr %230, i64 %165
   %232 = load i8, ptr %231, align 1, !tbaa !47
   %233 = uitofp i8 %232 to float
-  %234 = fmul float %233, 0x3F70101020000000
+  %234 = fmul nnan float %233, 0x3F70101020000000
   %235 = fcmp oeq float %234, 0.000000e+00
   %236 = fcmp oeq float %234, 1.000000e+00
   %or.cond3.i.i.i = or i1 %235, %236
@@ -110252,7 +110252,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
   %243 = getelementptr inbounds i8, ptr %242, i64 %indvars.iv146.i.i.i
   %244 = load i8, ptr %243, align 1, !tbaa !47
   %245 = uitofp i8 %244 to float
-  %246 = fmul float %245, 0x3F70101020000000
+  %246 = fmul nnan float %245, 0x3F70101020000000
   %247 = load ptr, ptr %5, align 8, !tbaa !702
   %248 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %247)
           to label %.noexc102.i.i.i unwind label %261
@@ -110268,7 +110268,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
 251:                                              ; preds = %250, %.noexc102.i.i.i
   %252 = load ptr, ptr %168, align 8, !tbaa !710
   %253 = getelementptr inbounds i8, ptr %252, i64 %indvars.iv146.i.i.i
-  %254 = fmul float %246, 2.550000e+02
+  %254 = fmul nnan float %246, 2.550000e+02
   %255 = fadd float %254, 5.000000e-01
   %256 = fcmp ogt float %255, 2.550000e+02
   %.1.i.i.i.i.i.i101.i.i.i = select i1 %256, float 2.550000e+02, float %255
@@ -110301,7 +110301,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
   %268 = getelementptr inbounds i8, ptr %267, i64 %indvars.iv.i.i.i
   %269 = load i8, ptr %268, align 1, !tbaa !47
   %270 = uitofp i8 %269 to float
-  %271 = fmul float %270, 0x3F70101020000000
+  %271 = fmul nnan float %270, 0x3F70101020000000
   br i1 %or.cond85.i.i.i, label %287, label %272
 
 272:                                              ; preds = %.lr.ph.i.i.i
@@ -110352,7 +110352,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
 292:                                              ; preds = %291, %.noexc118.i.i.i
   %293 = load ptr, ptr %168, align 8, !tbaa !710
   %294 = getelementptr inbounds i8, ptr %293, i64 %indvars.iv.i.i.i
-  %295 = fmul float %271, 2.550000e+02
+  %295 = fmul nnan float %271, 2.550000e+02
   %296 = fadd float %295, 5.000000e-01
   %297 = fcmp ogt float %296, 2.550000e+02
   %.1.i.i.i.i.i.i117.i.i.i = select i1 %297, float 2.550000e+02, float %296
@@ -112034,7 +112034,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %65 = getelementptr inbounds i16, ptr %64, i64 %28
   %66 = load i16, ptr %65, align 2, !tbaa !648
   %67 = uitofp i16 %66 to float
-  %68 = fmul float %67, 0x3EF0001000000000
+  %68 = fmul nnan float %67, 0x3EF0001000000000
   %69 = fcmp oeq float %68, 0.000000e+00
   %70 = fcmp oeq float %68, 1.000000e+00
   %or.cond.i.i.i = or i1 %69, %70
@@ -112063,7 +112063,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %81 = getelementptr inbounds i16, ptr %77, i64 %indvars.iv149.i.i.i
   %82 = load i16, ptr %81, align 2, !tbaa !648
   %83 = uitofp i16 %82 to float
-  %84 = fmul float %83, 0x3EF0001000000000
+  %84 = fmul nnan float %83, 0x3EF0001000000000
   %85 = fdiv float %84, %68
   %86 = load ptr, ptr %3, align 8, !tbaa !702
   %87 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %86)
@@ -112348,7 +112348,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
   %231 = getelementptr inbounds i16, ptr %230, i64 %165
   %232 = load i16, ptr %231, align 2, !tbaa !648
   %233 = uitofp i16 %232 to float
-  %234 = fmul float %233, 0x3EF0001000000000
+  %234 = fmul nnan float %233, 0x3EF0001000000000
   %235 = fcmp oeq float %234, 0.000000e+00
   %236 = fcmp oeq float %234, 1.000000e+00
   %or.cond3.i.i.i = or i1 %235, %236
@@ -112370,7 +112370,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
   %243 = getelementptr inbounds i16, ptr %242, i64 %indvars.iv146.i.i.i
   %244 = load i16, ptr %243, align 2, !tbaa !648
   %245 = uitofp i16 %244 to float
-  %246 = fmul float %245, 0x3EF0001000000000
+  %246 = fmul nnan float %245, 0x3EF0001000000000
   %247 = load ptr, ptr %5, align 8, !tbaa !702
   %248 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %247)
           to label %.noexc102.i.i.i unwind label %261
@@ -112386,7 +112386,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
 251:                                              ; preds = %250, %.noexc102.i.i.i
   %252 = load ptr, ptr %168, align 8, !tbaa !710
   %253 = getelementptr inbounds i16, ptr %252, i64 %indvars.iv146.i.i.i
-  %254 = fmul float %246, 6.553500e+04
+  %254 = fmul nnan float %246, 6.553500e+04
   %255 = fadd float %254, 5.000000e-01
   %256 = fcmp ogt float %255, 6.553500e+04
   %.1.i.i.i.i.i.i101.i.i.i = select i1 %256, float 6.553500e+04, float %255
@@ -112419,7 +112419,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
   %268 = getelementptr inbounds i16, ptr %267, i64 %indvars.iv.i.i.i
   %269 = load i16, ptr %268, align 2, !tbaa !648
   %270 = uitofp i16 %269 to float
-  %271 = fmul float %270, 0x3EF0001000000000
+  %271 = fmul nnan float %270, 0x3EF0001000000000
   br i1 %or.cond85.i.i.i, label %287, label %272
 
 272:                                              ; preds = %.lr.ph.i.i.i
@@ -112470,7 +112470,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit92.thread.i.i.i: ; pr
 292:                                              ; preds = %291, %.noexc118.i.i.i
   %293 = load ptr, ptr %168, align 8, !tbaa !710
   %294 = getelementptr inbounds i16, ptr %293, i64 %indvars.iv.i.i.i
-  %295 = fmul float %271, 6.553500e+04
+  %295 = fmul nnan float %271, 6.553500e+04
   %296 = fadd float %295, 5.000000e-01
   %297 = fcmp ogt float %296, 6.553500e+04
   %.1.i.i.i.i.i.i117.i.i.i = select i1 %297, float 6.553500e+04, float %296
@@ -113969,7 +113969,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i.i.i: ; pr
   %229 = getelementptr inbounds i8, ptr %228, i64 %162
   %230 = load i8, ptr %229, align 1, !tbaa !47
   %231 = uitofp i8 %230 to float
-  %232 = fmul float %231, 0x3F70101020000000
+  %232 = fmul nnan float %231, 0x3F70101020000000
   %233 = fcmp oeq float %232, 1.000000e+00
   br i1 %233, label %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge.i_crit_edge.i.i, label %234
 
@@ -114004,7 +114004,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge
   %245 = getelementptr inbounds i8, ptr %244, i64 %indvars.iv138.i.i.i
   %246 = load i8, ptr %245, align 1, !tbaa !47
   %247 = uitofp i8 %246 to float
-  %248 = fmul float %247, 0x3F70101020000000
+  %248 = fmul nnan float %247, 0x3F70101020000000
   %249 = load ptr, ptr %5, align 8, !tbaa !702
   %250 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %249)
           to label %.noexc100.i.i.i unwind label %259
@@ -114049,7 +114049,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge
   %267 = getelementptr inbounds i8, ptr %266, i64 %indvars.iv.i.i.i
   %268 = load i8, ptr %267, align 1, !tbaa !47
   %269 = uitofp i8 %268 to float
-  %270 = fmul float %269, 0x3F70101020000000
+  %270 = fmul nnan float %269, 0x3F70101020000000
   br i1 %or.cond86.i.i.i, label %279, label %271
 
 271:                                              ; preds = %.lr.ph.i.i.i
@@ -115745,7 +115745,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i.i.i: ; pr
   %229 = getelementptr inbounds i16, ptr %228, i64 %162
   %230 = load i16, ptr %229, align 2, !tbaa !648
   %231 = uitofp i16 %230 to float
-  %232 = fmul float %231, 0x3EF0001000000000
+  %232 = fmul nnan float %231, 0x3EF0001000000000
   %233 = fcmp oeq float %232, 1.000000e+00
   br i1 %233, label %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge.i_crit_edge.i.i, label %234
 
@@ -115780,7 +115780,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge
   %245 = getelementptr inbounds i16, ptr %244, i64 %indvars.iv138.i.i.i
   %246 = load i16, ptr %245, align 2, !tbaa !648
   %247 = uitofp i16 %246 to float
-  %248 = fmul float %247, 0x3EF0001000000000
+  %248 = fmul nnan float %247, 0x3EF0001000000000
   %249 = load ptr, ptr %5, align 8, !tbaa !702
   %250 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %249)
           to label %.noexc100.i.i.i unwind label %259
@@ -115825,7 +115825,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge
   %267 = getelementptr inbounds i16, ptr %266, i64 %indvars.iv.i.i.i
   %268 = load i16, ptr %267, align 2, !tbaa !648
   %269 = uitofp i16 %268 to float
-  %270 = fmul float %269, 0x3EF0001000000000
+  %270 = fmul nnan float %269, 0x3EF0001000000000
   br i1 %or.cond86.i.i.i, label %279, label %271
 
 271:                                              ; preds = %.lr.ph.i.i.i
@@ -116250,7 +116250,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %66 = getelementptr inbounds i8, ptr %65, i64 %28
   %67 = load i8, ptr %66, align 1, !tbaa !47
   %68 = uitofp i8 %67 to float
-  %69 = fmul float %68, 0x3F70101020000000
+  %69 = fmul nnan float %68, 0x3F70101020000000
   %70 = fcmp oeq float %69, 1.000000e+00
   br i1 %70, label %.loopexit.i.i.i, label %71
 
@@ -116285,7 +116285,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %86 = getelementptr inbounds i8, ptr %85, i64 %indvars.iv150.i.i.i
   %87 = load i8, ptr %86, align 1, !tbaa !47
   %88 = uitofp i8 %87 to float
-  %89 = fmul float %88, 0x3F70101020000000
+  %89 = fmul nnan float %88, 0x3F70101020000000
   %90 = fmul float %69, %89
   %91 = load ptr, ptr %3, align 8, !tbaa !702
   %92 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %91)
@@ -116571,7 +116571,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i.i.i: ; pr
   %237 = getelementptr inbounds i8, ptr %236, i64 %170
   %238 = load i8, ptr %237, align 1, !tbaa !47
   %239 = uitofp i8 %238 to float
-  %240 = fmul float %239, 0x3F70101020000000
+  %240 = fmul nnan float %239, 0x3F70101020000000
   %241 = fcmp oeq float %240, 1.000000e+00
   br i1 %241, label %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge.i_crit_edge.i.i, label %242
 
@@ -116606,7 +116606,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge
   %253 = getelementptr inbounds i8, ptr %252, i64 %indvars.iv147.i.i.i
   %254 = load i8, ptr %253, align 1, !tbaa !47
   %255 = uitofp i8 %254 to float
-  %256 = fmul float %255, 0x3F70101020000000
+  %256 = fmul nnan float %255, 0x3F70101020000000
   %257 = load ptr, ptr %5, align 8, !tbaa !702
   %258 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %257)
           to label %.noexc103.i.i.i unwind label %271
@@ -116622,7 +116622,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge
 261:                                              ; preds = %260, %.noexc103.i.i.i
   %262 = load ptr, ptr %174, align 8, !tbaa !710
   %263 = getelementptr inbounds i8, ptr %262, i64 %indvars.iv147.i.i.i
-  %264 = fmul float %256, 2.550000e+02
+  %264 = fmul nnan float %256, 2.550000e+02
   %265 = fadd float %264, 5.000000e-01
   %266 = fcmp ogt float %265, 2.550000e+02
   %.1.i.i.i.i.i.i102.i.i.i = select i1 %266, float 2.550000e+02, float %265
@@ -116656,7 +116656,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge
   %279 = getelementptr inbounds i8, ptr %278, i64 %indvars.iv.i.i.i
   %280 = load i8, ptr %279, align 1, !tbaa !47
   %281 = uitofp i8 %280 to float
-  %282 = fmul float %281, 0x3F70101020000000
+  %282 = fmul nnan float %281, 0x3F70101020000000
   br i1 %or.cond86.i.i.i, label %298, label %283
 
 283:                                              ; preds = %.lr.ph.i.i.i
@@ -116707,7 +116707,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge
 303:                                              ; preds = %302, %.noexc119.i.i.i
   %304 = load ptr, ptr %174, align 8, !tbaa !710
   %305 = getelementptr inbounds i8, ptr %304, i64 %indvars.iv.i.i.i
-  %306 = fmul float %282, 2.550000e+02
+  %306 = fmul nnan float %282, 2.550000e+02
   %307 = fadd float %306, 5.000000e-01
   %308 = fcmp ogt float %307, 2.550000e+02
   %.1.i.i.i.i.i.i118.i.i.i = select i1 %308, float 2.550000e+02, float %307
@@ -118444,7 +118444,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %66 = getelementptr inbounds i16, ptr %65, i64 %28
   %67 = load i16, ptr %66, align 2, !tbaa !648
   %68 = uitofp i16 %67 to float
-  %69 = fmul float %68, 0x3EF0001000000000
+  %69 = fmul nnan float %68, 0x3EF0001000000000
   %70 = fcmp oeq float %69, 1.000000e+00
   br i1 %70, label %.loopexit.i.i.i, label %71
 
@@ -118479,7 +118479,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %86 = getelementptr inbounds i16, ptr %82, i64 %indvars.iv150.i.i.i
   %87 = load i16, ptr %86, align 2, !tbaa !648
   %88 = uitofp i16 %87 to float
-  %89 = fmul float %88, 0x3EF0001000000000
+  %89 = fmul nnan float %88, 0x3EF0001000000000
   %90 = fmul float %69, %89
   %91 = load ptr, ptr %3, align 8, !tbaa !702
   %92 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %91)
@@ -118765,7 +118765,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i.i.i: ; pr
   %237 = getelementptr inbounds i16, ptr %236, i64 %170
   %238 = load i16, ptr %237, align 2, !tbaa !648
   %239 = uitofp i16 %238 to float
-  %240 = fmul float %239, 0x3EF0001000000000
+  %240 = fmul nnan float %239, 0x3EF0001000000000
   %241 = fcmp oeq float %240, 1.000000e+00
   br i1 %241, label %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge.i_crit_edge.i.i, label %242
 
@@ -118800,7 +118800,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge
   %253 = getelementptr inbounds i16, ptr %252, i64 %indvars.iv147.i.i.i
   %254 = load i16, ptr %253, align 2, !tbaa !648
   %255 = uitofp i16 %254 to float
-  %256 = fmul float %255, 0x3EF0001000000000
+  %256 = fmul nnan float %255, 0x3EF0001000000000
   %257 = load ptr, ptr %5, align 8, !tbaa !702
   %258 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %257)
           to label %.noexc103.i.i.i unwind label %271
@@ -118816,7 +118816,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge
 261:                                              ; preds = %260, %.noexc103.i.i.i
   %262 = load ptr, ptr %174, align 8, !tbaa !710
   %263 = getelementptr inbounds i16, ptr %262, i64 %indvars.iv147.i.i.i
-  %264 = fmul float %256, 6.553500e+04
+  %264 = fmul nnan float %256, 6.553500e+04
   %265 = fadd float %264, 5.000000e-01
   %266 = fcmp ogt float %265, 6.553500e+04
   %.1.i.i.i.i.i.i102.i.i.i = select i1 %266, float 6.553500e+04, float %265
@@ -118850,7 +118850,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge
   %279 = getelementptr inbounds i16, ptr %278, i64 %indvars.iv.i.i.i
   %280 = load i16, ptr %279, align 2, !tbaa !648
   %281 = uitofp i16 %280 to float
-  %282 = fmul float %281, 0x3EF0001000000000
+  %282 = fmul nnan float %281, 0x3EF0001000000000
   br i1 %or.cond86.i.i.i, label %298, label %283
 
 283:                                              ; preds = %.lr.ph.i.i.i
@@ -118901,7 +118901,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit93.thread.i..critedge
 303:                                              ; preds = %302, %.noexc119.i.i.i
   %304 = load ptr, ptr %174, align 8, !tbaa !710
   %305 = getelementptr inbounds i16, ptr %304, i64 %indvars.iv.i.i.i
-  %306 = fmul float %282, 6.553500e+04
+  %306 = fmul nnan float %282, 6.553500e+04
   %307 = fadd float %306, 5.000000e-01
   %308 = fcmp ogt float %307, 6.553500e+04
   %.1.i.i.i.i.i.i118.i.i.i = select i1 %308, float 6.553500e+04, float %307
@@ -119925,7 +119925,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %_
   %60 = getelementptr inbounds i8, ptr %59, i64 %indvars.iv137
   %61 = load i8, ptr %60, align 1, !tbaa !47
   %62 = uitofp i8 %61 to float
-  %63 = fmul float %62, 0x3F70101020000000
+  %63 = fmul nnan float %62, 0x3F70101020000000
   %64 = load ptr, ptr %25, align 8, !tbaa !1321
   %65 = load ptr, ptr %64, align 8, !tbaa !96
   %66 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv137
@@ -120147,7 +120147,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit87.thread: ; preds = 
   %172 = getelementptr inbounds i8, ptr %157, i64 %indvars.iv
   %173 = load i8, ptr %172, align 1, !tbaa !47
   %174 = uitofp i8 %173 to float
-  %175 = fmul float %174, 0x3F70101020000000
+  %175 = fmul nnan float %174, 0x3F70101020000000
   %176 = getelementptr inbounds nuw float, ptr %159, i64 %indvars.iv
   %177 = load float, ptr %176, align 4, !tbaa !54
   %178 = fsub float %175, %177
@@ -121125,7 +121125,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %_
   %60 = getelementptr inbounds i16, ptr %59, i64 %indvars.iv137
   %61 = load i16, ptr %60, align 2, !tbaa !648
   %62 = uitofp i16 %61 to float
-  %63 = fmul float %62, 0x3EF0001000000000
+  %63 = fmul nnan float %62, 0x3EF0001000000000
   %64 = load ptr, ptr %25, align 8, !tbaa !1361
   %65 = load ptr, ptr %64, align 8, !tbaa !96
   %66 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv137
@@ -121347,7 +121347,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit87.thread: ; preds = 
   %172 = getelementptr inbounds i16, ptr %157, i64 %indvars.iv
   %173 = load i16, ptr %172, align 2, !tbaa !648
   %174 = uitofp i16 %173 to float
-  %175 = fmul float %174, 0x3EF0001000000000
+  %175 = fmul nnan float %174, 0x3EF0001000000000
   %176 = getelementptr inbounds nuw float, ptr %159, i64 %indvars.iv
   %177 = load float, ptr %176, align 4, !tbaa !54
   %178 = fsub float %175, %177
@@ -121689,7 +121689,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %_
   %60 = getelementptr inbounds i8, ptr %59, i64 %indvars.iv140
   %61 = load i8, ptr %60, align 1, !tbaa !47
   %62 = uitofp i8 %61 to float
-  %63 = fmul float %62, 0x3F70101020000000
+  %63 = fmul nnan float %62, 0x3F70101020000000
   %64 = load ptr, ptr %25, align 8, !tbaa !1381
   %65 = load ptr, ptr %64, align 8, !tbaa !96
   %66 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv140
@@ -121920,7 +121920,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit87.thread: ; preds = 
   %178 = getelementptr inbounds i8, ptr %163, i64 %indvars.iv
   %179 = load i8, ptr %178, align 1, !tbaa !47
   %180 = uitofp i8 %179 to float
-  %181 = fmul float %180, 0x3F70101020000000
+  %181 = fmul nnan float %180, 0x3F70101020000000
   %182 = getelementptr inbounds nuw float, ptr %165, i64 %indvars.iv
   %183 = load float, ptr %182, align 4, !tbaa !54
   %184 = fsub float %181, %183
@@ -123063,7 +123063,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread: ; preds = %_
   %60 = getelementptr inbounds i16, ptr %59, i64 %indvars.iv140
   %61 = load i16, ptr %60, align 2, !tbaa !648
   %62 = uitofp i16 %61 to float
-  %63 = fmul float %62, 0x3EF0001000000000
+  %63 = fmul nnan float %62, 0x3EF0001000000000
   %64 = load ptr, ptr %25, align 8, !tbaa !1421
   %65 = load ptr, ptr %64, align 8, !tbaa !96
   %66 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv140
@@ -123294,7 +123294,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit87.thread: ; preds = 
   %178 = getelementptr inbounds i16, ptr %163, i64 %indvars.iv
   %179 = load i16, ptr %178, align 2, !tbaa !648
   %180 = uitofp i16 %179 to float
-  %181 = fmul float %180, 0x3EF0001000000000
+  %181 = fmul nnan float %180, 0x3EF0001000000000
   %182 = getelementptr inbounds nuw float, ptr %165, i64 %indvars.iv
   %183 = load float, ptr %182, align 4, !tbaa !54
   %184 = fsub float %181, %183
@@ -124230,7 +124230,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
   %89 = getelementptr inbounds i8, ptr %88, i64 %indvars.iv.i.i.i
   %90 = load i8, ptr %89, align 1, !tbaa !47
   %91 = uitofp i8 %90 to float
-  %92 = fmul float %91, 0x3F70101020000000
+  %92 = fmul nnan float %91, 0x3F70101020000000
   %93 = load ptr, ptr %4, align 8, !tbaa !702
   %94 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %93)
           to label %.noexc123.i.i.i unwind label %104
@@ -124265,15 +124265,15 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
   %107 = getelementptr i8, ptr %106, i64 %.pre-phi.i.i.i
   %108 = load i8, ptr %107, align 1, !tbaa !47
   %109 = uitofp i8 %108 to float
-  %110 = fmul float %109, 0x3F70101020000000
+  %110 = fmul nnan float %109, 0x3F70101020000000
   %111 = getelementptr i8, ptr %107, i64 1
   %112 = load i8, ptr %111, align 1, !tbaa !47
   %113 = uitofp i8 %112 to float
-  %114 = fmul float %113, 0x3F70101020000000
+  %114 = fmul nnan float %113, 0x3F70101020000000
   %115 = getelementptr i8, ptr %107, i64 2
   %116 = load i8, ptr %115, align 1, !tbaa !47
   %117 = uitofp i8 %116 to float
-  %118 = fmul float %117, 0x3F70101020000000
+  %118 = fmul nnan float %117, 0x3F70101020000000
   %119 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %110, i64 0
   %120 = insertelement <4 x float> %119, float %114, i64 1
   %121 = insertelement <4 x float> %120, float %118, i64 2
@@ -124500,7 +124500,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
   %236 = getelementptr inbounds i8, ptr %235, i64 %indvars.iv249.i.i.i
   %237 = load i8, ptr %236, align 1, !tbaa !47
   %238 = uitofp i8 %237 to float
-  %239 = fmul float %238, 0x3F70101020000000
+  %239 = fmul nnan float %238, 0x3F70101020000000
   %240 = load ptr, ptr %4, align 8, !tbaa !702
   %241 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %240)
           to label %.noexc142.i.i.i unwind label %250
@@ -125640,7 +125640,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
   %89 = getelementptr inbounds i16, ptr %88, i64 %indvars.iv.i.i.i
   %90 = load i16, ptr %89, align 2, !tbaa !648
   %91 = uitofp i16 %90 to float
-  %92 = fmul float %91, 0x3EF0001000000000
+  %92 = fmul nnan float %91, 0x3EF0001000000000
   %93 = load ptr, ptr %4, align 8, !tbaa !702
   %94 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %93)
           to label %.noexc123.i.i.i unwind label %104
@@ -125675,15 +125675,15 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
   %107 = getelementptr i16, ptr %106, i64 %.pre-phi.i.i.i
   %108 = load i16, ptr %107, align 2, !tbaa !648
   %109 = uitofp i16 %108 to float
-  %110 = fmul float %109, 0x3EF0001000000000
+  %110 = fmul nnan float %109, 0x3EF0001000000000
   %111 = getelementptr i8, ptr %107, i64 2
   %112 = load i16, ptr %111, align 2, !tbaa !648
   %113 = uitofp i16 %112 to float
-  %114 = fmul float %113, 0x3EF0001000000000
+  %114 = fmul nnan float %113, 0x3EF0001000000000
   %115 = getelementptr i8, ptr %107, i64 4
   %116 = load i16, ptr %115, align 2, !tbaa !648
   %117 = uitofp i16 %116 to float
-  %118 = fmul float %117, 0x3EF0001000000000
+  %118 = fmul nnan float %117, 0x3EF0001000000000
   %119 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %110, i64 0
   %120 = insertelement <4 x float> %119, float %114, i64 1
   %121 = insertelement <4 x float> %120, float %118, i64 2
@@ -125910,7 +125910,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
   %236 = getelementptr inbounds i16, ptr %235, i64 %indvars.iv249.i.i.i
   %237 = load i16, ptr %236, align 2, !tbaa !648
   %238 = uitofp i16 %237 to float
-  %239 = fmul float %238, 0x3EF0001000000000
+  %239 = fmul nnan float %238, 0x3EF0001000000000
   %240 = load ptr, ptr %4, align 8, !tbaa !702
   %241 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %240)
           to label %.noexc142.i.i.i unwind label %250
@@ -126256,7 +126256,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
   %89 = getelementptr inbounds i8, ptr %88, i64 %indvars.iv.i.i.i
   %90 = load i8, ptr %89, align 1, !tbaa !47
   %91 = uitofp i8 %90 to float
-  %92 = fmul float %91, 0x3F70101020000000
+  %92 = fmul nnan float %91, 0x3F70101020000000
   %93 = load ptr, ptr %4, align 8, !tbaa !702
   %94 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %93)
           to label %.noexc123.i.i.i unwind label %108
@@ -126272,7 +126272,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
 97:                                               ; preds = %96, %.noexc123.i.i.i
   %98 = load ptr, ptr %19, align 8, !tbaa !710
   %99 = getelementptr inbounds i8, ptr %98, i64 %indvars.iv.i.i.i
-  %100 = fmul float %92, 2.550000e+02
+  %100 = fmul nnan float %92, 2.550000e+02
   %101 = fadd float %100, 5.000000e-01
   %102 = fcmp ogt float %101, 2.550000e+02
   %.1.i.i.i.i.i.i.i.i.i = select i1 %102, float 2.550000e+02, float %101
@@ -126296,15 +126296,15 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
   %111 = getelementptr i8, ptr %110, i64 %.pre-phi.i.i.i
   %112 = load i8, ptr %111, align 1, !tbaa !47
   %113 = uitofp i8 %112 to float
-  %114 = fmul float %113, 0x3F70101020000000
+  %114 = fmul nnan float %113, 0x3F70101020000000
   %115 = getelementptr i8, ptr %111, i64 1
   %116 = load i8, ptr %115, align 1, !tbaa !47
   %117 = uitofp i8 %116 to float
-  %118 = fmul float %117, 0x3F70101020000000
+  %118 = fmul nnan float %117, 0x3F70101020000000
   %119 = getelementptr i8, ptr %111, i64 2
   %120 = load i8, ptr %119, align 1, !tbaa !47
   %121 = uitofp i8 %120 to float
-  %122 = fmul float %121, 0x3F70101020000000
+  %122 = fmul nnan float %121, 0x3F70101020000000
   %123 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %114, i64 0
   %124 = insertelement <4 x float> %123, float %118, i64 1
   %125 = insertelement <4 x float> %124, float %122, i64 2
@@ -126559,7 +126559,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
   %259 = getelementptr inbounds i8, ptr %258, i64 %indvars.iv259.i.i.i
   %260 = load i8, ptr %259, align 1, !tbaa !47
   %261 = uitofp i8 %260 to float
-  %262 = fmul float %261, 0x3F70101020000000
+  %262 = fmul nnan float %261, 0x3F70101020000000
   %263 = load ptr, ptr %4, align 8, !tbaa !702
   %264 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %263)
           to label %.noexc152.i.i.i unwind label %277
@@ -126575,7 +126575,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
 267:                                              ; preds = %266, %.noexc152.i.i.i
   %268 = load ptr, ptr %19, align 8, !tbaa !710
   %269 = getelementptr inbounds i8, ptr %268, i64 %indvars.iv259.i.i.i
-  %270 = fmul float %262, 2.550000e+02
+  %270 = fmul nnan float %262, 2.550000e+02
   %271 = fadd float %270, 5.000000e-01
   %272 = fcmp ogt float %271, 2.550000e+02
   %.1.i.i.i.i.i.i151.i.i.i = select i1 %272, float 2.550000e+02, float %271
@@ -128096,7 +128096,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
   %89 = getelementptr inbounds i16, ptr %88, i64 %indvars.iv.i.i.i
   %90 = load i16, ptr %89, align 2, !tbaa !648
   %91 = uitofp i16 %90 to float
-  %92 = fmul float %91, 0x3EF0001000000000
+  %92 = fmul nnan float %91, 0x3EF0001000000000
   %93 = load ptr, ptr %4, align 8, !tbaa !702
   %94 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %93)
           to label %.noexc123.i.i.i unwind label %108
@@ -128112,7 +128112,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
 97:                                               ; preds = %96, %.noexc123.i.i.i
   %98 = load ptr, ptr %19, align 8, !tbaa !710
   %99 = getelementptr inbounds i16, ptr %98, i64 %indvars.iv.i.i.i
-  %100 = fmul float %92, 6.553500e+04
+  %100 = fmul nnan float %92, 6.553500e+04
   %101 = fadd float %100, 5.000000e-01
   %102 = fcmp ogt float %101, 6.553500e+04
   %.1.i.i.i.i.i.i.i.i.i = select i1 %102, float 6.553500e+04, float %101
@@ -128136,15 +128136,15 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
   %111 = getelementptr i16, ptr %110, i64 %.pre-phi.i.i.i
   %112 = load i16, ptr %111, align 2, !tbaa !648
   %113 = uitofp i16 %112 to float
-  %114 = fmul float %113, 0x3EF0001000000000
+  %114 = fmul nnan float %113, 0x3EF0001000000000
   %115 = getelementptr i8, ptr %111, i64 2
   %116 = load i16, ptr %115, align 2, !tbaa !648
   %117 = uitofp i16 %116 to float
-  %118 = fmul float %117, 0x3EF0001000000000
+  %118 = fmul nnan float %117, 0x3EF0001000000000
   %119 = getelementptr i8, ptr %111, i64 4
   %120 = load i16, ptr %119, align 2, !tbaa !648
   %121 = uitofp i16 %120 to float
-  %122 = fmul float %121, 0x3EF0001000000000
+  %122 = fmul nnan float %121, 0x3EF0001000000000
   %123 = insertelement <4 x float> <float poison, float poison, float poison, float 0.000000e+00>, float %114, i64 0
   %124 = insertelement <4 x float> %123, float %118, i64 1
   %125 = insertelement <4 x float> %124, float %122, i64 2
@@ -128398,7 +128398,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
   %258 = getelementptr inbounds i16, ptr %257, i64 %indvars.iv259.i.i.i
   %259 = load i16, ptr %258, align 2, !tbaa !648
   %260 = uitofp i16 %259 to float
-  %261 = fmul float %260, 0x3EF0001000000000
+  %261 = fmul nnan float %260, 0x3EF0001000000000
   %262 = load ptr, ptr %4, align 8, !tbaa !702
   %263 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %262)
           to label %.noexc152.i.i.i unwind label %276
@@ -128414,7 +128414,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.._crit_edge_c
 266:                                              ; preds = %265, %.noexc152.i.i.i
   %267 = load ptr, ptr %19, align 8, !tbaa !710
   %268 = getelementptr inbounds i16, ptr %267, i64 %indvars.iv259.i.i.i
-  %269 = fmul float %261, 6.553500e+04
+  %269 = fmul nnan float %261, 6.553500e+04
   %270 = fadd float %269, 5.000000e-01
   %271 = fcmp ogt float %270, 6.553500e+04
   %.1.i.i.i.i.i.i151.i.i.i = select i1 %271, float 6.553500e+04, float %270
@@ -128871,7 +128871,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %170 = sext i32 %169 to i64
   %171 = add nsw i32 %167, -1
   %172 = sitofp i32 %171 to float
-  %173 = fmul float %.1.i.i.i.i.i, %172
+  %173 = fmul nnan float %.1.i.i.i.i.i, %172
   %174 = call noundef float @llvm.floor.f32(float %173)
   %175 = fptosi float %174 to i32
   %176 = fsub float %173, %174
@@ -129243,16 +129243,16 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 91:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i
   %92 = load i8, ptr %90, align 1, !tbaa !47
   %93 = uitofp i8 %92 to float
-  %94 = fmul float %93, 0x3F70101020000000
+  %94 = fmul nnan float %93, 0x3F70101020000000
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 1
   %96 = load i8, ptr %95, align 1, !tbaa !47
   %97 = uitofp i8 %96 to float
-  %98 = fmul float %97, 0x3F70101020000000
+  %98 = fmul nnan float %97, 0x3F70101020000000
   %99 = getelementptr inbounds nuw i8, ptr %90, i64 2
   %100 = load i8, ptr %99, align 1, !tbaa !47
   %101 = uitofp i8 %100 to float
-  %102 = fmul float %101, 0x3F70101020000000
-  %103 = fmul float %98, 0x3FE6E2EB20000000
+  %102 = fmul nnan float %101, 0x3F70101020000000
+  %103 = fmul nnan float %98, 0x3FE6E2EB20000000
   %104 = call float @llvm.fmuladd.f32(float %94, float 0x3FCB367A00000000, float %103)
   %105 = call float @llvm.fmuladd.f32(float %102, float 0x3FB27BB300000000, float %104)
   br label %112
@@ -129262,7 +129262,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %108 = getelementptr inbounds nuw i8, ptr %90, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !47
   %110 = uitofp i8 %109 to float
-  %111 = fmul float %110, 0x3F70101020000000
+  %111 = fmul nnan float %110, 0x3F70101020000000
   br label %112
 
 112:                                              ; preds = %106, %91
@@ -129399,7 +129399,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %178 = sext i32 %177 to i64
   %179 = add nsw i32 %175, -1
   %180 = sitofp i32 %179 to float
-  %181 = fmul float %.1.i.i.i.i.i, %180
+  %181 = fmul nnan float %.1.i.i.i.i.i, %180
   %182 = call noundef float @llvm.floor.f32(float %181)
   %183 = fptosi float %182 to i32
   %184 = fsub float %181, %182
@@ -130068,7 +130068,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEixEi.exit28.
   %261 = sext i32 %260 to i64
   %262 = add nsw i32 %258, -1
   %263 = sitofp i32 %262 to float
-  %264 = fmul float %.1.i.i.i.i.i, %263
+  %264 = fmul nnan float %.1.i.i.i.i.i, %263
   %265 = call noundef float @llvm.floor.f32(float %264)
   %266 = fptosi float %265 to i32
   %267 = fsub float %264, %265
@@ -130437,16 +130437,16 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 91:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i
   %92 = load i16, ptr %90, align 2, !tbaa !648
   %93 = uitofp i16 %92 to float
-  %94 = fmul float %93, 0x3EF0001000000000
+  %94 = fmul nnan float %93, 0x3EF0001000000000
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 2
   %96 = load i16, ptr %95, align 2, !tbaa !648
   %97 = uitofp i16 %96 to float
-  %98 = fmul float %97, 0x3EF0001000000000
+  %98 = fmul nnan float %97, 0x3EF0001000000000
   %99 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %100 = load i16, ptr %99, align 2, !tbaa !648
   %101 = uitofp i16 %100 to float
-  %102 = fmul float %101, 0x3EF0001000000000
-  %103 = fmul float %98, 0x3FE6E2EB20000000
+  %102 = fmul nnan float %101, 0x3EF0001000000000
+  %103 = fmul nnan float %98, 0x3FE6E2EB20000000
   %104 = call float @llvm.fmuladd.f32(float %94, float 0x3FCB367A00000000, float %103)
   %105 = call float @llvm.fmuladd.f32(float %102, float 0x3FB27BB300000000, float %104)
   br label %112
@@ -130456,7 +130456,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %108 = getelementptr inbounds nuw i16, ptr %90, i64 %107
   %109 = load i16, ptr %108, align 2, !tbaa !648
   %110 = uitofp i16 %109 to float
-  %111 = fmul float %110, 0x3EF0001000000000
+  %111 = fmul nnan float %110, 0x3EF0001000000000
   br label %112
 
 112:                                              ; preds = %106, %91
@@ -130593,7 +130593,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %178 = sext i32 %177 to i64
   %179 = add nsw i32 %175, -1
   %180 = sitofp i32 %179 to float
-  %181 = fmul float %.1.i.i.i.i.i, %180
+  %181 = fmul nnan float %.1.i.i.i.i.i, %180
   %182 = call noundef float @llvm.floor.f32(float %181)
   %183 = fptosi float %182 to i32
   %184 = fsub float %181, %182
@@ -130962,16 +130962,16 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 91:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i
   %92 = load i8, ptr %90, align 1, !tbaa !47
   %93 = uitofp i8 %92 to float
-  %94 = fmul float %93, 0x3F70101020000000
+  %94 = fmul nnan float %93, 0x3F70101020000000
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 1
   %96 = load i8, ptr %95, align 1, !tbaa !47
   %97 = uitofp i8 %96 to float
-  %98 = fmul float %97, 0x3F70101020000000
+  %98 = fmul nnan float %97, 0x3F70101020000000
   %99 = getelementptr inbounds nuw i8, ptr %90, i64 2
   %100 = load i8, ptr %99, align 1, !tbaa !47
   %101 = uitofp i8 %100 to float
-  %102 = fmul float %101, 0x3F70101020000000
-  %103 = fmul float %98, 0x3FE6E2EB20000000
+  %102 = fmul nnan float %101, 0x3F70101020000000
+  %103 = fmul nnan float %98, 0x3FE6E2EB20000000
   %104 = call float @llvm.fmuladd.f32(float %94, float 0x3FCB367A00000000, float %103)
   %105 = call float @llvm.fmuladd.f32(float %102, float 0x3FB27BB300000000, float %104)
   br label %112
@@ -130981,7 +130981,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %108 = getelementptr inbounds nuw i8, ptr %90, i64 %107
   %109 = load i8, ptr %108, align 1, !tbaa !47
   %110 = uitofp i8 %109 to float
-  %111 = fmul float %110, 0x3F70101020000000
+  %111 = fmul nnan float %110, 0x3F70101020000000
   br label %112
 
 112:                                              ; preds = %106, %91
@@ -131118,7 +131118,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %178 = sext i32 %177 to i64
   %179 = add nsw i32 %175, -1
   %180 = sitofp i32 %179 to float
-  %181 = fmul float %.1.i.i.i.i.i, %180
+  %181 = fmul nnan float %.1.i.i.i.i.i, %180
   %182 = call noundef float @llvm.floor.f32(float %181)
   %183 = fptosi float %182 to i32
   %184 = fsub float %181, %182
@@ -131796,7 +131796,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIN9Imath_3_14halfEfEixEi.exit28.
   %261 = sext i32 %260 to i64
   %262 = add nsw i32 %258, -1
   %263 = sitofp i32 %262 to float
-  %264 = fmul float %.1.i.i.i.i.i, %263
+  %264 = fmul nnan float %.1.i.i.i.i.i, %263
   %265 = call noundef float @llvm.floor.f32(float %264)
   %266 = fptosi float %265 to i32
   %267 = fsub float %264, %265
@@ -132243,16 +132243,16 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 91:                                               ; preds = %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i
   %92 = load i16, ptr %90, align 2, !tbaa !648
   %93 = uitofp i16 %92 to float
-  %94 = fmul float %93, 0x3EF0001000000000
+  %94 = fmul nnan float %93, 0x3EF0001000000000
   %95 = getelementptr inbounds nuw i8, ptr %90, i64 2
   %96 = load i16, ptr %95, align 2, !tbaa !648
   %97 = uitofp i16 %96 to float
-  %98 = fmul float %97, 0x3EF0001000000000
+  %98 = fmul nnan float %97, 0x3EF0001000000000
   %99 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %100 = load i16, ptr %99, align 2, !tbaa !648
   %101 = uitofp i16 %100 to float
-  %102 = fmul float %101, 0x3EF0001000000000
-  %103 = fmul float %98, 0x3FE6E2EB20000000
+  %102 = fmul nnan float %101, 0x3EF0001000000000
+  %103 = fmul nnan float %98, 0x3FE6E2EB20000000
   %104 = call float @llvm.fmuladd.f32(float %94, float 0x3FCB367A00000000, float %103)
   %105 = call float @llvm.fmuladd.f32(float %102, float 0x3FB27BB300000000, float %104)
   br label %112
@@ -132262,7 +132262,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %108 = getelementptr inbounds nuw i16, ptr %90, i64 %107
   %109 = load i16, ptr %108, align 2, !tbaa !648
   %110 = uitofp i16 %109 to float
-  %111 = fmul float %110, 0x3EF0001000000000
+  %111 = fmul nnan float %110, 0x3EF0001000000000
   br label %112
 
 112:                                              ; preds = %106, %91
@@ -132399,7 +132399,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %178 = sext i32 %177 to i64
   %179 = add nsw i32 %175, -1
   %180 = sitofp i32 %179 to float
-  %181 = fmul float %.1.i.i.i.i.i, %180
+  %181 = fmul nnan float %.1.i.i.i.i.i, %180
   %182 = call noundef float @llvm.floor.f32(float %181)
   %183 = fptosi float %182 to i32
   %184 = fsub float %181, %182
@@ -139231,12 +139231,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %105 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !47
   %107 = uitofp i8 %106 to float
-  %108 = fmul float %107, 0x3F70101020000000
+  %108 = fmul nnan float %107, 0x3F70101020000000
   %109 = load ptr, ptr %23, align 8, !tbaa !710
   %110 = getelementptr inbounds i8, ptr %109, i64 %104
   %111 = load i8, ptr %110, align 1, !tbaa !47
   %112 = uitofp i8 %111 to float
-  %113 = fmul float %112, 0x3F70101020000000
+  %113 = fmul nnan float %112, 0x3F70101020000000
   %114 = load i8, ptr %24, align 8, !tbaa !1683, !range !217, !noundef !218
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %116, label %124
@@ -139277,7 +139277,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %131 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 %130
   %132 = load i8, ptr %131, align 1, !tbaa !47
   %133 = uitofp i8 %132 to float
-  %134 = fmul float %133, 0x3F70101020000000
+  %134 = fmul nnan float %133, 0x3F70101020000000
   %135 = fcmp ogt float %134, 1.000000e+00
   %.1.i67.i.i.i = select i1 %135, float 1.000000e+00, float %134
   %136 = fsub float 1.000000e+00, %.1.i67.i.i.i
@@ -139303,12 +139303,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %142 = getelementptr inbounds i8, ptr %141, i64 %indvars.iv.i.i.i
   %143 = load i8, ptr %142, align 1, !tbaa !47
   %144 = uitofp i8 %143 to float
-  %145 = fmul float %144, 0x3F70101020000000
+  %145 = fmul nnan float %144, 0x3F70101020000000
   %146 = load ptr, ptr %23, align 8, !tbaa !710
   %147 = getelementptr inbounds i8, ptr %146, i64 %indvars.iv.i.i.i
   %148 = load i8, ptr %147, align 1, !tbaa !47
   %149 = uitofp i8 %148 to float
-  %150 = fmul float %149, 0x3F70101020000000
+  %150 = fmul nnan float %149, 0x3F70101020000000
   %151 = call float @llvm.fmuladd.f32(float %136, float %150, float %145)
   %152 = load ptr, ptr %5, align 8, !tbaa !702
   %153 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %152)
@@ -139368,7 +139368,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %178 = getelementptr inbounds i8, ptr %109, i64 %177
   %179 = load i8, ptr %178, align 1, !tbaa !47
   %180 = uitofp i8 %179 to float
-  %181 = fmul float %180, 0x3F70101020000000
+  %181 = fmul nnan float %180, 0x3F70101020000000
   %182 = fcmp ogt float %181, 1.000000e+00
   %.1.i.i.i.i = select i1 %182, float 1.000000e+00, float %181
   %183 = fsub float 1.000000e+00, %.1.i.i.i.i
@@ -139404,12 +139404,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %192 = getelementptr inbounds i8, ptr %191, i64 %indvars.iv109.i.i.i
   %193 = load i8, ptr %192, align 1, !tbaa !47
   %194 = uitofp i8 %193 to float
-  %195 = fmul float %194, 0x3F70101020000000
+  %195 = fmul nnan float %194, 0x3F70101020000000
   %196 = load ptr, ptr %22, align 8, !tbaa !710
   %197 = getelementptr inbounds i8, ptr %196, i64 %indvars.iv109.i.i.i
   %198 = load i8, ptr %197, align 1, !tbaa !47
   %199 = uitofp i8 %198 to float
-  %200 = fmul float %199, 0x3F70101020000000
+  %200 = fmul nnan float %199, 0x3F70101020000000
   %201 = call float @llvm.fmuladd.f32(float %183, float %200, float %195)
   %202 = load ptr, ptr %5, align 8, !tbaa !702
   %203 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %202)
@@ -139455,7 +139455,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %.sink121.i.i.i = phi i64 [ %168, %173 ], [ %168, %.noexc71.i.i.i ], [ %.pre-phi.i.i.i, %.noexc81.i.i.i ], [ %.pre-phi.i.i.i, %215 ]
   %.sink.in.in.i.i.i = phi i8 [ %.in102.in.i.i.i, %173 ], [ %.in102.in.i.i.i, %.noexc71.i.i.i ], [ %.in.in.i.i.i, %.noexc81.i.i.i ], [ %.in.in.i.i.i, %215 ]
   %.sink.in.i.i.i = uitofp i8 %.sink.in.in.i.i.i to float
-  %.sink.i.i.i = fmul float %.sink.in.i.i.i, 0x3F70101020000000
+  %.sink.i.i.i = fmul nnan float %.sink.in.i.i.i, 0x3F70101020000000
   %218 = load ptr, ptr %28, align 8, !tbaa !710
   %219 = getelementptr inbounds float, ptr %218, i64 %.sink121.i.i.i
   store float %.sink.i.i.i, ptr %219, align 4, !tbaa !54
@@ -140032,12 +140032,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %105 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !47
   %107 = uitofp i8 %106 to float
-  %108 = fmul float %107, 0x3F70101020000000
+  %108 = fmul nnan float %107, 0x3F70101020000000
   %109 = load ptr, ptr %23, align 8, !tbaa !710
   %110 = getelementptr inbounds i8, ptr %109, i64 %104
   %111 = load i8, ptr %110, align 1, !tbaa !47
   %112 = uitofp i8 %111 to float
-  %113 = fmul float %112, 0x3F70101020000000
+  %113 = fmul nnan float %112, 0x3F70101020000000
   %114 = load i8, ptr %24, align 8, !tbaa !1694, !range !217, !noundef !218
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %116, label %124
@@ -140078,10 +140078,10 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %131 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 %130
   %132 = load i8, ptr %131, align 1, !tbaa !47
   %133 = uitofp i8 %132 to float
-  %134 = fmul float %133, 0x3F70101020000000
+  %134 = fmul nnan float %133, 0x3F70101020000000
   %135 = fcmp ogt float %134, 1.000000e+00
   %.1.i67.i.i.i = select i1 %135, float 1.000000e+00, float %134
-  %136 = fsub float 1.000000e+00, %.1.i67.i.i.i
+  %136 = fsub nnan float 1.000000e+00, %.1.i67.i.i.i
   %137 = icmp slt i32 %128, %127
   br i1 %137, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i
 
@@ -140104,12 +140104,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %142 = getelementptr inbounds i8, ptr %141, i64 %indvars.iv.i.i.i
   %143 = load i8, ptr %142, align 1, !tbaa !47
   %144 = uitofp i8 %143 to float
-  %145 = fmul float %144, 0x3F70101020000000
+  %145 = fmul nnan float %144, 0x3F70101020000000
   %146 = load ptr, ptr %23, align 8, !tbaa !710
   %147 = getelementptr inbounds i8, ptr %146, i64 %indvars.iv.i.i.i
   %148 = load i8, ptr %147, align 1, !tbaa !47
   %149 = uitofp i8 %148 to float
-  %150 = fmul float %149, 0x3F70101020000000
+  %150 = fmul nnan float %149, 0x3F70101020000000
   %151 = call float @llvm.fmuladd.f32(float %136, float %150, float %145)
   %152 = load ptr, ptr %5, align 8, !tbaa !702
   %153 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %152)
@@ -140178,10 +140178,10 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %184 = getelementptr inbounds i8, ptr %109, i64 %183
   %185 = load i8, ptr %184, align 1, !tbaa !47
   %186 = uitofp i8 %185 to float
-  %187 = fmul float %186, 0x3F70101020000000
+  %187 = fmul nnan float %186, 0x3F70101020000000
   %188 = fcmp ogt float %187, 1.000000e+00
   %.1.i.i.i.i = select i1 %188, float 1.000000e+00, float %187
-  %189 = fsub float 1.000000e+00, %.1.i.i.i.i
+  %189 = fsub nnan float 1.000000e+00, %.1.i.i.i.i
   %190 = icmp slt i32 %.pre37.i.i, %.pre39.i.i
   br i1 %190, label %.lr.ph115.preheader.i.i.i, label %._crit_edge116.i.i.i
 
@@ -140214,12 +140214,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %198 = getelementptr inbounds i8, ptr %197, i64 %indvars.iv118.i.i.i
   %199 = load i8, ptr %198, align 1, !tbaa !47
   %200 = uitofp i8 %199 to float
-  %201 = fmul float %200, 0x3F70101020000000
+  %201 = fmul nnan float %200, 0x3F70101020000000
   %202 = load ptr, ptr %22, align 8, !tbaa !710
   %203 = getelementptr inbounds i8, ptr %202, i64 %indvars.iv118.i.i.i
   %204 = load i8, ptr %203, align 1, !tbaa !47
   %205 = uitofp i8 %204 to float
-  %206 = fmul float %205, 0x3F70101020000000
+  %206 = fmul nnan float %205, 0x3F70101020000000
   %207 = call float @llvm.fmuladd.f32(float %189, float %206, float %201)
   %208 = load ptr, ptr %5, align 8, !tbaa !702
   %209 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %208)
@@ -140274,10 +140274,10 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %.sink132.i.i.i = phi i64 [ %174, %179 ], [ %174, %.noexc74.i.i.i ], [ %.pre-phi.i.i.i, %.noexc90.i.i.i ], [ %.pre-phi.i.i.i, %227 ]
   %.sink131.in.in.i.i.i = phi i8 [ %.in111.in.i.i.i, %179 ], [ %.in111.in.i.i.i, %.noexc74.i.i.i ], [ %.in.in.i.i.i, %.noexc90.i.i.i ], [ %.in.in.i.i.i, %227 ]
   %.sink131.in.i.i.i = uitofp i8 %.sink131.in.in.i.i.i to float
-  %.sink131.i.i.i = fmul float %.sink131.in.i.i.i, 0x3F70101020000000
+  %.sink131.i.i.i = fmul nnan float %.sink131.in.i.i.i, 0x3F70101020000000
   %230 = load ptr, ptr %28, align 8, !tbaa !710
   %231 = getelementptr inbounds i8, ptr %230, i64 %.sink132.i.i.i
-  %232 = fmul float %.sink131.i.i.i, 2.550000e+02
+  %232 = fmul nnan float %.sink131.i.i.i, 2.550000e+02
   %233 = fadd float %232, 5.000000e-01
   %234 = fcmp ogt float %233, 2.550000e+02
   %.1.i.i.i.i.i.i73.i.i.i = select i1 %234, float 2.550000e+02, float %233
@@ -143654,12 +143654,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %105 = getelementptr inbounds i16, ptr %.pre.i.i.i, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !648
   %107 = uitofp i16 %106 to float
-  %108 = fmul float %107, 0x3EF0001000000000
+  %108 = fmul nnan float %107, 0x3EF0001000000000
   %109 = load ptr, ptr %23, align 8, !tbaa !710
   %110 = getelementptr inbounds i16, ptr %109, i64 %104
   %111 = load i16, ptr %110, align 2, !tbaa !648
   %112 = uitofp i16 %111 to float
-  %113 = fmul float %112, 0x3EF0001000000000
+  %113 = fmul nnan float %112, 0x3EF0001000000000
   %114 = load i8, ptr %24, align 8, !tbaa !1727, !range !217, !noundef !218
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %116, label %124
@@ -143700,7 +143700,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %131 = getelementptr inbounds i16, ptr %.pre.i.i.i, i64 %130
   %132 = load i16, ptr %131, align 2, !tbaa !648
   %133 = uitofp i16 %132 to float
-  %134 = fmul float %133, 0x3EF0001000000000
+  %134 = fmul nnan float %133, 0x3EF0001000000000
   %135 = fcmp ogt float %134, 1.000000e+00
   %.1.i67.i.i.i = select i1 %135, float 1.000000e+00, float %134
   %136 = fsub float 1.000000e+00, %.1.i67.i.i.i
@@ -143726,12 +143726,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %142 = getelementptr inbounds i16, ptr %141, i64 %indvars.iv.i.i.i
   %143 = load i16, ptr %142, align 2, !tbaa !648
   %144 = uitofp i16 %143 to float
-  %145 = fmul float %144, 0x3EF0001000000000
+  %145 = fmul nnan float %144, 0x3EF0001000000000
   %146 = load ptr, ptr %23, align 8, !tbaa !710
   %147 = getelementptr inbounds i16, ptr %146, i64 %indvars.iv.i.i.i
   %148 = load i16, ptr %147, align 2, !tbaa !648
   %149 = uitofp i16 %148 to float
-  %150 = fmul float %149, 0x3EF0001000000000
+  %150 = fmul nnan float %149, 0x3EF0001000000000
   %151 = call float @llvm.fmuladd.f32(float %136, float %150, float %145)
   %152 = load ptr, ptr %5, align 8, !tbaa !702
   %153 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %152)
@@ -143791,7 +143791,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %178 = getelementptr inbounds i16, ptr %109, i64 %177
   %179 = load i16, ptr %178, align 2, !tbaa !648
   %180 = uitofp i16 %179 to float
-  %181 = fmul float %180, 0x3EF0001000000000
+  %181 = fmul nnan float %180, 0x3EF0001000000000
   %182 = fcmp ogt float %181, 1.000000e+00
   %.1.i.i.i.i = select i1 %182, float 1.000000e+00, float %181
   %183 = fsub float 1.000000e+00, %.1.i.i.i.i
@@ -143827,12 +143827,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %192 = getelementptr inbounds i16, ptr %191, i64 %indvars.iv109.i.i.i
   %193 = load i16, ptr %192, align 2, !tbaa !648
   %194 = uitofp i16 %193 to float
-  %195 = fmul float %194, 0x3EF0001000000000
+  %195 = fmul nnan float %194, 0x3EF0001000000000
   %196 = load ptr, ptr %22, align 8, !tbaa !710
   %197 = getelementptr inbounds i16, ptr %196, i64 %indvars.iv109.i.i.i
   %198 = load i16, ptr %197, align 2, !tbaa !648
   %199 = uitofp i16 %198 to float
-  %200 = fmul float %199, 0x3EF0001000000000
+  %200 = fmul nnan float %199, 0x3EF0001000000000
   %201 = call float @llvm.fmuladd.f32(float %183, float %200, float %195)
   %202 = load ptr, ptr %5, align 8, !tbaa !702
   %203 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %202)
@@ -143878,7 +143878,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %.sink121.i.i.i = phi i64 [ %168, %173 ], [ %168, %.noexc71.i.i.i ], [ %.pre-phi.i.i.i, %.noexc81.i.i.i ], [ %.pre-phi.i.i.i, %215 ]
   %.sink.in.in.i.i.i = phi i16 [ %.in102.in.i.i.i, %173 ], [ %.in102.in.i.i.i, %.noexc71.i.i.i ], [ %.in.in.i.i.i, %.noexc81.i.i.i ], [ %.in.in.i.i.i, %215 ]
   %.sink.in.i.i.i = uitofp i16 %.sink.in.in.i.i.i to float
-  %.sink.i.i.i = fmul float %.sink.in.i.i.i, 0x3EF0001000000000
+  %.sink.i.i.i = fmul nnan float %.sink.in.i.i.i, 0x3EF0001000000000
   %218 = load ptr, ptr %28, align 8, !tbaa !710
   %219 = getelementptr inbounds float, ptr %218, i64 %.sink121.i.i.i
   store float %.sink.i.i.i, ptr %219, align 4, !tbaa !54
@@ -144455,12 +144455,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %105 = getelementptr inbounds i16, ptr %.pre.i.i.i, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !648
   %107 = uitofp i16 %106 to float
-  %108 = fmul float %107, 0x3EF0001000000000
+  %108 = fmul nnan float %107, 0x3EF0001000000000
   %109 = load ptr, ptr %23, align 8, !tbaa !710
   %110 = getelementptr inbounds i16, ptr %109, i64 %104
   %111 = load i16, ptr %110, align 2, !tbaa !648
   %112 = uitofp i16 %111 to float
-  %113 = fmul float %112, 0x3EF0001000000000
+  %113 = fmul nnan float %112, 0x3EF0001000000000
   %114 = load i8, ptr %24, align 8, !tbaa !1738, !range !217, !noundef !218
   %115 = trunc nuw i8 %114 to i1
   br i1 %115, label %116, label %124
@@ -144501,10 +144501,10 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %131 = getelementptr inbounds i16, ptr %.pre.i.i.i, i64 %130
   %132 = load i16, ptr %131, align 2, !tbaa !648
   %133 = uitofp i16 %132 to float
-  %134 = fmul float %133, 0x3EF0001000000000
+  %134 = fmul nnan float %133, 0x3EF0001000000000
   %135 = fcmp ogt float %134, 1.000000e+00
   %.1.i67.i.i.i = select i1 %135, float 1.000000e+00, float %134
-  %136 = fsub float 1.000000e+00, %.1.i67.i.i.i
+  %136 = fsub nnan float 1.000000e+00, %.1.i67.i.i.i
   %137 = icmp slt i32 %128, %127
   br i1 %137, label %.lr.ph.preheader.i.i.i, label %._crit_edge.i.i.i
 
@@ -144527,12 +144527,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %142 = getelementptr inbounds i16, ptr %141, i64 %indvars.iv.i.i.i
   %143 = load i16, ptr %142, align 2, !tbaa !648
   %144 = uitofp i16 %143 to float
-  %145 = fmul float %144, 0x3EF0001000000000
+  %145 = fmul nnan float %144, 0x3EF0001000000000
   %146 = load ptr, ptr %23, align 8, !tbaa !710
   %147 = getelementptr inbounds i16, ptr %146, i64 %indvars.iv.i.i.i
   %148 = load i16, ptr %147, align 2, !tbaa !648
   %149 = uitofp i16 %148 to float
-  %150 = fmul float %149, 0x3EF0001000000000
+  %150 = fmul nnan float %149, 0x3EF0001000000000
   %151 = call float @llvm.fmuladd.f32(float %136, float %150, float %145)
   %152 = load ptr, ptr %5, align 8, !tbaa !702
   %153 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %152)
@@ -144601,10 +144601,10 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %184 = getelementptr inbounds i16, ptr %109, i64 %183
   %185 = load i16, ptr %184, align 2, !tbaa !648
   %186 = uitofp i16 %185 to float
-  %187 = fmul float %186, 0x3EF0001000000000
+  %187 = fmul nnan float %186, 0x3EF0001000000000
   %188 = fcmp ogt float %187, 1.000000e+00
   %.1.i.i.i.i = select i1 %188, float 1.000000e+00, float %187
-  %189 = fsub float 1.000000e+00, %.1.i.i.i.i
+  %189 = fsub nnan float 1.000000e+00, %.1.i.i.i.i
   %190 = icmp slt i32 %.pre37.i.i, %.pre39.i.i
   br i1 %190, label %.lr.ph115.preheader.i.i.i, label %._crit_edge116.i.i.i
 
@@ -144637,12 +144637,12 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %198 = getelementptr inbounds i16, ptr %197, i64 %indvars.iv118.i.i.i
   %199 = load i16, ptr %198, align 2, !tbaa !648
   %200 = uitofp i16 %199 to float
-  %201 = fmul float %200, 0x3EF0001000000000
+  %201 = fmul nnan float %200, 0x3EF0001000000000
   %202 = load ptr, ptr %22, align 8, !tbaa !710
   %203 = getelementptr inbounds i16, ptr %202, i64 %indvars.iv118.i.i.i
   %204 = load i16, ptr %203, align 2, !tbaa !648
   %205 = uitofp i16 %204 to float
-  %206 = fmul float %205, 0x3EF0001000000000
+  %206 = fmul nnan float %205, 0x3EF0001000000000
   %207 = call float @llvm.fmuladd.f32(float %189, float %206, float %201)
   %208 = load ptr, ptr %5, align 8, !tbaa !702
   %209 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %208)
@@ -144697,10 +144697,10 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i._crit_edge.
   %.sink132.i.i.i = phi i64 [ %174, %179 ], [ %174, %.noexc74.i.i.i ], [ %.pre-phi.i.i.i, %.noexc90.i.i.i ], [ %.pre-phi.i.i.i, %227 ]
   %.sink131.in.in.i.i.i = phi i16 [ %.in111.in.i.i.i, %179 ], [ %.in111.in.i.i.i, %.noexc74.i.i.i ], [ %.in.in.i.i.i, %.noexc90.i.i.i ], [ %.in.in.i.i.i, %227 ]
   %.sink131.in.i.i.i = uitofp i16 %.sink131.in.in.i.i.i to float
-  %.sink131.i.i.i = fmul float %.sink131.in.i.i.i, 0x3EF0001000000000
+  %.sink131.i.i.i = fmul nnan float %.sink131.in.i.i.i, 0x3EF0001000000000
   %230 = load ptr, ptr %28, align 8, !tbaa !710
   %231 = getelementptr inbounds i16, ptr %230, i64 %.sink132.i.i.i
-  %232 = fmul float %.sink131.i.i.i, 6.553500e+04
+  %232 = fmul nnan float %.sink131.i.i.i, 6.553500e+04
   %233 = fadd float %232, 5.000000e-01
   %234 = fcmp ogt float %233, 6.553500e+04
   %.1.i.i.i.i.i.i73.i.i.i = select i1 %234, float 6.553500e+04, float %233

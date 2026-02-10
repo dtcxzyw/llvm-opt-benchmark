@@ -2641,7 +2641,7 @@ define internal fastcc void @Ses_ManPrintRuntime(ptr noundef readonly captures(n
   %7 = load i64, ptr %6, align 8, !tbaa !90
   %.not = icmp eq i64 %7, 0
   %8 = sitofp i64 %7 to double
-  %9 = fmul double %4, 1.000000e+02
+  %9 = fmul nnan double %4, 1.000000e+02
   %10 = fdiv double %9, %8
   %11 = select i1 %.not, double 0.000000e+00, double %10
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %5, double noundef %11)
@@ -2653,7 +2653,7 @@ define internal fastcc void @Ses_ManPrintRuntime(ptr noundef readonly captures(n
   %16 = load i64, ptr %6, align 8, !tbaa !90
   %.not29 = icmp eq i64 %16, 0
   %17 = sitofp i64 %16 to double
-  %18 = fmul double %14, 1.000000e+02
+  %18 = fmul nnan double %14, 1.000000e+02
   %19 = fdiv double %18, %17
   %20 = select i1 %.not29, double 0.000000e+00, double %19
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %15, double noundef %20)
@@ -2665,7 +2665,7 @@ define internal fastcc void @Ses_ManPrintRuntime(ptr noundef readonly captures(n
   %25 = load i64, ptr %6, align 8, !tbaa !90
   %.not30 = icmp eq i64 %25, 0
   %26 = sitofp i64 %25 to double
-  %27 = fmul double %23, 1.000000e+02
+  %27 = fmul nnan double %23, 1.000000e+02
   %28 = fdiv double %27, %26
   %29 = select i1 %.not30, double 0.000000e+00, double %28
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %24, double noundef %29)
@@ -2677,7 +2677,7 @@ define internal fastcc void @Ses_ManPrintRuntime(ptr noundef readonly captures(n
   %34 = load i64, ptr %6, align 8, !tbaa !90
   %.not31 = icmp eq i64 %34, 0
   %35 = sitofp i64 %34 to double
-  %36 = fmul double %32, 1.000000e+02
+  %36 = fmul nnan double %32, 1.000000e+02
   %37 = fdiv double %36, %35
   %38 = select i1 %.not31, double 0.000000e+00, double %37
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %33, double noundef %38)
@@ -2689,7 +2689,7 @@ define internal fastcc void @Ses_ManPrintRuntime(ptr noundef readonly captures(n
   %43 = load i64, ptr %6, align 8, !tbaa !90
   %.not32 = icmp eq i64 %43, 0
   %44 = sitofp i64 %43 to double
-  %45 = fmul double %41, 1.000000e+02
+  %45 = fmul nnan double %41, 1.000000e+02
   %46 = fdiv double %45, %44
   %47 = select i1 %.not32, double 0.000000e+00, double %46
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %42, double noundef %47)
@@ -2697,7 +2697,7 @@ define internal fastcc void @Ses_ManPrintRuntime(ptr noundef readonly captures(n
   %48 = load i64, ptr %6, align 8, !tbaa !90
   %49 = sitofp i64 %48 to double
   %.not33 = icmp eq i64 %48, 0
-  %50 = fmul double %49, 1.000000e+02
+  %50 = fmul nnan double %49, 1.000000e+02
   %51 = fdiv double %50, %49
   %52 = select i1 %.not33, double 0.000000e+00, double %51
   %53 = fdiv double %49, 1.000000e+06
@@ -4272,7 +4272,7 @@ define void @Abc_ExactStats() local_unnamed_addr #0 {
   %121 = load i64, ptr %120, align 8, !tbaa !193
   %.not36 = icmp eq i64 %121, 0
   %122 = sitofp i64 %121 to double
-  %123 = fmul double %118, 1.000000e+02
+  %123 = fmul nnan double %118, 1.000000e+02
   %124 = fdiv double %123, %122
   %125 = select i1 %.not36, double 0.000000e+00, double %124
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %119, double noundef %125)
@@ -4286,7 +4286,7 @@ define void @Abc_ExactStats() local_unnamed_addr #0 {
   %132 = load i64, ptr %131, align 8, !tbaa !193
   %.not37 = icmp eq i64 %132, 0
   %133 = sitofp i64 %132 to double
-  %134 = fmul double %129, 1.000000e+02
+  %134 = fmul nnan double %129, 1.000000e+02
   %135 = fdiv double %134, %133
   %136 = select i1 %.not37, double 0.000000e+00, double %135
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %130, double noundef %136)
@@ -4300,7 +4300,7 @@ define void @Abc_ExactStats() local_unnamed_addr #0 {
   %143 = load i64, ptr %142, align 8, !tbaa !193
   %.not38 = icmp eq i64 %143, 0
   %144 = sitofp i64 %143 to double
-  %145 = fmul double %140, 1.000000e+02
+  %145 = fmul nnan double %140, 1.000000e+02
   %146 = fdiv double %145, %144
   %147 = select i1 %.not38, double 0.000000e+00, double %146
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %141, double noundef %147)
@@ -4314,7 +4314,7 @@ define void @Abc_ExactStats() local_unnamed_addr #0 {
   %154 = load i64, ptr %153, align 8, !tbaa !193
   %.not39 = icmp eq i64 %154, 0
   %155 = sitofp i64 %154 to double
-  %156 = fmul double %151, 1.000000e+02
+  %156 = fmul nnan double %151, 1.000000e+02
   %157 = fdiv double %156, %155
   %158 = select i1 %.not39, double 0.000000e+00, double %157
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %152, double noundef %158)
@@ -4328,7 +4328,7 @@ define void @Abc_ExactStats() local_unnamed_addr #0 {
   %165 = load i64, ptr %164, align 8, !tbaa !193
   %.not40 = icmp eq i64 %165, 0
   %166 = sitofp i64 %165 to double
-  %167 = fmul double %162, 1.000000e+02
+  %167 = fmul nnan double %162, 1.000000e+02
   %168 = fdiv double %167, %166
   %169 = select i1 %.not40, double 0.000000e+00, double %168
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %163, double noundef %169)
@@ -4342,7 +4342,7 @@ define void @Abc_ExactStats() local_unnamed_addr #0 {
   %176 = load i64, ptr %175, align 8, !tbaa !193
   %.not41 = icmp eq i64 %176, 0
   %177 = sitofp i64 %176 to double
-  %178 = fmul double %173, 1.000000e+02
+  %178 = fmul nnan double %173, 1.000000e+02
   %179 = fdiv double %178, %177
   %180 = select i1 %.not41, double 0.000000e+00, double %179
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %174, double noundef %180)
@@ -4357,7 +4357,7 @@ define void @Abc_ExactStats() local_unnamed_addr #0 {
   %188 = fdiv double %187, 1.000000e+06
   %.not42 = icmp eq i64 %183, 0
   %189 = sitofp i64 %183 to double
-  %190 = fmul double %187, 1.000000e+02
+  %190 = fmul nnan double %187, 1.000000e+02
   %191 = fdiv double %190, %189
   %192 = select i1 %.not42, double 0.000000e+00, double %191
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %188, double noundef %192)
@@ -4368,7 +4368,7 @@ define void @Abc_ExactStats() local_unnamed_addr #0 {
   %196 = sitofp i64 %195 to double
   %197 = fdiv double %196, 1.000000e+06
   %.not43 = icmp eq i64 %195, 0
-  %198 = fmul double %196, 1.000000e+02
+  %198 = fmul nnan double %196, 1.000000e+02
   %199 = fdiv double %198, %196
   %200 = select i1 %.not43, double 0.000000e+00, double %199
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.25, double noundef %197, double noundef %200)

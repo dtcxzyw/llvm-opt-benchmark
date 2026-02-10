@@ -3707,7 +3707,7 @@ define internal noundef i32 @add_timeinterval(ptr noundef %0, i32 noundef %1, i3
   %10 = load i32, ptr @hf_timeinterval, align 4
   %11 = zext i16 %9 to i32
   %12 = uitofp i16 %9 to double
-  %13 = fmul double %12, 1.000000e-04
+  %13 = fmul nnan double %12, 1.000000e-04
   %14 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %4, i32 noundef %10, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef %11, ptr noundef nonnull @.str.702, double noundef %13)
   %15 = add i32 %1, 2
   ret i32 %15

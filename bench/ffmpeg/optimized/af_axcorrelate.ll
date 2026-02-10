@@ -1212,11 +1212,11 @@ mean_sum_f.exit149:                               ; preds = %.lr.ph.i144, %mean_
   %93 = load float, ptr %62, align 4, !tbaa !63
   %94 = tail call nsz float @llvm.fmuladd.f32(float %92, float %89, float %93)
   %95 = tail call nsz float @llvm.maxnum.f32(float %94, float 0.000000e+00)
-  %96 = tail call nsz float @llvm.sqrt.f32(float %95)
+  %96 = tail call nnan nsz float @llvm.sqrt.f32(float %95)
   %97 = fmul nsz float %91, %48
   %98 = tail call nsz float @llvm.fmuladd.f32(float %97, float %91, float %86)
   %99 = tail call nsz float @llvm.maxnum.f32(float %98, float 0.000000e+00)
-  %100 = tail call nsz float @llvm.sqrt.f32(float %99)
+  %100 = tail call nnan nsz float @llvm.sqrt.f32(float %99)
   %101 = fmul nsz float %96, %100
   %102 = fcmp nsz ugt float %101, 0x3EB0C6F7A0000000
   br i1 %102, label %103, label %110
@@ -2011,11 +2011,11 @@ mean_sum_d.exit149:                               ; preds = %.lr.ph.i144, %mean_
   %93 = load double, ptr %62, align 8, !tbaa !74
   %94 = tail call nsz double @llvm.fmuladd.f64(double %92, double %89, double %93)
   %95 = tail call nsz double @llvm.maxnum.f64(double %94, double 0.000000e+00)
-  %96 = tail call nsz double @llvm.sqrt.f64(double %95)
+  %96 = tail call nnan nsz double @llvm.sqrt.f64(double %95)
   %97 = fmul nsz double %91, %48
   %98 = tail call nsz double @llvm.fmuladd.f64(double %97, double %91, double %86)
   %99 = tail call nsz double @llvm.maxnum.f64(double %98, double 0.000000e+00)
-  %100 = tail call nsz double @llvm.sqrt.f64(double %99)
+  %100 = tail call nnan nsz double @llvm.sqrt.f64(double %99)
   %101 = fmul nsz double %96, %100
   %102 = fcmp nsz ugt double %101, 1.000000e-09
   br i1 %102, label %103, label %110

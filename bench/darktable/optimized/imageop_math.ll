@@ -39,7 +39,7 @@ define void @dt_iop_flip_and_zoom_8(ptr noundef readonly captures(none) %0, i32 
 
 .lr.ph180:                                        ; preds = %9
   %factor.op.mul177 = shl i32 %1, 2
-  %31 = fmul reassoc nsz arcp contract afn float %20, 5.000000e-01
+  %31 = fmul reassoc nnan nsz arcp contract afn float %20, 5.000000e-01
   %32 = fptosi float %31 to i32
   %33 = shl nsw i32 %32, 2
   %.1 = select i1 %.not, i32 %.0156, i32 %.0157
@@ -3014,7 +3014,7 @@ define void @dt_iop_clip_and_zoom_demosaic_third_size_xtrans_f(ptr noundef write
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds float, ptr %0, i64 %37
   %39 = uitofp nneg i32 %35 to float
-  %40 = fadd reassoc nsz arcp contract afn float %39, -5.000000e-01
+  %40 = fadd reassoc nnan nsz arcp contract afn float %39, -5.000000e-01
   %41 = fmul reassoc nsz arcp contract afn float %40, %11
   %42 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %41)
   %43 = fptosi float %42 to i32
@@ -3042,7 +3042,7 @@ define void @dt_iop_clip_and_zoom_demosaic_third_size_xtrans_f(ptr noundef write
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %49 = uitofp nneg i32 %.076115.us122 to float
-  %50 = fadd reassoc nsz arcp contract afn float %49, -5.000000e-01
+  %50 = fadd reassoc nnan nsz arcp contract afn float %49, -5.000000e-01
   %51 = fmul reassoc nsz arcp contract afn float %50, %11
   %52 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %51)
   %53 = fptosi float %52 to i32

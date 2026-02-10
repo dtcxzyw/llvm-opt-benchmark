@@ -2460,7 +2460,7 @@ rolename_create.exit:                             ; preds = %rolename_compute_si
   store i32 %61, ptr %62, align 4
   %63 = icmp eq i64 %.0.i.i.i.i, 4294967296
   %64 = uitofp i64 %.0.i.i.i.i to double
-  %65 = fmul double %64, 9.000000e-01
+  %65 = fmul nnan double %64, 9.000000e-01
   %66 = fptoui double %65 to i32
   %.sink.i.i = select i1 %63, i32 -85899346, i32 %66
   %67 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -2604,7 +2604,7 @@ rolename_update_parameters.exit.i.us:             ; preds = %rolename_compute_si
   store i32 %140, ptr %62, align 4
   %141 = icmp eq i64 %.0.i.i.i.i108.us, 4294967296
   %142 = uitofp i64 %.0.i.i.i.i108.us to double
-  %143 = fmul double %142, 9.000000e-01
+  %143 = fmul nnan double %142, 9.000000e-01
   %144 = fptoui double %143 to i32
   %.sink.i.i109.us = select i1 %141, i32 -85899346, i32 %144
   store i32 %.sink.i.i109.us, ptr %67, align 8

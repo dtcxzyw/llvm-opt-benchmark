@@ -1621,7 +1621,7 @@ define noalias noundef ptr @Gia_ManFindLatest(ptr noundef %0, i32 noundef %1, i3
 
 37:                                               ; preds = %._crit_edge
   %38 = sitofp i32 %2 to double
-  %39 = tail call double @llvm.fmuladd.f64(double %38, double -1.000000e-02, double 1.000000e+00)
+  %39 = tail call nnan double @llvm.fmuladd.f64(double %38, double -1.000000e-02, double 1.000000e+00)
   %40 = uitofp nneg i32 %.068.lcssa to double
   %41 = fmul double %39, %40
   %42 = fptosi double %41 to i32
@@ -1750,7 +1750,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 
 97:                                               ; preds = %95
   %98 = sitofp i32 %2 to double
-  %99 = tail call double @llvm.fmuladd.f64(double %98, double -1.000000e-02, double 1.000000e+00)
+  %99 = tail call nnan double @llvm.fmuladd.f64(double %98, double -1.000000e-02, double 1.000000e+00)
   %100 = sitofp i32 %96 to double
   %101 = fmul double %99, %100
   %102 = fptosi double %101 to i32

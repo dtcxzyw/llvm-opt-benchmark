@@ -466,7 +466,7 @@ define dso_local void @_ZN16btManifoldResult15addContactPointERK9btVector3S2_f(p
 250:                                              ; preds = %242
   %251 = getelementptr inbounds nuw i8, ptr %5, i64 68
   %252 = load float, ptr %251, align 4, !tbaa !43
-  %253 = fmul float %246, %246
+  %253 = fmul nnan float %246, %246
   %254 = call float @llvm.fmuladd.f32(float %252, float %252, float %253)
   %sqrt.i = call float @llvm.sqrt.f32(float %254)
   %255 = fdiv float 1.000000e+00, %sqrt.i

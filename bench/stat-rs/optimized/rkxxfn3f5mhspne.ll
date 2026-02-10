@@ -947,7 +947,7 @@ define noundef double @"_ZN102_$LT$statrs..distribution..beta..Beta$u20$as$u20$s
   br i1 %76, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit28", label %79
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit28": ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit24"
-  %77 = tail call noundef double @llvm.log.f64(double %1)
+  %77 = tail call nnan ninf double @llvm.log.f64(double %1)
   %78 = fmul double %77, %27
   br label %79
 
@@ -1027,7 +1027,7 @@ define noundef double @"_ZN102_$LT$statrs..distribution..beta..Beta$u20$as$u20$s
   br i1 %114, label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit36.thread", label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit40.thread78"
 
 "_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit40.thread78": ; preds = %107, %112, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit40"
-  %115 = fsub double 1.000000e+00, %1
+  %115 = fsub nnan double 1.000000e+00, %1
   %116 = tail call noundef double @llvm.log.f64(double %115)
   %117 = fmul double %116, %80
   br label %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit36.thread"
@@ -1357,7 +1357,7 @@ define { i64, i64 } @"_ZN132_$LT$statrs..distribution..binomial..Binomial$u20$as
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !noundef !4
   %20 = uitofp i64 %19 to double
-  %21 = fadd double %20, 1.000000e+00
+  %21 = fadd nnan double %20, 1.000000e+00
   %22 = fmul double %2, %21
   %23 = tail call double @llvm.floor.f64(double %22)
   %24 = tail call i64 @llvm.fptoui.sat.i64.f64(double %23)
@@ -1773,10 +1773,10 @@ define noundef double @"_ZN111_$LT$statrs..distribution..chi_squared..ChiSquared
   br i1 %4, label %6, label %14
 
 6:                                                ; preds = %1
-  %7 = fmul double %3, 8.100000e+01
+  %7 = fmul nnan double %3, 8.100000e+01
   %8 = fdiv double 1.200000e+01, %7
   %9 = fadd double %5, %8
-  %10 = fmul double %3, 7.290000e+02
+  %10 = fmul nnan double %3, 7.290000e+02
   %11 = fmul double %3, %10
   %12 = fdiv double 8.000000e+00, %11
   %13 = fsub double %9, %12

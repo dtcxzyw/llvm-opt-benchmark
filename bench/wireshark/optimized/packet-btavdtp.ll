@@ -2723,12 +2723,12 @@ define internal i32 @dissect_aptx(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %switch.load = load double, ptr %switch.gep, align 8
   %47 = icmp eq i8 %37, 8
   %. = select i1 %47, double 1.000000e+00, double 2.000000e+00
-  %48 = fmul double %., %switch.load
-  %49 = fdiv double 1.600000e+01, %48
-  %50 = fmul double %49, 1.000000e+03
+  %48 = fmul nnan double %., %switch.load
+  %49 = fdiv nnan double 1.600000e+01, %48
+  %50 = fmul nnan double %49, 1.000000e+03
   %51 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %52 = uitofp i32 %51 to double
-  %53 = fmul double %52, 2.500000e-01
+  %53 = fmul nnan double %52, 2.500000e-01
   %54 = fmul double %50, %53
   %55 = load i32, ptr @hf_aptx_cumulative_frame_duration, align 4
   %56 = tail call ptr @proto_tree_add_double(ptr noundef %20, i32 noundef %55, ptr noundef %0, i32 noundef 0, i32 noundef 0, double noundef %54)

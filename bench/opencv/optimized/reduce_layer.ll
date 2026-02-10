@@ -6893,7 +6893,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %88, %90
   %96 = sext i32 %95 to i64
   %97 = mul nsw i64 %96, %93
   %98 = uitofp i64 %97 to double
-  %99 = fmul double %98, 0x3F50000000000000
+  %99 = fmul nnan double %98, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -7220,7 +7220,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %88, %90
   %96 = sext i32 %95 to i64
   %97 = mul nsw i64 %96, %93
   %98 = uitofp i64 %97 to double
-  %99 = fmul double %98, 0x3F50000000000000
+  %99 = fmul nnan double %98, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -7547,7 +7547,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %88, %90
   %96 = sext i32 %95 to i64
   %97 = mul nsw i64 %96, %93
   %98 = uitofp i64 %97 to double
-  %99 = fmul double %98, 0x3F50000000000000
+  %99 = fmul nnan double %98, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -7874,7 +7874,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %88, %90
   %96 = sext i32 %95 to i64
   %97 = mul nsw i64 %96, %93
   %98 = uitofp i64 %97 to double
-  %99 = fmul double %98, 0x3F50000000000000
+  %99 = fmul nnan double %98, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -8201,7 +8201,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %88, %90
   %96 = sext i32 %95 to i64
   %97 = mul nsw i64 %96, %93
   %98 = uitofp i64 %97 to double
-  %99 = fmul double %98, 0x3F50000000000000
+  %99 = fmul nnan double %98, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -8528,7 +8528,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %88, %90
   %96 = sext i32 %95 to i64
   %97 = mul nsw i64 %96, %93
   %98 = uitofp i64 %97 to double
-  %99 = fmul double %98, 0x3F50000000000000
+  %99 = fmul nnan double %98, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -8855,7 +8855,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %88, %90
   %96 = sext i32 %95 to i64
   %97 = mul nsw i64 %96, %93
   %98 = uitofp i64 %97 to double
-  %99 = fmul double %98, 0x3F50000000000000
+  %99 = fmul nnan double %98, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -9182,7 +9182,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %88, %90
   %96 = sext i32 %95 to i64
   %97 = mul nsw i64 %96, %93
   %98 = uitofp i64 %97 to double
-  %99 = fmul double %98, 0x3F50000000000000
+  %99 = fmul nnan double %98, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -9509,7 +9509,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %88, %90
   %96 = sext i32 %95 to i64
   %97 = mul nsw i64 %96, %93
   %98 = uitofp i64 %97 to double
-  %99 = fmul double %98, 0x3F50000000000000
+  %99 = fmul nnan double %98, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -9836,7 +9836,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %88, %90
   %96 = sext i32 %95 to i64
   %97 = mul nsw i64 %96, %93
   %98 = uitofp i64 %97 to double
-  %99 = fmul double %98, 0x3F50000000000000
+  %99 = fmul nnan double %98, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %100 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -23727,7 +23727,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -24055,7 +24055,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -24383,7 +24383,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -24711,7 +24711,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -25039,7 +25039,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -25367,7 +25367,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -25695,7 +25695,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -26023,7 +26023,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -26351,7 +26351,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -26679,7 +26679,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -40548,7 +40548,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -40876,7 +40876,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -41204,7 +41204,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -41532,7 +41532,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -41860,7 +41860,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -42188,7 +42188,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -42516,7 +42516,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -42844,7 +42844,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -43172,7 +43172,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -43500,7 +43500,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %89, %91
   %97 = sext i32 %96 to i64
   %98 = mul nsw i64 %97, %94
   %99 = uitofp i64 %98 to double
-  %100 = fmul double %99, 0x3F50000000000000
+  %100 = fmul nnan double %99, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i32 0, ptr %13, align 4, !tbaa !122
   %101 = getelementptr inbounds nuw i8, ptr %13, i64 4

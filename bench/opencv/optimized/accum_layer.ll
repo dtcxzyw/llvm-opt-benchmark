@@ -2196,11 +2196,11 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit91:        ; preds = %_ZNKSt6vectorIiSaIi
   %107 = sdiv i32 %.0159.lcssa, %105
   %108 = sitofp i32 %107 to double
   %109 = sitofp i32 %105 to double
-  %110 = fmul double %109, %108
+  %110 = fmul nnan double %109, %108
   %111 = fptosi double %110 to i32
   %112 = sdiv i32 %.0160.lcssa, %105
   %113 = sitofp i32 %112 to double
-  %114 = fmul double %109, %113
+  %114 = fmul nnan double %109, %113
   %115 = fptosi double %114 to i32
   br label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i97
 

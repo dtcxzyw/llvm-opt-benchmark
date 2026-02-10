@@ -358,7 +358,7 @@ define void @dgejsv_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %182 = sitofp i32 %181 to double
   %183 = load i32, ptr %7, align 4, !tbaa !3
   %184 = sitofp i32 %183 to double
-  %185 = fmul double %182, %184
+  %185 = fmul nnan double %182, %184
   %186 = tail call double @sqrt(double noundef %185) #7, !tbaa !3
   %187 = fdiv double 1.000000e+00, %186
   store double %187, ptr %32, align 8, !tbaa !7

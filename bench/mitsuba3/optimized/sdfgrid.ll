@@ -4218,7 +4218,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit1239:              ; preds = %_ZN5drjit9dr_vector
   br i1 %370, label %371, label %380
 
 371:                                              ; preds = %.loopexit
-  %372 = tail call contract noundef float @llvm.sqrt.f32(float %368)
+  %372 = tail call nnan contract float @llvm.sqrt.f32(float %368)
   %373 = tail call float @llvm.copysign.f32(float %372, float %361)
   %374 = fadd contract float %361, %373
   %375 = fmul contract float %374, -5.000000e-01
@@ -5054,7 +5054,7 @@ _ZN5drjit9dr_vectorImED2Ev.exit1236:              ; preds = %_ZN5drjit9dr_vector
   br i1 %369, label %370, label %379
 
 370:                                              ; preds = %.loopexit
-  %371 = tail call contract noundef float @llvm.sqrt.f32(float %367)
+  %371 = tail call nnan contract float @llvm.sqrt.f32(float %367)
   %372 = tail call float @llvm.copysign.f32(float %371, float %360)
   %373 = fadd contract float %360, %372
   %374 = fmul contract float %373, -5.000000e-01
@@ -6112,7 +6112,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.ex
   %416 = fmul contract <4 x float> %.sroa.02701.12.vec.insert, %413
   %417 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.02701.12.vec.insert, <4 x float> %411, <4 x float> %416)
   %418 = shufflevector <4 x float> %417, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %419 = fmul contract <4 x float> %408, %.sroa.12.44.vec.insert
+  %419 = fmul nnan contract <4 x float> %408, %.sroa.12.44.vec.insert
   %420 = shufflevector <4 x float> %419, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %421 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %409, <4 x float> %420, <4 x float> %415)
   %422 = shufflevector <4 x float> %419, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
@@ -6132,7 +6132,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.ex
   %436 = fmul contract <4 x float> %.sroa.02701.12.vec.insert, %435
   %437 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.02701.12.vec.insert, <4 x float> %432, <4 x float> %436)
   %438 = shufflevector <4 x float> %437, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %439 = fmul contract <4 x float> %.sroa.02701.12.vec.insert, %408
+  %439 = fmul nnan contract <4 x float> %.sroa.02701.12.vec.insert, %408
   %440 = shufflevector <4 x float> %439, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %441 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %409, <4 x float> %440, <4 x float> %438)
   %442 = fneg contract <4 x float> %427
@@ -6150,7 +6150,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.ex
   %454 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %430, <4 x float> %453, <4 x float> %451)
   %455 = fneg contract <4 x float> %408
   %456 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %455, <4 x float> %453, <4 x float> %452)
-  %457 = fmul contract <4 x float> %.sroa.02701.12.vec.insert, %430
+  %457 = fmul nnan contract <4 x float> %.sroa.02701.12.vec.insert, %430
   %458 = shufflevector <4 x float> %457, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %459 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %409, <4 x float> %458, <4 x float> %454)
   %460 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %455, <4 x float> %458, <4 x float> %448)
@@ -7992,7 +7992,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.ex
   %415 = fmul contract <4 x float> %.sroa.02700.12.vec.insert, %412
   %416 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.02700.12.vec.insert, <4 x float> %410, <4 x float> %415)
   %417 = shufflevector <4 x float> %416, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %418 = fmul contract <4 x float> %407, %.sroa.12.44.vec.insert
+  %418 = fmul nnan contract <4 x float> %407, %.sroa.12.44.vec.insert
   %419 = shufflevector <4 x float> %418, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %420 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %408, <4 x float> %419, <4 x float> %414)
   %421 = shufflevector <4 x float> %418, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
@@ -8012,7 +8012,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.ex
   %435 = fmul contract <4 x float> %.sroa.02700.12.vec.insert, %434
   %436 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.02700.12.vec.insert, <4 x float> %431, <4 x float> %435)
   %437 = shufflevector <4 x float> %436, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %438 = fmul contract <4 x float> %.sroa.02700.12.vec.insert, %407
+  %438 = fmul nnan contract <4 x float> %.sroa.02700.12.vec.insert, %407
   %439 = shufflevector <4 x float> %438, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %440 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %408, <4 x float> %439, <4 x float> %437)
   %441 = fneg contract <4 x float> %426
@@ -8030,7 +8030,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm4EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.ex
   %453 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %429, <4 x float> %452, <4 x float> %450)
   %454 = fneg contract <4 x float> %407
   %455 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %454, <4 x float> %452, <4 x float> %451)
-  %456 = fmul contract <4 x float> %.sroa.02700.12.vec.insert, %429
+  %456 = fmul nnan contract <4 x float> %.sroa.02700.12.vec.insert, %429
   %457 = shufflevector <4 x float> %456, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %458 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %408, <4 x float> %457, <4 x float> %453)
   %459 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %454, <4 x float> %457, <4 x float> %447)
@@ -9859,7 +9859,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.ex
   %413 = fmul contract <4 x float> %.sroa.02785.12.vec.insert, %410
   %414 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.02785.12.vec.insert, <4 x float> %408, <4 x float> %413)
   %415 = shufflevector <4 x float> %414, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %416 = fmul contract <4 x float> %405, %.sroa.12.44.vec.insert
+  %416 = fmul nnan contract <4 x float> %405, %.sroa.12.44.vec.insert
   %417 = shufflevector <4 x float> %416, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %418 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %406, <4 x float> %417, <4 x float> %412)
   %419 = shufflevector <4 x float> %416, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
@@ -9879,7 +9879,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.ex
   %433 = fmul contract <4 x float> %.sroa.02785.12.vec.insert, %432
   %434 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.02785.12.vec.insert, <4 x float> %429, <4 x float> %433)
   %435 = shufflevector <4 x float> %434, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %436 = fmul contract <4 x float> %.sroa.02785.12.vec.insert, %405
+  %436 = fmul nnan contract <4 x float> %.sroa.02785.12.vec.insert, %405
   %437 = shufflevector <4 x float> %436, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %438 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %406, <4 x float> %437, <4 x float> %435)
   %439 = fneg contract <4 x float> %424
@@ -9897,7 +9897,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.ex
   %451 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %427, <4 x float> %450, <4 x float> %448)
   %452 = fneg contract <4 x float> %405
   %453 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %452, <4 x float> %450, <4 x float> %449)
-  %454 = fmul contract <4 x float> %.sroa.02785.12.vec.insert, %427
+  %454 = fmul nnan contract <4 x float> %.sroa.02785.12.vec.insert, %427
   %455 = shufflevector <4 x float> %454, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %456 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %406, <4 x float> %455, <4 x float> %451)
   %457 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %452, <4 x float> %455, <4 x float> %445)
@@ -11716,7 +11716,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.ex
   %412 = fmul contract <4 x float> %.sroa.02784.12.vec.insert, %409
   %413 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.02784.12.vec.insert, <4 x float> %407, <4 x float> %412)
   %414 = shufflevector <4 x float> %413, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %415 = fmul contract <4 x float> %404, %.sroa.12.44.vec.insert
+  %415 = fmul nnan contract <4 x float> %404, %.sroa.12.44.vec.insert
   %416 = shufflevector <4 x float> %415, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %417 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %405, <4 x float> %416, <4 x float> %411)
   %418 = shufflevector <4 x float> %415, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
@@ -11736,7 +11736,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.ex
   %432 = fmul contract <4 x float> %.sroa.02784.12.vec.insert, %431
   %433 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.02784.12.vec.insert, <4 x float> %428, <4 x float> %432)
   %434 = shufflevector <4 x float> %433, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %435 = fmul contract <4 x float> %.sroa.02784.12.vec.insert, %404
+  %435 = fmul nnan contract <4 x float> %.sroa.02784.12.vec.insert, %404
   %436 = shufflevector <4 x float> %435, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %437 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %405, <4 x float> %436, <4 x float> %434)
   %438 = fneg contract <4 x float> %423
@@ -11754,7 +11754,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm8EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.ex
   %450 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %426, <4 x float> %449, <4 x float> %447)
   %451 = fneg contract <4 x float> %404
   %452 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %451, <4 x float> %449, <4 x float> %448)
-  %453 = fmul contract <4 x float> %.sroa.02784.12.vec.insert, %426
+  %453 = fmul nnan contract <4 x float> %.sroa.02784.12.vec.insert, %426
   %454 = shufflevector <4 x float> %453, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %455 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %405, <4 x float> %454, <4 x float> %450)
   %456 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %451, <4 x float> %454, <4 x float> %444)
@@ -13563,7 +13563,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.e
   %413 = fmul contract <4 x float> %.sroa.02788.12.vec.insert, %410
   %414 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.02788.12.vec.insert, <4 x float> %408, <4 x float> %413)
   %415 = shufflevector <4 x float> %414, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %416 = fmul contract <4 x float> %405, %.sroa.12.44.vec.insert
+  %416 = fmul nnan contract <4 x float> %405, %.sroa.12.44.vec.insert
   %417 = shufflevector <4 x float> %416, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %418 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %406, <4 x float> %417, <4 x float> %412)
   %419 = shufflevector <4 x float> %416, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
@@ -13583,7 +13583,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.e
   %433 = fmul contract <4 x float> %.sroa.02788.12.vec.insert, %432
   %434 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.02788.12.vec.insert, <4 x float> %429, <4 x float> %433)
   %435 = shufflevector <4 x float> %434, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %436 = fmul contract <4 x float> %.sroa.02788.12.vec.insert, %405
+  %436 = fmul nnan contract <4 x float> %.sroa.02788.12.vec.insert, %405
   %437 = shufflevector <4 x float> %436, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %438 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %406, <4 x float> %437, <4 x float> %435)
   %439 = fneg contract <4 x float> %424
@@ -13601,7 +13601,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.e
   %451 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %427, <4 x float> %450, <4 x float> %448)
   %452 = fneg contract <4 x float> %405
   %453 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %452, <4 x float> %450, <4 x float> %449)
-  %454 = fmul contract <4 x float> %.sroa.02788.12.vec.insert, %427
+  %454 = fmul nnan contract <4 x float> %.sroa.02788.12.vec.insert, %427
   %455 = shufflevector <4 x float> %454, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %456 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %406, <4 x float> %455, <4 x float> %451)
   %457 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %452, <4 x float> %455, <4 x float> %445)
@@ -15420,7 +15420,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.e
   %412 = fmul contract <4 x float> %.sroa.02787.12.vec.insert, %409
   %413 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.02787.12.vec.insert, <4 x float> %407, <4 x float> %412)
   %414 = shufflevector <4 x float> %413, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %415 = fmul contract <4 x float> %404, %.sroa.12.44.vec.insert
+  %415 = fmul nnan contract <4 x float> %404, %.sroa.12.44.vec.insert
   %416 = shufflevector <4 x float> %415, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %417 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %405, <4 x float> %416, <4 x float> %411)
   %418 = shufflevector <4 x float> %415, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
@@ -15440,7 +15440,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.e
   %432 = fmul contract <4 x float> %.sroa.02787.12.vec.insert, %431
   %433 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %.sroa.02787.12.vec.insert, <4 x float> %428, <4 x float> %432)
   %434 = shufflevector <4 x float> %433, <4 x float> poison, <4 x i32> <i32 2, i32 3, i32 0, i32 1>
-  %435 = fmul contract <4 x float> %.sroa.02787.12.vec.insert, %404
+  %435 = fmul nnan contract <4 x float> %.sroa.02787.12.vec.insert, %404
   %436 = shufflevector <4 x float> %435, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %437 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %405, <4 x float> %436, <4 x float> %434)
   %438 = fneg contract <4 x float> %423
@@ -15458,7 +15458,7 @@ _ZNK5drjit9ArrayBaseINS_6PacketIfLm16EEELb0EN7mitsuba6VectorIS2_Lm3EEEE4max_Ev.e
   %450 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %426, <4 x float> %449, <4 x float> %447)
   %451 = fneg contract <4 x float> %404
   %452 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %451, <4 x float> %449, <4 x float> %448)
-  %453 = fmul contract <4 x float> %.sroa.02787.12.vec.insert, %426
+  %453 = fmul nnan contract <4 x float> %.sroa.02787.12.vec.insert, %426
   %454 = shufflevector <4 x float> %453, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %455 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %405, <4 x float> %454, <4 x float> %450)
   %456 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %451, <4 x float> %454, <4 x float> %444)

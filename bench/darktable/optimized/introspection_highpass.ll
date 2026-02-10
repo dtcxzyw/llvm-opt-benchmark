@@ -81,8 +81,8 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %8 = load float, ptr %7, align 4, !tbaa !26
   %9 = fadd reassoc nsz arcp contract afn float %8, 1.000000e+00
   %10 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %9, float 1.000000e+02)
-  %11 = fpext float %10 to double
-  %12 = fmul reassoc nsz arcp contract afn double %11, 1.600000e-01
+  %11 = fpext nnan float %10 to double
+  %12 = fmul reassoc nnan nsz arcp contract afn double %11, 1.600000e-01
   %13 = fptosi double %12 to i32
   %14 = sitofp i32 %13 to float
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -100,7 +100,7 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %26 = mul i32 %25, %24
   %27 = or disjoint i32 %26, 2
   %28 = sitofp i32 %27 to float
-  %29 = fmul reassoc nsz arcp contract afn float %28, 0x3FD5555560000000
+  %29 = fmul reassoc nnan nsz arcp contract afn float %28, 0x3FD5555560000000
   %30 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %29)
   %31 = fmul reassoc nsz arcp contract afn float %30, 3.000000e+00
   %32 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %31)
@@ -152,8 +152,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %20 = load float, ptr %12, align 4, !tbaa !26
   %21 = fadd reassoc nsz arcp contract afn float %20, 1.000000e+00
   %22 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %21, float 1.000000e+02)
-  %23 = fpext float %22 to double
-  %24 = fmul reassoc nsz arcp contract afn double %23, 1.600000e-01
+  %23 = fpext nnan float %22 to double
+  %24 = fmul reassoc nnan nsz arcp contract afn double %23, 1.600000e-01
   %25 = fptosi double %24 to i32
   %26 = sitofp i32 %25 to float
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16

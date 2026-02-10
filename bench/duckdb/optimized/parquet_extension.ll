@@ -32681,8 +32681,8 @@ define linkonce_odr noundef double @_ZN6duckdb19ParquetScanFunction15ParquetProg
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %17 = load atomic i64, ptr %16 seq_cst, align 8
   %18 = uitofp i64 %17 to double
-  %19 = fadd double %18, 1.000000e+00
-  %20 = fmul double %19, 1.000000e+02
+  %19 = fadd nnan double %18, 1.000000e+00
+  %20 = fmul nnan double %19, 1.000000e+02
   %21 = uitofp i64 %9 to double
   %22 = fdiv double %20, %21
   br label %40
@@ -32691,8 +32691,8 @@ define linkonce_odr noundef double @_ZN6duckdb19ParquetScanFunction15ParquetProg
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %25 = load atomic i64, ptr %24 seq_cst, align 8
   %26 = uitofp i64 %25 to double
-  %27 = fmul double %26, 2.048000e+03
-  %28 = fmul double %27, 1.000000e+02
+  %27 = fmul nnan double %26, 2.048000e+03
+  %28 = fmul nnan double %27, 1.000000e+02
   %29 = load i64, ptr %12, align 8, !tbaa !1196
   %30 = uitofp i64 %29 to double
   %31 = fdiv double %28, %30

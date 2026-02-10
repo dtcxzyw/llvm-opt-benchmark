@@ -15176,7 +15176,7 @@ zend_parse_arg_str_ex.exit101..critedge_crit_edge: ; preds = %zend_parse_arg_str
 
 54:                                               ; preds = %50
   %55 = uitofp i64 %49 to double
-  %56 = fmul double %55, 2.000000e+02
+  %56 = fmul nnan double %55, 2.000000e+02
   %57 = add i64 %30, %28
   %58 = uitofp i64 %57 to double
   %59 = fdiv double %56, %58
@@ -15187,7 +15187,7 @@ zend_parse_arg_str_ex.exit101..critedge_crit_edge: ; preds = %zend_parse_arg_str
   %62 = getelementptr inbounds nuw i8, ptr %51, i64 8
   call void @zval_ptr_safe_dtor(ptr noundef nonnull %62) #29
   %63 = uitofp i64 %49 to double
-  %64 = fmul double %63, 2.000000e+02
+  %64 = fmul nnan double %63, 2.000000e+02
   %65 = load ptr, ptr %3, align 8, !tbaa !13
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load i64, ptr %66, align 8, !tbaa !16

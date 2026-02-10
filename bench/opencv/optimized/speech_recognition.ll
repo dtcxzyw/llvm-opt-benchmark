@@ -5168,7 +5168,7 @@ _ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647
 
 53:                                               ; preds = %_ZNSt8__detail8_AdaptorISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEdEclEv.exit27
   store i64 %37, ptr %1, align 8, !tbaa !122
-  %54 = tail call double @llvm.log.f64(double %49), !tbaa !19
+  %54 = tail call ninf double @llvm.log.f64(double %49)
   %55 = fmul double %54, -2.000000e+00
   %56 = fdiv double %55, %49
   %57 = tail call double @sqrt(double noundef %56) #24, !tbaa !19
@@ -5212,7 +5212,7 @@ define linkonce_odr hidden void @_ZN18FilterbankFeatures7hanningEv(ptr dead_on_u
   %.012 = phi i32 [ %5, %.lr.ph ], [ %46, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ]
   %13 = phi ptr [ null, %.lr.ph ], [ %45, %_ZNSt6vectorIdSaIdEE9push_backEOd.exit ]
   %14 = sitofp i32 %.012 to double
-  %15 = fmul double %14, 0x400921FB54442D18
+  %15 = fmul nnan double %14, 0x400921FB54442D18
   %16 = add nsw i32 %12, -1
   %17 = sitofp i32 %16 to double
   %18 = fdiv double %15, %17
@@ -6226,8 +6226,8 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %50, %51
   br i1 %54, label %61, label %55
 
 55:                                               ; preds = %.lr.ph41
-  %56 = fadd double %53, 0xC02DFFFFFFFFFFFF
-  %57 = fmul double %56, 0x3FB199B76B9099DC
+  %56 = fadd nnan double %53, 0xC02DFFFFFFFFFFFF
+  %57 = fmul nnan double %56, 0x3FB199B76B9099DC
   %58 = tail call double @exp(double noundef %57) #24, !tbaa !19
   %59 = fmul double %58, 1.000000e+03
   %60 = getelementptr inbounds nuw double, ptr %43, i64 %.040

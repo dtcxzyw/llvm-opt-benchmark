@@ -60611,7 +60611,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEEvT_S7_.ex
   %222 = add i32 %195, %221
   %223 = sub i32 %4, %222
   %224 = sitofp i32 %.081.lcssa to double
-  %225 = fmul double %191, %224
+  %225 = fmul nnan double %191, %224
   %226 = fdiv double %225, %192
   %227 = call i64 @lround(double noundef %226) #21, !tbaa !10
   %228 = trunc i64 %227 to i32
@@ -64085,7 +64085,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vectorIS3_SaIS3_
 
 _ZN8LightGBM6CommonL11SortForPairIiiEEvPSt6vectorIT_SaIS3_EEPS2_IT0_SaIS7_EEmb.exit: ; preds = %._crit_edge59.i.thread, %498
   %564 = uitofp i64 %418 to float
-  %565 = fmul float %564, 0x3FEFAE1480000000
+  %565 = fmul nnan float %564, 0x3FEFAE1480000000
   %566 = fpext float %565 to double
   %567 = fadd double %566, 5.000000e-01
   %568 = fptosi double %567 to i32
@@ -68924,7 +68924,7 @@ define noundef nonnull ptr @_ZN8LightGBM11MultiValBin17CreateMultiValBinEiiidRKS
   br i1 %6, label %12, label %7
 
 7:                                                ; preds = %5
-  %8 = fsub double 1.000000e+00, %3
+  %8 = fsub nnan double 1.000000e+00, %3
   %9 = sitofp i32 %2 to double
   %10 = fmul double %8, %9
   %11 = tail call noundef ptr @_ZN8LightGBM11MultiValBin23CreateMultiValSparseBinEiid(i32 noundef %0, i32 noundef %1, double noundef %10)

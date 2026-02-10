@@ -135,7 +135,7 @@ define hidden range(i32 -1, 1) i32 @event_debug_map_HT_GROW(ptr noundef captures
   %11 = getelementptr inbounds i32, ptr @event_debug_map_PRIMES, i64 %indvars.iv.next
   %12 = load i32, ptr %11, align 4
   %13 = uitofp i32 %12 to double
-  %14 = fmul double %13, 5.000000e-01
+  %14 = fmul nnan double %13, 5.000000e-01
   %15 = fptoui double %14 to i32
   %16 = icmp uge i32 %1, %15
   %17 = icmp slt i64 %indvars.iv, 24
@@ -470,7 +470,7 @@ define hidden range(i32 10000, 9999) i32 @event_debug_map_HT_REP_IS_BAD_(ptr nou
 
 33:                                               ; preds = %29
   %34 = uitofp i32 %3 to double
-  %35 = fmul double %34, 5.000000e-01
+  %35 = fmul nnan double %34, 5.000000e-01
   %36 = fptoui double %35 to i32
   %.not43 = icmp eq i32 %24, %36
   br i1 %.not43, label %.preheader.preheader, label %50

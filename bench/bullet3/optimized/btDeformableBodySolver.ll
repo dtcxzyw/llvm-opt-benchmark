@@ -16768,9 +16768,9 @@ define linkonce_odr dso_local void @_ZN11btSparseSdfILi3EE9BuildCellERNS0_4CellE
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %13 = load i32, ptr %12, align 8, !tbaa !37
   %14 = sitofp i32 %13 to float
-  %15 = fmul float %8, 3.000000e+00
-  %16 = fmul float %11, 3.000000e+00
-  %17 = fmul float %14, 3.000000e+00
+  %15 = fmul nnan float %8, 3.000000e+00
+  %16 = fmul nnan float %11, 3.000000e+00
+  %17 = fmul nnan float %14, 3.000000e+00
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load float, ptr %18, align 8, !tbaa !45
   %20 = fmul float %15, %19

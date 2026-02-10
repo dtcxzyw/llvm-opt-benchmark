@@ -120,10 +120,10 @@ define linkonce_odr dso_local void @_ZN10ConvexHull8GenerateEv(ptr noundef nonnu
   store i32 %8, ptr @g_seed, align 4, !tbaa !33
   %9 = and i32 %8, 32767
   %10 = uitofp nneg i32 %9 to float
-  %11 = fdiv float %10, 3.276700e+04
-  %12 = fmul float %11, 2.000000e+00
-  %13 = fadd float %12, -1.000000e+00
-  %14 = fmul float %13, 0x400921FB60000000
+  %11 = fdiv nnan float %10, 3.276700e+04
+  %12 = fmul nnan float %11, 2.000000e+00
+  %13 = fadd nnan float %12, -1.000000e+00
+  %14 = fmul nnan float %13, 0x400921FB60000000
   %15 = tail call <2 x float> @b2ComputeCosSin(float noundef %14)
   %.sroa.05.0.vec.extract.i = extractelement <2 x float> %15, i64 0
   %.sroa.05.4.vec.extract.i = extractelement <2 x float> %15, i64 1
@@ -150,10 +150,10 @@ define linkonce_odr dso_local void @_ZN10ConvexHull8GenerateEv(ptr noundef nonnu
   %29 = xor i32 %28, %27
   %30 = and i32 %29, 32767
   %31 = uitofp nneg i32 %30 to float
-  %32 = fdiv float %31, 3.276700e+04
-  %33 = fmul float %32, 2.000000e+00
-  %34 = fadd float %33, -1.000000e+00
-  %35 = fmul float %34, 1.000000e+01
+  %32 = fdiv nnan float %31, 3.276700e+04
+  %33 = fmul nnan float %32, 2.000000e+00
+  %34 = fadd nnan float %33, -1.000000e+00
+  %35 = fmul nnan float %34, 1.000000e+01
   %36 = shl i32 %29, 13
   %37 = xor i32 %36, %29
   %38 = lshr i32 %37, 17
@@ -163,10 +163,10 @@ define linkonce_odr dso_local void @_ZN10ConvexHull8GenerateEv(ptr noundef nonnu
   store i32 %41, ptr @g_seed, align 4, !tbaa !33
   %42 = and i32 %41, 32767
   %43 = uitofp nneg i32 %42 to float
-  %44 = fdiv float %43, 3.276700e+04
-  %45 = fmul float %44, 2.000000e+00
-  %46 = fadd float %45, -1.000000e+00
-  %47 = fmul float %46, 1.000000e+01
+  %44 = fdiv nnan float %43, 3.276700e+04
+  %45 = fmul nnan float %44, 2.000000e+00
+  %46 = fadd nnan float %45, -1.000000e+00
+  %47 = fmul nnan float %46, 1.000000e+01
   %48 = fcmp olt float %35, -4.000000e+00
   %49 = fcmp ogt float %35, 4.000000e+00
   %50 = select i1 %49, float 4.000000e+00, float %35

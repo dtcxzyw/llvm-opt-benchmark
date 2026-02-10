@@ -735,9 +735,9 @@ _ZN7QWidget13setSizePolicyEN11QSizePolicy6PolicyES1_.exit69: ; preds = %_ZN7QStr
   %109 = add i32 %.sroa.371.8.extract.trunc, 1
   %110 = sub i32 %109, %.sroa.0.0.extract.trunc
   %111 = sitofp i32 %110 to double
-  %112 = fmul double %111, 8.000000e-01
+  %112 = fmul nnan double %111, 8.000000e-01
   %113 = fptosi double %112 to i32
-  %114 = fmul double %111, 5.000000e-01
+  %114 = fmul nnan double %111, 5.000000e-01
   %115 = fptosi double %114 to i32
   invoke void @_ZN7QWidget14setMinimumSizeEii(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %113, i32 noundef %115)
           to label %116 unwind label %117

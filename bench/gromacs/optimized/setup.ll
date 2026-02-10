@@ -246,7 +246,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
   %115 = fpext float %.144.i to double
   %116 = fmul double %115, 2.000000e+00
   %117 = sitofp i32 %.1.i to float
-  %118 = fmul float %117, 0x3F81072C40000000
+  %118 = fmul nnan float %117, 0x3F81072C40000000
   %119 = fpext float %118 to double
   %120 = fdiv double %116, %119
   %121 = fptrunc double %120 to float
@@ -343,8 +343,8 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i.i: 
   %198 = fdiv float %114, %125
   %199 = call noundef float @sqrtf(float noundef %198) #27, !tbaa !30, !noalias !16
   %200 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %110, i64 %.05083.i
-  %201 = fpext float %125 to double
-  %202 = fmul double %201, 5.000000e-01
+  %201 = fpext nnan float %125 to double
+  %202 = fmul nnan double %201, 5.000000e-01
   br label %205
 
 203:                                              ; preds = %302

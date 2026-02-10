@@ -469,7 +469,7 @@ define hidden void @_ZN2cv8tracking4impl14TrackerKCFImpl4initERKNS_11_InputArray
   %32 = sitofp i32 %31 to double
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double %32, ptr %33, align 8, !tbaa !65
-  %34 = fmul double %28, %32
+  %34 = fmul nnan double %28, %32
   %35 = fptrunc double %34 to float
   %36 = tail call noundef float @sqrtf(float noundef %35) #28, !tbaa !12
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -494,13 +494,13 @@ define hidden void @_ZN2cv8tracking4impl14TrackerKCFImpl4initERKNS_11_InputArray
 51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 3672
   store i8 1, ptr %52, align 8, !tbaa !72
-  %53 = fmul double %20, 5.000000e-01
+  %53 = fmul nnan double %20, 5.000000e-01
   store double %53, ptr %21, align 8, !tbaa !59
-  %54 = fmul double %24, 5.000000e-01
+  %54 = fmul nnan double %24, 5.000000e-01
   store double %54, ptr %25, align 8, !tbaa !61
-  %55 = fmul double %28, 5.000000e-01
+  %55 = fmul nnan double %28, 5.000000e-01
   store double %55, ptr %29, align 8, !tbaa !63
-  %56 = fmul double %32, 5.000000e-01
+  %56 = fmul nnan double %32, 5.000000e-01
   store double %56, ptr %33, align 8, !tbaa !65
   br label %57
 
@@ -509,15 +509,15 @@ define hidden void @_ZN2cv8tracking4impl14TrackerKCFImpl4initERKNS_11_InputArray
   %59 = phi double [ %56, %51 ], [ %32, %46 ], [ %32, %3 ]
   %60 = phi double [ %53, %51 ], [ %20, %46 ], [ %20, %3 ]
   %61 = phi double [ %55, %51 ], [ %28, %46 ], [ %28, %3 ]
-  %62 = fmul double %61, 5.000000e-01
+  %62 = fmul nnan double %61, 5.000000e-01
   %63 = fsub double %60, %62
   store double %63, ptr %21, align 8, !tbaa !59
-  %64 = fmul double %59, 5.000000e-01
+  %64 = fmul nnan double %59, 5.000000e-01
   %65 = fsub double %58, %64
   store double %65, ptr %25, align 8, !tbaa !61
-  %66 = fmul double %61, 2.000000e+00
+  %66 = fmul nnan double %61, 2.000000e+00
   store double %66, ptr %29, align 8, !tbaa !63
-  %67 = fmul double %59, 2.000000e+00
+  %67 = fmul nnan double %59, 2.000000e+00
   store double %67, ptr %33, align 8, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1833,7 +1833,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %.noexc, %_ZNK2cv11_
   %39 = phi ptr [ %38, %.noexc ], [ %32, %_ZNK2cv11_InputArray6getMatEi.exit ]
   %40 = add nsw i32 %30, -1
   %41 = sitofp i32 %40 to float
-  %42 = fdiv float 0x401921FB60000000, %41
+  %42 = fdiv nnan float 0x401921FB60000000, %41
   %43 = add nsw i32 %28, -1
   %44 = sitofp i32 %43 to float
   %45 = fdiv float 0x401921FB60000000, %44
@@ -7729,18 +7729,18 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %6, ptr noundef nonnull align 1 dereferenceable(3) %47, i64 3, i1 false)
   %48 = load i8, ptr %29, align 1, !tbaa !102
   %49 = uitofp i8 %48 to float
-  %50 = fmul float %49, 1.250000e-01
+  %50 = fmul nnan float %49, 1.250000e-01
   %51 = call float @llvm.floor.f32(float %50)
   %52 = fpext float %51 to double
   %53 = load i8, ptr %30, align 1, !tbaa !102
   %54 = uitofp i8 %53 to float
-  %55 = fmul float %54, 1.250000e-01
+  %55 = fmul nnan float %54, 1.250000e-01
   %56 = call float @llvm.floor.f32(float %55)
   %57 = fpext float %56 to double
   %58 = call double @llvm.fmuladd.f64(double %57, double 3.200000e+01, double %52)
   %59 = load i8, ptr %6, align 1, !tbaa !102
   %60 = uitofp i8 %59 to float
-  %61 = fmul float %60, 1.250000e-01
+  %61 = fmul nnan float %60, 1.250000e-01
   %62 = call float @llvm.floor.f32(float %61)
   %63 = fpext float %62 to double
   %64 = call double @llvm.fmuladd.f64(double %63, double 1.024000e+03, double %58)

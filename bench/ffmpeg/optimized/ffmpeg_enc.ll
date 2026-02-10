@@ -1035,7 +1035,7 @@ define void @enc_stats_write(ptr noundef readonly captures(none) %0, ptr noundef
   %123 = fmul nsz double %43, %122
   %124 = load i32, ptr %52, align 8, !tbaa !173
   %125 = sitofp i32 %124 to double
-  %126 = fmul nsz double %125, 8.000000e+00
+  %126 = fmul nnan nsz double %125, 8.000000e+00
   %127 = fdiv nsz double %126, %123
   %128 = tail call i32 (ptr, ptr, ...) @avio_printf(ptr noundef %9, ptr noundef nonnull @.str.15, double noundef %127) #15
   br label %143
@@ -1050,7 +1050,7 @@ define void @enc_stats_write(ptr noundef readonly captures(none) %0, ptr noundef
 134:                                              ; preds = %129
   %135 = load i64, ptr %50, align 8, !tbaa !176
   %136 = uitofp i64 %135 to double
-  %137 = fmul nsz double %136, 8.000000e+00
+  %137 = fmul nnan nsz double %136, 8.000000e+00
   %138 = fdiv nsz double %137, %132
   br label %139
 
@@ -1924,8 +1924,8 @@ av_ts_make_string.exit.i:                         ; preds = %259, %258
   %362 = load i32, ptr %361, align 4, !tbaa !103
   %363 = mul nsw i32 %362, %360
   %364 = sitofp i32 %363 to double
-  %365 = fmul nsz double %364, 2.550000e+02
-  %366 = fmul nsz double %365, 2.550000e+02
+  %365 = fmul nnan nsz double %364, 2.550000e+02
+  %366 = fmul nnan nsz double %365, 2.550000e+02
   %367 = fdiv nsz double %358, %366
   %368 = fcmp nsz oge double %367, 0.000000e+00
   %369 = fcmp nsz ole double %367, 1.000000e+00
@@ -1933,8 +1933,8 @@ av_ts_make_string.exit.i:                         ; preds = %259, %258
   br i1 %or.cond3.i.i, label %370, label %373
 
 370:                                              ; preds = %355
-  %371 = call nsz double @llvm.log10.f64(double %367)
-  %372 = fmul nsz double %371, -1.000000e+01
+  %371 = call nnan nsz double @llvm.log10.f64(double %367)
+  %372 = fmul nnan nsz double %371, -1.000000e+01
   br label %373
 
 373:                                              ; preds = %370, %355, %352, %345, %.thread58.i.i
@@ -2028,7 +2028,7 @@ av_ts_make_string.exit.i:                         ; preds = %259, %258
   %433 = fdiv nsz double %432, 1.000000e+03
   %434 = load ptr, ptr @vstats_file, align 8, !tbaa !225
   %435 = uitofp i64 %429 to double
-  %436 = fmul nsz double %435, 0x3F50000000000000
+  %436 = fmul nnan nsz double %435, 0x3F50000000000000
   %437 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %434, ptr noundef nonnull @.str.51, double noundef %436, double noundef %.046.i.i, double noundef %427, double noundef %433) #15
   %438 = load ptr, ptr @vstats_file, align 8, !tbaa !225
   %439 = call signext i8 @av_get_picture_type_char(i32 noundef %375) #15

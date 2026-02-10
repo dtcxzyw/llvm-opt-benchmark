@@ -14758,7 +14758,7 @@ define dso_local range(i64 131072, 1) i64 @getClientEvictionLimit() local_unname
   %6 = uitofp i64 %3 to double
   %7 = sitofp i64 %1 to double
   %8 = fneg double %7
-  %9 = fmul double %8, %6
+  %9 = fmul nnan double %8, %6
   %10 = fdiv double %9, 1.000000e+02
   %11 = fptoui double %10 to i64
   br label %14
@@ -14800,7 +14800,7 @@ define dso_local void @evictClients() local_unnamed_addr #0 {
   %11 = uitofp i64 %8 to double
   %12 = sitofp i64 %6 to double
   %13 = fneg double %12
-  %14 = fmul double %13, %11
+  %14 = fmul nnan double %13, %11
   %15 = fdiv double %14, 1.000000e+02
   %16 = fptoui double %15 to i64
   br label %getClientEvictionLimit.exit

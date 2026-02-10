@@ -4554,7 +4554,7 @@ define void @_ZN17MainWindowSetting25updateGlobalParameterListERK17RichParameter
 
 15:                                               ; preds = %2
   %16 = sitofp i32 %14 to float
-  %17 = fmul float %16, 0x4130000000000000
+  %17 = fmul nnan float %16, 0x4130000000000000
   %18 = fptosi float %17 to i64
   store i64 %18, ptr %0, align 8
   %19 = load ptr, ptr %3, align 8
@@ -4668,7 +4668,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i20:  ; preds = %_ZN9QtPrivate8RefCo
 
 51:                                               ; preds = %47
   %52 = sitofp i32 %50 to float
-  %53 = fmul float %52, 0x4130000000000000
+  %53 = fmul nnan float %52, 0x4130000000000000
   %54 = fptosi float %53 to i64
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %54, ptr %55, align 8

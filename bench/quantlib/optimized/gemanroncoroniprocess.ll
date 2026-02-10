@@ -725,8 +725,8 @@ invoke.cont8:                                     ; preds = %.noexc10, %invoke.c
   %shr7.i.i.i = lshr i64 %xor6.i.i.i, 18
   %xor8.i.i.i = xor i64 %shr7.i.i.i, %xor6.i.i.i
   %conv.i.i = uitofp i64 %xor8.i.i.i to double
-  %add.i.i = fadd double %conv.i.i, 5.000000e-01
-  %div.i.i = fmul double %add.i.i, 0x3DF0000000000000
+  %add.i.i = fadd nnan double %conv.i.i, 5.000000e-01
+  %div.i.i = fmul nnan double %add.i.i, 0x3DF0000000000000
   store double %div.i.i, ptr %call.i, align 8, !tbaa !84
   %cmp.not.i11 = icmp eq ptr %21, null
   br i1 %cmp.not.i11, label %cond.false.i12, label %invoke.cont15, !prof !81
@@ -771,8 +771,8 @@ invoke.cont17:                                    ; preds = %.noexc37, %invoke.c
   %shr7.i.i.i28 = lshr i64 %xor6.i.i.i27, 18
   %xor8.i.i.i29 = xor i64 %shr7.i.i.i28, %xor6.i.i.i27
   %conv.i.i30 = uitofp i64 %xor8.i.i.i29 to double
-  %add.i.i31 = fadd double %conv.i.i30, 5.000000e-01
-  %div.i.i32 = fmul double %add.i.i31, 0x3DF0000000000000
+  %add.i.i31 = fadd nnan double %conv.i.i30, 5.000000e-01
+  %div.i.i32 = fmul nnan double %add.i.i31, 0x3DF0000000000000
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store double %div.i.i32, ptr %arrayidx.i, align 8, !tbaa !84
   %call24 = invoke noundef double @_ZNK8QuantLib21GemanRoncoroniProcess6evolveEddddRKNS_5ArrayE(ptr noundef nonnull align 8 dereferenceable(296) %this, double noundef %t0, double noundef %x0, double noundef %dt, double noundef %dw, ptr noundef nonnull align 8 dereferenceable(16) %du)

@@ -4541,7 +4541,6 @@ if.then98:                                        ; preds = %if.then
   %mul3.i = fmul double %38, 0.000000e+00
   %neg.i = fneg double %mul3.i
   %41 = call double @llvm.fmuladd.f64(double %mul3.i, double %38, double %neg.i)
-  %add.i = fadd double %41, 0.000000e+00
   %mul8.i = fmul double %38, -0.000000e+00
   %mul9.i = fmul double %38, %mul8.i
   %mul13.i = fmul double %38, %mul3.i
@@ -4555,23 +4554,21 @@ if.then98:                                        ; preds = %if.then
   %46 = call double @llvm.fmuladd.f64(double %mul3.i, double %38, double %45)
   %47 = call double @llvm.fmuladd.f64(double %38, double -0.000000e+00, double %46)
   %add30.i = fadd double %37, %47
-  %mul1.i.i = fmul double %40, 0x4006A09E667F3BCD
-  %mul2.i.i = fmul double %add.i, 2.000000e+00
+  %mul1.i.i = fmul ninf double %40, 0x4006A09E667F3BCD
+  %mul2.i.i = call double @llvm.fabs.f64(double %41)
   %mul3.i.i = fmul double %add17.i, 0x3FF6A09E667F3BCD
   %mul4.i.i = fmul double %39, 0x3FE6A09E667F3BCD
-  %mul7.i.i = fmul double %mul2.i.i, 2.000000e+00
-  %48 = fadd double %mul7.i.i, 0.000000e+00
-  %49 = call double @llvm.fmuladd.f64(double %add30.i, double 4.000000e+00, double %48)
-  %mul9.i.i = fmul double %49, 1.250000e-01
+  %48 = call double @llvm.fmuladd.f64(double %add30.i, double 4.000000e+00, double %mul2.i.i)
+  %mul9.i.i = fmul double %48, 1.250000e-01
   %call.i.i = call double @erf(double noundef 0x4051AD7BC01366B8) #29, !tbaa !184
   %call12.i.i = call double @exp(double noundef -5.000000e+03) #29, !tbaa !184
   %mul13.i.i = fmul double %call12.i.i, 0x3FC20DD750429B6D
-  %mul20.i.i = fmul double %mul1.i.i, 2.000000e+00
-  %50 = call double @llvm.fmuladd.f64(double %mul20.i.i, double 5.001000e+03, double 0.000000e+00)
-  %51 = call double @llvm.fmuladd.f64(double %mul7.i.i, double 0x4051AD7BC01366B8, double %50)
-  %52 = call double @llvm.fmuladd.f64(double %mul3.i.i, double 2.000000e+00, double %51)
-  %53 = fmul double %mul13.i.i, %52
-  %54 = fsub double %mul9.i.i, %53
+  %mul20.i.i = fmul ninf double %mul1.i.i, 2.000000e+00
+  %49 = call double @llvm.fmuladd.f64(double %mul20.i.i, double 5.001000e+03, double 0.000000e+00)
+  %50 = call double @llvm.fmuladd.f64(double %mul2.i.i, double 0x4051AD7BC01366B8, double %49)
+  %51 = call double @llvm.fmuladd.f64(double %mul3.i.i, double 2.000000e+00, double %50)
+  %52 = fmul double %mul13.i.i, %51
+  %53 = fsub double %mul9.i.i, %52
   %call31.i.i = call double @erf(double noundef %mul4.i.i) #29, !tbaa !184
   %fneg33.i.i = fneg double %mul4.i.i
   %mul34.i.i = fmul double %mul4.i.i, %fneg33.i.i
@@ -4579,44 +4576,41 @@ if.then98:                                        ; preds = %if.then
   %mul36.i.i = fmul double %call35.i.i, 0x3FC20DD750429B6D
   %mul38.i.i = fmul double %mul4.i.i, 0.000000e+00
   %mul39.i.i = fmul double %mul4.i.i, %mul38.i.i
-  %55 = call double @llvm.fmuladd.f64(double %mul39.i.i, double %mul4.i.i, double %mul38.i.i)
-  %56 = call double @llvm.fmuladd.f64(double %mul4.i.i, double %mul4.i.i, double 1.000000e+00)
-  %57 = call double @llvm.fmuladd.f64(double %mul20.i.i, double %56, double %55)
-  %58 = call double @llvm.fmuladd.f64(double %mul7.i.i, double %mul4.i.i, double %57)
-  %59 = call double @llvm.fmuladd.f64(double %mul3.i.i, double 2.000000e+00, double %58)
-  %60 = fneg double %59
-  %neg50.i.i = fmul double %mul36.i.i, %60
-  %61 = call double @llvm.fmuladd.f64(double %mul9.i.i, double %call31.i.i, double %neg50.i.i)
-  %sub.i.i = fsub double %54, %61
+  %54 = call double @llvm.fmuladd.f64(double %mul39.i.i, double %mul4.i.i, double %mul38.i.i)
+  %55 = call double @llvm.fmuladd.f64(double %mul4.i.i, double %mul4.i.i, double 1.000000e+00)
+  %56 = call double @llvm.fmuladd.f64(double %mul20.i.i, double %55, double %54)
+  %57 = call double @llvm.fmuladd.f64(double %mul2.i.i, double %mul4.i.i, double %56)
+  %58 = call double @llvm.fmuladd.f64(double %mul3.i.i, double 2.000000e+00, double %57)
+  %59 = fneg double %58
+  %neg50.i.i = fmul double %mul36.i.i, %59
+  %60 = call double @llvm.fmuladd.f64(double %mul9.i.i, double %call31.i.i, double %neg50.i.i)
+  %sub.i.i = fsub double %53, %60
   %add117 = fadd double %price.0.lcssa, %sub.i.i
-  %62 = load double, ptr %cond.i260, align 8, !tbaa !176
-  %63 = load double, ptr %12, align 8, !tbaa !176
-  %64 = call double @llvm.fmuladd.f64(double %63, double -0.000000e+00, double 0.000000e+00)
-  %mul3.i76 = fmul double %63, 0.000000e+00
+  %61 = load double, ptr %cond.i260, align 8, !tbaa !176
+  %62 = load double, ptr %12, align 8, !tbaa !176
+  %63 = call double @llvm.fmuladd.f64(double %62, double -0.000000e+00, double 0.000000e+00)
+  %mul3.i76 = fmul double %62, 0.000000e+00
   %neg.i78 = fneg double %mul3.i76
-  %65 = call double @llvm.fmuladd.f64(double %mul3.i76, double %63, double %neg.i78)
-  %add.i79 = fadd double %65, 0.000000e+00
-  %mul8.i80 = fmul double %63, -0.000000e+00
-  %mul9.i81 = fmul double %63, %mul8.i80
-  %mul13.i82 = fmul double %63, %mul3.i76
-  %66 = call double @llvm.fmuladd.f64(double %mul9.i81, double %63, double %mul13.i82)
-  %67 = call double @llvm.fmuladd.f64(double %63, double -0.000000e+00, double %66)
-  %add17.i83 = fadd double %67, 0.000000e+00
-  %mul20.i86 = fmul double %63, %mul13.i82
-  %68 = fneg double %63
-  %neg25.i89 = fmul double %mul13.i82, %68
-  %69 = call double @llvm.fmuladd.f64(double %mul20.i86, double %63, double %neg25.i89)
-  %70 = call double @llvm.fmuladd.f64(double %mul3.i76, double %63, double %69)
-  %71 = call double @llvm.fmuladd.f64(double %63, double -0.000000e+00, double %70)
-  %add30.i91 = fadd double %62, %71
-  %mul1.i.i92 = fmul double %64, 0x4006A09E667F3BCD
-  %mul2.i.i93 = fmul double %add.i79, 2.000000e+00
+  %64 = call double @llvm.fmuladd.f64(double %mul3.i76, double %62, double %neg.i78)
+  %mul8.i80 = fmul double %62, -0.000000e+00
+  %mul9.i81 = fmul double %62, %mul8.i80
+  %mul13.i82 = fmul double %62, %mul3.i76
+  %65 = call double @llvm.fmuladd.f64(double %mul9.i81, double %62, double %mul13.i82)
+  %66 = call double @llvm.fmuladd.f64(double %62, double -0.000000e+00, double %65)
+  %add17.i83 = fadd double %66, 0.000000e+00
+  %mul20.i86 = fmul double %62, %mul13.i82
+  %67 = fneg double %62
+  %neg25.i89 = fmul double %mul13.i82, %67
+  %68 = call double @llvm.fmuladd.f64(double %mul20.i86, double %62, double %neg25.i89)
+  %69 = call double @llvm.fmuladd.f64(double %mul3.i76, double %62, double %68)
+  %70 = call double @llvm.fmuladd.f64(double %62, double -0.000000e+00, double %69)
+  %add30.i91 = fadd double %61, %70
+  %mul1.i.i92 = fmul ninf double %63, 0x4006A09E667F3BCD
+  %mul2.i.i93 = call double @llvm.fabs.f64(double %64)
   %mul3.i.i94 = fmul double %add17.i83, 0x3FF6A09E667F3BCD
-  %mul5.i.i = fmul double %63, 0x3FE6A09E667F3BCD
-  %mul7.i.i95 = fmul double %mul2.i.i93, 2.000000e+00
-  %72 = fadd double %mul7.i.i95, 0.000000e+00
-  %73 = call double @llvm.fmuladd.f64(double %add30.i91, double 4.000000e+00, double %72)
-  %mul9.i.i96 = fmul double %73, 1.250000e-01
+  %mul5.i.i = fmul double %62, 0x3FE6A09E667F3BCD
+  %71 = call double @llvm.fmuladd.f64(double %add30.i91, double 4.000000e+00, double %mul2.i.i93)
+  %mul9.i.i96 = fmul double %71, 1.250000e-01
   %call.i.i97 = call double @erf(double noundef %mul5.i.i) #29, !tbaa !184
   %fneg.i.i = fneg double %mul5.i.i
   %mul11.i.i = fmul double %mul5.i.i, %fneg.i.i
@@ -4624,107 +4618,107 @@ if.then98:                                        ; preds = %if.then
   %mul13.i.i99 = fmul double %call12.i.i98, 0x3FC20DD750429B6D
   %mul15.i.i = fmul double %mul5.i.i, 0.000000e+00
   %mul16.i.i = fmul double %mul5.i.i, %mul15.i.i
-  %74 = call double @llvm.fmuladd.f64(double %mul16.i.i, double %mul5.i.i, double %mul15.i.i)
-  %mul20.i.i100 = fmul double %mul1.i.i92, 2.000000e+00
-  %75 = call double @llvm.fmuladd.f64(double %mul5.i.i, double %mul5.i.i, double 1.000000e+00)
-  %76 = call double @llvm.fmuladd.f64(double %mul20.i.i100, double %75, double %74)
-  %77 = call double @llvm.fmuladd.f64(double %mul7.i.i95, double %mul5.i.i, double %76)
-  %78 = call double @llvm.fmuladd.f64(double %mul3.i.i94, double 2.000000e+00, double %77)
-  %79 = fneg double %78
-  %neg.i.i101 = fmul double %mul13.i.i99, %79
-  %80 = call double @llvm.fmuladd.f64(double %mul9.i.i96, double %call.i.i97, double %neg.i.i101)
+  %72 = call double @llvm.fmuladd.f64(double %mul16.i.i, double %mul5.i.i, double %mul15.i.i)
+  %mul20.i.i100 = fmul ninf double %mul1.i.i92, 2.000000e+00
+  %73 = call double @llvm.fmuladd.f64(double %mul5.i.i, double %mul5.i.i, double 1.000000e+00)
+  %74 = call double @llvm.fmuladd.f64(double %mul20.i.i100, double %73, double %72)
+  %75 = call double @llvm.fmuladd.f64(double %mul2.i.i93, double %mul5.i.i, double %74)
+  %76 = call double @llvm.fmuladd.f64(double %mul3.i.i94, double 2.000000e+00, double %75)
+  %77 = fneg double %76
+  %neg.i.i101 = fmul double %mul13.i.i99, %77
+  %78 = call double @llvm.fmuladd.f64(double %mul9.i.i96, double %call.i.i97, double %neg.i.i101)
   %call31.i.i102 = call double @erf(double noundef 0xC051AD7BC01366B8) #29, !tbaa !184
   %call35.i.i103 = call double @exp(double noundef -5.000000e+03) #29, !tbaa !184
   %mul36.i.i104 = fmul double %call35.i.i103, 0x3FC20DD750429B6D
-  %81 = fmul double %mul20.i.i100, 5.001000e+03
-  %82 = call double @llvm.fmuladd.f64(double %mul7.i.i95, double 0xC051AD7BC01366B8, double %81)
-  %83 = call double @llvm.fmuladd.f64(double %mul3.i.i94, double 2.000000e+00, double %82)
-  %84 = fneg double %83
-  %neg50.i.i105 = fmul double %mul36.i.i104, %84
-  %85 = fsub double %neg50.i.i105, %mul9.i.i96
-  %sub.i.i106 = fsub double %80, %85
+  %79 = fmul double %mul20.i.i100, 5.001000e+03
+  %80 = call double @llvm.fmuladd.f64(double %mul2.i.i93, double 0xC051AD7BC01366B8, double %79)
+  %81 = call double @llvm.fmuladd.f64(double %mul3.i.i94, double 2.000000e+00, double %80)
+  %82 = fneg double %81
+  %neg50.i.i105 = fmul double %mul36.i.i104, %82
+  %83 = fsub double %neg50.i.i105, %mul9.i.i96
+  %sub.i.i106 = fsub double %78, %83
   %add126 = fadd double %add117, %sub.i.i106
   br label %if.end187
 
 lpad99:                                           ; preds = %if.end187
-  %86 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8QuantLib13InterpolationD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %payoff) #29
   br label %ehcleanup194
 
 if.else:                                          ; preds = %if.then
-  %87 = load i32, ptr %type, align 4, !tbaa !177
-  switch i32 %87, label %if.end187 [
+  %85 = load i32, ptr %type, align 4, !tbaa !177
+  switch i32 %85, label %if.end187 [
     i32 1, label %if.end.thread
     i32 -1, label %invoke.cont167
   ]
 
 if.end.thread:                                    ; preds = %if.else
   %impl_.i.i107 = getelementptr inbounds nuw i8, ptr %payoff, i64 16
-  %88 = load ptr, ptr %impl_.i.i107, align 8, !tbaa !180, !nonnull !38, !noundef !38
-  %89 = call noundef nonnull align 8 dereferenceable(152) ptr @__dynamic_cast(ptr nonnull %88, ptr nonnull @_ZTIN8QuantLib13Interpolation4ImplE, ptr nonnull @_ZTIN8QuantLib6detail17CoefficientHolderE, i64 -2) #29
-  %c_.i108 = getelementptr inbounds nuw i8, ptr %89, i64 88
+  %86 = load ptr, ptr %impl_.i.i107, align 8, !tbaa !180, !nonnull !38, !noundef !38
+  %87 = call noundef nonnull align 8 dereferenceable(152) ptr @__dynamic_cast(ptr nonnull %86, ptr nonnull @_ZTIN8QuantLib13Interpolation4ImplE, ptr nonnull @_ZTIN8QuantLib6detail17CoefficientHolderE, i64 -2) #29
+  %c_.i108 = getelementptr inbounds nuw i8, ptr %87, i64 88
   %sub133 = add i64 %13, -2
-  %90 = load ptr, ptr %c_.i108, align 8, !tbaa !182
-  %add.ptr.i110 = getelementptr inbounds nuw double, ptr %90, i64 %sub133
-  %91 = load double, ptr %add.ptr.i110, align 8, !tbaa !176
-  %b_.i112 = getelementptr inbounds nuw i8, ptr %89, i64 64
-  %92 = load ptr, ptr %b_.i112, align 8, !tbaa !182
-  %add.ptr.i114 = getelementptr inbounds nuw double, ptr %92, i64 %sub133
-  %93 = load double, ptr %add.ptr.i114, align 8, !tbaa !176
-  %a_.i116 = getelementptr inbounds nuw i8, ptr %89, i64 40
-  %94 = load ptr, ptr %a_.i116, align 8, !tbaa !182
-  %add.ptr.i118 = getelementptr inbounds nuw double, ptr %94, i64 %sub133
-  %95 = load double, ptr %add.ptr.i118, align 8, !tbaa !176
+  %88 = load ptr, ptr %c_.i108, align 8, !tbaa !182
+  %add.ptr.i110 = getelementptr inbounds nuw double, ptr %88, i64 %sub133
+  %89 = load double, ptr %add.ptr.i110, align 8, !tbaa !176
+  %b_.i112 = getelementptr inbounds nuw i8, ptr %87, i64 64
+  %90 = load ptr, ptr %b_.i112, align 8, !tbaa !182
+  %add.ptr.i114 = getelementptr inbounds nuw double, ptr %90, i64 %sub133
+  %91 = load double, ptr %add.ptr.i114, align 8, !tbaa !176
+  %a_.i116 = getelementptr inbounds nuw i8, ptr %87, i64 40
+  %92 = load ptr, ptr %a_.i116, align 8, !tbaa !182
+  %add.ptr.i118 = getelementptr inbounds nuw double, ptr %92, i64 %sub133
+  %93 = load double, ptr %add.ptr.i118, align 8, !tbaa !176
   %arrayidx.i120 = getelementptr inbounds nuw double, ptr %cond.i260, i64 %sub133
-  %96 = load double, ptr %arrayidx.i120, align 8, !tbaa !176
+  %94 = load double, ptr %arrayidx.i120, align 8, !tbaa !176
   %arrayidx.i122 = getelementptr inbounds nuw double, ptr %12, i64 %sub133
-  %97 = load double, ptr %arrayidx.i122, align 8, !tbaa !176
+  %95 = load double, ptr %arrayidx.i122, align 8, !tbaa !176
   %arrayidx.i124 = getelementptr inbounds nuw double, ptr %12, i64 %sub69
-  %98 = load double, ptr %arrayidx.i124, align 8, !tbaa !176
-  %99 = call double @llvm.fmuladd.f64(double %97, double -0.000000e+00, double %91)
-  %mul3.i125 = fmul double %97, 0.000000e+00
-  %mul5.i = fmul double %91, 3.000000e+00
-  %mul6.i126 = fmul double %mul5.i, %97
+  %96 = load double, ptr %arrayidx.i124, align 8, !tbaa !176
+  %97 = call double @llvm.fmuladd.f64(double %95, double -0.000000e+00, double %89)
+  %mul3.i125 = fmul double %95, 0.000000e+00
+  %mul5.i = fmul double %89, 3.000000e+00
+  %mul6.i126 = fmul double %mul5.i, %95
   %neg.i127 = fneg double %mul6.i126
-  %100 = call double @llvm.fmuladd.f64(double %mul3.i125, double %97, double %neg.i127)
-  %add.i128 = fadd double %93, %100
-  %mul8.i129 = fmul double %97, -0.000000e+00
-  %mul9.i130 = fmul double %97, %mul8.i129
-  %mul13.i131 = fmul double %97, %mul6.i126
-  %101 = call double @llvm.fmuladd.f64(double %mul9.i130, double %97, double %mul13.i131)
-  %neg16.i = fmul double %93, -2.000000e+00
-  %102 = call double @llvm.fmuladd.f64(double %neg16.i, double %97, double %101)
-  %add17.i132 = fadd double %95, %102
-  %mul19.i134 = fmul double %97, %mul3.i125
-  %mul20.i135 = fmul double %97, %mul19.i134
-  %mul22.i136 = fmul double %91, %97
-  %mul23.i137 = fmul double %97, %mul22.i136
-  %103 = fneg double %97
-  %neg25.i138 = fmul double %mul23.i137, %103
-  %104 = call double @llvm.fmuladd.f64(double %mul20.i135, double %97, double %neg25.i138)
-  %mul26.i139 = fmul double %93, %97
-  %105 = call double @llvm.fmuladd.f64(double %mul26.i139, double %97, double %104)
-  %neg29.i = fneg double %95
-  %106 = call double @llvm.fmuladd.f64(double %neg29.i, double %97, double %105)
-  %add30.i140 = fadd double %96, %106
-  %mul1.i.i141 = fmul double %99, 0x4006A09E667F3BCD
+  %98 = call double @llvm.fmuladd.f64(double %mul3.i125, double %95, double %neg.i127)
+  %add.i128 = fadd double %91, %98
+  %mul8.i129 = fmul double %95, -0.000000e+00
+  %mul9.i130 = fmul double %95, %mul8.i129
+  %mul13.i131 = fmul double %95, %mul6.i126
+  %99 = call double @llvm.fmuladd.f64(double %mul9.i130, double %95, double %mul13.i131)
+  %neg16.i = fmul double %91, -2.000000e+00
+  %100 = call double @llvm.fmuladd.f64(double %neg16.i, double %95, double %99)
+  %add17.i132 = fadd double %93, %100
+  %mul19.i134 = fmul double %95, %mul3.i125
+  %mul20.i135 = fmul double %95, %mul19.i134
+  %mul22.i136 = fmul double %89, %95
+  %mul23.i137 = fmul double %95, %mul22.i136
+  %101 = fneg double %95
+  %neg25.i138 = fmul double %mul23.i137, %101
+  %102 = call double @llvm.fmuladd.f64(double %mul20.i135, double %95, double %neg25.i138)
+  %mul26.i139 = fmul double %91, %95
+  %103 = call double @llvm.fmuladd.f64(double %mul26.i139, double %95, double %102)
+  %neg29.i = fneg double %93
+  %104 = call double @llvm.fmuladd.f64(double %neg29.i, double %95, double %103)
+  %add30.i140 = fadd double %94, %104
+  %mul1.i.i141 = fmul double %97, 0x4006A09E667F3BCD
   %mul2.i.i142 = fmul double %add.i128, 2.000000e+00
   %mul3.i.i143 = fmul double %add17.i132, 0x3FF6A09E667F3BCD
-  %mul4.i.i144 = fmul double %98, 0x3FE6A09E667F3BCD
+  %mul4.i.i144 = fmul double %96, 0x3FE6A09E667F3BCD
   %mul7.i.i145 = fmul double %mul2.i.i142, 2.000000e+00
-  %107 = fadd double %mul7.i.i145, 0.000000e+00
-  %108 = call double @llvm.fmuladd.f64(double %add30.i140, double 4.000000e+00, double %107)
-  %mul9.i.i146 = fmul double %108, 1.250000e-01
+  %105 = fadd double %mul7.i.i145, 0.000000e+00
+  %106 = call double @llvm.fmuladd.f64(double %add30.i140, double 4.000000e+00, double %105)
+  %mul9.i.i146 = fmul double %106, 1.250000e-01
   %call.i.i147 = call double @erf(double noundef 0x4051AD7BC01366B8) #29, !tbaa !184
   %call12.i.i148 = call double @exp(double noundef -5.000000e+03) #29, !tbaa !184
   %mul13.i.i149 = fmul double %call12.i.i148, 0x3FC20DD750429B6D
   %mul20.i.i150 = fmul double %mul1.i.i141, 2.000000e+00
-  %109 = call double @llvm.fmuladd.f64(double %mul20.i.i150, double 5.001000e+03, double 0.000000e+00)
-  %110 = call double @llvm.fmuladd.f64(double %mul7.i.i145, double 0x4051AD7BC01366B8, double %109)
-  %111 = call double @llvm.fmuladd.f64(double %mul3.i.i143, double 2.000000e+00, double %110)
-  %112 = fmul double %mul13.i.i149, %111
-  %113 = fsub double %mul9.i.i146, %112
+  %107 = call double @llvm.fmuladd.f64(double %mul20.i.i150, double 5.001000e+03, double 0.000000e+00)
+  %108 = call double @llvm.fmuladd.f64(double %mul7.i.i145, double 0x4051AD7BC01366B8, double %107)
+  %109 = call double @llvm.fmuladd.f64(double %mul3.i.i143, double 2.000000e+00, double %108)
+  %110 = fmul double %mul13.i.i149, %109
+  %111 = fsub double %mul9.i.i146, %110
   %call31.i.i152 = call double @erf(double noundef %mul4.i.i144) #29, !tbaa !184
   %fneg33.i.i153 = fneg double %mul4.i.i144
   %mul34.i.i154 = fmul double %mul4.i.i144, %fneg33.i.i153
@@ -4732,67 +4726,67 @@ if.end.thread:                                    ; preds = %if.else
   %mul36.i.i156 = fmul double %call35.i.i155, 0x3FC20DD750429B6D
   %mul38.i.i157 = fmul double %mul4.i.i144, 0.000000e+00
   %mul39.i.i158 = fmul double %mul4.i.i144, %mul38.i.i157
-  %114 = call double @llvm.fmuladd.f64(double %mul39.i.i158, double %mul4.i.i144, double %mul38.i.i157)
-  %115 = call double @llvm.fmuladd.f64(double %mul4.i.i144, double %mul4.i.i144, double 1.000000e+00)
-  %116 = call double @llvm.fmuladd.f64(double %mul20.i.i150, double %115, double %114)
-  %117 = call double @llvm.fmuladd.f64(double %mul7.i.i145, double %mul4.i.i144, double %116)
-  %118 = call double @llvm.fmuladd.f64(double %mul3.i.i143, double 2.000000e+00, double %117)
-  %119 = fneg double %118
-  %neg50.i.i160 = fmul double %mul36.i.i156, %119
-  %120 = call double @llvm.fmuladd.f64(double %mul9.i.i146, double %call31.i.i152, double %neg50.i.i160)
-  %sub.i.i161 = fsub double %113, %120
+  %112 = call double @llvm.fmuladd.f64(double %mul39.i.i158, double %mul4.i.i144, double %mul38.i.i157)
+  %113 = call double @llvm.fmuladd.f64(double %mul4.i.i144, double %mul4.i.i144, double 1.000000e+00)
+  %114 = call double @llvm.fmuladd.f64(double %mul20.i.i150, double %113, double %112)
+  %115 = call double @llvm.fmuladd.f64(double %mul7.i.i145, double %mul4.i.i144, double %114)
+  %116 = call double @llvm.fmuladd.f64(double %mul3.i.i143, double 2.000000e+00, double %115)
+  %117 = fneg double %116
+  %neg50.i.i160 = fmul double %mul36.i.i156, %117
+  %118 = call double @llvm.fmuladd.f64(double %mul9.i.i146, double %call31.i.i152, double %neg50.i.i160)
+  %sub.i.i161 = fsub double %111, %118
   %add164 = fadd double %price.0.lcssa, %sub.i.i161
   br label %if.end187
 
 invoke.cont167:                                   ; preds = %if.else
   %impl_.i.i162 = getelementptr inbounds nuw i8, ptr %payoff, i64 16
-  %121 = load ptr, ptr %impl_.i.i162, align 8, !tbaa !180, !nonnull !38, !noundef !38
-  %122 = call noundef nonnull align 8 dereferenceable(152) ptr @__dynamic_cast(ptr nonnull %121, ptr nonnull @_ZTIN8QuantLib13Interpolation4ImplE, ptr nonnull @_ZTIN8QuantLib6detail17CoefficientHolderE, i64 -2) #29
-  %c_.i163 = getelementptr inbounds nuw i8, ptr %122, i64 88
-  %123 = load ptr, ptr %c_.i163, align 8, !tbaa !182
+  %119 = load ptr, ptr %impl_.i.i162, align 8, !tbaa !180, !nonnull !38, !noundef !38
+  %120 = call noundef nonnull align 8 dereferenceable(152) ptr @__dynamic_cast(ptr nonnull %119, ptr nonnull @_ZTIN8QuantLib13Interpolation4ImplE, ptr nonnull @_ZTIN8QuantLib6detail17CoefficientHolderE, i64 -2) #29
+  %c_.i163 = getelementptr inbounds nuw i8, ptr %120, i64 88
+  %121 = load ptr, ptr %c_.i163, align 8, !tbaa !182
+  %122 = load double, ptr %121, align 8, !tbaa !176
+  %b_.i166 = getelementptr inbounds nuw i8, ptr %120, i64 64
+  %123 = load ptr, ptr %b_.i166, align 8, !tbaa !182
   %124 = load double, ptr %123, align 8, !tbaa !176
-  %b_.i166 = getelementptr inbounds nuw i8, ptr %122, i64 64
-  %125 = load ptr, ptr %b_.i166, align 8, !tbaa !182
+  %a_.i169 = getelementptr inbounds nuw i8, ptr %120, i64 40
+  %125 = load ptr, ptr %a_.i169, align 8, !tbaa !182
   %126 = load double, ptr %125, align 8, !tbaa !176
-  %a_.i169 = getelementptr inbounds nuw i8, ptr %122, i64 40
-  %127 = load ptr, ptr %a_.i169, align 8, !tbaa !182
-  %128 = load double, ptr %127, align 8, !tbaa !176
-  %129 = load double, ptr %cond.i260, align 8, !tbaa !176
-  %130 = load double, ptr %12, align 8, !tbaa !176
-  %131 = call double @llvm.fmuladd.f64(double %130, double -0.000000e+00, double %124)
-  %mul3.i174 = fmul double %130, 0.000000e+00
-  %mul5.i175 = fmul double %124, 3.000000e+00
-  %mul6.i176 = fmul double %mul5.i175, %130
+  %127 = load double, ptr %cond.i260, align 8, !tbaa !176
+  %128 = load double, ptr %12, align 8, !tbaa !176
+  %129 = call double @llvm.fmuladd.f64(double %128, double -0.000000e+00, double %122)
+  %mul3.i174 = fmul double %128, 0.000000e+00
+  %mul5.i175 = fmul double %122, 3.000000e+00
+  %mul6.i176 = fmul double %mul5.i175, %128
   %neg.i177 = fneg double %mul6.i176
-  %132 = call double @llvm.fmuladd.f64(double %mul3.i174, double %130, double %neg.i177)
-  %add.i178 = fadd double %126, %132
-  %mul8.i179 = fmul double %130, -0.000000e+00
-  %mul9.i180 = fmul double %130, %mul8.i179
-  %mul13.i181 = fmul double %130, %mul6.i176
-  %133 = call double @llvm.fmuladd.f64(double %mul9.i180, double %130, double %mul13.i181)
-  %neg16.i182 = fmul double %126, -2.000000e+00
-  %134 = call double @llvm.fmuladd.f64(double %neg16.i182, double %130, double %133)
-  %add17.i183 = fadd double %128, %134
-  %mul19.i185 = fmul double %130, %mul3.i174
-  %mul20.i186 = fmul double %130, %mul19.i185
-  %mul22.i187 = fmul double %124, %130
-  %mul23.i188 = fmul double %130, %mul22.i187
-  %135 = fneg double %130
-  %neg25.i189 = fmul double %mul23.i188, %135
-  %136 = call double @llvm.fmuladd.f64(double %mul20.i186, double %130, double %neg25.i189)
-  %mul26.i190 = fmul double %126, %130
-  %137 = call double @llvm.fmuladd.f64(double %mul26.i190, double %130, double %136)
-  %neg29.i191 = fneg double %128
-  %138 = call double @llvm.fmuladd.f64(double %neg29.i191, double %130, double %137)
-  %add30.i192 = fadd double %129, %138
-  %mul1.i.i193 = fmul double %131, 0x4006A09E667F3BCD
+  %130 = call double @llvm.fmuladd.f64(double %mul3.i174, double %128, double %neg.i177)
+  %add.i178 = fadd double %124, %130
+  %mul8.i179 = fmul double %128, -0.000000e+00
+  %mul9.i180 = fmul double %128, %mul8.i179
+  %mul13.i181 = fmul double %128, %mul6.i176
+  %131 = call double @llvm.fmuladd.f64(double %mul9.i180, double %128, double %mul13.i181)
+  %neg16.i182 = fmul double %124, -2.000000e+00
+  %132 = call double @llvm.fmuladd.f64(double %neg16.i182, double %128, double %131)
+  %add17.i183 = fadd double %126, %132
+  %mul19.i185 = fmul double %128, %mul3.i174
+  %mul20.i186 = fmul double %128, %mul19.i185
+  %mul22.i187 = fmul double %122, %128
+  %mul23.i188 = fmul double %128, %mul22.i187
+  %133 = fneg double %128
+  %neg25.i189 = fmul double %mul23.i188, %133
+  %134 = call double @llvm.fmuladd.f64(double %mul20.i186, double %128, double %neg25.i189)
+  %mul26.i190 = fmul double %124, %128
+  %135 = call double @llvm.fmuladd.f64(double %mul26.i190, double %128, double %134)
+  %neg29.i191 = fneg double %126
+  %136 = call double @llvm.fmuladd.f64(double %neg29.i191, double %128, double %135)
+  %add30.i192 = fadd double %127, %136
+  %mul1.i.i193 = fmul double %129, 0x4006A09E667F3BCD
   %mul2.i.i194 = fmul double %add.i178, 2.000000e+00
   %mul3.i.i195 = fmul double %add17.i183, 0x3FF6A09E667F3BCD
-  %mul5.i.i196 = fmul double %130, 0x3FE6A09E667F3BCD
+  %mul5.i.i196 = fmul double %128, 0x3FE6A09E667F3BCD
   %mul7.i.i197 = fmul double %mul2.i.i194, 2.000000e+00
-  %139 = fadd double %mul7.i.i197, 0.000000e+00
-  %140 = call double @llvm.fmuladd.f64(double %add30.i192, double 4.000000e+00, double %139)
-  %mul9.i.i198 = fmul double %140, 1.250000e-01
+  %137 = fadd double %mul7.i.i197, 0.000000e+00
+  %138 = call double @llvm.fmuladd.f64(double %add30.i192, double 4.000000e+00, double %137)
+  %mul9.i.i198 = fmul double %138, 1.250000e-01
   %call.i.i199 = call double @erf(double noundef %mul5.i.i196) #29, !tbaa !184
   %fneg.i.i200 = fneg double %mul5.i.i196
   %mul11.i.i201 = fmul double %mul5.i.i196, %fneg.i.i200
@@ -4800,25 +4794,25 @@ invoke.cont167:                                   ; preds = %if.else
   %mul13.i.i203 = fmul double %call12.i.i202, 0x3FC20DD750429B6D
   %mul15.i.i204 = fmul double %mul5.i.i196, 0.000000e+00
   %mul16.i.i205 = fmul double %mul5.i.i196, %mul15.i.i204
-  %141 = call double @llvm.fmuladd.f64(double %mul16.i.i205, double %mul5.i.i196, double %mul15.i.i204)
+  %139 = call double @llvm.fmuladd.f64(double %mul16.i.i205, double %mul5.i.i196, double %mul15.i.i204)
   %mul20.i.i207 = fmul double %mul1.i.i193, 2.000000e+00
-  %142 = call double @llvm.fmuladd.f64(double %mul5.i.i196, double %mul5.i.i196, double 1.000000e+00)
-  %143 = call double @llvm.fmuladd.f64(double %mul20.i.i207, double %142, double %141)
-  %144 = call double @llvm.fmuladd.f64(double %mul7.i.i197, double %mul5.i.i196, double %143)
-  %145 = call double @llvm.fmuladd.f64(double %mul3.i.i195, double 2.000000e+00, double %144)
-  %146 = fneg double %145
-  %neg.i.i208 = fmul double %mul13.i.i203, %146
-  %147 = call double @llvm.fmuladd.f64(double %mul9.i.i198, double %call.i.i199, double %neg.i.i208)
+  %140 = call double @llvm.fmuladd.f64(double %mul5.i.i196, double %mul5.i.i196, double 1.000000e+00)
+  %141 = call double @llvm.fmuladd.f64(double %mul20.i.i207, double %140, double %139)
+  %142 = call double @llvm.fmuladd.f64(double %mul7.i.i197, double %mul5.i.i196, double %141)
+  %143 = call double @llvm.fmuladd.f64(double %mul3.i.i195, double 2.000000e+00, double %142)
+  %144 = fneg double %143
+  %neg.i.i208 = fmul double %mul13.i.i203, %144
+  %145 = call double @llvm.fmuladd.f64(double %mul9.i.i198, double %call.i.i199, double %neg.i.i208)
   %call31.i.i209 = call double @erf(double noundef 0xC051AD7BC01366B8) #29, !tbaa !184
   %call35.i.i210 = call double @exp(double noundef -5.000000e+03) #29, !tbaa !184
   %mul36.i.i211 = fmul double %call35.i.i210, 0x3FC20DD750429B6D
-  %148 = fmul double %mul20.i.i207, 5.001000e+03
-  %149 = call double @llvm.fmuladd.f64(double %mul7.i.i197, double 0xC051AD7BC01366B8, double %148)
-  %150 = call double @llvm.fmuladd.f64(double %mul3.i.i195, double 2.000000e+00, double %149)
-  %151 = fneg double %150
-  %neg50.i.i212 = fmul double %mul36.i.i211, %151
-  %152 = fsub double %neg50.i.i212, %mul9.i.i198
-  %sub.i.i213 = fsub double %147, %152
+  %146 = fmul double %mul20.i.i207, 5.001000e+03
+  %147 = call double @llvm.fmuladd.f64(double %mul7.i.i197, double 0xC051AD7BC01366B8, double %146)
+  %148 = call double @llvm.fmuladd.f64(double %mul3.i.i195, double 2.000000e+00, double %147)
+  %149 = fneg double %148
+  %neg50.i.i212 = fmul double %mul36.i.i211, %149
+  %150 = fsub double %neg50.i.i212, %mul9.i.i198
+  %sub.i.i213 = fsub double %145, %150
   %add184 = fadd double %price.0.lcssa, %sub.i.i213
   br label %if.end187
 
@@ -4826,48 +4820,48 @@ if.end187:                                        ; preds = %if.else, %if.end.th
   %price.1 = phi double [ %add126, %if.then98 ], [ %add184, %invoke.cont167 ], [ %price.0.lcssa, %if.else ], [ %price.0.lcssa, %for.cond.cleanup71 ], [ %add164, %if.end.thread ]
   %vtable.i214 = load ptr, ptr %this, align 8, !tbaa !14
   %vfn.i215 = getelementptr inbounds nuw i8, ptr %vtable.i214, i64 16
-  %153 = load ptr, ptr %vfn.i215, align 8
-  %call.i217 = invoke noundef double %153(ptr noundef nonnull align 8 dereferenceable(121) %this, double noundef %cond, double noundef %y, ptr noundef nonnull align 8 dereferenceable(16) %yts)
+  %151 = load ptr, ptr %vfn.i215, align 8
+  %call.i217 = invoke noundef double %151(ptr noundef nonnull align 8 dereferenceable(121) %this, double noundef %cond, double noundef %y, ptr noundef nonnull align 8 dereferenceable(16) %yts)
           to label %invoke.cont188 unwind label %lpad99
 
 invoke.cont188:                                   ; preds = %if.end187
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib13InterpolationE, i64 16), ptr %payoff, align 8, !tbaa !14
   %pn.i.i = getelementptr inbounds nuw i8, ptr %payoff, i64 24
-  %154 = load ptr, ptr %pn.i.i, align 8, !tbaa !16
-  %cmp.not.i.i.i = icmp eq ptr %154, null
+  %152 = load ptr, ptr %pn.i.i, align 8, !tbaa !16
+  %cmp.not.i.i.i = icmp eq ptr %152, null
   br i1 %cmp.not.i.i.i, label %_ZN8QuantLib13InterpolationD2Ev.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont188
-  %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %154, i64 8
-  %155 = atomicrmw sub ptr %use_count_.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i = icmp eq i32 %155, 1
+  %use_count_.i.i.i.i = getelementptr inbounds nuw i8, ptr %152, i64 8
+  %153 = atomicrmw sub ptr %use_count_.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i = icmp eq i32 %153, 1
   br i1 %cmp.i.i.i.i, label %if.then.i.i.i.i, label %_ZN8QuantLib13InterpolationD2Ev.exit
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
-  %vtable.i.i.i.i = load ptr, ptr %154, align 8, !tbaa !14
+  %vtable.i.i.i.i = load ptr, ptr %152, align 8, !tbaa !14
   %vfn.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i, i64 16
-  %156 = load ptr, ptr %vfn.i.i.i.i, align 8
-  invoke void %156(ptr noundef nonnull align 8 dereferenceable(16) %154)
+  %154 = load ptr, ptr %vfn.i.i.i.i, align 8
+  invoke void %154(ptr noundef nonnull align 8 dereferenceable(16) %152)
           to label %.noexc.i.i.i unwind label %terminate.lpad.i.i.i
 
 .noexc.i.i.i:                                     ; preds = %if.then.i.i.i.i
-  %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %154, i64 12
-  %157 = atomicrmw sub ptr %weak_count_.i.i.i.i.i, i32 1 acq_rel, align 4
-  %cmp.i.i.i.i.i = icmp eq i32 %157, 1
+  %weak_count_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %152, i64 12
+  %155 = atomicrmw sub ptr %weak_count_.i.i.i.i.i, i32 1 acq_rel, align 4
+  %cmp.i.i.i.i.i = icmp eq i32 %155, 1
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZN8QuantLib13InterpolationD2Ev.exit
 
 if.then.i.i.i.i.i:                                ; preds = %.noexc.i.i.i
-  %vtable.i.i.i.i.i = load ptr, ptr %154, align 8, !tbaa !14
+  %vtable.i.i.i.i.i = load ptr, ptr %152, align 8, !tbaa !14
   %vfn.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i.i.i, i64 24
-  %158 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  invoke void %158(ptr noundef nonnull align 8 dereferenceable(16) %154)
+  %156 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  invoke void %156(ptr noundef nonnull align 8 dereferenceable(16) %152)
           to label %_ZN8QuantLib13InterpolationD2Ev.exit unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i, %if.then.i.i.i.i
-  %159 = landingpad { ptr, i32 }
+  %157 = landingpad { ptr, i32 }
           catch ptr null
-  %160 = extractvalue { ptr, i32 } %159, 0
-  call void @__clang_call_terminate(ptr %160) #30
+  %158 = extractvalue { ptr, i32 } %157, 0
+  call void @__clang_call_terminate(ptr %158) #30
   unreachable
 
 _ZN8QuantLib13InterpolationD2Ev.exit:             ; preds = %invoke.cont188, %if.then.i.i.i, %.noexc.i.i.i, %if.then.i.i.i.i.i
@@ -4880,22 +4874,22 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZN8QuantLib5ArrayD2Ev.exit
 
 _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %_ZN8QuantLib13InterpolationD2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
-  %161 = load ptr, ptr %z, align 8, !tbaa !18
-  %cmp.not.i.i219 = icmp eq ptr %161, null
+  %159 = load ptr, ptr %z, align 8, !tbaa !18
+  %cmp.not.i.i219 = icmp eq ptr %159, null
   br i1 %cmp.not.i.i219, label %_ZN8QuantLib5ArrayD2Ev.exit221, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i220
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i220: ; preds = %_ZN8QuantLib5ArrayD2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %161) #31
+  call void @_ZdaPv(ptr noundef nonnull %159) #31
   br label %_ZN8QuantLib5ArrayD2Ev.exit221
 
 _ZN8QuantLib5ArrayD2Ev.exit221:                   ; preds = %_ZN8QuantLib5ArrayD2Ev.exit, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i220
   call void @llvm.lifetime.end.p0(ptr nonnull %z)
-  %162 = load ptr, ptr %yg, align 8, !tbaa !18
-  %cmp.not.i.i222 = icmp eq ptr %162, null
+  %160 = load ptr, ptr %yg, align 8, !tbaa !18
+  %cmp.not.i.i222 = icmp eq ptr %160, null
   br i1 %cmp.not.i.i222, label %_ZN8QuantLib5ArrayD2Ev.exit224, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i223
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i223: ; preds = %_ZN8QuantLib5ArrayD2Ev.exit221
-  call void @_ZdaPv(ptr noundef nonnull %162) #31
+  call void @_ZdaPv(ptr noundef nonnull %160) #31
   br label %_ZN8QuantLib5ArrayD2Ev.exit224
 
 _ZN8QuantLib5ArrayD2Ev.exit224:                   ; preds = %_ZN8QuantLib5ArrayD2Ev.exit221, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i223
@@ -4904,7 +4898,7 @@ _ZN8QuantLib5ArrayD2Ev.exit224:                   ; preds = %_ZN8QuantLib5ArrayD
   ret double %mul190
 
 ehcleanup194:                                     ; preds = %lpad57, %lpad99
-  %.pn.pn = phi { ptr, i32 } [ %86, %lpad99 ], [ %26, %lpad57 ]
+  %.pn.pn = phi { ptr, i32 } [ %84, %lpad99 ], [ %26, %lpad57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %payoff)
   %cmp.not.i.i225 = icmp eq ptr %cond.i260, null
   br i1 %cmp.not.i.i225, label %ehcleanup195, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i226
@@ -4917,23 +4911,23 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 ehcleanup195:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i226, %ehcleanup194, %lpad14
   %.pn35.pn.pn.pn = phi { ptr, i32 } [ %15, %lpad14 ], [ %.pn.pn, %ehcleanup194 ], [ %.pn35.pn.pn265, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i226 ]
-  %163 = load ptr, ptr %z, align 8, !tbaa !18
-  %cmp.not.i.i228 = icmp eq ptr %163, null
+  %161 = load ptr, ptr %z, align 8, !tbaa !18
+  %cmp.not.i.i228 = icmp eq ptr %161, null
   br i1 %cmp.not.i.i228, label %ehcleanup197, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i229
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i229: ; preds = %ehcleanup195
-  call void @_ZdaPv(ptr noundef nonnull %163) #31
+  call void @_ZdaPv(ptr noundef nonnull %161) #31
   br label %ehcleanup197
 
 ehcleanup197:                                     ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i229, %ehcleanup195, %lpad
   %.pn35.pn.pn.pn.pn = phi { ptr, i32 } [ %14, %lpad ], [ %.pn35.pn.pn.pn, %ehcleanup195 ], [ %.pn35.pn.pn.pn, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i229 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %z)
-  %164 = load ptr, ptr %yg, align 8, !tbaa !18
-  %cmp.not.i.i231 = icmp eq ptr %164, null
+  %162 = load ptr, ptr %yg, align 8, !tbaa !18
+  %cmp.not.i.i231 = icmp eq ptr %162, null
   br i1 %cmp.not.i.i231, label %_ZN8QuantLib5ArrayD2Ev.exit233, label %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i232
 
 _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i232: ; preds = %ehcleanup197
-  call void @_ZdaPv(ptr noundef nonnull %164) #31
+  call void @_ZdaPv(ptr noundef nonnull %162) #31
   br label %_ZN8QuantLib5ArrayD2Ev.exit233
 
 _ZN8QuantLib5ArrayD2Ev.exit233:                   ; preds = %ehcleanup197, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i232
@@ -11426,13 +11420,13 @@ call.i731.noexc:                                  ; preds = %invoke.cont600
   %240 = load double, ptr %239, align 8, !tbaa !176
   %sub606 = add i64 %235, -1
   %conv = uitofp i64 %sub606 to double
-  %div607 = fdiv double 1.000000e+00, %conv
+  %div607 = fdiv nnan double 1.000000e+00, %conv
   %mul610 = fmul double %div607, %240
   %mul613 = fmul double %240, %mul610
   %mul616 = fmul double %240, %mul613
   store double %mul616, ptr %call.i731742, align 8, !tbaa !176
   %241 = load double, ptr %239, align 8, !tbaa !176
-  %div624 = fdiv double 8.750000e-01, %conv
+  %div624 = fdiv nnan double 8.750000e-01, %conv
   %mul627 = fmul double %div624, %241
   %mul630 = fmul double %241, %mul627
   %mul633 = fmul double %241, %mul630
@@ -12743,7 +12737,7 @@ call.i1110.noexc:                                 ; preds = %invoke.cont1088
   %mul1100 = fmul double %div1097, %396
   store double %mul1100, ptr %call.i11101121, align 8, !tbaa !176
   %397 = load double, ptr %395, align 8, !tbaa !176
-  %div1108 = fdiv double 5.000000e-01, %conv1096
+  %div1108 = fdiv nnan double 5.000000e-01, %conv1096
   %mul1111 = fmul double %div1108, %397
   %arrayidx1114 = getelementptr inbounds nuw i8, ptr %call.i11101121, i64 8
   store double %mul1111, ptr %arrayidx1114, align 8, !tbaa !176

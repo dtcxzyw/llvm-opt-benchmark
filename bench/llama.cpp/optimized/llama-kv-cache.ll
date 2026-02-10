@@ -774,8 +774,8 @@ _ZNSt6vectorIP11ggml_tensorSaIS1_EE9push_backERKS1_.exit135: ; preds = %_ZNSt6ve
 
 270:                                              ; preds = %268
   %271 = uitofp i64 %269 to double
-  %272 = fmul double %271, 0x3F50000000000000
-  %273 = fmul double %272, 0x3F50000000000000
+  %272 = fmul nnan double %271, 0x3F50000000000000
+  %273 = fmul nnan double %272, 0x3F50000000000000
   invoke void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef nonnull @__func__._Z19llama_kv_cache_initR14llama_kv_cacheRK11llama_modelRK13llama_cparams9ggml_typeS7_jb, ptr noundef %267, double noundef %273)
           to label %274 unwind label %.loopexit
 

@@ -5355,7 +5355,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIiPKN11OpenIma
   %.sroa.speculated.i11 = select i1 %63, float %62, float 0x3FEE666660000000
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i11, ptr %64, align 4, !tbaa !31
-  %65 = fmul float %.sroa.speculated.i11, %.017202932
+  %65 = fmul nnan float %.sroa.speculated.i11, %.017202932
   %66 = fptoui float %65 to i64
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %66, ptr %67, align 8, !tbaa !32
@@ -5547,7 +5547,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112
   %.sroa.speculated.i11 = select i1 %64, float %63, float 0x3FEE666660000000
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i11, ptr %65, align 4, !tbaa !48
-  %66 = fmul float %.sroa.speculated.i11, %.017202932
+  %66 = fmul nnan float %.sroa.speculated.i11, %.017202932
   %67 = fptoui float %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %67, ptr %68, align 8, !tbaa !49

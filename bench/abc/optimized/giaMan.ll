@@ -3169,7 +3169,7 @@ Vec_IntCountPositive.exit10:                      ; preds = %23, %Vec_IntCountPo
   %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, i32 noundef %30)
   %32 = tail call i32 @Gia_ManEvalEdgeDelay(ptr noundef nonnull %0) #32
   %33 = sitofp i32 %32 to double
-  %34 = fmul double %33, 1.000000e-01
+  %34 = fmul nnan double %33, 1.000000e-01
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, double noundef %34)
   %putchar = tail call i32 @putchar(i32 10)
   ret i32 0
@@ -4311,7 +4311,7 @@ Vec_IntFreeP.exit:                                ; preds = %Vec_IntFreeP.exit.p
   %149 = add nsw i32 %146, %.0234338
   %150 = add nsw i32 %.2232339, 1
   %151 = sitofp i32 %146 to double
-  %152 = fmul double %151, 1.000000e+02
+  %152 = fmul nnan double %151, 1.000000e+02
   %153 = fdiv double %152, %143
   %154 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv398
   %155 = load ptr, ptr %154, align 8, !tbaa !143
@@ -4329,7 +4329,7 @@ Vec_IntFreeP.exit:                                ; preds = %Vec_IntFreeP.exit.p
 158:                                              ; preds = %157
   %159 = sub nsw i32 %140, %.1235
   %160 = sitofp i32 %159 to double
-  %161 = fmul double %160, 1.000000e+02
+  %161 = fmul nnan double %160, 1.000000e+02
   %162 = fdiv double %161, %143
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.75, i32 noundef %159, double noundef %162)
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -4447,10 +4447,10 @@ Vec_IntFreeP.exit:                                ; preds = %Vec_IntFreeP.exit.p
 
 207:                                              ; preds = %._crit_edge352, %206
   %208 = sitofp i32 %.2236.lcssa to double
-  %209 = fmul double %208, 1.000000e+02
+  %209 = fmul nnan double %208, 1.000000e+02
   %210 = fdiv double %209, %143
   %211 = sitofp i32 %.0238.lcssa to double
-  %212 = fmul double %211, 1.000000e+02
+  %212 = fmul nnan double %211, 1.000000e+02
   %213 = fdiv double %212, %143
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.76, i32 noundef %.2236.lcssa, double noundef %210, i32 noundef %.0238.lcssa, double noundef %213)
   br i1 %.0243.lcssa, label %214, label %385
@@ -5035,7 +5035,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntFindMax.exit
   %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.80, i32 noundef %50, i32 noundef %48)
   %52 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.81, i32 noundef %45)
   %53 = sitofp i32 %45 to double
-  %54 = fmul double %53, 1.000000e+02
+  %54 = fmul nnan double %53, 1.000000e+02
   %55 = fdiv double %54, %42
   %56 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.82, double noundef %55)
   %putchar = tail call i32 @putchar(i32 10)
@@ -5224,7 +5224,7 @@ define void @Gia_ManReportImprovement(ptr noundef readonly captures(none) %0, pt
 5:                                                ; preds = %2
   %6 = sub nsw i32 %.val17, %.val16
   %7 = sitofp i32 %6 to double
-  %8 = fmul double %7, 1.000000e+02
+  %8 = fmul nnan double %7, 1.000000e+02
   %9 = sitofp i32 %.val17 to double
   %10 = fdiv double %8, %9
   br label %11
@@ -5264,7 +5264,7 @@ define void @Gia_ManReportImprovement(ptr noundef readonly captures(none) %0, pt
 35:                                               ; preds = %11
   %36 = sub nsw i32 %23, %34
   %37 = sitofp i32 %36 to double
-  %38 = fmul double %37, 1.000000e+02
+  %38 = fmul nnan double %37, 1.000000e+02
   %39 = sitofp i32 %23 to double
   %40 = fdiv double %38, %39
   br label %41

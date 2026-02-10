@@ -894,7 +894,7 @@ Abc_Clock.exit36.i:                               ; preds = %426, %Abc_Clock.exi
   %479 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, ptr noundef nonnull %7)
   %480 = call i32 @Extra_FileSize(ptr noundef nonnull %7) #20
   %481 = sitofp i32 %480 to double
-  %482 = fmul double %481, 0x3EB0000000000000
+  %482 = fmul nnan double %481, 0x3EB0000000000000
   %483 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, double noundef %482)
   br label %Super2_LibWrite.exit
 

@@ -283,7 +283,7 @@ define ptr @Gia_ManFront(ptr noundef %0) local_unnamed_addr #4 {
 
 Gia_ManCrossCutSimple.exit.loopexit:              ; preds = %31
   %32 = uitofp nneg i32 %.1.i to float
-  %33 = fmul float %32, 0x3FF19999A0000000
+  %33 = fmul nnan float %32, 0x3FF19999A0000000
   %34 = fptosi float %33 to i32
   %35 = add nsw i32 %34, 1
   br label %Gia_ManCrossCutSimple.exit

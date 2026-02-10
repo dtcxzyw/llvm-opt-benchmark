@@ -1934,7 +1934,7 @@ IDAWrmsNorm.exit:                                 ; preds = %314, %317
   br i1 %321, label %322, label %331
 
 322:                                              ; preds = %IDAWrmsNorm.exit
-  %323 = fmul double %320, 1.000000e+01
+  %323 = fmul nnan double %320, 1.000000e+01
   store double %323, ptr %221, align 8, !tbaa !84
   %324 = load double, ptr %222, align 8, !tbaa !80
   call void (ptr, i32, i32, ptr, ptr, ptr, ...) @IDAProcessError(ptr noundef nonnull %0, i32 noundef -22, i32 noundef 1387, ptr noundef nonnull @__func__.IDASolve, ptr noundef nonnull @.str, ptr noundef nonnull @.str.25, double noundef %324)

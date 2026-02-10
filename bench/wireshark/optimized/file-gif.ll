@@ -269,7 +269,7 @@ define internal noundef i32 @dissect_gif(ptr noundef %0, ptr noundef %1, ptr nou
   %63 = zext i8 %60 to i32
   %64 = add nuw nsw i32 %63, 15
   %65 = uitofp nneg i32 %64 to double
-  %66 = fmul double %65, 1.562500e-02
+  %66 = fmul nnan double %65, 1.562500e-02
   %67 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %19, i32 noundef %62, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef %63, ptr noundef nonnull @.str.98, i32 noundef %63, i32 noundef %63, double noundef %66)
   br label %72
 

@@ -19779,13 +19779,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit42: ; preds = %55, %62
 
 76:                                               ; preds = %74
   %77 = uitofp i64 %.024 to double
-  %78 = fmul double %77, 5.000000e-01
+  %78 = fmul nnan double %77, 5.000000e-01
   %79 = call double @sin(double noundef %78) #23
-  %80 = fmul double %77, 0x3FE6666666666666
+  %80 = fmul nnan double %77, 0x3FE6666666666666
   %81 = call double @cos(double noundef %80) #23
-  %82 = fmul double %77, 9.000000e-01
+  %82 = fmul nnan double %77, 9.000000e-01
   %83 = call double @sin(double noundef %82) #23
-  %84 = fmul double %77, 2.500000e-01
+  %84 = fmul nnan double %77, 2.500000e-01
   %85 = call double @cos(double noundef %84) #23
   %86 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %12, i64 noundef %.024)
           to label %87 unwind label %.loopexit
@@ -19886,13 +19886,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit49: ; preds = %101, %108
 
 120:                                              ; preds = %118
   %121 = uitofp i64 %.0 to double
-  %122 = fmul double %121, 5.000000e-01
+  %122 = fmul nnan double %121, 5.000000e-01
   %123 = call double @sin(double noundef %122) #23
-  %124 = fmul double %121, 0x3FE6666666666666
+  %124 = fmul nnan double %121, 0x3FE6666666666666
   %125 = call double @cos(double noundef %124) #23
-  %126 = fmul double %121, 9.000000e-01
+  %126 = fmul nnan double %121, 9.000000e-01
   %127 = call double @sin(double noundef %126) #23
-  %128 = fmul double %121, 2.500000e-01
+  %128 = fmul nnan double %121, 2.500000e-01
   %129 = call double @cos(double noundef %128) #23
   %130 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %14, i64 noundef %.0)
           to label %131 unwind label %.loopexit93
@@ -21884,13 +21884,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate20AddGridW
 .lr.ph:                                           ; preds = %.preheader, %40
   %.077 = phi i64 [ %48, %40 ], [ 0, %.preheader ]
   %30 = uitofp i64 %.077 to double
-  %31 = fmul double %30, 1.000000e-01
+  %31 = fmul nnan double %30, 1.000000e-01
   %32 = call double @sin(double noundef %31) #23
-  %33 = fmul double %30, 3.000000e-01
+  %33 = fmul nnan double %30, 3.000000e-01
   %34 = call double @cos(double noundef %33) #23
-  %35 = fmul double %30, 0x3FE6666666666666
+  %35 = fmul nnan double %30, 0x3FE6666666666666
   %36 = call double @sin(double noundef %35) #23
-  %37 = fmul double %30, 2.500000e-01
+  %37 = fmul nnan double %30, 2.500000e-01
   %38 = call double @cos(double noundef %37) #23
   %39 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %14, i64 noundef %.077)
           to label %40 unwind label %.loopexit
@@ -22417,13 +22417,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate22AddGridW
 .lr.ph:                                           ; preds = %.preheader, %40
   %.077 = phi i64 [ %48, %40 ], [ 0, %.preheader ]
   %30 = uitofp i64 %.077 to double
-  %31 = fmul double %30, 1.000000e-01
+  %31 = fmul nnan double %30, 1.000000e-01
   %32 = call double @sin(double noundef %31) #23
-  %33 = fmul double %30, 3.000000e-01
+  %33 = fmul nnan double %30, 3.000000e-01
   %34 = call double @cos(double noundef %33) #23
-  %35 = fmul double %30, 0x3FE6666666666666
+  %35 = fmul nnan double %30, 0x3FE6666666666666
   %36 = call double @sin(double noundef %35) #23
-  %37 = fmul double %30, 2.500000e-01
+  %37 = fmul nnan double %30, 2.500000e-01
   %38 = call double @cos(double noundef %37) #23
   %39 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %14, i64 noundef %.077)
           to label %40 unwind label %.loopexit
@@ -22949,13 +22949,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18HdUnitTestDelegate27AddGridW
 .lr.ph:                                           ; preds = %.preheader, %40
   %.077 = phi i64 [ %48, %40 ], [ 0, %.preheader ]
   %30 = uitofp i64 %.077 to double
-  %31 = fmul double %30, 1.000000e-01
+  %31 = fmul nnan double %30, 1.000000e-01
   %32 = call double @sin(double noundef %31) #23
-  %33 = fmul double %30, 3.000000e-01
+  %33 = fmul nnan double %30, 3.000000e-01
   %34 = call double @cos(double noundef %33) #23
-  %35 = fmul double %30, 0x3FE6666666666666
+  %35 = fmul nnan double %30, 0x3FE6666666666666
   %36 = call double @sin(double noundef %35) #23
-  %37 = fmul double %30, 2.500000e-01
+  %37 = fmul nnan double %30, 2.500000e-01
   %38 = call double @cos(double noundef %37) #23
   %39 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %14, i64 noundef %.077)
           to label %40 unwind label %.loopexit
@@ -24681,13 +24681,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit: ; preds = %77, %84
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %108 ], [ 0, %96 ]
   %97 = trunc nuw nsw i64 %indvars.iv107 to i32
   %98 = uitofp nneg i32 %97 to double
-  %99 = fmul double %98, 1.000000e-01
+  %99 = fmul nnan double %98, 1.000000e-01
   %100 = call double @sin(double noundef %99) #23
-  %101 = fmul double %98, 3.000000e-01
+  %101 = fmul nnan double %98, 3.000000e-01
   %102 = call double @cos(double noundef %101) #23
-  %103 = fmul double %98, 0x3FE6666666666666
+  %103 = fmul nnan double %98, 0x3FE6666666666666
   %104 = call double @sin(double noundef %103) #23
-  %105 = fmul double %98, 2.500000e-01
+  %105 = fmul nnan double %98, 2.500000e-01
   %106 = call double @cos(double noundef %105) #23
   %107 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %10, i64 noundef %indvars.iv107)
           to label %108 unwind label %.loopexit96
@@ -24827,7 +24827,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit60: ; preds = %138, %146
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %162 ], [ 0, %156 ]
   %157 = trunc nuw nsw i64 %indvars.iv111 to i32
   %158 = uitofp nneg i32 %157 to double
-  %159 = fmul double %158, 1.000000e-01
+  %159 = fmul nnan double %158, 1.000000e-01
   %160 = call double @sin(double noundef %159) #23
   %161 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfEixEm(ptr noundef nonnull align 8 dereferenceable(40) %14, i64 noundef %indvars.iv111)
           to label %162 unwind label %.loopexit

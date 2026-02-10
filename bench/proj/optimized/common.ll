@@ -2272,7 +2272,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj6common7Measure15_isEquivalentT
   br i1 %or.cond, label %48, label %51
 
 48:                                               ; preds = %30
-  %49 = fmul double %35, %43
+  %49 = fmul nnan double %35, %43
   %50 = fcmp ogt double %49, 0.000000e+00
   br label %_ZNK5osgeo4proj6common7MeasureeqERKS2_.exit
 

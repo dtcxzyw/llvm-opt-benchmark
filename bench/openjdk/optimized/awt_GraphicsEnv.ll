@@ -1610,7 +1610,7 @@ define double @Java_sun_awt_X11GraphicsConfig_getXResolution(ptr noundef readnon
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = sitofp i32 %10 to double
-  %12 = fmul double %11, 2.540000e+01
+  %12 = fmul nnan double %11, 2.540000e+01
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = sitofp i32 %14 to double
@@ -1628,7 +1628,7 @@ define double @Java_sun_awt_X11GraphicsConfig_getYResolution(ptr noundef readnon
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %10 = load i32, ptr %9, align 4
   %11 = sitofp i32 %10 to double
-  %12 = fmul double %11, 2.540000e+01
+  %12 = fmul nnan double %11, 2.540000e+01
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 36
   %14 = load i32, ptr %13, align 4
   %15 = sitofp i32 %14 to double

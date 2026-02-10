@@ -2995,7 +2995,7 @@ define void @_ZN5ImGui5ImageEyRK6ImVec2S2_S2_RK6ImVec4S5_(i64 noundef %0, ptr no
   %.val25 = load float, ptr %25, align 4, !tbaa !160
   %26 = fadd float %.val22, %.val24
   %27 = fadd float %.val23, %.val25
-  %28 = fmul float %22, 2.000000e+00
+  %28 = fmul nnan float %22, 2.000000e+00
   %29 = fadd float %28, %26
   %30 = fadd float %28, %27
   %.sroa.0.0.vec.insert.i34 = insertelement <2 x float> poison, float %29, i64 0
@@ -16178,7 +16178,7 @@ _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit297: ; preds = %285, %288
 
 330:                                              ; preds = %328
   %331 = sitofp i32 %16 to float
-  %332 = fmul float %304, %331
+  %332 = fmul nnan float %304, %331
   %333 = icmp ugt i32 %4, %5
   %334 = select i1 %333, float -5.000000e-01, float 5.000000e-01
   %335 = fadd float %334, %332
@@ -16321,7 +16321,7 @@ _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit307: ; preds = %_ZN5ImGui
 
 411:                                              ; preds = %409
   %412 = sitofp i32 %16 to float
-  %413 = fmul float %.2227346, %412
+  %413 = fmul nnan float %.2227346, %412
   %414 = icmp ugt i32 %4, %5
   %415 = select i1 %414, float -5.000000e-01, float 5.000000e-01
   %416 = fadd float %415, %413
@@ -17691,7 +17691,7 @@ _ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit297: ; preds = %289, %292
 
 336:                                              ; preds = %334
   %337 = sitofp i64 %16 to float
-  %338 = fmul float %309, %337
+  %338 = fmul nnan float %309, %337
   %339 = fpext float %338 to double
   %340 = icmp ugt i64 %4, %5
   %341 = select i1 %340, double -5.000000e-01, double 5.000000e-01
@@ -17838,7 +17838,7 @@ _ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit307: ; preds = %_ZN5ImGui
 
 421:                                              ; preds = %419
   %422 = sitofp i64 %16 to float
-  %423 = fmul float %.2227346, %422
+  %423 = fmul nnan float %.2227346, %422
   %424 = fpext float %423 to double
   %425 = icmp ugt i64 %4, %5
   %426 = select i1 %425, double -5.000000e-01, double 5.000000e-01
@@ -31486,12 +31486,12 @@ _ZL18ColorEditRestoreHSPKfPfS1_S1_.exit553:       ; preds = %620, %617, %.crited
   %indvars.iv = phi i64 [ 0, %665 ], [ %indvars.iv.next, %769 ]
   %771 = trunc nuw nsw i64 %indvars.iv to i32
   %772 = uitofp nneg i32 %771 to float
-  %773 = fdiv float %772, 6.000000e+00
-  %774 = fmul float %773, 2.000000e+00
+  %773 = fdiv nnan float %772, 6.000000e+00
+  %774 = fmul nnan float %773, 2.000000e+00
   %775 = call float @llvm.fmuladd.f32(float %774, float 0x400921FB60000000, float %670)
-  %776 = fadd float %772, 1.000000e+00
-  %777 = fdiv float %776, 6.000000e+00
-  %778 = fmul float %777, 2.000000e+00
+  %776 = fadd nnan float %772, 1.000000e+00
+  %777 = fdiv nnan float %776, 6.000000e+00
+  %778 = fmul nnan float %777, 2.000000e+00
   %779 = call float @llvm.fmuladd.f32(float %778, float 0x400921FB60000000, float %666)
   %780 = load i32, ptr %671, align 8, !tbaa !536
   call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(216) %73, ptr noundef nonnull align 4 dereferenceable(8) %26, float noundef %673, float noundef %775, float noundef %779, i32 noundef %669)
@@ -46236,7 +46236,7 @@ define linkonce_odr noundef i32 @_ZN5ImGui20ScaleValueFromRatioTIiifEET_ifS1_S1_
 93:                                               ; preds = %91
   %94 = sub nsw i32 %3, %2
   %95 = sitofp i32 %94 to float
-  %96 = fmul float %1, %95
+  %96 = fmul nnan float %1, %95
   %97 = icmp sgt i32 %2, %3
   %98 = select i1 %97, float -5.000000e-01, float 5.000000e-01
   %99 = fadd float %98, %96
@@ -46810,7 +46810,7 @@ define linkonce_odr noundef i64 @_ZN5ImGui20ScaleValueFromRatioTIxxdEET_ifS1_S1_
 103:                                              ; preds = %101
   %104 = sub nsw i64 %3, %2
   %105 = sitofp i64 %104 to float
-  %106 = fmul float %1, %105
+  %106 = fmul nnan float %1, %105
   %107 = fpext float %106 to double
   %108 = icmp sgt i64 %2, %3
   %109 = select i1 %108, double -5.000000e-01, double 5.000000e-01
@@ -47805,7 +47805,7 @@ define linkonce_odr noundef double @_ZN5ImGui20ScaleValueFromRatioTIdddEET_ifS1_
   br i1 %95, label %96, label %104
 
 96:                                               ; preds = %94
-  %97 = fpext float %1 to double
+  %97 = fpext nnan ninf float %1 to double
   %98 = fsub double %3, %2
   %99 = fmul double %98, %97
   %100 = fcmp ogt double %2, %3

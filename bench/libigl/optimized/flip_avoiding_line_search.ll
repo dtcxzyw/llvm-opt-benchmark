@@ -145,7 +145,7 @@ define dso_local noundef double @_ZN3igl13flip_avoiding26get_smallest_pos_quad_z
 
 6:                                                ; preds = %3
   %square = fmul double %1, %1
-  %7 = fmul double %0, -4.000000e+00
+  %7 = fmul nnan double %0, -4.000000e+00
   %8 = tail call double @llvm.fmuladd.f64(double %7, double %2, double %square)
   %9 = fcmp ugt double %8, 0.000000e+00
   br i1 %9, label %10, label %39
@@ -160,13 +160,13 @@ define dso_local noundef double @_ZN3igl13flip_avoiding26get_smallest_pos_quad_z
   %15 = fsub double %14, %11
   %16 = fmul double %2, 2.000000e+00
   %17 = fdiv double %16, %15
-  %18 = fmul double %0, 2.000000e+00
+  %18 = fmul nnan double %0, 2.000000e+00
   %19 = fdiv double %15, %18
   br label %26
 
 20:                                               ; preds = %10
   %21 = fsub double %11, %1
-  %22 = fmul double %0, 2.000000e+00
+  %22 = fmul nnan double %0, 2.000000e+00
   %23 = fdiv double %21, %22
   %24 = fmul double %2, 2.000000e+00
   %25 = fdiv double %24, %21
@@ -286,7 +286,7 @@ define dso_local noundef double @_ZN3igl13flip_avoiding19get_min_pos_root_2DERKN
 
 82:                                               ; preds = %4
   %square.i = fmul double %73, %73
-  %83 = fmul double %50, -4.000000e+00
+  %83 = fmul nnan double %50, -4.000000e+00
   %84 = tail call double @llvm.fmuladd.f64(double %83, double %79, double %square.i)
   %85 = fcmp ugt double %84, 0.000000e+00
   br i1 %85, label %86, label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
@@ -301,13 +301,13 @@ define dso_local noundef double @_ZN3igl13flip_avoiding19get_min_pos_root_2DERKN
   %91 = fsub double %90, %87
   %92 = fmul double %79, 2.000000e+00
   %93 = fdiv double %92, %91
-  %94 = fmul double %50, 2.000000e+00
+  %94 = fmul nnan double %50, 2.000000e+00
   %95 = fdiv double %91, %94
   br label %102
 
 96:                                               ; preds = %86
   %97 = fsub double %87, %73
-  %98 = fmul double %50, 2.000000e+00
+  %98 = fmul nnan double %50, 2.000000e+00
   %99 = fdiv double %97, %98
   %100 = fmul double %79, 2.000000e+00
   %101 = fdiv double %100, %97
@@ -725,7 +725,7 @@ define dso_local noundef double @_ZN3igl13flip_avoiding19get_min_pos_root_3DERKN
 
 377:                                              ; preds = %374
   %square.i = fmul double %347, %347
-  %378 = fmul double %250, -4.000000e+00
+  %378 = fmul nnan double %250, -4.000000e+00
   %379 = tail call double @llvm.fmuladd.f64(double %378, double %371, double %square.i)
   %380 = fcmp ugt double %379, 0.000000e+00
   br i1 %380, label %381, label %_ZN3igl13flip_avoiding26get_smallest_pos_quad_zeroEddd.exit
@@ -740,13 +740,13 @@ define dso_local noundef double @_ZN3igl13flip_avoiding19get_min_pos_root_3DERKN
   %386 = fsub double %385, %382
   %387 = fmul double %371, 2.000000e+00
   %388 = fdiv double %387, %386
-  %389 = fmul double %250, 2.000000e+00
+  %389 = fmul nnan double %250, 2.000000e+00
   %390 = fdiv double %386, %389
   br label %397
 
 391:                                              ; preds = %381
   %392 = fsub double %382, %347
-  %393 = fmul double %250, 2.000000e+00
+  %393 = fmul nnan double %250, 2.000000e+00
   %394 = fdiv double %392, %393
   %395 = fmul double %371, 2.000000e+00
   %396 = fdiv double %395, %392

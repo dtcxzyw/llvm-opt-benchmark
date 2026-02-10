@@ -1368,7 +1368,7 @@ define internal fastcc i64 @_ftoa(ptr noundef readonly captures(none) %0, ptr no
   %.lcssa212 = phi i1 [ true, %58 ], [ %68, %._crit_edge.loopexit ]
   %69 = fptosi double %.0123 to i32
   %70 = sitofp i32 %69 to double
-  %71 = fsub double %.0123, %70
+  %71 = fsub nnan double %.0123, %70
   %72 = zext i32 %.1127.lcssa to i64
   %73 = getelementptr inbounds nuw double, ptr @_ftoa.pow10, i64 %72
   %74 = load double, ptr %73, align 8, !tbaa !26
@@ -1648,7 +1648,7 @@ define internal fastcc i64 @_etoa(ptr noundef readonly captures(none) %0, ptr no
   %33 = tail call double @llvm.fmuladd.f64(double %32, double 0x400A934F0979A371, double 5.000000e-01)
   %34 = fptosi double %33 to i32
   %35 = sitofp i32 %34 to double
-  %36 = fmul double %35, 0xBFE62E42FEFA39EF
+  %36 = fmul nnan double %35, 0xBFE62E42FEFA39EF
   %37 = tail call double @llvm.fmuladd.f64(double %32, double 0x40026BB1BBB55516, double %36)
   %38 = fmul double %37, %37
   %39 = add nsw i32 %34, 1023

@@ -5354,7 +5354,7 @@ _ZN7QStringD2Ev.exit199:                          ; preds = %_ZN9QtPrivate8RefCo
 
 381:                                              ; preds = %_ZN7QStringD2Ev.exit199
   %382 = sitofp i64 %378 to float
-  %383 = fmul float %382, 0x3F50624DE0000000
+  %383 = fmul nnan float %382, 0x3F50624DE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %384 = fpext float %383 to double
   %385 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 4096, ptr noundef nonnull @.str.58, double noundef %384) #30
@@ -5748,7 +5748,7 @@ _ZN7QStringD2Ev.exit239:                          ; preds = %507, %_ZN9QtPrivate
 
 514:                                              ; preds = %512
   %515 = uitofp i32 %513 to float
-  %516 = fdiv float 1.000000e+00, %515
+  %516 = fdiv nnan float 1.000000e+00, %515
   %517 = load ptr, ptr %462, align 8
   %518 = load ptr, ptr %464, align 8
   %.not375418 = icmp eq ptr %517, %518
@@ -5960,7 +5960,7 @@ _ZN7QStringD2Ev.exit247:                          ; preds = %621, %_ZN9QtPrivate
 
 628:                                              ; preds = %626
   %629 = uitofp i32 %627 to float
-  %630 = fdiv float 1.000000e+00, %629
+  %630 = fdiv nnan float 1.000000e+00, %629
   %631 = load ptr, ptr %540, align 8
   %632 = load ptr, ptr %542, align 8
   %.not371401 = icmp eq ptr %631, %632
@@ -7624,7 +7624,7 @@ _ZN7QStringD2Ev.exit79:                           ; preds = %50, %_ZN9QtPrivate8
 
 67:                                               ; preds = %_ZN7QStringD2Ev.exit79
   %68 = sitofp i64 %64 to float
-  %69 = fmul float %68, 0x3F50624DE0000000
+  %69 = fmul nnan float %68, 0x3F50624DE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %70 = fpext float %69 to double
   %71 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %19, i64 noundef 4096, ptr noundef nonnull @.str.73, double noundef %70) #30
@@ -7667,7 +7667,7 @@ _ZNK19MeshLabPluginLogger3logIJfEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream4l
 
 84:                                               ; preds = %76
   %85 = sitofp i64 %81 to float
-  %86 = fmul float %85, 0x3F50624DE0000000
+  %86 = fmul nnan float %85, 0x3F50624DE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %87 = fpext float %86 to double
   %88 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %18, i64 noundef 4096, ptr noundef nonnull @.str.74, double noundef %87) #30
@@ -7738,7 +7738,7 @@ _ZN7QStringD2Ev.exit93:                           ; preds = %94, %_ZN9QtPrivate8
 
 109:                                              ; preds = %101
   %110 = sitofp i64 %106 to float
-  %111 = fmul float %110, 0x3F50624DE0000000
+  %111 = fmul nnan float %110, 0x3F50624DE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %112 = fpext float %111 to double
   %113 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %17, i64 noundef 4096, ptr noundef nonnull @.str.75, double noundef %112) #30
@@ -7854,7 +7854,7 @@ _ZNK19MeshLabPluginLogger3logIJRiEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream4
 
 137:                                              ; preds = %129
   %138 = sitofp i64 %134 to float
-  %139 = fmul float %138, 0x3F50624DE0000000
+  %139 = fmul nnan float %138, 0x3F50624DE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %140 = fpext float %139 to double
   %141 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef 4096, ptr noundef nonnull @.str.77, double noundef %140) #30
@@ -8115,7 +8115,7 @@ _ZN7QVectorI5PatchE5beginEv.exit:                 ; preds = %189, %198, %.noexc1
 
 238:                                              ; preds = %230
   %239 = sitofp i64 %235 to float
-  %240 = fmul float %239, 0x3F50624DE0000000
+  %240 = fmul nnan float %239, 0x3F50624DE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %241 = fpext float %240 to double
   %242 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %13, i64 noundef 4096, ptr noundef nonnull @.str.79, double noundef %241) #30
@@ -8270,7 +8270,7 @@ _ZN5QHashIP11RasterModel7QVectorI5PatchEE3endEv.exit160: ; preds = %_ZN5QHashIP1
 
 291:                                              ; preds = %283
   %292 = sitofp i64 %288 to float
-  %293 = fmul float %292, 0x3F50624DE0000000
+  %293 = fmul nnan float %292, 0x3F50624DE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %294 = fpext float %293 to double
   %295 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %12, i64 noundef 4096, ptr noundef nonnull @.str.80, double noundef %294) #30
@@ -8497,7 +8497,7 @@ _ZN5QHashIP11RasterModel7QVectorI5PatchEE3endEv.exit198: ; preds = %_ZN5QHashIP1
 
 374:                                              ; preds = %366
   %375 = sitofp i64 %371 to float
-  %376 = fmul float %375, 0x3F50624DE0000000
+  %376 = fmul nnan float %375, 0x3F50624DE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %377 = fpext float %376 to double
   %378 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %11, i64 noundef 4096, ptr noundef nonnull @.str.81, double noundef %377) #30
@@ -8769,7 +8769,7 @@ _ZN7QStringD2Ev.exit267:                          ; preds = %_ZN7QStringD2Ev.exi
 
 475:                                              ; preds = %_ZN7QStringD2Ev.exit267
   %476 = sitofp i64 %472 to float
-  %477 = fmul float %476, 0x3F50624DE0000000
+  %477 = fmul nnan float %476, 0x3F50624DE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %478 = fpext float %477 to double
   %479 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 4096, ptr noundef nonnull @.str.84, double noundef %478) #30
@@ -28590,11 +28590,11 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   store float -1.000000e+00, ptr %87, align 4
   %88 = getelementptr inbounds nuw i8, ptr %8, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %88, i8 0, i64 56, i1 false)
-  %89 = fmul float %50, 5.000000e-01
+  %89 = fmul nnan float %50, 5.000000e-01
   %90 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store float %89, ptr %90, align 4
   store float %89, ptr %8, align 4
-  %91 = fmul float %62, 5.000000e-01
+  %91 = fmul nnan float %62, 5.000000e-01
   %92 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store float %91, ptr %92, align 4
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 20

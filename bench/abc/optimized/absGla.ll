@@ -2139,8 +2139,8 @@ Vec_IntMemory.exit86:                             ; preds = %Vec_IntMemory.exit8
   %150 = select i1 %131, double %149, double 0.000000e+00
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, double noundef %147, double noundef %150)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.17)
-  %151 = fmul double %119, 0x3EB0000000000000
-  %152 = fmul double %119, 1.000000e+02
+  %151 = fmul nnan double %119, 0x3EB0000000000000
+  %152 = fmul nnan double %119, 1.000000e+02
   %153 = fdiv double %152, %129
   %154 = select i1 %131, double %153, double 0.000000e+00
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, double noundef %151, double noundef %154)
@@ -10498,7 +10498,7 @@ Abc_Clock.exit625:                                ; preds = %Abc_Clock.exit623, 
 1275:                                             ; preds = %Abc_Clock.exit625
   %1276 = load i64, ptr %102, align 8, !tbaa !207
   %1277 = sitofp i64 %1276 to double
-  %1278 = fmul double %1277, 1.000000e+02
+  %1278 = fmul nnan double %1277, 1.000000e+02
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %1279 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %15) #32
   %1280 = icmp slt i32 %1279, 0
@@ -10551,7 +10551,7 @@ Abc_Clock.exit629:                                ; preds = %1291, %1298
 1305:                                             ; preds = %Abc_Clock.exit629
   %1306 = load i64, ptr %1250, align 8, !tbaa !259
   %1307 = sitofp i64 %1306 to double
-  %1308 = fmul double %1307, 1.000000e+02
+  %1308 = fmul nnan double %1307, 1.000000e+02
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %1309 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #32
   %1310 = icmp slt i32 %1309, 0
@@ -10604,7 +10604,7 @@ Abc_Clock.exit633:                                ; preds = %1321, %1328
 1335:                                             ; preds = %Abc_Clock.exit633
   %1336 = load i64, ptr %1252, align 8, !tbaa !225
   %1337 = sitofp i64 %1336 to double
-  %1338 = fmul double %1337, 1.000000e+02
+  %1338 = fmul nnan double %1337, 1.000000e+02
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1339 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %11) #32
   %1340 = icmp slt i32 %1339, 0
@@ -10657,7 +10657,7 @@ Abc_Clock.exit637:                                ; preds = %1351, %1358
 1365:                                             ; preds = %Abc_Clock.exit637
   %1366 = load i64, ptr %1254, align 8, !tbaa !229
   %1367 = sitofp i64 %1366 to double
-  %1368 = fmul double %1367, 1.000000e+02
+  %1368 = fmul nnan double %1367, 1.000000e+02
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1369 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #32
   %1370 = icmp slt i32 %1369, 0
@@ -10710,7 +10710,7 @@ Abc_Clock.exit641:                                ; preds = %1381, %1388
 1395:                                             ; preds = %Abc_Clock.exit641
   %1396 = load i64, ptr %1262, align 8, !tbaa !265
   %1397 = sitofp i64 %1396 to double
-  %1398 = fmul double %1397, 1.000000e+02
+  %1398 = fmul nnan double %1397, 1.000000e+02
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %1399 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %7) #32
   %1400 = icmp slt i32 %1399, 0
@@ -10797,7 +10797,7 @@ Abc_Clock.exit649:                                ; preds = %1434, %1437
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %1444 = sub nsw i64 %.0.i648, %.0.i
   %1445 = sitofp i64 %1444 to double
-  %1446 = fmul double %1445, 1.000000e+02
+  %1446 = fmul nnan double %1445, 1.000000e+02
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %1447 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #32
   %1448 = icmp slt i32 %1447, 0

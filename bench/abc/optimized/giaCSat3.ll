@@ -3050,7 +3050,7 @@ define void @Cbs3_ManSatPrintStats(ptr noundef readonly captures(none) %0) local
   %31 = load i32, ptr %30, align 4, !tbaa !100
   %.not = icmp eq i32 %31, 0
   %32 = sitofp i32 %29 to double
-  %33 = fmul double %32, 1.000000e+02
+  %33 = fmul nnan double %32, 1.000000e+02
   %34 = sitofp i32 %31 to double
   %35 = fdiv double %33, %34
   %36 = select i1 %.not, double 0.000000e+00, double %35
@@ -3076,7 +3076,7 @@ define void @Cbs3_ManSatPrintStats(ptr noundef readonly captures(none) %0) local
   %50 = load i64, ptr %49, align 8, !tbaa !103
   %.not48 = icmp eq i64 %50, 0
   %51 = sitofp i64 %50 to double
-  %52 = fmul double %47, 1.000000e+02
+  %52 = fmul nnan double %47, 1.000000e+02
   %53 = fdiv double %52, %51
   %54 = select i1 %.not48, double 0.000000e+00, double %53
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %48, double noundef %54)
@@ -3085,7 +3085,7 @@ define void @Cbs3_ManSatPrintStats(ptr noundef readonly captures(none) %0) local
   %57 = load i32, ptr %30, align 4, !tbaa !100
   %.not49 = icmp eq i32 %57, 0
   %58 = sitofp i32 %56 to double
-  %59 = fmul double %58, 1.000000e+02
+  %59 = fmul nnan double %58, 1.000000e+02
   %60 = sitofp i32 %57 to double
   %61 = fdiv double %59, %60
   %62 = select i1 %.not49, double 0.000000e+00, double %61
@@ -3110,7 +3110,7 @@ define void @Cbs3_ManSatPrintStats(ptr noundef readonly captures(none) %0) local
   %75 = load i64, ptr %49, align 8, !tbaa !103
   %.not51 = icmp eq i64 %75, 0
   %76 = sitofp i64 %75 to double
-  %77 = fmul double %73, 1.000000e+02
+  %77 = fmul nnan double %73, 1.000000e+02
   %78 = fdiv double %77, %76
   %79 = select i1 %.not51, double 0.000000e+00, double %78
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.9, double noundef %74, double noundef %79)
@@ -3131,7 +3131,7 @@ define void @Cbs3_ManSatPrintStats(ptr noundef readonly captures(none) %0) local
 89:                                               ; preds = %68, %84
   %90 = phi double [ %88, %84 ], [ 0.000000e+00, %68 ]
   %.not52 = icmp eq i32 %82, 0
-  %91 = fmul double %83, 1.000000e+02
+  %91 = fmul nnan double %83, 1.000000e+02
   %92 = sitofp i32 %82 to double
   %93 = fdiv double %91, %92
   %94 = select i1 %.not52, double 0.000000e+00, double %93
@@ -3143,7 +3143,7 @@ define void @Cbs3_ManSatPrintStats(ptr noundef readonly captures(none) %0) local
   %99 = load i64, ptr %49, align 8, !tbaa !103
   %.not54 = icmp eq i64 %99, 0
   %100 = sitofp i64 %99 to double
-  %101 = fmul double %98, 1.000000e+02
+  %101 = fmul nnan double %98, 1.000000e+02
   %102 = fdiv double %101, %100
   %103 = select i1 %.not54, double 0.000000e+00, double %102
   %104 = fdiv double %98, 1.000000e+06
@@ -4354,7 +4354,7 @@ Abc_Clock.exit102:                                ; preds = %Vec_IntFree.exit, %
   %564 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14, i32 noundef %553, i32 noundef %555, i32 noundef %557, i32 noundef %559, i32 noundef %561, i32 noundef %563)
   %565 = call i32 @Cbs3_ManMemory(ptr noundef nonnull %18)
   %566 = sitofp i32 %565 to double
-  %567 = fmul double %566, 0x3EB0000000000000
+  %567 = fmul nnan double %566, 0x3EB0000000000000
   %568 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, double noundef %567)
   br label %.critedge74
 

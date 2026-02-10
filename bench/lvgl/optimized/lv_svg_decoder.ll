@@ -535,11 +535,11 @@ define internal void @svg_draw(ptr noundef %0, ptr noundef readonly captures(non
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %54 = load i32, ptr %53, align 8, !tbaa !77
   %55 = sitofp i32 %54 to float
-  %56 = fmul float %55, 3.906250e-03
+  %56 = fmul nnan float %55, 3.906250e-03
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 76
   %58 = load i32, ptr %57, align 4, !tbaa !78
   %59 = sitofp i32 %58 to float
-  %60 = fmul float %59, 3.906250e-03
+  %60 = fmul nnan float %59, 3.906250e-03
   call void @lv_matrix_scale(ptr noundef nonnull %6, float noundef %56, float noundef %60) #4
   %61 = load i32, ptr %35, align 8, !tbaa !74
   %62 = sub nsw i32 0, %61

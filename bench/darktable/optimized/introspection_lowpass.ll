@@ -428,7 +428,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %73, label %74, label %81
 
 74:                                               ; preds = %70
-  %75 = fmul reassoc nsz arcp contract afn float %72, 0x40847AE140000000
+  %75 = fmul reassoc nnan nsz arcp contract afn float %72, 0x40847AE140000000
   %76 = fptosi float %75 to i32
   %narrow = call i32 @llvm.smax.i32(i32 %76, i32 0)
   %77 = call i32 @llvm.umin.i32(i32 %narrow, i32 65535)
@@ -454,7 +454,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   br i1 %91, label %92, label %99
 
 92:                                               ; preds = %89
-  %93 = fmul reassoc nsz arcp contract afn float %90, 0x40847AE140000000
+  %93 = fmul reassoc nnan nsz arcp contract afn float %90, 0x40847AE140000000
   %94 = fptosi float %93 to i32
   %narrow139 = call i32 @llvm.smax.i32(i32 %94, i32 0)
   %95 = call i32 @llvm.umin.i32(i32 %narrow139, i32 65535)
@@ -578,8 +578,8 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %32 ]
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = uitofp nneg i32 %33 to float
-  %35 = fmul reassoc nsz arcp contract afn float %34, 0x3F59000000000000
-  %36 = fadd reassoc nsz arcp contract afn float %35, -5.000000e+01
+  %35 = fmul reassoc nnan nsz arcp contract afn float %34, 0x3F59000000000000
+  %36 = fadd reassoc nnan nsz arcp contract afn float %35, -5.000000e+01
   %37 = fmul reassoc nsz arcp contract afn float %36, %14
   %38 = fadd reassoc nsz arcp contract afn float %37, 5.000000e+01
   %39 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv
@@ -605,7 +605,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
 52:                                               ; preds = %40, %52
   %.05874 = phi i64 [ 0, %40 ], [ %64, %52 ]
   %53 = uitofp nneg i64 %.05874 to float
-  %54 = fmul reassoc nsz arcp contract afn float %53, 0x3F00000000000000
+  %54 = fmul reassoc nnan nsz arcp contract afn float %53, 0x3F00000000000000
   %55 = fadd reassoc nsz arcp contract afn float %54, -1.000000e+00
   %56 = fmul reassoc nsz arcp contract afn float %55, %55
   %57 = fmul reassoc nsz arcp contract afn float %56, %44
@@ -751,7 +751,7 @@ dt_iop_estimate_exp.exit71:                       ; preds = %128
 134:                                              ; preds = %dt_iop_estimate_exp.exit, %134
   %.075 = phi i64 [ 0, %dt_iop_estimate_exp.exit ], [ %140, %134 ]
   %135 = uitofp nneg i64 %.075 to float
-  %136 = fmul reassoc nsz arcp contract afn float %135, 0x3EF0000000000000
+  %136 = fmul reassoc nnan nsz arcp contract afn float %135, 0x3EF0000000000000
   %137 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %136, float %100)
   %138 = fmul reassoc nsz arcp contract afn float %137, 1.000000e+02
   %139 = getelementptr inbounds nuw float, ptr %101, i64 %.075
@@ -786,7 +786,7 @@ define void @init_pipe(ptr noundef readnone captures(none) %0, ptr noundef readn
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %9 ]
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = uitofp nneg i32 %10 to float
-  %12 = fmul reassoc nsz arcp contract afn float %11, 0x3F59000000000000
+  %12 = fmul reassoc nnan nsz arcp contract afn float %11, 0x3F59000000000000
   %13 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   store float %12, ptr %13, align 4, !tbaa !71
   %14 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv

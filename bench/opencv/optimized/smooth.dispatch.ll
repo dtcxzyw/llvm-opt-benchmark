@@ -2849,7 +2849,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %90, %
   br i1 %or.cond.i, label %147, label %153
 
 147:                                              ; preds = %142
-  %148 = fmul double %3, 3.000000e+00
+  %148 = fmul nnan double %3, 3.000000e+00
   %149 = call double @llvm.fmuladd.f64(double %148, double 2.000000e+00, double 1.000000e+00)
   %150 = insertelement <2 x double> poison, double %149, i64 0
   %151 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %150)
@@ -3035,7 +3035,7 @@ _ZN2cvL21createGaussianKernelsISt6vectorINS_12_GLOBAL__N_113ufixedpoint16ESaIS3_
   %220 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.val7.i, i64 %.09.i
   %221 = load i16, ptr %220, align 2, !tbaa !40
   %222 = uitofp i16 %221 to double
-  %223 = fmul double %222, 3.906250e-03
+  %223 = fmul nnan double %222, 3.906250e-03
   store double %223, ptr %24, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   invoke void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %22, ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(8) %24)
@@ -3336,7 +3336,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   %325 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint16", ptr %.val7.i412, i64 %.09.i417
   %326 = load i16, ptr %325, align 2, !tbaa !40
   %327 = uitofp i16 %326 to double
-  %328 = fmul double %327, 3.906250e-03
+  %328 = fmul nnan double %327, 3.906250e-03
   store double %328, ptr %20, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   invoke void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull align 8 dereferenceable(8) %20)
@@ -3962,7 +3962,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit478: ; preds
   br i1 %or.cond.i483, label %544, label %550
 
 544:                                              ; preds = %539
-  %545 = fmul double %3, 4.000000e+00
+  %545 = fmul nnan double %3, 4.000000e+00
   %546 = call double @llvm.fmuladd.f64(double %545, double 2.000000e+00, double 1.000000e+00)
   %547 = insertelement <2 x double> poison, double %546, i64 0
   %548 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %547)
@@ -4148,7 +4148,7 @@ _ZN2cvL21createGaussianKernelsISt6vectorINS_12_GLOBAL__N_113ufixedpoint32ESaIS3_
   %617 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.val7.i526, i64 %.09.i531
   %618 = load i32, ptr %617, align 4, !tbaa !72
   %619 = uitofp i32 %618 to double
-  %620 = fmul double %619, 0x3EF0000000000000
+  %620 = fmul nnan double %619, 0x3EF0000000000000
   store double %620, ptr %14, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -4444,7 +4444,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit568: ; preds
   %720 = getelementptr inbounds nuw %"class.cv::(anonymous namespace)::ufixedpoint32", ptr %.val7.i572, i64 %.09.i577
   %721 = load i32, ptr %720, align 4, !tbaa !72
   %722 = uitofp i32 %721 to double
-  %723 = fmul double %722, 0x3EF0000000000000
+  %723 = fmul nnan double %722, 0x3EF0000000000000
   store double %723, ptr %10, align 8, !tbaa !85
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNK2cv10softdoubleplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10)

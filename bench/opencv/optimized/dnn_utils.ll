@@ -2828,13 +2828,13 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit419._crit_edge:     ; preds = %_ZN2cv7Scalar_IdEC2
   %224 = load i32, ptr %223, align 4, !tbaa !98
   %225 = sub nsw i32 %224, %.sroa.0565.1
   %226 = sitofp i32 %225 to double
-  %227 = fmul double %226, 5.000000e-01
+  %227 = fmul nnan double %226, 5.000000e-01
   %228 = fptosi double %227 to i32
   %229 = getelementptr inbounds nuw i8, ptr %222, i64 8
   %230 = load i32, ptr %229, align 8, !tbaa !99
   %231 = sub nsw i32 %230, %.sroa.13.1
   %232 = sitofp i32 %231 to double
-  %233 = fmul double %232, 5.000000e-01
+  %233 = fmul nnan double %232, 5.000000e-01
   %234 = fptosi double %233 to i32
   store i32 %228, ptr %17, align 4, !tbaa !56
   store i32 %234, ptr %188, align 4, !tbaa !58
@@ -5272,13 +5272,13 @@ _ZN2cv7Scalar_IdEC2ERKS1_.exit427._crit_edge:     ; preds = %_ZN2cv7Scalar_IdEC2
   %226 = load i32, ptr %225, align 4, !tbaa !131
   %227 = sub nsw i32 %226, %.sroa.0577.1
   %228 = sitofp i32 %227 to double
-  %229 = fmul double %228, 5.000000e-01
+  %229 = fmul nnan double %228, 5.000000e-01
   %230 = fptosi double %229 to i32
   %231 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %232 = load i32, ptr %231, align 8, !tbaa !130
   %233 = sub nsw i32 %232, %.sroa.13.1
   %234 = sitofp i32 %233 to double
-  %235 = fmul double %234, 5.000000e-01
+  %235 = fmul nnan double %234, 5.000000e-01
   %236 = fptosi double %235 to i32
   store i32 %230, ptr %19, align 4, !tbaa !56
   store i32 %236, ptr %190, align 4, !tbaa !58
@@ -8235,7 +8235,7 @@ define void @_ZN2cv3dnn14dnn4_v2024122316Image2BlobParams21blobRectsToImageRects
   %129 = sitofp i32 %128 to float
   %130 = load i32, ptr %3, align 4, !tbaa !65
   %131 = sitofp i32 %130 to float
-  %132 = fmul float %129, %131
+  %132 = fmul nnan float %129, %131
   %133 = fdiv float %132, %28
   %134 = fptosi float %133 to i32
   %135 = getelementptr inbounds nuw i8, ptr %127, i64 4
@@ -8243,19 +8243,19 @@ define void @_ZN2cv3dnn14dnn4_v2024122316Image2BlobParams21blobRectsToImageRects
   %137 = sitofp i32 %136 to float
   %138 = load i32, ptr %16, align 4, !tbaa !66
   %139 = sitofp i32 %138 to float
-  %140 = fmul float %137, %139
+  %140 = fmul nnan float %137, %139
   %141 = fdiv float %140, %29
   %142 = fptosi float %141 to i32
   %143 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %144 = load i32, ptr %143, align 4, !tbaa !59
   %145 = sitofp i32 %144 to float
-  %146 = fmul float %131, %145
+  %146 = fmul nnan float %131, %145
   %147 = fdiv float %146, %28
   %148 = fptosi float %147 to i32
   %149 = getelementptr inbounds nuw i8, ptr %127, i64 12
   %150 = load i32, ptr %149, align 4, !tbaa !60
   %151 = sitofp i32 %150 to float
-  %152 = fmul float %139, %151
+  %152 = fmul nnan float %139, %151
   %153 = fdiv float %152, %29
   %154 = fptosi float %153 to i32
   %155 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %30, i64 %indvars.iv

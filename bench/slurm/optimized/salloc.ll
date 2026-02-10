@@ -1961,7 +1961,7 @@ define internal fastcc range(i32 -1, 1) i32 @_proc_alloc(ptr noundef %0) unnamed
 
 33:                                               ; preds = %31
   %34 = uitofp nneg i32 %.033.i to double
-  %35 = fmul double %34, 5.000000e-01
+  %35 = fmul nnan double %34, 5.000000e-01
   br label %36
 
 36:                                               ; preds = %33, %31, %29

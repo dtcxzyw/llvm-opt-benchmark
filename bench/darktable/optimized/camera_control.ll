@@ -359,7 +359,7 @@ define internal noalias noundef ptr @dt_camctl_camera_get_live_view(ptr noundef 
 
 .lr.ph:                                           ; preds = %9
   %18 = sitofp i64 %13 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 0x3EB0C6F7A0B5ED8D
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 0x3EB0C6F7A0B5ED8D
   %20 = add nsw i64 %11, -1290608000
   %21 = sitofp i64 %20 to double
   %22 = fadd reassoc nsz arcp contract afn double %19, %21
@@ -383,7 +383,7 @@ define internal noalias noundef ptr @dt_camctl_camera_get_live_view(ptr noundef 
   %35 = sitofp i64 %34 to double
   %36 = load i64, ptr %24, align 8, !tbaa !69
   %37 = sitofp i64 %36 to double
-  %38 = fmul reassoc nsz arcp contract afn double %37, 0x3EB0C6F7A0B5ED8D
+  %38 = fmul reassoc nnan nsz arcp contract afn double %37, 0x3EB0C6F7A0B5ED8D
   %39 = fadd reassoc nsz arcp contract afn double %38, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %40 = fsub reassoc nsz arcp contract afn double %39, %.01317
@@ -2809,7 +2809,7 @@ _camctl_lock.exit:                                ; preds = %24, %14
   %81 = sitofp i32 %80 to double
   %82 = call i32 @gdk_pixbuf_get_height(ptr noundef nonnull %78) #15
   %83 = sitofp i32 %82 to double
-  %84 = fmul reassoc nsz arcp contract afn double %81, 7.500000e+01
+  %84 = fmul reassoc nnan nsz arcp contract afn double %81, 7.500000e+01
   %85 = fdiv reassoc nsz arcp contract afn double %84, %83
   %86 = fptosi double %85 to i32
   %87 = call ptr @gdk_pixbuf_scale_simple(ptr noundef nonnull %78, i32 noundef %86, i32 noundef 75, i32 noundef 2) #15

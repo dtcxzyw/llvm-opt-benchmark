@@ -5544,18 +5544,18 @@ define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(no
   %203 = getelementptr inbounds i8, ptr %178, i64 %196
   %204 = load i8, ptr %203, align 1, !tbaa !11
   %205 = uitofp i8 %204 to float
-  %206 = fmul float %202, 0x3FE2C8B440000000
+  %206 = fmul nnan float %202, 0x3FE2C8B440000000
   %207 = call float @llvm.fmuladd.f32(float %199, float 0x3FD322D0E0000000, float %206)
   %208 = call float @llvm.fmuladd.f32(float %205, float 0x3FBD2F1AA0000000, float %207)
   %209 = fadd float %208, -1.280000e+02
   %210 = getelementptr inbounds float, ptr %37, i64 %indvars.iv351
   store float %209, ptr %210, align 4, !tbaa !23
-  %211 = fmul float %202, 0xBFD5335D20000000
+  %211 = fmul nnan float %202, 0xBFD5335D20000000
   %212 = call float @llvm.fmuladd.f32(float %199, float 0xBFC59945C0000000, float %211)
   %213 = call float @llvm.fmuladd.f32(float %205, float 5.000000e-01, float %212)
   %214 = getelementptr inbounds float, ptr %38, i64 %indvars.iv351
   store float %213, ptr %214, align 4, !tbaa !23
-  %215 = fmul float %202, 0xBFDACBD120000000
+  %215 = fmul nnan float %202, 0xBFDACBD120000000
   %216 = call float @llvm.fmuladd.f32(float %199, float 5.000000e-01, float %215)
   %217 = call float @llvm.fmuladd.f32(float %205, float 0xBFB4D0BB60000000, float %216)
   %218 = getelementptr inbounds float, ptr %39, i64 %indvars.iv351
@@ -5607,18 +5607,18 @@ define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(no
   %242 = getelementptr inbounds i8, ptr %178, i64 %235
   %243 = load i8, ptr %242, align 1, !tbaa !11
   %244 = uitofp i8 %243 to float
-  %245 = fmul float %241, 0x3FE2C8B440000000
+  %245 = fmul nnan float %241, 0x3FE2C8B440000000
   %246 = call float @llvm.fmuladd.f32(float %238, float 0x3FD322D0E0000000, float %245)
   %247 = call float @llvm.fmuladd.f32(float %244, float 0x3FBD2F1AA0000000, float %246)
   %248 = fadd float %247, -1.280000e+02
   %249 = getelementptr inbounds float, ptr %37, i64 %indvars.iv358
   store float %248, ptr %249, align 4, !tbaa !23
-  %250 = fmul float %241, 0xBFD5335D20000000
+  %250 = fmul nnan float %241, 0xBFD5335D20000000
   %251 = call float @llvm.fmuladd.f32(float %238, float 0xBFC59945C0000000, float %250)
   %252 = call float @llvm.fmuladd.f32(float %244, float 5.000000e-01, float %251)
   %253 = getelementptr inbounds float, ptr %38, i64 %indvars.iv358
   store float %252, ptr %253, align 4, !tbaa !23
-  %254 = fmul float %241, 0xBFDACBD120000000
+  %254 = fmul nnan float %241, 0xBFDACBD120000000
   %255 = call float @llvm.fmuladd.f32(float %238, float 5.000000e-01, float %254)
   %256 = call float @llvm.fmuladd.f32(float %244, float 0xBFB4D0BB60000000, float %255)
   %257 = getelementptr inbounds float, ptr %39, i64 %indvars.iv358
@@ -5766,18 +5766,18 @@ define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(no
   %332 = getelementptr inbounds i8, ptr %178, i64 %325
   %333 = load i8, ptr %332, align 1, !tbaa !11
   %334 = uitofp i8 %333 to float
-  %335 = fmul float %331, 0x3FE2C8B440000000
+  %335 = fmul nnan float %331, 0x3FE2C8B440000000
   %336 = call float @llvm.fmuladd.f32(float %328, float 0x3FD322D0E0000000, float %335)
   %337 = call float @llvm.fmuladd.f32(float %334, float 0x3FBD2F1AA0000000, float %336)
   %338 = fadd float %337, -1.280000e+02
   %339 = getelementptr inbounds float, ptr %32, i64 %indvars.iv364
   store float %338, ptr %339, align 4, !tbaa !23
-  %340 = fmul float %331, 0xBFD5335D20000000
+  %340 = fmul nnan float %331, 0xBFD5335D20000000
   %341 = call float @llvm.fmuladd.f32(float %328, float 0xBFC59945C0000000, float %340)
   %342 = call float @llvm.fmuladd.f32(float %334, float 5.000000e-01, float %341)
   %343 = getelementptr inbounds float, ptr %33, i64 %indvars.iv364
   store float %342, ptr %343, align 4, !tbaa !23
-  %344 = fmul float %331, 0xBFDACBD120000000
+  %344 = fmul nnan float %331, 0xBFDACBD120000000
   %345 = call float @llvm.fmuladd.f32(float %328, float 5.000000e-01, float %344)
   %346 = call float @llvm.fmuladd.f32(float %334, float 0xBFB4D0BB60000000, float %345)
   %347 = getelementptr inbounds float, ptr %34, i64 %indvars.iv364

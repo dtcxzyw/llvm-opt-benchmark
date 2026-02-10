@@ -5884,7 +5884,7 @@ cleanup24:                                        ; preds = %while.end
   %add.i.i = add i64 %mul.i.i, %t_step_start.0.neg83
   %sub.i57 = add i64 %add.i.i, %div.i.i
   %conv.i58 = uitofp i64 %sub.i57 to float
-  %mul = fmul nsz float %conv.i58, 0x3F50624DE0000000
+  %mul = fmul nnan nsz float %conv.i58, 0x3F50624DE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %ts.i59)
   %call.i.i60 = call i32 @clock_gettime(i32 noundef 4, ptr noundef nonnull %ts.i59) #29
   %34 = load i64, ptr %ts.i59, align 8, !tbaa !212

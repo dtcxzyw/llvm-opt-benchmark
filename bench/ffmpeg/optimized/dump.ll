@@ -2282,7 +2282,7 @@ print_gain.exit.i:                                ; preds = %58, %57
 
 65:                                               ; preds = %print_gain.exit.i
   %66 = uitofp i32 %63 to float
-  %67 = fmul nsz float %66, 0x3DF0000000000000
+  %67 = fmul nnan nsz float %66, 0x3DF0000000000000
   %68 = fpext nsz float %67 to double
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef range(i32 32, 41) %6, ptr noundef nonnull @.str.110, double noundef %68) #10
   br label %print_peak.exit.i
@@ -2320,7 +2320,7 @@ print_gain.exit14.i:                              ; preds = %73, %72
 
 80:                                               ; preds = %print_gain.exit14.i
   %81 = uitofp i32 %78 to float
-  %82 = fmul nsz float %81, 0x3DF0000000000000
+  %82 = fmul nnan nsz float %81, 0x3DF0000000000000
   %83 = fpext nsz float %82 to double
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef range(i32 32, 41) %6, ptr noundef nonnull @.str.110, double noundef %83) #10
   br label %print_peak.exit16.i
@@ -2651,7 +2651,7 @@ print_peak.exit16.i:                              ; preds = %80, %79
 
 .._crit_edge.i_crit_edge:                         ; preds = %235
   %244 = sitofp i32 %241 to double
-  %245 = fmul nsz double %244, 0x3EF0000000000000
+  %245 = fmul nnan nsz double %244, 0x3EF0000000000000
   br label %._crit_edge.i
 
 246:                                              ; preds = %235
@@ -2661,9 +2661,9 @@ print_peak.exit16.i:                              ; preds = %80, %79
 ._crit_edge.i:                                    ; preds = %.._crit_edge.i_crit_edge, %246
   %247 = phi double [ %245, %.._crit_edge.i_crit_edge ], [ 0.000000e+00, %246 ]
   %248 = sitofp i32 %239 to double
-  %249 = fmul nsz double %248, 0x3EF0000000000000
+  %249 = fmul nnan nsz double %248, 0x3EF0000000000000
   %250 = sitofp i32 %243 to double
-  %251 = fmul nsz double %250, 0x3EF0000000000000
+  %251 = fmul nnan nsz double %250, 0x3EF0000000000000
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef range(i32 32, 41) %6, ptr noundef nonnull @.str.131, double noundef %249, double noundef %247, double noundef %251) #10
   br label %252
 

@@ -359,7 +359,7 @@ define void @ff_sipr_init_16k(ptr noundef %0) local_unnamed_addr #5 {
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = trunc nuw nsw i64 %indvars.iv.next to i32
   %5 = uitofp nneg i32 %4 to double
-  %6 = fmul nsz double %5, 0x400921FB54442D18
+  %6 = fmul nnan nsz double %5, 0x400921FB54442D18
   %7 = fdiv nsz double %6, 1.700000e+01
   %8 = tail call nsz double @llvm.cos.f64(double %7)
   %9 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv

@@ -8893,7 +8893,7 @@ define hidden noundef ptr @_ZN10ciTypeFlow15clone_loop_headEPNS_4LoopEPNS_11Stat
   %37 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %38 = icmp eq i32 %.068.lcssa, 0
   %39 = sitofp i32 %.068.lcssa to double
-  %40 = fmul double %39, 9.000000e-01
+  %40 = fmul nnan double %39, 9.000000e-01
   br label %.preheader
 
 41:                                               ; preds = %.preheader188, %54

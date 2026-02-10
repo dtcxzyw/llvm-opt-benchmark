@@ -11914,7 +11914,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %85, %88
   %134 = load ptr, ptr %133, align 8, !tbaa !592
   %135 = call i64 @_ZNK4llvm25MachineBlockFrequencyInfo12getEntryFreqEv(ptr noundef nonnull align 8 dereferenceable(8) %134) #24
   %136 = uitofp i64 %135 to float
-  %137 = fdiv float 1.000000e+00, %136
+  %137 = fdiv nnan float 1.000000e+00, %136
   %138 = fmul float %137, %132
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %139 = getelementptr inbounds nuw i8, ptr %6, i64 16

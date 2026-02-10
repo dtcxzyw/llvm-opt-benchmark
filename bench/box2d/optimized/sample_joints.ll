@@ -3817,7 +3817,7 @@ define linkonce_odr dso_local void @_ZN6BridgeC2ER8Settings(ptr noundef nonnull 
 134:                                              ; preds = %133
   store i32 2, ptr %15, align 8, !tbaa !59
   %135 = uitofp nneg i32 %.085120 to float
-  %136 = fmul float %135, 6.000000e+00
+  %136 = fmul nnan float %135, 6.000000e+00
   %137 = fadd float %136, -6.000000e+00
   store float %137, ptr %97, align 4, !tbaa !15
   store float 2.500000e+01, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
@@ -4067,9 +4067,9 @@ define linkonce_odr dso_local void @_ZN12BallAndChainC2ER8Settings(ptr noundef n
   %indvars107 = trunc i64 %indvars.iv to i32
   store i32 2, ptr %7, align 8, !tbaa !59
   %44 = uitofp nneg i32 %indvars107 to float
-  %45 = fmul float %44, 2.000000e+00
-  %46 = fadd float %45, 1.000000e+00
-  %47 = fmul float %46, 5.000000e-01
+  %45 = fmul nnan float %44, 2.000000e+00
+  %46 = fadd nnan float %45, 1.000000e+00
+  %47 = fmul nnan float %46, 5.000000e-01
   store float %47, ptr %26, align 4, !tbaa !15
   store float 1.500000e+01, ptr %.sroa.433.0..sroa_idx, align 8, !tbaa !15
   %.sroa.029.0.copyload = load i32, ptr %16, align 4
@@ -4081,7 +4081,7 @@ define linkonce_odr dso_local void @_ZN12BallAndChainC2ER8Settings(ptr noundef n
           to label %51 unwind label %63
 
 51:                                               ; preds = %49
-  %52 = fmul float %45, 5.000000e-01
+  %52 = fmul nnan float %45, 5.000000e-01
   %.sroa.024.4.vec.insert = insertelement <2 x float> <float poison, float 1.500000e+01>, float %52, i64 0
   store i64 %.sroa.037.099, ptr %6, align 8
   store i64 %48, ptr %27, align 8
@@ -4424,9 +4424,9 @@ define linkonce_odr dso_local void @_ZN10CantileverC2ER8Settings(ptr noundef non
   %.sroa.032.062 = phi i64 [ %15, %30 ], [ %.sroa.032.0.copyload33, %79 ]
   %57 = trunc nuw nsw i64 %indvars.iv to i32
   %58 = uitofp nneg i32 %57 to float
-  %59 = fmul float %58, 2.000000e+00
-  %60 = fadd float %59, 1.000000e+00
-  %61 = fmul float %60, 5.000000e-01
+  %59 = fmul nnan float %58, 2.000000e+00
+  %60 = fadd nnan float %59, 1.000000e+00
+  %61 = fmul nnan float %60, 5.000000e-01
   store float %61, ptr %32, align 4, !tbaa !15
   store float 0.000000e+00, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !15
   %.sroa.013.0.copyload = load i32, ptr %14, align 4
@@ -4440,7 +4440,7 @@ define linkonce_odr dso_local void @_ZN10CantileverC2ER8Settings(ptr noundef non
           to label %66 unwind label %83
 
 66:                                               ; preds = %63
-  %67 = fmul float %59, 5.000000e-01
+  %67 = fmul nnan float %59, 5.000000e-01
   %.sroa.08.4.vec.insert = insertelement <2 x float> <float poison, float 0.000000e+00>, float %67, i64 0
   store i64 %.sroa.032.062, ptr %6, align 8
   %68 = load i64, ptr %64, align 4
@@ -6422,7 +6422,7 @@ define linkonce_odr dso_local void @_ZN7DrivingC2ER8Settings(ptr noundef nonnull
 137:                                              ; preds = %136
   store i32 2, ptr %15, align 8, !tbaa !59
   %138 = uitofp nneg i32 %.0192229 to float
-  %139 = fmul float %138, 2.000000e+00
+  %139 = fmul nnan float %138, 2.000000e+00
   %140 = fadd float %139, 1.610000e+02
   store float %140, ptr %99, align 4, !tbaa !15
   store float -1.250000e-01, ptr %.sroa.465.0..sroa_idx, align 8, !tbaa !15

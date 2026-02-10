@@ -4572,7 +4572,7 @@ _ZN2cv6dynafuL13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread: ; preds 
 331:                                              ; preds = %_ZN2cv6dynafuL13bilinearDepthERKNS_4Mat_IfEENS_6Point_IfEE.exit.thread
   %332 = load float, ptr %50, align 8, !tbaa !86
   %333 = fmul float %325, %332
-  %334 = call noundef float @llvm.minnum.f32(float %333, float 1.000000e+00)
+  %334 = call nsz noundef float @llvm.minnum.f32(float %333, float 1.000000e+00)
   %335 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %336 = load ptr, ptr %16, align 8, !tbaa !65
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
@@ -7474,7 +7474,7 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu25FetchPointsNormalsInvokerclERKN
 
 .lr.ph94:                                         ; preds = %.lr.ph99.split
   %31 = sitofp i32 %.096 to float
-  %32 = fadd float %31, 5.000000e-01
+  %32 = fadd nnan float %31, 5.000000e-01
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %34 = load i32, ptr %33, align 8, !tbaa !31
   %35 = icmp sgt i32 %34, 0
@@ -7510,7 +7510,7 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu25FetchPointsNormalsInvokerclERKN
 
 .lr.ph:                                           ; preds = %.lr.ph94.split
   %53 = uitofp nneg i32 %.05392 to float
-  %54 = fadd float %53, 5.000000e-01
+  %54 = fadd nnan float %53, 5.000000e-01
   br label %60
 
 ._crit_edge:                                      ; preds = %85, %.lr.ph94.split
@@ -7540,7 +7540,7 @@ define linkonce_odr hidden void @_ZNK2cv6dynafu25FetchPointsNormalsInvokerclERKN
 
 73:                                               ; preds = %60
   %74 = uitofp nneg i32 %.05491 to float
-  %75 = fadd float %74, 5.000000e-01
+  %75 = fadd nnan float %74, 5.000000e-01
   %76 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %77 = load float, ptr %76, align 8, !tbaa !6
   %78 = fmul float %32, %77

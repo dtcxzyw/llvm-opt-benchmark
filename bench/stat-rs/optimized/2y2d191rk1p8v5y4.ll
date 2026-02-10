@@ -1787,10 +1787,10 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit105: ; preds = 
   %.sroa.03.0 = phi double [ 0x3FD6047E2008B773, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit9 ], [ 0x3FDAE121A0053AF5, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit17 ], [ 0x3FDF59E83FFA28EC, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit25 ], [ 0x3FE103FD8005E540, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit33 ], [ 0x3FE19162E001DA61, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit41 ], [ 0x3FE1D45EC0040581, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit49 ], [ 0x3FE1F38DFFFE14A8, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit57 ], [ 0x3FE201393FFA8769, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit65 ], [ 0x3FE207DCE000B652, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit73 ], [ 0x3FE20B0A7FFC32C3, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit81 ], [ 0x3FE20CB87FFF37DB, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit89 ], [ 0x3FE20D5C400153BB, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit105 ], [ 0x3FE20D95FFFB0541, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit97 ]
   %.sroa.02.0 = phi double [ %27, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit9 ], [ %42, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit17 ], [ %57, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit25 ], [ %72, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit33 ], [ %87, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit41 ], [ %102, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit49 ], [ %117, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit57 ], [ %132, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit65 ], [ %147, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit73 ], [ %162, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit81 ], [ %177, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit89 ], [ %203, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit105 ], [ %190, %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit97 ]
   %205 = fneg double %0
-  %206 = fmul double %0, %205
+  %206 = fmul nnan double %0, %205
   %207 = tail call double @llvm.exp.f64(double %206)
   %208 = fdiv double %207, %0
-  %209 = fmul double %208, %.sroa.03.0
+  %209 = fmul nnan double %208, %.sroa.03.0
   %210 = fmul double %208, %.sroa.02.0
   %211 = fadd double %209, %210
   br label %212
@@ -1821,15 +1821,15 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit105: ; preds = 
   br i1 %223, label %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit113, label %.lr.ph.i110
 
 _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit113: ; preds = %.lr.ph.i110
-  %224 = fmul double %0, 1.125000e+00
+  %224 = fmul nnan double %0, 1.125000e+00
   %225 = fmul double %0, %217
   %226 = fdiv double %225, %222
   %227 = fadd double %224, %226
   br label %212
 
 228:                                              ; preds = %9
-  %229 = fmul double %0, 1.125000e+00
-  %230 = fmul double %0, 0x3F6BAEA08536DA23
+  %229 = fmul nnan double %0, 1.125000e+00
+  %230 = fmul nnan double %0, 0x3F6BAEA08536DA23
   %231 = fadd double %229, %230
   br label %212
 
@@ -1899,7 +1899,7 @@ define hidden noundef double @_ZN6statrs8function3erf12erf_inv_impl17h61c441acf9
   br i1 %16, label %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit9, label %.lr.ph.i6
 
 _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit9: ; preds = %.lr.ph.i6
-  %17 = fadd double %0, 1.000000e+01
+  %17 = fadd nnan double %0, 1.000000e+01
   %18 = fmul double %0, %17
   %19 = fdiv double %10, %15
   %20 = fmul double %18, 0x3FB6D15200000000
@@ -1939,8 +1939,8 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit9: ; preds = %.
   br i1 %39, label %_ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit17, label %.lr.ph.i14
 
 _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit17: ; preds = %.lr.ph.i14
-  %40 = tail call noundef double @llvm.log.f64(double %1)
-  %41 = fmul double %40, -2.000000e+00
+  %40 = tail call nnan double @llvm.log.f64(double %1)
+  %41 = fmul nnan double %40, -2.000000e+00
   %42 = tail call double @llvm.sqrt.f64(double %41)
   %43 = fdiv double %33, %38
   %44 = fadd double %43, 0x4001FEF000000000
@@ -1977,7 +1977,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit17: ; preds = %
 
 _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit25: ; preds = %.lr.ph.i22
   %60 = fdiv double %53, %58
-  %61 = fmul double %26, 0x3FE9D4C000000000
+  %61 = fmul nnan double %26, 0x3FE9D4C000000000
   %62 = fmul double %26, %60
   %63 = fadd double %61, %62
   br label %132
@@ -2012,7 +2012,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit25: ; preds = %
 
 _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit33: ; preds = %.lr.ph.i30
   %78 = fdiv double %71, %76
-  %79 = fmul double %26, 0x3FEE141E00000000
+  %79 = fmul nnan double %26, 0x3FEE141E00000000
   %80 = fmul double %26, %78
   %81 = fadd double %79, %80
   br label %132
@@ -2047,7 +2047,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit33: ; preds = %
 
 _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit41: ; preds = %.lr.ph.i38
   %96 = fdiv double %89, %94
-  %97 = fmul double %26, 0x3FEF79E200000000
+  %97 = fmul nnan double %26, 0x3FEF79E200000000
   %98 = fmul double %26, %96
   %99 = fadd double %97, %98
   br label %132
@@ -2109,7 +2109,7 @@ _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit49: ; preds = %
 
 _ZN6statrs8function8evaluate10polynomial17hd10ddaf43548fb25E.exit57: ; preds = %.lr.ph.i54
   %128 = fdiv double %121, %126
-  %129 = fmul double %26, 0x3FEFE89E00000000
+  %129 = fmul nnan double %26, 0x3FEFE89E00000000
   %130 = fmul double %26, %128
   %131 = fadd double %129, %130
   br label %132

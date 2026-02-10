@@ -858,7 +858,7 @@ define internal range(i32 -1094995529, 1) i32 @nb_decode(ptr noundef %0, ptr nou
   %159 = tail call i32 @llvm.umin.i32(i32 %29, i32 %158)
   store i32 %159, ptr %23, align 8, !tbaa !94
   %160 = uitofp nneg i32 %157 to float
-  %161 = fmul nsz float %149, %160
+  %161 = fmul nnan nsz float %149, %160
   %162 = fpext nsz float %161 to double
   %163 = tail call nsz double @llvm.exp.f64(double %162)
   %164 = fptrunc nsz double %163 to float
@@ -1051,7 +1051,7 @@ iir_mem.exit:                                     ; preds = %._crit_edge.us.i
   %265 = and i32 %264, 8388607
   %266 = or disjoint i32 %265, 1065353216
   %267 = bitcast i32 %266 to float
-  %268 = fadd nsz float %267, -1.500000e+00
+  %268 = fadd nnan nsz float %267, -1.500000e+00
   %269 = fmul nsz float %239, %268
   %270 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv576
   store float %269, ptr %270, align 4, !tbaa !105
@@ -1177,7 +1177,7 @@ iir_mem.exit:                                     ; preds = %._crit_edge.us.i
   %340 = call i32 @llvm.umin.i32(i32 %.pre585, i32 %339)
   store i32 %340, ptr %.phi.trans.insert582, align 8, !tbaa !94
   %341 = uitofp nneg i32 %338 to float
-  %342 = fmul nsz float %341, 0x3FB11116A0000000
+  %342 = fmul nnan nsz float %341, 0x3FB11116A0000000
   br label %._crit_edge581
 
 ._crit_edge581:                                   ; preds = %327, %330
@@ -1233,22 +1233,22 @@ iir_mem.exit:                                     ; preds = %._crit_edge.us.i
   %377 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %378 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %379 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %380 = fadd nsz float %.0332, 0xBFC99999A0000000
-  %381 = fmul nsz float %380, 1.500000e+00
+  %380 = fadd nnan nsz float %.0332, 0xBFC99999A0000000
+  %381 = fmul nnan nsz float %380, 1.500000e+00
   %382 = fcmp nsz ogt float %381, 0.000000e+00
   %383 = select nsz i1 %382, float %381, float 0.000000e+00
   %384 = fcmp nsz ogt float %383, 1.000000e+00
   %..i = select nsz i1 %384, float 1.000000e+00, float %383
   %385 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %386 = uitofp nneg i32 %.0339 to float
-  %387 = fmul nsz float %386, 2.000000e+00
-  %388 = call nsz float @llvm.sqrt.f32(float %387)
+  %387 = fmul nnan nsz float %386, 2.000000e+00
+  %388 = call nnan nsz float @llvm.sqrt.f32(float %387)
   %389 = fmul nsz float %..i, %358
   %390 = fmul nsz float %388, %389
   %391 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %392 = call nsz float @llvm.fmuladd.f32(float %..i, float 0xBFEB333340000000, float 1.000000e+00)
   %393 = getelementptr inbounds nuw i8, ptr %1, i64 92
-  %394 = fmul nsz float %..i, 0xBFC3333340000000
+  %394 = fmul nnan nsz float %..i, 0xBFC3333340000000
   %395 = getelementptr inbounds nuw i8, ptr %1, i64 96
   br label %399
 
@@ -1773,8 +1773,8 @@ compute_rms.exit444:                              ; preds = %.lr.ph.i439
   %indvars.iv572 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next573, %iir_mem.exit469 ]
   %682 = trunc nuw nsw i64 %indvars.iv572 to i32
   %683 = uitofp nneg i32 %682 to float
-  %684 = fadd nsz float %683, 1.000000e+00
-  %685 = fmul nsz float %684, 2.500000e-01
+  %684 = fadd nnan nsz float %683, 1.000000e+00
+  %685 = fmul nnan nsz float %684, 2.500000e-01
   %686 = fsub nsz float 1.000000e+00, %685
   br label %687
 
@@ -2627,7 +2627,7 @@ lsp_to_lpc.exit:                                  ; preds = %244
   store i32 %313, ptr %155, align 8, !tbaa !94
   %314 = add nsw i32 %311, -10
   %315 = sitofp i32 %314 to float
-  %316 = fmul nsz float %315, 1.250000e-01
+  %316 = fmul nnan nsz float %315, 1.250000e-01
   %317 = call nsz float @llvm.exp.f32(float %316)
   %318 = fdiv nsz float %317, %278
   %319 = icmp sgt i32 %279, 0
@@ -3228,7 +3228,7 @@ compute_rms.exit130:                              ; preds = %.lr.ph.i125
   %232 = tail call nsz float @llvm.sqrt.f32(float %231)
   %233 = tail call nsz float @llvm.maxnum.f32(float %232, float 1.000000e+00)
   %234 = tail call nsz float @llvm.maxnum.f32(float %229, float 1.000000e+00)
-  %235 = tail call nsz float @llvm.minnum.f32(float %233, float %234)
+  %235 = tail call nnan nsz float @llvm.minnum.f32(float %233, float %234)
   %236 = fdiv nsz float %235, %234
   br label %248
 
@@ -3686,7 +3686,7 @@ define internal void @noise_codebook_unquant(ptr noundef writeonly captures(none
   %12 = and i32 %11, 8388607
   %13 = or disjoint i32 %12, 1065353216
   %14 = bitcast i32 %13 to float
-  %15 = fadd nsz float %14, -1.500000e+00
+  %15 = fadd nnan nsz float %14, -1.500000e+00
   %16 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
   store float %15, ptr %16, align 4, !tbaa !105
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3789,11 +3789,11 @@ get_bitsz.exit88:                                 ; preds = %get_bitsz.exit, %44
   %83 = tail call nsz float @llvm.minnum.f32(float %82, float 0x3FEE666660000000)
   %84 = tail call nsz float @llvm.fabs.f32(float %71)
   %85 = fcmp nsz ogt float %67, 0.000000e+00
-  %86 = fmul nsz float %67, -5.000000e-01
+  %86 = fmul nnan nsz float %67, -5.000000e-01
   %87 = select nsz i1 %85, float %67, float %86
   %88 = fadd nsz float %87, %84
   %89 = fcmp nsz ogt float %76, 0.000000e+00
-  %90 = fmul nsz float %76, -5.000000e-01
+  %90 = fmul nnan nsz float %76, -5.000000e-01
   %91 = select nsz i1 %89, float %76, float %90
   %92 = fadd nsz float %88, %91
   %93 = fcmp nsz ogt float %92, %83

@@ -183,7 +183,7 @@ define void @Res_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %9 = load i32, ptr %8, align 8, !tbaa !37
   %10 = sub nsw i32 %7, %9
   %11 = sitofp i32 %10 to double
-  %12 = fmul double %11, 1.000000e+02
+  %12 = fmul nnan double %11, 1.000000e+02
   %13 = sitofp i32 %7 to double
   %14 = fdiv double %12, %13
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %10, double noundef %14)
@@ -193,7 +193,7 @@ define void @Res_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %19 = load i32, ptr %18, align 4, !tbaa !39
   %20 = sub nsw i32 %17, %19
   %21 = sitofp i32 %20 to double
-  %22 = fmul double %21, 1.000000e+02
+  %22 = fmul nnan double %21, 1.000000e+02
   %23 = sitofp i32 %17 to double
   %24 = fdiv double %22, %23
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %20, double noundef %24)
@@ -244,7 +244,7 @@ define void @Res_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %66 = load i64, ptr %65, align 8, !tbaa !50
   %.not100 = icmp eq i64 %66, 0
   %67 = sitofp i64 %66 to double
-  %68 = fmul double %63, 1.000000e+02
+  %68 = fmul nnan double %63, 1.000000e+02
   %69 = fdiv double %68, %67
   %70 = select i1 %.not100, double 0.000000e+00, double %69
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %64, double noundef %70)
@@ -256,7 +256,7 @@ define void @Res_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %75 = load i64, ptr %65, align 8, !tbaa !50
   %.not101 = icmp eq i64 %75, 0
   %76 = sitofp i64 %75 to double
-  %77 = fmul double %73, 1.000000e+02
+  %77 = fmul nnan double %73, 1.000000e+02
   %78 = fdiv double %77, %76
   %79 = select i1 %.not101, double 0.000000e+00, double %78
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %74, double noundef %79)
@@ -268,7 +268,7 @@ define void @Res_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %84 = load i64, ptr %65, align 8, !tbaa !50
   %.not102 = icmp eq i64 %84, 0
   %85 = sitofp i64 %84 to double
-  %86 = fmul double %82, 1.000000e+02
+  %86 = fmul nnan double %82, 1.000000e+02
   %87 = fdiv double %86, %85
   %88 = select i1 %.not102, double 0.000000e+00, double %87
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %83, double noundef %88)
@@ -280,7 +280,7 @@ define void @Res_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %93 = load i64, ptr %65, align 8, !tbaa !50
   %.not103 = icmp eq i64 %93, 0
   %94 = sitofp i64 %93 to double
-  %95 = fmul double %91, 1.000000e+02
+  %95 = fmul nnan double %91, 1.000000e+02
   %96 = fdiv double %95, %94
   %97 = select i1 %.not103, double 0.000000e+00, double %96
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %92, double noundef %97)
@@ -292,7 +292,7 @@ define void @Res_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %102 = load i64, ptr %65, align 8, !tbaa !50
   %.not104 = icmp eq i64 %102, 0
   %103 = sitofp i64 %102 to double
-  %104 = fmul double %100, 1.000000e+02
+  %104 = fmul nnan double %100, 1.000000e+02
   %105 = fdiv double %104, %103
   %106 = select i1 %.not104, double 0.000000e+00, double %105
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %101, double noundef %106)
@@ -304,7 +304,7 @@ define void @Res_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %111 = load i64, ptr %65, align 8, !tbaa !50
   %.not105 = icmp eq i64 %111, 0
   %112 = sitofp i64 %111 to double
-  %113 = fmul double %109, 1.000000e+02
+  %113 = fmul nnan double %109, 1.000000e+02
   %114 = fdiv double %113, %112
   %115 = select i1 %.not105, double 0.000000e+00, double %114
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %110, double noundef %115)
@@ -316,7 +316,7 @@ define void @Res_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %120 = load i64, ptr %65, align 8, !tbaa !50
   %.not106 = icmp eq i64 %120, 0
   %121 = sitofp i64 %120 to double
-  %122 = fmul double %118, 1.000000e+02
+  %122 = fmul nnan double %118, 1.000000e+02
   %123 = fdiv double %122, %121
   %124 = select i1 %.not106, double 0.000000e+00, double %123
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %119, double noundef %124)
@@ -328,7 +328,7 @@ define void @Res_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %129 = load i64, ptr %65, align 8, !tbaa !50
   %.not107 = icmp eq i64 %129, 0
   %130 = sitofp i64 %129 to double
-  %131 = fmul double %127, 1.000000e+02
+  %131 = fmul nnan double %127, 1.000000e+02
   %132 = fdiv double %131, %130
   %133 = select i1 %.not107, double 0.000000e+00, double %132
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %128, double noundef %133)
@@ -340,7 +340,7 @@ define void @Res_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %138 = load i64, ptr %65, align 8, !tbaa !50
   %.not108 = icmp eq i64 %138, 0
   %139 = sitofp i64 %138 to double
-  %140 = fmul double %136, 1.000000e+02
+  %140 = fmul nnan double %136, 1.000000e+02
   %141 = fdiv double %140, %139
   %142 = select i1 %.not108, double 0.000000e+00, double %141
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %137, double noundef %142)
@@ -352,7 +352,7 @@ define void @Res_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %147 = load i64, ptr %65, align 8, !tbaa !50
   %.not109 = icmp eq i64 %147, 0
   %148 = sitofp i64 %147 to double
-  %149 = fmul double %145, 1.000000e+02
+  %149 = fmul nnan double %145, 1.000000e+02
   %150 = fdiv double %149, %148
   %151 = select i1 %.not109, double 0.000000e+00, double %150
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %146, double noundef %151)
@@ -364,7 +364,7 @@ define void @Res_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %156 = load i64, ptr %65, align 8, !tbaa !50
   %.not110 = icmp eq i64 %156, 0
   %157 = sitofp i64 %156 to double
-  %158 = fmul double %154, 1.000000e+02
+  %158 = fmul nnan double %154, 1.000000e+02
   %159 = fdiv double %158, %157
   %160 = select i1 %.not110, double 0.000000e+00, double %159
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %155, double noundef %160)
@@ -373,7 +373,7 @@ define void @Res_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %162 = sitofp i64 %161 to double
   %163 = fdiv double %162, 1.000000e+06
   %.not111 = icmp eq i64 %161, 0
-  %164 = fmul double %162, 1.000000e+02
+  %164 = fmul nnan double %162, 1.000000e+02
   %165 = fdiv double %164, %162
   %166 = select i1 %.not111, double 0.000000e+00, double %165
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.14, double noundef %163, double noundef %166)

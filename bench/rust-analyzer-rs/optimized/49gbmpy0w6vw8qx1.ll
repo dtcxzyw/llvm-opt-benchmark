@@ -484,7 +484,7 @@ define hidden { i64, i64 } @_ZN8lz4_flex5block8compress17compress_internal17h01a
   %16 = sub i64 %.val, %.val42
   %17 = sub i64 %1, %2
   %18 = uitofp i64 %17 to double
-  %19 = fmul double %18, 1.100000e+00
+  %19 = fmul nnan double %18, 1.100000e+00
   %20 = tail call i64 @llvm.fptoui.sat.i64.f64(double %19)
   %21 = add i64 %20, 20
   %22 = icmp ult i64 %16, %21
@@ -873,7 +873,7 @@ define hidden { i64, i64 } @_ZN8lz4_flex5block8compress17compress_internal17h7b0
   %16 = sub i64 %.val, %.val42
   %17 = sub i64 %1, %2
   %18 = uitofp i64 %17 to double
-  %19 = fmul double %18, 1.100000e+00
+  %19 = fmul nnan double %18, 1.100000e+00
   %20 = tail call i64 @llvm.fptoui.sat.i64.f64(double %19)
   %21 = add i64 %20, 20
   %22 = icmp ult i64 %16, %21

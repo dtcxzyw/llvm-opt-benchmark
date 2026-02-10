@@ -12073,15 +12073,15 @@ _ZN7QStringD2Ev.exit961:                          ; preds = %1195, %_ZN9QtPrivat
   store float %1222, ptr %1217, align 4
   %1223 = load i32, ptr %1212, align 4
   %1224 = sitofp i32 %1223 to float
-  %1225 = fpext float %1224 to double
-  %1226 = fmul double %1225, 5.000000e-01
+  %1225 = fpext nnan ninf float %1224 to double
+  %1226 = fmul nnan double %1225, 5.000000e-01
   %1227 = fptosi double %1226 to i32
   %1228 = sitofp i32 %1227 to float
   %1229 = getelementptr inbounds nuw i8, ptr %97, i64 20
   store float %1228, ptr %1229, align 4
   %1230 = sitofp i32 %1215 to float
-  %1231 = fpext float %1230 to double
-  %1232 = fmul double %1231, 5.000000e-01
+  %1231 = fpext nnan ninf float %1230 to double
+  %1232 = fmul nnan double %1231, 5.000000e-01
   %1233 = fptosi double %1232 to i32
   %1234 = sitofp i32 %1233 to float
   %1235 = getelementptr inbounds nuw i8, ptr %97, i64 24

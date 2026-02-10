@@ -1575,8 +1575,8 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.critedge:
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %26 = load i32, ptr %25, align 4
   %27 = sitofp i32 %26 to float
-  %28 = fmul float %24, 5.000000e-01
-  %29 = fmul float %27, 5.000000e-01
+  %28 = fmul nnan float %24, 5.000000e-01
+  %29 = fmul nnan float %27, 5.000000e-01
   %30 = fsub float %28, %18
   %.sroa.078.0.vec.insert = insertelement <2 x float> poison, float %30, i64 0
   %31 = fsub float %29, %21
@@ -1832,10 +1832,10 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:       ; preds = %35
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %44 = load i32, ptr %43, align 4
   %45 = sitofp i32 %44 to float
-  %46 = fdiv float 1.000000e+00, %42
-  %47 = fdiv float 1.000000e+00, %45
-  %48 = fmul float %46, 2.000000e+00
-  %49 = fmul float %47, 2.000000e+00
+  %46 = fdiv nnan float 1.000000e+00, %42
+  %47 = fdiv nnan float 1.000000e+00, %45
+  %48 = fmul nnan float %46, 2.000000e+00
+  %49 = fmul nnan float %47, 2.000000e+00
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %51 = load float, ptr %50, align 8
   %52 = fdiv float %48, %51
@@ -1911,10 +1911,10 @@ _ZNRSt3__18optionalIN3tev3BoxIiLj2EEEE5valueB8ne190000Ev.exit: ; preds = %.threa
   %88 = sitofp i32 %87 to float
   %89 = load i32, ptr %86, align 4
   %90 = sitofp i32 %89 to float
-  %91 = fdiv float 1.000000e+00, %88
-  %92 = fdiv float 1.000000e+00, %90
-  %93 = fmul float %91, 2.000000e+00
-  %94 = fmul float %92, 2.000000e+00
+  %91 = fdiv nnan float 1.000000e+00, %88
+  %92 = fdiv nnan float 1.000000e+00, %90
+  %93 = fmul nnan float %91, 2.000000e+00
+  %94 = fmul nnan float %92, 2.000000e+00
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %96 = load float, ptr %95, align 8
   %97 = fdiv float %93, %96
@@ -2081,10 +2081,10 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   %172 = sitofp i32 %171 to float
   %173 = load i32, ptr %86, align 4
   %174 = sitofp i32 %173 to float
-  %175 = fdiv float 1.000000e+00, %172
-  %176 = fdiv float 1.000000e+00, %174
-  %177 = fmul float %175, 2.000000e+00
-  %178 = fmul float %176, 2.000000e+00
+  %175 = fdiv nnan float 1.000000e+00, %172
+  %176 = fdiv nnan float 1.000000e+00, %174
+  %177 = fmul nnan float %175, 2.000000e+00
+  %178 = fmul nnan float %176, 2.000000e+00
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %180 = load float, ptr %179, align 8
   %181 = fdiv float %177, %180
@@ -3407,21 +3407,21 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7nanogui5ColorEEEEENS_19
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE5eraseENS_11__wrap_iterIPKS6_EESC_.exit
   %260 = phi ptr [ %.pre485, %._crit_edge.loopexit ], [ null, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE5eraseENS_11__wrap_iterIPKS6_EESC_.exit ]
   %261 = phi ptr [ %.0.i, %._crit_edge.loopexit ], [ null, %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE5eraseENS_11__wrap_iterIPKS6_EESC_.exit ]
-  %262 = fdiv float %130, 6.000000e+00
+  %262 = fdiv nnan float %130, 6.000000e+00
   %263 = ptrtoint ptr %261 to i64
   %264 = ptrtoint ptr %260 to i64
   %265 = sub i64 %263, %264
   %266 = ashr exact i64 %265, 4
   %267 = icmp ugt i64 %266, 4
   %268 = uitofp i64 %266 to float
-  %269 = fdiv float 4.000000e+00, %268
+  %269 = fdiv nnan float 4.000000e+00, %268
   %270 = select i1 %267, float %269, float 1.000000e+00
   %.0124 = fmul float %262, %270
   %271 = fadd float %130, -5.000000e+01
   %272 = fdiv float %271, 3.000000e+01
   %273 = fcmp olt float %272, 1.000000e+00
-  %274 = fsub float 1.024000e+03, %130
-  %275 = fmul float %274, 3.906250e-03
+  %274 = fsub nnan float 1.024000e+03, %130
+  %275 = fmul nnan float %274, 3.906250e-03
   %.sroa.speculated325 = select i1 %273, float %272, float 1.000000e+00
   %276 = fcmp olt float %275, %.sroa.speculated325
   %.sroa.speculated = select i1 %276, float %275, float %.sroa.speculated325
@@ -3716,7 +3716,7 @@ _ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stri
   br i1 %413, label %416, label %414
 
 414:                                              ; preds = %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread.us
-  %415 = fmul float %412, 0x4029D70A40000000
+  %415 = fmul nnan float %412, 0x4029D70A40000000
   br label %423
 
 416:                                              ; preds = %_ZNSt3__1eqB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEEbRKNS_12basic_stringIT_T0_T1_EEPKS6_.exit.thread.us
@@ -3791,7 +3791,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEaSB8ne190000EOS5_
   %445 = ashr exact i64 %444, 4
   %446 = add nsw i64 %445, -1
   %447 = uitofp i64 %446 to float
-  %448 = call float @llvm.fmuladd.f32(float %447, float -5.000000e-01, float %442)
+  %448 = call nnan float @llvm.fmuladd.f32(float %447, float -5.000000e-01, float %442)
   %449 = fmul float %.0124, %448
   %450 = call float @llvm.fmuladd.f32(float %449, float 0x3FEC28F5C0000000, float %441)
   %451 = load i32, ptr %312, align 4
@@ -4166,9 +4166,9 @@ _ZN7nanogui6MatrixIfLm3EE5scaleERKNS_5ArrayIfLm2EEE.exit: ; preds = %13
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %36 = load i32, ptr %35, align 4
   %37 = sitofp i32 %36 to float
-  %38 = fmul float %34, 5.000000e-01
+  %38 = fmul nnan float %34, 5.000000e-01
   %.sroa.0130.0.vec.insert = insertelement <2 x float> poison, float %38, i64 0
-  %39 = fmul float %37, 5.000000e-01
+  %39 = fmul nnan float %37, 5.000000e-01
   %.sroa.0130.4.vec.insert = insertelement <2 x float> %.sroa.0130.0.vec.insert, float %39, i64 1
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %40, i8 0, i64 32, i1 false), !alias.scope !112
@@ -4303,8 +4303,8 @@ _ZN7nanoguimlERKNS_6MatrixIfLm3EEES3_.exit46:     ; preds = %77
   %90 = tail call i32 @llvm.smax.i32(i32 %88, i32 0)
   %91 = uitofp nneg i32 %89 to float
   %92 = uitofp nneg i32 %90 to float
-  %93 = fmul float %91, -5.000000e-01
-  %94 = fmul float %92, -5.000000e-01
+  %93 = fmul nnan float %91, -5.000000e-01
+  %94 = fmul nnan float %92, -5.000000e-01
   %95 = getelementptr inbounds nuw i8, ptr %22, i64 252
   %96 = tail call <2 x float> @_ZNK3tev5Image19centerDisplayOffsetERKNS_3BoxIiLj2EEE(ptr noundef nonnull align 16 dereferenceable(404) %2, ptr noundef nonnull align 4 dereferenceable(16) %95)
   %97 = extractelement <2 x float> %96, i64 0
@@ -7492,7 +7492,7 @@ define dso_local { <2 x float>, float } @_ZN3tev11ImageCanvas12applyTonemapERKN7
   br i1 %18, label %21, label %19
 
 19:                                               ; preds = %16
-  %20 = fmul float %17, 0x4029D70A40000000
+  %20 = fmul nnan float %17, 0x4029D70A40000000
   br label %_ZN3tev6toSRGBEff.exit
 
 21:                                               ; preds = %16
@@ -7508,7 +7508,7 @@ _ZN3tev6toSRGBEff.exit:                           ; preds = %19, %21
   br i1 %26, label %29, label %27
 
 27:                                               ; preds = %_ZN3tev6toSRGBEff.exit
-  %28 = fmul float %25, 0x4029D70A40000000
+  %28 = fmul nnan float %25, 0x4029D70A40000000
   br label %_ZN3tev6toSRGBEff.exit37
 
 29:                                               ; preds = %_ZN3tev6toSRGBEff.exit
@@ -7524,7 +7524,7 @@ _ZN3tev6toSRGBEff.exit37:                         ; preds = %27, %29
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %_ZN3tev6toSRGBEff.exit37
-  %36 = fmul float %33, 0x4029D70A40000000
+  %36 = fmul nnan float %33, 0x4029D70A40000000
   br label %_ZN3tev6toSRGBEff.exit39
 
 37:                                               ; preds = %_ZN3tev6toSRGBEff.exit37
@@ -17987,10 +17987,10 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.i.critedge:
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %12 = load i32, ptr %11, align 8
   %13 = sitofp i32 %12 to float
-  %14 = fadd float %4, %10
-  %15 = fadd float %7, %13
-  %16 = fmul float %14, 5.000000e-01
-  %17 = fmul float %15, 5.000000e-01
+  %14 = fadd nnan float %4, %10
+  %15 = fadd nnan float %7, %13
+  %16 = fmul nnan float %14, 5.000000e-01
+  %17 = fmul nnan float %15, 5.000000e-01
   %18 = load i32, ptr %1, align 4
   %19 = sitofp i32 %18 to float
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -18002,10 +18002,10 @@ _ZN7nanogui5ArrayIfLm2EEC2IiEERKNS0_IT_Lm2EEE.exit.i.critedge:
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %27 = load i32, ptr %26, align 4
   %28 = sitofp i32 %27 to float
-  %29 = fadd float %19, %25
-  %30 = fadd float %22, %28
-  %31 = fmul float %29, 5.000000e-01
-  %32 = fmul float %30, 5.000000e-01
+  %29 = fadd nnan float %19, %25
+  %30 = fadd nnan float %22, %28
+  %31 = fmul nnan float %29, 5.000000e-01
+  %32 = fmul nnan float %30, 5.000000e-01
   %33 = fsub float %16, %31
   %.sroa.034.0.vec.insert = insertelement <2 x float> poison, float %33, i64 0
   %34 = fsub float %17, %32
@@ -20693,17 +20693,17 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
   %31 = fdiv double %1, 8.640000e+10
   %32 = fptosi double %31 to i64
   %33 = sitofp i64 %32 to double
-  %34 = fmul double %33, 8.640000e+10
+  %34 = fmul nnan double %33, 8.640000e+10
   %35 = fsub double %1, %34
   %36 = fdiv double %35, 3.600000e+09
   %37 = fptosi double %36 to i64
   %38 = sitofp i64 %37 to double
-  %39 = fmul double %38, 3.600000e+09
+  %39 = fmul nnan double %38, 3.600000e+09
   %40 = fsub double %35, %39
   %41 = fdiv double %40, 6.000000e+07
   %42 = fptosi double %41 to i64
   %43 = sitofp i64 %42 to double
-  %44 = fmul double %43, 6.000000e+07
+  %44 = fmul nnan double %43, 6.000000e+07
   %45 = fsub double %40, %44
   %46 = fdiv double %45, 1.000000e+06
   %47 = fptosi double %46 to i64

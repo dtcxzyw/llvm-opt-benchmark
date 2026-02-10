@@ -7489,7 +7489,7 @@ define void @_ZN3net14QuicConnection13MaybeQueueAckEb(ptr noundef nonnull align 
   %.sroa.2.0..sroa_idx.i32 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %.sroa.2.0.copyload.i33 = load i64, ptr %.sroa.2.0..sroa_idx.i32, align 8, !tbaa !238
   %110 = sitofp i64 %.sroa.2.0.copyload.i33 to double
-  %111 = fmul double %110, 1.250000e-01
+  %111 = fmul nnan double %110, 1.250000e-01
   %112 = tail call i64 @llround(double noundef %111) #25, !tbaa !377
   %113 = add nsw i64 %112, %103
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 2336

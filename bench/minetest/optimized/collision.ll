@@ -1033,7 +1033,7 @@ for.cond214.preheader:                            ; preds = %for.cond214.prehead
   %conv.i1414 = sitofp i16 %storemerge2179 to float
   %89 = call nsz float @llvm.fmuladd.f32(float %conv.i1414, float 1.000000e+01, float -5.000000e+00)
   %90 = call nsz float @llvm.fmuladd.f32(float %conv.i1414, float 1.000000e+01, float 5.000000e+00)
-  %mul.i1415 = fmul nsz float %conv.i1414, 1.000000e+01
+  %mul.i1415 = fmul nnan nsz float %conv.i1414, 1.000000e+01
   %91 = insertelement <4 x float> poison, float %mul.i1415, i64 0
   br label %for.cond223.preheader
 
@@ -1049,7 +1049,7 @@ for.cond223.preheader:                            ; preds = %for.cond223.for.inc
   %p2.sroa.19.0.insert.ext2014 = zext i16 %dec to i48
   %p2.sroa.19.0.insert.shift2015 = shl nuw nsw i48 %p2.sroa.19.0.insert.ext2014, 16
   %conv1.i = sitofp i16 %storemerge11242174 to float
-  %mul2.i1416 = fmul nsz float %conv1.i, 1.000000e+01
+  %mul2.i1416 = fmul nnan nsz float %conv1.i, 1.000000e+01
   %92 = call nsz float @llvm.fmuladd.f32(float %conv1.i, float 1.000000e+01, float -5.000000e+00)
   %93 = call nsz float @llvm.fmuladd.f32(float %conv1.i, float 1.000000e+01, float 5.000000e+00)
   %94 = insertelement <4 x float> %91, float %mul2.i1416, i64 1
@@ -1410,7 +1410,7 @@ invoke.cont299:                                   ; preds = %invoke.cont293
 
 for.body307.preheader:                            ; preds = %invoke.cont299
   %conv3.i = sitofp i16 %storemerge11262169 to float
-  %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
+  %mul4.i = fmul nnan nsz float %conv3.i, 1.000000e+01
   %.pre2250 = load ptr, ptr %_M_finish.i1436, align 8, !tbaa !21
   %.pre2251 = load ptr, ptr %_M_end_of_storage.i, align 8, !tbaa !115
   %141 = insertelement <4 x float> %94, float %mul4.i, i64 2

@@ -1650,7 +1650,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit:        ; preds = %191, %195
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit194
 
 242:                                              ; preds = %235
-  %243 = fmul double %.082, %193
+  %243 = fmul nnan double %.082, %193
   br i1 %5, label %244, label %336
 
 244:                                              ; preds = %242
@@ -1851,7 +1851,7 @@ _ZNSt6vectorISt4pairIldESaIS1_EED2Ev.exit109:     ; preds = %268, %272
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit194
 
 321:                                              ; preds = %314
-  %322 = fmul double %270, %307
+  %322 = fmul nnan double %270, %307
   store double %322, ptr %306, align 8
   br i1 %5, label %323, label %336
 

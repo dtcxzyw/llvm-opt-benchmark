@@ -838,7 +838,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit274: ; preds = %in
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp52)
   %spec.select = zext i1 %cmp.i to i8
   %conv = uitofp i32 %conv.i to float
-  %div = fmul nsz float %conv, 6.250000e-02
+  %div = fmul nnan nsz float %conv, 6.250000e-02
   %21 = load ptr, ptr @g_fontengine, align 8, !tbaa !36
   %call67 = call noundef i32 @_ZN10FontEngine11getFontSizeE8FontMode(ptr noundef nonnull align 8 dereferenceable(638) %21, i8 noundef zeroext %spec.select)
   %conv68 = uitofp i32 %call67 to float
@@ -9404,7 +9404,7 @@ for.inc327:                                       ; preds = %if.then300, %for.bo
 sw.bb:                                            ; preds = %for.cond.cleanup295
   %sub330 = sub i32 %sub208, %charswidth.2.lcssa
   %conv331 = uitofp i32 %sub330 to float
-  %div = fmul nsz float %conv331, 5.000000e-01
+  %div = fmul nnan nsz float %conv331, 5.000000e-01
   %add332 = fadd nsz float %div, %conv
   br label %sw.epilog
 
@@ -11746,7 +11746,7 @@ if.then6:                                         ; preds = %if.end
   %8 = load i32, ptr %Y2.i, align 8, !tbaa !218
   %sub.i45 = sub nsw i32 %7, %8
   %conv = sitofp i32 %sub.i45 to float
-  %mul = fmul nsz float %conv, 0x3FB99999A0000000
+  %mul = fmul nnan nsz float %conv, 0x3FB99999A0000000
   %conv11 = fptosi float %mul to i32
   store i32 %conv11, ptr %ref.tmp, align 4, !tbaa !35
   call void @_ZN12GUIScrollBar12setSmallStepERKi(ptr noundef nonnull align 8 dereferenceable(408) %6, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
@@ -11757,7 +11757,7 @@ if.then6:                                         ; preds = %if.end
   %11 = load i32, ptr %Y2.i, align 8, !tbaa !218
   %sub.i48 = sub nsw i32 %10, %11
   %conv16 = sitofp i32 %sub.i48 to float
-  %mul17 = fmul nsz float %conv16, 5.000000e-01
+  %mul17 = fmul nnan nsz float %conv16, 5.000000e-01
   %conv18 = fptosi float %mul17 to i32
   store i32 %conv18, ptr %ref.tmp13, align 4, !tbaa !35
   call void @_ZN12GUIScrollBar12setLargeStepERKi(ptr noundef nonnull align 8 dereferenceable(408) %9, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp13)

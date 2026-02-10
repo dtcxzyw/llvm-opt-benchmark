@@ -226,7 +226,7 @@ define hidden noundef double @_ZN6cvtest12randomDoubleEdd(double noundef %0, dou
   %15 = and i64 %14, 4294967295
   %16 = or disjoint i64 %15, %10
   %17 = uitofp i64 %16 to double
-  %18 = fmul double %17, 0x3BF0000000000000
+  %18 = fmul nnan double %17, 0x3BF0000000000000
   %19 = fsub double %1, %0
   %20 = tail call noundef double @llvm.fmuladd.f64(double %18, double %19, double %0)
   ret double %20
@@ -298,7 +298,7 @@ define hidden void @_ZN6cvtest12randomScalarEdd(ptr dead_on_unwind noalias writa
   %16 = and i64 %15, 4294967295
   %17 = or disjoint i64 %16, %11
   %18 = uitofp i64 %17 to double
-  %19 = fmul double %18, 0x3BF0000000000000
+  %19 = fmul nnan double %18, 0x3BF0000000000000
   %20 = fsub double %2, %1
   %21 = tail call noundef double @llvm.fmuladd.f64(double %19, double %20, double %1)
   %22 = tail call noundef ptr @_ZN6cvtest2TS3ptrEv()
@@ -317,7 +317,7 @@ define hidden void @_ZN6cvtest12randomScalarEdd(ptr dead_on_unwind noalias writa
   %34 = and i64 %33, 4294967295
   %35 = or disjoint i64 %34, %29
   %36 = uitofp i64 %35 to double
-  %37 = fmul double %36, 0x3BF0000000000000
+  %37 = fmul nnan double %36, 0x3BF0000000000000
   %38 = tail call noundef double @llvm.fmuladd.f64(double %37, double %20, double %1)
   %39 = tail call noundef ptr @_ZN6cvtest2TS3ptrEv()
   %40 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv6theRNGEv()
@@ -335,7 +335,7 @@ define hidden void @_ZN6cvtest12randomScalarEdd(ptr dead_on_unwind noalias writa
   %51 = and i64 %50, 4294967295
   %52 = or disjoint i64 %51, %46
   %53 = uitofp i64 %52 to double
-  %54 = fmul double %53, 0x3BF0000000000000
+  %54 = fmul nnan double %53, 0x3BF0000000000000
   %55 = tail call noundef double @llvm.fmuladd.f64(double %54, double %20, double %1)
   %56 = tail call noundef ptr @_ZN6cvtest2TS3ptrEv()
   %57 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv6theRNGEv()
@@ -353,7 +353,7 @@ define hidden void @_ZN6cvtest12randomScalarEdd(ptr dead_on_unwind noalias writa
   %68 = and i64 %67, 4294967295
   %69 = or disjoint i64 %68, %63
   %70 = uitofp i64 %69 to double
-  %71 = fmul double %70, 0x3BF0000000000000
+  %71 = fmul nnan double %70, 0x3BF0000000000000
   %72 = tail call noundef double @llvm.fmuladd.f64(double %71, double %20, double %1)
   store double %21, ptr %0, align 8, !tbaa !8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8

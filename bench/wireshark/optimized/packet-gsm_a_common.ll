@@ -1308,8 +1308,8 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr noundef 
   %26 = select i1 %.not266, ptr @.str.32, ptr @.str.31
   %27 = and i32 %24, 8388607
   %28 = uitofp nneg i32 %27 to double
-  %29 = fdiv double %28, 0x415FFFFFC0000000
-  %30 = fmul double %29, 9.000000e+01
+  %29 = fdiv nnan double %28, 0x415FFFFFC0000000
+  %30 = fmul nnan double %29, 9.000000e+01
   %31 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %23, ptr noundef nonnull @.str.30, ptr noundef nonnull %26, double noundef %30)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %21, ptr noundef nonnull @.str.33, ptr noundef %31)
   %32 = icmp samesign ult i32 %9, 7
@@ -1326,8 +1326,8 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr noundef 
   store i32 %39, ptr %6, align 4
   %40 = load ptr, ptr %22, align 8
   %41 = sitofp i32 %39 to double
-  %42 = fdiv double %41, 0x416FFFFFE0000000
-  %43 = fmul double %42, 3.600000e+02
+  %42 = fdiv nnan double %41, 0x416FFFFFE0000000
+  %43 = fmul nnan double %42, 3.600000e+02
   %44 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %40, ptr noundef nonnull @.str.34, double noundef %43)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %35, ptr noundef nonnull @.str.33, ptr noundef %44)
   %45 = load i32, ptr %4, align 4
@@ -1501,8 +1501,8 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr noundef 
   %158 = select i1 %.not264, ptr @.str.32, ptr @.str.31
   %159 = and i32 %156, 8388607
   %160 = uitofp nneg i32 %159 to double
-  %161 = fdiv double %160, 0x415FFFFFC0000000
-  %162 = fmul double %161, 9.000000e+01
+  %161 = fdiv nnan double %160, 0x415FFFFFC0000000
+  %162 = fmul nnan double %161, 9.000000e+01
   %163 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %155, ptr noundef nonnull @.str.30, ptr noundef nonnull %158, double noundef %162)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %154, ptr noundef nonnull @.str.33, ptr noundef %163)
   %164 = add i32 %.2283, 3
@@ -1517,8 +1517,8 @@ define hidden i32 @dissect_geographical_description(ptr noundef %0, ptr noundef 
   %171 = load ptr, ptr %145, align 8
   %172 = load i32, ptr %6, align 4
   %173 = sitofp i32 %172 to double
-  %174 = fdiv double %173, 0x416FFFFFE0000000
-  %175 = fmul double %174, 3.600000e+02
+  %174 = fdiv nnan double %173, 0x416FFFFFE0000000
+  %175 = fmul nnan double %174, 3.600000e+02
   %176 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %171, ptr noundef nonnull @.str.34, double noundef %175)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %170, ptr noundef nonnull @.str.33, ptr noundef %176)
   %177 = add i32 %.2283, 6
@@ -1575,8 +1575,8 @@ proto_item_set_generated.exit275:                 ; preds = %184, %146, %187, %1
   %202 = select i1 %.not261, ptr @.str.32, ptr @.str.31
   %203 = and i32 %201, 2147483647
   %204 = uitofp nneg i32 %203 to double
-  %205 = fdiv double %204, 0x41DFFFFFFFC00000
-  %206 = fmul double %205, 9.000000e+01
+  %205 = fdiv nnan double %204, 0x41DFFFFFFFC00000
+  %206 = fmul nnan double %205, 9.000000e+01
   %207 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %200, ptr noundef nonnull @.str.30, ptr noundef nonnull %202, double noundef %206)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %198, ptr noundef nonnull @.str.33, ptr noundef %207)
   %208 = load i32, ptr @hf_gsm_a_geo_loc_high_acc_deg_of_long, align 4
@@ -1586,8 +1586,8 @@ proto_item_set_generated.exit275:                 ; preds = %184, %146, %187, %1
   %.not262 = icmp sgt i32 %211, -1
   %212 = select i1 %.not262, ptr @.str.32, ptr @.str.31
   %213 = sitofp i32 %211 to double
-  %214 = fdiv double %213, 0x41DFFFFFFFC00000
-  %215 = fmul double %214, 1.800000e+02
+  %214 = fdiv nnan double %213, 0x41DFFFFFFFC00000
+  %215 = fmul nnan double %214, 1.800000e+02
   %216 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %210, ptr noundef nonnull @.str.30, ptr noundef nonnull %212, double noundef %215)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %209, ptr noundef nonnull @.str.33, ptr noundef %216)
   %217 = load i32, ptr @hf_gsm_a_geo_loc_high_acc_uncertainty_semi_major, align 4
@@ -1662,8 +1662,8 @@ proto_item_set_generated.exit275:                 ; preds = %184, %146, %187, %1
   %264 = select i1 %.not, ptr @.str.32, ptr @.str.31
   %265 = and i32 %263, 2147483647
   %266 = uitofp nneg i32 %265 to double
-  %267 = fdiv double %266, 0x41DFFFFFFFC00000
-  %268 = fmul double %267, 9.000000e+01
+  %267 = fdiv nnan double %266, 0x41DFFFFFFFC00000
+  %268 = fmul nnan double %267, 9.000000e+01
   %269 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %262, ptr noundef nonnull @.str.30, ptr noundef nonnull %264, double noundef %268)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %260, ptr noundef nonnull @.str.33, ptr noundef %269)
   %270 = load i32, ptr @hf_gsm_a_geo_loc_high_acc_deg_of_long, align 4
@@ -1673,15 +1673,15 @@ proto_item_set_generated.exit275:                 ; preds = %184, %146, %187, %1
   %.not260 = icmp sgt i32 %273, -1
   %274 = select i1 %.not260, ptr @.str.32, ptr @.str.31
   %275 = sitofp i32 %273 to double
-  %276 = fdiv double %275, 0x41DFFFFFFFC00000
-  %277 = fmul double %276, 1.800000e+02
+  %276 = fdiv nnan double %275, 0x41DFFFFFFFC00000
+  %277 = fmul nnan double %276, 1.800000e+02
   %278 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %272, ptr noundef nonnull @.str.30, ptr noundef nonnull %274, double noundef %277)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %271, ptr noundef nonnull @.str.33, ptr noundef %278)
   %279 = load i32, ptr @hf_gsm_a_geo_loc_high_acc_alt, align 4
   %280 = call ptr @proto_tree_add_item_ret_int(ptr noundef %2, i32 noundef %279, ptr noundef %0, i32 noundef 9, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %6)
   %281 = load i32, ptr %6, align 4
   %282 = sitofp i32 %281 to double
-  %283 = fmul double %282, 7.812500e-03
+  %283 = fmul nnan double %282, 7.812500e-03
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %280, ptr noundef nonnull @.str.35, double noundef %283)
   %284 = load i32, ptr @hf_gsm_a_geo_loc_high_acc_uncertainty_semi_major, align 4
   %285 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %284, ptr noundef %0, i32 noundef 12, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5)

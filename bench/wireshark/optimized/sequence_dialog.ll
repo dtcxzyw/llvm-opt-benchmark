@@ -6826,7 +6826,7 @@ define void @_ZN14SequenceDialog9resetAxesEb(ptr noundef readonly align 8 captur
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1032
   %59 = load i32, ptr %58, align 8
   %60 = uitofp i32 %59 to double
-  %61 = fadd double %60, -5.000000e-01
+  %61 = fadd nnan double %60, -5.000000e-01
   %62 = fsub double %61, %49
   %63 = fmul double %62, 1.000000e+02
   %64 = fptosi double %63 to i32
@@ -6876,7 +6876,7 @@ define void @_ZN14SequenceDialog9resetAxesEb(ptr noundef readonly align 8 captur
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %99 = load i32, ptr %98, align 8
   %100 = sitofp i32 %99 to double
-  %101 = fadd double %100, -5.000000e-01
+  %101 = fadd nnan double %100, -5.000000e-01
   %102 = fsub double %101, %91
   %103 = fmul double %102, 1.000000e+02
   %104 = fptosi double %103 to i32

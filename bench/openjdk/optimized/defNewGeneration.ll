@@ -1597,7 +1597,7 @@ define hidden void @_ZN16DefNewGeneration33adjust_desired_tenuring_thresholdEv(p
   %11 = uitofp nneg i64 %10 to double
   %12 = load i32, ptr @TargetSurvivorRatio, align 4
   %13 = uitofp i32 %12 to double
-  %14 = fmul double %13, %11
+  %14 = fmul nnan double %13, %11
   %15 = fdiv double %14, 1.000000e+02
   %16 = fptoui double %15 to i64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1962,7 +1962,7 @@ _ZN16DefNewGeneration11swap_spacesEv.exit:        ; preds = %157, %166
   %178 = uitofp nneg i64 %177 to double
   %179 = load i32, ptr @TargetSurvivorRatio, align 4
   %180 = uitofp i32 %179 to double
-  %181 = fmul double %180, %178
+  %181 = fmul nnan double %180, %178
   %182 = fdiv double %181, 1.000000e+02
   %183 = fptoui double %182 to i64
   %184 = call noundef i32 @_ZN8AgeTable26compute_tenuring_thresholdEm(ptr noundef nonnull align 8 dereferenceable(264) %90, i64 noundef %183) #19

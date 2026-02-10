@@ -621,13 +621,13 @@ define internal range(i32 -558323010, 1) i32 @config_input(ptr noundef %0) #1 {
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 %18, ptr %19, align 8, !tbaa !79
   %20 = sitofp i32 %12 to double
-  %21 = fmul nsz double %20, 5.000000e-01
-  %22 = fmul nsz double %21, 5.000000e-01
+  %21 = fmul nnan nsz double %20, 5.000000e-01
+  %22 = fmul nnan nsz double %21, 5.000000e-01
   %23 = fcmp nsz ogt double %22, 0.000000e+00
   br i1 %23, label %.lr.ph.i, label %calc_q_factors.exit
 
 .lr.ph.i:                                         ; preds = %1
-  %24 = fmul nsz double %21, 2.000000e+00
+  %24 = fmul nnan nsz double %21, 2.000000e+00
   br label %25
 
 25:                                               ; preds = %25, %.lr.ph.i

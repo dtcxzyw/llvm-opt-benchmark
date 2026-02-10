@@ -660,9 +660,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 34:                                               ; preds = %30
   %35 = call noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(48) %29, i32 noundef 24)
   %36 = uitofp i16 %35 to float
-  %37 = fmul float %36, 5.080000e+02
-  %38 = fmul float %37, 0x3FF13F7CE0000000
-  %39 = fmul float %38, 0x3EF0000000000000
+  %37 = fmul nnan float %36, 5.080000e+02
+  %38 = fmul nnan float %37, 0x3FF13F7CE0000000
+  %39 = fmul nnan float %38, 0x3EF0000000000000
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !57
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 256
@@ -671,9 +671,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   store float 1.000000e+00, ptr %43, align 4, !tbaa !72
   %44 = call noundef zeroext i16 @_ZNK8rawspeed9TiffEntry6getU16Ej(ptr noundef nonnull align 8 dereferenceable(48) %29, i32 noundef 25)
   %45 = uitofp i16 %44 to float
-  %46 = fmul float %45, 3.820000e+02
-  %47 = fmul float %46, 0x3FF2C49BA0000000
-  %48 = fmul float %47, 0x3EF0000000000000
+  %46 = fmul nnan float %45, 3.820000e+02
+  %47 = fmul nnan float %46, 0x3FF2C49BA0000000
+  %48 = fmul nnan float %47, 0x3EF0000000000000
   %49 = load ptr, ptr %40, align 8, !tbaa !57
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 264
   store float %48, ptr %50, align 4, !tbaa !72

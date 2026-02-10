@@ -3468,8 +3468,8 @@ define linkonce_odr dso_local void @_ZN12ContactEvent11SpawnDebrisEv(ptr noundef
   %20 = xor i32 %19, %18
   %21 = and i32 %20, 32767
   %22 = uitofp nneg i32 %21 to float
-  %23 = fdiv float %22, 3.276700e+04
-  %24 = fmul float %23, 7.600000e+01
+  %23 = fdiv nnan float %22, 3.276700e+04
+  %24 = fmul nnan float %23, 7.600000e+01
   %25 = fadd float %24, -3.800000e+01
   %26 = shl i32 %20, 13
   %27 = xor i32 %26, %20
@@ -3479,8 +3479,8 @@ define linkonce_odr dso_local void @_ZN12ContactEvent11SpawnDebrisEv(ptr noundef
   %31 = xor i32 %30, %29
   %32 = and i32 %31, 32767
   %33 = uitofp nneg i32 %32 to float
-  %34 = fdiv float %33, 3.276700e+04
-  %35 = fmul float %34, 7.600000e+01
+  %34 = fdiv nnan float %33, 3.276700e+04
+  %35 = fmul nnan float %34, 7.600000e+01
   %36 = fadd float %35, -3.800000e+01
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %25, ptr %37, align 4, !tbaa !15
@@ -3495,8 +3495,8 @@ define linkonce_odr dso_local void @_ZN12ContactEvent11SpawnDebrisEv(ptr noundef
   store i32 %43, ptr @g_seed, align 4, !tbaa !82
   %44 = and i32 %43, 32767
   %45 = uitofp nneg i32 %44 to float
-  %46 = fdiv float %45, 3.276700e+04
-  %47 = fmul float %46, 0x401921FB60000000
+  %46 = fdiv nnan float %45, 3.276700e+04
+  %47 = fmul nnan float %46, 0x401921FB60000000
   %48 = fadd float %47, 0xC00921FB60000000
   %49 = call <2 x float> @b2ComputeCosSin(float noundef %48)
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -3510,8 +3510,8 @@ define linkonce_odr dso_local void @_ZN12ContactEvent11SpawnDebrisEv(ptr noundef
   %57 = xor i32 %56, %55
   %58 = and i32 %57, 32767
   %59 = uitofp nneg i32 %58 to float
-  %60 = fdiv float %59, 3.276700e+04
-  %61 = fmul float %60, 1.000000e+01
+  %60 = fdiv nnan float %59, 3.276700e+04
+  %61 = fmul nnan float %60, 1.000000e+01
   %62 = fadd float %61, -5.000000e+00
   %63 = shl i32 %57, 13
   %64 = xor i32 %63, %57
@@ -3521,8 +3521,8 @@ define linkonce_odr dso_local void @_ZN12ContactEvent11SpawnDebrisEv(ptr noundef
   %68 = xor i32 %67, %66
   %69 = and i32 %68, 32767
   %70 = uitofp nneg i32 %69 to float
-  %71 = fdiv float %70, 3.276700e+04
-  %72 = fmul float %71, 1.000000e+01
+  %71 = fdiv nnan float %70, 3.276700e+04
+  %72 = fmul nnan float %71, 1.000000e+01
   %73 = fadd float %72, -5.000000e+00
   %74 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store float %62, ptr %74, align 4, !tbaa !15
@@ -3537,8 +3537,8 @@ define linkonce_odr dso_local void @_ZN12ContactEvent11SpawnDebrisEv(ptr noundef
   store i32 %80, ptr @g_seed, align 4, !tbaa !82
   %81 = and i32 %80, 32767
   %82 = uitofp nneg i32 %81 to float
-  %83 = fdiv float %82, 3.276700e+04
-  %84 = fmul float %83, 2.000000e+00
+  %83 = fdiv nnan float %82, 3.276700e+04
+  %84 = fmul nnan float %83, 2.000000e+00
   %85 = fadd float %84, -1.000000e+00
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store float %85, ptr %86, align 4, !tbaa !159

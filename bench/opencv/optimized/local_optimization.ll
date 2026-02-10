@@ -570,8 +570,8 @@ _ZSt10_ConstructIN2cv4usac24MagsacWeightFunctionImplEJRKNS0_3PtrINS1_11GammaValu
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store double %38, ptr %39, align 8, !tbaa !64, !noalias !44
   %40 = sitofp i32 %2 to double
-  %41 = fadd double %40, -1.000000e+00
-  %42 = fmul double %41, 5.000000e-01
+  %41 = fadd nnan double %40, -1.000000e+00
+  %42 = fmul nnan double %41, 5.000000e-01
   %exp2.i.i.i7.i1 = invoke double @exp2(double %42)
           to label %_ZNSt12__shared_ptrIN2cv4usac24MagsacWeightFunctionImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv4usac24MagsacWeightFunctionImplESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit14.i.i.i.i.i
 
@@ -7707,7 +7707,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZZN2cv4usac27SimpleLocalOptimiza
 
 7:                                                ; preds = %2
   %8 = sitofp i32 %1 to double
-  %9 = fmul double %8, 6.000000e-01
+  %9 = fmul nnan double %8, 6.000000e-01
   %10 = fptosi double %9 to i32
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !264
@@ -8015,8 +8015,8 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac24MagsacWeightFunctionImpl17
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i32, ptr %10, align 8, !tbaa !61
   %12 = sitofp i32 %11 to double
-  %13 = fadd double %12, -1.000000e+00
-  %14 = fmul double %13, 5.000000e-01
+  %13 = fadd nnan double %12, -1.000000e+00
+  %14 = fmul nnan double %13, 5.000000e-01
   %exp2 = tail call double @exp2(double %14) #25
   %15 = fmul double %9, %exp2
   %16 = fdiv double %15, %4

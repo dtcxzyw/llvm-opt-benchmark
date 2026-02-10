@@ -987,8 +987,8 @@ define void @Amap_ManCreate(ptr noundef captures(none) %0, ptr noundef %1) local
   %.val89.val = load i32, ptr %27, align 4, !tbaa !22
   %28 = sub nsw i32 %.val89.val, %.val90
   %29 = sitofp i32 %28 to double
-  %30 = fmul double %29, 9.600000e+01
-  %31 = fmul double %30, 0x3E10000000000000
+  %30 = fmul nnan double %29, 9.600000e+01
+  %31 = fmul nnan double %30, 0x3E10000000000000
   %32 = fcmp ogt double %31, 1.000000e-01
   br i1 %32, label %33, label %35
 

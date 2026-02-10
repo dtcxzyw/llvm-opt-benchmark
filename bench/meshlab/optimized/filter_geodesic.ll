@@ -5294,7 +5294,7 @@ _ZNSt10shared_ptrIN5Eigen14SimplicialLDLTINS0_12SparseMatrixIdLi0EiEELi1ENS0_11A
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 584
   %101 = load i32, ptr %100, align 8
   %102 = sitofp i32 %101 to double
-  %103 = fmul double %102, 3.000000e+00
+  %103 = fmul nnan double %102, 3.000000e+00
   %104 = fdiv double %.09.lcssa.i.i, %103
   %105 = fptrunc double %104 to float
   %106 = fpext float %105 to double

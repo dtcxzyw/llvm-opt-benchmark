@@ -4820,7 +4820,7 @@ _ZN2cv9normalizeIfLi3EEENS_3VecIT_XT0_EEERKS3_.exit59: ; preds = %161
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %171 = fcmp ogt float %145, 0.000000e+00
   %.sroa.speculated62 = select i1 %171, float %145, float 0.000000e+00
-  %172 = tail call float @llvm.fmuladd.f32(float %.sroa.speculated62, float 5.000000e-01, float 0x3FD3333340000000)
+  %172 = tail call nnan float @llvm.fmuladd.f32(float %.sroa.speculated62, float 5.000000e-01, float 0x3FD3333340000000)
   %173 = fmul float %138, %169
   %174 = tail call float @llvm.fmuladd.f32(float %168, float %137, float %173)
   %175 = tail call noundef float @llvm.fmuladd.f32(float %170, float %139, float %174)

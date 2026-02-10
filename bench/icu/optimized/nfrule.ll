@@ -2813,7 +2813,7 @@ _ZN6icu_7713UnicodeString6insertEiRKS0_.exit:     ; preds = %52
   br i1 %or.cond, label %74, label %77
 
 74:                                               ; preds = %65
-  %75 = fmul double %1, %73
+  %75 = fmul nnan double %1, %73
   %76 = call double @uprv_round_77(double noundef %75)
   br label %79
 

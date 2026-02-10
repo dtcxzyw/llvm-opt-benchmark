@@ -275,7 +275,7 @@ define void @Gia_ManMultiReport(ptr noundef readonly captures(none) %0, ptr noun
   %.val13 = load i32, ptr %10, align 8, !tbaa !41
   %18 = sub nsw i32 %2, %.val13
   %19 = sitofp i32 %18 to double
-  %20 = fmul double %19, 1.000000e+02
+  %20 = fmul nnan double %19, 1.000000e+02
   %21 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %2, i32 1)
   %22 = uitofp nneg i32 %21 to double
   %23 = fdiv double %20, %22
@@ -288,7 +288,7 @@ define void @Gia_ManMultiReport(ptr noundef readonly captures(none) %0, ptr noun
   %.val19.val = load i32, ptr %27, align 4, !tbaa !3
   %28 = sub nsw i32 %.val19.val, %.val20
   %29 = sitofp i32 %28 to double
-  %30 = fmul double %29, 1.000000e+02
+  %30 = fmul nnan double %29, 1.000000e+02
   %31 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %3, i32 1)
   %32 = uitofp nneg i32 %31 to double
   %33 = fdiv double %30, %32

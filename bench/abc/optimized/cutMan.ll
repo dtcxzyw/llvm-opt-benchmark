@@ -858,8 +858,8 @@ define void @Cut_ManPrintStats(ptr noundef %0) local_unnamed_addr #0 {
   %44 = sitofp i32 %43 to float
   %45 = load i32, ptr %40, align 8, !tbaa !32
   %46 = sitofp i32 %45 to float
-  %47 = fmul float %44, %46
-  %48 = fmul float %47, 0x3EB0000000000000
+  %47 = fmul nnan float %44, %46
+  %48 = fmul nnan float %47, 0x3EB0000000000000
   %49 = fpext float %48 to double
   %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, double noundef %49)
   %51 = load i32, ptr %34, align 8, !tbaa !60
@@ -1000,7 +1000,7 @@ define void @Cut_ManPrintStatsToFile(ptr noundef readonly captures(none) %0, ptr
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %18 = load i32, ptr %17, align 4, !tbaa !58
   %19 = sitofp i32 %18 to double
-  %20 = fmul double %19, 1.000000e+02
+  %20 = fmul nnan double %19, 1.000000e+02
   %21 = fptrunc double %20 to float
   %22 = load i32, ptr %6, align 8, !tbaa !60
   %23 = sitofp i32 %22 to float
@@ -1013,8 +1013,8 @@ define void @Cut_ManPrintStatsToFile(ptr noundef readonly captures(none) %0, ptr
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %31 = load i32, ptr %30, align 8, !tbaa !32
   %32 = sitofp i32 %31 to float
-  %33 = fmul float %29, %32
-  %34 = fmul float %33, 0x3EB0000000000000
+  %33 = fmul nnan float %29, %32
+  %34 = fmul nnan float %33, 0x3EB0000000000000
   %35 = fpext float %34 to double
   %36 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.29, double noundef %35) #20
   %37 = sitofp i64 %2 to float

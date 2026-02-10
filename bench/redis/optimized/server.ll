@@ -14144,7 +14144,7 @@ define dso_local void @bytesToHuman(ptr noundef writeonly captures(none) %0, i64
 
 9:                                                ; preds = %7
   %10 = uitofp nneg i64 %2 to double
-  %11 = fmul double %10, 0x3F50000000000000
+  %11 = fmul nnan double %10, 0x3F50000000000000
   %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.331, double noundef %11) #43
   br label %39
 
@@ -14154,7 +14154,7 @@ define dso_local void @bytesToHuman(ptr noundef writeonly captures(none) %0, i64
 
 15:                                               ; preds = %13
   %16 = uitofp nneg i64 %2 to double
-  %17 = fmul double %16, 0x3EB0000000000000
+  %17 = fmul nnan double %16, 0x3EB0000000000000
   %18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.332, double noundef %17) #43
   br label %39
 
@@ -14164,7 +14164,7 @@ define dso_local void @bytesToHuman(ptr noundef writeonly captures(none) %0, i64
 
 21:                                               ; preds = %19
   %22 = uitofp nneg i64 %2 to double
-  %23 = fmul double %22, 0x3E10000000000000
+  %23 = fmul nnan double %22, 0x3E10000000000000
   %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.333, double noundef %23) #43
   br label %39
 
@@ -14174,7 +14174,7 @@ define dso_local void @bytesToHuman(ptr noundef writeonly captures(none) %0, i64
 
 27:                                               ; preds = %25
   %28 = uitofp nneg i64 %2 to double
-  %29 = fmul double %28, 0x3D70000000000000
+  %29 = fmul nnan double %28, 0x3D70000000000000
   %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.334, double noundef %29) #43
   br label %39
 
@@ -14184,7 +14184,7 @@ define dso_local void @bytesToHuman(ptr noundef writeonly captures(none) %0, i64
 
 33:                                               ; preds = %31
   %34 = uitofp nneg i64 %2 to double
-  %35 = fmul double %34, 0x3CD0000000000000
+  %35 = fmul nnan double %34, 0x3CD0000000000000
   %36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.335, double noundef %35) #43
   br label %39
 
@@ -15662,19 +15662,19 @@ getInstantaneousMetric.exit490:                   ; preds = %504, %getInstantane
   %514 = add nsw i64 %421, %419
   %515 = sdiv i64 %445, 16
   %516 = sitofp i64 %515 to float
-  %517 = fmul float %516, 0x3F50000000000000
+  %517 = fmul nnan float %516, 0x3F50000000000000
   %518 = fpext float %517 to double
   %519 = sdiv i64 %448, 16
   %520 = sitofp i64 %519 to float
-  %521 = fmul float %520, 0x3F50000000000000
+  %521 = fmul nnan float %520, 0x3F50000000000000
   %522 = fpext float %521 to double
   %523 = sdiv i64 %451, 16
   %524 = sitofp i64 %523 to float
-  %525 = fmul float %524, 0x3F50000000000000
+  %525 = fmul nnan float %524, 0x3F50000000000000
   %526 = fpext float %525 to double
   %527 = sdiv i64 %454, 16
   %528 = sitofp i64 %527 to float
-  %529 = fmul float %528, 0x3F50000000000000
+  %529 = fmul nnan float %528, 0x3F50000000000000
   %530 = fpext float %529 to double
   %531 = fmul double %461, 1.000000e+02
   %532 = sdiv i64 %463, 1000
@@ -17469,7 +17469,7 @@ define dso_local noundef i32 @redisFork(i32 noundef %0) local_unnamed_addr #0 {
   store i64 %40, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2672), align 8, !tbaa !666
   %41 = tail call i64 @zmalloc_used_memory() #43
   %42 = uitofp i64 %41 to double
-  %43 = fmul double %42, 1.000000e+06
+  %43 = fmul nnan double %42, 1.000000e+06
   %44 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2672), align 8, !tbaa !666
   %45 = sitofp i64 %44 to double
   %46 = fdiv double %43, %45

@@ -3612,7 +3612,7 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_8StereoBMEEERKNS0_IT_EE.exit956: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %156)
   %1359 = load ptr, ptr %57, align 8, !tbaa !94
   %1360 = uitofp nneg i32 %.0323 to double
-  %1361 = fmul double %1360, 3.300000e-01
+  %1361 = fmul nnan double %1360, 3.300000e-01
   %1362 = call double @llvm.ceil.f64(double %1361)
   %1363 = fptosi double %1362 to i32
   %1364 = load ptr, ptr %1359, align 8, !tbaa !48
@@ -3873,7 +3873,7 @@ _ZN2cv3PtrINS_13StereoMatcherEEC2INS_10StereoSGBMEEERKNS0_IT_EE.exit963: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %162)
   %1476 = load ptr, ptr %57, align 8, !tbaa !94
   %1477 = uitofp nneg i32 %.0323 to double
-  %1478 = fmul double %1477, 5.000000e-01
+  %1478 = fmul nnan double %1477, 5.000000e-01
   %1479 = call double @llvm.ceil.f64(double %1478)
   %1480 = fptosi double %1479 to i32
   %1481 = load ptr, ptr %1476, align 8, !tbaa !48

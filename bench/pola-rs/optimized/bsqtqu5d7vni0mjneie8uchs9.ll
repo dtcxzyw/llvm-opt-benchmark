@@ -902,7 +902,7 @@ define hidden noundef range(i64 0, 2305843009213693953) i64 @_ZN10polars_row5fix
 
 _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit: ; preds = %1
   %4 = uitofp nneg i64 %0 to float
-  %5 = fmul float %4, 0x400A934F00000000
+  %5 = fmul nnan float %4, 0x400A934F00000000
   %6 = tail call float @llvm.ceil.f32(float %5)
   %7 = tail call noundef i64 @llvm.fptoui.sat.i64.f32(float %6)
   %8 = add i64 %7, 2
@@ -925,7 +925,7 @@ define hidden noundef i64 @_ZN10polars_row5fixed7decimal23num_bits_from_precisio
 
 4:                                                ; preds = %1
   %5 = uitofp nneg i64 %0 to float
-  %6 = fmul float %5, 0x400A934F00000000
+  %6 = fmul nnan float %5, 0x400A934F00000000
   %7 = tail call float @llvm.ceil.f32(float %6)
   %8 = tail call i64 @llvm.fptoui.sat.i64.f32(float %7)
   ret i64 %8
@@ -1015,7 +1015,7 @@ _ZN12polars_arrow5array5Array10null_count17h9426f2ffa7fedae4E.exit.thread: ; pre
 
 _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit.i: ; preds = %_ZN12polars_arrow5array5Array10null_count17h9426f2ffa7fedae4E.exit.thread
   %39 = uitofp nneg i64 %6 to float
-  %40 = fmul float %39, 0x400A934F00000000
+  %40 = fmul nnan float %39, 0x400A934F00000000
   %41 = tail call float @llvm.ceil.f32(float %40)
   %42 = tail call noundef i64 @llvm.fptoui.sat.i64.f32(float %41)
   %43 = icmp ugt i64 %42, 126
@@ -1815,7 +1815,7 @@ define hidden void @_ZN10polars_row5fixed7decimal6decode17h41b67b5891f8bb2aE(ptr
 
 _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit: ; preds = %5
   %69 = uitofp nneg i64 %4 to float
-  %70 = fmul float %69, 0x400A934F00000000
+  %70 = fmul nnan float %69, 0x400A934F00000000
   %71 = tail call float @llvm.ceil.f32(float %70)
   %72 = tail call noundef i64 @llvm.fptoui.sat.i64.f32(float %71)
   store i64 %72, ptr %66, align 8

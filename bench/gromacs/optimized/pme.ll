@@ -3942,8 +3942,8 @@ _Z21getGridSpacingFromBoxPA3_KfPKi.exit:          ; preds = %358
   store i64 0, ptr %452, align 8, !tbaa !12
   %453 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store i8 1, ptr %453, align 8, !tbaa !397
-  %454 = fadd double %434, -1.000000e+00
-  %455 = fmul double %454, 1.000000e+02
+  %454 = fadd nnan double %434, -1.000000e+00
+  %455 = fmul nnan double %454, 1.000000e+02
   %456 = call double @llvm.rint.f64(double %455)
   %457 = fptosi double %456 to i32
   %458 = invoke noundef nonnull align 8 dereferenceable(40) ptr (ptr, ptr, ...) @_ZN3gmx14LogEntryWriter19appendTextFormattedEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull @.str.30, i32 noundef %457, i32 noundef %401, i32 noundef %406, i32 noundef %399, i32 noundef %406, i32 noundef %411, i32 noundef %400)

@@ -8469,7 +8469,7 @@ rgb_to_hls.exit:                                  ; preds = %18, %44, %47
 
 91:                                               ; preds = %89
   %92 = fsub double %.080.i, %71
-  %93 = fsub double 2.400000e+02, %.1.lcssa.i
+  %93 = fsub nnan double 2.400000e+02, %.1.lcssa.i
   %94 = fmul double %92, %93
   %95 = fdiv double %94, 6.000000e+01
   %96 = fadd double %71, %95
@@ -8519,7 +8519,7 @@ rgb_to_hls.exit:                                  ; preds = %18, %44, %47
 
 114:                                              ; preds = %112
   %115 = fsub double %.080.i, %71
-  %116 = fsub double 2.400000e+02, %.3.lcssa.i
+  %116 = fsub nnan double 2.400000e+02, %.3.lcssa.i
   %117 = fmul double %115, %116
   %118 = fdiv double %117, 6.000000e+01
   %119 = fadd double %71, %118
@@ -8570,7 +8570,7 @@ rgb_to_hls.exit:                                  ; preds = %18, %44, %47
 
 138:                                              ; preds = %136
   %139 = fsub double %.080.i, %71
-  %140 = fsub double 2.400000e+02, %.5.lcssa.i
+  %140 = fsub nnan double 2.400000e+02, %.5.lcssa.i
   %141 = fmul double %139, %140
   %142 = fdiv double %141, 6.000000e+01
   %143 = fadd double %71, %142

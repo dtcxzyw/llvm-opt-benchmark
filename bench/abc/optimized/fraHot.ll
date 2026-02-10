@@ -1393,7 +1393,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
 Vec_PtrFree.exit:                                 ; preds = %110, %111
   %112 = sub nsw i32 524288, %109
   %113 = sitofp i32 %112 to double
-  %114 = fmul double %113, 0x3EC0000000000000
+  %114 = fmul nnan double %113, 0x3EC0000000000000
   %115 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, double noundef %114)
   %116 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %112, i32 noundef 524288)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)

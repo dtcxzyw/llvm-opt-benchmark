@@ -98,7 +98,7 @@ define noundef i32 @dsyrk_thread_LN(ptr noundef %0, ptr noundef %1, ptr noundef 
   store i64 0, ptr %10, align 16, !tbaa !22
   %58 = sub nsw i64 %.0100, %.0101
   %59 = sitofp i64 %58 to double
-  %60 = fmul double %59, %59
+  %60 = fmul nnan double %59, %59
   %61 = sitofp i64 %12 to double
   %62 = fdiv double %60, %61
   %63 = icmp sgt i64 %58, 0

@@ -4068,7 +4068,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit747: ; preds = %_Z
 .critedge334:                                     ; preds = %1448, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit747
   %.in1233 = phi i64 [ %1450, %1448 ], [ %1452, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit747 ]
   %1461 = trunc i64 %.in1233 to i32
-  %1462 = fmul double %1440, 1.000000e+09
+  %1462 = fmul nnan double %1440, 1.000000e+09
   %smax = call i32 @llvm.smax.i32(i32 %1461, i32 0)
   br label %1463
 

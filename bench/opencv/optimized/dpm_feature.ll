@@ -251,7 +251,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !15
   %39 = sitofp i32 %38 to double
-  %40 = fmul double %39, 5.000000e+00
+  %40 = fmul nnan double %39, 5.000000e+00
   %41 = fptrunc double %40 to float
   %42 = fpext float %41 to double
   %43 = fdiv double %36, %42
@@ -610,8 +610,8 @@ define hidden void @_ZNK2cv3dpm19ParalComputePyramidclERKNS_5RangeE(ptr noundef 
   store i64 0, ptr %26, align 8
   store i32 33619968, ptr %8, align 8, !tbaa !62
   store ptr %6, ptr %25, align 8, !tbaa !64
-  %102 = fmul double %100, 5.000000e-01
-  %103 = fmul double %101, 5.000000e-01
+  %102 = fmul nnan double %100, 5.000000e-01
+  %103 = fmul nnan double %101, 5.000000e-01
   %.sroa.0.0.vec.insert = insertelement <2 x double> poison, double %102, i64 0
   %104 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %.sroa.0.0.vec.insert)
   %105 = insertelement <2 x double> poison, double %103, i64 0

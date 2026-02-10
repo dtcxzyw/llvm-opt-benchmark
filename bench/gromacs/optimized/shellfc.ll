@@ -5553,7 +5553,7 @@ define void @_Z12done_shellfcP8_IO_FILEP13gmx_shellfc_tl(ptr noundef captures(ad
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %9 = load i32, ptr %8, align 8, !tbaa !479
   %10 = sitofp i32 %9 to double
-  %11 = fmul double %10, 1.000000e+02
+  %11 = fmul nnan double %10, 1.000000e+02
   %12 = fdiv double %11, %7
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.63, double noundef %12) #28
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 368

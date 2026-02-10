@@ -3569,7 +3569,7 @@ for.body.i171:                                    ; preds = %_ZSt13inner_product
 for.body.i.i.i.preheader:                         ; preds = %_ZSt13inner_productIPdS0_dET1_T_S2_T0_S1_.exit.thread
   %mul110708 = mul i64 %i77.0611, 100
   %conv709 = uitofp i64 %mul110708 to double
-  %mul112710 = fmul double %conv709, 0x3CB0000000000000
+  %mul112710 = fmul nnan double %conv709, 0x3CB0000000000000
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i.preheader, %for.body.i.i.i

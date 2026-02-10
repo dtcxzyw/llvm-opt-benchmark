@@ -355,10 +355,10 @@ define range(i32 -22, 1) i32 @swri_dither_init(ptr noundef %0, i32 noundef %1, i
   %81 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %82 = load i32, ptr %81, align 8, !tbaa !46
   %83 = sitofp i32 %82 to double
-  %84 = fmul nsz double %83, 0x40026BB1BBB55516
-  %85 = fmul nsz double %84, 5.000000e-03
-  %86 = tail call nsz double @llvm.exp.f64(double %85)
-  %87 = fmul nsz double %86, 2.000000e+00
+  %84 = fmul nnan nsz double %83, 0x40026BB1BBB55516
+  %85 = fmul nnan nsz double %84, 5.000000e-03
+  %86 = tail call nnan nsz double @llvm.exp.f64(double %85)
+  %87 = fmul nnan nsz double %86, 2.000000e+00
   %88 = tail call i32 @av_get_bytes_per_sample(i32 noundef %8) #8
   %89 = shl nsw i32 %88, 3
   %90 = shl nuw i32 1, %89

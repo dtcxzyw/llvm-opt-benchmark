@@ -672,7 +672,7 @@ ehcleanup63:                                      ; preds = %if.then.i.i45, %ehc
 
 do.end66:                                         ; preds = %do.body26
   %conv = uitofp i64 %18 to double
-  %sub = fadd double %conv, -1.000000e+00
+  %sub = fadd nnan double %conv, -1.000000e+00
   %div = fdiv double %conv, %sub
   %cdr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %36 = load double, ptr %cdr.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !25
@@ -857,7 +857,7 @@ do.end:                                           ; preds = %entry
   %conv = uitofp i64 %0 to double
   %sub = fadd double %conv, -2.000000e+00
   %div = fdiv double %conv, %sub
-  %sub27 = fadd double %conv, -1.000000e+00
+  %sub27 = fadd nnan double %conv, -1.000000e+00
   %div29 = fdiv double %sub27, %sub
   %mul = fmul double %div, %div29
   %call30 = tail call double @sqrt(double noundef %mul) #18, !tbaa !27
@@ -1063,9 +1063,9 @@ do.end:                                           ; preds = %entry
   %div.i.i.i.i = fdiv double %26, %mul31.i.i
   %conv = uitofp i64 %0 to double
   %sub = fadd double %conv, -1.000000e+00
-  %sub28 = fadd double %conv, -2.000000e+00
+  %sub28 = fadd nnan double %conv, -2.000000e+00
   %div = fdiv double %sub, %sub28
-  %add = fadd double %conv, 1.000000e+00
+  %add = fadd nnan double %conv, 1.000000e+00
   %sub29 = fadd double %conv, -3.000000e+00
   %div30 = fdiv double %add, %sub29
   %div33 = fdiv double %sub, %sub29
@@ -1695,7 +1695,7 @@ ehcleanup63:                                      ; preds = %if.then.i.i45, %ehc
 
 do.end66:                                         ; preds = %do.body26
   %conv = uitofp i64 %18 to double
-  %sub = fadd double %conv, -1.000000e+00
+  %sub = fadd nnan double %conv, -1.000000e+00
   %div = fdiv double %conv, %sub
   %cdr.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
   %36 = load double, ptr %cdr.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !29
@@ -1903,7 +1903,7 @@ if.then31:                                        ; preds = %do.end
   %add.i.i.i.i.i.i.i.i.i = fadd double %19, %20
   store double %add.i.i.i.i.i.i.i.i.i, ptr %cdr.i.i.i.i.i.i.i.i, align 8, !tbaa !8
   %cdr.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %mul.i.i.i.i.i.i.i.i.i.i.i = fmul double %17, %17
+  %mul.i.i.i.i.i.i.i.i.i.i.i = fmul nnan double %17, %17
   %21 = load double, ptr %cdr.i.i.i.i.i.i.i.i.i, align 8, !tbaa !41
   %22 = call double @llvm.fmuladd.f64(double %19, double %mul.i.i.i.i.i.i.i.i.i.i.i, double %21)
   store double %22, ptr %cdr.i.i.i.i.i.i.i.i.i, align 8, !tbaa !41

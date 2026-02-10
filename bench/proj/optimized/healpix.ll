@@ -233,7 +233,7 @@ _ZL8auth_latP8PJconstsdi.exit:                    ; preds = %3, %18
   %44 = fcmp ogt double %23, 0.000000e+00
   %45 = fcmp olt double %23, 0.000000e+00
   %46 = sitofp i1 %45 to double
-  %47 = fmul double %46, 0x3FE921FB54442D18
+  %47 = fmul nnan double %46, 0x3FE921FB54442D18
   %48 = select i1 %44, double 0x3FE921FB54442D18, double %47
   %49 = fsub double 2.000000e+00, %34
   %50 = fmul double %48, %49
@@ -362,7 +362,7 @@ _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imagedd
   br i1 %58, label %63, label %59
 
 59:                                               ; preds = %_ZL8in_imageddiii.exit.thread
-  %60 = fmul double %16, 8.000000e+00
+  %60 = fmul nnan double %16, 8.000000e+00
   %61 = fdiv double %60, 0x4022D97C7F3321D2
   %62 = tail call double @asin(double noundef %61) #10, !tbaa !53
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
@@ -379,7 +379,7 @@ _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imagedd
   %70 = fcmp ult double %69, 4.000000e+00
   %71 = tail call double @llvm.fmuladd.f64(double %69, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
   %72 = select i1 %70, double %71, double 0x4002D97C7F3321D2
-  %73 = fmul double %57, 4.000000e+00
+  %73 = fmul nnan double %57, 4.000000e+00
   %74 = fdiv double %73, 0x400921FB54442D18
   %75 = fsub double 2.000000e+00, %74
   %76 = fsub double %12, %72
@@ -400,7 +400,7 @@ _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imagedd
   %88 = fcmp ogt double %16, 0.000000e+00
   %89 = fcmp olt double %16, 0.000000e+00
   %90 = sitofp i1 %89 to double
-  %91 = fmul double %90, 0x3FF921FB54442D18
+  %91 = fmul nnan double %90, 0x3FF921FB54442D18
   %92 = select i1 %88, double 0x3FF921FB54442D18, double %91
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
@@ -450,7 +450,7 @@ define internal { double, double } @_ZL17s_healpix_forward5PJ_LPP8PJconsts(doubl
   %25 = fcmp ogt double %1, 0.000000e+00
   %26 = fcmp olt double %1, 0.000000e+00
   %27 = sitofp i1 %26 to double
-  %28 = fmul double %27, 0x3FE921FB54442D18
+  %28 = fmul nnan double %27, 0x3FE921FB54442D18
   %29 = select i1 %25, double 0x3FE921FB54442D18, double %28
   %30 = fsub double 2.000000e+00, %15
   %31 = fmul double %29, %30
@@ -579,7 +579,7 @@ _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imagedd
   br i1 %58, label %63, label %59
 
 59:                                               ; preds = %_ZL8in_imageddiii.exit.thread
-  %60 = fmul double %16, 8.000000e+00
+  %60 = fmul nnan double %16, 8.000000e+00
   %61 = fdiv double %60, 0x4022D97C7F3321D2
   %62 = tail call double @asin(double noundef %61) #10, !tbaa !53
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
@@ -596,7 +596,7 @@ _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imagedd
   %70 = fcmp ult double %69, 4.000000e+00
   %71 = tail call double @llvm.fmuladd.f64(double %69, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
   %72 = select i1 %70, double %71, double 0x4002D97C7F3321D2
-  %73 = fmul double %57, 4.000000e+00
+  %73 = fmul nnan double %57, 4.000000e+00
   %74 = fdiv double %73, 0x400921FB54442D18
   %75 = fsub double 2.000000e+00, %74
   %76 = fsub double %12, %72
@@ -617,7 +617,7 @@ _ZL8in_imageddiii.exit.thread:                    ; preds = %20, %_ZL8in_imagedd
   %88 = fcmp ogt double %16, 0.000000e+00
   %89 = fcmp olt double %16, 0.000000e+00
   %90 = sitofp i1 %89 to double
-  %91 = fmul double %90, 0x3FF921FB54442D18
+  %91 = fmul nnan double %90, 0x3FF921FB54442D18
   %92 = select i1 %88, double 0x3FF921FB54442D18, double %91
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
@@ -847,7 +847,7 @@ _ZL8auth_latP8PJconstsdi.exit:                    ; preds = %3, %18
   %43 = fcmp ogt double %23, 0.000000e+00
   %44 = fcmp olt double %23, 0.000000e+00
   %45 = sitofp i1 %44 to double
-  %46 = fmul double %45, 0x3FE921FB54442D18
+  %46 = fmul nnan double %45, 0x3FE921FB54442D18
   %47 = select i1 %43, double 0x3FE921FB54442D18, double %46
   %48 = fsub double 2.000000e+00, %33
   %49 = fmul double %47, %48
@@ -888,7 +888,7 @@ define internal { double, double } @_ZL18e_rhealpix_inverse5PJ_XYP8PJconsts(doub
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %13
-  %20 = fmul double %16, 8.000000e+00
+  %20 = fmul nnan double %16, 8.000000e+00
   %21 = fdiv double %20, 0x4022D97C7F3321D2
   %22 = tail call double @asin(double noundef %21) #10, !tbaa !53
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
@@ -905,7 +905,7 @@ define internal { double, double } @_ZL18e_rhealpix_inverse5PJ_XYP8PJconsts(doub
   %30 = fcmp ult double %29, 4.000000e+00
   %31 = tail call double @llvm.fmuladd.f64(double %29, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
   %32 = select i1 %30, double %31, double 0x4002D97C7F3321D2
-  %33 = fmul double %17, 4.000000e+00
+  %33 = fmul nnan double %17, 4.000000e+00
   %34 = fdiv double %33, 0x400921FB54442D18
   %35 = fsub double 2.000000e+00, %34
   %36 = fsub double %15, %32
@@ -926,7 +926,7 @@ define internal { double, double } @_ZL18e_rhealpix_inverse5PJ_XYP8PJconsts(doub
   %48 = fcmp ogt double %16, 0.000000e+00
   %49 = fcmp olt double %16, 0.000000e+00
   %50 = sitofp i1 %49 to double
-  %51 = fmul double %50, 0x3FF921FB54442D18
+  %51 = fmul nnan double %50, 0x3FF921FB54442D18
   %52 = select i1 %48, double 0x3FF921FB54442D18, double %51
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 
@@ -976,7 +976,7 @@ define internal { double, double } @_ZL18s_rhealpix_forward5PJ_LPP8PJconsts(doub
   %25 = fcmp ogt double %1, 0.000000e+00
   %26 = fcmp olt double %1, 0.000000e+00
   %27 = sitofp i1 %26 to double
-  %28 = fmul double %27, 0x3FE921FB54442D18
+  %28 = fmul nnan double %27, 0x3FE921FB54442D18
   %29 = select i1 %25, double 0x3FE921FB54442D18, double %28
   %30 = fsub double 2.000000e+00, %15
   %31 = fmul double %29, %30
@@ -1017,7 +1017,7 @@ define internal { double, double } @_ZL18s_rhealpix_inverse5PJ_XYP8PJconsts(doub
   br i1 %18, label %23, label %19
 
 19:                                               ; preds = %13
-  %20 = fmul double %16, 8.000000e+00
+  %20 = fmul nnan double %16, 8.000000e+00
   %21 = fdiv double %20, 0x4022D97C7F3321D2
   %22 = tail call double @asin(double noundef %21) #10, !tbaa !53
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
@@ -1034,7 +1034,7 @@ define internal { double, double } @_ZL18s_rhealpix_inverse5PJ_XYP8PJconsts(doub
   %30 = fcmp ult double %29, 4.000000e+00
   %31 = tail call double @llvm.fmuladd.f64(double %29, double 0x3FF921FB54442D18, double 0xC002D97C7F3321D2)
   %32 = select i1 %30, double %31, double 0x4002D97C7F3321D2
-  %33 = fmul double %17, 4.000000e+00
+  %33 = fmul nnan double %17, 4.000000e+00
   %34 = fdiv double %33, 0x400921FB54442D18
   %35 = fsub double 2.000000e+00, %34
   %36 = fsub double %15, %32
@@ -1055,7 +1055,7 @@ define internal { double, double } @_ZL18s_rhealpix_inverse5PJ_XYP8PJconsts(doub
   %48 = fcmp ogt double %16, 0.000000e+00
   %49 = fcmp olt double %16, 0.000000e+00
   %50 = sitofp i1 %49 to double
-  %51 = fmul double %50, 0x3FF921FB54442D18
+  %51 = fmul nnan double %50, 0x3FF921FB54442D18
   %52 = select i1 %48, double 0x3FF921FB54442D18, double %51
   br label %_ZL30healpix_spherhealpix_e_inverse5PJ_XY.exit
 

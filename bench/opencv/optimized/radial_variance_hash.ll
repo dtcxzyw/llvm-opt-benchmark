@@ -1046,7 +1046,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl13hashCalc
   %27 = shl i64 %.0422.us, 1
   %28 = or disjoint i64 %27, 1
   %29 = uitofp i64 %28 to double
-  %30 = fmul double %29, 3.141590e+00
+  %30 = fmul nnan double %29, 3.141590e+00
   %31 = fmul double %30, %16
   %32 = fdiv double %31, %13
   %33 = tail call double @cos(double noundef %32) #23, !tbaa !47
@@ -1311,7 +1311,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl17radialPr
   %48 = phi i32 [ %42, %.lr.ph.us.preheader.i ], [ %126, %._crit_edge.us.i ]
   %49 = trunc nuw nsw i64 %indvars.iv68.i to i32
   %50 = uitofp nneg i32 %49 to float
-  %51 = fmul float %50, 0x400921FA00000000
+  %51 = fmul nnan float %50, 0x400921FA00000000
   %52 = sitofp i32 %48 to float
   %53 = fdiv float %51, %52
   %54 = call noundef float @tanf(float noundef %53) #23, !tbaa !47
@@ -1425,7 +1425,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_122RadialVarianceHashImpl17radialPr
   %129 = phi i32 [ %136, %.lr.ph64.split.i ], [ %42, %.lr.ph64.i ]
   %.062.i = phi i32 [ %135, %.lr.ph64.split.i ], [ 0, %.lr.ph64.i ]
   %130 = uitofp nneg i32 %.062.i to float
-  %131 = fmul float %130, 0x400921FA00000000
+  %131 = fmul nnan float %130, 0x400921FA00000000
   %132 = sitofp i32 %129 to float
   %133 = fdiv float %131, %132
   %134 = call noundef float @tanf(float noundef %133) #23, !tbaa !47
@@ -1468,7 +1468,7 @@ _ZN12_GLOBAL__N_122RadialVarianceHashImpl20firstHalfProjectionsERKN2cv3MatEiii.e
   %151 = phi i32 [ %138, %.lr.ph.us.preheader.i21 ], [ %224, %._crit_edge.us.i28 ]
   %152 = trunc nsw i64 %indvars.iv84.i to i32
   %153 = sitofp i32 %152 to float
-  %154 = fmul float %153, 0x400921FA00000000
+  %154 = fmul nnan float %153, 0x400921FA00000000
   %155 = sitofp i32 %151 to float
   %156 = fdiv float %154, %155
   %157 = call noundef float @tanf(float noundef %156) #23, !tbaa !47
@@ -1577,7 +1577,7 @@ _ZN12_GLOBAL__N_122RadialVarianceHashImpl20firstHalfProjectionsERKN2cv3MatEiii.e
   %227 = phi i32 [ %234, %.lr.ph80.split.i ], [ %138, %.lr.ph80.i ]
   %.078.i = phi i32 [ %233, %.lr.ph80.split.i ], [ %141, %.lr.ph80.i ]
   %228 = sitofp i32 %.078.i to float
-  %229 = fmul float %228, 0x400921FA00000000
+  %229 = fmul nnan float %228, 0x400921FA00000000
   %230 = sitofp i32 %227 to float
   %231 = fdiv float %229, %230
   %232 = call noundef float @tanf(float noundef %231) #23, !tbaa !47

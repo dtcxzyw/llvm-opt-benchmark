@@ -7024,7 +7024,7 @@ do.end:                                           ; preds = %entry
   %mul = fmul double %sigma, %sigma
   %derNormalizationFactor_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %mul, ptr %derNormalizationFactor_, align 8, !tbaa !114
-  %mul35 = fmul double %mul, 2.000000e+00
+  %mul35 = fmul nnan double %mul, 2.000000e+00
   %denominator_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store double %mul35, ptr %denominator_, align 8, !tbaa !110
   ret void
@@ -8958,7 +8958,7 @@ ehcleanup110:                                     ; preds = %ehcleanup109, %lpad
 
 do.end:                                           ; preds = %_ZN8QuantLib5ArrayD2Ev.exit
   %conv = uitofp i64 %83 to double
-  %mul116 = fmul double %conv, 4.000000e-02
+  %mul116 = fmul nnan double %conv, 4.000000e-02
   %conv117 = fptoui double %mul116 to i64
   %.sroa.speculated763 = call i64 @llvm.umax.i64(i64 %conv117, i64 1)
   call void @llvm.lifetime.start.p0(ptr nonnull %evolver)
@@ -17973,7 +17973,7 @@ call.i709.noexc:                                  ; preds = %invoke.cont600
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i709720, i8 0, i64 %237, i1 false), !tbaa !105
   %sub606 = add i64 %235, -1
   %conv = uitofp i64 %sub606 to double
-  %div607 = fdiv double 1.000000e+00, %conv
+  %div607 = fdiv nnan double 1.000000e+00, %conv
   %dx_608 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %239 = load ptr, ptr %dx_608, align 8, !tbaa !104
   %240 = load double, ptr %239, align 8, !tbaa !105
@@ -17981,7 +17981,7 @@ call.i709.noexc:                                  ; preds = %invoke.cont600
   %mul613 = fmul double %240, %mul610
   %mul616 = fmul double %240, %mul613
   store double %mul616, ptr %call.i709720, align 8, !tbaa !105
-  %div624 = fdiv double 8.750000e-01, %conv
+  %div624 = fdiv nnan double 8.750000e-01, %conv
   %241 = load double, ptr %239, align 8, !tbaa !105
   %mul627 = fmul double %div624, %241
   %mul630 = fmul double %241, %mul627
@@ -19292,7 +19292,7 @@ call.i1088.noexc:                                 ; preds = %invoke.cont1088
   %396 = load double, ptr %395, align 8, !tbaa !105
   %mul1100 = fmul double %div1097, %396
   store double %mul1100, ptr %call.i10881099, align 8, !tbaa !105
-  %div1108 = fdiv double 5.000000e-01, %conv1096
+  %div1108 = fdiv nnan double 5.000000e-01, %conv1096
   %397 = load double, ptr %395, align 8, !tbaa !105
   %mul1111 = fmul double %div1108, %397
   %arrayidx1114 = getelementptr inbounds nuw i8, ptr %call.i10881099, i64 8
@@ -26143,7 +26143,7 @@ call.i721.noexc:                                  ; preds = %invoke.cont581
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i721732, i8 0, i64 %239, i1 false), !tbaa !105
   %sub587 = add i64 %237, -1
   %conv = uitofp i64 %sub587 to double
-  %div588 = fdiv double 1.000000e+00, %conv
+  %div588 = fdiv nnan double 1.000000e+00, %conv
   %dx_589 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %241 = load ptr, ptr %dx_589, align 8, !tbaa !104
   %242 = load double, ptr %241, align 8, !tbaa !105
@@ -26151,7 +26151,7 @@ call.i721.noexc:                                  ; preds = %invoke.cont581
   %mul594 = fmul double %242, %mul591
   %mul597 = fmul double %242, %mul594
   store double %mul597, ptr %call.i721732, align 8, !tbaa !105
-  %div603 = fdiv double 8.750000e-01, %conv
+  %div603 = fdiv nnan double 8.750000e-01, %conv
   %243 = load double, ptr %241, align 8, !tbaa !105
   %mul606 = fmul double %div603, %243
   %mul609 = fmul double %243, %mul606
@@ -27462,7 +27462,7 @@ call.i1100.noexc:                                 ; preds = %invoke.cont1040
   %398 = load double, ptr %397, align 8, !tbaa !105
   %mul1052 = fmul double %div1049, %398
   store double %mul1052, ptr %call.i11001111, align 8, !tbaa !105
-  %div1058 = fdiv double 5.000000e-01, %conv1048
+  %div1058 = fdiv nnan double 5.000000e-01, %conv1048
   %399 = load double, ptr %397, align 8, !tbaa !105
   %mul1061 = fmul double %div1058, %399
   %arrayidx1063 = getelementptr inbounds nuw i8, ptr %call.i11001111, i64 8

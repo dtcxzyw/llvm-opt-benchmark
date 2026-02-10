@@ -1977,10 +1977,10 @@ _ZNSt6vectorIN3nix9StorePathESaIS1_EED2Ev.exit:   ; preds = %7, %174, %_ZSt8_Des
 
 178:                                              ; preds = %_ZNSt6vectorIN3nix9StorePathESaIS1_EED2Ev.exit
   %179 = uitofp i64 %4 to float
-  %180 = fmul float %179, 0x3EB0000000000000
+  %180 = fmul nnan float %179, 0x3EB0000000000000
   store float %180, ptr %32, align 4
   %181 = uitofp i64 %5 to float
-  %182 = fmul float %181, 0x3EB0000000000000
+  %182 = fmul nnan float %181, 0x3EB0000000000000
   store float %182, ptr %33, align 4
   %183 = icmp eq i64 %176, 1
   %184 = load i32, ptr @_ZN3nix9verbosityE, align 4

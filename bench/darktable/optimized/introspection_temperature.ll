@@ -1799,7 +1799,7 @@ _temp2mul.exit:                                   ; preds = %.preheader.i.i
 111:                                              ; preds = %.preheader147, %.loopexit144
   %.076153 = phi i32 [ 0, %.preheader147 ], [ %203, %.loopexit144 ]
   %112 = uitofp nneg i32 %.076153 to double
-  %113 = fmul reassoc nsz arcp contract afn double %112, 0x4092FEF286BCA1AF
+  %113 = fmul reassoc nnan nsz arcp contract afn double %112, 0x4092FEF286BCA1AF
   %114 = fadd reassoc nsz arcp contract afn double %113, 1.901000e+03
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -1855,7 +1855,7 @@ _temp2mul.exit:                                   ; preds = %.preheader.i.i
   br i1 %exitcond12.not.i.i118, label %_temp2mul.exit119, label %.preheader.i.i115
 
 _temp2mul.exit119:                                ; preds = %.preheader.i.i115
-  %134 = fmul reassoc nsz arcp contract afn double %112, 0x3FBD8555E8807C2C
+  %134 = fmul reassoc nnan nsz arcp contract afn double %112, 0x3FBD8555E8807C2C
   %135 = fadd reassoc nsz arcp contract afn double %134, 1.350000e-01
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1954,7 +1954,7 @@ _temp2mul.exit134:                                ; preds = %.preheader.i.i130
   %176 = fptrunc reassoc nsz arcp contract afn double %175 to float
   store float %176, ptr %95, align 8, !tbaa !6
   store float 0.000000e+00, ptr %.ptr102, align 4, !tbaa !6
-  %177 = fmul reassoc nsz arcp contract afn double %112, 0x3FAAF286BCA1AF28
+  %177 = fmul reassoc nnan nsz arcp contract afn double %112, 0x3FAAF286BCA1AF28
   %178 = fptrunc reassoc nsz arcp contract afn double %177 to float
   %179 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %170, float %91)
   %180 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %179, float %172)
@@ -2025,9 +2025,9 @@ _temp2mul.exit134:                                ; preds = %.preheader.i.i130
 204:                                              ; preds = %.preheader141, %.loopexit
   %.079156 = phi i32 [ 0, %.preheader141 ], [ %283, %.loopexit ]
   %205 = uitofp nneg i32 %.079156 to double
-  %206 = fmul reassoc nsz arcp contract afn double %205, 0x4092FEF286BCA1AF
+  %206 = fmul reassoc nnan nsz arcp contract afn double %205, 0x4092FEF286BCA1AF
   %207 = fadd reassoc nsz arcp contract afn double %206, 1.901000e+03
-  %208 = fmul reassoc nsz arcp contract afn double %205, 0x3FBD8555E8807C2C
+  %208 = fmul reassoc nnan nsz arcp contract afn double %205, 0x3FBD8555E8807C2C
   %209 = fadd reassoc nsz arcp contract afn double %208, 1.350000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call fastcc void @_temperature_to_XYZ(ptr dead_on_unwind noalias nonnull writable align 8 %16, double noundef %207)
@@ -2092,7 +2092,7 @@ dt_XYZ_to_Rec709_D65.exit:                        ; preds = %224, %dt_XYZ_to_Rec
   br i1 %exitcond.not.i.i137, label %dt_XYZ_to_Rec709_D65.exit138, label %dt_XYZ_to_Rec709_D65.exit
 
 dt_XYZ_to_Rec709_D65.exit138:                     ; preds = %dt_XYZ_to_Rec709_D65.exit
-  %251 = fmul reassoc nsz arcp contract afn double %205, 0x3FAAF286BCA1AF28
+  %251 = fmul reassoc nnan nsz arcp contract afn double %205, 0x3FAAF286BCA1AF28
   %252 = fptrunc reassoc nsz arcp contract afn double %251 to float
   %253 = load float, ptr %18, align 16, !tbaa !6
   %254 = load float, ptr %106, align 4, !tbaa !6
@@ -4927,7 +4927,7 @@ define internal fastcc void @_temperature_to_XYZ(ptr dead_on_unwind noalias nonn
 
 7:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !221)
-  %8 = fpext reassoc nsz arcp contract afn double %.1 to x86_fp80
+  %8 = fpext reassoc ninf nsz arcp contract afn double %.1 to x86_fp80
   br label %9
 
 9:                                                ; preds = %9, %7
@@ -4938,7 +4938,7 @@ define internal fastcc void @_temperature_to_XYZ(ptr dead_on_unwind noalias nonn
   %13 = mul nuw nsw i64 %.014.i, 5
   %14 = add nuw nsw i64 %13, 380
   %15 = uitofp nneg i64 %14 to double
-  %16 = fmul reassoc nsz arcp contract afn double %15, 1.000000e-09
+  %16 = fmul reassoc nnan nsz arcp contract afn double %15, 1.000000e-09
   %17 = fpext reassoc nsz arcp contract afn double %16 to x86_fp80
   %18 = tail call reassoc nsz arcp contract afn x86_fp80 @llvm.powi.f80.i32(x86_fp80 %17, i32 5)
   %19 = fmul reassoc nsz arcp contract afn x86_fp80 %17, %8

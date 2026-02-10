@@ -613,7 +613,7 @@ define range(i32 -1, -2147483648) i32 @H5MF__aggr_try_extend(ptr noundef %0, ptr
 
 38:                                               ; preds = %32
   %39 = uitofp i64 %35 to float
-  %40 = fmul float %39, 0x3FB99999A0000000
+  %40 = fmul nnan float %39, 0x3FB99999A0000000
   %41 = fptoui float %40 to i64
   %.not58 = icmp ugt i64 %4, %41
   br i1 %.not58, label %45, label %42

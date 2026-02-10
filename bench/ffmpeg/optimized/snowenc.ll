@@ -805,8 +805,8 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 .thread1367:                                      ; preds = %138, %.thread855
   %142 = phi i32 [ 236, %.thread855 ], [ %.pr, %138 ]
   %143 = sitofp i32 %142 to float
-  %144 = fdiv nsz float %143, 1.180000e+02
-  %145 = fpext nsz float %144 to double
+  %144 = fdiv nnan nsz float %143, 1.180000e+02
+  %145 = fpext nnan nsz float %144 to double
   %146 = tail call nsz double @llvm.log2.f64(double %145)
   %147 = fmul nsz double %146, 3.200000e+01
   %148 = tail call i64 @llvm.lrint.i64.f64(double %147)
@@ -2440,10 +2440,10 @@ ratecontrol_1pass.exit:                           ; preds = %._crit_edge.thread.
   %1109 = add nuw nsw i32 %1108, %1106
   store i32 %1109, ptr %359, align 8, !tbaa !147
   %1110 = uitofp nneg i32 %1106 to float
-  %1111 = fdiv nsz float %1110, 1.180000e+02
-  %1112 = fpext nsz float %1111 to double
-  %1113 = tail call nsz double @llvm.log2.f64(double %1112)
-  %1114 = fmul nsz double %1113, 3.200000e+01
+  %1111 = fdiv nnan nsz float %1110, 1.180000e+02
+  %1112 = fpext nnan nsz float %1111 to double
+  %1113 = tail call nnan nsz double @llvm.log2.f64(double %1112)
+  %1114 = fmul nnan nsz double %1113, 3.200000e+01
   %1115 = tail call i64 @llvm.lrint.i64.f64(double %1114)
   %1116 = trunc i64 %1115 to i32
   %1117 = add i32 %1116, 244

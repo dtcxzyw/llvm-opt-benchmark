@@ -715,11 +715,11 @@ switch.lookup:                                    ; preds = %157
   %171 = icmp sgt i32 %158, 9
   %narrow.i.i.i = add nsw i8 %160, -2
   %172 = sitofp i8 %narrow.i.i.i to double
-  %173 = fmul double %172, 0x3FE52BB3566A484C
-  %174 = fmul double %173, 2.000000e+00
-  %175 = fadd double %174, 0x3FE52BB3566A484C
+  %173 = fmul nnan double %172, 0x3FE52BB3566A484C
+  %174 = fmul nnan double %173, 2.000000e+00
+  %175 = fadd nnan double %174, 0x3FE52BB3566A484C
   %.sroa.0.0.i.i.i = select i1 %171, double %175, double %174
-  %176 = fmul double %.sroa.0.0.i.i.i, 0x3FED21DC1E9D1240
+  %176 = fmul nnan double %.sroa.0.0.i.i.i, 0x3FED21DC1E9D1240
   %177 = fadd double %176, %167
   store double %177, ptr %6, align 8, !tbaa !88
   %178 = fadd double %169, %switch.load
@@ -915,7 +915,7 @@ define internal { double, double } @_ZL14isea_s_inverse5PJ_XYP8PJconsts(double %
   br i1 %or.cond.i, label %22, label %27
 
 22:                                               ; preds = %18
-  %23 = fmul double %16, 5.000000e-01
+  %23 = fmul nnan double %16, 5.000000e-01
   %24 = fmul double %13, 0xBFEBB67AE8584CAA
   %25 = fcmp olt double %23, %24
   br i1 %25, label %._crit_edge.i, label %27
@@ -1491,7 +1491,7 @@ _ZL16isea_dddi_ap3oddPN12_GLOBAL__N_112pj_isea_dataEiPNS_7isea_ptES3_.exit.i: ; 
 .thread.i:                                        ; preds = %81, %28
   %83 = phi i32 [ %30, %28 ], [ %.pre.i, %81 ]
   %84 = sitofp i32 %83 to double
-  %85 = fmul double %84, 5.000000e-01
+  %85 = fmul nnan double %84, 5.000000e-01
   %86 = uitofp nneg i32 %26 to double
   %87 = tail call noundef double @pow(double noundef %86, double noundef %85) #18, !tbaa !51
   %88 = tail call double @llvm.fabs.f64(double %87)

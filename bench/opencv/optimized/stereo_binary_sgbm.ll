@@ -3272,8 +3272,8 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
   br i1 %684, label %685, label %692
 
 685:                                              ; preds = %683
-  %686 = fmul double %680, %680
-  %687 = fmul double %679, %679
+  %686 = fmul nnan double %680, %680
+  %687 = fmul nnan double %679, %679
   %688 = fdiv double %686, %687
   %689 = fdiv double %680, %679
   %690 = fadd double %689, %688
@@ -3281,8 +3281,8 @@ _ZNK2cv3Mat8elemSizeEv.exit.i:                    ; preds = %241, %237
   br label %700
 
 692:                                              ; preds = %683
-  %693 = fmul double %679, %679
-  %694 = fmul double %680, %680
+  %693 = fmul nnan double %679, %679
+  %694 = fmul nnan double %680, %680
   %695 = fdiv double %693, %694
   %696 = fdiv double %679, %680
   %697 = fadd double %696, %695

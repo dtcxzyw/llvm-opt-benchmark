@@ -400,8 +400,8 @@ _ZNK9Imath_3_14halfcvfEv.exit.us:                 ; preds = %35, %33, %22, %21
 
 43:                                               ; preds = %3
   %44 = uitofp i64 %7 to float
-  %45 = fadd float %44, -1.000000e+00
-  %46 = fdiv float 1.000000e+00, %45
+  %45 = fadd nnan float %44, -1.000000e+00
+  %46 = fdiv nnan float 1.000000e+00, %45
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %.loopexit, label %.lr.ph40
 
@@ -811,8 +811,8 @@ _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %26, %29, %39, %41, 
 
 71:                                               ; preds = %2
   %72 = uitofp i64 %6 to float
-  %73 = fadd float %72, -1.000000e+00
-  %74 = fdiv float 1.000000e+00, %73
+  %73 = fadd nnan float %72, -1.000000e+00
+  %74 = fdiv nnan float 1.000000e+00, %73
   %.not80 = icmp eq i64 %6, 0
   br i1 %.not80, label %.critedge64, label %.lr.ph
 

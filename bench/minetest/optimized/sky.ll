@@ -5111,8 +5111,8 @@ if.else.i:                                        ; preds = %if.then48
   br i1 %cmp4.i, label %if.then5.i, label %if.else7.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  %div6.i = fdiv nsz float %36, 0x3FCA8F5C20000000
-  %mul.i = fmul nsz float %div6.i, 2.500000e-01
+  %div6.i = fdiv nnan nsz float %36, 0x3FCA8F5C20000000
+  %mul.i = fmul nnan nsz float %div6.i, 2.500000e-01
   br label %invoke.cont102
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -6039,8 +6039,8 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.else7
 
 if.then5:                                         ; preds = %if.else
-  %div6 = fdiv nsz float %time_of_day, 0x3FCA8F5C20000000
-  %mul = fmul nsz float %div6, 2.500000e-01
+  %div6 = fdiv nnan nsz float %time_of_day, 0x3FCA8F5C20000000
+  %mul = fmul nnan nsz float %div6, 2.500000e-01
   br label %if.end12
 
 if.else7:                                         ; preds = %if.else
@@ -6085,7 +6085,7 @@ entry:
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %starcolor, align 8, !tbaa !94
   %shr.i14.i = lshr i32 %agg.tmp.sroa.0.0.copyload, 24
   %conv9.i = uitofp nneg i32 %shr.i14.i to float
-  %mul10.i = fmul nsz float %conv9.i, 0x3F70101020000000
+  %mul10.i = fmul nnan nsz float %conv9.i, 0x3F70101020000000
   %mul9 = fmul nsz float %mul10.i, %5
   %cmp11 = fcmp nsz ugt float %mul9, 0.000000e+00
   br i1 %cmp11, label %if.end, label %cleanup
@@ -6093,28 +6093,28 @@ entry:
 if.end:                                           ; preds = %entry
   %and.i13.i = and i32 %agg.tmp.sroa.0.0.copyload, 255
   %conv6.i = uitofp nneg i32 %and.i13.i to float
-  %mul7.i = fmul nsz float %conv6.i, 0x3F70101020000000
+  %mul7.i = fmul nnan nsz float %conv6.i, 0x3F70101020000000
   %shr.i11.i = lshr i32 %agg.tmp.sroa.0.0.copyload, 8
   %and.i12.i = and i32 %shr.i11.i, 255
   %conv3.i = uitofp nneg i32 %and.i12.i to float
-  %mul4.i = fmul nsz float %conv3.i, 0x3F70101020000000
+  %mul4.i = fmul nnan nsz float %conv3.i, 0x3F70101020000000
   %shr.i.i = lshr i32 %agg.tmp.sroa.0.0.copyload, 16
   %and.i.i = and i32 %shr.i.i, 255
   %conv.i = uitofp nneg i32 %and.i.i to float
-  %mul.i = fmul nsz float %conv.i, 0x3F70101020000000
+  %mul.i = fmul nnan nsz float %conv.i, 0x3F70101020000000
   %mul.i49 = fmul nsz float %mul9, 2.550000e+02
   %add.i.i.i = fadd nsz float %mul.i49, 5.000000e-01
   %6 = tail call nsz noundef float @llvm.floor.f32(float %add.i.i.i)
   %conv.i.i = fptosi float %6 to i32
-  %mul2.i = fmul nsz float %mul.i, 2.550000e+02
+  %mul2.i = fmul nnan nsz float %mul.i, 2.550000e+02
   %add.i.i8.i = fadd nsz float %mul2.i, 5.000000e-01
   %7 = tail call nsz noundef float @llvm.floor.f32(float %add.i.i8.i)
   %conv.i9.i = fptosi float %7 to i32
-  %mul4.i51 = fmul nsz float %mul4.i, 2.550000e+02
+  %mul4.i51 = fmul nnan nsz float %mul4.i, 2.550000e+02
   %add.i.i10.i = fadd nsz float %mul4.i51, 5.000000e-01
   %8 = tail call nsz noundef float @llvm.floor.f32(float %add.i.i10.i)
   %conv.i11.i = fptosi float %8 to i32
-  %mul6.i = fmul nsz float %mul7.i, 2.550000e+02
+  %mul6.i = fmul nnan nsz float %mul7.i, 2.550000e+02
   %add.i.i12.i = fadd nsz float %mul6.i, 5.000000e-01
   %9 = tail call nsz noundef float @llvm.floor.f32(float %add.i.i12.i)
   %conv.i13.i = fptosi float %9 to i32
@@ -6139,7 +6139,7 @@ if.end:                                           ; preds = %entry
   %11 = tail call nsz double @llvm.sin.f64(double %conv.i54)
   %sub.i = fsub nsz double 1.000000e+00, %10
   %mul.i56 = fmul nsz double %sub.i, 0.000000e+00
-  %mul10.i61 = fmul nsz double %11, 0.000000e+00
+  %mul10.i61 = fmul ninf nsz double %11, 0.000000e+00
   %12 = tail call nsz double @llvm.fmuladd.f64(double %mul.i56, double 0.000000e+00, double %10)
   %conv20.i = fptrunc double %12 to float
   %13 = tail call nsz double @llvm.fmuladd.f64(double %mul.i56, double 0.000000e+00, double %11)
@@ -6532,7 +6532,7 @@ if.then:                                          ; preds = %entry
   %19 = tail call nsz double @llvm.sin.f64(double %18)
   %20 = tail call nsz <2 x double> @llvm.cos.v2f64(<2 x double> %17)
   %21 = extractelement <2 x double> %20, i64 0
-  %mul16.i18.i.i = fmul nsz double %21, 0.000000e+00
+  %mul16.i18.i.i = fmul ninf nsz double %21, 0.000000e+00
   %22 = fsub nsz double %mul16.i18.i.i, %19
   %conv17.i19.i.i = fptrunc double %22 to float
   %23 = extractelement <2 x double> %17, i64 1
@@ -6644,7 +6644,7 @@ if.then:                                          ; preds = %entry
   %85 = call nsz double @llvm.sin.f64(double %84)
   %86 = call nsz <2 x double> @llvm.cos.v2f64(<2 x double> %83)
   %87 = extractelement <2 x double> %86, i64 0
-  %mul16.i18.i.i11 = fmul nsz double %87, 0.000000e+00
+  %mul16.i18.i.i11 = fmul ninf nsz double %87, 0.000000e+00
   %88 = fsub nsz double %mul16.i18.i.i11, %85
   %conv17.i19.i.i12 = fptrunc double %88 to float
   %89 = extractelement <2 x double> %83, i64 1
@@ -6755,7 +6755,7 @@ if.then:                                          ; preds = %entry
   %150 = call nsz double @llvm.sin.f64(double %149)
   %151 = call nsz <2 x double> @llvm.cos.v2f64(<2 x double> %148)
   %152 = extractelement <2 x double> %151, i64 0
-  %mul16.i18.i.i62 = fmul nsz double %152, 0.000000e+00
+  %mul16.i18.i.i62 = fmul ninf nsz double %152, 0.000000e+00
   %153 = fsub nsz double %mul16.i18.i.i62, %150
   %conv17.i19.i.i63 = fptrunc double %153 to float
   %154 = extractelement <2 x double> %148, i64 1
@@ -6916,7 +6916,7 @@ if.end53:                                         ; preds = %if.else, %if.then
   %210 = call nsz double @llvm.sin.f64(double %209)
   %211 = call nsz <2 x double> @llvm.cos.v2f64(<2 x double> %208)
   %212 = extractelement <2 x double> %211, i64 0
-  %mul16.i18.i.i113 = fmul nsz double %212, 0.000000e+00
+  %mul16.i18.i.i113 = fmul ninf nsz double %212, 0.000000e+00
   %213 = fsub nsz double %mul16.i18.i.i113, %210
   %conv17.i19.i.i114 = fptrunc double %213 to float
   %214 = extractelement <2 x double> %208, i64 1
@@ -7063,33 +7063,33 @@ if.end:                                           ; preds = %entry
   %shr.i.i547 = lshr i32 %agg.tmp10.sroa.0.0.copyload, 16
   %and.i.i548 = and i32 %shr.i.i547, 255
   %conv.i549 = uitofp nneg i32 %and.i.i548 to float
-  %mul.i550 = fmul nsz float %conv.i549, 0x3F70101020000000
+  %mul.i550 = fmul nnan nsz float %conv.i549, 0x3F70101020000000
   %shr.i11.i551 = lshr i32 %agg.tmp10.sroa.0.0.copyload, 8
   %and.i12.i552 = and i32 %shr.i11.i551, 255
   %conv3.i553 = uitofp nneg i32 %and.i12.i552 to float
-  %mul4.i554 = fmul nsz float %conv3.i553, 0x3F70101020000000
+  %mul4.i554 = fmul nnan nsz float %conv3.i553, 0x3F70101020000000
   %and.i13.i556 = and i32 %agg.tmp10.sroa.0.0.copyload, 255
   %conv6.i557 = uitofp nneg i32 %and.i13.i556 to float
-  %mul7.i558 = fmul nsz float %conv6.i557, 0x3F70101020000000
+  %mul7.i558 = fmul nnan nsz float %conv6.i557, 0x3F70101020000000
   %shr.i14.i560 = lshr i32 %agg.tmp10.sroa.0.0.copyload, 24
   %conv9.i561 = uitofp nneg i32 %shr.i14.i560 to float
-  %mul10.i562 = fmul nsz float %conv9.i561, 0x3F70101020000000
+  %mul10.i562 = fmul nnan nsz float %conv9.i561, 0x3F70101020000000
   %dawn_horizon = getelementptr inbounds nuw i8, ptr %this, i64 2680
   %agg.tmp14.sroa.0.0.copyload = load i32, ptr %dawn_horizon, align 8, !tbaa !94
   %shr.i.i564 = lshr i32 %agg.tmp14.sroa.0.0.copyload, 16
   %and.i.i565 = and i32 %shr.i.i564, 255
   %conv.i566 = uitofp nneg i32 %and.i.i565 to float
-  %mul.i567 = fmul nsz float %conv.i566, 0x3F70101020000000
+  %mul.i567 = fmul nnan nsz float %conv.i566, 0x3F70101020000000
   %shr.i11.i568 = lshr i32 %agg.tmp14.sroa.0.0.copyload, 8
   %and.i12.i569 = and i32 %shr.i11.i568, 255
   %conv3.i570 = uitofp nneg i32 %and.i12.i569 to float
-  %mul4.i571 = fmul nsz float %conv3.i570, 0x3F70101020000000
+  %mul4.i571 = fmul nnan nsz float %conv3.i570, 0x3F70101020000000
   %and.i13.i573 = and i32 %agg.tmp14.sroa.0.0.copyload, 255
   %conv6.i574 = uitofp nneg i32 %and.i13.i573 to float
-  %mul7.i575 = fmul nsz float %conv6.i574, 0x3F70101020000000
+  %mul7.i575 = fmul nnan nsz float %conv6.i574, 0x3F70101020000000
   %shr.i14.i577 = lshr i32 %agg.tmp14.sroa.0.0.copyload, 24
   %conv9.i578 = uitofp nneg i32 %shr.i14.i577 to float
-  %mul10.i579 = fmul nsz float %conv9.i578, 0x3F70101020000000
+  %mul10.i579 = fmul nnan nsz float %conv9.i578, 0x3F70101020000000
   %night_horizon = getelementptr inbounds nuw i8, ptr %this, i64 2688
   %agg.tmp18.sroa.0.0.copyload = load i32, ptr %night_horizon, align 8, !tbaa !94
   %agg.tmp22.sroa.0.0.copyload = load i32, ptr %sky_color, align 4, !tbaa !94
@@ -7098,17 +7098,17 @@ if.end:                                           ; preds = %entry
   %shr.i.i615 = lshr i32 %agg.tmp26.sroa.0.0.copyload, 16
   %and.i.i616 = and i32 %shr.i.i615, 255
   %conv.i617 = uitofp nneg i32 %and.i.i616 to float
-  %mul.i618 = fmul nsz float %conv.i617, 0x3F70101020000000
+  %mul.i618 = fmul nnan nsz float %conv.i617, 0x3F70101020000000
   %shr.i11.i619 = lshr i32 %agg.tmp26.sroa.0.0.copyload, 8
   %and.i12.i620 = and i32 %shr.i11.i619, 255
   %conv3.i621 = uitofp nneg i32 %and.i12.i620 to float
-  %mul4.i622 = fmul nsz float %conv3.i621, 0x3F70101020000000
+  %mul4.i622 = fmul nnan nsz float %conv3.i621, 0x3F70101020000000
   %and.i13.i624 = and i32 %agg.tmp26.sroa.0.0.copyload, 255
   %conv6.i625 = uitofp nneg i32 %and.i13.i624 to float
-  %mul7.i626 = fmul nsz float %conv6.i625, 0x3F70101020000000
+  %mul7.i626 = fmul nnan nsz float %conv6.i625, 0x3F70101020000000
   %shr.i14.i628 = lshr i32 %agg.tmp26.sroa.0.0.copyload, 24
   %conv9.i629 = uitofp nneg i32 %shr.i14.i628 to float
-  %mul10.i630 = fmul nsz float %conv9.i629, 0x3F70101020000000
+  %mul10.i630 = fmul nnan nsz float %conv9.i629, 0x3F70101020000000
   %night_sky = getelementptr inbounds nuw i8, ptr %this, i64 2684
   %agg.tmp30.sroa.0.0.copyload = load i32, ptr %night_sky, align 4, !tbaa !94
   %m_cloudcolor_day_f = getelementptr inbounds nuw i8, ptr %this, i64 2568
@@ -7245,26 +7245,26 @@ if.else82:                                        ; preds = %if.then71
   %mul.i584.mul.i.v.v.v = lshr i32 %mul.i584.mul.i.v.v.v.v, 16
   %mul.i584.mul.i.v.v = and i32 %mul.i584.mul.i.v.v.v, 255
   %mul.i584.mul.i.v = uitofp nneg i32 %mul.i584.mul.i.v.v to float
-  %mul.i584.mul.i = fmul nsz float %mul.i584.mul.i.v, 0x3F70101020000000
+  %mul.i584.mul.i = fmul nnan nsz float %mul.i584.mul.i.v, 0x3F70101020000000
   %mul4.i588.mul4.i.v.v.v = lshr i32 %mul.i584.mul.i.v.v.v.v, 8
   %mul4.i588.mul4.i.v.v = and i32 %mul4.i588.mul4.i.v.v.v, 255
   %mul4.i588.mul4.i.v = uitofp nneg i32 %mul4.i588.mul4.i.v.v to float
-  %mul4.i588.mul4.i = fmul nsz float %mul4.i588.mul4.i.v, 0x3F70101020000000
+  %mul4.i588.mul4.i = fmul nnan nsz float %mul4.i588.mul4.i.v, 0x3F70101020000000
   %mul7.i592.mul7.i.v.v = and i32 %mul.i584.mul.i.v.v.v.v, 255
   %mul7.i592.mul7.i.v = uitofp nneg i32 %mul7.i592.mul7.i.v.v to float
-  %mul7.i592.mul7.i = fmul nsz float %mul7.i592.mul7.i.v, 0x3F70101020000000
+  %mul7.i592.mul7.i = fmul nnan nsz float %mul7.i592.mul7.i.v, 0x3F70101020000000
   %mul10.i596.mul10.i.v.v = lshr i32 %mul.i584.mul.i.v.v.v.v, 24
   %mul10.i596.mul10.i.v = uitofp nneg i32 %mul10.i596.mul10.i.v.v to float
-  %mul10.i596.mul10.i = fmul nsz float %mul10.i596.mul10.i.v, 0x3F70101020000000
+  %mul10.i596.mul10.i = fmul nnan nsz float %mul10.i596.mul10.i.v, 0x3F70101020000000
   %mul.i635.mul.i601.v.v.v.v = select i1 %cmp83, i32 %agg.tmp30.sroa.0.0.copyload, i32 %agg.tmp22.sroa.0.0.copyload
   %mul.i635.mul.i601.v.v.v = lshr i32 %mul.i635.mul.i601.v.v.v.v, 16
   %mul.i635.mul.i601.v.v = and i32 %mul.i635.mul.i601.v.v.v, 255
   %mul.i635.mul.i601.v = uitofp nneg i32 %mul.i635.mul.i601.v.v to float
-  %mul.i635.mul.i601 = fmul nsz float %mul.i635.mul.i601.v, 0x3F70101020000000
+  %mul.i635.mul.i601 = fmul nnan nsz float %mul.i635.mul.i601.v, 0x3F70101020000000
   %mul4.i639.mul4.i605.v.v.v = lshr i32 %mul.i635.mul.i601.v.v.v.v, 8
   %mul4.i639.mul4.i605.v.v = and i32 %mul4.i639.mul4.i605.v.v.v, 255
   %mul4.i639.mul4.i605.v = uitofp nneg i32 %mul4.i639.mul4.i605.v.v to float
-  %mul4.i639.mul4.i605 = fmul nsz float %mul4.i639.mul4.i605.v, 0x3F70101020000000
+  %mul4.i639.mul4.i605 = fmul nnan nsz float %mul4.i639.mul4.i605.v, 0x3F70101020000000
   %44 = tail call nsz float @llvm.fmuladd.f32(float %mul.i584.mul.i, float 0x3F947AE000000000, float %mul4.i686)
   %45 = tail call nsz float @llvm.fmuladd.f32(float %mul4.i588.mul4.i, float 0x3F947AE000000000, float %mul6.i)
   %46 = tail call nsz float @llvm.fmuladd.f32(float %mul7.i592.mul7.i, float 0x3F947AE000000000, float %mul8.i692)
@@ -7278,10 +7278,10 @@ if.else82:                                        ; preds = %if.then71
   %48 = load <2 x float>, ptr %m_skycolor_bright_f90, align 8, !tbaa !21
   %mul10.i613.sink.in.in = lshr i32 %mul.i635.mul.i601.v.v.v.v, 24
   %mul10.i613.sink.in = uitofp nneg i32 %mul10.i613.sink.in.in to float
-  %mul10.i613.sink = fmul nsz float %mul10.i613.sink.in, 0x3F70101020000000
+  %mul10.i613.sink = fmul nnan nsz float %mul10.i613.sink.in, 0x3F70101020000000
   %mul7.i609.sink.in.in = and i32 %mul.i635.mul.i601.v.v.v.v, 255
   %mul7.i609.sink.in = uitofp nneg i32 %mul7.i609.sink.in.in to float
-  %mul7.i609.sink = fmul nsz float %mul7.i609.sink.in, 0x3F70101020000000
+  %mul7.i609.sink = fmul nnan nsz float %mul7.i609.sink.in, 0x3F70101020000000
   %49 = load float, ptr %b7.i707, align 8, !tbaa !210
   %50 = load float, ptr %a9.i710, align 4, !tbaa !211
   %mul10.i743 = fmul nsz float %50, 0x3FEF5C2900000000
@@ -7465,7 +7465,7 @@ if.then19.i:                                      ; preds = %if.end16.i
 
 _ZN3Sky15m_horizon_blendEv.exit:                  ; preds = %if.then19.i, %if.then11.i
   %retval.1.i.in.in = phi double [ %sub13.i, %if.then11.i ], [ %sub21.i, %if.then19.i ]
-  %retval.1.i.in = fmul nsz double %retval.1.i.in.in, 1.000000e+01
+  %retval.1.i.in = fmul nnan nsz double %retval.1.i.in.in, 1.000000e+01
   %retval.1.i = fptrunc double %retval.1.i.in to float
   %cmp165 = fcmp nsz une float %retval.1.i, 0.000000e+00
   br i1 %cmp165, label %if.then166, label %if.end8.i983
@@ -7601,17 +7601,17 @@ if.end355.thread:                                 ; preds = %if.else261
   %shr.i.i873 = lshr i32 %agg.tmp266.sroa.0.0.copyload, 16
   %and.i.i874 = and i32 %shr.i.i873, 255
   %conv.i875 = uitofp nneg i32 %and.i.i874 to float
-  %mul.i876 = fmul nsz float %conv.i875, 0x3F70101020000000
+  %mul.i876 = fmul nnan nsz float %conv.i875, 0x3F70101020000000
   %shr.i11.i877 = lshr i32 %agg.tmp266.sroa.0.0.copyload, 8
   %and.i12.i878 = and i32 %shr.i11.i877, 255
   %conv3.i879 = uitofp nneg i32 %and.i12.i878 to float
-  %mul4.i880 = fmul nsz float %conv3.i879, 0x3F70101020000000
+  %mul4.i880 = fmul nnan nsz float %conv3.i879, 0x3F70101020000000
   %and.i13.i882 = and i32 %agg.tmp266.sroa.0.0.copyload, 255
   %conv6.i883 = uitofp nneg i32 %and.i13.i882 to float
-  %mul7.i884 = fmul nsz float %conv6.i883, 0x3F70101020000000
+  %mul7.i884 = fmul nnan nsz float %conv6.i883, 0x3F70101020000000
   %shr.i14.i886 = lshr i32 %agg.tmp266.sroa.0.0.copyload, 24
   %conv9.i887 = uitofp nneg i32 %shr.i14.i886 to float
-  %mul10.i888 = fmul nsz float %conv9.i887, 0x3F70101020000000
+  %mul10.i888 = fmul nnan nsz float %conv9.i887, 0x3F70101020000000
   %fog_moon_tint = getelementptr inbounds nuw i8, ptr %this, i64 2700
   %173 = load i32, ptr %fog_moon_tint, align 4, !tbaa !35
   %174 = and i32 %173, 16711680
@@ -7629,7 +7629,7 @@ if.end355.thread:                                 ; preds = %if.else261
   %div352.cmp = icmp eq i32 %and.i900, 255
   %conv353 = uitofp i1 %div352.cmp to float
   %mul354 = fmul nsz float %cond238, %conv353
-  %181 = fmul nsz float %mul10.i888, 2.550000e+02
+  %181 = fmul nnan nsz float %mul10.i888, 2.550000e+02
   %182 = fadd nsz float %181, 5.000000e-01
   %183 = insertelement <2 x float> poison, float %mul.i876, i64 0
   %184 = insertelement <2 x float> %183, float %mul4.i880, i64 1
@@ -7738,8 +7738,8 @@ if.end8.i983:                                     ; preds = %if.end385, %_ZN3Sky
   br i1 %cmp10.i, label %if.end16.i989, label %if.then11.i985
 
 if.then11.i985:                                   ; preds = %if.end8.i983
-  %sub13.i986 = fadd nsz double %conv5.i, -3.000000e-01
-  %mul14.i987 = fmul nsz double %sub13.i986, 1.000000e+01
+  %sub13.i986 = fadd nnan nsz double %conv5.i, -3.000000e-01
+  %mul14.i987 = fmul nnan nsz double %sub13.i986, 1.000000e+01
   %conv15.i988 = fptrunc double %mul14.i987 to float
   br label %_ZN3Sky15m_horizon_blendEv.exit995
 
@@ -7749,15 +7749,15 @@ if.end16.i989:                                    ; preds = %if.end16.i, %if.end
   br i1 %cmp18.i990, label %_ZN3Sky15m_horizon_blendEv.exit995, label %if.then19.i991
 
 if.then19.i991:                                   ; preds = %if.end16.i989
-  %sub21.i992 = fsub nsz double 5.000000e-01, %conv5.i
-  %mul22.i993 = fmul nsz double %sub21.i992, 1.000000e+01
+  %sub21.i992 = fsub nnan nsz double 5.000000e-01, %conv5.i
+  %mul22.i993 = fmul nnan nsz double %sub21.i992, 1.000000e+01
   %conv23.i994 = fptrunc double %mul22.i993 to float
   br label %_ZN3Sky15m_horizon_blendEv.exit995
 
 _ZN3Sky15m_horizon_blendEv.exit995:               ; preds = %if.then19.i991, %if.end16.i989, %if.then11.i985, %if.end.i, %if.then163
   %pointcolor.sroa.0.01224 = phi i32 [ %pointcolor.sroa.0.01223.ph, %if.then11.i985 ], [ %pointcolor.sroa.0.01223.ph2, %if.then19.i991 ], [ %pointcolor.sroa.0.01223.ph2, %if.end16.i989 ], [ -1, %if.then163 ], [ -1, %if.end.i ]
   %retval.1.i982 = phi float [ %conv15.i988, %if.then11.i985 ], [ %conv23.i994, %if.then19.i991 ], [ 0.000000e+00, %if.end16.i989 ], [ 0.000000e+00, %if.then163 ], [ 0.000000e+00, %if.end.i ]
-  %conv405 = fmul nsz float %retval.1.i982, 5.000000e-01
+  %conv405 = fmul nnan nsz float %retval.1.i982, 5.000000e-01
   %sub.i998 = fsub nsz float 1.000000e+00, %conv405
   %shr.i35.i999 = lshr i32 %pointcolor.sroa.0.01224, 24
   %conv3.i1000 = uitofp nneg i32 %shr.i35.i999 to float
@@ -7815,8 +7815,8 @@ if.end8.i1045:                                    ; preds = %if.end.i1036
   br i1 %cmp10.i1046, label %if.end16.i1051, label %if.then11.i1047
 
 if.then11.i1047:                                  ; preds = %if.end8.i1045
-  %sub13.i1048 = fadd nsz double %conv5.i1042, -3.000000e-01
-  %mul14.i1049 = fmul nsz double %sub13.i1048, 1.000000e+01
+  %sub13.i1048 = fadd nnan nsz double %conv5.i1042, -3.000000e-01
+  %mul14.i1049 = fmul nnan nsz double %sub13.i1048, 1.000000e+01
   %conv15.i1050 = fptrunc double %mul14.i1049 to float
   br label %if.end424.thread
 
@@ -7825,8 +7825,8 @@ if.end16.i1051:                                   ; preds = %if.end8.i1045
   br i1 %cmp18.i1052, label %if.end424.thread, label %if.then19.i1053
 
 if.then19.i1053:                                  ; preds = %if.end16.i1051
-  %sub21.i1054 = fsub nsz double 5.000000e-01, %conv5.i1042
-  %mul22.i1055 = fmul nsz double %sub21.i1054, 1.000000e+01
+  %sub21.i1054 = fsub nnan nsz double 5.000000e-01, %conv5.i1042
+  %mul22.i1055 = fmul nnan nsz double %sub21.i1054, 1.000000e+01
   %conv23.i1056 = fptrunc double %mul22.i1055 to float
   br label %if.end424.thread
 
@@ -7835,7 +7835,7 @@ if.end424:                                        ; preds = %if.end122
 
 if.end424.thread:                                 ; preds = %if.then19.i1053, %if.end16.i1051, %if.then11.i1047, %if.end.i1036, %_ZN3Sky15m_horizon_blendEv.exit995
   %retval.1.i1044 = phi float [ 0.000000e+00, %_ZN3Sky15m_horizon_blendEv.exit995 ], [ %conv15.i1050, %if.then11.i1047 ], [ %conv23.i1056, %if.then19.i1053 ], [ 0.000000e+00, %if.end.i1036 ], [ 0.000000e+00, %if.end16.i1051 ]
-  %conv418 = fmul nsz float %retval.1.i1044, 2.500000e-01
+  %conv418 = fmul nnan nsz float %retval.1.i1044, 2.500000e-01
   %sub.i1060 = fsub nsz float 1.000000e+00, %conv418
   %mul4.i1063 = fmul nsz float %conv418, %conv3.i1000
   %235 = tail call nsz float @llvm.fmuladd.f32(float %sub.i1060, float 2.550000e+02, float %mul4.i1063)
@@ -7874,7 +7874,7 @@ if.then429:                                       ; preds = %if.end424
   br i1 %cmp430, label %if.then431, label %if.end446
 
 if.then431:                                       ; preds = %if.then429
-  %mul432 = fmul nsz float %time_brightness, 0x3FF4CCCCC0000000
+  %mul432 = fmul nnan nsz float %time_brightness, 0x3FF4CCCCC0000000
   br label %if.end446
 
 if.end.i1098:                                     ; preds = %if.end424.thread
@@ -7891,8 +7891,8 @@ if.end8.i1107:                                    ; preds = %if.end.i1098
   br i1 %cmp10.i1108, label %if.end16.i1113, label %if.then11.i1109
 
 if.then11.i1109:                                  ; preds = %if.end8.i1107
-  %sub13.i1110 = fadd nsz double %conv5.i1104, -3.000000e-01
-  %mul14.i1111 = fmul nsz double %sub13.i1110, 1.000000e+01
+  %sub13.i1110 = fadd nnan nsz double %conv5.i1104, -3.000000e-01
+  %mul14.i1111 = fmul nnan nsz double %sub13.i1110, 1.000000e+01
   %conv15.i1112 = fptrunc double %mul14.i1111 to float
   br label %_ZN3Sky15m_horizon_blendEv.exit1119
 
@@ -7901,8 +7901,8 @@ if.end16.i1113:                                   ; preds = %if.end8.i1107
   br i1 %cmp18.i1114, label %_ZN3Sky15m_horizon_blendEv.exit1119, label %if.then19.i1115
 
 if.then19.i1115:                                  ; preds = %if.end16.i1113
-  %sub21.i1116 = fsub nsz double 5.000000e-01, %conv5.i1104
-  %mul22.i1117 = fmul nsz double %sub21.i1116, 1.000000e+01
+  %sub21.i1116 = fsub nnan nsz double 5.000000e-01, %conv5.i1104
+  %mul22.i1117 = fmul nnan nsz double %sub21.i1116, 1.000000e+01
   %conv23.i1118 = fptrunc double %mul22.i1117 to float
   br label %_ZN3Sky15m_horizon_blendEv.exit1119
 
@@ -7914,7 +7914,7 @@ _ZN3Sky15m_horizon_blendEv.exit1119:              ; preds = %if.then19.i1115, %i
   br i1 %cmp439, label %if.then440, label %if.end446
 
 if.then440:                                       ; preds = %_ZN3Sky15m_horizon_blendEv.exit1119
-  %mul441 = fmul nsz float %time_brightness, 0x3FF4CCCCC0000000
+  %mul441 = fmul nnan nsz float %time_brightness, 0x3FF4CCCCC0000000
   %244 = tail call nsz noundef float @llvm.maxnum.f32(float %243, float %mul441)
   br label %if.end446
 
@@ -7949,17 +7949,17 @@ if.then470:                                       ; preds = %if.end446
   %shr.i.i1123 = lshr i32 %pointcolor.sroa.0.11228, 16
   %and.i.i1124 = and i32 %shr.i.i1123, 255
   %conv.i1125 = uitofp nneg i32 %and.i.i1124 to float
-  %mul.i1126 = fmul nsz float %conv.i1125, 0x3F70101020000000
+  %mul.i1126 = fmul nnan nsz float %conv.i1125, 0x3F70101020000000
   %shr.i11.i1127 = lshr i32 %pointcolor.sroa.0.11228, 8
   %and.i12.i1128 = and i32 %shr.i11.i1127, 255
   %conv3.i1129 = uitofp nneg i32 %and.i12.i1128 to float
-  %mul4.i1130 = fmul nsz float %conv3.i1129, 0x3F70101020000000
+  %mul4.i1130 = fmul nnan nsz float %conv3.i1129, 0x3F70101020000000
   %and.i13.i1132 = and i32 %pointcolor.sroa.0.11228, 255
   %conv6.i1133 = uitofp nneg i32 %and.i13.i1132 to float
-  %mul7.i1134 = fmul nsz float %conv6.i1133, 0x3F70101020000000
+  %mul7.i1134 = fmul nnan nsz float %conv6.i1133, 0x3F70101020000000
   %shr.i14.i1136 = lshr i32 %pointcolor.sroa.0.11228, 24
   %conv9.i1137 = uitofp nneg i32 %shr.i14.i1136 to float
-  %mul10.i1138 = fmul nsz float %conv9.i1137, 0x3F70101020000000
+  %mul10.i1138 = fmul nnan nsz float %conv9.i1137, 0x3F70101020000000
   br i1 %sunlight_seen, label %if.end.i1142, label %_ZN3Sky15m_horizon_blendEv.exit1163
 
 if.end.i1142:                                     ; preds = %if.then470
@@ -7976,8 +7976,8 @@ if.end8.i1151:                                    ; preds = %if.end.i1142
   br i1 %cmp10.i1152, label %if.end16.i1157, label %if.then11.i1153
 
 if.then11.i1153:                                  ; preds = %if.end8.i1151
-  %sub13.i1154 = fadd nsz double %conv5.i1148, -3.000000e-01
-  %mul14.i1155 = fmul nsz double %sub13.i1154, 1.000000e+01
+  %sub13.i1154 = fadd nnan nsz double %conv5.i1148, -3.000000e-01
+  %mul14.i1155 = fmul nnan nsz double %sub13.i1154, 1.000000e+01
   %conv15.i1156 = fptrunc double %mul14.i1155 to float
   br label %_ZN3Sky15m_horizon_blendEv.exit1163
 
@@ -7986,14 +7986,14 @@ if.end16.i1157:                                   ; preds = %if.end8.i1151
   br i1 %cmp18.i1158, label %_ZN3Sky15m_horizon_blendEv.exit1163, label %if.then19.i1159
 
 if.then19.i1159:                                  ; preds = %if.end16.i1157
-  %sub21.i1160 = fsub nsz double 5.000000e-01, %conv5.i1148
-  %mul22.i1161 = fmul nsz double %sub21.i1160, 1.000000e+01
+  %sub21.i1160 = fsub nnan nsz double 5.000000e-01, %conv5.i1148
+  %mul22.i1161 = fmul nnan nsz double %sub21.i1160, 1.000000e+01
   %conv23.i1162 = fptrunc double %mul22.i1161 to float
   br label %_ZN3Sky15m_horizon_blendEv.exit1163
 
 _ZN3Sky15m_horizon_blendEv.exit1163:              ; preds = %if.then19.i1159, %if.end16.i1157, %if.then11.i1153, %if.end.i1142, %if.then470
   %retval.1.i1150 = phi float [ 0.000000e+00, %if.then470 ], [ %conv15.i1156, %if.then11.i1153 ], [ %conv23.i1162, %if.then19.i1159 ], [ 0.000000e+00, %if.end.i1142 ], [ 0.000000e+00, %if.end16.i1157 ]
-  %conv480 = fmul nsz float %retval.1.i1150, 2.500000e-01
+  %conv480 = fmul nnan nsz float %retval.1.i1150, 2.500000e-01
   %col1.sroa.0.0.vec.extract.i = extractelement <2 x float> %250, i64 0
   %sub.i1164 = fsub nsz float 1.000000e+00, %conv480
   %mul2.i1165 = fmul nsz float %mul.i1126, %conv480
@@ -8040,8 +8040,8 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.then5.i, label %if.else7.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  %div6.i = fdiv nsz float %0, 0x3FCA8F5C20000000
-  %mul.i = fmul nsz float %div6.i, 2.500000e-01
+  %div6.i = fdiv nnan nsz float %0, 0x3FCA8F5C20000000
+  %mul.i = fmul nnan nsz float %div6.i, 2.500000e-01
   br label %_Z18getWickedTimeOfDayf.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -8059,9 +8059,9 @@ _Z18getWickedTimeOfDayf.exit:                     ; preds = %if.else7.i, %if.the
   %mul.i10.i = fmul nsz double %conv1.i, 0x3F91DF46A2529D39
   %5 = tail call nsz double @llvm.cos.f64(double %mul.i10.i)
   %6 = tail call nsz double @llvm.sin.f64(double %mul.i10.i)
-  %neg.i16.i = fmul nsz double %6, 0.000000e+00
+  %neg.i16.i = fmul ninf nsz double %6, 0.000000e+00
   %7 = fsub nsz double %5, %neg.i16.i
-  %mul16.i18.i = fmul nsz double %5, 0.000000e+00
+  %mul16.i18.i = fmul ninf nsz double %5, 0.000000e+00
   %8 = fadd nsz double %6, %mul16.i18.i
   %conv17.i19.i = fptrunc double %8 to float
   %conv3.i = fpext float %4 to double
@@ -8103,8 +8103,8 @@ if.else.i:                                        ; preds = %entry
   br i1 %cmp4.i, label %if.then5.i, label %if.else7.i
 
 if.then5.i:                                       ; preds = %if.else.i
-  %div6.i = fdiv nsz float %0, 0x3FCA8F5C20000000
-  %mul.i = fmul nsz float %div6.i, 2.500000e-01
+  %div6.i = fdiv nnan nsz float %0, 0x3FCA8F5C20000000
+  %mul.i = fmul nnan nsz float %div6.i, 2.500000e-01
   br label %_Z18getWickedTimeOfDayf.exit
 
 if.else7.i:                                       ; preds = %if.else.i
@@ -8124,7 +8124,7 @@ _Z18getWickedTimeOfDayf.exit:                     ; preds = %if.else7.i, %if.the
   %8 = fmul nsz <2 x double> %7, splat (double 0x3F91DF46A2529D39)
   %9 = extractelement <2 x double> %8, i64 0
   %10 = tail call nsz double @llvm.cos.f64(double %9)
-  %mul16.i18.i = fmul nsz double %10, 0.000000e+00
+  %mul16.i18.i = fmul ninf nsz double %10, 0.000000e+00
   %11 = tail call nsz <2 x double> @llvm.sin.v2f64(<2 x double> %8)
   %12 = extractelement <2 x double> %11, i64 0
   %13 = fsub nsz double %mul16.i18.i, %12
@@ -8235,7 +8235,7 @@ entry:
   %conv.i14.i = fpext float %conv10.i.i to double
   %17 = tail call nsz <2 x double> @llvm.cos.v2f64(<2 x double> %14)
   %18 = extractelement <2 x double> %17, i64 0
-  %mul16.i18.i = fmul nsz double %18, 0.000000e+00
+  %mul16.i18.i = fmul ninf nsz double %18, 0.000000e+00
   %19 = tail call nsz double @llvm.fmuladd.f64(double %conv.i14.i, double %16, double %mul16.i18.i)
   %conv17.i19.i = fptrunc double %19 to float
   %20 = extractelement <2 x double> %14, i64 1
@@ -8876,7 +8876,7 @@ if.end.i95.i:                                     ; preds = %_ZN3irr4core8vector
   %conv.i96.i = fpext float %38 to double
   %39 = call nsz double @llvm.sqrt.f64(double %conv.i96.i)
   %div.i.i97.i = fdiv nsz double 1.000000e+00, %39
-  %conv7.i98.i = fpext float %34 to double
+  %conv7.i98.i = fpext nnan ninf float %34 to double
   %mul.i99.i = fmul nsz double %div.i.i97.i, %conv7.i98.i
   %conv8.i100.i = fptrunc double %mul.i99.i to float
   %40 = fpext <2 x float> %r.4.r.4.r.4. to <2 x double>

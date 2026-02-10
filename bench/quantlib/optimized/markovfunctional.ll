@@ -5862,8 +5862,8 @@ if.then164:                                       ; preds = %if.then161
 if.else168:                                       ; preds = %if.then161
   %sub.i = sub nsw i64 %numeraireKnown.sroa.0.1770, %83
   %conv = sitofp i64 %sub.i to double
-  %div = fdiv double %conv, 3.652500e+02
-  %mul176 = fmul double %div, 1.200000e+01
+  %div = fdiv nnan double %conv, 3.652500e+02
+  %mul176 = fmul nnan double %div, 1.200000e+01
   %conv177 = fptosi double %mul176 to i32
   %.sroa.speculated = call i32 @llvm.smax.i32(i32 %conv177, i32 1)
   %conv180 = zext nneg i32 %.sroa.speculated to i64
@@ -45477,7 +45477,7 @@ call.i709.noexc:                                  ; preds = %invoke.cont581
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i709720, i8 0, i64 %237, i1 false), !tbaa !131
   %sub587 = add i64 %235, -1
   %conv = uitofp i64 %sub587 to double
-  %div588 = fdiv double 1.000000e+00, %conv
+  %div588 = fdiv nnan double 1.000000e+00, %conv
   %dx_589 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %239 = load ptr, ptr %dx_589, align 8, !tbaa !43
   %240 = load double, ptr %239, align 8, !tbaa !131
@@ -45485,7 +45485,7 @@ call.i709.noexc:                                  ; preds = %invoke.cont581
   %mul594 = fmul double %240, %mul591
   %mul597 = fmul double %240, %mul594
   store double %mul597, ptr %call.i709720, align 8, !tbaa !131
-  %div603 = fdiv double 8.750000e-01, %conv
+  %div603 = fdiv nnan double 8.750000e-01, %conv
   %241 = load double, ptr %239, align 8, !tbaa !131
   %mul606 = fmul double %div603, %241
   %mul609 = fmul double %241, %mul606
@@ -46796,7 +46796,7 @@ call.i1088.noexc:                                 ; preds = %invoke.cont1040
   %396 = load double, ptr %395, align 8, !tbaa !131
   %mul1052 = fmul double %div1049, %396
   store double %mul1052, ptr %call.i10881099, align 8, !tbaa !131
-  %div1058 = fdiv double 5.000000e-01, %conv1048
+  %div1058 = fdiv nnan double 5.000000e-01, %conv1048
   %397 = load double, ptr %395, align 8, !tbaa !131
   %mul1061 = fmul double %div1058, %397
   %arrayidx1063 = getelementptr inbounds nuw i8, ptr %call.i10881099, i64 8
@@ -53769,7 +53769,7 @@ call.i709.noexc:                                  ; preds = %invoke.cont581
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i709720, i8 0, i64 %237, i1 false), !tbaa !131
   %sub587 = add i64 %235, -1
   %conv = uitofp i64 %sub587 to double
-  %div588 = fdiv double 1.000000e+00, %conv
+  %div588 = fdiv nnan double 1.000000e+00, %conv
   %dx_589 = getelementptr inbounds nuw i8, ptr %this, i64 232
   %239 = load ptr, ptr %dx_589, align 8, !tbaa !43
   %240 = load double, ptr %239, align 8, !tbaa !131
@@ -53777,7 +53777,7 @@ call.i709.noexc:                                  ; preds = %invoke.cont581
   %mul594 = fmul double %240, %mul591
   %mul597 = fmul double %240, %mul594
   store double %mul597, ptr %call.i709720, align 8, !tbaa !131
-  %div603 = fdiv double 8.750000e-01, %conv
+  %div603 = fdiv nnan double 8.750000e-01, %conv
   %241 = load double, ptr %239, align 8, !tbaa !131
   %mul606 = fmul double %div603, %241
   %mul609 = fmul double %241, %mul606
@@ -55088,7 +55088,7 @@ call.i1088.noexc:                                 ; preds = %invoke.cont1040
   %396 = load double, ptr %395, align 8, !tbaa !131
   %mul1052 = fmul double %div1049, %396
   store double %mul1052, ptr %call.i10881099, align 8, !tbaa !131
-  %div1058 = fdiv double 5.000000e-01, %conv1048
+  %div1058 = fdiv nnan double 5.000000e-01, %conv1048
   %397 = load double, ptr %395, align 8, !tbaa !131
   %mul1061 = fmul double %div1058, %397
   %arrayidx1063 = getelementptr inbounds nuw i8, ptr %call.i10881099, i64 8

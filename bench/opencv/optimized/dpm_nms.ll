@@ -520,7 +520,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit180.thread:          ; preds = %.noexc.i.i, %_ZNSt1
   br i1 %or.cond, label %184, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit143
 
 184:                                              ; preds = %147
-  %185 = fmul double %179, %181
+  %185 = fmul nnan double %179, %181
   %186 = getelementptr inbounds nuw double, ptr %.sroa.0249.0256262, i64 %153
   %187 = load double, ptr %186, align 8, !tbaa !14
   %188 = fdiv double %185, %187

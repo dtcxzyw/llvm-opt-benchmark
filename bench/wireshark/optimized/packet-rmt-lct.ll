@@ -186,7 +186,7 @@ define hidden double @rmt_decode_send_rate(i16 noundef zeroext %0) local_unnamed
   %3 = lshr i32 %2, 4
   %4 = mul nuw nsw i32 %3, 10
   %5 = uitofp nneg i32 %4 to double
-  %6 = fmul double %5, 0x3F30000000000000
+  %6 = fmul nnan double %5, 0x3F30000000000000
   %7 = and i32 %2, 15
   %8 = uitofp nneg i32 %7 to double
   %9 = tail call double @pow(double noundef 1.000000e+01, double noundef %8) #5
@@ -340,7 +340,7 @@ define hidden i32 @lct_ext_decode(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %89 = lshr i32 %88, 4
   %90 = mul nuw nsw i32 %89, 10
   %91 = uitofp nneg i32 %90 to double
-  %92 = fmul double %91, 0x3F30000000000000
+  %92 = fmul nnan double %91, 0x3F30000000000000
   %93 = and i32 %88, 15
   %94 = uitofp nneg i32 %93 to double
   %95 = tail call double @pow(double noundef 1.000000e+01, double noundef %94) #5

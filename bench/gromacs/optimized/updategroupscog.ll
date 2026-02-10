@@ -1799,7 +1799,7 @@ define void @_ZN3gmx15UpdateGroupsCog7addCogsENS_8ArrayRefIKiEENS1_IKNS_11BasicV
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %27, i8 0, i64 36, i1 false)
   store i32 1, ptr %34, align 4, !tbaa !178
   %35 = sitofp i32 %33 to float
-  %36 = fmul float %35, 1.500000e+00
+  %36 = fmul nnan float %35, 1.500000e+00
   br label %37
 
 37:                                               ; preds = %40, %25
@@ -3257,16 +3257,16 @@ _ZN3gmx9HashedMapIiE5clearEv.exit:                ; preds = %.lr.ph.i, %8, %14
 
 20:                                               ; preds = %_ZN3gmx9HashedMapIiE5clearEv.exit
   %21 = uitofp nneg i32 %3 to float
-  %22 = fmul float %21, 3.500000e+00
+  %22 = fmul nnan float %21, 3.500000e+00
   %23 = sitofp i32 %17 to float
   %24 = fcmp olt float %22, %23
-  %25 = fmul float %21, 0x3FF4CCCCC0000000
+  %25 = fmul nnan float %21, 0x3FF4CCCCC0000000
   %26 = fcmp ogt float %25, %23
-  %or.cond = or i1 %24, %26
+  %or.cond = select i1 %24, i1 true, i1 %26
   br i1 %or.cond, label %.preheader.i, label %51
 
 .preheader.i:                                     ; preds = %20
-  %27 = fmul float %21, 1.500000e+00
+  %27 = fmul nnan float %21, 1.500000e+00
   br label %28
 
 28:                                               ; preds = %31, %.preheader.i

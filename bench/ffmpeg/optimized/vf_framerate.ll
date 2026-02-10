@@ -393,7 +393,7 @@ define internal i32 @activate(ptr noundef %0) #4 {
   call void %128(ptr noundef %129, i64 noundef %132, ptr noundef %133, i64 noundef %136, i64 noundef %138, i64 noundef %140, ptr noundef nonnull %2) #11
   %141 = load i64, ptr %2, align 8, !tbaa !64
   %142 = uitofp i64 %141 to double
-  %143 = fmul nsz double %142, 1.000000e+02
+  %143 = fmul nnan nsz double %142, 1.000000e+02
   %144 = load i32, ptr %121, align 8, !tbaa !60
   %145 = load i32, ptr %115, align 4, !tbaa !53
   %146 = mul nsw i32 %145, %144

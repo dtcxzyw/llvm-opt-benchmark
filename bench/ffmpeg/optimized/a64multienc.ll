@@ -65,7 +65,7 @@ define internal range(i32 -12, 1) i32 @a64multi_encode_init(ptr noundef %0) #0 {
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %28 = load i8, ptr %27, align 1, !tbaa !41
   %29 = uitofp i8 %28 to double
-  %30 = fmul nsz double %29, 5.900000e-01
+  %30 = fmul nnan nsz double %29, 5.900000e-01
   %31 = tail call nsz double @llvm.fmuladd.f64(double %26, double 3.000000e-01, double %30)
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %33 = load i8, ptr %32, align 1, !tbaa !41

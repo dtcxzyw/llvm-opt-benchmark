@@ -1485,7 +1485,7 @@ current_time.exit:                                ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %37 = fsub double %36, %3
   %38 = uitofp i32 %2 to double
-  %39 = fmul double %29, %38
+  %39 = fmul nnan double %29, %38
   %.b27 = load i1, ptr @csv_format, align 4
   %.b29 = load i1, ptr @bench_stats_sym_finish.sym_header_printed, align 4
   %not..b27 = xor i1 %.b27, true
@@ -1514,7 +1514,7 @@ current_time.exit:                                ; preds = %5
 .sink.split.i:                                    ; preds = %46, %44
   %.sink7.i = phi double [ 0x3EB0000000000000, %44 ], [ 0x3F50000000000000, %46 ]
   %.0.ph.i = phi ptr [ @.str.123, %44 ], [ @.str.124, %46 ]
-  %48 = fmul double %39, %.sink7.i
+  %48 = fmul nnan double %39, %.sink7.i
   br label %get_blocktype.exit
 
 49:                                               ; preds = %43
@@ -1535,7 +1535,7 @@ get_blocktype.exit:                               ; preds = %.sink.split.i31, %5
   %.038 = phi double [ %39, %46 ], [ %48, %.sink.split.i ], [ %53, %.sink.split.i31 ], [ %39, %51 ]
   %.023 = phi ptr [ @.str.125, %46 ], [ %.0.ph.i, %.sink.split.i ], [ %.0.ph.i33, %.sink.split.i31 ], [ @.str.125, %51 ]
   %54 = fcmp ogt double %37, 0.000000e+00
-  %55 = fdiv double 1.000000e+00, %37
+  %55 = fdiv nnan double 1.000000e+00, %37
   %56 = fmul double %55, %.038
   %.0 = select i1 %54, double %56, double 0.000000e+00
   %.b = load i1, ptr @csv_format, align 4

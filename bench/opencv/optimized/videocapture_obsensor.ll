@@ -553,7 +553,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %142
   %191 = load i8, ptr %189, align 1, !tbaa !33
   %192 = uitofp i8 %191 to float
   %193 = uitofp i8 %190 to float
-  %194 = fmul float %193, 0x3FE3333340000000
+  %194 = fmul nnan float %193, 0x3FE3333340000000
   %195 = call float @llvm.fmuladd.f32(float %192, float 0x3FD9999980000000, float %194)
   %196 = fptoui float %195 to i8
   store i8 %196, ptr %189, align 1, !tbaa !33

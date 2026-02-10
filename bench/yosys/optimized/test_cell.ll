@@ -18069,7 +18069,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1576: ; preds = %3
   %6262 = getelementptr inbounds nuw ptr, ptr %6255, i64 %6253
   %6263 = load ptr, ptr %6262, align 8, !tbaa !328
   %6264 = sitofp i32 %.1272 to float
-  %6265 = fmul float %6264, 1.000000e+02
+  %6265 = fmul nnan float %6264, 1.000000e+02
   %6266 = fdiv float %6265, %3350
   %6267 = fpext float %6266 to double
   invoke void (ptr, ...) @_ZN5Yosys11log_warningEPKcz(ptr noundef nonnull @.str.105, ptr noundef %6263, double noundef %6267, i32 noundef %.1266, double noundef %3369)

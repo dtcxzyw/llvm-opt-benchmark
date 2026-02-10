@@ -621,7 +621,7 @@ ehcleanup72:                                      ; preds = %if.then.i.i62, %ehc
   br label %eh.resume
 
 do.end75:                                         ; preds = %do.body30
-  %mul = fmul double %x, %y
+  %mul = fmul nnan double %x, %y
   %call76 = tail call double @log(double noundef %x) #14, !tbaa !21
   %fneg = fneg double %call76
   %34 = load double, ptr %this, align 8, !tbaa !3

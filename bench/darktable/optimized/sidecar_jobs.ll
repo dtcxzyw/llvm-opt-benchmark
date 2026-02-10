@@ -173,7 +173,7 @@ define internal noundef i32 @_control_write_sidecars_job_run(ptr noundef %0) #0 
   %13 = sitofp i64 %12 to double
   %14 = load i64, ptr %4, align 8, !tbaa !57
   %15 = sitofp i64 %14 to double
-  %16 = fmul reassoc nsz arcp contract afn double %15, 0x3EB0C6F7A0B5ED8D
+  %16 = fmul reassoc nnan nsz arcp contract afn double %15, 0x3EB0C6F7A0B5ED8D
   %17 = fadd reassoc nsz arcp contract afn double %16, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %18 = fadd reassoc nsz arcp contract afn double %.036, 2.500000e-01

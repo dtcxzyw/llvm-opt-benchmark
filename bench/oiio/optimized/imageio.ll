@@ -7872,7 +7872,7 @@ define hidden noundef ptr @_ZN11OpenImageIO6v3_1_03pvt16convert_to_floatEPKvPfiN
   %14 = shufflevector <8 x i16> %13, <8 x i16> <i16 0, i16 0, i16 0, i16 0, i16 poison, i16 poison, i16 poison, i16 poison>, <8 x i32> <i32 0, i32 8, i32 1, i32 9, i32 2, i32 10, i32 3, i32 11>
   %15 = bitcast <8 x i16> %14 to <4 x i32>
   %16 = uitofp nneg <4 x i32> %15 to <4 x float>
-  %17 = fmul <4 x float> %16, splat (float 0x3F70101020000000)
+  %17 = fmul nnan <4 x float> %16, splat (float 0x3F70101020000000)
   store <4 x float> %17, ptr %.01020.i.i, align 1, !tbaa !23
   %18 = add i64 %.01219.i.i, -4
   %19 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 4
@@ -7888,7 +7888,7 @@ define hidden noundef ptr @_ZN11OpenImageIO6v3_1_03pvt16convert_to_floatEPKvPfiN
   %23 = getelementptr inbounds nuw i8, ptr %.127.i.i, i64 1
   %24 = load i8, ptr %.127.i.i, align 1, !tbaa !23
   %25 = uitofp i8 %24 to float
-  %26 = fmul float %25, 0x3F70101020000000
+  %26 = fmul nnan float %25, 0x3F70101020000000
   %27 = getelementptr inbounds nuw i8, ptr %.11126.i.i, i64 4
   store float %26, ptr %.11126.i.i, align 4, !tbaa !63
   %.not.i.i = icmp eq i64 %22, 0
@@ -7933,7 +7933,7 @@ _ZN11OpenImageIO6v3_1_04simd7vfloat4C2EPKt.exit.i.i: ; preds = %33
   %38 = load <4 x i32>, ptr %5, align 16, !tbaa !23
   %39 = sitofp <4 x i32> %38 to <4 x float>
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %40 = fmul <4 x float> %39, splat (float 0x3EF0001000000000)
+  %40 = fmul nnan <4 x float> %39, splat (float 0x3EF0001000000000)
   store <4 x float> %40, ptr %.01020.i.i44, align 1, !tbaa !23
   %41 = add i64 %.01219.i.i45, -4
   %42 = getelementptr inbounds nuw i8, ptr %.021.i.i43, i64 8
@@ -7949,7 +7949,7 @@ _ZN11OpenImageIO6v3_1_04simd7vfloat4C2EPKt.exit.i.i: ; preds = %33
   %46 = getelementptr inbounds nuw i8, ptr %.127.i.i38, i64 2
   %47 = load i16, ptr %.127.i.i38, align 2, !tbaa !161
   %48 = uitofp i16 %47 to float
-  %49 = fmul float %48, 0x3EF0001000000000
+  %49 = fmul nnan float %48, 0x3EF0001000000000
   %50 = getelementptr inbounds nuw i8, ptr %.11126.i.i39, i64 4
   store float %49, ptr %.11126.i.i39, align 4, !tbaa !63
   %.not.i.i41 = icmp eq i64 %45, 0
@@ -9646,7 +9646,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlS2_S2_liii.exit: ; preds = %13
   %64 = getelementptr inbounds nuw i8, ptr %.03243.us.us.us.us.us.us.i109, i64 %60
   %65 = load i8, ptr %64, align 1, !tbaa !23
   %66 = uitofp i8 %65 to float
-  %67 = fmul float %66, 0x3F70101020000000
+  %67 = fmul nnan float %66, 0x3F70101020000000
   br label %68
 
 68:                                               ; preds = %81, %.lr.ph.us.us.us.us.us.us.i107
@@ -9660,7 +9660,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlS2_S2_liii.exit: ; preds = %13
   %72 = getelementptr inbounds i8, ptr %.03243.us.us.us.us.us.us.i109, i64 %indvars.iv.i110
   %73 = load i8, ptr %72, align 1, !tbaa !23
   %74 = uitofp i8 %73 to float
-  %75 = fmul float %74, 0x3F70101020000000
+  %75 = fmul nnan float %74, 0x3F70101020000000
   %76 = fmul float %67, %75
   %77 = fmul float %76, 2.550000e+02
   %78 = fadd float %77, 5.000000e-01
@@ -9730,7 +9730,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlS2_S2_liii.exit: ; preds = %13
   %95 = getelementptr inbounds nuw i16, ptr %.03243.us.us.us.us.us.us.i135, i64 %91
   %96 = load i16, ptr %95, align 2, !tbaa !161
   %97 = uitofp i16 %96 to float
-  %98 = fmul float %97, 0x3EF0001000000000
+  %98 = fmul nnan float %97, 0x3EF0001000000000
   br label %99
 
 99:                                               ; preds = %112, %.lr.ph.us.us.us.us.us.us.i133
@@ -9744,7 +9744,7 @@ _ZN11OpenImageIO6v3_1_09ImageSpec11auto_strideERlS2_S2_liii.exit: ; preds = %13
   %103 = getelementptr inbounds i16, ptr %.03243.us.us.us.us.us.us.i135, i64 %indvars.iv.i136
   %104 = load i16, ptr %103, align 2, !tbaa !161
   %105 = uitofp i16 %104 to float
-  %106 = fmul float %105, 0x3EF0001000000000
+  %106 = fmul nnan float %105, 0x3EF0001000000000
   %107 = fmul float %98, %106
   %108 = fmul float %107, 6.553500e+04
   %109 = fadd float %108, 5.000000e-01
@@ -10041,7 +10041,7 @@ _ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEfEaSEf.exit.us.us.us.us.us.us
   %246 = getelementptr inbounds nuw i8, ptr %.03243.us.us.us.us.us.us.i175, i64 %242
   %247 = load i8, ptr %246, align 1, !tbaa !23
   %248 = sitofp i8 %247 to float
-  %249 = fmul float %248, 0x3F80204080000000
+  %249 = fmul nnan float %248, 0x3F80204080000000
   br label %250
 
 250:                                              ; preds = %265, %.lr.ph.us.us.us.us.us.us.i173
@@ -10055,7 +10055,7 @@ _ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEfEaSEf.exit.us.us.us.us.us.us
   %254 = getelementptr inbounds i8, ptr %.03243.us.us.us.us.us.us.i175, i64 %indvars.iv.i176
   %255 = load i8, ptr %254, align 1, !tbaa !23
   %256 = sitofp i8 %255 to float
-  %257 = fmul float %256, 0x3F80204080000000
+  %257 = fmul nnan float %256, 0x3F80204080000000
   %258 = fmul float %249, %257
   %259 = fmul float %258, 1.270000e+02
   %260 = fcmp olt float %259, 0.000000e+00
@@ -10127,7 +10127,7 @@ _ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEfEaSEf.exit.us.us.us.us.us.us
   %279 = getelementptr inbounds nuw i16, ptr %.03243.us.us.us.us.us.us.i204, i64 %275
   %280 = load i16, ptr %279, align 2, !tbaa !161
   %281 = sitofp i16 %280 to float
-  %282 = fmul float %281, 0x3F00002000000000
+  %282 = fmul nnan float %281, 0x3F00002000000000
   br label %283
 
 283:                                              ; preds = %298, %.lr.ph.us.us.us.us.us.us.i202
@@ -10141,7 +10141,7 @@ _ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEfEaSEf.exit.us.us.us.us.us.us
   %287 = getelementptr inbounds i16, ptr %.03243.us.us.us.us.us.us.i204, i64 %indvars.iv.i205
   %288 = load i16, ptr %287, align 2, !tbaa !161
   %289 = sitofp i16 %288 to float
-  %290 = fmul float %289, 0x3F00002000000000
+  %290 = fmul nnan float %289, 0x3F00002000000000
   %291 = fmul float %282, %290
   %292 = fmul float %291, 3.276700e+04
   %293 = fcmp olt float %292, 0.000000e+00
@@ -10213,7 +10213,7 @@ _ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEfEaSEf.exit.us.us.us.us.us.us
   %312 = getelementptr inbounds nuw i32, ptr %.03243.us.us.us.us.us.us.i233, i64 %308
   %313 = load i32, ptr %312, align 4, !tbaa !17
   %314 = sitofp i32 %313 to float
-  %315 = fmul float %314, 0x3E00000000000000
+  %315 = fmul nnan float %314, 0x3E00000000000000
   br label %316
 
 316:                                              ; preds = %332, %.lr.ph.us.us.us.us.us.us.i231
@@ -10227,7 +10227,7 @@ _ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEfEaSEf.exit.us.us.us.us.us.us
   %320 = getelementptr inbounds i32, ptr %.03243.us.us.us.us.us.us.i233, i64 %indvars.iv.i234
   %321 = load i32, ptr %320, align 4, !tbaa !17
   %322 = sitofp i32 %321 to float
-  %323 = fmul float %322, 0x3E00000000000000
+  %323 = fmul nnan float %322, 0x3E00000000000000
   %324 = fmul float %315, %323
   %325 = fpext float %324 to double
   %326 = fmul double %325, 0x41DFFFFFFFC00000
@@ -10300,7 +10300,7 @@ _ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEfEaSEf.exit.us.us.us.us.us.us
   %346 = getelementptr inbounds nuw i32, ptr %.03243.us.us.us.us.us.us.i262, i64 %342
   %347 = load i32, ptr %346, align 4, !tbaa !17
   %348 = uitofp i32 %347 to float
-  %349 = fmul float %348, 0x3DF0000000000000
+  %349 = fmul nnan float %348, 0x3DF0000000000000
   br label %350
 
 350:                                              ; preds = %364, %.lr.ph.us.us.us.us.us.us.i260
@@ -10314,7 +10314,7 @@ _ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEfEaSEf.exit.us.us.us.us.us.us
   %354 = getelementptr inbounds i32, ptr %.03243.us.us.us.us.us.us.i262, i64 %indvars.iv.i263
   %355 = load i32, ptr %354, align 4, !tbaa !17
   %356 = uitofp i32 %355 to float
-  %357 = fmul float %356, 0x3DF0000000000000
+  %357 = fmul nnan float %356, 0x3DF0000000000000
   %358 = fmul float %349, %357
   %359 = fpext float %358 to double
   %360 = fmul double %359, 0x41EFFFFFFFE00000
@@ -10385,7 +10385,7 @@ _ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEfEaSEf.exit.us.us.us.us.us.us
   %378 = getelementptr inbounds nuw i64, ptr %.03243.us.us.us.us.us.us.i291, i64 %374
   %379 = load i64, ptr %378, align 8, !tbaa !50
   %380 = sitofp i64 %379 to float
-  %381 = fmul float %380, 0x3C00000000000000
+  %381 = fmul nnan float %380, 0x3C00000000000000
   br label %382
 
 382:                                              ; preds = %398, %.lr.ph.us.us.us.us.us.us.i289
@@ -10399,7 +10399,7 @@ _ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEfEaSEf.exit.us.us.us.us.us.us
   %386 = getelementptr inbounds i64, ptr %.03243.us.us.us.us.us.us.i291, i64 %indvars.iv.i292
   %387 = load i64, ptr %386, align 8, !tbaa !50
   %388 = sitofp i64 %387 to float
-  %389 = fmul float %388, 0x3C00000000000000
+  %389 = fmul nnan float %388, 0x3C00000000000000
   %390 = fmul float %381, %389
   %391 = fpext float %390 to double
   %392 = fmul double %391, 0x43E0000000000000
@@ -10472,7 +10472,7 @@ _ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEfEaSEf.exit.us.us.us.us.us.us
   %412 = getelementptr inbounds nuw i64, ptr %.03243.us.us.us.us.us.us.i320, i64 %408
   %413 = load i64, ptr %412, align 8, !tbaa !50
   %414 = uitofp i64 %413 to float
-  %415 = fmul float %414, 0x3BF0000000000000
+  %415 = fmul nnan float %414, 0x3BF0000000000000
   br label %416
 
 416:                                              ; preds = %430, %.lr.ph.us.us.us.us.us.us.i318
@@ -10486,7 +10486,7 @@ _ZN11OpenImageIO6v3_1_09DataProxyIN9Imath_3_14halfEfEaSEf.exit.us.us.us.us.us.us
   %420 = getelementptr inbounds i64, ptr %.03243.us.us.us.us.us.us.i320, i64 %indvars.iv.i321
   %421 = load i64, ptr %420, align 8, !tbaa !50
   %422 = uitofp i64 %421 to float
-  %423 = fmul float %422, 0x3BF0000000000000
+  %423 = fmul nnan float %422, 0x3BF0000000000000
   %424 = fmul float %415, %423
   %425 = fpext float %424 to double
   %426 = fmul double %425, 0x43F0000000000000
@@ -37543,97 +37543,97 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_012convert_typeIcfEEvPKT_
   %7 = getelementptr inbounds nuw i8, ptr %.059, i64 1
   %8 = load i8, ptr %.059, align 1, !tbaa !23
   %9 = sitofp i8 %8 to float
-  %10 = fmul float %9, 0x3F80204080000000
+  %10 = fmul nnan float %9, 0x3F80204080000000
   %11 = getelementptr inbounds nuw i8, ptr %.05358, i64 4
   store float %10, ptr %.05358, align 4, !tbaa !63
   %12 = getelementptr inbounds nuw i8, ptr %.059, i64 2
   %13 = load i8, ptr %7, align 1, !tbaa !23
   %14 = sitofp i8 %13 to float
-  %15 = fmul float %14, 0x3F80204080000000
+  %15 = fmul nnan float %14, 0x3F80204080000000
   %16 = getelementptr inbounds nuw i8, ptr %.05358, i64 8
   store float %15, ptr %11, align 4, !tbaa !63
   %17 = getelementptr inbounds nuw i8, ptr %.059, i64 3
   %18 = load i8, ptr %12, align 1, !tbaa !23
   %19 = sitofp i8 %18 to float
-  %20 = fmul float %19, 0x3F80204080000000
+  %20 = fmul nnan float %19, 0x3F80204080000000
   %21 = getelementptr inbounds nuw i8, ptr %.05358, i64 12
   store float %20, ptr %16, align 4, !tbaa !63
   %22 = getelementptr inbounds nuw i8, ptr %.059, i64 4
   %23 = load i8, ptr %17, align 1, !tbaa !23
   %24 = sitofp i8 %23 to float
-  %25 = fmul float %24, 0x3F80204080000000
+  %25 = fmul nnan float %24, 0x3F80204080000000
   %26 = getelementptr inbounds nuw i8, ptr %.05358, i64 16
   store float %25, ptr %21, align 4, !tbaa !63
   %27 = getelementptr inbounds nuw i8, ptr %.059, i64 5
   %28 = load i8, ptr %22, align 1, !tbaa !23
   %29 = sitofp i8 %28 to float
-  %30 = fmul float %29, 0x3F80204080000000
+  %30 = fmul nnan float %29, 0x3F80204080000000
   %31 = getelementptr inbounds nuw i8, ptr %.05358, i64 20
   store float %30, ptr %26, align 4, !tbaa !63
   %32 = getelementptr inbounds nuw i8, ptr %.059, i64 6
   %33 = load i8, ptr %27, align 1, !tbaa !23
   %34 = sitofp i8 %33 to float
-  %35 = fmul float %34, 0x3F80204080000000
+  %35 = fmul nnan float %34, 0x3F80204080000000
   %36 = getelementptr inbounds nuw i8, ptr %.05358, i64 24
   store float %35, ptr %31, align 4, !tbaa !63
   %37 = getelementptr inbounds nuw i8, ptr %.059, i64 7
   %38 = load i8, ptr %32, align 1, !tbaa !23
   %39 = sitofp i8 %38 to float
-  %40 = fmul float %39, 0x3F80204080000000
+  %40 = fmul nnan float %39, 0x3F80204080000000
   %41 = getelementptr inbounds nuw i8, ptr %.05358, i64 28
   store float %40, ptr %36, align 4, !tbaa !63
   %42 = getelementptr inbounds nuw i8, ptr %.059, i64 8
   %43 = load i8, ptr %37, align 1, !tbaa !23
   %44 = sitofp i8 %43 to float
-  %45 = fmul float %44, 0x3F80204080000000
+  %45 = fmul nnan float %44, 0x3F80204080000000
   %46 = getelementptr inbounds nuw i8, ptr %.05358, i64 32
   store float %45, ptr %41, align 4, !tbaa !63
   %47 = getelementptr inbounds nuw i8, ptr %.059, i64 9
   %48 = load i8, ptr %42, align 1, !tbaa !23
   %49 = sitofp i8 %48 to float
-  %50 = fmul float %49, 0x3F80204080000000
+  %50 = fmul nnan float %49, 0x3F80204080000000
   %51 = getelementptr inbounds nuw i8, ptr %.05358, i64 36
   store float %50, ptr %46, align 4, !tbaa !63
   %52 = getelementptr inbounds nuw i8, ptr %.059, i64 10
   %53 = load i8, ptr %47, align 1, !tbaa !23
   %54 = sitofp i8 %53 to float
-  %55 = fmul float %54, 0x3F80204080000000
+  %55 = fmul nnan float %54, 0x3F80204080000000
   %56 = getelementptr inbounds nuw i8, ptr %.05358, i64 40
   store float %55, ptr %51, align 4, !tbaa !63
   %57 = getelementptr inbounds nuw i8, ptr %.059, i64 11
   %58 = load i8, ptr %52, align 1, !tbaa !23
   %59 = sitofp i8 %58 to float
-  %60 = fmul float %59, 0x3F80204080000000
+  %60 = fmul nnan float %59, 0x3F80204080000000
   %61 = getelementptr inbounds nuw i8, ptr %.05358, i64 44
   store float %60, ptr %56, align 4, !tbaa !63
   %62 = getelementptr inbounds nuw i8, ptr %.059, i64 12
   %63 = load i8, ptr %57, align 1, !tbaa !23
   %64 = sitofp i8 %63 to float
-  %65 = fmul float %64, 0x3F80204080000000
+  %65 = fmul nnan float %64, 0x3F80204080000000
   %66 = getelementptr inbounds nuw i8, ptr %.05358, i64 48
   store float %65, ptr %61, align 4, !tbaa !63
   %67 = getelementptr inbounds nuw i8, ptr %.059, i64 13
   %68 = load i8, ptr %62, align 1, !tbaa !23
   %69 = sitofp i8 %68 to float
-  %70 = fmul float %69, 0x3F80204080000000
+  %70 = fmul nnan float %69, 0x3F80204080000000
   %71 = getelementptr inbounds nuw i8, ptr %.05358, i64 52
   store float %70, ptr %66, align 4, !tbaa !63
   %72 = getelementptr inbounds nuw i8, ptr %.059, i64 14
   %73 = load i8, ptr %67, align 1, !tbaa !23
   %74 = sitofp i8 %73 to float
-  %75 = fmul float %74, 0x3F80204080000000
+  %75 = fmul nnan float %74, 0x3F80204080000000
   %76 = getelementptr inbounds nuw i8, ptr %.05358, i64 56
   store float %75, ptr %71, align 4, !tbaa !63
   %77 = getelementptr inbounds nuw i8, ptr %.059, i64 15
   %78 = load i8, ptr %72, align 1, !tbaa !23
   %79 = sitofp i8 %78 to float
-  %80 = fmul float %79, 0x3F80204080000000
+  %80 = fmul nnan float %79, 0x3F80204080000000
   %81 = getelementptr inbounds nuw i8, ptr %.05358, i64 60
   store float %80, ptr %76, align 4, !tbaa !63
   %82 = getelementptr inbounds nuw i8, ptr %.059, i64 16
   %83 = load i8, ptr %77, align 1, !tbaa !23
   %84 = sitofp i8 %83 to float
-  %85 = fmul float %84, 0x3F80204080000000
+  %85 = fmul nnan float %84, 0x3F80204080000000
   %86 = getelementptr inbounds nuw i8, ptr %.05358, i64 64
   store float %85, ptr %81, align 4, !tbaa !63
   %87 = add i64 %.05557, -16
@@ -37648,7 +37648,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_012convert_typeIcfEEvPKT_
   %90 = getelementptr inbounds nuw i8, ptr %.165, i64 1
   %91 = load i8, ptr %.165, align 1, !tbaa !23
   %92 = sitofp i8 %91 to float
-  %93 = fmul float %92, 0x3F80204080000000
+  %93 = fmul nnan float %92, 0x3F80204080000000
   %94 = getelementptr inbounds nuw i8, ptr %.15464, i64 4
   store float %93, ptr %.15464, align 4, !tbaa !63
   %.not = icmp eq i64 %89, 0
@@ -37677,97 +37677,97 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_012convert_typeIsfEEvPKT_
   %7 = getelementptr inbounds nuw i8, ptr %.059, i64 2
   %8 = load i16, ptr %.059, align 2, !tbaa !161
   %9 = sitofp i16 %8 to float
-  %10 = fmul float %9, 0x3F00002000000000
+  %10 = fmul nnan float %9, 0x3F00002000000000
   %11 = getelementptr inbounds nuw i8, ptr %.05358, i64 4
   store float %10, ptr %.05358, align 4, !tbaa !63
   %12 = getelementptr inbounds nuw i8, ptr %.059, i64 4
   %13 = load i16, ptr %7, align 2, !tbaa !161
   %14 = sitofp i16 %13 to float
-  %15 = fmul float %14, 0x3F00002000000000
+  %15 = fmul nnan float %14, 0x3F00002000000000
   %16 = getelementptr inbounds nuw i8, ptr %.05358, i64 8
   store float %15, ptr %11, align 4, !tbaa !63
   %17 = getelementptr inbounds nuw i8, ptr %.059, i64 6
   %18 = load i16, ptr %12, align 2, !tbaa !161
   %19 = sitofp i16 %18 to float
-  %20 = fmul float %19, 0x3F00002000000000
+  %20 = fmul nnan float %19, 0x3F00002000000000
   %21 = getelementptr inbounds nuw i8, ptr %.05358, i64 12
   store float %20, ptr %16, align 4, !tbaa !63
   %22 = getelementptr inbounds nuw i8, ptr %.059, i64 8
   %23 = load i16, ptr %17, align 2, !tbaa !161
   %24 = sitofp i16 %23 to float
-  %25 = fmul float %24, 0x3F00002000000000
+  %25 = fmul nnan float %24, 0x3F00002000000000
   %26 = getelementptr inbounds nuw i8, ptr %.05358, i64 16
   store float %25, ptr %21, align 4, !tbaa !63
   %27 = getelementptr inbounds nuw i8, ptr %.059, i64 10
   %28 = load i16, ptr %22, align 2, !tbaa !161
   %29 = sitofp i16 %28 to float
-  %30 = fmul float %29, 0x3F00002000000000
+  %30 = fmul nnan float %29, 0x3F00002000000000
   %31 = getelementptr inbounds nuw i8, ptr %.05358, i64 20
   store float %30, ptr %26, align 4, !tbaa !63
   %32 = getelementptr inbounds nuw i8, ptr %.059, i64 12
   %33 = load i16, ptr %27, align 2, !tbaa !161
   %34 = sitofp i16 %33 to float
-  %35 = fmul float %34, 0x3F00002000000000
+  %35 = fmul nnan float %34, 0x3F00002000000000
   %36 = getelementptr inbounds nuw i8, ptr %.05358, i64 24
   store float %35, ptr %31, align 4, !tbaa !63
   %37 = getelementptr inbounds nuw i8, ptr %.059, i64 14
   %38 = load i16, ptr %32, align 2, !tbaa !161
   %39 = sitofp i16 %38 to float
-  %40 = fmul float %39, 0x3F00002000000000
+  %40 = fmul nnan float %39, 0x3F00002000000000
   %41 = getelementptr inbounds nuw i8, ptr %.05358, i64 28
   store float %40, ptr %36, align 4, !tbaa !63
   %42 = getelementptr inbounds nuw i8, ptr %.059, i64 16
   %43 = load i16, ptr %37, align 2, !tbaa !161
   %44 = sitofp i16 %43 to float
-  %45 = fmul float %44, 0x3F00002000000000
+  %45 = fmul nnan float %44, 0x3F00002000000000
   %46 = getelementptr inbounds nuw i8, ptr %.05358, i64 32
   store float %45, ptr %41, align 4, !tbaa !63
   %47 = getelementptr inbounds nuw i8, ptr %.059, i64 18
   %48 = load i16, ptr %42, align 2, !tbaa !161
   %49 = sitofp i16 %48 to float
-  %50 = fmul float %49, 0x3F00002000000000
+  %50 = fmul nnan float %49, 0x3F00002000000000
   %51 = getelementptr inbounds nuw i8, ptr %.05358, i64 36
   store float %50, ptr %46, align 4, !tbaa !63
   %52 = getelementptr inbounds nuw i8, ptr %.059, i64 20
   %53 = load i16, ptr %47, align 2, !tbaa !161
   %54 = sitofp i16 %53 to float
-  %55 = fmul float %54, 0x3F00002000000000
+  %55 = fmul nnan float %54, 0x3F00002000000000
   %56 = getelementptr inbounds nuw i8, ptr %.05358, i64 40
   store float %55, ptr %51, align 4, !tbaa !63
   %57 = getelementptr inbounds nuw i8, ptr %.059, i64 22
   %58 = load i16, ptr %52, align 2, !tbaa !161
   %59 = sitofp i16 %58 to float
-  %60 = fmul float %59, 0x3F00002000000000
+  %60 = fmul nnan float %59, 0x3F00002000000000
   %61 = getelementptr inbounds nuw i8, ptr %.05358, i64 44
   store float %60, ptr %56, align 4, !tbaa !63
   %62 = getelementptr inbounds nuw i8, ptr %.059, i64 24
   %63 = load i16, ptr %57, align 2, !tbaa !161
   %64 = sitofp i16 %63 to float
-  %65 = fmul float %64, 0x3F00002000000000
+  %65 = fmul nnan float %64, 0x3F00002000000000
   %66 = getelementptr inbounds nuw i8, ptr %.05358, i64 48
   store float %65, ptr %61, align 4, !tbaa !63
   %67 = getelementptr inbounds nuw i8, ptr %.059, i64 26
   %68 = load i16, ptr %62, align 2, !tbaa !161
   %69 = sitofp i16 %68 to float
-  %70 = fmul float %69, 0x3F00002000000000
+  %70 = fmul nnan float %69, 0x3F00002000000000
   %71 = getelementptr inbounds nuw i8, ptr %.05358, i64 52
   store float %70, ptr %66, align 4, !tbaa !63
   %72 = getelementptr inbounds nuw i8, ptr %.059, i64 28
   %73 = load i16, ptr %67, align 2, !tbaa !161
   %74 = sitofp i16 %73 to float
-  %75 = fmul float %74, 0x3F00002000000000
+  %75 = fmul nnan float %74, 0x3F00002000000000
   %76 = getelementptr inbounds nuw i8, ptr %.05358, i64 56
   store float %75, ptr %71, align 4, !tbaa !63
   %77 = getelementptr inbounds nuw i8, ptr %.059, i64 30
   %78 = load i16, ptr %72, align 2, !tbaa !161
   %79 = sitofp i16 %78 to float
-  %80 = fmul float %79, 0x3F00002000000000
+  %80 = fmul nnan float %79, 0x3F00002000000000
   %81 = getelementptr inbounds nuw i8, ptr %.05358, i64 60
   store float %80, ptr %76, align 4, !tbaa !63
   %82 = getelementptr inbounds nuw i8, ptr %.059, i64 32
   %83 = load i16, ptr %77, align 2, !tbaa !161
   %84 = sitofp i16 %83 to float
-  %85 = fmul float %84, 0x3F00002000000000
+  %85 = fmul nnan float %84, 0x3F00002000000000
   %86 = getelementptr inbounds nuw i8, ptr %.05358, i64 64
   store float %85, ptr %81, align 4, !tbaa !63
   %87 = add i64 %.05557, -16
@@ -37782,7 +37782,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_012convert_typeIsfEEvPKT_
   %90 = getelementptr inbounds nuw i8, ptr %.165, i64 2
   %91 = load i16, ptr %.165, align 2, !tbaa !161
   %92 = sitofp i16 %91 to float
-  %93 = fmul float %92, 0x3F00002000000000
+  %93 = fmul nnan float %92, 0x3F00002000000000
   %94 = getelementptr inbounds nuw i8, ptr %.15464, i64 4
   store float %93, ptr %.15464, align 4, !tbaa !63
   %.not = icmp eq i64 %89, 0
@@ -37811,97 +37811,97 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_012convert_typeIifEEvPKT_
   %7 = getelementptr inbounds nuw i8, ptr %.059, i64 4
   %8 = load i32, ptr %.059, align 4, !tbaa !17
   %9 = sitofp i32 %8 to float
-  %10 = fmul float %9, 0x3E00000000000000
+  %10 = fmul nnan float %9, 0x3E00000000000000
   %11 = getelementptr inbounds nuw i8, ptr %.05358, i64 4
   store float %10, ptr %.05358, align 4, !tbaa !63
   %12 = getelementptr inbounds nuw i8, ptr %.059, i64 8
   %13 = load i32, ptr %7, align 4, !tbaa !17
   %14 = sitofp i32 %13 to float
-  %15 = fmul float %14, 0x3E00000000000000
+  %15 = fmul nnan float %14, 0x3E00000000000000
   %16 = getelementptr inbounds nuw i8, ptr %.05358, i64 8
   store float %15, ptr %11, align 4, !tbaa !63
   %17 = getelementptr inbounds nuw i8, ptr %.059, i64 12
   %18 = load i32, ptr %12, align 4, !tbaa !17
   %19 = sitofp i32 %18 to float
-  %20 = fmul float %19, 0x3E00000000000000
+  %20 = fmul nnan float %19, 0x3E00000000000000
   %21 = getelementptr inbounds nuw i8, ptr %.05358, i64 12
   store float %20, ptr %16, align 4, !tbaa !63
   %22 = getelementptr inbounds nuw i8, ptr %.059, i64 16
   %23 = load i32, ptr %17, align 4, !tbaa !17
   %24 = sitofp i32 %23 to float
-  %25 = fmul float %24, 0x3E00000000000000
+  %25 = fmul nnan float %24, 0x3E00000000000000
   %26 = getelementptr inbounds nuw i8, ptr %.05358, i64 16
   store float %25, ptr %21, align 4, !tbaa !63
   %27 = getelementptr inbounds nuw i8, ptr %.059, i64 20
   %28 = load i32, ptr %22, align 4, !tbaa !17
   %29 = sitofp i32 %28 to float
-  %30 = fmul float %29, 0x3E00000000000000
+  %30 = fmul nnan float %29, 0x3E00000000000000
   %31 = getelementptr inbounds nuw i8, ptr %.05358, i64 20
   store float %30, ptr %26, align 4, !tbaa !63
   %32 = getelementptr inbounds nuw i8, ptr %.059, i64 24
   %33 = load i32, ptr %27, align 4, !tbaa !17
   %34 = sitofp i32 %33 to float
-  %35 = fmul float %34, 0x3E00000000000000
+  %35 = fmul nnan float %34, 0x3E00000000000000
   %36 = getelementptr inbounds nuw i8, ptr %.05358, i64 24
   store float %35, ptr %31, align 4, !tbaa !63
   %37 = getelementptr inbounds nuw i8, ptr %.059, i64 28
   %38 = load i32, ptr %32, align 4, !tbaa !17
   %39 = sitofp i32 %38 to float
-  %40 = fmul float %39, 0x3E00000000000000
+  %40 = fmul nnan float %39, 0x3E00000000000000
   %41 = getelementptr inbounds nuw i8, ptr %.05358, i64 28
   store float %40, ptr %36, align 4, !tbaa !63
   %42 = getelementptr inbounds nuw i8, ptr %.059, i64 32
   %43 = load i32, ptr %37, align 4, !tbaa !17
   %44 = sitofp i32 %43 to float
-  %45 = fmul float %44, 0x3E00000000000000
+  %45 = fmul nnan float %44, 0x3E00000000000000
   %46 = getelementptr inbounds nuw i8, ptr %.05358, i64 32
   store float %45, ptr %41, align 4, !tbaa !63
   %47 = getelementptr inbounds nuw i8, ptr %.059, i64 36
   %48 = load i32, ptr %42, align 4, !tbaa !17
   %49 = sitofp i32 %48 to float
-  %50 = fmul float %49, 0x3E00000000000000
+  %50 = fmul nnan float %49, 0x3E00000000000000
   %51 = getelementptr inbounds nuw i8, ptr %.05358, i64 36
   store float %50, ptr %46, align 4, !tbaa !63
   %52 = getelementptr inbounds nuw i8, ptr %.059, i64 40
   %53 = load i32, ptr %47, align 4, !tbaa !17
   %54 = sitofp i32 %53 to float
-  %55 = fmul float %54, 0x3E00000000000000
+  %55 = fmul nnan float %54, 0x3E00000000000000
   %56 = getelementptr inbounds nuw i8, ptr %.05358, i64 40
   store float %55, ptr %51, align 4, !tbaa !63
   %57 = getelementptr inbounds nuw i8, ptr %.059, i64 44
   %58 = load i32, ptr %52, align 4, !tbaa !17
   %59 = sitofp i32 %58 to float
-  %60 = fmul float %59, 0x3E00000000000000
+  %60 = fmul nnan float %59, 0x3E00000000000000
   %61 = getelementptr inbounds nuw i8, ptr %.05358, i64 44
   store float %60, ptr %56, align 4, !tbaa !63
   %62 = getelementptr inbounds nuw i8, ptr %.059, i64 48
   %63 = load i32, ptr %57, align 4, !tbaa !17
   %64 = sitofp i32 %63 to float
-  %65 = fmul float %64, 0x3E00000000000000
+  %65 = fmul nnan float %64, 0x3E00000000000000
   %66 = getelementptr inbounds nuw i8, ptr %.05358, i64 48
   store float %65, ptr %61, align 4, !tbaa !63
   %67 = getelementptr inbounds nuw i8, ptr %.059, i64 52
   %68 = load i32, ptr %62, align 4, !tbaa !17
   %69 = sitofp i32 %68 to float
-  %70 = fmul float %69, 0x3E00000000000000
+  %70 = fmul nnan float %69, 0x3E00000000000000
   %71 = getelementptr inbounds nuw i8, ptr %.05358, i64 52
   store float %70, ptr %66, align 4, !tbaa !63
   %72 = getelementptr inbounds nuw i8, ptr %.059, i64 56
   %73 = load i32, ptr %67, align 4, !tbaa !17
   %74 = sitofp i32 %73 to float
-  %75 = fmul float %74, 0x3E00000000000000
+  %75 = fmul nnan float %74, 0x3E00000000000000
   %76 = getelementptr inbounds nuw i8, ptr %.05358, i64 56
   store float %75, ptr %71, align 4, !tbaa !63
   %77 = getelementptr inbounds nuw i8, ptr %.059, i64 60
   %78 = load i32, ptr %72, align 4, !tbaa !17
   %79 = sitofp i32 %78 to float
-  %80 = fmul float %79, 0x3E00000000000000
+  %80 = fmul nnan float %79, 0x3E00000000000000
   %81 = getelementptr inbounds nuw i8, ptr %.05358, i64 60
   store float %80, ptr %76, align 4, !tbaa !63
   %82 = getelementptr inbounds nuw i8, ptr %.059, i64 64
   %83 = load i32, ptr %77, align 4, !tbaa !17
   %84 = sitofp i32 %83 to float
-  %85 = fmul float %84, 0x3E00000000000000
+  %85 = fmul nnan float %84, 0x3E00000000000000
   %86 = getelementptr inbounds nuw i8, ptr %.05358, i64 64
   store float %85, ptr %81, align 4, !tbaa !63
   %87 = add i64 %.05557, -16
@@ -37916,7 +37916,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_012convert_typeIifEEvPKT_
   %90 = getelementptr inbounds nuw i8, ptr %.165, i64 4
   %91 = load i32, ptr %.165, align 4, !tbaa !17
   %92 = sitofp i32 %91 to float
-  %93 = fmul float %92, 0x3E00000000000000
+  %93 = fmul nnan float %92, 0x3E00000000000000
   %94 = getelementptr inbounds nuw i8, ptr %.15464, i64 4
   store float %93, ptr %.15464, align 4, !tbaa !63
   %.not = icmp eq i64 %89, 0
@@ -37945,97 +37945,97 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_012convert_typeIjfEEvPKT_
   %7 = getelementptr inbounds nuw i8, ptr %.059, i64 4
   %8 = load i32, ptr %.059, align 4, !tbaa !17
   %9 = uitofp i32 %8 to float
-  %10 = fmul float %9, 0x3DF0000000000000
+  %10 = fmul nnan float %9, 0x3DF0000000000000
   %11 = getelementptr inbounds nuw i8, ptr %.05358, i64 4
   store float %10, ptr %.05358, align 4, !tbaa !63
   %12 = getelementptr inbounds nuw i8, ptr %.059, i64 8
   %13 = load i32, ptr %7, align 4, !tbaa !17
   %14 = uitofp i32 %13 to float
-  %15 = fmul float %14, 0x3DF0000000000000
+  %15 = fmul nnan float %14, 0x3DF0000000000000
   %16 = getelementptr inbounds nuw i8, ptr %.05358, i64 8
   store float %15, ptr %11, align 4, !tbaa !63
   %17 = getelementptr inbounds nuw i8, ptr %.059, i64 12
   %18 = load i32, ptr %12, align 4, !tbaa !17
   %19 = uitofp i32 %18 to float
-  %20 = fmul float %19, 0x3DF0000000000000
+  %20 = fmul nnan float %19, 0x3DF0000000000000
   %21 = getelementptr inbounds nuw i8, ptr %.05358, i64 12
   store float %20, ptr %16, align 4, !tbaa !63
   %22 = getelementptr inbounds nuw i8, ptr %.059, i64 16
   %23 = load i32, ptr %17, align 4, !tbaa !17
   %24 = uitofp i32 %23 to float
-  %25 = fmul float %24, 0x3DF0000000000000
+  %25 = fmul nnan float %24, 0x3DF0000000000000
   %26 = getelementptr inbounds nuw i8, ptr %.05358, i64 16
   store float %25, ptr %21, align 4, !tbaa !63
   %27 = getelementptr inbounds nuw i8, ptr %.059, i64 20
   %28 = load i32, ptr %22, align 4, !tbaa !17
   %29 = uitofp i32 %28 to float
-  %30 = fmul float %29, 0x3DF0000000000000
+  %30 = fmul nnan float %29, 0x3DF0000000000000
   %31 = getelementptr inbounds nuw i8, ptr %.05358, i64 20
   store float %30, ptr %26, align 4, !tbaa !63
   %32 = getelementptr inbounds nuw i8, ptr %.059, i64 24
   %33 = load i32, ptr %27, align 4, !tbaa !17
   %34 = uitofp i32 %33 to float
-  %35 = fmul float %34, 0x3DF0000000000000
+  %35 = fmul nnan float %34, 0x3DF0000000000000
   %36 = getelementptr inbounds nuw i8, ptr %.05358, i64 24
   store float %35, ptr %31, align 4, !tbaa !63
   %37 = getelementptr inbounds nuw i8, ptr %.059, i64 28
   %38 = load i32, ptr %32, align 4, !tbaa !17
   %39 = uitofp i32 %38 to float
-  %40 = fmul float %39, 0x3DF0000000000000
+  %40 = fmul nnan float %39, 0x3DF0000000000000
   %41 = getelementptr inbounds nuw i8, ptr %.05358, i64 28
   store float %40, ptr %36, align 4, !tbaa !63
   %42 = getelementptr inbounds nuw i8, ptr %.059, i64 32
   %43 = load i32, ptr %37, align 4, !tbaa !17
   %44 = uitofp i32 %43 to float
-  %45 = fmul float %44, 0x3DF0000000000000
+  %45 = fmul nnan float %44, 0x3DF0000000000000
   %46 = getelementptr inbounds nuw i8, ptr %.05358, i64 32
   store float %45, ptr %41, align 4, !tbaa !63
   %47 = getelementptr inbounds nuw i8, ptr %.059, i64 36
   %48 = load i32, ptr %42, align 4, !tbaa !17
   %49 = uitofp i32 %48 to float
-  %50 = fmul float %49, 0x3DF0000000000000
+  %50 = fmul nnan float %49, 0x3DF0000000000000
   %51 = getelementptr inbounds nuw i8, ptr %.05358, i64 36
   store float %50, ptr %46, align 4, !tbaa !63
   %52 = getelementptr inbounds nuw i8, ptr %.059, i64 40
   %53 = load i32, ptr %47, align 4, !tbaa !17
   %54 = uitofp i32 %53 to float
-  %55 = fmul float %54, 0x3DF0000000000000
+  %55 = fmul nnan float %54, 0x3DF0000000000000
   %56 = getelementptr inbounds nuw i8, ptr %.05358, i64 40
   store float %55, ptr %51, align 4, !tbaa !63
   %57 = getelementptr inbounds nuw i8, ptr %.059, i64 44
   %58 = load i32, ptr %52, align 4, !tbaa !17
   %59 = uitofp i32 %58 to float
-  %60 = fmul float %59, 0x3DF0000000000000
+  %60 = fmul nnan float %59, 0x3DF0000000000000
   %61 = getelementptr inbounds nuw i8, ptr %.05358, i64 44
   store float %60, ptr %56, align 4, !tbaa !63
   %62 = getelementptr inbounds nuw i8, ptr %.059, i64 48
   %63 = load i32, ptr %57, align 4, !tbaa !17
   %64 = uitofp i32 %63 to float
-  %65 = fmul float %64, 0x3DF0000000000000
+  %65 = fmul nnan float %64, 0x3DF0000000000000
   %66 = getelementptr inbounds nuw i8, ptr %.05358, i64 48
   store float %65, ptr %61, align 4, !tbaa !63
   %67 = getelementptr inbounds nuw i8, ptr %.059, i64 52
   %68 = load i32, ptr %62, align 4, !tbaa !17
   %69 = uitofp i32 %68 to float
-  %70 = fmul float %69, 0x3DF0000000000000
+  %70 = fmul nnan float %69, 0x3DF0000000000000
   %71 = getelementptr inbounds nuw i8, ptr %.05358, i64 52
   store float %70, ptr %66, align 4, !tbaa !63
   %72 = getelementptr inbounds nuw i8, ptr %.059, i64 56
   %73 = load i32, ptr %67, align 4, !tbaa !17
   %74 = uitofp i32 %73 to float
-  %75 = fmul float %74, 0x3DF0000000000000
+  %75 = fmul nnan float %74, 0x3DF0000000000000
   %76 = getelementptr inbounds nuw i8, ptr %.05358, i64 56
   store float %75, ptr %71, align 4, !tbaa !63
   %77 = getelementptr inbounds nuw i8, ptr %.059, i64 60
   %78 = load i32, ptr %72, align 4, !tbaa !17
   %79 = uitofp i32 %78 to float
-  %80 = fmul float %79, 0x3DF0000000000000
+  %80 = fmul nnan float %79, 0x3DF0000000000000
   %81 = getelementptr inbounds nuw i8, ptr %.05358, i64 60
   store float %80, ptr %76, align 4, !tbaa !63
   %82 = getelementptr inbounds nuw i8, ptr %.059, i64 64
   %83 = load i32, ptr %77, align 4, !tbaa !17
   %84 = uitofp i32 %83 to float
-  %85 = fmul float %84, 0x3DF0000000000000
+  %85 = fmul nnan float %84, 0x3DF0000000000000
   %86 = getelementptr inbounds nuw i8, ptr %.05358, i64 64
   store float %85, ptr %81, align 4, !tbaa !63
   %87 = add i64 %.05557, -16
@@ -38050,7 +38050,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_012convert_typeIjfEEvPKT_
   %90 = getelementptr inbounds nuw i8, ptr %.165, i64 4
   %91 = load i32, ptr %.165, align 4, !tbaa !17
   %92 = uitofp i32 %91 to float
-  %93 = fmul float %92, 0x3DF0000000000000
+  %93 = fmul nnan float %92, 0x3DF0000000000000
   %94 = getelementptr inbounds nuw i8, ptr %.15464, i64 4
   store float %93, ptr %.15464, align 4, !tbaa !63
   %.not = icmp eq i64 %89, 0
@@ -38079,97 +38079,97 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_012convert_typeIxfEEvPKT_
   %7 = getelementptr inbounds nuw i8, ptr %.059, i64 8
   %8 = load i64, ptr %.059, align 8, !tbaa !78
   %9 = sitofp i64 %8 to float
-  %10 = fmul float %9, 0x3C00000000000000
+  %10 = fmul nnan float %9, 0x3C00000000000000
   %11 = getelementptr inbounds nuw i8, ptr %.05358, i64 4
   store float %10, ptr %.05358, align 4, !tbaa !63
   %12 = getelementptr inbounds nuw i8, ptr %.059, i64 16
   %13 = load i64, ptr %7, align 8, !tbaa !78
   %14 = sitofp i64 %13 to float
-  %15 = fmul float %14, 0x3C00000000000000
+  %15 = fmul nnan float %14, 0x3C00000000000000
   %16 = getelementptr inbounds nuw i8, ptr %.05358, i64 8
   store float %15, ptr %11, align 4, !tbaa !63
   %17 = getelementptr inbounds nuw i8, ptr %.059, i64 24
   %18 = load i64, ptr %12, align 8, !tbaa !78
   %19 = sitofp i64 %18 to float
-  %20 = fmul float %19, 0x3C00000000000000
+  %20 = fmul nnan float %19, 0x3C00000000000000
   %21 = getelementptr inbounds nuw i8, ptr %.05358, i64 12
   store float %20, ptr %16, align 4, !tbaa !63
   %22 = getelementptr inbounds nuw i8, ptr %.059, i64 32
   %23 = load i64, ptr %17, align 8, !tbaa !78
   %24 = sitofp i64 %23 to float
-  %25 = fmul float %24, 0x3C00000000000000
+  %25 = fmul nnan float %24, 0x3C00000000000000
   %26 = getelementptr inbounds nuw i8, ptr %.05358, i64 16
   store float %25, ptr %21, align 4, !tbaa !63
   %27 = getelementptr inbounds nuw i8, ptr %.059, i64 40
   %28 = load i64, ptr %22, align 8, !tbaa !78
   %29 = sitofp i64 %28 to float
-  %30 = fmul float %29, 0x3C00000000000000
+  %30 = fmul nnan float %29, 0x3C00000000000000
   %31 = getelementptr inbounds nuw i8, ptr %.05358, i64 20
   store float %30, ptr %26, align 4, !tbaa !63
   %32 = getelementptr inbounds nuw i8, ptr %.059, i64 48
   %33 = load i64, ptr %27, align 8, !tbaa !78
   %34 = sitofp i64 %33 to float
-  %35 = fmul float %34, 0x3C00000000000000
+  %35 = fmul nnan float %34, 0x3C00000000000000
   %36 = getelementptr inbounds nuw i8, ptr %.05358, i64 24
   store float %35, ptr %31, align 4, !tbaa !63
   %37 = getelementptr inbounds nuw i8, ptr %.059, i64 56
   %38 = load i64, ptr %32, align 8, !tbaa !78
   %39 = sitofp i64 %38 to float
-  %40 = fmul float %39, 0x3C00000000000000
+  %40 = fmul nnan float %39, 0x3C00000000000000
   %41 = getelementptr inbounds nuw i8, ptr %.05358, i64 28
   store float %40, ptr %36, align 4, !tbaa !63
   %42 = getelementptr inbounds nuw i8, ptr %.059, i64 64
   %43 = load i64, ptr %37, align 8, !tbaa !78
   %44 = sitofp i64 %43 to float
-  %45 = fmul float %44, 0x3C00000000000000
+  %45 = fmul nnan float %44, 0x3C00000000000000
   %46 = getelementptr inbounds nuw i8, ptr %.05358, i64 32
   store float %45, ptr %41, align 4, !tbaa !63
   %47 = getelementptr inbounds nuw i8, ptr %.059, i64 72
   %48 = load i64, ptr %42, align 8, !tbaa !78
   %49 = sitofp i64 %48 to float
-  %50 = fmul float %49, 0x3C00000000000000
+  %50 = fmul nnan float %49, 0x3C00000000000000
   %51 = getelementptr inbounds nuw i8, ptr %.05358, i64 36
   store float %50, ptr %46, align 4, !tbaa !63
   %52 = getelementptr inbounds nuw i8, ptr %.059, i64 80
   %53 = load i64, ptr %47, align 8, !tbaa !78
   %54 = sitofp i64 %53 to float
-  %55 = fmul float %54, 0x3C00000000000000
+  %55 = fmul nnan float %54, 0x3C00000000000000
   %56 = getelementptr inbounds nuw i8, ptr %.05358, i64 40
   store float %55, ptr %51, align 4, !tbaa !63
   %57 = getelementptr inbounds nuw i8, ptr %.059, i64 88
   %58 = load i64, ptr %52, align 8, !tbaa !78
   %59 = sitofp i64 %58 to float
-  %60 = fmul float %59, 0x3C00000000000000
+  %60 = fmul nnan float %59, 0x3C00000000000000
   %61 = getelementptr inbounds nuw i8, ptr %.05358, i64 44
   store float %60, ptr %56, align 4, !tbaa !63
   %62 = getelementptr inbounds nuw i8, ptr %.059, i64 96
   %63 = load i64, ptr %57, align 8, !tbaa !78
   %64 = sitofp i64 %63 to float
-  %65 = fmul float %64, 0x3C00000000000000
+  %65 = fmul nnan float %64, 0x3C00000000000000
   %66 = getelementptr inbounds nuw i8, ptr %.05358, i64 48
   store float %65, ptr %61, align 4, !tbaa !63
   %67 = getelementptr inbounds nuw i8, ptr %.059, i64 104
   %68 = load i64, ptr %62, align 8, !tbaa !78
   %69 = sitofp i64 %68 to float
-  %70 = fmul float %69, 0x3C00000000000000
+  %70 = fmul nnan float %69, 0x3C00000000000000
   %71 = getelementptr inbounds nuw i8, ptr %.05358, i64 52
   store float %70, ptr %66, align 4, !tbaa !63
   %72 = getelementptr inbounds nuw i8, ptr %.059, i64 112
   %73 = load i64, ptr %67, align 8, !tbaa !78
   %74 = sitofp i64 %73 to float
-  %75 = fmul float %74, 0x3C00000000000000
+  %75 = fmul nnan float %74, 0x3C00000000000000
   %76 = getelementptr inbounds nuw i8, ptr %.05358, i64 56
   store float %75, ptr %71, align 4, !tbaa !63
   %77 = getelementptr inbounds nuw i8, ptr %.059, i64 120
   %78 = load i64, ptr %72, align 8, !tbaa !78
   %79 = sitofp i64 %78 to float
-  %80 = fmul float %79, 0x3C00000000000000
+  %80 = fmul nnan float %79, 0x3C00000000000000
   %81 = getelementptr inbounds nuw i8, ptr %.05358, i64 60
   store float %80, ptr %76, align 4, !tbaa !63
   %82 = getelementptr inbounds nuw i8, ptr %.059, i64 128
   %83 = load i64, ptr %77, align 8, !tbaa !78
   %84 = sitofp i64 %83 to float
-  %85 = fmul float %84, 0x3C00000000000000
+  %85 = fmul nnan float %84, 0x3C00000000000000
   %86 = getelementptr inbounds nuw i8, ptr %.05358, i64 64
   store float %85, ptr %81, align 4, !tbaa !63
   %87 = add i64 %.05557, -16
@@ -38184,7 +38184,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_012convert_typeIxfEEvPKT_
   %90 = getelementptr inbounds nuw i8, ptr %.165, i64 8
   %91 = load i64, ptr %.165, align 8, !tbaa !78
   %92 = sitofp i64 %91 to float
-  %93 = fmul float %92, 0x3C00000000000000
+  %93 = fmul nnan float %92, 0x3C00000000000000
   %94 = getelementptr inbounds nuw i8, ptr %.15464, i64 4
   store float %93, ptr %.15464, align 4, !tbaa !63
   %.not = icmp eq i64 %89, 0
@@ -38213,97 +38213,97 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_012convert_typeIyfEEvPKT_
   %7 = getelementptr inbounds nuw i8, ptr %.059, i64 8
   %8 = load i64, ptr %.059, align 8, !tbaa !78
   %9 = uitofp i64 %8 to float
-  %10 = fmul float %9, 0x3BF0000000000000
+  %10 = fmul nnan float %9, 0x3BF0000000000000
   %11 = getelementptr inbounds nuw i8, ptr %.05358, i64 4
   store float %10, ptr %.05358, align 4, !tbaa !63
   %12 = getelementptr inbounds nuw i8, ptr %.059, i64 16
   %13 = load i64, ptr %7, align 8, !tbaa !78
   %14 = uitofp i64 %13 to float
-  %15 = fmul float %14, 0x3BF0000000000000
+  %15 = fmul nnan float %14, 0x3BF0000000000000
   %16 = getelementptr inbounds nuw i8, ptr %.05358, i64 8
   store float %15, ptr %11, align 4, !tbaa !63
   %17 = getelementptr inbounds nuw i8, ptr %.059, i64 24
   %18 = load i64, ptr %12, align 8, !tbaa !78
   %19 = uitofp i64 %18 to float
-  %20 = fmul float %19, 0x3BF0000000000000
+  %20 = fmul nnan float %19, 0x3BF0000000000000
   %21 = getelementptr inbounds nuw i8, ptr %.05358, i64 12
   store float %20, ptr %16, align 4, !tbaa !63
   %22 = getelementptr inbounds nuw i8, ptr %.059, i64 32
   %23 = load i64, ptr %17, align 8, !tbaa !78
   %24 = uitofp i64 %23 to float
-  %25 = fmul float %24, 0x3BF0000000000000
+  %25 = fmul nnan float %24, 0x3BF0000000000000
   %26 = getelementptr inbounds nuw i8, ptr %.05358, i64 16
   store float %25, ptr %21, align 4, !tbaa !63
   %27 = getelementptr inbounds nuw i8, ptr %.059, i64 40
   %28 = load i64, ptr %22, align 8, !tbaa !78
   %29 = uitofp i64 %28 to float
-  %30 = fmul float %29, 0x3BF0000000000000
+  %30 = fmul nnan float %29, 0x3BF0000000000000
   %31 = getelementptr inbounds nuw i8, ptr %.05358, i64 20
   store float %30, ptr %26, align 4, !tbaa !63
   %32 = getelementptr inbounds nuw i8, ptr %.059, i64 48
   %33 = load i64, ptr %27, align 8, !tbaa !78
   %34 = uitofp i64 %33 to float
-  %35 = fmul float %34, 0x3BF0000000000000
+  %35 = fmul nnan float %34, 0x3BF0000000000000
   %36 = getelementptr inbounds nuw i8, ptr %.05358, i64 24
   store float %35, ptr %31, align 4, !tbaa !63
   %37 = getelementptr inbounds nuw i8, ptr %.059, i64 56
   %38 = load i64, ptr %32, align 8, !tbaa !78
   %39 = uitofp i64 %38 to float
-  %40 = fmul float %39, 0x3BF0000000000000
+  %40 = fmul nnan float %39, 0x3BF0000000000000
   %41 = getelementptr inbounds nuw i8, ptr %.05358, i64 28
   store float %40, ptr %36, align 4, !tbaa !63
   %42 = getelementptr inbounds nuw i8, ptr %.059, i64 64
   %43 = load i64, ptr %37, align 8, !tbaa !78
   %44 = uitofp i64 %43 to float
-  %45 = fmul float %44, 0x3BF0000000000000
+  %45 = fmul nnan float %44, 0x3BF0000000000000
   %46 = getelementptr inbounds nuw i8, ptr %.05358, i64 32
   store float %45, ptr %41, align 4, !tbaa !63
   %47 = getelementptr inbounds nuw i8, ptr %.059, i64 72
   %48 = load i64, ptr %42, align 8, !tbaa !78
   %49 = uitofp i64 %48 to float
-  %50 = fmul float %49, 0x3BF0000000000000
+  %50 = fmul nnan float %49, 0x3BF0000000000000
   %51 = getelementptr inbounds nuw i8, ptr %.05358, i64 36
   store float %50, ptr %46, align 4, !tbaa !63
   %52 = getelementptr inbounds nuw i8, ptr %.059, i64 80
   %53 = load i64, ptr %47, align 8, !tbaa !78
   %54 = uitofp i64 %53 to float
-  %55 = fmul float %54, 0x3BF0000000000000
+  %55 = fmul nnan float %54, 0x3BF0000000000000
   %56 = getelementptr inbounds nuw i8, ptr %.05358, i64 40
   store float %55, ptr %51, align 4, !tbaa !63
   %57 = getelementptr inbounds nuw i8, ptr %.059, i64 88
   %58 = load i64, ptr %52, align 8, !tbaa !78
   %59 = uitofp i64 %58 to float
-  %60 = fmul float %59, 0x3BF0000000000000
+  %60 = fmul nnan float %59, 0x3BF0000000000000
   %61 = getelementptr inbounds nuw i8, ptr %.05358, i64 44
   store float %60, ptr %56, align 4, !tbaa !63
   %62 = getelementptr inbounds nuw i8, ptr %.059, i64 96
   %63 = load i64, ptr %57, align 8, !tbaa !78
   %64 = uitofp i64 %63 to float
-  %65 = fmul float %64, 0x3BF0000000000000
+  %65 = fmul nnan float %64, 0x3BF0000000000000
   %66 = getelementptr inbounds nuw i8, ptr %.05358, i64 48
   store float %65, ptr %61, align 4, !tbaa !63
   %67 = getelementptr inbounds nuw i8, ptr %.059, i64 104
   %68 = load i64, ptr %62, align 8, !tbaa !78
   %69 = uitofp i64 %68 to float
-  %70 = fmul float %69, 0x3BF0000000000000
+  %70 = fmul nnan float %69, 0x3BF0000000000000
   %71 = getelementptr inbounds nuw i8, ptr %.05358, i64 52
   store float %70, ptr %66, align 4, !tbaa !63
   %72 = getelementptr inbounds nuw i8, ptr %.059, i64 112
   %73 = load i64, ptr %67, align 8, !tbaa !78
   %74 = uitofp i64 %73 to float
-  %75 = fmul float %74, 0x3BF0000000000000
+  %75 = fmul nnan float %74, 0x3BF0000000000000
   %76 = getelementptr inbounds nuw i8, ptr %.05358, i64 56
   store float %75, ptr %71, align 4, !tbaa !63
   %77 = getelementptr inbounds nuw i8, ptr %.059, i64 120
   %78 = load i64, ptr %72, align 8, !tbaa !78
   %79 = uitofp i64 %78 to float
-  %80 = fmul float %79, 0x3BF0000000000000
+  %80 = fmul nnan float %79, 0x3BF0000000000000
   %81 = getelementptr inbounds nuw i8, ptr %.05358, i64 60
   store float %80, ptr %76, align 4, !tbaa !63
   %82 = getelementptr inbounds nuw i8, ptr %.059, i64 128
   %83 = load i64, ptr %77, align 8, !tbaa !78
   %84 = uitofp i64 %83 to float
-  %85 = fmul float %84, 0x3BF0000000000000
+  %85 = fmul nnan float %84, 0x3BF0000000000000
   %86 = getelementptr inbounds nuw i8, ptr %.05358, i64 64
   store float %85, ptr %81, align 4, !tbaa !63
   %87 = add i64 %.05557, -16
@@ -38318,7 +38318,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_012convert_typeIyfEEvPKT_
   %90 = getelementptr inbounds nuw i8, ptr %.165, i64 8
   %91 = load i64, ptr %.165, align 8, !tbaa !78
   %92 = uitofp i64 %91 to float
-  %93 = fmul float %92, 0x3BF0000000000000
+  %93 = fmul nnan float %92, 0x3BF0000000000000
   %94 = getelementptr inbounds nuw i8, ptr %.15464, i64 4
   store float %93, ptr %.15464, align 4, !tbaa !63
   %.not = icmp eq i64 %89, 0

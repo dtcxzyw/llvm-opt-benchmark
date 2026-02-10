@@ -318,7 +318,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc37
   %indvars.iv52 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next53, %._crit_edge.us ]
   %20 = trunc nuw nsw i64 %indvars.iv52 to i32
   %21 = uitofp nneg i32 %20 to double
-  %22 = fmul double %21, 0x401921FB54442D18
+  %22 = fmul nnan double %21, 0x401921FB54442D18
   br label %23
 
 23:                                               ; preds = %.preheader.us, %23
@@ -628,7 +628,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %_ZNSt6vectorI
   %34 = lshr i32 %33, 1
   %35 = sub nsw i32 0, %34
   %36 = sitofp i32 %2 to double
-  %37 = fmul double %36, -2.000000e+00
+  %37 = fmul nnan double %36, -2.000000e+00
   %38 = sext i32 %35 to i64
   %invariant.gep = getelementptr float, ptr %23, i64 %20
   br label %39
@@ -658,7 +658,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %_ZNSt6vectorI
 
 .lr.ph59:                                         ; preds = %._crit_edge
   %51 = sitofp i32 %2 to double
-  %52 = fmul double %51, -2.000000e+00
+  %52 = fmul nnan double %51, -2.000000e+00
   %umax = tail call i32 @llvm.umax.i32(i32 %34, i32 2)
   %wide.trip.count65 = zext nneg i32 %umax to i64
   br label %53

@@ -587,7 +587,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %73, %75
   br i1 %77, label %78, label %.critedge
 
 78:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
-  %79 = fmul double %1, 1.000000e+02
+  %79 = fmul nnan double %1, 1.000000e+02
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %80 = load i64, ptr %48, align 8, !tbaa !24
   %81 = add i64 %80, 1

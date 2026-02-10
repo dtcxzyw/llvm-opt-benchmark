@@ -1201,7 +1201,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw22adjust_sizes_info_onlyEv(ptr no
   store i16 %20, ptr %10, align 2, !tbaa !111
   %21 = and i32 %19, 65535
   %22 = uitofp nneg i32 %21 to double
-  %23 = fmul reassoc nsz arcp contract afn double %22, 0x3FF6A09E667F3BCC
+  %23 = fmul reassoc nnan nsz arcp contract afn double %22, 0x3FF6A09E667F3BCC
   %24 = fptoui double %23 to i16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 30
   store i16 %24, ptr %25, align 2, !tbaa !113
@@ -1210,7 +1210,7 @@ define noundef range(i32 -4, 1) i32 @_ZN6LibRaw22adjust_sizes_info_onlyEv(ptr no
   %28 = zext i16 %27 to i32
   %29 = sub nsw i32 %28, %21
   %30 = sitofp i32 %29 to double
-  %31 = fmul reassoc nsz arcp contract afn double %30, 0x3FF6A09E667F3BCC
+  %31 = fmul reassoc nnan nsz arcp contract afn double %30, 0x3FF6A09E667F3BCC
   %32 = fptoui double %31 to i16
   store i16 %32, ptr %26, align 4, !tbaa !114
   br label %53

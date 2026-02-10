@@ -6518,7 +6518,7 @@ _ZNK17scoped_ptr_vectorI25dependent_expr_simplifierE3endEv.exit: ; preds = %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 17, i1 false)
   %31 = call noundef i64 @_ZN6memory19get_allocation_sizeEv()
   %32 = uitofp i64 %31 to double
-  %33 = fmul double %32, 0x3EB0000000000000
+  %33 = fmul nnan double %32, 0x3EB0000000000000
   store double %33, ptr %13, align 8, !tbaa !428
   store ptr %18, ptr %14, align 8, !tbaa !28
   %34 = load i8, ptr %15, align 8, !tbaa !433, !range !37, !noundef !38
@@ -6770,7 +6770,7 @@ _ZN9stopwatch4stopEv.exit:                        ; preds = %7, %1
 
 14:                                               ; preds = %_ZN9stopwatch4stopEv.exit
   %15 = uitofp i64 %13 to double
-  %16 = fmul double %15, 0x3EB0000000000000
+  %16 = fmul nnan double %15, 0x3EB0000000000000
   %17 = invoke noundef i32 @_Z19get_verbosity_levelv()
           to label %18 unwind label %274
 

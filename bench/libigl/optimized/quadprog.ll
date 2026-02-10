@@ -1622,7 +1622,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
 
 .preheader889:                                    ; preds = %.lr.ph933, %.preheader893
   %613 = sitofp i32 %39 to double
-  %614 = fmul double %613, 0x3CB0000000000000
+  %614 = fmul nnan double %613, 0x3CB0000000000000
   %615 = fmul double %614, %.0.i.i
   %616 = fmul double %615, %.0.i.i286
   %617 = fmul double %616, 1.000000e+02

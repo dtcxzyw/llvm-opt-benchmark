@@ -1792,7 +1792,7 @@ define void @init(ptr noundef writeonly captures(none) initializes((676, 700), (
   %indvars.iv = phi i64 [ 0, %.preheader20 ], [ %indvars.iv.next, %13 ]
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = uitofp nneg i32 %14 to float
-  %16 = fmul reassoc nsz arcp contract afn float %15, 0x3FC99999A0000000
+  %16 = fmul reassoc nnan nsz arcp contract afn float %15, 0x3FC99999A0000000
   %17 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
   store float %16, ptr %17, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

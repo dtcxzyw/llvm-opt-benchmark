@@ -30,7 +30,7 @@ define void @_ZN6LibRaw11fuji_rotateEv(ptr noundef nonnull align 8 dereferenceab
   store i16 %12, ptr %2, align 2, !tbaa !6
   %13 = and i32 %11, 65535
   %14 = uitofp nneg i32 %13 to double
-  %15 = fmul reassoc nsz arcp contract afn double %14, 0x3FF6A09E667F3BCC
+  %15 = fmul reassoc nnan nsz arcp contract afn double %14, 0x3FF6A09E667F3BCC
   %16 = fptoui double %15 to i16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -38,7 +38,7 @@ define void @_ZN6LibRaw11fuji_rotateEv(ptr noundef nonnull align 8 dereferenceab
   %20 = zext i16 %19 to i32
   %21 = sub nsw i32 %20, %13
   %22 = sitofp i32 %21 to double
-  %23 = fmul reassoc nsz arcp contract afn double %22, 0x3FF6A09E667F3BCC
+  %23 = fmul reassoc nnan nsz arcp contract afn double %22, 0x3FF6A09E667F3BCC
   %24 = fptoui double %23 to i16
   %25 = zext i16 %16 to i64
   %26 = zext i16 %24 to i64
@@ -118,14 +118,14 @@ define void @_ZN6LibRaw11fuji_rotateEv(ptr noundef nonnull align 8 dereferenceab
   %56 = sub nsw i64 %indvars.iv83, %indvars.iv78
   %57 = trunc nsw i64 %56 to i32
   %58 = sitofp i32 %57 to double
-  %59 = fmul reassoc nsz arcp contract afn double %58, 0x3FE6A09E667F3BCD
+  %59 = fmul reassoc nnan nsz arcp contract afn double %58, 0x3FE6A09E667F3BCD
   %60 = fadd reassoc nsz arcp contract afn double %59, %55
   %61 = fptrunc reassoc nsz arcp contract afn double %60 to float
   %62 = fptoui float %61 to i32
   %63 = add nuw nsw i64 %indvars.iv78, %indvars.iv83
   %64 = trunc nuw nsw i64 %63 to i32
   %65 = uitofp nneg i32 %64 to double
-  %66 = fmul reassoc nsz arcp contract afn double %65, 0x3FE6A09E667F3BCD
+  %66 = fmul reassoc nnan nsz arcp contract afn double %65, 0x3FE6A09E667F3BCD
   %67 = fptrunc reassoc nsz arcp contract afn double %66 to float
   %68 = fptoui float %67 to i32
   %69 = load i16, ptr %18, align 4, !tbaa !72
@@ -143,7 +143,7 @@ define void @_ZN6LibRaw11fuji_rotateEv(ptr noundef nonnull align 8 dereferenceab
 
 .lr.ph.us.us:                                     ; preds = %73
   %78 = uitofp i32 %62 to float
-  %79 = fsub reassoc nsz arcp contract afn float %61, %78
+  %79 = fsub reassoc nnan nsz arcp contract afn float %61, %78
   %80 = uitofp i32 %68 to float
   %81 = fsub reassoc nsz arcp contract afn float %67, %80
   %82 = mul i32 %75, %62
@@ -347,7 +347,7 @@ define void @_ZN6LibRaw7stretchEv(ptr noundef nonnull align 8 dereferenceable(76
   %57 = getelementptr inbounds nuw i16, ptr %.16899.us.us, i64 %indvars.iv136
   %58 = load i16, ptr %57, align 2, !tbaa !81
   %59 = uitofp i16 %58 to double
-  %60 = fsub reassoc nsz arcp contract afn double %59, %56
+  %60 = fsub reassoc nnan nsz arcp contract afn double %59, %56
   %61 = fmul reassoc nsz arcp contract afn double %60, %40
   %62 = fadd reassoc nsz arcp contract afn double %56, 5.000000e-01
   %63 = fadd reassoc nsz arcp contract afn double %62, %61
@@ -457,7 +457,7 @@ define void @_ZN6LibRaw7stretchEv(ptr noundef nonnull align 8 dereferenceable(76
   %116 = getelementptr inbounds nuw i16, ptr %.382.us.us, i64 %indvars.iv
   %117 = load i16, ptr %116, align 2, !tbaa !81
   %118 = uitofp i16 %117 to double
-  %119 = fsub reassoc nsz arcp contract afn double %118, %115
+  %119 = fsub reassoc nnan nsz arcp contract afn double %118, %115
   %120 = fmul reassoc nsz arcp contract afn double %119, %102
   %121 = fadd reassoc nsz arcp contract afn double %115, 5.000000e-01
   %122 = fadd reassoc nsz arcp contract afn double %121, %120

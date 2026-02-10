@@ -2278,7 +2278,7 @@ define dso_local i64 @dpow(ptr noundef readonly captures(none) %0) local_unnamed
   br label %93
 
 51:                                               ; preds = %47
-  %52 = fmul double %5, 5.000000e-01
+  %52 = fmul nnan double %5, 5.000000e-01
   %53 = tail call double @llvm.floor.f64(double %52)
   %54 = fcmp une double %53, %52
   %55 = fcmp ogt double %5, 0.000000e+00
@@ -3012,7 +3012,7 @@ define internal fastcc void @init_degree_constants() unnamed_addr #12 {
 
 23:                                               ; preds = %0
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %24 = fmul double %21, 0x3F91DF46A2529D39
+  %24 = fmul nnan double %21, 0x3F91DF46A2529D39
   %25 = tail call double @sin(double noundef %24) #19
   store volatile double %25, ptr %8, align 8
   %.0..0..0..0..0..0..0..0..i.i = load volatile double, ptr %8, align 8
@@ -3042,7 +3042,7 @@ sind_q1.exit:                                     ; preds = %23, %28
 
 37:                                               ; preds = %sind_q1.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %38 = fmul double %21, 0x3F91DF46A2529D39
+  %38 = fmul nnan double %21, 0x3F91DF46A2529D39
   %39 = tail call double @cos(double noundef %38) #19
   %40 = fsub double 1.000000e+00, %39
   store volatile double %40, ptr %6, align 8
@@ -3090,7 +3090,7 @@ cosd_q1.exit7:                                    ; preds = %37, %49
 
 58:                                               ; preds = %cosd_q1.exit7
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %59 = fmul double %21, 0x3F91DF46A2529D39
+  %59 = fmul nnan double %21, 0x3F91DF46A2529D39
   %60 = tail call double @sin(double noundef %59) #19
   store volatile double %60, ptr %2, align 8
   %.0..0..0..0..0..0..0..0..i.i8 = load volatile double, ptr %2, align 8
@@ -3368,7 +3368,7 @@ define dso_local i64 @dcosd(ptr noundef readonly captures(none) %0) local_unname
 
 25:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %26 = fmul double %.2, 0x3F91DF46A2529D39
+  %26 = fmul nnan double %.2, 0x3F91DF46A2529D39
   %27 = tail call double @cos(double noundef %26) #19
   %28 = fsub double 1.000000e+00, %27
   store volatile double %28, ptr %3, align 8
@@ -3468,7 +3468,7 @@ define dso_local i64 @dcotd(ptr noundef readonly captures(none) %0) local_unname
 
 30:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %31 = fmul double %.222, 0x3F91DF46A2529D39
+  %31 = fmul nnan double %.222, 0x3F91DF46A2529D39
   %32 = tail call double @cos(double noundef %31) #19
   %33 = fsub double 1.000000e+00, %32
   store volatile double %33, ptr %5, align 8
@@ -3500,7 +3500,7 @@ cosd_q1.exit:                                     ; preds = %30, %38
 
 46:                                               ; preds = %cosd_q1.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %47 = fmul double %.222, 0x3F91DF46A2529D39
+  %47 = fmul nnan double %.222, 0x3F91DF46A2529D39
   %48 = tail call double @sin(double noundef %47) #19
   store volatile double %48, ptr %3, align 8
   %.0..0..0..0..0..0..0..0..i.i27 = load volatile double, ptr %3, align 8
@@ -3594,7 +3594,7 @@ define dso_local i64 @dsind(ptr noundef readonly captures(none) %0) local_unname
 
 27:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %28 = fmul double %.2, 0x3F91DF46A2529D39
+  %28 = fmul nnan double %.2, 0x3F91DF46A2529D39
   %29 = tail call double @sin(double noundef %28) #19
   store volatile double %29, ptr %3, align 8
   %.0..0..0..0..0..0..0..0..i.i = load volatile double, ptr %3, align 8
@@ -3693,7 +3693,7 @@ define dso_local i64 @dtand(ptr noundef readonly captures(none) %0) local_unname
 
 30:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %31 = fmul double %.222, 0x3F91DF46A2529D39
+  %31 = fmul nnan double %.222, 0x3F91DF46A2529D39
   %32 = tail call double @sin(double noundef %31) #19
   store volatile double %32, ptr %5, align 8
   %.0..0..0..0..0..0..0..0..i.i = load volatile double, ptr %5, align 8
@@ -3725,7 +3725,7 @@ sind_q1.exit:                                     ; preds = %30, %36
 
 46:                                               ; preds = %sind_q1.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %47 = fmul double %.222, 0x3F91DF46A2529D39
+  %47 = fmul nnan double %.222, 0x3F91DF46A2529D39
   %48 = tail call double @cos(double noundef %47) #19
   %49 = fsub double 1.000000e+00, %48
   store volatile double %49, ptr %3, align 8
@@ -4257,7 +4257,7 @@ check_float8_array.exit:                          ; preds = %17
   %36 = fneg double %30
   %37 = tail call double @llvm.fmuladd.f64(double %8, double %29, double %36)
   %38 = fmul double %37, %37
-  %39 = fmul double %24, %29
+  %39 = fmul nnan double %24, %29
   %40 = fdiv double %38, %39
   %41 = fadd double %28, %40
   %42 = tail call double @llvm.fabs.f64(double %41)
@@ -4378,7 +4378,7 @@ check_float8_array.exit:                          ; preds = %20
   %39 = fneg double %33
   %40 = tail call double @llvm.fmuladd.f64(double %11, double %32, double %39)
   %41 = fmul double %40, %40
-  %42 = fmul double %27, %32
+  %42 = fmul nnan double %27, %32
   %43 = fdiv double %41, %42
   %44 = fadd double %31, %43
   %45 = tail call double @llvm.fabs.f64(double %44)
@@ -4794,7 +4794,7 @@ check_float8_array.exit:                          ; preds = %19
   %43 = tail call double @llvm.fmuladd.f64(double %10, double %37, double %42)
   %44 = fneg double %39
   %45 = tail call double @llvm.fmuladd.f64(double %8, double %37, double %44)
-  %46 = fmul double %26, %37
+  %46 = fmul nnan double %26, %37
   %47 = fdiv double 1.000000e+00, %46
   %48 = fmul double %43, %43
   %49 = tail call double @llvm.fmuladd.f64(double %48, double %47, double %30)
@@ -6514,15 +6514,15 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
   br i1 %50, label %55, label %52
 
 52:                                               ; preds = %47
-  %53 = fsub double %3, %5
+  %53 = fsub nnan double %3, %5
   %54 = fdiv double %53, %48
   br label %62
 
 55:                                               ; preds = %47
-  %56 = fmul double %3, 5.000000e-01
-  %57 = fmul double %5, 5.000000e-01
+  %56 = fmul nnan double %3, 5.000000e-01
+  %57 = fmul nnan double %5, 5.000000e-01
   %58 = fsub double %56, %57
-  %59 = fmul double %7, 5.000000e-01
+  %59 = fmul nnan double %7, 5.000000e-01
   %60 = fsub double %59, %57
   %61 = fdiv double %58, %60
   br label %62
@@ -6569,15 +6569,15 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_float8(ptr
   br i1 %83, label %88, label %85
 
 85:                                               ; preds = %80
-  %86 = fsub double %5, %3
+  %86 = fsub nnan double %5, %3
   %87 = fdiv double %86, %81
   br label %95
 
 88:                                               ; preds = %80
-  %89 = fmul double %5, 5.000000e-01
-  %90 = fmul double %3, 5.000000e-01
+  %89 = fmul nnan double %5, 5.000000e-01
+  %90 = fmul nnan double %3, 5.000000e-01
   %91 = fsub double %89, %90
-  %92 = fmul double %7, 5.000000e-01
+  %92 = fmul nnan double %7, 5.000000e-01
   %93 = fsub double %89, %92
   %94 = fdiv double %91, %93
   br label %95

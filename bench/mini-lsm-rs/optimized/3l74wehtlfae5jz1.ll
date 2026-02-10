@@ -249,8 +249,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !77
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !77
   %20 = uitofp i64 %.val20.i to double
-  %21 = fmul double %20, 0x3F50000000000000
-  %22 = fmul double %21, 0x3F50000000000000
+  %21 = fmul nnan double %20, 0x3F50000000000000
+  %22 = fmul nnan double %21, 0x3F50000000000000
   store double %22, ptr %6, align 8, !noalias !77
   store ptr %6, ptr %7, align 8, !noalias !77
   store ptr @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$3fmt17hac90c54b90620e24E", ptr %15, align 8, !noalias !77
@@ -757,8 +757,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !255
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !255
   %20 = uitofp i64 %.val20.i to double
-  %21 = fmul double %20, 0x3F50000000000000
-  %22 = fmul double %21, 0x3F50000000000000
+  %21 = fmul nnan double %20, 0x3F50000000000000
+  %22 = fmul nnan double %21, 0x3F50000000000000
   store double %22, ptr %6, align 8, !noalias !255
   store ptr %6, ptr %7, align 8, !noalias !255
   store ptr @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$3fmt17hac90c54b90620e24E", ptr %15, align 8, !noalias !255
@@ -6117,8 +6117,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1552
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1552
   %23 = uitofp i64 %.val20 to double
-  %24 = fmul double %23, 0x3F50000000000000
-  %25 = fmul double %24, 0x3F50000000000000
+  %24 = fmul nnan double %23, 0x3F50000000000000
+  %25 = fmul nnan double %24, 0x3F50000000000000
   store double %25, ptr %6, align 8, !noalias !1552
   store ptr %6, ptr %7, align 8, !noalias !1552
   store ptr @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$3fmt17hac90c54b90620e24E", ptr %15, align 8, !noalias !1552
@@ -6252,8 +6252,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1605
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1605
   %23 = uitofp i64 %.val20 to double
-  %24 = fmul double %23, 0x3F50000000000000
-  %25 = fmul double %24, 0x3F50000000000000
+  %24 = fmul nnan double %23, 0x3F50000000000000
+  %25 = fmul nnan double %24, 0x3F50000000000000
   store double %25, ptr %6, align 8, !noalias !1605
   store ptr %6, ptr %7, align 8, !noalias !1605
   store ptr @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$3fmt17hac90c54b90620e24E", ptr %15, align 8, !noalias !1605
@@ -7073,7 +7073,7 @@ define void @_ZN8mini_lsm5table5bloom5Bloom21build_from_key_hashes17h5e017453245
   %10 = alloca { ptr, ptr, i64, { ptr } }, align 8
   %11 = alloca { ptr, i64, i64, ptr }, align 8
   %12 = uitofp i64 %3 to double
-  %13 = fmul double %12, 6.900000e-01
+  %13 = fmul nnan double %12, 6.900000e-01
   %14 = tail call i32 @llvm.fptoui.sat.i32.f64(double %13)
   %15 = tail call i32 @llvm.umax.i32(i32 %14, i32 1)
   %.0.sroa.speculated.i17 = tail call i32 @llvm.umin.i32(i32 %15, i32 30)

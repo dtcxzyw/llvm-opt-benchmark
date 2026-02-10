@@ -19493,7 +19493,7 @@ entry:
   %size.sroa.2.0.extract.shift = lshr i64 %size.coerce, 32
   %size.sroa.2.0.extract.trunc = trunc nuw i64 %size.sroa.2.0.extract.shift to i32
   %conv = sitofp i32 %saturation to float
-  %div = fdiv nsz float %conv, 1.000000e+02
+  %div = fdiv nnan nsz float %conv, 1.000000e+02
   %conv5 = sitofp i32 %lightness to float
   %div6 = fdiv nsz float %conv5, 1.000000e+02
   br i1 %colorize, label %if.then, label %if.end
@@ -19514,7 +19514,7 @@ for.cond14.preheader.lr.ph:                       ; preds = %if.end
   %cmp18139.not = icmp eq i32 %size.sroa.0.0.extract.trunc, 0
   %cmp40 = fcmp nsz olt float %div6, 0.000000e+00
   %add42 = fadd nsz float %div6, 1.000000e+00
-  %add52 = fadd nsz float %div, 1.000000e+00
+  %add52 = fadd nnan nsz float %div, 1.000000e+00
   %sub = fsub nsz float 1.000000e+00, %div6
   %conv62 = sitofp i32 %hue to float
   br i1 %cmp18139.not, label %for.cond.cleanup, label %for.cond14.preheader.us
@@ -19541,15 +19541,15 @@ for.body20.us:                                    ; preds = %_ZNK3irr5video9SCol
   br i1 %colorize, label %if.then22.us, label %if.else33.us
 
 if.else33.us:                                     ; preds = %for.body20.us
-  %mul.i.us = fmul nsz float %conv.i.us, 0x3F70101020000000
+  %mul.i.us = fmul nnan nsz float %conv.i.us, 0x3F70101020000000
   %shr.i11.i.us = lshr i32 %call24.us, 8
   %and.i12.i.us = and i32 %shr.i11.i.us, 255
   %conv3.i105.us = uitofp nneg i32 %and.i12.i.us to float
-  %mul4.i106.us = fmul nsz float %conv3.i105.us, 0x3F70101020000000
-  %mul7.i.us = fmul nsz float %conv6.i.us, 0x3F70101020000000
+  %mul4.i106.us = fmul nnan nsz float %conv3.i105.us, 0x3F70101020000000
+  %mul7.i.us = fmul nnan nsz float %conv6.i.us, 0x3F70101020000000
   %shr.i14.i.us = lshr i32 %call24.us, 24
   %conv9.i.us = uitofp nneg i32 %shr.i14.i.us to float
-  %mul10.i.us = fmul nsz float %conv9.i.us, 0x3F70101020000000
+  %mul10.i.us = fmul nnan nsz float %conv9.i.us, 0x3F70101020000000
   %cmp.i.i111.us = fcmp nsz olt float %mul.i.us, %mul4.i106.us
   %..i.i.us = select i1 %cmp.i.i111.us, float %mul4.i106.us, float %mul.i.us
   %cmp.i5.i.i.us = fcmp nsz olt float %..i.i.us, %mul7.i.us
@@ -19630,7 +19630,7 @@ if.then22.us:                                     ; preds = %for.body20.us
   %shr.i7.i.us = lshr i32 %call24.us, 8
   %and.i8.i.us = and i32 %shr.i7.i.us, 255
   %conv3.i.us = uitofp nneg i32 %and.i8.i.us to float
-  %mul4.i.us = fmul nsz float %conv3.i.us, 0x3FE2E147A0000000
+  %mul4.i.us = fmul nnan nsz float %conv3.i.us, 0x3FE2E147A0000000
   %11 = call nsz float @llvm.fmuladd.f32(float %conv.i.us, float 0x3FD3333340000000, float %mul4.i.us)
   %12 = call nsz noundef float @llvm.fmuladd.f32(float %conv6.i.us, float 0x3FBC28F5C0000000, float %11)
   %div26.us = fdiv nsz float %12, 2.550000e+02
@@ -19864,14 +19864,14 @@ for.body18.us:                                    ; preds = %cond.end82.us, %for
   br i1 %cmp47.us, label %cond.true48.us, label %cond.false50.us
 
 cond.false50.us:                                  ; preds = %for.body18.us
-  %sub.us = fsub nsz double 1.000000e+00, %div39.us
+  %sub.us = fsub nnan nsz double 1.000000e+00, %div39.us
   %sub52.us = fsub nsz double 1.000000e+00, %div.us
-  %neg.us = fmul nsz double %sub.us, -2.000000e+00
+  %neg.us = fmul nnan nsz double %sub.us, -2.000000e+00
   %2 = call nsz double @llvm.fmuladd.f64(double %neg.us, double %sub52.us, double 1.000000e+00)
   br label %cond.end54.us
 
 cond.true48.us:                                   ; preds = %for.body18.us
-  %mul.us = fmul nsz double %div39.us, 2.000000e+00
+  %mul.us = fmul nnan nsz double %div39.us, 2.000000e+00
   %mul49.us = fmul nsz double %div.us, %mul.us
   br label %cond.end54.us
 
@@ -19883,14 +19883,14 @@ cond.end54.us:                                    ; preds = %cond.true48.us, %co
   br i1 %cmp58.us, label %cond.true59.us, label %cond.false62.us
 
 cond.false62.us:                                  ; preds = %cond.end54.us
-  %sub63.us = fsub nsz double 1.000000e+00, %div42.us
+  %sub63.us = fsub nnan nsz double 1.000000e+00, %div42.us
   %sub65.us = fsub nsz double 1.000000e+00, %div33.us
-  %neg67.us = fmul nsz double %sub63.us, -2.000000e+00
+  %neg67.us = fmul nnan nsz double %sub63.us, -2.000000e+00
   %3 = call nsz double @llvm.fmuladd.f64(double %neg67.us, double %sub65.us, double 1.000000e+00)
   br label %cond.end68.us
 
 cond.true59.us:                                   ; preds = %cond.end54.us
-  %mul60.us = fmul nsz double %div42.us, 2.000000e+00
+  %mul60.us = fmul nnan nsz double %div42.us, 2.000000e+00
   %mul61.us = fmul nsz double %div33.us, %mul60.us
   br label %cond.end68.us
 
@@ -19902,14 +19902,14 @@ cond.end68.us:                                    ; preds = %cond.true59.us, %co
   br i1 %cmp72.us, label %cond.true73.us, label %cond.false76.us
 
 cond.false76.us:                                  ; preds = %cond.end68.us
-  %sub77.us = fsub nsz double 1.000000e+00, %div45.us
+  %sub77.us = fsub nnan nsz double 1.000000e+00, %div45.us
   %sub79.us = fsub nsz double 1.000000e+00, %div36.us
-  %neg81.us = fmul nsz double %sub77.us, -2.000000e+00
+  %neg81.us = fmul nnan nsz double %sub77.us, -2.000000e+00
   %4 = call nsz double @llvm.fmuladd.f64(double %neg81.us, double %sub79.us, double 1.000000e+00)
   br label %cond.end82.us
 
 cond.true73.us:                                   ; preds = %cond.end68.us
-  %mul74.us = fmul nsz double %div45.us, 2.000000e+00
+  %mul74.us = fmul nnan nsz double %div45.us, 2.000000e+00
   %mul75.us = fmul nsz double %div36.us, %mul74.us
   br label %cond.end82.us
 
@@ -19953,10 +19953,10 @@ entry:
   %size.sroa.2.0.extract.trunc = trunc nuw i64 %size.sroa.2.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %dst_c)
   %conv = sitofp i32 %contrast to double
-  %div = fmul nsz double %conv, 7.812500e-03
+  %div = fmul nnan nsz double %conv, 7.812500e-03
   %conv5 = sitofp i32 %brightness to double
   %div6 = fdiv nsz double %conv5, 1.270000e+02
-  %mul = fmul nsz double %conv5, 1.275000e+02
+  %mul = fmul nnan nsz double %conv5, 1.275000e+02
   %div8 = fdiv nsz double %mul, 1.270000e+02
   %0 = tail call nsz double @llvm.fabs.f64(double %div6)
   %sub = fsub nsz double 1.000000e+00, %0

@@ -565,12 +565,12 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %.sroa.4.0..sroa.4.4. = load i32, ptr %.sroa.4, align 4, !tbaa !18
   %55 = sub nsw i32 %.sroa.0.0..sroa.0.0., %.sroa.4.0..sroa.4.4.
   %56 = sitofp i32 %55 to double
-  %57 = fmul nsz double %56, 0x3F20000000000000
+  %57 = fmul nnan nsz double %56, 0x3F20000000000000
   %58 = fptrunc nsz double %57 to float
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 10576
   store float %58, ptr %59, align 8, !tbaa !31
   %60 = sitofp i32 %.sroa.4.0..sroa.4.4. to double
-  %61 = fmul nsz double %60, 0x3F20000000000000
+  %61 = fmul nnan nsz double %60, 0x3F20000000000000
   %62 = fptrunc nsz double %61 to float
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 10580
   store float %62, ptr %63, align 4, !tbaa !31
@@ -677,7 +677,7 @@ define internal fastcc void @silk_decode_frame(ptr noundef captures(none) %0, pt
   %121 = mul nsw i32 %119, %120
   %122 = add nsw i32 %121, %114
   %123 = sitofp i32 %122 to float
-  %124 = fmul nsz float %123, 0x3EF0000000000000
+  %124 = fmul nnan nsz float %123, 0x3EF0000000000000
   %125 = getelementptr inbounds nuw %struct.anon, ptr %20, i64 %indvars.iv344
   store float %124, ptr %125, align 4, !tbaa !40
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
@@ -1381,7 +1381,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   %511 = getelementptr inbounds nuw i8, ptr %507, i64 %indvars.iv350
   %512 = load i8, ptr %511, align 1, !tbaa !43
   %513 = sitofp i8 %512 to float
-  %514 = fmul nsz float %513, 7.812500e-03
+  %514 = fmul nnan nsz float %513, 7.812500e-03
   %515 = getelementptr inbounds nuw float, ptr %509, i64 %indvars.iv350
   store float %514, ptr %515, align 4, !tbaa !31
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
@@ -1404,7 +1404,7 @@ silk_decode_lpc.exit:                             ; preds = %silk_stabilize_lsf.
   %523 = getelementptr inbounds nuw i16, ptr @ff_silk_ltp_scale_factor, i64 %522
   %524 = load i16, ptr %523, align 2, !tbaa !36
   %525 = uitofp i16 %524 to float
-  %526 = fmul nsz float %525, 0x3F10000000000000
+  %526 = fmul nnan nsz float %525, 0x3F10000000000000
   br label %.thread285
 
 .thread285:                                       ; preds = %silk_decode_lpc.exit, %._crit_edge310, %520
@@ -1741,7 +1741,7 @@ silk_count_children.exit113.i:                    ; preds = %611, %607
   %677 = phi i32 [ %675, %674 ], [ %671, %670 ]
   %678 = add i32 %673, %664
   %679 = sitofp i32 %677 to float
-  %680 = fmul nsz float %679, 0x3E80000000000000
+  %680 = fmul nnan nsz float %679, 0x3E80000000000000
   %681 = getelementptr inbounds nuw float, ptr %527, i64 %indvars.iv179.i
   store float %680, ptr %681, align 4, !tbaa !31
   %indvars.iv.next180.i = add nuw nsw i64 %indvars.iv179.i, 1
@@ -2574,7 +2574,7 @@ silk_is_lpc_stable.exit:                          ; preds = %.lr.ph90.i
   %283 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv188
   %284 = load i16, ptr %283, align 2, !tbaa !36
   %285 = sitofp i16 %284 to float
-  %286 = fmul nsz float %285, 0x3F30000000000000
+  %286 = fmul nnan nsz float %285, 0x3F30000000000000
   %287 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv188
   store float %286, ptr %287, align 4, !tbaa !31
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1

@@ -1210,7 +1210,7 @@ define internal fastcc i32 @svg_gradstyle(ptr noundef %0, ptr noundef %1, i64 no
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 152
   %10 = load i32, ptr %9, align 8, !tbaa !109
   %11 = sitofp i32 %10 to double
-  %12 = fmul double %11, 0x400921FB54442D18
+  %12 = fmul nnan double %11, 0x400921FB54442D18
   %13 = fdiv double %12, 1.800000e+02
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   call void @get_gradient_points(ptr noundef %1, ptr noundef nonnull %4, i64 noundef %2, double noundef %13, i32 noundef 0) #11
@@ -1274,7 +1274,7 @@ define internal fastcc i32 @svg_rgradstyle(ptr noundef %0) unnamed_addr #0 {
 
 9:                                                ; preds = %1
   %10 = sitofp i32 %7 to double
-  %11 = fmul double %10, 0x400921FB54442D18
+  %11 = fmul nnan double %10, 0x400921FB54442D18
   %12 = fdiv double %11, 1.800000e+02
   %13 = tail call double @cos(double noundef %12) #11, !tbaa !108
   %14 = fadd double %13, 1.000000e+00

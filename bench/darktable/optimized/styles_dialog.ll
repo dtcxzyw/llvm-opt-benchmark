@@ -1411,11 +1411,11 @@ define internal noundef i32 @_preview_draw(ptr noundef %0, ptr noundef %1, ptr n
   %26 = load ptr, ptr %18, align 8, !tbaa !143
   %27 = sub nsw i32 %21, %23
   %28 = sitofp i32 %27 to float
-  %29 = fmul reassoc nsz arcp contract afn float %28, 5.000000e-01
+  %29 = fmul reassoc nnan nsz arcp contract afn float %28, 5.000000e-01
   %30 = fpext reassoc nsz arcp contract afn float %29 to double
   %31 = sub nsw i32 %21, %25
   %32 = sitofp i32 %31 to float
-  %33 = fmul reassoc nsz arcp contract afn float %32, 5.000000e-01
+  %33 = fmul reassoc nnan nsz arcp contract afn float %32, 5.000000e-01
   %34 = fpext reassoc nsz arcp contract afn float %33 to double
   tail call void @cairo_set_source_surface(ptr noundef %1, ptr noundef %26, double noundef %30, double noundef %34) #15
   tail call void @cairo_paint(ptr noundef %1) #15

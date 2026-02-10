@@ -16081,7 +16081,7 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit.i.i:            ; preds = %73, %_ZNSt6vectorIN
 _ZN11colvarvalueD2Ev.exit:                        ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit.i.i, %74
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %80 = fcmp uge double %43, 0.000000e+00
-  %81 = fmul double %43, 5.000000e-01
+  %81 = fmul nnan double %43, 5.000000e-01
   br i1 %80, label %128, label %225
 
 82:                                               ; preds = %40
@@ -16172,7 +16172,7 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit.i.i64:          ; preds = %117, %_ZNSt6vectorI
 _ZN11colvarvalueD2Ev.exit66:                      ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit.i.i64, %118
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %124 = fcmp ule double %87, 0.000000e+00
-  %125 = fmul double %87, 5.000000e-01
+  %125 = fmul nnan double %87, 5.000000e-01
   br i1 %124, label %128, label %225
 
 126:                                              ; preds = %84
@@ -16272,7 +16272,7 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit.i.i74:          ; preds = %165, %_ZNSt6vectorI
 _ZN11colvarvalueD2Ev.exit76:                      ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit.i.i74, %166
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %172 = fcmp uge double %135, 0.000000e+00
-  %173 = fmul double %135, 5.000000e-01
+  %173 = fmul nnan double %135, 5.000000e-01
   br i1 %172, label %176, label %225
 
 174:                                              ; preds = %133
@@ -16370,7 +16370,7 @@ _ZNSt6vectorIdSaIdEE5clearEv.exit.i.i84:          ; preds = %213, %_ZNSt6vectorI
 _ZN11colvarvalueD2Ev.exit86:                      ; preds = %_ZNSt6vectorIdSaIdEE5clearEv.exit.i.i84, %214
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %220 = fcmp ule double %183, 0.000000e+00
-  %221 = fmul double %183, 5.000000e-01
+  %221 = fmul nnan double %183, 5.000000e-01
   br i1 %220, label %224, label %225
 
 222:                                              ; preds = %181

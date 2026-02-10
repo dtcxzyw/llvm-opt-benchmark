@@ -11360,7 +11360,7 @@ define void @_ZNK5Moves13AverageStringB5cxx11ERKNS_12moveStatTypeE(ptr dead_on_u
 40:                                               ; preds = %38
   %41 = load i32, ptr %27, align 4
   %42 = sitofp i32 %41 to double
-  %43 = fmul double %42, 1.000000e+02
+  %43 = fmul nnan double %42, 1.000000e+02
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %45 = load i32, ptr %44, align 4
   %46 = sitofp i32 %45 to double
@@ -11509,7 +11509,7 @@ define void @_ZNK5Moves17FullAverageStringB5cxx11ERKNS_12moveStatTypeE(ptr dead_
 66:                                               ; preds = %64
   %67 = load i32, ptr %33, align 4
   %68 = sitofp i32 %67 to double
-  %69 = fmul double %68, 1.000000e+02
+  %69 = fmul nnan double %68, 1.000000e+02
   %70 = load i32, ptr %53, align 4
   %71 = sitofp i32 %70 to double
   %72 = fdiv double %69, %71

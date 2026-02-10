@@ -1107,11 +1107,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238: ; preds = %36
   store i32 %139, ptr %371, align 8, !tbaa !60, !alias.scope !55
   %372 = mul nuw nsw i32 %139, %139
   %373 = uitofp nneg i32 %372 to float
-  %374 = fmul float %373, 2.500000e-01
+  %374 = fmul nnan float %373, 2.500000e-01
   %375 = call noundef float @llvm.floor.f32(float %374)
   %376 = fptosi float %375 to i32
   %377 = sitofp i32 %376 to float
-  %378 = fmul float %377, 4.000000e+00
+  %378 = fmul nnan float %377, 4.000000e+00
   %379 = fdiv float %378, 3.000000e+00
   %380 = call noundef float @llvm.floor.f32(float %379)
   %381 = fptosi float %380 to i32

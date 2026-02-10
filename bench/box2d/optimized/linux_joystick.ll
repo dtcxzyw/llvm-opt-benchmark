@@ -786,7 +786,7 @@ define hidden i32 @_glfwPollJoystickLinux(ptr noundef %0, i32 noundef %1) local_
 76:                                               ; preds = %69
   %77 = sub nsw i32 %73, %75
   %78 = sitofp i32 %75 to float
-  %79 = fsub float %71, %78
+  %79 = fsub nnan float %71, %78
   %80 = sitofp i32 %77 to float
   %81 = fdiv float %79, %80
   %82 = fmul float %81, 2.000000e+00
@@ -902,7 +902,7 @@ define internal fastcc void @pollAbsState(ptr noundef %0) unnamed_addr #0 {
 51:                                               ; preds = %45
   %52 = sub nsw i32 %48, %50
   %53 = sitofp i32 %50 to float
-  %54 = fsub float %46, %53
+  %54 = fsub nnan float %46, %53
   %55 = sitofp i32 %52 to float
   %56 = fdiv float %54, %55
   %57 = fmul float %56, 2.000000e+00

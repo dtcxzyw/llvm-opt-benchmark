@@ -375,7 +375,7 @@ _ZNK22small_object_allocator15get_wasted_sizeEv.exit: ; preds = %21
   store i64 2, ptr %34, align 8, !tbaa !37
   %35 = tail call noundef i64 @_ZN6memory19get_allocation_sizeEv()
   %36 = uitofp i64 %35 to double
-  %37 = fmul double %36, 0x3EB0000000000000
+  %37 = fmul nnan double %36, 0x3EB0000000000000
   %38 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %22, double noundef %37)
   %39 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull @.str.2, i64 noundef 1)
   %40 = load ptr, ptr %38, align 8, !tbaa !24
@@ -461,7 +461,7 @@ _ZNK22small_object_allocator15get_wasted_sizeEv.exit83: ; preds = %68
   store i64 2, ptr %81, align 8, !tbaa !37
   %82 = tail call noundef i64 @_ZN6memory19get_allocation_sizeEv()
   %83 = uitofp i64 %82 to double
-  %84 = fmul double %83, 0x3EB0000000000000
+  %84 = fmul nnan double %83, 0x3EB0000000000000
   %85 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %69, double noundef %84)
   %86 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %85, ptr noundef nonnull @.str.2, i64 noundef 1)
   %87 = load ptr, ptr %85, align 8, !tbaa !24
@@ -1350,7 +1350,7 @@ _ZNSolsEm.exit:                                   ; preds = %_ZNK22small_object_
 
 420:                                              ; preds = %407
   %421 = uitofp i64 %419 to double
-  %422 = fmul double %421, 0x3EB0000000000000
+  %422 = fmul nnan double %421, 0x3EB0000000000000
   %423 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %405, double noundef %422)
           to label %_ZNSolsEd.exit unwind label %443
 
@@ -1463,7 +1463,7 @@ _ZNSolsEm.exit162:                                ; preds = %_ZNK22small_object_
 
 469:                                              ; preds = %456
   %470 = uitofp i64 %468 to double
-  %471 = fmul double %470, 0x3EB0000000000000
+  %471 = fmul nnan double %470, 0x3EB0000000000000
   %472 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %454, double noundef %471)
           to label %_ZNSolsEd.exit168 unwind label %443
 

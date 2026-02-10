@@ -275,7 +275,7 @@ thread-pre-split:                                 ; preds = %22
   %77 = getelementptr inbounds nuw i8, ptr %7, i64 38288
   store i32 %76, ptr %77, align 16, !tbaa !73
   %78 = sitofp i64 %68 to double
-  %79 = fmul nsz double %78, 1.024000e+03
+  %79 = fmul nnan nsz double %78, 1.024000e+03
   %80 = sitofp i32 %70 to double
   %81 = fdiv nsz double %79, %80
   %82 = load i32, ptr %20, align 4, !tbaa !58
@@ -300,7 +300,7 @@ thread-pre-split:                                 ; preds = %22
   %.pre-phi194 = phi double [ %.pre193, %86 ], [ %80, %75 ]
   %.pre-phi192 = phi double [ %.pre191, %86 ], [ %84, %75 ]
   %88 = phi i32 [ %.pre, %86 ], [ %82, %75 ]
-  %89 = fmul nsz double %.pre-phi192, 0x3F50000000000000
+  %89 = fmul nnan nsz double %.pre-phi192, 0x3F50000000000000
   %90 = fmul nsz double %89, %.pre-phi194
   %91 = fcmp nsz ogt double %90, %.pre-phi196
   %. = select nsz i1 %91, double %.pre-phi196, double %90

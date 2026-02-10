@@ -4131,7 +4131,7 @@ Abc_TtGetCM.exit:                                 ; preds = %104, %102, %95
 
 136:                                              ; preds = %133
   %137 = sitofp i32 %135 to double
-  %138 = fmul double %137, 1.000000e+02
+  %138 = fmul nnan double %137, 1.000000e+02
   %139 = fdiv double %138, %132
   %140 = trunc nuw nsw i64 %indvars.iv196 to i32
   %141 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %140, i32 noundef %135, double noundef %139)
@@ -4161,7 +4161,7 @@ Abc_TtGetCM.exit:                                 ; preds = %104, %102, %95
 
 149:                                              ; preds = %146
   %150 = sitofp i32 %148 to double
-  %151 = fmul double %150, 1.000000e+02
+  %151 = fmul nnan double %150, 1.000000e+02
   %152 = fdiv double %151, %145
   %153 = trunc nuw nsw i64 %indvars.iv201 to i32
   %154 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %153, i32 noundef %148, double noundef %152)
@@ -4189,7 +4189,7 @@ Abc_TtGetCM.exit:                                 ; preds = %104, %102, %95
 
 161:                                              ; preds = %158
   %162 = sitofp i32 %160 to double
-  %163 = fmul double %162, 1.000000e+02
+  %163 = fmul nnan double %162, 1.000000e+02
   %164 = fdiv double %163, %157
   %165 = trunc nuw nsw i64 %indvars.iv207 to i32
   %166 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.31, i32 noundef %165, i32 noundef %160, double noundef %164)

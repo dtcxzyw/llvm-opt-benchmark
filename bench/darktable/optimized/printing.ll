@@ -368,7 +368,7 @@ define void @dt_printing_setup_page(ptr noundef captures(none) initializes((1936
   store float %2, ptr %6, align 4, !tbaa !80
   %7 = fpext reassoc nsz arcp contract afn float %1 to double
   %8 = sitofp i32 %3 to double
-  %9 = fmul reassoc nsz arcp contract afn double %8, 0x3FA42850A1428509
+  %9 = fmul reassoc nnan nsz arcp contract afn double %8, 0x3FA42850A1428509
   %10 = fmul reassoc nsz arcp contract afn double %9, %7
   %11 = fptrunc reassoc nsz arcp contract afn double %10 to float
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1936
@@ -804,7 +804,7 @@ define void @dt_printing_setup_image(ptr noundef %0, i32 noundef %1, i32 noundef
   %60 = fptosi float %57 to i32
   store i32 %60, ptr %51, align 4, !tbaa !85
   %61 = sitofp i32 %53 to float
-  %62 = fadd reassoc nsz arcp contract afn float %61, 5.000000e-01
+  %62 = fadd reassoc nnan nsz arcp contract afn float %61, 5.000000e-01
   %63 = fmul reassoc nsz arcp contract afn float %57, %62
   %64 = fdiv reassoc nsz arcp contract afn float %63, %55
   %65 = fptosi float %64 to i32
@@ -824,7 +824,7 @@ define void @dt_printing_setup_image(ptr noundef %0, i32 noundef %1, i32 noundef
   %74 = fptosi float %71 to i32
   store i32 %74, ptr %54, align 8, !tbaa !86
   %75 = sitofp i32 %67 to float
-  %76 = fadd reassoc nsz arcp contract afn float %75, 5.000000e-01
+  %76 = fadd reassoc nnan nsz arcp contract afn float %75, 5.000000e-01
   %77 = fmul reassoc nsz arcp contract afn float %76, %71
   %78 = fdiv reassoc nsz arcp contract afn float %77, %69
   %79 = fptosi float %78 to i32

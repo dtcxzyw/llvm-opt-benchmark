@@ -333,8 +333,8 @@ proto_item_set_generated.exit.i:                  ; preds = %63, %60, %51
 
 98:                                               ; preds = %proto_item_set_generated.exit.i
   %99 = uitofp i16 %29 to double
-  %100 = fmul double %99, 0x3FE62E42FEFA39EF
-  %101 = fmul double %100, 0x3F40000000000000
+  %100 = fmul nnan double %99, 0x3FE62E42FEFA39EF
+  %101 = fmul nnan double %100, 0x3F40000000000000
   %102 = tail call double @exp(double noundef %101) #14
   %103 = tail call double @llvm.floor.f64(double %102)
   %104 = fptosi double %103 to i64

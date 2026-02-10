@@ -23984,7 +23984,7 @@ _ZZN7xgboost6metric13QuantileError4EvalERKNS_16HostDeviceVectorIfEERKNS_8MetaInf
   %311 = uitofp i1 %310 to float
   %312 = fmul float %291, %311
   %313 = fsub float 1.000000e+00, %291
-  %314 = fsub float 1.000000e+00, %311
+  %314 = fsub nnan float 1.000000e+00, %311
   %315 = fmul float %313, %314
   %316 = fneg float %309
   %317 = fmul float %315, %316
@@ -24285,7 +24285,7 @@ _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %4
   %439 = uitofp i1 %438 to float
   %440 = fmul float %419, %439
   %441 = fsub float 1.000000e+00, %419
-  %442 = fsub float 1.000000e+00, %439
+  %442 = fsub nnan float 1.000000e+00, %439
   %443 = fmul float %441, %442
   %444 = fneg float %437
   %445 = fmul float %443, %444

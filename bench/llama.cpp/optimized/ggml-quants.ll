@@ -1198,8 +1198,8 @@ define void @quantize_row_q2_K_ref(ptr noalias noundef readonly captures(none) %
   %.1186219.i = phi float [ %.2187.i, %.loopexit.i ], [ %58, %40 ]
   %.0189218.i = phi float [ %.1190.i, %.loopexit.i ], [ %39, %40 ]
   %59 = uitofp nneg i32 %.0181220.i to float
-  %60 = tail call float @llvm.fmuladd.f32(float %59, float 0x3FB99999A0000000, float -5.000000e-01)
-  %61 = fadd float %60, 3.000000e+00
+  %60 = tail call nnan float @llvm.fmuladd.f32(float %59, float 0x3FB99999A0000000, float -5.000000e-01)
+  %61 = fadd nnan float %60, 3.000000e+00
   %62 = fsub float %.1176.i, %.3221.i
   %63 = fdiv float %61, %62
   br label %69
@@ -1316,13 +1316,13 @@ make_qkx2_quants.exit:                            ; preds = %.loopexit.i, %.preh
   br i1 %exitcond.not, label %17, label %119, !llvm.loop !66
 
 123:                                              ; preds = %14
-  %124 = fdiv float 1.500000e+01, %.1
+  %124 = fdiv nnan float 1.500000e+01, %.1
   br label %144
 
 125:                                              ; preds = %144
   %126 = fdiv float %.1, 1.500000e+01
-  %127 = fmul float %126, 0x46F0000000000000
-  %128 = fmul float %127, 0x3910000000000000
+  %127 = fmul nnan float %126, 0x46F0000000000000
+  %128 = fmul nnan float %127, 0x3910000000000000
   %129 = bitcast float %126 to i32
   %130 = shl nuw i32 %129, 1
   %131 = tail call i32 @llvm.umax.i32(i32 %130, i32 1895825408)
@@ -1363,14 +1363,14 @@ make_qkx2_quants.exit:                            ; preds = %.loopexit.i, %.preh
   br i1 %154, label %155, label %189
 
 155:                                              ; preds = %152
-  %156 = fdiv float 1.500000e+01, %.1111
+  %156 = fdiv nnan float 1.500000e+01, %.1111
   %157 = getelementptr inbounds nuw %struct.block_q2_K, ptr %1, i64 %indvar
   br label %179
 
 158:                                              ; preds = %179
   %159 = fdiv float %.1111, 1.500000e+01
-  %160 = fmul float %159, 0x46F0000000000000
-  %161 = fmul float %160, 0x3910000000000000
+  %160 = fmul nnan float %159, 0x46F0000000000000
+  %161 = fmul nnan float %160, 0x3910000000000000
   %162 = bitcast float %159 to i32
   %163 = shl nuw i32 %162, 1
   %164 = tail call i32 @llvm.umax.i32(i32 %163, i32 1895825408)
@@ -1816,8 +1816,8 @@ define i64 @quantize_q2_K(ptr noalias noundef readonly captures(none) %0, ptr no
   %.1206242.i.i.us = phi float [ %.2207.i.i.us, %.loopexit.i.i.us ], [ %84, %66 ]
   %.0209241.i.i.us = phi float [ %.1210.i.i.us, %.loopexit.i.i.us ], [ %65, %66 ]
   %85 = uitofp nneg i32 %.0201243.i.i.us to float
-  %86 = tail call float @llvm.fmuladd.f32(float %85, float 0x3FA99999A0000000, float 0xBFECCCCCC0000000)
-  %87 = fadd float %86, 3.000000e+00
+  %86 = tail call nnan float @llvm.fmuladd.f32(float %85, float 0x3FA99999A0000000, float 0xBFECCCCCC0000000)
+  %87 = fadd nnan float %86, 3.000000e+00
   %88 = fsub float %.1196.i.i.us, %.3244.i.i.us
   %89 = fdiv float %87, %88
   br label %90
@@ -3908,8 +3908,8 @@ define void @quantize_row_q4_K_ref(ptr noalias noundef readonly captures(none) %
   %.1186219.i = phi float [ %.2187.i, %.loopexit.i ], [ %69, %51 ]
   %.0189218.i = phi float [ %.1190.i, %.loopexit.i ], [ %50, %51 ]
   %70 = uitofp nneg i32 %.0181220.i to float
-  %71 = tail call float @llvm.fmuladd.f32(float %70, float 0x3FB99999A0000000, float -1.000000e+00)
-  %72 = fadd float %71, 1.500000e+01
+  %71 = tail call nnan float @llvm.fmuladd.f32(float %70, float 0x3FB99999A0000000, float -1.000000e+00)
+  %72 = fadd nnan float %71, 1.500000e+01
   %73 = fsub float %.1176.i, %.3221.i
   %74 = fdiv float %72, %73
   br label %80
@@ -4579,8 +4579,8 @@ cdce.end.i.us:                                    ; preds = %cdce.call.us, %22
   %.1206242.i.i.us = phi float [ %.2207.i.i.us, %.loopexit.i.i.us ], [ %84, %66 ]
   %.0209241.i.i.us = phi float [ %.1210.i.i.us, %.loopexit.i.i.us ], [ %65, %66 ]
   %85 = uitofp nneg i32 %.0201243.i.i.us to float
-  %86 = tail call float @llvm.fmuladd.f32(float %85, float 0x3FA99999A0000000, float 0xBFECCCCCC0000000)
-  %87 = fadd float %86, 1.500000e+01
+  %86 = tail call nnan float @llvm.fmuladd.f32(float %85, float 0x3FA99999A0000000, float 0xBFECCCCCC0000000)
+  %87 = fadd nnan float %86, 1.500000e+01
   %88 = fsub float %.1196.i.i.us, %.3244.i.i.us
   %89 = fdiv float %87, %88
   br label %90
@@ -5492,8 +5492,8 @@ define void @quantize_row_q5_K_ref(ptr noalias noundef readonly captures(none) %
   %.1186219.i = phi float [ %.2187.i, %.loopexit.i ], [ %68, %50 ]
   %.0189218.i = phi float [ %.1190.i, %.loopexit.i ], [ %49, %50 ]
   %69 = uitofp nneg i32 %.0181220.i to float
-  %70 = tail call float @llvm.fmuladd.f32(float %69, float 0x3FB99999A0000000, float -5.000000e-01)
-  %71 = fadd float %70, 3.100000e+01
+  %70 = tail call nnan float @llvm.fmuladd.f32(float %69, float 0x3FB99999A0000000, float -5.000000e-01)
+  %71 = fadd nnan float %70, 3.100000e+01
   %72 = fsub float %.1176.i, %.3221.i
   %73 = fdiv float %71, %72
   br label %79
@@ -6206,8 +6206,8 @@ cdce.end.i.us:                                    ; preds = %cdce.call.us, %22
   %.1206242.i.i.us = phi float [ %.2207.i.i.us, %.loopexit.i.i.us ], [ %84, %66 ]
   %.0209241.i.i.us = phi float [ %.1210.i.i.us, %.loopexit.i.i.us ], [ %65, %66 ]
   %85 = uitofp nneg i32 %.0201243.i.i.us to float
-  %86 = tail call float @llvm.fmuladd.f32(float %85, float 0x3FA99999A0000000, float 0xBFECCCCCC0000000)
-  %87 = fadd float %86, 3.100000e+01
+  %86 = tail call nnan float @llvm.fmuladd.f32(float %85, float 0x3FA99999A0000000, float 0xBFECCCCCC0000000)
+  %87 = fadd nnan float %86, 3.100000e+01
   %88 = fsub float %.1196.i.i.us, %.3244.i.i.us
   %89 = fdiv float %87, %88
   br label %90
@@ -8350,8 +8350,8 @@ define i64 @quantize_q4_1(ptr noalias noundef readonly captures(none) %0, ptr no
   %.1206242.i.us.us = phi float [ %.2207.i.us.us, %.loopexit.i.us.us ], [ %72, %54 ]
   %.0209241.i.us.us = phi float [ %.1210.i.us.us, %.loopexit.i.us.us ], [ %53, %54 ]
   %73 = uitofp nneg i32 %.0201243.i.us.us to float
-  %74 = tail call float @llvm.fmuladd.f32(float %73, float 0x3FA99999A0000000, float 0xBFECCCCCC0000000)
-  %75 = fadd float %74, 1.500000e+01
+  %74 = tail call nnan float @llvm.fmuladd.f32(float %73, float 0x3FA99999A0000000, float 0xBFECCCCCC0000000)
+  %75 = fadd nnan float %74, 1.500000e+01
   %76 = fsub float %.1196.i.us.us, %.3244.i.us.us
   %77 = fdiv float %75, %76
   br label %78
@@ -8975,8 +8975,8 @@ define i64 @quantize_q5_1(ptr noalias noundef readonly captures(none) %0, ptr no
   %.1206242.i.i.us.us = phi float [ %.2207.i.i.us.us, %.loopexit.i.i.us.us ], [ %72, %54 ]
   %.0209241.i.i.us.us = phi float [ %.1210.i.i.us.us, %.loopexit.i.i.us.us ], [ %53, %54 ]
   %73 = uitofp nneg i32 %.0201243.i.i.us.us to float
-  %74 = tail call float @llvm.fmuladd.f32(float %73, float 0x3FA99999A0000000, float 0xBFECCCCCC0000000)
-  %75 = fadd float %74, 3.100000e+01
+  %74 = tail call nnan float @llvm.fmuladd.f32(float %73, float 0x3FA99999A0000000, float 0xBFECCCCCC0000000)
+  %75 = fadd nnan float %74, 3.100000e+01
   %76 = fsub float %.1196.i.i.us.us, %.3244.i.i.us.us
   %77 = fdiv float %75, %76
   br label %78
@@ -9879,7 +9879,7 @@ define void @dequantize_row_iq2_xxs(ptr noalias noundef readonly captures(none) 
   %18 = trunc nuw i64 %17 to i32
   %19 = lshr i32 %18, 28
   %20 = uitofp nneg i32 %19 to float
-  %21 = fadd float %20, 5.000000e-01
+  %21 = fadd nnan float %20, 5.000000e-01
   %22 = fmul float %11, %21
   %23 = fmul float %22, 2.500000e-01
   br label %25
@@ -9970,13 +9970,13 @@ define void @dequantize_row_iq2_xs(ptr noalias noundef readonly captures(none) %
   %19 = load i8, ptr %18, align 1, !tbaa !13
   %20 = and i8 %19, 15
   %21 = uitofp nneg i8 %20 to float
-  %22 = fadd float %21, 5.000000e-01
+  %22 = fadd nnan float %21, 5.000000e-01
   %23 = fmul float %13, %22
   %24 = fmul float %23, 2.500000e-01
   store float %24, ptr %4, align 4, !tbaa !8
   %25 = lshr i8 %19, 4
   %26 = uitofp nneg i8 %25 to float
-  %27 = fadd float %26, 5.000000e-01
+  %27 = fadd nnan float %26, 5.000000e-01
   %28 = fmul float %13, %27
   %29 = fmul float %28, 2.500000e-01
   store float %29, ptr %7, align 4, !tbaa !8
@@ -10077,13 +10077,13 @@ define void @dequantize_row_iq2_s(ptr noalias noundef readonly captures(none) %0
   %21 = load i8, ptr %20, align 1, !tbaa !13
   %22 = and i8 %21, 15
   %23 = uitofp nneg i8 %22 to float
-  %24 = fadd float %23, 5.000000e-01
+  %24 = fadd nnan float %23, 5.000000e-01
   %25 = fmul float %13, %24
   %26 = fmul float %25, 2.500000e-01
   store float %26, ptr %4, align 4, !tbaa !8
   %27 = lshr i8 %21, 4
   %28 = uitofp nneg i8 %27 to float
-  %29 = fadd float %28, 5.000000e-01
+  %29 = fadd nnan float %28, 5.000000e-01
   %30 = fmul float %13, %29
   %31 = fmul float %30, 2.500000e-01
   store float %31, ptr %7, align 4, !tbaa !8
@@ -10181,7 +10181,7 @@ define void @dequantize_row_iq3_xxs(ptr noalias noundef readonly captures(none) 
   %.0.copyload = load i32, ptr %16, align 1
   %17 = lshr i32 %.0.copyload, 28
   %18 = uitofp nneg i32 %17 to float
-  %19 = fadd float %18, 5.000000e-01
+  %19 = fadd nnan float %18, 5.000000e-01
   %20 = fmul float %10, %19
   %21 = fmul float %20, 5.000000e-01
   br label %24
@@ -10524,7 +10524,7 @@ define void @dequantize_row_iq1_s(ptr noalias noundef readonly captures(none) %0
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv
   %42 = load i8, ptr %41, align 1, !tbaa !13
   %43 = sitofp i8 %42 to float
-  %44 = fadd float %22, %43
+  %44 = fadd nnan float %22, %43
   %45 = fmul float %21, %44
   %46 = getelementptr inbounds nuw float, ptr %.241, i64 %indvars.iv
   store float %45, ptr %46, align 4, !tbaa !8
@@ -12135,7 +12135,7 @@ iq2_find_best_neighbour.exit.i.us:                ; preds = %285, %247
   br i1 %318, label %319, label %405
 
 319:                                              ; preds = %317
-  %320 = fdiv float 1.000000e+00, %.1312.i.us
+  %320 = fdiv nnan float 1.000000e+00, %.1312.i.us
   br label %.preheader358.i.us
 
 .preheader358.i.us:                               ; preds = %387, %319
@@ -13023,7 +13023,7 @@ iq2_find_best_neighbour.exit.i.us:                ; preds = %167, %131
   br i1 %or.cond.i.us, label %205, label %286
 
 205:                                              ; preds = %202
-  %206 = fdiv float 1.000000e+00, %.1329.i.us
+  %206 = fdiv nnan float 1.000000e+00, %.1329.i.us
   br label %207
 
 207:                                              ; preds = %iq2_find_best_neighbour.exit369.i.us, %205
@@ -14385,7 +14385,7 @@ iq3_find_best_neighbour.exit:                     ; preds = %197, %147
   br i1 %exitcond542.not, label %229, label %232, !llvm.loop !913
 
 237:                                              ; preds = %229
-  %238 = fdiv float 1.000000e+00, %.1362
+  %238 = fdiv nnan float 1.000000e+00, %.1362
   br label %239
 
 239:                                              ; preds = %237, %.loopexit
@@ -15212,7 +15212,7 @@ iq3_find_best_neighbour.exit.i.us:                ; preds = %156, %117
   br i1 %or.cond.i.us, label %195, label %282
 
 195:                                              ; preds = %192
-  %196 = fdiv float 1.000000e+00, %.1406.i.us
+  %196 = fdiv nnan float 1.000000e+00, %.1406.i.us
   br label %.preheader446.i.us
 
 .preheader446.i.us:                               ; preds = %264, %195
@@ -17425,7 +17425,7 @@ define internal fastcc void @quantize_row_iq4_nl_impl(i32 noundef range(i32 32, 
 
 .lr.ph26:                                         ; preds = %20
   %12 = uitofp nneg i32 %0 to float
-  %13 = fdiv float 2.000000e+00, %12
+  %13 = fdiv nnan float 2.000000e+00, %12
   %14 = fmul float %13, %23
   %15 = lshr i32 %0, 1
   %16 = zext nneg i32 %15 to i64
@@ -18589,7 +18589,7 @@ iq2_find_best_neighbour.exit.i.us:                ; preds = %145, %109
   br i1 %or.cond.i.us, label %183, label %264
 
 183:                                              ; preds = %180
-  %184 = fdiv float 1.000000e+00, %.1313.i.us
+  %184 = fdiv nnan float 1.000000e+00, %.1313.i.us
   br label %185
 
 185:                                              ; preds = %iq2_find_best_neighbour.exit345.i.us, %183

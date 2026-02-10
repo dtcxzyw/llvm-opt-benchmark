@@ -5126,12 +5126,12 @@ define hidden noundef float @_ZN2cv8ximgproc13EdgeBoxesImpl12boxesOverlapERNS0_3
 23:                                               ; preds = %13
   %24 = uitofp nneg i32 %11 to float
   %25 = uitofp nneg i32 %7 to float
-  %26 = fmul float %25, %24
+  %26 = fmul nnan float %25, %24
   %27 = tail call i32 @llvm.smax.i32(i32 %5, i32 %15)
   %.sroa.speculated50 = tail call i32 @llvm.smin.i32(i32 %18, i32 %8)
   %28 = sitofp i32 %21 to float
   %29 = sitofp i32 %17 to float
-  %30 = fmul float %29, %28
+  %30 = fmul nnan float %29, %28
   %31 = tail call i32 @llvm.smax.i32(i32 %9, i32 %19)
   %.sroa.speculated45 = tail call i32 @llvm.smin.i32(i32 %22, i32 %12)
   %32 = sub nsw i32 %.sroa.speculated50, %27
@@ -5140,7 +5140,7 @@ define hidden noundef float @_ZN2cv8ximgproc13EdgeBoxesImpl12boxesOverlapERNS0_3
   %34 = sub nsw i32 %.sroa.speculated45, %31
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %34, i32 0)
   %35 = uitofp nneg i32 %.sroa.speculated to float
-  %36 = fmul float %33, %35
+  %36 = fmul nnan float %33, %35
   %37 = fadd float %26, %30
   %38 = fsub float %37, %36
   %39 = fdiv float %36, %38
@@ -5500,12 +5500,12 @@ _ZNKSt6vectorIS_IN2cv8ximgproc3BoxESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i: ;
 154:                                              ; preds = %143
   %155 = uitofp nneg i32 %141 to float
   %156 = uitofp nneg i32 %138 to float
-  %157 = fmul float %156, %155
+  %157 = fmul nnan float %156, %155
   %158 = call i32 @llvm.smax.i32(i32 %137, i32 %146)
   %.sroa.speculated50.i = call i32 @llvm.smin.i32(i32 %149, i32 %139)
   %159 = sitofp i32 %152 to float
   %160 = sitofp i32 %148 to float
-  %161 = fmul float %160, %159
+  %161 = fmul nnan float %160, %159
   %162 = call i32 @llvm.smax.i32(i32 %140, i32 %150)
   %.sroa.speculated45.i = call i32 @llvm.smin.i32(i32 %153, i32 %142)
   %163 = sub nsw i32 %.sroa.speculated50.i, %158
@@ -5514,7 +5514,7 @@ _ZNKSt6vectorIS_IN2cv8ximgproc3BoxESaIS2_EESaIS4_EE12_M_check_lenEmPKc.exit.i: ;
   %165 = sub nsw i32 %.sroa.speculated45.i, %162
   %.sroa.speculated.i = call i32 @llvm.smax.i32(i32 %165, i32 0)
   %166 = uitofp nneg i32 %.sroa.speculated.i to float
-  %167 = fmul float %164, %166
+  %167 = fmul nnan float %164, %166
   %168 = fadd float %157, %161
   %169 = fsub float %168, %167
   %170 = fdiv float %167, %169

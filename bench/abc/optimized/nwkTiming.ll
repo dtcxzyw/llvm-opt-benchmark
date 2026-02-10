@@ -1574,7 +1574,7 @@ define void @Nwk_ManDelayTracePrint(ptr noundef %0) local_unnamed_addr #3 {
   %18 = fptoui float %17 to i64
   %19 = shl i64 %18, 2
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #14
-  %21 = fmul float %17, 4.000000e+00
+  %21 = fmul nnan float %17, 4.000000e+00
   %22 = fptoui float %21 to i64
   tail call void @llvm.memset.p0.i64(ptr align 4 %20, i8 0, i64 %22, i1 false)
   %23 = tail call float @Nwk_ManDelayTraceLut(ptr noundef nonnull %0)
@@ -1652,7 +1652,7 @@ define void @Nwk_ManDelayTracePrint(ptr noundef %0) local_unnamed_addr #3 {
   %58 = add nsw i32 %57, %.04460.us
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %59 = sitofp i32 %58 to double
-  %60 = fmul double %59, 1.000000e+02
+  %60 = fmul nnan double %59, 1.000000e+02
   %.val57.us = load i32, ptr %55, align 4, !tbaa !34
   %61 = sitofp i32 %.val57.us to double
   %62 = fdiv double %60, %61
@@ -1673,7 +1673,7 @@ define void @Nwk_ManDelayTracePrint(ptr noundef %0) local_unnamed_addr #3 {
   %72 = add i32 %71, 5
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %73 = sitofp i32 %69 to double
-  %74 = fmul double %73, 1.000000e+02
+  %74 = fmul nnan double %73, 1.000000e+02
   %.val57 = load i32, ptr %55, align 4, !tbaa !34
   %75 = sitofp i32 %.val57 to double
   %76 = fdiv double %74, %75

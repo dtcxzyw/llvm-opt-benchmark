@@ -761,7 +761,7 @@ define noundef i64 @_ZN6duckdb7roaring19RoaringFinalAnalyzeERNS_12AnalyzeStateE(
 _ZN6duckdb7roaring19RoaringAnalyzeState12FlushSegmentEv.exit: ; preds = %._ZN6duckdb7roaring19RoaringAnalyzeState12FlushSegmentEv.exit_crit_edge, %4
   %17 = phi i64 [ %.pre, %._ZN6duckdb7roaring19RoaringAnalyzeState12FlushSegmentEv.exit_crit_edge ], [ %13, %4 ]
   %18 = uitofp i64 %17 to double
-  %19 = fmul double %18, 2.000000e+00
+  %19 = fmul nnan double %18, 2.000000e+00
   %20 = fptoui double %19 to i64
   ret i64 %20
 }

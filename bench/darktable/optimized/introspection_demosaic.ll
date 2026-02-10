@@ -358,14 +358,14 @@ define void @tiling_callback(ptr noundef readonly captures(none) %0, ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !30
   %13 = sitofp i32 %12 to float
-  %14 = fmul reassoc nsz arcp contract afn float %13, %10
+  %14 = fmul reassoc nnan nsz arcp contract afn float %13, %10
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i32, ptr %15, align 4, !tbaa !29
   %17 = sitofp i32 %16 to float
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %19 = load i32, ptr %18, align 4, !tbaa !30
   %20 = sitofp i32 %19 to float
-  %21 = fmul reassoc nsz arcp contract afn float %20, %17
+  %21 = fmul reassoc nnan nsz arcp contract afn float %20, %17
   %22 = fdiv reassoc nsz arcp contract afn float %14, %21
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !67
@@ -518,7 +518,7 @@ demosaic_qual_flags.exit:                         ; preds = %48, %45, %44, %34
   %110 = select i1 %109, i32 8, i32 4
   %111 = select i1 %109, i32 18, i32 12
   %112 = uitofp nneg i32 %110 to float
-  %113 = fmul reassoc nsz arcp contract afn float %112, 1.375000e+00
+  %113 = fmul reassoc nnan nsz arcp contract afn float %112, 1.375000e+00
   %114 = fadd reassoc nsz arcp contract afn float %22, 2.000000e+00
   %115 = fadd reassoc nsz arcp contract afn float %114, %113
   %or.cond13 = select i1 %.3.i, i1 %75, i1 false
@@ -9141,19 +9141,19 @@ define internal fastcc void @lmmse_demosaic(ptr noundef readonly captures(none) 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %11 ]
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   %19 = uitofp nneg i32 %18 to double
-  %20 = fmul reassoc nsz arcp contract afn double %19, 0x3EF0001000100010
+  %20 = fmul reassoc nnan nsz arcp contract afn double %19, 0x3EF0001000100010
   %21 = fcmp reassoc nsz arcp contract afn ugt double %20, 1.867000e-03
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %.preheader.i
-  %23 = fmul reassoc nsz arcp contract afn double %19, 0x3F31001100110011
+  %23 = fmul reassoc nnan nsz arcp contract afn double %19, 0x3F31001100110011
   br label %30
 
 24:                                               ; preds = %.preheader.i
-  %25 = tail call reassoc nsz arcp contract afn double @llvm.log.f64(double %20)
-  %26 = fmul reassoc nsz arcp contract afn double %25, 0x3FDAAAAAAAAAAAAB
-  %27 = tail call reassoc nsz arcp contract afn double @llvm.exp.f64(double %26)
-  %28 = fmul reassoc nsz arcp contract afn double %27, 0x3FF0B60BF5D78812
+  %25 = tail call reassoc nnan nsz arcp contract afn double @llvm.log.f64(double %20)
+  %26 = fmul reassoc nnan nsz arcp contract afn double %25, 0x3FDAAAAAAAAAAAAB
+  %27 = tail call reassoc nnan nsz arcp contract afn double @llvm.exp.f64(double %26)
+  %28 = fmul reassoc nnan nsz arcp contract afn double %27, 0x3FF0B60BF5D78812
   %29 = fadd reassoc nsz arcp contract afn double %28, -4.444500e-02
   br label %30
 
@@ -9166,14 +9166,14 @@ define internal fastcc void @lmmse_demosaic(ptr noundef readonly captures(none) 
   br i1 %34, label %37, label %35
 
 35:                                               ; preds = %30
-  %36 = fmul reassoc nsz arcp contract afn double %19, 0x3EAE1E3C3C5A5A78
+  %36 = fmul reassoc nnan nsz arcp contract afn double %19, 0x3EAE1E3C3C5A5A78
   br label %43
 
 37:                                               ; preds = %30
-  %38 = fmul reassoc nsz arcp contract afn double %19, 0x3EEEA3850F60F739
-  %39 = fadd reassoc nsz arcp contract afn double %38, 0x3FA5C99942418271
-  %40 = tail call reassoc nsz arcp contract afn double @llvm.log.f64(double %39)
-  %41 = fmul reassoc nsz arcp contract afn double %40, 2.400000e+00
+  %38 = fmul reassoc nnan nsz arcp contract afn double %19, 0x3EEEA3850F60F739
+  %39 = fadd reassoc nnan nsz arcp contract afn double %38, 0x3FA5C99942418271
+  %40 = tail call reassoc nnan nsz arcp contract afn double @llvm.log.f64(double %39)
+  %41 = fmul reassoc nnan nsz arcp contract afn double %40, 2.400000e+00
   %42 = tail call reassoc nsz arcp contract afn double @llvm.exp.f64(double %41)
   br label %43
 
@@ -9215,7 +9215,7 @@ _init_lmmse_gamma.exit:                           ; preds = %43, %17, %9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(443904) %54, i8 0, i64 443904, i1 false)
   %65 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %60
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %invariant.op = fmul reassoc nsz arcp contract afn float %65, 6.553500e+04
+  %invariant.op = fmul reassoc nnan nsz arcp contract afn float %65, 6.553500e+04
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 24

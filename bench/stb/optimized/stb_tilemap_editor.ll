@@ -4100,9 +4100,9 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   br label %81
 
 69:                                               ; preds = %65
-  %70 = fmul float %64, 6.250000e-02
+  %70 = fmul nnan float %64, 6.250000e-02
   %71 = sitofp i32 %56 to float
-  %72 = fmul float %71, 3.906250e-03
+  %72 = fmul nnan float %71, 3.906250e-03
   %73 = fadd float %70, %72
   br label %81
 
@@ -4115,7 +4115,7 @@ stbte__hittest.exit:                              ; preds = %stbte__hittest.exit
   br label %81
 
 78:                                               ; preds = %74
-  %79 = fmul float %75, 0x3F847AE140000000
+  %79 = fmul nnan float %75, 0x3F847AE140000000
   %80 = tail call float @llvm.fmuladd.f32(float %64, float 0x3FB99999A0000000, float %79)
   br label %81
 

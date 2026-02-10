@@ -16783,8 +16783,8 @@ define linkonce_odr hidden void @_ZN4llvm21BFIDOTGraphTraitsBaseINS_25MachineBlo
 16:                                               ; preds = %7
   %17 = tail call i32 @_ZNK4llvm28MachineBranchProbabilityInfo18getEdgeProbabilityEPKNS_17MachineBasicBlockEPKPS1_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %2, ptr noundef %3) #24
   %18 = uitofp i32 %17 to double
-  %19 = fmul double %18, 1.000000e+02
-  %20 = fmul double %19, 0x3E00000000000000
+  %19 = fmul nnan double %18, 1.000000e+02
+  %20 = fmul nnan double %19, 0x3E00000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 0, ptr %21, align 8, !tbaa !829

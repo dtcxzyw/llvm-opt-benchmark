@@ -4451,7 +4451,7 @@ if.end32:                                         ; preds = %if.else, %if.then18
   %AlignBottom.i105 = getelementptr inbounds nuw i8, ptr %11, i64 292
   store i32 %.sink199, ptr %AlignBottom.i105, align 4, !tbaa !126
   %conv = sitofp i32 %ButtonSize.0 to float
-  %mul = fmul float %conv, 2.500000e+00
+  %mul = fmul nnan float %conv, 2.500000e+00
   %conv14 = fptosi float %mul to i32
   %12 = xor i32 %conv14, -1
   %sub16 = add i32 %sub.i, %12

@@ -626,7 +626,7 @@ define internal i32 @math_random(ptr noundef %0) #0 {
 23:                                               ; preds = %1
   %24 = lshr i64 %16, 11
   %25 = uitofp nneg i64 %24 to double
-  %26 = fmul double %25, 0x3CA0000000000000
+  %26 = fmul nnan double %25, 0x3CA0000000000000
   tail call void @lua_pushnumber(ptr noundef %0, double noundef %26) #7
   br label %81
 

@@ -23635,7 +23635,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 
 81:                                               ; preds = %70
   %82 = uitofp nneg i64 %75 to float
-  %83 = fmul float %82, 1.000000e+10
+  %83 = fmul nnan float %82, 1.000000e+10
   br label %84
 
 84:                                               ; preds = %92, %88, %81
@@ -24381,7 +24381,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
 
 81:                                               ; preds = %70
   %82 = uitofp nneg i64 %75 to double
-  %83 = fmul double %82, 1.000000e+22
+  %83 = fmul nnan double %82, 1.000000e+22
   br label %84
 
 84:                                               ; preds = %92, %88, %81

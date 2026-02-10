@@ -1131,8 +1131,8 @@ _ZL13gmx_snew_implIfEvPKcS1_iRPT_m.exit210:       ; preds = %_ZL13gmx_snew_implI
   br i1 %376, label %377, label %408
 
 377:                                              ; preds = %373
-  %378 = fpext float %375 to double
-  %379 = fmul double %378, 1.000000e+21
+  %378 = fpext nnan float %375 to double
+  %379 = fmul nnan double %378, 1.000000e+21
   %380 = fdiv double %379, 0x3F50624DD2D95898
   %381 = call double @sqrt(double noundef %380) #18, !tbaa !4
   %382 = fptrunc double %381 to float

@@ -129,7 +129,7 @@ define internal range(i32 -1163346256, 1) i32 @amrwb_decode_init(ptr noundef %0)
   %27 = getelementptr inbounds nuw i16, ptr @isf_init, i64 %indvars.iv
   %28 = load i16, ptr %27, align 2, !tbaa !44
   %29 = sitofp i16 %28 to float
-  %30 = fmul nsz float %29, 0x3F00000000000000
+  %30 = fmul nnan nsz float %29, 0x3F00000000000000
   %31 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
   store float %30, ptr %31, align 4, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -365,7 +365,7 @@ ff_amr_bit_reorder.exit:                          ; preds = %105, %80
   %120 = getelementptr inbounds nuw i16, ptr %115, i64 %indvars.iv.i
   %121 = load i16, ptr %120, align 2, !tbaa !44
   %122 = sitofp i16 %121 to float
-  %123 = fmul nsz float %122, 0x3F00000000000000
+  %123 = fmul nnan nsz float %122, 0x3F00000000000000
   %124 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv.i
   store float %123, ptr %124, align 4, !tbaa !45
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -384,7 +384,7 @@ ff_amr_bit_reorder.exit:                          ; preds = %105, %80
   %130 = getelementptr inbounds nuw i16, ptr %119, i64 %indvars.iv38.i
   %131 = load i16, ptr %130, align 2, !tbaa !44
   %132 = sitofp i16 %131 to float
-  %133 = fmul nsz float %132, 0x3F00000000000000
+  %133 = fmul nnan nsz float %132, 0x3F00000000000000
   %134 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv38.i
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 36
   store float %133, ptr %135, align 4, !tbaa !45
@@ -459,7 +459,7 @@ ff_amr_bit_reorder.exit:                          ; preds = %105, %80
   %171 = getelementptr inbounds nuw i16, ptr %115, i64 %indvars.iv.i193
   %172 = load i16, ptr %171, align 2, !tbaa !44
   %173 = sitofp i16 %172 to float
-  %174 = fmul nsz float %173, 0x3F00000000000000
+  %174 = fmul nnan nsz float %173, 0x3F00000000000000
   %175 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv.i193
   store float %174, ptr %175, align 4, !tbaa !45
   %indvars.iv.next.i194 = add nuw nsw i64 %indvars.iv.i193, 1
@@ -478,7 +478,7 @@ ff_amr_bit_reorder.exit:                          ; preds = %105, %80
   %181 = getelementptr inbounds nuw i16, ptr %170, i64 %indvars.iv54.i
   %182 = load i16, ptr %181, align 2, !tbaa !44
   %183 = sitofp i16 %182 to float
-  %184 = fmul nsz float %183, 0x3F00000000000000
+  %184 = fmul nnan nsz float %183, 0x3F00000000000000
   %185 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv54.i
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 36
   store float %184, ptr %186, align 4, !tbaa !45
@@ -1542,12 +1542,12 @@ pitch_sharpening.exit:                            ; preds = %.lr.ph.i221, %850
   %868 = getelementptr inbounds nuw [2 x i16], ptr %.v.i, i64 %867
   %869 = load i16, ptr %868, align 4, !tbaa !44
   %870 = sitofp i16 %869 to float
-  %871 = fmul nsz float %870, 0x3F10000000000000
+  %871 = fmul nnan nsz float %870, 0x3F10000000000000
   store float %871, ptr %305, align 4, !tbaa !45
   %872 = getelementptr inbounds nuw i8, ptr %868, i64 2
   %873 = load i16, ptr %872, align 2, !tbaa !44
   %874 = sitofp i16 %873 to float
-  %875 = fmul nsz float %874, 0x3F40000000000000
+  %875 = fmul nnan nsz float %874, 0x3F40000000000000
   %876 = load ptr, ptr %306, align 8, !tbaa !105
   %877 = call nsz float %876(ptr noundef nonnull %303, ptr noundef nonnull %303, i32 noundef 64) #10
   %878 = fmul nsz float %877, 1.562500e-02
@@ -1856,7 +1856,7 @@ upsample_5_4.exit:                                ; preds = %1036
   %1049 = getelementptr inbounds nuw i16, ptr @qua_hb_gain, i64 %1048
   %1050 = load i16, ptr %1049, align 2, !tbaa !44
   %1051 = uitofp i16 %1050 to float
-  %1052 = fmul nsz float %1051, 0x3F10000000000000
+  %1052 = fmul nnan nsz float %1051, 0x3F10000000000000
   br label %find_hb_gain.exit
 
 1053:                                             ; preds = %upsample_5_4.exit
@@ -1876,7 +1876,7 @@ upsample_5_4.exit:                                ; preds = %1036
   %.013.i = phi double [ %1061, %1057 ], [ 0.000000e+00, %1053 ]
   %1063 = fsub nsz double 1.000000e+00, %.013.i
   %1064 = uitofp i1 %1042 to double
-  %1065 = call nsz double @llvm.fmuladd.f64(double %1064, double -2.500000e-01, double 1.250000e+00)
+  %1065 = call nnan nsz double @llvm.fmuladd.f64(double %1064, double -2.500000e-01, double 1.250000e+00)
   %1066 = fmul nsz double %1065, %1063
   %1067 = fptrunc nsz double %1066 to float
   %1068 = fcmp nsz ogt float %1067, 0x3FB99999A0000000

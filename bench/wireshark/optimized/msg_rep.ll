@@ -1307,8 +1307,8 @@ switch.lookup:                                    ; preds = %137
   %492 = call ptr @add_tlv_subtree(ptr noundef nonnull %5, ptr noundef %10, i32 noundef %491, ptr noundef %0, i32 noundef %.0691, i32 noundef 0)
   %493 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %26)
   %494 = uitofp i8 %493 to float
-  %495 = fadd float %494, -1.280000e+02
-  %496 = fmul float %495, 5.000000e-01
+  %495 = fadd nnan float %494, -1.280000e+02
+  %496 = fmul nnan float %495, 5.000000e-01
   %497 = fpext float %496 to double
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %492, ptr noundef nonnull @.str.205, double noundef %497)
   br label %.loopexit

@@ -4461,14 +4461,14 @@ define internal fastcc void @_ZN2cv8tracking4implL8getPatchENS_3MatENS_5Size_IiE
   %.sroa.02.0.vec.extract = extractelement <2 x float> %3, i64 0
   %9 = fpext float %.sroa.02.0.vec.extract to double
   %10 = sitofp i32 %.sroa.019.0.extract.trunc to double
-  %11 = fmul double %10, 5.000000e-01
+  %11 = fmul nnan double %10, 5.000000e-01
   %12 = fsub double %9, %11
   %13 = insertelement <2 x double> poison, double %12, i64 0
   %14 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %13)
   %.sroa.02.4.vec.extract = extractelement <2 x float> %3, i64 1
   %15 = fpext float %.sroa.02.4.vec.extract to double
   %16 = sitofp i32 %.sroa.522.0.extract.trunc to double
-  %17 = fmul double %16, 5.000000e-01
+  %17 = fmul nnan double %16, 5.000000e-01
   %18 = fsub double %15, %17
   %19 = insertelement <2 x double> poison, double %18, i64 0
   %20 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %19)

@@ -1974,7 +1974,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9BuildTreeEv(ptr noundef non
   store i32 %46, ptr @g_seed, align 4, !tbaa !64
   %47 = and i32 %46, 32767
   %48 = uitofp nneg i32 %47 to float
-  %49 = fdiv float %48, 3.276700e+04
+  %49 = fdiv nnan float %48, 3.276700e+04
   %50 = load float, ptr %23, align 4, !tbaa !19
   %51 = fcmp ugt float %49, %50
   br i1 %51, label %114, label %52
@@ -1997,7 +1997,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9BuildTreeEv(ptr noundef non
   %64 = xor i32 %63, %62
   %65 = and i32 %64, 32767
   %66 = uitofp nneg i32 %65 to float
-  %67 = fdiv float %66, 3.276700e+04
+  %67 = fdiv nnan float %66, 3.276700e+04
   %68 = fadd float %58, -1.000000e+00
   %69 = fmul float %67, %68
   %70 = fadd float %69, 1.000000e+00
@@ -2009,8 +2009,8 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9BuildTreeEv(ptr noundef non
   %76 = xor i32 %75, %74
   %77 = and i32 %76, 32767
   %78 = uitofp nneg i32 %77 to float
-  %79 = fdiv float %78, 3.276700e+04
-  %80 = fmul float %79, 0x3FD99999A0000000
+  %79 = fdiv nnan float %78, 3.276700e+04
+  %80 = fmul nnan float %79, 0x3FD99999A0000000
   %81 = fadd float %80, 0x3FB99999A0000000
   %82 = shl i32 %76, 13
   %83 = xor i32 %82, %76
@@ -2021,8 +2021,8 @@ define linkonce_odr dso_local void @_ZN11DynamicTree9BuildTreeEv(ptr noundef non
   store i32 %87, ptr @g_seed, align 4, !tbaa !64
   %88 = and i32 %87, 32767
   %89 = uitofp nneg i32 %88 to float
-  %90 = fdiv float %89, 3.276700e+04
-  %91 = fmul float %90, 2.000000e+00
+  %90 = fdiv nnan float %89, 3.276700e+04
+  %91 = fmul nnan float %90, 2.000000e+00
   %92 = fadd float %91, -1.000000e+00
   %93 = fcmp ogt float %92, 0.000000e+00
   %94 = fmul float %81, %70
@@ -2287,7 +2287,7 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   store i32 %73, ptr @g_seed, align 4, !tbaa !64
   %74 = and i32 %73, 32767
   %75 = uitofp nneg i32 %74 to float
-  %76 = fdiv float %75, 3.276700e+04
+  %76 = fdiv nnan float %75, 3.276700e+04
   %77 = load float, ptr %44, align 8, !tbaa !37
   %78 = fcmp ogt float %77, %76
   br i1 %78, label %79, label %135
@@ -2302,9 +2302,9 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   %86 = xor i32 %85, %84
   %87 = and i32 %86, 32767
   %88 = uitofp nneg i32 %87 to float
-  %89 = fdiv float %88, 3.276700e+04
-  %90 = fmul float %89, 2.000000e+00
-  %91 = fadd float %90, -1.000000e+00
+  %89 = fdiv nnan float %88, 3.276700e+04
+  %90 = fmul nnan float %89, 2.000000e+00
+  %91 = fadd nnan float %90, -1.000000e+00
   %92 = fmul float %91, %80
   %93 = shl i32 %86, 13
   %94 = xor i32 %93, %86
@@ -2315,9 +2315,9 @@ define linkonce_odr dso_local void @_ZN11DynamicTree4StepER8Settings(ptr noundef
   store i32 %98, ptr @g_seed, align 4, !tbaa !64
   %99 = and i32 %98, 32767
   %100 = uitofp nneg i32 %99 to float
-  %101 = fdiv float %100, 3.276700e+04
-  %102 = fmul float %101, 2.000000e+00
-  %103 = fadd float %102, -1.000000e+00
+  %101 = fdiv nnan float %100, 3.276700e+04
+  %102 = fmul nnan float %101, 2.000000e+00
+  %103 = fadd nnan float %102, -1.000000e+00
   %104 = fmul float %103, %80
   %105 = getelementptr inbounds nuw i8, ptr %57, i64 32
   %106 = load float, ptr %105, align 4, !tbaa !165
@@ -5169,8 +5169,8 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnu
   %22 = xor i32 %21, %20
   %23 = and i32 %22, 32767
   %24 = uitofp nneg i32 %23 to float
-  %25 = fdiv float %24, 3.276700e+04
-  %26 = fmul float %25, 4.000000e+01
+  %25 = fdiv nnan float %24, 3.276700e+04
+  %26 = fmul nnan float %25, 4.000000e+01
   %27 = fadd float %26, -2.000000e+01
   %28 = shl i32 %22, 13
   %29 = xor i32 %28, %22
@@ -5181,8 +5181,8 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnu
   store i32 %33, ptr @g_seed, align 4, !tbaa !64
   %34 = and i32 %33, 32767
   %35 = uitofp nneg i32 %34 to float
-  %36 = fdiv float %35, 3.276700e+04
-  %37 = fmul float %36, 2.000000e+01
+  %36 = fdiv nnan float %35, 3.276700e+04
+  %37 = fmul nnan float %36, 2.000000e+01
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3)
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5199,8 +5199,8 @@ define linkonce_odr dso_local void @_ZN12RayCastWorld6CreateEi(ptr noundef nonnu
   store i32 %45, ptr @g_seed, align 4, !tbaa !64
   %46 = and i32 %45, 32767
   %47 = uitofp nneg i32 %46 to float
-  %48 = fdiv float %47, 3.276700e+04
-  %49 = fmul float %48, 0x401921FB60000000
+  %48 = fdiv nnan float %47, 3.276700e+04
+  %49 = fmul nnan float %48, 0x401921FB60000000
   %50 = fadd float %49, 0xC00921FB60000000
   %51 = call <2 x float> @b2ComputeCosSin(float noundef %50)
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -6195,8 +6195,8 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnu
   %22 = xor i32 %21, %20
   %23 = and i32 %22, 32767
   %24 = uitofp nneg i32 %23 to float
-  %25 = fdiv float %24, 3.276700e+04
-  %26 = fmul float %25, 4.000000e+01
+  %25 = fdiv nnan float %24, 3.276700e+04
+  %26 = fmul nnan float %25, 4.000000e+01
   %27 = fadd float %26, -2.000000e+01
   %28 = shl i32 %22, 13
   %29 = xor i32 %28, %22
@@ -6207,8 +6207,8 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnu
   store i32 %33, ptr @g_seed, align 4, !tbaa !64
   %34 = and i32 %33, 32767
   %35 = uitofp nneg i32 %34 to float
-  %36 = fdiv float %35, 3.276700e+04
-  %37 = fmul float %36, 2.000000e+01
+  %36 = fdiv nnan float %35, 3.276700e+04
+  %37 = fmul nnan float %36, 2.000000e+01
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @b2DefaultBodyDef(ptr dead_on_unwind nonnull writable sret(%struct.b2BodyDef) align 8 %3)
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -6225,8 +6225,8 @@ define linkonce_odr dso_local void @_ZN12OverlapWorld6CreateEi(ptr noundef nonnu
   store i32 %45, ptr @g_seed, align 4, !tbaa !64
   %46 = and i32 %45, 32767
   %47 = uitofp nneg i32 %46 to float
-  %48 = fdiv float %47, 3.276700e+04
-  %49 = fmul float %48, 0x401921FB60000000
+  %48 = fdiv nnan float %47, 3.276700e+04
+  %49 = fmul nnan float %48, 0x401921FB60000000
   %50 = fadd float %49, 0xC00921FB60000000
   %51 = call <2 x float> @b2ComputeCosSin(float noundef %50)
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 12

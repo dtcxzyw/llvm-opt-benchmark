@@ -32413,7 +32413,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %24, %
 46:                                               ; preds = %44
   %47 = add nsw i32 %16, -1
   %48 = sitofp i32 %47 to double
-  %49 = fmul double %48, 5.000000e-01
+  %49 = fmul nnan double %48, 5.000000e-01
   %50 = fadd double %49, -1.000000e+00
   %51 = call double @llvm.fmuladd.f64(double %50, double 3.000000e-01, double 8.000000e-01)
   br label %56

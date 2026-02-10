@@ -88,7 +88,7 @@ define hidden void @_ZN15ShenandoahPacer14setup_for_markEv(ptr noundef nonnull a
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(2657) %6) #8
   %11 = uitofp i64 %10 to double
-  %12 = fmul double %11, 1.000000e-01
+  %12 = fmul nnan double %11, 1.000000e-01
   br label %_ZN15ShenandoahPacer31update_and_get_progress_historyEv.exit
 
 13:                                               ; preds = %1
@@ -250,7 +250,7 @@ define hidden noundef i64 @_ZN15ShenandoahPacer31update_and_get_progress_history
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(2657) %6) #8
   %11 = uitofp i64 %10 to double
-  %12 = fmul double %11, 1.000000e-01
+  %12 = fmul nnan double %11, 1.000000e-01
   br label %24
 
 13:                                               ; preds = %1
@@ -1081,7 +1081,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
 33:                                               ; preds = %29
   %34 = add i64 %.04052, 1
   %35 = fadd double %.04151, %31
-  %36 = fmul double %31, 1.000000e+03
+  %36 = fmul nnan double %31, 1.000000e+03
   %37 = fdiv double %31, %9
   %38 = fmul double %37, 1.000000e+02
   %39 = load ptr, ptr %25, align 8

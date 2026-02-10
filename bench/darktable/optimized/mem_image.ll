@@ -267,14 +267,14 @@ define void @_ZNK6LibRaw20get_mem_image_formatEPiS0_S0_S0_(ptr noundef nonnull r
   %26 = add nuw nsw i32 %22, %25
   %27 = lshr i32 %26, %25
   %28 = uitofp nneg i32 %27 to double
-  %29 = fmul reassoc nsz arcp contract afn double %28, 0x3FF6A09E667F3BCC
+  %29 = fmul reassoc nnan nsz arcp contract afn double %28, 0x3FF6A09E667F3BCC
   %30 = fptoui double %29 to i16
   %31 = zext i16 %30 to i32
   store i32 %31, ptr %1, align 4, !tbaa !87
   %32 = load i32, ptr %2, align 4, !tbaa !87
   %33 = sub nsw i32 %32, %27
   %34 = sitofp i32 %33 to double
-  %35 = fmul reassoc nsz arcp contract afn double %34, 0x3FF6A09E667F3BCC
+  %35 = fmul reassoc nnan nsz arcp contract afn double %34, 0x3FF6A09E667F3BCC
   br label %.sink.split
 
 36:                                               ; preds = %17
@@ -913,13 +913,13 @@ define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_imageEPi(ptr noundef nonn
   %25 = add nuw nsw i32 %21, %24
   %26 = lshr i32 %25, %24
   %27 = uitofp nneg i32 %26 to double
-  %28 = fmul reassoc nsz arcp contract afn double %27, 0x3FF6A09E667F3BCC
+  %28 = fmul reassoc nnan nsz arcp contract afn double %27, 0x3FF6A09E667F3BCC
   %29 = fptoui double %28 to i16
   %30 = zext i16 %29 to i32
   store i32 %30, ptr %3, align 4, !tbaa !87
   %31 = sub nsw i32 %10, %26
   %32 = sitofp i32 %31 to double
-  %33 = fmul reassoc nsz arcp contract afn double %32, 0x3FF6A09E667F3BCC
+  %33 = fmul reassoc nnan nsz arcp contract afn double %32, 0x3FF6A09E667F3BCC
   br label %.sink.split.i
 
 34:                                               ; preds = %16

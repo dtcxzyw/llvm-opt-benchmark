@@ -11434,7 +11434,7 @@ _ZSt8generateIPhN4absl15random_internal10RandenPoolIhEEEvT_S5_T0_.exit: ; preds 
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %24 = add i64 %35, %reass.sub
   %25 = uitofp i64 %24 to double
-  %26 = fmul double %25, 6.000000e-01
+  %26 = fmul nnan double %25, 6.000000e-01
   store double %26, ptr %7, align 8, !tbaa !284
   %27 = uitofp i64 %46 to double
   %28 = fcmp ult double %26, %27
@@ -11591,7 +11591,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %77, %_ZNKSt14defaul
   %86 = load i64, ptr %4, align 8, !tbaa !21
   %87 = add i64 %86, %47
   %88 = uitofp i64 %87 to double
-  %89 = fmul double %88, 4.000000e-01
+  %89 = fmul nnan double %88, 4.000000e-01
   store double %89, ptr %11, align 8, !tbaa !284
   %90 = uitofp i64 %86 to double
   %91 = fcmp ugt double %89, %90
@@ -11734,7 +11734,7 @@ _ZN7testing15AssertionResultD2Ev.exit65:          ; preds = %120, %_ZNKSt14defau
           to label %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit unwind label %154
 
 _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %133
-  %137 = fmul double %129, 0x3F50000000000000
+  %137 = fmul nnan double %129, 0x3F50000000000000
   %138 = load ptr, ptr %15, align 8, !tbaa !213
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 16
   %140 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %139, double noundef %137)
@@ -13093,7 +13093,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %.0.i.i, %55
+  %56 = fmul nnan double %.0.i.i, %55
   %57 = fcmp une double %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 
@@ -17188,7 +17188,7 @@ _ZSt8generateIPtN4absl15random_internal10RandenPoolItEEEvT_S5_T0_.exit: ; preds 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = add i64 %34, %reass.sub
   %24 = uitofp i64 %23 to double
-  %25 = fmul double %24, 6.000000e-01
+  %25 = fmul nnan double %24, 6.000000e-01
   store double %25, ptr %6, align 8, !tbaa !284
   %26 = uitofp i64 %45 to double
   %27 = fcmp ult double %25, %26
@@ -17345,7 +17345,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %76, %_ZNKSt14defaul
   %85 = load i64, ptr %3, align 8, !tbaa !21
   %86 = add i64 %85, %46
   %87 = uitofp i64 %86 to double
-  %88 = fmul double %87, 4.000000e-01
+  %88 = fmul nnan double %87, 4.000000e-01
   store double %88, ptr %10, align 8, !tbaa !284
   %89 = uitofp i64 %85 to double
   %90 = fcmp ugt double %88, %89
@@ -17488,7 +17488,7 @@ _ZN7testing15AssertionResultD2Ev.exit65:          ; preds = %119, %_ZNKSt14defau
           to label %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit unwind label %153
 
 _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %132
-  %136 = fmul double %128, 0x3F40000000000000
+  %136 = fmul nnan double %128, 0x3F40000000000000
   %137 = load ptr, ptr %14, align 8, !tbaa !213
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %138, double noundef %136)
@@ -17826,7 +17826,7 @@ _ZSt8generateIPjN4absl15random_internal10RandenPoolIjEEEvT_S5_T0_.exit: ; preds 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = add i64 %34, %reass.sub
   %24 = uitofp i64 %23 to double
-  %25 = fmul double %24, 6.000000e-01
+  %25 = fmul nnan double %24, 6.000000e-01
   store double %25, ptr %6, align 8, !tbaa !284
   %26 = uitofp i64 %45 to double
   %27 = fcmp ult double %25, %26
@@ -17983,7 +17983,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %76, %_ZNKSt14defaul
   %85 = load i64, ptr %3, align 8, !tbaa !21
   %86 = add i64 %85, %46
   %87 = uitofp i64 %86 to double
-  %88 = fmul double %87, 4.000000e-01
+  %88 = fmul nnan double %87, 4.000000e-01
   store double %88, ptr %10, align 8, !tbaa !284
   %89 = uitofp i64 %85 to double
   %90 = fcmp ugt double %88, %89
@@ -18126,7 +18126,7 @@ _ZN7testing15AssertionResultD2Ev.exit65:          ; preds = %119, %_ZNKSt14defau
           to label %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit unwind label %153
 
 _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %132
-  %136 = fmul double %128, 0x3F30000000000000
+  %136 = fmul nnan double %128, 0x3F30000000000000
   %137 = load ptr, ptr %14, align 8, !tbaa !213
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %138, double noundef %136)
@@ -18464,7 +18464,7 @@ _ZSt8generateIPmN4absl15random_internal10RandenPoolImEEEvT_S5_T0_.exit: ; preds 
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = add i64 %34, %reass.sub
   %24 = uitofp i64 %23 to double
-  %25 = fmul double %24, 6.000000e-01
+  %25 = fmul nnan double %24, 6.000000e-01
   store double %25, ptr %6, align 8, !tbaa !284
   %26 = uitofp i64 %44 to double
   %27 = fcmp ult double %25, %26
@@ -18619,7 +18619,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %75, %_ZNKSt14defaul
   %84 = load i64, ptr %3, align 8, !tbaa !21
   %85 = add i64 %84, %45
   %86 = uitofp i64 %85 to double
-  %87 = fmul double %86, 4.000000e-01
+  %87 = fmul nnan double %86, 4.000000e-01
   store double %87, ptr %10, align 8, !tbaa !284
   %88 = uitofp i64 %84 to double
   %89 = fcmp ugt double %87, %88
@@ -18762,7 +18762,7 @@ _ZN7testing15AssertionResultD2Ev.exit65:          ; preds = %118, %_ZNKSt14defau
           to label %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit unwind label %152
 
 _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %131
-  %135 = fmul double %127, 0x3F20000000000000
+  %135 = fmul nnan double %127, 0x3F20000000000000
   %136 = load ptr, ptr %14, align 8, !tbaa !213
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %138 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %137, double noundef %135)
@@ -19154,7 +19154,7 @@ _ZSt8generateIPhN4absl15random_internal8PoolURBGIhLm2EEEEvT_S5_T0_.exit: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %42 = add i64 %53, %reass.sub
   %43 = uitofp i64 %42 to double
-  %44 = fmul double %43, 6.000000e-01
+  %44 = fmul nnan double %43, 6.000000e-01
   store double %44, ptr %9, align 8, !tbaa !284
   %45 = uitofp i64 %64 to double
   %46 = fcmp ult double %44, %45
@@ -19311,7 +19311,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %95, %_ZNKSt14defaul
   %104 = load i64, ptr %6, align 8, !tbaa !21
   %105 = add i64 %104, %65
   %106 = uitofp i64 %105 to double
-  %107 = fmul double %106, 4.000000e-01
+  %107 = fmul nnan double %106, 4.000000e-01
   store double %107, ptr %13, align 8, !tbaa !284
   %108 = uitofp i64 %104 to double
   %109 = fcmp ugt double %107, %108
@@ -19454,7 +19454,7 @@ _ZN7testing15AssertionResultD2Ev.exit66:          ; preds = %138, %_ZNKSt14defau
           to label %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit unwind label %172
 
 _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %151
-  %155 = fmul double %147, 0x3F50000000000000
+  %155 = fmul nnan double %147, 0x3F50000000000000
   %156 = load ptr, ptr %17, align 8, !tbaa !213
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %158 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %157, double noundef %155)
@@ -19848,7 +19848,7 @@ _ZSt8generateIPtN4absl15random_internal8PoolURBGItLm2EEEEvT_S5_T0_.exit: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %44 = add i64 %55, %reass.sub
   %45 = uitofp i64 %44 to double
-  %46 = fmul double %45, 6.000000e-01
+  %46 = fmul nnan double %45, 6.000000e-01
   store double %46, ptr %9, align 8, !tbaa !284
   %47 = uitofp i64 %66 to double
   %48 = fcmp ult double %46, %47
@@ -20005,7 +20005,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %97, %_ZNKSt14defaul
   %106 = load i64, ptr %6, align 8, !tbaa !21
   %107 = add i64 %106, %67
   %108 = uitofp i64 %107 to double
-  %109 = fmul double %108, 4.000000e-01
+  %109 = fmul nnan double %108, 4.000000e-01
   store double %109, ptr %13, align 8, !tbaa !284
   %110 = uitofp i64 %106 to double
   %111 = fcmp ugt double %109, %110
@@ -20148,7 +20148,7 @@ _ZN7testing15AssertionResultD2Ev.exit67:          ; preds = %140, %_ZNKSt14defau
           to label %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit unwind label %174
 
 _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %153
-  %157 = fmul double %149, 0x3F40000000000000
+  %157 = fmul nnan double %149, 0x3F40000000000000
   %158 = load ptr, ptr %17, align 8, !tbaa !213
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %159, double noundef %157)
@@ -24517,7 +24517,7 @@ _ZSt8generateIPjN4absl15random_internal8PoolURBGIjLm2EEEEvT_S5_T0_.exit: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %44 = add i64 %55, %reass.sub
   %45 = uitofp i64 %44 to double
-  %46 = fmul double %45, 6.000000e-01
+  %46 = fmul nnan double %45, 6.000000e-01
   store double %46, ptr %9, align 8, !tbaa !284
   %47 = uitofp i64 %66 to double
   %48 = fcmp ult double %46, %47
@@ -24674,7 +24674,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %97, %_ZNKSt14defaul
   %106 = load i64, ptr %6, align 8, !tbaa !21
   %107 = add i64 %106, %67
   %108 = uitofp i64 %107 to double
-  %109 = fmul double %108, 4.000000e-01
+  %109 = fmul nnan double %108, 4.000000e-01
   store double %109, ptr %13, align 8, !tbaa !284
   %110 = uitofp i64 %106 to double
   %111 = fcmp ugt double %109, %110
@@ -24817,7 +24817,7 @@ _ZN7testing15AssertionResultD2Ev.exit67:          ; preds = %140, %_ZNKSt14defau
           to label %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit unwind label %174
 
 _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %153
-  %157 = fmul double %149, 0x3F30000000000000
+  %157 = fmul nnan double %149, 0x3F30000000000000
   %158 = load ptr, ptr %17, align 8, !tbaa !213
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %159, double noundef %157)
@@ -25211,7 +25211,7 @@ _ZSt8generateIPmN4absl15random_internal8PoolURBGImLm2EEEEvT_S5_T0_.exit: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %42 = add i64 %53, %reass.sub
   %43 = uitofp i64 %42 to double
-  %44 = fmul double %43, 6.000000e-01
+  %44 = fmul nnan double %43, 6.000000e-01
   store double %44, ptr %9, align 8, !tbaa !284
   %45 = uitofp i64 %63 to double
   %46 = fcmp ult double %44, %45
@@ -25366,7 +25366,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %94, %_ZNKSt14defaul
   %103 = load i64, ptr %6, align 8, !tbaa !21
   %104 = add i64 %103, %64
   %105 = uitofp i64 %104 to double
-  %106 = fmul double %105, 4.000000e-01
+  %106 = fmul nnan double %105, 4.000000e-01
   store double %106, ptr %13, align 8, !tbaa !284
   %107 = uitofp i64 %103 to double
   %108 = fcmp ugt double %106, %107
@@ -25509,7 +25509,7 @@ _ZN7testing15AssertionResultD2Ev.exit66:          ; preds = %137, %_ZNKSt14defau
           to label %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit unwind label %171
 
 _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %150
-  %154 = fmul double %146, 0x3F20000000000000
+  %154 = fmul nnan double %146, 0x3F20000000000000
   %155 = load ptr, ptr %17, align 8, !tbaa !213
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %156, double noundef %154)
@@ -25913,7 +25913,7 @@ _ZSt8generateIPjN4absl15random_internal8PoolURBGIjLm8EEEEvT_S5_T0_.exit: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %47 = add i64 %58, %reass.sub
   %48 = uitofp i64 %47 to double
-  %49 = fmul double %48, 6.000000e-01
+  %49 = fmul nnan double %48, 6.000000e-01
   store double %49, ptr %9, align 8, !tbaa !284
   %50 = uitofp i64 %69 to double
   %51 = fcmp ult double %49, %50
@@ -26070,7 +26070,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %100, %_ZNKSt14defau
   %109 = load i64, ptr %6, align 8, !tbaa !21
   %110 = add i64 %109, %70
   %111 = uitofp i64 %110 to double
-  %112 = fmul double %111, 4.000000e-01
+  %112 = fmul nnan double %111, 4.000000e-01
   store double %112, ptr %13, align 8, !tbaa !284
   %113 = uitofp i64 %109 to double
   %114 = fcmp ugt double %112, %113
@@ -26213,7 +26213,7 @@ _ZN7testing15AssertionResultD2Ev.exit70:          ; preds = %143, %_ZNKSt14defau
           to label %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit unwind label %177
 
 _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %156
-  %160 = fmul double %152, 0x3F30000000000000
+  %160 = fmul nnan double %152, 0x3F30000000000000
   %161 = load ptr, ptr %17, align 8, !tbaa !213
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 16
   %163 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %162, double noundef %160)
@@ -26617,7 +26617,7 @@ _ZSt8generateIPmN4absl15random_internal8PoolURBGImLm8EEEEvT_S5_T0_.exit: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %45 = add i64 %56, %reass.sub
   %46 = uitofp i64 %45 to double
-  %47 = fmul double %46, 6.000000e-01
+  %47 = fmul nnan double %46, 6.000000e-01
   store double %47, ptr %9, align 8, !tbaa !284
   %48 = uitofp i64 %66 to double
   %49 = fcmp ult double %47, %48
@@ -26772,7 +26772,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %97, %_ZNKSt14defaul
   %106 = load i64, ptr %6, align 8, !tbaa !21
   %107 = add i64 %106, %67
   %108 = uitofp i64 %107 to double
-  %109 = fmul double %108, 4.000000e-01
+  %109 = fmul nnan double %108, 4.000000e-01
   store double %109, ptr %13, align 8, !tbaa !284
   %110 = uitofp i64 %106 to double
   %111 = fcmp ugt double %109, %110
@@ -26915,7 +26915,7 @@ _ZN7testing15AssertionResultD2Ev.exit69:          ; preds = %140, %_ZNKSt14defau
           to label %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit unwind label %174
 
 _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %153
-  %157 = fmul double %149, 0x3F20000000000000
+  %157 = fmul nnan double %149, 0x3F20000000000000
   %158 = load ptr, ptr %17, align 8, !tbaa !213
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %159, double noundef %157)
@@ -27319,7 +27319,7 @@ _ZSt8generateIPmN4absl15random_internal8PoolURBGImLm4EEEEvT_S5_T0_.exit: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %45 = add i64 %56, %reass.sub
   %46 = uitofp i64 %45 to double
-  %47 = fmul double %46, 6.000000e-01
+  %47 = fmul nnan double %46, 6.000000e-01
   store double %47, ptr %9, align 8, !tbaa !284
   %48 = uitofp i64 %66 to double
   %49 = fcmp ult double %47, %48
@@ -27474,7 +27474,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %97, %_ZNKSt14defaul
   %106 = load i64, ptr %6, align 8, !tbaa !21
   %107 = add i64 %106, %67
   %108 = uitofp i64 %107 to double
-  %109 = fmul double %108, 4.000000e-01
+  %109 = fmul nnan double %108, 4.000000e-01
   store double %109, ptr %13, align 8, !tbaa !284
   %110 = uitofp i64 %106 to double
   %111 = fcmp ugt double %109, %110
@@ -27617,7 +27617,7 @@ _ZN7testing15AssertionResultD2Ev.exit69:          ; preds = %140, %_ZNKSt14defau
           to label %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit unwind label %174
 
 _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %153
-  %157 = fmul double %149, 0x3F20000000000000
+  %157 = fmul nnan double %149, 0x3F20000000000000
   %158 = load ptr, ptr %17, align 8, !tbaa !213
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 16
   %160 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %159, double noundef %157)
@@ -28029,7 +28029,7 @@ _ZSt8generateIPyN4absl15random_internal8PoolURBGIyLm4EEEEvT_S5_T0_.exit: ; preds
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %47 = add i64 %58, %reass.sub
   %48 = uitofp i64 %47 to double
-  %49 = fmul double %48, 6.000000e-01
+  %49 = fmul nnan double %48, 6.000000e-01
   store double %49, ptr %9, align 8, !tbaa !284
   %50 = uitofp i64 %68 to double
   %51 = fcmp ult double %49, %50
@@ -28184,7 +28184,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %99, %_ZNKSt14defaul
   %108 = load i64, ptr %6, align 8, !tbaa !21
   %109 = add i64 %108, %69
   %110 = uitofp i64 %109 to double
-  %111 = fmul double %110, 4.000000e-01
+  %111 = fmul nnan double %110, 4.000000e-01
   store double %111, ptr %13, align 8, !tbaa !284
   %112 = uitofp i64 %108 to double
   %113 = fcmp ugt double %111, %112
@@ -28327,7 +28327,7 @@ _ZN7testing15AssertionResultD2Ev.exit70:          ; preds = %142, %_ZNKSt14defau
           to label %_ZN7testing7MessagelsIA2_cEERS0_RKT_.exit unwind label %176
 
 _ZN7testing7MessagelsIA2_cEERS0_RKT_.exit:        ; preds = %155
-  %159 = fmul double %151, 0x3F20000000000000
+  %159 = fmul nnan double %151, 0x3F20000000000000
   %160 = load ptr, ptr %17, align 8, !tbaa !213
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %162 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %161, double noundef %159)

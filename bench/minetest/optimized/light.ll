@@ -943,9 +943,9 @@ for.body:                                         ; preds = %_Z14decode_light_ff
 
 if.end.i:                                         ; preds = %for.body
   %101 = call nsz noundef float @llvm.maxnum.f32(float %div, float 0.000000e+00)
-  %102 = call nsz float @llvm.fmuladd.f32(float %58, float %101, float %59)
-  %103 = call nsz float @llvm.fmuladd.f32(float %102, float %101, float %60)
-  %mul.i = fmul nsz float %101, %103
+  %102 = call nsz float @llvm.fmuladd.f32(float %58, float %div, float %59)
+  %103 = call nsz float @llvm.fmuladd.f32(float %102, float %div, float %60)
+  %mul.i = fmul nsz float %div, %103
   %sub.i = fsub nsz float %101, %62
   %div.i = fdiv nsz float %sub.i, %63
   %mul.i.i = fmul nsz float %div.i, %div.i

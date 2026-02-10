@@ -249,7 +249,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sse
 .thread:                                          ; preds = %113, %115, %117, %118
   %.0242307 = phi i32 [ 0, %118 ], [ %., %117 ], [ 1, %113 ], [ 2, %115 ]
   %119 = uitofp i32 %.0 to double
-  %120 = fmul reassoc nsz arcp double %119, 0x3FE62E42FEFA39EF
+  %120 = fmul reassoc nnan nsz arcp double %119, 0x3FE62E42FEFA39EF
   %121 = uitofp i32 %1 to double
   %122 = fdiv reassoc nsz arcp double %120, %121
   %123 = tail call reassoc nsz arcp double @log(double noundef %122) #5, !tbaa !3
@@ -266,7 +266,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sse
 
 128:                                              ; preds = %126
   %129 = uitofp i32 %.0221 to double
-  %130 = fmul reassoc nsz arcp double %129, 0x3FE62E42FEFA39EF
+  %130 = fmul reassoc nnan nsz arcp double %129, 0x3FE62E42FEFA39EF
   %131 = uitofp i32 %1 to double
   %132 = fdiv reassoc nsz arcp double %130, %131
   %133 = tail call reassoc nsz arcp double @log(double noundef %132) #5, !tbaa !3
@@ -283,7 +283,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sse
 
 139:                                              ; preds = %136
   %140 = uitofp i32 %.0227 to double
-  %141 = fmul reassoc nsz arcp double %140, 0x3FE62E42FEFA39EF
+  %141 = fmul reassoc nnan nsz arcp double %140, 0x3FE62E42FEFA39EF
   %142 = uitofp i32 %1 to double
   %143 = fdiv reassoc nsz arcp double %141, %142
   %144 = tail call reassoc nsz arcp double @log(double noundef %143) #5, !tbaa !3
@@ -300,7 +300,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sse
 
 150:                                              ; preds = %147
   %151 = uitofp i32 %.0229 to double
-  %152 = fmul reassoc nsz arcp double %151, 0x3FE62E42FEFA39EF
+  %152 = fmul reassoc nnan nsz arcp double %151, 0x3FE62E42FEFA39EF
   %153 = uitofp i32 %1 to double
   %154 = fdiv reassoc nsz arcp double %152, %153
   %155 = tail call reassoc nsz arcp double @log(double noundef %154) #5, !tbaa !3
@@ -317,7 +317,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_intrin_sse
 
 161:                                              ; preds = %158
   %162 = uitofp i32 %.0231 to double
-  %163 = fmul reassoc nsz arcp double %162, 0x3FE62E42FEFA39EF
+  %163 = fmul reassoc nnan nsz arcp double %162, 0x3FE62E42FEFA39EF
   %164 = uitofp i32 %1 to double
   %165 = fdiv reassoc nsz arcp double %163, %164
   %166 = tail call reassoc nsz arcp double @log(double noundef %165) #5, !tbaa !3

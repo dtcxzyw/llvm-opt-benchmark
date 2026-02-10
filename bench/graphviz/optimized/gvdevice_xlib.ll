@@ -94,7 +94,7 @@ define internal void @xlib_initialize(ptr noundef captures(none) %0) #0 {
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i32, ptr %27, align 8, !tbaa !39
   %29 = sitofp i32 %28 to double
-  %30 = fmul double %29, 2.540000e+01
+  %30 = fmul nnan double %29, 2.540000e+01
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %32 = load i32, ptr %31, align 8, !tbaa !43
   %33 = sitofp i32 %32 to double
@@ -104,7 +104,7 @@ define internal void @xlib_initialize(ptr noundef captures(none) %0) #0 {
   %36 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %37 = load i32, ptr %36, align 4, !tbaa !45
   %38 = sitofp i32 %37 to double
-  %39 = fmul double %38, 2.540000e+01
+  %39 = fmul nnan double %38, 2.540000e+01
   %40 = getelementptr inbounds nuw i8, ptr %26, i64 36
   %41 = load i32, ptr %40, align 4, !tbaa !46
   %42 = sitofp i32 %41 to double

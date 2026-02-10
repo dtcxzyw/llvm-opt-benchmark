@@ -930,7 +930,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
   %71 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv87
   %72 = load i32, ptr %71, align 4, !tbaa !71
   %73 = sitofp i32 %72 to float
-  %74 = fmul reassoc nsz arcp contract afn float %73, 0x3F1A36E2E0000000
+  %74 = fmul reassoc nnan nsz arcp contract afn float %73, 0x3F1A36E2E0000000
   %.lhs.trunc.us = trunc i64 %indvars.iv87 to i8
   %75 = udiv i8 %.lhs.trunc.us, 3
   %76 = zext nneg i8 %75 to i64
@@ -951,7 +951,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
   %83 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv83
   %84 = load i32, ptr %83, align 4, !tbaa !71
   %85 = sitofp i32 %84 to float
-  %86 = fmul reassoc nsz arcp contract afn float %85, 0x3F1A36E2E0000000
+  %86 = fmul reassoc nnan nsz arcp contract afn float %85, 0x3F1A36E2E0000000
   %.lhs.trunc64 = trunc i64 %indvars.iv83 to i8
   %87 = udiv i8 %.lhs.trunc64, 3
   %88 = zext nneg i8 %87 to i64

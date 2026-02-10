@@ -6747,7 +6747,7 @@ declare noundef i32 @_ZN2cv14createTrackbarERKNSt7__cxx1112basic_stringIcSt11cha
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_Z8callbackiPv(i32 noundef %0, ptr readnone captures(none) %1) #9 {
   %3 = sitofp i32 %0 to float
-  %4 = fmul float %3, 0x3F847AE140000000
+  %4 = fmul nnan float %3, 0x3F847AE140000000
   store float %4, ptr @confThreshold, align 4, !tbaa !67
   ret void
 }

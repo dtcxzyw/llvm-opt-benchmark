@@ -344,12 +344,12 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noun
   %28 = fsub double %12, %10
   %29 = sub nsw i32 %8, %6
   %30 = sitofp i32 %29 to double
-  %31 = fmul double %30, 7.812500e-03
+  %31 = fmul nnan double %30, 7.812500e-03
   %32 = fdiv double %28, %31
   %33 = fsub double %13, %11
   %34 = sub nsw i32 %9, %7
   %35 = sitofp i32 %34 to double
-  %36 = fmul double %35, 7.812500e-03
+  %36 = fmul nnan double %35, 7.812500e-03
   %37 = fdiv double %33, %36
   %38 = load ptr, ptr @j2d_glEnable, align 8
   tail call void %38(i32 noundef 3553) #7
@@ -423,7 +423,7 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noun
   %74 = fsub double %13, %.0138160.us.us
   %75 = select i1 %73, double %74, double %37
   %76 = sitofp i32 %71 to double
-  %77 = fmul double %76, 7.812500e-03
+  %77 = fmul nnan double %76, 7.812500e-03
   %78 = add i32 %71, %.0142159.us.us
   %79 = fadd double %.0138160.us.us, %75
   br label %80
@@ -440,7 +440,7 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noun
   %87 = fsub double %12, %.0157.us.us.us
   %88 = select i1 %86, double %87, double %32
   %89 = sitofp i32 %84 to double
-  %90 = fmul double %89, 7.812500e-03
+  %90 = fmul nnan double %89, 7.812500e-03
   %91 = load i32, ptr %61, align 4
   %92 = add nsw i32 %91, %.0141156.us.us.us
   %93 = load i32, ptr %62, align 8
@@ -490,7 +490,7 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noun
   %117 = fsub double %13, %.0138160.us
   %118 = select i1 %116, double %117, double %37
   %119 = sitofp i32 %114 to double
-  %120 = fmul double %119, 7.812500e-03
+  %120 = fmul nnan double %119, 7.812500e-03
   %121 = icmp sgt i32 %114, 0
   %122 = fadd double %.0138160.us, %118
   br label %123
@@ -508,7 +508,7 @@ define internal fastcc void @OGLBlitToSurfaceViaTexture(ptr noundef %0, ptr noun
   %130 = fsub double %12, %.0157.us162
   %131 = select i1 %129, double %130, double %32
   %132 = sitofp i32 %127 to double
-  %133 = fmul double %132, 7.812500e-03
+  %133 = fmul nnan double %132, 7.812500e-03
   %134 = load ptr, ptr %59, align 8
   %135 = ptrtoint ptr %134 to i64
   %136 = load i32, ptr %52, align 8

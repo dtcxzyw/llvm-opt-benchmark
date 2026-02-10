@@ -4413,12 +4413,12 @@ _ZN6GLArea2mwEv.exit:                             ; preds = %323
   store float %355, ptr %350, align 4
   %356 = load i32, ptr %337, align 4
   %357 = sitofp i32 %356 to double
-  %358 = fmul double %357, 5.000000e-01
+  %358 = fmul nnan double %357, 5.000000e-01
   %359 = fptrunc double %358 to float
   %360 = getelementptr inbounds nuw i8, ptr %329, i64 20
   store float %359, ptr %360, align 4
   %361 = sitofp i32 %348 to double
-  %362 = fmul double %361, 5.000000e-01
+  %362 = fmul nnan double %361, 5.000000e-01
   %363 = fptrunc double %362 to float
   %364 = getelementptr inbounds nuw i8, ptr %329, i64 24
   store float %363, ptr %364, align 4
@@ -4768,7 +4768,7 @@ define void @_ZN6GLArea17shotFromTrackballEv(ptr dead_on_unwind noalias writable
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %31, ptr %38, align 4
   %39 = sitofp i32 %31 to float
-  %40 = fmul float %39, 0x3FA2E6AA00000000
+  %40 = fmul nnan float %39, 0x3FA2E6AA00000000
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %8, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %7, align 4
   store float 1.000000e+00, ptr %9, align 4
@@ -13125,7 +13125,7 @@ _ZN5QListI7QStringE3endEv.exit:                   ; preds = %77, %.noexc70
 
 .lr.ph370:                                        ; preds = %_ZN5QListI7QStringE3endEv.exit
   %95 = fpext float %58 to double
-  %96 = fmul double %95, 7.500000e-01
+  %96 = fmul nnan double %95, 7.500000e-01
   %97 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %98 = getelementptr inbounds nuw i8, ptr %18, i64 6
   %99 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -29340,7 +29340,7 @@ _ZN6GLArea2trEPKcS1_i.exit:
   %75 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %68, ptr %75, align 4
   %76 = sitofp i32 %68 to float
-  %77 = fmul float %76, 0x3FA2E6AA00000000
+  %77 = fmul nnan float %76, 0x3FA2E6AA00000000
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %45, i8 0, i64 56, i1 false)
   store float 1.000000e+00, ptr %44, align 4
   store float 1.000000e+00, ptr %46, align 4
@@ -30205,7 +30205,7 @@ define void @_ZN6GLArea14initializeShotERN3vcg4ShotIfNS0_8Matrix44IfEEEE(ptr nou
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %60, ptr %61, align 4
   %62 = sitofp i32 %60 to float
-  %63 = fmul float %62, 0x3FA2E6AA00000000
+  %63 = fmul nnan float %62, 0x3FA2E6AA00000000
   %64 = fdiv float %63, 0x3FF279A740000000
   store float %64, ptr %1, align 4
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 56

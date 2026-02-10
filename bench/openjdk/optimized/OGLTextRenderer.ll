@@ -819,16 +819,16 @@ OGLTR_UpdateCachedDestination.exit.i:             ; preds = %338, %313, %310, %3
   store i32 %295, ptr @previousGlyphBounds.3, align 4
   %351 = sub nsw i32 %.3142, %350
   %352 = sitofp i32 %351 to float
-  %353 = fmul float %352, 0x3F60000000000000
+  %353 = fmul nnan float %352, 0x3F60000000000000
   %354 = sub nsw i32 %349, %.0102
   %355 = sitofp i32 %354 to float
-  %356 = fmul float %355, 1.562500e-02
+  %356 = fmul nnan float %355, 1.562500e-02
   %357 = sub nsw i32 %292, %350
   %358 = sitofp i32 %357 to float
-  %359 = fmul float %358, 0x3F60000000000000
+  %359 = fmul nnan float %358, 0x3F60000000000000
   %360 = sub nsw i32 %349, %295
   %361 = sitofp i32 %360 to float
-  %362 = fmul float %361, 1.562500e-02
+  %362 = fmul nnan float %361, 1.562500e-02
   br label %385
 
 363:                                              ; preds = %285
@@ -984,9 +984,9 @@ OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %417, %412
   %442 = sub nuw nsw i32 %415, %.0104115.us.i
   %443 = select i1 %441, i32 %442, i32 32
   %444 = uitofp nneg i32 %443 to float
-  %445 = fmul float %444, 7.812500e-03
+  %445 = fmul nnan float %444, 7.812500e-03
   %446 = add nsw i32 %443, %.096118.us.i
-  %447 = fmul float %444, 1.562500e-02
+  %447 = fmul nnan float %444, 1.562500e-02
   br label %448
 
 448:                                              ; preds = %485, %.lr.ph.us.i135
@@ -1009,7 +1009,7 @@ OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %417, %412
   %458 = getelementptr inbounds i8, ptr %457, i64 %439
   tail call void %456(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %452, i32 noundef %443, i32 noundef %32, i32 noundef 5121, ptr noundef %458) #5
   %459 = uitofp nneg i32 %452 to float
-  %460 = fmul float %459, 7.812500e-03
+  %460 = fmul nnan float %459, 7.812500e-03
   %461 = load i32, ptr %34, align 4
   %462 = add nsw i32 %461, %.095113.us.i
   %463 = load i32, ptr %35, align 8
@@ -1040,7 +1040,7 @@ OGLTR_DisableGlyphModeState.exit.i134:            ; preds = %417, %412
   tail call void %482(i32 noundef 33985) #5
   %483 = load ptr, ptr @j2d_glCopyTexSubImage2D, align 8
   tail call void %483(i32 noundef 3553, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %462, i32 noundef %466, i32 noundef %452, i32 noundef %443) #5
-  %484 = fmul float %459, 0x3F60000000000000
+  %484 = fmul nnan float %459, 0x3F60000000000000
   br label %485
 
 485:                                              ; preds = %481, %467

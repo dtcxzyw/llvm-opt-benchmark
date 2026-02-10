@@ -2131,7 +2131,7 @@ _ZSt8_DestroyIPN2cv3MatEEvT_S3_.exit.i.i.i.i.i238: ; preds = %.lr.ph.i.i.i.i.i.i
 404:                                              ; preds = %401
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
-  %405 = fmul float %., 2.000000e+00
+  %405 = fmul nnan float %., 2.000000e+00
   %406 = fpext float %405 to double
   %407 = load ptr, ptr %32, align 8, !tbaa !11
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 96

@@ -1709,7 +1709,7 @@ define void @Scl_LibertyStop(ptr noundef captures(none) %0, i32 noundef %1) loca
   %9 = mul i64 %8, 80
   %10 = add i64 %9, %6
   %11 = uitofp i64 %10 to double
-  %12 = fmul double %11, 0x3EB0000000000000
+  %12 = fmul nnan double %11, 0x3EB0000000000000
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, double noundef %12)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

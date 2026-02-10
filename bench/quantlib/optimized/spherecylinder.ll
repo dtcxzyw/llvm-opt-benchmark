@@ -368,7 +368,7 @@ if.else:                                          ; preds = %do.end66
   br i1 %cmp79, label %if.else91, label %if.then80
 
 if.then80:                                        ; preds = %if.else
-  %mul82 = fmul double %alpha, 4.000000e+00
+  %mul82 = fmul nnan double %alpha, 4.000000e+00
   %mul83 = fmul double %alpha, %mul82
   %39 = fneg double %38
   %40 = fmul double %38, %39
@@ -383,7 +383,7 @@ if.then80:                                        ; preds = %if.else
   br label %if.end96
 
 if.else91:                                        ; preds = %if.else
-  %mul = fmul double %alpha, 2.000000e+00
+  %mul = fmul nnan double %alpha, 2.000000e+00
   %div92 = fdiv double %38, %mul
   %add93 = fadd double %alpha, %div92
   br label %if.end96

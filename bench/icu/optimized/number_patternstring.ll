@@ -3021,7 +3021,7 @@ define noundef zeroext i1 @_ZN6icu_776number4impl18PatternStringUtils23ignoreRou
   %.013 = phi i32 [ %6, %.lr.ph ], [ 0, %2 ]
   %.01012 = phi double [ %7, %.lr.ph ], [ %4, %2 ]
   %6 = add nuw nsw i32 %.013, 1
-  %7 = fmul double %.01012, 1.000000e+01
+  %7 = fmul nnan double %.01012, 1.000000e+01
   %8 = icmp slt i32 %.013, %1
   %9 = fcmp ole double %7, 1.000000e+00
   %10 = select i1 %8, i1 %9, i1 false
@@ -3463,7 +3463,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit215:      ; preds = %.lr.ph289
   %.013.i = phi i32 [ %219, %.lr.ph.i ], [ 0, %215 ]
   %.01012.i = phi double [ %220, %.lr.ph.i ], [ %217, %215 ]
   %219 = add nuw nsw i32 %.013.i, 1
-  %220 = fmul double %.01012.i, 1.000000e+01
+  %220 = fmul nnan double %.01012.i, 1.000000e+01
   %221 = icmp slt i32 %.013.i, %79
   %222 = fcmp ole double %220, 1.000000e+00
   %223 = select i1 %221, i1 %222, i1 false

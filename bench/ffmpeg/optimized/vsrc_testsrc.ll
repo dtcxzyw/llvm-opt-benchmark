@@ -1573,8 +1573,8 @@ define internal void @test_fill_picture(ptr noundef readonly captures(none) %0, 
   %134 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %135 = load i32, ptr %134, align 8, !tbaa !89
   %136 = sitofp i32 %135 to double
-  %137 = fmul nsz double %136, 0x400A934F0979A371
-  %138 = tail call nsz double @llvm.exp2.f64(double %137)
+  %137 = fmul nnan nsz double %136, 0x400A934F0979A371
+  %138 = tail call nnan nsz double @llvm.exp2.f64(double %137)
   %139 = fmul nsz double %133, %138
   %140 = fcmp nsz ult double %139, 0x41DFFFFFFFC00000
   br i1 %140, label %.preheader, label %.critedge
@@ -4263,8 +4263,8 @@ define internal void @colorspectrum_fill_picture(ptr noundef readonly captures(n
 
 .thread.us:                                       ; preds = %.lr.ph53.split.us
   %44 = fcmp nsz ogt float %41, 5.000000e-01
-  %45 = fadd nsz float %41, -5.000000e-01
-  %46 = fmul nsz float %45, 2.000000e+00
+  %45 = fadd nnan nsz float %41, -5.000000e-01
+  %46 = fmul nnan nsz float %45, 2.000000e+00
   %47 = tail call nsz float @llvm.fmuladd.f32(float %41, float -2.000000e+00, float 1.000000e+00)
   %48 = select i1 %44, float %46, float %47
   %49 = select nsz i1 %44, float 0.000000e+00, float 1.000000e+00
@@ -4535,7 +4535,7 @@ define internal range(i32 -22, 1) i32 @zoneplate_config_props(ptr noundef captur
   %indvars.iv54 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next55, %31 ]
   %32 = trunc nuw nsw i64 %indvars.iv54 to i32
   %33 = uitofp nneg i32 %32 to double
-  %34 = fmul nsz double %33, 0x401921FB54442D18
+  %34 = fmul nnan nsz double %33, 0x401921FB54442D18
   %35 = fdiv nsz double %34, %30
   %36 = fptrunc nsz double %35 to float
   %37 = tail call nsz float @llvm.sin.f32(float %36)
@@ -4553,7 +4553,7 @@ define internal range(i32 -22, 1) i32 @zoneplate_config_props(ptr noundef captur
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
   %44 = trunc nuw nsw i64 %indvars.iv to i32
   %45 = uitofp nneg i32 %44 to double
-  %46 = fmul nsz double %45, 0x401921FB54442D18
+  %46 = fmul nnan nsz double %45, 0x401921FB54442D18
   %47 = fdiv nsz double %46, %29
   %48 = fptrunc nsz double %47 to float
   %49 = tail call nsz float @llvm.sin.f32(float %48)

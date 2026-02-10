@@ -25,11 +25,11 @@ define hidden void @_ZN19OpenColorIO_v2_5dev20applyTetrahedralAVX2EPKfiS1_Pfi(pt
   %9 = fadd float %8, -1.000000e+00
   %10 = insertelement <8 x float> poison, float %9, i64 0
   %11 = shufflevector <8 x float> %10, <8 x float> poison, <8 x i32> zeroinitializer
-  %12 = fmul float %8, 4.000000e+00
+  %12 = fmul nnan float %8, 4.000000e+00
   %13 = insertelement <8 x float> poison, float %12, i64 0
   %14 = shufflevector <8 x float> %13, <8 x float> poison, <8 x i32> zeroinitializer
   %15 = fmul float %8, %8
-  %16 = fmul float %15, 4.000000e+00
+  %16 = fmul nnan float %15, 4.000000e+00
   %17 = insertelement <8 x float> poison, float %16, i64 0
   %18 = shufflevector <8 x float> %17, <8 x float> poison, <8 x i32> zeroinitializer
   %19 = sdiv i32 %4, 8

@@ -1526,12 +1526,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 
 46:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %47 = uitofp i16 %12 to float
-  %48 = fmul float %47, 0x3F50000000000000
+  %48 = fmul nnan float %47, 0x3F50000000000000
   %49 = fdiv float 1.024000e+03, %48
   %50 = fptosi float %49 to i32
   %.sroa.0184.0.insert.ext187 = zext i32 %50 to i64
   %51 = uitofp i16 %20 to float
-  %52 = fmul float %51, 0x3F50000000000000
+  %52 = fmul nnan float %51, 0x3F50000000000000
   %53 = fdiv float 1.024000e+03, %52
   %54 = fptosi float %53 to i32
   br label %_ZN8rawspeed12RawImageData32getByteDataAsUncroppedArray2DRefEv.exit
@@ -2564,8 +2564,8 @@ define hidden void @_ZNK8rawspeed10Cr2Decoder17parseWhiteBalanceEv(ptr noundef n
   %34 = add nsw i32 %26, 3
   %35 = tail call noundef i32 @_ZNK8rawspeed9TiffEntry6getU32Ej(ptr noundef nonnull align 8 dereferenceable(48) %14, i32 noundef %34)
   %36 = uitofp i32 %35 to float
-  %37 = fadd float %33, %36
-  %38 = fmul float %37, 5.000000e-01
+  %37 = fadd nnan float %33, %36
+  %38 = fmul nnan float %37, 5.000000e-01
   %39 = load ptr, ptr %5, align 8, !tbaa !33
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 260
   store float %38, ptr %40, align 4, !tbaa !228

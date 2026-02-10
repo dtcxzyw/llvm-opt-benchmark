@@ -4391,7 +4391,7 @@ define internal fastcc float @pixels2print(ptr noundef readonly captures(none) %
   %12 = tail call i64 @strtol(ptr noundef nonnull captures(none) %11, ptr noundef null, i32 noundef 10) #19
   %13 = trunc i64 %12 to i32
   %14 = uitofp i32 %1 to float
-  %15 = fmul reassoc nsz arcp contract afn float %14, 0x400451EB80000000
+  %15 = fmul reassoc nnan nsz arcp contract afn float %14, 0x400451EB80000000
   %16 = sitofp i32 %13 to float
   %17 = fdiv reassoc nsz arcp contract afn float %15, %16
   br label %30

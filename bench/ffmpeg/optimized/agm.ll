@@ -2590,7 +2590,7 @@ define internal fastcc void @compute_quant_matrix(ptr noundef captures(none) %0,
   br i1 %14, label %.preheader79, label %.preheader81
 
 .preheader81:                                     ; preds = %13
-  %15 = fmul nsz double %6, 1.600000e+01
+  %15 = fmul nnan nsz double %6, 1.600000e+01
   %16 = fcmp nsz olt double %15, 1.000000e+00
   %17 = select nsz i1 %16, double 1.000000e+00, double %15
   %18 = fptosi double %17 to i32

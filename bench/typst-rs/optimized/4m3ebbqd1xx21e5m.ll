@@ -57848,7 +57848,7 @@ _ZN5typst6layout7regions7Regions4next17h2d9fe5a160426851E.exit: ; preds = %._ZN5
   br i1 %or.cond.i, label %314, label %_ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit
 
 314:                                              ; preds = %306
-  %315 = fmul double %309, %.0.i.i.i2.i
+  %315 = fmul nnan double %309, %.0.i.i.i2.i
   %316 = fcmp ugt double %315, 0.000000e+00
   br i1 %316, label %317, label %_ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit
 
@@ -57888,7 +57888,7 @@ _ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit: ; preds = %317, %314, %30
   br label %328
 
 326:                                              ; preds = %321
-  %327 = fmul double %.0.i.i.i2.i134, 5.000000e-01
+  %327 = fmul nnan double %.0.i.i.i2.i134, 5.000000e-01
   br label %328
 
 328:                                              ; preds = %321, %325, %326
@@ -57963,7 +57963,7 @@ _ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit: ; preds = %317, %314, %30
   br label %_ZN5typst6layout5align14FixedAlignment8position17h5532a7a69f4a73e8E.exit157
 
 346:                                              ; preds = %338
-  %347 = fmul double %.0.i.i.i2.i153, 5.000000e-01
+  %347 = fmul nnan double %.0.i.i.i2.i153, 5.000000e-01
   br label %_ZN5typst6layout5align14FixedAlignment8position17h5532a7a69f4a73e8E.exit157
 
 _ZN5typst6layout5align14FixedAlignment8position17h5532a7a69f4a73e8E.exit157: ; preds = %346, %345, %338
@@ -58001,7 +58001,7 @@ _ZN5typst6layout5align14FixedAlignment8position17h5532a7a69f4a73e8E.exit157: ; p
   br label %367
 
 355:                                              ; preds = %350
-  %356 = fmul double %.0.i.i.i2.i165, 5.000000e-01
+  %356 = fmul nnan double %.0.i.i.i2.i165, 5.000000e-01
   br label %367
 
 357:                                              ; preds = %348
@@ -59896,7 +59896,7 @@ define noundef double @_ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E(double n
   br i1 %or.cond, label %9, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit
 
 9:                                                ; preds = %3
-  %10 = fmul double %2, %4
+  %10 = fmul nnan double %2, %4
   %11 = fcmp ugt double %10, 0.000000e+00
   br i1 %11, label %12, label %_ZN5typst6layout3abs3Abs3max17he6aff22f483bab27E.exit
 
@@ -70592,7 +70592,7 @@ default.unreachable:                              ; preds = %500
   br i1 %or.cond.i, label %529, label %_ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit
 
 529:                                              ; preds = %523
-  %530 = fmul double %.2306, %526
+  %530 = fmul nnan double %.2306, %526
   %531 = fcmp ugt double %530, 0.000000e+00
   br i1 %531, label %532, label %_ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit
 
@@ -72435,7 +72435,7 @@ switch.lookup:                                    ; preds = %38
   br i1 %or.cond.i, label %97, label %_ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit
 
 97:                                               ; preds = %92
-  %98 = fmul double %.0.i.i.i2.i, %94
+  %98 = fmul nnan double %.0.i.i.i2.i, %94
   %99 = fcmp ugt double %98, 0.000000e+00
   br i1 %99, label %100, label %_ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit
 
@@ -72503,7 +72503,7 @@ _ZN5typst6layout2fr2Fr5share17h5197815cb5d1ae09E.exit: ; preds = %100, %97, %92
   br label %_ZN5typst6layout5align14FixedAlignment8position17h5532a7a69f4a73e8E.exit
 
 120:                                              ; preds = %114
-  %121 = fmul double %.0.i.i.i2.i44, 5.000000e-01
+  %121 = fmul nnan double %.0.i.i.i2.i44, 5.000000e-01
   br label %_ZN5typst6layout5align14FixedAlignment8position17h5532a7a69f4a73e8E.exit
 
 _ZN5typst6layout5align14FixedAlignment8position17h5532a7a69f4a73e8E.exit: ; preds = %114, %119, %120

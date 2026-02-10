@@ -257,10 +257,10 @@ _ZN2cv3RNG7uniformEii.exit93:                     ; preds = %116, %_ZN2cv3RNG7un
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %136 = load i32, ptr %41, align 4, !tbaa !11
   %137 = sitofp i32 %136 to double
-  %138 = fmul double %137, 5.000000e-02
+  %138 = fmul nnan double %137, 5.000000e-02
   %139 = load i32, ptr %42, align 8, !tbaa !22
   %140 = sitofp i32 %139 to double
-  %141 = fmul double %140, 5.000000e-02
+  %141 = fmul nnan double %140, 5.000000e-02
   store double %138, ptr %16, align 8, !tbaa !4
   store double %141, ptr %50, align 8, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, i8 0, i64 16, i1 false)

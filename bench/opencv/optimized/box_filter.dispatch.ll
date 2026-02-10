@@ -15433,7 +15433,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEclEPKhPhii
   %23 = load i8, ptr %gep92, align 1, !tbaa !220
   %24 = uitofp i8 %23 to double
   %25 = fneg double %22
-  %26 = fmul double %22, %25
+  %26 = fmul nnan double %22, %25
   %27 = call double @llvm.fmuladd.f64(double %24, double %24, double %26)
   %28 = fadd double %.149.us.us, %27
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, %15
@@ -15485,7 +15485,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIhdEclEPKhPhii
   %46 = load i8, ptr %gep, align 1, !tbaa !220
   %47 = uitofp i8 %46 to double
   %48 = fneg double %45
-  %49 = fmul double %45, %48
+  %49 = fmul nnan double %45, %48
   %50 = call double @llvm.fmuladd.f64(double %47, double %47, double %49)
   %51 = fadd double %.149.us, %50
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, %15
@@ -15667,7 +15667,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEclEPKhPhii
   %23 = load i16, ptr %gep92, align 2, !tbaa !313
   %24 = uitofp i16 %23 to double
   %25 = fneg double %22
-  %26 = fmul double %22, %25
+  %26 = fmul nnan double %22, %25
   %27 = call double @llvm.fmuladd.f64(double %24, double %24, double %26)
   %28 = fadd double %.149.us.us, %27
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, %15
@@ -15719,7 +15719,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumItdEclEPKhPhii
   %46 = load i16, ptr %gep, align 2, !tbaa !313
   %47 = uitofp i16 %46 to double
   %48 = fneg double %45
-  %49 = fmul double %45, %48
+  %49 = fmul nnan double %45, %48
   %50 = call double @llvm.fmuladd.f64(double %47, double %47, double %49)
   %51 = fadd double %.149.us, %50
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, %15
@@ -15898,7 +15898,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEclEPKhPhii
   %23 = load i16, ptr %gep92, align 2, !tbaa !313
   %24 = sitofp i16 %23 to double
   %25 = fneg double %22
-  %26 = fmul double %22, %25
+  %26 = fmul nnan double %22, %25
   %27 = call double @llvm.fmuladd.f64(double %24, double %24, double %26)
   %28 = fadd double %.149.us.us, %27
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, %15
@@ -15950,7 +15950,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_19SqrRowSumIsdEclEPKhPhii
   %46 = load i16, ptr %gep, align 2, !tbaa !313
   %47 = sitofp i16 %46 to double
   %48 = fneg double %45
-  %49 = fmul double %45, %48
+  %49 = fmul nnan double %45, %48
   %50 = call double @llvm.fmuladd.f64(double %47, double %47, double %49)
   %51 = fadd double %.149.us, %50
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, %15

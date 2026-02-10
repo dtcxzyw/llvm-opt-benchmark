@@ -15545,8 +15545,8 @@ _ZN7QStringD2Ev.exit475:                          ; preds = %266, %_ZN9QtPrivate
   %..i2.i.us.i = call i8 @llvm.umax.i8(i8 %.sroa.0.0.extract.trunc.i.us.i, i8 %.sroa.5.0.extract.trunc.i.us.i)
   %.sroa.speculated.i.us.i = call i8 @llvm.umax.i8(i8 %..i2.i.us.i, i8 %.sroa.9.0.extract.trunc.i.us.i)
   %282 = uitofp i8 %.sroa.speculated.i.us.i to float
-  %283 = fadd float %282, %281
-  %284 = fmul float %283, 5.000000e-01
+  %283 = fadd nnan float %282, %281
+  %284 = fmul nnan float %283, 5.000000e-01
   %285 = fcmp ugt float %284, %.0.i
   %..us.i = select i1 %285, i32 %.sroa.01542.0.insert.insert, i32 %.sroa.01546.0.insert.insert
   store i32 %..us.i, ptr %280, align 1
@@ -15582,8 +15582,8 @@ _ZN7QStringD2Ev.exit475:                          ; preds = %266, %_ZN9QtPrivate
   %..i2.i.i = call i8 @llvm.umax.i8(i8 %.sroa.0.0.extract.trunc.i.i, i8 %.sroa.5.0.extract.trunc.i.i)
   %.sroa.speculated.i.i = call i8 @llvm.umax.i8(i8 %..i2.i.i, i8 %.sroa.9.0.extract.trunc.i.i)
   %296 = uitofp i8 %.sroa.speculated.i.i to float
-  %297 = fadd float %296, %295
-  %298 = fmul float %297, 5.000000e-01
+  %297 = fadd nnan float %296, %295
+  %298 = fmul nnan float %297, 5.000000e-01
   %299 = fcmp ugt float %298, %.0.i
   %..i484 = select i1 %299, i32 %.sroa.01542.0.insert.insert, i32 %.sroa.01546.0.insert.insert
   store i32 %..i484, ptr %294, align 1
@@ -16900,8 +16900,8 @@ _ZN7QStringD2Ev.exit724:                          ; preds = %734, %_ZN9QtPrivate
   %..i2.i.i.i = call i8 @llvm.umax.i8(i8 %.sroa.0.0.extract.trunc.i.i.i, i8 %.sroa.5.0.extract.trunc.i.i.i)
   %.sroa.speculated.i.i.i = call i8 @llvm.umax.i8(i8 %..i2.i.i.i, i8 %.sroa.9.0.extract.trunc.i.i.i)
   %754 = uitofp i8 %.sroa.speculated.i.i.i to float
-  %755 = fadd float %754, %753
-  %756 = fmul float %755, 5.000000e-01
+  %755 = fadd nnan float %754, %753
+  %756 = fmul nnan float %755, 5.000000e-01
   %757 = fptosi float %756 to i32
   br label %_ZN3vcg3tri11UpdateColorI6CMeshOE15ColorDesaturateENS_6Color4IhEEi.exit.i
 
@@ -16926,7 +16926,7 @@ _ZN7QStringD2Ev.exit724:                          ; preds = %734, %_ZN9QtPrivate
   %.sroa.3.0.extract.trunc.i.i.i = trunc i32 %.sroa.3.0.extract.shift.i17.i.i to i8
   %768 = uitofp i8 %.sroa.0.0.extract.trunc.i15.i.i to float
   %769 = uitofp i8 %.sroa.2.0.extract.trunc.i.i.i to float
-  %770 = fmul float %769, 0x3FE6E2EB20000000
+  %770 = fmul nnan float %769, 0x3FE6E2EB20000000
   %771 = call float @llvm.fmuladd.f32(float %768, float 0x3FCB367A00000000, float %770)
   %772 = uitofp i8 %.sroa.3.0.extract.trunc.i.i.i to float
   %773 = call noundef float @llvm.fmuladd.f32(float %772, float 0x3FB27BB300000000, float %771)
@@ -17199,11 +17199,11 @@ _ZN7QStringD2Ev.exit782:                          ; preds = %842, %_ZN9QtPrivate
   %.sroa.4.0.i.i = call i8 @llvm.umax.i8(i8 %.sroa.4.0.extract.trunc.i.i, i8 1)
   %.sroa.7.0.i.i = call i8 @llvm.umax.i8(i8 %.sroa.7.0.extract.trunc.i.i, i8 1)
   %851 = uitofp i8 %spec.select.i.i to float
-  %852 = fdiv float 2.550000e+02, %851
+  %852 = fdiv nnan float 2.550000e+02, %851
   %853 = uitofp i8 %.sroa.4.0.i.i to float
-  %854 = fdiv float 2.550000e+02, %853
+  %854 = fdiv nnan float 2.550000e+02, %853
   %855 = uitofp i8 %.sroa.7.0.i.i to float
-  %856 = fdiv float 2.550000e+02, %855
+  %856 = fdiv nnan float 2.550000e+02, %855
   br label %857
 
 857:                                              ; preds = %882, %.lr.ph.i784
@@ -22904,8 +22904,8 @@ _ZN3vcg9HistogramIfE5ClearEv.exit42:
   %..i2.i = call i8 @llvm.umax.i8(i8 %.sroa.0.0.extract.trunc.i, i8 %.sroa.5.0.extract.trunc.i)
   %.sroa.speculated.i = call i8 @llvm.umax.i8(i8 %..i2.i, i8 %.sroa.9.0.extract.trunc.i)
   %70 = uitofp i8 %.sroa.speculated.i to float
-  %71 = fadd float %70, %69
-  %72 = fmul float %71, 5.000000e-01
+  %71 = fadd nnan float %70, %69
+  %72 = fmul nnan float %71, 5.000000e-01
   %73 = fadd float %72, 5.000000e-01
   %74 = load ptr, ptr %11, align 8
   %75 = load ptr, ptr %12, align 8
@@ -22970,7 +22970,7 @@ _ZN3vcg9HistogramIfE8BinIndexEf.exit.i:           ; preds = %_ZSt11lower_boundIN
   %106 = load float, ptr %48, align 8
   %107 = fadd float %73, %106
   store float %107, ptr %48, align 8
-  %108 = fmul float %73, %73
+  %108 = fmul nnan float %73, %73
   %109 = load float, ptr %49, align 4
   %110 = fadd float %108, %109
   store float %110, ptr %49, align 4
@@ -23039,7 +23039,7 @@ _ZN3vcg9HistogramIfE8BinIndexEf.exit.i43:         ; preds = %_ZSt11lower_boundIN
   %145 = load float, ptr %51, align 8
   %146 = fadd float %145, %112
   store float %146, ptr %51, align 8
-  %147 = fmul float %112, %112
+  %147 = fmul nnan float %112, %112
   %148 = load float, ptr %52, align 4
   %149 = fadd float %147, %148
   store float %149, ptr %52, align 4
@@ -23109,7 +23109,7 @@ _ZN3vcg9HistogramIfE8BinIndexEf.exit.i56:         ; preds = %_ZSt11lower_boundIN
   %185 = load float, ptr %54, align 8
   %186 = fadd float %185, %152
   store float %186, ptr %54, align 8
-  %187 = fmul float %152, %152
+  %187 = fmul nnan float %152, %152
   %188 = load float, ptr %55, align 4
   %189 = fadd float %187, %188
   store float %189, ptr %55, align 4
@@ -23179,7 +23179,7 @@ _ZN3vcg9HistogramIfE3AddEff.exit81:               ; preds = %211, %214
   %224 = load float, ptr %57, align 8
   %225 = fadd float %224, %192
   store float %225, ptr %57, align 8
-  %226 = fmul float %192, %192
+  %226 = fmul nnan float %192, %192
   %227 = load float, ptr %58, align 4
   %228 = fadd float %226, %227
   store float %228, ptr %58, align 4
@@ -32671,19 +32671,19 @@ define linkonce_odr void @_ZN3vcg3tri11UpdateColorI6CMeshOE17PerFaceFromVertexER
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 40
   %54 = load i8, ptr %53, align 1
   %55 = uitofp i8 %54 to float
-  %56 = fdiv float %55, 2.550000e+02
+  %56 = fdiv nnan float %55, 2.550000e+02
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 41
   %58 = load i8, ptr %57, align 1
   %59 = uitofp i8 %58 to float
-  %60 = fdiv float %59, 2.550000e+02
+  %60 = fdiv nnan float %59, 2.550000e+02
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 42
   %62 = load i8, ptr %61, align 1
   %63 = uitofp i8 %62 to float
-  %64 = fdiv float %63, 2.550000e+02
+  %64 = fdiv nnan float %63, 2.550000e+02
   %65 = getelementptr inbounds nuw i8, ptr %52, i64 43
   %66 = load i8, ptr %65, align 1
   %67 = uitofp i8 %66 to float
-  %68 = fdiv float %67, 2.550000e+02
+  %68 = fdiv nnan float %67, 2.550000e+02
   %69 = fadd float %47, %56
   %70 = fadd float %48, %60
   %71 = fadd float %49, %64
@@ -33258,7 +33258,7 @@ define linkonce_odr i32 @_ZN3vcg3tri11UpdateColorI6CMeshOE23ColorBrightnessContr
   br i1 %7, label %9, label %12
 
 9:                                                ; preds = %3
-  %10 = fadd double %6, 1.000000e+00
+  %10 = fadd nnan double %6, 1.000000e+00
   %11 = fmul double %10, %8
   br label %_ZN3vcg3tri11UpdateColorI6CMeshOE23ValueBrightnessContrastEhff.exit
 
@@ -33283,9 +33283,9 @@ _ZN3vcg3tri11UpdateColorI6CMeshOE23ValueBrightnessContrastEhff.exit: ; preds = %
   br i1 %7, label %26, label %31
 
 26:                                               ; preds = %_ZN3vcg3tri11UpdateColorI6CMeshOE23ValueBrightnessContrastEhff.exit
-  %27 = fadd double %6, 1.000000e+00
+  %27 = fadd nnan double %6, 1.000000e+00
   %28 = fmul double %27, %22
-  %29 = fadd double %6, 1.000000e+00
+  %29 = fadd nnan double %6, 1.000000e+00
   %30 = fmul double %29, %25
   br label %_ZN3vcg3tri11UpdateColorI6CMeshOE23ValueBrightnessContrastEhff.exit11
 
@@ -33576,7 +33576,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %38, %40, %42, %44
   %59 = fpext float %58 to double
   %60 = trunc nuw nsw i64 %indvars.iv32 to i32
   %61 = uitofp nneg i32 %60 to float
-  %62 = fpext float %61 to double
+  %62 = fpext nnan ninf float %61 to double
   %63 = fmul double %54, %62
   %64 = sitofp i32 %57 to double
   %65 = fdiv double %63, %64
@@ -33634,8 +33634,8 @@ define linkonce_odr i32 @_ZN3vcg3tri11UpdateColorI6CMeshOE13ColorEqualizeENS_6Co
   %..i2.i = tail call i8 @llvm.umax.i8(i8 %.sroa.0.0.extract.trunc.i, i8 %.sroa.5.0.extract.trunc.i)
   %.sroa.speculated.i = tail call i8 @llvm.umax.i8(i8 %..i2.i, i8 %.sroa.9.0.extract.trunc.i)
   %10 = uitofp i8 %.sroa.speculated.i to float
-  %11 = fadd float %10, %9
-  %12 = fmul float %11, 5.000000e-01
+  %11 = fadd nnan float %10, %9
+  %12 = fmul nnan float %11, 5.000000e-01
   %13 = fadd float %12, 5.000000e-01
   %14 = fptosi float %13 to i32
   %15 = sext i32 %14 to i64
@@ -33872,7 +33872,7 @@ define linkonce_odr void @_ZN3vcg4math18MarsenneTwisterRNG10initializeEj(ptr nou
 define linkonce_odr noundef double @_ZN3vcg4math18MarsenneTwisterRNG10generate01Ev(ptr noundef nonnull align 8 dereferenceable(2508) %0) unnamed_addr #8 comdat align 2 {
   %2 = tail call noundef i32 @_ZN3vcg4math18MarsenneTwisterRNG8generateEv(ptr noundef nonnull align 8 dereferenceable(2508) %0)
   %3 = uitofp i32 %2 to double
-  %4 = fmul double %3, 0x3DF0000000000000
+  %4 = fmul nnan double %3, 0x3DF0000000000000
   ret double %4
 }
 
@@ -33880,7 +33880,7 @@ define linkonce_odr noundef double @_ZN3vcg4math18MarsenneTwisterRNG10generate01
 define linkonce_odr noundef double @_ZN3vcg4math18MarsenneTwisterRNG16generate01closedEv(ptr noundef nonnull align 8 dereferenceable(2508) %0) unnamed_addr #1 comdat align 2 {
   %2 = tail call noundef i32 @_ZN3vcg4math18MarsenneTwisterRNG8generateEv(ptr noundef nonnull align 8 dereferenceable(2508) %0)
   %3 = uitofp i32 %2 to double
-  %4 = fmul double %3, 0x3DF0000000100000
+  %4 = fmul nnan double %3, 0x3DF0000000100000
   ret double %4
 }
 
@@ -33888,8 +33888,8 @@ define linkonce_odr noundef double @_ZN3vcg4math18MarsenneTwisterRNG16generate01
 define linkonce_odr noundef double @_ZN3vcg4math18MarsenneTwisterRNG14generate01openEv(ptr noundef nonnull align 8 dereferenceable(2508) %0) unnamed_addr #1 comdat align 2 {
   %2 = tail call noundef i32 @_ZN3vcg4math18MarsenneTwisterRNG8generateEv(ptr noundef nonnull align 8 dereferenceable(2508) %0)
   %3 = uitofp i32 %2 to double
-  %4 = fadd double %3, 5.000000e-01
-  %5 = fmul double %4, 0x3DF0000000000000
+  %4 = fadd nnan double %3, 5.000000e-01
+  %5 = fmul nnan double %4, 0x3DF0000000000000
   ret double %5
 }
 
@@ -34404,8 +34404,8 @@ define linkonce_odr noundef double @_ZN3vcg4math18SubtractiveRingRNG14generate01
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(248) %0, i32 noundef -1)
   %6 = uitofp i32 %5 to double
-  %7 = fadd double %6, 5.000000e-01
-  %8 = fmul double %7, 0x3DF0000000100000
+  %7 = fadd nnan double %6, 5.000000e-01
+  %8 = fmul nnan double %7, 0x3DF0000000100000
   ret double %8
 }
 

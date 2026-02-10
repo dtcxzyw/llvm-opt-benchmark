@@ -1192,7 +1192,7 @@ define dso_local void @_Z14setConstraint4RK9b3Vector3S1_S1_fRK11b3Matrix3x3S1_S1
 
 204:                                              ; preds = %194
   %205 = load float, ptr %.sroa.6193.0..sroa_idx, align 4, !tbaa !74
-  %206 = fmul float %200, %200
+  %206 = fmul nnan float %200, %200
   %207 = tail call float @llvm.fmuladd.f32(float %205, float %205, float %206)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %207)
   %208 = fdiv float 1.000000e+00, %sqrt.i
@@ -2643,7 +2643,7 @@ _ZL12solveContactR16b3GpuConstraint4RK9b3Vector3S3_S3_fRK11b3Matrix3x3S3_S3_S3_f
   br i1 %644, label %645, label %654
 
 645:                                              ; preds = %633
-  %646 = fmul float %641, %641
+  %646 = fmul nnan float %641, %641
   %647 = call float @llvm.fmuladd.f32(float %638, float %638, float %646)
   %sqrt.i.i = call float @llvm.sqrt.f32(float %647)
   %648 = fdiv float 1.000000e+00, %sqrt.i.i

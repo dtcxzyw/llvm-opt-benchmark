@@ -66136,7 +66136,7 @@ default.unreachable16:                            ; preds = %3
   br label %62
 
 16:                                               ; preds = %3
-  %17 = fadd double %9, -1.000000e+00
+  %17 = fadd nnan double %9, -1.000000e+00
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %19 = load double, ptr %18, align 8, !noundef !6
   %20 = fmul double %17, %19
@@ -66145,7 +66145,7 @@ default.unreachable16:                            ; preds = %3
   br label %62
 
 23:                                               ; preds = %3
-  %24 = fadd double %9, -1.000000e+00
+  %24 = fadd nnan double %9, -1.000000e+00
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load double, ptr %25, align 8, !noundef !6
   %27 = fmul double %24, %26
@@ -66162,7 +66162,7 @@ default.unreachable16:                            ; preds = %3
   %35 = tail call i64 @llvm.fptoui.sat.i64.f64(double %34)
   %36 = add i64 %6, -1
   %.sroa.0.0.sroa.speculated.i14 = tail call noundef i64 @llvm.umin.i64(i64 %36, i64 %35)
-  %37 = fadd double %9, -1.000000e+00
+  %37 = fadd nnan double %9, -1.000000e+00
   %38 = fmul double %37, %33
   %39 = tail call double @llvm.ceil.f64(double %38)
   %40 = tail call i64 @llvm.fptoui.sat.i64.f64(double %39)
@@ -66172,7 +66172,7 @@ default.unreachable16:                            ; preds = %3
   br i1 %41, label %71, label %65
 
 44:                                               ; preds = %3
-  %45 = fadd double %9, -1.000000e+00
+  %45 = fadd nnan double %9, -1.000000e+00
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %47 = load double, ptr %46, align 8, !noundef !6
   %48 = fmul double %45, %47
@@ -66261,7 +66261,7 @@ default.unreachable16:                            ; preds = %3
   br label %62
 
 16:                                               ; preds = %3
-  %17 = fadd double %9, -1.000000e+00
+  %17 = fadd nnan double %9, -1.000000e+00
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %19 = load double, ptr %18, align 8, !noundef !6
   %20 = fmul double %17, %19
@@ -66270,7 +66270,7 @@ default.unreachable16:                            ; preds = %3
   br label %62
 
 23:                                               ; preds = %3
-  %24 = fadd double %9, -1.000000e+00
+  %24 = fadd nnan double %9, -1.000000e+00
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %26 = load double, ptr %25, align 8, !noundef !6
   %27 = fmul double %24, %26
@@ -66287,7 +66287,7 @@ default.unreachable16:                            ; preds = %3
   %35 = tail call i64 @llvm.fptoui.sat.i64.f64(double %34)
   %36 = add i64 %6, -1
   %.sroa.0.0.sroa.speculated.i14 = tail call noundef i64 @llvm.umin.i64(i64 %36, i64 %35)
-  %37 = fadd double %9, -1.000000e+00
+  %37 = fadd nnan double %9, -1.000000e+00
   %38 = fmul double %37, %33
   %39 = tail call double @llvm.ceil.f64(double %38)
   %40 = tail call i64 @llvm.fptoui.sat.i64.f64(double %39)
@@ -66297,7 +66297,7 @@ default.unreachable16:                            ; preds = %3
   br i1 %41, label %71, label %65
 
 44:                                               ; preds = %3
-  %45 = fadd double %9, -1.000000e+00
+  %45 = fadd nnan double %9, -1.000000e+00
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %47 = load double, ptr %46, align 8, !noundef !6
   %48 = fmul double %45, %47

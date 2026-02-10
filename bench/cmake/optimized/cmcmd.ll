@@ -5091,7 +5091,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1172: ; preds = %1
   br i1 %1224, label %1225, label %.loopexit1988
 
 1225:                                             ; preds = %._crit_edge2103
-  %1226 = fmul double %1222, 1.000000e+03
+  %1226 = fmul nnan double %1222, 1.000000e+03
   %1227 = fptoui double %1226 to i32
   call void @_ZN5cmsys11SystemTools5DelayEj(i32 noundef %1227)
   br label %.loopexit1988

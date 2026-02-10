@@ -2009,7 +2009,7 @@ while.body.lr.ph.i.i:                             ; preds = %_ZNK8QuantLib12_GLO
   %solver.sroa.44.0 = select i1 %cmp.i316.i, double %sub.i.i, double %sub.i175.i
   %solver.sroa.22.0 = select i1 %cmp.i316.i, double %minVol, double %maxVol
   %sub.i318.i = fsub double %div, %solver.sroa.22.0
-  %mul45.i.i = fmul double %.sroa.speculated.i, 5.000000e-01
+  %mul45.i.i = fmul nnan double %.sroa.speculated.i, 5.000000e-01
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZNK8QuantLib12_GLOBAL__N_110PriceErrorclEd.exit89.i.i, %while.body.lr.ph.i.i

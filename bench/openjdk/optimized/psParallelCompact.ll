@@ -2722,7 +2722,7 @@ define hidden noundef ptr @_ZN17PSParallelCompact34compute_dense_prefix_for_old_
 .lr.ph.preheader:                                 ; preds = %2
   %17 = load i32, ptr @MarkSweepDeadRatio, align 4
   %18 = uitofp i32 %17 to double
-  %19 = fdiv double %18, 1.000000e+02
+  %19 = fdiv nnan double %18, 1.000000e+02
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8
   %22 = ptrtoint ptr %21 to i64
@@ -3223,7 +3223,7 @@ _ZN17PSParallelCompact24check_maximum_compactionEmP12MutableSpacePP12HeapWordImp
 .lr.ph.preheader.i:                               ; preds = %_ZN17PSParallelCompact24check_maximum_compactionEmP12MutableSpacePP12HeapWordImpl.exit
   %141 = load i32, ptr @MarkSweepDeadRatio, align 4
   %142 = uitofp i32 %141 to double
-  %143 = fdiv double %142, 1.000000e+02
+  %143 = fdiv nnan double %142, 1.000000e+02
   %144 = uitofp nneg i64 %116 to double
   %145 = fmul double %143, %144
   %146 = fptoui double %145 to i64

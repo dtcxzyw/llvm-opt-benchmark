@@ -426,7 +426,7 @@ _set_limit.exit:                                  ; preds = %50, %53, %55, %64, 
 182:                                              ; preds = %175
   %183 = uitofp i64 %142 to double
   %184 = uitofp i16 %177 to double
-  %185 = fdiv double %184, 1.000000e+02
+  %185 = fdiv nnan double %184, 1.000000e+02
   %186 = fmul double %185, %183
   %187 = fptoui double %186 to i64
   store i64 %187, ptr %13, align 8

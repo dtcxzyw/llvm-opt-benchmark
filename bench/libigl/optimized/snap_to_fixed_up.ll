@@ -875,8 +875,8 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit.i.
   %107 = load <2 x double>, ptr %106, align 16, !tbaa !13, !noalias !26
   %108 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %109 = load double, ptr %108, align 16, !tbaa !19, !noalias !26
-  %110 = fadd double %.sroa.speculated.i.i, 1.000000e+00
-  %111 = fmul double %110, 5.000000e-01
+  %110 = fadd nnan double %.sroa.speculated.i.i, 1.000000e+00
+  %111 = fmul nnan double %110, 5.000000e-01
   %112 = call double @sqrt(double noundef %111) #20, !tbaa !76, !noalias !26
   %113 = fsub double 1.000000e+00, %111
   %114 = call double @sqrt(double noundef %113) #20, !tbaa !76, !noalias !26
@@ -1082,8 +1082,8 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit18:
   %72 = load float, ptr %71, align 4, !tbaa !4
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %74 = load float, ptr %73, align 16, !tbaa !4
-  %75 = fadd float %.sroa.speculated, 1.000000e+00
-  %76 = fmul float %75, 5.000000e-01
+  %75 = fadd nnan float %.sroa.speculated, 1.000000e+00
+  %76 = fmul nnan float %75, 5.000000e-01
   %77 = call noundef float @sqrtf(float noundef %76) #20, !tbaa !76
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store float %77, ptr %78, align 4, !tbaa !4

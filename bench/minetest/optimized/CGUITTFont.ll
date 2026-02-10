@@ -8158,9 +8158,9 @@ if.then25:                                        ; preds = %if.end13
   %ref.tmp.sroa.5.0.extract.trunc = trunc nuw i64 %ref.tmp.sroa.5.0.extract.shift to i32
   %sub = sub nsw i32 0, %ref.tmp.sroa.0.0.extract.trunc
   %conv = sitofp i32 %sub to float
-  %div = fmul nsz float %conv, 5.000000e-01
+  %div = fmul nnan nsz float %conv, 5.000000e-01
   %conv27 = sitofp i32 %ref.tmp.sroa.5.0.extract.trunc to float
-  %div28 = fmul nsz float %conv27, 5.000000e-01
+  %div28 = fmul nnan nsz float %conv27, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %s.i)
   %5 = getelementptr inbounds nuw i8, ptr %s.i, i64 16
   store ptr %5, ptr %s.i, align 8, !tbaa !198

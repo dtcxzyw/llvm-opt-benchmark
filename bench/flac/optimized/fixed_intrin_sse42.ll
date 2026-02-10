@@ -313,7 +313,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
 
 167:                                              ; preds = %166
   %168 = uitofp i64 %.1 to double
-  %169 = fmul reassoc nsz arcp double %168, 0x3FE62E42FEFA39EF
+  %169 = fmul reassoc nnan nsz arcp double %168, 0x3FE62E42FEFA39EF
   %170 = uitofp i32 %1 to double
   %171 = fdiv reassoc nsz arcp double %169, %170
   %172 = tail call reassoc nsz arcp double @log(double noundef %171) #5, !tbaa !3
@@ -336,7 +336,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
 
 179:                                              ; preds = %177
   %180 = uitofp i64 %.1358 to double
-  %181 = fmul reassoc nsz arcp double %180, 0x3FE62E42FEFA39EF
+  %181 = fmul reassoc nnan nsz arcp double %180, 0x3FE62E42FEFA39EF
   %182 = uitofp i32 %1 to double
   %183 = fdiv reassoc nsz arcp double %181, %182
   %184 = tail call reassoc nsz arcp double @log(double noundef %183) #5, !tbaa !3
@@ -363,7 +363,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
 
 192:                                              ; preds = %190
   %193 = uitofp i64 %.1360 to double
-  %194 = fmul reassoc nsz arcp double %193, 0x3FE62E42FEFA39EF
+  %194 = fmul reassoc nnan nsz arcp double %193, 0x3FE62E42FEFA39EF
   %195 = uitofp i32 %1 to double
   %196 = fdiv reassoc nsz arcp double %194, %195
   %197 = tail call reassoc nsz arcp double @log(double noundef %196) #5, !tbaa !3
@@ -389,7 +389,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
 
 205:                                              ; preds = %203
   %206 = uitofp i64 %.1378 to double
-  %207 = fmul reassoc nsz arcp double %206, 0x3FE62E42FEFA39EF
+  %207 = fmul reassoc nnan nsz arcp double %206, 0x3FE62E42FEFA39EF
   %208 = uitofp i32 %1 to double
   %209 = fdiv reassoc nsz arcp double %207, %208
   %210 = tail call reassoc nsz arcp double @log(double noundef %209) #5, !tbaa !3
@@ -414,7 +414,7 @@ define hidden range(i32 0, 5) i32 @FLAC__fixed_compute_best_predictor_limit_resi
 
 218:                                              ; preds = %216
   %219 = uitofp i64 %.0382 to double
-  %220 = fmul reassoc nsz arcp double %219, 0x3FE62E42FEFA39EF
+  %220 = fmul reassoc nnan nsz arcp double %219, 0x3FE62E42FEFA39EF
   %221 = uitofp i32 %1 to double
   %222 = fdiv reassoc nsz arcp double %220, %221
   %223 = tail call reassoc nsz arcp double @log(double noundef %222) #5, !tbaa !3

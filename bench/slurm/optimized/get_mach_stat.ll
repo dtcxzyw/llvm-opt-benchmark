@@ -24,10 +24,10 @@ define dso_local range(i32 0, 23) i32 @get_memory(ptr noundef writeonly captures
 
 6:                                                ; preds = %1
   %7 = uitofp nneg i64 %2 to float
-  %8 = fpext float %7 to double
+  %8 = fpext nnan ninf float %7 to double
   %9 = tail call i64 @sysconf(i32 noundef 30) #6
   %10 = sitofp i64 %9 to double
-  %11 = fmul double %10, 0x3EB0000000000000
+  %11 = fmul nnan double %10, 0x3EB0000000000000
   %12 = fmul double %11, %8
   %13 = fptoui double %12 to i64
   store i64 %13, ptr %0, align 8
@@ -161,9 +161,9 @@ define dso_local i32 @get_cpu_load(ptr noundef writeonly captures(none) initiali
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = uitofp i64 %10 to float
-  %12 = fmul float %11, 0x3EF0000000000000
-  %13 = fpext float %12 to double
-  %14 = fmul double %13, 1.000000e+02
+  %12 = fmul nnan float %11, 0x3EF0000000000000
+  %13 = fpext nnan float %12 to double
+  %14 = fmul nnan double %13, 1.000000e+02
   %15 = fptoui double %14 to i32
   store i32 %15, ptr %0, align 4
   br label %16

@@ -865,8 +865,8 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_init_tile(ptr noundef readon
   %332 = getelementptr inbounds nuw i8, ptr %.2469619, i64 4
   %333 = load i32, ptr %332, align 4, !tbaa !114
   %334 = sitofp i32 %333 to double
-  %335 = fmul double %334, 0x3F40000000000000
-  %336 = fadd double %335, 1.000000e+00
+  %335 = fmul nnan double %334, 0x3F40000000000000
+  %336 = fadd nnan double %335, 1.000000e+00
   %337 = load i32, ptr %.2469619, align 4, !tbaa !116
   %338 = sub i32 %331, %337
   %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %338)
@@ -2405,8 +2405,8 @@ opj_tcd_is_band_empty.exit.thread.i.i:            ; preds = %._crit_edge290.i.i,
   %508 = getelementptr inbounds nuw i8, ptr %507, i64 24
   %509 = load i32, ptr %508, align 8, !tbaa !113
   %510 = uitofp i32 %509 to double
-  %511 = fmul double %510, 6.250000e-02
-  %512 = fptrunc double %511 to float
+  %511 = fmul nnan double %510, 6.250000e-02
+  %512 = fptrunc nnan double %511 to float
   %wide.trip.count.i.us.i.i = zext i32 %.pre.i.us.i.i to i64
   br label %.preheader141.us.i.us.i.i
 
@@ -2599,8 +2599,8 @@ opj_tcd_is_band_empty.exit.thread.i.us.us.us.i.i: ; preds = %._crit_edge.i.us.us
   %593 = getelementptr inbounds nuw i8, ptr %592, i64 24
   %594 = load i32, ptr %593, align 8, !tbaa !113
   %595 = uitofp i32 %594 to double
-  %596 = fmul double %595, 6.250000e-02
-  %597 = fptrunc double %596 to float
+  %596 = fmul nnan double %595, 6.250000e-02
+  %597 = fptrunc nnan double %596 to float
   %wide.trip.count.i.i.i = zext i32 %.pre.i.i.i to i64
   br label %.preheader141.us.i.i.i
 

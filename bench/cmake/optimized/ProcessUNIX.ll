@@ -3660,8 +3660,8 @@ define dso_local i32 @cmsysProcess_WaitForData(ptr noundef %0, ptr noundef write
 39:                                               ; preds = %35
   %40 = fptosi double %33 to i64
   %41 = sitofp i64 %40 to double
-  %42 = fsub double %33, %41
-  %43 = fmul double %42, 1.000000e+06
+  %42 = fsub nnan double %33, %41
+  %43 = fmul nnan double %42, 1.000000e+06
   %44 = fptosi double %43 to i64
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %46 = load i64, ptr %45, align 8
@@ -4155,8 +4155,8 @@ define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr nound
 12:                                               ; preds = %8
   %13 = fptosi double %6 to i64
   %14 = sitofp i64 %13 to double
-  %15 = fsub double %6, %14
-  %16 = fmul double %15, 1.000000e+06
+  %15 = fsub nnan double %6, %14
+  %16 = fmul nnan double %15, 1.000000e+06
   %17 = fptosi double %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %19 = load i64, ptr %18, align 8

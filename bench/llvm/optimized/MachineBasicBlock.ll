@@ -3132,9 +3132,9 @@ _ZN4llvm11raw_ostreamlsEc.exit198:                ; preds = %396, %398
   %.0.i197 = phi ptr [ %397, %396 ], [ %.0.i191, %398 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %400 = uitofp i32 %357 to double
-  %401 = fmul double %400, 0x3E00000000000000
-  %402 = fmul double %401, 1.000000e+02
-  %403 = fmul double %402, 1.000000e+02
+  %401 = fmul nnan double %400, 0x3E00000000000000
+  %402 = fmul nnan double %401, 1.000000e+02
+  %403 = fmul nnan double %402, 1.000000e+02
   %404 = call double @llvm.rint.f64(double %403)
   %405 = fdiv double %404, 1.000000e+02
   store ptr @.str.19, ptr %321, align 8, !tbaa !375, !alias.scope !386

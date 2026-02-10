@@ -531,19 +531,19 @@ define internal void @put_pixel_rows(ptr noundef %0, ptr noundef captures(none) 
   %66 = getelementptr inbounds nuw i8, ptr %.395, i64 1
   %67 = uitofp i8 %58 to double
   %68 = uitofp i8 %64 to double
-  %69 = fmul double %67, %68
+  %69 = fmul nnan double %67, %68
   %70 = fdiv double %69, 2.550000e+02
   %71 = fadd double %70, 5.000000e-01
   %72 = fptoui double %71 to i8
   store i8 %72, ptr %65, align 1, !tbaa !35
   %73 = uitofp i8 %60 to double
-  %74 = fmul double %73, %68
+  %74 = fmul nnan double %73, %68
   %75 = fdiv double %74, 2.550000e+02
   %76 = fadd double %75, 5.000000e-01
   %77 = fptoui double %76 to i8
   store i8 %77, ptr %66, align 1, !tbaa !35
   %78 = uitofp i8 %62 to double
-  %79 = fmul double %78, %68
+  %79 = fmul nnan double %78, %68
   %80 = fdiv double %79, 2.550000e+02
   %81 = fadd double %80, 5.000000e-01
   %82 = fptoui double %81 to i8

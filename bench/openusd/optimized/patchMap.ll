@@ -539,7 +539,7 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.ex
   %161 = shl nuw nsw i32 1, %153
   %162 = sub nsw i32 %161, %89
   %163 = sitofp i32 %162 to double
-  %164 = fadd double %163, -2.500000e-01
+  %164 = fadd nnan double %163, -2.500000e-01
   %165 = sub nsw i32 %161, %91
   %166 = sitofp i32 %165 to double
   %167 = fadd double %166, -2.500000e-01
@@ -548,7 +548,7 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.ex
 168:                                              ; preds = %149
   %169 = trunc nuw nsw i64 %sum.shift.i.i.i to i16
   %170 = uitofp nneg i16 %169 to double
-  %171 = fadd double %170, 2.500000e-01
+  %171 = fadd nnan double %170, 2.500000e-01
   %172 = trunc i64 %sum.shift.i1.i.i to i16
   %173 = and i16 %172, 1023
   %174 = uitofp nneg i16 %173 to double

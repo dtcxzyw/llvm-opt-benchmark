@@ -103,11 +103,11 @@ define internal i32 @cng_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %14 = zext i8 %13 to i32
   %15 = sub nsw i32 0, %14
   %16 = sitofp i32 %15 to double
-  %17 = fdiv nsz double %16, 1.000000e+01
-  %18 = fmul nsz double %17, 0x400A934F0979A371
-  %19 = tail call nsz double @llvm.exp2.f64(double %18)
-  %20 = fmul nsz double %19, 0x41D01C1B75C00000
-  %21 = fmul nsz double %20, 7.500000e-01
+  %17 = fdiv nnan nsz double %16, 1.000000e+01
+  %18 = fmul nnan nsz double %17, 0x400A934F0979A371
+  %19 = tail call nnan nsz double @llvm.exp2.f64(double %18)
+  %20 = fmul nnan nsz double %19, 0x41D01C1B75C00000
+  %21 = fmul nnan nsz double %20, 7.500000e-01
   %22 = fptosi double %21 to i32
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %22, ptr %23, align 8, !tbaa !45
@@ -139,7 +139,7 @@ define internal i32 @cng_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %39 = zext i8 %38 to i32
   %40 = add nsw i32 %39, -127
   %41 = sitofp i32 %40 to double
-  %42 = fmul nsz double %41, 7.812500e-03
+  %42 = fmul nnan nsz double %41, 7.812500e-03
   %43 = fptrunc nsz double %42 to float
   %44 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
   store float %43, ptr %44, align 4, !tbaa !46

@@ -1556,7 +1556,7 @@ proto_item_set_generated.exit58:                  ; preds = %proto_item_set_gene
 88:                                               ; preds = %proto_item_set_generated.exit58
   %89 = add i32 %6, %4
   %90 = uitofp i32 %89 to double
-  %91 = fmul double %90, 1.250000e-01
+  %91 = fmul nnan double %90, 1.250000e-01
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %87, i32 noundef 25, ptr noundef nonnull @.str.246, double noundef %91)
   br label %99
 

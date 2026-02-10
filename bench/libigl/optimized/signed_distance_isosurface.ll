@@ -4332,7 +4332,7 @@ _ZN4CGAL18get_default_randomEv.exit.i.i:          ; preds = %66, %4
   %74 = lshr i64 %73, 17
   %75 = trunc nuw nsw i64 %74 to i32
   %76 = uitofp nneg i32 %75 to double
-  %77 = fmul double %76, 0x3E00000000000000
+  %77 = fmul nnan double %76, 0x3E00000000000000
   %78 = fcmp uge double %77, 1.000000e+00
   br i1 %78, label %69, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i.i
 
@@ -4344,13 +4344,13 @@ _ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.
   %83 = lshr i64 %82, 17
   %84 = trunc nuw nsw i64 %83 to i32
   %85 = uitofp nneg i32 %84 to double
-  %86 = fmul double %85, 0x3E00000000000000
+  %86 = fmul nnan double %85, 0x3E00000000000000
   %87 = fcmp uge double %86, 1.000000e+00
   br i1 %87, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i.i, label %_ZN4CGAL25Random_points_on_sphere_3INS_7Point_3INS_5EpickEEENS_17Creator_uniform_3IdS3_EEEC2EdRNS_6RandomE.exit.i.i
 
 _ZN4CGAL25Random_points_on_sphere_3INS_7Point_3INS_5EpickEEENS_17Creator_uniform_3IdS3_EEEC2EdRNS_6RandomE.exit.i.i: ; preds = %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i.i
-  %88 = fmul double %77, 2.000000e+00
-  %89 = fmul double %88, 0x400921FB54442D18
+  %88 = fmul nnan double %77, 2.000000e+00
+  %89 = fmul nnan double %88, 0x400921FB54442D18
   store i64 %82, ptr %68, align 8, !tbaa !200
   %90 = call double @llvm.fmuladd.f64(double %86, double 2.000000e+00, double -1.000000e+00)
   %91 = fneg double %90
@@ -4383,7 +4383,7 @@ _ZN4CGAL18get_default_randomEv.exit18.i.i:        ; preds = %_ZN4CGAL18get_defau
   %106 = lshr i64 %105, 17
   %107 = trunc nuw nsw i64 %106 to i32
   %108 = uitofp nneg i32 %107 to double
-  %109 = fmul double %108, 0x3E00000000000000
+  %109 = fmul nnan double %108, 0x3E00000000000000
   %110 = fcmp uge double %109, 1.000000e+00
   br i1 %110, label %_ZN4CGAL18get_default_randomEv.exit18.i.i, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i21.i.i
 
@@ -4395,7 +4395,7 @@ _ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.
   %115 = lshr i64 %114, 17
   %116 = trunc nuw nsw i64 %115 to i32
   %117 = uitofp nneg i32 %116 to double
-  %118 = fmul double %117, 0x3E00000000000000
+  %118 = fmul nnan double %117, 0x3E00000000000000
   %119 = fcmp uge double %118, 1.000000e+00
   br i1 %119, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i21.i.i, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit10.i.i.i.i
 
@@ -4414,13 +4414,13 @@ _ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit1
   %129 = lshr i64 %128, 17
   %130 = trunc nuw nsw i64 %129 to i32
   %131 = uitofp nneg i32 %130 to double
-  %132 = fmul double %131, 0x3E00000000000000
+  %132 = fmul nnan double %131, 0x3E00000000000000
   %133 = fcmp uge double %132, 1.000000e+00
   br i1 %133, label %124, label %_ZN4CGAL25Random_points_in_sphere_3INS_7Point_3INS_5EpickEEENS_17Creator_uniform_3IdS3_EEEC2EdRNS_6RandomE.exit.i.i
 
 _ZN4CGAL25Random_points_in_sphere_3INS_7Point_3INS_5EpickEEENS_17Creator_uniform_3IdS3_EEEC2EdRNS_6RandomE.exit.i.i: ; preds = %124
-  %134 = fmul double %109, 2.000000e+00
-  %135 = fmul double %134, 0x400921FB54442D18
+  %134 = fmul nnan double %109, 2.000000e+00
+  %135 = fmul nnan double %134, 0x400921FB54442D18
   store i64 %128, ptr %68, align 8, !tbaa !200
   %136 = call double @pow(double noundef %132, double noundef 0x3FD5555555555555) #38, !tbaa !160
   %137 = call double @cos(double noundef %135) #38, !tbaa !160
@@ -4464,7 +4464,7 @@ _ZN4CGAL25Random_points_in_sphere_3INS_7Point_3INS_5EpickEEENS_17Creator_uniform
   %152 = lshr i64 %151, 17
   %153 = trunc nuw nsw i64 %152 to i32
   %154 = uitofp nneg i32 %153 to double
-  %155 = fmul double %154, 0x3E00000000000000
+  %155 = fmul nnan double %154, 0x3E00000000000000
   %156 = fcmp uge double %155, 1.000000e+00
   br i1 %156, label %147, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i.i.i
 
@@ -4476,14 +4476,14 @@ _ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.
   %161 = lshr i64 %160, 17
   %162 = trunc nuw nsw i64 %161 to i32
   %163 = uitofp nneg i32 %162 to double
-  %164 = fmul double %163, 0x3E00000000000000
+  %164 = fmul nnan double %163, 0x3E00000000000000
   %165 = fcmp uge double %164, 1.000000e+00
   br i1 %165, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i.i.i, label %_ZN4CGAL25Random_points_on_sphere_3INS_7Point_3INS_5EpickEEENS_17Creator_uniform_3IdS3_EEEppEi.exit.i.i
 
 _ZN4CGAL25Random_points_on_sphere_3INS_7Point_3INS_5EpickEEENS_17Creator_uniform_3IdS3_EEEppEi.exit.i.i: ; preds = %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i.i.i
   %.sroa.933.076.i.i = fmul double %63, %.pn.i.i
-  %166 = fmul double %155, 2.000000e+00
-  %167 = fmul double %166, 0x400921FB54442D18
+  %166 = fmul nnan double %155, 2.000000e+00
+  %167 = fmul nnan double %166, 0x400921FB54442D18
   store i64 %160, ptr %68, align 8, !tbaa !200, !noalias !202
   %168 = call double @llvm.fmuladd.f64(double %164, double 2.000000e+00, double -1.000000e+00)
   %169 = fneg double %168
@@ -4585,7 +4585,7 @@ common.resume.i:                                  ; preds = %_ZN4CGAL14Surface_m
   %214 = lshr i64 %213, 17
   %215 = trunc nuw nsw i64 %214 to i32
   %216 = uitofp nneg i32 %215 to double
-  %217 = fmul double %216, 0x3E00000000000000
+  %217 = fmul nnan double %216, 0x3E00000000000000
   %218 = fcmp uge double %217, 1.000000e+00
   br i1 %218, label %209, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i29.i.i
 
@@ -4597,7 +4597,7 @@ _ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.
   %223 = lshr i64 %222, 17
   %224 = trunc nuw nsw i64 %223 to i32
   %225 = uitofp nneg i32 %224 to double
-  %226 = fmul double %225, 0x3E00000000000000
+  %226 = fmul nnan double %225, 0x3E00000000000000
   %227 = fcmp uge double %226, 1.000000e+00
   br i1 %227, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit.i.i.i29.i.i, label %_ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit10.i.i.i.i.i
 
@@ -4616,13 +4616,13 @@ _ZN5boost6random6detail21generate_uniform_realINS0_6rand48EdEET0_RT_S4_S4_.exit1
   %237 = lshr i64 %236, 17
   %238 = trunc nuw nsw i64 %237 to i32
   %239 = uitofp nneg i32 %238 to double
-  %240 = fmul double %239, 0x3E00000000000000
+  %240 = fmul nnan double %239, 0x3E00000000000000
   %241 = fcmp uge double %240, 1.000000e+00
   br i1 %241, label %232, label %242
 
 242:                                              ; preds = %232
-  %243 = fmul double %217, 2.000000e+00
-  %244 = fmul double %243, 0x400921FB54442D18
+  %243 = fmul nnan double %217, 2.000000e+00
+  %244 = fmul nnan double %243, 0x400921FB54442D18
   store i64 %236, ptr %68, align 8, !tbaa !200, !noalias !215
   %245 = call double @pow(double noundef %240, double noundef 0x3FD5555555555555) #38, !tbaa !160, !noalias !215
   %246 = fmul double %231, %245
@@ -34596,7 +34596,7 @@ _ZNK5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16
   %.03288 = phi i64 [ %161, %157 ], [ %143, %169 ], [ %143, %_ZNK5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EE7is_zeroEv.exit.thread ], [ %155, %.thread97 ]
   %.03886 = phi i32 [ %162, %157 ], [ %54, %169 ], [ %54, %_ZNK5boost14multiprecision6numberINS0_8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_typeE1ELNS0_18cpp_int_check_typeE0ESaIyEEELNS0_26expression_template_optionE1EE7is_zeroEv.exit.thread ], [ %156, %.thread97 ]
   %180 = uitofp i64 %.03288 to double
-  %181 = fadd double %180, 1.000000e+00
+  %181 = fadd nnan double %180, 1.000000e+00
   %182 = sub nsw i32 0, %.03886
   %183 = icmp sgt i32 %.03886, 1074
   br i1 %183, label %190, label %184

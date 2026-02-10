@@ -6522,7 +6522,7 @@ _is_number_begin.exit.thread.i133:                ; preds = %_is_number_begin.ex
   br i1 %or.cond, label %165, label %167
 
 165:                                              ; preds = %162
-  %166 = fmul float %138, 2.550000e+02
+  %166 = fmul nnan float %138, 2.550000e+02
   br label %167
 
 167:                                              ; preds = %162, %165, %160

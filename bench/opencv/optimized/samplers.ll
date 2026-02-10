@@ -1495,10 +1495,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %34, %
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %49 = add nsw i32 %43, -1
   %50 = sitofp i32 %49 to double
-  %51 = fmul double %50, 5.000000e-01
+  %51 = fmul nnan double %50, 5.000000e-01
   %52 = add nsw i32 %44, -1
   %53 = sitofp i32 %52 to double
-  %54 = fmul double %53, 5.000000e-01
+  %54 = fmul nnan double %53, 5.000000e-01
   %55 = load double, ptr %9, align 16, !tbaa !63
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %57 = load double, ptr %56, align 8, !tbaa !63

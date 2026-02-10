@@ -33864,16 +33864,16 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
   %78 = fpext float %48 to double
   %79 = fmul double %77, %78
   %80 = fpext float %.sroa.speculated338 to double
-  %81 = fmul double %80, 0x3F91072C483AF26D
+  %81 = fmul nnan double %80, 0x3F91072C483AF26D
   %82 = fdiv double %79, %81
   %83 = fcmp ogt double %82, 0x3F60624DEFFFFFFF
   br i1 %83, label %84, label %._crit_edge.thread
 
 84:                                               ; preds = %76
   %85 = fptrunc double %82 to float
-  %86 = fmul float %85, 1.000000e+02
+  %86 = fmul nnan float %85, 1.000000e+02
   %87 = fpext float %86 to double
-  %88 = fmul float %48, 0x3F50624DE0000000
+  %88 = fmul nnan float %48, 0x3F50624DE0000000
   %89 = fdiv float %88, %85
   %90 = fpext float %89 to double
   %91 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) @.str.714, double noundef %78, double noundef %80, double noundef %67, double noundef %87, double noundef 0x3FB99999A0000000, double noundef %90) #28

@@ -300,7 +300,7 @@ declare i64 @av_sub_q(i64, i64) local_unnamed_addr #2
 declare i32 @llvm.abs.i32(i32, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef double @trc_bt709(double noundef %0) #0 {
+define internal double @trc_bt709(double noundef %0) #0 {
   %2 = fcmp nsz olt double %0, 0.000000e+00
   br i1 %2, label %10, label %3
 
@@ -309,7 +309,7 @@ define internal noundef double @trc_bt709(double noundef %0) #0 {
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = fmul nsz double %0, 4.500000e+00
+  %6 = fmul nnan nsz double %0, 4.500000e+00
   br label %10
 
 7:                                                ; preds = %3
@@ -339,7 +339,7 @@ define internal noundef double @trc_gamma28(double noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef double @trc_smpte240M(double noundef %0) #0 {
+define internal double @trc_smpte240M(double noundef %0) #0 {
   %2 = fcmp nsz olt double %0, 0.000000e+00
   br i1 %2, label %10, label %3
 
@@ -348,7 +348,7 @@ define internal noundef double @trc_smpte240M(double noundef %0) #0 {
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = fmul nsz double %0, 4.000000e+00
+  %6 = fmul nnan nsz double %0, 4.000000e+00
   br label %10
 
 7:                                                ; preds = %3
@@ -399,7 +399,7 @@ define internal noundef double @trc_log_sqrt(double noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef double @trc_iec61966_2_4(double noundef %0) #0 {
+define internal double @trc_iec61966_2_4(double noundef %0) #0 {
   %2 = fcmp nsz ugt double %0, 0xBF927CBD51448945
   br i1 %2, label %7, label %3
 
@@ -414,7 +414,7 @@ define internal noundef double @trc_iec61966_2_4(double noundef %0) #0 {
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %7
-  %10 = fmul nsz double %0, 4.500000e+00
+  %10 = fmul nnan nsz double %0, 4.500000e+00
   br label %14
 
 11:                                               ; preds = %7
@@ -428,12 +428,12 @@ define internal noundef double @trc_iec61966_2_4(double noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef double @trc_bt1361(double noundef %0) #0 {
+define internal double @trc_bt1361(double noundef %0) #0 {
   %2 = fcmp nsz ugt double %0, -4.500000e-03
   br i1 %2, label %8, label %3
 
 3:                                                ; preds = %1
-  %4 = fmul nsz double %0, -4.000000e+00
+  %4 = fmul nnan nsz double %0, -4.000000e+00
   %5 = tail call nsz double @llvm.pow.f64(double %4, double 4.500000e-01)
   %6 = tail call nsz double @llvm.fmuladd.f64(double %5, double 0x3FF196B844FBE3DC, double 0x3FB96B844FBE3DC0)
   %7 = fmul nsz double %6, -2.500000e-01
@@ -444,7 +444,7 @@ define internal noundef double @trc_bt1361(double noundef %0) #0 {
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %8
-  %11 = fmul nsz double %0, 4.500000e+00
+  %11 = fmul nnan nsz double %0, 4.500000e+00
   br label %15
 
 12:                                               ; preds = %8
@@ -458,7 +458,7 @@ define internal noundef double @trc_bt1361(double noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef double @trc_iec61966_2_1(double noundef %0) #0 {
+define internal double @trc_iec61966_2_1(double noundef %0) #0 {
   %2 = fcmp nsz olt double %0, 0.000000e+00
   br i1 %2, label %10, label %3
 
@@ -467,7 +467,7 @@ define internal noundef double @trc_iec61966_2_1(double noundef %0) #0 {
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = fmul nsz double %0, 1.292000e+01
+  %6 = fmul nnan nsz double %0, 1.292000e+01
   br label %10
 
 7:                                                ; preds = %3
@@ -515,7 +515,7 @@ define internal noundef double @trc_smpte_st428_1(double noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef double @trc_arib_std_b67(double noundef %0) #0 {
+define internal double @trc_arib_std_b67(double noundef %0) #0 {
   %2 = fcmp nsz olt double %0, 0.000000e+00
   br i1 %2, label %12, label %3
 
@@ -524,7 +524,7 @@ define internal noundef double @trc_arib_std_b67(double noundef %0) #0 {
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = fmul nsz double %0, 3.000000e+00
+  %6 = fmul nnan nsz double %0, 3.000000e+00
   %7 = tail call nsz double @llvm.sqrt.f64(double %6)
   br label %12
 
@@ -595,7 +595,7 @@ define internal noundef double @trc_gamma28_inv(double noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef double @trc_smpte240M_inv(double noundef %0) #0 {
+define internal double @trc_smpte240M_inv(double noundef %0) #0 {
   %2 = fcmp nsz olt double %0, 0.000000e+00
   br i1 %2, label %11, label %3
 
@@ -604,7 +604,7 @@ define internal noundef double @trc_smpte240M_inv(double noundef %0) #0 {
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = fmul nsz double %0, 2.500000e-01
+  %6 = fmul nnan nsz double %0, 2.500000e-01
   br label %11
 
 7:                                                ; preds = %3
@@ -1098,7 +1098,7 @@ define internal void @eotf_arib_std_b67(double noundef %0, double noundef %1, pt
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %32
-  %35 = fmul nsz double %30, %30
+  %35 = fmul nnan nsz double %30, %30
   %36 = fdiv nsz double %35, 3.000000e+00
   br label %trc_arib_std_b67_inv.exit
 
@@ -1279,7 +1279,7 @@ eotf_linear_inv.exit:                             ; preds = %5, %trc_iec61966_2_
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = fmul nsz double %11, 1.292000e+01
+  %16 = fmul nnan nsz double %11, 1.292000e+01
   br label %trc_iec61966_2_1.exit.i
 
 17:                                               ; preds = %13
@@ -1447,7 +1447,7 @@ define internal void @eotf_arib_std_b67_inv(double noundef %0, double noundef %1
   br i1 %40, label %44, label %41
 
 41:                                               ; preds = %39
-  %42 = fmul nsz double %37, 3.000000e+00
+  %42 = fmul nnan nsz double %37, 3.000000e+00
   %43 = tail call nsz double @llvm.sqrt.f64(double %42)
   br label %trc_arib_std_b67.exit
 

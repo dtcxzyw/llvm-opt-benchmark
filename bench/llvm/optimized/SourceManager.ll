@@ -5399,7 +5399,7 @@ _ZSt13move_backwardIPSt4pairIPKN5clang9FileEntryEZNKS1_13SourceManager25noteSLoc
   %205 = add nuw nsw i64 %204, %200
   %206 = mul nuw nsw i64 %205, 100
   %207 = uitofp nneg i64 %206 to double
-  %208 = fmul double %207, 0x3E00000000000000
+  %208 = fmul nnan double %207, 0x3E00000000000000
   %209 = fptosi double %208 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %9, ptr noundef nonnull align 8 dereferenceable(15248) %1, i32 0, i32 noundef 117) #30

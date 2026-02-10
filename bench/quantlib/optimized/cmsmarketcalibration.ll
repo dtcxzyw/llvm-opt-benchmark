@@ -3006,7 +3006,7 @@ for.body164:                                      ; preds = %for.body164.lr.ph, 
 
 cond.true.i176:                                   ; preds = %for.body164
   %78 = fneg double %76
-  %fneg.i = fmul double %76, %78
+  %fneg.i = fmul nnan double %76, %78
   %call.i = call double @exp(double noundef %fneg.i) #25, !tbaa !59
   br label %invoke.cont168
 
@@ -3633,7 +3633,7 @@ for.body252:                                      ; preds = %invoke.cont245, %in
 
 cond.true.i335:                                   ; preds = %for.body252
   %161 = fneg double %159
-  %fneg.i336 = fmul double %159, %161
+  %fneg.i336 = fmul nnan double %159, %161
   %call.i337 = call double @exp(double noundef %fneg.i336) #25, !tbaa !59
   br label %invoke.cont256
 
@@ -5577,7 +5577,7 @@ for.body211.us:                                   ; preds = %for.cond208.prehead
 
 cond.true.i243.us:                                ; preds = %for.body211.us
   %91 = fneg double %89
-  %fneg.i244.us = fmul double %89, %91
+  %fneg.i244.us = fmul nnan double %89, %91
   %call.i245.us = call double @exp(double noundef %fneg.i244.us) #25, !tbaa !59
   br label %invoke.cont219.us
 
@@ -6096,7 +6096,7 @@ for.body344.us:                                   ; preds = %for.cond341.prehead
 
 cond.true.i371.us:                                ; preds = %for.body344.us
   %155 = fneg double %153
-  %fneg.i372.us = fmul double %153, %155
+  %fneg.i372.us = fmul nnan double %153, %155
   %call.i373.us = call double @exp(double noundef %fneg.i372.us) #25, !tbaa !59
   br label %invoke.cont352.us
 
@@ -7457,7 +7457,7 @@ cond.true225:                                     ; preds = %for.cond218.prehead
 
 cond.true.i260:                                   ; preds = %cond.true225
   %100 = fneg double %98
-  %fneg.i261 = fmul double %98, %100
+  %fneg.i261 = fmul nnan double %98, %100
   %call.i262 = call double @exp(double noundef %fneg.i261) #25, !tbaa !59
   br label %invoke.cont245
 
@@ -7998,7 +7998,7 @@ cond.true385:                                     ; preds = %for.cond378.prehead
 
 cond.true.i393:                                   ; preds = %cond.true385
   %166 = fneg double %164
-  %fneg.i394 = fmul double %164, %166
+  %fneg.i394 = fmul nnan double %164, %166
   %call.i395 = call double @exp(double noundef %fneg.i394) #25, !tbaa !59
   br label %invoke.cont405
 
@@ -9993,7 +9993,7 @@ invoke.cont32:                                    ; preds = %cond.false.i37, %fo
 
 cond.true.i40:                                    ; preds = %invoke.cont32
   %31 = fneg double %29
-  %fneg.i = fmul double %29, %31
+  %fneg.i = fmul nnan double %29, %31
   %call.i = tail call double @exp(double noundef %fneg.i) #25, !tbaa !59
   br label %invoke.cont35
 
@@ -10441,7 +10441,7 @@ invoke.cont32:                                    ; preds = %cond.false.i37, %fo
 
 cond.true.i41:                                    ; preds = %invoke.cont32
   %33 = fneg double %31
-  %fneg.i = fmul double %31, %33
+  %fneg.i = fmul nnan double %31, %33
   %call.i42 = tail call double @exp(double noundef %fneg.i) #25, !tbaa !59
   br label %invoke.cont35
 
@@ -23162,7 +23162,7 @@ cond.end.i104:                                    ; preds = %cond.false.i102, %c
 
 cond.true15.i:                                    ; preds = %cond.end.i104
   %108 = fneg double %106
-  %fneg18.i = fmul double %106, %108
+  %fneg18.i = fmul nnan double %106, %108
   %call19.i = call double @exp(double noundef %fneg18.i) #25, !tbaa !59, !noalias !350
   br label %cond.end22.i
 
@@ -25714,7 +25714,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
 
 cond.true15.i:                                    ; preds = %cond.end.i
   %8 = fneg double %6
-  %fneg18.i = fmul double %6, %8
+  %fneg18.i = fmul nnan double %6, %8
   %call19.i = tail call double @exp(double noundef %fneg18.i) #25, !tbaa !59, !noalias !392
   br label %cond.end22.i
 
@@ -25916,7 +25916,7 @@ cond.end.i:                                       ; preds = %cond.false.i, %cond
 
 cond.true15.i:                                    ; preds = %cond.end.i
   %8 = fneg double %6
-  %fneg18.i = fmul double %6, %8
+  %fneg18.i = fmul nnan double %6, %8
   %call19.i = tail call double @exp(double noundef %fneg18.i) #25, !tbaa !59, !noalias !396
   br label %cond.end22.i
 
@@ -39239,7 +39239,7 @@ for.body51:                                       ; preds = %invoke.cont42, %inv
 
 cond.true.i63:                                    ; preds = %for.body51
   %36 = fneg double %34
-  %fneg.i = fmul double %34, %36
+  %fneg.i = fmul nnan double %34, %36
   %call.i = call double @exp(double noundef %fneg.i) #25, !tbaa !59
   br label %invoke.cont54
 
@@ -41936,7 +41936,7 @@ for.body52:                                       ; preds = %invoke.cont43, %inv
 
 cond.true.i64:                                    ; preds = %for.body52
   %39 = fneg double %37
-  %fneg.i = fmul double %37, %39
+  %fneg.i = fmul nnan double %37, %39
   %call.i65 = call double @exp(double noundef %fneg.i) #25, !tbaa !59
   br label %invoke.cont55
 
@@ -42401,7 +42401,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph
 
 cond.true.i62.us:                                 ; preds = %for.body.us
   %31 = fneg double %29
-  %fneg.i.us = fmul double %29, %31
+  %fneg.i.us = fmul nnan double %29, %31
   %call.i.us = tail call double @exp(double noundef %fneg.i.us) #25, !tbaa !59
   br label %invoke.cont38.us
 
@@ -42414,7 +42414,7 @@ invoke.cont38.us:                                 ; preds = %cond.true.i62.us, %
 
 cond.true.i70.us:                                 ; preds = %invoke.cont38.us
   %34 = fneg double %32
-  %fneg.i71.us = fmul double %32, %34
+  %fneg.i71.us = fmul nnan double %32, %34
   %call.i72.us = tail call double @exp(double noundef %fneg.i71.us) #25, !tbaa !59
   br label %invoke.cont44.us
 
@@ -42448,7 +42448,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.true.i62:                                    ; preds = %for.body
   %39 = fneg double %37
-  %fneg.i = fmul double %37, %39
+  %fneg.i = fmul nnan double %37, %39
   %call.i = call double @exp(double noundef %fneg.i) #25, !tbaa !59
   br label %invoke.cont38
 
@@ -42466,7 +42466,7 @@ invoke.cont38:                                    ; preds = %cond.true.i62, %for
 
 cond.true.i70:                                    ; preds = %invoke.cont38
   %42 = fneg double %40
-  %fneg.i71 = fmul double %40, %42
+  %fneg.i71 = fmul nnan double %40, %42
   %call.i72 = call double @exp(double noundef %fneg.i71) #25, !tbaa !59
   br label %invoke.cont44
 
@@ -43249,7 +43249,7 @@ for.body.us:                                      ; preds = %for.body.lr.ph
 
 cond.true.i63.us:                                 ; preds = %for.body.us
   %31 = fneg double %29
-  %fneg.i.us = fmul double %29, %31
+  %fneg.i.us = fmul nnan double %29, %31
   %call.i64.us = tail call double @exp(double noundef %fneg.i.us) #25, !tbaa !59
   br label %invoke.cont38.us
 
@@ -43262,7 +43262,7 @@ invoke.cont38.us:                                 ; preds = %cond.true.i63.us, %
 
 cond.true.i72.us:                                 ; preds = %invoke.cont38.us
   %34 = fneg double %32
-  %fneg.i73.us = fmul double %32, %34
+  %fneg.i73.us = fmul nnan double %32, %34
   %call.i74.us = tail call double @exp(double noundef %fneg.i73.us) #25, !tbaa !59
   br label %invoke.cont44.us
 
@@ -43300,7 +43300,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
 
 cond.true.i63:                                    ; preds = %for.body
   %41 = fneg double %39
-  %fneg.i = fmul double %39, %41
+  %fneg.i = fmul nnan double %39, %41
   %call.i64 = call double @exp(double noundef %fneg.i) #25, !tbaa !59
   br label %invoke.cont38
 
@@ -43318,7 +43318,7 @@ invoke.cont38:                                    ; preds = %cond.true.i63, %for
 
 cond.true.i72:                                    ; preds = %invoke.cont38
   %44 = fneg double %42
-  %fneg.i73 = fmul double %42, %44
+  %fneg.i73 = fmul nnan double %42, %44
   %call.i74 = call double @exp(double noundef %fneg.i73) #25, !tbaa !59
   br label %invoke.cont44
 

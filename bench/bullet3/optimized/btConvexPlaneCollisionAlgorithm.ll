@@ -843,7 +843,7 @@ define dso_local void @_ZN31btConvexPlaneCollisionAlgorithm16processCollisionEPK
 
 269:                                              ; preds = %265
   %270 = load float, ptr %127, align 4, !tbaa !31
-  %271 = fmul float %266, %266
+  %271 = fmul nnan float %266, %266
   %272 = call float @llvm.fmuladd.f32(float %270, float %270, float %271)
   %sqrt.i = call float @llvm.sqrt.f32(float %272)
   %273 = fdiv float 1.000000e+00, %sqrt.i
@@ -901,7 +901,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %269, %277
   %.0212 = phi i32 [ 0, %.lr.ph ], [ %364, %307 ]
   %309 = uitofp nneg i32 %.0212 to float
   %310 = sitofp i32 %308 to float
-  %311 = fdiv float 0x401921FB60000000, %310
+  %311 = fdiv nnan float 0x401921FB60000000, %310
   %312 = fmul float %311, %309
   %313 = load float, ptr %22, align 4, !tbaa !31
   %314 = load float, ptr %127, align 4, !tbaa !31

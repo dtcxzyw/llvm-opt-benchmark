@@ -7997,7 +7997,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010ImageInput10check_openERKNS0
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %116 = call noundef i64 @_ZNK11OpenImageIO6v3_1_09ImageSpec11image_bytesEb(ptr noundef nonnull align 8 dereferenceable(160) %16, i1 noundef zeroext true) #6
   %117 = uitofp i64 %116 to float
-  %118 = fmul float %117, 0x3EB0000000000000
+  %118 = fmul nnan float %117, 0x3EB0000000000000
   store float %118, ptr %15, align 4, !tbaa !256
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 72
   call void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJfiiiiNS0_8TypeDescEEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.24, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) @_ZN11OpenImageIO6v3_1_03pvt18limit_imagesize_MBE, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef nonnull align 4 dereferenceable(4) %20, ptr noundef nonnull align 4 dereferenceable(4) %26, ptr noundef nonnull align 4 dereferenceable(8) %119)
@@ -34592,7 +34592,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairImNSt7__cxx111
   %.sroa.speculated.i11 = select i1 %63, float %62, float 0x3FEE666660000000
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i11, ptr %64, align 4, !tbaa !25
-  %65 = fmul float %.sroa.speculated.i11, %.017202932
+  %65 = fmul nnan float %.sroa.speculated.i11, %.017202932
   %66 = fptoui float %65 to i64
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %66, ptr %67, align 8, !tbaa !26

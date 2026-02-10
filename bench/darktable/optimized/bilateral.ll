@@ -327,7 +327,7 @@ define noalias noundef ptr @dt_bilateral_init(i32 noundef %0, i32 noundef %1, fl
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %47, ptr %48, align 8, !tbaa !19
-  %49 = fmul reassoc nsz arcp contract afn float %36, 1.000000e+02
+  %49 = fmul reassoc nnan nsz arcp contract afn float %36, 1.000000e+02
   %50 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %49)
   %51 = fptosi float %50 to i32
   %52 = add nsw i32 %51, 1
@@ -529,9 +529,9 @@ define void @dt_bilateral_splat(ptr noundef readonly captures(none) %0, ptr noun
   %96 = sext i32 %95 to i64
   %97 = mul nsw i64 %19, %96
   %98 = mul nsw i64 %indvars.iv166, %79
-  %99 = fmul reassoc nsz arcp contract afn float %94, 1.000000e+02
+  %99 = fmul reassoc nnan nsz arcp contract afn float %94, 1.000000e+02
   %100 = fsub reassoc nsz arcp contract afn float 1.000000e+02, %99
-  %101 = fmul reassoc nsz arcp contract afn float %94, 1.000000e+02
+  %101 = fmul reassoc nnan nsz arcp contract afn float %94, 1.000000e+02
   %102 = getelementptr float, ptr %6, i64 %97
   br label %image_to_relgrid.exit.us
 

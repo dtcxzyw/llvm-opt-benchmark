@@ -186,8 +186,8 @@ special_type.exit.i:                              ; preds = %22, %20, %19, %18
 
 40:                                               ; preds = %37
   %41 = tail call double @atan2(double noundef %11, double noundef %7) #10, !tbaa !3
-  %42 = fmul double %7, 5.000000e-01
-  %43 = fmul double %6, 5.000000e-01
+  %42 = fmul nnan double %7, 5.000000e-01
+  %43 = fmul nnan double %6, 5.000000e-01
   %44 = tail call double @hypot(double noundef %42, double noundef %43) #10, !tbaa !3
   %45 = tail call double @log(double noundef %44) #10, !tbaa !3
   %46 = fadd double %45, 0x3FF62E42FEFA39EF
@@ -320,8 +320,8 @@ special_type.exit.i:                              ; preds = %22, %20, %19, %18
   br i1 %or.cond29.i, label %40, label %47
 
 40:                                               ; preds = %37
-  %41 = fmul double %7, 5.000000e-01
-  %42 = fmul double %6, 5.000000e-01
+  %41 = fmul nnan double %7, 5.000000e-01
+  %42 = fmul nnan double %6, 5.000000e-01
   %43 = tail call double @hypot(double noundef %41, double noundef %42) #10, !tbaa !3
   %44 = tail call double @log(double noundef %43) #10, !tbaa !3
   %45 = fadd double %44, 0x3FF62E42FEFA39EF
@@ -1425,7 +1425,7 @@ special_type.exit36.i:                            ; preds = %70, %68, %67, %66
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %76
-  %79 = fmul double %.015, %.0
+  %79 = fmul nnan ninf double %.015, %.0
   br label %86
 
 80:                                               ; preds = %76
@@ -1783,8 +1783,8 @@ special_type.exit44:                              ; preds = %25, %26, %27, %29
   br label %53
 
 46:                                               ; preds = %36
-  %47 = fmul double %3, 1.250000e-01
-  %48 = fmul double %5, 1.250000e-01
+  %47 = fmul nnan double %3, 1.250000e-01
+  %48 = fmul nnan double %5, 1.250000e-01
   %49 = tail call double @hypot(double noundef %47, double noundef %48) #10, !tbaa !3
   %50 = fadd double %47, %49
   %51 = tail call double @sqrt(double noundef %50) #10, !tbaa !3
@@ -1906,8 +1906,8 @@ special_type.exit43:                              ; preds = %25, %26, %27, %29
   br i1 %or.cond38, label %36, label %43
 
 36:                                               ; preds = %33
-  %37 = fmul double %0, 5.000000e-01
-  %38 = fmul double %1, 5.000000e-01
+  %37 = fmul nnan double %0, 5.000000e-01
+  %38 = fmul nnan double %1, 5.000000e-01
   %39 = tail call double @hypot(double noundef %37, double noundef %38) #10, !tbaa !3
   %40 = tail call double @log(double noundef %39) #10, !tbaa !3
   %41 = fadd double %40, 0x3FF62E42FEFA39EF
@@ -2051,10 +2051,10 @@ common.ret8:                                      ; preds = %87, %special_type.e
   br i1 %or.cond40, label %48, label %56
 
 48:                                               ; preds = %45
-  %49 = fmul double %0, 5.000000e-01
-  %50 = fmul double %1, 5.000000e-01
+  %49 = fmul nnan double %0, 5.000000e-01
+  %50 = fmul nnan double %1, 5.000000e-01
   %51 = tail call double @hypot(double noundef %49, double noundef %50) #10, !tbaa !3
-  %52 = fmul double %0, 2.500000e-01
+  %52 = fmul nnan double %0, 2.500000e-01
   %53 = fdiv double %52, %51
   %54 = fdiv double %53, %51
   %55 = tail call double @llvm.copysign.f64(double 0x3FF921FB54442D18, double %1)
@@ -2084,9 +2084,9 @@ common.ret8:                                      ; preds = %87, %special_type.e
   br label %87
 
 71:                                               ; preds = %56
-  %72 = fmul double %0, 4.000000e+00
+  %72 = fmul nnan double %0, 4.000000e+00
   %73 = fsub double 1.000000e+00, %0
-  %74 = fmul double %1, %1
+  %74 = fmul nnan double %1, %1
   %75 = tail call double @llvm.fmuladd.f64(double %73, double %73, double %74)
   %76 = fdiv double %72, %75
   %77 = fcmp oeq double %76, 0.000000e+00
@@ -2099,7 +2099,7 @@ common.ret8:                                      ; preds = %87, %special_type.e
 _Py_log1p.exit:                                   ; preds = %71, %78
   %.0.i47 = phi double [ %79, %78 ], [ %76, %71 ]
   %80 = fmul double %.0.i47, 2.500000e-01
-  %81 = fmul double %1, -2.000000e+00
+  %81 = fmul nnan double %1, -2.000000e+00
   %82 = fadd double %0, 1.000000e+00
   %83 = fneg double %74
   %84 = tail call double @llvm.fmuladd.f64(double %73, double %82, double %83)
@@ -2399,8 +2399,8 @@ special_type.exit54:                              ; preds = %25, %26, %27, %29
   br i1 %or.cond, label %36, label %42
 
 36:                                               ; preds = %33
-  %37 = fmul double %3, 5.000000e-01
-  %38 = fmul double %5, 5.000000e-01
+  %37 = fmul nnan double %3, 5.000000e-01
+  %38 = fmul nnan double %5, 5.000000e-01
   %39 = tail call double @hypot(double noundef %37, double noundef %38) #10, !tbaa !3
   %40 = tail call double @log(double noundef %39) #10, !tbaa !3
   %41 = fadd double %40, 0x3FE62E42FEFA39EF
@@ -2445,7 +2445,7 @@ special_type.exit54:                              ; preds = %25, %26, %27, %29
   %64 = select i1 %62, double %5, double %3
   %65 = fadd double %63, -1.000000e+00
   %66 = fadd double %63, 1.000000e+00
-  %67 = fmul double %64, %64
+  %67 = fmul nnan double %64, %64
   %68 = tail call double @llvm.fmuladd.f64(double %65, double %66, double %67)
   %69 = fcmp oeq double %68, 0.000000e+00
   br i1 %69, label %_Py_log1p.exit, label %70
@@ -2772,7 +2772,7 @@ special_type.exit44:                              ; preds = %34, %35, %36, %38
   %52 = fmul double %51, 4.000000e+00
   %53 = tail call double @cos(double noundef %1) #10, !tbaa !3
   %54 = fmul double %52, %53
-  %55 = fmul double %3, -2.000000e+00
+  %55 = fmul nnan double %3, -2.000000e+00
   %56 = tail call double @exp(double noundef %55) #10, !tbaa !3
   %57 = fmul double %54, %56
   br label %71

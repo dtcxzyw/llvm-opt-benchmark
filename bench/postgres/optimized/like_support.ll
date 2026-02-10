@@ -621,7 +621,7 @@ define internal fastcc double @patternsel_common(ptr noundef %0, i32 noundef %1,
   %94 = load i32, ptr %14, align 4
   %95 = sitofp i32 %94 to double
   %96 = fdiv double %95, 1.000000e+02
-  %97 = fsub double 1.000000e+00, %96
+  %97 = fsub nnan double 1.000000e+00, %96
   %98 = fmul double %91, %97
   %99 = call double @llvm.fmuladd.f64(double %82, double %96, double %98)
   br label %100

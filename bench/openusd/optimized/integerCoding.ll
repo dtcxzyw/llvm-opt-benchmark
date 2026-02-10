@@ -3260,7 +3260,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %.sroa.speculated.i9 = select i1 %70, float %69, float 0x3FEE666660000000
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i9, ptr %71, align 4
-  %72 = fmul float %.sroa.speculated.i9, %63
+  %72 = fmul nnan float %.sroa.speculated.i9, %63
   %73 = fptoui float %72 to i64
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %73, ptr %74, align 8
@@ -3991,7 +3991,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %.sroa.speculated.i9 = select i1 %70, float %69, float 0x3FEE666660000000
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i9, ptr %71, align 4
-  %72 = fmul float %.sroa.speculated.i9, %63
+  %72 = fmul nnan float %.sroa.speculated.i9, %63
   %73 = fptoui float %72 to i64
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %73, ptr %74, align 8

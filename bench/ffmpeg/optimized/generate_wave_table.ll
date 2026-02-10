@@ -88,7 +88,7 @@ define void @ff_generate_wave_table(i32 noundef %0, i32 noundef %1, ptr noundef 
   %41 = add i32 %.04144, %12
   %42 = urem i32 %41, %3
   %43 = uitofp i32 %42 to double
-  %44 = fmul nsz double %43, 2.000000e+00
+  %44 = fmul nnan nsz double %43, 2.000000e+00
   %45 = fdiv nsz double %44, %10
   %46 = shl i32 %42, 2
   %47 = udiv i32 %46, %3

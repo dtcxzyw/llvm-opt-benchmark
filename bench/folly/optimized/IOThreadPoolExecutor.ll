@@ -9101,9 +9101,9 @@ define internal void @_ZN5folly12_GLOBAL__N_118MemoryIdlerTimeout15runLoopCallba
   %42 = xor i64 %41, %40
   %43 = mul i64 %42, 2147483649
   %44 = uitofp i64 %43 to float
-  %45 = fmul float %44, 0x3BE0000000000000
+  %45 = fmul nnan float %44, 0x3BE0000000000000
   %46 = uitofp nneg i64 %18 to float
-  %47 = fadd float %45, 1.000000e+00
+  %47 = fadd nnan float %45, 1.000000e+00
   %48 = fmul float %47, %46
   %49 = fptoui float %48 to i64
   br label %50

@@ -53,8 +53,8 @@ define double @lgamma_r(double noundef %0, ptr noundef writeonly captures(none) 
   %28 = add nsw i32 %27, 1
   %29 = sdiv i32 %28, 2
   %30 = sitofp i32 %29 to float
-  %31 = fmul float %30, 5.000000e-01
-  %32 = fpext float %31 to double
+  %31 = fmul nnan float %30, 5.000000e-01
+  %32 = fpext nnan float %31 to double
   %33 = fsub double %25, %32
   %34 = fmul double %33, 0x400921FB54442D18
   switch i32 %29, label %35 [

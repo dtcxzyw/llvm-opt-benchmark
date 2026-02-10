@@ -1014,7 +1014,7 @@ define linkonce_odr hidden void @_ZN12memory_probeD0Ev(ptr noundef nonnull align
 define linkonce_odr hidden double @_ZN12memory_probeclERK4goal(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(124) %1) unnamed_addr #3 comdat align 2 {
   %3 = tail call noundef i64 @_ZN6memory19get_allocation_sizeEv()
   %4 = uitofp i64 %3 to double
-  %5 = fmul double %4, 0x3EB0000000000000
+  %5 = fmul nnan double %4, 0x3EB0000000000000
   ret double %5
 }
 

@@ -31423,8 +31423,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %135
   store i64 10, ptr %41, align 8, !tbaa !15
   store i8 0, ptr %42, align 2, !tbaa !14
   %145 = uitofp i32 %.033166 to float
-  %146 = fadd float %145, 1.000000e+00
-  %147 = fmul float %146, 0x3FECCCCCC0000000
+  %146 = fadd nnan float %145, 1.000000e+00
+  %147 = fmul nnan float %146, 0x3FECCCCCC0000000
   %148 = load ptr, ptr %34, align 8, !tbaa !212
   %149 = load ptr, ptr %33, align 8, !tbaa !211
   %150 = ptrtoint ptr %148 to i64

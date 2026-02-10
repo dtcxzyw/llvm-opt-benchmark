@@ -397,7 +397,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
-  %mul8 = fmul nsz float %mul3, 0x3FDC9F2340000000
+  %mul8 = fmul nnan nsz float %mul3, 0x3FDC9F2340000000
   br label %if.end17.sink.split
 
 if.else:                                          ; preds = %entry
@@ -1807,7 +1807,7 @@ for.body:                                         ; preds = %_Z17applyFacesShadi
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %for.body
-  %mul8.i = fmul nsz float %mul3.i, 0x3FDC9F2340000000
+  %mul8.i = fmul nnan nsz float %mul3.i, 0x3FDC9F2340000000
   br label %if.end17.sink.split.i
 
 if.else.i:                                        ; preds = %for.body

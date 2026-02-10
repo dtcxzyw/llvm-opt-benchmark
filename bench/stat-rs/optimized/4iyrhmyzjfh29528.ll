@@ -1910,7 +1910,7 @@ define void @_ZN6statrs8function11exponential8integral17h737c60d1f6205956E(ptr d
 21:                                               ; preds = %13
   %22 = fadd double %1, %4
   %23 = fdiv double 1.000000e+00, %22
-  %24 = fadd double %4, -1.000000e+00
+  %24 = fadd nnan double %4, -1.000000e+00
   br label %68
 
 .split.us.preheader:                              ; preds = %18
@@ -2008,7 +2008,7 @@ define void @_ZN6statrs8function11exponential8integral17h737c60d1f6205956E(ptr d
   %70 = add nuw nsw i64 %.sroa.029.0, 1
   %71 = uitofp nneg i64 %.sroa.029.0 to double
   %72 = fneg double %71
-  %73 = fadd double %24, %71
+  %73 = fadd nnan double %24, %71
   %74 = fmul double %73, %72
   %75 = fadd double %.sroa.0.0, 2.000000e+00
   %76 = fmul double %74, %.sroa.05.0
@@ -2025,7 +2025,7 @@ define void @_ZN6statrs8function11exponential8integral17h737c60d1f6205956E(ptr d
 
 86:                                               ; preds = %69
   %87 = fneg double %1
-  %88 = tail call double @llvm.exp.f64(double %87)
+  %88 = tail call nnan double @llvm.exp.f64(double %87)
   %89 = fmul double %88, %82
   br label %.split45.us.sink.split
 }

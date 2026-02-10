@@ -57,8 +57,8 @@ define zeroext i1 @b2IsValidRotation(<2 x float> %0) local_unnamed_addr #2 {
   br i1 %or.cond, label %17, label %10
 
 10:                                               ; preds = %5
-  %11 = fmul float %.sroa.0.4.vec.extract, %.sroa.0.4.vec.extract
-  %foldExtExtBinop = fmul <2 x float> %0, %0
+  %11 = fmul nnan float %.sroa.0.4.vec.extract, %.sroa.0.4.vec.extract
+  %foldExtExtBinop = fmul nnan <2 x float> %0, %0
   %12 = extractelement <2 x float> %foldExtExtBinop, i64 0
   %13 = fadd float %11, %12
   %14 = fcmp ogt float %13, 0x3FEFFB15C0000000
@@ -144,7 +144,7 @@ b2UnwindLargeAngle.exit:                          ; preds = %.lr.ph7.i, %.prehea
 9:                                                ; preds = %b2UnwindLargeAngle.exit
   %10 = fadd float %.1.lcssa.i, 0x400921FB60000000
   %11 = fmul float %10, %10
-  %12 = fmul float %11, 4.000000e+00
+  %12 = fmul nnan float %11, 4.000000e+00
   %13 = fsub float 0x4023BD3CE0000000, %12
   %14 = fneg float %13
   br label %27
@@ -156,7 +156,7 @@ b2UnwindLargeAngle.exit:                          ; preds = %.lr.ph7.i, %.prehea
 17:                                               ; preds = %15
   %18 = fadd float %.1.lcssa.i, 0xC00921FB60000000
   %19 = fmul float %18, %18
-  %20 = fmul float %19, 4.000000e+00
+  %20 = fmul nnan float %19, 4.000000e+00
   %21 = fsub float 0x4023BD3CE0000000, %20
   %22 = fneg float %21
   br label %27
@@ -175,7 +175,7 @@ b2UnwindLargeAngle.exit:                          ; preds = %.lr.ph7.i, %.prehea
   %30 = fcmp olt float %.1.lcssa.i, 0.000000e+00
   %31 = fmul float %.1.lcssa.i, 1.600000e+01
   %32 = fadd float %.1.lcssa.i, 0x400921FB60000000
-  %33 = fmul float %32, -1.600000e+01
+  %33 = fmul nnan float %32, -1.600000e+01
   %.1.lcssa.i.sink63 = select i1 %30, float %32, float %.1.lcssa.i
   %.sink61 = select i1 %30, float %33, float %31
   %34 = fsub float 0x400921FB60000000, %.1.lcssa.i.sink63

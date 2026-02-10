@@ -1573,7 +1573,7 @@ while.body.lr.ph.i.i:                             ; preds = %do.end365.i
   %solver.sroa.44.0 = select i1 %cmp.i307.i, double %sub.i.i, double %sub.i166.i
   %solver.sroa.22.0 = select i1 %cmp.i307.i, double %cond, double %upper.0.lcssa
   %sub.i309.i = fsub double %mul3, %solver.sroa.22.0
-  %mul45.i.i = fmul double %.sroa.speculated.i, 5.000000e-01
+  %mul45.i.i = fmul nnan double %.sroa.speculated.i, 5.000000e-01
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end122.i.i, %while.body.lr.ph.i.i

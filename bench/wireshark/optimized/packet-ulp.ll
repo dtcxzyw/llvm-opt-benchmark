@@ -2970,8 +2970,8 @@ define internal void @ulp_ExtendedEphemeris_validity_fmt(ptr noundef %0, i32 nou
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @ulp_PositionEstimate_latitude_fmt(ptr noundef %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 9.000000e+01
-  %5 = fmul double %4, 0x3E80000000000000
+  %4 = fmul nnan double %3, 9.000000e+01
+  %5 = fmul nnan double %4, 0x3E80000000000000
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1599, double noundef %5, i32 noundef %1)
   ret void
 }
@@ -2979,8 +2979,8 @@ define internal void @ulp_PositionEstimate_latitude_fmt(ptr noundef %0, i32 noun
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @ulp_PositionEstimate_longitude_fmt(ptr noundef %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
-  %4 = fmul double %3, 3.600000e+02
-  %5 = fmul double %4, 0x3E70000000000000
+  %4 = fmul nnan double %3, 3.600000e+02
+  %5 = fmul nnan double %4, 0x3E70000000000000
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1599, double noundef %5, i32 noundef %1)
   ret void
 }
@@ -3100,7 +3100,7 @@ define internal void @ulp_CPICH_Ec_N0_fmt(ptr noundef %0, i32 noundef %1) #1 {
 
 11:                                               ; preds = %7
   %12 = uitofp nneg i32 %1 to float
-  %13 = fmul float %12, 5.000000e-01
+  %13 = fmul nnan float %12, 5.000000e-01
   %14 = fpext float %13 to double
   %15 = fadd double %14, -2.450000e+01
   %16 = fadd float %13, -2.400000e+01
@@ -3201,7 +3201,7 @@ define internal void @ulp_QoP_delay_fmt(ptr noundef %0, i32 noundef %1) #0 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @ulp_RelativeTime_fmt(ptr noundef %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 1.000000e-02
+  %4 = fmul nnan double %3, 1.000000e-02
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1634, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -3248,7 +3248,7 @@ define internal void @ulp_RSRQ_Range_fmt(ptr noundef %0, i32 noundef %1) #1 {
 
 7:                                                ; preds = %2
   %8 = uitofp i32 %1 to float
-  %9 = fmul float %8, 5.000000e-01
+  %9 = fmul nnan float %8, 5.000000e-01
   %10 = fadd float %9, -2.000000e+01
   %11 = fpext float %10 to double
   %12 = fpext float %9 to double
@@ -3271,7 +3271,7 @@ define internal void @ulp_SignalDelta_fmt(ptr noundef %0, i32 noundef %1) #1 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @ulp_locationAccuracy_fmt(ptr noundef %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 1.000000e-01
+  %4 = fmul nnan double %3, 1.000000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1672, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -3279,7 +3279,7 @@ define internal void @ulp_locationAccuracy_fmt(ptr noundef %0, i32 noundef %1) #
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @ulp_WimaxRTD_fmt(ptr noundef %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 1.000000e-02
+  %4 = fmul nnan double %3, 1.000000e-02
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1673, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -3305,7 +3305,7 @@ define internal void @ulp_UTRAN_gpsReferenceTimeUncertainty_fmt(ptr noundef %0, 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @ulp_utran_GANSSTimingOfCell_fmt(ptr noundef %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 2.500000e-01
+  %4 = fmul nnan double %3, 2.500000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1673, double noundef %4, i32 noundef %1)
   ret void
 }
@@ -3313,9 +3313,9 @@ define internal void @ulp_utran_GANSSTimingOfCell_fmt(ptr noundef %0, i32 nounde
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @ulp_Coordinate_latitude_fmt(ptr noundef %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to float
-  %4 = fpext float %3 to double
-  %5 = fdiv double %4, 0x415FFFFFC0000000
-  %6 = fmul double %5, 9.000000e+01
+  %4 = fpext nnan ninf float %3 to double
+  %5 = fdiv nnan double %4, 0x415FFFFFC0000000
+  %6 = fmul nnan double %5, 9.000000e+01
   %7 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1715, double noundef %6, i32 noundef %1)
   ret void
 }
@@ -3323,9 +3323,9 @@ define internal void @ulp_Coordinate_latitude_fmt(ptr noundef %0, i32 noundef %1
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @ulp_Coordinate_longitude_fmt(ptr noundef %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to float
-  %4 = fpext float %3 to double
-  %5 = fmul double %4, 0x3E80000000000000
-  %6 = fmul double %5, 1.800000e+02
+  %4 = fpext nnan ninf float %3 to double
+  %5 = fmul nnan double %4, 0x3E80000000000000
+  %6 = fmul nnan double %5, 1.800000e+02
   %7 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1716, double noundef %6, i32 noundef %1)
   ret void
 }

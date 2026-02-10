@@ -215,7 +215,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %19 = uitofp nneg i64 %.012.i.i.i.i.i.i.i to double
   %20 = insertelement <2 x double> poison, double %19, i64 0
   %21 = shufflevector <2 x double> %20, <2 x double> poison, <2 x i32> zeroinitializer
-  %22 = fadd <2 x double> %21, <double 0.000000e+00, double 1.000000e+00>
+  %22 = fadd nnan <2 x double> %21, <double 0.000000e+00, double 1.000000e+00>
   %23 = fsub <2 x double> zeroinitializer, %22
   %24 = getelementptr inbounds nuw double, ptr %10, i64 %.012.i.i.i.i.i.i.i
   store <2 x double> %23, ptr %24, align 16, !tbaa !26
@@ -305,7 +305,7 @@ thread-pre-split.i.i.i.i.i.i18:                   ; preds = %_ZN5Eigen15PlainObj
   %68 = sitofp i64 %67 to double
   %69 = insertelement <2 x double> poison, double %68, i64 0
   %70 = shufflevector <2 x double> %69, <2 x double> poison, <2 x i32> zeroinitializer
-  %71 = fadd <2 x double> %70, <double 0.000000e+00, double 1.000000e+00>
+  %71 = fadd nnan <2 x double> %70, <double 0.000000e+00, double 1.000000e+00>
   %72 = fmul <2 x double> %63, %71
   %73 = fadd <2 x double> %66, %72
   %.not5.i.i.i.i.i.i.i.i.us.i.i.i.i.i.i = icmp eq i64 %.012.i.us.i.i.i.i.i.i34, 0
@@ -374,7 +374,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %97 = uitofp nneg i64 %.012.i.i.i.i.i.i.i32 to double
   %98 = insertelement <2 x double> poison, double %97, i64 0
   %99 = shufflevector <2 x double> %98, <2 x double> poison, <2 x i32> zeroinitializer
-  %100 = fadd <2 x double> %99, <double 0.000000e+00, double 1.000000e+00>
+  %100 = fadd nnan <2 x double> %99, <double 0.000000e+00, double 1.000000e+00>
   %101 = fmul <2 x double> %63, %100
   %102 = fadd <2 x double> %61, %101
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.012.i.i.i.i.i.i.i32, %64
@@ -457,7 +457,7 @@ thread-pre-split.i.i.i.i.i.i46:                   ; preds = %_ZN5Eigen15PlainObj
   %140 = sitofp i64 %139 to double
   %141 = insertelement <2 x double> poison, double %140, i64 0
   %142 = shufflevector <2 x double> %141, <2 x double> poison, <2 x i32> zeroinitializer
-  %143 = fadd <2 x double> %142, <double 0.000000e+00, double 1.000000e+00>
+  %143 = fadd nnan <2 x double> %142, <double 0.000000e+00, double 1.000000e+00>
   %144 = fmul <2 x double> %135, %143
   %145 = fadd <2 x double> %138, %144
   %.not5.i.i.i.i.i.i.us.i.i.i.i.i.i89 = icmp eq i64 %.012.i.us.i.i.i.i.i.i88, 0
@@ -521,7 +521,7 @@ _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdL
   %164 = uitofp nneg i64 %.012.i.i.i.i.i.i.i83 to double
   %165 = insertelement <2 x double> poison, double %164, i64 0
   %166 = shufflevector <2 x double> %165, <2 x double> poison, <2 x i32> zeroinitializer
-  %167 = fadd <2 x double> %166, <double 0.000000e+00, double 1.000000e+00>
+  %167 = fadd nnan <2 x double> %166, <double 0.000000e+00, double 1.000000e+00>
   %168 = fmul <2 x double> %135, %167
   %169 = fadd <2 x double> %133, %168
   %.not.i.i.i.i.i.i.i.i.i.i.i.i84 = icmp eq i64 %.012.i.i.i.i.i.i.i83, %136

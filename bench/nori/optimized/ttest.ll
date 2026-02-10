@@ -3457,7 +3457,7 @@ define linkonce_odr hidden void @_ZN10hypothesis15students_t_testB5cxx11Edddidi(
 
 47:                                               ; preds = %45
   %48 = sitofp i32 %17 to double
-  %49 = fmul double %48, 5.000000e-01
+  %49 = fmul nnan double %48, 5.000000e-01
   %50 = call double @llvm.fmuladd.f64(double %16, double %16, double %48)
   %51 = fdiv double %48, %50
   %52 = invoke noundef double @_ZN6cephes6incbetEddd(double noundef %49, double noundef 5.000000e-01, double noundef %51)

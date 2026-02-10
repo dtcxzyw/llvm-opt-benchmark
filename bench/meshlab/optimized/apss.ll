@@ -2210,7 +2210,7 @@ _ZNSt6vectorIfSaIfEE2atEm.exit:                   ; preds = %_ZNK7GaelMls12Neigh
   %155 = getelementptr inbounds nuw i8, ptr %0, i64 328
   store i32 0, ptr %155, align 8
   %156 = fdiv double 1.000000e+00, %133
-  %157 = fmul double %156, -5.000000e-01
+  %157 = fmul nnan double %156, -5.000000e-01
   %158 = fmul double %157, %141
   %159 = fmul double %157, %142
   %160 = fmul double %157, %143

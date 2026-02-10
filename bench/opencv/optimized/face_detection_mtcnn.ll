@@ -2641,7 +2641,7 @@ _ZNSt6vectorIN2cv5Size_IiEESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZNSt6vec
   %.0.lcssa.i.i.i.i.i.i.i.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i.i, %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %419, %443 ]
   %.sroa.02284.6 = phi ptr [ %456, %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %.sroa.02284.5, %443 ]
   %.sroa.17.2 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i.pn, i64 8
-  %463 = fmul double %.035.i, 5.000000e-01
+  %463 = fmul nnan double %.035.i, 5.000000e-01
   %464 = add nuw nsw i32 %.01334.i, 1
   %465 = fmul double %.01433.i, 5.000000e-01
   %466 = fcmp ult double %463, 2.400000e+01
@@ -2825,7 +2825,7 @@ _ZNSt6vectorIN2cv5Size_IiEESaIS2_EE9push_backERKS2_.exit.i581: ; preds = %_ZNSt6
   %.0.lcssa.i.i.i.i.i.i.i589.pn = phi ptr [ %.0.lcssa.i.i.i.i.i.i.i589, %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i591 ], [ %477, %504 ]
   %.sroa.02284.9 = phi ptr [ %517, %_ZNSt6vectorIN2cv5Size_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i591 ], [ %.sroa.02284.8, %504 ]
   %.sroa.17.5 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i589.pn, i64 8
-  %524 = fmul double %.056.i, 7.090000e-01
+  %524 = fmul nnan double %.056.i, 7.090000e-01
   %525 = add nuw nsw i32 %.01755.i, 1
   %526 = fcmp ult double %524, 1.200000e+01
   br i1 %526, label %_ZN12_GLOBAL__N_121calculate_half_scalesERKN2cv5Size_IiEERSt6vectorIdSaIdEERS5_IS2_SaIS2_EE.exit, label %.lr.ph.i574, !llvm.loop !59
@@ -54161,7 +54161,7 @@ _ZNSt6vectorIiSaIiEE5clearEv.exit.i.i.i.i:        ; preds = %_ZNSt16allocator_tr
   %131 = add i32 %128, 1
   %132 = sub i32 %131, %130
   %133 = sitofp i32 %132 to float
-  %134 = fmul float %126, %133
+  %134 = fmul nnan float %126, %133
   %135 = icmp samesign ugt i64 %96, 4
   br i1 %135, label %.lr.ph.preheader.i.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit.thread.i.i.i.i
 
@@ -54250,7 +54250,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit110.i.thread.i.i.i:  ; preds = %_ZNSt6vectorIiSaIiE
   %reass.sub44 = sub i32 %160, %151
   %173 = add i32 %reass.sub44, 1
   %174 = sitofp i32 %173 to float
-  %175 = fmul float %172, %174
+  %175 = fmul nnan float %172, %174
   br i1 %34, label %176, label %178
 
 176:                                              ; preds = %.lr.ph.i.i.i.i

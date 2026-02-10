@@ -1801,7 +1801,7 @@ define { i64, double } @"_ZN95_$LT$statrs..generate..InfiniteSinusoidal$u20$as$u
 define void @_ZN6statrs8generate14InfiniteSquare3new17h44e3c42afc0123c4E(ptr dead_on_unwind noalias noundef writable writeonly sret([56 x i8]) align 8 captures(none) dereferenceable(56) initializes((0, 56)) %0, i64 noundef %1, i64 noundef %2, double noundef %3, double noundef %4, i64 noundef %5) unnamed_addr #3 {
   %7 = add i64 %2, %1
   %8 = sitofp i64 %7 to double
-  %9 = fdiv double 1.000000e+00, %8
+  %9 = fdiv nnan double 1.000000e+00, %8
   %10 = fmul double %9, %8
   %11 = sitofp i64 %5 to double
   %12 = fmul double %10, %11
@@ -1916,7 +1916,7 @@ define void @_ZN6statrs8generate16InfiniteTriangle3new17h91ec4dbfb332ec85E(ptr d
   %7 = add i64 %2, %1
   %8 = sitofp i64 %7 to double
   %9 = fsub double %3, %4
-  %10 = fdiv double 1.000000e+00, %8
+  %10 = fdiv nnan double 1.000000e+00, %8
   %11 = fmul double %10, %8
   %12 = sitofp i64 %5 to double
   %13 = fmul double %11, %12
@@ -2057,7 +2057,7 @@ define { i64, double } @"_ZN93_$LT$statrs..generate..InfiniteTriangle$u20$as$u20
 define void @_ZN6statrs8generate16InfiniteSawtooth3new17hf44333911ad35ca2E(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, i64 noundef %1, double noundef %2, double noundef %3, i64 noundef %4) unnamed_addr #3 {
   %6 = fsub double %2, %3
   %7 = sitofp i64 %1 to double
-  %8 = fdiv double 1.000000e+00, %7
+  %8 = fdiv nnan double 1.000000e+00, %7
   %9 = fmul double %6, %7
   %10 = fadd double %7, -1.000000e+00
   %11 = fdiv double %9, %10

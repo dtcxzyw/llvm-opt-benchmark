@@ -103,7 +103,7 @@ define hidden void @_ZN2cv12cpu_baseline25bilateralFilterInvoker_8uERNS_3MatERKS
 
 22:                                               ; preds = %7
   %23 = uitofp i64 %21 to double
-  %24 = fmul double %23, 0x3EF0000000000000
+  %24 = fmul nnan double %23, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %9, double noundef %24)
           to label %25 unwind label %32
 
@@ -210,7 +210,7 @@ define hidden void @_ZN2cv12cpu_baseline26bilateralFilterInvoker_32fEiiiPiRKNS_3
 
 26:                                               ; preds = %9
   %27 = uitofp i64 %25 to double
-  %28 = fmul double %27, 0x3EF0000000000000
+  %28 = fmul nnan double %27, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %11, double noundef %28)
           to label %29 unwind label %36
 
@@ -601,7 +601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %90,
   %.069136.i = phi i32 [ %150, %.preheader.i ], [ %174, %173 ]
   %.171135.i = phi i32 [ %.070138.i, %.preheader.i ], [ %.2.i, %173 ]
   %158 = sitofp i32 %.069136.i to double
-  %159 = fmul double %158, %158
+  %159 = fmul nnan double %158, %158
   %160 = call double @llvm.fmuladd.f64(double %155, double %155, double %159)
   %sqrt.i = call double @llvm.sqrt.f64(double %160)
   %161 = fcmp ogt double %sqrt.i, %151
@@ -983,7 +983,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i62: ; preds = %1
   %.088170.i = phi i32 [ %297, %.preheader.i57 ], [ %323, %322 ]
   %.190169.i = phi i32 [ %.089172.i, %.preheader.i57 ], [ %.2.i59, %322 ]
   %306 = sitofp i32 %.088170.i to double
-  %307 = fmul double %306, %306
+  %307 = fmul nnan double %306, %306
   %308 = call double @llvm.fmuladd.f64(double %303, double %303, double %307)
   %sqrt.i58 = call double @llvm.sqrt.f64(double %308)
   %309 = fcmp ogt double %sqrt.i58, %298

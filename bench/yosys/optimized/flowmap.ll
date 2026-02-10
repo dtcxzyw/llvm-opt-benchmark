@@ -3838,7 +3838,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit172:             ; preds = %542, %549, %556
 ._crit_edge1400.loopexit:                         ; preds = %_ZN12_GLOBAL__N_113FlowmapWorkerD2Ev.exit
   %.pre1465 = load ptr, ptr %27, align 8, !tbaa !83
   %690 = sitofp i32 %2008 to double
-  %691 = fmul double %690, 1.000000e+02
+  %691 = fmul nnan double %690, 1.000000e+02
   %692 = sitofp i32 %2006 to double
   br label %._crit_edge1400
 

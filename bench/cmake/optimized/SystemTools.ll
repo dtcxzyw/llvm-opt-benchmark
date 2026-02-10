@@ -146,7 +146,7 @@ define dso_local noundef double @_ZN5cmsys11SystemTools7GetTimeEv() local_unname
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !9
   %7 = sitofp i64 %6 to double
-  %8 = fmul double %7, 0x3EB0C6F7A0B5ED8D
+  %8 = fmul nnan double %7, 0x3EB0C6F7A0B5ED8D
   %9 = fadd double %8, %4
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret double %9

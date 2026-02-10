@@ -879,7 +879,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit:
 
 130:                                              ; preds = %128
   %131 = sitofp i64 %122 to double
-  %132 = fmul double %131, 1.000000e+02
+  %132 = fmul nnan double %131, 1.000000e+02
   %133 = uitofp nneg i64 %126 to double
   %134 = fdiv double %132, %133
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -30810,7 +30810,7 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEESaIS2_EE9push_backEOS2_.exit:
 
 161:                                              ; preds = %159
   %162 = sitofp i64 %154 to double
-  %163 = fmul double %162, 1.000000e+02
+  %163 = fmul nnan double %162, 1.000000e+02
   %164 = uitofp nneg i64 %157 to double
   %165 = fdiv double %163, %164
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -31283,7 +31283,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %50, %52
 
 98:                                               ; preds = %96
   %99 = sitofp i64 %.02861 to double
-  %100 = fmul double %99, 1.000000e+02
+  %100 = fmul nnan double %99, 1.000000e+02
   %101 = uitofp nneg i64 %94 to double
   %102 = fdiv double %100, %101
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -31646,7 +31646,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
 
 98:                                               ; preds = %96
   %99 = sitofp i64 %.02477 to double
-  %100 = fmul double %99, 1.000000e+02
+  %100 = fmul nnan double %99, 1.000000e+02
   %101 = uitofp nneg i64 %94 to double
   %102 = fdiv double %100, %101
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i

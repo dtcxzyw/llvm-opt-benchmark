@@ -3055,7 +3055,7 @@ define internal fastcc void @PrintExtraInfoLossless(ptr noundef nonnull readonly
   %21 = load ptr, ptr @stderr, align 8, !tbaa !4
   %22 = load i32, ptr %5, align 4, !tbaa !97
   %23 = sitofp i32 %22 to float
-  %24 = fmul float %23, 8.000000e+00
+  %24 = fmul nnan float %23, 8.000000e+00
   %25 = load i32, ptr %16, align 8, !tbaa !16
   %26 = sitofp i32 %25 to float
   %27 = fdiv float %24, %26
@@ -3123,7 +3123,7 @@ define internal fastcc void @PrintExtraInfoLossy(ptr noundef nonnull readonly ca
   %46 = load float, ptr %45, align 4, !tbaa !96
   %47 = fpext float %46 to double
   %48 = sitofp i32 %35 to float
-  %49 = fmul float %48, 8.000000e+00
+  %49 = fmul nnan float %48, 8.000000e+00
   %50 = load i32, ptr %26, align 8, !tbaa !16
   %51 = sitofp i32 %50 to float
   %52 = fdiv float %49, %51
@@ -3140,16 +3140,16 @@ define internal fastcc void @PrintExtraInfoLossy(ptr noundef nonnull readonly ca
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %60 = load ptr, ptr @stderr, align 8, !tbaa !4
   %61 = sitofp i32 %17 to float
-  %62 = fmul float %61, 1.000000e+02
+  %62 = fmul nnan float %61, 1.000000e+02
   %63 = uitofp nneg i32 %22 to float
   %64 = fdiv float %62, %63
   %65 = fpext float %64 to double
   %66 = sitofp i32 %19 to float
-  %67 = fmul float %66, 1.000000e+02
+  %67 = fmul nnan float %66, 1.000000e+02
   %68 = fdiv float %67, %63
   %69 = fpext float %68 to double
   %70 = sitofp i32 %21 to float
-  %71 = fmul float %70, 1.000000e+02
+  %71 = fmul nnan float %70, 1.000000e+02
   %72 = fdiv float %71, %63
   %73 = fpext float %72 to double
   %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %60, ptr noundef nonnull @.str.219, i32 noundef %17, double noundef %65, i32 noundef %19, double noundef %69, i32 noundef %21, double noundef %73) #16
@@ -3157,7 +3157,7 @@ define internal fastcc void @PrintExtraInfoLossy(ptr noundef nonnull readonly ca
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %77 = load i32, ptr %76, align 4, !tbaa !9
   %78 = sitofp i32 %77 to float
-  %79 = fmul float %78, 1.000000e+02
+  %79 = fmul nnan float %78, 1.000000e+02
   %80 = load i32, ptr %7, align 4, !tbaa !97
   %81 = sitofp i32 %80 to float
   %82 = fdiv float %79, %81
@@ -3165,7 +3165,7 @@ define internal fastcc void @PrintExtraInfoLossy(ptr noundef nonnull readonly ca
   %84 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %85 = load i32, ptr %84, align 4, !tbaa !9
   %86 = sitofp i32 %85 to float
-  %87 = fmul float %86, 1.000000e+02
+  %87 = fmul nnan float %86, 1.000000e+02
   %88 = fdiv float %87, %81
   %89 = fpext float %88 to double
   %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %75, ptr noundef nonnull @.str.220, i32 noundef %77, double noundef %83, i32 noundef %85, double noundef %89) #16
@@ -3766,7 +3766,7 @@ define internal fastcc void @PrintByteCount(ptr noundef readonly captures(none) 
   %.us-phi = phi i32 [ %9, %.split.us ], [ %15, %.split ]
   %19 = load ptr, ptr @stderr, align 8, !tbaa !4
   %20 = sitofp i32 %.us-phi to float
-  %21 = fmul float %20, 1.000000e+02
+  %21 = fmul nnan float %20, 1.000000e+02
   %22 = sitofp i32 %1 to float
   %23 = fdiv float %21, %22
   %24 = fpext float %23 to double
@@ -3795,7 +3795,7 @@ define internal fastcc void @PrintPercents(ptr noundef readonly captures(none) %
   %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !9
   %17 = sitofp i32 %16 to double
-  %18 = fmul double %17, 1.000000e+02
+  %18 = fmul nnan double %17, 1.000000e+02
   %19 = fdiv double %18, %12
   %20 = fadd double %19, 5.000000e-01
   %21 = fptosi double %20 to i32

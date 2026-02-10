@@ -589,7 +589,7 @@ define internal fastcc void @_ZN5ZXingL11CenterEdgesERKNS_11ResultPointES2_S2_S2
   %8 = fptrunc double %.8.val7 to float
   %9 = fptrunc double %.0.val9 to float
   %10 = sitofp i32 %0 to float
-  %11 = fmul float %10, 5.000000e-01
+  %11 = fmul nnan float %10, 5.000000e-01
   %12 = fcmp ogt float %11, %6
   %. = select i1 %12, float -1.000000e+00, float 1.000000e+00
   %.38 = select i1 %12, float 1.000000e+00, float -1.000000e+00

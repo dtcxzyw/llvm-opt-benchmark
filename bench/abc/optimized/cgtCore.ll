@@ -1746,7 +1746,7 @@ define ptr @Cgt_ClockGating(ptr noundef %0, ptr noundef %1, ptr noundef %2) loca
   %14 = add nsw i32 %.val13, %.val
   %15 = load i32, ptr %4, align 4, !tbaa !35
   %16 = sitofp i32 %15 to double
-  %17 = fmul double %16, 1.000000e+02
+  %17 = fmul nnan double %16, 1.000000e+02
   %18 = sitofp i32 %14 to double
   %19 = fdiv double %17, %18
   %20 = getelementptr i8, ptr %9, i64 148

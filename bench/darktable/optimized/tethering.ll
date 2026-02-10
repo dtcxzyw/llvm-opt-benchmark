@@ -273,7 +273,7 @@ thread-pre-split.i:                               ; preds = %18
   %78 = fdiv reassoc nsz arcp contract afn float %70, %77
   %79 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %76, float %78)
   %80 = tail call reassoc nsz arcp contract afn float @llvm.minnum.f32(float %79, float 1.000000e+01)
-  %81 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %81 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %82 = fmul reassoc nsz arcp contract afn double %64, 1.800000e+01
   %83 = fadd reassoc nsz arcp contract afn double %82, %13
   %84 = fmul reassoc nsz arcp contract afn double %83, 5.000000e-01
@@ -294,7 +294,7 @@ thread-pre-split.i:                               ; preds = %18
 
 91:                                               ; preds = %89
   %92 = sitofp i32 %90 to double
-  %93 = fmul reassoc nsz arcp contract afn double %92, 0xBFF921FB54442D18
+  %93 = fmul reassoc nnan nsz arcp contract afn double %92, 0xBFF921FB54442D18
   tail call void @cairo_rotate(ptr noundef %1, double noundef %93) #18
   br label %94
 
@@ -311,9 +311,9 @@ thread-pre-split.i:                               ; preds = %18
 
 100:                                              ; preds = %98, %94
   %101 = sitofp i32 %37 to double
-  %102 = fmul reassoc nsz arcp contract afn double %101, -5.000000e-01
+  %102 = fmul reassoc nnan nsz arcp contract afn double %101, -5.000000e-01
   %103 = sitofp i32 %39 to double
-  %104 = fmul reassoc nsz arcp contract afn double %103, -5.000000e-01
+  %104 = fmul reassoc nnan nsz arcp contract afn double %103, -5.000000e-01
   tail call void @cairo_translate(ptr noundef %1, double noundef %102, double noundef %104) #18
   %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !106
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 1432
@@ -430,10 +430,10 @@ thread-pre-split.i:                               ; preds = %18
   %184 = tail call noundef i32 @llvm.fshl.i32(i32 %180, i32 %180, i32 11)
   %185 = lshr i32 %177, 8
   %186 = uitofp nneg i32 %185 to float
-  %187 = fmul reassoc nsz arcp contract afn float %186, 0x3E70000000000000
-  %188 = fadd reassoc nsz arcp contract afn float %176, -5.000000e-01
-  %189 = fadd reassoc nsz arcp contract afn float %188, %187
-  %190 = fmul reassoc nsz arcp contract afn float %189, 0x3F70101020000000
+  %187 = fmul reassoc nnan nsz arcp contract afn float %186, 0x3E70000000000000
+  %188 = fadd reassoc nnan nsz arcp contract afn float %176, -5.000000e-01
+  %189 = fadd reassoc nnan nsz arcp contract afn float %188, %187
+  %190 = fmul reassoc nnan nsz arcp contract afn float %189, 0x3F70101020000000
   %191 = getelementptr inbounds nuw float, ptr %115, i64 %173
   store float %190, ptr %191, align 4, !tbaa !119
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

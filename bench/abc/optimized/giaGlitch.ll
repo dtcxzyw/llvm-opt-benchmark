@@ -785,7 +785,7 @@ define void @Gli_ManSetPiRandom(ptr noundef readonly captures(none) %0, float no
   %18 = tail call i32 @Gia_ManRandom(i32 noundef 0) #25
   %19 = and i32 %18, 65535
   %20 = uitofp nneg i32 %19 to float
-  %21 = fmul float %20, 0x3EF0000000000000
+  %21 = fmul nnan float %20, 0x3EF0000000000000
   %22 = fcmp olt float %21, %1
   br i1 %22, label %23, label %66
 
@@ -2275,7 +2275,7 @@ define void @Gli_ManSetPiRandomSeq(ptr noundef readonly captures(none) %0, float
   %50 = tail call i32 @Gia_ManRandom(i32 noundef 0) #25
   %51 = and i32 %50, 65535
   %52 = uitofp nneg i32 %51 to float
-  %53 = fmul float %52, 0x3EF0000000000000
+  %53 = fmul nnan float %52, 0x3EF0000000000000
   %54 = fcmp olt float %53, %1
   br i1 %54, label %55, label %98
 
@@ -2803,7 +2803,7 @@ Gli_ManSwitching.exit49.us:                       ; preds = %.lr.ph.i31.us, %131
   %145 = load i32, ptr %15, align 8, !tbaa !20
   %146 = shl nsw i32 %145, 2
   %147 = sitofp i32 %146 to double
-  %148 = fmul double %147, 0x3EB0000000000000
+  %148 = fmul nnan double %147, 0x3EB0000000000000
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, double noundef %148)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

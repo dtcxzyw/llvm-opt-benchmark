@@ -987,7 +987,7 @@ _ZN2cv15line_descriptor23BinaryDescriptorMatcher11BucketGroup10push_valueERSt6ve
 
 117:                                              ; preds = %112
   %118 = uitofp i32 %113 to double
-  %119 = fmul double %118, 1.100000e+00
+  %119 = fmul nnan double %118, 1.100000e+00
   %120 = tail call double @llvm.ceil.f64(double %119)
   %121 = fptoui double %120 to i32
   store i32 %121, ptr %114, align 4, !tbaa !30
@@ -1221,7 +1221,7 @@ _ZN2cv15line_descriptor23BinaryDescriptorMatcher11BucketGroup12insert_valueERSt6
 
 237:                                              ; preds = %232
   %238 = uitofp i32 %233 to double
-  %239 = fmul double %238, 1.100000e+00
+  %239 = fmul nnan double %238, 1.100000e+00
   %240 = tail call double @llvm.ceil.f64(double %239)
   %241 = fptoui double %240 to i32
   store i32 %241, ptr %234, align 4, !tbaa !30
@@ -2320,7 +2320,7 @@ _ZNSt12__shared_ptrIN2cv15line_descriptor23BinaryDescriptorMatcher8bitarrayELN9_
 
 _ZN2cv15line_descriptor23BinaryDescriptorMatcher8bitarray4initEm.exit: ; preds = %_ZNSt12__shared_ptrIN2cv15line_descriptor23BinaryDescriptorMatcher8bitarrayELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %65
   %66 = uitofp i64 %63 to double
-  %67 = fmul double %66, 3.125000e-02
+  %67 = fmul nnan double %66, 3.125000e-02
   %68 = tail call double @llvm.ceil.f64(double %67)
   %69 = fptoui double %68 to i32
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -6888,7 +6888,7 @@ define void @_ZN2cv15line_descriptor23BinaryDescriptorMatcher11BucketGroup12inse
 
 18:                                               ; preds = %13
   %19 = uitofp i32 %14 to double
-  %20 = fmul double %19, 1.100000e+00
+  %20 = fmul nnan double %19, 1.100000e+00
   %21 = tail call double @llvm.ceil.f64(double %20)
   %22 = fptoui double %21 to i32
   store i32 %22, ptr %15, align 4, !tbaa !30

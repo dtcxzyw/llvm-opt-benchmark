@@ -1231,10 +1231,10 @@ define hidden void @_ZN7nanogui13TabWidgetBase4drawEP10NVGcontext(ptr noundef no
   %170 = call noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
   %171 = sitofp i32 %170 to float
   %172 = select i1 %168, float 1.000000e+00, float 0x3FE6666660000000
-  %173 = fmul float %172, %171
-  %174 = fmul float %173, 0x3FD99999A0000000
+  %173 = fmul nnan float %172, %171
+  %174 = fmul nnan float %173, 0x3FD99999A0000000
   %175 = select i1 %168, float 0.000000e+00, float %174
-  %176 = fmul float %173, 0x3FCAE147A0000000
+  %176 = fmul nnan float %173, 0x3FCAE147A0000000
   %177 = select i1 %168, float 0.000000e+00, float %176
   call void @nvgFontSize(ptr noundef %1, float noundef %173)
   %178 = sitofp i32 %160 to float

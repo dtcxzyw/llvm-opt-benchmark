@@ -4478,9 +4478,9 @@ define hidden void @_ZN3h3i6client14execute_action17h3645bd6f38157cf1E(ptr noali
   %234 = icmp ult i32 %232, 1000000000
   call void @llvm.assume(i1 %234)
   %235 = uitofp nneg i32 %232 to float
-  %236 = fdiv float %235, 1.000000e+09
-  %237 = fadd float %236, %233
-  %238 = fmul float %237, 1.000000e+03
+  %236 = fdiv nnan float %235, 1.000000e+09
+  %237 = fadd nnan float %236, %233
+  %238 = fmul nnan float %237, 1.000000e+03
   store float %238, ptr %168, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
@@ -4834,9 +4834,9 @@ define hidden void @_ZN3h3i6client14execute_action17h3645bd6f38157cf1E(ptr noali
   %335 = icmp ult i32 %333, 1000000000
   call void @llvm.assume(i1 %335)
   %336 = uitofp nneg i32 %333 to float
-  %337 = fdiv float %336, 1.000000e+09
-  %338 = fadd float %337, %334
-  %339 = fmul float %338, 1.000000e+03
+  %337 = fdiv nnan float %336, 1.000000e+09
+  %338 = fadd nnan float %337, %334
+  %339 = fmul nnan float %338, 1.000000e+03
   store float %339, ptr %272, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   call void @llvm.lifetime.start.p0(ptr nonnull %64)

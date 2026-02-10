@@ -294,9 +294,9 @@ define internal noundef i32 @filter_prepare_double(ptr noundef readonly captures
   %9 = sitofp i32 %8 to double
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %11 = load double, ptr %10, align 8, !tbaa !63
-  %12 = fmul nsz double %9, 5.000000e-01
+  %12 = fmul nnan nsz double %9, 5.000000e-01
   %13 = tail call nsz double @llvm.minnum.f64(double %11, double %12)
-  %14 = fmul nsz double %13, 0x400921FB54442D18
+  %14 = fmul nnan nsz double %13, 0x400921FB54442D18
   %15 = fdiv nsz double %14, %9
   %16 = tail call nsz double @llvm.tan.f64(double %15)
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -440,7 +440,7 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
   %18 = load double, ptr %17, align 8, !tbaa !78
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %20 = load double, ptr %19, align 8, !tbaa !79
-  %21 = fmul nsz double %12, 5.000000e-01
+  %21 = fmul nnan nsz double %12, 5.000000e-01
   %22 = tail call nsz double @llvm.minnum.f64(double %20, double %21)
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %24 = load i32, ptr %23, align 8, !tbaa !80
@@ -457,7 +457,7 @@ define internal noundef i32 @filter_channels_double(ptr noundef readonly capture
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %36 = load double, ptr %35, align 8, !tbaa !81
   %37 = fdiv nsz double 1.000000e+00, %36
-  %38 = fmul nsz double %22, 0x400921FB54442D18
+  %38 = fmul nnan nsz double %22, 0x400921FB54442D18
   %39 = fdiv nsz double %38, %12
   %40 = tail call nsz double @llvm.tan.f64(double %39)
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 388
@@ -1218,10 +1218,10 @@ define internal noundef i32 @filter_prepare_float(ptr noundef readonly captures(
   %11 = load double, ptr %10, align 8, !tbaa !63
   %12 = fptrunc nsz double %11 to float
   %13 = fpext nsz float %9 to double
-  %14 = fmul nsz float %9, 5.000000e-01
+  %14 = fmul nnan nsz float %9, 5.000000e-01
   %15 = tail call nsz float @llvm.minnum.f32(float %12, float %14)
-  %16 = fpext nsz float %15 to double
-  %17 = fmul nsz double %16, 0x400921FB54442D18
+  %16 = fpext nnan nsz float %15 to double
+  %17 = fmul nnan nsz double %16, 0x400921FB54442D18
   %18 = fdiv nsz double %17, %13
   %19 = fptrunc nsz double %18 to float
   %20 = tail call nsz float @llvm.tan.f32(float %19)
@@ -1369,7 +1369,7 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
   %23 = load double, ptr %22, align 8, !tbaa !79
   %24 = fptrunc nsz double %23 to float
   %25 = fpext nsz float %12 to double
-  %26 = fmul nsz float %12, 5.000000e-01
+  %26 = fmul nnan nsz float %12, 5.000000e-01
   %27 = tail call nsz float @llvm.minnum.f32(float %24, float %26)
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 128
   %29 = load i32, ptr %28, align 8, !tbaa !80
@@ -1391,8 +1391,8 @@ define internal noundef i32 @filter_channels_float(ptr noundef readonly captures
   %45 = load double, ptr %44, align 8, !tbaa !81
   %46 = fptrunc nsz double %45 to float
   %47 = fdiv nsz float 1.000000e+00, %46
-  %48 = fpext nsz float %27 to double
-  %49 = fmul nsz double %48, 0x400921FB54442D18
+  %48 = fpext nnan nsz float %27 to double
+  %49 = fmul nnan nsz double %48, 0x400921FB54442D18
   %50 = fdiv nsz double %49, %25
   %51 = fptrunc nsz double %50 to float
   %52 = tail call nsz float @llvm.tan.f32(float %51)

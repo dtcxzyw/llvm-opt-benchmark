@@ -734,7 +734,7 @@ _pos_compute_area.exit.i:                         ; preds = %212, %195
   %215 = phi i32 [ %.0..i.i, %195 ], [ 0, %212 ]
   %216 = phi i32 [ %200, %195 ], [ 0, %212 ]
   %217 = phi i32 [ %207, %195 ], [ 0, %212 ]
-  %218 = fmul reassoc nsz arcp contract afn double %141, 5.000000e-01
+  %218 = fmul reassoc nnan nsz arcp contract afn double %141, 5.000000e-01
   %219 = fptosi double %218 to i32
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %221 = load i32, ptr %220, align 4, !tbaa !43
@@ -1899,9 +1899,9 @@ define internal range(i32 0, 2) i32 @_event_draw(ptr noundef %0, ptr noundef %1,
   call void @cairo_rectangle(ptr noundef %1, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %34, double noundef %35) #16
   call void @cairo_fill(ptr noundef %1) #16
   %36 = sitofp i32 %32 to float
-  %37 = fmul reassoc nsz arcp contract afn float %36, 0x3FC99999A0000000
+  %37 = fmul reassoc nnan nsz arcp contract afn float %36, 0x3FC99999A0000000
   %38 = sitofp i32 %30 to float
-  %39 = fmul reassoc nsz arcp contract afn float %38, 0x3FA99999A0000000
+  %39 = fmul reassoc nnan nsz arcp contract afn float %38, 0x3FA99999A0000000
   %40 = call ptr @pango_cairo_create_layout(ptr noundef %1) #16
   %41 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !146
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 336
@@ -1914,8 +1914,8 @@ define internal range(i32 0, 2) i32 @_event_draw(ptr noundef %0, ptr noundef %1,
   call void @pango_font_description_set_absolute_size(ptr noundef %44, double noundef %48) #16
   call void @pango_layout_set_font_description(ptr noundef %40, ptr noundef %44) #16
   call void @pango_layout_set_ellipsize(ptr noundef %40, i32 noundef 2) #16
-  %49 = fmul reassoc nsz arcp contract afn float %38, 0x3FECCCCCC0000000
-  %50 = fmul reassoc nsz arcp contract afn float %38, 0x408CCCCCC0000000
+  %49 = fmul reassoc nnan nsz arcp contract afn float %38, 0x3FECCCCCC0000000
+  %50 = fmul reassoc nnan nsz arcp contract afn float %38, 0x408CCCCCC0000000
   %51 = fptosi float %50 to i32
   call void @pango_layout_set_width(ptr noundef %40, i32 noundef %51) #16
   %52 = fptosi float %49 to i32
@@ -1987,7 +1987,7 @@ define internal range(i32 0, 2) i32 @_event_draw(ptr noundef %0, ptr noundef %1,
   %103 = load double, ptr %102, align 8, !tbaa !103
   %104 = fmul reassoc nsz arcp contract afn double %103, 1.000000e+01
   %105 = fadd reassoc nsz arcp contract afn double %104, %100
-  %106 = fmul reassoc nsz arcp contract afn float %38, 0x3FDCCCCCC0000000
+  %106 = fmul reassoc nnan nsz arcp contract afn float %38, 0x3FDCCCCCC0000000
   %107 = fpext reassoc nsz arcp contract afn float %106 to double
   %108 = load i64, ptr %95, align 8
   %.sroa.2.8.extract.shift.i.i = lshr i64 %108, 32
@@ -1995,7 +1995,7 @@ define internal range(i32 0, 2) i32 @_event_draw(ptr noundef %0, ptr noundef %1,
   %109 = fmul reassoc nsz arcp contract afn double %103, 3.000000e+00
   call void @cairo_new_path(ptr noundef %1) #16
   %110 = sitofp i32 %.sroa.2.8.extract.trunc.i.i to double
-  %111 = fmul reassoc nsz arcp contract afn double %110, 5.500000e+00
+  %111 = fmul reassoc nnan nsz arcp contract afn double %110, 5.500000e+00
   %112 = fadd reassoc nsz arcp contract afn double %111, %77
   call void @cairo_arc(ptr noundef %1, double noundef %105, double noundef %112, double noundef %109, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #16
   %113 = fneg reassoc nsz arcp contract afn double %109
@@ -2016,7 +2016,7 @@ define internal range(i32 0, 2) i32 @_event_draw(ptr noundef %0, ptr noundef %1,
   %121 = fmul reassoc nsz arcp contract afn double %120, 3.000000e+00
   call void @cairo_new_path(ptr noundef %1) #16
   %122 = sitofp i32 %.sroa.2.8.extract.trunc.i91.i to double
-  %123 = fmul reassoc nsz arcp contract afn double %122, 1.330000e+01
+  %123 = fmul reassoc nnan nsz arcp contract afn double %122, 1.330000e+01
   %124 = fadd reassoc nsz arcp contract afn double %123, %77
   call void @cairo_arc(ptr noundef %1, double noundef %116, double noundef %124, double noundef %121, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #16
   %125 = fneg reassoc nsz arcp contract afn double %121
@@ -2028,10 +2028,10 @@ define internal range(i32 0, 2) i32 @_event_draw(ptr noundef %0, ptr noundef %1,
   %127 = fpext reassoc nsz arcp contract afn float %126 to double
   %128 = load i32, ptr %95, align 8, !tbaa !156
   %129 = sitofp i32 %128 to double
-  %130 = fmul reassoc nsz arcp contract afn double %129, 0x3FE6666666666666
+  %130 = fmul reassoc nnan nsz arcp contract afn double %129, 0x3FE6666666666666
   %131 = fsub reassoc nsz arcp contract afn double %127, %130
   %132 = sitofp i32 %89 to double
-  %133 = fmul reassoc nsz arcp contract afn double %132, 2.750000e+00
+  %133 = fmul reassoc nnan nsz arcp contract afn double %132, 2.750000e+00
   %134 = fsub reassoc nsz arcp contract afn double %34, %133
   %135 = load i64, ptr %95, align 8
   %.sroa.2.8.extract.shift.i92.i = lshr i64 %135, 32
@@ -2042,7 +2042,7 @@ define internal range(i32 0, 2) i32 @_event_draw(ptr noundef %0, ptr noundef %1,
   %139 = fmul reassoc nsz arcp contract afn double %138, 3.000000e+00
   call void @cairo_new_path(ptr noundef %1) #16
   %140 = sitofp i32 %.sroa.2.8.extract.trunc.i93.i to double
-  %141 = fmul reassoc nsz arcp contract afn double %140, 1.800000e+00
+  %141 = fmul reassoc nnan nsz arcp contract afn double %140, 1.800000e+00
   %142 = fadd reassoc nsz arcp contract afn double %141, %77
   call void @cairo_arc(ptr noundef %1, double noundef %131, double noundef %142, double noundef %139, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #16
   %143 = fneg reassoc nsz arcp contract afn double %139
@@ -2061,7 +2061,7 @@ define internal range(i32 0, 2) i32 @_event_draw(ptr noundef %0, ptr noundef %1,
   %150 = fmul reassoc nsz arcp contract afn double %149, 3.000000e+00
   call void @cairo_new_path(ptr noundef %1) #16
   %151 = sitofp i32 %.sroa.2.8.extract.trunc.i95.i to double
-  %152 = fmul reassoc nsz arcp contract afn double %151, 8.500000e+00
+  %152 = fmul reassoc nnan nsz arcp contract afn double %151, 8.500000e+00
   %153 = fadd reassoc nsz arcp contract afn double %152, %77
   call void @cairo_arc(ptr noundef %1, double noundef %127, double noundef %153, double noundef %150, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #16
   %154 = fneg reassoc nsz arcp contract afn double %150
@@ -2074,7 +2074,7 @@ define internal range(i32 0, 2) i32 @_event_draw(ptr noundef %0, ptr noundef %1,
   call void @pango_layout_set_text(ptr noundef %40, ptr noundef %54, i32 noundef -1) #16
   %156 = getelementptr inbounds nuw i8, ptr %2, i64 80
   call void @pango_layout_get_pixel_extents(ptr noundef %40, ptr noundef null, ptr noundef nonnull %156) #16
-  %157 = fmul reassoc nsz arcp contract afn float %38, 0x3FEE666660000000
+  %157 = fmul reassoc nnan nsz arcp contract afn float %38, 0x3FEE666660000000
   %158 = fptosi float %157 to i32
   store i32 %158, ptr %156, align 8, !tbaa !157
   %159 = getelementptr inbounds nuw i8, ptr %2, i64 92
@@ -3334,7 +3334,7 @@ define internal void @_dt_mouse_over_image_callback(ptr readnone captures(none) 
   %108 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %109 = load i32, ptr %108, align 8, !tbaa !31
   %110 = sitofp i32 %109 to double
-  %111 = fmul reassoc nsz arcp contract afn double %110, 1.500000e+00
+  %111 = fmul reassoc nnan nsz arcp contract afn double %110, 1.500000e+00
   %112 = fadd reassoc nsz arcp contract afn double %111, %107
   %113 = load i32, ptr %79, align 8, !tbaa !86
   %114 = sitofp i32 %113 to double
@@ -3877,7 +3877,7 @@ define internal fastcc range(i32 0, 2) i32 @_move(ptr noundef captures(none) %0,
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %71 = load i32, ptr %70, align 8, !tbaa !81
   %72 = sitofp i32 %71 to double
-  %73 = fmul reassoc nsz arcp contract afn double %72, 5.000000e-01
+  %73 = fmul reassoc nnan nsz arcp contract afn double %72, 5.000000e-01
   %74 = fptosi double %73 to i32
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %76 = load i32, ptr %75, align 4, !tbaa !43
@@ -4380,7 +4380,7 @@ dt_get_debug_wtime.exit:                          ; preds = %92
   %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %100 = load i64, ptr %99, align 8, !tbaa !246
   %101 = sitofp i64 %100 to double
-  %102 = fmul reassoc nsz arcp contract afn double %101, 0x3EB0C6F7A0B5ED8D
+  %102 = fmul reassoc nnan nsz arcp contract afn double %101, 0x3EB0C6F7A0B5ED8D
   %103 = fadd reassoc nsz arcp contract afn double %102, %98
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !97
@@ -4950,7 +4950,7 @@ _thumbtable_get_thumb.exit.thread:                ; preds = %367, %366, %.lr.ph2
   %389 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %390 = load i64, ptr %389, align 8, !tbaa !246
   %391 = sitofp i64 %390 to double
-  %392 = fmul reassoc nsz arcp contract afn double %391, 0x3EB0C6F7A0B5ED8D
+  %392 = fmul reassoc nnan nsz arcp contract afn double %391, 0x3EB0C6F7A0B5ED8D
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %393 = fsub reassoc nsz arcp contract afn double %388, %122
   %394 = fadd reassoc nsz arcp contract afn double %393, %392

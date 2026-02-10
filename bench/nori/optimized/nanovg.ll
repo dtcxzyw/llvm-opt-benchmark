@@ -2199,7 +2199,7 @@ stbtt__close_shape.exit396:                       ; preds = %349, %366, %370
   %420 = zext i8 %.1289.val376 to i16
   %421 = or disjoint i16 %419, %420
   %422 = sitofp i16 %421 to float
-  %423 = fmul float %422, 0x3F10000000000000
+  %423 = fmul nnan float %422, 0x3F10000000000000
   %424 = getelementptr inbounds nuw i8, ptr %.1289, i64 2
   br label %478
 
@@ -2217,7 +2217,7 @@ stbtt__close_shape.exit396:                       ; preds = %349, %366, %370
   %431 = zext i8 %.1289.val374 to i16
   %432 = or disjoint i16 %430, %431
   %433 = sitofp i16 %432 to float
-  %434 = fmul float %433, 0x3F10000000000000
+  %434 = fmul nnan float %433, 0x3F10000000000000
   %435 = getelementptr inbounds nuw i8, ptr %.1289, i64 2
   %.val371 = load i8, ptr %435, align 1
   %436 = getelementptr i8, ptr %.1289, i64 3
@@ -2227,7 +2227,7 @@ stbtt__close_shape.exit396:                       ; preds = %349, %366, %370
   %439 = zext i8 %.val372 to i16
   %440 = or disjoint i16 %438, %439
   %441 = sitofp i16 %440 to float
-  %442 = fmul float %441, 0x3F10000000000000
+  %442 = fmul nnan float %441, 0x3F10000000000000
   %443 = getelementptr inbounds nuw i8, ptr %.1289, i64 4
   br label %478
 
@@ -2244,7 +2244,7 @@ stbtt__close_shape.exit396:                       ; preds = %349, %366, %370
   %449 = zext i8 %.1289.val370 to i16
   %450 = or disjoint i16 %448, %449
   %451 = sitofp i16 %450 to float
-  %452 = fmul float %451, 0x3F10000000000000
+  %452 = fmul nnan float %451, 0x3F10000000000000
   %453 = getelementptr inbounds nuw i8, ptr %.1289, i64 2
   %.val368 = load i8, ptr %453, align 1
   %454 = getelementptr i8, ptr %.1289, i64 3
@@ -2254,7 +2254,7 @@ stbtt__close_shape.exit396:                       ; preds = %349, %366, %370
   %457 = zext i8 %.val369 to i16
   %458 = or disjoint i16 %456, %457
   %459 = sitofp i16 %458 to float
-  %460 = fmul float %459, 0x3F10000000000000
+  %460 = fmul nnan float %459, 0x3F10000000000000
   %461 = getelementptr inbounds nuw i8, ptr %.1289, i64 4
   %.val366 = load i8, ptr %461, align 1
   %462 = getelementptr i8, ptr %.1289, i64 5
@@ -2264,7 +2264,7 @@ stbtt__close_shape.exit396:                       ; preds = %349, %366, %370
   %465 = zext i8 %.val367 to i16
   %466 = or disjoint i16 %464, %465
   %467 = sitofp i16 %466 to float
-  %468 = fmul float %467, 0x3F10000000000000
+  %468 = fmul nnan float %467, 0x3F10000000000000
   %469 = getelementptr inbounds nuw i8, ptr %.1289, i64 6
   %.val364 = load i8, ptr %469, align 1
   %470 = getelementptr i8, ptr %.1289, i64 7
@@ -2274,7 +2274,7 @@ stbtt__close_shape.exit396:                       ; preds = %349, %366, %370
   %473 = zext i8 %.val365 to i16
   %474 = or disjoint i16 %472, %473
   %475 = sitofp i16 %474 to float
-  %476 = fmul float %475, 0x3F10000000000000
+  %476 = fmul nnan float %475, 0x3F10000000000000
   %477 = getelementptr inbounds nuw i8, ptr %.1289, i64 8
   br label %478
 
@@ -4784,8 +4784,8 @@ stbtt__new_active.exit.thread.i.i:                ; preds = %stbtt__new_active.e
   %563 = getelementptr inbounds nuw i8, ptr %.0454.i.i.i, i64 20
   %564 = load float, ptr %563, align 4
   %565 = sitofp i32 %558 to float
-  %566 = fsub float %.0287.i.i.i, %565
-  %567 = fsub float %.0288.i.i.i, %565
+  %566 = fsub nnan float %.0287.i.i.i, %565
+  %567 = fsub nnan float %.0288.i.i.i, %565
   %568 = fadd float %566, %567
   %569 = fmul float %568, 5.000000e-01
   %570 = fsub float 1.000000e+00, %569
@@ -5013,7 +5013,7 @@ stbtt__handle_clipped_edge.exit351.i.i.i:         ; preds = %688, %685, %679, %6
   br i1 %708, label %709, label %716
 
 709:                                              ; preds = %707
-  %710 = fsub float %642, %640
+  %710 = fsub nnan float %642, %640
   %711 = fsub float %705, %645
   %712 = fmul float %710, %711
   %713 = fsub float %648, %645
@@ -5258,7 +5258,7 @@ stbtt__handle_clipped_edge.exit372.i.i.i:         ; preds = %838, %835, %829, %8
   br i1 %858, label %859, label %866
 
 859:                                              ; preds = %857
-  %860 = fsub float %640, %642
+  %860 = fsub nnan float %640, %642
   %861 = fsub float %855, %648
   %862 = fmul float %860, %861
   %863 = fsub float %645, %648
@@ -7287,13 +7287,13 @@ stbtt__oversample_shift.exit:                     ; preds = %55, %33
   %.not.i = icmp eq i8 %71, 0
   %80 = sub nsw i32 1, %72
   %81 = sitofp i32 %80 to float
-  %82 = fmul float %76, 2.000000e+00
+  %82 = fmul nnan float %76, 2.000000e+00
   %83 = fdiv float %81, %82
   %.0.i = select i1 %.not.i, float 0.000000e+00, float %83
   %.not.i133 = icmp eq i8 %74, 0
   %84 = sub nsw i32 1, %75
   %85 = sitofp i32 %84 to float
-  %86 = fmul float %78, 2.000000e+00
+  %86 = fmul nnan float %78, 2.000000e+00
   %87 = fdiv float %85, %86
   %.0.i134 = select i1 %.not.i133, float 0.000000e+00, float %87
   %88 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -11764,7 +11764,7 @@ fons__allocGlyph.exit:                            ; preds = %._crit_edge.i, %._c
   %281 = sext i32 %280 to i64
   %282 = getelementptr inbounds i8, ptr %273, i64 %281
   %283 = uitofp nneg i32 %17 to float
-  %284 = fmul float %283, 0x3FE279A6C0000000
+  %284 = fmul nnan float %283, 0x3FE279A6C0000000
   %285 = fadd float %284, 1.000000e+00
   %286 = fdiv float 0xC002666660000000, %285
   %287 = call float @expf(float noundef %286) #60
@@ -19271,7 +19271,7 @@ define dso_local { <2 x float>, <2 x float> } @nvgHSLA(float noundef %0, float n
 
 42:                                               ; preds = %40
   %43 = fsub float %25, %27
-  %44 = fsub float 0x3FE5555560000000, %.1.i
+  %44 = fsub nnan float 0x3FE5555560000000, %.1.i
   %45 = fmul float %44, %43
   %46 = tail call float @llvm.fmuladd.f32(float %45, float 6.000000e+00, float %27)
   br label %nvg__hue.exit
@@ -19303,7 +19303,7 @@ nvg__hue.exit:                                    ; preds = %34, %38, %40, %42
 
 60:                                               ; preds = %58
   %61 = fsub float %25, %27
-  %62 = fsub float 0x3FE5555560000000, %.1.i29
+  %62 = fsub nnan float 0x3FE5555560000000, %.1.i29
   %63 = fmul float %62, %61
   %64 = tail call float @llvm.fmuladd.f32(float %63, float 6.000000e+00, float %27)
   br label %nvg__hue.exit31
@@ -19336,7 +19336,7 @@ nvg__hue.exit31:                                  ; preds = %52, %56, %58, %60
 
 79:                                               ; preds = %77
   %80 = fsub float %25, %27
-  %81 = fsub float 0x3FE5555560000000, %.1.i33
+  %81 = fsub nnan float 0x3FE5555560000000, %.1.i33
   %82 = fmul float %81, %80
   %83 = tail call float @llvm.fmuladd.f32(float %82, float 6.000000e+00, float %27)
   br label %nvg__hue.exit35
@@ -24336,7 +24336,7 @@ define dso_local float @nvgText(ptr noundef %0, float noundef %1, float noundef 
   %30 = fadd float %29, 5.000000e-01
   %31 = fptosi float %30 to i32
   %32 = sitofp i32 %31 to float
-  %33 = fmul float %32, 0x3F847AE140000000
+  %33 = fmul nnan float %32, 0x3F847AE140000000
   %34 = fcmp olt float %33, 4.000000e+00
   %35 = select i1 %34, float %33, float 4.000000e+00
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8868
@@ -25079,7 +25079,7 @@ define dso_local void @nvgTextMetrics(ptr noundef readonly captures(none) %0, pt
   %24 = fadd float %23, 5.000000e-01
   %25 = fptosi float %24 to i32
   %26 = sitofp i32 %25 to float
-  %27 = fmul float %26, 0x3F847AE140000000
+  %27 = fmul nnan float %26, 0x3F847AE140000000
   %28 = fcmp olt float %27, 4.000000e+00
   %29 = select i1 %28, float %27, float 4.000000e+00
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8868
@@ -25273,7 +25273,7 @@ define dso_local i32 @nvgTextBreakLines(ptr noundef captures(none) %0, ptr nound
   %29 = fadd float %28, 5.000000e-01
   %30 = fptosi float %29 to i32
   %31 = sitofp i32 %30 to float
-  %32 = fmul float %31, 0x3F847AE140000000
+  %32 = fmul nnan float %31, 0x3F847AE140000000
   %33 = fcmp olt float %32, 4.000000e+00
   %34 = select i1 %33, float %32, float 4.000000e+00
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8868
@@ -25658,7 +25658,7 @@ define dso_local i32 @nvgTextGlyphPositions(ptr noundef captures(none) %0, float
   %30 = fadd float %29, 5.000000e-01
   %31 = fptosi float %30 to i32
   %32 = sitofp i32 %31 to float
-  %33 = fmul float %32, 0x3F847AE140000000
+  %33 = fmul nnan float %32, 0x3F847AE140000000
   %34 = fcmp olt float %33, 4.000000e+00
   %35 = select i1 %34, float %33, float 4.000000e+00
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8868
@@ -25830,7 +25830,7 @@ define dso_local float @nvgTextBounds(ptr noundef readonly captures(none) %0, fl
   %26 = fadd float %25, 5.000000e-01
   %27 = fptosi float %26 to i32
   %28 = sitofp i32 %27 to float
-  %29 = fmul float %28, 0x3F847AE140000000
+  %29 = fmul nnan float %28, 0x3F847AE140000000
   %30 = fcmp olt float %29, 4.000000e+00
   %31 = select i1 %30, float %29, float 4.000000e+00
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8868
@@ -25979,7 +25979,7 @@ define dso_local void @nvgTextBoxBounds(ptr noundef captures(none) %0, float nou
   %41 = fadd float %40, 5.000000e-01
   %42 = fptosi float %41 to i32
   %43 = sitofp i32 %42 to float
-  %44 = fmul float %43, 0x3F847AE140000000
+  %44 = fmul nnan float %43, 0x3F847AE140000000
   %45 = fcmp olt float %44, 4.000000e+00
   %46 = select i1 %45, float %44, float 4.000000e+00
   %47 = and i32 %.fr, 120
@@ -34787,8 +34787,8 @@ stbi__get8.exit:                                  ; preds = %617, %620, %stbi__r
   %646 = uitofp i16 %644 to float
   %647 = fdiv float %646, 6.553500e+04
   %648 = fdiv float 1.000000e+00, %647
-  %649 = fsub float 1.000000e+00, %648
-  %650 = fmul float %649, 6.553500e+04
+  %649 = fsub nnan float 1.000000e+00, %648
+  %650 = fmul nnan float %649, 6.553500e+04
   %651 = load i16, ptr %642, align 2
   %652 = uitofp i16 %651 to float
   %653 = tail call float @llvm.fmuladd.f32(float %652, float %648, float %650)
@@ -34827,8 +34827,8 @@ stbi__get8.exit:                                  ; preds = %617, %620, %stbi__r
   %671 = uitofp i8 %669 to float
   %672 = fdiv float %671, 2.550000e+02
   %673 = fdiv float 1.000000e+00, %672
-  %674 = fsub float 1.000000e+00, %673
-  %675 = fmul float %674, 2.550000e+02
+  %674 = fsub nnan float 1.000000e+00, %673
+  %675 = fmul nnan float %674, 2.550000e+02
   %676 = load i8, ptr %667, align 1
   %677 = uitofp i8 %676 to float
   %678 = tail call float @llvm.fmuladd.f32(float %677, float %673, float %675)

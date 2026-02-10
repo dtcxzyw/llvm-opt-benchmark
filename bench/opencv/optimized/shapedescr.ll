@@ -352,21 +352,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %35, %
   %133 = load i32, ptr %91, align 4, !tbaa !32
   %134 = add nsw i32 %133, %132
   %135 = sitofp i32 %134 to float
-  %136 = fmul float %135, 5.000000e-01
+  %136 = fmul nnan float %135, 5.000000e-01
   %137 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %138 = load i32, ptr %137, align 4, !tbaa !34
   %139 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %140 = load i32, ptr %139, align 4, !tbaa !34
   %141 = add nsw i32 %140, %138
   %142 = sitofp i32 %141 to float
-  %143 = fmul float %142, 5.000000e-01
+  %143 = fmul nnan float %142, 5.000000e-01
   %144 = sub nsw i32 %132, %133
   %145 = sitofp i32 %144 to float
   %146 = sub nsw i32 %138, %140
   %147 = sitofp i32 %146 to float
   %148 = fpext float %145 to double
   %149 = fpext float %147 to double
-  %150 = fmul double %149, %149
+  %150 = fmul nnan double %149, %149
   %151 = call double @llvm.fmuladd.f64(double %148, double %148, double %150)
   %sqrt.i.i56 = call noundef double @llvm.sqrt.f64(double %151)
   %152 = fptrunc double %sqrt.i.i56 to float
@@ -876,10 +876,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %30, %
   %70 = sitofp i32 %69 to float
   %71 = fpext float %.sroa.048.151 to double
   %72 = fpext float %70 to double
-  %73 = fpext float %.sroa.649.150 to double
-  %74 = fpext float %67 to double
+  %73 = fpext nnan ninf float %.sroa.649.150 to double
+  %74 = fpext nnan ninf float %67 to double
   %75 = fneg double %74
-  %76 = fmul double %73, %75
+  %76 = fmul nnan double %73, %75
   %77 = call double @llvm.fmuladd.f64(double %71, double %72, double %76)
   %78 = fadd double %.03652, %77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1308,7 +1308,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175: ; preds = %53
   %121 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %122 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %123 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %124 = fdiv double 1.000000e+00, %113
+  %124 = fdiv nnan double 1.000000e+00, %113
   %125 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %126 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %127 = getelementptr inbounds nuw i8, ptr %9, i64 224
@@ -1392,7 +1392,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175: ; preds = %53
   %186 = add nuw i64 %184, %185
   %187 = trunc i64 %186 to i32
   %188 = uitofp i32 %187 to float
-  %189 = fmul float %188, 0x3DF0000000000000
+  %189 = fmul nnan float %188, 0x3DF0000000000000
   %190 = call noundef float @llvm.fmuladd.f32(float %189, float %166, float %165)
   %191 = and i64 %186, 4294967295
   %192 = mul nuw i64 %191, 4164903690
@@ -1401,7 +1401,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit175: ; preds = %53
   store i64 %194, ptr %180, align 8, !tbaa !62
   %195 = trunc i64 %194 to i32
   %196 = uitofp i32 %195 to float
-  %197 = fmul float %196, 0x3DF0000000000000
+  %197 = fmul nnan float %196, 0x3DF0000000000000
   %198 = call noundef float @llvm.fmuladd.f32(float %197, float %166, float %165)
   %199 = fadd float %.sroa.0.0, %190
   %200 = fpext float %199 to double
@@ -2432,7 +2432,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc272, %85
   %202 = add nuw i64 %200, %201
   %203 = trunc i64 %202 to i32
   %204 = uitofp i32 %203 to float
-  %205 = fmul float %204, 0x3DF0000000000000
+  %205 = fmul nnan float %204, 0x3DF0000000000000
   %206 = call noundef float @llvm.fmuladd.f32(float %205, float %193, float %192)
   %207 = and i64 %202, 4294967295
   %208 = mul nuw i64 %207, 4164903690
@@ -2441,7 +2441,7 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc272, %85
   store i64 %210, ptr %195, align 8, !tbaa !62
   %211 = trunc i64 %210 to i32
   %212 = uitofp i32 %211 to float
-  %213 = fmul float %212, 0x3DF0000000000000
+  %213 = fmul nnan float %212, 0x3DF0000000000000
   %214 = call noundef float @llvm.fmuladd.f32(float %213, float %193, float %192)
   %.val = load float, ptr %197, align 4, !tbaa !29
   %215 = getelementptr i8, ptr %197, i64 4
@@ -3364,7 +3364,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit214: ; preds = %56
   %118 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %119 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %120 = uitofp nneg i32 %29 to double
-  %121 = fdiv double 1.000000e+00, %120
+  %121 = fdiv nnan double 1.000000e+00, %120
   %122 = getelementptr inbounds nuw i8, ptr %10, i64 136
   %123 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %124 = getelementptr inbounds nuw i8, ptr %10, i64 88
@@ -3455,7 +3455,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit214: ; preds = %56
   %190 = add nuw i64 %188, %189
   %191 = trunc i64 %190 to i32
   %192 = uitofp i32 %191 to float
-  %193 = fmul float %192, 0x3DF0000000000000
+  %193 = fmul nnan float %192, 0x3DF0000000000000
   %194 = call noundef float @llvm.fmuladd.f32(float %193, float %170, float %169)
   %195 = and i64 %190, 4294967295
   %196 = mul nuw i64 %195, 4164903690
@@ -3464,7 +3464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit214: ; preds = %56
   store i64 %198, ptr %184, align 8, !tbaa !62
   %199 = trunc i64 %198 to i32
   %200 = uitofp i32 %199 to float
-  %201 = fmul float %200, 0x3DF0000000000000
+  %201 = fmul nnan float %200, 0x3DF0000000000000
   %202 = call noundef float @llvm.fmuladd.f32(float %201, float %170, float %169)
   %203 = fadd float %.sroa.0.0, %194
   %204 = fsub float %203, %109
@@ -3898,7 +3898,7 @@ _ZN2cvmLIdLi6ELi6EEERNS_4MatxIT_XT0_EXT1_EEES4_d.exit: ; preds = %229
 
 494:                                              ; preds = %466
   %495 = fmul double %474, %474
-  %496 = fmul double %471, 4.000000e+00
+  %496 = fmul nnan double %471, 4.000000e+00
   %497 = fdiv double %495, %496
   %498 = fcmp olt double %477, %497
   br i1 %498, label %499, label %510
@@ -3922,7 +3922,7 @@ _ZN2cvmLIdLi6ELi6EEERNS_4MatxIT_XT0_EXT1_EEES4_d.exit: ; preds = %229
 
 512:                                              ; preds = %510
   %513 = fmul double %474, %474
-  %514 = fmul double %471, 4.000000e+00
+  %514 = fmul nnan double %471, 4.000000e+00
   %515 = fdiv double %513, %514
   %516 = fcmp ogt double %477, %515
   br i1 %516, label %517, label %598
@@ -4564,7 +4564,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
 
 116:                                              ; preds = %113
   %117 = fsub double %114, %99
-  %118 = fsub double %115, %100
+  %118 = fsub nnan double %115, %100
   %119 = fmul double %118, %98
   %120 = call double @llvm.fmuladd.f64(double %96, double %117, double %119)
   %121 = call double @llvm.fabs.f64(double %120)
@@ -4581,7 +4581,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
 
 127:                                              ; preds = %126
   %128 = fneg double %114
-  %129 = fmul double %.0139189.i, %128
+  %129 = fmul nnan double %.0139189.i, %128
   %130 = call double @llvm.fmuladd.f64(double %.0137190.i, double %115, double %129)
   %131 = fadd double %.0134191.i, %130
   %132 = fneg double %115
@@ -4615,7 +4615,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
 148:                                              ; preds = %144
   %149 = fsub double %115, %.0139189.i
   %150 = fsub double %.0139189.i, %100
-  %151 = fsub double %99, %.0137190.i
+  %151 = fsub nnan double %99, %.0137190.i
   %152 = fmul double %151, %149
   %153 = call double @llvm.fmuladd.f64(double %150, double %145, double %152)
   %154 = fmul double %149, %102
@@ -4670,7 +4670,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
 
 186:                                              ; preds = %116
   %187 = fneg double %114
-  %188 = fmul double %.0139189.i, %187
+  %188 = fmul nnan double %.0139189.i, %187
   %189 = call double @llvm.fmuladd.f64(double %.0137190.i, double %115, double %188)
   br label %190
 
@@ -5485,7 +5485,7 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IiEEEEvPKT_iR
   %8 = load i32, ptr %7, align 4, !tbaa !32
   %9 = add nsw i32 %8, %5
   %10 = sitofp i32 %9 to float
-  %11 = fmul float %10, 5.000000e-01
+  %11 = fmul nnan float %10, 5.000000e-01
   store float %11, ptr %2, align 4, !tbaa !29
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !34
@@ -5493,7 +5493,7 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IiEEEEvPKT_iR
   %15 = load i32, ptr %14, align 4, !tbaa !34
   %16 = add nsw i32 %15, %13
   %17 = sitofp i32 %16 to float
-  %18 = fmul float %17, 5.000000e-01
+  %18 = fmul nnan float %17, 5.000000e-01
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store float %18, ptr %19, align 4, !tbaa !26
   %20 = sub nsw i32 %5, %8
@@ -5502,7 +5502,7 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IiEEEEvPKT_iR
   %23 = sitofp i32 %22 to float
   %24 = fpext float %21 to double
   %25 = fpext float %23 to double
-  %26 = fmul double %25, %25
+  %26 = fmul nnan double %25, %25
   %27 = tail call double @llvm.fmuladd.f64(double %24, double %24, double %26)
   %sqrt.i = tail call noundef double @llvm.sqrt.f64(double %27)
   %28 = fptrunc double %sqrt.i to float
@@ -5547,12 +5547,12 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IiEEEEvPKT_iR
   %50 = load i32, ptr %7, align 4, !tbaa !32
   %51 = add nsw i32 %50, %35
   %52 = sitofp i32 %51 to float
-  %53 = fmul float %52, 5.000000e-01
+  %53 = fmul nnan float %52, 5.000000e-01
   %.sroa.0.0.vec.insert42 = insertelement <2 x float> poison, float %53, i64 0
   %54 = load i32, ptr %14, align 4, !tbaa !34
   %55 = add nsw i32 %54, %39
   %56 = sitofp i32 %55 to float
-  %57 = fmul float %56, 5.000000e-01
+  %57 = fmul nnan float %56, 5.000000e-01
   %.sroa.0.4.vec.insert46 = insertelement <2 x float> %.sroa.0.0.vec.insert42, float %57, i64 1
   %58 = sub nsw i32 %35, %50
   %59 = sitofp i32 %58 to float
@@ -5560,7 +5560,7 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IiEEEEvPKT_iR
   %61 = sitofp i32 %60 to float
   %62 = fpext float %59 to double
   %63 = fpext float %61 to double
-  %64 = fmul double %63, %63
+  %64 = fmul nnan double %63, %63
   %65 = tail call double @llvm.fmuladd.f64(double %62, double %62, double %64)
   %sqrt.i.i = tail call noundef double @llvm.sqrt.f64(double %65)
   %66 = fptrunc double %sqrt.i.i to float
@@ -5574,10 +5574,10 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IiEEEEvPKT_iR
   %74 = fsub float %70, %40
   %75 = fmul float %74, %74
   %76 = tail call float @llvm.fmuladd.f32(float %73, float %73, float %75)
-  %77 = fadd float %36, %69
-  %78 = fadd float %40, %70
-  %79 = fmul float %77, 5.000000e-01
-  %80 = fmul float %78, 5.000000e-01
+  %77 = fadd nnan float %36, %69
+  %78 = fadd nnan float %40, %70
+  %79 = fmul nnan float %77, 5.000000e-01
+  %80 = fmul nnan float %78, 5.000000e-01
   %.sroa.0.0.vec.insert.i144.i.i = insertelement <2 x float> poison, float %79, i64 0
   %.sroa.0.4.vec.insert.i145.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i144.i.i, float %80, i64 1
   %81 = fmul float %72, %80
@@ -5646,28 +5646,28 @@ define linkonce_odr hidden void @_ZN2cv15findSecondPointINS_6Point_IiEEEEvPKT_iR
   br i1 %or.cond69.i.i, label %133, label %128
 
 128:                                              ; preds = %125
-  %129 = fadd float %69, %90
-  %130 = fadd float %70, %94
-  %131 = fmul float %129, 5.000000e-01
-  %132 = fmul float %130, 5.000000e-01
+  %129 = fadd nnan float %69, %90
+  %130 = fadd nnan float %70, %94
+  %131 = fmul nnan float %129, 5.000000e-01
+  %132 = fmul nnan float %130, 5.000000e-01
   %.sroa.0.0.vec.insert.i148.i.i = insertelement <2 x float> poison, float %131, i64 0
   %.sroa.0.4.vec.insert.i149.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i148.i.i, float %132, i64 1
   br label %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit.i
 
 133:                                              ; preds = %125
-  %134 = fadd float %36, %90
-  %135 = fadd float %40, %94
-  %136 = fmul float %134, 5.000000e-01
-  %137 = fmul float %135, 5.000000e-01
+  %134 = fadd nnan float %36, %90
+  %135 = fadd nnan float %40, %94
+  %136 = fmul nnan float %134, 5.000000e-01
+  %137 = fmul nnan float %135, 5.000000e-01
   %.sroa.0.0.vec.insert.i152.i.i = insertelement <2 x float> poison, float %136, i64 0
   %.sroa.0.4.vec.insert.i153.i.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i152.i.i, float %137, i64 1
   br label %_ZN2cvL14findCircle3ptsEPNS_6Point_IfEERS1_Rf.exit.i
 
 138:                                              ; preds = %102
-  %139 = fadd float %70, %94
-  %140 = fmul float %139, 5.000000e-01
-  %141 = fadd float %69, %90
-  %142 = fmul float %141, 5.000000e-01
+  %139 = fadd nnan float %70, %94
+  %140 = fmul nnan float %139, 5.000000e-01
+  %141 = fadd nnan float %69, %90
+  %142 = fmul nnan float %141, 5.000000e-01
   %143 = fmul float %104, %140
   %144 = tail call float @llvm.fmuladd.f32(float %142, float %103, float %143)
   %145 = fmul float %144, %83

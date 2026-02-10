@@ -891,11 +891,11 @@ define weak_odr void @_ZNK7mitsuba18DirectionalEmitterIfN5drjit6MatrixINS_8Spect
   %41 = and i32 %40, -2
   %42 = sitofp i32 %41 to float
   %43 = bitcast float %.1 to i32
-  %44 = fmul contract float %42, 0x3FE9200000000000
+  %44 = fmul nnan contract float %42, 0x3FE9200000000000
   %45 = fsub contract float %37, %44
-  %46 = fmul contract float %42, 0x3F2FB40000000000
+  %46 = fmul nnan contract float %42, 0x3F2FB40000000000
   %47 = fsub contract float %45, %46
-  %48 = fmul contract float %42, 0x3E64442D20000000
+  %48 = fmul nnan contract float %42, 0x3E64442D20000000
   %49 = fsub contract float %47, %48
   %50 = fmul contract float %49, %49
   %51 = fcmp contract oeq float %37, 0x7FF0000000000000

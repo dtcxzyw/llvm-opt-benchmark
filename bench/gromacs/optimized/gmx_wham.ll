@@ -3298,7 +3298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit222.i: ; preds = %
   %indvars.iv.next125.i = add nuw nsw i64 %indvars.iv124.i, 1
   %1034 = trunc nuw nsw i64 %indvars.iv.next125.i to i32
   %1035 = uitofp nneg i32 %1034 to double
-  %1036 = fmul double %1035, 1.000000e+02
+  %1036 = fmul nnan double %1035, 1.000000e+02
   %1037 = fdiv double %1036, %1031
   %1038 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1033, ptr noundef nonnull @.str.350, double noundef %1037) #25
   %1039 = load ptr, ptr @stdout, align 8, !tbaa !117
@@ -6598,7 +6598,7 @@ define internal fastcc void @_ZL27prof_normalization_and_unitPdP15UmbrellaOption
   br i1 %24, label %25, label %29
 
 25:                                               ; preds = %.lr.ph
-  %26 = tail call double @llvm.log.f64(double %23), !tbaa !4
+  %26 = tail call nnan double @llvm.log.f64(double %23)
   %27 = fneg double %26
   %28 = fmul double %.037, %27
   store double %28, ptr %22, align 8, !tbaa !129
@@ -8532,7 +8532,7 @@ _ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv.exit: ; preds = %._crit_edge.i296, 
   %832 = phi i32 [ 1, %776 ], [ %775, %._crit_edge.i296 ]
   store i32 %832, ptr getelementptr inbounds nuw (i8, ptr @_ZZ8gmx_whamiPPcE3opt, i64 280), align 8, !tbaa !215
   %833 = uitofp i64 %831 to float
-  %834 = fmul float %833, 0x3BF0000000000000
+  %834 = fmul nnan float %833, 0x3BF0000000000000
   %835 = fcmp oeq float %834, 1.000000e+00
   %.013.i.i.i.i = select i1 %835, float 0.000000e+00, float %834
   %836 = call noundef float @llvm.fmuladd.f32(float %544, float %.013.i.i.i.i, float 0.000000e+00)
@@ -12763,7 +12763,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %_ZNSt10filesystem7_
   %288 = call double @llvm.rint.f64(double %287)
   %289 = fptosi double %288 to i64
   %290 = sitofp i64 %289 to double
-  %291 = fmul double %290, 1.000000e-03
+  %291 = fmul nnan double %290, 1.000000e-03
   %292 = trunc nuw nsw i64 %indvars.iv148 to i32
   switch i32 %292, label %.fold.split [
     i32 0, label %306

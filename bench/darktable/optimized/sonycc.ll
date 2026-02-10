@@ -1601,13 +1601,13 @@ _ZN27LibRaw_SonyYCC_Decompressor11decode_sonyERSt6vectorItSaItEEii.exit.thread: 
   %372 = zext i16 %371 to i32
   %373 = add nsw i32 %372, -16383
   %374 = sitofp i32 %373 to float
-  %375 = fmul reassoc nsz arcp contract afn float %374, 0x3FF66E9780000000
+  %375 = fmul reassoc nnan nsz arcp contract afn float %374, 0x3FF66E9780000000
   %376 = fadd reassoc nsz arcp contract afn float %375, %364
-  %.neg.us.i = fmul reassoc nsz arcp contract afn float %369, 0x3FD60663C0000000
-  %.neg51.us.i = fmul reassoc nsz arcp contract afn float %374, 0xBFE6DA3C20000000
+  %.neg.us.i = fmul reassoc nnan nsz arcp contract afn float %369, 0x3FD60663C0000000
+  %.neg51.us.i = fmul reassoc nnan nsz arcp contract afn float %374, 0xBFE6DA3C20000000
   %377 = fsub reassoc nsz arcp contract afn float %364, %.neg.us.i
   %378 = fadd reassoc nsz arcp contract afn float %377, %.neg51.us.i
-  %379 = fmul reassoc nsz arcp contract afn float %369, 0x3FFC5A1CA0000000
+  %379 = fmul reassoc nnan nsz arcp contract afn float %369, 0x3FFC5A1CA0000000
   %380 = fadd reassoc nsz arcp contract afn float %379, %364
   %381 = fcmp reassoc nsz arcp contract afn olt float %376, 0.000000e+00
   br i1 %381, label %_ZL9_lim16bitf.exit.us.i, label %382

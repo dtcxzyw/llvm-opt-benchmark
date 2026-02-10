@@ -2770,12 +2770,12 @@ define internal fastcc void @sort_stt(ptr noundef captures(none) %0, ptr noundef
   %10 = sub nuw nsw i64 256, %indvars.iv183
   %11 = trunc nuw nsw i64 %10 to i32
   %12 = uitofp nneg i32 %11 to double
-  %13 = fmul nsz double %12, 3.906250e-03
+  %13 = fmul nnan nsz double %12, 3.906250e-03
   %14 = tail call nsz double @llvm.log2.f64(double %13)
   %15 = fneg nsz double %14
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = uitofp nneg i32 %5 to double
-  %18 = fmul nsz double %17, 3.906250e-03
+  %18 = fmul nnan nsz double %17, 3.906250e-03
   %19 = tail call nsz double @llvm.log2.f64(double %18)
   %20 = fneg nsz double %19
   %21 = getelementptr inbounds nuw [2 x i64], ptr %3, i64 %10
@@ -2807,7 +2807,7 @@ define internal fastcc void @sort_stt(ptr noundef captures(none) %0, ptr noundef
   %43 = sub nuw nsw i64 256, %indvars.iv180
   %44 = trunc nuw nsw i64 %43 to i32
   %45 = uitofp nneg i32 %44 to double
-  %46 = fmul nsz double %45, 3.906250e-03
+  %46 = fmul nnan nsz double %45, 3.906250e-03
   %47 = tail call nsz double @llvm.log2.f64(double %46)
   %48 = fneg nsz double %47
   %49 = tail call nsz double @llvm.fmuladd.f64(double %42, double %48, double %39)
@@ -2816,7 +2816,7 @@ define internal fastcc void @sort_stt(ptr noundef captures(none) %0, ptr noundef
   %52 = uitofp i64 %51 to double
   %53 = trunc nuw nsw i64 %indvars.iv180 to i32
   %54 = uitofp nneg i32 %53 to double
-  %55 = fmul nsz double %54, 3.906250e-03
+  %55 = fmul nnan nsz double %54, 3.906250e-03
   %56 = tail call nsz double @llvm.log2.f64(double %55)
   %57 = fneg nsz double %56
   %58 = tail call nsz double @llvm.fmuladd.f64(double %52, double %57, double %49)
@@ -2979,9 +2979,9 @@ define internal fastcc void @find_best_state(ptr noundef writeonly captures(none
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %7 ]
   %8 = trunc nuw nsw i64 %indvars.iv to i32
   %9 = uitofp nneg i32 %8 to double
-  %10 = fmul nsz double %9, 3.906250e-03
-  %11 = tail call nsz double @llvm.log2.f64(double %10)
-  %12 = fmul nsz double %11, 0xC1B0000000000000
+  %10 = fmul nnan nsz double %9, 3.906250e-03
+  %11 = tail call nnan nsz double @llvm.log2.f64(double %10)
+  %12 = fmul nnan nsz double %11, 0xC1B0000000000000
   %13 = fptoui double %12 to i32
   %14 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   store i32 %13, ptr %14, align 4, !tbaa !60
@@ -9177,7 +9177,7 @@ load_rgb_float32_frame.exit:                      ; preds = %1693, %1795
   %1840 = sitofp i32 %1839 to float
   %1841 = getelementptr inbounds float, ptr %6, i64 %indvars.iv46.i581
   %1842 = sitofp i32 %1838 to float
-  %1843 = fmul nsz float %1842, %1842
+  %1843 = fmul nnan nsz float %1842, %1842
   %1844 = bitcast float %1843 to i32
   %1845 = uitofp nneg i32 %1844 to float
   %storemerge.i = select i1 %.not162.i, float %1840, float %1845
@@ -9255,7 +9255,7 @@ load_rgb_float32_frame.exit:                      ; preds = %1693, %1795
   br i1 %1849, label %1884, label %1886
 
 1884:                                             ; preds = %1878
-  %1885 = fmul nsz float %1883, %1883
+  %1885 = fmul nnan nsz float %1883, %1883
   br label %1886
 
 1886:                                             ; preds = %1884, %1878, %1871
@@ -9354,7 +9354,7 @@ load_rgb_float32_frame.exit:                      ; preds = %1693, %1795
   br i1 %1849, label %1932, label %1934
 
 1932:                                             ; preds = %1926
-  %1933 = fmul nsz float %1931, %1931
+  %1933 = fmul nnan nsz float %1931, %1931
   br label %1934
 
 1934:                                             ; preds = %1932, %1926, %1919

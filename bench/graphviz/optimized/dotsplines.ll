@@ -5587,8 +5587,8 @@ points_sync.exit.i:                               ; preds = %._crit_edge.i433.i,
 2876:                                             ; preds = %makeLineEdge.exit.i
   %2877 = add i32 %.0324.lcssa1241, -1
   %2878 = uitofp i32 %2877 to double
-  %2879 = fmul double %171, %2878
-  %2880 = fmul double %2879, 5.000000e-01
+  %2879 = fmul nnan double %171, %2878
+  %2880 = fmul nnan double %2879, 5.000000e-01
   %2881 = icmp ugt i64 %.sroa.90.1.i, 2
   br i1 %2881, label %.lr.ph1042.i, label %.preheader903.i
 
@@ -7843,7 +7843,7 @@ define internal fastcc void @maximal_bbox(ptr dead_on_unwind noalias nonnull wri
   %37 = getelementptr inbounds nuw i8, ptr %.val, i64 352
   %38 = load i32, ptr %37, align 8, !tbaa !85
   %39 = sitofp i32 %38 to double
-  %40 = fmul double %39, 5.000000e-01
+  %40 = fmul nnan double %39, 5.000000e-01
   %41 = fadd double %32, %40
   br label %46
 
@@ -7929,7 +7929,7 @@ define internal fastcc void @maximal_bbox(ptr dead_on_unwind noalias nonnull wri
   %91 = getelementptr inbounds nuw i8, ptr %.val, i64 352
   %92 = load i32, ptr %91, align 8, !tbaa !85
   %93 = sitofp i32 %92 to double
-  %94 = fmul double %93, 5.000000e-01
+  %94 = fmul nnan double %93, 5.000000e-01
   %95 = fsub double %86, %94
   br label %100
 

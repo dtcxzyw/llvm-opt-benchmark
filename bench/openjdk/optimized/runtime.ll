@@ -3905,7 +3905,7 @@ define hidden void @_ZN11OptoRuntime20print_named_countersEv() local_unnamed_add
 18:                                               ; preds = %16
   %19 = load ptr, ptr @tty, align 8
   %20 = uitofp nneg i32 %.118 to double
-  %21 = fmul double %20, 1.000000e+02
+  %21 = fmul nnan double %20, 1.000000e+02
   %22 = uitofp nneg i32 %.1 to double
   %23 = fdiv double %21, %22
   %24 = fptosi double %23 to i32

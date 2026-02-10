@@ -931,7 +931,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %288 = load i32, ptr %285, align 8, !tbaa !60
   %289 = call i32 @llvm.smin.i32(i32 %287, i32 %288)
   %290 = sitofp i32 %289 to double
-  %291 = fmul double %290, 7.650000e+01
+  %291 = fmul nnan double %290, 7.650000e+01
   %292 = fptrunc double %291 to float
   %293 = load i32, ptr %35, align 8, !tbaa !51
   %294 = and i32 %293, 7

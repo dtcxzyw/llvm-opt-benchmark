@@ -708,7 +708,7 @@ define hidden float @png_get_x_offset_inches(ptr noalias noundef readnone captur
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %15 = load i32, ptr %14, align 4, !alias.scope !31, !noalias !34
   %16 = sitofp i32 %15 to double
-  %17 = fmul double %16, 3.937000e-05
+  %17 = fmul nnan double %16, 3.937000e-05
   %18 = fptrunc double %17 to float
   br label %png_get_x_offset_microns.exit
 
@@ -741,7 +741,7 @@ define hidden float @png_get_y_offset_inches(ptr noalias noundef readnone captur
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %15 = load i32, ptr %14, align 8, !alias.scope !36, !noalias !39
   %16 = sitofp i32 %15 to double
-  %17 = fmul double %16, 3.937000e-05
+  %17 = fmul nnan double %16, 3.937000e-05
   %18 = fptrunc double %17 to float
   br label %png_get_y_offset_microns.exit
 
@@ -903,7 +903,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone cap
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %20 = load i32, ptr %19, align 4
   %21 = sitofp i32 %20 to double
-  %22 = fmul double %21, 1.000000e-05
+  %22 = fmul nnan double %21, 1.000000e-05
   store double %22, ptr %2, align 8
   br label %23
 
@@ -915,7 +915,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone cap
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %26 = load i32, ptr %25, align 4
   %27 = sitofp i32 %26 to double
-  %28 = fmul double %27, 1.000000e-05
+  %28 = fmul nnan double %27, 1.000000e-05
   store double %28, ptr %3, align 8
   br label %29
 
@@ -927,7 +927,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone cap
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %32 = load i32, ptr %31, align 4
   %33 = sitofp i32 %32 to double
-  %34 = fmul double %33, 1.000000e-05
+  %34 = fmul nnan double %33, 1.000000e-05
   store double %34, ptr %4, align 8
   br label %35
 
@@ -939,7 +939,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone cap
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %38 = load i32, ptr %37, align 4
   %39 = sitofp i32 %38 to double
-  %40 = fmul double %39, 1.000000e-05
+  %40 = fmul nnan double %39, 1.000000e-05
   store double %40, ptr %5, align 8
   br label %41
 
@@ -951,7 +951,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone cap
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %44 = load i32, ptr %43, align 4
   %45 = sitofp i32 %44 to double
-  %46 = fmul double %45, 1.000000e-05
+  %46 = fmul nnan double %45, 1.000000e-05
   store double %46, ptr %6, align 8
   br label %47
 
@@ -963,7 +963,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone cap
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %50 = load i32, ptr %49, align 4
   %51 = sitofp i32 %50 to double
-  %52 = fmul double %51, 1.000000e-05
+  %52 = fmul nnan double %51, 1.000000e-05
   store double %52, ptr %7, align 8
   br label %53
 
@@ -975,7 +975,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone cap
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %56 = load i32, ptr %55, align 4
   %57 = sitofp i32 %56 to double
-  %58 = fmul double %57, 1.000000e-05
+  %58 = fmul nnan double %57, 1.000000e-05
   store double %58, ptr %8, align 8
   br label %59
 
@@ -987,7 +987,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM(ptr noalias noundef readnone cap
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %62 = load i32, ptr %61, align 4
   %63 = sitofp i32 %62 to double
-  %64 = fmul double %63, 1.000000e-05
+  %64 = fmul nnan double %63, 1.000000e-05
   store double %64, ptr %9, align 8
   br label %65
 
@@ -1018,7 +1018,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %21 = load i32, ptr %20, align 4
   %22 = sitofp i32 %21 to double
-  %23 = fmul double %22, 1.000000e-05
+  %23 = fmul nnan double %22, 1.000000e-05
   store double %23, ptr %2, align 8
   br label %24
 
@@ -1030,7 +1030,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %27 = load i32, ptr %26, align 4
   %28 = sitofp i32 %27 to double
-  %29 = fmul double %28, 1.000000e-05
+  %29 = fmul nnan double %28, 1.000000e-05
   store double %29, ptr %3, align 8
   br label %30
 
@@ -1042,7 +1042,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %33 = load i32, ptr %32, align 4
   %34 = sitofp i32 %33 to double
-  %35 = fmul double %34, 1.000000e-05
+  %35 = fmul nnan double %34, 1.000000e-05
   store double %35, ptr %4, align 8
   br label %36
 
@@ -1054,7 +1054,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 100
   %39 = load i32, ptr %38, align 4
   %40 = sitofp i32 %39 to double
-  %41 = fmul double %40, 1.000000e-05
+  %41 = fmul nnan double %40, 1.000000e-05
   store double %41, ptr %5, align 8
   br label %42
 
@@ -1066,7 +1066,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %45 = load i32, ptr %44, align 4
   %46 = sitofp i32 %45 to double
-  %47 = fmul double %46, 1.000000e-05
+  %47 = fmul nnan double %46, 1.000000e-05
   store double %47, ptr %6, align 8
   br label %48
 
@@ -1078,7 +1078,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 108
   %51 = load i32, ptr %50, align 4
   %52 = sitofp i32 %51 to double
-  %53 = fmul double %52, 1.000000e-05
+  %53 = fmul nnan double %52, 1.000000e-05
   store double %53, ptr %7, align 8
   br label %54
 
@@ -1090,7 +1090,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %57 = load i32, ptr %56, align 4
   %58 = sitofp i32 %57 to double
-  %59 = fmul double %58, 1.000000e-05
+  %59 = fmul nnan double %58, 1.000000e-05
   store double %59, ptr %8, align 8
   br label %60
 
@@ -1102,7 +1102,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %63 = load i32, ptr %62, align 4
   %64 = sitofp i32 %63 to double
-  %65 = fmul double %64, 1.000000e-05
+  %65 = fmul nnan double %64, 1.000000e-05
   store double %65, ptr %9, align 8
   br label %66
 
@@ -1114,7 +1114,7 @@ define hidden range(i32 0, 5) i32 @png_get_cHRM_XYZ(ptr noalias noundef readnone
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %69 = load i32, ptr %68, align 4
   %70 = sitofp i32 %69 to double
-  %71 = fmul double %70, 1.000000e-05
+  %71 = fmul nnan double %70, 1.000000e-05
   store double %71, ptr %10, align 8
   br label %72
 
@@ -1376,7 +1376,7 @@ define hidden range(i32 0, 2) i32 @png_get_gAMA(ptr noalias noundef readnone cap
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %13 = load i32, ptr %12, align 4
   %14 = sitofp i32 %13 to double
-  %15 = fmul double %14, 1.000000e-05
+  %15 = fmul nnan double %14, 1.000000e-05
   store double %15, ptr %2, align 8
   br label %16
 

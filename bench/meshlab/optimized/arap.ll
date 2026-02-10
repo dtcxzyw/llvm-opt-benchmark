@@ -17847,7 +17847,7 @@ define linkonce_odr noundef i64 @_ZN5Eigen8internal12SparseLUImplIdiE6expandINS_
   %14 = add nsw i64 %13, 1
   store i64 %14, ptr %7, align 8
   %15 = sitofp i64 %13 to float
-  %16 = fmul float %15, 1.500000e+00
+  %16 = fmul nnan float %15, 1.500000e+00
   %17 = fptosi float %16 to i64
   store i64 %17, ptr %8, align 8
   %18 = icmp slt i64 %14, %17
@@ -18107,7 +18107,7 @@ define linkonce_odr noundef i64 @_ZN5Eigen8internal12SparseLUImplIdiE6expandINS_
   %14 = add nsw i64 %13, 1
   store i64 %14, ptr %7, align 8
   %15 = sitofp i64 %13 to float
-  %16 = fmul float %15, 1.500000e+00
+  %16 = fmul nnan float %15, 1.500000e+00
   %17 = fptosi float %16 to i64
   store i64 %17, ptr %8, align 8
   %18 = icmp slt i64 %14, %17
@@ -27003,7 +27003,7 @@ define linkonce_odr void @_ZN5Eigen8internal16parallelize_gemmILb1ENS0_12gemm_fu
   %.sroa.speculated31 = tail call i64 @llvm.smax.i64(i64 %13, i64 1)
   %14 = sitofp i64 %1 to double
   %15 = sitofp i64 %2 to double
-  %16 = fmul double %14, %15
+  %16 = fmul nnan double %14, %15
   %17 = sitofp i64 %3 to double
   %18 = fmul double %16, %17
   %19 = fdiv double %18, 5.000000e+04

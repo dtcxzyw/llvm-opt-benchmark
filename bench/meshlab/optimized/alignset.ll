@@ -3366,7 +3366,7 @@ define void @_ZN8AlignSet6resizeEi(ptr noundef nonnull align 8 captures(none) de
   %70 = sitofp i32 %69 to float
   %71 = call noundef i32 @_ZNK6QColor5greenEv(ptr noundef nonnull align 4 dereferenceable(14) %6) #23
   %72 = sitofp i32 %71 to float
-  %73 = fmul float %72, 0x3FE2E147A0000000
+  %73 = fmul nnan float %72, 0x3FE2E147A0000000
   %74 = call float @llvm.fmuladd.f32(float %70, float 0x3FD3333340000000, float %73)
   %75 = call noundef i32 @_ZNK6QColor4blueEv(ptr noundef nonnull align 4 dereferenceable(14) %6) #23
   %76 = sitofp i32 %75 to float

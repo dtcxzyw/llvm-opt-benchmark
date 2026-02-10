@@ -7406,7 +7406,7 @@ _ZN6open3d1t2ioL29ReadASCIIPCDElementsFromFieldERNS1_16ReadAttributePtrERKNS1_13
 
 2214:                                             ; preds = %2212
   %2215 = sitofp i32 %1960 to double
-  %2216 = fmul double %2215, 1.000000e+02
+  %2216 = fmul nnan double %2215, 1.000000e+02
   %2217 = uitofp nneg i64 %2210 to double
   %2218 = fdiv double %2216, %2217
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i.i
@@ -7719,7 +7719,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6open3
 
 2323:                                             ; preds = %2321
   %2324 = uitofp nneg i32 %.pre177 to double
-  %2325 = fmul double %2324, 1.000000e+02
+  %2325 = fmul nnan double %2324, 1.000000e+02
   %2326 = uitofp nneg i64 %2319 to double
   %2327 = fdiv double %2325, %2326
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i687.i
@@ -7980,7 +7980,7 @@ fread.inline.exit346.i:                           ; preds = %_ZN6open3d7utility2
 
 2434:                                             ; preds = %2432
   %2435 = sitofp i32 %2426 to double
-  %2436 = fmul double %2435, 1.000000e+02
+  %2436 = fmul nnan double %2435, 1.000000e+02
   %2437 = uitofp nneg i64 %2430 to double
   %2438 = fdiv double %2436, %2437
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i709.i
@@ -41262,7 +41262,7 @@ define linkonce_odr noundef zeroext i1 @_ZN6open3d7utility24CountingProgressRepo
 
 13:                                               ; preds = %11
   %14 = sitofp i64 %1 to double
-  %15 = fmul double %14, 1.000000e+02
+  %15 = fmul nnan double %14, 1.000000e+02
   %16 = uitofp nneg i64 %9 to double
   %17 = fdiv double %15, %16
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit
@@ -48517,7 +48517,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %716, %718
 
 936:                                              ; preds = %934
   %937 = uitofp nneg i64 %storemerge98950 to double
-  %938 = fmul double %937, 1.000000e+02
+  %938 = fmul nnan double %937, 1.000000e+02
   %939 = uitofp nneg i64 %932 to double
   %940 = fdiv double %938, %939
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -49021,7 +49021,7 @@ _ZNSt6vectorIcSaIcEEC2EmRKS0_.exit:               ; preds = %963, %.noexc293, %_
 
 1199:                                             ; preds = %1197
   %1200 = uitofp nneg i64 %storemerge943 to double
-  %1201 = fmul double %1200, 1.000000e+02
+  %1201 = fmul nnan double %1200, 1.000000e+02
   %1202 = uitofp nneg i64 %1195 to double
   %1203 = fdiv double %1201, %1202
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i312
@@ -49692,7 +49692,7 @@ _ZNSt6vectorIcSaIcEEC2EmRKS0_.exit330:            ; preds = %.thread, %.noexc329
 
 1502:                                             ; preds = %1500
   %1503 = uitofp nneg i64 %.045932 to double
-  %1504 = fmul double %1503, 1.000000e+02
+  %1504 = fmul nnan double %1503, 1.000000e+02
   %1505 = uitofp nneg i64 %1498 to double
   %1506 = fdiv double %1504, %1505
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i349
@@ -49751,7 +49751,7 @@ _ZN6open3d7utility24CountingProgressReporter6UpdateEl.exit353: ; preds = %.noexc
 
 1518:                                             ; preds = %1517
   %1519 = sitofp i64 %1221 to double
-  %1520 = fmul double %1519, 7.500000e-01
+  %1520 = fmul nnan double %1519, 7.500000e-01
   %1521 = fptosi double %1520 to i64
   %1522 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %1523 = load ptr, ptr %1522, align 8, !tbaa !184
@@ -49771,7 +49771,7 @@ _ZN6open3d7utility24CountingProgressReporter6UpdateEl.exit353: ; preds = %.noexc
 
 1530:                                             ; preds = %1528
   %1531 = sitofp i64 %1521 to double
-  %1532 = fmul double %1531, 1.000000e+02
+  %1532 = fmul nnan double %1531, 1.000000e+02
   %1533 = uitofp nneg i64 %1526 to double
   %1534 = fdiv double %1532, %1533
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i355
@@ -53285,7 +53285,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t2ioL17PackColors
   %24 = getelementptr inbounds nuw i16, ptr %21, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !203
   %26 = uitofp i16 %25 to float
-  %27 = fmul float %26, 0x3F6FE01FE0000000
+  %27 = fmul nnan float %26, 0x3F6FE01FE0000000
   %28 = fptoui float %27 to i16
   %29 = trunc i16 %28 to i8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i
@@ -53451,7 +53451,7 @@ define internal void @"_ZN6open3d4core15ParallelForCPU_IZZZNS_1t2ioL17PackColors
   %24 = getelementptr inbounds nuw i32, ptr %21, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !28
   %26 = uitofp i32 %25 to float
-  %27 = fmul float %26, 0x3E6FE00000000000
+  %27 = fmul nnan float %26, 0x3E6FE00000000000
   %28 = fptoui float %27 to i32
   %29 = trunc i32 %28 to i8
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv.i.i

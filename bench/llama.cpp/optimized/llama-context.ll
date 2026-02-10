@@ -2247,7 +2247,7 @@ _ZNSt10unique_ptrI19ggml_backend_buffer27ggml_backend_buffer_deleterE5resetEPS0_
 
 65:                                               ; preds = %_ZNSt10unique_ptrI19ggml_backend_buffer27ggml_backend_buffer_deleterE5resetEPS0_.exit
   %66 = uitofp i64 %50 to double
-  %67 = fmul double %66, 0x3EB0000000000000
+  %67 = fmul nnan double %66, 0x3EB0000000000000
   tail call void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 4, ptr noundef nonnull @.str.21, ptr noundef nonnull @__func__._Z20llama_output_reserveR13llama_contextm, double noundef %67)
   br label %88
 

@@ -81,7 +81,7 @@ define internal i32 @filter_frame(ptr noundef %0, ptr noundef %1) #1 {
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %19 = load i32, ptr %18, align 8, !tbaa !42
   %20 = sitofp i32 %19 to double
-  %21 = fsub nsz double 1.000000e+00, %20
+  %21 = fsub nnan nsz double 1.000000e+00, %20
   %22 = tail call i32 @av_frame_is_writable(ptr noundef nonnull %1) #4
   %.not = icmp eq i32 %22, 0
   br i1 %.not, label %23, label %30
@@ -365,7 +365,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %21 = sitofp i32 %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %24 = fmul nsz double %21, 1.000000e-01
+  %24 = fmul nnan nsz double %21, 1.000000e-01
   %25 = tail call nsz double @llvm.fmuladd.f64(double %21, double 1.000000e-01, double 1.000000e+00)
   %26 = fdiv nsz double %24, %25
   %wide.trip.count = zext nneg i32 %15 to i64

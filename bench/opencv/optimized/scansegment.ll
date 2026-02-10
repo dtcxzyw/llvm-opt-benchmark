@@ -328,7 +328,7 @@ define hidden void @_ZN2cv8ximgproc15ScanSegmentImplC2Eiiiib(ptr noundef nonnull
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %63, ptr %64, align 8, !tbaa !73
   %65 = sitofp i32 %63 to float
-  %66 = fmul float %65, 0x3FF19999A0000000
+  %66 = fmul nnan float %65, 0x3FF19999A0000000
   %67 = sitofp i32 %3 to float
   %68 = fdiv float %66, %67
   %69 = insertelement <4 x float> poison, float %68, i64 0
@@ -737,8 +737,8 @@ _ZN2cv10AutoBufferINS_5Rect_IiEELm72EED2Ev.exit166: ; preds = %199, %_ZN2cv10Aut
   %219 = load i32, ptr %60, align 4, !tbaa !70
   %220 = add nsw i32 %219, %218
   %221 = sitofp i32 %220 to float
-  %222 = fdiv float 2.000000e+02, %221
-  %223 = fmul float %222, 0x3FFBB67AE0000000
+  %222 = fdiv nnan float 2.000000e+02, %221
+  %223 = fmul nnan float %222, 0x3FFBB67AE0000000
   %224 = load float, ptr %16, align 8, !tbaa !23
   %225 = fmul float %224, %223
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 44

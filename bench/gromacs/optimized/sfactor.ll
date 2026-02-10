@@ -352,7 +352,7 @@ define void @_Z24compute_structure_factorP16structure_factorPA3_fP12reduced_atom
   %indvars.iv.next189 = add nuw nsw i64 %indvars.iv188, 1
   %44 = trunc nuw nsw i64 %indvars.iv.next189 to i32
   %45 = uitofp nneg i32 %44 to double
-  %46 = fmul double %45, 1.000000e+02
+  %46 = fmul nnan double %45, 1.000000e+02
   %47 = fdiv double %46, %38
   %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %43, ptr noundef nonnull @.str.7, double noundef %47) #16
   %49 = load ptr, ptr @stderr, align 8, !tbaa !28
@@ -466,7 +466,7 @@ define void @_Z24compute_structure_factorP16structure_factorPA3_fP12reduced_atom
   %112 = load ptr, ptr @stderr, align 8, !tbaa !28
   %113 = add nuw nsw i32 %.0119146.us.us, 1
   %114 = uitofp nneg i32 %113 to double
-  %115 = fmul double %114, 1.000000e+02
+  %115 = fmul nnan double %114, 1.000000e+02
   %116 = fdiv double %115, %38
   %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.7, double noundef %116) #16
   %118 = load ptr, ptr @stderr, align 8, !tbaa !28
@@ -539,7 +539,7 @@ define void @_Z24compute_structure_factorP16structure_factorPA3_fP12reduced_atom
   %152 = load ptr, ptr @stderr, align 8, !tbaa !28
   %153 = add nuw nsw i32 %.0119146.us, 1
   %154 = uitofp nneg i32 %153 to double
-  %155 = fmul double %154, 1.000000e+02
+  %155 = fmul nnan double %154, 1.000000e+02
   %156 = fdiv double %155, %38
   %157 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %152, ptr noundef nonnull @.str.7, double noundef %156) #16
   %158 = load ptr, ptr @stderr, align 8, !tbaa !28
@@ -647,7 +647,7 @@ define void @_Z24compute_structure_factorP16structure_factorPA3_fP12reduced_atom
   %214 = load ptr, ptr @stderr, align 8, !tbaa !28
   %215 = add nuw nsw i32 %.0119146, 1
   %216 = uitofp nneg i32 %215 to double
-  %217 = fmul double %216, 1.000000e+02
+  %217 = fmul nnan double %216, 1.000000e+02
   %218 = fdiv double %217, %38
   %219 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %214, ptr noundef nonnull @.str.7, double noundef %218) #16
   %220 = load ptr, ptr @stderr, align 8, !tbaa !28

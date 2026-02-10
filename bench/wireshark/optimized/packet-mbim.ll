@@ -4114,11 +4114,11 @@ define internal void @mbim_snr_signal_state_fmt(ptr noundef %0, i32 noundef %1) 
 
 8:                                                ; preds = %6
   %9 = uitofp nneg i32 %1 to float
-  %10 = fadd float %9, -1.000000e+00
-  %11 = fmul float %10, 5.000000e-01
+  %10 = fadd nnan float %9, -1.000000e+00
+  %11 = fmul nnan float %10, 5.000000e-01
   %12 = fadd float %11, -2.300000e+01
   %13 = fpext float %12 to double
-  %14 = fmul float %9, 5.000000e-01
+  %14 = fmul nnan float %9, 5.000000e-01
   %15 = fadd float %14, -2.300000e+01
   %16 = fpext float %15 to double
   %17 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2110, double noundef %13, double noundef %16, i32 noundef %1)
@@ -4204,7 +4204,7 @@ define internal void @mbim_ecno_fmt(ptr noundef %0, i32 noundef %1) #4 {
 
 8:                                                ; preds = %6
   %9 = uitofp nneg i32 %1 to float
-  %10 = fmul float %9, 5.000000e-01
+  %10 = fmul nnan float %9, 5.000000e-01
   %11 = fadd float %10, -2.400000e+01
   %12 = fpext float %11 to double
   %13 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2504, double noundef %12, i32 noundef %1)
@@ -4247,7 +4247,7 @@ define internal void @mbim_rsrq_fmt(ptr noundef %0, i32 noundef %1) #4 {
 
 8:                                                ; preds = %6
   %9 = uitofp nneg i32 %1 to float
-  %10 = fmul float %9, 5.000000e-01
+  %10 = fmul nnan float %9, 5.000000e-01
   %11 = fpext float %10 to double
   %12 = fadd double %11, -1.950000e+01
   %13 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.2504, double noundef %12, i32 noundef %1)

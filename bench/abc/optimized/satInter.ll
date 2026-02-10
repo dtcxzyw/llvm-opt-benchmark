@@ -2619,7 +2619,7 @@ Abc_Clock.exit:                                   ; preds = %4, %9
   %55 = fdiv double %53, %54
   %56 = call i32 @Sto_ManMemoryReport(ptr noundef nonnull %.pre65) #20
   %57 = sitofp i32 %56 to double
-  %58 = fmul double %57, 0x3EB0000000000000
+  %58 = fmul nnan double %57, 0x3EB0000000000000
   %59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.20, i32 noundef %44, i32 noundef %46, i32 noundef %49, i32 noundef %51, double noundef %55, double noundef %58)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %60 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %5) #20

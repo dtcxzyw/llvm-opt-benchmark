@@ -2877,7 +2877,7 @@ switch.lookup:                                    ; preds = %395
 ._crit_edge87._crit_edge:                         ; preds = %._crit_edge87
   %.pre105 = load i32, ptr %11, align 4
   %490 = sitofp i32 %.pre105 to float
-  %491 = fmul float %490, 0x3F50000000000000
+  %491 = fmul nnan float %490, 0x3F50000000000000
   br label %494
 
 492:                                              ; preds = %._crit_edge87

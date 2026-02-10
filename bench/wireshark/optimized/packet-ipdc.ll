@@ -707,7 +707,7 @@ define internal i32 @dissect_ipdc_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr no
   %91 = add nuw nsw i32 %.12158.i, 1
   %92 = sub nsw i32 %74, %91
   %93 = uitofp i32 %92 to double
-  %mul.i = fmul double %93, 8.000000e+00
+  %mul.i = fmul nnan double %93, 8.000000e+00
   %exp2.i = tail call double @exp2(double %mul.i)
   %94 = fptoui double %exp2.i to i32
   %95 = mul i32 %94, %90

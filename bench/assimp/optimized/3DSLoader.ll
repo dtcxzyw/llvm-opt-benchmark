@@ -5841,7 +5841,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit:  ; preds = %75
   %89 = load i8, ptr %79, align 1
   store ptr %80, ptr %78, align 8
   %90 = uitofp i8 %89 to float
-  %91 = fmul float %90, 0x3F70101020000000
+  %91 = fmul nnan float %90, 0x3F70101020000000
   store float %91, ptr %1, align 4
   %92 = load ptr, ptr %76, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
@@ -5870,7 +5870,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit33: ; preds = %_ZN6Assimp12Stream
   %104 = load i8, ptr %94, align 1
   store ptr %95, ptr %93, align 8
   %105 = uitofp i8 %104 to float
-  %106 = fmul float %105, 0x3F70101020000000
+  %106 = fmul nnan float %105, 0x3F70101020000000
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %106, ptr %107, align 4
   %108 = load ptr, ptr %76, align 8
@@ -5900,7 +5900,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetI1Ev.exit34: ; preds = %_ZN6Assimp12Stream
   %120 = load i8, ptr %110, align 1
   store ptr %111, ptr %109, align 8
   %121 = uitofp i8 %120 to float
-  %122 = fmul float %121, 0x3F70101020000000
+  %122 = fmul nnan float %121, 0x3F70101020000000
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store float %122, ptr %123, align 4
   br label %191

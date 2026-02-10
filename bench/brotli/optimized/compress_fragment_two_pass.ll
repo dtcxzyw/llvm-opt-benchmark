@@ -8978,13 +8978,13 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #2
 define internal fastcc range(i32 0, 2) i32 @ShouldCompress(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = uitofp i64 %2 to double
   %6 = uitofp i64 %3 to double
-  %7 = fmul double %5, 0x3FEF5C28F5C28F5C
+  %7 = fmul nnan double %5, 0x3FEF5C28F5C28F5C
   %8 = fcmp ogt double %7, %6
   br i1 %8, label %59, label %9
 
 9:                                                ; preds = %4
-  %10 = fmul double %5, 8.000000e+00
-  %11 = fmul double %10, 0x3FEF5C28F5C28F5C
+  %10 = fmul nnan double %5, 8.000000e+00
+  %11 = fmul nnan double %10, 0x3FEF5C28F5C28F5C
   %12 = fdiv double %11, 4.300000e+01
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %0, i8 0, i64 1024, i1 false)
   %.not = icmp eq i64 %2, 0

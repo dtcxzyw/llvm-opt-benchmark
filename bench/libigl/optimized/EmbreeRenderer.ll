@@ -1200,7 +1200,7 @@ define dso_local void @_ZN3igl6embree14EmbreeRenderer13render_bufferERN5Eigen6Ma
   %197 = fmul double %193, %196
   %198 = fptrunc double %197 to float
   %199 = fpext float %198 to double
-  %200 = fpext float %14 to double
+  %200 = fpext nnan ninf float %14 to double
   %201 = fmul double %200, %199
   %202 = fpext float %17 to double
   %203 = fdiv double %201, %202

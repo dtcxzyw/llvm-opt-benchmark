@@ -42,7 +42,7 @@ define internal range(i32 -22, 1) i32 @psy_3gpp_init(ptr noundef %0) #0 {
   br i1 %.not364, label %29, label %21
 
 .thread:                                          ; preds = %1
-  %17 = fmul nsz float %5, 5.000000e-01
+  %17 = fmul nnan nsz float %5, 5.000000e-01
   %18 = fptosi float %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %20 = load i32, ptr %19, align 4, !tbaa !37
@@ -137,7 +137,7 @@ define internal range(i32 -22, 1) i32 @psy_3gpp_init(ptr noundef %0) #0 {
   %65 = phi i64 [ %24, %21 ], [ %28, %.thread388 ], [ %62, %58 ], [ %spec.select403, %57 ], [ 22000, %53 ], [ %51, %46 ], [ %spec.select404, %.thread395 ]
   %66 = trunc i64 %65 to i32
   %67 = sitofp i32 %66 to float
-  %68 = fmul nsz float %67, 0x3F48E757A0000000
+  %68 = fmul nnan nsz float %67, 0x3F48E757A0000000
   %69 = tail call nsz float @llvm.atan.f32(float %68)
   %70 = fdiv nsz float %67, 7.500000e+03
   %71 = fmul nsz float %70, %70
@@ -160,7 +160,7 @@ define internal range(i32 -22, 1) i32 @psy_3gpp_init(ptr noundef %0) #0 {
   %82 = load i32, ptr %81, align 4, !tbaa !40
   %.not368 = icmp eq i32 %82, 0
   %83 = sitofp i32 %82 to float
-  %84 = fmul nsz float %83, 0x3F847AE140000000
+  %84 = fmul nnan nsz float %83, 0x3F847AE140000000
   %85 = select i1 %.not368, float 0x3FF3333320000000, float %84
   %86 = getelementptr inbounds nuw i8, ptr %77, i64 3624
   store float %85, ptr %86, align 8, !tbaa !41
@@ -172,7 +172,7 @@ define internal range(i32 -22, 1) i32 @psy_3gpp_init(ptr noundef %0) #0 {
 
 90:                                               ; preds = %79
   %91 = sitofp i32 %64 to double
-  %92 = fdiv nsz double %91, 1.200000e+02
+  %92 = fdiv nnan nsz double %91, 1.200000e+02
   %93 = sitofp i32 %82 to double
   %94 = select i1 %.not368, double 1.200000e+02, double %93
   %95 = fmul nsz double %92, %94
@@ -189,13 +189,13 @@ define internal range(i32 -22, 1) i32 @psy_3gpp_init(ptr noundef %0) #0 {
   %spec.select = tail call i32 @llvm.smin.i32(i32 %101, i32 2560)
   %102 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store i32 %spec.select, ptr %102, align 4, !tbaa !46
-  %103 = fmul nsz float %67, 8.192000e+03
+  %103 = fmul nnan nsz float %67, 8.192000e+03
   %104 = sitofp i32 %100 to float
-  %105 = fmul nsz float %104, 2.000000e+00
+  %105 = fmul nnan nsz float %104, 2.000000e+00
   %106 = fdiv nsz float %103, %105
   %107 = getelementptr inbounds nuw i8, ptr %77, i64 12
   store float %106, ptr %107, align 4, !tbaa !47
-  %108 = fmul nsz float %67, 1.228800e+04
+  %108 = fmul nnan nsz float %67, 1.228800e+04
   %109 = fdiv nsz float %108, %105
   %110 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store float %109, ptr %110, align 8, !tbaa !48
@@ -224,7 +224,7 @@ define internal range(i32 -22, 1) i32 @psy_3gpp_init(ptr noundef %0) #0 {
   %128 = select nsz i1 %123, float 2.560000e+02, float 2.048000e+03
   %129 = fdiv nsz float %104, %128
   %130 = select nsz i1 %123, float 1.280000e+02, float 1.024000e+03
-  %131 = fmul nsz float %130, %118
+  %131 = fmul nnan nsz float %130, %118
   %132 = fdiv nsz float %131, %104
   %133 = fmul nsz float %132, 0x3FF2E147A0000000
   %134 = fmul nsz float %133, 0x3F989374C0000000
@@ -851,7 +851,7 @@ define internal void @psy_3gpp_analyze(ptr noundef %0, i32 noundef %1, ptr nound
 
 29:                                               ; preds = %18
   %30 = sitofp i32 %27 to float
-  %31 = fmul nsz float %30, 1.000000e+02
+  %31 = fmul nnan nsz float %30, 1.000000e+02
   %32 = fdiv nsz float %31, 3.200000e+04
   %33 = fsub nsz float 1.000000e+02, %32
   %34 = fcmp nsz olt float %33, 5.000000e+01
@@ -1390,7 +1390,7 @@ calc_pe_3gpp.exit.i:                              ; preds = %225, %207
   %332 = select nsz i1 %331, float %330, float %325
   %333 = fptosi float %332 to i32
   %334 = sitofp i32 %333 to float
-  %335 = fmul nsz float %334, 0x3FF2E147A0000000
+  %335 = fmul nnan nsz float %334, 0x3FF2E147A0000000
   %336 = icmp sgt i32 %278, 0
   br i1 %336, label %337, label %347
 
@@ -1398,7 +1398,7 @@ calc_pe_3gpp.exit.i:                              ; preds = %225, %207
   %338 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %339 = load float, ptr %338, align 4, !tbaa !110
   %340 = uitofp nneg i32 %278 to float
-  %341 = fmul nsz float %340, 0x3FF2E147A0000000
+  %341 = fmul nnan nsz float %340, 0x3FF2E147A0000000
   %342 = fdiv nsz float %339, %341
   %343 = fcmp nsz ogt float %342, 0x3FEB333340000000
   %344 = select nsz i1 %343, float %342, float 0x3FEB333340000000
@@ -1489,7 +1489,7 @@ calc_reduction_3gpp.exit690.i.us:                 ; preds = %._crit_edge778.i.us
   %372 = fcmp nsz ogt float %371, 0.000000e+00
   %373 = select nsz i1 %372, float %371, float 0.000000e+00
   %374 = fsub nsz float %.6550.us.i.us, %.2553.us.i.us
-  %375 = fmul nsz float %.6560.us.i.us, 4.000000e+00
+  %375 = fmul nnan nsz float %.6560.us.i.us, 4.000000e+00
   %376 = fdiv nsz float %374, %375
   %377 = tail call nsz float @llvm.exp2.f32(float %376)
   %378 = fsub nsz float %.6550.us.i.us, %373

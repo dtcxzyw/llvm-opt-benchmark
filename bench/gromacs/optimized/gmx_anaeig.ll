@@ -3381,8 +3381,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit438.i: ; preds = %
   store ptr %1260, ptr %36, align 8, !tbaa !30
   %1261 = icmp sgt i32 %.2363.i, 10000
   %1262 = uitofp nneg i32 %.2363.i to double
-  %1263 = fdiv double 1.000000e+04, %1262
-  %1264 = fptrunc double %1263 to float
+  %1263 = fdiv nnan double 1.000000e+04, %1262
+  %1264 = fptrunc nnan double %1263 to float
   %.0347.i = select i1 %1261, float %1264, float 1.000000e+00
   %1265 = icmp sgt i32 %.2363.i, 0
   br i1 %1265, label %.lr.ph585.i, label %._crit_edge586.i
@@ -6362,14 +6362,14 @@ _ZL12tick_spacingfi.exit185:                      ; preds = %.lr.ph.i183, %_ZL12
   %145 = trunc i64 %indvars.iv247 to i32
   %146 = sub i32 %40, %145
   %147 = sitofp i32 %146 to double
-  %148 = fmul double %147, 0x3FE6666666666666
+  %148 = fmul nnan double %147, 0x3FE6666666666666
   %149 = fdiv double %148, %42
   %150 = fadd double %149, 1.500000e-01
   %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.168, double noundef %150) #24
   %152 = trunc i64 %indvars.iv247 to i32
   %153 = sub i32 %1, %152
   %154 = sitofp i32 %153 to double
-  %155 = fmul double %154, 0x3FE6666666666666
+  %155 = fmul nnan double %154, 0x3FE6666666666666
   %156 = fdiv double %155, %42
   %157 = fadd double %156, 1.500000e-01
   %158 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.169, double noundef %157) #24

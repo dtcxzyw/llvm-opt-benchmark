@@ -2206,7 +2206,7 @@ while.body.lr.ph.i.i:                             ; preds = %call.i.i.noexc
   %brent.sroa.59.2 = select i1 %cmp.i70.i, double %brent.sroa.47.1, double %brent.sroa.59.1
   %brent.sroa.31.2 = select i1 %cmp.i70.i, double %brent.sroa.14.1, double %brent.sroa.31.1
   %sub.i.i = fsub double %div.i, %brent.sroa.31.2
-  %mul45.i.i = fmul double %.sroa.speculated.i, 5.000000e-01
+  %mul45.i.i = fmul nnan double %.sroa.speculated.i, 5.000000e-01
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %call124.i.i.noexc, %while.body.lr.ph.i.i
@@ -3088,8 +3088,8 @@ _ZNK8QuantLib25MersenneTwisterUniformRng4nextEv.exit.i: ; preds = %if.then.i.i.i
   %shr7.i.i.i.i = lshr i64 %xor6.i.i.i.i, 18
   %xor8.i.i.i.i = xor i64 %shr7.i.i.i.i, %xor6.i.i.i.i
   %conv.i.i.i = uitofp i64 %xor8.i.i.i.i to double
-  %add.i.i.i = fadd double %conv.i.i.i, 5.000000e-01
-  %div.i.i.i = fmul double %add.i.i.i, 0x3DF0000000000000
+  %add.i.i.i = fadd nnan double %conv.i.i.i, 5.000000e-01
+  %div.i.i.i = fmul nnan double %add.i.i.i, 0x3DF0000000000000
   %6 = load ptr, ptr %sequence_.i, align 8, !tbaa !85
   %add.ptr.i.i = getelementptr inbounds nuw double, ptr %6, i64 %i.04.i
   store double %div.i.i.i, ptr %add.ptr.i.i, align 8, !tbaa !93

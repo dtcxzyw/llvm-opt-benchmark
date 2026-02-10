@@ -1286,8 +1286,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit558: ; preds = %41
 
 475:                                              ; preds = %473
   %476 = uitofp nneg i32 %403 to double
-  %477 = fdiv double 1.000000e+00, %476
-  %478 = fptrunc double %477 to float
+  %477 = fdiv nnan double 1.000000e+00, %476
+  %478 = fptrunc nnan double %477 to float
   %479 = load i32, ptr %16, align 4, !tbaa !4
   %480 = sext i32 %479 to i64
   %481 = icmp sgt i32 %479, 0
@@ -1693,8 +1693,8 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571:    ; preds = %.lr.ph913, %_ZL13gm
   %.01194 = phi ptr [ %337, %.loopexit848 ], [ %649, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571 ]
   %.pre-phi10591192 = phi i64 [ %.pre1058, %.loopexit848 ], [ %651, %_ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit571 ]
   %.pn1216 = uitofp nneg i32 %528 to double
-  %.in = fdiv double 1.000000e+00, %.pn1216
-  %669 = fptrunc double %.in to float
+  %.in = fdiv nnan double 1.000000e+00, %.pn1216
+  %669 = fptrunc nnan double %.in to float
   br label %.preheader847
 
 .preheader847:                                    ; preds = %.preheader847.preheader, %.split.us919

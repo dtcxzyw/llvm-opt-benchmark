@@ -6111,7 +6111,7 @@ define void @_ZN11LayerDialog15clickAnimSlowerEv(ptr noundef nonnull align 8 cap
 
 5:                                                ; preds = %1
   %6 = sitofp i32 %3 to double
-  %7 = fmul double %6, 1.200000e+00
+  %7 = fmul nnan double %6, 1.200000e+00
   %8 = fptosi double %7 to i32
   store i32 %8, ptr %2, align 8
   br label %9

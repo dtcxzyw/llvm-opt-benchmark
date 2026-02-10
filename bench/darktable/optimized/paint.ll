@@ -29,13 +29,13 @@ define void @dtgtk_cairo_paint_empty(ptr noundef %0, i32 noundef %1, i32 noundef
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -86,13 +86,13 @@ define void @dtgtk_cairo_paint_color(ptr noundef %0, i32 noundef %1, i32 noundef
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -133,13 +133,13 @@ define void @dtgtk_cairo_paint_presets(ptr noundef %0, i32 noundef %1, i32 nound
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -179,13 +179,13 @@ define void @dtgtk_cairo_paint_triangle(ptr noundef %0, i32 noundef %1, i32 noun
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -219,9 +219,9 @@ define internal fastcc void @_draw_triangle(ptr noundef %0, i32 noundef %1) unna
   %6 = select reassoc nsz arcp contract afn i1 %.not.not, double -1.000000e+00, double 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = fneg reassoc nsz arcp contract afn double %6
-  %.neg = fmul reassoc nsz arcp contract afn double %., -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %., -5.000000e-01
   %8 = fadd reassoc nsz arcp contract afn double %.neg, 5.000000e-01
-  %9 = fmul reassoc nsz arcp contract afn double %6, 5.000000e-01
+  %9 = fmul reassoc nnan nsz arcp contract afn double %6, 5.000000e-01
   %10 = fadd reassoc nsz arcp contract afn double %8, %9
   %11 = fsub reassoc nsz arcp contract afn double %8, %9
   call void @cairo_matrix_init(ptr noundef nonnull %4, double noundef %., double noundef %6, double noundef %7, double noundef %., double noundef %10, double noundef %11) #10
@@ -259,13 +259,13 @@ define void @dtgtk_cairo_paint_solid_triangle(ptr noundef %0, i32 noundef %1, i3
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -304,13 +304,13 @@ define void @dtgtk_cairo_paint_arrow(ptr noundef %0, i32 noundef %1, i32 noundef
   %12 = sitofp i32 %11 to double
   %13 = sitofp i32 %1 to double
   %14 = sitofp i32 %3 to double
-  %15 = fmul reassoc nsz arcp contract afn double %14, 5.000000e-01
+  %15 = fmul reassoc nnan nsz arcp contract afn double %14, 5.000000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %13
-  %.neg = fmul reassoc nsz arcp contract afn double %12, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %12, -5.000000e-01
   %17 = fadd reassoc nsz arcp contract afn double %16, %.neg
   %18 = sitofp i32 %2 to double
   %19 = sitofp i32 %4 to double
-  %20 = fmul reassoc nsz arcp contract afn double %19, 5.000000e-01
+  %20 = fmul reassoc nnan nsz arcp contract afn double %19, 5.000000e-01
   %21 = fadd reassoc nsz arcp contract afn double %20, %18
   %22 = fadd reassoc nsz arcp contract afn double %21, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %17, double noundef %22) #10
@@ -333,9 +333,9 @@ define void @dtgtk_cairo_paint_arrow(ptr noundef %0, i32 noundef %1, i32 noundef
   %29 = select reassoc nsz arcp contract afn i1 %.not, double -1.000000e+00, double 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %30 = fneg reassoc nsz arcp contract afn double %29
-  %.neg43 = fmul reassoc nsz arcp contract afn double %., -5.000000e-01
+  %.neg43 = fmul reassoc nnan nsz arcp contract afn double %., -5.000000e-01
   %31 = fadd reassoc nsz arcp contract afn double %.neg43, 5.000000e-01
-  %32 = fmul reassoc nsz arcp contract afn double %29, 5.000000e-01
+  %32 = fmul reassoc nnan nsz arcp contract afn double %29, 5.000000e-01
   %33 = fadd reassoc nsz arcp contract afn double %31, %32
   %34 = fsub reassoc nsz arcp contract afn double %31, %32
   call void @cairo_matrix_init(ptr noundef nonnull %10, double noundef %., double noundef %29, double noundef %30, double noundef %., double noundef %33, double noundef %34) #10
@@ -380,13 +380,13 @@ define void @dtgtk_cairo_paint_solid_arrow(ptr noundef %0, i32 noundef %1, i32 n
   %12 = sitofp i32 %11 to double
   %13 = sitofp i32 %1 to double
   %14 = sitofp i32 %3 to double
-  %15 = fmul reassoc nsz arcp contract afn double %14, 5.000000e-01
+  %15 = fmul reassoc nnan nsz arcp contract afn double %14, 5.000000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %13
-  %.neg = fmul reassoc nsz arcp contract afn double %12, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %12, -5.000000e-01
   %17 = fadd reassoc nsz arcp contract afn double %16, %.neg
   %18 = sitofp i32 %2 to double
   %19 = sitofp i32 %4 to double
-  %20 = fmul reassoc nsz arcp contract afn double %19, 5.000000e-01
+  %20 = fmul reassoc nnan nsz arcp contract afn double %19, 5.000000e-01
   %21 = fadd reassoc nsz arcp contract afn double %20, %18
   %22 = fadd reassoc nsz arcp contract afn double %21, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %17, double noundef %22) #10
@@ -409,9 +409,9 @@ define void @dtgtk_cairo_paint_solid_arrow(ptr noundef %0, i32 noundef %1, i32 n
   %29 = select reassoc nsz arcp contract afn i1 %.not.not, double -1.000000e+00, double 1.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %30 = fneg reassoc nsz arcp contract afn double %29
-  %.neg43 = fmul reassoc nsz arcp contract afn double %., -5.000000e-01
+  %.neg43 = fmul reassoc nnan nsz arcp contract afn double %., -5.000000e-01
   %31 = fadd reassoc nsz arcp contract afn double %.neg43, 5.000000e-01
-  %32 = fmul reassoc nsz arcp contract afn double %29, 5.000000e-01
+  %32 = fmul reassoc nnan nsz arcp contract afn double %29, 5.000000e-01
   %33 = fadd reassoc nsz arcp contract afn double %31, %32
   %34 = fsub reassoc nsz arcp contract afn double %31, %32
   call void @cairo_matrix_init(ptr noundef nonnull %10, double noundef %., double noundef %29, double noundef %30, double noundef %., double noundef %33, double noundef %34) #10
@@ -451,13 +451,13 @@ define void @dtgtk_cairo_paint_line_arrow(ptr noundef %0, i32 noundef %1, i32 no
   %11 = sitofp i32 %10 to double
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %11, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %11, -5.000000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -505,13 +505,13 @@ define void @dtgtk_cairo_paint_sortby(ptr noundef %0, i32 noundef %1, i32 nounde
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -562,13 +562,13 @@ define void @dtgtk_cairo_paint_flip(ptr noundef %0, i32 noundef %1, i32 noundef 
   %11 = sitofp i32 %10 to double
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %11, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %11, -5.000000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -622,13 +622,13 @@ define void @dtgtk_cairo_paint_reset(ptr noundef %0, i32 noundef %1, i32 noundef
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -663,13 +663,13 @@ define void @dtgtk_cairo_paint_store(ptr noundef %0, i32 noundef %1, i32 noundef
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -711,13 +711,13 @@ define void @dtgtk_cairo_paint_switch(ptr noundef %0, i32 noundef %1, i32 nounde
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -765,13 +765,13 @@ define void @dtgtk_cairo_paint_switch_inactive(ptr noundef %0, i32 noundef %1, i
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -815,13 +815,13 @@ define void @dtgtk_cairo_paint_switch_on(ptr noundef %0, i32 noundef %1, i32 nou
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -865,13 +865,13 @@ define void @dtgtk_cairo_paint_switch_off(ptr noundef %0, i32 noundef %1, i32 no
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -902,13 +902,13 @@ define void @dtgtk_cairo_paint_switch_deprecated(ptr noundef %0, i32 noundef %1,
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -949,13 +949,13 @@ define void @dtgtk_cairo_paint_plusminus(ptr noundef %0, i32 noundef %1, i32 nou
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -1001,13 +1001,13 @@ define void @dtgtk_cairo_paint_square_plus(ptr noundef %0, i32 noundef %1, i32 n
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -1049,13 +1049,13 @@ define void @dtgtk_cairo_paint_sorting(ptr noundef %0, i32 noundef %1, i32 nound
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -1091,13 +1091,13 @@ define void @dtgtk_cairo_paint_plus_simple(ptr noundef %0, i32 noundef %1, i32 n
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -1131,13 +1131,13 @@ define void @dtgtk_cairo_paint_minus_simple(ptr noundef %0, i32 noundef %1, i32 
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -1169,13 +1169,13 @@ define void @dtgtk_cairo_paint_multiply_small(ptr noundef %0, i32 noundef %1, i3
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -1209,13 +1209,13 @@ define void @dtgtk_cairo_paint_treelist(ptr noundef %0, i32 noundef %1, i32 noun
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -1260,16 +1260,16 @@ define void @dtgtk_cairo_paint_invert(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 0x3FEE666666666666
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 0x3FEE666666666666
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -4.750000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -4.750000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -1304,13 +1304,13 @@ define void @dtgtk_cairo_paint_masks_eye(ptr noundef %0, i32 noundef %1, i32 nou
   %11 = sitofp i32 %10 to double
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %11, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %11, -5.000000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -1357,16 +1357,16 @@ define void @dtgtk_cairo_paint_masks_circle(ptr noundef %0, i32 noundef %1, i32 
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.100000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.100000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.500000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.500000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -1395,16 +1395,16 @@ define void @dtgtk_cairo_paint_masks_ellipse(ptr noundef %0, i32 noundef %1, i32
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.150000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.150000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.750000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.750000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -1439,13 +1439,13 @@ define void @dtgtk_cairo_paint_masks_gradient(ptr noundef %0, i32 noundef %1, i3
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -1488,16 +1488,16 @@ define void @dtgtk_cairo_paint_masks_path(ptr noundef %0, i32 noundef %1, i32 no
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.050000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.050000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.250000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.250000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -1536,13 +1536,13 @@ define void @dtgtk_cairo_paint_masks_vertgradient(ptr noundef %0, i32 noundef %1
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -1580,13 +1580,13 @@ define void @dtgtk_cairo_paint_masks_brush_and_inverse(ptr noundef %0, i32 nound
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -1631,16 +1631,16 @@ define void @dtgtk_cairo_paint_masks_brush(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 9.000000e-01
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 9.000000e-01
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -4.500000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -4.500000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -1680,16 +1680,16 @@ define void @dtgtk_cairo_paint_masks_uniform(ptr noundef %0, i32 noundef %1, i32
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 0x3FEE666666666666
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 0x3FEE666666666666
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -4.750000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -4.750000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -1718,16 +1718,16 @@ define void @dtgtk_cairo_paint_masks_drawn(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 9.000000e-01
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 9.000000e-01
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -4.500000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -4.500000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -1851,16 +1851,16 @@ define void @dtgtk_cairo_paint_masks_parametric(ptr noundef %0, i32 noundef %1, 
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %13 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %14 = sitofp i32 %13 to double
-  %15 = fmul reassoc nsz arcp contract afn double %14, 0x3FEE666666666666
+  %15 = fmul reassoc nnan nsz arcp contract afn double %14, 0x3FEE666666666666
   %16 = sitofp i32 %1 to double
   %17 = sitofp i32 %3 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
-  %.neg = fmul reassoc nsz arcp contract afn double %14, -4.750000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %14, -4.750000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   %21 = sitofp i32 %2 to double
   %22 = sitofp i32 %4 to double
-  %23 = fmul reassoc nsz arcp contract afn double %22, 5.000000e-01
+  %23 = fmul reassoc nnan nsz arcp contract afn double %22, 5.000000e-01
   %24 = fadd reassoc nsz arcp contract afn double %23, %21
   %25 = fadd reassoc nsz arcp contract afn double %24, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %20, double noundef %25) #10
@@ -1929,16 +1929,16 @@ define void @dtgtk_cairo_paint_masks_drawn_and_parametric(ptr noundef %0, i32 no
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %13 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %14 = sitofp i32 %13 to double
-  %15 = fmul reassoc nsz arcp contract afn double %14, 1.050000e+00
+  %15 = fmul reassoc nnan nsz arcp contract afn double %14, 1.050000e+00
   %16 = sitofp i32 %1 to double
   %17 = sitofp i32 %3 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
-  %.neg = fmul reassoc nsz arcp contract afn double %14, -5.250000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %14, -5.250000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   %21 = sitofp i32 %2 to double
   %22 = sitofp i32 %4 to double
-  %23 = fmul reassoc nsz arcp contract afn double %22, 5.000000e-01
+  %23 = fmul reassoc nnan nsz arcp contract afn double %22, 5.000000e-01
   %24 = fadd reassoc nsz arcp contract afn double %23, %21
   %25 = fadd reassoc nsz arcp contract afn double %24, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %20, double noundef %25) #10
@@ -2022,13 +2022,13 @@ define void @dtgtk_cairo_paint_masks_raster(ptr noundef %0, i32 noundef %1, i32 
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -2051,7 +2051,7 @@ define void @dtgtk_cairo_paint_masks_raster(ptr noundef %0, i32 noundef %1, i32 
 .preheader:                                       ; preds = %7, %29
   %.03335 = phi i32 [ 0, %7 ], [ %30, %29 ]
   %26 = uitofp nneg i32 %.03335 to double
-  %27 = fmul reassoc nsz arcp contract afn double %26, 2.500000e-01
+  %27 = fmul reassoc nnan nsz arcp contract afn double %26, 2.500000e-01
   br label %31
 
 28:                                               ; preds = %29
@@ -2073,7 +2073,7 @@ define void @dtgtk_cairo_paint_masks_raster(ptr noundef %0, i32 noundef %1, i32 
 
 34:                                               ; preds = %31
   %35 = uitofp nneg i32 %.034 to double
-  %36 = fmul reassoc nsz arcp contract afn double %35, 2.500000e-01
+  %36 = fmul reassoc nnan nsz arcp contract afn double %35, 2.500000e-01
   call void @cairo_rectangle(ptr noundef %0, double noundef %27, double noundef %36, double noundef 2.500000e-01, double noundef 2.500000e-01) #10
   call void @cairo_fill(ptr noundef %0) #10
   br label %37
@@ -2095,13 +2095,13 @@ define void @dtgtk_cairo_paint_masks_multi(ptr noundef %0, i32 noundef %1, i32 n
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -2135,13 +2135,13 @@ define void @dtgtk_cairo_paint_masks_inverse(ptr noundef %0, i32 noundef %1, i32
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -2168,17 +2168,17 @@ define void @dtgtk_cairo_paint_masks_inverse(ptr noundef %0, i32 noundef %1, i32
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_cairo_paint_masks_union(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
   %8 = sitofp i32 %3 to double
-  %9 = fmul reassoc nsz arcp contract afn double %8, 0x3FD2D2D2D2D2D2D3
+  %9 = fmul reassoc nnan nsz arcp contract afn double %8, 0x3FD2D2D2D2D2D2D3
   %10 = sitofp i32 %4 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 5.000000e-01
-  %12 = tail call reassoc nsz arcp contract afn double @llvm.minnum.f64(double %9, double %11)
-  %13 = fmul reassoc nsz arcp contract afn double %12, 0x3FEE666666666666
-  %14 = fmul reassoc nsz arcp contract afn double %12, 3.230000e+00
-  %15 = fsub reassoc nsz arcp contract afn double %8, %14
-  %16 = fmul reassoc nsz arcp contract afn double %15, 5.000000e-01
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 5.000000e-01
+  %12 = tail call reassoc nnan nsz arcp contract afn double @llvm.minnum.f64(double %9, double %11)
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 0x3FEE666666666666
+  %14 = fmul reassoc nnan nsz arcp contract afn double %12, 3.230000e+00
+  %15 = fsub reassoc nnan nsz arcp contract afn double %8, %14
+  %16 = fmul reassoc nnan nsz arcp contract afn double %15, 5.000000e-01
   %17 = fadd reassoc nsz arcp contract afn double %16, %13
   tail call void @cairo_arc(ptr noundef %0, double noundef %17, double noundef %11, double noundef %13, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #10
-  %18 = fmul reassoc nsz arcp contract afn double %12, 2.280000e+00
+  %18 = fmul reassoc nnan nsz arcp contract afn double %12, 2.280000e+00
   %19 = fadd reassoc nsz arcp contract afn double %16, %18
   tail call void @cairo_arc(ptr noundef %0, double noundef %19, double noundef %11, double noundef %13, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #10
   tail call void @cairo_fill(ptr noundef %0) #10
@@ -2191,14 +2191,14 @@ declare double @llvm.minnum.f64(double, double) #6
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_cairo_paint_masks_intersection(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
   %8 = sitofp i32 %3 to double
-  %9 = fmul reassoc nsz arcp contract afn double %8, 0x3FD2D2D2D2D2D2D3
+  %9 = fmul reassoc nnan nsz arcp contract afn double %8, 0x3FD2D2D2D2D2D2D3
   %10 = sitofp i32 %4 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 5.000000e-01
-  %12 = tail call reassoc nsz arcp contract afn double @llvm.minnum.f64(double %9, double %11)
-  %13 = fmul reassoc nsz arcp contract afn double %12, 0x3FEE666666666666
-  %14 = fmul reassoc nsz arcp contract afn double %12, 3.230000e+00
-  %15 = fsub reassoc nsz arcp contract afn double %8, %14
-  %16 = fmul reassoc nsz arcp contract afn double %15, 5.000000e-01
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 5.000000e-01
+  %12 = tail call reassoc nnan nsz arcp contract afn double @llvm.minnum.f64(double %9, double %11)
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 0x3FEE666666666666
+  %14 = fmul reassoc nnan nsz arcp contract afn double %12, 3.230000e+00
+  %15 = fsub reassoc nnan nsz arcp contract afn double %8, %14
+  %16 = fmul reassoc nnan nsz arcp contract afn double %15, 5.000000e-01
   tail call void @cairo_save(ptr noundef %0) #10
   %17 = tail call reassoc nsz arcp contract afn double @cairo_get_line_width(ptr noundef %0) #10
   %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
@@ -2206,7 +2206,7 @@ define void @dtgtk_cairo_paint_masks_intersection(ptr noundef %0, i32 noundef %1
   %19 = fadd reassoc nsz arcp contract afn double %16, %13
   tail call void @cairo_arc(ptr noundef %0, double noundef %19, double noundef %11, double noundef %13, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #10
   tail call void @cairo_stroke(ptr noundef %0) #10
-  %20 = fmul reassoc nsz arcp contract afn double %12, 2.280000e+00
+  %20 = fmul reassoc nnan nsz arcp contract afn double %12, 2.280000e+00
   %21 = fadd reassoc nsz arcp contract afn double %16, %20
   tail call void @cairo_arc(ptr noundef %0, double noundef %21, double noundef %11, double noundef %13, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #10
   tail call void @cairo_stroke_preserve(ptr noundef %0) #10
@@ -2222,19 +2222,19 @@ declare double @cairo_get_line_width(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_cairo_paint_masks_difference(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
   %8 = sitofp i32 %3 to double
-  %9 = fmul reassoc nsz arcp contract afn double %8, 0x3FD2D2D2D2D2D2D3
+  %9 = fmul reassoc nnan nsz arcp contract afn double %8, 0x3FD2D2D2D2D2D2D3
   %10 = sitofp i32 %4 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 5.000000e-01
-  %12 = tail call reassoc nsz arcp contract afn double @llvm.minnum.f64(double %9, double %11)
-  %13 = fmul reassoc nsz arcp contract afn double %12, 0x3FEE666666666666
-  %14 = fmul reassoc nsz arcp contract afn double %12, 3.230000e+00
-  %15 = fsub reassoc nsz arcp contract afn double %8, %14
-  %16 = fmul reassoc nsz arcp contract afn double %15, 5.000000e-01
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 5.000000e-01
+  %12 = tail call reassoc nnan nsz arcp contract afn double @llvm.minnum.f64(double %9, double %11)
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 0x3FEE666666666666
+  %14 = fmul reassoc nnan nsz arcp contract afn double %12, 3.230000e+00
+  %15 = fsub reassoc nnan nsz arcp contract afn double %8, %14
+  %16 = fmul reassoc nnan nsz arcp contract afn double %15, 5.000000e-01
   %17 = fadd reassoc nsz arcp contract afn double %16, %13
   tail call void @cairo_arc(ptr noundef %0, double noundef %17, double noundef %11, double noundef %13, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #10
   tail call void @cairo_fill(ptr noundef %0) #10
   tail call void @cairo_set_operator(ptr noundef %0, i32 noundef 0) #10
-  %18 = fmul reassoc nsz arcp contract afn double %12, 2.280000e+00
+  %18 = fmul reassoc nnan nsz arcp contract afn double %12, 2.280000e+00
   %19 = fadd reassoc nsz arcp contract afn double %16, %18
   tail call void @cairo_arc(ptr noundef %0, double noundef %19, double noundef %11, double noundef %13, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #10
   tail call void @cairo_fill(ptr noundef %0) #10
@@ -2250,31 +2250,31 @@ define void @dtgtk_cairo_paint_masks_difference(ptr noundef %0, i32 noundef %1, 
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_cairo_paint_masks_sum(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
   %8 = sitofp i32 %3 to double
-  %9 = fmul reassoc nsz arcp contract afn double %8, 0x3FD2D2D2D2D2D2D3
+  %9 = fmul reassoc nnan nsz arcp contract afn double %8, 0x3FD2D2D2D2D2D2D3
   %10 = sitofp i32 %4 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 5.000000e-01
-  %12 = tail call reassoc nsz arcp contract afn double @llvm.minnum.f64(double %9, double %11)
-  %13 = fmul reassoc nsz arcp contract afn double %12, 0x3FEE666666666666
-  %14 = fmul reassoc nsz arcp contract afn double %12, 3.230000e+00
-  %15 = fsub reassoc nsz arcp contract afn double %8, %14
-  %16 = fmul reassoc nsz arcp contract afn double %15, 5.000000e-01
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 5.000000e-01
+  %12 = tail call reassoc nnan nsz arcp contract afn double @llvm.minnum.f64(double %9, double %11)
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 0x3FEE666666666666
+  %14 = fmul reassoc nnan nsz arcp contract afn double %12, 3.230000e+00
+  %15 = fsub reassoc nnan nsz arcp contract afn double %8, %14
+  %16 = fmul reassoc nnan nsz arcp contract afn double %15, 5.000000e-01
   tail call void @cairo_save(ptr noundef %0) #10
   tail call void @cairo_set_source_rgba(ptr noundef %0, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 1.000000e+00, double noundef 3.000000e-01) #10
   %17 = fadd reassoc nsz arcp contract afn double %16, %13
   tail call void @cairo_arc(ptr noundef %0, double noundef %17, double noundef %11, double noundef %13, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #10
-  %18 = fmul reassoc nsz arcp contract afn double %12, 2.280000e+00
+  %18 = fmul reassoc nnan nsz arcp contract afn double %12, 2.280000e+00
   %19 = fadd reassoc nsz arcp contract afn double %16, %18
   tail call void @cairo_arc(ptr noundef %0, double noundef %19, double noundef %11, double noundef %13, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #10
   tail call void @cairo_fill(ptr noundef %0) #10
   tail call void @cairo_restore(ptr noundef %0) #10
   tail call void @cairo_push_group(ptr noundef %0) #10
-  %20 = fmul reassoc nsz arcp contract afn double %12, 1.140000e+00
+  %20 = fmul reassoc nnan nsz arcp contract afn double %12, 1.140000e+00
   %21 = fadd reassoc nsz arcp contract afn double %16, %20
-  %22 = fmul reassoc nsz arcp contract afn double %12, 8.075000e-01
+  %22 = fmul reassoc nnan nsz arcp contract afn double %12, 8.075000e-01
   tail call void @cairo_arc(ptr noundef %0, double noundef %21, double noundef %11, double noundef %22, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #10
   tail call void @cairo_fill(ptr noundef %0) #10
   tail call void @cairo_set_operator(ptr noundef %0, i32 noundef 3) #10
-  %23 = fmul reassoc nsz arcp contract afn double %12, 2.090000e+00
+  %23 = fmul reassoc nnan nsz arcp contract afn double %12, 2.090000e+00
   %24 = fadd reassoc nsz arcp contract afn double %16, %23
   tail call void @cairo_arc(ptr noundef %0, double noundef %24, double noundef %11, double noundef %22, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #10
   tail call void @cairo_fill(ptr noundef %0) #10
@@ -2292,14 +2292,14 @@ declare void @cairo_paint(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @dtgtk_cairo_paint_masks_exclusion(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
   %8 = sitofp i32 %3 to double
-  %9 = fmul reassoc nsz arcp contract afn double %8, 0x3FD2D2D2D2D2D2D3
+  %9 = fmul reassoc nnan nsz arcp contract afn double %8, 0x3FD2D2D2D2D2D2D3
   %10 = sitofp i32 %4 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 5.000000e-01
-  %12 = tail call reassoc nsz arcp contract afn double @llvm.minnum.f64(double %9, double %11)
-  %13 = fmul reassoc nsz arcp contract afn double %12, 0x3FEE666666666666
-  %14 = fmul reassoc nsz arcp contract afn double %12, 3.230000e+00
-  %15 = fsub reassoc nsz arcp contract afn double %8, %14
-  %16 = fmul reassoc nsz arcp contract afn double %15, 5.000000e-01
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 5.000000e-01
+  %12 = tail call reassoc nnan nsz arcp contract afn double @llvm.minnum.f64(double %9, double %11)
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 0x3FEE666666666666
+  %14 = fmul reassoc nnan nsz arcp contract afn double %12, 3.230000e+00
+  %15 = fsub reassoc nnan nsz arcp contract afn double %8, %14
+  %16 = fmul reassoc nnan nsz arcp contract afn double %15, 5.000000e-01
   tail call void @cairo_save(ptr noundef %0) #10
   %17 = tail call reassoc nsz arcp contract afn double @cairo_get_line_width(ptr noundef %0) #10
   %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
@@ -2308,19 +2308,19 @@ define void @dtgtk_cairo_paint_masks_exclusion(ptr noundef %0, i32 noundef %1, i
   tail call void @cairo_arc(ptr noundef %0, double noundef %19, double noundef %11, double noundef %13, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #10
   tail call void @cairo_fill(ptr noundef %0) #10
   tail call void @cairo_set_operator(ptr noundef %0, i32 noundef 0) #10
-  %20 = fmul reassoc nsz arcp contract afn double %12, 2.090000e+00
+  %20 = fmul reassoc nnan nsz arcp contract afn double %12, 2.090000e+00
   %21 = fadd reassoc nsz arcp contract afn double %16, %20
-  %22 = fmul reassoc nsz arcp contract afn double %12, 8.075000e-01
+  %22 = fmul reassoc nnan nsz arcp contract afn double %12, 8.075000e-01
   tail call void @cairo_arc(ptr noundef %0, double noundef %21, double noundef %11, double noundef %22, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #10
   tail call void @cairo_fill(ptr noundef %0) #10
   tail call void @cairo_restore(ptr noundef %0) #10
   tail call void @cairo_push_group(ptr noundef %0) #10
-  %23 = fmul reassoc nsz arcp contract afn double %12, 2.280000e+00
+  %23 = fmul reassoc nnan nsz arcp contract afn double %12, 2.280000e+00
   %24 = fadd reassoc nsz arcp contract afn double %16, %23
   tail call void @cairo_arc(ptr noundef %0, double noundef %24, double noundef %11, double noundef %13, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #10
   tail call void @cairo_fill(ptr noundef %0) #10
   tail call void @cairo_set_operator(ptr noundef %0, i32 noundef 0) #10
-  %25 = fmul reassoc nsz arcp contract afn double %12, 1.140000e+00
+  %25 = fmul reassoc nnan nsz arcp contract afn double %12, 1.140000e+00
   %26 = fadd reassoc nsz arcp contract afn double %16, %25
   tail call void @cairo_arc(ptr noundef %0, double noundef %26, double noundef %11, double noundef %22, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #10
   tail call void @cairo_fill(ptr noundef %0) #10
@@ -2338,13 +2338,13 @@ define void @dtgtk_cairo_paint_masks_used(ptr noundef %0, i32 noundef %1, i32 no
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -2384,13 +2384,13 @@ define void @dtgtk_cairo_paint_eye_toggle(ptr noundef %0, i32 noundef %1, i32 no
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -2439,13 +2439,13 @@ define void @dtgtk_cairo_paint_timer(ptr noundef %0, i32 noundef %1, i32 noundef
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -2477,13 +2477,13 @@ define void @dtgtk_cairo_paint_grid(ptr noundef %0, i32 noundef %1, i32 noundef 
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -2528,16 +2528,16 @@ define void @dtgtk_cairo_paint_focus_peaking(ptr noundef %0, i32 noundef %1, i32
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.200000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.200000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -6.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -6.000000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -2586,13 +2586,13 @@ define void @dtgtk_cairo_paint_camera(ptr noundef %0, i32 noundef %1, i32 nounde
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -2635,13 +2635,13 @@ define void @dtgtk_cairo_paint_histogram_scope(ptr noundef %0, i32 noundef %1, i
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -2678,13 +2678,13 @@ define void @dtgtk_cairo_paint_waveform_scope(ptr noundef %0, i32 noundef %1, i3
   %14 = sitofp i32 %13 to double
   %15 = sitofp i32 %1 to double
   %16 = sitofp i32 %3 to double
-  %17 = fmul reassoc nsz arcp contract afn double %16, 5.000000e-01
+  %17 = fmul reassoc nnan nsz arcp contract afn double %16, 5.000000e-01
   %18 = fadd reassoc nsz arcp contract afn double %17, %15
-  %.neg = fmul reassoc nsz arcp contract afn double %14, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %14, -5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %.neg
   %20 = sitofp i32 %2 to double
   %21 = sitofp i32 %4 to double
-  %22 = fmul reassoc nsz arcp contract afn double %21, 5.000000e-01
+  %22 = fmul reassoc nnan nsz arcp contract afn double %21, 5.000000e-01
   %23 = fadd reassoc nsz arcp contract afn double %22, %20
   %24 = fadd reassoc nsz arcp contract afn double %23, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %19, double noundef %24) #10
@@ -2773,13 +2773,13 @@ define void @dtgtk_cairo_paint_vectorscope(ptr noundef %0, i32 noundef %1, i32 n
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -2812,13 +2812,13 @@ define void @dtgtk_cairo_paint_linear_scale(ptr noundef %0, i32 noundef %1, i32 
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -2850,13 +2850,13 @@ define void @dtgtk_cairo_paint_logarithmic_scale(ptr noundef %0, i32 noundef %1,
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -2892,13 +2892,13 @@ define void @dtgtk_cairo_paint_waveform_overlaid(ptr noundef %0, i32 noundef %1,
   %14 = sitofp i32 %13 to double
   %15 = sitofp i32 %1 to double
   %16 = sitofp i32 %3 to double
-  %17 = fmul reassoc nsz arcp contract afn double %16, 5.000000e-01
+  %17 = fmul reassoc nnan nsz arcp contract afn double %16, 5.000000e-01
   %18 = fadd reassoc nsz arcp contract afn double %17, %15
-  %.neg = fmul reassoc nsz arcp contract afn double %14, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %14, -5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %.neg
   %20 = sitofp i32 %2 to double
   %21 = sitofp i32 %4 to double
-  %22 = fmul reassoc nsz arcp contract afn double %21, 5.000000e-01
+  %22 = fmul reassoc nnan nsz arcp contract afn double %21, 5.000000e-01
   %23 = fadd reassoc nsz arcp contract afn double %22, %20
   %24 = fadd reassoc nsz arcp contract afn double %23, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %19, double noundef %24) #10
@@ -2979,13 +2979,13 @@ define void @dtgtk_cairo_paint_rgb_parade(ptr noundef %0, i32 noundef %1, i32 no
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -3038,13 +3038,13 @@ define void @dtgtk_cairo_paint_luv(ptr noundef %0, i32 noundef %1, i32 noundef %
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -3084,13 +3084,13 @@ define void @dtgtk_cairo_paint_jzazbz(ptr noundef %0, i32 noundef %1, i32 nounde
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -3125,16 +3125,16 @@ define void @dtgtk_cairo_paint_ryb(ptr noundef %0, i32 noundef %1, i32 noundef %
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.200000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.200000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -6.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -6.000000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -3181,13 +3181,13 @@ define void @dtgtk_cairo_paint_color_harmony(ptr noundef %0, i32 noundef %1, i32
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -3248,16 +3248,16 @@ define void @dtgtk_cairo_paint_clock(ptr noundef %0, i32 noundef %1, i32 noundef
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.200000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.200000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -6.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -6.000000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -3281,7 +3281,7 @@ define void @dtgtk_cairo_paint_clock(ptr noundef %0, i32 noundef %1, i32 noundef
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr @dtgtk_cairo_paint_clock.clock, align 4, !tbaa !20
   %30 = sitofp i32 %28 to double
-  %31 = fmul reassoc nsz arcp contract afn double %30, 0x3FE0C152382D7365
+  %31 = fmul reassoc nnan nsz arcp contract afn double %30, 0x3FE0C152382D7365
   call void @cairo_rotate(ptr noundef %0, double noundef %31) #10
   call void @cairo_move_to(ptr noundef %0, double noundef 0x3FB3333333333333, double noundef 0.000000e+00) #10
   call void @cairo_line_to(ptr noundef %0, double noundef 0.000000e+00, double noundef 4.000000e-01) #10
@@ -3315,13 +3315,13 @@ define void @dtgtk_cairo_paint_filmstrip(ptr noundef %0, i32 noundef %1, i32 nou
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -3367,13 +3367,13 @@ define void @dtgtk_cairo_paint_directory(ptr noundef %0, i32 noundef %1, i32 nou
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -3416,13 +3416,13 @@ define void @dtgtk_cairo_paint_refresh(ptr noundef %0, i32 noundef %1, i32 nound
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -3467,13 +3467,13 @@ define void @dtgtk_cairo_paint_perspective(ptr noundef %0, i32 noundef %1, i32 n
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -3540,13 +3540,13 @@ define void @dtgtk_cairo_paint_structure(ptr noundef %0, i32 noundef %1, i32 nou
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -3587,13 +3587,13 @@ define void @dtgtk_cairo_paint_draw_structure(ptr noundef %0, i32 noundef %1, i3
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -3636,13 +3636,13 @@ define void @dtgtk_cairo_paint_cancel(ptr noundef %0, i32 noundef %1, i32 nounde
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -3676,13 +3676,13 @@ define void @dtgtk_cairo_paint_aspectflip(ptr noundef %0, i32 noundef %1, i32 no
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -3725,16 +3725,16 @@ define void @dtgtk_cairo_paint_styles(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 5.500000e-01
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 5.500000e-01
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -2.750000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -2.750000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -3780,13 +3780,13 @@ define void @dtgtk_cairo_paint_label(ptr noundef %0, i32 noundef %1, i32 noundef
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -3856,16 +3856,16 @@ define void @dtgtk_cairo_paint_label_sel(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 9.000000e-01
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 9.000000e-01
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -4.500000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -4.500000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -3963,16 +3963,16 @@ define void @dtgtk_cairo_paint_reject(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 0x3FEE666666666666
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 0x3FEE666666666666
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -4.750000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -4.750000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -4014,16 +4014,16 @@ define void @dtgtk_cairo_paint_remove(ptr noundef %0, i32 noundef %1, i32 nounde
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 0x3FEE666666666666
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 0x3FEE666666666666
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -4.750000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -4.750000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -4071,13 +4071,13 @@ define void @dtgtk_cairo_paint_star(ptr noundef %0, i32 noundef %1, i32 noundef 
   %16 = sitofp i32 %15 to double
   %17 = sitofp i32 %1 to double
   %18 = sitofp i32 %3 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
-  %.neg = fmul reassoc nsz arcp contract afn double %16, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %16, -5.000000e-01
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   %22 = sitofp i32 %2 to double
   %23 = sitofp i32 %4 to double
-  %24 = fmul reassoc nsz arcp contract afn double %23, 5.000000e-01
+  %24 = fmul reassoc nnan nsz arcp contract afn double %23, 5.000000e-01
   %25 = fadd reassoc nsz arcp contract afn double %24, %22
   %26 = fadd reassoc nsz arcp contract afn double %25, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %21, double noundef %26) #10
@@ -4216,13 +4216,13 @@ define void @dtgtk_cairo_paint_unratestar(ptr noundef %0, i32 noundef %1, i32 no
   %16 = sitofp i32 %15 to double
   %17 = sitofp i32 %1 to double
   %18 = sitofp i32 %3 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
-  %.neg = fmul reassoc nsz arcp contract afn double %16, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %16, -5.000000e-01
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   %22 = sitofp i32 %2 to double
   %23 = sitofp i32 %4 to double
-  %24 = fmul reassoc nsz arcp contract afn double %23, 5.000000e-01
+  %24 = fmul reassoc nnan nsz arcp contract afn double %23, 5.000000e-01
   %25 = fadd reassoc nsz arcp contract afn double %24, %22
   %26 = fadd reassoc nsz arcp contract afn double %25, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %21, double noundef %26) #10
@@ -4355,13 +4355,13 @@ define void @dtgtk_cairo_paint_local_copy(ptr noundef %0, i32 noundef %1, i32 no
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -4412,16 +4412,16 @@ define void @dtgtk_cairo_paint_altered(ptr noundef %0, i32 noundef %1, i32 nound
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 4.750000e-01
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 4.750000e-01
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -2.375000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -2.375000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -4460,13 +4460,13 @@ define void @dtgtk_cairo_paint_tags(ptr noundef %0, i32 noundef %1, i32 noundef 
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -4506,13 +4506,13 @@ define void @dtgtk_cairo_paint_audio(ptr noundef %0, i32 noundef %1, i32 noundef
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -4551,16 +4551,16 @@ define void @dtgtk_cairo_paint_label_flower(ptr noundef %0, i32 noundef %1, i32 
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.100000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.100000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.500000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.500000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -4689,13 +4689,13 @@ define void @dtgtk_cairo_paint_colorpicker(ptr noundef %0, i32 noundef %1, i32 n
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -4739,13 +4739,13 @@ define void @dtgtk_cairo_paint_colorpicker_set_values(ptr noundef %0, i32 nounde
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -4795,13 +4795,13 @@ define void @dtgtk_cairo_paint_showmask(ptr noundef %0, i32 noundef %1, i32 noun
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -4835,16 +4835,16 @@ define void @dtgtk_cairo_paint_preferences(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 4.750000e-01
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 4.750000e-01
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -2.375000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -2.375000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -4877,10 +4877,10 @@ define void @dtgtk_cairo_paint_preferences(ptr noundef %0, i32 noundef %1, i32 n
   %30 = icmp eq i32 %29, 0
   %31 = select reassoc nsz arcp contract afn i1 %30, double 1.000000e+00, double 0x3FE99999A0000000
   %32 = uitofp nneg i32 %.032 to double
-  %33 = fmul reassoc nsz arcp contract afn double %32, 0x3FE0C152382D7365
+  %33 = fmul reassoc nnan nsz arcp contract afn double %32, 0x3FE0C152382D7365
   %34 = add nuw nsw i32 %.032, 1
   %35 = uitofp nneg i32 %34 to double
-  %36 = fmul reassoc nsz arcp contract afn double %35, 0x3FE0C152382D7365
+  %36 = fmul reassoc nnan nsz arcp contract afn double %35, 0x3FE0C152382D7365
   call void @cairo_arc(ptr noundef %0, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef %31, double noundef %33, double noundef %36) #10
   %exitcond.not = icmp eq i32 %34, 12
   br i1 %exitcond.not, label %27, label %28
@@ -4895,16 +4895,16 @@ define void @dtgtk_cairo_paint_overlays(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %11 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %12 = sitofp i32 %11 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.150000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.150000e-01
   %14 = sitofp i32 %1 to double
   %15 = sitofp i32 %3 to double
-  %16 = fmul reassoc nsz arcp contract afn double %15, 5.000000e-01
+  %16 = fmul reassoc nnan nsz arcp contract afn double %15, 5.000000e-01
   %17 = fadd reassoc nsz arcp contract afn double %16, %14
-  %.neg = fmul reassoc nsz arcp contract afn double %12, -2.575000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %12, -2.575000e-01
   %18 = fadd reassoc nsz arcp contract afn double %17, %.neg
   %19 = sitofp i32 %2 to double
   %20 = sitofp i32 %4 to double
-  %21 = fmul reassoc nsz arcp contract afn double %20, 5.000000e-01
+  %21 = fmul reassoc nnan nsz arcp contract afn double %20, 5.000000e-01
   %22 = fadd reassoc nsz arcp contract afn double %21, %19
   %23 = fadd reassoc nsz arcp contract afn double %22, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %18, double noundef %23) #10
@@ -4996,16 +4996,16 @@ define void @dtgtk_cairo_paint_help(ptr noundef %0, i32 noundef %1, i32 noundef 
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 4.850000e-01
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 4.850000e-01
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -2.425000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -2.425000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -5039,13 +5039,13 @@ define void @dtgtk_cairo_paint_grouping(ptr noundef %0, i32 noundef %1, i32 noun
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -5095,13 +5095,13 @@ define void @dtgtk_cairo_paint_alignment(ptr noundef %0, i32 noundef %1, i32 nou
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -5202,13 +5202,13 @@ define void @dtgtk_cairo_paint_text_label(ptr noundef %0, i32 noundef %1, i32 no
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -5243,13 +5243,13 @@ define void @dtgtk_cairo_paint_union(ptr noundef %0, i32 noundef %1, i32 noundef
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -5285,13 +5285,13 @@ define void @dtgtk_cairo_paint_intersection(ptr noundef %0, i32 noundef %1, i32 
   %14 = sitofp i32 %13 to double
   %15 = sitofp i32 %1 to double
   %16 = sitofp i32 %3 to double
-  %17 = fmul reassoc nsz arcp contract afn double %16, 5.000000e-01
+  %17 = fmul reassoc nnan nsz arcp contract afn double %16, 5.000000e-01
   %18 = fadd reassoc nsz arcp contract afn double %17, %15
-  %.neg = fmul reassoc nsz arcp contract afn double %14, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %14, -5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %.neg
   %20 = sitofp i32 %2 to double
   %21 = sitofp i32 %4 to double
-  %22 = fmul reassoc nsz arcp contract afn double %21, 5.000000e-01
+  %22 = fmul reassoc nnan nsz arcp contract afn double %21, 5.000000e-01
   %23 = fadd reassoc nsz arcp contract afn double %22, %20
   %24 = fadd reassoc nsz arcp contract afn double %23, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %19, double noundef %24) #10
@@ -5348,13 +5348,13 @@ define void @dtgtk_cairo_paint_andnot(ptr noundef %0, i32 noundef %1, i32 nounde
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -5386,13 +5386,13 @@ define void @dtgtk_cairo_paint_dropdown(ptr noundef %0, i32 noundef %1, i32 noun
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -5425,13 +5425,13 @@ define void @dtgtk_cairo_paint_bracket(ptr noundef %0, i32 noundef %1, i32 nound
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -5471,13 +5471,13 @@ define void @dtgtk_cairo_paint_lock(ptr noundef %0, i32 noundef %1, i32 noundef 
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -5512,13 +5512,13 @@ define void @dtgtk_cairo_paint_check_mark(ptr noundef %0, i32 noundef %1, i32 no
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -5551,13 +5551,13 @@ define void @dtgtk_cairo_paint_overexposed(ptr noundef %0, i32 noundef %1, i32 n
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -5595,16 +5595,16 @@ define void @dtgtk_cairo_paint_bulb(ptr noundef %0, i32 noundef %1, i32 noundef 
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 0x3FEE666666666666
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 0x3FEE666666666666
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -4.750000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -4.750000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -5654,16 +5654,16 @@ define void @dtgtk_cairo_paint_bulb_mod(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 0x3FEE666666666666
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 0x3FEE666666666666
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -4.750000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -4.750000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -5728,13 +5728,13 @@ define void @dtgtk_cairo_paint_rawoverexposed(ptr noundef %0, i32 noundef %1, i3
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -5785,16 +5785,16 @@ define void @dtgtk_cairo_paint_gamut_check(ptr noundef %0, i32 noundef %1, i32 n
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.150000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.150000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.750000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.750000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -5841,16 +5841,16 @@ define void @dtgtk_cairo_paint_softproof(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.100000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.100000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.500000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.500000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -5890,13 +5890,13 @@ define void @dtgtk_cairo_paint_display(ptr noundef %0, i32 noundef %1, i32 nound
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -5929,16 +5929,16 @@ define void @dtgtk_cairo_paint_display2(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 5.500000e-01
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 5.500000e-01
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -2.750000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -2.750000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -5982,13 +5982,13 @@ define void @dtgtk_cairo_paint_rect_landscape(ptr noundef %0, i32 noundef %1, i3
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -6023,13 +6023,13 @@ define void @dtgtk_cairo_paint_rect_portrait(ptr noundef %0, i32 noundef %1, i32
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -6064,13 +6064,13 @@ define void @dtgtk_cairo_paint_polygon(ptr noundef %0, i32 noundef %1, i32 nound
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -6107,13 +6107,13 @@ define void @dtgtk_cairo_paint_zoom(ptr noundef %0, i32 noundef %1, i32 noundef 
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -6147,13 +6147,13 @@ define void @dtgtk_cairo_paint_multiinstance(ptr noundef %0, i32 noundef %1, i32
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -6188,16 +6188,16 @@ define void @dtgtk_cairo_paint_modulegroup_active(ptr noundef %0, i32 noundef %1
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.100000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.100000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.500000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.500000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -6230,16 +6230,16 @@ define void @dtgtk_cairo_paint_modulegroup_favorites(ptr noundef %0, i32 noundef
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %11 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %12 = sitofp i32 %11 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 1.200000e+00
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 1.200000e+00
   %14 = sitofp i32 %1 to double
   %15 = sitofp i32 %3 to double
-  %16 = fmul reassoc nsz arcp contract afn double %15, 5.000000e-01
+  %16 = fmul reassoc nnan nsz arcp contract afn double %15, 5.000000e-01
   %17 = fadd reassoc nsz arcp contract afn double %16, %14
-  %.neg = fmul reassoc nsz arcp contract afn double %12, -6.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %12, -6.000000e-01
   %18 = fadd reassoc nsz arcp contract afn double %17, %.neg
   %19 = sitofp i32 %2 to double
   %20 = sitofp i32 %4 to double
-  %21 = fmul reassoc nsz arcp contract afn double %20, 5.000000e-01
+  %21 = fmul reassoc nnan nsz arcp contract afn double %20, 5.000000e-01
   %22 = fadd reassoc nsz arcp contract afn double %21, %19
   %23 = fadd reassoc nsz arcp contract afn double %22, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %18, double noundef %23) #10
@@ -6334,16 +6334,16 @@ define void @dtgtk_cairo_paint_modulegroup_basics(ptr noundef %0, i32 noundef %1
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %13 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %14 = sitofp i32 %13 to double
-  %15 = fmul reassoc nsz arcp contract afn double %14, 1.100000e+00
+  %15 = fmul reassoc nnan nsz arcp contract afn double %14, 1.100000e+00
   %16 = sitofp i32 %1 to double
   %17 = sitofp i32 %3 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
-  %.neg = fmul reassoc nsz arcp contract afn double %14, -5.500000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %14, -5.500000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   %21 = sitofp i32 %2 to double
   %22 = sitofp i32 %4 to double
-  %23 = fmul reassoc nsz arcp contract afn double %22, 5.000000e-01
+  %23 = fmul reassoc nnan nsz arcp contract afn double %22, 5.000000e-01
   %24 = fadd reassoc nsz arcp contract afn double %23, %21
   %25 = fadd reassoc nsz arcp contract afn double %24, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %20, double noundef %25) #10
@@ -6435,16 +6435,16 @@ define void @dtgtk_cairo_paint_modulegroup_basic(ptr noundef %0, i32 noundef %1,
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.100000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.100000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.500000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.500000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -6473,16 +6473,16 @@ define void @dtgtk_cairo_paint_modulegroup_tone(ptr noundef %0, i32 noundef %1, 
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.100000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.100000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.500000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.500000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -6518,16 +6518,16 @@ define void @dtgtk_cairo_paint_modulegroup_color(ptr noundef %0, i32 noundef %1,
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.100000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.100000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.500000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.500000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -6566,16 +6566,16 @@ define void @dtgtk_cairo_paint_modulegroup_correct(ptr noundef %0, i32 noundef %
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.100000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.100000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.500000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.500000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -6606,16 +6606,16 @@ define void @dtgtk_cairo_paint_modulegroup_effect(ptr noundef %0, i32 noundef %1
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.100000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.100000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.500000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.500000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -6677,16 +6677,16 @@ define void @dtgtk_cairo_paint_modulegroup_grading(ptr noundef %0, i32 noundef %
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.200000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.200000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -6.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -6.000000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -6739,16 +6739,16 @@ define void @dtgtk_cairo_paint_modulegroup_technical(ptr noundef %0, i32 noundef
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.200000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.200000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -6.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -6.000000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -6793,13 +6793,13 @@ define void @dtgtk_cairo_paint_map_pin(ptr noundef %0, i32 noundef %1, i32 nound
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -6833,13 +6833,13 @@ define void @dtgtk_cairo_paint_tool_clone(ptr noundef %0, i32 noundef %1, i32 no
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -6872,13 +6872,13 @@ define void @dtgtk_cairo_paint_tool_heal(ptr noundef %0, i32 noundef %1, i32 nou
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -6923,16 +6923,16 @@ define void @dtgtk_cairo_paint_tool_fill(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.080000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.080000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.400000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.400000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -6969,16 +6969,16 @@ define void @dtgtk_cairo_paint_tool_blur(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.100000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.100000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.500000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.500000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -7014,13 +7014,13 @@ define void @dtgtk_cairo_paint_paste_forms(ptr noundef %0, i32 noundef %1, i32 n
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -7061,13 +7061,13 @@ define void @dtgtk_cairo_paint_cut_forms(ptr noundef %0, i32 noundef %1, i32 nou
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -7119,16 +7119,16 @@ define void @dtgtk_cairo_paint_display_wavelet_scale(ptr noundef %0, i32 noundef
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 9.300000e-01
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 9.300000e-01
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -4.650000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -4.650000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -7194,13 +7194,13 @@ define void @dtgtk_cairo_paint_auto_levels(ptr noundef %0, i32 noundef %1, i32 n
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -7266,13 +7266,13 @@ define void @dtgtk_cairo_paint_compass_star(ptr noundef %0, i32 noundef %1, i32 
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -7302,13 +7302,13 @@ define void @dtgtk_cairo_paint_wand(ptr noundef %0, i32 noundef %1, i32 noundef 
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -7348,16 +7348,16 @@ define void @dtgtk_cairo_paint_lt_mode_grid(ptr noundef %0, i32 noundef %1, i32 
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.400000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.400000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, 0xBFE6666666666666
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, 0xBFE6666666666666
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -7395,16 +7395,16 @@ define void @dtgtk_cairo_paint_lt_mode_zoom(ptr noundef %0, i32 noundef %1, i32 
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.400000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.400000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, 0xBFE6666666666666
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, 0xBFE6666666666666
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -7448,16 +7448,16 @@ define void @dtgtk_cairo_paint_lt_mode_culling_fixed(ptr noundef %0, i32 noundef
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.400000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.400000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, 0xBFE6666666666666
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, 0xBFE6666666666666
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -7505,16 +7505,16 @@ define void @dtgtk_cairo_paint_lt_mode_culling_dynamic(ptr noundef %0, i32 nound
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.400000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.400000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, 0xBFE6666666666666
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, 0xBFE6666666666666
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -7554,16 +7554,16 @@ define void @dtgtk_cairo_paint_lt_mode_fullpreview(ptr noundef %0, i32 noundef %
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.400000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.400000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, 0xBFE6666666666666
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, 0xBFE6666666666666
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -7619,13 +7619,13 @@ define void @dtgtk_cairo_paint_link(ptr noundef %0, i32 noundef %1, i32 noundef 
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -7669,16 +7669,16 @@ define void @dtgtk_cairo_paint_shortcut(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @cairo_set_line_cap(ptr noundef %0, i32 noundef 1) #10
   %9 = tail call i32 @llvm.smin.i32(i32 %3, i32 %4)
   %10 = sitofp i32 %9 to double
-  %11 = fmul reassoc nsz arcp contract afn double %10, 1.150000e+00
+  %11 = fmul reassoc nnan nsz arcp contract afn double %10, 1.150000e+00
   %12 = sitofp i32 %1 to double
   %13 = sitofp i32 %3 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 5.000000e-01
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %12
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.750000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.750000e-01
   %16 = fadd reassoc nsz arcp contract afn double %15, %.neg
   %17 = sitofp i32 %2 to double
   %18 = sitofp i32 %4 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 5.000000e-01
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 5.000000e-01
   %20 = fadd reassoc nsz arcp contract afn double %19, %17
   %21 = fadd reassoc nsz arcp contract afn double %20, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %16, double noundef %21) #10
@@ -7747,7 +7747,7 @@ define void @dtgtk_cairo_paint_shortcut(ptr noundef %0, i32 noundef %1, i32 noun
 35:                                               ; preds = %34, %35
   %.07476 = phi i32 [ 0, %34 ], [ %40, %35 ]
   %36 = uitofp nneg i32 %.07476 to double
-  %37 = fmul reassoc nsz arcp contract afn double %36, 0x3FBA54D880BB3EE8
+  %37 = fmul reassoc nnan nsz arcp contract afn double %36, 0x3FBA54D880BB3EE8
   %38 = fadd reassoc nsz arcp contract afn double %37, 0x3FC562792FA8895B
   call void @cairo_move_to(ptr noundef %0, double noundef %38, double noundef 0x3FD947AE147AE147) #10
   %39 = fadd reassoc nsz arcp contract afn double %37, 0x3FCB9EFD4E25B9F0
@@ -7767,7 +7767,7 @@ define void @dtgtk_cairo_paint_shortcut(ptr noundef %0, i32 noundef %1, i32 noun
 .preheader:                                       ; preds = %35, %.preheader
   %.077 = phi i32 [ %46, %.preheader ], [ 0, %35 ]
   %42 = uitofp nneg i32 %.077 to double
-  %43 = fmul reassoc nsz arcp contract afn double %42, 0x3FBA54D880BB3EE8
+  %43 = fmul reassoc nnan nsz arcp contract afn double %42, 0x3FBA54D880BB3EE8
   %44 = fadd reassoc nsz arcp contract afn double %43, 0x3FCBF7AF4FD75915
   call void @cairo_move_to(ptr noundef %0, double noundef %44, double noundef 5.200000e-01) #10
   %45 = fadd reassoc nsz arcp contract afn double %43, 0x3FD11A19B72A44D5
@@ -7788,13 +7788,13 @@ define void @dtgtk_cairo_paint_pin(ptr noundef %0, i32 noundef %1, i32 noundef %
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -7836,13 +7836,13 @@ define void @dtgtk_cairo_paint_filtering_menu(ptr noundef %0, i32 noundef %1, i3
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10
@@ -7891,13 +7891,13 @@ define void @dtgtk_cairo_paint_snapshots_restore(ptr noundef %0, i32 noundef %1,
   %10 = sitofp i32 %9 to double
   %11 = sitofp i32 %1 to double
   %12 = sitofp i32 %3 to double
-  %13 = fmul reassoc nsz arcp contract afn double %12, 5.000000e-01
+  %13 = fmul reassoc nnan nsz arcp contract afn double %12, 5.000000e-01
   %14 = fadd reassoc nsz arcp contract afn double %13, %11
-  %.neg = fmul reassoc nsz arcp contract afn double %10, -5.000000e-01
+  %.neg = fmul reassoc nnan nsz arcp contract afn double %10, -5.000000e-01
   %15 = fadd reassoc nsz arcp contract afn double %14, %.neg
   %16 = sitofp i32 %2 to double
   %17 = sitofp i32 %4 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 5.000000e-01
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 5.000000e-01
   %19 = fadd reassoc nsz arcp contract afn double %18, %16
   %20 = fadd reassoc nsz arcp contract afn double %19, %.neg
   tail call void @cairo_translate(ptr noundef %0, double noundef %15, double noundef %20) #10

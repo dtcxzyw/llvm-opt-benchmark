@@ -23822,7 +23822,7 @@ define noundef i32 @_ZN5arrow11DecimalType11DecimalSizeEi(i32 noundef %0) local_
 
 7:                                                ; preds = %1
   %8 = uitofp nneg i32 %0 to double
-  %9 = fmul double %8, 1.250000e-01
+  %9 = fmul nnan double %8, 1.250000e-01
   %10 = tail call double @llvm.fmuladd.f64(double %9, double 0x400A934F0979A371, double 1.000000e+00)
   %11 = tail call double @llvm.ceil.f64(double %10)
   %12 = fptosi double %11 to i32

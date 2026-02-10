@@ -61633,13 +61633,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %174 = sitofp i8 %45 to double
   %175 = fsub double %174, %173
   %176 = fadd double %175, 1.000000e+00
-  %177 = fadd double %173, %174
-  %178 = fmul double %177, 5.000000e-01
+  %177 = fadd nnan double %173, %174
+  %178 = fmul nnan double %177, 5.000000e-01
   %179 = call double @llvm.fmuladd.f64(double %176, double %176, double -1.000000e+00)
   %180 = fdiv double %179, 1.200000e+01
-  %181 = call double @llvm.fmuladd.f64(double %176, double %176, double 1.000000e+00)
-  %182 = fmul double %181, 6.000000e+00
-  %183 = fmul double %179, 5.000000e+00
+  %181 = call nnan double @llvm.fmuladd.f64(double %176, double %176, double 1.000000e+00)
+  %182 = fmul nnan double %181, 6.000000e+00
+  %183 = fmul nnan double %179, 5.000000e+00
   %184 = fdiv double %182, %183
   %185 = fsub double 3.000000e+00, %184
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -62671,13 +62671,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %174 = uitofp i8 %45 to double
   %175 = fsub double %174, %173
   %176 = fadd double %175, 1.000000e+00
-  %177 = fadd double %173, %174
-  %178 = fmul double %177, 5.000000e-01
+  %177 = fadd nnan double %173, %174
+  %178 = fmul nnan double %177, 5.000000e-01
   %179 = call double @llvm.fmuladd.f64(double %176, double %176, double -1.000000e+00)
   %180 = fdiv double %179, 1.200000e+01
-  %181 = call double @llvm.fmuladd.f64(double %176, double %176, double 1.000000e+00)
-  %182 = fmul double %181, 6.000000e+00
-  %183 = fmul double %179, 5.000000e+00
+  %181 = call nnan double @llvm.fmuladd.f64(double %176, double %176, double 1.000000e+00)
+  %182 = fmul nnan double %181, 6.000000e+00
+  %183 = fmul nnan double %179, 5.000000e+00
   %184 = fdiv double %182, %183
   %185 = fsub double 3.000000e+00, %184
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -67677,13 +67677,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %173 = sitofp i16 %45 to double
   %174 = fsub double %173, %172
   %175 = fadd double %174, 1.000000e+00
-  %176 = fadd double %172, %173
-  %177 = fmul double %176, 5.000000e-01
+  %176 = fadd nnan double %172, %173
+  %177 = fmul nnan double %176, 5.000000e-01
   %178 = call double @llvm.fmuladd.f64(double %175, double %175, double -1.000000e+00)
   %179 = fdiv double %178, 1.200000e+01
-  %180 = call double @llvm.fmuladd.f64(double %175, double %175, double 1.000000e+00)
-  %181 = fmul double %180, 6.000000e+00
-  %182 = fmul double %178, 5.000000e+00
+  %180 = call nnan double @llvm.fmuladd.f64(double %175, double %175, double 1.000000e+00)
+  %181 = fmul nnan double %180, 6.000000e+00
+  %182 = fmul nnan double %178, 5.000000e+00
   %183 = fdiv double %181, %182
   %184 = fsub double 3.000000e+00, %183
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -68708,13 +68708,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %173 = uitofp i16 %45 to double
   %174 = fsub double %173, %172
   %175 = fadd double %174, 1.000000e+00
-  %176 = fadd double %172, %173
-  %177 = fmul double %176, 5.000000e-01
+  %176 = fadd nnan double %172, %173
+  %177 = fmul nnan double %176, 5.000000e-01
   %178 = call double @llvm.fmuladd.f64(double %175, double %175, double -1.000000e+00)
   %179 = fdiv double %178, 1.200000e+01
-  %180 = call double @llvm.fmuladd.f64(double %175, double %175, double 1.000000e+00)
-  %181 = fmul double %180, 6.000000e+00
-  %182 = fmul double %178, 5.000000e+00
+  %180 = call nnan double @llvm.fmuladd.f64(double %175, double %175, double 1.000000e+00)
+  %181 = fmul nnan double %180, 6.000000e+00
+  %182 = fmul nnan double %178, 5.000000e+00
   %183 = fdiv double %181, %182
   %184 = fsub double 3.000000e+00, %183
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -69734,13 +69734,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %169 = sitofp i32 %46 to double
   %170 = fsub double %169, %168
   %171 = fadd double %170, 1.000000e+00
-  %172 = fadd double %168, %169
-  %173 = fmul double %172, 5.000000e-01
+  %172 = fadd nnan double %168, %169
+  %173 = fmul nnan double %172, 5.000000e-01
   %174 = call double @llvm.fmuladd.f64(double %171, double %171, double -1.000000e+00)
   %175 = fdiv double %174, 1.200000e+01
-  %176 = call double @llvm.fmuladd.f64(double %171, double %171, double 1.000000e+00)
-  %177 = fmul double %176, 6.000000e+00
-  %178 = fmul double %174, 5.000000e+00
+  %176 = call nnan double @llvm.fmuladd.f64(double %171, double %171, double 1.000000e+00)
+  %177 = fmul nnan double %176, 6.000000e+00
+  %178 = fmul nnan double %174, 5.000000e+00
   %179 = fdiv double %177, %178
   %180 = fsub double 3.000000e+00, %179
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -70760,13 +70760,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %169 = uitofp i32 %46 to double
   %170 = fsub double %169, %168
   %171 = fadd double %170, 1.000000e+00
-  %172 = fadd double %168, %169
-  %173 = fmul double %172, 5.000000e-01
+  %172 = fadd nnan double %168, %169
+  %173 = fmul nnan double %172, 5.000000e-01
   %174 = call double @llvm.fmuladd.f64(double %171, double %171, double -1.000000e+00)
   %175 = fdiv double %174, 1.200000e+01
-  %176 = call double @llvm.fmuladd.f64(double %171, double %171, double 1.000000e+00)
-  %177 = fmul double %176, 6.000000e+00
-  %178 = fmul double %174, 5.000000e+00
+  %176 = call nnan double @llvm.fmuladd.f64(double %171, double %171, double 1.000000e+00)
+  %177 = fmul nnan double %176, 6.000000e+00
+  %178 = fmul nnan double %174, 5.000000e+00
   %179 = fdiv double %177, %178
   %180 = fsub double 3.000000e+00, %179
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -71784,13 +71784,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %162 = sitofp i64 %44 to double
   %163 = fsub double %162, %161
   %164 = fadd double %163, 1.000000e+00
-  %165 = fadd double %161, %162
-  %166 = fmul double %165, 5.000000e-01
+  %165 = fadd nnan double %161, %162
+  %166 = fmul nnan double %165, 5.000000e-01
   %167 = call double @llvm.fmuladd.f64(double %164, double %164, double -1.000000e+00)
   %168 = fdiv double %167, 1.200000e+01
-  %169 = call double @llvm.fmuladd.f64(double %164, double %164, double 1.000000e+00)
-  %170 = fmul double %169, 6.000000e+00
-  %171 = fmul double %167, 5.000000e+00
+  %169 = call nnan double @llvm.fmuladd.f64(double %164, double %164, double 1.000000e+00)
+  %170 = fmul nnan double %169, 6.000000e+00
+  %171 = fmul nnan double %167, 5.000000e+00
   %172 = fdiv double %170, %171
   %173 = fsub double 3.000000e+00, %172
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -72808,13 +72808,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %162 = uitofp i64 %44 to double
   %163 = fsub double %162, %161
   %164 = fadd double %163, 1.000000e+00
-  %165 = fadd double %161, %162
-  %166 = fmul double %165, 5.000000e-01
+  %165 = fadd nnan double %161, %162
+  %166 = fmul nnan double %165, 5.000000e-01
   %167 = call double @llvm.fmuladd.f64(double %164, double %164, double -1.000000e+00)
   %168 = fdiv double %167, 1.200000e+01
-  %169 = call double @llvm.fmuladd.f64(double %164, double %164, double 1.000000e+00)
-  %170 = fmul double %169, 6.000000e+00
-  %171 = fmul double %167, 5.000000e+00
+  %169 = call nnan double @llvm.fmuladd.f64(double %164, double %164, double 1.000000e+00)
+  %170 = fmul nnan double %169, 6.000000e+00
+  %171 = fmul nnan double %167, 5.000000e+00
   %172 = fdiv double %170, %171
   %173 = fsub double 3.000000e+00, %172
   call void @llvm.lifetime.start.p0(ptr nonnull %13)

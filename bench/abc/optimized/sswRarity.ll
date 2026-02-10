@@ -3095,7 +3095,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i,
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.15, i32 noundef %315)
   %316 = load i32, ptr %80, align 8, !tbaa !98
   %317 = sitofp i32 %316 to double
-  %318 = fmul double %317, 1.000000e+02
+  %318 = fmul nnan double %317, 1.000000e+02
   %319 = load ptr, ptr %100, align 8, !tbaa !14
   %320 = getelementptr i8, ptr %319, i64 112
   %.val199 = load i32, ptr %320, align 8, !tbaa !79

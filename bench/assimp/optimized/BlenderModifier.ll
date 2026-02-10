@@ -1376,8 +1376,8 @@ _ZNK6aiMesh16HasTextureCoordsEj.exit:             ; preds = %.loopexit141, %._cr
 
 _ZNK6aiMesh16HasTextureCoordsEj.exit.thread:      ; preds = %._crit_edge, %_ZNK6aiMesh16HasTextureCoordsEj.exit
   %236 = phi ptr [ %242, %._crit_edge ], [ %202, %_ZNK6aiMesh16HasTextureCoordsEj.exit ]
-  %237 = fmul float %79, %81
-  %238 = fmul float %83, %237
+  %237 = fmul nnan float %79, %81
+  %238 = fmul nnan float %83, %237
   %239 = fcmp olt float %238, 0.000000e+00
   br i1 %239, label %.preheader139, label %.loopexit
 

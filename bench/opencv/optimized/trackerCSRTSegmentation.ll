@@ -213,17 +213,17 @@ define hidden void @_ZN2cv9Histogram26extractForegroundHistogramERSt6vectorINS_3
   %12 = sitofp i32 %4 to double
   %13 = sub nsw i32 %6, %4
   %14 = sitofp i32 %13 to double
-  %15 = fmul double %14, 5.000000e-01
-  %16 = fadd double %15, %12
+  %15 = fmul nnan double %14, 5.000000e-01
+  %16 = fadd nnan double %15, %12
   %17 = sitofp i32 %5 to double
   %18 = sub nsw i32 %7, %5
   %19 = sitofp i32 %18 to double
-  %20 = fmul double %19, 5.000000e-01
-  %21 = fadd double %20, %17
-  %22 = tail call double @llvm.fmuladd.f64(double %15, double 1.414200e+00, double 1.000000e+00)
-  %23 = fdiv double 1.000000e+00, %22
-  %24 = tail call double @llvm.fmuladd.f64(double %20, double 1.414200e+00, double 1.000000e+00)
-  %25 = fdiv double 1.000000e+00, %24
+  %20 = fmul nnan double %19, 5.000000e-01
+  %21 = fadd nnan double %20, %17
+  %22 = tail call nnan double @llvm.fmuladd.f64(double %15, double 1.414200e+00, double 1.000000e+00)
+  %23 = fdiv nnan double 1.000000e+00, %22
+  %24 = tail call nnan double @llvm.fmuladd.f64(double %20, double 1.414200e+00, double 1.000000e+00)
+  %25 = fdiv nnan double 1.000000e+00, %24
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !32
@@ -259,7 +259,7 @@ define hidden void @_ZN2cv9Histogram26extractForegroundHistogramERSt6vectorINS_3
   %41 = getelementptr inbounds nuw i8, ptr %31, i64 %40
   %42 = trunc nsw i64 %indvars.iv122 to i32
   %43 = sitofp i32 %42 to double
-  %44 = fsub double %21, %43
+  %44 = fsub nnan double %21, %43
   %45 = fmul double %25, %44
   %square = fmul double %45, %45
   br label %46
@@ -274,7 +274,7 @@ define hidden void @_ZN2cv9Histogram26extractForegroundHistogramERSt6vectorINS_3
   %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %46 ]
   %47 = trunc nsw i64 %indvars.iv to i32
   %48 = sitofp i32 %47 to double
-  %49 = fsub double %16, %48
+  %49 = fsub nnan double %16, %48
   %50 = fmul double %23, %49
   %square85 = fmul double %50, %50
   %51 = fadd double %square, %square85
@@ -304,7 +304,7 @@ define hidden void @_ZN2cv9Histogram26extractForegroundHistogramERSt6vectorINS_3
 60:                                               ; preds = %57, %8
   %61 = load i32, ptr %0, align 8, !tbaa !3
   %62 = sitofp i32 %61 to double
-  %63 = fmul double %62, 3.906250e-03
+  %63 = fmul nnan double %62, 3.906250e-03
   %.not78106 = icmp sgt i32 %5, %7
   br i1 %.not78106, label %._crit_edge111, label %.lr.ph110
 
@@ -507,7 +507,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 define hidden void @_ZN2cv9Histogram26extractBackGroundHistogramERSt6vectorINS_3MatESaIS2_EEiiiiiiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %11 = load i32, ptr %0, align 8, !tbaa !3
   %12 = sitofp i32 %11 to double
-  %13 = fmul double %12, 3.906250e-03
+  %13 = fmul nnan double %12, 3.906250e-03
   %14 = icmp slt i32 %7, %9
   br i1 %14, label %.lr.ph76, label %._crit_edge
 
@@ -743,7 +743,7 @@ define hidden void @_ZN2cv9Histogram11backProjectERSt6vectorINS_3MatESaIS2_EE(pt
   tail call void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %6, i32 noundef %8, i32 noundef 6)
   %9 = load i32, ptr %1, align 8, !tbaa !3
   %10 = sitofp i32 %9 to double
-  %11 = fmul double %10, 3.906250e-03
+  %11 = fmul nnan double %10, 3.906250e-03
   %12 = load i32, ptr %5, align 8, !tbaa !32
   %13 = icmp sgt i32 %12, 0
   br i1 %13, label %.lr.ph45, label %._crit_edge
@@ -1790,13 +1790,13 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit178:              ; preds = %315
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   %324 = sub nsw i32 %.sroa.speculated, %.sroa.speculated233
   %325 = sitofp i32 %324 to double
-  %square = fmul double %325, %325
+  %square = fmul nnan double %325, %325
   %326 = sub nsw i32 %.sroa.speculated239, %.sroa.speculated243
   %327 = sitofp i32 %326 to double
-  %square334 = fmul double %327, %327
+  %square334 = fmul nnan double %327, %327
   %328 = fadd double %square, %square334
-  %square335 = fmul double %168, %168
-  %square336 = fmul double %172, %172
+  %square335 = fmul nnan double %168, %168
+  %square336 = fmul nnan double %172, %172
   %329 = fadd double %square335, %square336
   %330 = fdiv double %328, %329
   %sqrt = call double @llvm.sqrt.f64(double %330)
@@ -2408,7 +2408,7 @@ define hidden void @_ZN2cv7Segment26getRegularizedSegmentationERNS_3MatES2_S2_S2
   %93 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %94 = load i32, ptr %93, align 4, !tbaa !40
   %95 = sitofp i32 %94 to double
-  %96 = fmul double %95, 3.000000e+00
+  %96 = fmul nnan double %95, 3.000000e+00
   %97 = fdiv double %96, 5.000000e+01
   %98 = fadd double %97, 5.000000e-01
   %99 = tail call double @llvm.floor.f64(double %98)
@@ -2444,8 +2444,8 @@ define hidden void @_ZN2cv7Segment26getRegularizedSegmentationERNS_3MatES2_S2_S2
   %112 = getelementptr inbounds nuw i8, ptr %6, i64 72
   %113 = load ptr, ptr %112, align 8, !tbaa !42
   %114 = load i64, ptr %113, align 8, !tbaa !43
-  %115 = fmul double %square, 2.000000e+00
-  %116 = fmul double %square, 0x401921FB54442D18
+  %115 = fmul nnan double %square, 2.000000e+00
+  %116 = fmul nnan double %square, 0x401921FB54442D18
   %117 = sext i32 %107 to i64
   %118 = zext nneg i32 %104 to i64
   %119 = add nuw i32 %104, 1

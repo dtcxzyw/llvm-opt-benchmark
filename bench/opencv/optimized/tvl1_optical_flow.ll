@@ -1209,7 +1209,7 @@ define internal fastcc void @_ZL15drawOpticalFlowRKN2cv4Mat_INS_6Point_IfEEEERNS
   br i1 %or.cond.us, label %36, label %_Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us
 
 36:                                               ; preds = %31
-  %37 = fmul float %.sroa.0.4.vec.extract.i.us, %.sroa.0.4.vec.extract.i.us
+  %37 = fmul nnan float %.sroa.0.4.vec.extract.i.us, %.sroa.0.4.vec.extract.i.us
   %38 = call float @llvm.fmuladd.f32(float %.sroa.0.0.vec.extract.i.us, float %.sroa.0.0.vec.extract.i.us, float %37)
   %sqrt.us = call float @llvm.sqrt.f32(float %38)
   %39 = fcmp olt float %.151.us, %sqrt.us
@@ -1452,7 +1452,7 @@ _Z13isFlowCorrectN2cv6Point_IfEE.exit.thread.us:  ; preds = %36, %31, %28
   %130 = getelementptr inbounds nuw i32, ptr %121, i64 %indvars.iv136.i
   %131 = load i32, ptr %130, align 4, !tbaa !57, !noalias !84
   %132 = sitofp i32 %131 to float
-  %133 = fdiv float %132, 2.550000e+02
+  %133 = fdiv nnan float %132, 2.550000e+02
   %134 = fmul float %117, %133
   %135 = call float @llvm.fmuladd.f32(float %122, float %129, float %134)
   %136 = fsub float 1.000000e+00, %135

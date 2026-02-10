@@ -438,7 +438,7 @@ _ZL16rule_major_timerRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL16rule_ma
   %116 = load i64, ptr %33, align 8
   %117 = add i64 %116, 1
   %118 = uitofp i64 %117 to double
-  %119 = fmul double %118, 1.000000e-01
+  %119 = fmul nnan double %118, 1.000000e-01
   %120 = uitofp i64 %54 to double
   %121 = fmul double %119, %120
   %122 = fptoui double %121 to i64
@@ -447,7 +447,7 @@ _ZL16rule_major_timerRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL16rule_ma
   br i1 %.not.i3.i.i, label %_ZL17rule_major_warmupRK14ZDirectorStats.exit.i.i, label %124
 
 124:                                              ; preds = %115
-  %125 = fmul double %119, 1.000000e+02
+  %125 = fmul nnan double %119, 1.000000e+02
   %126 = lshr i64 %55, 20
   %127 = lshr i64 %122, 20
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_37ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.10, double noundef %125, i64 noundef %126, i64 noundef %127)
@@ -477,7 +477,7 @@ _ZL17rule_major_warmupRK14ZDirectorStats.exit.thread.i.i: ; preds = %_ZL17rule_m
 134:                                              ; preds = %_ZL17rule_major_warmupRK14ZDirectorStats.exit.thread.i.i
   %135 = load i64, ptr %34, align 8
   %136 = uitofp i64 %54 to double
-  %137 = fmul double %136, 1.000000e-01
+  %137 = fmul nnan double %136, 1.000000e-01
   %138 = fptoui double %137 to i64
   %139 = add i64 %135, %138
   %140 = load double, ptr %32, align 8

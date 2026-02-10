@@ -5886,7 +5886,7 @@ _ZNK4llvm10BasicBlock13getTerminatorEv.exit:      ; preds = %34, %38
   %46 = tail call i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(248) %45, ptr noundef nonnull %2, ptr noundef %43) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %47 = uitofp i32 %46 to double
-  %48 = fmul double %47, 0x3E00000000000000
+  %48 = fmul nnan double %47, 0x3E00000000000000
   store double %48, ptr %13, align 8, !tbaa !71
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)

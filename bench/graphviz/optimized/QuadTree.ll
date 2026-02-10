@@ -1045,8 +1045,8 @@ gv_calloc.exit100.thread:                         ; preds = %4
   %66 = phi ptr [ %29, %._crit_edge113.thread ], [ %11, %.lr.ph116 ]
   %67 = phi ptr [ %30, %._crit_edge113.thread ], [ %17, %.lr.ph116 ]
   %.084.lcssa = phi double [ %52, %._crit_edge113.thread ], [ %64, %.lr.ph116 ]
-  %68 = tail call double @llvm.maxnum.f64(double %.084.lcssa, double 1.000000e-05)
-  %69 = fmul double %68, 5.200000e-01
+  %68 = tail call nsz double @llvm.maxnum.f64(double %.084.lcssa, double 1.000000e-05)
+  %69 = fmul nnan double %68, 5.200000e-01
   %70 = tail call ptr @QuadTree_new(i32 noundef %0, ptr noundef nonnull %65, double noundef %69, i32 noundef %2)
   %71 = icmp sgt i32 %1, 0
   br i1 %71, label %QuadTree_add.exit.preheader, label %._crit_edge118

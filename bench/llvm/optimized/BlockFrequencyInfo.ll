@@ -18420,8 +18420,8 @@ define linkonce_odr hidden void @_ZN4llvm21BFIDOTGraphTraitsBaseINS_18BlockFrequ
 17:                                               ; preds = %8
   %18 = tail call i32 @_ZNK4llvm21BranchProbabilityInfo18getEdgeProbabilityEPKNS_10BasicBlockENS_12SuccIteratorIKNS_11InstructionES2_EE(ptr noundef nonnull align 8 dereferenceable(248) %6, ptr noundef %2, ptr %3, i32 %4) #25
   %19 = uitofp i32 %18 to double
-  %20 = fmul double %19, 1.000000e+02
-  %21 = fmul double %20, 0x3E00000000000000
+  %20 = fmul nnan double %19, 1.000000e+02
+  %21 = fmul nnan double %20, 0x3E00000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i32 0, ptr %22, align 8, !tbaa !738

@@ -3214,7 +3214,7 @@ define linkonce_odr noundef ptr @_ZZN4pkpy6Random9_registerEPNS_2VMEPNS_8PyObjec
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = tail call noundef i32 @_ZN7mt1993711next_uint32Ev(ptr noundef nonnull align 4 dereferenceable(2512) %6)
   %8 = uitofp i32 %7 to double
-  %9 = fmul double %8, 0x3DF0000000000000
+  %9 = fmul nnan double %8, 0x3DF0000000000000
   %10 = fptrunc double %9 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %11 = fpext float %10 to double
@@ -3347,7 +3347,7 @@ define linkonce_odr noundef ptr @_ZZN4pkpy6Random9_registerEPNS_2VMEPNS_8PyObjec
   %15 = fptrunc double %.011.i to float
   %16 = tail call noundef i32 @_ZN7mt1993711next_uint32Ev(ptr noundef nonnull align 4 dereferenceable(2512) %13)
   %17 = uitofp i32 %16 to double
-  %18 = fmul double %17, 0x3DF0000000000000
+  %18 = fmul nnan double %17, 0x3DF0000000000000
   %19 = fptrunc double %18 to float
   %20 = fsub float %15, %14
   %21 = tail call noundef float @llvm.fmuladd.f32(float %19, float %20, float %14)
@@ -3994,7 +3994,7 @@ _ZN4pkpy7py_castIiEET_PNS_2VMEPNS_8PyObjectE.exit: ; preds = %91
   %106 = fptrunc double %105 to float
   %107 = call noundef i32 @_ZN7mt1993711next_uint32Ev(ptr noundef nonnull align 4 dereferenceable(2512) %11)
   %108 = uitofp i32 %107 to double
-  %109 = fmul double %108, 0x3DF0000000000000
+  %109 = fmul nnan double %108, 0x3DF0000000000000
   %110 = fptrunc double %109 to float
   %111 = call noundef float @llvm.fmuladd.f32(float %110, float %106, float 0.000000e+00)
   %112 = fpext float %111 to double

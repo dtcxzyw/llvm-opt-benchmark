@@ -27758,7 +27758,7 @@ _ZN2cvmLIdLi2EEERNS_3VecIT_XT0_EEES4_d.exit.critedge: ; preds = %303
 
 338:                                              ; preds = %336
   %339 = uitofp i64 %335 to double
-  %340 = fmul double %339, 2.000000e+00
+  %340 = fmul nnan double %339, 2.000000e+00
   %341 = uitofp i64 %337 to double
   %342 = sitofp i32 %334 to double
   %343 = fneg double %342
@@ -36038,7 +36038,7 @@ _ZN2cvmLIdLi2EEERNS_3VecIT_XT0_EEES4_d.exit.critedge: ; preds = %579
 
 617:                                              ; preds = %615
   %618 = uitofp i64 %614 to double
-  %619 = fmul double %618, 2.000000e+00
+  %619 = fmul nnan double %618, 2.000000e+00
   %620 = uitofp i64 %616 to double
   %621 = sitofp i32 %613 to double
   %622 = fneg double %621

@@ -1220,7 +1220,7 @@ for.end332:                                       ; preds = %for.cond.cleanup295
   %add.ptr.i443 = getelementptr inbounds nuw i64, ptr %139, i64 %137
   %140 = load i64, ptr %add.ptr.i443, align 8, !tbaa !34
   %conv339 = sitofp i64 %140 to double
-  %mul340 = fmul double %conv334, %conv339
+  %mul340 = fmul nnan double %conv334, %conv339
   %normalizationFactor_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   store double %mul340, ptr %normalizationFactor_, align 8, !tbaa !62
   ret void

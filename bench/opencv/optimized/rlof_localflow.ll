@@ -6433,7 +6433,7 @@ _ZN2cv7optflowL14copyWinBuffersEiiiiNS_5Size_IiEERKNS_3MatES5_S5_RS3_S6_NS_6Poin
   %357 = icmp sgt i32 %356, 0
   %358 = load i32, ptr %15, align 4
   %359 = sitofp i32 %358 to float
-  %360 = fmul float %359, 0x3EF0000000000000
+  %360 = fmul nnan float %359, 0x3EF0000000000000
   %361 = shl nsw i32 %358, 1
   %362 = sitofp i32 %361 to float
   %wide.trip.count918 = zext nneg i32 %200 to i64
@@ -6660,7 +6660,7 @@ _ZN2cv7optflowL14copyWinBuffersEiiiiNS_5Size_IiEERKNS_3MatES5_S5_RS3_S6_NS_6Poin
   %485 = sitofp i32 %484 to float
   %486 = fadd float %.1475776.us.us.us, %485
   %487 = sitofp i32 %475 to float
-  %488 = fmul float %472, %487
+  %488 = fmul nnan float %472, %487
   %489 = fadd float %.1472777.us.us.us, %488
   %490 = fadd float %.1469778.us.us.us, %487
   %491 = mul nsw i32 %477, %477
@@ -6784,7 +6784,7 @@ _ZN2cv7optflowL14copyWinBuffersEiiiiNS_5Size_IiEERKNS_3MatES5_S5_RS3_S6_NS_6Poin
   %567 = sitofp i32 %566 to float
   %568 = fadd float %.1475776.us840, %567
   %569 = sitofp i32 %557 to float
-  %570 = fmul float %554, %569
+  %570 = fmul nnan float %554, %569
   %571 = fadd float %.1472777.us839, %570
   %572 = fadd float %.1469778.us838, %569
   br label %573
@@ -7651,10 +7651,10 @@ _ZN2cv7optflowL13getLocalPatchERKNS_3MatERKNS_6Point_IiEERS1_RiRNS_5Rect_IiEEi.e
   %174 = trunc i64 %.sroa.027.0.insert.insert to i32
   %175 = add nsw i32 %174, -1
   %176 = sitofp i32 %175 to float
-  %177 = fmul float %176, 5.000000e-01
+  %177 = fmul nnan float %176, 5.000000e-01
   %178 = add nsw i32 %8, -1
   %179 = sitofp i32 %178 to float
-  %180 = fmul float %179, 5.000000e-01
+  %180 = fmul nnan float %179, 5.000000e-01
   store float %177, ptr %5, align 4
   %.sroa_idx26 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %180, ptr %.sroa_idx26, align 4
@@ -8380,8 +8380,8 @@ _ZN2cv7optflowL14copyWinBuffersEiiiiNS_5Size_IiEERKNS_3MatES5_S5_RS3_S6_NS_6Poin
   %392 = icmp sgt i32 %391, 0
   %393 = load i32, ptr %12, align 4
   %394 = sitofp i32 %393 to float
-  %395 = fmul float %394, 0x3EF0000000000000
-  %396 = fmul float %395, 2.000000e+00
+  %395 = fmul nnan float %394, 0x3EF0000000000000
+  %396 = fmul nnan float %395, 2.000000e+00
   %397 = shl nsw i32 %393, 1
   %398 = sitofp i32 %397 to float
   %wide.trip.count1657 = zext nneg i32 %221 to i64
@@ -12423,7 +12423,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %358
   %379 = load i32, ptr %14, align 4
   %380 = sitofp i32 %379 to float
   %381 = fdiv float 1.000000e+00, %380
-  %382 = fmul float %380, 2.000000e+00
+  %382 = fmul nnan float %380, 2.000000e+00
   %wide.trip.count1039 = zext nneg i32 %206 to i64
   %wide.trip.count = zext nneg i32 %377 to i64
   %wide.trip.count1034 = zext nneg i32 %377 to i64
@@ -18410,11 +18410,11 @@ _ZN2cv3Mat2atIsEERT_i.exit.us.us:                 ; preds = %510, %505, %496
   %..v = select i1 %600, float 0x3F847AE140000000, float %549
   %. = fmul float %549, %..v
   %.0234.us = select i1 %623, float 1.000000e+00, float %.
-  %624 = fmul float %615, %615
+  %624 = fmul nnan float %615, %615
   %625 = call float @llvm.fmuladd.f32(float %624, float %.0234.us, float %.3264527.us)
-  %626 = fmul float %615, %618
+  %626 = fmul nnan float %615, %618
   %627 = call float @llvm.fmuladd.f32(float %626, float %.0234.us, float %.3273526.us)
-  %628 = fmul float %618, %618
+  %628 = fmul nnan float %618, %618
   %629 = call float @llvm.fmuladd.f32(float %628, float %.0234.us, float %.3281525.us)
   br label %630
 
@@ -19856,11 +19856,11 @@ _ZN2cv3Mat2atIsEERT_i.exit:                       ; preds = %.lr.ph.split
   %..v = select i1 %648, float 0x3F847AE140000000, float %578
   %. = fmul float %578, %..v
   %.0457 = select i1 %686, float 1.000000e+00, float %.
-  %687 = fmul float %673, %673
+  %687 = fmul nnan float %673, %673
   %688 = call float @llvm.fmuladd.f32(float %687, float %.0457, float %.4415933)
-  %689 = fmul float %673, %676
+  %689 = fmul nnan float %673, %676
   %690 = call float @llvm.fmuladd.f32(float %689, float %.0457, float %.4425932)
-  %691 = fmul float %676, %676
+  %691 = fmul nnan float %676, %676
   %692 = call float @llvm.fmuladd.f32(float %691, float %.0457, float %.4435931)
   br label %693
 

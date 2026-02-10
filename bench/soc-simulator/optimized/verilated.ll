@@ -20967,7 +20967,7 @@ define dso_local void @_Z20vl_timescaled_doubleB5cxx11dPKc(ptr dead_on_unwind no
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %7
-  %10 = fmul double %1, 1.000000e+03
+  %10 = fmul nnan double %1, 1.000000e+03
   br label %31
 
 11:                                               ; preds = %7
@@ -20975,7 +20975,7 @@ define dso_local void @_Z20vl_timescaled_doubleB5cxx11dPKc(ptr dead_on_unwind no
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %11
-  %14 = fmul double %1, 1.000000e+06
+  %14 = fmul nnan double %1, 1.000000e+06
   br label %31
 
 15:                                               ; preds = %11
@@ -20983,7 +20983,7 @@ define dso_local void @_Z20vl_timescaled_doubleB5cxx11dPKc(ptr dead_on_unwind no
   br i1 %16, label %19, label %17
 
 17:                                               ; preds = %15
-  %18 = fmul double %1, 1.000000e+09
+  %18 = fmul nnan double %1, 1.000000e+09
   br label %31
 
 19:                                               ; preds = %15
@@ -20991,7 +20991,7 @@ define dso_local void @_Z20vl_timescaled_doubleB5cxx11dPKc(ptr dead_on_unwind no
   br i1 %20, label %23, label %21
 
 21:                                               ; preds = %19
-  %22 = fmul double %1, 1.000000e+12
+  %22 = fmul nnan double %1, 1.000000e+12
   br label %31
 
 23:                                               ; preds = %19
@@ -20999,7 +20999,7 @@ define dso_local void @_Z20vl_timescaled_doubleB5cxx11dPKc(ptr dead_on_unwind no
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %23
-  %26 = fmul double %1, 1.000000e+15
+  %26 = fmul nnan double %1, 1.000000e+15
   br label %31
 
 27:                                               ; preds = %23
@@ -21007,7 +21007,7 @@ define dso_local void @_Z20vl_timescaled_doubleB5cxx11dPKc(ptr dead_on_unwind no
   br i1 %28, label %31, label %29
 
 29:                                               ; preds = %27
-  %30 = fmul double %1, 1.000000e+18
+  %30 = fmul nnan double %1, 1.000000e+18
   br label %31
 
 31:                                               ; preds = %3, %9, %17, %25, %29, %27, %21, %13
@@ -26279,8 +26279,8 @@ _ZNK16VerilatedContext4timeEv.exit:               ; preds = %.noexc, %45, %_ZN9V
   %93 = sext i32 %92 to i64
   %94 = mul i64 %91, %93
   %95 = uitofp i64 %94 to double
-  %96 = fmul double %95, 0x3F50000000000000
-  %97 = fmul double %96, 0x3F50000000000000
+  %96 = fmul nnan double %95, 0x3F50000000000000
+  %97 = fmul nnan double %96, 0x3F50000000000000
   br label %98
 
 98:                                               ; preds = %88, %.noexc22, %79

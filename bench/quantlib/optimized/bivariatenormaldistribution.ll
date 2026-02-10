@@ -545,7 +545,7 @@ if.end7:                                          ; preds = %entry
 for.cond.preheader:                               ; preds = %if.end7
   %neg = fneg double %div
   %neg32 = fneg double %div14
-  %mul35 = fmul double %1, 2.000000e+00
+  %mul35 = fmul nnan double %1, 2.000000e+00
   br label %for.cond21.preheader
 
 for.cond21.preheader:                             ; preds = %for.cond.preheader, %for.cond.cleanup23
@@ -677,8 +677,8 @@ if.then95:                                        ; preds = %if.else90
   call void @llvm.lifetime.start.p0(ptr nonnull %CBND2)
   call void @_ZN8QuantLib41BivariateCumulativeNormalDistributionDr78C1Ed(ptr noundef nonnull align 8 dereferenceable(16) %CBND2, double noundef %div125)
   %neg131 = fneg double %cond
-  %18 = call double @llvm.fmuladd.f64(double %neg131, double %cond115, double 1.000000e+00)
-  %div132 = fmul double %18, 2.500000e-01
+  %18 = call nnan double @llvm.fmuladd.f64(double %neg131, double %cond115, double 1.000000e+00)
+  %div132 = fmul nnan double %18, 2.500000e-01
   %call133 = call noundef double @_ZNK8QuantLib41BivariateCumulativeNormalDistributionDr78clEdd(ptr noundef nonnull align 8 dereferenceable(16) %bivCumNormalDist110, double noundef %a, double noundef 0.000000e+00)
   %call134 = call noundef double @_ZNK8QuantLib41BivariateCumulativeNormalDistributionDr78clEdd(ptr noundef nonnull align 8 dereferenceable(16) %CBND2, double noundef %b, double noundef 0.000000e+00)
   %add135 = fadd double %call133, %call134
@@ -1745,8 +1745,8 @@ if.else24:                                        ; preds = %if.end5
   br i1 %cmp32, label %if.then33, label %if.end96
 
 if.then33:                                        ; preds = %if.else24
-  %sub = fsub double 1.000000e+00, %2
-  %add = fadd double %2, 1.000000e+00
+  %sub = fsub nnan double 1.000000e+00, %2
+  %add = fadd nnan double %2, 1.000000e+00
   %mul36 = fmul double %sub, %add
   %call37 = call double @sqrt(double noundef %mul36) #16, !tbaa !32
   %sub38 = fsub double %fneg, %k.0
@@ -1787,7 +1787,7 @@ if.end67:                                         ; preds = %if.then50, %if.then
 
 if.then70:                                        ; preds = %if.end67
   %sqrt = call double @llvm.sqrt.f64(double %mul40)
-  %div73 = fmul double %hk.0, -5.000000e-01
+  %div73 = fmul nnan double %hk.0, -5.000000e-01
   %call74 = call double @exp(double noundef %div73) #16, !tbaa !32
   %mul75 = fmul double %call74, 0x40040D931FF62704
   %cumnorm_76 = getelementptr inbounds nuw i8, ptr %this, i64 8

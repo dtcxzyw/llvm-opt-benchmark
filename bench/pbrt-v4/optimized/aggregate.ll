@@ -2018,7 +2018,7 @@ _ZN4pbrt9HashFloatIJNS_6Point3IfEENS_7Vector3IfEENS_8MaterialES5_EEEfDpT_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !190
   %164 = trunc i64 %163 to i32
   %165 = uitofp i32 %164 to float
-  %166 = fmul float %165, 0x3DF0000000000000
+  %166 = fmul nnan float %165, 0x3DF0000000000000
   %167 = fcmp olt float %138, %166
   %168 = select i1 %167, i64 %150, i64 %152
   br label %_ZNK4pbrt11MixMaterial14ChooseMaterialINS_21BasicTextureEvaluatorEEENS_8MaterialET_NS_19MaterialEvalContextE.exit
@@ -12020,7 +12020,7 @@ _ZN4pbrt15SampledSpectrumC2Ef.exit46.i.i.i.i:     ; preds = %340
   %381 = trunc nuw nsw i64 %380 to i32
   %382 = call noundef i32 @llvm.fshr.i32(i32 %379, i32 %379, i32 %381)
   %383 = uitofp i32 %382 to float
-  %384 = fmul float %383, 0x3DF0000000000000
+  %384 = fmul nnan float %383, 0x3DF0000000000000
   %385 = fcmp olt float %384, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i.i.i = select i1 %385, float %384, float 0x3FEFFFFFE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %119)
@@ -12214,7 +12214,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEEptEv.exit100.i.i.i.i.i.i.i.i.i: ; 
   %463 = trunc nuw nsw i64 %462 to i32
   %464 = call noundef i32 @llvm.fshr.i32(i32 %461, i32 %461, i32 %463)
   %465 = uitofp i32 %464 to float
-  %466 = fmul float %465, 0x3DF0000000000000
+  %466 = fmul nnan float %465, 0x3DF0000000000000
   %467 = fcmp olt float %466, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i.i.i.i.i.i.i.i = select i1 %467, float %466, float 0x3FEFFFFFE0000000
   %468 = fcmp olt float %453, %.sroa.7183.0.copyload.i.i.i.i.i.i.i.i.i
@@ -12749,7 +12749,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEEptEv.exit100._crit_edge.i.i.i.i.i.
   %674 = trunc nuw nsw i64 %673 to i32
   %675 = call noundef i32 @llvm.fshr.i32(i32 %672, i32 %672, i32 %674)
   %676 = uitofp i32 %675 to float
-  %677 = fmul float %676, 0x3DF0000000000000
+  %677 = fmul nnan float %676, 0x3DF0000000000000
   %678 = fcmp olt float %677, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i31.i.i.i.i.i.i.i = select i1 %678, float %677, float 0x3FEFFFFFE0000000
   %679 = load float, ptr %295, align 4, !tbaa !743
@@ -13228,7 +13228,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEEptEv.exit100._crit_edge.i.i135.i.i
   %876 = trunc nuw nsw i64 %875 to i32
   %877 = call noundef i32 @llvm.fshr.i32(i32 %874, i32 %874, i32 %876)
   %878 = uitofp i32 %877 to float
-  %879 = fmul float %878, 0x3DF0000000000000
+  %879 = fmul nnan float %878, 0x3DF0000000000000
   %880 = fcmp olt float %879, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i110.i.i.i.i.i.i.i = select i1 %880, float %879, float 0x3FEFFFFFE0000000
   %881 = load float, ptr %281, align 4, !tbaa !743
@@ -13878,7 +13878,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEEptEv.exit100.i.i187.i.i.i.i.i.i.i:
   %1139 = trunc nuw nsw i64 %1138 to i32
   %1140 = call noundef i32 @llvm.fshr.i32(i32 %1137, i32 %1137, i32 %1139)
   %1141 = uitofp i32 %1140 to float
-  %1142 = fmul float %1141, 0x3DF0000000000000
+  %1142 = fmul nnan float %1141, 0x3DF0000000000000
   %1143 = fcmp olt float %1142, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i190.i.i.i.i.i.i.i = select i1 %1143, float %1142, float 0x3FEFFFFFE0000000
   %1144 = fcmp olt float %1129, %.sroa.7.0.copyload.i.i.i.i.i.i.i.i.i
@@ -14304,7 +14304,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEEptEv.exit100._crit_edge.i.i350.i.i
   %1305 = trunc nuw nsw i64 %1304 to i32
   %1306 = call noundef i32 @llvm.fshr.i32(i32 %1303, i32 %1303, i32 %1305)
   %1307 = uitofp i32 %1306 to float
-  %1308 = fmul float %1307, 0x3DF0000000000000
+  %1308 = fmul nnan float %1307, 0x3DF0000000000000
   %1309 = fcmp olt float %1308, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i301.i.i.i.i.i.i.i = select i1 %1309, float %1308, float 0x3FEFFFFFE0000000
   %1310 = load float, ptr %319, align 4, !tbaa !743
@@ -15539,7 +15539,7 @@ _ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit: ; preds = %123
   %141 = trunc nuw nsw i64 %140 to i32
   %142 = tail call noundef i32 @llvm.fshr.i32(i32 %139, i32 %139, i32 %141)
   %143 = uitofp i32 %142 to float
-  %144 = fmul float %143, 0x3DF0000000000000
+  %144 = fmul nnan float %143, 0x3DF0000000000000
   %145 = fcmp olt float %144, 0x3FEFFFFFE0000000
   %.sroa.speculated.i106 = select i1 %145, float %144, float 0x3FEFFFFFE0000000
   %146 = fcmp olt float %.sroa.speculated.i106, 7.500000e-01
@@ -16318,13 +16318,13 @@ _ZNK4pstd8optionalIN4pbrt11SampledGridIfEEEptEv.exit: ; preds = %154
 167:                                              ; preds = %_ZNK4pstd8optionalIN4pbrt11SampledGridIfEEEptEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float %165, ptr %15, align 4, !tbaa !806
-  %168 = fdiv float 0x3F67BD1180000000, %165
-  %169 = fmul float %168, 1.000000e+09
-  %170 = fmul float %169, 0x3E112E0BE0000000
+  %168 = fdiv nnan float 0x3F67BD1180000000, %165
+  %169 = fmul nnan float %168, 1.000000e+09
+  %170 = fmul nnan float %169, 0x3E112E0BE0000000
   %171 = fmul float %170, %170
   %172 = fmul float %171, %171
   %173 = fmul float %170, %172
-  %174 = fmul float %170, 0x3B30B0E6A0000000
+  %174 = fmul nnan float %170, 0x3B30B0E6A0000000
   %175 = fmul float %165, %174
   %176 = fdiv float 0x3ACEBD1F40000000, %175
   %177 = fmul float %176, 0x3FF7154760000000
@@ -23616,7 +23616,7 @@ _ZNK4pbrt9Transform12ApplyInverseIfEENS_6Point3IT_EES4_.exit: ; preds = %5
   br i1 %81, label %82, label %.loopexit.i
 
 82:                                               ; preds = %_ZNK4pbrt9Transform12ApplyInverseIfEENS_6Point3IT_EES4_.exit
-  %83 = fmul float %80, 0x3FA99999A0000000
+  %83 = fmul nnan float %80, 0x3FA99999A0000000
   br label %84
 
 84:                                               ; preds = %84, %82
@@ -25331,7 +25331,7 @@ _ZN4pstd8optionalIN4pbrt17ShapeIntersectionEEptEv.exit36.i.i.i: ; preds = %91
   %105 = trunc nuw nsw i64 %104 to i32
   %106 = call noundef i32 @llvm.fshr.i32(i32 %103, i32 %103, i32 %105)
   %107 = uitofp i32 %106 to float
-  %108 = fmul float %107, 0x3DF0000000000000
+  %108 = fmul nnan float %107, 0x3DF0000000000000
   %109 = fcmp olt float %108, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i.i.i = select i1 %109, float %108, float 0x3FEFFFFFE0000000
   %110 = fcmp olt float %.sroa.speculated.i.i.i.i.i, %97

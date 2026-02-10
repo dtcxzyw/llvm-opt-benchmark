@@ -3584,7 +3584,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchParam17NormalizeTriangleIfEEvRT_S5_.exit: ; pr
   %72 = and i32 %71, 15
   %73 = shl nuw nsw i32 1, %72
   %74 = uitofp nneg i32 %73 to float
-  %75 = fmul float %.054, %74
+  %75 = fmul nnan float %.054, %74
   %76 = icmp sgt i32 %65, 0
   br i1 %76, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3615,7 +3615,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchParam17NormalizeTriangleIfEEvRT_S5_.exit: ; pr
   br i1 %or.cond9, label %86, label %.loopexit
 
 86:                                               ; preds = %._crit_edge
-  %87 = fmul float %.054, %75
+  %87 = fmul nnan float %.054, %75
   %88 = fmul float %75, %87
   br i1 %76, label %.lr.ph79.preheader, label %.loopexit
 
@@ -7139,7 +7139,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchParam17NormalizeTriangleIdEEvRT_S5_.exit: ; pr
   %74 = and i32 %73, 15
   %75 = shl nuw nsw i32 1, %74
   %76 = uitofp nneg i32 %75 to double
-  %77 = fmul double %.054, %76
+  %77 = fmul nnan double %.054, %76
   %78 = icmp sgt i32 %67, 0
   br i1 %78, label %.lr.ph.preheader, label %._crit_edge
 
@@ -7170,7 +7170,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchParam17NormalizeTriangleIdEEvRT_S5_.exit: ; pr
   br i1 %or.cond9, label %88, label %.loopexit
 
 88:                                               ; preds = %._crit_edge
-  %89 = fmul double %.054, %77
+  %89 = fmul nnan double %.054, %77
   %90 = fmul double %77, %89
   br i1 %78, label %.lr.ph79.preheader, label %.loopexit
 

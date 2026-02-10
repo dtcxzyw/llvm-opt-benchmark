@@ -110,8 +110,8 @@ define void @dlasv2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 
 63:                                               ; preds = %61
   %. = select i1 %62, double -2.000000e+00, double 2.000000e+00
-  %64 = fneg double %.
-  %65 = select i1 %22, double %., double %64
+  %64 = fneg nnan double %.
+  %65 = select nnan i1 %22, double %., double %64
   br label %81
 
 66:                                               ; preds = %61
@@ -181,12 +181,12 @@ define void @dlasv2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %94 = load double, ptr %.sink244, align 8, !tbaa !3
   %95 = fcmp ult double %94, 0.000000e+00
   %96 = select i1 %95, double -1.000000e+00, double 1.000000e+00
-  %97 = fneg double %96
-  %98 = select i1 %93, double %97, double %96
+  %97 = fneg nnan double %96
+  %98 = select nnan i1 %93, double %97, double %96
   %99 = load double, ptr %.sink, align 8, !tbaa !3
   %100 = fcmp ult double %99, 0.000000e+00
-  %101 = fneg double %98
-  %102 = select i1 %100, double %101, double %98
+  %101 = fneg nnan double %98
+  %102 = select nnan i1 %100, double %101, double %98
   %103 = fcmp ult double %102, 0.000000e+00
   %104 = load double, ptr %4, align 8, !tbaa !3
   %105 = fcmp ult double %104, 0.000000e+00

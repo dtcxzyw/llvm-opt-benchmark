@@ -3809,7 +3809,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit:             ; preds = %44
 ._crit_edge487:                                   ; preds = %84
   %66 = add nsw i32 %5, -1
   %67 = uitofp nneg i32 %66 to double
-  %68 = fmul double %67, 5.000000e-01
+  %68 = fmul nnan double %67, 5.000000e-01
   %69 = fptosi double %68 to i32
   %70 = add nsw i32 %69, 1
   %71 = icmp slt i32 %69, 0
@@ -4119,7 +4119,7 @@ _ZNKSt8functionIFdPKfiEEclES1_i.exit215:          ; preds = %182
 ._crit_edge483:                                   ; preds = %229
   %207 = add nsw i32 %5, -1
   %208 = uitofp nneg i32 %207 to double
-  %209 = fmul double %208, 5.000000e-01
+  %209 = fmul nnan double %208, 5.000000e-01
   %210 = fptosi double %209 to i32
   %211 = add nsw i32 %210, 1
   %212 = icmp slt i32 %210, 0
@@ -5377,7 +5377,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit85:                  ; preds = %63, %_ZNSt6vectorId
 ._crit_edge164:                                   ; preds = %147
   %139 = add nsw i32 %7, -1
   %140 = uitofp nneg i32 %139 to double
-  %141 = fmul double %140, 5.000000e-01
+  %141 = fmul nnan double %140, 5.000000e-01
   %142 = fptosi double %141 to i32
   %143 = add nsw i32 %142, 1
   %144 = icmp slt i32 %142, 0
@@ -24640,7 +24640,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit82:                  ; preds = %_ZN8LightGBM6Common
   %41 = lshr i32 %40, 16
   %42 = and i32 %41, 32767
   %43 = uitofp nneg i32 %42 to float
-  %44 = fmul float %43, 0x3F00000000000000
+  %44 = fmul nnan float %43, 0x3F00000000000000
   %45 = fpext float %44 to double
   %46 = fptosi float %38 to i32
   %47 = tail call fastcc noundef double @_ZN8LightGBM6CommonL3PowIiEEdT_i(i32 noundef 2, i32 noundef %46)
@@ -29985,7 +29985,7 @@ define internal void @_ZN8LightGBM18RegressionMAPELOSS4InitERKNS_8MetadataEi.omp
   %28 = call noundef float @llvm.fabs.f32(float %27)
   %29 = fcmp ogt float %28, 1.000000e+00
   %.sroa.speculated = select i1 %29, float %28, float 1.000000e+00
-  %30 = fdiv float 1.000000e+00, %.sroa.speculated
+  %30 = fdiv nnan float 1.000000e+00, %.sroa.speculated
   %31 = getelementptr inbounds float, ptr %20, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !175
   %33 = fmul float %32, %30
@@ -38635,7 +38635,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232: ; preds = %.c
   br i1 %.ph, label %164, label %170
 
 164:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i231.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i231, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232
-  %165 = fmul double %.0129, 1.000000e+308
+  %165 = fmul nnan double %.0129, 1.000000e+308
   br label %.sink.split
 
 166:                                              ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit224.thread257

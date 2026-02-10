@@ -97,7 +97,7 @@ define void @_ZN6LibRaw19kodak_radc_load_rawEv(ptr noundef nonnull align 8 deref
   %43 = sub nuw nsw i64 %indvars.iv, %40
   %44 = trunc nuw nsw i64 %43 to i32
   %45 = sitofp i32 %44 to float
-  %46 = fmul reassoc nsz arcp contract afn float %37, %45
+  %46 = fmul reassoc nnan nsz arcp contract afn float %37, %45
   %47 = fmul reassoc nsz arcp contract afn float %46, %41
   %48 = fadd reassoc nsz arcp contract afn float %47, %38
   %49 = fpext reassoc nsz arcp contract afn float %48 to double

@@ -4317,10 +4317,10 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 1106:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.thread.i.i"
   %1107 = uitofp nneg i64 %.sroa.7.0420.i.i to float
-  %1108 = fmul float %1107, 0x3FB1EB8520000000
-  %1109 = fdiv float %1108, 2.000000e+03
-  %1110 = fadd float %1109, 0x3FE8A3D700000000
-  %1111 = fmul float %1110, 0x403C1999A0000000
+  %1108 = fmul nnan float %1107, 0x3FB1EB8520000000
+  %1109 = fdiv nnan float %1108, 2.000000e+03
+  %1110 = fadd nnan float %1109, 0x3FE8A3D700000000
+  %1111 = fmul nnan float %1110, 0x403C1999A0000000
   br label %1048
 
 1112:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.i.i"
@@ -7564,10 +7564,10 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 2208:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.thread.i.i181"
   %2209 = uitofp nneg i64 %.sroa.7.0420.i.i154 to float
-  %2210 = fmul float %2209, 0x3FB1EB8520000000
-  %2211 = fdiv float %2210, 2.000000e+03
-  %2212 = fadd float %2211, 0x3FE8A3D700000000
-  %2213 = fmul float %2212, 1.350000e+01
+  %2210 = fmul nnan float %2209, 0x3FB1EB8520000000
+  %2211 = fdiv nnan float %2210, 2.000000e+03
+  %2212 = fadd nnan float %2211, 0x3FE8A3D700000000
+  %2213 = fmul nnan float %2212, 1.350000e+01
   br label %2150
 
 2214:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.i.i176"
@@ -10825,10 +10825,10 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17hadceb5d9e5fb8a10E.exit.
 
 3313:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.thread.i.i601"
   %3314 = uitofp nneg i64 %.sroa.7.0420.i.i574 to float
-  %3315 = fmul float %3314, 0x3FB1EB8520000000
-  %3316 = fdiv float %3315, 2.000000e+03
-  %3317 = fadd float %3316, 0x3FE8A3D700000000
-  %3318 = fmul float %3317, 0x402D333340000000
+  %3315 = fmul nnan float %3314, 0x3FB1EB8520000000
+  %3316 = fdiv nnan float %3315, 2.000000e+03
+  %3317 = fadd nnan float %3316, 0x3FE8A3D700000000
+  %3318 = fmul nnan float %3317, 0x402D333340000000
   br label %3255
 
 3319:                                             ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h82e15a42ed1aaa8aE.exit.i.i596"

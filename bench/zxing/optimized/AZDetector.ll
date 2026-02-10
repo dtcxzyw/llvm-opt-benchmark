@@ -450,7 +450,7 @@ _ZNK5ZXing11PatternView13pixelsInFrontEv.exit.i:  ; preds = %_ZN5ZXing6ReduceIPK
   %141 = add nuw nsw i32 %140, %139
   %142 = uitofp nneg i32 %141 to double
   %143 = uitofp i16 %123 to double
-  %144 = fmul double %143, 5.000000e-01
+  %144 = fmul nnan double %143, 5.000000e-01
   %145 = fadd double %144, %142
   br label %146
 
@@ -1708,7 +1708,7 @@ _ZN5ZXing5AztecL17ExtractParametersEibRiS1_Rb.exit: ; preds = %607, %616
 632:                                              ; preds = %625, %623
   %633 = phi i32 [ %624, %623 ], [ %631, %625 ]
   %634 = sitofp i32 %633 to double
-  %635 = fmul double %634, 5.000000e-01
+  %635 = fmul nnan double %634, 5.000000e-01
   %636 = load double, ptr %21, align 8, !tbaa !119
   %637 = fadd double %636, %635
   %638 = load double, ptr %348, align 8, !tbaa !119

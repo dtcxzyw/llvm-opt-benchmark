@@ -607,7 +607,7 @@ check_retval.exit121.i:                           ; preds = %249, %245
   br i1 %256, label %260, label %257
 
 257:                                              ; preds = %254
-  %258 = fmul double %252, -2.000000e+00
+  %258 = fmul nnan double %252, -2.000000e+00
   %259 = call double @exp(double noundef %258) #9, !tbaa !28
   br label %260
 
@@ -826,7 +826,7 @@ check_retval.exit138.i:                           ; preds = %353, %349
   br i1 %360, label %364, label %361
 
 361:                                              ; preds = %358
-  %362 = fmul double %356, -2.000000e+00
+  %362 = fmul nnan double %356, -2.000000e+00
   %363 = call double @exp(double noundef %362) #9, !tbaa !28
   br label %364
 

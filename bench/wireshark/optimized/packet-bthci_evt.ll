@@ -2782,7 +2782,7 @@ define internal void @freq_compensation(ptr noundef %0, i16 noundef signext %1) 
 
 3:                                                ; preds = %2
   %4 = sitofp i16 %1 to double
-  %5 = fmul double %4, 1.000000e-02
+  %5 = fmul nnan double %4, 1.000000e-02
   %6 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1770, double noundef %5)
   br label %9
 
@@ -2820,7 +2820,7 @@ define internal void @convert_time_unit_0p5_ns(ptr noundef %0, i16 noundef signe
 3:                                                ; preds = %2
   %4 = sext i16 %1 to i32
   %5 = sitofp i16 %1 to double
-  %6 = fmul double %5, 5.000000e-01
+  %6 = fmul nnan double %5, 5.000000e-01
   %7 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1798, double noundef %6, i32 noundef %4)
   br label %10
 
@@ -7663,7 +7663,7 @@ proto_item_set_generated.exit2580:                ; preds = %823, %820, %812, %p
   %1011 = load i32, ptr @hf_bthci_evt_clock_accuracy, align 4
   %1012 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1011, ptr noundef %0, i32 noundef 12, i32 noundef 2, i32 noundef -2147483648)
   %1013 = uitofp i32 %1010 to double
-  %1014 = fmul double %1013, 3.125000e-01
+  %1014 = fmul nnan double %1013, 3.125000e-01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1012, ptr noundef nonnull @.str.1826, double noundef %1014)
   br label %send_hci_summary_status_tap.exit
 
@@ -8345,13 +8345,13 @@ proto_item_set_generated.exit2580:                ; preds = %823, %820, %812, %p
   %1507 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1506, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
   %1508 = tail call signext i16 @tvb_get_letohis(ptr noundef %0, i32 noundef 6)
   %1509 = sitofp i16 %1508 to double
-  %1510 = fmul double %1509, 1.000000e-01
+  %1510 = fmul nnan double %1509, 1.000000e-01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1507, ptr noundef nonnull @.str.1829, double noundef %1510)
   %1511 = load i32, ptr @hf_bthci_evt_rf_rx_path_compensation, align 4
   %1512 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %1511, ptr noundef %0, i32 noundef 8, i32 noundef 2, i32 noundef -2147483648)
   %1513 = tail call signext i16 @tvb_get_letohis(ptr noundef %0, i32 noundef 8)
   %1514 = sitofp i16 %1513 to double
-  %1515 = fmul double %1514, 1.000000e-01
+  %1515 = fmul nnan double %1514, 1.000000e-01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %1512, ptr noundef nonnull @.str.1829, double noundef %1515)
   br label %send_hci_summary_status_tap.exit
 
@@ -9315,7 +9315,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
   %31 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 5)
   %32 = and i16 %31, 32767
   %33 = uitofp nneg i16 %32 to double
-  %34 = fmul double %33, 1.250000e+00
+  %34 = fmul nnan double %33, 1.250000e+00
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %30, ptr noundef nonnull @.str.1831, double noundef %34)
   ret void
 }
@@ -11190,7 +11190,7 @@ send_hci_summary_status_tap.exit1739:             ; preds = %474, %494
   %604 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %603, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef -2147483648)
   %605 = tail call signext i16 @tvb_get_letohis(ptr noundef %0, i32 noundef 6)
   %606 = sitofp i16 %605 to double
-  %607 = fmul double %606, 1.000000e-01
+  %607 = fmul nnan double %606, 1.000000e-01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %604, ptr noundef nonnull @.str.1835, double noundef %607)
   %608 = load i32, ptr @hf_bthci_evt_antenna_id, align 4
   %609 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %608, ptr noundef %0, i32 noundef 8, i32 noundef 1, i32 noundef 0)
@@ -11216,7 +11216,7 @@ send_hci_summary_status_tap.exit1739:             ; preds = %474, %494
   %627 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %626, ptr noundef %0, i32 noundef 7, i32 noundef 2, i32 noundef -2147483648)
   %628 = tail call signext i16 @tvb_get_letohis(ptr noundef %0, i32 noundef 7)
   %629 = sitofp i16 %628 to double
-  %630 = fmul double %629, 1.000000e-01
+  %630 = fmul nnan double %629, 1.000000e-01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %627, ptr noundef nonnull @.str.1835, double noundef %630)
   %631 = load i32, ptr @hf_bthci_evt_antenna_id, align 4
   %632 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %631, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0)

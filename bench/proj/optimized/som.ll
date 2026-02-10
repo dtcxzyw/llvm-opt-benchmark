@@ -238,7 +238,7 @@ define internal fastcc noundef ptr @_ZL9som_setupP8PJconsts(ptr noundef returned
   %76 = phi double [ %68, %1 ], [ %109, %73 ]
   %77 = phi double [ %72, %1 ], [ %115, %73 ]
   %78 = phi double [ %72, %1 ], [ %118, %73 ]
-  %79 = fmul double %.073, 0x3F91DF46A2529D39
+  %79 = fmul nnan double %.073, 0x3F91DF46A2529D39
   %80 = tail call double @sin(double noundef %79) #9, !tbaa !48
   %81 = fmul double %80, %80
   %82 = tail call double @cos(double noundef %79) #9, !tbaa !48
@@ -267,7 +267,7 @@ define internal fastcc noundef ptr @_ZL9som_setupP8PJconsts(ptr noundef returned
   %104 = fadd double %79, %79
   %105 = tail call double @cos(double noundef %104) #9, !tbaa !48
   %106 = tail call double @llvm.fmuladd.f64(double %102, double %105, double %75)
-  %107 = fmul double %79, 4.000000e+00
+  %107 = fmul nnan double %79, 4.000000e+00
   %108 = tail call double @cos(double noundef %107) #9, !tbaa !48
   %109 = tail call double @llvm.fmuladd.f64(double %102, double %108, double %76)
   %110 = fmul double %90, 4.000000e+00
@@ -276,7 +276,7 @@ define internal fastcc noundef ptr @_ZL9som_setupP8PJconsts(ptr noundef returned
   %113 = fdiv double %112, %sqrt.i62
   %114 = tail call double @cos(double noundef %79) #9, !tbaa !48
   %115 = tail call double @llvm.fmuladd.f64(double %113, double %114, double %77)
-  %116 = fmul double %79, 3.000000e+00
+  %116 = fmul nnan double %79, 3.000000e+00
   %117 = tail call double @cos(double noundef %116) #9, !tbaa !48
   %118 = tail call double @llvm.fmuladd.f64(double %113, double %117, double %78)
   %119 = fadd double %.073, 1.800000e+01
@@ -290,7 +290,7 @@ define internal fastcc noundef ptr @_ZL9som_setupP8PJconsts(ptr noundef returned
   %123 = phi double [ %156, %.preheader ], [ %109, %73 ]
   %124 = phi double [ %162, %.preheader ], [ %115, %73 ]
   %125 = phi double [ %165, %.preheader ], [ %118, %73 ]
-  %126 = fmul double %.184, 0x3F91DF46A2529D39
+  %126 = fmul nnan double %.184, 0x3F91DF46A2529D39
   %127 = tail call double @sin(double noundef %126) #9, !tbaa !48
   %128 = fmul double %127, %127
   %129 = tail call double @cos(double noundef %126) #9, !tbaa !48
@@ -319,7 +319,7 @@ define internal fastcc noundef ptr @_ZL9som_setupP8PJconsts(ptr noundef returned
   %151 = fadd double %126, %126
   %152 = tail call double @cos(double noundef %151) #9, !tbaa !48
   %153 = tail call double @llvm.fmuladd.f64(double %149, double %152, double %122)
-  %154 = fmul double %126, 4.000000e+00
+  %154 = fmul nnan double %126, 4.000000e+00
   %155 = tail call double @cos(double noundef %154) #9, !tbaa !48
   %156 = tail call double @llvm.fmuladd.f64(double %149, double %155, double %123)
   %157 = fmul double %137, 2.000000e+00
@@ -328,7 +328,7 @@ define internal fastcc noundef ptr @_ZL9som_setupP8PJconsts(ptr noundef returned
   %160 = fdiv double %159, %sqrt.i63
   %161 = tail call double @cos(double noundef %126) #9, !tbaa !48
   %162 = tail call double @llvm.fmuladd.f64(double %160, double %161, double %124)
-  %163 = fmul double %126, 3.000000e+00
+  %163 = fmul nnan double %126, 3.000000e+00
   %164 = tail call double @cos(double noundef %163) #9, !tbaa !48
   %165 = tail call double @llvm.fmuladd.f64(double %160, double %164, double %125)
   %166 = fadd double %.184, 1.800000e+01

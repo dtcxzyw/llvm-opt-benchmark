@@ -485,7 +485,7 @@ define void @Rwr_ManPrintStats(ptr noundef readonly captures(none) %0) local_unn
   %29 = load i32, ptr %28, align 8, !tbaa !77
   %30 = sub nsw i32 %27, %29
   %31 = sitofp i32 %30 to double
-  %32 = fmul double %31, 1.000000e+02
+  %32 = fmul nnan double %31, 1.000000e+02
   %33 = sitofp i32 %27 to double
   %34 = fdiv double %32, %33
   %35 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %30, double noundef %34)

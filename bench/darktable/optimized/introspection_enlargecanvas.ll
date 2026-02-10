@@ -130,7 +130,7 @@ define void @modify_roi_out(ptr noundef readnone captures(none) %0, ptr noundef 
   %8 = load i32, ptr %7, align 4, !tbaa !41
   %9 = sitofp i32 %8 to float
   %10 = load float, ptr %6, align 4, !tbaa !42
-  %11 = fmul reassoc nsz arcp contract afn float %9, 0x3F847AE140000000
+  %11 = fmul reassoc nnan nsz arcp contract afn float %9, 0x3F847AE140000000
   %12 = fmul reassoc nsz arcp contract afn float %11, %10
   %13 = fptosi float %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -142,7 +142,7 @@ define void @modify_roi_out(ptr noundef readnone captures(none) %0, ptr noundef 
   %20 = sitofp i32 %19 to float
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load float, ptr %21, align 4, !tbaa !46
-  %23 = fmul reassoc nsz arcp contract afn float %20, 0x3F847AE140000000
+  %23 = fmul reassoc nnan nsz arcp contract afn float %20, 0x3F847AE140000000
   %24 = fmul reassoc nsz arcp contract afn float %23, %22
   %25 = fptosi float %24 to i32
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 12

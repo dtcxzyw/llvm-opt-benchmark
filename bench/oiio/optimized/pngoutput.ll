@@ -3370,7 +3370,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_09PNGOutput16deassociateA
   br i1 %24, label %27, label %25
 
 25:                                               ; preds = %21
-  %26 = fmul float %23, 0x3FB3D07220000000
+  %26 = fmul nnan float %23, 0x3FB3D07220000000
   br label %_ZN11OpenImageIO6v3_1_014sRGB_to_linearEf.exit.us
 
 27:                                               ; preds = %21
@@ -3386,7 +3386,7 @@ _ZN11OpenImageIO6v3_1_014sRGB_to_linearEf.exit.us: ; preds = %27, %25
   br i1 %33, label %36, label %34
 
 34:                                               ; preds = %_ZN11OpenImageIO6v3_1_014sRGB_to_linearEf.exit.us
-  %35 = fmul float %32, 0x4029D70A40000000
+  %35 = fmul nnan float %32, 0x4029D70A40000000
   br label %_ZN11OpenImageIO6v3_1_014linear_to_sRGBEf.exit.us
 
 36:                                               ; preds = %_ZN11OpenImageIO6v3_1_014sRGB_to_linearEf.exit.us

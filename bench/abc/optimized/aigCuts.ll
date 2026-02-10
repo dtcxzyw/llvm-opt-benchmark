@@ -2210,7 +2210,7 @@ Aig_ManCutCount.exit:                             ; preds = %.loopexit.i, %89
   %139 = load ptr, ptr %138, align 8, !tbaa !33
   %140 = call i32 @Aig_MmFixedReadMemUsage(ptr noundef %139) #20
   %141 = sitofp i32 %140 to double
-  %142 = fmul double %141, 0x3EB0000000000000
+  %142 = fmul nnan double %141, 0x3EB0000000000000
   %143 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %134, i32 noundef %137, double noundef %142)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

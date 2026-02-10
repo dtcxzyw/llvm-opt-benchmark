@@ -5806,7 +5806,7 @@ define void @_ZN11OpenImageIO6v3_1_07Strutil9memformatB5cxx11Exi(ptr dead_on_unw
   %.sink9 = phi double [ 0x3E10000000000000, %3 ], [ 0x3EB0000000000000, %9 ]
   %.0 = phi ptr [ @.str.22, %3 ], [ @.str.23, %9 ]
   %17 = uitofp nneg i64 %1 to double
-  %18 = fmul double %.sink9, %17
+  %18 = fmul nnan double %.sink9, %17
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !112
   store ptr @.str.26, ptr %4, align 8, !noalias !112
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8

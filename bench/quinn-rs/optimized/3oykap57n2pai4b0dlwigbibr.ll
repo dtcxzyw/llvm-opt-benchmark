@@ -15336,8 +15336,8 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection19detect_lo
   %53 = load float, ptr %52, align 4, !noundef !3
   %54 = uitofp i64 %48 to float
   %55 = uitofp nneg i32 %49 to float
-  %56 = fdiv float %55, 1.000000e+09
-  %57 = fadd float %56, %54
+  %56 = fdiv nnan float %55, 1.000000e+09
+  %57 = fadd nnan float %56, %54
   %58 = fmul float %57, %53
   %59 = fcmp olt float %58, 0.000000e+00
   br i1 %59, label %79, label %60

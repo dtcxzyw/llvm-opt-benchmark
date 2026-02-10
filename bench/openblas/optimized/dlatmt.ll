@@ -239,7 +239,7 @@ define void @dlatmt_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %119 = sitofp i32 %118 to double
   %120 = tail call i32 @llvm.smax.i32(i32 %117, i32 1)
   %121 = uitofp nneg i32 %120 to double
-  %122 = fmul double %121, 3.000000e-01
+  %122 = fmul nnan double %121, 3.000000e-01
   %123 = fcmp ogt double %122, %119
   br i1 %123, label %124, label %128
 

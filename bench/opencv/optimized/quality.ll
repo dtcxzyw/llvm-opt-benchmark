@@ -2346,8 +2346,8 @@ _ZN2cv3PtrINS_4usac11GammaValuesEEC2ERKS3_.exit:  ; preds = %_ZN2cv3PtrINS_4usac
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store float %63, ptr %64, align 8, !tbaa !134
   %65 = sitofp i32 %6 to double
-  %66 = fadd double %65, 1.000000e+00
-  %67 = fmul double %66, 5.000000e-01
+  %66 = fadd nnan double %65, 1.000000e+00
+  %67 = fmul nnan double %66, 5.000000e-01
   %exp2 = tail call double @exp2(double %67)
   %68 = fdiv double %exp2, %60
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 88

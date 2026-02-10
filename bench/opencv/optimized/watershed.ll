@@ -1010,8 +1010,8 @@ _ZNSt6vectorIN2cv3VecIhLi3EEESaIS2_EE9push_backEOS2_.exit: ; preds = %.preheader
 
 336:                                              ; preds = %334
   %337 = sitofp i64 %333 to double
-  %338 = fsub double %337, %331
-  %339 = fmul double %338, 1.000000e+03
+  %338 = fsub nnan double %337, %331
+  %339 = fmul nnan double %338, 1.000000e+03
   %340 = fdiv double %339, %335
   %341 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, double noundef %340)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)

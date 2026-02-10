@@ -544,7 +544,7 @@ _ZN7mitsuba7sobol_2IjfEET0_T_S2_.exit:            ; preds = %.lr.ph.i7, %_ZN7mit
   %65 = bitcast i32 %64 to float
   %66 = fadd contract float %65, -1.000000e+00
   %67 = uitofp i32 %.017.lcssa.i to float
-  %68 = fmul contract float %67, 0x3DF0000000000000
+  %68 = fmul nnan contract float %67, 0x3DF0000000000000
   %.sroa.010.0.vec.insert = insertelement <2 x float> poison, float %66, i64 0
   %.sroa.010.4.vec.insert = insertelement <2 x float> %.sroa.010.0.vec.insert, float %68, i64 1
   ret <2 x float> %.sroa.010.4.vec.insert

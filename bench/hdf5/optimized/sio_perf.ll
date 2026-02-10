@@ -1380,7 +1380,7 @@ report_parameters.exit:                           ; preds = %._crit_edge59.i, %4
   store i64 %.lcssa.i, ptr %486, align 8
   call void (ptr, ...) @output_report(ptr noundef nonnull @.str.3, i64 noundef %.0.lcssa.i)
   %508 = uitofp i64 %.lcssa.i to double
-  %509 = fmul double %508, 0x3EB0000000000000
+  %509 = fmul nnan double %508, 0x3EB0000000000000
   call void (ptr, ...) @output_report(ptr noundef nonnull @.str.4, double noundef %509)
   %510 = load i64, ptr %12, align 8, !tbaa !32
   %511 = and i64 %510, 1
@@ -1875,7 +1875,7 @@ print_indent.exit16:                              ; preds = %.lr.ph.i13
   %27 = tail call double @llvm.fabs.f64(double %.sroa.0.2)
   %28 = fcmp olt double %27, 0x3CB0000000000000
   %29 = sitofp i64 %4 to double
-  %30 = fmul double %29, 0x3EB0000000000000
+  %30 = fmul nnan double %29, 0x3EB0000000000000
   %31 = fdiv double %30, %.sroa.0.2
   %32 = select i1 %28, double 0.000000e+00, double %31
   tail call void (ptr, ...) @output_report(ptr noundef nonnull @.str.25, double noundef %32)

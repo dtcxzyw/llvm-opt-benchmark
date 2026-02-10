@@ -8067,7 +8067,7 @@ _ZN4absl7debian224uniform_int_distributionIiEclISt23mersenne_twister_engineImLm3
 
 43:                                               ; preds = %38
   %44 = uitofp nneg i64 %.fr to double
-  %45 = fmul double %44, 0x3DF0000000000000
+  %45 = fmul nnan double %44, 0x3DF0000000000000
   %46 = fsub double %.012.i.i, %45
   %47 = fmul double %46, 0x41F0000000000000
   %48 = fcmp oeq double %47, 0.000000e+00

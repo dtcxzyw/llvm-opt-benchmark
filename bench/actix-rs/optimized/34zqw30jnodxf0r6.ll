@@ -7407,9 +7407,9 @@ default.unreachable21:                            ; preds = %2
   %27 = extractvalue { i64, i32 } %25, 1
   %28 = uitofp i64 %26 to float
   %29 = uitofp i32 %27 to float
-  %30 = fdiv float %29, 1.000000e+09
-  %31 = fadd float %30, %28
-  %32 = fmul float %31, 1.000000e+03
+  %30 = fdiv nnan float %29, 1.000000e+09
+  %31 = fadd nnan float %30, %28
+  %32 = fmul nnan float %31, 1.000000e+03
   store float %32, ptr %3, align 4
   store ptr %3, ptr %4, align 8
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 8

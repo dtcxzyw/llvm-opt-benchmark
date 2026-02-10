@@ -179,7 +179,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %28,
   store i8 %71, ptr %72, align 1, !tbaa !29
   %73 = add nuw nsw i32 %70, %58
   %74 = uitofp nneg i32 %73 to double
-  %75 = fmul double %74, 5.000000e-01
+  %75 = fmul nnan double %74, 5.000000e-01
   %76 = insertelement <2 x double> poison, double %75, i64 0
   %77 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %76)
   %78 = call i32 @llvm.smax.i32(i32 %77, i32 0)

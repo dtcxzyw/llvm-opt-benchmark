@@ -1472,7 +1472,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @init_cook_mlt(ptr noundef 
 .lr.ph:                                           ; preds = %8
   %10 = load i32, ptr %3, align 4, !tbaa !39
   %11 = sitofp i32 %10 to double
-  %12 = fdiv nsz double 2.000000e+00, %11
+  %12 = fdiv nnan nsz double 2.000000e+00, %11
   %13 = tail call nsz double @llvm.sqrt.f64(double %12)
   %14 = load ptr, ptr %7, align 8, !tbaa !113
   %wide.trip.count = zext nneg i32 %4 to i64

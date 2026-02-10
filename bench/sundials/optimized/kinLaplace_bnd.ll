@@ -386,7 +386,7 @@ define internal fastcc void @PrintOutput(ptr noundef %0) unnamed_addr #0 {
 4:                                                ; preds = %1, %4
   %.016 = phi i32 [ 1, %1 ], [ %8, %4 ]
   %5 = uitofp nneg i32 %.016 to double
-  %6 = fmul double %5, 3.125000e-02
+  %6 = fmul nnan double %5, 3.125000e-02
   %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.19, double noundef %6)
   %8 = add nuw nsw i32 %.016, 3
   %9 = icmp samesign ult i32 %.016, 29
@@ -400,7 +400,7 @@ define internal fastcc void @PrintOutput(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv20 = phi i64 [ 1, %10 ], [ %indvars.iv.next21, %21 ]
   %12 = trunc nuw nsw i64 %indvars.iv20 to i32
   %13 = uitofp nneg i32 %12 to double
-  %14 = fmul double %13, 3.125000e-02
+  %14 = fmul nnan double %13, 3.125000e-02
   %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.21, double noundef %14)
   %invariant.gep = getelementptr double, ptr %2, i64 %indvars.iv20
   br label %16

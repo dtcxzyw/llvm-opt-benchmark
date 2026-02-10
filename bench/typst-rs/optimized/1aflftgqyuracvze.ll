@@ -4037,8 +4037,8 @@ _ZN5typst4text4font4Font5to_em17h0ae58ba7c4125f3dE.exit277: ; preds = %.noexc275
 
 662:                                              ; preds = %652
   %663 = uitofp i16 %654 to float
-  %664 = fadd float %663, -5.000000e+01
-  %665 = fmul float %664, 0x3FCF3B6460000000
+  %664 = fadd nnan float %663, -5.000000e+01
+  %665 = fmul nnan float %664, 0x3FCF3B6460000000
   %666 = fadd float %665, 1.000000e+01
   br label %_ZN10ttf_parser6tables3os26Weight9to_number17h4f10f20e7e584a0aE.exit
 

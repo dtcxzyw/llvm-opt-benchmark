@@ -1827,8 +1827,8 @@ define linkonce_odr dso_local void @_ZN9SkinnyBox6LaunchEv(ptr noundef nonnull a
   store i32 %21, ptr @g_seed, align 4, !tbaa !74
   %22 = and i32 %21, 32767
   %23 = uitofp nneg i32 %22 to float
-  %24 = fdiv float %23, 3.276700e+04
-  %25 = fmul float %24, 1.000000e+02
+  %24 = fdiv nnan float %23, 3.276700e+04
+  %25 = fmul nnan float %24, 1.000000e+02
   %26 = fadd float %25, -5.000000e+01
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store float %26, ptr %27, align 8, !tbaa !100
@@ -1895,8 +1895,8 @@ define linkonce_odr dso_local void @_ZN9SkinnyBox6LaunchEv(ptr noundef nonnull a
   store i32 %54, ptr @g_seed, align 4, !tbaa !74
   %55 = and i32 %54, 32767
   %56 = uitofp nneg i32 %55 to float
-  %57 = fdiv float %56, 3.276700e+04
-  %58 = fmul float %57, 2.000000e+00
+  %57 = fdiv nnan float %56, 3.276700e+04
+  %58 = fmul nnan float %57, 2.000000e+00
   %59 = fadd float %58, -1.000000e+00
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 268
   store float %59, ptr %60, align 4, !tbaa !102
@@ -4347,7 +4347,7 @@ _ZNSt6vectorI8b2BodyIdSaIS0_EE9push_backERKS0_.exit: ; preds = %39, %_ZNSt6vecto
   %65 = icmp eq i32 %64, 0
   %66 = select i1 %65, float 0x4003EB8520000000, float 0x4004147AE0000000
   %67 = uitofp nneg i32 %.034 to float
-  %68 = fmul float %67, 5.000000e-01
+  %68 = fmul nnan float %67, 5.000000e-01
   %69 = fadd float %68, 2.500000e-01
   store float %66, ptr %27, align 4, !tbaa !15
   store float %69, ptr %.sroa.410.0..sroa_idx, align 8, !tbaa !15

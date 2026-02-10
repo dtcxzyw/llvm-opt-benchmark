@@ -378,7 +378,7 @@ if.end12:                                         ; preds = %if.then5, %if.end
 
 if.then15:                                        ; preds = %if.end12
   %conv17 = uitofp i32 %17 to double
-  %mul = fmul double %conv17, 1.500000e+00
+  %mul = fmul nnan double %conv17, 1.500000e+00
   %20 = tail call double @llvm.ceil.f64(double %mul)
   %conv18 = fptoui double %20 to i32
   %21 = load i32, ptr %capacity_, align 8

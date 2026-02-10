@@ -932,7 +932,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169: ; preds = %28
 
 307:                                              ; preds = %293
   %308 = uitofp i64 %306 to double
-  %309 = fmul double %308, 0x3EF0000000000000
+  %309 = fmul nnan double %308, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %32, double noundef %309)
           to label %.critedge125 unwind label %316
 
@@ -6402,7 +6402,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %59, %
 .thread720.us:                                    ; preds = %593, %.split.us
   %.3582.us = phi i32 [ %606, %593 ], [ %592, %.split.us ]
   %607 = sitofp i32 %.3582.us to float
-  %608 = fmul float %579, %607
+  %608 = fmul nnan float %579, %607
   %609 = fdiv float %608, %559
   %610 = fptosi float %609 to i32
   %611 = add nsw i32 %610, 16384
@@ -6435,7 +6435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %59, %
   %628 = mul nsw i32 %627, %625
   %629 = add nsw i32 %628, %622
   %630 = sitofp i32 %629 to float
-  %631 = fmul float %579, %630
+  %631 = fmul nnan float %579, %630
   %632 = fdiv float %631, %559
   %633 = fptosi float %632 to i32
   %634 = add nsw i32 %633, 16384
@@ -6458,7 +6458,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %59, %
   %644 = sext i16 %643 to i32
   %645 = mul nsw i32 %644, %642
   %646 = sitofp i32 %645 to float
-  %647 = fmul float %579, %646
+  %647 = fmul nnan float %579, %646
   %648 = fdiv float %647, %559
   %649 = fptosi float %648 to i32
   %650 = add nsw i32 %649, 16384
@@ -12140,7 +12140,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %60, %
 .thread749.us:                                    ; preds = %638, %.split.us
   %.3611.us = phi i32 [ %651, %638 ], [ %637, %.split.us ]
   %652 = sitofp i32 %.3611.us to float
-  %653 = fmul float %624, %652
+  %653 = fmul nnan float %624, %652
   %654 = fdiv float %653, %604
   %655 = fptosi float %654 to i32
   %656 = add nsw i32 %655, 16384
@@ -12173,7 +12173,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %60, %
   %673 = mul nsw i32 %672, %670
   %674 = add nsw i32 %673, %667
   %675 = sitofp i32 %674 to float
-  %676 = fmul float %624, %675
+  %676 = fmul nnan float %624, %675
   %677 = fdiv float %676, %604
   %678 = fptosi float %677 to i32
   %679 = add nsw i32 %678, 16384
@@ -12196,7 +12196,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %60, %
   %689 = sext i16 %688 to i32
   %690 = mul nsw i32 %689, %687
   %691 = sitofp i32 %690 to float
-  %692 = fmul float %624, %691
+  %692 = fmul nnan float %624, %691
   %693 = fdiv float %692, %604
   %694 = fptosi float %693 to i32
   %695 = add nsw i32 %694, 16384
@@ -28709,7 +28709,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
   %.02942.i = phi i32 [ %32, %.preheader.i ], [ 0, %25 ]
   %.03041.i = phi ptr [ %33, %.preheader.i ], [ %26, %25 ]
   %28 = uitofp nneg i32 %.02942.i to float
-  %29 = fmul float %28, 3.125000e-02
+  %29 = fmul nnan float %28, 3.125000e-02
   %30 = fsub float 1.000000e+00, %29
   store float %30, ptr %.03041.i, align 4, !tbaa !102
   %31 = getelementptr inbounds nuw i8, ptr %.03041.i, i64 4
@@ -28723,19 +28723,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
   %.02840.i = phi i32 [ %53, %.preheader33.i ], [ 0, %25 ]
   %.139.i = phi ptr [ %54, %.preheader33.i ], [ %26, %25 ]
   %34 = uitofp nneg i32 %.02840.i to float
-  %35 = fmul float %34, 3.125000e-02
+  %35 = fmul nnan float %34, 3.125000e-02
   %36 = fadd float %35, 1.000000e+00
   %37 = call float @llvm.fmuladd.f32(float %36, float -7.500000e-01, float 3.750000e+00)
   %38 = call float @llvm.fmuladd.f32(float %37, float %36, float -6.000000e+00)
   %39 = call float @llvm.fmuladd.f32(float %38, float %36, float 3.000000e+00)
   store float %39, ptr %.139.i, align 4, !tbaa !102
-  %40 = call float @llvm.fmuladd.f32(float %35, float 1.250000e+00, float -2.250000e+00)
+  %40 = call nnan float @llvm.fmuladd.f32(float %35, float 1.250000e+00, float -2.250000e+00)
   %41 = fmul float %35, %40
   %42 = call float @llvm.fmuladd.f32(float %41, float %35, float 1.000000e+00)
   %43 = getelementptr inbounds nuw i8, ptr %.139.i, i64 4
   store float %42, ptr %43, align 4, !tbaa !102
   %44 = fsub float 1.000000e+00, %35
-  %45 = call float @llvm.fmuladd.f32(float %44, float 1.250000e+00, float -2.250000e+00)
+  %45 = call nnan float @llvm.fmuladd.f32(float %44, float 1.250000e+00, float -2.250000e+00)
   %46 = fmul float %44, %45
   %47 = call float @llvm.fmuladd.f32(float %46, float %44, float 1.000000e+00)
   %48 = getelementptr inbounds nuw i8, ptr %.139.i, i64 8
@@ -28754,7 +28754,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
   %.02738.i = phi i32 [ %92, %_ZN2cvL19interpolateLanczos4EfPf.exit.i ], [ 0, %25 ]
   %.237.i = phi ptr [ %93, %_ZN2cvL19interpolateLanczos4EfPf.exit.i ], [ %26, %25 ]
   %55 = uitofp nneg i32 %.02738.i to float
-  %56 = fmul float %55, 3.125000e-02
+  %56 = fmul nnan float %55, 3.125000e-02
   %57 = fcmp olt float %56, 0x3E80000000000000
   br i1 %57, label %.preheader.preheader.i.i, label %59
 
@@ -28767,9 +28767,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
 59:                                               ; preds = %.preheader35.i
   %60 = fadd float %56, 3.000000e+00
   %61 = fneg float %60
-  %62 = fpext float %61 to double
-  %63 = fmul double %62, 0x400921FB54442D18
-  %64 = fmul double %63, 2.500000e-01
+  %62 = fpext nnan float %61 to double
+  %63 = fmul nnan double %62, 0x400921FB54442D18
+  %64 = fmul nnan double %63, 2.500000e-01
   %65 = call double @sin(double noundef %64) #25, !tbaa !27
   %66 = call double @cos(double noundef %64) #25, !tbaa !27
   br label %69
@@ -28783,11 +28783,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15, %
   %.03133.i.i = phi float [ 0.000000e+00, %59 ], [ %87, %69 ]
   %70 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %71 = uitofp nneg i32 %70 to float
-  %72 = fsub float %60, %71
+  %72 = fsub nnan float %60, %71
   %73 = fneg float %72
-  %74 = fpext float %73 to double
-  %75 = fmul double %74, 0x400921FB54442D18
-  %76 = fmul double %75, 2.500000e-01
+  %74 = fpext nnan float %73 to double
+  %75 = fmul nnan double %74, 0x400921FB54442D18
+  %76 = fmul nnan double %75, 2.500000e-01
   %77 = getelementptr inbounds nuw [2 x double], ptr @_ZZN2cvL19interpolateLanczos4EfPfE2cs, i64 %indvars.iv.i.i
   %78 = load double, ptr %77, align 16, !tbaa !53
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -30166,7 +30166,7 @@ _ZN2cv10AutoBufferIiLm264EEC2Em.exit:             ; preds = %.noexc, %19
 
 81:                                               ; preds = %69
   %82 = uitofp i64 %76 to double
-  %83 = fmul double %82, 0x3EF0000000000000
+  %83 = fmul nnan double %82, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %17, ptr noundef nonnull align 8 dereferenceable(8) %18, double noundef %83)
           to label %84 unwind label %89
 
@@ -30911,7 +30911,7 @@ _ZN2cv22WarpPerspectiveInvokerC2ERKNS_3MatERS1_PKdiiRKNS_7Scalar_IdEE.exit: ; pr
 
 41:                                               ; preds = %_ZN2cv22WarpPerspectiveInvokerC2ERKNS_3MatERS1_PKdiiRKNS_7Scalar_IdEE.exit
   %42 = uitofp i64 %36 to double
-  %43 = fmul double %42, 0x3EF0000000000000
+  %43 = fmul nnan double %42, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %17, double noundef %43)
           to label %44 unwind label %47
 
@@ -34669,7 +34669,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %68, %
 
 73:                                               ; preds = %57
   %74 = uitofp nneg i32 %.sroa.19.0 to double
-  %75 = fdiv double 0x401921FB54442D18, %74
+  %75 = fdiv nnan double 0x401921FB54442D18, %74
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZN2cv3MatC1Eiii(ptr noundef nonnull align 8 dereferenceable(96) %14, i32 noundef 1, i32 noundef %.sroa.0171.0, i32 noundef 5)
           to label %76 unwind label %89

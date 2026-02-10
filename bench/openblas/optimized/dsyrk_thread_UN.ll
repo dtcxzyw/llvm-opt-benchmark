@@ -100,7 +100,7 @@ define noundef i32 @dsyrk_thread_UN(ptr noundef %0, ptr noundef %1, ptr noundef 
   store i64 %58, ptr %59, align 16, !tbaa !22
   store i64 0, ptr %10, align 16, !tbaa !22
   %60 = sitofp i64 %58 to double
-  %61 = fmul double %60, %60
+  %61 = fmul nnan double %60, %60
   %62 = sitofp i64 %12 to double
   %63 = fdiv double %61, %62
   %64 = icmp sgt i64 %58, 0

@@ -1369,7 +1369,7 @@ define linkonce_odr void @_ZN5Eigen20FullPivHouseholderQRINS_6MatrixIdLin1ELin1E
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %10, i64 noundef 1, i64 noundef %10)
   %13 = sitofp i64 %.sroa.speculated to double
-  %14 = fmul double %13, 0x3CB0000000000000
+  %14 = fmul nnan double %13, 0x3CB0000000000000
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double %14, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3550,7 +3550,7 @@ define linkonce_odr void @_ZNK5Eigen20FullPivHouseholderQRINS_6MatrixIdLin1ELin1
   %23 = load i64, ptr %22, align 8
   %.sroa.speculated.i.i.i = tail call noundef i64 @llvm.smin.i64(i64 %23, i64 %21)
   %24 = sitofp i64 %.sroa.speculated.i.i.i to double
-  %25 = fmul double %24, 0x3CB0000000000000
+  %25 = fmul nnan double %24, 0x3CB0000000000000
   br label %_ZNK5Eigen20FullPivHouseholderQRINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE9thresholdEv.exit.i
 
 _ZNK5Eigen20FullPivHouseholderQRINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE9thresholdEv.exit.i: ; preds = %19, %16

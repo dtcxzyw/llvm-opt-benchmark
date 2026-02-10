@@ -5886,7 +5886,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %.0.i.i, %55
+  %56 = fmul nnan double %.0.i.i, %55
   %57 = fcmp une double %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 
@@ -15053,7 +15053,7 @@ _ZN4absl24uniform_int_distributionIiEclINS_15random_internal10pcg_engineINS3_13p
 
 52:                                               ; preds = %44
   %53 = uitofp nneg i64 %.fr to double
-  %54 = fmul double %53, 0x3DF0000000000000
+  %54 = fmul nnan double %53, 0x3DF0000000000000
   %55 = fsub double %.013.i.i, %54
   %56 = fmul double %55, 0x41F0000000000000
   %57 = fcmp une double %56, 0.000000e+00
@@ -15595,7 +15595,7 @@ _ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.ex
 
 190:                                              ; preds = %178
   %191 = uitofp nneg i64 %.fr11.i.us to double
-  %192 = fmul double %191, 0x3DF0000000000000
+  %192 = fmul nnan double %191, 0x3DF0000000000000
   %193 = fsub double %.013.i.i.i.us, %192
   %194 = fmul double %193, 0x41F0000000000000
   %195 = fcmp une double %194, 0.000000e+00
@@ -15694,7 +15694,7 @@ _ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.ex
 
 238:                                              ; preds = %229
   %239 = uitofp nneg i64 %.fr11.i to double
-  %240 = fmul double %239, 0x3DF0000000000000
+  %240 = fmul nnan double %239, 0x3DF0000000000000
   %241 = fsub double %.013.i.i.i, %240
   %242 = fmul double %241, 0x41F0000000000000
   %243 = fcmp une double %242, 0.000000e+00
@@ -16394,7 +16394,7 @@ _ZN4absl22bernoulli_distributionclINS_15random_internal13sequence_urbgEEEbRT_.ex
 
 485:                                              ; preds = %473
   %486 = uitofp nneg i64 %.fr11.i216.us to double
-  %487 = fmul double %486, 0x3DF0000000000000
+  %487 = fmul nnan double %486, 0x3DF0000000000000
   %488 = fsub double %.013.i.i.i215.us, %487
   %489 = fmul double %488, 0x41F0000000000000
   %490 = fcmp une double %489, 0.000000e+00
@@ -16497,7 +16497,7 @@ _ZN4absl24uniform_int_distributionIlEclINS_15random_internal13sequence_urbgEEElR
 
 527:                                              ; preds = %518
   %528 = uitofp nneg i64 %.fr11.i216 to double
-  %529 = fmul double %528, 0x3DF0000000000000
+  %529 = fmul nnan double %528, 0x3DF0000000000000
   %530 = fsub double %.013.i.i.i215, %529
   %531 = fmul double %530, 0x41F0000000000000
   %532 = fcmp une double %531, 0.000000e+00

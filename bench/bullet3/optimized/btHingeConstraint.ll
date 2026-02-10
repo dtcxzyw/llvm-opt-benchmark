@@ -238,7 +238,7 @@ define dso_local void @_ZN17btHingeConstraintC2ER11btRigidBodyS1_RK9btVector3S4_
   br i1 %114, label %115, label %122
 
 115:                                              ; preds = %112
-  %116 = fmul float %103, %103
+  %116 = fmul nnan float %103, %103
   %117 = tail call float @llvm.fmuladd.f32(float %100, float %100, float %116)
   %sqrt.i.i = tail call float @llvm.sqrt.f32(float %117)
   %118 = fdiv float 1.000000e+00, %sqrt.i.i
@@ -417,7 +417,7 @@ define dso_local void @_ZN17btHingeConstraintC2ER11btRigidBodyRK9btVector3S4_b(p
 23:                                               ; preds = %.preheader.preheader
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %25 = load float, ptr %24, align 4, !tbaa !33
-  %26 = fmul float %20, %20
+  %26 = fmul nnan float %20, %20
   %27 = tail call float @llvm.fmuladd.f32(float %25, float %25, float %26)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %27)
   %28 = fdiv float 1.000000e+00, %sqrt.i
@@ -526,7 +526,7 @@ define dso_local void @_ZN17btHingeConstraintC2ER11btRigidBodyRK9btVector3S4_b(p
   br i1 %104, label %105, label %112
 
 105:                                              ; preds = %102
-  %106 = fmul float %78, %78
+  %106 = fmul nnan float %78, %78
   %107 = tail call float @llvm.fmuladd.f32(float %73, float %73, float %106)
   %sqrt.i.i = tail call float @llvm.sqrt.f32(float %107)
   %108 = fdiv float 1.000000e+00, %sqrt.i.i
@@ -999,7 +999,7 @@ define dso_local void @_ZN17btHingeConstraint13buildJacobianEv(ptr noundef nonnu
   br i1 %124, label %126, label %137
 
 126:                                              ; preds = %117
-  %127 = fmul float %120, %120
+  %127 = fmul nnan float %120, %120
   %128 = tail call float @llvm.fmuladd.f32(float %119, float %119, float %127)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %128)
   %129 = fdiv float 1.000000e+00, %sqrt.i
@@ -1200,7 +1200,7 @@ _Z13btPlaneSpace1I9btVector3EvRKT_RS1_S4_.exit:   ; preds = %126, %137
   br i1 %269, label %270, label %281
 
 270:                                              ; preds = %260
-  %271 = fmul float %267, %267
+  %271 = fmul nnan float %267, %267
   %272 = tail call float @llvm.fmuladd.f32(float %266, float %266, float %271)
   %sqrt.i31 = tail call float @llvm.sqrt.f32(float %272)
   %273 = fdiv float 1.000000e+00, %sqrt.i31
@@ -3193,7 +3193,7 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
 
 555:                                              ; preds = %553
   %556 = fneg float %533
-  %557 = fmul float %552, %556
+  %557 = fmul nnan float %552, %556
   %558 = fcmp ogt float %557, %.pre746
   br i1 %558, label %559, label %567
 
@@ -3207,7 +3207,7 @@ define dso_local void @_ZN17btHingeConstraint32getInfo2InternalUsingFrameOffsetE
 
 562:                                              ; preds = %560
   %563 = fneg float %533
-  %564 = fmul float %552, %563
+  %564 = fmul nnan float %552, %563
   %565 = fcmp olt float %564, %.pre746
   br i1 %565, label %566, label %567
 
@@ -3783,7 +3783,7 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
 
 406:                                              ; preds = %404
   %407 = fneg float %384
-  %408 = fmul float %403, %407
+  %408 = fmul nnan float %403, %407
   %409 = fcmp ogt float %408, %.pre323
   br i1 %409, label %410, label %418
 
@@ -3797,7 +3797,7 @@ define dso_local void @_ZN17btHingeConstraint16getInfo2InternalEPN17btTypedConst
 
 413:                                              ; preds = %411
   %414 = fneg float %384
-  %415 = fmul float %403, %414
+  %415 = fmul nnan float %403, %414
   %416 = fcmp olt float %415, %.pre323
   br i1 %416, label %417, label %418
 

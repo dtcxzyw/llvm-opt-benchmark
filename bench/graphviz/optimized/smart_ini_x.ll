@@ -117,7 +117,7 @@ gv_calloc.exit:                                   ; preds = %11
   %50 = tail call double @llvm.fmuladd.f64(double %45, double %49, double %.1203257)
   %51 = mul i32 %.fr, %.fr
   %52 = uitofp i32 %51 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %49
   %55 = tail call double @llvm.fmuladd.f64(double %54, double %49, double %.1201258)
   %indvars.iv.next315 = add nuw nsw i64 %indvars.iv314, 1
@@ -558,7 +558,7 @@ gv_calloc.exit232:                                ; preds = %.thread.i231.crited
   %233 = getelementptr inbounds nuw i32, ptr %232, i64 %indvars.iv329
   %234 = load i32, ptr %233, align 4, !tbaa !10
   %235 = sitofp i32 %234 to float
-  %236 = fmul float %235, %235
+  %236 = fmul nnan float %235, %235
   %237 = fdiv float -1.000000e+00, %236
   %238 = getelementptr inbounds nuw float, ptr %226, i64 %indvars.iv329
   store float %237, ptr %238, align 4, !tbaa !24

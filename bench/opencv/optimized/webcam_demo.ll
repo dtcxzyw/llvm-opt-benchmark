@@ -3473,12 +3473,12 @@ _ZNSt6vectorIN2cv3PtrINS0_4text8ERFilterEEESaIS4_EED2Ev.exit743: ; preds = %_ZSt
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
   %1284 = load i32, ptr %935, align 4, !tbaa !143
   %1285 = sitofp i32 %1284 to double
-  %1286 = fmul double %1285, 2.000000e-05
+  %1286 = fmul nnan double %1285, 2.000000e-05
   %1287 = load i32, ptr %936, align 8, !tbaa !144
   %1288 = sitofp i32 %1287 to double
   %1289 = fmul double %1286, %1288
   %1290 = fptosi double %1289 to i32
-  %1291 = fmul double %1285, 5.000000e-02
+  %1291 = fmul nnan double %1285, 5.000000e-02
   %1292 = fmul double %1291, %1288
   %1293 = fptosi double %1292 to i32
   invoke void @_ZN2cv4MSER6createEiiiddiddi(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.66") align 8 %74, i32 noundef 21, i32 noundef %1290, i32 noundef %1293, double noundef 1.000000e+00, double noundef 0x3FE6666666666666, i32 noundef 200, double noundef 1.010000e+00, double noundef 3.000000e-03, i32 noundef 5)
@@ -4220,7 +4220,7 @@ _ZNSt12_Vector_baseISt6vectorIfSaIfEESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = 
 
 .lr.ph1509:                                       ; preds = %.preheader1319
   %1493 = fpext float %1374 to double
-  %1494 = fmul float %1374, 3.000000e+00
+  %1494 = fmul nnan float %1374, 3.000000e+00
   %1495 = fptosi float %1494 to i32
   br label %1524
 
@@ -4857,8 +4857,8 @@ _Z12isRepetitiveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thre
 
 1767:                                             ; preds = %1765
   %1768 = sitofp i64 %1523 to double
-  %1769 = fsub double %1768, %1063
-  %1770 = fmul double %1769, 1.000000e+03
+  %1769 = fsub nnan double %1768, %1063
+  %1770 = fmul nnan double %1769, 1.000000e+03
   %1771 = fdiv double %1770, %1766
   %1772 = load i32, ptr %966, align 8, !tbaa !144
   %1773 = sdiv i32 %1772, 500
@@ -4896,7 +4896,7 @@ _Z12isRepetitiveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thre
   store ptr %21, ptr %1036, align 8, !tbaa !51
   %1785 = load i32, ptr %1038, align 4, !tbaa !143
   %1786 = sitofp i32 %1785 to double
-  %1787 = fmul double %1786, 5.000000e-01
+  %1787 = fmul nnan double %1786, 5.000000e-01
   %1788 = fptosi double %1787 to i32
   %1789 = load i32, ptr %966, align 8, !tbaa !144
   %1790 = fdiv double %1372, 1.500000e+00
@@ -4921,7 +4921,7 @@ _Z12isRepetitiveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thre
   store ptr %21, ptr %1040, align 8, !tbaa !51
   %1796 = load i32, ptr %1038, align 4, !tbaa !143
   %1797 = sitofp i32 %1796 to double
-  %1798 = fmul double %1797, 5.000000e-01
+  %1798 = fmul nnan double %1797, 5.000000e-01
   %1799 = fptosi double %1798 to i32
   %1800 = load i32, ptr %966, align 8, !tbaa !144
   %.neg = sdiv i32 %1369, -21
@@ -4946,7 +4946,7 @@ _Z12isRepetitiveRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thre
   store ptr %21, ptr %1043, align 8, !tbaa !51
   %1805 = load i32, ptr %1038, align 4, !tbaa !143
   %1806 = sitofp i32 %1805 to double
-  %1807 = fmul double %1806, 5.000000e-01
+  %1807 = fmul nnan double %1806, 5.000000e-01
   %1808 = fptosi double %1807 to i32
   %1809 = load i32, ptr %966, align 8, !tbaa !144
   %1810 = add nsw i32 %1809, -5

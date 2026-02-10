@@ -217,7 +217,7 @@ _cmsChain2Lab.exit:                               ; preds = %.preheader.i, %.lr.
   store float 0.000000e+00, ptr %34, align 8
   %39 = trunc nuw i64 %indvars.iv to i32
   %40 = uitofp i32 %39 to double
-  %41 = fmul double %40, 1.000000e+02
+  %41 = fmul nnan double %40, 1.000000e+02
   %42 = fdiv double %41, %36
   %43 = fptrunc double %42 to float
   store float %43, ptr %37, align 4

@@ -683,7 +683,7 @@ define hidden noundef i64 @_ZNK11G1Analytics21predict_scan_card_numEmb(ptr nound
   %9 = select i1 %8, double %7, double 0.000000e+00
   %10 = fcmp olt double %9, 1.000000e+00
   %11 = select i1 %10, double %9, double 1.000000e+00
-  %12 = fmul double %11, %4
+  %12 = fmul nnan double %11, %4
   %13 = fptoui double %12 to i64
   ret i64 %13
 }

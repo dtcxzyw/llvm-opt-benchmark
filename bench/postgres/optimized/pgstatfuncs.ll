@@ -3535,7 +3535,7 @@ pgstat_get_io_byte_index.exit:                    ; preds = %51, %pgstat_get_io_
   %59 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
   %60 = load i64, ptr %59, align 8
   %61 = sitofp i64 %60 to double
-  %62 = fmul double %61, 1.000000e-03
+  %62 = fmul nnan double %61, 1.000000e-03
   store double %62, ptr %.0.i6182.sroa.phi142, align 8
   br label %63
 

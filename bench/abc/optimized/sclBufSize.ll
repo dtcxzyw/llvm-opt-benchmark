@@ -3621,7 +3621,7 @@ define ptr @Abc_SclBufferingPerform(ptr noundef %0, ptr noundef %1, ptr noundef 
   tail call void @Bus_ManReadInOutLoads(ptr noundef %6)
   %7 = load i32, ptr %2, align 4, !tbaa !118
   %8 = sitofp i32 %7 to double
-  %9 = fmul double %8, 1.000000e-02
+  %9 = fmul nnan double %8, 1.000000e-02
   %10 = fptrunc double %9 to float
   tail call void @Abc_SclBufSize(ptr noundef %6, float noundef %10)
   tail call void @Bus_ManStop(ptr noundef %6)

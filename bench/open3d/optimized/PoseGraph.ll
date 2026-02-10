@@ -529,7 +529,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   store ptr %28, ptr %109, align 8, !tbaa !44
   %110 = call i32 @rand() #24
   %111 = sitofp i32 %110 to double
-  %112 = fmul double %111, 2.000000e+00
+  %112 = fmul nnan double %111, 2.000000e+00
   %113 = fdiv double %112, 0x41DFFFFFFFC00000
   %114 = fadd double %113, -1.000000e+00
   store double %114, ptr %28, align 16, !tbaa !46
@@ -537,7 +537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = call i32 @rand() #24
   %118 = sitofp i32 %117 to double
-  %119 = fmul double %118, 2.000000e+00
+  %119 = fmul nnan double %118, 2.000000e+00
   %120 = fdiv double %119, 0x41DFFFFFFFC00000
   %121 = fadd double %120, -1.000000e+00
   store double %121, ptr %116, align 8, !tbaa !46
@@ -545,7 +545,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = call i32 @rand() #24
   %125 = sitofp i32 %124 to double
-  %126 = fmul double %125, 2.000000e+00
+  %126 = fmul nnan double %125, 2.000000e+00
   %127 = fdiv double %126, 0x41DFFFFFFFC00000
   %128 = fadd double %127, -1.000000e+00
   store double %128, ptr %123, align 8, !tbaa !46
@@ -553,7 +553,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %131 = call i32 @rand() #24
   %132 = sitofp i32 %131 to double
-  %133 = fmul double %132, 2.000000e+00
+  %133 = fmul nnan double %132, 2.000000e+00
   %134 = fdiv double %133, 0x41DFFFFFFFC00000
   %135 = fadd double %134, -1.000000e+00
   store double %135, ptr %130, align 8, !tbaa !46
@@ -561,7 +561,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %138 = call i32 @rand() #24
   %139 = sitofp i32 %138 to double
-  %140 = fmul double %139, 2.000000e+00
+  %140 = fmul nnan double %139, 2.000000e+00
   %141 = fdiv double %140, 0x41DFFFFFFFC00000
   %142 = fadd double %141, -1.000000e+00
   store double %142, ptr %137, align 8, !tbaa !46
@@ -569,7 +569,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 40
   %145 = call i32 @rand() #24
   %146 = sitofp i32 %145 to double
-  %147 = fmul double %146, 2.000000e+00
+  %147 = fmul nnan double %146, 2.000000e+00
   %148 = fdiv double %147, 0x41DFFFFFFFC00000
   %149 = fadd double %148, -1.000000e+00
   store double %149, ptr %144, align 8, !tbaa !46
@@ -577,7 +577,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 48
   %152 = call i32 @rand() #24
   %153 = sitofp i32 %152 to double
-  %154 = fmul double %153, 2.000000e+00
+  %154 = fmul nnan double %153, 2.000000e+00
   %155 = fdiv double %154, 0x41DFFFFFFFC00000
   %156 = fadd double %155, -1.000000e+00
   store double %156, ptr %151, align 8, !tbaa !46
@@ -660,7 +660,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   store ptr %30, ptr %192, align 8, !tbaa !44
   %193 = call i32 @rand() #24
   %194 = sitofp i32 %193 to double
-  %195 = fmul double %194, 2.000000e+00
+  %195 = fmul nnan double %194, 2.000000e+00
   %196 = fdiv double %195, 0x41DFFFFFFFC00000
   %197 = fadd double %196, -1.000000e+00
   store double %197, ptr %30, align 16, !tbaa !46
@@ -668,7 +668,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = call i32 @rand() #24
   %201 = sitofp i32 %200 to double
-  %202 = fmul double %201, 2.000000e+00
+  %202 = fmul nnan double %201, 2.000000e+00
   %203 = fdiv double %202, 0x41DFFFFFFFC00000
   %204 = fadd double %203, -1.000000e+00
   store double %204, ptr %199, align 8, !tbaa !46
@@ -676,7 +676,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 16
   %207 = call i32 @rand() #24
   %208 = sitofp i32 %207 to double
-  %209 = fmul double %208, 2.000000e+00
+  %209 = fmul nnan double %208, 2.000000e+00
   %210 = fdiv double %209, 0x41DFFFFFFFC00000
   %211 = fadd double %210, -1.000000e+00
   store double %211, ptr %206, align 8, !tbaa !46
@@ -684,7 +684,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
   %214 = call i32 @rand() #24
   %215 = sitofp i32 %214 to double
-  %216 = fmul double %215, 2.000000e+00
+  %216 = fmul nnan double %215, 2.000000e+00
   %217 = fdiv double %216, 0x41DFFFFFFFC00000
   %218 = fadd double %217, -1.000000e+00
   store double %218, ptr %213, align 8, !tbaa !46
@@ -692,7 +692,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 32
   %221 = call i32 @rand() #24
   %222 = sitofp i32 %221 to double
-  %223 = fmul double %222, 2.000000e+00
+  %223 = fmul nnan double %222, 2.000000e+00
   %224 = fdiv double %223, 0x41DFFFFFFFC00000
   %225 = fadd double %224, -1.000000e+00
   store double %225, ptr %220, align 8, !tbaa !46
@@ -700,7 +700,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 40
   %228 = call i32 @rand() #24
   %229 = sitofp i32 %228 to double
-  %230 = fmul double %229, 2.000000e+00
+  %230 = fmul nnan double %229, 2.000000e+00
   %231 = fdiv double %230, 0x41DFFFFFFFC00000
   %232 = fadd double %231, -1.000000e+00
   store double %232, ptr %227, align 8, !tbaa !46
@@ -708,7 +708,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 48
   %235 = call i32 @rand() #24
   %236 = sitofp i32 %235 to double
-  %237 = fmul double %236, 2.000000e+00
+  %237 = fmul nnan double %236, 2.000000e+00
   %238 = fdiv double %237, 0x41DFFFFFFFC00000
   %239 = fadd double %238, -1.000000e+00
   store double %239, ptr %234, align 8, !tbaa !46
@@ -790,7 +790,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   store ptr %32, ptr %274, align 8, !tbaa !44
   %275 = call i32 @rand() #24
   %276 = sitofp i32 %275 to double
-  %277 = fmul double %276, 2.000000e+00
+  %277 = fmul nnan double %276, 2.000000e+00
   %278 = fdiv double %277, 0x41DFFFFFFFC00000
   %279 = fadd double %278, -1.000000e+00
   store double %279, ptr %32, align 16, !tbaa !46
@@ -798,7 +798,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
   %282 = call i32 @rand() #24
   %283 = sitofp i32 %282 to double
-  %284 = fmul double %283, 2.000000e+00
+  %284 = fmul nnan double %283, 2.000000e+00
   %285 = fdiv double %284, 0x41DFFFFFFFC00000
   %286 = fadd double %285, -1.000000e+00
   store double %286, ptr %281, align 8, !tbaa !46
@@ -806,7 +806,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 16
   %289 = call i32 @rand() #24
   %290 = sitofp i32 %289 to double
-  %291 = fmul double %290, 2.000000e+00
+  %291 = fmul nnan double %290, 2.000000e+00
   %292 = fdiv double %291, 0x41DFFFFFFFC00000
   %293 = fadd double %292, -1.000000e+00
   store double %293, ptr %288, align 8, !tbaa !46
@@ -814,7 +814,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 24
   %296 = call i32 @rand() #24
   %297 = sitofp i32 %296 to double
-  %298 = fmul double %297, 2.000000e+00
+  %298 = fmul nnan double %297, 2.000000e+00
   %299 = fdiv double %298, 0x41DFFFFFFFC00000
   %300 = fadd double %299, -1.000000e+00
   store double %300, ptr %295, align 8, !tbaa !46
@@ -822,7 +822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 32
   %303 = call i32 @rand() #24
   %304 = sitofp i32 %303 to double
-  %305 = fmul double %304, 2.000000e+00
+  %305 = fmul nnan double %304, 2.000000e+00
   %306 = fdiv double %305, 0x41DFFFFFFFC00000
   %307 = fadd double %306, -1.000000e+00
   store double %307, ptr %302, align 8, !tbaa !46
@@ -830,7 +830,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 40
   %310 = call i32 @rand() #24
   %311 = sitofp i32 %310 to double
-  %312 = fmul double %311, 2.000000e+00
+  %312 = fmul nnan double %311, 2.000000e+00
   %313 = fdiv double %312, 0x41DFFFFFFFC00000
   %314 = fadd double %313, -1.000000e+00
   store double %314, ptr %309, align 8, !tbaa !46
@@ -838,7 +838,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 48
   %317 = call i32 @rand() #24
   %318 = sitofp i32 %317 to double
-  %319 = fmul double %318, 2.000000e+00
+  %319 = fmul nnan double %318, 2.000000e+00
   %320 = fdiv double %319, 0x41DFFFFFFFC00000
   %321 = fadd double %320, -1.000000e+00
   store double %321, ptr %316, align 8, !tbaa !46
@@ -858,7 +858,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %324 = getelementptr inbounds nuw double, ptr %33, i64 %.05.i.i.i.i.i.i.i
   %325 = call i32 @rand() #24
   %326 = sitofp i32 %325 to double
-  %327 = fmul double %326, 2.000000e+00
+  %327 = fmul nnan double %326, 2.000000e+00
   %328 = fdiv double %327, 0x41DFFFFFFFC00000
   %329 = fadd double %328, -1.000000e+00
   store double %329, ptr %324, align 8, !tbaa !46
@@ -1026,7 +1026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   store ptr %35, ptr %428, align 8, !tbaa !44
   %429 = call i32 @rand() #24
   %430 = sitofp i32 %429 to double
-  %431 = fmul double %430, 2.000000e+00
+  %431 = fmul nnan double %430, 2.000000e+00
   %432 = fdiv double %431, 0x41DFFFFFFFC00000
   %433 = fadd double %432, -1.000000e+00
   store double %433, ptr %35, align 16, !tbaa !46
@@ -1034,7 +1034,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %435 = getelementptr inbounds nuw i8, ptr %434, i64 8
   %436 = call i32 @rand() #24
   %437 = sitofp i32 %436 to double
-  %438 = fmul double %437, 2.000000e+00
+  %438 = fmul nnan double %437, 2.000000e+00
   %439 = fdiv double %438, 0x41DFFFFFFFC00000
   %440 = fadd double %439, -1.000000e+00
   store double %440, ptr %435, align 8, !tbaa !46
@@ -1042,7 +1042,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 16
   %443 = call i32 @rand() #24
   %444 = sitofp i32 %443 to double
-  %445 = fmul double %444, 2.000000e+00
+  %445 = fmul nnan double %444, 2.000000e+00
   %446 = fdiv double %445, 0x41DFFFFFFFC00000
   %447 = fadd double %446, -1.000000e+00
   store double %447, ptr %442, align 8, !tbaa !46
@@ -1050,7 +1050,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 24
   %450 = call i32 @rand() #24
   %451 = sitofp i32 %450 to double
-  %452 = fmul double %451, 2.000000e+00
+  %452 = fmul nnan double %451, 2.000000e+00
   %453 = fdiv double %452, 0x41DFFFFFFFC00000
   %454 = fadd double %453, -1.000000e+00
   store double %454, ptr %449, align 8, !tbaa !46
@@ -1058,7 +1058,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %456 = getelementptr inbounds nuw i8, ptr %455, i64 32
   %457 = call i32 @rand() #24
   %458 = sitofp i32 %457 to double
-  %459 = fmul double %458, 2.000000e+00
+  %459 = fmul nnan double %458, 2.000000e+00
   %460 = fdiv double %459, 0x41DFFFFFFFC00000
   %461 = fadd double %460, -1.000000e+00
   store double %461, ptr %456, align 8, !tbaa !46
@@ -1066,7 +1066,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 40
   %464 = call i32 @rand() #24
   %465 = sitofp i32 %464 to double
-  %466 = fmul double %465, 2.000000e+00
+  %466 = fmul nnan double %465, 2.000000e+00
   %467 = fdiv double %466, 0x41DFFFFFFFC00000
   %468 = fadd double %467, -1.000000e+00
   store double %468, ptr %463, align 8, !tbaa !46
@@ -1074,7 +1074,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 48
   %471 = call i32 @rand() #24
   %472 = sitofp i32 %471 to double
-  %473 = fmul double %472, 2.000000e+00
+  %473 = fmul nnan double %472, 2.000000e+00
   %474 = fdiv double %473, 0x41DFFFFFFFC00000
   %475 = fadd double %474, -1.000000e+00
   store double %475, ptr %470, align 8, !tbaa !46
@@ -1094,7 +1094,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %96
   %478 = getelementptr inbounds nuw double, ptr %36, i64 %.05.i.i.i.i.i.i.i130
   %479 = call i32 @rand() #24
   %480 = sitofp i32 %479 to double
-  %481 = fmul double %480, 2.000000e+00
+  %481 = fmul nnan double %480, 2.000000e+00
   %482 = fdiv double %481, 0x41DFFFFFFFC00000
   %483 = fadd double %482, -1.000000e+00
   store double %483, ptr %478, align 8, !tbaa !46
@@ -2652,7 +2652,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal54copy_using_evaluator_Lin
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = tail call i32 @rand() #24
   %6 = sitofp i32 %5 to double
-  %7 = fmul double %6, 2.000000e+00
+  %7 = fmul nnan double %6, 2.000000e+00
   %8 = fdiv double %7, 0x41DFFFFFFFC00000
   %9 = fadd double %8, -1.000000e+00
   store double %9, ptr %4, align 8, !tbaa !46
@@ -2661,7 +2661,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal54copy_using_evaluator_Lin
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = tail call i32 @rand() #24
   %14 = sitofp i32 %13 to double
-  %15 = fmul double %14, 2.000000e+00
+  %15 = fmul nnan double %14, 2.000000e+00
   %16 = fdiv double %15, 0x41DFFFFFFFC00000
   %17 = fadd double %16, -1.000000e+00
   store double %17, ptr %12, align 8, !tbaa !46
@@ -2670,7 +2670,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal54copy_using_evaluator_Lin
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 72
   %21 = tail call i32 @rand() #24
   %22 = sitofp i32 %21 to double
-  %23 = fmul double %22, 2.000000e+00
+  %23 = fmul nnan double %22, 2.000000e+00
   %24 = fdiv double %23, 0x41DFFFFFFFC00000
   %25 = fadd double %24, -1.000000e+00
   store double %25, ptr %20, align 8, !tbaa !46
@@ -2679,7 +2679,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal54copy_using_evaluator_Lin
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %29 = tail call i32 @rand() #24
   %30 = sitofp i32 %29 to double
-  %31 = fmul double %30, 2.000000e+00
+  %31 = fmul nnan double %30, 2.000000e+00
   %32 = fdiv double %31, 0x41DFFFFFFFC00000
   %33 = fadd double %32, -1.000000e+00
   store double %33, ptr %28, align 8, !tbaa !46
@@ -2688,7 +2688,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal54copy_using_evaluator_Lin
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 88
   %37 = tail call i32 @rand() #24
   %38 = sitofp i32 %37 to double
-  %39 = fmul double %38, 2.000000e+00
+  %39 = fmul nnan double %38, 2.000000e+00
   %40 = fdiv double %39, 0x41DFFFFFFFC00000
   %41 = fadd double %40, -1.000000e+00
   store double %41, ptr %36, align 8, !tbaa !46
@@ -2697,7 +2697,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal54copy_using_evaluator_Lin
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = tail call i32 @rand() #24
   %46 = sitofp i32 %45 to double
-  %47 = fmul double %46, 2.000000e+00
+  %47 = fmul nnan double %46, 2.000000e+00
   %48 = fdiv double %47, 0x41DFFFFFFFC00000
   %49 = fadd double %48, -1.000000e+00
   store double %49, ptr %44, align 8, !tbaa !46
@@ -2706,7 +2706,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal54copy_using_evaluator_Lin
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 104
   %53 = tail call i32 @rand() #24
   %54 = sitofp i32 %53 to double
-  %55 = fmul double %54, 2.000000e+00
+  %55 = fmul nnan double %54, 2.000000e+00
   %56 = fdiv double %55, 0x41DFFFFFFFC00000
   %57 = fadd double %56, -1.000000e+00
   store double %57, ptr %52, align 8, !tbaa !46
@@ -2715,7 +2715,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal54copy_using_evaluator_Lin
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 112
   %61 = tail call i32 @rand() #24
   %62 = sitofp i32 %61 to double
-  %63 = fmul double %62, 2.000000e+00
+  %63 = fmul nnan double %62, 2.000000e+00
   %64 = fdiv double %63, 0x41DFFFFFFFC00000
   %65 = fadd double %64, -1.000000e+00
   store double %65, ptr %60, align 8, !tbaa !46
@@ -2724,7 +2724,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal54copy_using_evaluator_Lin
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 120
   %69 = tail call i32 @rand() #24
   %70 = sitofp i32 %69 to double
-  %71 = fmul double %70, 2.000000e+00
+  %71 = fmul nnan double %70, 2.000000e+00
   %72 = fdiv double %71, 0x41DFFFFFFFC00000
   %73 = fadd double %72, -1.000000e+00
   store double %73, ptr %68, align 8, !tbaa !46

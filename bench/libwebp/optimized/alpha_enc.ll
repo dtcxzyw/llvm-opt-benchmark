@@ -613,7 +613,7 @@ define internal fastcc range(i32 0, 2) i32 @EncodeAlphaInternal(ptr noundef nonn
   %45 = icmp eq i32 %6, 6
   %or.cond.i = and i1 %44, %45
   %46 = sitofp i32 %6 to float
-  %47 = fmul float %46, 8.000000e+00
+  %47 = fmul nnan float %46, 8.000000e+00
   %48 = select i1 %or.cond.i, float 1.000000e+02, float %47
   %49 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store float %48, ptr %49, align 4, !tbaa !92

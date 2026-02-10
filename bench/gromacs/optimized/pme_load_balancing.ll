@@ -1327,7 +1327,7 @@ _ZL20continue_pme_loadbalP20pme_load_balancing_tb.exit: ; preds = %._crit_edge.i
   %345 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %346 = getelementptr inbounds nuw i8, ptr %5, i64 176
   %347 = sitofp i32 %321 to float
-  %348 = fmul float %347, 0x3FE99999A0000000
+  %348 = fmul nnan float %347, 0x3FE99999A0000000
   br label %.critedge233.i
 
 .critedge233.i:                                   ; preds = %.critedge233.i.backedge, %.thread.i
@@ -2459,7 +2459,7 @@ define internal fastcc void @_ZL10print_gridP8_IO_FILES0_PKcS2_PK11pme_setup_td(
 
 18:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %19 = fmul double %5, 0x3EB0C6F7A0B5ED8D
+  %19 = fmul nnan double %5, 0x3EB0C6F7A0B5ED8D
   invoke void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @.str.23, double noundef %19)
           to label %20 unwind label %35
 

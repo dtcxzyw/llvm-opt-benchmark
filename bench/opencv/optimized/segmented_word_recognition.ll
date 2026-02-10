@@ -1607,8 +1607,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit236: ; preds = %_ZSt
 
 521:                                              ; preds = %519
   %522 = sitofp i64 %518 to double
-  %523 = fsub double %522, %455
-  %524 = fmul double %523, 1.000000e+03
+  %523 = fsub nnan double %522, %455
+  %524 = fmul nnan double %523, 1.000000e+03
   %525 = fdiv double %524, %520
   %526 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %516, double noundef %525)
           to label %_ZNSolsEd.exit unwind label %730
@@ -1695,8 +1695,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit247: ; preds = %_ZSt
 
 562:                                              ; preds = %560
   %563 = sitofp i64 %559 to double
-  %564 = fsub double %563, %548
-  %565 = fmul double %564, 1.000000e+03
+  %564 = fsub nnan double %563, %548
+  %565 = fmul nnan double %564, 1.000000e+03
   %566 = fdiv double %565, %561
   %567 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %557, double noundef %566)
           to label %_ZNSolsEd.exit249 unwind label %730
@@ -1783,8 +1783,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit259: ; preds = %_ZSt
 
 603:                                              ; preds = %601
   %604 = sitofp i64 %600 to double
-  %605 = fsub double %604, %589
-  %606 = fmul double %605, 1.000000e+03
+  %605 = fsub nnan double %604, %589
+  %606 = fmul nnan double %605, 1.000000e+03
   %607 = fdiv double %606, %602
   %608 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %598, double noundef %607)
           to label %_ZNSolsEd.exit261 unwind label %730

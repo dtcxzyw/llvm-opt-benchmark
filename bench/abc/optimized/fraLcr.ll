@@ -63,7 +63,7 @@ define void @Lcr_ManPrint(ptr noundef readonly captures(none) %0) local_unnamed_
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %7 = load i32, ptr %6, align 4, !tbaa !24
   %8 = sitofp i32 %7 to double
-  %9 = fmul double %8, 1.000000e+02
+  %9 = fmul nnan double %8, 1.000000e+02
   %10 = sitofp i32 %5 to double
   %11 = fdiv double %9, %10
   %12 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3, i32 noundef %5, i32 noundef %7, double noundef %11)
@@ -73,7 +73,7 @@ define void @Lcr_ManPrint(ptr noundef readonly captures(none) %0) local_unnamed_
   %16 = load i32, ptr %15, align 4, !tbaa !26
   %17 = sub nsw i32 %14, %16
   %18 = sitofp i32 %17 to double
-  %19 = fmul double %18, 1.000000e+02
+  %19 = fmul nnan double %18, 1.000000e+02
   %20 = sitofp i32 %14 to double
   %21 = fdiv double %19, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -82,7 +82,7 @@ define void @Lcr_ManPrint(ptr noundef readonly captures(none) %0) local_unnamed_
   %25 = load i32, ptr %24, align 4, !tbaa !28
   %26 = sub nsw i32 %23, %25
   %27 = sitofp i32 %26 to double
-  %28 = fmul double %27, 1.000000e+02
+  %28 = fmul nnan double %27, 1.000000e+02
   %29 = sitofp i32 %23 to double
   %30 = fdiv double %28, %29
   %31 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %14, i32 noundef %16, double noundef %21, i32 noundef %23, i32 noundef %25, double noundef %30)

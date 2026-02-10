@@ -363,14 +363,14 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %9, %12
 22:                                               ; preds = %21
   %23 = add nsw i32 %.sroa.0.0.extract.trunc, -1
   %24 = sitofp i32 %23 to double
-  %25 = fmul double %24, 5.000000e-01
+  %25 = fmul nnan double %24, 5.000000e-01
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !66
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store double %25, ptr %28, align 8, !tbaa !67
   %29 = add nsw i32 %.sroa.2.0.extract.trunc, -1
   %30 = sitofp i32 %29 to double
-  %31 = fmul double %30, 5.000000e-01
+  %31 = fmul nnan double %30, 5.000000e-01
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 40
   store double %31, ptr %32, align 8, !tbaa !67
   br label %35
@@ -6642,7 +6642,7 @@ _ZNK2cv11_InputArray6getMatEi.exit242:            ; preds = %54, %57
   %78 = fptrunc double %77 to float
   %79 = add nsw i32 %3, -1
   %80 = sitofp i32 %79 to float
-  %81 = fmul float %80, 5.000000e-01
+  %81 = fmul nnan float %80, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %82 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26
           to label %83 unwind label %119
@@ -6900,8 +6900,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249: ; preds = %15
   %.0183356 = phi float [ 0xC7EFFFFFE0000000, %161 ], [ %.2185, %224 ]
   %.0186355 = phi i32 [ 0, %161 ], [ %225, %224 ]
   %192 = uitofp nneg i32 %.0186355 to float
-  %193 = fmul float %164, %192
-  %194 = fmul float %193, 1.250000e-01
+  %193 = fmul nnan float %164, %192
+  %194 = fmul nnan float %193, 1.250000e-01
   br label %226
 
 195:                                              ; preds = %224
@@ -6930,7 +6930,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249: ; preds = %15
   %216 = fptosi double %215 to i32
   %217 = add nsw i32 %216, -1
   %218 = sitofp i32 %217 to float
-  %219 = fmul float %218, 5.000000e-01
+  %219 = fmul nnan float %218, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %.sroa.6299.0.insert.ext = zext i32 %216 to i64
   %.sroa.6299.0.insert.shift = shl nuw i64 %.sroa.6299.0.insert.ext, 32
@@ -6963,8 +6963,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit249: ; preds = %15
   %.1184351 = phi float [ %.0183356, %.preheader328 ], [ %.2185, %265 ]
   %.0187350 = phi i32 [ 0, %.preheader328 ], [ %271, %265 ]
   %227 = uitofp nneg i32 %.0187350 to float
-  %228 = fmul float %163, %227
-  %229 = fmul float %228, 1.250000e-01
+  %228 = fmul nnan float %163, %227
+  %229 = fmul nnan float %228, 1.250000e-01
   %230 = load ptr, ptr %22, align 8, !tbaa !203
   store float %229, ptr %230, align 4
   %.sroa_idx306 = getelementptr inbounds nuw i8, ptr %230, i64 4
@@ -7183,7 +7183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %260
   %324 = getelementptr inbounds nuw i8, ptr %320, i64 %323
   %325 = trunc nuw nsw i64 %indvars.iv373 to i32
   %326 = uitofp nneg i32 %325 to float
-  %327 = fsub float %326, %219
+  %327 = fsub nnan float %326, %219
   %328 = fmul float %317, %327
   %329 = fpext float %328 to double
   br label %330
@@ -7192,7 +7192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %260
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %477 ]
   %331 = trunc nuw nsw i64 %indvars.iv to i32
   %332 = uitofp nneg i32 %331 to float
-  %333 = fsub float %332, %81
+  %333 = fsub nnan float %332, %81
   %334 = fmul float %317, %333
   %335 = fpext float %334 to double
   br label %336

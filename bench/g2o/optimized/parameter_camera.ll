@@ -122,7 +122,7 @@ define void @_ZN3g2o15ParameterCameraC2Ev(ptr noundef nonnull align 16 dereferen
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store double %25, ptr %27, align 16, !tbaa !6
   %28 = fmul double %19, 0.000000e+00
-  %29 = fsub double 0.000000e+00, %28
+  %29 = fsub ninf double 0.000000e+00, %28
   %30 = fmul double %29, %15
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -340,7 +340,7 @@ define void @_ZN3g2o15ParameterCamera7setKcamEdddd(ptr noundef nonnull align 16 
   store double %40, ptr %42, align 16, !tbaa !6
   %43 = extractelement <2 x double> %20, i64 0
   %44 = fmul double %43, -0.000000e+00
-  %45 = fadd double %44, 0.000000e+00
+  %45 = fadd ninf double %44, 0.000000e+00
   %46 = fmul double %45, %25
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -695,7 +695,7 @@ _ZN3g2o15ParameterCamera9setOffsetERKN5Eigen9TransformIdLi3ELi1ELi0EEE.exit: ; p
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 400
   store double %125, ptr %127, align 16, !tbaa !6
   %128 = fmul double %116, 0.000000e+00
-  %129 = fsub double 0.000000e+00, %128
+  %129 = fsub ninf double 0.000000e+00, %128
   %130 = fmul double %129, %111
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 384

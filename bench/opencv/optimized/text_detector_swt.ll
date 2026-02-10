@@ -4227,7 +4227,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN2cv4text12_GLOB
   %1666 = load i32, ptr %..i492.i, align 4, !tbaa !19, !noalias !163
   %1667 = call i32 @llvm.smax.i32(i32 %1665, i32 %1666)
   %1668 = sitofp i32 %1667 to float
-  %1669 = fmul float %1668, 9.000000e+00
+  %1669 = fmul nnan float %1668, 9.000000e+00
   %1670 = fmul float %1669, %1668
   %1671 = fcmp olt float %1644, %1670
   %1672 = fcmp olt float %1659, 1.600000e+03
@@ -7248,7 +7248,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIf
   br label %.body
 
 .thread:                                          ; preds = %164, %.loopexit50
-  %170 = fmul float %160, %163
+  %170 = fmul nnan float %160, %163
   %.val = load ptr, ptr %37, align 8, !tbaa !56
   %.val84 = load ptr, ptr %38, align 8, !tbaa !57
   %171 = ptrtoint ptr %.val84 to i64
@@ -7268,7 +7268,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIf
   %.sroa.46.091 = phi float [ %163, %.thread ], [ %.sroa.46.1, %._crit_edge ]
   %.sroa.41.090 = phi float [ %160, %.thread ], [ %.sroa.41.1, %._crit_edge ]
   %177 = uitofp nneg i32 %.07193 to double
-  %178 = fmul double %177, 0x3FB657184AE74487
+  %178 = fmul nnan double %177, 0x3FB657184AE74487
   %179 = fptrunc double %178 to float
   br i1 %.not102, label %._crit_edge, label %.lr.ph
 
@@ -7340,11 +7340,11 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSaIf
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
   %218 = add nsw i32 %98, %95
   %219 = sitofp i32 %218 to float
-  %220 = fmul float %219, 5.000000e-01
+  %220 = fmul nnan float %219, 5.000000e-01
   store float %220, ptr %24, align 8, !tbaa !192
   %221 = add nsw i32 %99, %97
   %222 = sitofp i32 %221 to float
-  %223 = fmul float %222, 5.000000e-01
+  %223 = fmul nnan float %222, 5.000000e-01
   store float %223, ptr %25, align 4, !tbaa !193
   store i32 %95, ptr %6, align 8, !tbaa !254
   store i32 %97, ptr %26, align 4, !tbaa !259

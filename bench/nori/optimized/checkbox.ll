@@ -227,7 +227,7 @@ _ZNK7nanogui5ArrayIiLm2EEneERKS1_.exit:           ; preds = %_ZN7nanogui5ArrayIi
   %16 = fptosi float %15 to i32
   %17 = tail call noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
   %18 = sitofp i32 %17 to float
-  %19 = fmul float %18, 0x3FF4CCCCC0000000
+  %19 = fmul nnan float %18, 0x3FF4CCCCC0000000
   %20 = fptosi float %19 to i32
   br label %21
 

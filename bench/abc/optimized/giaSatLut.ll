@@ -9458,7 +9458,7 @@ define void @Sbl_ManPrintRuntime(ptr noundef captures(none) initializes((400, 40
   %20 = load i64, ptr %2, align 8, !tbaa !219
   %.not = icmp eq i64 %20, 0
   %21 = sitofp i64 %20 to double
-  %22 = fmul double %18, 1.000000e+02
+  %22 = fmul nnan double %18, 1.000000e+02
   %23 = fdiv double %22, %21
   %24 = select i1 %.not, double 0.000000e+00, double %23
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.24, double noundef %19, double noundef %24)
@@ -9469,7 +9469,7 @@ define void @Sbl_ManPrintRuntime(ptr noundef captures(none) initializes((400, 40
   %28 = load i64, ptr %2, align 8, !tbaa !219
   %.not50 = icmp eq i64 %28, 0
   %29 = sitofp i64 %28 to double
-  %30 = fmul double %26, 1.000000e+02
+  %30 = fmul nnan double %26, 1.000000e+02
   %31 = fdiv double %30, %29
   %32 = select i1 %.not50, double 0.000000e+00, double %31
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.24, double noundef %27, double noundef %32)
@@ -9480,7 +9480,7 @@ define void @Sbl_ManPrintRuntime(ptr noundef captures(none) initializes((400, 40
   %36 = load i64, ptr %2, align 8, !tbaa !219
   %.not51 = icmp eq i64 %36, 0
   %37 = sitofp i64 %36 to double
-  %38 = fmul double %34, 1.000000e+02
+  %38 = fmul nnan double %34, 1.000000e+02
   %39 = fdiv double %38, %37
   %40 = select i1 %.not51, double 0.000000e+00, double %39
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.24, double noundef %35, double noundef %40)
@@ -9492,7 +9492,7 @@ define void @Sbl_ManPrintRuntime(ptr noundef captures(none) initializes((400, 40
   %45 = load i64, ptr %2, align 8, !tbaa !219
   %.not52 = icmp eq i64 %45, 0
   %46 = sitofp i64 %45 to double
-  %47 = fmul double %43, 1.000000e+02
+  %47 = fmul nnan double %43, 1.000000e+02
   %48 = fdiv double %47, %46
   %49 = select i1 %.not52, double 0.000000e+00, double %48
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.24, double noundef %44, double noundef %49)
@@ -9504,7 +9504,7 @@ define void @Sbl_ManPrintRuntime(ptr noundef captures(none) initializes((400, 40
   %54 = load i64, ptr %2, align 8, !tbaa !219
   %.not53 = icmp eq i64 %54, 0
   %55 = sitofp i64 %54 to double
-  %56 = fmul double %52, 1.000000e+02
+  %56 = fmul nnan double %52, 1.000000e+02
   %57 = fdiv double %56, %55
   %58 = select i1 %.not53, double 0.000000e+00, double %57
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.24, double noundef %53, double noundef %58)
@@ -9516,7 +9516,7 @@ define void @Sbl_ManPrintRuntime(ptr noundef captures(none) initializes((400, 40
   %63 = load i64, ptr %2, align 8, !tbaa !219
   %.not54 = icmp eq i64 %63, 0
   %64 = sitofp i64 %63 to double
-  %65 = fmul double %61, 1.000000e+02
+  %65 = fmul nnan double %61, 1.000000e+02
   %66 = fdiv double %65, %64
   %67 = select i1 %.not54, double 0.000000e+00, double %66
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.24, double noundef %62, double noundef %67)
@@ -9527,7 +9527,7 @@ define void @Sbl_ManPrintRuntime(ptr noundef captures(none) initializes((400, 40
   %71 = load i64, ptr %2, align 8, !tbaa !219
   %.not55 = icmp eq i64 %71, 0
   %72 = sitofp i64 %71 to double
-  %73 = fmul double %69, 1.000000e+02
+  %73 = fmul nnan double %69, 1.000000e+02
   %74 = fdiv double %73, %72
   %75 = select i1 %.not55, double 0.000000e+00, double %74
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.24, double noundef %70, double noundef %75)
@@ -9538,7 +9538,7 @@ define void @Sbl_ManPrintRuntime(ptr noundef captures(none) initializes((400, 40
   %79 = load i64, ptr %2, align 8, !tbaa !219
   %.not56 = icmp eq i64 %79, 0
   %80 = sitofp i64 %79 to double
-  %81 = fmul double %77, 1.000000e+02
+  %81 = fmul nnan double %77, 1.000000e+02
   %82 = fdiv double %81, %80
   %83 = select i1 %.not56, double 0.000000e+00, double %82
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.24, double noundef %78, double noundef %83)
@@ -9546,7 +9546,7 @@ define void @Sbl_ManPrintRuntime(ptr noundef captures(none) initializes((400, 40
   %84 = load i64, ptr %2, align 8, !tbaa !219
   %85 = sitofp i64 %84 to double
   %.not57 = icmp eq i64 %84, 0
-  %86 = fmul double %85, 1.000000e+02
+  %86 = fmul nnan double %85, 1.000000e+02
   %87 = fdiv double %86, %85
   %88 = select i1 %.not57, double 0.000000e+00, double %87
   %89 = fdiv double %85, 1.000000e+06

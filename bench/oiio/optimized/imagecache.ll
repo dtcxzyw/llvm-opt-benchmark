@@ -11426,7 +11426,7 @@ _ZNSt13__atomic_baseIxE21compare_exchange_weakERxxSt12memory_orderS2_.exit.i: ; 
   %.097167 = phi i8 [ 1, %.lr.ph168 ], [ %.198.lcssa, %._crit_edge ]
   %.099166 = phi i32 [ %59, %.lr.ph168 ], [ %156, %._crit_edge ]
   %139 = sitofp i32 %.099166 to float
-  %140 = fadd float %139, 5.000000e-01
+  %140 = fadd nnan float %139, 5.000000e-01
   %141 = load i32, ptr %61, align 8, !tbaa !128
   %142 = sitofp i32 %141 to float
   %143 = fdiv float %140, %142
@@ -11460,7 +11460,7 @@ _ZNSt13__atomic_baseIxE21compare_exchange_weakERxxSt12memory_orderS2_.exit.i: ; 
   %.198164 = phi i1 [ %154, %.lr.ph ], [ %191, %_ZN11OpenImageIO6v3_1_08ImageBuf8setpixelEiiNS0_4spanIKfLm18446744073709551615EEE.exit ]
   %.0100163 = phi i32 [ %52, %.lr.ph ], [ %192, %_ZN11OpenImageIO6v3_1_08ImageBuf8setpixelEiiNS0_4spanIKfLm18446744073709551615EEE.exit ]
   %158 = sitofp i32 %.0100163 to float
-  %159 = fadd float %158, 5.000000e-01
+  %159 = fadd nnan float %158, 5.000000e-01
   %160 = load i32, ptr %54, align 4, !tbaa !126
   %161 = sitofp i32 %160 to float
   %162 = fdiv float %159, %161
@@ -18358,15 +18358,15 @@ switch.lookup:                                    ; preds = %30
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 144
   %60 = load i64, ptr %59, align 8, !tbaa !523
   %61 = uitofp i64 %60 to double
-  %62 = fmul double %61, 0x3F50000000000000
-  %63 = fmul double %62, 0x3F50000000000000
+  %62 = fmul nnan double %61, 0x3F50000000000000
+  %63 = fmul nnan double %62, 0x3F50000000000000
   store double %63, ptr %13, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %64 = getelementptr inbounds nuw i8, ptr %54, i64 160
   %65 = load atomic i64, ptr %64 seq_cst, align 8
   %66 = uitofp i64 %65 to double
-  %67 = fmul double %66, 0x3F50000000000000
-  %68 = fmul double %67, 0x3F50000000000000
+  %67 = fmul nnan double %66, 0x3F50000000000000
+  %68 = fmul nnan double %67, 0x3F50000000000000
   store double %68, ptr %14, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %69 = load ptr, ptr %2, align 8, !tbaa !481
@@ -18441,8 +18441,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %81,
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 144
   %95 = load i64, ptr %94, align 8, !tbaa !523
   %96 = uitofp i64 %95 to double
-  %97 = fmul double %96, 0x3F50000000000000
-  %98 = fmul double %97, 0x3F50000000000000
+  %97 = fmul nnan double %96, 0x3F50000000000000
+  %98 = fmul nnan double %97, 0x3F50000000000000
   store double %98, ptr %18, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 176
@@ -20809,7 +20809,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit319: ; preds = %_ZSt
   %467 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %468 = load atomic i64, ptr %467 seq_cst, align 8
   %469 = sitofp i64 %468 to double
-  %470 = fmul double %469, 0x3EB0000000000000
+  %470 = fmul nnan double %469, 0x3EB0000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !724
   store double %470, ptr %18, align 16, !noalias !724
   invoke void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %34, ptr nonnull @.str.111, i64 22, i64 10, ptr nonnull %18)
@@ -22339,7 +22339,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit532: ; preds = %10
 1029:                                             ; preds = %1026
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %1030 = sitofp i64 %1028 to double
-  %1031 = fmul double %1030, 1.000000e+02
+  %1031 = fmul nnan double %1030, 1.000000e+02
   %1032 = load i64, ptr %21, align 8, !tbaa !66
   %1033 = sitofp i64 %1032 to double
   %1034 = fdiv double %1031, %1033
@@ -22374,7 +22374,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit532: ; preds = %10
 1043:                                             ; preds = %1040
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %1044 = sitofp i32 %1042 to double
-  %1045 = fmul double %1044, 1.000000e+02
+  %1045 = fmul nnan double %1044, 1.000000e+02
   %1046 = load i64, ptr %21, align 8, !tbaa !66
   %1047 = sitofp i64 %1046 to double
   %1048 = fdiv double %1045, %1047
@@ -22828,13 +22828,13 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN11OpenImageIO6v3_1_013intrusive_ptrIN
 ._crit_edge1158:                                  ; preds = %1250, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN11OpenImageIO6v3_1_013intrusive_ptrINS3_14ImageCacheFileEEESt6vectorIS6_SaIS6_EEEEPFbRKS6_SD_EEvT_SG_T0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
   %1210 = uitofp i64 %.0 to double
-  %1211 = fmul double %1210, 0x3F50000000000000
-  %1212 = fmul double %1211, 0x3F50000000000000
+  %1211 = fmul nnan double %1210, 0x3F50000000000000
+  %1212 = fmul nnan double %1211, 0x3F50000000000000
   store double %1212, ptr %74, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   %1213 = uitofp i64 %.0149 to double
-  %1214 = fmul double %1213, 0x3F50000000000000
-  %1215 = fmul double %1214, 0x3F50000000000000
+  %1214 = fmul nnan double %1213, 0x3F50000000000000
+  %1215 = fmul nnan double %1214, 0x3F50000000000000
   store double %1215, ptr %75, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   invoke void @_ZN11OpenImageIO6v3_1_07Strutil18timeintervalformatB5cxx11Edi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %76, double noundef %.0150, i32 noundef 1)
@@ -23467,11 +23467,11 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN11OpenImageIO6v3_1_013intrusive_ptrIN
   %1448 = getelementptr inbounds nuw i8, ptr %1435, i64 144
   %1449 = load i64, ptr %1448, align 8, !tbaa !523
   %1450 = uitofp i64 %1449 to double
-  %1451 = fmul double %1450, 0x3F50000000000000
-  %1452 = fmul double %1451, 0x3F50000000000000
+  %1451 = fmul nnan double %1450, 0x3F50000000000000
+  %1452 = fmul nnan double %1451, 0x3F50000000000000
   store double %1452, ptr %79, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
-  %1453 = fmul double %1450, 1.000000e+02
+  %1453 = fmul nnan double %1450, 1.000000e+02
   %1454 = fdiv double %1453, %1432
   store double %1454, ptr %80, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
@@ -24044,7 +24044,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit619: ; preds = %_Z
   %1664 = getelementptr inbounds nuw i8, ptr %1659, i64 144
   %1665 = load i64, ptr %1664, align 8, !tbaa !523
   %1666 = uitofp i64 %1665 to double
-  %1667 = fmul double %1666, 0x3EB0000000000000
+  %1667 = fmul nnan double %1666, 0x3EB0000000000000
   %1668 = fdiv double %1667, %1661
   br label %1669
 
@@ -24060,7 +24060,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit619: ; preds = %_Z
   %1676 = getelementptr inbounds nuw i8, ptr %1671, i64 144
   %1677 = load i64, ptr %1676, align 8, !tbaa !523
   %1678 = uitofp i64 %1677 to double
-  %1679 = fmul double %1678, 0x3EB0000000000000
+  %1679 = fmul nnan double %1678, 0x3EB0000000000000
   %1680 = fdiv double %1679, %1673
   br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114iorate_compareERKNS0_13intrusive_ptrINS0_14ImageCacheFileEEES6_.exit946
 
@@ -24160,7 +24160,7 @@ _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheFileEED2Ev.exit.i801: ; p
   %1707 = getelementptr inbounds nuw i8, ptr %1702, i64 144
   %1708 = load i64, ptr %1707, align 8, !tbaa !523
   %1709 = uitofp i64 %1708 to double
-  %1710 = fmul double %1709, 0x3EB0000000000000
+  %1710 = fmul nnan double %1709, 0x3EB0000000000000
   %1711 = fdiv double %1710, %1704
   br label %1712
 
@@ -24176,7 +24176,7 @@ _ZN11OpenImageIO6v3_1_013intrusive_ptrINS0_14ImageCacheFileEED2Ev.exit.i801: ; p
   %1719 = getelementptr inbounds nuw i8, ptr %1714, i64 144
   %1720 = load i64, ptr %1719, align 8, !tbaa !523
   %1721 = uitofp i64 %1720 to double
-  %1722 = fmul double %1721, 0x3EB0000000000000
+  %1722 = fmul nnan double %1721, 0x3EB0000000000000
   %1723 = fdiv double %1722, %1716
   br label %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114iorate_compareERKNS0_13intrusive_ptrINS0_14ImageCacheFileEEES6_.exit
 
@@ -24299,7 +24299,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN11OpenImageIO6v3_1_013intrusive_ptrIN
   %1771 = getelementptr inbounds nuw i8, ptr %1754, i64 144
   %1772 = load i64, ptr %1771, align 8, !tbaa !523
   %1773 = uitofp i64 %1772 to double
-  %1774 = fmul double %1773, 0x3EB0000000000000
+  %1774 = fmul nnan double %1773, 0x3EB0000000000000
   store double %1774, ptr %85, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %86)
   %1775 = fdiv double %1774, %1764
@@ -24375,7 +24375,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit635: ; preds = %17
   %1795 = getelementptr inbounds nuw i8, ptr %1794, i64 144
   %1796 = load i64, ptr %1795, align 8, !tbaa !523
   %1797 = uitofp i64 %1796 to double
-  %1798 = fmul double %1797, 0x3EB0000000000000
+  %1798 = fmul nnan double %1797, 0x3EB0000000000000
   %1799 = getelementptr inbounds nuw i8, ptr %1794, i64 176
   %1800 = load double, ptr %1799, align 8, !tbaa !380
   %1801 = fdiv double %1798, %1800
@@ -24779,15 +24779,15 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN11OpenImageIO6v3_1_013intrusive_ptrIN
   %1957 = getelementptr inbounds nuw i8, ptr %1944, i64 160
   %1958 = load atomic i64, ptr %1957 seq_cst, align 8
   %1959 = uitofp i64 %1958 to double
-  %1960 = fmul double %1959, 0x3F50000000000000
-  %1961 = fmul double %1960, 0x3F50000000000000
+  %1960 = fmul nnan double %1959, 0x3F50000000000000
+  %1961 = fmul nnan double %1960, 0x3F50000000000000
   store double %1961, ptr %89, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %90)
   %1962 = load ptr, ptr %.sroa.0995.01228, align 8, !tbaa !481
   %1963 = getelementptr inbounds nuw i8, ptr %1962, i64 160
   %1964 = load atomic i64, ptr %1963 seq_cst, align 8
   %1965 = uitofp i64 %1964 to double
-  %1966 = fmul double %1965, 1.000000e+02
+  %1966 = fmul nnan double %1965, 1.000000e+02
   %1967 = fdiv double %1966, %1941
   store double %1967, ptr %90, align 8, !tbaa !380
   call void @llvm.lifetime.start.p0(ptr nonnull %91)
@@ -28951,7 +28951,7 @@ define internal noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114iorat
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %9 = load i64, ptr %8, align 8, !tbaa !523
   %10 = uitofp i64 %9 to double
-  %11 = fmul double %10, 0x3EB0000000000000
+  %11 = fmul nnan double %10, 0x3EB0000000000000
   %12 = fdiv double %11, %5
   br label %13
 
@@ -28967,7 +28967,7 @@ define internal noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114iorat
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 144
   %21 = load i64, ptr %20, align 8, !tbaa !523
   %22 = uitofp i64 %21 to double
-  %23 = fmul double %22, 0x3EB0000000000000
+  %23 = fmul nnan double %22, 0x3EB0000000000000
   %24 = fdiv double %23, %17
   br label %25
 
@@ -29984,7 +29984,7 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit9
   %82 = sitofp i32 %81 to float
   %83 = fcmp olt float %82, 1.000000e+01
   %.sroa.speculated = select i1 %83, float 1.000000e+01, float %82
-  %84 = fmul float %.sroa.speculated, 0x4130000000000000
+  %84 = fmul nnan float %.sroa.speculated, 0x4130000000000000
   %85 = fptosi float %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store atomic i64 %85, ptr %86 seq_cst, align 8
@@ -33660,7 +33660,7 @@ _ZN11OpenImageIO6v3_1_0eqENS0_17basic_string_viewIcSt11char_traitsIcEEES4_.exit8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load atomic i64, ptr %25 seq_cst, align 8
   %27 = sitofp i64 %26 to double
-  %28 = fmul double %27, 0x3EB0000000000000
+  %28 = fmul nnan double %27, 0x3EB0000000000000
   %29 = fptrunc double %28 to float
   store float %29, ptr %3, align 4, !tbaa !90
   br label %458
@@ -72478,7 +72478,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIN11OpenImageI
   %.sroa.speculated.i11 = select i1 %64, float %63, float 0x3FEE666660000000
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i11, ptr %65, align 4, !tbaa !615
-  %66 = fmul float %.sroa.speculated.i11, %.017202932
+  %66 = fmul nnan float %.sroa.speculated.i11, %.017202932
   %67 = fptoui float %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %67, ptr %68, align 8, !tbaa !616
@@ -73843,7 +73843,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIN11OpenImageI
   %.sroa.speculated.i11 = select i1 %64, float %63, float 0x3FEE666660000000
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i11, ptr %65, align 4, !tbaa !805
-  %66 = fmul float %.sroa.speculated.i11, %.017202932
+  %66 = fmul nnan float %.sroa.speculated.i11, %.017202932
   %67 = fptoui float %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %67, ptr %68, align 8, !tbaa !806
@@ -76929,7 +76929,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairImNSt7__cxx111
   %.sroa.speculated.i11 = select i1 %63, float %62, float 0x3FEE666660000000
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i11, ptr %64, align 4, !tbaa !31
-  %65 = fmul float %.sroa.speculated.i11, %.017202932
+  %65 = fmul nnan float %.sroa.speculated.i11, %.017202932
   %66 = fptoui float %65 to i64
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %66, ptr %67, align 8, !tbaa !32
@@ -77077,7 +77077,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairImPN11OpenImag
   %.sroa.speculated.i11 = select i1 %63, float %62, float 0x3FEE666660000000
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i11, ptr %64, align 4, !tbaa !55
-  %65 = fmul float %.sroa.speculated.i11, %.017202932
+  %65 = fmul nnan float %.sroa.speculated.i11, %.017202932
   %66 = fptoui float %65 to i64
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %66, ptr %67, align 8, !tbaa !56
@@ -79209,7 +79209,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIN11OpenImageI
   %.sroa.speculated.i11 = select i1 %64, float %63, float 0x3FEE666660000000
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i11, ptr %65, align 4, !tbaa !652
-  %66 = fmul float %.sroa.speculated.i11, %.017202932
+  %66 = fmul nnan float %.sroa.speculated.i11, %.017202932
   %67 = fptoui float %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %67, ptr %68, align 8, !tbaa !653
@@ -79697,7 +79697,7 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairIN11OpenImageI
   %.sroa.speculated.i11 = select i1 %64, float %63, float 0x3FEE666660000000
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i11, ptr %65, align 4, !tbaa !667
-  %66 = fmul float %.sroa.speculated.i11, %.017202932
+  %66 = fmul nnan float %.sroa.speculated.i11, %.017202932
   %67 = fptoui float %66 to i64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %67, ptr %68, align 8, !tbaa !668

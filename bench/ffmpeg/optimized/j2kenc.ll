@@ -711,7 +711,7 @@ init_quantization.exit:                           ; preds = %._crit_edge.i, %120
   %328 = phi i32 [ %327, %322 ], [ 8, %309 ]
   %329 = mul nsw i32 %320, %315
   %330 = sitofp i32 %329 to double
-  %331 = fmul nsz double %300, %330
+  %331 = fmul nnan nsz double %300, %330
   %332 = getelementptr inbounds nuw i8, ptr %91, i64 %indvars.iv68.i.i
   br label %333
 

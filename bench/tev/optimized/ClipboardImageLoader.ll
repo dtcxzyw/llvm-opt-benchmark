@@ -5442,17 +5442,17 @@ define linkonce_odr dso_local void @_ZN4tlog16durationToStringINSt3__16chrono8du
   %31 = fdiv double %1, 8.640000e+10
   %32 = fptosi double %31 to i64
   %33 = sitofp i64 %32 to double
-  %34 = fmul double %33, 8.640000e+10
+  %34 = fmul nnan double %33, 8.640000e+10
   %35 = fsub double %1, %34
   %36 = fdiv double %35, 3.600000e+09
   %37 = fptosi double %36 to i64
   %38 = sitofp i64 %37 to double
-  %39 = fmul double %38, 3.600000e+09
+  %39 = fmul nnan double %38, 3.600000e+09
   %40 = fsub double %35, %39
   %41 = fdiv double %40, 6.000000e+07
   %42 = fptosi double %41 to i64
   %43 = sitofp i64 %42 to double
-  %44 = fmul double %43, 6.000000e+07
+  %44 = fmul nnan double %43, 6.000000e+07
   %45 = fsub double %40, %44
   %46 = fdiv double %45, 1.000000e+06
   %47 = fptosi double %46 to i64
@@ -42007,7 +42007,7 @@ define internal fastcc void @"_ZZNK3tev20ClipboardImageLoader4loadERNSt3__113bas
   %63 = fdiv float 1.000000e+00, %61
   %64 = select i1 %62, float 0.000000e+00, float %63
   %65 = uitofp i8 %34 to float
-  %66 = fdiv float %65, 2.550000e+02
+  %66 = fdiv nnan float %65, 2.550000e+02
   %67 = fmul float %66, %64
   %68 = fcmp ugt float %67, 0x3FA4B5DCC0000000
   br i1 %68, label %71, label %69

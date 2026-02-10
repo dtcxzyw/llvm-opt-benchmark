@@ -149,7 +149,7 @@ _ZN3gmx7CpuInfoD2Ev.exit:                         ; preds = %_ZNSt3setIN3gmx7Cpu
 42:                                               ; preds = %38
   %43 = uitofp nneg i64 %.sroa.speculated5.i to double
   %44 = uitofp i64 %.sroa.speculated.i to double
-  %45 = fmul double %44, 1.500000e+00
+  %45 = fmul nnan double %44, 1.500000e+00
   %46 = fcmp olt double %45, %43
   %47 = select i1 %46, i32 2, i32 1
   br label %51

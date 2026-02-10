@@ -1331,7 +1331,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit259: ; preds = %24
 
 262:                                              ; preds = %261
   %263 = sitofp i32 %255 to double
-  %264 = fmul double %263, 0x4040AAAAAAAAAAAB
+  %264 = fmul nnan double %263, 0x4040AAAAAAAAAAAB
   %265 = fptoui double %264 to i64
   %266 = load ptr, ptr %12, align 8, !tbaa !37
   %267 = load ptr, ptr %266, align 8, !tbaa !16

@@ -46,9 +46,9 @@ define dso_local noundef float @_ZN4pbrt14FresnelMoment1Ef(float noundef %0) loc
   br i1 %6, label %7, label %23
 
 7:                                                ; preds = %1
-  %8 = fmul float %0, 0x3FFBD59B40000000
+  %8 = fmul nnan float %0, 0x3FFBD59B40000000
   %9 = fsub float 0x3FDD6B11C0000000, %8
-  %10 = fmul float %2, 0x400B0370C0000000
+  %10 = fmul nnan float %2, 0x400B0370C0000000
   %11 = fadd float %9, %10
   %12 = fpext float %11 to double
   %13 = fpext float %3 to double
@@ -91,9 +91,9 @@ define dso_local noundef float @_ZN4pbrt14FresnelMoment2Ef(float noundef %0) loc
   br i1 %6, label %7, label %18
 
 7:                                                ; preds = %1
-  %8 = fmul float %0, 0x3FEBF3B640000000
+  %8 = fmul nnan float %0, 0x3FEBF3B640000000
   %9 = fsub float 0x3FD1AC4720000000, %8
-  %10 = fmul float %2, 0x3FF1EEAC80000000
+  %10 = fmul nnan float %2, 0x3FF1EEAC80000000
   %11 = fadd float %9, %10
   %12 = fmul float %3, 0x3FE4D49520000000
   %13 = fsub float %11, %12

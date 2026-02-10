@@ -215,7 +215,7 @@ window_sum.exit:                                  ; preds = %59, %window_sum.exi
   %89 = sitofp i64 %88 to double
   %90 = load i32, ptr %50, align 8, !tbaa !39
   %91 = uitofp i32 %90 to double
-  %92 = fmul double %91, 2.500000e+00
+  %92 = fmul nnan double %91, 2.500000e+00
   %93 = fcmp olt double %92, %89
   %or.cond6 = select i1 %93, i1 %.sroa.6.0, i1 false
   br i1 %or.cond6, label %109, label %94

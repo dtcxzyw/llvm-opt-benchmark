@@ -10398,12 +10398,12 @@ _ZZNK8QuantLib16TanhSinhIntegral9integrateERKSt8functionIFddEEddENUldE_D2Ev.exit
 
 if.end73:                                         ; preds = %if.end67
   call void @llvm.lifetime.start.p0(ptr nonnull %avg)
-  %add = fadd double %a, %b
-  %mul75 = fmul double %add, 5.000000e-01
+  %add = fadd nnan double %a, %b
+  %mul75 = fmul nnan double %add, 5.000000e-01
   store double %mul75, ptr %avg, align 8, !tbaa !174
   call void @llvm.lifetime.start.p0(ptr nonnull %diff)
-  %sub = fsub double %b, %a
-  %mul77 = fmul double %sub, 5.000000e-01
+  %sub = fsub nnan double %b, %a
+  %mul77 = fmul nnan double %sub, 5.000000e-01
   store double %mul77, ptr %diff, align 8, !tbaa !174
   call void @llvm.lifetime.start.p0(ptr nonnull %avg_over_diff_m1)
   %div = fdiv double %a, %mul77

@@ -3223,8 +3223,8 @@ php_hash_string_xor_char.exit:                    ; preds = %.lr.ph.i, %79, %php
 97:                                               ; preds = %.thread266, %96
   %98 = phi i64 [ %95, %.thread266 ], [ %90, %96 ]
   %99 = sitofp i64 %98 to float
-  %100 = fpext float %99 to double
-  %101 = fmul double %100, 5.000000e-01
+  %100 = fpext nnan ninf float %99 to double
+  %101 = fmul nnan double %100, 5.000000e-01
   %102 = call double @llvm.ceil.f64(double %101)
   %103 = fptosi double %102 to i64
   br label %.thread

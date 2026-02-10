@@ -4682,9 +4682,9 @@ define dso_local void @_ZN16cmCursesMainForm14UpdateProgressERKNSt7__cxx1112basi
   br i1 %10, label %203, label %11
 
 11:                                               ; preds = %3
-  %12 = fmul float %2, 4.000000e+01
+  %12 = fmul nnan float %2, 4.000000e+01
   %13 = fptosi float %12 to i32
-  %14 = fmul float %2, 1.000000e+02
+  %14 = fmul nnan float %2, 1.000000e+02
   %15 = fptosi float %14 to i32
   %16 = icmp slt i32 %15, 100
   %17 = select i1 %16, ptr @.str.16, ptr @.str.17

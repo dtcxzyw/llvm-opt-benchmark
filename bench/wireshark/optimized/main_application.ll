@@ -11486,7 +11486,7 @@ define void @_ZN15MainApplication12zoomTextFontEi(ptr noundef align 8 dereferenc
   %12 = fadd double %10, %11
   %13 = fptosi double %12 to i32
   %14 = sitofp i32 %13 to double
-  %15 = fmul double %14, 5.000000e-01
+  %15 = fmul nnan double %14, 5.000000e-01
   %16 = fcmp olt double %15, 1.000000e+00
   %.sroa.speculated = select i1 %16, double 1.000000e+00, double %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 72

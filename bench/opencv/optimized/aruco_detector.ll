@@ -5338,7 +5338,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEC
   %410 = ashr exact i64 %409, 3
   %411 = uitofp i64 %410 to float
   %412 = sitofp i32 %406 to float
-  %413 = fmul float %412, %411
+  %413 = fmul nnan float %412, %411
   %414 = fdiv float %403, %413
   %415 = load float, ptr %156, align 8, !tbaa !209
   %416 = fmul float %414, %415
@@ -10498,7 +10498,7 @@ _ZN2cv3Mat3endINS_6Point_IfEEEENS_12MatIterator_IT_EEv.exit: ; preds = %._ZN2cv3
   %1250 = ashr exact i64 %1249, 3
   %1251 = uitofp i64 %1250 to float
   %1252 = sitofp i32 %1246 to float
-  %1253 = fmul float %1252, %1251
+  %1253 = fmul nnan float %1252, %1251
   %1254 = fdiv float %1243, %1253
   %1255 = fmul float %1229, %1254
   %1256 = insertelement <4 x float> poison, float %1255, i64 0
@@ -11654,7 +11654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134: ; preds = %10
   %112 = shl nuw i32 %4, 1
   %113 = add i32 %112, %3
   %114 = uitofp nneg i32 %5 to double
-  %115 = fmul double %6, %114
+  %115 = fmul nnan double %6, %114
   %116 = fptosi double %115 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #34
@@ -12770,11 +12770,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit106: ; preds = %13
 
 177:                                              ; preds = %172
   %178 = sitofp i32 %175 to double
-  %179 = fmul double %178, 2.500000e-01
+  %179 = fmul nnan double %178, 2.500000e-01
   %180 = insertelement <2 x double> poison, double %179, i64 0
   %181 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %180)
   %182 = sitofp i32 %176 to double
-  %183 = fmul double %182, 2.500000e-01
+  %183 = fmul nnan double %182, 2.500000e-01
   %184 = insertelement <2 x double> poison, double %183, i64 0
   %185 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %184)
   %.sroa.4.0.insert.ext.i = zext i32 %185 to i64
@@ -14168,7 +14168,7 @@ _ZSt8_DestroyIPSt6vectorIN2cv6Point_IiEESaIS3_EES5_EvT_S7_RSaIT0_E.exit.i.i.i.i.
   %198 = load i32, ptr %197, align 4, !tbaa !391
   %199 = sub nsw i32 %196, %198
   %200 = sitofp i32 %199 to double
-  %201 = fmul double %200, %200
+  %201 = fmul nnan double %200, %200
   %202 = call double @llvm.fmuladd.f64(double %194, double %194, double %201)
   %203 = fcmp olt double %202, %.0143163.i.i.i.i
   %.sroa.speculated.i.i.i.i = select i1 %203, double %202, double %.0143163.i.i.i.i
@@ -23092,7 +23092,7 @@ _ZN2cv5arucoL20getAverageModuleSizeERKSt6vectorINS_6Point_IfEESaIS3_EEii.exit.i.
   %141 = ashr exact i64 %140, 3
   %142 = uitofp i64 %141 to float
   %143 = sitofp i32 %137 to float
-  %144 = fmul float %143, %142
+  %144 = fmul nnan float %143, %142
   %145 = fdiv float %135, %144
   %146 = fmul float %114, %145
   %147 = insertelement <4 x float> poison, float %146, i64 0

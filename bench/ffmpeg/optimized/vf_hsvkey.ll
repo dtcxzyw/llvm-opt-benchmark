@@ -130,7 +130,7 @@ define internal noundef i32 @config_output(ptr noundef readonly captures(none) %
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 44
   store i32 %11, ptr %12, align 4, !tbaa !53
   %13 = uitofp nneg i32 %11 to float
-  %14 = fmul nsz float %13, 5.000000e-01
+  %14 = fmul nnan nsz float %13, 5.000000e-01
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store float %14, ptr %15, align 4, !tbaa !54
   %16 = fdiv nsz float 1.000000e+00, %13

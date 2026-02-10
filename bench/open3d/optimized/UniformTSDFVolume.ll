@@ -1029,7 +1029,7 @@ define void @_ZN6open3d9pipelines11integration17UniformTSDFVolume17ExtractPointC
   %123 = fcmp oge float %119, 0xBFEF5C2900000000
   %124 = and i1 %122, %123
   %or.cond7 = select i1 %121, i1 %124, i1 false
-  %125 = fmul float %77, %119
+  %125 = fmul nnan float %77, %119
   %126 = fcmp olt float %125, 0.000000e+00
   %or.cond = select i1 %or.cond7, i1 %126, i1 false
   br i1 %or.cond, label %127, label %534
@@ -33557,9 +33557,9 @@ define internal void @_ZNK6open3d9pipelines11integration17UniformTSDFVolume16Ext
   br i1 %exitcond.not.i.i.i, label %_ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit.i, label %57, !llvm.loop !822
 
 _ZNKSt8__detail15_Hash_code_baseIN5Eigen6MatrixIiLi3ELi1ELi0ELi3ELi1EEESt4pairIKS3_N6open3d8geometry5VoxelEENS_10_Select1stENS6_7utility10hash_eigenIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERS5_.exit.i: ; preds = %57
-  %67 = fpext float %50 to double
-  %68 = fadd double %67, 1.000000e+00
-  %69 = fmul double %68, 5.000000e-01
+  %67 = fpext nnan ninf float %50 to double
+  %68 = fadd nnan double %67, 1.000000e+00
+  %69 = fmul nnan double %68, 5.000000e-01
   %.sroa.032.0.vec.insert = insertelement <2 x double> poison, double %69, i64 0
   %.sroa.032.8.vec.insert = shufflevector <2 x double> %.sroa.032.0.vec.insert, <2 x double> poison, <2 x i32> zeroinitializer
   %70 = getelementptr inbounds nuw i8, ptr %56, i64 80

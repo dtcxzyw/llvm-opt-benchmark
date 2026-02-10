@@ -167,7 +167,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %15 = load float, ptr %10, align 4, !tbaa !33
   %16 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %15)
   %17 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %16, float 0x3FB99999A0000000)
-  %18 = fpext float %17 to double
+  %18 = fpext nnan float %17 to double
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = load float, ptr %19, align 4, !tbaa !38
   %21 = fpext reassoc nsz arcp contract afn float %20 to double
@@ -261,8 +261,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %75 = sitofp i32 %59 to float
   %76 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %77 = load float, ptr %76, align 4, !tbaa !40
-  %78 = fpext reassoc nsz arcp contract afn float %75 to double
-  %79 = fmul reassoc nsz arcp contract afn double %78, 5.000000e-01
+  %78 = fpext fast float %75 to double
+  %79 = fmul reassoc nnan nsz arcp contract afn double %78, 5.000000e-01
   %wide.trip.count = zext nneg i32 %65 to i64
   %80 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %64
   %81 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %64
@@ -274,8 +274,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .lr.ph322:                                        ; preds = %.preheader316
   %83 = uitofp nneg i32 %57 to float
-  %84 = fpext reassoc nsz arcp contract afn float %83 to double
-  %85 = fmul reassoc nsz arcp contract afn double %84, 5.000000e-01
+  %84 = fpext fast float %83 to double
+  %85 = fmul reassoc nnan nsz arcp contract afn double %84, 5.000000e-01
   %wide.trip.count373 = zext nneg i32 %63 to i64
   %86 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %62
   %87 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %62
@@ -290,7 +290,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %93 = fptosi float %92 to i32
   %94 = sitofp i32 %93 to float
   %95 = fsub reassoc nsz arcp contract afn float %92, %94
-  %96 = fmul reassoc nsz arcp contract afn float %75, %90
+  %96 = fmul reassoc nnan nsz arcp contract afn float %75, %90
   %97 = fmul reassoc nsz arcp contract afn float %96, %81
   %98 = fmul reassoc nsz arcp contract afn float %95, %75
   %99 = fpext reassoc nsz arcp contract afn float %97 to double
@@ -331,7 +331,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %122 = fptosi float %121 to i32
   %123 = sitofp i32 %122 to float
   %124 = fsub reassoc nsz arcp contract afn float %121, %123
-  %125 = fmul reassoc nsz arcp contract afn float %83, %119
+  %125 = fmul reassoc nnan nsz arcp contract afn float %83, %119
   %126 = fmul reassoc nsz arcp contract afn float %125, %87
   %127 = fmul reassoc nsz arcp contract afn float %124, %83
   %128 = fpext reassoc nsz arcp contract afn float %126 to double
@@ -465,8 +465,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %204 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %203, float 0x3F847AE140000000)
   %205 = load float, ptr %182, align 4, !tbaa !43
   %206 = fpext reassoc nsz arcp contract afn float %205 to double
-  %207 = fpext reassoc nsz arcp contract afn float %204 to double
-  %208 = fmul reassoc nsz arcp contract afn double %207, 0x3FBF07C1F07C1F08
+  %207 = fpext reassoc nnan nsz arcp contract afn float %204 to double
+  %208 = fmul reassoc nnan nsz arcp contract afn double %207, 0x3FBF07C1F07C1F08
   %209 = fmul reassoc nsz arcp contract afn double %208, %206
   %210 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %209, double 0x3FB99999A0000000)
   %211 = fptrunc reassoc nsz arcp contract afn double %210 to float

@@ -4879,7 +4879,7 @@ WrapPosition.exit.i395:                           ; preds = %1675, %GetBrotliSto
 1700:                                             ; preds = %1696
   %1701 = uitofp i64 %1667 to double
   %1702 = uitofp nneg i64 %1661 to double
-  %1703 = fmul double %1702, 0x3FEFAE147AE147AE
+  %1703 = fmul nnan double %1702, 0x3FEFAE147AE147AE
   %1704 = fcmp olt double %1703, %1701
   br i1 %1704, label %.lr.ph.preheader.i.i, label %ShouldCompress.exit.i
 
@@ -4958,8 +4958,8 @@ FastLog2.exit.i.i:                                ; preds = %1737, %1734
   br i1 %1741, label %.preheader.i.i, label %1742, !llvm.loop !589
 
 1742:                                             ; preds = %FastLog2.exit.i.i
-  %1743 = fmul double %1702, 7.920000e+00
-  %1744 = fmul double %1743, 0x3FB3B13B13B13B14
+  %1743 = fmul nnan double %1702, 7.920000e+00
+  %1744 = fmul nnan double %1743, 0x3FB3B13B13B13B14
   %.not27.i.i.i = icmp eq i64 %1731, 0
   br i1 %.not27.i.i.i, label %ShannonEntropy.exit.i.i, label %1745
 

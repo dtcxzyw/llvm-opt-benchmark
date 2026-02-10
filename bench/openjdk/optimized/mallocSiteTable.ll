@@ -551,7 +551,7 @@ define hidden void @_ZN15MallocSiteTable23print_tuning_statisticsEP12outputStrea
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str) #14
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.4, i32 noundef %.1.lcssa) #14
   %27 = sitofp i32 %.142.lcssa to float
-  %28 = fmul float %27, 1.000000e+02
+  %28 = fmul nnan float %27, 1.000000e+02
   %29 = sitofp i32 %.1.lcssa to float
   %30 = fdiv float %28, %29
   %31 = fpext float %30 to double

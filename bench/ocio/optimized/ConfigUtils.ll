@@ -4233,7 +4233,7 @@ _ZNSt10shared_ptrIKN19OpenColorIO_v2_5dev9TransformEEaSERKS3_.exit: ; preds = %_
   br i1 %201, label %204, label %202
 
 202:                                              ; preds = %.preheader
-  %203 = fmul float %200, 0x4029D8AF00000000
+  %203 = fmul nnan float %200, 0x4029D8AF00000000
   br label %207
 
 204:                                              ; preds = %.preheader

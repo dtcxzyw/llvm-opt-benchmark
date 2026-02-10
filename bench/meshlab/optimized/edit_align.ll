@@ -29709,8 +29709,8 @@ define linkonce_odr noundef double @_ZN3vcg4math18SubtractiveRingRNG14generate01
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(248) %0, i32 noundef -1)
   %6 = uitofp i32 %5 to double
-  %7 = fadd double %6, 5.000000e-01
-  %8 = fmul double %7, 0x3DF0000000100000
+  %7 = fadd nnan double %6, 5.000000e-01
+  %8 = fmul nnan double %7, 0x3DF0000000100000
   ret double %8
 }
 
@@ -39344,7 +39344,7 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg9AlignPair28SampleMovVertNormalEq
   %7 = trunc nuw nsw i64 %indvars.iv.i to i32
   %8 = uitofp nneg i32 %7 to double
   %9 = fdiv double %8, 0x3FF9E3779B97F4A8
-  %10 = tail call double @llvm.floor.f64(double %9)
+  %10 = tail call nnan double @llvm.floor.f64(double %9)
   %11 = fsub double %9, %10
   %12 = fmul double %11, 0x401921FB54442D18
   %13 = shl i32 %7, 1
@@ -41271,7 +41271,7 @@ _ZNSt6vectorIN3vcg9AlignPair4Stat8IterInfoESaIS3_EE9push_backERKS3_.exit259: ; p
   %632 = load double, ptr %40, align 8
   %633 = load double, ptr %108, align 8
   %634 = fmul double %632, %633
-  %635 = fptrunc double %629 to float
+  %635 = fptrunc nnan double %629 to float
   %636 = load ptr, ptr %105, align 8
   %637 = load ptr, ptr %9, align 8
   %638 = ptrtoint ptr %636 to i64
@@ -42123,7 +42123,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %38, %40, %42, %44
   %59 = fpext float %58 to double
   %60 = trunc nuw nsw i64 %indvars.iv32 to i32
   %61 = uitofp nneg i32 %60 to float
-  %62 = fpext float %61 to double
+  %62 = fpext nnan ninf float %61 to double
   %63 = fmul double %54, %62
   %64 = sitofp i32 %57 to double
   %65 = fdiv double %63, %64
@@ -46694,7 +46694,7 @@ define linkonce_odr noundef double @_Z10min_newuoaIdFdiPdEET_iPS2_RT0_S2_S2_i(i3
   %.040896.i.i.i = phi i32 [ 0, %._crit_edge89.i.i.i ], [ %.1409.i.i.i, %667 ]
   %.895.i.i.i = phi i32 [ 1, %._crit_edge89.i.i.i ], [ %668, %667 ]
   %652 = uitofp nneg i32 %.895.i.i.i to double
-  %653 = fmul double %652, 0x3FC015BF9217271A
+  %653 = fmul nnan double %652, 0x3FC015BF9217271A
   %654 = call double @cos(double noundef %653) #25
   %655 = call double @sin(double noundef %653) #25
   %656 = call double @llvm.fmuladd.f64(double %648, double %654, double %.0403.lcssa.i.i.i)
@@ -47706,7 +47706,7 @@ _ZL7biglag_IdFdiPdEEiiiPT_S3_S3_S3_PiS4_S4_S3_S3_S3_S3_S3_S3_S3_S3_RT0_.exit.i.i
   %.0876163.i.i.i = phi i32 [ 0, %1072 ], [ %.1877.i.i.i, %1153 ]
   %.10908162.i.i.i = phi i32 [ 1, %1072 ], [ %1154, %1153 ]
   %1118 = uitofp nneg i32 %.10908162.i.i.i to double
-  %1119 = fmul double %1118, 0x3FC015BF9217271A
+  %1119 = fmul nnan double %1118, 0x3FC015BF9217271A
   %1120 = call double @cos(double noundef %1119) #25
   store double %1120, ptr %171, align 8
   %1121 = call double @sin(double noundef %1119) #25
@@ -49589,7 +49589,7 @@ define linkonce_odr noundef i32 @_Z7trsapp_IdEiiiPT_S1_S1_S1_S1_S1_S1_S1_S1_S1_S
   %.0393532 = phi i32 [ 0, %._crit_edge527 ], [ %.1394, %179 ]
   %.7531 = phi i32 [ 1, %._crit_edge527 ], [ %180, %179 ]
   %166 = uitofp nneg i32 %.7531 to double
-  %167 = fmul double %166, 0x3FC015BF9217271A
+  %167 = fmul nnan double %166, 0x3FC015BF9217271A
   %168 = tail call double @cos(double noundef %167) #25
   %169 = tail call double @sin(double noundef %167) #25
   %170 = tail call double @llvm.fmuladd.f64(double %163, double %168, double %.0377.ph)

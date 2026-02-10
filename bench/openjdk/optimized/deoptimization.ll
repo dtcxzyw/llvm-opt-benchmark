@@ -7938,7 +7938,7 @@ define hidden void @_ZN14Deoptimization16print_statisticsEv() local_unnamed_addr
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull @.str.92) #24
   %9 = load ptr, ptr @tty, align 8
   %10 = uitofp i32 %2 to double
-  %11 = fmul double %10, 1.000000e+02
+  %11 = fmul nnan double %10, 1.000000e+02
   %12 = fdiv double %11, %10
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.93, i32 noundef %2, double noundef %12, ptr noundef nonnull @.str.94) #24
   br label %.preheader
@@ -8008,7 +8008,7 @@ _ZN9Bytecodes10is_definedEi.exit.thread:          ; preds = %_ZN14Deoptimization
 40:                                               ; preds = %39
   %41 = load ptr, ptr @tty, align 8
   %42 = uitofp i32 %.us-phi to double
-  %43 = fmul double %42, 1.000000e+02
+  %43 = fmul nnan double %42, 1.000000e+02
   %44 = fdiv double %43, %10
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %41, ptr noundef nonnull @.str.93, i32 noundef %.us-phi, double noundef %44, ptr noundef nonnull @.str.98) #24
   br label %45

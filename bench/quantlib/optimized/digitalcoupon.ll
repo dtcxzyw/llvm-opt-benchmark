@@ -1204,7 +1204,7 @@ ehcleanup90:                                      ; preds = %ehcleanup89, %lpad6
   br label %ehcleanup634
 
 invoke.cont102:                                   ; preds = %invoke.cont55
-  %div = fmul double %53, 5.000000e-01
+  %div = fmul nnan double %53, 5.000000e-01
   %putRightEps_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   store double %div, ptr %putRightEps_, align 8, !tbaa !77
   %putLeftEps_ = getelementptr inbounds nuw i8, ptr %this, i64 264
@@ -3924,7 +3924,7 @@ ehcleanup108:                                     ; preds = %ehcleanup107, %lpad
   br label %ehcleanup650
 
 invoke.cont120:                                   ; preds = %invoke.cont73
-  %div = fmul double %50, 5.000000e-01
+  %div = fmul nnan double %50, 5.000000e-01
   %putRightEps_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   store double %div, ptr %putRightEps_, align 8, !tbaa !77
   %putLeftEps_ = getelementptr inbounds nuw i8, ptr %this, i64 264

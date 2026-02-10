@@ -1849,7 +1849,7 @@ define linkonce_odr hidden noundef double @_ZNK5boost6locale4util18gregorian_cal
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !tbaa !24
   %4 = sitofp i64 %3 to double
-  %5 = fmul double %4, 1.000000e+03
+  %5 = fmul nnan double %4, 1.000000e+03
   ret double %5
 }
 

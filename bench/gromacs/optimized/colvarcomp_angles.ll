@@ -1719,8 +1719,8 @@ define void @_ZN6colvar8dihedral14calc_gradientsEv(ptr noundef nonnull readonly 
   %93 = fmul double %67, %90
   %94 = fmul double %67, %91
   %95 = fmul double %67, %92
-  %96 = fdiv double 1.000000e+00, %66
-  %97 = fmul double %96, 0x404CA5DC1A63C1F8
+  %96 = fdiv nnan double 1.000000e+00, %66
+  %97 = fmul nnan double %96, 0x404CA5DC1A63C1F8
   %98 = fmul double %85, %35
   %99 = tail call double @llvm.fmuladd.f64(double %13, double %86, double %98)
   %100 = fmul double %11, %84

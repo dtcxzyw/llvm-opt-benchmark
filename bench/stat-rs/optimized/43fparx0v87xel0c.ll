@@ -1271,7 +1271,7 @@ define { i64, double } @"_ZN124_$LT$statrs..distribution..hypergeometric..Hyperg
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !4
   %10 = uitofp i64 %9 to double
-  %11 = fmul double %7, %10
+  %11 = fmul nnan double %7, %10
   %12 = uitofp i64 %2 to double
   %13 = fdiv double %11, %12
   br label %14
@@ -1298,13 +1298,13 @@ define { i64, double } @"_ZN124_$LT$statrs..distribution..hypergeometric..Hyperg
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !223, !noalias !226, !noundef !4
   %11 = uitofp i64 %10 to double
-  %12 = fmul double %8, %11
-  %13 = fsub double %5, %11
+  %12 = fmul nnan double %8, %11
+  %13 = fsub nnan double %5, %11
   %14 = fmul double %12, %13
-  %15 = fsub double %5, %8
+  %15 = fsub nnan double %5, %8
   %16 = fmul double %15, %14
   %17 = fmul double %5, %5
-  %18 = fadd double %5, -1.000000e+00
+  %18 = fadd nnan double %5, -1.000000e+00
   %19 = fmul double %17, %18
   %20 = fdiv double %16, %19
   br label %21
@@ -1331,21 +1331,21 @@ define { i64, double } @"_ZN124_$LT$statrs..distribution..hypergeometric..Hyperg
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !228, !noalias !231, !noundef !4
   %11 = uitofp i64 %10 to double
-  %12 = fadd double %5, -1.000000e+00
+  %12 = fadd nnan double %5, -1.000000e+00
   %13 = tail call double @llvm.sqrt.f64(double %12)
-  %14 = fmul double %11, 2.000000e+00
-  %15 = fsub double %5, %14
+  %14 = fmul nnan double %11, 2.000000e+00
+  %15 = fsub nnan double %5, %14
   %16 = fmul double %13, %15
-  %17 = fmul double %8, 2.000000e+00
-  %18 = fsub double %5, %17
+  %17 = fmul nnan double %8, 2.000000e+00
+  %18 = fsub nnan double %5, %17
   %19 = fmul double %18, %16
-  %20 = fmul double %8, %11
-  %21 = fsub double %5, %8
+  %20 = fmul nnan double %8, %11
+  %21 = fsub nnan double %5, %8
   %22 = fmul double %21, %20
-  %23 = fsub double %5, %11
+  %23 = fsub nnan double %5, %11
   %24 = fmul double %23, %22
   %25 = tail call double @llvm.sqrt.f64(double %24)
-  %26 = fadd double %5, -2.000000e+00
+  %26 = fadd nnan double %5, -2.000000e+00
   %27 = fmul double %26, %25
   %28 = fdiv double %19, %27
   br label %29
@@ -1662,15 +1662,15 @@ define hidden { i64, double } @_ZN6statrs10statistics6traits12Distribution7std_d
 
 15:                                               ; preds = %5
   %16 = tail call double @llvm.sqrt.f64(double %2)
-  %17 = fdiv double 2.500000e-01, %2
-  %18 = fadd double %17, 1.000000e+00
+  %17 = fdiv nnan double 2.500000e-01, %2
+  %18 = fadd nnan double %17, 1.000000e+00
   %19 = fmul double %2, %2
-  %20 = fdiv double 3.125000e-02, %19
-  %21 = fadd double %20, 1.000000e+00
-  %22 = fmul double %18, %21
-  %23 = fmul double %2, %19
-  %24 = fdiv double 4.687500e-02, %23
-  %25 = fsub double 1.000000e+00, %24
+  %20 = fdiv nnan double 3.125000e-02, %19
+  %21 = fadd nnan double %20, 1.000000e+00
+  %22 = fmul nnan double %18, %21
+  %23 = fmul nnan double %2, %19
+  %24 = fdiv nnan double 4.687500e-02, %23
+  %25 = fsub nnan double 1.000000e+00, %24
   %26 = fmul double %22, %25
   %27 = fdiv double %16, %26
   br label %"_ZN102_$LT$statrs..distribution..chi..Chi$u20$as$u20$statrs..statistics..traits..Distribution$LT$f64$GT$$GT$4mean17h11d04c6d7700476dE.exit.thread.i"

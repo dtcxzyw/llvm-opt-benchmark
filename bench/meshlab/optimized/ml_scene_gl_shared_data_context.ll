@@ -3864,9 +3864,9 @@ _ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit: ; pre
 
 24:                                               ; preds = %_ZNK26MLSceneGLSharedDataContext32meshAttributesMultiViewerManagerEi.exit
   %25 = uitofp i64 %3 to float
-  %sqrt = tail call float @llvm.sqrt.f32(float %25)
-  %26 = fpext float %sqrt to double
-  %27 = fmul double %26, 1.024000e+03
+  %sqrt = tail call nnan ninf float @llvm.sqrt.f32(float %25)
+  %26 = fpext nnan ninf float %sqrt to double
+  %27 = fmul nnan double %26, 1.024000e+03
   %28 = fptosi double %27 to i32
   %29 = add i32 %28, -1
   %30 = lshr i32 %29, 1

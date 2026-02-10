@@ -440,7 +440,7 @@ define internal range(i32 -22, 1) i32 @config_input_ref(ptr noundef readonly cap
   %102 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv123
   %103 = load i32, ptr %102, align 4, !tbaa !37
   %104 = sitofp i32 %103 to double
-  %105 = fmul nsz double %101, %104
+  %105 = fmul nnan nsz double %101, %104
   %106 = fdiv nsz double %105, %90
   %107 = getelementptr inbounds nuw double, ptr %91, i64 %indvars.iv123
   store double %106, ptr %107, align 8, !tbaa !43
@@ -844,7 +844,7 @@ define internal i32 @do_psnr(ptr noundef %0) #0 {
   %106 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv264
   %107 = load i32, ptr %106, align 4, !tbaa !37
   %108 = sitofp i32 %107 to double
-  %109 = fmul nsz double %105, %108
+  %109 = fmul nnan nsz double %105, %108
   %110 = fdiv nsz double %102, %109
   %111 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv264
   store double %110, ptr %111, align 8, !tbaa !43

@@ -982,7 +982,7 @@ _ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode
   %.021.i19 = phi i32 [ %45, %44 ], [ %1, %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit ], [ 12, %27 ], [ %46, %.loopexit.loopexit.i26 ]
   %47 = add nsw i32 %.021.i19, %.021.i.ph
   %48 = sitofp i32 %47 to double
-  %49 = fmul double %48, 5.000000e-01
+  %49 = fmul nnan double %48, 5.000000e-01
   %50 = icmp sgt i32 %.021.i.ph, %.021.i19
   br i1 %50, label %51, label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread56
 

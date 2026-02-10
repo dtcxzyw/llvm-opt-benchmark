@@ -533,7 +533,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101: ; preds = %14
   %185 = and i64 %184, 4294967295
   %186 = or disjoint i64 %185, %180
   %187 = uitofp i64 %186 to double
-  %188 = fmul double %187, 0x3BF0000000000000
+  %188 = fmul nnan double %187, 0x3BF0000000000000
   %189 = call noundef double @llvm.fmuladd.f64(double %188, double 0x401921FB54442D18, double 0.000000e+00)
   %190 = call double @cos(double noundef %189) #17, !tbaa !46
   store double %190, ptr %159, align 8, !tbaa !49
@@ -749,9 +749,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %56,
   %76 = mul nsw i32 %38, 3
   %77 = sext i32 %76 to i64
   %78 = sitofp i32 %38 to double
-  %79 = fmul double %78, 5.000000e-01
+  %79 = fmul nnan double %78, 5.000000e-01
   %80 = sitofp i32 %39 to double
-  %81 = fmul double %80, 5.000000e-01
+  %81 = fmul nnan double %80, 5.000000e-01
   %82 = fcmp olt double %79, %81
   br i1 %82, label %83, label %85
 
@@ -976,7 +976,7 @@ _ZN2cv6bgsegm12_GLOBAL__N_114bilinearInterpEPhddjPPKh.exit.us.i: ; preds = %145
   %220 = and i64 %219, 4294967295
   %221 = or disjoint i64 %220, %215
   %222 = uitofp i64 %221 to double
-  %223 = fmul double %222, 0x3BF0000000000000
+  %223 = fmul nnan double %222, 0x3BF0000000000000
   %224 = call noundef double @llvm.fmuladd.f64(double %223, double 0x401921FB54442D18, double 0.000000e+00)
   %225 = call double @cos(double noundef %224) #17, !tbaa !46
   store double %225, ptr %190, align 8, !tbaa !49

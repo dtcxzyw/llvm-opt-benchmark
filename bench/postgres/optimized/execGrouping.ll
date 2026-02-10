@@ -78,7 +78,7 @@ tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_s
   store i32 %36, ptr %37, align 4
   %38 = icmp eq i64 %.0.i.i.i, 4294967296
   %39 = uitofp i64 %.0.i.i.i to double
-  %40 = fmul double %39, 9.000000e-01
+  %40 = fmul nnan double %39, 9.000000e-01
   %41 = fptoui double %40 to i32
   %.sink.i = select i1 %38, i32 -85899346, i32 %41
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -165,7 +165,7 @@ tuplehash_update_parameters.exit:                 ; preds = %tuplehash_compute_s
   store i32 %30, ptr %31, align 4
   %32 = icmp eq i64 %.0.i.i.i, 4294967296
   %33 = uitofp i64 %.0.i.i.i to double
-  %34 = fmul double %33, 9.000000e-01
+  %34 = fmul nnan double %33, 9.000000e-01
   %35 = fptoui double %34 to i32
   %.sink.i = select i1 %32, i32 -85899346, i32 %35
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16

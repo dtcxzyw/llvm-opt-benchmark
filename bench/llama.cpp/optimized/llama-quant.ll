@@ -2042,11 +2042,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit439: ; preds = %58
 
 ._crit_edge2293.loopexit:                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit592
   %663 = uitofp i64 %1784 to double
-  %664 = fmul double %663, 0x3F50000000000000
-  %665 = fmul double %664, 0x3F50000000000000
+  %664 = fmul nnan double %663, 0x3F50000000000000
+  %665 = fmul nnan double %664, 0x3F50000000000000
   %666 = uitofp i64 %1785 to double
-  %667 = fmul double %666, 0x3F50000000000000
-  %668 = fmul double %667, 0x3F50000000000000
+  %667 = fmul nnan double %666, 0x3F50000000000000
+  %668 = fmul nnan double %667, 0x3F50000000000000
   br label %._crit_edge2293
 
 ._crit_edge2293:                                  ; preds = %._crit_edge2293.loopexit, %.preheader
@@ -3631,8 +3631,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit475: ; preds = %11
 
 1223:                                             ; preds = %1221
   %1224 = uitofp i64 %1222 to double
-  %1225 = fmul double %1224, 0x3F50000000000000
-  %1226 = fmul double %1225, 0x3F50000000000000
+  %1225 = fmul nnan double %1224, 0x3F50000000000000
+  %1226 = fmul nnan double %1225, 0x3F50000000000000
   invoke void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.27, double noundef %1226)
           to label %1781 unwind label %.loopexit.split-lp953.loopexit
 
@@ -5245,11 +5245,11 @@ _ZL26llama_tensor_quantize_impl9ggml_typePKfPvlllS1_RSt6vectorISt6threadSaIS4_EE
 
 1772:                                             ; preds = %._crit_edge2266
   %1773 = uitofp i64 %1643 to double
-  %1774 = fmul double %1773, 0x3F50000000000000
-  %1775 = fmul double %1774, 0x3F50000000000000
+  %1774 = fmul nnan double %1773, 0x3F50000000000000
+  %1775 = fmul nnan double %1774, 0x3F50000000000000
   %1776 = uitofp i64 %.1273.lcssa to double
-  %1777 = fmul double %1776, 0x3F50000000000000
-  %1778 = fmul double %1777, 0x3F50000000000000
+  %1777 = fmul nnan double %1776, 0x3F50000000000000
+  %1778 = fmul nnan double %1777, 0x3F50000000000000
   invoke void (i32, ptr, ...) @_Z18llama_log_internal14ggml_log_levelPKcz(i32 noundef 2, ptr noundef nonnull @.str.38, double noundef %1775, double noundef %1778)
           to label %1781 unwind label %1779
 

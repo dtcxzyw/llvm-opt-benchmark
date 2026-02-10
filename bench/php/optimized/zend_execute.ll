@@ -9055,7 +9055,7 @@ define internal noundef i32 @ZEND_MUL_SPEC_TMPVARCV_CONST_HANDLER(ptr noundef %0
   %25 = extractvalue { i64, i1 } %23, 0
   %26 = sitofp i64 %21 to double
   %27 = sitofp i64 %22 to double
-  %28 = fmul double %26, %27
+  %28 = fmul nnan double %26, %27
   %29 = bitcast double %28 to i64
   %30 = select i1 %24, i32 5, i32 4
   %storemerge = select i1 %24, i64 %29, i64 %25
@@ -9152,7 +9152,7 @@ define internal noundef i32 @ZEND_MUL_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr noundef
   %25 = extractvalue { i64, i1 } %23, 0
   %26 = sitofp i64 %21 to double
   %27 = sitofp i64 %22 to double
-  %28 = fmul double %26, %27
+  %28 = fmul nnan double %26, %27
   %29 = bitcast double %28 to i64
   %30 = select i1 %24, i32 5, i32 4
   %storemerge = select i1 %24, i64 %29, i64 %25
@@ -150533,7 +150533,7 @@ define internal noundef i32 @ZEND_MUL_LONG_SPEC_TMPVARCV_CONST_HANDLER(ptr nound
   %17 = extractvalue { i64, i1 } %15, 0
   %18 = sitofp i64 %13 to double
   %19 = sitofp i64 %14 to double
-  %20 = fmul double %18, %19
+  %20 = fmul nnan double %18, %19
   %21 = bitcast double %20 to i64
   %22 = select i1 %16, i32 5, i32 4
   %storemerge = select i1 %16, i64 %21, i64 %17
@@ -150567,7 +150567,7 @@ define internal noundef i32 @ZEND_MUL_LONG_SPEC_TMPVARCV_TMPVARCV_HANDLER(ptr no
   %17 = extractvalue { i64, i1 } %15, 0
   %18 = sitofp i64 %13 to double
   %19 = sitofp i64 %14 to double
-  %20 = fmul double %18, %19
+  %20 = fmul nnan double %18, %19
   %21 = bitcast double %20 to i64
   %22 = select i1 %16, i32 5, i32 4
   %storemerge = select i1 %16, i64 %21, i64 %17

@@ -1350,7 +1350,7 @@ define void @_ZN6LibRaw18xtrans_interpolateEi(ptr noundef nonnull align 8 derefe
   %772 = fadd reassoc nsz arcp contract afn float %771, %769
   %773 = fmul reassoc nsz arcp contract afn float %772, %772
   %774 = sitofp i32 %755 to float
-  %775 = fmul reassoc nsz arcp contract afn float %774, %774
+  %775 = fmul reassoc nnan nsz arcp contract afn float %774, %774
   %776 = fadd reassoc nsz arcp contract afn float %773, %775
   %777 = load float, ptr %739, align 4, !tbaa !114
   %778 = fadd reassoc nsz arcp contract afn float %776, %777

@@ -105,7 +105,7 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
   %51 = fpext float %49 to double
   %52 = sitofp i32 %4 to double
   %53 = sitofp i32 %5 to double
-  %54 = fmul double %52, %53
+  %54 = fmul nnan double %52, %53
   %55 = fcmp ogt double %54, 0.000000e+00
   %56 = fdiv double %51, %54
   %57 = select i1 %55, double %56, double 1.000000e+00
@@ -121,7 +121,7 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
 63:                                               ; preds = %.loopexit
   %64 = sitofp i32 %4 to double
   %65 = sitofp i32 %5 to double
-  %66 = fmul double %64, %65
+  %66 = fmul nnan double %64, %65
   %67 = fcmp ogt float %49, 0.000000e+00
   %68 = fcmp ogt double %66, 0.000000e+00
   %or.cond.i = and i1 %68, %67
@@ -129,8 +129,8 @@ define range(i32 0, 2) i32 @WebPPlaneDistortion(ptr noundef %0, i64 noundef %1, 
 
 69:                                               ; preds = %63
   %70 = fpext float %49 to double
-  %71 = fmul double %66, 2.550000e+02
-  %72 = fmul double %71, 2.550000e+02
+  %71 = fmul nnan double %66, 2.550000e+02
+  %72 = fmul nnan double %71, 2.550000e+02
   %73 = fdiv double %70, %72
   %74 = tail call double @log(double noundef %73) #6, !tbaa !12
   %75 = fmul double %74, 0xC0115F2CEBF15542
@@ -584,8 +584,8 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
   br i1 %or.cond.i, label %82, label %GetLogSSIM.exit
 
 82:                                               ; preds = %79
-  %83 = fmul double %67, 2.550000e+02
-  %84 = fmul double %83, 2.550000e+02
+  %83 = fmul nnan double %67, 2.550000e+02
+  %84 = fmul nnan double %83, 2.550000e+02
   %85 = fdiv double %66, %84
   %86 = call double @log(double noundef %85) #6, !tbaa !12
   %87 = fmul double %86, 0xC0115F2CEBF15542

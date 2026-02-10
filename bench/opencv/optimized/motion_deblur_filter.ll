@@ -870,8 +870,8 @@ define hidden void @_Z7calcPSFRN2cv3MatENS_5Size_IiEEid(ptr noundef nonnull alig
   %.sroa.020.0.insert.ext = zext i32 %12 to i64
   %.sroa.020.0.insert.insert = or disjoint i64 %.sroa.5.0.insert.shift, %.sroa.020.0.insert.ext
   %16 = sitofp i32 %2 to float
-  %17 = fpext float %16 to double
-  %18 = fmul double %17, 5.000000e-01
+  %17 = fpext nnan ninf float %16 to double
+  %18 = fmul nnan double %17, 5.000000e-01
   %19 = insertelement <2 x double> poison, double %18, i64 0
   %20 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

@@ -62,7 +62,7 @@ _ZNSt6vectorImSaImEEaSESt16initializer_listImE.exit:
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !12
   %8 = uitofp i64 %7 to double
-  %9 = fmul double %8, 1.500000e+00
+  %9 = fmul nnan double %8, 1.500000e+00
   %10 = fcmp ugt double %9, 0x43F0000000000000
   br i1 %10, label %._crit_edge22, label %.lr.ph21
 
@@ -528,7 +528,7 @@ define noundef double @_ZNK7rocksdb13HistogramStat6MedianEv(ptr noundef nonnull 
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load atomic i64, ptr %2 monotonic, align 8
   %4 = uitofp i64 %3 to double
-  %5 = fmul double %4, 5.000000e-01
+  %5 = fmul nnan double %4, 5.000000e-01
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %7 = load i64, ptr %6, align 8, !tbaa !25
   %.not4857.not.i = icmp eq i64 %7, 0
@@ -717,9 +717,9 @@ define noundef double @_ZNK7rocksdb13HistogramStat17StandardDeviationEv(ptr noun
   %11 = uitofp i64 %7 to double
   %12 = uitofp i64 %5 to double
   %13 = fneg double %12
-  %14 = fmul double %12, %13
+  %14 = fmul nnan double %12, %13
   %15 = tail call double @llvm.fmuladd.f64(double %11, double %10, double %14)
-  %16 = fmul double %10, %10
+  %16 = fmul nnan double %10, %10
   %17 = fdiv double %15, %16
   %18 = fcmp olt double %17, 0.000000e+00
   %.sroa.speculated = select i1 %18, double 0.000000e+00, double %17
@@ -765,9 +765,9 @@ define void @_ZNK7rocksdb13HistogramStat8ToStringB5cxx11Ev(ptr dead_on_unwind no
   %22 = uitofp i64 %18 to double
   %23 = uitofp i64 %16 to double
   %24 = fneg double %23
-  %25 = fmul double %23, %24
+  %25 = fmul nnan double %23, %24
   %26 = tail call double @llvm.fmuladd.f64(double %22, double %21, double %25)
-  %27 = fmul double %21, %21
+  %27 = fmul nnan double %21, %21
   %28 = fdiv double %26, %27
   %29 = fcmp olt double %28, 0.000000e+00
   %.sroa.speculated.i = select i1 %29, double 0.000000e+00, double %28
@@ -799,7 +799,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds =
   %41 = phi i64 [ %39, %38 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit ]
   %42 = load atomic i64, ptr %4 monotonic, align 8
   %43 = uitofp i64 %42 to double
-  %44 = fmul double %43, 5.000000e-01
+  %44 = fmul nnan double %43, 5.000000e-01
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 912
   %46 = load i64, ptr %45, align 8, !tbaa !25
   %.not4857.not.i.i = icmp eq i64 %46, 0
@@ -894,7 +894,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit41: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i38
   %97 = load atomic i64, ptr %4 monotonic, align 8
   %98 = uitofp i64 %97 to double
-  %99 = fmul double %98, 5.000000e-01
+  %99 = fmul nnan double %98, 5.000000e-01
   %100 = load i64, ptr %45, align 8, !tbaa !25
   %.not4857.not.i = icmp eq i64 %100, 0
   br i1 %.not4857.not.i, label %_ZNK7rocksdb13HistogramStat10PercentileEd.exit83.thread159, label %.lr.ph.i
@@ -983,7 +983,7 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit:   ; preds = %147
   %.3.i116 = phi double [ %.137.i, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit.thread ], [ %152, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit ]
   %153 = load atomic i64, ptr %4 monotonic, align 8
   %.in = uitofp i64 %153 to double
-  %154 = fmul double %.in, 7.500000e-01
+  %154 = fmul nnan double %.in, 7.500000e-01
   br label %155
 
 155:                                              ; preds = %187, %.lr.ph.i43
@@ -1050,7 +1050,7 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit55: ; preds = %187
   %.3.i52125 = phi double [ %.137.i51, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit55.thread ], [ %192, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit55 ]
   %193 = load atomic i64, ptr %4 monotonic, align 8
   %.in163 = uitofp i64 %193 to double
-  %194 = fmul double %.in163, 0x3FEFAE147AE147AE
+  %194 = fmul nnan double %.in163, 0x3FEFAE147AE147AE
   br label %195
 
 195:                                              ; preds = %227, %.lr.ph.i57
@@ -1117,7 +1117,7 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit69: ; preds = %227
   %.3.i66139 = phi double [ %.137.i65, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit69.thread ], [ %232, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit69 ]
   %233 = load atomic i64, ptr %4 monotonic, align 8
   %.in164 = uitofp i64 %233 to double
-  %234 = fmul double %.in164, 0x3FEFF7CED916872C
+  %234 = fmul nnan double %.in164, 0x3FEFF7CED916872C
   br label %235
 
 235:                                              ; preds = %267, %.lr.ph.i71
@@ -1184,7 +1184,7 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit83: ; preds = %267
   %.3.i80158 = phi double [ %.137.i79, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit83.thread ], [ %272, %_ZNK7rocksdb13HistogramStat10PercentileEd.exit83 ]
   %273 = load atomic i64, ptr %4 monotonic, align 8
   %.in165 = uitofp i64 %273 to double
-  %274 = fmul double %.in165, 0x3FEFFF2E48E8A71D
+  %274 = fmul nnan double %.in165, 0x3FEFFF2E48E8A71D
   br label %275
 
 275:                                              ; preds = %307, %.lr.ph.i85
@@ -1451,7 +1451,7 @@ define void @_ZNK7rocksdb13HistogramStat4DataEPNS_13HistogramDataE(ptr noundef n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %5 = uitofp i64 %4 to double
-  %6 = fmul double %5, 5.000000e-01
+  %6 = fmul nnan double %5, 5.000000e-01
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %8 = load i64, ptr %7, align 8, !tbaa !25
   %.not4857.not.i.i = icmp eq i64 %8, 0
@@ -1539,7 +1539,7 @@ _ZNK7rocksdb13HistogramStat6MedianEv.exit:        ; preds = %50
   store double %.sink, ptr %1, align 8, !tbaa !44
   %56 = load atomic i64, ptr %3 monotonic, align 8
   %.in = uitofp i64 %56 to double
-  %57 = fmul double %.in, 0x3FEE666666666666
+  %57 = fmul nnan double %.in, 0x3FEE666666666666
   br label %58
 
 58:                                               ; preds = %90, %.lr.ph.i
@@ -1608,7 +1608,7 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit:   ; preds = %90
   store double %.sink88, ptr %96, align 8, !tbaa !47
   %97 = load atomic i64, ptr %3 monotonic, align 8
   %.in29 = uitofp i64 %97 to double
-  %98 = fmul double %.in29, 0x3FEFAE147AE147AE
+  %98 = fmul nnan double %.in29, 0x3FEFAE147AE147AE
   br label %99
 
 99:                                               ; preds = %131, %.lr.ph.i11
@@ -1702,9 +1702,9 @@ _ZNK7rocksdb13HistogramStat10PercentileEd.exit23: ; preds = %.thread51.i15, %._c
   %157 = uitofp i64 %153 to double
   %158 = uitofp i64 %151 to double
   %159 = fneg double %158
-  %160 = fmul double %158, %159
+  %160 = fmul nnan double %158, %159
   %161 = tail call double @llvm.fmuladd.f64(double %157, double %156, double %160)
-  %162 = fmul double %156, %156
+  %162 = fmul nnan double %156, %156
   %163 = fdiv double %161, %162
   %164 = fcmp olt double %163, 0.000000e+00
   %.sroa.speculated.i = select i1 %164, double 0.000000e+00, double %163
@@ -2069,7 +2069,7 @@ define noundef double @_ZNK7rocksdb13HistogramImpl6MedianEv(ptr noundef nonnull 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %5 = uitofp i64 %4 to double
-  %6 = fmul double %5, 5.000000e-01
+  %6 = fmul nnan double %5, 5.000000e-01
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %8 = load i64, ptr %7, align 8, !tbaa !25
   %.not4857.not.i.i = icmp eq i64 %8, 0
@@ -2256,9 +2256,9 @@ define noundef double @_ZNK7rocksdb13HistogramImpl17StandardDeviationEv(ptr noun
   %11 = uitofp i64 %7 to double
   %12 = uitofp i64 %5 to double
   %13 = fneg double %12
-  %14 = fmul double %12, %13
+  %14 = fmul nnan double %12, %13
   %15 = tail call double @llvm.fmuladd.f64(double %11, double %10, double %14)
-  %16 = fmul double %10, %10
+  %16 = fmul nnan double %10, %10
   %17 = fdiv double %15, %16
   %18 = fcmp olt double %17, 0.000000e+00
   %.sroa.speculated.i = select i1 %18, double 0.000000e+00, double %17

@@ -3228,7 +3228,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIfE5Pr
   %53 = fadd float %52, 5.000000e-01
   %54 = fptosi float %53 to i32
   %55 = sitofp i32 %54 to float
-  %56 = fmul float %.0.i.i, %55
+  %56 = fmul nnan float %.0.i.i, %55
   %57 = fcmp une float %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEfPSo.exit
 
@@ -4111,7 +4111,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %.0.i.i, %55
+  %56 = fmul nnan double %.0.i.i, %55
   %57 = fcmp une double %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 
@@ -12850,7 +12850,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
 
 34:                                               ; preds = %24
   %35 = uitofp nneg i64 %26 to double
-  %36 = fmul double %35, 0x3DF0000000000000
+  %36 = fmul nnan double %35, 0x3DF0000000000000
   %37 = fsub double %.013.i.i.i.i.i, %36
   %38 = fmul double %37, 0x41F0000000000000
   %39 = fcmp une double %38, 0.000000e+00
@@ -13550,15 +13550,15 @@ define linkonce_odr dso_local noundef double @_ZN4absl17beta_distributionIdE15Al
   br label %61
 
 40:                                               ; preds = %36
-  %41 = tail call double @llvm.log.f64(double %19), !tbaa !7
+  %41 = tail call nnan double @llvm.log.f64(double %19)
   %42 = fmul double %5, %41
-  %43 = tail call double @llvm.log.f64(double %31), !tbaa !7
+  %43 = tail call nnan double @llvm.log.f64(double %31)
   %44 = fmul double %7, %43
   %45 = tail call double @llvm.fabs.f64(double %42)
   %46 = fcmp one double %45, 0x7FF0000000000000
   %47 = tail call double @llvm.fabs.f64(double %44)
   %48 = fcmp one double %47, 0x7FF0000000000000
-  %or.cond = and i1 %46, %48
+  %or.cond = select i1 %46, i1 %48, i1 false
   br i1 %or.cond, label %49, label %.backedge.backedge
 
 49:                                               ; preds = %40
@@ -13666,7 +13666,7 @@ define linkonce_odr dso_local noundef double @_ZN4absl17beta_distributionIdE14Al
   %52 = tail call double @llvm.fmuladd.f64(double %14, double %47, double 0xBFF62E42FEFA39EF)
   %53 = fadd double %10, %52
   %54 = fsub double %53, %49
-  %55 = fmul double %31, %31
+  %55 = fmul nnan double %31, %31
   %56 = fmul double %55, %43
   br i1 %6, label %.thread, label %58
 
@@ -15348,8 +15348,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %reass.sub51 = sub nsw i64 %42, %43
   %44 = add nsw i64 %reass.sub51, 4602678819172646912
   %45 = bitcast i64 %44 to double
-  %46 = tail call double @llvm.log.f64(double %45), !tbaa !7
-  %47 = fmul double %46, 0x3FD2972A8AFC6175
+  %46 = tail call nnan double @llvm.log.f64(double %45)
+  %47 = fmul nnan double %46, 0x3FD2972A8AFC6175
   %.sroa.24.0.insert.ext.i.i.i.i.i.i12.i = zext i64 %.narrow.i.i.i.i.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i13.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i12.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i14.i = and i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i, 18446744073709551615

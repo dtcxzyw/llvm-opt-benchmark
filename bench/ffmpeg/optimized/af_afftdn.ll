@@ -1754,7 +1754,7 @@ factor.exit:                                      ; preds = %101
   %indvars.iv685 = phi i64 [ 0, %.lr.ph534 ], [ %indvars.iv.next686, %136 ]
   %137 = trunc nuw nsw i64 %indvars.iv685 to i32
   %138 = uitofp nneg i32 %137 to double
-  %139 = fmul nsz double %138, 5.000000e-01
+  %139 = fmul nnan nsz double %138, 5.000000e-01
   %140 = fmul nsz double %139, %133
   %141 = fdiv nsz double %140, %134
   %142 = fdiv nsz double %141, 7.500000e+03
@@ -2364,7 +2364,7 @@ reduce_mean.exit:                                 ; preds = %241
   br i1 %438, label %441, label %445
 
 441:                                              ; preds = %437
-  %442 = fmul nsz double %440, 1.000000e-01
+  %442 = fmul nnan nsz double %440, 1.000000e-01
   %443 = fdiv nsz double %442, %129
   %444 = fadd nsz double %443, 1.450000e+00
   br label %449
@@ -2489,8 +2489,8 @@ reduce_mean.exit:                                 ; preds = %241
 501:                                              ; preds = %._crit_edge641
   %502 = load i32, ptr %40, align 4, !tbaa !130
   %503 = sitofp i32 %502 to double
-  %504 = fmul nsz double %503, 9.000000e+00
-  %505 = fdiv nsz double 8.000000e+00, %504
+  %504 = fmul nnan nsz double %503, 9.000000e+00
+  %505 = fdiv nnan nsz double 8.000000e+00, %504
   %506 = call nsz double @llvm.sqrt.f64(double %505)
   %507 = load i32, ptr %34, align 8, !tbaa !57
   %508 = icmp sgt i32 %507, 0
@@ -2531,7 +2531,7 @@ reduce_mean.exit:                                 ; preds = %241
   %.0396643 = phi double [ 0.000000e+00, %.lr.ph645 ], [ %531, %522 ]
   %523 = trunc nuw nsw i64 %indvars.iv757 to i32
   %524 = uitofp nneg i32 %523 to double
-  %525 = fmul nsz double %524, 0x400921FB54442D18
+  %525 = fmul nnan nsz double %524, 0x400921FB54442D18
   %526 = fdiv nsz double %525, %509
   %527 = call nsz double @llvm.sin.f64(double %526)
   %528 = fmul nsz double %506, %527
@@ -2611,7 +2611,7 @@ reduce_mean.exit:                                 ; preds = %241
 572:                                              ; preds = %570
   %573 = load i32, ptr %552, align 4, !tbaa !90
   %574 = sitofp i32 %573 to double
-  %575 = fmul nsz double %574, 0x3FF3988E368F0846
+  %575 = fmul nnan nsz double %574, 0x3FF3988E368F0846
   br label %get_band_edge.exit
 
 576:                                              ; preds = %570
@@ -2641,7 +2641,7 @@ get_band_edge.exit:                               ; preds = %572, %576
 590:                                              ; preds = %589
   %591 = load i32, ptr %552, align 4, !tbaa !90
   %592 = sitofp i32 %591 to double
-  %593 = fmul nsz double %592, 0x3FF3988E368F0846
+  %593 = fmul nnan nsz double %592, 0x3FF3988E368F0846
   br label %get_band_edge.exit488
 
 594:                                              ; preds = %589
@@ -2673,7 +2673,7 @@ get_band_edge.exit488:                            ; preds = %590, %594
   %611 = getelementptr i8, ptr %609, i64 -4
   %612 = load i32, ptr %611, align 4, !tbaa !90
   %613 = sitofp i32 %612 to double
-  %614 = fmul nsz double %613, 1.100000e+00
+  %614 = fmul nnan nsz double %613, 1.100000e+00
   %615 = call i64 @llvm.lrint.i64.f64(double %614)
   %616 = icmp slt i64 %615, %610
   %617 = zext i1 %616 to i32
@@ -3707,7 +3707,7 @@ floor_offset.exit.i:                              ; preds = %.lr.ph.i227.i, %169
   br i1 %279, label %280, label %limit_gain.exit.i
 
 280:                                              ; preds = %278
-  %281 = fmul nsz double %271, -2.000000e+00
+  %281 = fmul nnan nsz double %271, -2.000000e+00
   %282 = tail call nsz double @llvm.fmuladd.f64(double %269, double %271, double %281)
   %283 = fadd nsz double %282, 1.000000e+00
   %284 = fsub nsz double %269, %271
@@ -3738,7 +3738,7 @@ limit_gain.exit.i:                                ; preds = %280, %278, %273
   br i1 %297, label %298, label %limit_gain.exit232.i
 
 298:                                              ; preds = %296
-  %299 = fmul nsz double %288, -2.000000e+00
+  %299 = fmul nnan nsz double %288, -2.000000e+00
   %300 = tail call nsz double @llvm.fmuladd.f64(double %289, double %288, double %299)
   %301 = fadd nsz double %300, 1.000000e+00
   %302 = fsub nsz double %289, %288

@@ -416,7 +416,7 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr noundef readonly captur
   %40 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 2)
   store i32 4, ptr %40, align 8
   %41 = uitofp i32 %36 to double
-  %42 = fmul double %41, 1.000000e+02
+  %42 = fmul nnan double %41, 1.000000e+02
   %43 = load i64, ptr @npm_total_msgs, align 8
   %44 = uitofp i64 %43 to double
   %45 = fdiv double %42, %44
@@ -426,7 +426,7 @@ define internal range(i32 0, 2) i32 @npm_stat_packet(ptr noundef readonly captur
   %47 = tail call ptr @stat_tap_get_field_data(ptr noundef %15, i32 noundef %.0104109, i32 noundef 4)
   store i32 4, ptr %47, align 8
   %48 = uitofp i32 %39 to double
-  %49 = fmul double %48, 1.000000e+02
+  %49 = fmul nnan double %48, 1.000000e+02
   %50 = load i64, ptr @npm_total_bytes, align 8
   %51 = uitofp i64 %50 to double
   %52 = fdiv double %49, %51
@@ -698,21 +698,21 @@ define internal noundef i32 @dissect_npm(ptr noundef %0, ptr noundef %1, ptr nou
   %63 = load i32, ptr @hf_addflow_ordered, align 4
   %64 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 52)
   %65 = uitofp i32 %64 to double
-  %66 = fmul double %65, 1.000000e+02
+  %66 = fmul nnan double %65, 1.000000e+02
   %67 = fdiv double %66, 0x41EFFFFFFFE00000
   %68 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 52)
   %69 = uitofp i32 %68 to double
-  %70 = fmul double %69, 1.000000e+02
+  %70 = fmul nnan double %69, 1.000000e+02
   %71 = fdiv double %70, 0x41EFFFFFFFE00000
   %72 = tail call ptr (ptr, i32, ptr, i32, i32, double, ptr, ...) @proto_tree_add_double_format_value(ptr noundef %.0, i32 noundef %63, ptr noundef %0, i32 noundef 52, i32 noundef 4, double noundef %67, ptr noundef nonnull @.str.170, double noundef %71)
   %73 = load i32, ptr @hf_addflow_reliable, align 4
   %74 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 56)
   %75 = uitofp i32 %74 to double
-  %76 = fmul double %75, 1.000000e+02
+  %76 = fmul nnan double %75, 1.000000e+02
   %77 = fdiv double %76, 0x41EFFFFFFFE00000
   %78 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 56)
   %79 = uitofp i32 %78 to double
-  %80 = fmul double %79, 1.000000e+02
+  %80 = fmul nnan double %79, 1.000000e+02
   %81 = fdiv double %80, 0x41EFFFFFFFE00000
   %82 = tail call ptr (ptr, i32, ptr, i32, i32, double, ptr, ...) @proto_tree_add_double_format_value(ptr noundef %.0, i32 noundef %73, ptr noundef %0, i32 noundef 56, i32 noundef 4, double noundef %77, ptr noundef nonnull @.str.170, double noundef %81)
   %83 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 60)

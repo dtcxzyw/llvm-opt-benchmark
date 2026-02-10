@@ -1732,7 +1732,7 @@ if.then225:                                       ; preds = %if.then220
   %87 = fneg double %86
   %neg = fmul double %mul238, %87
   %88 = tail call double @llvm.fmuladd.f64(double %mul233, double %85, double %neg)
-  %mul242 = fmul double %sub223, 2.000000e+00
+  %mul242 = fmul nnan double %sub223, 2.000000e+00
   %mul243 = fmul double %sub223, %mul242
   %div244 = fdiv double %88, %mul243
   %add = fadd double %sub228, %div244
@@ -1888,7 +1888,7 @@ if.end400:                                        ; preds = %if.else395, %if.the
   store double %g321.sroa.10.0, ptr %g_km1_, align 8, !tbaa !58
   %mul405 = shl nsw i32 %120, 1
   %conv406 = sitofp i32 %mul405 to double
-  %mul407 = fmul double %conv406, 0x400921FB54442D18
+  %mul407 = fmul nnan double %conv406, 0x400921FB54442D18
   %add.r.i = fadd double %g321.sroa.0.0, 0.000000e+00
   %add.i.i = fadd double %g321.sroa.10.0, %mul407
   %v0_416 = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -4863,7 +4863,7 @@ if.end.i336:                                      ; preds = %if.else.i, %if.then
 
 while.body.lr.ph.i:                               ; preds = %if.end.i336
   %sub.i337 = fsub double %guess, %157
-  %mul45.i = fmul double %.sroa.speculated, 5.000000e-01
+  %mul45.i = fmul nnan double %.sroa.speculated, 5.000000e-01
   br label %while.body.i
 
 while.body.i:                                     ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMaxEdENK3$_0clEd.exit125.i", %while.body.lr.ph.i
@@ -6490,7 +6490,7 @@ if.else.i.i.i.i:                                  ; preds = %do.end365.i
   %109 = select i1 %cmp.i335.i, double %sub.i.i, double %sub.i190.i
   %110 = select i1 %cmp.i335.i, double %mul2, double %mul4
   %sub.i337.i = fsub double %mul, %110
-  %mul45.i.i = fmul double %.sroa.speculated.i, 5.000000e-01
+  %mul45.i.i = fmul nnan double %.sroa.speculated.i, 5.000000e-01
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit125.i.i", %"_ZZNK8QuantLib20AnalyticHestonEngine12OptimalAlpha8alphaMinEdENK3$_0clEd.exit.i.i"
@@ -7619,7 +7619,7 @@ sw.bb129:                                         ; preds = %sw.bb118, %_ZNK8Qua
 cond.true:                                        ; preds = %sw.bb129
   %cmp.i = fcmp oeq double %60, 0.000000e+00
   %62 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %60)
-  %63 = fmul double %62, 0x3FD0C152382D7365
+  %63 = fmul nnan double %62, 0x3FD0C152382D7365
   %mul141 = select i1 %cmp.i, double 0.000000e+00, double %63
   br label %cond.end
 
@@ -16675,7 +16675,7 @@ while.body.lr.ph.i.i:                             ; preds = %if.end74.i
   %xMin_19.promoted.i.i = select i1 %cmp.i82.i, double %21, double %22
   %ref.tmp.sroa.34.2 = select i1 %cmp.i82.i, double %23, double %ref.tmp.sroa.34.1
   %sub.i.i = fsub double %div.i, %xMin_19.promoted.i.i
-  %mul45.i.i = fmul double %.sroa.speculated.i, 5.000000e-01
+  %mul45.i.i = fmul nnan double %.sroa.speculated.i, 5.000000e-01
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %if.end122.i.i, %while.body.lr.ph.i.i
@@ -17491,7 +17491,7 @@ while.body.lr.ph.i.i132:                          ; preds = %if.end74.i122
   %xMin_19.promoted.i.i130 = select i1 %cmp.i88.i128, double %126, double %127
   %ref.tmp11.sroa.35.2 = select i1 %cmp.i88.i128, double %128, double %ref.tmp11.sroa.35.1
   %sub.i.i135 = fsub double %div.i124, %xMin_19.promoted.i.i130
-  %mul45.i.i136 = fmul double %.sroa.speculated.i87, 5.000000e-01
+  %mul45.i.i136 = fmul nnan double %.sroa.speculated.i87, 5.000000e-01
   br label %while.body.i.i137
 
 while.body.i.i137:                                ; preds = %if.end122.i.i166, %while.body.lr.ph.i.i132

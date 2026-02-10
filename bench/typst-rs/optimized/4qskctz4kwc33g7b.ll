@@ -62554,7 +62554,7 @@ default.unreachable:                              ; preds = %84
   br label %93
 
 91:                                               ; preds = %84
-  %92 = fmul double %.0.i.i.i2.i, 5.000000e-01
+  %92 = fmul nnan double %.0.i.i.i2.i, 5.000000e-01
   br label %93
 
 93:                                               ; preds = %84, %90, %91
@@ -75299,7 +75299,7 @@ define void @"_ZN93_$LT$typst..visualize..gradient..RadialGradient$u20$as$u20$ty
 
 47:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %48 = fmul double %30, 1.000000e+02
+  %48 = fmul nnan double %30, 1.000000e+02
   invoke void @_ZN5typst11foundations4repr12format_float17h3cb6b2212318be92E(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %23, double noundef %48, i1 noundef zeroext true, i8 2, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 1 @anon.8028f6bc2b2948ad00199b8e9b8fe7f2.291.llvm.9217674556973953327, i64 noundef 1)
           to label %54 unwind label %.loopexit.split-lp
 
@@ -75422,7 +75422,7 @@ define void @"_ZN93_$LT$typst..visualize..gradient..RadialGradient$u20$as$u20$ty
 
 102:                                              ; preds = %96
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %103 = fmul double %91, 1.000000e+02
+  %103 = fmul nnan double %91, 1.000000e+02
   invoke void @_ZN5typst11foundations4repr12format_float17h3cb6b2212318be92E(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %21, double noundef %103, i1 noundef zeroext true, i8 2, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 1 @anon.8028f6bc2b2948ad00199b8e9b8fe7f2.291.llvm.9217674556973953327, i64 noundef 1)
           to label %109 unwind label %.loopexit.split-lp
 
@@ -75489,7 +75489,7 @@ define void @"_ZN93_$LT$typst..visualize..gradient..RadialGradient$u20$as$u20$ty
 
 129:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %130 = fmul double %99, 1.000000e+02
+  %130 = fmul nnan double %99, 1.000000e+02
   invoke void @_ZN5typst11foundations4repr12format_float17h3cb6b2212318be92E(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %20, double noundef %130, i1 noundef zeroext true, i8 2, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 1 @anon.8028f6bc2b2948ad00199b8e9b8fe7f2.291.llvm.9217674556973953327, i64 noundef 1)
           to label %136 unwind label %.loopexit.split-lp
 
@@ -75606,7 +75606,7 @@ define void @"_ZN93_$LT$typst..visualize..gradient..RadialGradient$u20$as$u20$ty
 
 182:                                              ; preds = %178
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %183 = fmul double %173, 1.000000e+02
+  %183 = fmul nnan double %173, 1.000000e+02
   invoke void @_ZN5typst11foundations4repr12format_float17h3cb6b2212318be92E(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %18, double noundef %183, i1 noundef zeroext true, i8 2, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 1 @anon.8028f6bc2b2948ad00199b8e9b8fe7f2.291.llvm.9217674556973953327, i64 noundef 1)
           to label %189 unwind label %.loopexit.split-lp
 
@@ -76210,7 +76210,7 @@ define void @"_ZN92_$LT$typst..visualize..gradient..ConicGradient$u20$as$u20$typ
 
 67:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %68 = fmul double %51, 1.000000e+02
+  %68 = fmul nnan double %51, 1.000000e+02
   invoke void @_ZN5typst11foundations4repr12format_float17h3cb6b2212318be92E(ptr noalias noundef nonnull sret({ { { [2 x i64] } } }) align 8 captures(none) dereferenceable(16) %15, double noundef %68, i1 noundef zeroext true, i8 2, i1 noundef zeroext false, ptr noalias noundef nonnull readonly align 1 @anon.8028f6bc2b2948ad00199b8e9b8fe7f2.291.llvm.9217674556973953327, i64 noundef 1)
           to label %74 unwind label %.loopexit.split-lp
 
@@ -94379,7 +94379,7 @@ default.unreachable:                              ; preds = %148
   br label %_ZN5typst6layout5align14FixedAlignment8position17h5532a7a69f4a73e8E.exit
 
 150:                                              ; preds = %148
-  %151 = fmul double %.0.i.i.i40, 5.000000e-01
+  %151 = fmul nnan double %.0.i.i.i40, 5.000000e-01
   br label %_ZN5typst6layout5align14FixedAlignment8position17h5532a7a69f4a73e8E.exit
 
 _ZN5typst6layout5align14FixedAlignment8position17h5532a7a69f4a73e8E.exit: ; preds = %150, %149, %148
@@ -100074,7 +100074,7 @@ _ZN5typst4math3ctx11MathContext15layout_into_run17h791fbc85b59509ecE.exit.i: ; p
   %159 = add nuw i64 %.sroa.033.0187, 1
   %160 = load double, ptr %99, align 8, !alias.scope !22473, !noundef !4
   %161 = uitofp i64 %.sroa.033.0187 to double
-  %162 = fmul double %161, 5.000000e-01
+  %162 = fmul nnan double %161, 5.000000e-01
   %163 = fmul double %162, %160
   %.0.i.inv.i.i.i82 = fcmp ord double %163, 0.000000e+00
   %.0.i.i.i83 = select i1 %.0.i.inv.i.i.i82, double %163, double 0.000000e+00
@@ -111548,7 +111548,7 @@ _ZN10ttf_parser6parser6Stream7read_at17hdb858725c101a281E.exit.i: ; preds = %.no
 
 214:                                              ; preds = %_ZN10ttf_parser6parser6Stream7read_at17hdb858725c101a281E.exit.i, %.noexc25
   %215 = phi double [ %213, %_ZN10ttf_parser6parser6Stream7read_at17hdb858725c101a281E.exit.i ], [ 0.000000e+00, %.noexc25 ]
-  %216 = fdiv double %215, 1.000000e+02
+  %216 = fdiv nnan double %215, 1.000000e+02
   call void @llvm.lifetime.start.p0(ptr nonnull %39), !noalias !25038
   call void @llvm.experimental.noalias.scope.decl(metadata !25155)
   %217 = invoke { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h996700ad2487d67cE.llvm.4622153547959463051(ptr noalias noundef nonnull readonly align 1 @anon.d0b53836d7e1f22013aa0a92172aa16d.122.llvm.4622153547959463051, i64 noundef 1, i64 noundef 1, i1 noundef zeroext false)
@@ -162315,7 +162315,7 @@ define void @_ZN5typst9visualize8gradient8Gradient5sharp17hc532a2b80897c671E(ptr
   store i64 0, ptr %50, align 8
   %51 = load i64, ptr %18, align 8, !noundef !4
   %52 = uitofp i64 %51 to double
-  %53 = fmul double %52, 4.000000e+00
+  %53 = fmul nnan double %52, 4.000000e+00
   %54 = fdiv double %5, %53
   %.not186 = icmp eq i64 %51, 0
   %.sroa.5152.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %17, i64 16

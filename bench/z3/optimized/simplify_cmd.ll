@@ -1225,7 +1225,7 @@ _ZNSolsEj.exit:                                   ; preds = %_ZStlsISt11char_tra
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
   store i64 2, ptr %313, align 8, !tbaa !207
   %314 = uitofp i64 %264 to double
-  %315 = fmul double %314, 0x3EB0000000000000
+  %315 = fmul nnan double %314, 0x3EB0000000000000
   %316 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %300, double noundef %315)
           to label %_ZNSolsEd.exit95 unwind label %361
 
@@ -1248,7 +1248,7 @@ _ZNSolsEd.exit95:                                 ; preds = %302
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
   store i64 2, ptr %329, align 8, !tbaa !207
   %330 = uitofp i64 %262 to double
-  %331 = fmul double %330, 0x3EB0000000000000
+  %331 = fmul nnan double %330, 0x3EB0000000000000
   %332 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %316, double noundef %331)
           to label %_ZNSolsEd.exit98 unwind label %361
 

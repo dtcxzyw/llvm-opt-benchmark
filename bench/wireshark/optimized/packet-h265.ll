@@ -4719,7 +4719,7 @@ define internal fastcc void @dissect_h265_slice_segment_layer_rbsp(ptr noundef %
   %13 = load i32, ptr @pic_height_in_luma_samples, align 4
   %14 = lshr i32 %13, %9
   %15 = uitofp i32 %14 to double
-  %16 = fmul double %12, %15
+  %16 = fmul nnan double %12, %15
   %17 = tail call double @log2(double noundef %16) #11
   %18 = tail call double @llvm.ceil.f64(double %17)
   %19 = fptoui double %18 to i32

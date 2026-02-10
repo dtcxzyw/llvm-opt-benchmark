@@ -2152,7 +2152,7 @@ _ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjRfEEERS1_DpOT_.exit: ; preds =
   br i1 %506, label %507, label %_ZNSt6vectorISt4pairIjfESaIS1_EE12emplace_backIJRjfEEERS1_DpOT_.exit
 
 507:                                              ; preds = %505
-  %508 = fdiv float 1.000000e+00, %.0145.lcssa533
+  %508 = fdiv nnan float 1.000000e+00, %.0145.lcssa533
   %509 = load ptr, ptr %415, align 8
   %510 = load ptr, ptr %416, align 8
   %.not293388 = icmp eq ptr %509, %510

@@ -10420,7 +10420,7 @@ define internal fastcc void @rtps_util_add_timestamp_sec_and_fraction(ptr nounde
 19:                                               ; preds = %14
   %20 = sitofp i32 %7 to double
   %21 = uitofp i32 %9 to double
-  %22 = fmul double %21, 0x3DF0000000000000
+  %22 = fmul nnan double %21, 0x3DF0000000000000
   %23 = fadd double %22, %20
   %24 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %5, i64 noundef 128, i32 noundef 2, i64 noundef 128, ptr noundef nonnull @.str.1139, double noundef %23, i32 noundef %7, i32 noundef %9)
   br label %25

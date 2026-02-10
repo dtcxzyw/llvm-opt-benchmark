@@ -466,7 +466,7 @@ if.end5.i:                                        ; preds = %if.then.i176, %for.
   br i1 %cmp10.i, label %if.then11.i, label %_ZN8QuantLibL12rescaleErrorEddd.exit
 
 if.then11.i:                                      ; preds = %if.end5.i
-  %mul14.i = fmul double %mul85, 0x3D09000000000000
+  %mul14.i = fmul nnan double %mul85, 0x3D09000000000000
   %cmp15.i = fcmp ogt double %mul14.i, %err.addr.0.i
   %err.addr.3.i = select i1 %cmp15.i, double %mul14.i, double %err.addr.0.i
   br label %_ZN8QuantLibL12rescaleErrorEddd.exit
@@ -573,7 +573,7 @@ if.end5.i194:                                     ; preds = %if.then.i202, %for.
   br i1 %cmp10.i, label %if.then11.i198, label %_ZN8QuantLibL12rescaleErrorEddd.exit209
 
 if.then11.i198:                                   ; preds = %if.end5.i194
-  %mul14.i199 = fmul double %mul85, 0x3D09000000000000
+  %mul14.i199 = fmul nnan double %mul85, 0x3D09000000000000
   %cmp15.i200 = fcmp ogt double %mul14.i199, %err.addr.0.i195
   %err.addr.3.i201 = select i1 %cmp15.i200, double %mul14.i199, double %err.addr.0.i195
   br label %_ZN8QuantLibL12rescaleErrorEddd.exit209
@@ -674,7 +674,7 @@ if.end5.i228:                                     ; preds = %if.then.i236, %for.
   br i1 %cmp10.i, label %if.then11.i232, label %cleanup
 
 if.then11.i232:                                   ; preds = %if.end5.i228
-  %mul14.i233 = fmul double %mul85, 0x3D09000000000000
+  %mul14.i233 = fmul nnan double %mul85, 0x3D09000000000000
   %cmp15.i234 = fcmp ogt double %mul14.i233, %err.addr.0.i229
   %err.addr.3.i235 = select i1 %cmp15.i234, double %mul14.i233, double %err.addr.0.i229
   br label %cleanup

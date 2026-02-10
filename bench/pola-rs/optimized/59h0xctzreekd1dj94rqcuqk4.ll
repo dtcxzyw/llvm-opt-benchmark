@@ -90770,7 +90770,7 @@ define hidden void @_ZN12polars_arrow6legacy7kernels11sorted_join5inner4join17h0
 15:                                               ; preds = %6
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %2)
   %16 = uitofp i64 %.sroa.0.0.sroa.speculated.i to float
-  %17 = fmul float %16, 1.500000e+00
+  %17 = fmul nnan float %16, 1.500000e+00
   %18 = tail call i64 @llvm.fptoui.sat.i64.f32(float %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !9345
@@ -91050,7 +91050,7 @@ define hidden void @_ZN12polars_arrow6legacy7kernels11sorted_join5inner4join17h4
 15:                                               ; preds = %6
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %2)
   %16 = uitofp i64 %.sroa.0.0.sroa.speculated.i to float
-  %17 = fmul float %16, 1.500000e+00
+  %17 = fmul nnan float %16, 1.500000e+00
   %18 = tail call i64 @llvm.fptoui.sat.i64.f32(float %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !9371
@@ -91330,7 +91330,7 @@ define hidden void @_ZN12polars_arrow6legacy7kernels11sorted_join5inner4join17h6
 15:                                               ; preds = %6
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %2)
   %16 = uitofp i64 %.sroa.0.0.sroa.speculated.i to float
-  %17 = fmul float %16, 1.500000e+00
+  %17 = fmul nnan float %16, 1.500000e+00
   %18 = tail call i64 @llvm.fptoui.sat.i64.f32(float %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !9397
@@ -91610,7 +91610,7 @@ define hidden void @_ZN12polars_arrow6legacy7kernels11sorted_join5inner4join17h6
 15:                                               ; preds = %6
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %2)
   %16 = uitofp i64 %.sroa.0.0.sroa.speculated.i to float
-  %17 = fmul float %16, 1.500000e+00
+  %17 = fmul nnan float %16, 1.500000e+00
   %18 = tail call i64 @llvm.fptoui.sat.i64.f32(float %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !9423
@@ -91890,7 +91890,7 @@ define hidden void @_ZN12polars_arrow6legacy7kernels11sorted_join5inner4join17h7
 15:                                               ; preds = %6
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %2)
   %16 = uitofp i64 %.sroa.0.0.sroa.speculated.i to float
-  %17 = fmul float %16, 1.500000e+00
+  %17 = fmul nnan float %16, 1.500000e+00
   %18 = tail call i64 @llvm.fptoui.sat.i64.f32(float %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !9449
@@ -92170,7 +92170,7 @@ define hidden void @_ZN12polars_arrow6legacy7kernels11sorted_join5inner4join17h7
 15:                                               ; preds = %6
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %2)
   %16 = uitofp i64 %.sroa.0.0.sroa.speculated.i to float
-  %17 = fmul float %16, 1.500000e+00
+  %17 = fmul nnan float %16, 1.500000e+00
   %18 = tail call i64 @llvm.fptoui.sat.i64.f32(float %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !9475
@@ -92450,7 +92450,7 @@ define hidden void @_ZN12polars_arrow6legacy7kernels11sorted_join5inner4join17h9
 15:                                               ; preds = %6
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %2)
   %16 = uitofp i64 %.sroa.0.0.sroa.speculated.i to float
-  %17 = fmul float %16, 1.500000e+00
+  %17 = fmul nnan float %16, 1.500000e+00
   %18 = tail call i64 @llvm.fptoui.sat.i64.f32(float %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !9501
@@ -92730,7 +92730,7 @@ define hidden void @_ZN12polars_arrow6legacy7kernels11sorted_join5inner4join17h9
 15:                                               ; preds = %6
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %2)
   %16 = uitofp i64 %.sroa.0.0.sroa.speculated.i to float
-  %17 = fmul float %16, 1.500000e+00
+  %17 = fmul nnan float %16, 1.500000e+00
   %18 = tail call i64 @llvm.fptoui.sat.i64.f32(float %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !9527
@@ -93010,7 +93010,7 @@ define hidden void @_ZN12polars_arrow6legacy7kernels11sorted_join5inner4join17h9
 15:                                               ; preds = %6
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %2)
   %16 = uitofp i64 %.sroa.0.0.sroa.speculated.i to float
-  %17 = fmul float %16, 1.500000e+00
+  %17 = fmul nnan float %16, 1.500000e+00
   %18 = tail call i64 @llvm.fptoui.sat.i64.f32(float %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !9553
@@ -93290,7 +93290,7 @@ define hidden void @_ZN12polars_arrow6legacy7kernels11sorted_join5inner4join17hd
 15:                                               ; preds = %6
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %2)
   %16 = uitofp i64 %.sroa.0.0.sroa.speculated.i to float
-  %17 = fmul float %16, 1.500000e+00
+  %17 = fmul nnan float %16, 1.500000e+00
   %18 = tail call i64 @llvm.fptoui.sat.i64.f32(float %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !9579
@@ -93570,7 +93570,7 @@ define hidden void @_ZN12polars_arrow6legacy7kernels11sorted_join5inner4join17he
 15:                                               ; preds = %6
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %2)
   %16 = uitofp i64 %.sroa.0.0.sroa.speculated.i to float
-  %17 = fmul float %16, 1.500000e+00
+  %17 = fmul nnan float %16, 1.500000e+00
   %18 = tail call i64 @llvm.fptoui.sat.i64.f32(float %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !9605

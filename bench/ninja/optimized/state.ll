@@ -3484,7 +3484,7 @@ define linkonce_odr dso_local void @_ZN7emhash87HashMapI11StringPieceP4NodeSt4ha
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !65
   %23 = uitofp i32 %22 to float
-  %24 = fdiv float 0x41A0000000000000, %23
+  %24 = fdiv nnan float 0x41A0000000000000, %23
   %25 = fmul float %24, %20
   %26 = fptoui float %25 to i32
   %27 = add i32 %26, 4

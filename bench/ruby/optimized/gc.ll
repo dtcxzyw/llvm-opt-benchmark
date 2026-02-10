@@ -23076,7 +23076,7 @@ gc_prof_setup_new_record.exit:                    ; preds = %rb_darray_size.exit
 
 190:                                              ; preds = %gc_prof_setup_new_record.exit
   %191 = uitofp i64 %182 to double
-  %192 = fmul double %191, 0x3FEF5C28F5C28F5C
+  %192 = fmul nnan double %191, 0x3FEF5C28F5C28F5C
   %193 = fptoui double %192 to i64
   %194 = load i64, ptr getelementptr inbounds nuw (i8, ptr @gc_params, i64 104), align 8, !tbaa !136
   %spec.store.select31.i = call i64 @llvm.umax.i64(i64 %194, i64 %193)

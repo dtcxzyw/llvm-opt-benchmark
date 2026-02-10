@@ -423,7 +423,7 @@ define i32 @Unm_ManPrintPairStats(ptr noundef readonly captures(none) %0, i32 no
 
 30:                                               ; preds = %26
   %31 = uitofp nneg i32 %28 to double
-  %32 = fmul double %31, 1.000000e+02
+  %32 = fmul nnan double %31, 1.000000e+02
   %33 = trunc nuw nsw i64 %indvars.iv40 to i32
   %34 = uitofp nneg i32 %33 to double
   %35 = fmul double %32, %34
@@ -438,15 +438,15 @@ define i32 @Unm_ManPrintPairStats(ptr noundef readonly captures(none) %0, i32 no
 
 39:                                               ; preds = %38
   %40 = sitofp i32 %2 to double
-  %41 = fmul double %40, 1.000000e+02
+  %41 = fmul nnan double %40, 1.000000e+02
   %42 = tail call noundef range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %1, i32 1)
   %43 = uitofp nneg i32 %42 to double
   %44 = fdiv double %41, %43
   %45 = uitofp nneg i32 %.029.lcssa to double
-  %46 = fmul double %45, 1.000000e+02
+  %46 = fmul nnan double %45, 1.000000e+02
   %47 = fdiv double %46, %43
   %48 = sitofp i32 %3 to double
-  %49 = fmul double %48, 1.000000e+02
+  %49 = fmul nnan double %48, 1.000000e+02
   %50 = fdiv double %49, %43
   %51 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %1, i32 noundef %2, double noundef %44, i32 noundef %.029.lcssa, double noundef %47, i32 noundef %3, double noundef %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

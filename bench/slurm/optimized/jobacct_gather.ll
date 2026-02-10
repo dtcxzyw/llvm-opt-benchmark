@@ -1887,7 +1887,7 @@ define dso_local range(i32 -1, 1) i32 @jobacct_gather_set_mem_limit(ptr noundef 
   store i64 %13, ptr @jobacct_mem_limit, align 8
   %14 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1520), align 8
   %15 = uitofp i16 %14 to double
-  %16 = fdiv double %15, 1.000000e+02
+  %16 = fdiv nnan double %15, 1.000000e+02
   %17 = uitofp i64 %13 to double
   %18 = fmul double %16, %17
   %19 = fptoui double %18 to i64

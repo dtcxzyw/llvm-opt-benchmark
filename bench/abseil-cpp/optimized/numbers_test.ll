@@ -3245,7 +3245,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %35,
   %.074 = phi double [ %46, %.lr.ph ], [ %1, %.preheader72 ]
   %.05373 = phi i64 [ %45, %.lr.ph ], [ 0, %.preheader72 ]
   %45 = add nuw nsw i64 %.05373, 1
-  %46 = fmul double %.074, 5.000000e-01
+  %46 = fmul nnan double %.074, 5.000000e-01
   %47 = fcmp ult double %46, 0x43E0000000000000
   br i1 %47, label %.preheader71, label %.lr.ph, !llvm.loop !112
 
@@ -48649,7 +48649,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %.0.i.i, %55
+  %56 = fmul nnan double %.0.i.i, %55
   %57 = fcmp une double %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 
@@ -48958,7 +48958,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIfE5Pr
   %53 = fadd float %52, 5.000000e-01
   %54 = fptosi float %53 to i32
   %55 = sitofp i32 %54 to float
-  %56 = fmul float %.0.i.i, %55
+  %56 = fmul nnan float %.0.i.i, %55
   %57 = fcmp une float %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEfPSo.exit
 
@@ -99441,7 +99441,7 @@ _ZNSt8_Rb_treeIffSt9_IdentityIfESt4lessIfESaIfEE10_M_insert_IRKfNS5_11_Alloc_nod
   br label %133
 
 133:                                              ; preds = %.noexc157.i, %119
-  %134 = fmul float %storemerge105206.i, 2.000000e+00
+  %134 = fmul nnan float %storemerge105206.i, 2.000000e+00
   %135 = fcmp olt float %134, 0x47DC363CC0000000
   br i1 %135, label %.lr.ph207.i, label %.preheader.i, !llvm.loop !1493
 
@@ -99519,7 +99519,7 @@ _ZNSt8_Rb_treeIffSt9_IdentityIfESt4lessIfESaIfEE10_M_insert_IRKfNS5_11_Alloc_nod
   br label %159
 
 159:                                              ; preds = %.noexc181.i, %145
-  %160 = fmul float %storemerge106208.i, 1.000000e+01
+  %160 = fmul nnan float %storemerge106208.i, 1.000000e+01
   %161 = fcmp olt float %160, 0x47B691CA40000000
   br i1 %161, label %.lr.ph209.i, label %._crit_edge.i, !llvm.loop !1494
 
@@ -99721,8 +99721,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.critedge
   %.sroa.0142.0.ptr.us = getelementptr inbounds nuw i8, ptr %232, i64 %.sroa.0142.0.idx173.us
   %242 = load i32, ptr %.sroa.0142.0.ptr.us, align 4, !tbaa !49
   %243 = sitofp i32 %242 to double
-  %244 = fadd double %243, 5.000000e-01
-  %245 = fmul double %244, 1.000000e-05
+  %244 = fadd nnan double %243, 5.000000e-01
+  %245 = fmul nnan double %244, 1.000000e-05
   %246 = fmul double %.060, %245
   %247 = call double @nextafter(double noundef %246, double noundef 0.000000e+00) #35, !tbaa !49
   %248 = call double @nextafter(double noundef %246, double noundef 0x7FEFFFFFFFFFFFFF) #35, !tbaa !49
@@ -99761,8 +99761,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.critedge
 
 257:                                              ; preds = %.split
   %258 = sitofp i32 %255 to double
-  %259 = fadd double %258, 5.000000e-01
-  %260 = fmul double %259, 1.000000e-05
+  %259 = fadd nnan double %258, 5.000000e-01
+  %260 = fmul nnan double %259, 1.000000e-05
   %261 = fmul double %.060, %260
   %262 = call double @nextafter(double noundef %261, double noundef 0.000000e+00) #35, !tbaa !49
   %263 = call double @nextafter(double noundef %261, double noundef 0x7FEFFFFFFFFFFFFF) #35, !tbaa !49

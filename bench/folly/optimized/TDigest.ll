@@ -664,12 +664,12 @@ _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE7reserveEm.exit129: ; preds = %_ZN
 
 160:                                              ; preds = %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE7reserveEm.exit129
   %161 = fsub double 1.000000e+00, %158
-  %162 = fmul double %161, -2.000000e+00
+  %162 = fmul nnan double %161, -2.000000e+00
   %163 = call double @llvm.fmuladd.f64(double %162, double %161, double 1.000000e+00)
   br label %_ZN5follyL6k_to_qEdd.exit
 
 164:                                              ; preds = %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE7reserveEm.exit129
-  %165 = fmul double %158, 2.000000e+00
+  %165 = fmul nnan double %158, 2.000000e+00
   %166 = fmul double %158, %165
   br label %_ZN5follyL6k_to_qEdd.exit
 
@@ -888,7 +888,7 @@ _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE9push_backERKS2_.exit148: ; preds 
 
 232:                                              ; preds = %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE9push_backERKS2_.exit148
   %233 = fsub double 1.000000e+00, %230
-  %234 = fmul double %233, -2.000000e+00
+  %234 = fmul nnan double %233, -2.000000e+00
   %235 = call double @llvm.fmuladd.f64(double %234, double %233, double 1.000000e+00)
   br label %_ZN5follyL6k_to_qEdd.exit150
 
@@ -1452,12 +1452,12 @@ _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE6resizeEm.exit: ; preds = %27, %31
 
 38:                                               ; preds = %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE6resizeEm.exit
   %39 = fsub double 1.000000e+00, %36
-  %40 = fmul double %39, -2.000000e+00
+  %40 = fmul nnan double %39, -2.000000e+00
   %41 = tail call double @llvm.fmuladd.f64(double %40, double %39, double 1.000000e+00)
   br label %_ZN5follyL6k_to_qEdd.exit
 
 42:                                               ; preds = %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE6resizeEm.exit
-  %43 = fmul double %36, 2.000000e+00
+  %43 = fmul nnan double %36, 2.000000e+00
   %44 = fmul double %36, %43
   br label %_ZN5follyL6k_to_qEdd.exit
 
@@ -1644,7 +1644,7 @@ _ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE9push_backERKS2_.exit: ; preds = %
 
 106:                                              ; preds = %_ZNSt6vectorIN5folly7TDigest8CentroidESaIS2_EE9push_backERKS2_.exit
   %107 = fsub double 1.000000e+00, %104
-  %108 = fmul double %107, -2.000000e+00
+  %108 = fmul nnan double %107, -2.000000e+00
   %109 = tail call double @llvm.fmuladd.f64(double %108, double %107, double 1.000000e+00)
   br label %_ZN5follyL6k_to_qEdd.exit60
 

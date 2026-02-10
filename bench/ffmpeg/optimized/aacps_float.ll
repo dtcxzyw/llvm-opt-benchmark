@@ -2228,7 +2228,7 @@ define internal fastcc void @ps_tableinit() unnamed_addr #3 {
   %95 = tail call nsz float @llvm.sin.f32(float %.0147)
   %96 = tail call nsz float @llvm.cos.f32(float %89)
   %97 = tail call nsz float @llvm.sin.f32(float %89)
-  %98 = fpext nsz float %94 to double
+  %98 = fpext ninf nsz float %94 to double
   %99 = fmul nsz double %98, 0x3FF6A09E667F3BCD
   %100 = fpext nsz float %96 to double
   %101 = fmul nsz double %99, %100
@@ -2269,7 +2269,7 @@ define internal fastcc void @ps_tableinit() unnamed_addr #3 {
   %120 = getelementptr inbounds nuw i8, ptr @ps_tableinit.f_center_20, i64 %indvars.iv185
   %121 = load i8, ptr %120, align 1, !tbaa !26
   %122 = sitofp i8 %121 to double
-  %123 = fmul nsz double %122, 1.250000e-01
+  %123 = fmul nnan nsz double %122, 1.250000e-01
   br label %129
 
 124:                                              ; preds = %.preheader153
@@ -3223,8 +3223,8 @@ define internal fastcc void @make_filters_from_proto(ptr noundef writeonly captu
   %indvars.iv24 = phi i64 [ 0, %3 ], [ %indvars.iv.next25, %30 ]
   %5 = trunc nuw nsw i64 %indvars.iv24 to i32
   %6 = uitofp nneg i32 %5 to double
-  %7 = fadd nsz double %6, 5.000000e-01
-  %8 = fmul nsz double %7, 0x401921FB54442D18
+  %7 = fadd nnan nsz double %6, 5.000000e-01
+  %8 = fmul nnan nsz double %7, 0x401921FB54442D18
   %9 = getelementptr inbounds nuw [8 x [2 x float]], ptr %0, i64 %indvars.iv24
   br label %10
 

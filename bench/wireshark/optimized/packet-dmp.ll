@@ -5646,7 +5646,7 @@ define internal fastcc i32 @dissect_mts_identifier(ptr noundef %0, ptr noundef %
   %16 = tail call ptr @tvb_memdup(ptr noundef %14, ptr noundef %0, i32 noundef %3, i64 noundef %15)
   %17 = tail call ptr @wmem_packet_scope()
   %18 = uitofp i8 %11 to double
-  %19 = fmul double %18, 1.200000e+00
+  %19 = fmul nnan double %18, 1.200000e+00
   %20 = fptoui double %19 to i64
   %21 = add i64 %20, 1
   %22 = tail call noalias ptr @wmem_alloc0(ptr noundef %17, i64 noundef %21) #18
@@ -5713,7 +5713,7 @@ define internal fastcc i32 @dissect_mts_identifier(ptr noundef %0, ptr noundef %
   %57 = tail call ptr @tvb_memdup(ptr noundef %55, ptr noundef %0, i32 noundef %3, i64 noundef %56)
   %58 = tail call ptr @wmem_packet_scope()
   %59 = uitofp nneg i32 %54 to double
-  %60 = fmul double %59, 1.200000e+00
+  %60 = fmul nnan double %59, 1.200000e+00
   %61 = fptoui double %60 to i64
   %62 = add i64 %61, 1
   %63 = tail call noalias ptr @wmem_alloc0(ptr noundef %58, i64 noundef %62) #18
@@ -6324,7 +6324,7 @@ define internal fastcc noundef i32 @dissect_ipm_identifier(ptr noundef %0, ptr n
   %33 = tail call ptr @tvb_memdup(ptr noundef %31, ptr noundef %0, i32 noundef %24, i64 noundef %32)
   %34 = tail call ptr @wmem_packet_scope()
   %35 = uitofp nneg i32 %10 to double
-  %36 = fmul double %35, 1.200000e+00
+  %36 = fmul nnan double %35, 1.200000e+00
   %37 = fptoui double %36 to i64
   %38 = add i64 %37, 1
   %39 = tail call noalias ptr @wmem_alloc0(ptr noundef %34, i64 noundef %38) #18
@@ -6415,7 +6415,7 @@ define internal fastcc noundef i32 @dissect_ipm_identifier(ptr noundef %0, ptr n
   %88 = call ptr @tvb_memdup(ptr noundef %86, ptr noundef %0, i32 noundef %24, i64 noundef %87)
   %89 = call ptr @wmem_packet_scope()
   %90 = uitofp nneg i32 %66 to double
-  %91 = fmul double %90, 1.200000e+00
+  %91 = fmul nnan double %90, 1.200000e+00
   %92 = fptoui double %91 to i64
   %93 = add i64 %92, 1
   %94 = call noalias ptr @wmem_alloc0(ptr noundef %89, i64 noundef %93) #18

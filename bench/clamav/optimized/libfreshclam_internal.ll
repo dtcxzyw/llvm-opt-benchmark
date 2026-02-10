@@ -3816,7 +3816,7 @@ printTime.exit40:                                 ; preds = %89, %100, %106
 
 123:                                              ; preds = %._crit_edge
   %124 = uitofp nneg i64 %2 to double
-  %125 = fmul double %124, 0x3EB0000000000000
+  %125 = fmul nnan double %124, 0x3EB0000000000000
   %126 = load ptr, ptr @stdout, align 8, !tbaa !28
   %127 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %126, ptr noundef nonnull @.str.181, double noundef %125) #24
   br label %printBytes.exit
@@ -3827,7 +3827,7 @@ printTime.exit40:                                 ; preds = %89, %100, %106
 
 130:                                              ; preds = %128
   %131 = uitofp nneg i64 %2 to double
-  %132 = fmul double %131, 0x3F50000000000000
+  %132 = fmul nnan double %131, 0x3F50000000000000
   %133 = load ptr, ptr @stdout, align 8, !tbaa !28
   %134 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str.183, double noundef %132) #24
   br label %printBytes.exit
@@ -3845,7 +3845,7 @@ printBytes.exit:                                  ; preds = %123, %130, %135
 
 140:                                              ; preds = %printBytes.exit
   %141 = uitofp nneg i64 %1 to double
-  %142 = fmul double %141, 0x3EB0000000000000
+  %142 = fmul nnan double %141, 0x3EB0000000000000
   %143 = load ptr, ptr @stdout, align 8, !tbaa !28
   %144 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %143, ptr noundef nonnull @.str.182, double noundef %142) #24
   br label %printBytes.exit41
@@ -3856,7 +3856,7 @@ printBytes.exit:                                  ; preds = %123, %130, %135
 
 147:                                              ; preds = %145
   %148 = uitofp nneg i64 %1 to double
-  %149 = fmul double %148, 0x3F50000000000000
+  %149 = fmul nnan double %148, 0x3F50000000000000
   %150 = load ptr, ptr @stdout, align 8, !tbaa !28
   %151 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %150, ptr noundef nonnull @.str.184, double noundef %149) #24
   br label %printBytes.exit41

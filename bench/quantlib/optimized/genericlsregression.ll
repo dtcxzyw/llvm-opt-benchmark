@@ -1490,7 +1490,7 @@ for.body.i:                                       ; preds = %do.end67, %for.body
 _ZNK8QuantLib25GenericSequenceStatisticsINS_21GenericRiskStatisticsINS_25GenericGaussianStatisticsINS_17GeneralStatisticsEEEEEE4meanEv.exit: ; preds = %invoke.cont.i.thread.i, %if.then.i.i.i.i.i.i.i.i.i.i
   %m.sroa.0.0 = phi ptr [ null, %invoke.cont.i.thread.i ], [ %call5.i.i.i.i2.i6.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
   %m.sroa.13.0 = phi ptr [ %add.ptr.i.i.i7.i, %invoke.cont.i.thread.i ], [ %add.ptr.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i ]
-  %div = fdiv double 1.000000e+00, %call4.i
+  %div = fdiv nnan double 1.000000e+00, %call4.i
   %quadraticSum_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %rows_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -1558,7 +1558,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 
 _ZN8QuantLib6MatrixD2Ev.exit:                     ; preds = %invoke.cont88, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp70)
-  %sub = fadd double %conv, -1.000000e+00
+  %sub = fadd nnan double %conv, -1.000000e+00
   %div92 = fdiv double %conv, %sub
   %55 = load ptr, ptr %agg.result, align 8, !tbaa !24
   %rows_.i.i75 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8

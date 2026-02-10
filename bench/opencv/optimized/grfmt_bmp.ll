@@ -2197,7 +2197,7 @@ _ZN2cv10BmpDecoder14maskBGRAtoGrayEPhPKhi.exit.us: ; preds = %521, %.lr.ph.split
   %596 = fptoui float %595 to i8
   %597 = uitofp i8 %580 to float
   %598 = uitofp i8 %588 to float
-  %599 = fmul float %598, 0x3FE2C8B440000000
+  %599 = fmul nnan float %598, 0x3FE2C8B440000000
   %600 = call float @llvm.fmuladd.f32(float %597, float 0x3FD322D0E0000000, float %599)
   %601 = uitofp i8 %596 to float
   %602 = call float @llvm.fmuladd.f32(float %601, float 0x3FBD2F1AA0000000, float %600)
@@ -2488,7 +2488,7 @@ define hidden void @_ZN2cv10BmpDecoder14maskBGRAtoGrayEPhPKhi(ptr noundef nonnul
   %40 = fptoui float %39 to i8
   %41 = uitofp i8 %24 to float
   %42 = uitofp i8 %32 to float
-  %43 = fmul float %42, 0x3FE2C8B440000000
+  %43 = fmul nnan float %42, 0x3FE2C8B440000000
   %44 = tail call float @llvm.fmuladd.f32(float %41, float 0x3FD322D0E0000000, float %43)
   %45 = uitofp i8 %40 to float
   %46 = tail call float @llvm.fmuladd.f32(float %45, float 0x3FBD2F1AA0000000, float %44)

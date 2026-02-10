@@ -6531,7 +6531,7 @@ if.then:                                          ; preds = %for.body
   %rem.i = urem i32 %call.i, %14
   %add2.i = add nuw i32 %rem.i, 1
   %conv31 = sitofp i32 %add2.i to double
-  %mul = fmul nsz double %conv31, 1.000000e-01
+  %mul = fmul nnan nsz double %conv31, 1.000000e-01
   %conv32 = fptrunc double %mul to float
   store float %conv32, ptr %counter, align 8, !tbaa !115
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp34)
@@ -6672,7 +6672,7 @@ if.then47:                                        ; preds = %for.cond.cleanup
   %rem.i167 = urem i32 %call.i166, 20
   %add2.i168 = add nuw nsw i32 %rem.i167, 1
   %conv49 = uitofp nneg i32 %add2.i168 to double
-  %mul50 = fmul nsz double %conv49, 1.000000e-01
+  %mul50 = fmul nnan nsz double %conv49, 1.000000e-01
   %conv51 = fptrunc double %mul50 to float
   store float %conv51, ptr @_ZZN18RandomInputHandler4stepEfE8counter1, align 4, !tbaa !118
   %call.i169 = call noundef i32 @_Z6myrandv()
@@ -6734,13 +6734,13 @@ if.then69:                                        ; preds = %if.then65
   %rem.i177 = urem i32 %call.i176, 40
   %add2.i178 = add nuw nsw i32 %rem.i177, 1
   %conv71 = uitofp nneg i32 %add2.i178 to double
-  %mul72 = fmul nsz double %conv71, 1.000000e-01
+  %mul72 = fmul nnan nsz double %conv71, 1.000000e-01
   %conv73 = fptrunc double %mul72 to float
   store float %conv73, ptr @_ZZN18RandomInputHandler4stepEfE15counterMovement, align 4, !tbaa !118
   %call.i179 = call noundef i32 @_Z6myrandv()
   %rem.i180 = urem i32 %call.i179, 101
   %conv75 = uitofp nneg i32 %rem.i180 to double
-  %mul76 = fmul nsz double %conv75, 1.000000e-02
+  %mul76 = fmul nnan nsz double %conv75, 1.000000e-02
   %conv77 = fptrunc double %mul76 to float
   %movementSpeed = getelementptr inbounds nuw i8, ptr %this, i64 3632
   store float %conv77, ptr %movementSpeed, align 8, !tbaa !126
@@ -6748,8 +6748,8 @@ if.then69:                                        ; preds = %if.then65
   %rem.i182 = urem i32 %call.i181, 201
   %add2.i183 = add nsw i32 %rem.i182, -100
   %conv79 = sitofp i32 %add2.i183 to double
-  %mul80 = fmul nsz double %conv79, 1.000000e-02
-  %mul81 = fmul nsz double %mul80, 0x400921FB54442D18
+  %mul80 = fmul nnan nsz double %conv79, 1.000000e-02
+  %mul81 = fmul nnan nsz double %mul80, 0x400921FB54442D18
   %conv82 = fptrunc double %mul81 to float
   %movementDirection = getelementptr inbounds nuw i8, ptr %this, i64 3636
   store float %conv82, ptr %movementDirection, align 4, !tbaa !128

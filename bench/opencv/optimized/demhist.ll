@@ -728,18 +728,18 @@ define internal void @_ZL24updateBrightnessContrastiPv(i32 %0, ptr readnone capt
 
 28:                                               ; preds = %2
   %29 = uitofp nneg i32 %25 to double
-  %30 = fmul double %29, 1.270000e+02
+  %30 = fmul nnan double %29, 1.270000e+02
   %31 = fdiv double %30, 1.000000e+02
   %32 = fneg double %31
   %33 = tail call double @llvm.fmuladd.f64(double %32, double 2.000000e+00, double 2.550000e+02)
   %34 = fdiv double 2.550000e+02, %33
-  %35 = fsub double %27, %31
+  %35 = fsub nnan double %27, %31
   %36 = fmul double %35, %34
   br label %45
 
 37:                                               ; preds = %2
   %38 = sitofp i32 %25 to double
-  %39 = fmul double %38, -1.280000e+02
+  %39 = fmul nnan double %38, -1.280000e+02
   %40 = fdiv double %39, 1.000000e+02
   %41 = fneg double %40
   %42 = tail call double @llvm.fmuladd.f64(double %41, double 2.000000e+00, double 2.560000e+02)

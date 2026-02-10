@@ -3296,7 +3296,7 @@ define void @_ZN3gmx15analysismodules3Msd14finishAnalysisEi(ptr noundef nonnull 
 
 26:                                               ; preds = %2
   %27 = sitofp i32 %25 to double
-  %28 = fmul double %27, 1.000000e-01
+  %28 = fmul nnan double %27, 1.000000e-01
   %29 = tail call double @llvm.rint.f64(double %28)
   %30 = fptosi double %29 to i32
   br label %_ZN3gmx15analysismodulesL17calculateFitIndexEidid.exit
@@ -3322,7 +3322,7 @@ _ZN3gmx15analysismodulesL17calculateFitIndexEidid.exit: ; preds = %26, %31
 
 42:                                               ; preds = %_ZN3gmx15analysismodulesL17calculateFitIndexEidid.exit
   %43 = sitofp i32 %25 to double
-  %44 = fmul double %43, 9.000000e-01
+  %44 = fmul nnan double %43, 9.000000e-01
   %45 = tail call double @llvm.rint.f64(double %44)
   %46 = fptosi double %45 to i32
   br label %_ZN3gmx15analysismodulesL17calculateFitIndexEidid.exit38

@@ -831,7 +831,7 @@ _ZN13CompileBroker10queue_sizeEi.exit.i:          ; preds = %69, %67
   %73 = phi double [ %72, %69 ], [ 0.000000e+00, %67 ]
   %74 = sitofp i32 %64 to double
   %75 = uitofp nneg i32 %65 to double
-  %76 = fmul double %74, %75
+  %76 = fmul nnan double %74, %75
   %77 = fdiv double %73, %76
   %78 = fadd double %77, 1.000000e+00
   br label %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit
@@ -1203,7 +1203,7 @@ _ZN13CompileBroker10queue_sizeEi.exit:            ; preds = %10, %12
   %16 = phi double [ %15, %12 ], [ 0.000000e+00, %10 ]
   %17 = sitofp i32 %1 to double
   %18 = uitofp nneg i32 %.0.i to double
-  %19 = fmul double %17, %18
+  %19 = fmul nnan double %17, %18
   %20 = fdiv double %16, %19
   %21 = fadd double %20, 1.000000e+00
   %22 = load i32, ptr @_ZN9Arguments5_modeE, align 4
@@ -4676,7 +4676,7 @@ _ZN13CompileBroker10queue_sizeEi.exit.i:          ; preds = %13, %11
   %17 = phi double [ %16, %13 ], [ 0.000000e+00, %11 ]
   %18 = sitofp i32 %8 to double
   %19 = uitofp nneg i32 %9 to double
-  %20 = fmul double %18, %19
+  %20 = fmul nnan double %18, %19
   %21 = fdiv double %17, %20
   %22 = fadd double %21, 1.000000e+00
   br label %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit.thread
@@ -4758,7 +4758,7 @@ _ZN13CompileBroker10queue_sizeEi.exit.i:          ; preds = %13, %11
   %17 = phi double [ %16, %13 ], [ 0.000000e+00, %11 ]
   %18 = sitofp i32 %8 to double
   %19 = uitofp nneg i32 %9 to double
-  %20 = fmul double %18, %19
+  %20 = fmul nnan double %18, %19
   %21 = fdiv double %17, %20
   %22 = fadd double %21, 1.000000e+00
   br label %_ZN17CompilationPolicy15threshold_scaleE9CompLeveli.exit.thread

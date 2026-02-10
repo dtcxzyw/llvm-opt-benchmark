@@ -198,8 +198,8 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef r
   %.023.i = phi i32 [ 0, %.noexc ], [ %22, %.noexc5 ]
   %17 = tail call i32 @rand() #16
   %18 = sitofp i32 %17 to float
-  %19 = fmul float %18, 0x3E00000000000000
-  %20 = fmul float %19, 1.000000e+02
+  %19 = fmul nnan float %18, 0x3E00000000000000
+  %20 = fmul nnan float %19, 1.000000e+02
   %21 = fptosi float %20 to i32
   invoke void @_ZN5Graph7AddNodeEi(ptr noundef nonnull align 8 dereferenceable(28) %15, i32 noundef %21)
           to label %.noexc5 unwind label %.loopexit.split-lp.loopexit
@@ -224,8 +224,8 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef r
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @rand() #16
   %31 = sitofp i32 %30 to float
-  %32 = fmul float %31, 0x3E00000000000000
-  %33 = fmul float %32, 3.000000e+00
+  %32 = fmul nnan float %31, 0x3E00000000000000
+  %33 = fmul nnan float %32, 3.000000e+00
   %34 = fptosi float %33 to i32
   %.not24.i = icmp slt i32 %34, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i
@@ -240,13 +240,13 @@ define dso_local noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef r
   %.02025.i = phi i32 [ 0, %.lr.ph.i ], [ %106, %_ZN4Node8AddInputEPKS_.exit.i ]
   %39 = tail call i32 @rand() #16
   %40 = sitofp i32 %39 to float
-  %41 = fmul float %40, 0x3E00000000000000
+  %41 = fmul nnan float %40, 0x3E00000000000000
   %42 = fmul float %41, %24
   %43 = fptosi float %42 to i32
   %44 = tail call i32 @rand() #16
   %45 = sitofp i32 %44 to float
-  %46 = fmul float %45, 0x3E00000000000000
-  %47 = fmul float %46, 1.000000e+03
+  %46 = fmul nnan float %45, 0x3E00000000000000
+  %47 = fmul nnan float %46, 1.000000e+03
   %48 = fptosi float %47 to i32
   %49 = mul nsw i32 %43, 1000
   %50 = add nsw i32 %49, %48

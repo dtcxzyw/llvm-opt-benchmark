@@ -14364,7 +14364,7 @@ define noundef double @_ZNK10open_spiel10battleship14BattleshipGame10MaxUtilityE
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %11 = load double, ptr %10, align 8
   %12 = fcmp olt double %11, 0.000000e+00
-  %13 = fsub double 1.000000e+00, %11
+  %13 = fsub nnan double 1.000000e+00, %11
   %14 = fmul double %.0.lcssa, %13
   %.1 = select i1 %12, double %14, double %.0.lcssa
   ret double %.1

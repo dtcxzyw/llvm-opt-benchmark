@@ -84193,8 +84193,8 @@ define void @_ZN11meilisearch9analytics17segment_analytics21FacetSearchAggregato
 145:                                              ; preds = %120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %89, i64 24, i1 false), !alias.scope !15883
   %146 = uitofp i64 %100 to double
-  %147 = fadd double %146, -1.000000e+00
-  %148 = fmul double %147, 0x3FEFAE147AE147AE
+  %147 = fadd nnan double %146, -1.000000e+00
+  %148 = fmul nnan double %147, 0x3FEFAE147AE147AE
   %149 = fadd double %148, 1.000000e+00
   call void @llvm.lifetime.end.p0(ptr nonnull %89)
   %150 = getelementptr inbounds nuw i8, ptr %90, i64 8

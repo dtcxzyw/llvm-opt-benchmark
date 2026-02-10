@@ -958,7 +958,7 @@ invoke.cont21:                                    ; preds = %invoke.cont6
   %jumpIntensity_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %13 = load double, ptr %jumpIntensity_, align 8, !tbaa !48
   %div = fdiv double -1.000000e+00, %13
-  %call31 = tail call double @llvm.log.f64(double %.sroa.speculated19), !tbaa !81
+  %call31 = tail call nnan ninf double @llvm.log.f64(double %.sroa.speculated19)
   %mul32 = fmul double %call31, %div
   %cmp = fcmp olt double %mul32, %dt
   br i1 %cmp, label %if.then, label %nrvo.skipdtor
@@ -978,7 +978,7 @@ invoke.cont40:                                    ; preds = %if.then
   %eta_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %17 = load double, ptr %eta_, align 8, !tbaa !49
   %div53 = fdiv double 1.000000e+00, %17
-  %call54 = tail call double @llvm.log.f64(double %.sroa.speculated), !tbaa !81
+  %call54 = tail call nnan ninf double @llvm.log.f64(double %.sroa.speculated)
   %mul55 = fmul double %call54, %div53
   %18 = load double, ptr %arrayidx.i8, align 8, !tbaa !69
   %19 = fsub double %18, %mul55

@@ -6248,21 +6248,21 @@ _ZNSt16allocator_traitsISaIiEE8allocateERS0_m.exit.i.i.i.i: ; preds = %151
   %168 = sub i32 %.0178285, %167
   %169 = udiv i32 %168, %114
   %170 = sitofp i32 %169 to double
-  %171 = fadd double %170, 5.000000e-01
+  %171 = fadd nnan double %170, 5.000000e-01
   %172 = fmul double %171, %115
   %173 = fdiv double %172, %116
   %174 = load float, ptr %2, align 4, !tbaa !85
   %175 = fpext float %174 to double
   %176 = fadd double %173, %175
   %177 = sitofp i32 %165 to double
-  %178 = fadd double %177, 5.000000e-01
+  %178 = fadd nnan double %177, 5.000000e-01
   %179 = fmul double %178, %117
   %180 = fdiv double %179, %116
   %181 = load float, ptr %3, align 4, !tbaa !85
   %182 = fpext float %181 to double
   %183 = fadd double %180, %182
   %184 = sitofp i32 %163 to double
-  %185 = fadd double %184, 5.000000e-01
+  %185 = fadd nnan double %184, 5.000000e-01
   %186 = fmul double %185, %118
   %187 = fdiv double %186, %116
   %188 = load float, ptr %4, align 4, !tbaa !85
@@ -8303,7 +8303,7 @@ _ZN2cv3VecIdLi3EEC2EPKd.exit:                     ; preds = %161
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  %171 = fdiv double 1.000000e+00, %.sroa.5.0.copyload
+  %171 = fdiv nnan double 1.000000e+00, %.sroa.5.0.copyload
   call void @llvm.experimental.noalias.scope.decl(metadata !240)
   br label %172
 
@@ -8529,7 +8529,7 @@ _ZN2cvmlIdLi3EEENS_3VecIT_XT0_EEEdRKS3_.exit:     ; preds = %172
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
-  %226 = fdiv double 1.000000e+00, %223
+  %226 = fdiv nnan double 1.000000e+00, %223
   call void @llvm.experimental.noalias.scope.decl(metadata !260)
   br label %227
 
@@ -8933,24 +8933,24 @@ declare void @_ZN2cv3RNG4fillERKNS_17_InputOutputArrayEiRKNS_11_InputArrayES6_b(
 define hidden void @_ZN2cv12ppf_match_3d11getRandQuatERNS_3VecIdLi4EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0) local_unnamed_addr #6 {
   %2 = tail call i32 @rand() #37
   %3 = sitofp i32 %2 to float
-  %4 = fmul float %3, 0x3E00000000000000
+  %4 = fmul nnan float %3, 0x3E00000000000000
   %5 = fpext float %4 to double
   store double %5, ptr %0, align 8, !tbaa !174
   %6 = tail call i32 @rand() #37
   %7 = sitofp i32 %6 to float
-  %8 = fmul float %7, 0x3E00000000000000
+  %8 = fmul nnan float %7, 0x3E00000000000000
   %9 = fpext float %8 to double
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %9, ptr %10, align 8, !tbaa !174
   %11 = tail call i32 @rand() #37
   %12 = sitofp i32 %11 to float
-  %13 = fmul float %12, 0x3E00000000000000
+  %13 = fmul nnan float %12, 0x3E00000000000000
   %14 = fpext float %13 to double
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %14, ptr %15, align 8, !tbaa !174
   %16 = tail call i32 @rand() #37
   %17 = sitofp i32 %16 to float
-  %18 = fmul float %17, 0x3E00000000000000
+  %18 = fmul nnan float %17, 0x3E00000000000000
   %19 = fpext float %18 to double
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store double %19, ptr %20, align 8, !tbaa !174
@@ -8995,24 +8995,24 @@ define hidden void @_ZN2cv12ppf_match_3d17getRandomRotationERNS_4MatxIdLi3ELi3EE
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i32 @rand() #37
   %5 = sitofp i32 %4 to float
-  %6 = fmul float %5, 0x3E00000000000000
+  %6 = fmul nnan float %5, 0x3E00000000000000
   %7 = fpext float %6 to double
   store double %7, ptr %3, align 8, !tbaa !174
   %8 = tail call i32 @rand() #37
   %9 = sitofp i32 %8 to float
-  %10 = fmul float %9, 0x3E00000000000000
+  %10 = fmul nnan float %9, 0x3E00000000000000
   %11 = fpext float %10 to double
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %11, ptr %12, align 8, !tbaa !174
   %13 = tail call i32 @rand() #37
   %14 = sitofp i32 %13 to float
-  %15 = fmul float %14, 0x3E00000000000000
+  %15 = fmul nnan float %14, 0x3E00000000000000
   %16 = fpext float %15 to double
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store double %16, ptr %17, align 8, !tbaa !174
   %18 = tail call i32 @rand() #37
   %19 = sitofp i32 %18 to float
-  %20 = fmul float %19, 0x3E00000000000000
+  %20 = fmul nnan float %19, 0x3E00000000000000
   %21 = fpext float %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %21, ptr %22, align 8, !tbaa !174
@@ -9143,18 +9143,18 @@ define void @_ZN2cv12ppf_match_3d13getRandomPoseERNS_4MatxIdLi4ELi4EEE(ptr nound
   call void @_ZN2cv12ppf_match_3d17getRandomRotationERNS_4MatxIdLi3ELi3EEE(ptr noundef nonnull align 8 dereferenceable(72) %10)
   %14 = tail call i32 @rand() #37
   %15 = sitofp i32 %14 to float
-  %16 = fmul float %15, 0x3E00000000000000
+  %16 = fmul nnan float %15, 0x3E00000000000000
   %17 = fpext float %16 to double
   store double %17, ptr %11, align 8, !tbaa !174
   %18 = tail call i32 @rand() #37
   %19 = sitofp i32 %18 to float
-  %20 = fmul float %19, 0x3E00000000000000
+  %20 = fmul nnan float %19, 0x3E00000000000000
   %21 = fpext float %20 to double
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store double %21, ptr %22, align 8, !tbaa !174
   %23 = tail call i32 @rand() #37
   %24 = sitofp i32 %23 to float
-  %25 = fmul float %24, 0x3E00000000000000
+  %25 = fmul nnan float %24, 0x3E00000000000000
   %26 = fpext float %25 to double
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store double %26, ptr %27, align 8, !tbaa !174
@@ -9324,7 +9324,7 @@ define hidden void @_ZN2cv12ppf_match_3d14meanCovLocalPCERKNS_3MatEiRNS_4MatxIdL
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %20 = add nsw i32 %1, -1
   %21 = sitofp i32 %20 to double
-  %22 = fdiv double 1.000000e+00, %21
+  %22 = fdiv nnan double 1.000000e+00, %21
   br label %23
 
 23:                                               ; preds = %23, %19
@@ -22622,7 +22622,7 @@ _ZN7cvflann11KDTreeIndexINS_2L2IfEEE14selectDivisionEPf.exit: ; preds = %._crit_
   %100 = trunc i64 %99 to i32
   %101 = and i32 %100, 2147483647
   %102 = uitofp nneg i32 %101 to double
-  %103 = fmul double %102, 0x3E00000000000000
+  %103 = fmul nnan double %102, 0x3E00000000000000
   %104 = fmul double %.0.lcssa.i, %103
   %105 = fptosi double %104 to i32
   %106 = sext i32 %105 to i64
@@ -25900,7 +25900,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE21chooseCen
   %14 = trunc i64 %13 to i32
   %15 = and i32 %14, 2147483647
   %16 = uitofp nneg i32 %15 to double
-  %17 = fmul double %16, 0x3E00000000000000
+  %17 = fmul nnan double %16, 0x3E00000000000000
   %18 = fmul double %17, %7
   %19 = fptosi double %18 to i32
   %20 = sext i32 %19 to i64
@@ -26244,7 +26244,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE21chooseCen
   %19 = trunc i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = uitofp nneg i32 %20 to double
-  %22 = fmul double %21, 0x3E00000000000000
+  %22 = fmul nnan double %21, 0x3E00000000000000
   %23 = fmul double %22, %12
   %24 = fptosi double %23 to i32
   %25 = sext i32 %24 to i64
@@ -26408,7 +26408,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   %111 = trunc i64 %110 to i32
   %112 = and i32 %111, 2147483647
   %113 = uitofp nneg i32 %112 to double
-  %114 = fmul double %113, 0x3E00000000000000
+  %114 = fmul nnan double %113, 0x3E00000000000000
   %115 = tail call noundef double @llvm.fmuladd.f64(double %.1155, double %114, double 0.000000e+00)
   br label %.lr.ph138
 
@@ -31316,7 +31316,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_2L2IfEEE11findExact
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %.loopexit57
-  %55 = fmul float %52, %52
+  %55 = fmul nnan float %52, %52
   %56 = fmul float %46, 4.000000e+00
   %57 = fmul float %56, %50
   %58 = fcmp ogt float %55, %57
@@ -32016,7 +32016,7 @@ tailrecurse:                                      ; preds = %137, %7
   br i1 %57, label %58, label %63
 
 58:                                               ; preds = %.loopexit68
-  %59 = fmul float %56, %56
+  %59 = fmul nnan float %56, %56
   %60 = fmul float %50, 4.000000e+00
   %61 = fmul float %60, %54
   %62 = fcmp ogt float %59, %61
@@ -35131,7 +35131,7 @@ _ZSt4copyIPfS0_ET0_T_S2_S1_.exit.i:               ; preds = %.noexc52
   %79 = trunc i64 %75 to i32
   %80 = and i32 %79, 2147483647
   %81 = uitofp nneg i32 %80 to double
-  %82 = fmul double %81, 0x3E00000000000000
+  %82 = fmul nnan double %81, 0x3E00000000000000
   %83 = sub i64 %69, %.034.i
   %84 = trunc i64 %83 to i32
   %85 = sitofp i32 %84 to double
@@ -40392,7 +40392,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L2
   %14 = trunc i64 %13 to i32
   %15 = and i32 %14, 2147483647
   %16 = uitofp nneg i32 %15 to double
-  %17 = fmul double %16, 0x3E00000000000000
+  %17 = fmul nnan double %16, 0x3E00000000000000
   %18 = fmul double %17, %7
   %19 = fptosi double %18 to i32
   %20 = sext i32 %19 to i64
@@ -40736,7 +40736,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L2
   %19 = trunc i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = uitofp nneg i32 %20 to double
-  %22 = fmul double %21, 0x3E00000000000000
+  %22 = fmul nnan double %21, 0x3E00000000000000
   %23 = fmul double %22, %12
   %24 = fptosi double %23 to i32
   %25 = sext i32 %24 to i64
@@ -40900,7 +40900,7 @@ _ZNK7cvflann2L2IfEclIPfS3_EEfT_T0_mf.exit:        ; preds = %.lr.ph57.i, %.prehe
   %111 = trunc i64 %110 to i32
   %112 = and i32 %111, 2147483647
   %113 = uitofp nneg i32 %112 to double
-  %114 = fmul double %113, 0x3E00000000000000
+  %114 = fmul nnan double %113, 0x3E00000000000000
   %115 = tail call noundef double @llvm.fmuladd.f64(double %.1155, double %114, double 0.000000e+00)
   br label %.lr.ph138
 
@@ -41145,7 +41145,7 @@ define linkonce_odr hidden void @_ZN7cvflann27HierarchicalClusteringIndexINS_2L2
   %19 = trunc i64 %18 to i32
   %20 = and i32 %19, 2147483647
   %21 = uitofp nneg i32 %20 to double
-  %22 = fmul double %21, 0x3E00000000000000
+  %22 = fmul nnan double %21, 0x3E00000000000000
   %23 = fmul double %22, %12
   %24 = fptosi double %23 to i32
   %25 = sext i32 %24 to i64
@@ -46300,7 +46300,7 @@ _ZNSt6vectorIN7cvflann3lsh8LshTableIfEESaIS3_EE6resizeEm.exit: ; preds = %17, %1
   %37 = load i64, ptr %36, align 8, !tbaa !1055
   %38 = add i64 %37, %.sroa.05.0.copyload
   %39 = uitofp i64 %38 to double
-  %40 = fmul double %39, 1.200000e+00
+  %40 = fmul nnan double %39, 1.200000e+00
   %41 = fptoui double %40 to i64
   call void @_ZNSt10_HashtableIjSt4pairIKjSt6vectorIjSaIjEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(56) %35, i64 noundef %41)
   %.not.i = icmp eq i64 %.sroa.05.0.copyload, 0

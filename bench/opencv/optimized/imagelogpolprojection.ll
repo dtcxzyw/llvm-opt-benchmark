@@ -662,8 +662,8 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   %137 = mul i32 %.087121.us, %.087121.us
   %138 = add i32 %137, %129
   %139 = uitofp i32 %138 to double
-  %sqrt120.us = tail call double @llvm.sqrt.f64(double %139)
-  %140 = fmul double %sqrt120.us, 2.000000e+00
+  %sqrt120.us = tail call nnan ninf double @llvm.sqrt.f64(double %139)
+  %140 = fmul nnan double %sqrt120.us, 2.000000e+00
   %141 = fdiv double %140, %125
   %142 = fsub double %124, %141
   %143 = fdiv double %123, %142
@@ -687,11 +687,11 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
 
 158:                                              ; preds = %135
   %159 = uitofp i32 %147 to double
-  %160 = fmul double %sqrt.us, %159
+  %160 = fmul nnan double %sqrt.us, %159
   %161 = tail call double @llvm.floor.f64(double %160)
   %162 = fptoui double %161 to i32
   %163 = uitofp i32 %151 to double
-  %164 = fmul double %sqrt.us, %163
+  %164 = fmul nnan double %sqrt.us, %163
   %165 = tail call double @llvm.floor.f64(double %164)
   %166 = fptoui double %165 to i32
   br label %167
@@ -1041,7 +1041,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %92, i8 0, i64 %91, i1 false)
   %93 = load i32, ptr %64, align 8, !tbaa !96
   %94 = uitofp i32 %93 to double
-  %95 = fdiv double 2.300000e+00, %94
+  %95 = fdiv nnan double 2.300000e+00, %94
   %.not108 = icmp eq i32 %93, 0
   br i1 %.not108, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1071,7 +1071,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %99, i8 0, i64 %98, i1 false)
   %105 = load i32, ptr %63, align 4, !tbaa !94
   %106 = uitofp i32 %105 to double
-  %107 = fdiv double 0xC01921FB54442D18, %106
+  %107 = fdiv nnan double 0xC01921FB54442D18, %106
   %.not109 = icmp eq i32 %105, 0
   br i1 %.not109, label %._crit_edge102, label %.lr.ph101.preheader
 
@@ -1113,7 +1113,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit:                 ; preds = %.lr.ph.i.i.i.prehea
   %124 = mul i32 %123, %123
   %125 = add i32 %124, %122
   %126 = uitofp i32 %125 to double
-  %sqrt = tail call double @llvm.sqrt.f64(double %126)
+  %sqrt = tail call nnan ninf double @llvm.sqrt.f64(double %126)
   %.not110 = icmp eq i32 %121, 0
   br i1 %.not110, label %._crit_edge107, label %.preheader.lr.ph
 

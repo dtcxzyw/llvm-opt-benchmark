@@ -1218,7 +1218,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i108: ; preds
   %253 = getelementptr inbounds i8, ptr %252, i64 %indvars.iv.i114
   %254 = load i8, ptr %253, align 1, !tbaa !51
   %255 = uitofp i8 %254 to float
-  %256 = fmul float %255, 0x3F70101020000000
+  %256 = fmul nnan float %255, 0x3F70101020000000
   %257 = load ptr, ptr %24, align 8, !tbaa !46
   %258 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %257)
           to label %.noexc.i115 unwind label %267
@@ -1641,7 +1641,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i160: ; preds
   %421 = getelementptr inbounds i16, ptr %420, i64 %indvars.iv.i166
   %422 = load i16, ptr %421, align 2, !tbaa !59
   %423 = uitofp i16 %422 to float
-  %424 = fmul float %423, 0x3EF0001000000000
+  %424 = fmul nnan float %423, 0x3EF0001000000000
   %425 = load ptr, ptr %14, align 8, !tbaa !46
   %426 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %425)
           to label %.noexc.i167 unwind label %435
@@ -3298,7 +3298,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i108: ; preds
   %246 = getelementptr inbounds i8, ptr %245, i64 %indvars.iv.i114
   %247 = load i8, ptr %246, align 1, !tbaa !51
   %248 = uitofp i8 %247 to float
-  %249 = fmul float %248, 0x3F70101020000000
+  %249 = fmul nnan float %248, 0x3F70101020000000
   %250 = load ptr, ptr %24, align 8, !tbaa !46
   %251 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %250)
           to label %.noexc.i115 unwind label %260
@@ -3715,7 +3715,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i160: ; preds
   %408 = getelementptr inbounds i16, ptr %407, i64 %indvars.iv.i166
   %409 = load i16, ptr %408, align 2, !tbaa !59
   %410 = uitofp i16 %409 to float
-  %411 = fmul float %410, 0x3EF0001000000000
+  %411 = fmul nnan float %410, 0x3EF0001000000000
   %412 = load ptr, ptr %14, align 8, !tbaa !46
   %413 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %412)
           to label %.noexc.i167 unwind label %422
@@ -5291,7 +5291,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i107: ; preds
   %268 = getelementptr inbounds i8, ptr %267, i64 %indvars.iv.i112
   %269 = load i8, ptr %268, align 1, !tbaa !51
   %270 = uitofp i8 %269 to float
-  %271 = fmul float %270, 0x3F70101020000000
+  %271 = fmul nnan float %270, 0x3F70101020000000
   %272 = load ptr, ptr %20, align 8, !tbaa !46
   %273 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %272)
           to label %.noexc.i113 unwind label %282
@@ -5684,7 +5684,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i155: ; preds
   %428 = getelementptr inbounds i16, ptr %427, i64 %indvars.iv.i160
   %429 = load i16, ptr %428, align 2, !tbaa !59
   %430 = uitofp i16 %429 to float
-  %431 = fmul float %430, 0x3EF0001000000000
+  %431 = fmul nnan float %430, 0x3EF0001000000000
   %432 = load ptr, ptr %12, align 8, !tbaa !46
   %433 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %432)
           to label %.noexc.i161 unwind label %442
@@ -7109,7 +7109,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i111: ; preds
   %265 = getelementptr inbounds i8, ptr %264, i64 %indvars.iv.i118
   %266 = load i8, ptr %265, align 1, !tbaa !51
   %267 = uitofp i8 %266 to float
-  %268 = fmul float %267, 0x3F70101020000000
+  %268 = fmul nnan float %267, 0x3F70101020000000
   %269 = load ptr, ptr %24, align 8, !tbaa !46
   %270 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %269)
           to label %.noexc.i119 unwind label %279
@@ -7540,7 +7540,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i165: ; preds
   %439 = getelementptr inbounds i16, ptr %438, i64 %indvars.iv.i172
   %440 = load i16, ptr %439, align 2, !tbaa !59
   %441 = uitofp i16 %440 to float
-  %442 = fmul float %441, 0x3EF0001000000000
+  %442 = fmul nnan float %441, 0x3EF0001000000000
   %443 = load ptr, ptr %14, align 8, !tbaa !46
   %444 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %443)
           to label %.noexc.i173 unwind label %453
@@ -9021,7 +9021,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i107: ; preds
   %268 = getelementptr inbounds i8, ptr %267, i64 %indvars.iv.i112
   %269 = load i8, ptr %268, align 1, !tbaa !51
   %270 = uitofp i8 %269 to float
-  %271 = fmul float %270, 0x3F70101020000000
+  %271 = fmul nnan float %270, 0x3F70101020000000
   %272 = load ptr, ptr %20, align 8, !tbaa !46
   %273 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %272)
           to label %.noexc.i113 unwind label %282
@@ -9414,7 +9414,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i155: ; preds
   %428 = getelementptr inbounds i16, ptr %427, i64 %indvars.iv.i160
   %429 = load i16, ptr %428, align 2, !tbaa !59
   %430 = uitofp i16 %429 to float
-  %431 = fmul float %430, 0x3EF0001000000000
+  %431 = fmul nnan float %430, 0x3EF0001000000000
   %432 = load ptr, ptr %12, align 8, !tbaa !46
   %433 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %432)
           to label %.noexc.i161 unwind label %442
@@ -41037,7 +41037,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %61 = getelementptr inbounds i8, ptr %60, i64 %indvars.iv.i.i.i
   %62 = load i8, ptr %61, align 1, !tbaa !51
   %63 = uitofp i8 %62 to float
-  %64 = fmul float %63, 0x3F70101020000000
+  %64 = fmul nnan float %63, 0x3F70101020000000
   %65 = load ptr, ptr %4, align 8, !tbaa !46
   %66 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %65)
           to label %.noexc.i.i.i unwind label %75
@@ -41706,7 +41706,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
   %61 = getelementptr inbounds i16, ptr %60, i64 %indvars.iv.i.i.i
   %62 = load i16, ptr %61, align 2, !tbaa !59
   %63 = uitofp i16 %62 to float
-  %64 = fmul float %63, 0x3EF0001000000000
+  %64 = fmul nnan float %63, 0x3EF0001000000000
   %65 = load ptr, ptr %4, align 8, !tbaa !46
   %66 = invoke noundef i32 @_ZNK11OpenImageIO6v3_1_08ImageBuf7storageEv(ptr noundef nonnull align 8 dereferenceable(16) %65)
           to label %.noexc.i.i.i unwind label %75

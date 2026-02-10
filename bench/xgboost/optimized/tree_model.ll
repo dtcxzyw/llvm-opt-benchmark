@@ -3074,7 +3074,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %250 = add nsw i32 %.sroa.speculated, 1
   %251 = sext i32 %250 to i64
   %252 = uitofp i64 %251 to double
-  %253 = fmul double %252, 3.125000e-02
+  %253 = fmul nnan double %252, 3.125000e-02
   %254 = call double @llvm.ceil.f64(double %253)
   %255 = fptoui double %254 to i64
   br label %.thread258
@@ -4261,7 +4261,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %304 = add nsw i32 %.sroa.speculated, 1
   %305 = sext i32 %304 to i64
   %306 = uitofp i64 %305 to double
-  %307 = fmul double %306, 3.125000e-02
+  %307 = fmul nnan double %306, 3.125000e-02
   %308 = call double @llvm.ceil.f64(double %307)
   %309 = fptoui double %308 to i64
   br label %.thread277

@@ -214,7 +214,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %101 = uitofp i32 %100 to float
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 1932
   %103 = icmp ugt i32 %100, 159
-  %104 = fmul reassoc nsz arcp contract afn float %101, 0x3FB99999A0000000
+  %104 = fmul reassoc nnan nsz arcp contract afn float %101, 0x3FB99999A0000000
   %spec.select = select i1 %103, float %104, float %101
   store float %spec.select, ptr %102, align 4, !tbaa !85
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 1354
@@ -227,7 +227,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   br i1 %or.cond114, label %111, label %.loopexit
 
 111:                                              ; preds = %99
-  %112 = fmul reassoc nsz arcp contract afn float %spec.select, 0x3FF99999A0000000
+  %112 = fmul reassoc nnan nsz arcp contract afn float %spec.select, 0x3FF99999A0000000
   store float %112, ptr %102, align 4, !tbaa !85
   br label %.loopexit
 
@@ -413,7 +413,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
 
 215:                                              ; preds = %207
   %216 = uitofp i32 %211 to double
-  %217 = fmul reassoc nsz arcp contract afn double %216, 0x3F30000000000000
+  %217 = fmul reassoc nnan nsz arcp contract afn double %216, 0x3F30000000000000
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 4648
   store double %217, ptr %218, align 8, !tbaa !93
   br label %.loopexit
@@ -470,7 +470,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %242 = add i32 %241, %240
   %243 = trunc i32 %242 to i16
   %244 = sitofp i16 %243 to double
-  %245 = fmul reassoc nsz arcp contract afn double %244, 3.906250e-03
+  %245 = fmul reassoc nnan nsz arcp contract afn double %244, 3.906250e-03
   %246 = fptrunc reassoc nsz arcp contract afn double %245 to float
   %247 = getelementptr inbounds nuw float, ptr %238, i64 %indvars.iv169
   store float %246, ptr %247, align 4, !tbaa !87
@@ -502,7 +502,7 @@ define void @_ZN6LibRaw22parseSamsungMakernotesEijjjj(ptr noundef nonnull align 
   %257 = add i32 %256, %254
   %258 = trunc i32 %257 to i16
   %259 = sitofp i16 %258 to double
-  %260 = fmul reassoc nsz arcp contract afn double %259, 3.906250e-03
+  %260 = fmul reassoc nnan nsz arcp contract afn double %259, 3.906250e-03
   %261 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv165
   store double %260, ptr %261, align 8, !tbaa !97
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1

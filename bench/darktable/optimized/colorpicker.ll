@@ -937,7 +937,7 @@ define internal noundef i32 @_sample_tooltip_callback(ptr readnone captures(none
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %28
-  %36 = fmul reassoc nsz arcp contract afn float %33, 0x3FC45F3060000000
+  %36 = fmul reassoc nnan nsz arcp contract afn float %33, 0x3FC45F3060000000
   br label %dt_Lab_2_LCH.exit
 
 37:                                               ; preds = %28
@@ -1613,7 +1613,7 @@ define internal fastcc void @_update_sample_label(ptr readonly captures(none) %.
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %57
-  %67 = fmul reassoc nsz arcp contract afn float %64, 0x3FC45F3060000000
+  %67 = fmul reassoc nnan nsz arcp contract afn float %64, 0x3FC45F3060000000
   br label %dt_Lab_2_LCH.exit
 
 68:                                               ; preds = %57
@@ -1696,7 +1696,7 @@ _dt_RGB_2_Hue.exit.i:                             ; preds = %113, %109, %104
   %.2.i.i = select nsz i1 %120, float %121, float %.1.i.i
   %122 = fmul reassoc nsz arcp contract afn float %.2.i.i, 3.600000e+02
   %123 = fpext reassoc nsz arcp contract afn float %122 to double
-  %124 = fmul reassoc nsz arcp contract afn float %93, 1.000000e+02
+  %124 = fmul reassoc nnan nsz arcp contract afn float %93, 1.000000e+02
   %125 = fdiv reassoc nsz arcp contract afn float %124, %.pn.i
   %126 = fpext reassoc nsz arcp contract afn float %125 to double
   br label %dt_RGB_2_HSL.exit
@@ -1763,7 +1763,7 @@ _dt_RGB_2_Hue.exit.i58:                           ; preds = %156, %152, %147
   %.2.i.i61 = select nsz i1 %163, float %164, float %.1.i.i60
   %165 = fmul reassoc nsz arcp contract afn float %.2.i.i61, 3.600000e+02
   %166 = fpext reassoc nsz arcp contract afn float %165 to double
-  %167 = fmul reassoc nsz arcp contract afn float %140, 1.000000e+02
+  %167 = fmul reassoc nnan nsz arcp contract afn float %140, 1.000000e+02
   %168 = fdiv reassoc nsz arcp contract afn float %167, %139
   %169 = fpext reassoc nsz arcp contract afn float %168 to double
   br label %dt_RGB_2_HSV.exit

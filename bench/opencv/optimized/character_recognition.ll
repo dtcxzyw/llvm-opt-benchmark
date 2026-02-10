@@ -767,8 +767,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit68: ; preds = %_ZNSo
 
 321:                                              ; preds = %319
   %322 = sitofp i64 %318 to double
-  %323 = fsub double %322, %286
-  %324 = fmul double %323, 1.000000e+03
+  %323 = fsub nnan double %322, %286
+  %324 = fmul nnan double %323, 1.000000e+03
   %325 = fdiv double %324, %320
   %326 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %316, double noundef %325)
           to label %_ZNSolsEd.exit70 unwind label %405

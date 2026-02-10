@@ -1596,7 +1596,7 @@ _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit1325.cr
   %21 = load float, ptr %2, align 16
   %22 = fcmp contract olt float %21, 2.500000e-01
   %.sroa.speculated1847 = select i1 %22, float 1.000000e+00, float 0.000000e+00
-  %23 = fmul contract float %.sroa.speculated1847, 4.000000e+00
+  %23 = fmul nnan contract float %.sroa.speculated1847, 4.000000e+00
   %24 = fmul contract float %21, 0.000000e+00
   %25 = fmul contract float %23, %21
   %26 = fadd contract float %24, 0.000000e+00
@@ -1620,8 +1620,8 @@ _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit1325.cr
   %narrow = and i1 %32, %33
   %34 = select i1 %narrow, float 1.000000e+00, float 0.000000e+00
   %.sroa.speculated1836 = select i1 %narrow, float 0.000000e+00, float %.sroa.speculated1847
-  %35 = fmul contract float %34, 4.000000e+00
-  %36 = fmul contract float %.sroa.speculated1836, 4.000000e+00
+  %35 = fmul nnan contract float %34, 4.000000e+00
+  %36 = fmul nnan contract float %.sroa.speculated1836, 4.000000e+00
   %37 = fadd contract float %21, -2.500000e-01
   %38 = fmul contract float %35, %37
   %39 = fmul contract float %36, %37
@@ -1645,8 +1645,8 @@ _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit1325.cr
   %narrow1715 = and i1 %46, %47
   %48 = select i1 %narrow1715, float 0.000000e+00, float %34
   %.sroa.speculated1827 = select i1 %narrow1715, float -1.000000e+00, float %.sroa.speculated1836
-  %49 = fmul contract float %48, 4.000000e+00
-  %50 = fmul contract float %.sroa.speculated1827, 4.000000e+00
+  %49 = fmul nnan contract float %48, 4.000000e+00
+  %50 = fmul nnan contract float %.sroa.speculated1827, 4.000000e+00
   %51 = fadd contract float %21, -5.000000e-01
   %52 = fmul contract float %49, %51
   %53 = fmul contract float %50, %51
@@ -1663,8 +1663,8 @@ _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit1325.cr
   %61 = select i1 %60, float -1.000000e+00, float %48
   %.sroa.01879.0.vec.insert = insertelement <2 x float> poison, float %61, i64 0
   %.sroa.speculated = select i1 %60, float 0.000000e+00, float %.sroa.speculated1827
-  %62 = fmul contract float %61, 4.000000e+00
-  %63 = fmul contract float %.sroa.speculated, 4.000000e+00
+  %62 = fmul nnan contract float %61, 4.000000e+00
+  %63 = fmul nnan contract float %.sroa.speculated, 4.000000e+00
   %64 = fadd contract float %21, -7.500000e-01
   %65 = fmul contract float %62, %64
   %66 = fmul contract float %63, %64
@@ -1715,11 +1715,11 @@ _ZN5drjit15StaticArrayBaseIfLm2ELb0EN7mitsuba5PointIfLm2EEEE5zero_Em.exit1325.cr
   %105 = and i32 %104, -2
   %106 = sitofp i32 %105 to float
   %107 = bitcast float %100 to i32
-  %108 = fmul contract float %106, 0x3FE9200000000000
+  %108 = fmul nnan contract float %106, 0x3FE9200000000000
   %109 = fsub contract float %101, %108
-  %110 = fmul contract float %106, 0x3F2FB40000000000
+  %110 = fmul nnan contract float %106, 0x3F2FB40000000000
   %111 = fsub contract float %109, %110
-  %112 = fmul contract float %106, 0x3E64442D20000000
+  %112 = fmul nnan contract float %106, 0x3E64442D20000000
   %113 = fsub contract float %111, %112
   %114 = fmul contract float %113, %113
   %115 = fcmp contract oeq float %101, 0x7FF0000000000000

@@ -1783,7 +1783,7 @@ define void @Abc_NtkManRefPrintStats_1(ptr noundef readonly captures(none) %0) l
   %11 = load i32, ptr %10, align 4, !tbaa !116
   %12 = sub nsw i32 %9, %11
   %13 = sitofp i32 %12 to double
-  %14 = fmul double %13, 1.000000e+02
+  %14 = fmul nnan double %13, 1.000000e+02
   %15 = sitofp i32 %9 to double
   %16 = fdiv double %14, %15
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %12, double noundef %16)
@@ -5953,7 +5953,7 @@ define internal fastcc void @Abc_ManResubPrint(ptr noundef readonly captures(non
   %105 = load i32, ptr %104, align 4, !tbaa !142
   %106 = sub nsw i32 %103, %105
   %107 = sitofp i32 %106 to double
-  %108 = fmul double %107, 1.000000e+02
+  %108 = fmul nnan double %107, 1.000000e+02
   %109 = sitofp i32 %103 to double
   %110 = fdiv double %108, %109
   %111 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.73, i32 noundef %106, double noundef %110)

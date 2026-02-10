@@ -141,10 +141,10 @@ define internal noundef i32 @init(ptr noundef readonly captures(none) %0) #1 {
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %1
-  %11 = fpext nsz float %8 to double
-  %12 = fdiv nsz double -1.000000e+00, %11
-  %13 = tail call nsz double @llvm.exp2.f64(double %12)
-  %14 = fmul nsz double %13, 0x4130000000000000
+  %11 = fpext nnan nsz float %8 to double
+  %12 = fdiv nnan nsz double -1.000000e+00, %11
+  %13 = tail call nnan nsz double @llvm.exp2.f64(double %12)
+  %14 = fmul nnan nsz double %13, 0x4130000000000000
   %15 = tail call i64 @llvm.lrint.i64.f64(double %14)
   br label %16
 

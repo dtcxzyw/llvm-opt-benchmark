@@ -480,7 +480,7 @@ define hidden void @png_set_alpha_mode(ptr noalias noundef %0, i32 noundef %1, d
   %4 = fcmp ogt double %2, 0.000000e+00
   %5 = fcmp olt double %2, 1.280000e+02
   %or.cond.i = and i1 %4, %5
-  %6 = fmul double %2, 1.000000e+05
+  %6 = fmul nnan double %2, 1.000000e+05
   %.0.i = select i1 %or.cond.i, double %6, double %2
   %7 = fadd double %.0.i, 5.000000e-01
   %8 = tail call double @llvm.floor.f64(double %7)
@@ -1524,7 +1524,7 @@ define hidden void @png_set_gamma(ptr noalias noundef %0, double noundef %1, dou
   %4 = fcmp ogt double %1, 0.000000e+00
   %5 = fcmp olt double %1, 1.280000e+02
   %or.cond.i = and i1 %4, %5
-  %6 = fmul double %1, 1.000000e+05
+  %6 = fmul nnan double %1, 1.000000e+05
   %.0.i = select i1 %or.cond.i, double %6, double %1
   %7 = fadd double %.0.i, 5.000000e-01
   %8 = tail call double @llvm.floor.f64(double %7)
@@ -1540,7 +1540,7 @@ convert_gamma_value.exit:                         ; preds = %3
   %11 = fcmp ogt double %2, 0.000000e+00
   %12 = fcmp olt double %2, 1.280000e+02
   %or.cond.i5 = and i1 %11, %12
-  %13 = fmul double %2, 1.000000e+05
+  %13 = fmul nnan double %2, 1.000000e+05
   %.0.i6 = select i1 %or.cond.i5, double %13, double %2
   %14 = fadd double %.0.i6, 5.000000e-01
   %15 = tail call double @llvm.floor.f64(double %14)

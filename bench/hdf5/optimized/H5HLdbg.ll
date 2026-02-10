@@ -162,7 +162,7 @@ define range(i32 -1, 1) i32 @H5HL_debug(ptr noundef %0, i64 noundef %1, ptr noun
 71:                                               ; preds = %._crit_edge109
   %72 = sub i64 %70, %.071.lcssa
   %73 = uitofp i64 %72 to double
-  %74 = fmul double %73, 1.000000e+02
+  %74 = fmul nnan double %73, 1.000000e+02
   %75 = uitofp i64 %70 to double
   %76 = fdiv double %74, %75
   %77 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.15, i32 noundef %3, ptr noundef nonnull @.str.3, i32 noundef %4, ptr noundef nonnull @.str.16, double noundef %76) #7

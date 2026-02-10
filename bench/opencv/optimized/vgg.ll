@@ -2781,10 +2781,10 @@ define linkonce_odr hidden void @_ZNK2cv11xfeatures2d17ComputeVGGInvokerclERKNS_
   %235 = fmul float %227, %234
   %236 = load i32, ptr %70, align 4, !tbaa !116
   %237 = sitofp i32 %236 to float
-  %238 = fmul float %237, 5.000000e-01
+  %238 = fmul nnan float %237, 5.000000e-01
   %239 = load i32, ptr %71, align 8, !tbaa !117
   %240 = sitofp i32 %239 to float
-  %241 = fmul float %240, 5.000000e-01
+  %241 = fmul nnan float %240, 5.000000e-01
   %242 = icmp sgt i32 %236, 0
   br i1 %242, label %.preheader.lr.ph.i, label %.loopexit52
 

@@ -2392,7 +2392,7 @@ _ZN4cvc58internal7Minisat6Solver12checkGarbageEv.exit: ; preds = %_ZN4cvc58inter
   %193 = zext nneg i32 %190 to i64
   %194 = shl nuw nsw i64 %193, 2
   %195 = uitofp nneg i64 %194 to double
-  %196 = fmul double %195, 0x3EB0000000000000
+  %196 = fmul nnan double %195, 0x3EB0000000000000
   %197 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.24, double noundef %196)
   br label %198
 

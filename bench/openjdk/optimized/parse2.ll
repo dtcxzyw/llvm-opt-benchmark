@@ -4072,7 +4072,7 @@ _ZN5Parse19maybe_add_safepointEi.exit:            ; preds = %17, %20
   %134 = or i1 %.092.in140, %133
   %135 = sitofp i32 %118 to float
   %136 = sitofp i32 %131 to float
-  %137 = fsub float %135, %136
+  %137 = fsub nnan float %135, %136
   %138 = fmul float %.091, %137
   %.not104 = icmp eq i32 %118, %131
   br i1 %.not104, label %175, label %139
@@ -4264,7 +4264,7 @@ _ZN11SwitchRange6adjoinEiifb.exit.thread:         ; preds = %._ZN11SwitchRange6a
   %216 = getelementptr inbounds %class.SwitchRange, ptr %115, i64 %215
   %217 = add nsw i32 %213, 1
   %218 = sitofp i32 %213 to float
-  %219 = fsub float 0x41E0000000000000, %218
+  %219 = fsub nnan float 0x41E0000000000000, %218
   %220 = fmul float %.091, %219
   %221 = getelementptr inbounds nuw i8, ptr %216, i64 4
   %222 = load i32, ptr %221, align 4

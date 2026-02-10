@@ -3731,7 +3731,7 @@ define void @_ZN3net11QuicSession18OnConfigNegotiatedEv(ptr noundef nonnull alig
   %.sink27 = phi i32 [ %20, %18 ], [ %15, %14 ]
   %22 = add i32 %.sink27, 10
   %23 = uitofp i32 %.sink27 to float
-  %24 = fmul float %23, 0x3FF19999A0000000
+  %24 = fmul nnan float %23, 0x3FF19999A0000000
   %25 = fptoui float %24 to i32
   %.sroa.speculated = tail call i32 @llvm.umax.i32(i32 %22, i32 %25)
   %26 = zext i32 %.sroa.speculated to i64

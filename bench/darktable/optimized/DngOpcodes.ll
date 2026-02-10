@@ -3568,7 +3568,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %._ZNSt6vectorItSaIt
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %.02540.us = phi i64 [ %98, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
   %83 = uitofp i64 %.02540.us to double
-  %84 = fmul double %83, 0x3EF0000000000000
+  %84 = fmul nnan double %83, 0x3EF0000000000000
   br label %85
 
 85:                                               ; preds = %.lr.ph.us, %85

@@ -181,19 +181,19 @@ define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef writeonly 
   %.3 = phi i64 [ %63, %.preheader ], [ %37, %47 ]
   %50 = trunc i64 %.3 to i32
   %51 = uitofp i32 %50 to float
-  %52 = fmul float %51, 0x3DF0000000000000
+  %52 = fmul nnan float %51, 0x3DF0000000000000
   %53 = and i64 %.3, 4294967295
   %54 = mul nuw i64 %53, 4164903690
   %55 = lshr i64 %.3, 32
   %56 = add nuw i64 %54, %55
   %57 = trunc i64 %56 to i32
   %58 = uitofp i32 %57 to float
-  %59 = fmul float %58, 0x3DF0000000000000
+  %59 = fmul nnan float %58, 0x3DF0000000000000
   %60 = and i64 %56, 4294967295
   %61 = mul nuw i64 %60, 4164903690
   %62 = lshr i64 %56, 32
   %63 = add nuw i64 %61, %62
-  %64 = fadd float %52, 0x3810000000000000
+  %64 = fadd nnan float %52, 0x3810000000000000
   %65 = tail call float @llvm.log.f32(float %64), !tbaa !9
   %66 = fneg float %65
   %67 = fpext float %66 to double
@@ -217,7 +217,7 @@ define internal fastcc void @_ZN2cvL13randn_0_1_32fEPfiPm(ptr noundef writeonly 
 81:                                               ; preds = %47
   %82 = trunc i64 %37 to i32
   %83 = uitofp i32 %82 to float
-  %84 = fmul float %83, 0x3DF0000000000000
+  %84 = fmul nnan float %83, 0x3DF0000000000000
   %85 = and i64 %37, 4294967295
   %86 = mul nuw i64 %85, 4164903690
   %87 = lshr i64 %37, 32
@@ -4020,7 +4020,7 @@ define noundef i32 @_ZN2cv11RNG_MT19937cviEv(ptr noundef nonnull align 4 capture
 define noundef float @_ZN2cv11RNG_MT19937cvfEv(ptr noundef nonnull align 4 captures(none) dereferenceable(2500) %0) local_unnamed_addr #7 align 2 {
   %2 = tail call noundef i32 @_ZN2cv11RNG_MT199374nextEv(ptr noundef nonnull align 4 dereferenceable(2500) %0)
   %3 = uitofp i32 %2 to float
-  %4 = fmul float %3, 0x3DF0000000000000
+  %4 = fmul nnan float %3, 0x3DF0000000000000
   ret float %4
 }
 
@@ -4032,8 +4032,8 @@ define noundef double @_ZN2cv11RNG_MT19937cvdEv(ptr noundef nonnull align 4 capt
   %5 = lshr i32 %4, 6
   %6 = uitofp nneg i32 %3 to double
   %7 = uitofp nneg i32 %5 to double
-  %8 = tail call double @llvm.fmuladd.f64(double %6, double 0x4190000000000000, double %7)
-  %9 = fmul double %8, 0x3CA0000000000000
+  %8 = tail call nnan double @llvm.fmuladd.f64(double %6, double 0x4190000000000000, double %7)
+  %9 = fmul nnan double %8, 0x3CA0000000000000
   ret double %9
 }
 
@@ -4053,7 +4053,7 @@ define noundef i32 @_ZN2cv11RNG_MT199377uniformEii(ptr noundef nonnull align 4 c
 define noundef float @_ZN2cv11RNG_MT199377uniformEff(ptr noundef nonnull align 4 captures(none) dereferenceable(2500) %0, float noundef %1, float noundef %2) local_unnamed_addr #7 align 2 {
   %4 = tail call noundef i32 @_ZN2cv11RNG_MT199374nextEv(ptr noundef nonnull align 4 dereferenceable(2500) %0)
   %5 = uitofp i32 %4 to float
-  %6 = fmul float %5, 0x3DF0000000000000
+  %6 = fmul nnan float %5, 0x3DF0000000000000
   %7 = fsub float %2, %1
   %8 = tail call float @llvm.fmuladd.f32(float %6, float %7, float %1)
   ret float %8
@@ -4070,8 +4070,8 @@ define noundef double @_ZN2cv11RNG_MT199377uniformEdd(ptr noundef nonnull align 
   %7 = lshr i32 %6, 6
   %8 = uitofp nneg i32 %5 to double
   %9 = uitofp nneg i32 %7 to double
-  %10 = tail call double @llvm.fmuladd.f64(double %8, double 0x4190000000000000, double %9)
-  %11 = fmul double %10, 0x3CA0000000000000
+  %10 = tail call nnan double @llvm.fmuladd.f64(double %8, double 0x4190000000000000, double %9)
+  %11 = fmul nnan double %10, 0x3CA0000000000000
   %12 = fsub double %2, %1
   %13 = tail call double @llvm.fmuladd.f64(double %11, double %12, double %1)
   ret double %13

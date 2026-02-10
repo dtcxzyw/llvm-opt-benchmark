@@ -650,8 +650,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit115.i:            ; preds = %.noexc37
   store i64 0, ptr %138, align 8
   store i32 33619968, ptr %19, align 8, !tbaa !48
   store ptr @mask, ptr %137, align 8, !tbaa !50
-  %258 = fsub double 5.000000e+00, %199
-  %259 = fmul double %258, 2.550000e+02
+  %258 = fsub nnan double 5.000000e+00, %199
+  %259 = fmul nnan double %258, 2.550000e+02
   %260 = fdiv double %259, 5.000000e+00
   invoke void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96) @mhi, ptr noundef nonnull align 8 dereferenceable(24) %19, i32 noundef 0, double noundef 5.100000e+01, double noundef %260)
           to label %261 unwind label %290
@@ -896,7 +896,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit117.i:          ; preds = %_ZNK2cv3MatclERKNS_
   %321 = load i32, ptr %156, align 4, !tbaa !55
   %322 = mul nsw i32 %321, %320
   %323 = sitofp i32 %322 to double
-  %324 = fmul double %323, 5.000000e-02
+  %324 = fmul nnan double %323, 5.000000e-02
   %325 = fcmp olt double %318, %324
   br i1 %325, label %363, label %338
 
@@ -949,7 +949,7 @@ _ZNK2cv3MatclERKNS_5Rect_IiEE.exit117.i:          ; preds = %_ZNK2cv3MatclERKNS_
   %.sroa.8.0.insert.shift135.i = shl nuw i64 %.sroa.8.0.insert.ext134.i, 32
   %.sroa.0130.0.insert.ext131.i = zext i32 %341 to i64
   %.sroa.0130.0.insert.insert133.i = or disjoint i64 %.sroa.8.0.insert.shift135.i, %.sroa.0130.0.insert.ext131.i
-  %345 = fmul double %.033.i, 1.200000e+00
+  %345 = fmul nnan double %.033.i, 1.200000e+00
   %346 = insertelement <2 x double> poison, double %345, i64 0
   %347 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %346)
   invoke void @_ZN2cv6circleERKNS_17_InputOutputArrayENS_6Point_IiEEiRKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %35, i64 %.sroa.0130.0.insert.insert133.i, i32 noundef %347, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3, i32 noundef 16, i32 noundef 0)

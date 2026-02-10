@@ -6584,9 +6584,9 @@ define internal void @_ZNK12_GLOBAL__N_121BtvRegularizationBodyIN2cv7Point3_IfEE
   %65 = fcmp olt float %.sroa.216.0.copyload.us, %.sroa.5.0.copyload.us
   %66 = select i1 %65, float -1.000000e+00, float 0.000000e+00
   %67 = select i1 %64, float 1.000000e+00, float %66
-  %68 = fsub float %45, %59
-  %69 = fsub float %49, %63
-  %70 = fsub float %53, %67
+  %68 = fsub nnan float %45, %59
+  %69 = fsub nnan float %49, %63
+  %70 = fsub nnan float %53, %67
   %71 = fmul float %41, %68
   %72 = fmul float %41, %69
   %73 = fmul float %41, %70

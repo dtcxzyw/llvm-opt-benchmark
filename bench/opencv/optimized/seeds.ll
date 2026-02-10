@@ -1104,7 +1104,7 @@ _ZNSt12__shared_ptrIN2cv8ximgproc15SuperpixelSEEDSELN9__gnu_cxx12_Lock_policyE2E
 
 407:                                              ; preds = %402
   %408 = sitofp i64 %399 to double
-  %409 = fsub double %408, %390
+  %409 = fsub nnan double %408, %390
   %410 = fdiv double %409, %401
   %411 = fmul double %410, 1.000000e+03
   %412 = fptosi double %411 to i32

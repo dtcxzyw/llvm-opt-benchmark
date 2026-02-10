@@ -21475,7 +21475,7 @@ switch.lookup:                                    ; preds = %53
 rlGetPixelDataSize.exit:                          ; preds = %switch.lookup, %53
   %.016.i = phi double [ 0.000000e+00, %53 ], [ %switch.load, %switch.lookup ]
   %54 = sitofp i32 %.06783 to double
-  %55 = fmul double %.016.i, %54
+  %55 = fmul nnan double %.016.i, %54
   %56 = sitofp i32 %.06685 to double
   %57 = fmul double %55, %56
   %58 = fptosi double %57 to i32
@@ -22604,7 +22604,7 @@ switch.lookup:                                    ; preds = %4
 13:                                               ; preds = %switch.lookup, %4
   %.016.i = phi double [ 0.000000e+00, %4 ], [ %switch.load, %switch.lookup ]
   %14 = sitofp i32 %1 to double
-  %15 = fmul double %.016.i, %14
+  %15 = fmul nnan double %.016.i, %14
   %16 = fmul double %15, %14
   %17 = fptosi double %16 to i32
   %18 = icmp slt i32 %1, 4
@@ -22756,7 +22756,7 @@ switch.lookup81:                                  ; preds = %69
 73:                                               ; preds = %switch.lookup81, %69
   %.016.i67 = phi double [ 0.000000e+00, %69 ], [ %switch.load83, %switch.lookup81 ]
   %74 = uitofp nneg i32 %spec.store.select to double
-  %75 = fmul double %.016.i67, %74
+  %75 = fmul nnan double %.016.i67, %74
   %76 = fmul double %75, %74
   %77 = fptosi double %76 to i32
   %78 = icmp slt i32 %.076, 8
@@ -22941,7 +22941,7 @@ switch.lookup:                                    ; preds = %4
 12:                                               ; preds = %switch.lookup, %4
   %.016.i = phi double [ 0.000000e+00, %4 ], [ %switch.load, %switch.lookup ]
   %13 = sitofp i32 %1 to double
-  %14 = fmul double %.016.i, %13
+  %14 = fmul nnan double %.016.i, %13
   %15 = sitofp i32 %2 to double
   %16 = fmul double %14, %15
   %17 = fptosi double %16 to i32
@@ -24314,9 +24314,9 @@ define range(i32 0, 2) i32 @FloatEquals(float noundef %0, float noundef %1) loca
   %4 = tail call float @llvm.fabs.f32(float %3)
   %5 = tail call float @llvm.fabs.f32(float %0)
   %6 = tail call float @llvm.fabs.f32(float %1)
-  %7 = tail call float @llvm.maxnum.f32(float %5, float %6)
-  %8 = tail call float @llvm.maxnum.f32(float %7, float 1.000000e+00)
-  %9 = fmul float %8, 0x3EB0C6F7A0000000
+  %7 = tail call nsz float @llvm.maxnum.f32(float %5, float %6)
+  %8 = tail call nsz float @llvm.maxnum.f32(float %7, float 1.000000e+00)
+  %9 = fmul nnan float %8, 0x3EB0C6F7A0000000
   %10 = fcmp ole float %4, %9
   %11 = zext i1 %10 to i32
   ret i32 %11
@@ -24747,9 +24747,9 @@ define range(i32 0, 2) i32 @Vector2Equals(<2 x float> %0, <2 x float> %1) local_
   %4 = tail call float @llvm.fabs.f32(float %3)
   %5 = tail call float @llvm.fabs.f32(float %.sroa.05.0.vec.extract)
   %6 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract)
-  %7 = tail call float @llvm.maxnum.f32(float %5, float %6)
-  %8 = tail call float @llvm.maxnum.f32(float %7, float 1.000000e+00)
-  %9 = fmul float %8, 0x3EB0C6F7A0000000
+  %7 = tail call nsz float @llvm.maxnum.f32(float %5, float %6)
+  %8 = tail call nsz float @llvm.maxnum.f32(float %7, float 1.000000e+00)
+  %9 = fmul nnan float %8, 0x3EB0C6F7A0000000
   %10 = fcmp ugt float %4, %9
   br i1 %10, label %21, label %11
 
@@ -24760,9 +24760,9 @@ define range(i32 0, 2) i32 @Vector2Equals(<2 x float> %0, <2 x float> %1) local_
   %13 = tail call float @llvm.fabs.f32(float %12)
   %14 = tail call float @llvm.fabs.f32(float %.sroa.05.4.vec.extract)
   %15 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract)
-  %16 = tail call float @llvm.maxnum.f32(float %14, float %15)
-  %17 = tail call float @llvm.maxnum.f32(float %16, float 1.000000e+00)
-  %18 = fmul float %17, 0x3EB0C6F7A0000000
+  %16 = tail call nsz float @llvm.maxnum.f32(float %14, float %15)
+  %17 = tail call nsz float @llvm.maxnum.f32(float %16, float 1.000000e+00)
+  %18 = fmul nnan float %17, 0x3EB0C6F7A0000000
   %19 = fcmp ole float %13, %18
   %20 = zext i1 %19 to i32
   br label %21
@@ -25918,9 +25918,9 @@ define range(i32 0, 2) i32 @Vector3Equals(<2 x float> %0, float %1, <2 x float> 
   %6 = tail call float @llvm.fabs.f32(float %5)
   %7 = tail call float @llvm.fabs.f32(float %.sroa.09.0.vec.extract)
   %8 = tail call float @llvm.fabs.f32(float %.sroa.01.0.vec.extract)
-  %9 = tail call float @llvm.maxnum.f32(float %7, float %8)
-  %10 = tail call float @llvm.maxnum.f32(float %9, float 1.000000e+00)
-  %11 = fmul float %10, 0x3EB0C6F7A0000000
+  %9 = tail call nsz float @llvm.maxnum.f32(float %7, float %8)
+  %10 = tail call nsz float @llvm.maxnum.f32(float %9, float 1.000000e+00)
+  %11 = fmul nnan float %10, 0x3EB0C6F7A0000000
   %12 = fcmp ugt float %6, %11
   br i1 %12, label %32, label %13
 
@@ -25931,9 +25931,9 @@ define range(i32 0, 2) i32 @Vector3Equals(<2 x float> %0, float %1, <2 x float> 
   %15 = tail call float @llvm.fabs.f32(float %14)
   %16 = tail call float @llvm.fabs.f32(float %.sroa.09.4.vec.extract)
   %17 = tail call float @llvm.fabs.f32(float %.sroa.01.4.vec.extract)
-  %18 = tail call float @llvm.maxnum.f32(float %16, float %17)
-  %19 = tail call float @llvm.maxnum.f32(float %18, float 1.000000e+00)
-  %20 = fmul float %19, 0x3EB0C6F7A0000000
+  %18 = tail call nsz float @llvm.maxnum.f32(float %16, float %17)
+  %19 = tail call nsz float @llvm.maxnum.f32(float %18, float 1.000000e+00)
+  %20 = fmul nnan float %19, 0x3EB0C6F7A0000000
   %21 = fcmp ugt float %15, %20
   br i1 %21, label %32, label %22
 
@@ -25942,9 +25942,9 @@ define range(i32 0, 2) i32 @Vector3Equals(<2 x float> %0, float %1, <2 x float> 
   %24 = tail call float @llvm.fabs.f32(float %23)
   %25 = tail call float @llvm.fabs.f32(float %1)
   %26 = tail call float @llvm.fabs.f32(float %3)
-  %27 = tail call float @llvm.maxnum.f32(float %25, float %26)
-  %28 = tail call float @llvm.maxnum.f32(float %27, float 1.000000e+00)
-  %29 = fmul float %28, 0x3EB0C6F7A0000000
+  %27 = tail call nsz float @llvm.maxnum.f32(float %25, float %26)
+  %28 = tail call nsz float @llvm.maxnum.f32(float %27, float 1.000000e+00)
+  %29 = fmul nnan float %28, 0x3EB0C6F7A0000000
   %30 = fcmp ole float %24, %29
   %31 = zext i1 %30 to i32
   br label %32
@@ -26392,9 +26392,9 @@ define range(i32 0, 2) i32 @Vector4Equals(<2 x float> %0, <2 x float> %1, <2 x f
   %6 = tail call float @llvm.fabs.f32(float %5)
   %7 = tail call float @llvm.fabs.f32(float %.sroa.09.0.vec.extract)
   %8 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract)
-  %9 = tail call float @llvm.maxnum.f32(float %7, float %8)
-  %10 = tail call float @llvm.maxnum.f32(float %9, float 1.000000e+00)
-  %11 = fmul float %10, 0x3EB0C6F7A0000000
+  %9 = tail call nsz float @llvm.maxnum.f32(float %7, float %8)
+  %10 = tail call nsz float @llvm.maxnum.f32(float %9, float 1.000000e+00)
+  %11 = fmul nnan float %10, 0x3EB0C6F7A0000000
   %12 = fcmp ugt float %6, %11
   br i1 %12, label %41, label %13
 
@@ -26405,9 +26405,9 @@ define range(i32 0, 2) i32 @Vector4Equals(<2 x float> %0, <2 x float> %1, <2 x f
   %15 = tail call float @llvm.fabs.f32(float %14)
   %16 = tail call float @llvm.fabs.f32(float %.sroa.09.4.vec.extract)
   %17 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract)
-  %18 = tail call float @llvm.maxnum.f32(float %16, float %17)
-  %19 = tail call float @llvm.maxnum.f32(float %18, float 1.000000e+00)
-  %20 = fmul float %19, 0x3EB0C6F7A0000000
+  %18 = tail call nsz float @llvm.maxnum.f32(float %16, float %17)
+  %19 = tail call nsz float @llvm.maxnum.f32(float %18, float 1.000000e+00)
+  %20 = fmul nnan float %19, 0x3EB0C6F7A0000000
   %21 = fcmp ugt float %15, %20
   br i1 %21, label %41, label %22
 
@@ -26419,9 +26419,9 @@ define range(i32 0, 2) i32 @Vector4Equals(<2 x float> %0, <2 x float> %1, <2 x f
   %24 = tail call float @llvm.fabs.f32(float %23)
   %25 = tail call float @llvm.fabs.f32(float %.sroa.514.8.vec.extract)
   %26 = tail call float @llvm.fabs.f32(float %.sroa.5.8.vec.extract)
-  %27 = tail call float @llvm.maxnum.f32(float %25, float %26)
-  %28 = tail call float @llvm.maxnum.f32(float %27, float 1.000000e+00)
-  %29 = fmul float %28, 0x3EB0C6F7A0000000
+  %27 = tail call nsz float @llvm.maxnum.f32(float %25, float %26)
+  %28 = tail call nsz float @llvm.maxnum.f32(float %27, float 1.000000e+00)
+  %29 = fmul nnan float %28, 0x3EB0C6F7A0000000
   %30 = fcmp ugt float %24, %29
   br i1 %30, label %41, label %31
 
@@ -26432,9 +26432,9 @@ define range(i32 0, 2) i32 @Vector4Equals(<2 x float> %0, <2 x float> %1, <2 x f
   %33 = tail call float @llvm.fabs.f32(float %32)
   %34 = tail call float @llvm.fabs.f32(float %.sroa.514.12.vec.extract)
   %35 = tail call float @llvm.fabs.f32(float %.sroa.5.12.vec.extract)
-  %36 = tail call float @llvm.maxnum.f32(float %34, float %35)
-  %37 = tail call float @llvm.maxnum.f32(float %36, float 1.000000e+00)
-  %38 = fmul float %37, 0x3EB0C6F7A0000000
+  %36 = tail call nsz float @llvm.maxnum.f32(float %34, float %35)
+  %37 = tail call nsz float @llvm.maxnum.f32(float %36, float 1.000000e+00)
+  %38 = fmul nnan float %37, 0x3EB0C6F7A0000000
   %39 = fcmp ole float %33, %38
   %40 = zext i1 %39 to i32
   br label %41
@@ -28844,9 +28844,9 @@ define range(i32 0, 2) i32 @QuaternionEquals(<2 x float> %0, <2 x float> %1, <2 
   %6 = tail call float @llvm.fabs.f32(float %5)
   %7 = tail call float @llvm.fabs.f32(float %.sroa.025.0.vec.extract)
   %8 = tail call float @llvm.fabs.f32(float %.sroa.0.0.vec.extract)
-  %9 = tail call float @llvm.maxnum.f32(float %7, float %8)
-  %10 = tail call float @llvm.maxnum.f32(float %9, float 1.000000e+00)
-  %11 = fmul float %10, 0x3EB0C6F7A0000000
+  %9 = tail call nsz float @llvm.maxnum.f32(float %7, float %8)
+  %10 = tail call nsz float @llvm.maxnum.f32(float %9, float 1.000000e+00)
+  %11 = fmul nnan float %10, 0x3EB0C6F7A0000000
   %12 = fcmp ugt float %6, %11
   br i1 %12, label %40, label %13
 
@@ -28857,9 +28857,9 @@ define range(i32 0, 2) i32 @QuaternionEquals(<2 x float> %0, <2 x float> %1, <2 
   %15 = tail call float @llvm.fabs.f32(float %14)
   %16 = tail call float @llvm.fabs.f32(float %.sroa.025.4.vec.extract)
   %17 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract)
-  %18 = tail call float @llvm.maxnum.f32(float %16, float %17)
-  %19 = tail call float @llvm.maxnum.f32(float %18, float 1.000000e+00)
-  %20 = fmul float %19, 0x3EB0C6F7A0000000
+  %18 = tail call nsz float @llvm.maxnum.f32(float %16, float %17)
+  %19 = tail call nsz float @llvm.maxnum.f32(float %18, float 1.000000e+00)
+  %20 = fmul nnan float %19, 0x3EB0C6F7A0000000
   %21 = fcmp ugt float %15, %20
   br i1 %21, label %40, label %22
 
@@ -28871,9 +28871,9 @@ define range(i32 0, 2) i32 @QuaternionEquals(<2 x float> %0, <2 x float> %1, <2 
   %24 = tail call float @llvm.fabs.f32(float %23)
   %25 = tail call float @llvm.fabs.f32(float %.sroa.938.8.vec.extract)
   %26 = tail call float @llvm.fabs.f32(float %.sroa.9.8.vec.extract)
-  %27 = tail call float @llvm.maxnum.f32(float %25, float %26)
-  %28 = tail call float @llvm.maxnum.f32(float %27, float 1.000000e+00)
-  %29 = fmul float %28, 0x3EB0C6F7A0000000
+  %27 = tail call nsz float @llvm.maxnum.f32(float %25, float %26)
+  %28 = tail call nsz float @llvm.maxnum.f32(float %27, float 1.000000e+00)
+  %29 = fmul nnan float %28, 0x3EB0C6F7A0000000
   %30 = fcmp ugt float %24, %29
   br i1 %30, label %40, label %31
 
@@ -28884,9 +28884,9 @@ define range(i32 0, 2) i32 @QuaternionEquals(<2 x float> %0, <2 x float> %1, <2 
   %33 = tail call float @llvm.fabs.f32(float %32)
   %34 = tail call float @llvm.fabs.f32(float %.sroa.938.12.vec.extract)
   %35 = tail call float @llvm.fabs.f32(float %.sroa.9.12.vec.extract)
-  %36 = tail call float @llvm.maxnum.f32(float %34, float %35)
-  %37 = tail call float @llvm.maxnum.f32(float %36, float 1.000000e+00)
-  %38 = fmul float %37, 0x3EB0C6F7A0000000
+  %36 = tail call nsz float @llvm.maxnum.f32(float %34, float %35)
+  %37 = tail call nsz float @llvm.maxnum.f32(float %36, float 1.000000e+00)
+  %38 = fmul nnan float %37, 0x3EB0C6F7A0000000
   %39 = fcmp ugt float %33, %38
   br i1 %39, label %40, label %72
 
@@ -28904,9 +28904,9 @@ define range(i32 0, 2) i32 @QuaternionEquals(<2 x float> %0, <2 x float> %1, <2 
   %46 = tail call float @llvm.fabs.f32(float %45)
   %47 = tail call float @llvm.fabs.f32(float %.sroa.025.4.vec.extract35)
   %48 = tail call float @llvm.fabs.f32(float %.sroa.0.4.vec.extract10)
-  %49 = tail call float @llvm.maxnum.f32(float %47, float %48)
-  %50 = tail call float @llvm.maxnum.f32(float %49, float 1.000000e+00)
-  %51 = fmul float %50, 0x3EB0C6F7A0000000
+  %49 = tail call nsz float @llvm.maxnum.f32(float %47, float %48)
+  %50 = tail call nsz float @llvm.maxnum.f32(float %49, float 1.000000e+00)
+  %51 = fmul nnan float %50, 0x3EB0C6F7A0000000
   %52 = fcmp ugt float %46, %51
   br i1 %52, label %72, label %53
 
@@ -28918,9 +28918,9 @@ define range(i32 0, 2) i32 @QuaternionEquals(<2 x float> %0, <2 x float> %1, <2 
   %55 = tail call float @llvm.fabs.f32(float %54)
   %56 = tail call float @llvm.fabs.f32(float %.sroa.938.8.vec.extract42)
   %57 = tail call float @llvm.fabs.f32(float %.sroa.9.8.vec.extract16)
-  %58 = tail call float @llvm.maxnum.f32(float %56, float %57)
-  %59 = tail call float @llvm.maxnum.f32(float %58, float 1.000000e+00)
-  %60 = fmul float %59, 0x3EB0C6F7A0000000
+  %58 = tail call nsz float @llvm.maxnum.f32(float %56, float %57)
+  %59 = tail call nsz float @llvm.maxnum.f32(float %58, float 1.000000e+00)
+  %60 = fmul nnan float %59, 0x3EB0C6F7A0000000
   %61 = fcmp ugt float %55, %60
   br i1 %61, label %72, label %62
 
@@ -28931,9 +28931,9 @@ define range(i32 0, 2) i32 @QuaternionEquals(<2 x float> %0, <2 x float> %1, <2 
   %64 = tail call float @llvm.fabs.f32(float %63)
   %65 = tail call float @llvm.fabs.f32(float %.sroa.938.12.vec.extract48)
   %66 = tail call float @llvm.fabs.f32(float %.sroa.9.12.vec.extract22)
-  %67 = tail call float @llvm.maxnum.f32(float %65, float %66)
-  %68 = tail call float @llvm.maxnum.f32(float %67, float 1.000000e+00)
-  %69 = fmul float %68, 0x3EB0C6F7A0000000
+  %67 = tail call nsz float @llvm.maxnum.f32(float %65, float %66)
+  %68 = tail call nsz float @llvm.maxnum.f32(float %67, float 1.000000e+00)
+  %69 = fmul nnan float %68, 0x3EB0C6F7A0000000
   %70 = fcmp ole float %64, %69
   %71 = zext i1 %70 to i32
   br label %72
@@ -29017,8 +29017,8 @@ define void @MatrixDecompose(ptr noundef readonly byval(%struct.Matrix) align 8 
   %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store float %.sroa.13.0, ptr %.sroa.13.0..sroa_idx, align 4
   %57 = tail call float @llvm.fabs.f32(float %41)
-  %58 = tail call float @llvm.maxnum.f32(float %57, float 1.000000e+00)
-  %59 = fmul float %58, 0x3EB0C6F7A0000000
+  %58 = tail call nsz float @llvm.maxnum.f32(float %57, float 1.000000e+00)
+  %59 = fmul nnan float %58, 0x3EB0C6F7A0000000
   %60 = fcmp ugt float %57, %59
   br i1 %60, label %61, label %QuaternionFromMatrix.exit
 
@@ -32502,8 +32502,8 @@ CameraYaw.exit560:                                ; preds = %857, %861
   br i1 %869, label %GetGamepadAxisMovement.exit563, label %870
 
 870:                                              ; preds = %867
-  %871 = fmul float %868, -2.000000e+00
-  %872 = fmul float %871, 0x3F689374C0000000
+  %871 = fmul nnan float %868, -2.000000e+00
+  %872 = fmul nnan float %871, 0x3F689374C0000000
   br label %GetGamepadAxisMovement.exit563
 
 GetGamepadAxisMovement.exit563:                   ; preds = %CameraYaw.exit560, %867, %870
@@ -34007,25 +34007,25 @@ define hidden range(i32 0, 2) i32 @msf_gif_frame(ptr noundef captures(none) %0, 
   %notmask158.i = shl nsw i32 -1, %69
   %70 = xor i32 %notmask158.i, -1
   %71 = uitofp nneg i32 %70 to float
-  %72 = fsub float 2.550000e+02, %71
-  %73 = fdiv float %72, 2.550000e+02
-  %74 = fmul float %73, 2.570000e+02
+  %72 = fsub nnan float 2.550000e+02, %71
+  %73 = fdiv nnan float %72, 2.550000e+02
+  %74 = fmul nnan float %73, 2.570000e+02
   %75 = fptosi float %74 to i16
   %76 = sub nsw i32 8, %56
   %notmask157.i = shl nsw i32 -1, %76
   %77 = xor i32 %notmask157.i, -1
   %78 = uitofp nneg i32 %77 to float
-  %79 = fsub float 2.550000e+02, %78
-  %80 = fdiv float %79, 2.550000e+02
-  %81 = fmul float %80, 2.570000e+02
+  %79 = fsub nnan float 2.550000e+02, %78
+  %80 = fdiv nnan float %79, 2.550000e+02
+  %81 = fmul nnan float %80, 2.570000e+02
   %82 = fptosi float %81 to i16
   %83 = sub nsw i32 8, %54
   %notmask.i = shl nsw i32 -1, %83
   %84 = xor i32 %notmask.i, -1
   %85 = uitofp nneg i32 %84 to float
-  %86 = fsub float 2.550000e+02, %85
-  %87 = fdiv float %86, 2.550000e+02
-  %88 = fmul float %87, 2.570000e+02
+  %86 = fsub nnan float 2.550000e+02, %85
+  %87 = fdiv nnan float %86, 2.550000e+02
+  %88 = fmul nnan float %87, 2.570000e+02
   %89 = fptosi float %88 to i16
   %90 = insertelement <8 x i16> poison, i16 %89, i64 0
   %91 = insertelement <8 x i16> %90, i16 %75, i64 1
@@ -43438,7 +43438,7 @@ define void @GetCameraMatrix2D(ptr dead_on_unwind noalias writable writeonly sre
   %34 = tail call float @llvm.fmuladd.f32(float %25, float %16, float %33)
   %35 = tail call float @llvm.fmuladd.f32(float %19, float 0.000000e+00, float %34)
   %36 = fadd float %35, 0.000000e+00
-  %37 = fmul float %22, 0.000000e+00
+  %37 = fmul ninf float %22, 0.000000e+00
   %38 = tail call float @llvm.fmuladd.f32(float %25, float %19, float %37)
   %39 = tail call float @llvm.fmuladd.f32(float %23, float 0.000000e+00, float %38)
   %40 = fadd float %39, 0.000000e+00
@@ -43484,7 +43484,7 @@ define void @GetCameraMatrix2D(ptr dead_on_unwind noalias writable writeonly sre
   %80 = fadd float %40, %79
   %81 = tail call float @llvm.fmuladd.f32(float %64, float 0.000000e+00, float %80)
   %82 = tail call float @llvm.fmuladd.f32(float %70, float 0.000000e+00, float %81)
-  %83 = fmul float %56, 0.000000e+00
+  %83 = tail call float @llvm.fabs.f32(float %56)
   %84 = fadd float %42, %83
   %85 = tail call float @llvm.fmuladd.f32(float %32, float 0.000000e+00, float %46)
   %86 = tail call float @llvm.fmuladd.f32(float %59, float 0.000000e+00, float %85)
@@ -44284,7 +44284,7 @@ define void @EndVrStereoMode() local_unnamed_addr #1 {
 define void @LoadVrStereoConfig(ptr dead_on_unwind noalias writable writeonly sret(%struct.VrStereoConfig) align 4 captures(none) initializes((0, 304)) %0, ptr noundef readonly byval(%struct.VrDeviceInfo) align 8 captures(none) %1) local_unnamed_addr #45 {
   %3 = load i32, ptr %1, align 8
   %4 = sitofp i32 %3 to float
-  %5 = fmul float %4, 5.000000e-01
+  %5 = fmul nnan float %4, 5.000000e-01
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = sitofp i32 %7 to float
@@ -45571,8 +45571,8 @@ define void @SetTargetFPS(i32 noundef %0) local_unnamed_addr #0 {
   %4 = fdiv double 1.000000e+00, %3
   %storemerge = select i1 %2, double 0.000000e+00, double %4
   store double %storemerge, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 3016), align 8
-  %5 = fptrunc double %storemerge to float
-  %6 = fmul float %5, 1.000000e+03
+  %5 = fptrunc nnan double %storemerge to float
+  %6 = fmul nnan float %5, 1.000000e+03
   %7 = fpext float %6 to double
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.183, double noundef %7) #63
   ret void
@@ -47899,7 +47899,7 @@ define void @PlayAutomationEvent(ptr noundef readonly byval(%struct.AutomationEv
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %102 = load i32, ptr %101, align 8
   %103 = sitofp i32 %102 to float
-  %104 = fmul float %103, 0x3F00000000000000
+  %104 = fmul nnan float %103, 0x3F00000000000000
   %105 = load i32, ptr %100, align 8
   %106 = sext i32 %105 to i64
   %107 = getelementptr inbounds [8 x float], ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 2848), i64 %106
@@ -47967,8 +47967,8 @@ define void @PlayAutomationEvent(ptr noundef readonly byval(%struct.AutomationEv
   %142 = fdiv double 1.000000e+00, %141
   %storemerge.i = select i1 %140, double 0.000000e+00, double %142
   store double %storemerge.i, ptr getelementptr inbounds nuw (i8, ptr @CORE, i64 3016), align 8
-  %143 = fptrunc double %storemerge.i to float
-  %144 = fmul float %143, 1.000000e+03
+  %143 = fptrunc nnan double %storemerge.i to float
+  %144 = fmul nnan float %143, 1.000000e+03
   %145 = fpext float %144 to double
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.183, double noundef %145) #63
   br label %MaximizeWindow.exit

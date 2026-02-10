@@ -119742,9 +119742,9 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %10, %_ZN
 
 22:                                               ; preds = %_ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread
   %23 = tail call double @llvm.ceil.f64(double %20)
-  %24 = fmul double %23, 5.000000e-01
-  %25 = tail call double @llvm.floor.f64(double %24)
-  %26 = fmul double %25, 2.000000e+00
+  %24 = fmul nnan double %23, 5.000000e-01
+  %25 = tail call nnan double @llvm.floor.f64(double %24)
+  %26 = fmul nnan double %25, 2.000000e+00
   %27 = fcmp une double %26, %23
   br i1 %27, label %35, label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_12EvenOperatorEddEET1_T0_RNS_12ValidityMaskEmPv.exit
 
@@ -120141,9 +120141,9 @@ _ZNK6duckdb21TemplatedValidityMaskImE16GetValidityEntryEm.exit: ; preds = %57
 
 70:                                               ; preds = %.lr.ph
   %71 = tail call double @llvm.ceil.f64(double %68)
-  %72 = fmul double %71, 5.000000e-01
-  %73 = tail call double @llvm.floor.f64(double %72)
-  %74 = fmul double %73, 2.000000e+00
+  %72 = fmul nnan double %71, 5.000000e-01
+  %73 = tail call nnan double @llvm.floor.f64(double %72)
+  %74 = fmul nnan double %73, 2.000000e+00
   %75 = fcmp une double %74, %71
   br i1 %75, label %83, label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_12EvenOperatorEddEET1_T0_RNS_12ValidityMaskEmPv.exit
 
@@ -120189,9 +120189,9 @@ _ZN6duckdb20UnaryOperatorWrapper9OperationINS_12EvenOperatorEddEET1_T0_RNS_12Val
 
 95:                                               ; preds = %91
   %96 = tail call double @llvm.ceil.f64(double %93)
-  %97 = fmul double %96, 5.000000e-01
-  %98 = tail call double @llvm.floor.f64(double %97)
-  %99 = fmul double %98, 2.000000e+00
+  %97 = fmul nnan double %96, 5.000000e-01
+  %98 = tail call nnan double @llvm.floor.f64(double %97)
+  %99 = fmul nnan double %98, 2.000000e+00
   %100 = fcmp une double %99, %96
   br i1 %100, label %108, label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_12EvenOperatorEddEET1_T0_RNS_12ValidityMaskEmPv.exit60
 
@@ -120239,9 +120239,9 @@ _ZN6duckdb20UnaryOperatorWrapper9OperationINS_12EvenOperatorEddEET1_T0_RNS_12Val
 
 118:                                              ; preds = %.lr.ph81
   %119 = tail call double @llvm.ceil.f64(double %116)
-  %120 = fmul double %119, 5.000000e-01
-  %121 = tail call double @llvm.floor.f64(double %120)
-  %122 = fmul double %121, 2.000000e+00
+  %120 = fmul nnan double %119, 5.000000e-01
+  %121 = tail call nnan double @llvm.floor.f64(double %120)
+  %122 = fmul nnan double %121, 2.000000e+00
   %123 = fcmp une double %122, %119
   br i1 %123, label %131, label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_12EvenOperatorEddEET1_T0_RNS_12ValidityMaskEmPv.exit64
 
@@ -120337,9 +120337,9 @@ _ZNK6duckdb21TemplatedValidityMaskImE16RowIsValidUnsafeEm.exit: ; preds = %_ZNK6
 
 31:                                               ; preds = %27
   %32 = tail call double @llvm.ceil.f64(double %29)
-  %33 = fmul double %32, 5.000000e-01
-  %34 = tail call double @llvm.floor.f64(double %33)
-  %35 = fmul double %34, 2.000000e+00
+  %33 = fmul nnan double %32, 5.000000e-01
+  %34 = tail call nnan double @llvm.floor.f64(double %33)
+  %35 = fmul nnan double %34, 2.000000e+00
   %36 = fcmp une double %35, %32
   br i1 %36, label %44, label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_12EvenOperatorEddEET1_T0_RNS_12ValidityMaskEmPv.exit
 
@@ -120414,9 +120414,9 @@ _ZNK6duckdb15SelectionVector9get_indexEm.exit32:  ; preds = %62, %63
 
 71:                                               ; preds = %_ZNK6duckdb15SelectionVector9get_indexEm.exit32
   %72 = tail call double @llvm.ceil.f64(double %69)
-  %73 = fmul double %72, 5.000000e-01
-  %74 = tail call double @llvm.floor.f64(double %73)
-  %75 = fmul double %74, 2.000000e+00
+  %73 = fmul nnan double %72, 5.000000e-01
+  %74 = tail call nnan double @llvm.floor.f64(double %73)
+  %75 = fmul nnan double %74, 2.000000e+00
   %76 = fcmp une double %75, %72
   br i1 %76, label %84, label %_ZN6duckdb20UnaryOperatorWrapper9OperationINS_12EvenOperatorEddEET1_T0_RNS_12ValidityMaskEmPv.exit36
 

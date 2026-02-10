@@ -9131,7 +9131,7 @@ sharkd_json_array_open.exit:                      ; preds = %2, %3
 58:                                               ; preds = %55
   %59 = load i32, ptr %6, align 8
   %60 = sitofp i32 %59 to double
-  %61 = fmul double %60, 1.000000e+02
+  %61 = fmul nnan double %60, 1.000000e+02
   %62 = sitofp i32 %57 to double
   %63 = fdiv double %61, %62
   tail call void (ptr, ptr, ...) @sharkd_json_value_anyf(ptr noundef nonnull @.str.253, ptr noundef nonnull @.str.247, double noundef %63)

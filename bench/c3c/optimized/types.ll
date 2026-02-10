@@ -3424,7 +3424,7 @@ define dso_local void @type_func_prototype_init(i32 noundef %0) local_unnamed_ad
   store ptr %4, ptr getelementptr inbounds nuw (i8, ptr @map, i64 16), align 8
   store i32 %0, ptr getelementptr inbounds nuw (i8, ptr @map, i64 4), align 4
   %5 = uitofp i32 %0 to double
-  %6 = fmul double %5, 5.000000e-01
+  %6 = fmul nnan double %5, 5.000000e-01
   %7 = fptoui double %6 to i32
   store i32 %7, ptr getelementptr inbounds nuw (i8, ptr @map, i64 8), align 8
   ret void
@@ -3802,7 +3802,7 @@ hash_function.exit:                               ; preds = %.lr.ph.i, %2, %19
   %191 = shl i32 %190, 2
   store i32 %191, ptr getelementptr inbounds nuw (i8, ptr @map, i64 4), align 4
   %192 = uitofp i32 %191 to double
-  %193 = fmul double %192, 5.000000e-01
+  %193 = fmul nnan double %192, 5.000000e-01
   %194 = fptoui double %193 to i32
   store i32 %194, ptr getelementptr inbounds nuw (i8, ptr @map, i64 8), align 8
   %195 = zext i32 %191 to i64

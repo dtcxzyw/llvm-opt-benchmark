@@ -1117,7 +1117,7 @@ define dso_local double @generic_restriction_selectivity(ptr noundef %0, i32 nou
 40:                                               ; preds = %37
   %41 = sitofp i32 %38 to double
   %42 = fdiv double %41, 1.000000e+02
-  %43 = fsub double 1.000000e+00, %42
+  %43 = fsub nnan double 1.000000e+00, %42
   %44 = fmul double %5, %43
   %45 = call double @llvm.fmuladd.f64(double %35, double %42, double %44)
   br label %46
@@ -7481,7 +7481,7 @@ select.unfold.i:                                  ; preds = %253, %240
   br i1 %341, label %342, label %.thread
 
 342:                                              ; preds = %340
-  %343 = fmul double %335, 1.000000e-01
+  %343 = fmul nnan double %335, 1.000000e-01
   %344 = fcmp olt double %343, %.2157366
   br i1 %344, label %345, label %.thread
 
@@ -8613,7 +8613,7 @@ add_predicate_to_index_quals.exit:                ; preds = %91, %.critedge.i
   %119 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %120 = load i32, ptr %119, align 8
   %121 = uitofp i32 %120 to double
-  %122 = fmul double %121, 0x3FD55555318ABC87
+  %122 = fmul nnan double %121, 0x3FD55555318ABC87
   %123 = tail call double @llvm.ceil.f64(double %122)
   %124 = fcmp olt double %.0149.lcssa, %123
   %.1150. = select i1 %124, double %.0149.lcssa, double %123
@@ -8645,9 +8645,9 @@ add_predicate_to_index_quals.exit:                ; preds = %91, %.critedge.i
   br label %144
 
 135:                                              ; preds = %129
-  %136 = tail call double @llvm.log.f64(double %133)
-  %137 = fdiv double %136, 0x3FE62E42FEFA39EF
-  %138 = tail call double @llvm.ceil.f64(double %137)
+  %136 = tail call nnan double @llvm.log.f64(double %133)
+  %137 = fdiv nnan double %136, 0x3FE62E42FEFA39EF
+  %138 = tail call nnan double @llvm.ceil.f64(double %137)
   %139 = fmul double %138, %.pre
   %140 = fadd double %.pre302, %139
   %141 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -8835,7 +8835,7 @@ add_predicate_to_index_quals.exit:                ; preds = %91, %.critedge.i
 .thread215:                                       ; preds = %221, %251, %250
   %254 = add i32 %148, 1
   %255 = sitofp i32 %254 to double
-  %256 = fmul double %255, 5.000000e+01
+  %256 = fmul nnan double %255, 5.000000e+01
   %257 = fmul double %.pre, %256
   %258 = tail call double @llvm.fmuladd.f64(double %.pre303, double %257, double %145)
   %259 = fadd double %146, %257
@@ -8932,8 +8932,8 @@ define dso_local void @gistcostestimate(ptr noundef %0, ptr noundef readonly cap
   br label %39
 
 29:                                               ; preds = %24
-  %30 = tail call double @llvm.log.f64(double %27)
-  %31 = tail call double @llvm.ceil.f64(double %30)
+  %30 = tail call nnan double @llvm.log.f64(double %27)
+  %31 = tail call nnan double @llvm.ceil.f64(double %30)
   %32 = fmul double %31, %.pre
   %33 = fadd double %.pre22, %32
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -8949,7 +8949,7 @@ define dso_local void @gistcostestimate(ptr noundef %0, ptr noundef readonly cap
   %42 = phi double [ %33, %29 ], [ %.pre22, %._crit_edge ]
   %43 = add i32 %25, 1
   %44 = sitofp i32 %43 to double
-  %45 = fmul double %44, 5.000000e+01
+  %45 = fmul nnan double %44, 5.000000e+01
   %46 = fmul double %.pre, %45
   %47 = fadd double %42, %46
   %48 = tail call double @llvm.fmuladd.f64(double %41, double %46, double %40)
@@ -9016,8 +9016,8 @@ define dso_local void @spgcostestimate(ptr noundef %0, ptr noundef readonly capt
   br label %39
 
 29:                                               ; preds = %24
-  %30 = tail call double @llvm.log.f64(double %27)
-  %31 = tail call double @llvm.ceil.f64(double %30)
+  %30 = tail call nnan double @llvm.log.f64(double %27)
+  %31 = tail call nnan double @llvm.ceil.f64(double %30)
   %32 = fmul double %31, %.pre
   %33 = fadd double %.pre22, %32
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -9033,7 +9033,7 @@ define dso_local void @spgcostestimate(ptr noundef %0, ptr noundef readonly capt
   %42 = phi double [ %33, %29 ], [ %.pre22, %._crit_edge ]
   %43 = add i32 %25, 1
   %44 = sitofp i32 %43 to double
-  %45 = fmul double %44, 5.000000e+01
+  %45 = fmul nnan double %44, 5.000000e+01
   %46 = fmul double %.pre, %45
   %47 = fadd double %42, %46
   %48 = tail call double @llvm.fmuladd.f64(double %41, double %46, double %40)
@@ -9166,7 +9166,7 @@ get_quals_from_indexclauses.exit:                 ; preds = %.critedge26.i, %8, 
   br i1 %68, label %96, label %69
 
 69:                                               ; preds = %64
-  %70 = fmul double %49, 2.500000e-01
+  %70 = fmul nnan double %49, 2.500000e-01
   %71 = fcmp olt double %70, %67
   %72 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %73 = load i32, ptr %72, align 8
@@ -9203,10 +9203,10 @@ get_quals_from_indexclauses.exit:                 ; preds = %.critedge26.i, %8, 
   %97 = fcmp ogt double %49, 1.000000e+01
   %98 = select i1 %97, double %49, double 1.000000e+01
   %99 = fsub double %98, %.
-  %100 = fmul double %99, 9.000000e-01
+  %100 = fmul nnan double %99, 9.000000e-01
   %101 = call double @llvm.floor.f64(double %100)
   %102 = fsub double %99, %101
-  %103 = fmul double %101, 1.000000e+02
+  %103 = fmul nnan double %101, 1.000000e+02
   %104 = call double @llvm.floor.f64(double %103)
   br label %105
 
@@ -9659,9 +9659,9 @@ gincost_scalararrayopexpr.exit:                   ; preds = %208, %268
   br i1 %326, label %327, label %338
 
 327:                                              ; preds = %309
-  %328 = call double @llvm.log.f64(double %.1)
-  %329 = fdiv double %328, 0x3FE62E42FEFA39EF
-  %330 = call double @llvm.ceil.f64(double %329)
+  %328 = call nnan double @llvm.log.f64(double %.1)
+  %329 = fdiv nnan double %328, 0x3FE62E42FEFA39EF
+  %330 = call nnan double @llvm.ceil.f64(double %329)
   %331 = load double, ptr @cpu_operator_cost, align 8
   %332 = fmul double %330, %331
   %333 = load double, ptr %3, align 8
@@ -9941,7 +9941,7 @@ get_quals_from_indexclauses.exit:                 ; preds = %.critedge26.i, %8, 
   %85 = getelementptr inbounds nuw i8, ptr %45, i64 192
   %86 = load i32, ptr %85, align 8
   %87 = uitofp i32 %86 to double
-  %88 = fmul double %87, 7.812500e-03
+  %88 = fmul nnan double %87, 7.812500e-03
   %89 = call double @llvm.ceil.f64(double %88)
   %90 = fcmp ogt double %89, 1.000000e+00
   %91 = select i1 %90, double %89, double 1.000000e+00
@@ -10146,7 +10146,7 @@ get_quals_from_indexclauses.exit:                 ; preds = %.critedge26.i, %8, 
   %196 = fadd double %189, %195
   store double %196, ptr %3, align 8
   %197 = load double, ptr %10, align 8
-  %198 = fsub double %188, %193
+  %198 = fsub nnan double %188, %193
   %199 = fmul double %197, %198
   %200 = call double @llvm.fmuladd.f64(double %199, double %2, double %196)
   store double %200, ptr %4, align 8

@@ -2555,7 +2555,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i:           ; preds = %.lr.ph.i.i.i.i.i
 
 21:                                               ; preds = %_ZNK5ZXing11PatternView3sumEi.exit.i.i
   %22 = uitofp i16 %19 to double
-  %23 = fmul double %22, 2.500000e-01
+  %23 = fmul nnan double %22, 2.500000e-01
   %24 = fcmp une double %.fr46, 0.000000e+00
   %25 = tail call double @llvm.fmuladd.f64(double %.fr46, double %23, double -1.000000e+00)
   %26 = fcmp ogt double %25, 0x41DFFFFFFFC00000
@@ -2634,7 +2634,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i13.us:      ; preds = %.lr.ph.i.i.i.i.i7.u
 
 54:                                               ; preds = %_ZNK5ZXing11PatternView3sumEi.exit.i.i13.us
   %55 = uitofp i16 %52 to double
-  %56 = fmul double %55, 2.500000e-01
+  %56 = fmul nnan double %55, 2.500000e-01
   %57 = uitofp i16 %50 to double
   %58 = tail call double @llvm.fmuladd.f64(double %.fr46, double %56, double -1.000000e+00)
   %59 = fcmp ogt double %58, %57
@@ -2692,7 +2692,7 @@ _ZNK5ZXing11PatternView3sumEi.exit.i.i13:         ; preds = %.lr.ph.i.i.i.i.i7
 
 79:                                               ; preds = %_ZNK5ZXing11PatternView3sumEi.exit.i.i13
   %80 = uitofp i16 %77 to double
-  %81 = fmul double %80, 2.500000e-01
+  %81 = fmul nnan double %80, 2.500000e-01
   %82 = tail call double @llvm.fmuladd.f64(double %81, double 5.000000e-01, double 5.000000e-01)
   br label %84
 

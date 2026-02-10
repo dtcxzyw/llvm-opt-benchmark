@@ -1185,7 +1185,7 @@ define hidden i64 @_ZNK7nanogui7TextBox14preferred_sizeEP10NVGcontext(ptr nounde
   %4 = alloca i32, align 4
   %5 = tail call noundef i32 @_ZNK7nanogui6Widget9font_sizeEv(ptr noundef nonnull align 8 dereferenceable(140) %0)
   %6 = sitofp i32 %5 to float
-  %7 = fmul float %6, 0x3FF6666660000000
+  %7 = fmul nnan float %6, 0x3FF6666660000000
   %8 = fptosi float %7 to i32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %10 = load i32, ptr %9, align 8
@@ -1195,7 +1195,7 @@ define hidden i64 @_ZNK7nanogui7TextBox14preferred_sizeEP10NVGcontext(ptr nounde
 12:                                               ; preds = %2
   call void @nvgImageSize(ptr noundef %1, i32 noundef %10, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %13 = sitofp i32 %8 to float
-  %14 = fmul float %13, 0x3FD99999A0000000
+  %14 = fmul nnan float %13, 0x3FD99999A0000000
   %15 = load i32, ptr %3, align 4
   %16 = sitofp i32 %15 to float
   %17 = fmul float %14, %16
@@ -1727,7 +1727,7 @@ _ZN7nanogui5ColorC2Eii.exit240:                   ; preds = %215
   %230 = call float @llvm.fmuladd.f32(float %229, float 5.000000e-01, float %227)
   %231 = fadd float %230, 1.000000e+00
   %232 = fptosi float %231 to i32
-  %233 = fmul float %229, 0x3FD3333340000000
+  %233 = fmul nnan float %229, 0x3FD3333340000000
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %235 = load i32, ptr %234, align 8
   %236 = icmp sgt i32 %235, 0
@@ -1737,7 +1737,7 @@ _ZN7nanogui5ColorC2Eii.exit240:                   ; preds = %215
   call void @nvgImageSize(ptr noundef %1, i32 noundef %235, ptr noundef nonnull %33, ptr noundef nonnull %34)
   %238 = load i32, ptr %46, align 4
   %239 = sitofp i32 %238 to float
-  %240 = fmul float %239, 0x3FD99999A0000000
+  %240 = fmul nnan float %239, 0x3FD99999A0000000
   %241 = load i32, ptr %33, align 4
   %242 = sitofp i32 %241 to float
   %243 = fmul float %240, %242
@@ -1925,7 +1925,7 @@ _ZN7nanogui5ColorC2Eii.exit260:                   ; preds = %287
 348:                                              ; preds = %342
   %349 = sitofp i32 %347 to float
   %350 = sitofp i32 %343 to float
-  %351 = fmul float %350, 5.000000e-01
+  %351 = fmul nnan float %350, 5.000000e-01
   %352 = fcmp ult float %351, %349
   br i1 %352, label %353, label %_ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit
 
@@ -1960,9 +1960,9 @@ _ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit: ; preds = %353, %348, %3
   %368 = sitofp i32 %367 to float
   %369 = load i32, ptr %46, align 4
   %370 = sitofp i32 %369 to float
-  %371 = fmul float %370, 5.000000e-01
+  %371 = fmul nnan float %370, 5.000000e-01
   %372 = fadd float %371, %368
-  %373 = fmul float %233, 5.000000e-01
+  %373 = fmul nnan float %233, 5.000000e-01
   %374 = fsub float %372, %373
   %375 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %36) #31
   %376 = invoke float @nvgText(ptr noundef %1, float noundef %366, float noundef %374, ptr noundef %375, ptr noundef null)
@@ -1996,7 +1996,7 @@ _ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit: ; preds = %353, %348, %3
 392:                                              ; preds = %386
   %393 = sitofp i32 %391 to float
   %394 = sitofp i32 %387 to float
-  %395 = fmul float %394, 5.000000e-01
+  %395 = fmul nnan float %394, 5.000000e-01
   %396 = fcmp ult float %395, %393
   br i1 %396, label %397, label %_ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit266
 
@@ -2007,7 +2007,7 @@ _ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit: ; preds = %353, %348, %3
 398:                                              ; preds = %397
   %399 = sitofp i32 %391 to float
   %400 = sitofp i32 %387 to float
-  %401 = fmul float %400, 5.000000e-01
+  %401 = fmul nnan float %400, 5.000000e-01
   %402 = fcmp olt float %401, %399
   br i1 %402, label %_ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit266, label %403
 
@@ -2041,7 +2041,7 @@ _ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit266: ; preds = %403, %398,
   %417 = sitofp i32 %416 to float
   %418 = load i32, ptr %46, align 4
   %419 = sitofp i32 %418 to float
-  %420 = fmul float %419, 5.000000e-01
+  %420 = fmul nnan float %419, 5.000000e-01
   %421 = fadd float %420, %417
   %422 = fadd float %373, %421
   %423 = fadd float %422, 1.500000e+00
@@ -2413,7 +2413,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui7TextBox9spin_areaERKNS_5A
 16:                                               ; preds = %8
   %17 = sitofp i32 %15 to float
   %18 = sitofp i32 %10 to float
-  %19 = fmul float %18, 5.000000e-01
+  %19 = fmul nnan float %18, 5.000000e-01
   %20 = fcmp ult float %19, %17
   br i1 %20, label %21, label %28
 
@@ -2424,7 +2424,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZN7nanogui7TextBox9spin_areaERKNS_5A
 22:                                               ; preds = %21
   %23 = sitofp i32 %15 to float
   %24 = sitofp i32 %10 to float
-  %25 = fmul float %24, 5.000000e-01
+  %25 = fmul nnan float %24, 5.000000e-01
   %26 = fcmp olt float %25, %23
   br i1 %26, label %28, label %27
 
@@ -2680,7 +2680,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui7TextBox18mouse_button_eventERKNS_5
 28:                                               ; preds = %20
   %29 = sitofp i32 %27 to float
   %30 = sitofp i32 %22 to float
-  %31 = fmul float %30, 5.000000e-01
+  %31 = fmul nnan float %30, 5.000000e-01
   %32 = fcmp ult float %31, %29
   br i1 %32, label %33, label %_ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit.thread
 
@@ -2691,7 +2691,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui7TextBox18mouse_button_eventERKNS_5
 34:                                               ; preds = %33
   %35 = sitofp i32 %27 to float
   %36 = sitofp i32 %22 to float
-  %37 = fmul float %36, 5.000000e-01
+  %37 = fmul nnan float %36, 5.000000e-01
   %38 = fcmp olt float %37, %35
   br i1 %38, label %_ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit.thread, label %_ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit
 
@@ -2779,7 +2779,7 @@ _ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit.thread: ; preds = %34, %2
 81:                                               ; preds = %73
   %82 = sitofp i32 %80 to float
   %83 = sitofp i32 %75 to float
-  %84 = fmul float %83, 5.000000e-01
+  %84 = fmul nnan float %83, 5.000000e-01
   %85 = fcmp ult float %84, %82
   br i1 %85, label %86, label %112
 
@@ -2790,7 +2790,7 @@ _ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit.thread: ; preds = %34, %2
 87:                                               ; preds = %86
   %88 = sitofp i32 %80 to float
   %89 = sitofp i32 %75 to float
-  %90 = fmul float %89, 5.000000e-01
+  %90 = fmul nnan float %89, 5.000000e-01
   %91 = fcmp olt float %90, %88
   br i1 %91, label %112, label %_ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit24
 
@@ -2900,7 +2900,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui7TextBox18mouse_motion_eventERKNS_5
 32:                                               ; preds = %26
   %33 = sitofp i32 %31 to float
   %34 = sitofp i32 %28 to float
-  %35 = fmul float %34, 5.000000e-01
+  %35 = fmul nnan float %34, 5.000000e-01
   %36 = fcmp ult float %35, %33
   br i1 %36, label %37, label %43
 
@@ -2911,7 +2911,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui7TextBox18mouse_motion_eventERKNS_5
 38:                                               ; preds = %37
   %39 = sitofp i32 %31 to float
   %40 = sitofp i32 %28 to float
-  %41 = fmul float %40, 5.000000e-01
+  %41 = fmul nnan float %40, 5.000000e-01
   %42 = fcmp olt float %41, %39
   br i1 %42, label %43, label %_ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit
 

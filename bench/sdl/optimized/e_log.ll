@@ -78,7 +78,7 @@ define hidden double @SDL_uclibc_log(double noundef %0) local_unnamed_addr #0 {
 
 41:                                               ; preds = %39
   %42 = sitofp i32 %32 to double
-  %43 = fmul double %42, 0x3DEA39EF35793C76
+  %43 = fmul nnan double %42, 0x3DEA39EF35793C76
   %44 = tail call double @llvm.fmuladd.f64(double %42, double 0x3FE62E42FEE00000, double %43)
   br label %105
 
@@ -136,7 +136,7 @@ define hidden double @SDL_uclibc_log(double noundef %0) local_unnamed_addr #0 {
   br label %105
 
 86:                                               ; preds = %77
-  %87 = fmul double %62, 0x3DEA39EF35793C76
+  %87 = fmul nnan double %62, 0x3DEA39EF35793C76
   %88 = tail call double @llvm.fmuladd.f64(double %61, double %81, double %87)
   %89 = fsub double %79, %88
   %90 = fsub double %89, %33
@@ -155,7 +155,7 @@ define hidden double @SDL_uclibc_log(double noundef %0) local_unnamed_addr #0 {
   br label %105
 
 99:                                               ; preds = %93
-  %100 = fmul double %62, 0xBDEA39EF35793C76
+  %100 = fmul nnan double %62, 0xBDEA39EF35793C76
   %101 = tail call double @llvm.fmuladd.f64(double %61, double %95, double %100)
   %102 = fsub double %101, %33
   %103 = fneg double %102

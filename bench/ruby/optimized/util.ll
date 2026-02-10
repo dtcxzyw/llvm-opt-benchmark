@@ -2279,7 +2279,7 @@ ratio.exit:                                       ; preds = %759, %770, %782
 
 801:                                              ; preds = %797
   %802 = fcmp olt double %794, 1.000000e+00
-  %803 = fmul double %794, 5.000000e-01
+  %803 = fmul nnan double %794, 5.000000e-01
   %.3579 = select i1 %802, double 5.000000e-01, double %803
   %804 = fneg double %.3579
   br label %813
@@ -4394,7 +4394,7 @@ default.unreachable:                              ; preds = %80
 
 137:                                              ; preds = %135
   %138 = add i32 %.1515, -1
-  %139 = fmul double %.sroa.088.3, 1.000000e+01
+  %139 = fmul nnan double %.sroa.088.3, 1.000000e+01
   %140 = add i32 %.3548, 1
   br label %141
 
@@ -6315,7 +6315,7 @@ define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr noundef readonly ca
   %22 = bitcast double %.pre-phi to i64
   %sum.shift = lshr i64 %22, 52
   %.not84 = icmp eq i64 %sum.shift, 0
-  %23 = fmul double %.pre-phi, 0x6010000000000000
+  %23 = fmul nnan double %.pre-phi, 0x6010000000000000
   %24 = bitcast double %23 to i64
   %sum.shift85 = lshr i64 %24, 52
   %sum.shift.sink = select i1 %.not84, i64 %sum.shift85, i64 %sum.shift
@@ -6341,7 +6341,7 @@ define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr noundef readonly ca
   %33 = shl nuw nsw i32 %spec.store.select, 2
   %34 = bitcast double %.sroa.0.1 to i64
   %.sroa.0.4.extract.shift36 = lshr i64 %34, 32
-  %.sroa.0.4.extract.trunc37 = trunc nuw i64 %.sroa.0.4.extract.shift36 to i32
+  %.sroa.0.4.extract.trunc37 = trunc nuw nsw i64 %.sroa.0.4.extract.shift36 to i32
   %35 = and i32 %.sroa.0.4.extract.trunc37, -2146435073
   %36 = shl nuw nsw i32 %spec.store.select, 22
   %37 = add nuw nsw i32 %36, 1013972992

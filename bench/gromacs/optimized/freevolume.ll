@@ -2126,7 +2126,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110FreeVolume12analyz
   %182 = phi i32 [ 1, %.noexc ], [ %117, %._crit_edge.i ]
   store i32 %182, ptr %65, align 8, !tbaa !32
   %183 = uitofp i64 %181 to float
-  %184 = fmul float %183, 0x3BF0000000000000
+  %184 = fmul nnan float %183, 0x3BF0000000000000
   %185 = fcmp oeq float %184, 1.000000e+00
   %.013.i.i.i = select i1 %185, float 0.000000e+00, float %184
   %186 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
@@ -2277,7 +2277,7 @@ _ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit: ; preds = %.critedge, %231, %_
 
 ._crit_edge:                                      ; preds = %_ZN3gmx30AnalysisNeighborhoodPairSearchD2Ev.exit
   %250 = uitofp nneg i32 %spec.select to double
-  %251 = fmul double %250, 1.000000e+02
+  %251 = fmul nnan double %250, 1.000000e+02
   %252 = uitofp nneg i32 %61 to double
   %253 = fdiv double %251, %252
   %254 = fptrunc double %253 to float

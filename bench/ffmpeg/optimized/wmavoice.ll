@@ -236,7 +236,7 @@ define internal range(i32 -2147483648, 1) i32 @wmavoice_decode_init(ptr noundef 
   %indvars.iv.next160 = add nuw nsw i64 %indvars.iv159, 1
   %89 = trunc nuw nsw i64 %indvars.iv.next160 to i32
   %90 = uitofp nneg i32 %89 to double
-  %91 = fmul nsz double %90, 0x400921FB54442D18
+  %91 = fmul nnan nsz double %90, 0x400921FB54442D18
   %92 = fdiv nsz double %91, %86
   %93 = getelementptr inbounds nuw double, ptr %87, i64 %indvars.iv159
   store double %92, ptr %93, align 8, !tbaa !46
@@ -794,7 +794,7 @@ define internal void @wmavoice_flush(ptr noundef readonly captures(none) %0) #2 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = trunc nuw nsw i64 %indvars.iv.next to i32
   %15 = uitofp nneg i32 %14 to double
-  %16 = fmul nsz double %15, 0x400921FB54442D18
+  %16 = fmul nnan nsz double %15, 0x400921FB54442D18
   %17 = fdiv nsz double %16, %11
   %18 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
   store double %17, ptr %18, align 8, !tbaa !46

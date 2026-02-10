@@ -1006,7 +1006,7 @@ define void @Abc_NtkManRefPrintStats(ptr noundef readonly captures(none) %0) loc
   %11 = load i32, ptr %10, align 4, !tbaa !91
   %12 = sub nsw i32 %9, %11
   %13 = sitofp i32 %12 to double
-  %14 = fmul double %13, 1.000000e+02
+  %14 = fmul nnan double %13, 1.000000e+02
   %15 = sitofp i32 %9 to double
   %16 = fdiv double %14, %15
   %17 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, i32 noundef %12, double noundef %16)

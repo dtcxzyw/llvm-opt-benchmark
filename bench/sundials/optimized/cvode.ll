@@ -3481,7 +3481,7 @@ cvCompleteStep.exit.i:                            ; preds = %1083, %1080, %1076
   br label %cvPrepareNextStep.exit.i
 
 1096:                                             ; preds = %cvCompleteStep.exit.i
-  %1097 = fmul double %960, 6.000000e+00
+  %1097 = fmul nnan double %960, 6.000000e+00
   %1098 = load i32, ptr %360, align 8, !tbaa !84
   %1099 = sitofp i32 %1098 to double
   %1100 = fdiv double 1.000000e+00, %1099
@@ -4333,7 +4333,7 @@ cvPrepareNextStep.exit.i:                         ; preds = %1256, %1250, %1227,
   %1592 = add nsw i32 %1301, -1
   %1593 = uitofp nneg i32 %1592 to double
   %1594 = call double @llvm.fmuladd.f64(double %1586, double %1588, double -1.000000e+00)
-  %1595 = fmul double %1591, -2.500000e-01
+  %1595 = fmul nnan double %1591, -2.500000e-01
   %1596 = call double @llvm.fmuladd.f64(double %1595, double %1586, double %1594)
   %1597 = fdiv double -2.000000e+00, %1593
   %1598 = call double @llvm.fmuladd.f64(double %1597, double %1596, double 1.000000e+00)

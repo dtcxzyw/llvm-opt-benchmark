@@ -22088,7 +22088,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit171: ; pred
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit176: ; preds = %345
   %347 = load i64, ptr %44, align 8, !tbaa !43
   %348 = uitofp i64 %347 to double
-  %349 = fmul double %348, 0x3F50000000000000
+  %349 = fmul nnan double %348, 0x3F50000000000000
   %350 = fptosi double %349 to i32
   %351 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %28, i32 noundef %350)
           to label %352 unwind label %439
@@ -70686,7 +70686,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit26.i.i.i: ; preds = 
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load i64, ptr %128, align 8, !tbaa !43
   %130 = uitofp i64 %129 to double
-  %131 = fmul double %130, 0x3F50000000000000
+  %131 = fmul nnan double %130, 0x3F50000000000000
   %132 = fadd double %131, 1.000000e+00
   %133 = fptosi double %132 to i32
   %134 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %133)

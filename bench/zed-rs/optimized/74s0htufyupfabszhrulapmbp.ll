@@ -6082,7 +6082,7 @@ common.resume:                                    ; preds = %.body, %244
   store i64 %.sroa.8113.0.copyload.i, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %322 = uitofp i64 %.sroa.8113.0.copyload.i to double
-  %323 = fmul double %322, 1.000000e+02
+  %323 = fmul nnan double %322, 1.000000e+02
   %324 = load i64, ptr %22, align 8, !noundef !4
   %325 = uitofp i64 %324 to double
   %326 = fdiv double %323, %325

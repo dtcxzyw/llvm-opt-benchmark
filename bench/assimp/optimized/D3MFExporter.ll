@@ -2982,13 +2982,13 @@ _ZNK10aiMaterial3GetEPKcjjR9aiColor4tIfE.exit:    ; preds = %_ZNSt7__cxx1112basi
 
 137:                                              ; preds = %126
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %138 = fmul float %129, 2.550000e+02
+  %138 = fmul nnan float %129, 2.550000e+02
   %139 = fptosi float %138 to i32
-  %140 = fmul float %131, 2.550000e+02
+  %140 = fmul nnan float %131, 2.550000e+02
   %141 = fptosi float %140 to i32
-  %142 = fmul float %133, 2.550000e+02
+  %142 = fmul nnan float %133, 2.550000e+02
   %143 = fptosi float %142 to i32
-  %144 = fmul float %135, 2.550000e+02
+  %144 = fmul nnan float %135, 2.550000e+02
   %145 = fptosi float %144 to i32
   invoke void @_Z11ai_rgba2hexB5cxx11iiiib(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, i32 noundef %139, i32 noundef %141, i32 noundef %143, i32 noundef %145, i1 noundef zeroext true)
           to label %146 unwind label %172

@@ -787,7 +787,7 @@ _ZN7mitsuba6Thread6threadEv.exit64:               ; preds = %47, %49
   %64 = sitofp i32 %43 to float
   %65 = sub nsw i32 %45, %43
   %66 = sitofp i32 %65 to float
-  %67 = fmul contract float %.051, %66
+  %67 = fmul nnan contract float %.051, %66
   %68 = fadd contract float %67, %64
   %69 = fptosi float %68 to i32
   store i32 %69, ptr %6, align 4

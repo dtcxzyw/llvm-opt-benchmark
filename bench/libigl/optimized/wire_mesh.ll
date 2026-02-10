@@ -989,8 +989,8 @@ _ZNSt6vectorISt4pairIiiESaIS1_EE17_M_realloc_insertIJRiiEEEvN9__gnu_cxx17__norma
   %.sroa.speculated.i.i = select i1 %264, double -1.000000e+00, double %256
   %265 = load <2 x double>, ptr %103, align 16, !tbaa !88, !noalias !89
   %266 = load double, ptr %104, align 16, !tbaa !14, !noalias !89
-  %267 = fadd double %.sroa.speculated.i.i, 1.000000e+00
-  %268 = fmul double %267, 5.000000e-01
+  %267 = fadd nnan double %.sroa.speculated.i.i, 1.000000e+00
+  %268 = fmul nnan double %267, 5.000000e-01
   %269 = call double @sqrt(double noundef %268) #26, !tbaa !27, !noalias !89
   %270 = fsub double 1.000000e+00, %268
   %271 = call double @sqrt(double noundef %270) #26, !tbaa !27, !noalias !89

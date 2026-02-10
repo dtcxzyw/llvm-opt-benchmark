@@ -1502,8 +1502,8 @@ current_time.exit.i:                              ; preds = %375
   %381 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %382 = load i64, ptr %381, align 8, !tbaa !32
   %383 = sitofp i64 %382 to double
-  %384 = fdiv double %383, 1.000000e+06
-  %385 = fadd double %384, %380
+  %384 = fdiv nnan double %383, 1.000000e+06
+  %385 = fadd nnan double %384, %380
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %386 = tail call ptr @wolfSSL_new(ptr noundef nonnull %289) #21
   %387 = icmp eq ptr %386, null
@@ -1612,8 +1612,8 @@ current_time.exit126.i:                           ; preds = %416
   %422 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %423 = load i64, ptr %422, align 8, !tbaa !32
   %424 = sitofp i64 %423 to double
-  %425 = fdiv double %424, 1.000000e+06
-  %426 = fadd double %425, %421
+  %425 = fdiv nnan double %424, 1.000000e+06
+  %426 = fadd nnan double %425, %421
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %427 = fsub double %426, %385
   %428 = sext i32 %.043110782962 to i64
@@ -3233,7 +3233,7 @@ define internal fastcc void @ClientBenchmarkConnections(ptr noundef nonnull %0, 
   %14 = alloca [256 x i8], align 16
   %15 = alloca i32, align 4
   %16 = sitofp i32 %4 to double
-  %17 = fmul double %16, 1.000000e-01
+  %17 = fmul nnan double %16, 1.000000e-01
   %18 = fptosi double %17 to i32
   %19 = icmp ne i32 %5, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %14)

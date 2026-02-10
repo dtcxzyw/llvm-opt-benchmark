@@ -12987,7 +12987,7 @@ define linkonce_odr hidden noundef double @_ZN6casadi25casadi_smoothing_diff_old
 
 32:                                               ; preds = %26
   %33 = load double, ptr %17, align 8, !tbaa !182
-  %34 = fmul double %23, -4.000000e+00
+  %34 = fmul nnan double %23, -4.000000e+00
   %35 = tail call double @llvm.fmuladd.f64(double %33, double 3.000000e+00, double %34)
   %36 = fadd double %29, %35
   br label %62
@@ -13023,7 +13023,7 @@ define linkonce_odr hidden noundef double @_ZN6casadi25casadi_smoothing_diff_old
 
 57:                                               ; preds = %51
   %58 = load double, ptr %17, align 8, !tbaa !182
-  %59 = fmul double %.18387, 4.000000e+00
+  %59 = fmul nnan double %.18387, 4.000000e+00
   %60 = tail call double @llvm.fmuladd.f64(double %58, double -3.000000e+00, double %59)
   %61 = fsub double %60, %54
   br label %62
@@ -13896,7 +13896,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef double @_ZNK6casadi11CentralDiff4pertExd(ptr noundef nonnull align 8 dereferenceable(1400) %0, i64 noundef %1, double noundef %2) unnamed_addr #12 comdat align 2 {
   %4 = sitofp i64 %1 to double
-  %5 = tail call double @llvm.fmuladd.f64(double %4, double 2.000000e+00, double -1.000000e+00)
+  %5 = tail call nnan double @llvm.fmuladd.f64(double %4, double 2.000000e+00, double -1.000000e+00)
   %6 = fmul double %2, %5
   ret double %6
 }

@@ -1806,7 +1806,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116: ; preds = %42
   br i1 %532, label %533, label %537
 
 533:                                              ; preds = %527
-  %534 = fmul float %531, 1.000000e+02
+  %534 = fmul nnan float %531, 1.000000e+02
   %535 = call float @llvm.round.f32(float %534)
   %536 = fdiv float %535, 1.000000e+02
   call void @_ZN11OpenImageIO6v3_1_027set_colorspace_rec709_gammaERNS0_9ImageSpecEf(ptr noundef nonnull align 8 dereferenceable(160) %197, float noundef %536)

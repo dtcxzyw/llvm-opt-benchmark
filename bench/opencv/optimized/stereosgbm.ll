@@ -5965,13 +5965,13 @@ _ZNK2cv11_InputArray6getMatEi.exit52:             ; preds = %78, %81
 
 .preheader37.i:                                   ; preds = %90
   %92 = sitofp i32 %87 to double
-  %93 = fmul double %92, 2.500000e-01
+  %93 = fmul nnan double %92, 2.500000e-01
   %94 = call double @llvm.ceil.f64(double %93)
   %95 = fptosi double %94 to i32
   %96 = sdiv i32 %89, 2
   %97 = add nsw i32 %96, 1
   %98 = sitofp i32 %95 to double
-  %99 = fmul double %98, 1.000000e-01
+  %99 = fmul nnan double %98, 1.000000e-01
   %100 = call double @llvm.ceil.f64(double %99)
   %101 = fptosi double %100 to i32
   %102 = add nsw i32 %97, %101

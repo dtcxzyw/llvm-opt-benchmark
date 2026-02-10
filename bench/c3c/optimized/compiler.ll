@@ -1565,7 +1565,7 @@ define internal fastcc void @compiler_print_bench() unnamed_addr #10 {
   br i1 %5, label %9, label %6
 
 6:                                                ; preds = %3
-  %7 = fmul double %4, 1.000000e+03
+  %7 = fmul nnan double %4, 1.000000e+03
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.128, double noundef %7)
   br label %9
 

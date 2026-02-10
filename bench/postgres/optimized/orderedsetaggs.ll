@@ -591,7 +591,7 @@ define dso_local i64 @percentile_disc_final(ptr noundef captures(none) %0) local
 41:                                               ; preds = %40, %39
   %42 = load i64, ptr %28, align 8
   %43 = sitofp i64 %42 to double
-  %44 = fmul double %12, %43
+  %44 = fmul nnan double %12, %43
   %45 = tail call double @llvm.ceil.f64(double %44)
   %46 = fptosi double %45 to i64
   %47 = icmp sgt i64 %46, 1
@@ -750,7 +750,7 @@ define internal fastcc i64 @percentile_cont_final_common(ptr noundef captures(no
   %44 = load i64, ptr %30, align 8
   %45 = add i64 %44, -1
   %46 = sitofp i64 %45 to double
-  %47 = fmul double %14, %46
+  %47 = fmul nnan double %14, %46
   %48 = tail call double @llvm.floor.f64(double %47)
   %49 = fptosi double %48 to i64
   %50 = tail call double @llvm.ceil.f64(double %47)
@@ -1137,7 +1137,7 @@ define internal fastcc ptr @setup_pct_info(i32 noundef range(i32 1, 0) %0, ptr n
   br i1 %or.cond52.us, label %.split.us, label %24
 
 24:                                               ; preds = %19
-  %25 = fmul double %21, %12
+  %25 = fmul nnan double %21, %12
   %26 = tail call double @llvm.floor.f64(double %25)
   %27 = fadd double %26, 1.000000e+00
   %28 = fptosi double %27 to i64
@@ -1194,7 +1194,7 @@ define internal fastcc ptr @setup_pct_info(i32 noundef range(i32 1, 0) %0, ptr n
   unreachable
 
 53:                                               ; preds = %45
-  %54 = fmul double %47, %10
+  %54 = fmul nnan double %47, %10
   %55 = tail call double @llvm.ceil.f64(double %54)
   %56 = fptosi double %55 to i64
   %57 = tail call i64 @llvm.smax.i64(i64 %56, i64 1)

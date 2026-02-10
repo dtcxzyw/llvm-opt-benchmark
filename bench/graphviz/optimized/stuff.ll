@@ -359,7 +359,7 @@ prune.exit:                                       ; preds = %34, %degreeKind.exi
 
 82:                                               ; preds = %.loopexit138
   %83 = sitofp i32 %79 to double
-  %84 = fmul double %83, 1.000000e-04
+  %84 = fmul nnan double %83, 1.000000e-04
   store double %84, ptr @Epsilon, align 8, !tbaa !10
   tail call void @getdouble(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef nonnull @Epsilon) #22
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 120

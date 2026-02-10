@@ -56,7 +56,7 @@ define noundef i32 @dsbmv_thread_U(i64 noundef %0, i64 noundef %1, double nounde
   %31 = sext i32 %10 to i64
   %invariant.op = add nsw i64 %31, -1
   %32 = fneg double %24
-  %33 = fmul double %24, %32
+  %33 = fmul nnan double %24, %32
   %34 = fdiv double %33, %25
   %35 = add nuw nsw i64 %0, 15
   %36 = and i64 %35, 9223372036854775792

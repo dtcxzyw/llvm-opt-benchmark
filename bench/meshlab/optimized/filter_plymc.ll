@@ -26277,7 +26277,7 @@ _ZNSt6vectorIN3vcg7VoxelfcESaIS1_EE6resizeEmRKS1_.exit: ; preds = %_ZN3vcg7Voxel
   %.136.i = phi i32 [ %.02838.i, %.preheader33.i ], [ %.3.i, %178 ]
   %148 = or i32 %.02637.i, %.039.i
   %149 = sitofp i32 %.02637.i to float
-  %150 = fmul float %149, %149
+  %150 = fmul nnan float %149, %149
   br label %151
 
 151:                                              ; preds = %176, %.preheader.i
@@ -26384,7 +26384,7 @@ define linkonce_odr void @_ZN3vcg6VolumeINS_7VoxelfcEfE4DumpEP8_IO_FILE(ptr noun
   %28 = load i32, ptr %27, align 4
   %29 = mul nsw i32 %26, %24
   %30 = sitofp i32 %29 to double
-  %31 = fdiv double %30, 1.000000e+06
+  %31 = fdiv nnan double %30, 1.000000e+06
   %32 = sitofp i32 %28 to double
   %33 = fmul double %31, %32
   %34 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.295, i32 noundef %24, i32 noundef %26, i32 noundef %28, double noundef %33) #42
@@ -45612,7 +45612,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri2io11ImporterSTLINS_5SMeshEE9OpenAsc
 35:                                               ; preds = %32
   %36 = call i64 @ftell(ptr noundef nonnull %7)
   %37 = sitofp i64 %36 to double
-  %38 = fmul double %37, 1.000000e+02
+  %38 = fmul nnan double %37, 1.000000e+02
   %39 = fdiv double %38, %17
   %40 = fptosi double %39 to i32
   %41 = call noundef zeroext i1 %2(i32 noundef %40, ptr noundef nonnull @.str.235)
@@ -51755,8 +51755,8 @@ define linkonce_odr noundef zeroext i1 @_ZN3vcg3tri2io11ImporterOBJINS_5SMeshEE8
 50:                                               ; preds = %43
   %51 = trunc i64 %46 to i32
   %52 = sitofp i32 %51 to float
-  %53 = fpext float %52 to double
-  %54 = fmul double %53, 1.000000e+02
+  %53 = fpext nnan ninf float %52 to double
+  %54 = fmul nnan double %53, 1.000000e+02
   %55 = fdiv double %54, %32
   %56 = fptosi double %55 to i32
   %57 = invoke noundef zeroext i1 %47(i32 noundef %56, ptr noundef nonnull @.str.261)

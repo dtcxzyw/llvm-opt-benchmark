@@ -304,7 +304,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
 
 111:                                              ; preds = %109
   %112 = fdiv double %95, %91
-  %113 = fmul double %91, 5.000000e-01
+  %113 = fmul nnan double %91, 5.000000e-01
   %114 = fmul double %112, 5.000000e-01
   br label %121
 
@@ -315,7 +315,7 @@ init_params.exit:                                 ; preds = %37, %.sink.split.i
 117:                                              ; preds = %115
   %118 = fdiv double %95, %93
   %119 = fmul double %118, 5.000000e-01
-  %120 = fmul double %93, 5.000000e-01
+  %120 = fmul nnan double %93, 5.000000e-01
   br label %121
 
 121:                                              ; preds = %117, %115, %111, %104, %99
@@ -779,7 +779,7 @@ initPositions.exit:                               ; preds = %256, %289, %.lr.ph2
   %381 = srem i32 %380, 10
   %382 = sub nsw i32 5, %381
   %383 = sitofp i32 %382 to double
-  %384 = fmul double %383, %383
+  %384 = fmul nnan double %383, %383
   %385 = tail call double @llvm.fmuladd.f64(double %379, double %379, double %384)
   %386 = fcmp oeq double %385, 0.000000e+00
   br i1 %386, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !100
@@ -946,7 +946,7 @@ gAdjust.exit:                                     ; preds = %.lr.ph, %._crit_edg
   %475 = srem i32 %474, 10
   %476 = sub nsw i32 5, %475
   %477 = sitofp i32 %476 to double
-  %478 = fmul double %477, %477
+  %478 = fmul nnan double %477, %477
   %479 = tail call double @llvm.fmuladd.f64(double %473, double %473, double %478)
   %480 = fcmp oeq double %479, 0.000000e+00
   br i1 %480, label %.lr.ph.i46.i, label %._crit_edge.i43.i, !llvm.loop !112
@@ -1089,7 +1089,7 @@ doRep.exit.i:                                     ; preds = %508, %505, %500, %4
   %561 = srem i32 %560, 10
   %562 = sub nsw i32 5, %561
   %563 = sitofp i32 %562 to double
-  %564 = fmul double %563, %563
+  %564 = fmul nnan double %563, %563
   %565 = tail call double @llvm.fmuladd.f64(double %559, double %559, double %564)
   %566 = fcmp oeq double %565, 0.000000e+00
   br i1 %566, label %.lr.ph.i.i56, label %._crit_edge.i.i47, !llvm.loop !100
@@ -1322,7 +1322,7 @@ define internal noundef i32 @gridRepulse(ptr noundef readonly captures(none) %0,
   %36 = srem i32 %35, 10
   %37 = sub nsw i32 5, %36
   %38 = sitofp i32 %37 to double
-  %39 = fmul double %38, %38
+  %39 = fmul nnan double %38, %38
   %40 = tail call double @llvm.fmuladd.f64(double %34, double %34, double %39)
   %41 = fcmp oeq double %40, 0.000000e+00
   br i1 %41, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !112
@@ -1695,7 +1695,7 @@ define internal fastcc void @doNeighbor(ptr noundef %0, i32 noundef %1, i32 noun
   %43 = srem i32 %42, 10
   %44 = sub nsw i32 5, %43
   %45 = sitofp i32 %44 to double
-  %46 = fmul double %45, %45
+  %46 = fmul nnan double %45, %45
   %47 = tail call double @llvm.fmuladd.f64(double %41, double %41, double %46)
   %48 = fcmp oeq double %47, 0.000000e+00
   br i1 %48, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !112

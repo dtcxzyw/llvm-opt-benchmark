@@ -1822,14 +1822,14 @@ define void @gui_changed(ptr noundef readonly captures(none) %0, ptr noundef rea
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 18
   %41 = load i16, ptr %40, align 2, !tbaa !107
   %42 = uitofp i16 %41 to float
-  %43 = fadd reassoc nsz arcp contract afn float %42, %39
+  %43 = fadd reassoc nnan nsz arcp contract afn float %42, %39
   %44 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %45 = load i16, ptr %44, align 4, !tbaa !107
   %46 = uitofp i16 %45 to float
-  %47 = fadd reassoc nsz arcp contract afn float %43, %46
+  %47 = fadd reassoc nnan nsz arcp contract afn float %43, %46
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !178
-  %50 = fmul reassoc nsz arcp contract afn float %47, 0x3FD5555560000000
+  %50 = fmul reassoc nnan nsz arcp contract afn float %47, 0x3FD5555560000000
   %51 = tail call reassoc nsz arcp contract afn float @llvm.round.f32(float %50)
   %52 = fptoui float %51 to i16
   %53 = uitofp i16 %52 to float

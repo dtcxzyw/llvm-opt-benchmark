@@ -1112,7 +1112,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   %indvars.iv = phi i64 [ 0, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit ]
   %51 = trunc nuw nsw i64 %indvars.iv to i32
   %52 = uitofp nneg i32 %51 to double
-  %53 = fmul double %52, 0x401921FB54442D18
+  %53 = fmul nnan double %52, 0x401921FB54442D18
   %54 = fptrunc double %53 to float
   %55 = fdiv float %54, 1.000000e+01
   %56 = tail call float @cosf(float noundef %55) #12
@@ -1180,9 +1180,9 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   %.0181337 = phi i32 [ 0, %77 ], [ %87, %.loopexit333 ]
   %87 = add nuw nsw i32 %.0181337, 1
   %88 = uitofp nneg i32 %87 to float
-  %89 = fmul float %88, 2.500000e-01
-  %90 = fsub float 1.000000e+00, %89
-  %91 = fmul float %90, 0x3FF921FB60000000
+  %89 = fmul nnan float %88, 2.500000e-01
+  %90 = fsub nnan float 1.000000e+00, %89
+  %91 = fmul nnan float %90, 0x3FF921FB60000000
   %92 = tail call float @cosf(float noundef %91) #12
   %93 = fmul float %92, %6
   %94 = tail call float @sinf(float noundef %91) #12
@@ -1279,8 +1279,8 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EEC2EmRKS2_.exit:
   %.0185345 = phi i32 [ 0, %.preheader ], [ %132, %.loopexit ]
   %132 = add nuw nsw i32 %.0185345, 1
   %133 = uitofp nneg i32 %132 to float
-  %134 = fmul float %133, 2.500000e-01
-  %135 = fmul float %134, 0x3FF921FB60000000
+  %134 = fmul nnan float %133, 2.500000e-01
+  %135 = fmul nnan float %134, 0x3FF921FB60000000
   %136 = tail call float @cosf(float noundef %135) #12
   %137 = fmul float %136, %6
   %138 = tail call float @sinf(float noundef %135) #12

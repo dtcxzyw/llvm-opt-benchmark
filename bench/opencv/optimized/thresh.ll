@@ -732,7 +732,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit277: ; preds = %21
   %290 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv.next146.i
   %291 = load i32, ptr %290, align 4, !tbaa !16
   %292 = sitofp i32 %291 to double
-  %293 = fmul double %286, %292
+  %293 = fmul nnan double %286, %292
   %294 = call double @llvm.fmuladd.f64(double %284, double %289, double %293)
   %295 = fcmp ogt double %294, %.0119.i
   %.169.i = select i1 %295, double %289, double %.068118.i
@@ -1156,7 +1156,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit282: ; preds = %42
 
 452:                                              ; preds = %447
   %453 = uitofp i64 %451 to double
-  %454 = fmul double %453, 0x3EF0000000000000
+  %454 = fmul nnan double %453, 0x3EF0000000000000
   invoke void @_ZN2cv13parallel_for_ERKNS_5RangeERKNS_16ParallelLoopBodyEd(ptr noundef nonnull align 4 dereferenceable(8) %26, ptr noundef nonnull align 8 dereferenceable(8) %27, double noundef %454)
           to label %455 unwind label %460
 

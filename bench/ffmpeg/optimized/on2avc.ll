@@ -119,12 +119,12 @@ define internal range(i32 -2147483648, 1) i32 @on2avc_decode_init(ptr noundef %0
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %25 ]
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = uitofp nneg i32 %26 to double
-  %28 = fmul nsz double %27, 1.000000e-01
-  %29 = fmul nsz double %28, 0x400A934F0979A371
-  %30 = tail call nsz double @llvm.exp2.f64(double %29)
-  %31 = tail call nsz double @llvm.fmuladd.f64(double %30, double 1.600000e+01, double -1.000000e-02)
-  %32 = tail call nsz double @llvm.ceil.f64(double %31)
-  %33 = fmul nsz double %32, 3.125000e-02
+  %28 = fmul nnan nsz double %27, 1.000000e-01
+  %29 = fmul nnan nsz double %28, 0x400A934F0979A371
+  %30 = tail call nnan nsz double @llvm.exp2.f64(double %29)
+  %31 = tail call nnan nsz double @llvm.fmuladd.f64(double %30, double 1.600000e+01, double -1.000000e-02)
+  %32 = tail call nnan nsz double @llvm.ceil.f64(double %31)
+  %33 = fmul nnan nsz double %32, 3.125000e-02
   %34 = fptrunc nsz double %33 to float
   %35 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
   store float %34, ptr %35, align 4, !tbaa !42
@@ -136,8 +136,8 @@ define internal range(i32 -2147483648, 1) i32 @on2avc_decode_init(ptr noundef %0
   %indvars.iv115 = phi i64 [ %indvars.iv.next116, %.lr.ph ], [ 20, %25 ]
   %36 = trunc nuw nsw i64 %indvars.iv115 to i32
   %37 = uitofp nneg i32 %36 to double
-  %38 = fmul nsz double %37, 1.000000e-01
-  %39 = fmul nsz double %38, 0x400A934F0979A371
+  %38 = fmul nnan nsz double %37, 1.000000e-01
+  %39 = fmul nnan nsz double %38, 0x400A934F0979A371
   %40 = tail call nsz double @llvm.exp2.f64(double %39)
   %41 = tail call nsz double @llvm.fmuladd.f64(double %40, double 5.000000e-01, double -1.000000e-02)
   %42 = tail call nsz double @llvm.ceil.f64(double %41)
@@ -2647,8 +2647,8 @@ get_vlc2.exit.i.i:                                ; preds = %336, %318
   %362 = sitofp i32 %361 to float
   %363 = tail call i32 @llvm.abs.i32(i32 %361, i1 true)
   %364 = uitofp nneg i32 %363 to float
-  %365 = tail call nsz float @llvm.sqrt.f32(float %364)
-  %366 = fmul nsz float %365, %362
+  %365 = tail call nnan ninf nsz float @llvm.sqrt.f32(float %364)
+  %366 = fmul nnan nsz float %365, %362
   %367 = fmul nsz float %311, %366
   %368 = getelementptr inbounds nuw i8, ptr %.115.i.i, i64 4
   store float %367, ptr %.115.i.i, align 4, !tbaa !42
@@ -2904,16 +2904,16 @@ get_egolomb.exit45.i.i:                           ; preds = %511, %506
   %533 = sitofp i32 %.027.i.i to float
   %534 = tail call i32 @llvm.abs.i32(i32 %.027.i.i, i1 true)
   %535 = uitofp nneg i32 %534 to float
-  %536 = tail call nsz float @llvm.sqrt.f32(float %535)
-  %537 = fmul nsz float %536, %533
+  %536 = tail call nnan ninf nsz float @llvm.sqrt.f32(float %535)
+  %537 = fmul nnan nsz float %536, %533
   %538 = fmul nsz float %311, %537
   %539 = getelementptr inbounds nuw i8, ptr %.02853.i.i, i64 4
   store float %538, ptr %.02853.i.i, align 4, !tbaa !42
   %540 = sitofp i32 %.0.i71.i to float
   %541 = tail call i32 @llvm.abs.i32(i32 %.0.i71.i, i1 true)
   %542 = uitofp nneg i32 %541 to float
-  %543 = tail call nsz float @llvm.sqrt.f32(float %542)
-  %544 = fmul nsz float %543, %540
+  %543 = tail call nnan ninf nsz float @llvm.sqrt.f32(float %542)
+  %544 = fmul nnan nsz float %543, %540
   %545 = fmul nsz float %311, %544
   %546 = getelementptr inbounds nuw i8, ptr %.02853.i.i, i64 8
   store float %545, ptr %539, align 4, !tbaa !42

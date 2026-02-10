@@ -1074,8 +1074,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %26, %
   ]
 
 34:                                               ; preds = %31
-  %35 = fmul float %1, -5.000000e-01
-  %36 = fmul float %1, 5.000000e-01
+  %35 = fmul nnan float %1, -5.000000e-01
+  %36 = fmul nnan float %1, 5.000000e-01
   br label %_ZN2cv5arucoL28_getSingleMarkerObjectPointsEfRKNS0_18EstimateParametersE.exit
 
 37:                                               ; preds = %31

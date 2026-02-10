@@ -9912,7 +9912,7 @@ invoke.cont94:                                    ; preds = %if.end.i, %invoke.c
   %agg.tmp.sroa.0.0.copyload = load i48, ptr %camera_offset, align 8
   %p.sroa.0.0.extract.trunc.i = trunc i48 %agg.tmp.sroa.0.0.copyload to i16
   %conv.i512 = sitofp i16 %p.sroa.0.0.extract.trunc.i to float
-  %mul.i513 = fmul nsz float %conv.i512, 1.000000e+01
+  %mul.i513 = fmul nnan nsz float %conv.i512, 1.000000e+01
   %52 = insertelement <4 x float> poison, float %mul.i513, i64 0
   %53 = insertelement <4 x float> poison, float %34, i64 0
   %54 = shufflevector <2 x float> %36, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
@@ -9928,7 +9928,7 @@ invoke.cont94:                                    ; preds = %if.end.i, %invoke.c
   %64 = lshr <2 x i48> %63, <i48 16, i48 32>
   %65 = trunc <2 x i48> %64 to <2 x i16>
   %66 = sitofp <2 x i16> %65 to <2 x float>
-  %67 = fmul nsz <2 x float> %66, splat (float 1.000000e+01)
+  %67 = fmul nnan nsz <2 x float> %66, splat (float 1.000000e+01)
   %68 = shufflevector <2 x float> %67, <2 x float> poison, <4 x i32> <i32 0, i32 1, i32 poison, i32 poison>
   %69 = shufflevector <4 x float> %52, <4 x float> %68, <4 x i32> <i32 0, i32 4, i32 5, i32 0>
   %70 = fadd nsz <4 x float> %56, %69
@@ -11167,8 +11167,8 @@ land.lhs.true156:                                 ; preds = %if.end153
   br i1 %cmp158, label %if.then159, label %if.else166
 
 if.then159:                                       ; preds = %land.lhs.true156
-  %add163 = fadd nsz double %conv157, 1.000000e+00
-  %mul164 = fmul nsz double %add163, 0x3FA99999A0000000
+  %add163 = fadd nnan nsz double %conv157, 1.000000e+00
+  %mul164 = fmul nnan nsz double %add163, 0x3FA99999A0000000
   br label %if.end172
 
 if.else166:                                       ; preds = %land.lhs.true156, %if.end153
@@ -18617,7 +18617,7 @@ invoke.cont90:                                    ; preds = %if.end.i.i.i.i.i235
   br i1 %cmp93, label %if.then94, label %if.end100
 
 if.then94:                                        ; preds = %invoke.cont90
-  %conv95 = fmul nsz float %call86, 0x3F50000000000000
+  %conv95 = fmul nnan nsz float %call86, 0x3F50000000000000
   %call96 = call ptr @gettext(ptr noundef nonnull @.str.92) #41
   %79 = load i64, ptr %_M_string_length.i.i.i.i232, align 8, !tbaa !14
   %call.i.i.i243 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call96) #41
@@ -31048,9 +31048,9 @@ invoke.cont133:                                   ; preds = %invoke.cont124, %in
   %72 = insertelement <2 x i48> %71, i48 %p.sroa.2.0.extract.shift.i, i64 1
   %73 = trunc <2 x i48> %72 to <2 x i16>
   %74 = sitofp <2 x i16> %73 to <2 x float>
-  %75 = fmul nsz <2 x float> %74, splat (float 1.000000e+01)
+  %75 = fmul nnan nsz <2 x float> %74, splat (float 1.000000e+01)
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
-  %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
+  %mul4.i = fmul nnan nsz float %conv3.i, 1.000000e+01
   store <2 x float> %75, ptr %ref.tmp129, align 8
   %tmp.coerce135.sroa.2.0.ref.tmp129.sroa_idx = getelementptr inbounds nuw i8, ptr %ref.tmp129, i64 8
   store float %mul4.i, ptr %tmp.coerce135.sroa.2.0.ref.tmp129.sroa_idx, align 8
@@ -31319,9 +31319,9 @@ invoke.cont285:                                   ; preds = %invoke.cont204
   %rem = urem i64 %109, 5000
   %conv215 = trunc nuw nsw i64 %rem to i32
   %conv216 = uitofp nneg i32 %conv215 to double
-  %div = fdiv nsz double %conv216, 2.500000e+03
-  %sub = fadd nsz double %div, -5.000000e-01
-  %mul = fmul nsz double %sub, 0x400921FB60000000
+  %div = fdiv nnan nsz double %conv216, 2.500000e+03
+  %sub = fadd nnan nsz double %div, -5.000000e-01
+  %mul = fmul nnan nsz double %sub, 0x400921FB60000000
   %conv217 = fptrunc double %mul to float
   %110 = call nsz noundef float @llvm.sin.f32(float %conv217)
   %mul221 = fmul nsz float %110, 0x3FB47AE140000000
@@ -35867,25 +35867,25 @@ if.then25:                                        ; preds = %if.then
   %or8.i.i.i = or disjoint i32 %32, %and7.i.i.i
   %shr.i32.i = and i32 %conv.i.i.i, 255
   %conv5.i = uitofp nneg i32 %shr.i32.i to float
-  %mul6.i = fmul nsz float %conv5.i, 0x3FECCCCCC0000000
+  %mul6.i = fmul nnan nsz float %conv5.i, 0x3FECCCCCC0000000
   %33 = fadd nsz float %mul6.i, 0x4039800060000000
   %add.i.i.i = fadd nsz float %33, 5.000000e-01
   %34 = call nsz noundef float @llvm.floor.f32(float %add.i.i.i)
   %conv.i.i = fptosi float %34 to i32
   %and.i35.i = and i32 %conv.i9.i.i, 255
   %conv11.i = uitofp nneg i32 %and.i35.i to float
-  %mul12.i = fmul nsz float %conv11.i, 0x3FECCCCCC0000000
+  %mul12.i = fmul nnan nsz float %conv11.i, 0x3FECCCCCC0000000
   %add.i.i36.i = fadd nsz float %mul12.i, 5.000000e-01
   %35 = call nsz noundef float @llvm.floor.f32(float %add.i.i36.i)
   %conv.i37.i = fptosi float %35 to i32
   %and.i41.i = and i32 %conv.i11.i.i, 255
   %conv17.i = uitofp nneg i32 %and.i41.i to float
-  %mul18.i = fmul nsz float %conv17.i, 0x3FECCCCCC0000000
+  %mul18.i = fmul nnan nsz float %conv17.i, 0x3FECCCCCC0000000
   %add.i.i42.i = fadd nsz float %mul18.i, 5.000000e-01
   %36 = call nsz noundef float @llvm.floor.f32(float %add.i.i42.i)
   %conv.i43.i = fptosi float %36 to i32
   %conv23.i = uitofp nneg i32 %and7.i.i.i to float
-  %mul24.i = fmul nsz float %conv23.i, 0x3FECCCCCC0000000
+  %mul24.i = fmul nnan nsz float %conv23.i, 0x3FECCCCCC0000000
   %add.i.i46.i = fadd nsz float %mul24.i, 5.000000e-01
   %37 = call nsz noundef float @llvm.floor.f32(float %add.i.i46.i)
   %conv.i47.i = fptosi float %37 to i32
@@ -41666,9 +41666,9 @@ if.end:                                           ; preds = %_ZN19CachedShaderSe
   %85 = insertelement <2 x i48> %84, i48 %p.sroa.2.0.extract.shift.i, i64 1
   %86 = trunc <2 x i48> %85 to <2 x i16>
   %87 = sitofp <2 x i16> %86 to <2 x float>
-  %88 = fmul nsz <2 x float> %87, splat (float 1.000000e+01)
+  %88 = fmul nnan nsz <2 x float> %87, splat (float 1.000000e+01)
   %conv3.i = sitofp i16 %p.sroa.3.0.extract.trunc.i to float
-  %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
+  %mul4.i = fmul nnan nsz float %conv3.i, 1.000000e+01
   call void @llvm.lifetime.start.p0(ptr nonnull %array.i318)
   store <2 x float> %88, ptr %array.i318, align 8, !tbaa !34
   %arrayinit.element2.i322 = getelementptr inbounds nuw i8, ptr %array.i318, i64 8

@@ -1384,7 +1384,7 @@ define noundef ptr @Saig_ManCexAbstractionFlops(ptr noundef %0, ptr noundef %1) 
   %.val48 = load i32, ptr %47, align 8, !tbaa !22
   %48 = sub nsw i32 %.val49, %.val48
   %49 = sitofp i32 %48 to double
-  %50 = fmul double %49, 1.000000e+02
+  %50 = fmul nnan double %49, 1.000000e+02
   %51 = sitofp i32 %.val49 to double
   %52 = fdiv double %50, %51
   %53 = load i32, ptr %25, align 4, !tbaa !13

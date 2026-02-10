@@ -10798,7 +10798,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit922: ; preds = %_Z
   %3705 = getelementptr inbounds nuw i8, ptr %3683, i64 8
   %3706 = load i32, ptr %3705, align 4, !tbaa !383
   %3707 = sitofp i32 %3706 to double
-  %3708 = fmul double %3707, 4.000000e-01
+  %3708 = fmul nnan double %3707, 4.000000e-01
   %3709 = load i32, ptr %3683, align 4, !tbaa !385
   %3710 = getelementptr inbounds nuw i8, ptr %3683, i64 4
   %3711 = load i32, ptr %3710, align 4, !tbaa !386
@@ -11010,7 +11010,7 @@ _ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_Mat
   %3771 = getelementptr inbounds nuw i8, ptr %3765, i64 8
   %3772 = load i32, ptr %3771, align 4, !tbaa !383
   %3773 = sitofp i32 %3772 to double
-  %3774 = fmul double %3773, 2.000000e-03
+  %3774 = fmul nnan double %3773, 2.000000e-03
   %3775 = load float, ptr %.val210, align 4, !tbaa !382
   %3776 = getelementptr inbounds nuw i8, ptr %.val210, i64 4
   %3777 = load float, ptr %3776, align 4, !tbaa !382
@@ -11029,7 +11029,7 @@ _ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_Mat
   %3789 = fptrunc double %3788 to float
   %3790 = fdiv double %3784, %sqrt.i.i
   %3791 = fptrunc double %3790 to float
-  %3792 = fmul double %3773, 4.000000e-01
+  %3792 = fmul nnan double %3773, 4.000000e-01
   %3793 = load i64, ptr %3767, align 4
   %.sroa.012.0.extract.trunc.i.i = trunc i64 %3793 to i32
   %3794 = getelementptr inbounds nuw i8, ptr %3767, i64 8
@@ -11168,7 +11168,7 @@ _ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_Mat
   %3870 = add nsw i32 %3869, %3867
   %3871 = sitofp i32 %3870 to double
   %3872 = sitofp i32 %3865 to double
-  %3873 = fmul double %3872, 1.200000e+01
+  %3873 = fmul nnan double %3872, 1.200000e+01
   %3874 = fdiv double %3873, 1.000000e+02
   %3875 = fadd double %3874, %3871
   %3876 = fptosi double %3875 to i32
@@ -11176,7 +11176,7 @@ _ZN2cv4MatxIdLi2ELi1EEC2ILi2EEERKNS0_IdLi2EXT_EEERKNS0_IdXT_ELi1EEENS_13Matx_Mat
   store double 2.550000e+02, ptr %3499, align 8, !tbaa !367, !alias.scope !399
   store double 2.550000e+02, ptr %3500, align 8, !tbaa !367, !alias.scope !399
   store double 2.550000e+02, ptr %3501, align 8, !tbaa !367, !alias.scope !399
-  %3877 = fmul double %3774, 2.000000e+00
+  %3877 = fmul nnan double %3774, 2.000000e+00
   %.sroa.2.0.insert.ext.i = zext i32 %3876 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = and i64 %3864, 4294967295
@@ -31264,7 +31264,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE7reserveEm.exit46.i.i.i: ; preds = %_ZNSt12_V
   %140 = sub nsw i32 %134, %138
   %141 = sitofp i32 %139 to double
   %142 = sitofp i32 %140 to double
-  %143 = fmul double %142, %142
+  %143 = fmul nnan double %142, %142
   %144 = tail call double @llvm.fmuladd.f64(double %141, double %141, double %143)
   %sqrt.i.i.i.i.i = tail call noundef double @llvm.sqrt.f64(double %144)
   %145 = fptrunc double %sqrt.i.i.i.i.i to float
@@ -31436,7 +31436,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit.i.i.i: ; preds = %_ZNSt6
   %225 = sub nsw i32 %219, %223
   %226 = sitofp i32 %224 to double
   %227 = sitofp i32 %225 to double
-  %228 = fmul double %227, %227
+  %228 = fmul nnan double %227, %227
   %229 = tail call double @llvm.fmuladd.f64(double %226, double %226, double %228)
   %sqrt.i.i53.i.i.i = tail call noundef double @llvm.sqrt.f64(double %229)
   %230 = fptrunc double %sqrt.i.i53.i.i.i to float

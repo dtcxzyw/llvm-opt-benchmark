@@ -748,7 +748,7 @@ define internal i32 @get_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   store i64 %28, ptr %9, align 8
   %29 = load i32, ptr %7, align 4
   %30 = sitofp i32 %29 to double
-  %31 = fmul double %30, 1.000000e+06
+  %31 = fmul nnan double %30, 1.000000e+06
   %32 = fptosi double %31 to i32
   %33 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i32 %32, ptr %33, align 8

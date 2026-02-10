@@ -16221,7 +16221,7 @@ define noundef zeroext i1 @_Z16change_dd_cutoffP9t_commrecPA3_KfN3gmx8ArrayRefIK
   %40 = getelementptr inbounds i32, ptr %19, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !4
   %42 = sitofp i32 %41 to double
-  %43 = fmul double %42, 1.000100e+00
+  %43 = fmul nnan double %42, 1.000100e+00
   %44 = getelementptr inbounds float, ptr %23, i64 %39
   %45 = load float, ptr %44, align 4, !tbaa !185
   %46 = fpext float %45 to double
@@ -16253,7 +16253,7 @@ define noundef zeroext i1 @_Z16change_dd_cutoffP9t_commrecPA3_KfN3gmx8ArrayRefIK
   %63 = getelementptr inbounds i32, ptr %19, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !4
   %65 = sitofp i32 %64 to double
-  %66 = fmul double %65, 1.000100e+00
+  %66 = fmul nnan double %65, 1.000100e+00
   %67 = getelementptr inbounds float, ptr %23, i64 %62
   %68 = load float, ptr %67, align 4, !tbaa !185
   %69 = fpext float %68 to double
@@ -16286,7 +16286,7 @@ define noundef zeroext i1 @_Z16change_dd_cutoffP9t_commrecPA3_KfN3gmx8ArrayRefIK
   %83 = getelementptr inbounds i32, ptr %19, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !4
   %85 = sitofp i32 %84 to double
-  %86 = fmul double %85, 1.000100e+00
+  %86 = fmul nnan double %85, 1.000100e+00
   %87 = getelementptr inbounds float, ptr %23, i64 %82
   %88 = load float, ptr %87, align 4, !tbaa !185
   %89 = fpext float %88 to double
@@ -16359,7 +16359,7 @@ define noundef zeroext i1 @_Z16change_dd_cutoffP9t_commrecPA3_KfN3gmx8ArrayRefIK
   %130 = getelementptr inbounds i32, ptr %19, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !4
   %132 = sitofp i32 %131 to double
-  %133 = fmul double %132, 1.000100e+00
+  %133 = fmul nnan double %132, 1.000100e+00
   %134 = getelementptr inbounds float, ptr %23, i64 %129
   %135 = load float, ptr %134, align 4, !tbaa !185
   %136 = fpext float %135 to double
@@ -16415,7 +16415,7 @@ define noundef zeroext i1 @_Z16change_dd_cutoffP9t_commrecPA3_KfN3gmx8ArrayRefIK
   %168 = getelementptr inbounds i32, ptr %19, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !4
   %170 = sitofp i32 %169 to double
-  %171 = fmul double %170, 1.000100e+00
+  %171 = fmul nnan double %170, 1.000100e+00
   %172 = getelementptr inbounds float, ptr %23, i64 %167
   %173 = load float, ptr %172, align 4, !tbaa !185
   %174 = fpext float %173 to double

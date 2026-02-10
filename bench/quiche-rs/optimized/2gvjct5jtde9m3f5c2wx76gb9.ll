@@ -6180,7 +6180,7 @@ define internal void @_ZN6quiche8recovery10congestion4reno16congestion_event17he
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = uitofp i64 %15 to double
-  %17 = fmul double %16, 5.000000e-01
+  %17 = fmul nnan double %16, 5.000000e-01
   %18 = tail call i64 @llvm.fptoui.sat.i64.f64(double %17)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1464
   %20 = load i64, ptr %19, align 8, !noundef !3
@@ -6188,7 +6188,7 @@ define internal void @_ZN6quiche8recovery10congestion4reno16congestion_event17he
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %21, i64 %18)
   store i64 %.sroa.0.0.sroa.speculated.i, ptr %14, align 8
   %22 = uitofp i64 %.sroa.0.0.sroa.speculated.i to double
-  %23 = fmul double %22, 5.000000e-01
+  %23 = fmul nnan double %22, 5.000000e-01
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %25 = tail call i64 @llvm.fptoui.sat.i64.f64(double %23)
   store i64 %25, ptr %24, align 8

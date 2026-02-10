@@ -6900,11 +6900,11 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
   %55 = call double @llvm.floor.f64(double %54)
   %56 = fptosi double %55 to i32
   %57 = sitofp i32 %spec.select.i to double
-  %58 = fmul double %57, 2.500000e-01
+  %58 = fmul nnan double %57, 2.500000e-01
   %59 = call double @llvm.floor.f64(double %58)
   %60 = fptosi double %59 to i32
   %61 = sitofp i32 %49 to double
-  %62 = fmul double %61, 2.500000e-01
+  %62 = fmul nnan double %61, 2.500000e-01
   %63 = call double @llvm.floor.f64(double %62)
   %64 = fptosi double %63 to i32
   %65 = add i32 %40, %56

@@ -3711,7 +3711,7 @@ invoke.cont45:                                    ; preds = %call.i119.noexc
   %add9.i.i17.i.i.i411 = fadd double %add9.i.i.i.i.i405, %93
   %mul7.i.i.i23.i.i.i420 = fmul double %ref.tmp6.sroa.6.0.copyload.i.i.i417, 0.000000e+00
   %mul7.i.i.i29.i.i.i429 = fmul double %ref.tmp8.sroa.7.0.copyload.i.i.i426, 0.000000e+00
-  %add9.i.i36.i.i.i432 = fadd double %mul7.i.i.i23.i.i.i420, %mul7.i.i.i29.i.i.i429
+  %add9.i.i36.i.i.i432 = fadd ninf double %mul7.i.i.i23.i.i.i420, %mul7.i.i.i29.i.i.i429
   %add9.i.i43.i.i.i438 = fadd double %add9.i.i36.i.i.i432, %96
   %mul7.i.i.i49.i.i.i441 = fmul double %add9.i.i43.i.i.i438, 0.000000e+00
   %add9.i.i62.i.i.i444 = fadd double %add9.i.i17.i.i.i411, %mul7.i.i.i49.i.i.i441
@@ -3721,7 +3721,7 @@ invoke.cont45:                                    ; preds = %call.i119.noexc
   %add.i.i11.i.i.i407 = fadd double %add.i.i.i.i.i403, %91
   %mul.i.i.i19.i.i.i418 = fmul double %ref.tmp6.sroa.0.0.copyload.i.i.i413, 0.000000e+00
   %mul.i.i.i25.i.i.i427 = fmul double %ref.tmp8.sroa.0.0.copyload.i.i.i422, 0.000000e+00
-  %add.i.i30.i.i.i430 = fadd double %mul.i.i.i19.i.i.i418, %mul.i.i.i25.i.i.i427
+  %add.i.i30.i.i.i430 = fadd ninf double %mul.i.i.i19.i.i.i418, %mul.i.i.i25.i.i.i427
   %add.i.i37.i.i.i434 = fadd double %add.i.i30.i.i.i430, %94
   %mul.i.i.i45.i.i.i439 = fmul double %add.i.i37.i.i.i434, 0.000000e+00
   %add.i.i56.i.i.i442 = fadd double %add.i.i11.i.i.i407, %mul.i.i.i45.i.i.i439
@@ -3731,7 +3731,7 @@ invoke.cont45:                                    ; preds = %call.i119.noexc
   %add5.i.i14.i.i.i409 = fadd double %add5.i.i.i.i.i404, %92
   %mul4.i.i.i21.i.i.i419 = fmul double %ref.tmp6.sroa.4.0.copyload.i.i.i415, 0.000000e+00
   %mul4.i.i.i27.i.i.i428 = fmul double %ref.tmp8.sroa.4.0.copyload.i.i.i424, 0.000000e+00
-  %add5.i.i33.i.i.i431 = fadd double %mul4.i.i.i21.i.i.i419, %mul4.i.i.i27.i.i.i428
+  %add5.i.i33.i.i.i431 = fadd ninf double %mul4.i.i.i21.i.i.i419, %mul4.i.i.i27.i.i.i428
   %add5.i.i40.i.i.i436 = fadd double %add5.i.i33.i.i.i431, %95
   %mul4.i.i.i47.i.i.i440 = fmul double %add5.i.i40.i.i.i436, 0.000000e+00
   %add5.i.i59.i.i.i443 = fadd double %add5.i.i14.i.i.i409, %mul4.i.i.i47.i.i.i440
@@ -3823,9 +3823,9 @@ invoke.cont45:                                    ; preds = %call.i119.noexc
   %mul.i.i.i25.i.i.i = fmul double %ref.tmp8.sroa.0.0.copyload.i.i.i, 0.000000e+00
   %mul4.i.i.i27.i.i.i = fmul double %ref.tmp8.sroa.4.0.copyload.i.i.i, 0.000000e+00
   %mul7.i.i.i29.i.i.i = fmul double %ref.tmp8.sroa.7.0.copyload.i.i.i, 0.000000e+00
-  %add.i.i30.i.i.i = fadd double %mul.i.i.i19.i.i.i, %mul.i.i.i25.i.i.i
-  %add5.i.i33.i.i.i = fadd double %mul4.i.i.i21.i.i.i, %mul4.i.i.i27.i.i.i
-  %add9.i.i36.i.i.i = fadd double %mul7.i.i.i23.i.i.i, %mul7.i.i.i29.i.i.i
+  %add.i.i30.i.i.i = fadd ninf double %mul.i.i.i19.i.i.i, %mul.i.i.i25.i.i.i
+  %add5.i.i33.i.i.i = fadd ninf double %mul4.i.i.i21.i.i.i, %mul4.i.i.i27.i.i.i
+  %add9.i.i36.i.i.i = fadd ninf double %mul7.i.i.i23.i.i.i, %mul7.i.i.i29.i.i.i
   %128 = load double, ptr %mFrFarOrigin.i.i.i433, align 8, !noalias !70
   %add.i.i37.i.i.i = fadd double %add.i.i30.i.i.i, %128
   %129 = load double, ptr %arrayidx.i.i.i.i38.i.i.i435, align 8, !noalias !70
@@ -23469,10 +23469,10 @@ lpad23:                                           ; preds = %try.cont, %catch
   resume { ptr, i32 } %9
 
 if.end:                                           ; preds = %entry
-  %mul = fmul double %sub.i.i.i, 5.000000e-01
+  %mul = fmul nnan double %sub.i.i.i, 5.000000e-01
   %mXo = getelementptr inbounds nuw i8, ptr %this, i64 472
   store double %mul, ptr %mXo, align 8
-  %mul27 = fmul double %sub5.i.i.i5, 5.000000e-01
+  %mul27 = fmul nnan double %sub5.i.i.i5, 5.000000e-01
   %mYo = getelementptr inbounds nuw i8, ptr %this, i64 480
   store double %mul27, ptr %mYo, align 8
   %mTaper = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -23487,7 +23487,7 @@ if.end:                                           ; preds = %entry
   %div31 = fdiv double %11, %sub9.i.i.i16
   %mDepthOnLz = getelementptr inbounds nuw i8, ptr %this, i64 496
   store double %div31, ptr %mDepthOnLz, align 8
-  %mul35 = fmul double %sub.i.i.i, %sub.i.i.i
+  %mul35 = fmul nnan double %sub.i.i.i, %sub.i.i.i
   %div36 = fdiv double %div31, %mul35
   %mDepthOnLzLxLx = getelementptr inbounds nuw i8, ptr %this, i64 504
   store double %div36, ptr %mDepthOnLzLxLx, align 8
@@ -27351,9 +27351,9 @@ entry:
   %mul.i.i.i6.i.i = fmul double %ref.tmp3.sroa.0.0.copyload.i.i, 0.000000e+00
   %mul4.i.i.i8.i.i = fmul double %ref.tmp3.sroa.4.0.copyload.i.i, 0.000000e+00
   %mul7.i.i.i10.i.i = fmul double %ref.tmp3.sroa.7.0.copyload.i.i, 0.000000e+00
-  %add.i.i.i.i = fadd double %mul.i.i.i.i.i, %mul.i.i.i6.i.i
-  %add5.i.i.i.i = fadd double %mul4.i.i.i.i.i, %mul4.i.i.i8.i.i
-  %add9.i.i.i.i = fadd double %mul7.i.i.i.i.i, %mul7.i.i.i10.i.i
+  %add.i.i.i.i = fadd ninf double %mul.i.i.i.i.i, %mul.i.i.i6.i.i
+  %add5.i.i.i.i = fadd ninf double %mul4.i.i.i.i.i, %mul4.i.i.i8.i.i
+  %add9.i.i.i.i = fadd ninf double %mul7.i.i.i.i.i, %mul7.i.i.i10.i.i
   %mFrNearOrigin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 632
   %0 = load double, ptr %mFrNearOrigin.i.i, align 8, !noalias !697
   %add.i.i11.i.i = fadd double %add.i.i.i.i, %0

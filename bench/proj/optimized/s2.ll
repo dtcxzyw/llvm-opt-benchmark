@@ -459,7 +459,7 @@ _ZL6STtoUVd16S2ProjectionType.exit.thread27:      ; preds = %3
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %12
-  %15 = fmul double %0, 4.000000e+00
+  %15 = fmul nnan double %0, 4.000000e+00
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %0, double -1.000000e+00)
   br label %_ZL6STtoUVd16S2ProjectionType.exit.thread
 
@@ -485,7 +485,7 @@ _ZL6STtoUVd16S2ProjectionType.exit.thread:        ; preds = %17, %14
   br i1 %27, label %32, label %28
 
 28:                                               ; preds = %_ZL6STtoUVd16S2ProjectionType.exit.thread
-  %29 = fmul double %1, 4.000000e+00
+  %29 = fmul nnan double %1, 4.000000e+00
   %30 = tail call double @llvm.fmuladd.f64(double %29, double %1, double -1.000000e+00)
   %31 = fmul double %30, 0x3FD5555555555555
   br label %_ZL6STtoUVd16S2ProjectionType.exit23

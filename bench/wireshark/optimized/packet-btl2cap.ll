@@ -1771,14 +1771,14 @@ dissect_configrequest.exit:                       ; preds = %.thread67.i, %377
   %626 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %625, ptr noundef %0, i32 noundef range(i32 -2147483644, 65543) %289, i32 noundef 2, i32 noundef -2147483648)
   %627 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef range(i32 -2147483644, 65543) %289)
   %628 = uitofp i16 %627 to double
-  %629 = fmul double %628, 1.250000e+00
+  %629 = fmul nnan double %628, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %626, ptr noundef nonnull @.str.447, double noundef %629)
   %630 = add nsw i32 %.0503590, 6
   %631 = load i32, ptr @hf_btl2cap_max_interval, align 4
   %632 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %631, ptr noundef %0, i32 noundef %630, i32 noundef 2, i32 noundef -2147483648)
   %633 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %630)
   %634 = uitofp i16 %633 to double
-  %635 = fmul double %634, 1.250000e+00
+  %635 = fmul nnan double %634, 1.250000e+00
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %632, ptr noundef nonnull @.str.447, double noundef %635)
   %636 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %630)
   %637 = add nsw i32 %.0503590, 8
@@ -1799,9 +1799,9 @@ dissect_configrequest.exit:                       ; preds = %.thread67.i, %377
   %645 = add nsw i32 %.0503590, 10
   %646 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %645)
   %647 = uitofp i16 %646 to double
-  %648 = fmul double %647, 1.000000e+01
+  %648 = fmul nnan double %647, 1.000000e+01
   %649 = uitofp i16 %636 to double
-  %650 = fmul double %649, 1.250000e+00
+  %650 = fmul nnan double %649, 1.250000e+00
   %651 = fdiv double %648, %650
   %652 = fcmp olt double %651, %644
   br i1 %652, label %653, label %dissect_connparamrequest.exit
@@ -1817,7 +1817,7 @@ dissect_connparamrequest.exit:                    ; preds = %643, %653
   %656 = call ptr @proto_tree_add_item(ptr noundef %275, i32 noundef %655, ptr noundef %0, i32 noundef %.pre-phi.i, i32 noundef 2, i32 noundef -2147483648)
   %657 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %.pre-phi.i)
   %658 = uitofp i16 %657 to double
-  %659 = fmul double %658, 1.000000e-02
+  %659 = fmul nnan double %658, 1.000000e-02
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %656, ptr noundef nonnull @.str.448, double noundef %659)
   %660 = add nsw i32 %.0503590, 12
   br label %dissect_comrej.exit

@@ -252,7 +252,7 @@ define void @Io_WriteBook(ptr noundef captures(address) %0, ptr noundef %1) loca
   %72 = fdiv double %63, %71
   %73 = fptosi double %72 to i32
   %74 = sitofp i32 %73 to double
-  %75 = fmul double %71, %74
+  %75 = fmul nnan double %71, %74
   %76 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, i32 noundef 1)
   %77 = udiv i32 %.1, %65
   %78 = uitofp i32 %77 to double
@@ -265,8 +265,8 @@ define void @Io_WriteBook(ptr noundef captures(address) %0, ptr noundef %1) loca
   %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, double noundef %74)
   %84 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.55, double noundef %71, i32 noundef %64)
   %85 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.50, double noundef %75)
-  %86 = fsub double %75, %62
-  %87 = fmul double %86, 1.000000e+02
+  %86 = fsub nnan double %75, %62
+  %87 = fmul nnan double %86, 1.000000e+02
   %88 = fdiv double %87, %75
   %89 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.51, double noundef %88)
   %90 = fdiv double %74, %71
@@ -316,7 +316,7 @@ Vec_PtrAlloc.exit.i.i:                            ; preds = %111, %Io_NtkWriteSc
   %115 = phi ptr [ %114, %111 ], [ null, %Io_NtkWriteScl.exit.i ]
   %116 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store ptr %115, ptr %116, align 8, !tbaa !33
-  %117 = fmul double %74, 2.000000e+00
+  %117 = fmul nnan double %74, 2.000000e+00
   %118 = tail call double @llvm.fmuladd.f64(double %71, double 2.000000e+00, double %117)
   %119 = uitofp i32 %70 to double
   %120 = fdiv double %71, %118
@@ -325,7 +325,7 @@ Vec_PtrAlloc.exit.i.i:                            ; preds = %111, %Io_NtkWriteSc
   %123 = shl i32 %122, 1
   %124 = sub i32 %70, %123
   %125 = uitofp i32 %124 to double
-  %126 = fmul double %125, 5.000000e-01
+  %126 = fmul nnan double %125, 5.000000e-01
   %127 = tail call double @llvm.ceil.f64(double %126)
   %128 = fptoui double %127 to i32
   %129 = sub i32 %124, %128

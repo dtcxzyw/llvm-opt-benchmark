@@ -349,7 +349,7 @@ define dso_local noundef zeroext i1 @block_job_set_speed_locked(ptr noundef %0, 
 
 22:                                               ; preds = %16
   %23 = uitofp nneg i64 %1 to double
-  %24 = fmul double %23, 1.000000e+08
+  %24 = fmul nnan double %23, 1.000000e+08
   %25 = fdiv double %24, 1.000000e+09
   %26 = fcmp ogt double %25, 1.000000e+00
   %27 = select i1 %26, double %25, double 1.000000e+00

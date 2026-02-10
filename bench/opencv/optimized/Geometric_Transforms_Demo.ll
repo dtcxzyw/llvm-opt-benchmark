@@ -398,18 +398,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %.b
   %.sroa_idx181 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store float %141, ptr %.sroa_idx181, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %143 = fmul float %140, 0x3FD51EB860000000
+  %143 = fmul nnan float %140, 0x3FD51EB860000000
   %.sroa_idx178 = getelementptr inbounds nuw i8, ptr %13, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   store float %143, ptr %.sroa_idx178, align 4
-  %144 = fmul float %135, 0x3FEB333340000000
-  %145 = fmul float %140, 2.500000e-01
+  %144 = fmul nnan float %135, 0x3FEB333340000000
+  %145 = fmul nnan float %140, 2.500000e-01
   %146 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store float %144, ptr %146, align 8
   %.sroa_idx175 = getelementptr inbounds nuw i8, ptr %13, i64 12
   store float %145, ptr %.sroa_idx175, align 4
-  %147 = fmul float %135, 0x3FC3333340000000
-  %148 = fmul float %140, 0x3FE6666660000000
+  %147 = fmul nnan float %135, 0x3FC3333340000000
+  %148 = fmul nnan float %140, 0x3FE6666660000000
   %149 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store float %147, ptr %149, align 16
   %.sroa_idx173 = getelementptr inbounds nuw i8, ptr %13, i64 20

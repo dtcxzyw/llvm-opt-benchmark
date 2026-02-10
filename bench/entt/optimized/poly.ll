@@ -24746,7 +24746,7 @@ define linkonce_odr hidden noundef i32 @_ZZN4entt11poly_vtableI7DefinedLm16ELm8E
   %4 = sitofp i32 %1 to double
   %5 = load i32, ptr %3, align 4, !tbaa !224
   %6 = sitofp i32 %5 to double
-  %7 = fmul double %4, %6
+  %7 = fmul nnan double %4, %6
   %8 = fptosi double %7 to i32
   ret i32 %8
 }
@@ -54859,7 +54859,7 @@ define linkonce_odr hidden noundef i32 @_ZZN4entt11poly_vtableI7DefinedLm0ELm8EE
   %4 = sitofp i32 %1 to double
   %5 = load i32, ptr %3, align 4, !tbaa !224
   %6 = sitofp i32 %5 to double
-  %7 = fmul double %4, %6
+  %7 = fmul nnan double %4, %6
   %8 = fptosi double %7 to i32
   ret i32 %8
 }
@@ -59325,7 +59325,7 @@ define linkonce_odr hidden noundef i32 @_ZZN4entt11poly_vtableI7DefinedLm64ELm64
   %4 = sitofp i32 %1 to double
   %5 = load i32, ptr %3, align 64, !tbaa !224
   %6 = sitofp i32 %5 to double
-  %7 = fmul double %4, %6
+  %7 = fmul nnan double %4, %6
   %8 = fptosi double %7 to i32
   ret i32 %8
 }
@@ -63176,7 +63176,7 @@ define linkonce_odr hidden noundef i32 @_ZZN4entt11poly_vtableI7DefinedLm64ELm8E
   %4 = sitofp i32 %1 to double
   %5 = load i32, ptr %3, align 64, !tbaa !224
   %6 = sitofp i32 %5 to double
-  %7 = fmul double %4, %6
+  %7 = fmul nnan double %4, %6
   %8 = fptosi double %7 to i32
   ret i32 %8
 }
@@ -68048,7 +68048,7 @@ define linkonce_odr hidden noundef i32 @_ZZN4entt11poly_vtableI14DefinedDerivedL
   %4 = sitofp i32 %1 to double
   %5 = load i32, ptr %3, align 4, !tbaa !224
   %6 = sitofp i32 %5 to double
-  %7 = fmul double %4, %6
+  %7 = fmul nnan double %4, %6
   %8 = fptosi double %7 to i32
   ret i32 %8
 }

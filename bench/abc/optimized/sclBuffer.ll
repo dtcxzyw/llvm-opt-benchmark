@@ -757,7 +757,7 @@ Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.ex
   %.0.lcssa.ph = phi i32 [ %.0104, %24 ], [ %.2, %.critedge2 ]
   %75 = sitofp i32 %.0.lcssa.ph to double
   %76 = sitofp i32 %.052.lcssa.ph to double
-  %77 = fmul double %76, 1.000000e+02
+  %77 = fmul nnan double %76, 1.000000e+02
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %Vec_IntStart.exit
@@ -769,7 +769,7 @@ Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.ex
 
 78:                                               ; preds = %.critedge
   %79 = sitofp i32 %.055.lcssa to double
-  %80 = fmul double %79, 1.000000e+02
+  %80 = fmul nnan double %79, 1.000000e+02
   %81 = fdiv double %80, %.0.lcssa
   %82 = fdiv double %.052.lcssa, %.0.lcssa
   %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %.055.lcssa, double noundef %81, double noundef %82)
@@ -1063,7 +1063,7 @@ Abc_SclObjIsBufInv.exit:                          ; preds = %23
 
 71:                                               ; preds = %.critedge
   %72 = sitofp i32 %.041.lcssa to double
-  %73 = fmul double %72, 1.000000e+02
+  %73 = fmul nnan double %72, 1.000000e+02
   %74 = fdiv double %73, %.0.lcssa
   %75 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %.041.lcssa, double noundef %74)
   %76 = tail call ptr @Abc_NtkDupDfs(ptr noundef nonnull %0) #18

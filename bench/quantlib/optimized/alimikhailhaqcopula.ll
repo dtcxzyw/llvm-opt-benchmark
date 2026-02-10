@@ -622,9 +622,9 @@ ehcleanup72:                                      ; preds = %if.then.i.i62, %ehc
   br label %eh.resume
 
 do.end75:                                         ; preds = %do.body30
-  %mul = fmul double %x, %y
+  %mul = fmul nnan double %x, %y
   %34 = load double, ptr %this, align 8, !tbaa !3
-  %sub = fsub double 1.000000e+00, %x
+  %sub = fsub nnan double 1.000000e+00, %x
   %sub77 = fsub double 1.000000e+00, %y
   %35 = fneg double %sub
   %neg = fmul double %34, %35

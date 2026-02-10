@@ -8192,7 +8192,7 @@ define hidden noundef zeroext i1 @_ZN2cv16GStreamerCapture19configureAudioFrameE
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %47 = load i64, ptr %46, align 8, !tbaa !206
   %48 = sitofp i64 %47 to double
-  %49 = fmul double %48, 1.000000e-09
+  %49 = fmul nnan double %48, 1.000000e-09
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %51 = load i32, ptr %50, align 8, !tbaa !48
   %52 = sitofp i32 %51 to double
@@ -17824,8 +17824,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1049: ; preds = %1
 1617:                                             ; preds = %1615
   %1618 = load i64, ptr %1616, align 8, !tbaa !545
   %1619 = sitofp i64 %1618 to float
-  %1620 = fdiv float %1619, 1.000000e+09
-  %1621 = fpext float %1620 to double
+  %1620 = fdiv nnan float %1619, 1.000000e+09
+  %1621 = fpext nnan float %1620 to double
   %1622 = load double, ptr %1587, align 8, !tbaa !6
   %1623 = fmul double %1622, %1621
   %1624 = fptosi double %1623 to i64
@@ -21191,7 +21191,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit273: ; preds = %38
   br i1 %395, label %396, label %400
 
 396:                                              ; preds = %394
-  %397 = fmul double %2, 1.000000e+06
+  %397 = fmul nnan double %2, 1.000000e+06
   %398 = fptoui double %397 to i64
   %399 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i64 %398, ptr %399, align 8, !tbaa !39
@@ -21291,7 +21291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283: ; preds = %42
   br i1 %431, label %432, label %436
 
 432:                                              ; preds = %430
-  %433 = fmul double %2, 1.000000e+06
+  %433 = fmul nnan double %2, 1.000000e+06
   %434 = fptoui double %433 to i64
   %435 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store i64 %434, ptr %435, align 8, !tbaa !40

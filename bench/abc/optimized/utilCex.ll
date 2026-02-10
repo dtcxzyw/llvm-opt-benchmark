@@ -678,7 +678,7 @@ define void @Abc_CexPrintStats(ptr noundef %0) local_unnamed_addr #4 {
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %24 = load i32, ptr %23, align 4, !tbaa !8
   %25 = uitofp nneg i32 %.0.lcssa to double
-  %26 = fmul double %25, 1.000000e+02
+  %26 = fmul nnan double %25, 1.000000e+02
   %27 = sub nsw i32 %3, %22
   %28 = sitofp i32 %27 to double
   %29 = fdiv double %26, %28
@@ -779,7 +779,7 @@ define void @Abc_CexPrintStatsInputs(ptr noundef %0, i32 noundef %1) local_unnam
   %43 = load i32, ptr %42, align 4, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %45 = uitofp nneg i32 %.041.lcssa to double
-  %46 = fmul double %45, 1.000000e+02
+  %46 = fmul nnan double %45, 1.000000e+02
   %47 = add nsw i32 %41, 1
   %48 = mul nsw i32 %38, %47
   %49 = sitofp i32 %48 to double
@@ -791,14 +791,14 @@ define void @Abc_CexPrintStatsInputs(ptr noundef %0, i32 noundef %1) local_unnam
 
 54:                                               ; preds = %._crit_edge
   %55 = sitofp i32 %.039.lcssa to double
-  %56 = fmul double %55, 1.000000e+02
+  %56 = fmul nnan double %55, 1.000000e+02
   %57 = load i32, ptr %40, align 4, !tbaa !11
   %58 = add nsw i32 %57, 1
   %59 = mul nsw i32 %58, %1
   %60 = sitofp i32 %59 to double
   %61 = fdiv double %56, %60
   %62 = sitofp i32 %.0.lcssa to double
-  %63 = fmul double %62, 1.000000e+02
+  %63 = fmul nnan double %62, 1.000000e+02
   %64 = sub nsw i32 %52, %1
   %65 = mul nsw i32 %58, %64
   %66 = sitofp i32 %65 to double
@@ -860,7 +860,7 @@ define void @Abc_CexPrint(ptr noundef %0) local_unnamed_addr #4 {
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !8
   %24 = uitofp nneg i32 %.0.lcssa.i to double
-  %25 = fmul double %24, 1.000000e+02
+  %25 = fmul nnan double %24, 1.000000e+02
   %26 = sub nsw i32 %4, %21
   %27 = sitofp i32 %26 to double
   %28 = fdiv double %25, %27

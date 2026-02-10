@@ -10412,7 +10412,7 @@ _ZN4rand3rng3Rng3gen17h5cb0d5f87493ee54E.llvm.800285880109910518.exit: ; preds =
   %.0.i.i.i = phi i64 [ %12, %9 ], [ %22, %21 ], [ %20, %13 ]
   %23 = lshr i64 %.0.i.i.i, 11
   %24 = uitofp nneg i64 %23 to double
-  %25 = fmul double %24, 0x3CA0000000000000
+  %25 = fmul nnan double %24, 0x3CA0000000000000
   ret double %25
 }
 

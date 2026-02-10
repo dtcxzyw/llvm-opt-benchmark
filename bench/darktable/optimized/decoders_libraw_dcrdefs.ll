@@ -708,7 +708,7 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   %78 = getelementptr inbounds nuw i16, ptr %44, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !77
   %80 = uitofp i16 %79 to float
-  %81 = fmul reassoc nsz arcp contract afn float %80, 0x3F70101020000000
+  %81 = fmul reassoc nnan nsz arcp contract afn float %80, 0x3F70101020000000
   %82 = fptoui float %81 to i16
   %83 = getelementptr inbounds nuw [4 x i16], ptr %64, i64 %indvars.iv142
   store i16 %82, ptr %83, align 2, !tbaa !77
@@ -718,7 +718,7 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   %87 = getelementptr inbounds nuw i16, ptr %44, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !77
   %89 = uitofp i16 %88 to float
-  %90 = fmul reassoc nsz arcp contract afn float %89, 0x3F70101020000000
+  %90 = fmul reassoc nnan nsz arcp contract afn float %89, 0x3F70101020000000
   %91 = fptoui float %90 to i16
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 2
   store i16 %91, ptr %92, align 2, !tbaa !77
@@ -728,7 +728,7 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   %96 = getelementptr inbounds nuw i16, ptr %44, i64 %95
   %97 = load i16, ptr %96, align 2, !tbaa !77
   %98 = uitofp i16 %97 to float
-  %99 = fmul reassoc nsz arcp contract afn float %98, 0x3F70101020000000
+  %99 = fmul reassoc nnan nsz arcp contract afn float %98, 0x3F70101020000000
   %100 = fptoui float %99 to i16
   %101 = getelementptr inbounds nuw i8, ptr %83, i64 4
   store i16 %100, ptr %101, align 2, !tbaa !77
@@ -748,7 +748,7 @@ define void @_ZN6LibRaw23nikon_coolscan_load_rawEv(ptr noundef nonnull align 8 d
   %109 = getelementptr inbounds nuw i16, ptr %44, i64 %108
   %110 = load i16, ptr %109, align 2, !tbaa !77
   %111 = uitofp i16 %110 to float
-  %112 = fmul reassoc nsz arcp contract afn float %111, 0x3F70101020000000
+  %112 = fmul reassoc nnan nsz arcp contract afn float %111, 0x3F70101020000000
   %113 = fptoui float %112 to i16
   %114 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv139
   store i16 %113, ptr %114, align 2, !tbaa !77

@@ -2797,7 +2797,7 @@ _ZN2cv3dnnL10packWeightEmmmPKfmRSt6vectorIfSaIfEERKNS0_11FastGemmOptE.exit79: ; 
   %246 = mul i64 %245, %236
   %247 = mul i64 %246, %238
   %248 = uitofp i64 %247 to double
-  %249 = fmul double %248, 0x3F50000000000000
+  %249 = fmul nnan double %248, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %20, ptr noundef %21, double noundef %249)
           to label %250 unwind label %363
 
@@ -2873,7 +2873,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %250, %252
   %275 = mul i64 %265, %263
   %276 = mul i64 %275, %267
   %277 = uitofp i64 %276 to double
-  %278 = fmul double %277, 0x3F50000000000000
+  %278 = fmul nnan double %277, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %26, ptr noundef %27, double noundef %278)
           to label %279 unwind label %373
 
@@ -3016,7 +3016,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %301, %302
   %325 = mul i64 %314, %312
   %326 = mul i64 %325, %317
   %327 = uitofp i64 %326 to double
-  %328 = fmul double %327, 0x3F50000000000000
+  %328 = fmul nnan double %327, 0x3F50000000000000
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %34, ptr noundef %35, double noundef %328)
           to label %329 unwind label %386
 

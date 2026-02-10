@@ -1867,7 +1867,7 @@ Sml_NodeSaveNotImpPatterns.exit:                  ; preds = %Sml_NodeSaveNotImpP
 
 Fra_SmlCountOnesOne.exit.loopexit:                ; preds = %.lr.ph.i27
   %81 = sitofp i32 %80 to double
-  %82 = fmul double %81, 1.000000e+02
+  %82 = fmul nnan double %81, 1.000000e+02
   br label %Fra_SmlCountOnesOne.exit
 
 Fra_SmlCountOnesOne.exit:                         ; preds = %Fra_SmlCountOnesOne.exit.loopexit, %.critedge

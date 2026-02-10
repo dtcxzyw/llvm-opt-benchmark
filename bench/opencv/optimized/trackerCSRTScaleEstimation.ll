@@ -260,7 +260,7 @@ define hidden void @_ZN2cv4DSSTC2ERKNS_3MatENS_5Rect_IfEENS_5Size_IfEEiffff(ptr 
   %123 = uitofp nneg i32 %122 to float
   %124 = load i32, ptr %39, align 8, !tbaa !9
   %125 = sitofp i32 %124 to float
-  %126 = fmul float %125, 5.000000e-01
+  %126 = fmul nnan float %125, 5.000000e-01
   %127 = call float @llvm.ceil.f32(float %126)
   %128 = fptosi float %127 to i32
   %129 = sitofp i32 %128 to float
@@ -280,7 +280,7 @@ define hidden void @_ZN2cv4DSSTC2ERKNS_3MatENS_5Rect_IfEENS_5Size_IfEEiffff(ptr 
   %140 = load float, ptr %40, align 4, !tbaa !26
   %141 = load i32, ptr %39, align 8, !tbaa !9
   %142 = sitofp i32 %141 to float
-  %143 = fmul float %142, 5.000000e-01
+  %143 = fmul nnan float %142, 5.000000e-01
   %144 = call float @llvm.ceil.f32(float %143)
   %145 = fptosi float %144 to i32
   %146 = sitofp i32 %145 to float

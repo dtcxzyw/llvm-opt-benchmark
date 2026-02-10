@@ -4835,7 +4835,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exi
   %130 = add nsw i32 %.sroa.069.094, 1
   %.sroa.069.1 = select i1 %129, i32 32, i32 %130
   %131 = sitofp i32 %.sroa.069.094 to double
-  %132 = fmul double %131, 3.125000e-02
+  %132 = fmul nnan double %131, 3.125000e-02
   %133 = invoke noundef double @_ZN5typst6layout5ratio5Ratio3get17h8726a92508d6c43bE(double noundef %120)
           to label %135 unwind label %.loopexit90
 
@@ -4848,7 +4848,7 @@ _ZN10pdf_writer6object3Ref3new17h6ae42fc50dc8fcf0E.llvm.14982894775678554951.exi
           to label %137 unwind label %.loopexit90
 
 137:                                              ; preds = %135
-  %138 = fsub double 1.000000e+00, %132
+  %138 = fsub nnan double 1.000000e+00, %132
   %139 = fmul double %138, %133
   %140 = fmul double %132, %136
   %141 = fadd double %139, %140

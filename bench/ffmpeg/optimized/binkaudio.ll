@@ -124,7 +124,7 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   %67 = sdiv i64 %66, 2
   %68 = trunc nsw i64 %67 to i32
   %69 = sitofp i32 %58 to double
-  %70 = tail call nsz double @llvm.sqrt.f64(double %69)
+  %70 = tail call ninf nsz double @llvm.sqrt.f64(double %69)
   %71 = fmul nsz double %70, 3.276800e+04
   %.113 = select i1 %39, double 2.000000e+00, double %69
   %72 = fdiv nsz double %.113, %71
@@ -138,8 +138,8 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   %indvars.iv = phi i64 [ 0, %57 ], [ %indvars.iv.next, %76 ]
   %77 = trunc nuw nsw i64 %indvars.iv to i32
   %78 = uitofp nneg i32 %77 to float
-  %79 = fmul nsz float %78, 0x3FC391F420000000
-  %80 = tail call nsz float @llvm.exp.f32(float %79)
+  %79 = fmul nnan nsz float %78, 0x3FC391F420000000
+  %80 = tail call nnan nsz float @llvm.exp.f32(float %79)
   %81 = fmul nsz float %80, %73
   %82 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv
   store float %81, ptr %82, align 4, !tbaa !49

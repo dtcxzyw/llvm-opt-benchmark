@@ -999,15 +999,15 @@ filesize.exit:                                    ; preds = %15, %18, %21
 
 ._crit_edge.loopexit.i:                           ; preds = %102
   %47 = uitofp i64 %.1.i to double
-  %48 = fmul nsz double %47, 0x3F50000000000000
+  %48 = fmul nnan nsz double %47, 0x3F50000000000000
   %49 = uitofp i64 %.165.i to double
-  %50 = fmul nsz double %49, 0x3F50000000000000
+  %50 = fmul nnan nsz double %49, 0x3F50000000000000
   %51 = uitofp i64 %.167.i to double
-  %52 = fmul nsz double %51, 0x3F50000000000000
+  %52 = fmul nnan nsz double %51, 0x3F50000000000000
   %53 = uitofp i64 %.170.i to double
-  %54 = fmul nsz double %53, 0x3F50000000000000
+  %54 = fmul nnan nsz double %53, 0x3F50000000000000
   %55 = uitofp i64 %83 to double
-  %56 = fmul nsz double %55, 0x3F50000000000000
+  %56 = fmul nnan nsz double %55, 0x3F50000000000000
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %37
@@ -1120,7 +1120,7 @@ filesize.exit:                                    ; preds = %15, %18, %21
 107:                                              ; preds = %._crit_edge.i
   %108 = sub nuw nsw i64 %38, %.062.lcssa.i
   %109 = uitofp nneg i64 %108 to double
-  %110 = fmul nsz double %109, 1.000000e+02
+  %110 = fmul nnan nsz double %109, 1.000000e+02
   %111 = uitofp nneg i64 %.062.lcssa.i to double
   %112 = fdiv nsz double %110, %111
   %113 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 16, ptr noundef nonnull @.str.43, double noundef %112) #11
@@ -1792,9 +1792,9 @@ filesize.exit:                                    ; preds = %3, %16, %19
   %167 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %168 = sub nsw i64 %164, %148
   %169 = sitofp i64 %168 to double
-  %170 = fmul nsz double %169, 1.000000e+02
+  %170 = fmul nnan nsz double %169, 1.000000e+02
   %171 = sitofp i64 %.2.i.i to double
-  %172 = fmul nsz double %171, 5.000000e+00
+  %172 = fmul nnan nsz double %171, 5.000000e+00
   %173 = fcmp nsz ogt double %170, %172
   br i1 %173, label %174, label %.thread.i.i
 

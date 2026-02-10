@@ -244,7 +244,7 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef 
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = sitofp i32 %65 to float
-  %67 = fmul float %66, 0x3FFC71C720000000
+  %67 = fmul nnan float %66, 0x3FFC71C720000000
   %68 = fptosi float %67 to i32
   %69 = call noundef i32 @llvm.smin.i32(i32 %63, i32 %68)
   %70 = add nsw i32 %69, -80
@@ -976,8 +976,8 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   br i1 %314, label %315, label %322
 
 315:                                              ; preds = %._crit_edge
-  %316 = fsub float 0x3F999999A0000000, %262
-  %317 = fmul float %316, 1.000000e+03
+  %316 = fsub nnan float 0x3F999999A0000000, %262
+  %317 = fmul nnan float %316, 1.000000e+03
   %318 = fptosi float %317 to i32
   %319 = icmp sgt i32 %318, -1
   br i1 %319, label %320, label %322
@@ -1096,7 +1096,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %364 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 364:                                              ; preds = %356
-  %365 = fmul float %262, 4.000000e+00
+  %365 = fmul nnan float %262, 4.000000e+00
   %366 = getelementptr inbounds nuw i8, ptr %363, i64 26
   %367 = load i8, ptr %366, align 1
   %.not552 = icmp eq i8 %367, 0
@@ -2514,9 +2514,9 @@ _ZN9rcContext8resetLogEv.exit661:                 ; preds = %.thread747, %843
 .preheader:                                       ; preds = %940, %953
   %.03821032 = phi i32 [ %954, %953 ], [ 0, %940 ]
   %941 = uitofp nneg i32 %.03821032 to float
-  %942 = fdiv float %941, 2.000000e+01
-  %943 = fmul float %942, 0x400921FB60000000
-  %944 = fmul float %943, 2.000000e+00
+  %942 = fdiv nnan float %941, 2.000000e+01
+  %943 = fmul nnan float %942, 0x400921FB60000000
+  %944 = fmul nnan float %943, 2.000000e+00
   %945 = load double, ptr %32, align 8
   %946 = fptrunc double %945 to float
   %947 = call float @cosf(float noundef %944) #22

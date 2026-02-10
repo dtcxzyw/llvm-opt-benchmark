@@ -1040,7 +1040,7 @@ define linkonce_odr hidden void @_ZNK2cv11bioinspired17ParvoRetinaFilter31Parall
   store float %32, ptr %.02628, align 4, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %.02430, i64 4
   store float %32, ptr %.02430, align 4, !tbaa !22
-  %35 = fadd float %31, -1.000000e+00
+  %35 = fadd nnan float %31, -1.000000e+00
   %36 = fmul float %29, %35
   %37 = getelementptr inbounds nuw i8, ptr %.02529, i64 4
   store float %36, ptr %.02529, align 4, !tbaa !22

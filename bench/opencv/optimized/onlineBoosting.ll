@@ -1553,7 +1553,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting14BaseClassifier15tra
   %6 = fneg float %3
   %7 = tail call i32 @rand() #25
   %8 = sitofp i32 %7 to double
-  %9 = fdiv double %8, 0x41DFFFFFFFC00000
+  %9 = fdiv nnan double %8, 0x41DFFFFFFFC00000
   br label %10
 
 10:                                               ; preds = %5, %15
@@ -1568,7 +1568,7 @@ define hidden void @_ZN2cv6detail8tracking15online_boosting14BaseClassifier15tra
   %16 = add nuw nsw i32 %.02242, 1
   %17 = tail call i32 @rand() #25
   %18 = sitofp i32 %17 to double
-  %19 = fdiv double %18, 0x41DFFFFFFFC00000
+  %19 = fdiv nnan double %18, 0x41DFFFFFFFC00000
   %20 = fmul double %11, %19
   %21 = icmp samesign ugt i32 %.02242, 9
   br i1 %21, label %.preheader.lr.ph, label %10

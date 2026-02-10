@@ -637,12 +637,12 @@ define internal i32 @activate(ptr noundef %0) #1 {
 326:                                              ; preds = %317
   %327 = sitofp i32 %318 to float
   %328 = fdiv nsz float 2.550000e+02, %327
-  %329 = fpext nsz float %328 to double
-  %330 = fmul nsz double %329, 0x400921FB54442D18
+  %329 = fpext nnan nsz float %328 to double
+  %330 = fmul nnan nsz double %329, 0x400921FB54442D18
   %331 = fptrunc nsz double %330 to float
   %332 = trunc nuw nsw i64 %indvars.iv540.i to i32
   %333 = uitofp nneg i32 %332 to double
-  %334 = fmul nsz double %333, 0x401921FB54442D18
+  %334 = fmul nnan nsz double %333, 0x401921FB54442D18
   %335 = sitofp i32 %318 to double
   %336 = fdiv nsz double %334, %335
   %337 = call nsz double @llvm.sin.f64(double %336)
@@ -1338,7 +1338,7 @@ define internal i32 @get_lin_bin_abs(float noundef %0, i32 noundef %1) #4 {
   %..i = select nsz i1 %6, float 1.000000e+00, float %5
   %7 = add nsw i32 %1, -1
   %8 = sitofp i32 %7 to float
-  %9 = fmul nsz float %..i, %8
+  %9 = fmul nnan nsz float %..i, %8
   %10 = tail call i64 @llvm.lrint.i64.f32(float %9)
   %11 = trunc i64 %10 to i32
   ret i32 %11
@@ -1350,8 +1350,8 @@ define internal i32 @get_lin_bin_sign(float noundef %0, i32 noundef %1) #4 {
   %4 = select nsz i1 %3, float %0, float -1.000000e+00
   %5 = fcmp nsz ogt float %4, 1.000000e+00
   %..i = select nsz i1 %5, float 1.000000e+00, float %4
-  %6 = fadd nsz float %..i, 1.000000e+00
-  %7 = fmul nsz float %6, 5.000000e-01
+  %6 = fadd nnan nsz float %..i, 1.000000e+00
+  %7 = fmul nnan nsz float %6, 5.000000e-01
   %8 = add nsw i32 %1, -1
   %9 = sitofp i32 %8 to float
   %10 = fmul nsz float %7, %9

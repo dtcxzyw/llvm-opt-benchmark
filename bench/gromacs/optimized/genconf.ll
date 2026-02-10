@@ -973,11 +973,11 @@ _ZL13gmx_snew_implIA3_fEvPKcS2_iRPT_m.exit:       ; preds = %264
   %423 = phi i32 [ 1, %.noexc231.us.us.us ], [ %363, %._crit_edge.i229.us.us.us ]
   store i32 %423, ptr %164, align 8, !tbaa !30
   %424 = uitofp i64 %422 to float
-  %425 = fmul float %424, 0x3BF0000000000000
+  %425 = fmul nnan float %424, 0x3BF0000000000000
   %426 = fcmp oeq float %425, 1.000000e+00
-  %427 = call float @llvm.fmuladd.f32(float %425, float 2.000000e+00, float -1.000000e+00)
+  %427 = call nnan float @llvm.fmuladd.f32(float %425, float 2.000000e+00, float -1.000000e+00)
   %428 = select i1 %426, float -1.000000e+00, float %427
-  %429 = fpext float %428 to double
+  %429 = fpext nnan float %428 to double
   %430 = fmul double %360, %429
   %431 = fdiv double %430, 1.800000e+02
   %432 = fptrunc double %431 to float

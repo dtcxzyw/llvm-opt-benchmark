@@ -412,7 +412,7 @@ _ZN3gmx12_GLOBAL__N_118getNumSharedUpdateERKNS_13AwhBiasParamsEi.exit: ; preds =
 
 147:                                              ; preds = %143, %138
   %148 = phi double [ %146, %143 ], [ 1.000000e+00, %138 ]
-  %149 = fmul double %136, 2.000000e+00
+  %149 = fmul nnan double %136, 2.000000e+00
   %150 = fdiv double %148, %149
   %151 = fcmp olt double %.034.i, %150
   %.sroa.speculated.i56 = select i1 %151, double %150, double %.034.i

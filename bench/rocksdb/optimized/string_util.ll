@@ -678,7 +678,7 @@ define void @_ZN7rocksdb18BytesToHumanStringB5cxx11Em(ptr dead_on_unwind noalias
 6:                                                ; preds = %6, %2
   %.09 = phi i64 [ 0, %2 ], [ %10, %6 ]
   %.0.in = phi double [ %5, %2 ], [ %.0, %6 ]
-  %.0 = fmul double %.0.in, 0x3F50000000000000
+  %.0 = fmul nnan double %.0.in, 0x3F50000000000000
   %7 = icmp samesign ult i64 %.09, 3
   %8 = fcmp oge double %.0, 1.024000e+03
   %9 = select i1 %7, i1 %8, i1 false

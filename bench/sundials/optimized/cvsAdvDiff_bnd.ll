@@ -94,8 +94,8 @@ check_retval.exit56:                              ; preds = %15
   %indvars.iv4.i = phi i64 [ 1, %20 ], [ %indvars.iv.next5.i, %44 ]
   %27 = trunc nuw nsw i64 %indvars.iv4.i to i32
   %28 = uitofp nneg i32 %27 to double
-  %29 = fmul double %28, 0x3FC5555555555555
-  %30 = fsub double 1.000000e+00, %29
+  %29 = fmul nnan double %28, 0x3FC5555555555555
+  %30 = fsub nnan double 1.000000e+00, %29
   %invariant.gep.i = getelementptr double, ptr %25, i64 %indvars.iv4.i
   br label %31
 
@@ -103,12 +103,12 @@ check_retval.exit56:                              ; preds = %15
   %indvars.iv.i = phi i64 [ 1, %26 ], [ %indvars.iv.next.i, %31 ]
   %32 = trunc nuw nsw i64 %indvars.iv.i to i32
   %33 = uitofp nneg i32 %32 to double
-  %34 = fmul double %33, 0x3FC745D1745D1746
-  %35 = fsub double 2.000000e+00, %34
+  %34 = fmul nnan double %33, 0x3FC745D1745D1746
+  %35 = fsub nnan double 2.000000e+00, %34
   %36 = fmul double %34, %35
   %37 = fmul double %29, %36
   %38 = fmul double %30, %37
-  %39 = fmul double %34, 5.000000e+00
+  %39 = fmul nnan double %34, 5.000000e+00
   %40 = fmul double %29, %39
   %41 = call double @exp(double noundef %40) #10, !tbaa !18
   %42 = fmul double %41, %38

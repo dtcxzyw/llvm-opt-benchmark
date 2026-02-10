@@ -5848,7 +5848,7 @@ define dso_local noundef zeroext i1 @_ZN8V3Number12epsilonEqualEdd(double nounde
   %.sroa.speculated2 = select i1 %5, double %1, double %0
   %6 = fcmp ogt double %.sroa.speculated2, 1.000000e+00
   %.sroa.speculated = select i1 %6, double %.sroa.speculated2, double 1.000000e+00
-  %7 = fmul double %.sroa.speculated, 0x3CB0000000000000
+  %7 = fmul nnan double %.sroa.speculated, 0x3CB0000000000000
   %8 = fcmp ole double %4, %7
   ret i1 %8
 }
@@ -5866,7 +5866,7 @@ define dso_local noundef zeroext i1 @_ZN8V3Number15epsilonIntegralEd(double noun
   %.sroa.speculated2.i = select i1 %6, double %3, double %0
   %7 = fcmp ogt double %.sroa.speculated2.i, 1.000000e+00
   %.sroa.speculated.i = select i1 %7, double %.sroa.speculated2.i, double 1.000000e+00
-  %8 = fmul double %.sroa.speculated.i, 0x3CB0000000000000
+  %8 = fmul nnan double %.sroa.speculated.i, 0x3CB0000000000000
   %9 = fcmp ugt double %5, %8
   br i1 %9, label %10, label %26
 
@@ -5878,7 +5878,7 @@ define dso_local noundef zeroext i1 @_ZN8V3Number15epsilonIntegralEd(double noun
   %.sroa.speculated2.i7 = select i1 %14, double %11, double %0
   %15 = fcmp ogt double %.sroa.speculated2.i7, 1.000000e+00
   %.sroa.speculated.i8 = select i1 %15, double %.sroa.speculated2.i7, double 1.000000e+00
-  %16 = fmul double %.sroa.speculated.i8, 0x3CB0000000000000
+  %16 = fmul nnan double %.sroa.speculated.i8, 0x3CB0000000000000
   %17 = fcmp ugt double %13, %16
   br i1 %17, label %18, label %26
 
@@ -5890,7 +5890,7 @@ define dso_local noundef zeroext i1 @_ZN8V3Number15epsilonIntegralEd(double noun
   %.sroa.speculated2.i9 = select i1 %22, double %19, double %0
   %23 = fcmp ogt double %.sroa.speculated2.i9, 1.000000e+00
   %.sroa.speculated.i10 = select i1 %23, double %.sroa.speculated2.i9, double 1.000000e+00
-  %24 = fmul double %.sroa.speculated.i10, 0x3CB0000000000000
+  %24 = fmul nnan double %.sroa.speculated.i10, 0x3CB0000000000000
   %25 = fcmp ole double %21, %24
   br label %26
 

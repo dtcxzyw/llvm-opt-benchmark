@@ -7211,7 +7211,7 @@ define internal void @_rating_range_widget_init(ptr noundef %0, i32 noundef %1, 
 23:                                               ; preds = %5
   %24 = shl nsw i32 %21, 3
   %25 = uitofp nneg i32 %24 to double
-  %26 = fmul reassoc nsz arcp contract afn double %25, 8.000000e-01
+  %26 = fmul reassoc nnan nsz arcp contract afn double %25, 8.000000e-01
   %27 = fptosi double %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 352
   store i32 %27, ptr %28, align 8, !tbaa !233
@@ -10125,7 +10125,7 @@ define internal void @_search_changed(ptr readnone captures(none) %0, ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !259
   %14 = sitofp i64 %13 to double
-  %15 = fmul reassoc nsz arcp contract afn double %14, 0x3EB0C6F7A0B5ED8D
+  %15 = fmul reassoc nnan nsz arcp contract afn double %14, 0x3EB0C6F7A0B5ED8D
   %16 = fadd reassoc nsz arcp contract afn double %15, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -10199,7 +10199,7 @@ define internal range(i32 0, 2) i32 @_search_changed_wait(ptr noundef captures(a
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !259
   %14 = sitofp i64 %13 to double
-  %15 = fmul reassoc nsz arcp contract afn double %14, 0x3EB0C6F7A0B5ED8D
+  %15 = fmul reassoc nnan nsz arcp contract afn double %14, 0x3EB0C6F7A0B5ED8D
   %16 = fadd reassoc nsz arcp contract afn double %15, %11
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16

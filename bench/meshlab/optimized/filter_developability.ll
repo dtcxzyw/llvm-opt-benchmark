@@ -17994,7 +17994,7 @@ define linkonce_odr void @_Z25regionNormalDeviationGradI6CMeshOEvNT_13VertexPoin
   %.sroa.1889.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 56
   %.sroa.2191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 64
   %37 = sitofp i32 %28 to double
-  %square119 = fmul double %37, %37
+  %square119 = fmul nnan double %37, %37
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 8

@@ -316,7 +316,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %125 = trunc i64 %124 to i32
   %126 = sub i32 0, %125
   %127 = sitofp i32 %126 to float
-  %128 = fmul reassoc nsz arcp contract afn float %127, 5.000000e-01
+  %128 = fmul reassoc nnan nsz arcp contract afn float %127, 5.000000e-01
   %129 = fmul reassoc nsz arcp contract afn float %128, %115
   %130 = tail call reassoc nsz arcp contract afn float @llvm.exp.f32(float %129)
   %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv345
@@ -549,7 +549,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %216 = load float, ptr %55, align 8, !tbaa !33
   %217 = load float, ptr %58, align 4, !tbaa !33
   %218 = load float, ptr %61, align 16, !tbaa !33
-  %219 = fmul reassoc nsz arcp contract afn float %212, %214
+  %219 = fmul reassoc nnan nsz arcp contract afn float %212, %214
   %220 = fmul reassoc nsz arcp contract afn float %219, %213
   %221 = fmul reassoc nsz arcp contract afn float %220, %215
   %222 = fmul reassoc nsz arcp contract afn float %221, %216
@@ -1559,7 +1559,7 @@ _ZN27HashTablePermutohedralValueILi4EE3addERKS0_.exit: ; preds = %113
   %132 = load i64, ptr %0, align 8, !tbaa !123
   %133 = mul i64 %132, 52
   %134 = uitofp i64 %34 to float
-  %135 = fmul reassoc nsz arcp contract afn float %134, 1.000000e+02
+  %135 = fmul reassoc nnan nsz arcp contract afn float %134, 1.000000e+02
   %136 = uitofp i64 %31 to float
   %137 = fdiv reassoc nsz arcp contract afn float %135, %136
   %138 = fpext reassoc nsz arcp contract afn float %137 to double
@@ -2127,7 +2127,7 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %40 = mul nsw i64 %38, %39
   %41 = sitofp i32 %26 to float
   %42 = sitofp i32 %24 to float
-  %43 = fmul reassoc nsz arcp contract afn float %41, %42
+  %43 = fmul reassoc nnan nsz arcp contract afn float %41, %42
   %44 = fmul reassoc nsz arcp contract afn float %18, %14
   %45 = fmul reassoc nsz arcp contract afn float %44, %33
   %46 = fmul reassoc nsz arcp contract afn float %45, %35
@@ -2173,7 +2173,7 @@ _ZN20PermutohedralLatticeILi5ELi4EE14estimatedBytesEmm.exit: ; preds = %66
   %75 = add i64 %74, %72
   %76 = tail call noundef i64 @llvm.umax.i64(i64 %71, i64 %75)
   %77 = uitofp i64 %76 to float
-  %78 = fmul reassoc nsz arcp contract afn float %51, 1.600000e+01
+  %78 = fmul reassoc nnan nsz arcp contract afn float %51, 1.600000e+01
   %79 = fdiv reassoc nsz arcp contract afn float %77, %78
   %80 = fadd reassoc nsz arcp contract afn float %79, 5.250000e+00
   store float %80, ptr %4, align 4, !tbaa !211

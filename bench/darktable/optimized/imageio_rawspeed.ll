@@ -1418,7 +1418,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %299, %305, %308
   %398 = getelementptr inbounds nuw i16, ptr %395, i64 %indvars.iv380.i
   %399 = load i16, ptr %398, align 2, !tbaa !189
   %400 = uitofp i16 %399 to float
-  %401 = fmul reassoc nsz arcp contract afn float %400, 0x3EF0001000000000
+  %401 = fmul reassoc nnan nsz arcp contract afn float %400, 0x3EF0001000000000
   %402 = getelementptr inbounds nuw i8, ptr %.0117330.us.i, i64 8
   store float %401, ptr %402, align 4, !tbaa !199
   %403 = getelementptr inbounds nuw i8, ptr %.0117330.us.i, i64 4
@@ -1593,7 +1593,7 @@ _ZN8rawspeed8RawImageC2ERKS0_.exit255:            ; preds = %299, %305, %308
   %484 = getelementptr inbounds nuw i16, ptr %475, i64 %480
   %485 = load i16, ptr %484, align 2, !tbaa !189
   %486 = uitofp i16 %485 to float
-  %487 = fmul reassoc nsz arcp contract afn float %486, 0x3EF0001000000000
+  %487 = fmul reassoc nnan nsz arcp contract afn float %486, 0x3EF0001000000000
   %488 = getelementptr inbounds nuw float, ptr %.0111315.us.i, i64 %indvars.iv356.i
   store float %487, ptr %488, align 4, !tbaa !199
   %indvars.iv.next357.i = add nuw nsw i64 %indvars.iv356.i, 1

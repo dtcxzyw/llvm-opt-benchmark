@@ -3583,7 +3583,7 @@ sw.bb64:                                          ; preds = %if.end
 
 sw.bb66:                                          ; preds = %if.end
   %conv68 = sitofp i32 %0 to double
-  %mul = fmul double %conv68, 1.200000e+01
+  %mul = fmul nnan double %conv68, 1.200000e+01
   br label %return
 
 do.body69:                                        ; preds = %if.end
@@ -4237,7 +4237,7 @@ sw.bb:                                            ; preds = %if.end
 
 sw.bb3:                                           ; preds = %if.end
   %conv5 = sitofp i32 %0 to double
-  %mul = fmul double %conv5, 7.000000e+00
+  %mul = fmul nnan double %conv5, 7.000000e+00
   br label %return
 
 do.body:                                          ; preds = %if.end

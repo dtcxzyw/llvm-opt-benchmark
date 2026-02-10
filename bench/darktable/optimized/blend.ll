@@ -1737,7 +1737,7 @@ define void @tiling_callback_blendop(ptr noundef readnone captures(none) %0, ptr
   %26 = load i32, ptr %25, align 4, !tbaa !156
   %27 = mul nsw i32 %26, %24
   %28 = sitofp i32 %27 to float
-  %29 = fmul reassoc nsz arcp contract afn float %28, 5.000000e-01
+  %29 = fmul reassoc nnan nsz arcp contract afn float %28, 5.000000e-01
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load i32, ptr %30, align 4, !tbaa !83
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 12

@@ -1367,7 +1367,7 @@ proto_item_set_generated.exit482:                 ; preds = %409, %406, %405, %3
   %601 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %59, i32 noundef %600, ptr noundef %0, i32 noundef %599, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %19)
   %602 = load i32, ptr %19, align 4
   %603 = uitofp i32 %602 to double
-  %604 = fmul double %603, 6.250000e-02
+  %604 = fmul nnan double %603, 6.250000e-02
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %601, ptr noundef nonnull @.str.241, double noundef %604)
   %605 = load i32, ptr %6, align 4
   %606 = add i32 %605, 4
@@ -1377,7 +1377,7 @@ proto_item_set_generated.exit482:                 ; preds = %409, %406, %405, %3
   %608 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %59, i32 noundef %607, ptr noundef %0, i32 noundef %606, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %20)
   %609 = load i32, ptr %20, align 4
   %610 = uitofp i32 %609 to double
-  %611 = fmul double %610, 6.250000e-02
+  %611 = fmul nnan double %610, 6.250000e-02
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %608, ptr noundef nonnull @.str.241, double noundef %611)
   %612 = load i32, ptr %6, align 4
   %613 = add i32 %612, 4

@@ -90,7 +90,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   %45 = sitofp i32 %44 to double
   %46 = fneg double %45
   %47 = tail call double @llvm.fmuladd.f64(double %46, double 0x3FF921FB54400000, double %42)
-  %48 = fmul double %45, 0x3DD0B4611A626331
+  %48 = fmul nnan double %45, 0x3DD0B4611A626331
   %49 = icmp slt i32 %44, 32
   br i1 %49, label %50, label %57
 
@@ -119,7 +119,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   br i1 %64, label %65, label %86
 
 65:                                               ; preds = %57
-  %66 = fmul double %45, 0x3DD0B4611A600000
+  %66 = fmul nnan double %45, 0x3DD0B4611A600000
   %67 = fsub double %47, %66
   %68 = fsub double %47, %67
   %69 = fsub double %68, %66
@@ -136,7 +136,7 @@ define hidden i32 @__ieee754_rem_pio2(double noundef %0, ptr noundef %1) local_u
   br i1 %77, label %78, label %86
 
 78:                                               ; preds = %65
-  %79 = fmul double %45, 0x3BA3198A2E000000
+  %79 = fmul nnan double %45, 0x3BA3198A2E000000
   %80 = fsub double %67, %79
   %81 = fsub double %67, %80
   %82 = fsub double %81, %79

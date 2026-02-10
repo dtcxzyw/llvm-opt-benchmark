@@ -6648,7 +6648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1655: ; preds = %1
 1217:                                             ; preds = %1210
   %.sroa.0301.0.extract.trunc = trunc i64 %1216 to i32
   %1218 = sitofp i32 %.sroa.0301.0.extract.trunc to double
-  %1219 = fmul reassoc nsz arcp contract afn double %1218, 1.000000e-03
+  %1219 = fmul reassoc nnan nsz arcp contract afn double %1218, 1.000000e-03
   %1220 = call reassoc nsz arcp contract afn double @llvm.maxnum.f64(double %1219, double 0.000000e+00)
   %1221 = fptrunc reassoc nsz arcp contract afn double %1220 to float
   %1222 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -6822,8 +6822,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1675: ; preds = %1
   br i1 %or.cond1353, label %1295, label %.critedge11
 
 1295:                                             ; preds = %1291
-  %1296 = fpext reassoc nsz arcp contract afn float %1290 to double
-  %1297 = fmul reassoc nsz arcp contract afn double %1296, 1.000000e-02
+  %1296 = fpext reassoc nnan nsz arcp contract afn float %1290 to double
+  %1297 = fmul reassoc nnan nsz arcp contract afn double %1296, 1.000000e-02
   %1298 = load float, ptr %1271, align 4, !tbaa !156
   %1299 = fpext reassoc nsz arcp contract afn float %1298 to double
   %1300 = fadd reassoc nsz arcp contract afn double %1297, %1299
@@ -10536,7 +10536,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2092: ; preds = %2
 
 2752:                                             ; preds = %2745
   %2753 = sitofp i64 %2751 to double
-  %2754 = fmul reassoc nsz arcp contract afn double %2753, 5.000000e-02
+  %2754 = fmul reassoc nnan nsz arcp contract afn double %2753, 5.000000e-02
   %2755 = fptosi double %2754 to i32
   invoke void @dt_image_set_xmp_rating(ptr noundef %0, i32 noundef %2755)
           to label %.noexc.i2097 unwind label %2764
@@ -22809,7 +22809,7 @@ sub_0:
   %23 = call ptr @g_base64_decode_inplace(ptr noundef nonnull %15, ptr noundef nonnull %3)
   %24 = load i64, ptr %3, align 8, !tbaa !18
   %25 = uitofp i64 %24 to float
-  %26 = fmul reassoc nsz arcp contract afn float %25, %22
+  %26 = fmul reassoc nnan nsz arcp contract afn float %25, %22
   %27 = fptoui float %26 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %28
@@ -27681,7 +27681,7 @@ _ZL16_read_history_v2RN5Exiv27XmpDataEPKc.exit:   ; preds = %_ZNSt7__cxx1112basi
   %1874 = load double, ptr %1873, align 8, !tbaa !22
   %1875 = load i32, ptr %1857, align 4, !tbaa !269
   %1876 = sitofp i32 %1875 to float
-  %1877 = fmul reassoc nsz arcp contract afn float %1876, 0x3F847AE140000000
+  %1877 = fmul reassoc nnan nsz arcp contract afn float %1876, 0x3F847AE140000000
   %1878 = fpext reassoc nsz arcp contract afn float %1877 to double
   %1879 = fsub reassoc nsz arcp contract afn double %1874, %1878
   %.pre = load i32, ptr %1859, align 4, !tbaa !312
@@ -32420,7 +32420,7 @@ _ZL18dt_get_debug_wtimev.exit:                    ; preds = %3
   %100 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %101 = load i64, ptr %100, align 8, !tbaa !354
   %102 = sitofp i64 %101 to double
-  %103 = fmul reassoc nsz arcp contract afn double %102, 0x3EB0C6F7A0B5ED8D
+  %103 = fmul reassoc nnan nsz arcp contract afn double %102, 0x3EB0C6F7A0B5ED8D
   %104 = fadd reassoc nsz arcp contract afn double %103, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
   %.pre = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !48
@@ -35443,7 +35443,7 @@ _ZL18dt_get_debug_wtimev.exit486:                 ; preds = %1156
 
 1164:                                             ; preds = %_ZL18dt_get_debug_wtimev.exit486
   %1165 = sitofp i64 %1161 to double
-  %1166 = fmul reassoc nsz arcp contract afn double %1165, 0x3EB0C6F7A0B5ED8D
+  %1166 = fmul reassoc nnan nsz arcp contract afn double %1165, 0x3EB0C6F7A0B5ED8D
   %1167 = add nsw i64 %1159, -1290608000
   %1168 = sitofp i64 %1167 to double
   %1169 = fadd reassoc nsz arcp contract afn double %1166, %1168
@@ -48673,7 +48673,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i91
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit93: ; preds = %151, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i91
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %156 = fmul reassoc nsz arcp contract afn double %3, 1.000000e+01
+  %156 = fmul reassoc nnan nsz arcp contract afn double %3, 1.000000e+01
   %157 = call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %156)
   %158 = call reassoc nsz arcp contract afn double @llvm.floor.f64(double %157)
   %159 = fptosi double %158 to i32

@@ -76,7 +76,7 @@ gv_calloc.exit.i:                                 ; preds = %15
   %24 = load double, ptr %23, align 8, !tbaa !30
   %25 = load ptr, ptr %1, align 8, !tbaa !31
   %26 = uitofp i64 %.val to double
-  %27 = fdiv double 0x401921FB54442D18, %26
+  %27 = fdiv nnan double 0x401921FB54442D18, %26
   %.not107.i = icmp eq i64 %.val, 0
   br i1 %.not107.i, label %._crit_edge102.i, label %.lr.ph.i
 

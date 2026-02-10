@@ -652,11 +652,11 @@ define hidden void @_ZNK2cv7details5FastX6rotateEfRKNS_11_InputArrayENS_5Size_Ii
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %16 = tail call noundef i32 @_ZNK2cv11_InputArray4colsEi(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1)
   %17 = sitofp i32 %16 to double
-  %18 = fmul double %17, 5.000000e-01
+  %18 = fmul nnan double %17, 5.000000e-01
   %19 = fptrunc double %18 to float
   %20 = tail call noundef i32 @_ZNK2cv11_InputArray4rowsEi(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef -1)
   %21 = sitofp i32 %20 to double
-  %22 = fmul double %21, 5.000000e-01
+  %22 = fmul nnan double %21, 5.000000e-01
   %23 = fptrunc double %22 to float
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %19, i64 0
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %23, i64 1
@@ -1884,7 +1884,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %80
   %96 = trunc nuw i8 %95 to i1
   %97 = zext nneg i8 %95 to i32
   %98 = uitofp nneg i8 %95 to float
-  %99 = fmul float %98, 2.500000e-01
+  %99 = fmul nnan float %98, 2.500000e-01
   %100 = load float, ptr %24, align 8, !tbaa !107
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !108
@@ -1951,8 +1951,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge239, %93
   %135 = shl nuw i32 1, %134
   %136 = add nuw nsw i32 %135, 1
   %137 = sitofp i32 %136 to float
-  %138 = fmul float %137, 5.000000e-01
-  %139 = fmul float %137, 2.500000e-01
+  %138 = fmul nnan float %137, 5.000000e-01
+  %139 = fmul nnan float %137, 2.500000e-01
   %140 = insertelement <4 x float> poison, float %138, i64 0
   %141 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %140)
   %142 = sub nsw i32 %.0102271, %133
@@ -9507,8 +9507,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %20, %
   %.promoted.us = phi ptr [ %76, %._crit_edge.us ], [ null, %.lr.ph.us.preheader ]
   %.01449.us = phi i32 [ %78, %._crit_edge.us ], [ 0, %.lr.ph.us.preheader ]
   %32 = uitofp nneg i32 %.01449.us to double
-  %33 = fadd double %32, 5.000000e-01
-  %34 = fmul double %33, 1.000000e+02
+  %33 = fadd nnan double %32, 5.000000e-01
+  %34 = fmul nnan double %33, 1.000000e+02
   store double %34, ptr %28, align 8, !tbaa !44
   br label %35
 
@@ -9517,8 +9517,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %20, %
   %.048.us = phi i32 [ 0, %.lr.ph.us ], [ %77, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.us ]
   %37 = phi ptr [ %.promoted.us, %.lr.ph.us ], [ %76, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit.us ]
   %38 = uitofp nneg i32 %.048.us to double
-  %39 = fadd double %38, 5.000000e-01
-  %40 = fmul double %39, 1.000000e+02
+  %39 = fadd nnan double %38, 5.000000e-01
+  %40 = fmul nnan double %39, 1.000000e+02
   store double %40, ptr %8, align 8, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !268
   br label %.preheader19.i.i.us
@@ -9748,7 +9748,7 @@ define hidden void @_ZNK2cv7details10Chessboard5Board18estimateHomographyEi(ptr 
   %.sroa.053.067.us = phi ptr [ %91, %._crit_edge.us ], [ %17, %.preheader.us.preheader ]
   %25 = add nuw nsw i32 %.01868.us, 1
   %26 = uitofp nneg i32 %25 to float
-  %27 = fmul float %18, %26
+  %27 = fmul nnan float %18, %26
   br label %28
 
 28:                                               ; preds = %.preheader.us, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.us
@@ -9763,7 +9763,7 @@ define hidden void @_ZNK2cv7details10Chessboard5Board18estimateHomographyEi(ptr 
 
 34:                                               ; preds = %28
   %35 = uitofp nneg i32 %33 to float
-  %36 = fmul float %18, %35
+  %36 = fmul nnan float %18, %35
   %37 = load ptr, ptr %20, align 8, !tbaa !245
   %.not.i.i.us = icmp eq ptr %30, %37
   br i1 %.not.i.i.us, label %41, label %38
@@ -19084,9 +19084,9 @@ define hidden noundef zeroext i1 @_ZN2cv7details10Chessboard5Board18estimateSear
   %37 = fmul float %3, %36
   %38 = fcmp ogt float %37, 3.000000e+00
   %.sroa.speculated55 = select i1 %38, float %37, float 3.000000e+00
-  %39 = fpext float %.sroa.speculated55 to double
+  %39 = fpext nnan float %.sroa.speculated55 to double
   %40 = fptosi float %.sroa.speculated55 to i32
-  %41 = fmul double %39, 0x3FD6666660000000
+  %41 = fmul nnan double %39, 0x3FD6666660000000
   %42 = fcmp ogt double %41, 2.000000e+00
   %.sroa.speculated = select i1 %42, double %41, double 2.000000e+00
   %43 = fptosi double %.sroa.speculated to i32
@@ -19183,9 +19183,9 @@ _ZN2cv7details10Chessboard5Board18estimateSearchAreaERKNS_6Point_IfEES6_S6_fRNS0
   %43 = fmul float %42, 1.500000e+00
   %44 = fcmp ogt float %43, 3.000000e+00
   %.sroa.speculated55.i = select i1 %44, float %43, float 3.000000e+00
-  %45 = fpext float %.sroa.speculated55.i to double
+  %45 = fpext nnan float %.sroa.speculated55.i to double
   %46 = fptosi float %.sroa.speculated55.i to i32
-  %47 = fmul double %45, 0x3FD6666660000000
+  %47 = fmul nnan double %45, 0x3FD6666660000000
   %48 = fcmp ogt double %47, 2.000000e+00
   %.sroa.speculated.i = select i1 %48, double %47, double 2.000000e+00
   %49 = fptosi double %.sroa.speculated.i to i32
@@ -19206,10 +19206,10 @@ _ZN2cv7details10Chessboard5Board18estimateSearchAreaERKNS_6Point_IfEES6_S6_fRNS0
   %61 = fmul float %53, %57
   %62 = tail call float @llvm.fmuladd.f32(float %60, float %56, float %61)
   %63 = fmul float %59, %59
-  %64 = fmul float %50, %50
+  %64 = fmul nnan float %50, %50
   %65 = fdiv float %63, %64
   %66 = fmul float %62, %62
-  %67 = fmul float %51, %51
+  %67 = fmul nnan float %51, %51
   %68 = fdiv float %66, %67
   %69 = fadd float %65, %68
   %70 = fcmp ugt float %69, 1.000000e+00
@@ -19277,9 +19277,9 @@ _ZN2cv7details10Chessboard5Board18estimateSearchAreaERKNS_6Point_IfEES6_S6_fRNS0
   %101 = fmul float %100, 5.000000e-01
   %102 = fcmp ogt float %101, 3.000000e+00
   %.sroa.speculated55.i15 = select i1 %102, float %101, float 3.000000e+00
-  %103 = fpext float %.sroa.speculated55.i15 to double
+  %103 = fpext nnan float %.sroa.speculated55.i15 to double
   %104 = fptosi float %.sroa.speculated55.i15 to i32
-  %105 = fmul double %103, 0x3FD6666660000000
+  %105 = fmul nnan double %103, 0x3FD6666660000000
   %106 = fcmp ogt double %105, 2.000000e+00
   %.sroa.speculated.i16 = select i1 %106, double %105, double 2.000000e+00
   %107 = fptosi double %.sroa.speculated.i16 to i32
@@ -19300,10 +19300,10 @@ _ZN2cv7details10Chessboard5Board18estimateSearchAreaERKNS_6Point_IfEES6_S6_fRNS0
   %119 = fmul float %111, %115
   %120 = tail call float @llvm.fmuladd.f32(float %118, float %114, float %119)
   %121 = fmul float %117, %117
-  %122 = fmul float %108, %108
+  %122 = fmul nnan float %108, %108
   %123 = fdiv float %121, %122
   %124 = fmul float %120, %120
-  %125 = fmul float %109, %109
+  %125 = fmul nnan float %109, %109
   %126 = fdiv float %124, %125
   %127 = fadd float %123, %126
   %128 = fcmp ole float %127, 1.000000e+00
@@ -22706,7 +22706,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit126: ; preds = %_ZNSt6v
 187:                                              ; preds = %177
   %188 = sitofp i32 %.136 to double
   %189 = uitofp i64 %183 to double
-  %190 = fmul double %189, 5.000000e-01
+  %190 = fmul nnan double %189, 5.000000e-01
   %191 = fcmp olt double %190, %188
   br i1 %191, label %.critedge, label %192
 
@@ -23856,7 +23856,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit125: ; preds = %_ZNSt6v
   %179 = sub i64 %177, %178
   %180 = ashr exact i64 %179, 3
   %181 = uitofp i64 %180 to double
-  %182 = fmul double %181, 5.000000e-01
+  %182 = fmul nnan double %181, 5.000000e-01
   %183 = fcmp olt double %182, %174
   br i1 %183, label %.critedge, label %184
 
@@ -24665,7 +24665,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit131: ; preds = %_ZNSt6v
   %179 = sub i64 %177, %178
   %180 = ashr exact i64 %179, 3
   %181 = uitofp i64 %180 to double
-  %182 = fmul double %181, 5.000000e-01
+  %182 = fmul nnan double %181, 5.000000e-01
   %183 = fcmp olt double %182, %174
   br i1 %183, label %.critedge, label %184
 
@@ -25475,7 +25475,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit131: ; preds = %_ZNSt6v
   %178 = sub i64 %176, %177
   %179 = ashr exact i64 %178, 3
   %180 = uitofp i64 %179 to double
-  %181 = fmul double %180, 5.000000e-01
+  %181 = fmul nnan double %180, 5.000000e-01
   %182 = fcmp olt double %181, %173
   br i1 %182, label %.critedge, label %183
 
@@ -27376,7 +27376,7 @@ define hidden void @_ZNK2cv7details10Chessboard5Board18estimateHomographyENS_5Re
   %indvars.iv.next82 = add nsw i64 %indvars.iv81, 1
   %37 = trunc i64 %indvars.iv.next82 to i32
   %38 = sitofp i32 %37 to float
-  %39 = fmul float %26, %38
+  %39 = fmul nnan float %26, %38
   %invariant.gep = getelementptr %"class.cv::Point_", ptr %25, i64 %36
   br label %40
 
@@ -27393,7 +27393,7 @@ define hidden void @_ZNK2cv7details10Chessboard5Board18estimateHomographyENS_5Re
 
 45:                                               ; preds = %40
   %46 = sitofp i32 %.pre89 to float
-  %47 = fmul float %26, %46
+  %47 = fmul nnan float %26, %46
   %48 = load ptr, ptr %28, align 8, !tbaa !245
   %.not.i.i.us = icmp eq ptr %42, %48
   br i1 %.not.i.i.us, label %52, label %49
@@ -27759,9 +27759,9 @@ _ZN2cv7details10Chessboard5Board18estimateSearchAreaERKNS_6Point_IfEES6_S6_fRNS0
   %38 = fmul float %37, 0x3FD99999A0000000
   %39 = fcmp ogt float %38, 3.000000e+00
   %.sroa.speculated55.i = select i1 %39, float %38, float 3.000000e+00
-  %40 = fpext float %.sroa.speculated55.i to double
+  %40 = fpext nnan float %.sroa.speculated55.i to double
   %41 = fptosi float %.sroa.speculated55.i to i32
-  %42 = fmul double %40, 0x3FD6666660000000
+  %42 = fmul nnan double %40, 0x3FD6666660000000
   %43 = fcmp ogt double %42, 2.000000e+00
   %.sroa.speculated.i = select i1 %43, double %42, double 2.000000e+00
   %44 = fptosi double %.sroa.speculated.i to i32
@@ -30414,7 +30414,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE6resizeEm.exit: ; preds = %205, %203, %201, %
   %.030112.i = phi i32 [ 0, %240 ], [ %.333.i, %311 ]
   %.046111.i = phi i32 [ 0, %240 ], [ %317, %311 ]
   %267 = uitofp nneg i32 %.046111.i to double
-  %268 = fmul double %267, 0x3FD41B2F769CF0E0
+  %268 = fmul nnan double %267, 0x3FD41B2F769CF0E0
   %269 = call double @cos(double noundef %268) #37, !tbaa !20
   %270 = fptrunc double %269 to float
   %271 = call double @sin(double noundef %268) #37, !tbaa !20

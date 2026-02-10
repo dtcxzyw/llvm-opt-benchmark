@@ -2265,8 +2265,8 @@ ApplyStickCalibration.exit314.i:                  ; preds = %991, %987
   %1003 = lshr i32 %1001, 4
   %1004 = and i32 %1003, 14
   %1005 = uitofp nneg i32 %1004 to float
-  %1006 = fmul float %1005, 1.250000e-01
-  %1007 = fmul float %1006, 1.000000e+02
+  %1006 = fmul nnan float %1005, 1.250000e-01
+  %1007 = fmul nnan float %1006, 1.000000e+02
   %1008 = call float @SDL_roundf_REAL(float noundef %1007) #9
   %1009 = fptosi float %1008 to i32
   %.not274.i = icmp eq i32 %1002, 0
@@ -4227,7 +4227,7 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
 
 257:                                              ; preds = %252
   %258 = sitofp i16 %253 to float
-  %259 = fmul float %258, 0x3FE6666660000000
+  %259 = fmul nnan float %258, 0x3FE6666660000000
   %260 = fptosi float %259 to i16
   store i16 %260, ptr %254, align 2
   br label %261
@@ -4240,7 +4240,7 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
 
 265:                                              ; preds = %261
   %266 = sitofp i16 %253 to float
-  %267 = fmul float %266, 0x3FE6666660000000
+  %267 = fmul nnan float %266, 0x3FE6666660000000
   %268 = fptosi float %267 to i16
   store i16 %268, ptr %262, align 2
   br label %269
@@ -4292,7 +4292,7 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 2
   %288 = load i16, ptr %287, align 2
   %289 = sitofp i16 %288 to float
-  %290 = fmul float %289, 0x3FE6666660000000
+  %290 = fmul nnan float %289, 0x3FE6666660000000
   %291 = fptosi float %290 to i16
   %292 = sub i16 0, %291
   %293 = getelementptr inbounds nuw %struct.anon.1, ptr %273, i64 %.198125.i
@@ -4300,7 +4300,7 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
   %294 = getelementptr inbounds nuw i8, ptr %286, i64 4
   %295 = load i16, ptr %294, align 2
   %296 = sitofp i16 %295 to float
-  %297 = fmul float %296, 0x3FE6666660000000
+  %297 = fmul nnan float %296, 0x3FE6666660000000
   %298 = fptosi float %297 to i16
   %299 = getelementptr inbounds nuw i8, ptr %293, i64 2
   store i16 %298, ptr %299, align 2
@@ -4375,41 +4375,41 @@ BTrySetupUSB.exit:                                ; preds = %WritePacket.exit.us
   %.045.i = phi i16 [ %336, %323 ], [ %318, %320 ], [ %318, %305 ]
   %.0.i60 = phi i16 [ %326, %323 ], [ %308, %320 ], [ %308, %305 ]
   %338 = sitofp i16 %.0.i60 to float
-  %339 = fsub float 1.638400e+04, %338
-  %340 = fdiv float 4.000000e+00, %339
-  %341 = fmul float %340, 0x40239D0140000000
+  %339 = fsub nnan float 1.638400e+04, %338
+  %340 = fdiv nnan float 4.000000e+00, %339
+  %341 = fmul nnan float %340, 0x40239D0140000000
   %342 = getelementptr inbounds nuw i8, ptr %16, i64 332
   store float %341, ptr %342, align 4
   %343 = sitofp i16 %.049.i to float
-  %344 = fsub float 1.638400e+04, %343
-  %345 = fdiv float 4.000000e+00, %344
-  %346 = fmul float %345, 0x40239D0140000000
+  %344 = fsub nnan float 1.638400e+04, %343
+  %345 = fdiv nnan float 4.000000e+00, %344
+  %346 = fmul nnan float %345, 0x40239D0140000000
   %347 = getelementptr inbounds nuw i8, ptr %16, i64 336
   store float %346, ptr %347, align 4
   %348 = sitofp i16 %.048.i to float
-  %349 = fsub float 1.638400e+04, %348
-  %350 = fdiv float 4.000000e+00, %349
-  %351 = fmul float %350, 0x40239D0140000000
+  %349 = fsub nnan float 1.638400e+04, %348
+  %350 = fdiv nnan float 4.000000e+00, %349
+  %351 = fmul nnan float %350, 0x40239D0140000000
   %352 = getelementptr inbounds nuw i8, ptr %16, i64 340
   store float %351, ptr %352, align 4
   %353 = sitofp i16 %.047.i to float
-  %354 = fsub float 1.337100e+04, %353
-  %355 = fdiv float 9.360000e+02, %354
-  %356 = fmul float %355, 0x400921FB60000000
+  %354 = fsub nnan float 1.337100e+04, %353
+  %355 = fdiv nnan float 9.360000e+02, %354
+  %356 = fmul nnan float %355, 0x400921FB60000000
   %357 = fdiv float %356, 1.800000e+02
   %358 = getelementptr inbounds nuw i8, ptr %16, i64 344
   store float %357, ptr %358, align 4
   %359 = sitofp i16 %.046.i to float
-  %360 = fsub float 1.337100e+04, %359
-  %361 = fdiv float 9.360000e+02, %360
-  %362 = fmul float %361, 0x400921FB60000000
+  %360 = fsub nnan float 1.337100e+04, %359
+  %361 = fdiv nnan float 9.360000e+02, %360
+  %362 = fmul nnan float %361, 0x400921FB60000000
   %363 = fdiv float %362, 1.800000e+02
   %364 = getelementptr inbounds nuw i8, ptr %16, i64 348
   store float %363, ptr %364, align 4
   %365 = sitofp i16 %.045.i to float
-  %366 = fsub float 1.337100e+04, %365
-  %367 = fdiv float 9.360000e+02, %366
-  %368 = fmul float %367, 0x400921FB60000000
+  %366 = fsub nnan float 1.337100e+04, %365
+  %367 = fdiv nnan float 9.360000e+02, %366
+  %368 = fmul nnan float %367, 0x400921FB60000000
   %369 = fdiv float %368, 1.800000e+02
   br label %LoadIMUCalibration.exit
 

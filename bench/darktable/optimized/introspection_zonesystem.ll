@@ -282,7 +282,7 @@ dt_iop_alpha_copy.exit.i:                         ; preds = %.lr.ph.i.i, %78, %.
 .lr.ph4.i:                                        ; preds = %._crit_edge.i
   %113 = add nsw i32 %72, -1
   %114 = sitofp i32 %113 to float
-  %115 = fmul reassoc nsz arcp contract afn float %114, 0x3F847AE140000000
+  %115 = fmul reassoc nnan nsz arcp contract afn float %114, 0x3F847AE140000000
   %116 = add nsw i32 %72, -2
   %117 = sitofp i32 %116 to float
   br label %124
@@ -327,7 +327,7 @@ dt_iop_alpha_copy.exit.i:                         ; preds = %.lr.ph.i.i, %78, %.
 .lr.ph12.i:                                       ; preds = %._crit_edge9.i
   %136 = add nsw i32 %72, -1
   %137 = sitofp i32 %136 to float
-  %138 = fmul reassoc nsz arcp contract afn float %137, 0x3F847AE140000000
+  %138 = fmul reassoc nnan nsz arcp contract afn float %137, 0x3F847AE140000000
   %139 = add nsw i32 %72, -2
   %140 = sitofp i32 %139 to float
   br label %147
@@ -463,7 +463,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %8 = load i32, ptr %7, align 4, !tbaa !82
   %9 = add i32 %8, -1
   %10 = sitofp i32 %9 to float
-  %11 = fmul reassoc nsz arcp contract afn float %10, 0x3F847AE140000000
+  %11 = fmul reassoc nnan nsz arcp contract afn float %10, 0x3F847AE140000000
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 104
   store float %11, ptr %12, align 4, !tbaa !90
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -785,7 +785,7 @@ define internal void @size_allocate_callback(ptr readnone captures(none) %0, ptr
   %15 = load i32, ptr %14, align 4, !tbaa !149
   %. = tail call i32 @llvm.smin.i32(i32 %13, i32 %15)
   %16 = sitofp i32 %. to double
-  %17 = fmul reassoc nsz arcp contract afn double %16, 7.500000e-01
+  %17 = fmul reassoc nnan nsz arcp contract afn double %16, 7.500000e-01
   %18 = fptrunc reassoc nsz arcp contract afn double %17 to float
   %19 = tail call ptr @dt_util_get_logo(float noundef %18) #22
   store ptr %19, ptr %6, align 8, !tbaa !145
@@ -1014,15 +1014,15 @@ _iop_zonesystem_calculate_zonemap.exit:           ; preds = %.loopexit.i, %54
   %123 = call i32 @cairo_format_stride_for_width(i32 noundef 1, i32 noundef %114) #22
   %124 = call ptr @cairo_image_surface_create_for_data(ptr noundef %99, i32 noundef 1, i32 noundef %114, i32 noundef %115, i32 noundef %123) #22
   %125 = sitofp i32 %42 to double
-  %126 = fmul reassoc nsz arcp contract afn double %125, 5.000000e-01
-  %127 = fmul reassoc nsz arcp contract afn float %119, 5.000000e-01
+  %126 = fmul reassoc nnan nsz arcp contract afn double %125, 5.000000e-01
+  %127 = fmul reassoc nnan nsz arcp contract afn float %119, 5.000000e-01
   %128 = fpext reassoc nsz arcp contract afn float %127 to double
   call void @cairo_translate(ptr noundef %33, double noundef %126, double noundef %128) #22
   %129 = fpext reassoc nsz arcp contract afn float %122 to double
   call void @cairo_scale(ptr noundef %33, double noundef %129, double noundef %129) #22
-  %130 = fmul reassoc nsz arcp contract afn float %117, -5.000000e-01
+  %130 = fmul reassoc nnan nsz arcp contract afn float %117, -5.000000e-01
   %131 = fpext reassoc nsz arcp contract afn float %130 to double
-  %132 = fmul reassoc nsz arcp contract afn float %120, -5.000000e-01
+  %132 = fmul reassoc nnan nsz arcp contract afn float %120, -5.000000e-01
   %133 = fpext reassoc nsz arcp contract afn float %132 to double
   call void @cairo_translate(ptr noundef %33, double noundef %131, double noundef %133) #22
   %134 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !105
@@ -1063,7 +1063,7 @@ _iop_zonesystem_calculate_zonemap.exit:           ; preds = %.loopexit.i, %54
   br i1 %153, label %158, label %154
 
 154:                                              ; preds = %152
-  %155 = fmul reassoc nsz arcp contract afn double %150, 2.550000e+02
+  %155 = fmul reassoc nnan nsz arcp contract afn double %150, 2.550000e+02
   %156 = fptosi double %155 to i32
   %157 = trunc i32 %156 to i8
   br label %158
@@ -1129,12 +1129,12 @@ _iop_zonesystem_calculate_zonemap.exit:           ; preds = %.loopexit.i, %54
   %193 = load i32, ptr %192, align 8, !tbaa !150
   %194 = sub nsw i32 %42, %193
   %195 = sitofp i32 %194 to double
-  %196 = fmul reassoc nsz arcp contract afn double %195, 5.000000e-01
+  %196 = fmul reassoc nnan nsz arcp contract afn double %195, 5.000000e-01
   %197 = getelementptr inbounds nuw i8, ptr %17, i64 100
   %198 = load i32, ptr %197, align 4, !tbaa !151
   %199 = sub nsw i32 %43, %198
   %200 = sitofp i32 %199 to double
-  %201 = fmul reassoc nsz arcp contract afn double %200, 5.000000e-01
+  %201 = fmul reassoc nnan nsz arcp contract afn double %200, 5.000000e-01
   call void @cairo_set_source_surface(ptr noundef %33, ptr noundef %191, double noundef %196, double noundef %201) #22
   %202 = sitofp i32 %42 to double
   %203 = sitofp i32 %43 to double
@@ -1318,8 +1318,8 @@ define internal noundef i32 @dt_iop_zonesystem_bar_draw(ptr noundef %0, ptr noun
 _iop_zonesystem_calculate_zonemap.exit:           ; preds = %.loopexit.i, %3
   %75 = add nsw i32 %39, -2
   %76 = sitofp i32 %75 to double
-  %77 = fdiv reassoc nsz arcp contract afn double 1.000000e+00, %76
-  %78 = fptrunc reassoc nsz arcp contract afn double %77 to float
+  %77 = fdiv reassoc nnan nsz arcp contract afn double 1.000000e+00, %76
+  %78 = fptrunc reassoc nnan nsz arcp contract afn double %77 to float
   call void @cairo_set_antialias(ptr noundef %32, i32 noundef 1) #22
   %79 = load i32, ptr %9, align 4, !tbaa !156
   %80 = icmp sgt i32 %79, 1
@@ -1659,7 +1659,7 @@ _iop_zonesystem_calculate_zonemap.exit:           ; preds = %.loopexit.i, %3
 
 106:                                              ; preds = %82
   %107 = fpext reassoc nsz arcp contract afn float %84 to double
-  %108 = fmul reassoc nsz arcp contract afn double %77, 0x3FE6666666666666
+  %108 = fmul reassoc nnan nsz arcp contract afn double %77, 0x3FE6666666666666
   %109 = fcmp reassoc nsz arcp contract afn ugt double %108, %107
   %110 = sitofp i32 %18 to float
   %111 = fdiv reassoc nsz arcp contract afn float %69, %110

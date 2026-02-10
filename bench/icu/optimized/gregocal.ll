@@ -1631,7 +1631,7 @@ define void @_ZN6icu_7717GregorianCalendar4rollE19UCalendarDateFieldsiR10UErrorC
 
 118:                                              ; preds = %116
   %119 = sitofp i32 %.0103 to double
-  %120 = fmul double %119, 8.640000e+07
+  %120 = fmul nnan double %119, 8.640000e+07
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %122 = load double, ptr %121, align 8, !tbaa !36
   %123 = fsub double %122, %.0108

@@ -5292,7 +5292,7 @@ define i32 @pmix_server_fence(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   store i64 %322, ptr %10, align 8, !tbaa !190
   %323 = sub nsw i64 %.sroa.0.0, %322
   %324 = sitofp i64 %323 to double
-  %325 = fmul double %324, 1.000000e+06
+  %325 = fmul nnan double %324, 1.000000e+06
   %326 = fptosi double %325 to i64
   %327 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %326, ptr %327, align 8, !tbaa !191
@@ -9155,7 +9155,7 @@ pmix_obj_update.exit:                             ; preds = %290
   store i64 %302, ptr %8, align 8, !tbaa !190
   %303 = sub nsw i64 %.sroa.0.0, %302
   %304 = sitofp i64 %303 to double
-  %305 = fmul double %304, 1.000000e+06
+  %305 = fmul nnan double %304, 1.000000e+06
   %306 = fptosi double %305 to i64
   %307 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %306, ptr %307, align 8, !tbaa !191

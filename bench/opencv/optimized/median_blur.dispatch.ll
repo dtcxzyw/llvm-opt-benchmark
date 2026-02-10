@@ -8887,7 +8887,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit624: ; preds = %55
 
 5564:                                             ; preds = %5562
   %5565 = uitofp i64 %5563 to double
-  %5566 = fmul double %5565, 0x3EB0000000000000
+  %5566 = fmul nnan double %5565, 0x3EB0000000000000
   %5567 = fcmp olt double %5566, 1.000000e+00
   %5568 = fcmp olt double %5566, 4.000000e+00
   %5569 = select i1 %5568, i32 21, i32 9

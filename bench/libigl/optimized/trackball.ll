@@ -161,9 +161,9 @@ define linkonce_odr dso_local void @_ZN3igl9trackballIdEEvddT_ddddPS1_(double no
   br i1 %64, label %65, label %69
 
 65:                                               ; preds = %49
-  %sqrt71 = call double @llvm.sqrt.f64(double %45)
-  %66 = fadd double %sqrt71, -1.000000e+00
-  %67 = call double @llvm.fmuladd.f64(double %66, double 0x3FC99999A0000000, double 1.000000e+00)
+  %sqrt71 = call nnan double @llvm.sqrt.f64(double %45)
+  %66 = fadd nnan double %sqrt71, -1.000000e+00
+  %67 = call nnan double @llvm.fmuladd.f64(double %66, double 0x3FC99999A0000000, double 1.000000e+00)
   %68 = fmul double %67, %63
   br label %69
 

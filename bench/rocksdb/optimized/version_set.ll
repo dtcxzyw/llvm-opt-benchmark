@@ -26127,7 +26127,7 @@ _ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsER
   br i1 %234, label %235, label %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit.thread
 
 235:                                              ; preds = %233
-  %236 = fmul double %.3, 1.000000e+01
+  %236 = fmul nnan double %.3, 1.000000e+01
   br label %_ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsERKSt6vectorIPNS_12FileMetaDataESaIS9_EE.exit.thread
 
 237:                                              ; preds = %205
@@ -26212,8 +26212,8 @@ _ZN7rocksdb12_GLOBAL__N_127ShouldChangeFileTemperatureERKNS_16ImmutableOptionsER
   %283 = trunc nuw nsw i64 %indvars.iv242 to i32
   %284 = sub nsw i32 %.pre252, %283
   %285 = sitofp i32 %284 to double
-  %286 = call double @llvm.fmuladd.f64(double %285, double 1.000000e-03, double 1.001000e+00)
-  %287 = fmul double %286, 1.000000e+01
+  %286 = call nnan double @llvm.fmuladd.f64(double %285, double 1.000000e-03, double 1.001000e+00)
+  %287 = fmul nnan double %286, 1.000000e+01
   %288 = fcmp olt double %storemerge, %287
   %.sroa.speculated = select i1 %288, double %287, double %storemerge
   br label %289

@@ -890,7 +890,7 @@ _ZN4pbrt4HashIJNS_6Point3IfEEfEEEmDpT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %218 = trunc nuw nsw i64 %217 to i32
   %219 = call noundef i32 @llvm.fshr.i32(i32 %216, i32 %216, i32 %218)
   %220 = uitofp i32 %219 to float
-  %221 = fmul float %220, 0x3DF0000000000000
+  %221 = fmul nnan float %220, 0x3DF0000000000000
   %222 = fcmp olt float %221, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i.i.i = select i1 %222, float %221, float 0x3FEFFFFFE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %152)
@@ -905,7 +905,7 @@ _ZN4pbrt4HashIJNS_6Point3IfEEfEEEmDpT_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %230 = trunc nuw nsw i64 %229 to i32
   %231 = call noundef i32 @llvm.fshr.i32(i32 %228, i32 %228, i32 %230)
   %232 = uitofp i32 %231 to float
-  %233 = fmul float %232, 0x3DF0000000000000
+  %233 = fmul nnan float %232, 0x3DF0000000000000
   %234 = fcmp olt float %233, 0x3FEFFFFFE0000000
   %.sroa.speculated.i41.i.i.i.i = select i1 %234, float %233, float 0x3FEFFFFFE0000000
   store float %.sroa.speculated.i41.i.i.i.i, ptr %152, align 4, !tbaa !127
@@ -1162,7 +1162,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEEptEv.exit100.i.i.i.i.i.i.i.i.i: ; 
   %329 = trunc nuw nsw i64 %328 to i32
   %330 = call noundef i32 @llvm.fshr.i32(i32 %327, i32 %327, i32 %329)
   %331 = uitofp i32 %330 to float
-  %332 = fmul float %331, 0x3DF0000000000000
+  %332 = fmul nnan float %331, 0x3DF0000000000000
   %333 = fcmp olt float %332, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i.i.i.i.i.i.i.i = select i1 %333, float %332, float 0x3FEFFFFFE0000000
   %334 = fcmp olt float %319, %.sroa.7183.0.copyload.i.i.i.i.i.i.i.i.i
@@ -1733,7 +1733,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEEptEv.exit100._crit_edge.i.i.i.i.i.
   %561 = trunc nuw nsw i64 %560 to i32
   %562 = call noundef i32 @llvm.fshr.i32(i32 %559, i32 %559, i32 %561)
   %563 = uitofp i32 %562 to float
-  %564 = fmul float %563, 0x3DF0000000000000
+  %564 = fmul nnan float %563, 0x3DF0000000000000
   %565 = fcmp olt float %564, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i31.i.i.i.i.i.i.i = select i1 %565, float %564, float 0x3FEFFFFFE0000000
   %566 = load float, ptr %488, align 4, !tbaa !151
@@ -2245,7 +2245,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEEptEv.exit100._crit_edge.i.i135.i.i
   %779 = trunc nuw nsw i64 %778 to i32
   %780 = call noundef i32 @llvm.fshr.i32(i32 %777, i32 %777, i32 %779)
   %781 = uitofp i32 %780 to float
-  %782 = fmul float %781, 0x3DF0000000000000
+  %782 = fmul nnan float %781, 0x3DF0000000000000
   %783 = fcmp olt float %782, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i110.i.i.i.i.i.i.i = select i1 %783, float %782, float 0x3FEFFFFFE0000000
   %784 = load float, ptr %676, align 4, !tbaa !151
@@ -2925,7 +2925,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEEptEv.exit100.i.i187.i.i.i.i.i.i.i:
   %1055 = trunc nuw nsw i64 %1054 to i32
   %1056 = call noundef i32 @llvm.fshr.i32(i32 %1053, i32 %1053, i32 %1055)
   %1057 = uitofp i32 %1056 to float
-  %1058 = fmul float %1057, 0x3DF0000000000000
+  %1058 = fmul nnan float %1057, 0x3DF0000000000000
   %1059 = fcmp olt float %1058, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i190.i.i.i.i.i.i.i = select i1 %1059, float %1058, float 0x3FEFFFFFE0000000
   %1060 = fcmp olt float %1045, %.sroa.7.0.copyload.i.i.i.i.i.i.i.i.i
@@ -3379,7 +3379,7 @@ _ZN4pstd8optionalIN4pbrt18RayMajorantSegmentEEptEv.exit100._crit_edge.i.i350.i.i
   %1237 = trunc nuw nsw i64 %1236 to i32
   %1238 = call noundef i32 @llvm.fshr.i32(i32 %1235, i32 %1235, i32 %1237)
   %1239 = uitofp i32 %1238 to float
-  %1240 = fmul float %1239, 0x3DF0000000000000
+  %1240 = fmul nnan float %1239, 0x3DF0000000000000
   %1241 = fcmp olt float %1240, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i.i301.i.i.i.i.i.i.i = select i1 %1241, float %1240, float 0x3FEFFFFFE0000000
   %1242 = load float, ptr %1164, align 4, !tbaa !151
@@ -4275,7 +4275,7 @@ _ZN4pbrt9HashFloatIJNS_6Point3IfEENS_7Vector3IfEENS_8MaterialES5_EEEfDpT_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !211
   %1589 = trunc i64 %1588 to i32
   %1590 = uitofp i32 %1589 to float
-  %1591 = fmul float %1590, 0x3DF0000000000000
+  %1591 = fmul nnan float %1590, 0x3DF0000000000000
   %1592 = fcmp olt float %1563, %1591
   %1593 = select i1 %1592, i64 %1575, i64 %1577
   br label %_ZNK4pbrt11MixMaterial14ChooseMaterialINS_21BasicTextureEvaluatorEEENS_8MaterialET_NS_19MaterialEvalContextE.exit.i.i.i.i
@@ -7024,7 +7024,7 @@ _ZN4pbrt15SampledSpectrummLERKS0_.exit234:        ; preds = %347
   %365 = trunc nuw nsw i64 %364 to i32
   %366 = tail call noundef i32 @llvm.fshr.i32(i32 %363, i32 %363, i32 %365)
   %367 = uitofp i32 %366 to float
-  %368 = fmul float %367, 0x3DF0000000000000
+  %368 = fmul nnan float %367, 0x3DF0000000000000
   %369 = fcmp olt float %368, 0x3FEFFFFFE0000000
   %.sroa.speculated.i235 = select i1 %369, float %368, float 0x3FEFFFFFE0000000
   %370 = load ptr, ptr %136, align 8, !tbaa !345
@@ -8316,13 +8316,13 @@ _ZNK4pstd8optionalIN4pbrt11SampledGridIfEEEptEv.exit: ; preds = %154
 167:                                              ; preds = %_ZNK4pstd8optionalIN4pbrt11SampledGridIfEEEptEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store float %165, ptr %15, align 4, !tbaa !417
-  %168 = fdiv float 0x3F67BD1180000000, %165
-  %169 = fmul float %168, 1.000000e+09
-  %170 = fmul float %169, 0x3E112E0BE0000000
+  %168 = fdiv nnan float 0x3F67BD1180000000, %165
+  %169 = fmul nnan float %168, 1.000000e+09
+  %170 = fmul nnan float %169, 0x3E112E0BE0000000
   %171 = fmul float %170, %170
   %172 = fmul float %171, %171
   %173 = fmul float %170, %172
-  %174 = fmul float %170, 0x3B30B0E6A0000000
+  %174 = fmul nnan float %170, 0x3B30B0E6A0000000
   %175 = fmul float %165, %174
   %176 = fdiv float 0x3ACEBD1F40000000, %175
   %177 = fmul float %176, 0x3FF7154760000000
@@ -15617,7 +15617,7 @@ _ZNK4pbrt9Transform12ApplyInverseIfEENS_6Point3IT_EES4_.exit: ; preds = %5
   br i1 %81, label %82, label %.loopexit.i
 
 82:                                               ; preds = %_ZNK4pbrt9Transform12ApplyInverseIfEENS_6Point3IT_EES4_.exit
-  %83 = fmul float %80, 0x3FA99999A0000000
+  %83 = fmul nnan float %80, 0x3FA99999A0000000
   br label %84
 
 84:                                               ; preds = %84, %82
@@ -24780,7 +24780,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %11 = load float, ptr %5, align 4, !tbaa !157, !noalias !1047
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %13 = load float, ptr %12, align 4, !tbaa !157, !noalias !1047
-  %14 = fsub float 1.000000e+00, %10
+  %14 = fsub nnan float 1.000000e+00, %10
   %15 = fmul float %11, %14
   %16 = fmul float %10, %13
   %17 = fadd float %16, %15
@@ -24792,7 +24792,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %23 = load float, ptr %22, align 4, !tbaa !158, !noalias !1047
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %25 = load float, ptr %24, align 4, !tbaa !158, !noalias !1047
-  %26 = fsub float 1.000000e+00, %21
+  %26 = fsub nnan float 1.000000e+00, %21
   %27 = fmul float %23, %26
   %28 = fmul float %21, %25
   %29 = fadd float %28, %27
@@ -24804,7 +24804,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %35 = load float, ptr %34, align 4, !tbaa !159, !noalias !1047
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 20
   %37 = load float, ptr %36, align 4, !tbaa !159, !noalias !1047
-  %38 = fsub float 1.000000e+00, %33
+  %38 = fsub nnan float 1.000000e+00, %33
   %39 = fmul float %35, %38
   %40 = fmul float %33, %37
   %41 = fadd float %40, %39
@@ -24812,7 +24812,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %43 = load i16, ptr %42, align 2, !tbaa !1045, !noalias !1047
   %44 = uitofp i16 %43 to float
   %45 = fdiv float %44, 6.553500e+04
-  %46 = fsub float 1.000000e+00, %45
+  %46 = fsub nnan float 1.000000e+00, %45
   %47 = fmul float %11, %46
   %48 = fmul float %13, %45
   %49 = fadd float %48, %47
@@ -24820,7 +24820,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %51 = load i16, ptr %50, align 4, !tbaa !1045, !noalias !1047
   %52 = uitofp i16 %51 to float
   %53 = fdiv float %52, 6.553500e+04
-  %54 = fsub float 1.000000e+00, %53
+  %54 = fsub nnan float 1.000000e+00, %53
   %55 = fmul float %23, %54
   %56 = fmul float %25, %53
   %57 = fadd float %56, %55
@@ -24828,7 +24828,7 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %59 = load i16, ptr %58, align 2, !tbaa !1045, !noalias !1047
   %60 = uitofp i16 %59 to float
   %61 = fdiv float %60, 6.553500e+04
-  %62 = fsub float 1.000000e+00, %61
+  %62 = fsub nnan float 1.000000e+00, %61
   %63 = fmul float %35, %62
   %64 = fmul float %37, %61
   %65 = fadd float %64, %63
@@ -24848,14 +24848,14 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %77 = load i32, ptr %76, align 4
   %78 = and i32 %77, 32767
   %79 = uitofp nneg i32 %78 to float
-  %80 = fdiv float %79, 3.276700e+04
-  %81 = fmul float %80, 2.000000e+00
+  %80 = fdiv nnan float %79, 3.276700e+04
+  %81 = fmul nnan float %80, 2.000000e+00
   %82 = fadd float %81, -1.000000e+00
   %83 = lshr i32 %77, 15
   %84 = and i32 %83, 32767
   %85 = uitofp nneg i32 %84 to float
-  %86 = fdiv float %85, 3.276700e+04
-  %87 = fmul float %86, 2.000000e+00
+  %86 = fdiv nnan float %85, 3.276700e+04
+  %87 = fmul nnan float %86, 2.000000e+00
   %88 = fadd float %87, -1.000000e+00
   %89 = fadd float %72, %67
   %90 = fadd float %74, %69
@@ -24891,15 +24891,15 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   %115 = fdiv float %97, %sqrt.i.i
   %116 = load i16, ptr %0, align 4, !tbaa !1050
   %117 = uitofp i16 %116 to float
-  %118 = fdiv float %117, 6.553500e+04
-  %119 = fmul float %118, 2.000000e+00
+  %118 = fdiv nnan float %117, 6.553500e+04
+  %119 = fmul nnan float %118, 2.000000e+00
   %120 = fadd float %119, -1.000000e+00
   %.sroa.0.0.vec.insert.i122 = insertelement <2 x float> poison, float %120, i64 0
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %122 = load i16, ptr %121, align 2, !tbaa !1052
   %123 = uitofp i16 %122 to float
-  %124 = fdiv float %123, 6.553500e+04
-  %125 = fmul float %124, 2.000000e+00
+  %124 = fdiv nnan float %123, 6.553500e+04
+  %125 = fmul nnan float %124, 2.000000e+00
   %126 = fadd float %125, -1.000000e+00
   %.sroa.0.4.vec.insert25.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i122, float %126, i64 1
   %127 = tail call noundef float @llvm.fabs.f32(float %120)
@@ -24910,13 +24910,13 @@ define linkonce_odr dso_local noundef float @_ZNK4pbrt18CompactLightBounds10Impo
   br i1 %131, label %132, label %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
 
 132:                                              ; preds = %6
-  %133 = fsub float 1.000000e+00, %128
+  %133 = fsub nnan float 1.000000e+00, %128
   %134 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %120)
-  %135 = fmul float %134, %133
+  %135 = fmul nnan float %134, %133
   %.sroa.0.0.vec.insert16.i = insertelement <2 x float> poison, float %135, i64 0
-  %136 = fsub float 1.000000e+00, %127
+  %136 = fsub nnan float 1.000000e+00, %127
   %137 = tail call noundef float @llvm.copysign.f32(float 1.000000e+00, float %126)
-  %138 = fmul float %136, %137
+  %138 = fmul nnan float %136, %137
   %.sroa.0.4.vec.insert.i123 = insertelement <2 x float> %.sroa.0.0.vec.insert16.i, float %138, i64 1
   br label %_ZNK4pbrt16OctahedralVectorcvNS_7Vector3IfEEEv.exit
 
@@ -25063,7 +25063,7 @@ _ZNK4pbrt6Tuple3INS_7Normal3EfEneENS1_IfEE.exit.thread: ; preds = %213
   %229 = fsub float 1.000000e+00, %228
   %230 = fcmp ogt float %229, 0.000000e+00
   %.sroa.speculated.i139 = select i1 %230, float %229, float 0.000000e+00
-  %sqrt.i140 = tail call noundef float @llvm.sqrt.f32(float %.sroa.speculated.i139)
+  %sqrt.i140 = tail call nnan float @llvm.sqrt.f32(float %.sroa.speculated.i139)
   %231 = fcmp ogt float %227, %.sroa.3.12.vec.extract
   %232 = fmul float %227, %.sroa.3.12.vec.extract
   %233 = fmul float %sqrt.i140, %sqrt.i130

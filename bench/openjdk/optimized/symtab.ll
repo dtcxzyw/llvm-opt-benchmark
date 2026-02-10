@@ -157,7 +157,7 @@ define internal fastcc ptr @build_symtab_internal(i32 noundef %0, ptr noundef re
 
 54:                                               ; preds = %43
   %55 = uitofp i64 %50 to double
-  %56 = fmul double %55, 1.250000e+00
+  %56 = fmul nnan double %55, 1.250000e+00
   %57 = fptoui double %56 to i64
   %58 = call i32 @hcreate_r(i64 noundef %57, ptr noundef nonnull %51) #14
   %59 = getelementptr inbounds nuw i8, ptr %36, i64 40

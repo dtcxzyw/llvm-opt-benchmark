@@ -517,7 +517,7 @@ default.unreachable3.i:                           ; preds = %7
   br label %_ZN9uu_numfmt7options11RoundMethod5round17hd687ff11c0fa30b2E.exit
 
 26:                                               ; preds = %3
-  %27 = fmul double %4, 1.000000e+01
+  %27 = fmul nnan double %4, 1.000000e+01
   switch i8 %2, label %default.unreachable3.i3 [
     i8 0, label %28
     i8 1, label %30
@@ -1626,7 +1626,7 @@ default.unreachable:                              ; preds = %.thread69.i, %472, 
   br label %_ZN9uu_numfmt6format9div_round17ha67a865b1f440330E.exit.i.i
 
 449:                                              ; preds = %427
-  %450 = fmul double %426, 1.000000e+01
+  %450 = fmul nnan double %426, 1.000000e+01
   switch i8 %359, label %default.unreachable [
     i8 0, label %451
     i8 1, label %453

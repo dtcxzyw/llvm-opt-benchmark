@@ -657,7 +657,7 @@ av_ts_make_string.exit:                           ; preds = %127, %128
   %198 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv401
   %199 = load i64, ptr %198, align 8, !tbaa !51
   %200 = sitofp i64 %199 to double
-  %201 = fmul nsz double %200, %200
+  %201 = fmul nnan nsz double %200, %200
   %202 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv401
   %203 = load i32, ptr %202, align 4, !tbaa !39
   %204 = sitofp i32 %203 to double
@@ -743,7 +743,7 @@ av_ts_make_string.exit:                           ; preds = %127, %128
 
 .._crit_edge.i_crit_edge:                         ; preds = %224
   %234 = sitofp i32 %231 to double
-  %235 = fmul nsz double %234, 0x3EF0000000000000
+  %235 = fmul nnan nsz double %234, 0x3EF0000000000000
   br label %._crit_edge.i
 
 236:                                              ; preds = %224
@@ -753,9 +753,9 @@ av_ts_make_string.exit:                           ; preds = %127, %128
 ._crit_edge.i:                                    ; preds = %.._crit_edge.i_crit_edge, %236
   %237 = phi double [ %235, %.._crit_edge.i_crit_edge ], [ 0.000000e+00, %236 ]
   %238 = sitofp i32 %229 to double
-  %239 = fmul nsz double %238, 0x3EF0000000000000
+  %239 = fmul nnan nsz double %238, 0x3EF0000000000000
   %240 = sitofp i32 %233 to double
-  %241 = fmul nsz double %240, 0x3EF0000000000000
+  %241 = fmul nnan nsz double %240, 0x3EF0000000000000
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %17, i32 noundef 32, ptr noundef nonnull @.str.25, double noundef %239, double noundef %237, double noundef %241) #11
   br label %242
 

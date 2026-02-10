@@ -437,8 +437,8 @@ define void @Bdc_ManFree(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %23 = getelementptr i8, ptr %22, i64 4
   %.val = load i32, ptr %23, align 4, !tbaa !35
   %24 = sitofp i32 %.val to double
-  %25 = fmul double %24, 4.000000e+00
-  %26 = fmul double %25, 0x3F50000000000000
+  %25 = fmul nnan double %24, 4.000000e+00
+  %26 = fmul nnan double %25, 0x3F50000000000000
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, i32 noundef %14, i32 noundef %16, i32 noundef %18, i32 noundef %20, double noundef %26)
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3)
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 288

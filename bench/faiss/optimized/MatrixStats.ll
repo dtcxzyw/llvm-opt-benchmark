@@ -613,7 +613,7 @@ _ZNSt13unordered_mapImN5faiss11MatrixStats10OccurrenceESt4hashImESt8equal_toImES
 
 195:                                              ; preds = %190
   %196 = uitofp i64 %192 to double
-  %197 = fmul double %196, 1.000000e+02
+  %197 = fmul nnan double %196, 1.000000e+02
   %198 = uitofp i64 %1 to double
   %199 = fdiv double %197, %198
   tail call void (ptr, ptr, ...) @_ZN5faiss11MatrixStats10do_commentEPKcz(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull @.str.6, i64 noundef %192, double noundef %199)
@@ -780,7 +780,7 @@ _ZNSt13unordered_mapImN5faiss11MatrixStats10OccurrenceESt4hashImESt8equal_toImES
 
 273:                                              ; preds = %._crit_edge192
   %274 = uitofp i64 %254 to double
-  %275 = fmul double %274, 1.000000e+02
+  %275 = fmul nnan double %274, 1.000000e+02
   %276 = uitofp i64 %31 to double
   %277 = fdiv double %275, %276
   tail call void (ptr, ptr, ...) @_ZN5faiss11MatrixStats10do_commentEPKcz(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull @.str.13, double noundef %277)

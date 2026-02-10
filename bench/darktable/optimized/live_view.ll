@@ -931,9 +931,9 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   %.0167 = phi ptr [ %58, %56 ], [ %61, %59 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !99
-  %64 = fmul reassoc nsz arcp contract afn double %30, 0x3FEF0A3D80000000
+  %64 = fmul reassoc nnan nsz arcp contract afn double %30, 0x3FEF0A3D80000000
   %65 = fptosi double %64 to i32
-  %66 = fmul reassoc nsz arcp contract afn double %33, 0x3FEF0A3D80000000
+  %66 = fmul reassoc nnan nsz arcp contract afn double %33, 0x3FEF0A3D80000000
   %67 = fptosi double %66 to i32
   %68 = tail call i32 @dt_mipmap_cache_get_matching_size(ptr noundef %63, i32 noundef %65, i32 noundef %67) #12
   %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 112), align 8, !tbaa !99
@@ -969,10 +969,10 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   %.0170 = phi ptr [ %80, %72 ], [ null, %62 ]
   %.0169 = phi nsz float [ %91, %72 ], [ 1.000000e+00, %62 ]
   %93 = sitofp i32 %2 to double
-  %94 = fmul reassoc nsz arcp contract afn double %93, 5.000000e-01
+  %94 = fmul reassoc nnan nsz arcp contract afn double %93, 5.000000e-01
   %95 = add nsw i32 %3, 18
   %96 = sitofp i32 %95 to float
-  %97 = fmul reassoc nsz arcp contract afn float %96, 5.000000e-01
+  %97 = fmul reassoc nnan nsz arcp contract afn float %96, 5.000000e-01
   %98 = fpext reassoc nsz arcp contract afn float %97 to double
   call void @cairo_translate(ptr noundef %1, double noundef %94, double noundef %98) #12
   %99 = fpext reassoc nsz arcp contract afn float %.0169 to double
@@ -985,12 +985,12 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %103 = load i32, ptr %102, align 8, !tbaa !104
   %104 = sitofp i32 %103 to float
-  %105 = fmul reassoc nsz arcp contract afn float %104, -5.000000e-01
+  %105 = fmul reassoc nnan nsz arcp contract afn float %104, -5.000000e-01
   %106 = fpext reassoc nsz arcp contract afn float %105 to double
   %107 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %108 = load i32, ptr %107, align 4, !tbaa !105
   %109 = sitofp i32 %108 to float
-  %110 = fmul reassoc nsz arcp contract afn float %109, -5.000000e-01
+  %110 = fmul reassoc nnan nsz arcp contract afn float %109, -5.000000e-01
   %111 = fpext reassoc nsz arcp contract afn float %110 to double
   call void @cairo_translate(ptr noundef %1, double noundef %106, double noundef %111) #12
   br i1 %45, label %112, label %149
@@ -1147,7 +1147,7 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
   store double %195, ptr %41, align 8, !tbaa !107
   %196 = sitofp i32 %37 to float
   %197 = fmul reassoc nsz arcp contract afn float %190, %196
-  %198 = fadd reassoc nsz arcp contract afn float %31, 1.800000e+01
+  %198 = fadd reassoc nnan nsz arcp contract afn float %31, 1.800000e+01
   %199 = fsub reassoc nsz arcp contract afn float %198, %197
   %200 = fpext reassoc nsz arcp contract afn float %199 to double
   %201 = fmul reassoc nsz arcp contract afn double %200, 5.000000e-01
@@ -1214,8 +1214,8 @@ define void @gui_post_expose(ptr noundef readonly captures(none) %0, ptr noundef
 
 238:                                              ; preds = %232
   call void @cairo_set_line_width(ptr noundef %1, double noundef 5.000000e-01) #12
-  %239 = fmul reassoc nsz arcp contract afn double %93, 2.000000e-02
-  %240 = fmul reassoc nsz arcp contract afn double %93, 1.000000e-02
+  %239 = fmul reassoc nnan nsz arcp contract afn double %93, 2.000000e-02
+  %240 = fmul reassoc nnan nsz arcp contract afn double %93, 1.000000e-02
   %241 = fsub reassoc nsz arcp contract afn double %211, %240
   %242 = fptosi double %241 to i32
   %243 = fsub reassoc nsz arcp contract afn double %216, %240

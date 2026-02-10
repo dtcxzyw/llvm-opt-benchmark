@@ -396,7 +396,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303: ; preds = %16
 170:                                              ; preds = %167, %169
   %171 = phi i32 [ %.sroa.speculated549, %169 ], [ 6, %167 ]
   %172 = sitofp i32 %141 to double
-  %173 = fmul double %172, 4.500000e+00
+  %173 = fmul nnan double %172, 4.500000e+00
   %174 = insertelement <2 x double> poison, double %173, i64 0
   %175 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %174)
   %176 = sub i32 257, %141
@@ -409,7 +409,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303: ; preds = %16
 
 180:                                              ; preds = %170
   %181 = sitofp i32 %133 to double
-  %182 = fmul double %181, 4.500000e+00
+  %182 = fmul nnan double %181, 4.500000e+00
   %183 = insertelement <2 x double> poison, double %182, i64 0
   %184 = call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %183)
   %185 = sub i32 257, %133
@@ -2694,7 +2694,7 @@ switch.lookup.i:                                  ; preds = %169
   %175 = sitofp i32 %174 to double
   %176 = load i32, ptr %152, align 4, !tbaa !26
   %177 = sitofp i32 %176 to double
-  %178 = fmul double %175, %177
+  %178 = fmul nnan double %175, %177
   %179 = fdiv double 1.000000e+00, %178
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #23

@@ -90,7 +90,7 @@ define range(i32 0, 2) i32 @SUNRCompare(double noundef %0, double noundef %1) lo
   %14 = tail call double @llvm.fabs.f64(double %13)
   %15 = fcmp olt double %14, 0x7FEFFFFFFFFFFFFF
   %16 = select i1 %15, double %14, double 0x7FEFFFFFFFFFFFFF
-  %17 = fmul double %16, 0x3CE4000000000000
+  %17 = fmul nnan double %16, 0x3CE4000000000000
   %18 = fcmp olt double %17, 0x3CE4000000000000
   %19 = select i1 %18, double 0x3CE4000000000000, double %17
   %20 = fcmp oge double %12, %19

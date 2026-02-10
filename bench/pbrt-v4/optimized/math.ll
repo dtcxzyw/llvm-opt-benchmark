@@ -3254,9 +3254,9 @@ define dso_local { <2 x float>, float } @_ZN4pbrt23EqualAreaSquareToSphereENS_6P
   unreachable
 
 8:                                                ; preds = %1
-  %9 = fmul float %.sroa.031.0.vec.extract, 2.000000e+00
+  %9 = fmul nnan float %.sroa.031.0.vec.extract, 2.000000e+00
   %10 = fadd float %9, -1.000000e+00
-  %11 = fmul float %.sroa.031.4.vec.extract37, 2.000000e+00
+  %11 = fmul nnan float %.sroa.031.4.vec.extract37, 2.000000e+00
   %12 = fadd float %11, -1.000000e+00
   %13 = tail call noundef float @llvm.fabs.f32(float %10)
   %14 = tail call noundef float @llvm.fabs.f32(float %12)

@@ -497,7 +497,7 @@ _ZN4pbrt9HashFloatIJNS_6Point3IfEENS_7Vector3IfEEEEEfDpT_.exit: ; preds = %.lr.p
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %83 = trunc i64 %82 to i32
   %84 = uitofp i32 %83 to float
-  %85 = fmul float %84, 0x3DF0000000000000
+  %85 = fmul nnan float %84, 0x3DF0000000000000
   br label %86
 
 86:                                               ; preds = %_ZN4pbrt9HashFloatIJNS_6Point3IfEENS_7Vector3IfEEEEEfDpT_.exit, %67
@@ -8300,7 +8300,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt8Cylinder27InteractionFromIntersect
   %64 = fadd float %62, %63
   %65 = fmul float %56, 0.000000e+00
   %66 = fadd float %65, %64
-  %67 = fmul float %35, %35
+  %67 = fmul ninf float %35, %35
   %68 = fneg float %67
   %69 = tail call noundef float @llvm.fma.f32(float %30, float %36, float %68)
   %70 = fneg float %35
@@ -8309,7 +8309,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt8Cylinder27InteractionFromIntersect
   %73 = fcmp oeq float %72, 0.000000e+00
   %74 = fdiv float 1.000000e+00, %72
   %75 = select i1 %73, float 0.000000e+00, float %74
-  %76 = fmul float %35, %66
+  %76 = fmul ninf float %35, %66
   %77 = fmul float %36, %61
   %78 = fsub float %76, %77
   %79 = fmul float %75, %78

@@ -910,7 +910,7 @@ declare noundef i64 @_ZN6icu_779ClockMath16floorDivideInt64Ell(i64 noundef, i64 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZNK6icu_7720IslamicCivilCalendar10monthStartEiiR10UErrorCode(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr nonnull readnone align 4 captures(none) %3) unnamed_addr #1 align 2 {
   %5 = sitofp i32 %2 to double
-  %6 = fmul double %5, 2.950000e+01
+  %6 = fmul nnan double %5, 2.950000e+01
   %7 = tail call double @uprv_ceil_77(double noundef %6)
   %8 = sext i32 %1 to i64
   %9 = mul nsw i64 %8, 354

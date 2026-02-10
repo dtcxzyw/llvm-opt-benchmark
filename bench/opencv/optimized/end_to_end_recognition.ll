@@ -1350,8 +1350,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit418: ; preds = %._cr
 
 534:                                              ; preds = %532
   %535 = sitofp i64 %531 to double
-  %536 = fsub double %535, %377
-  %537 = fmul double %536, 1.000000e+03
+  %536 = fsub nnan double %535, %377
+  %537 = fmul nnan double %536, 1.000000e+03
   %538 = fdiv double %537, %533
   %539 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %538)
           to label %_ZNSolsEd.exit unwind label %604
@@ -1900,8 +1900,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit453: ; preds = %_ZNS
 
 729:                                              ; preds = %727
   %730 = sitofp i64 %726 to double
-  %731 = fsub double %730, %713
-  %732 = fmul double %731, 1.000000e+03
+  %731 = fsub nnan double %730, %713
+  %732 = fmul nnan double %731, 1.000000e+03
   %733 = fdiv double %732, %728
   %734 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %733)
           to label %_ZNSolsEd.exit455 unwind label %877
@@ -1978,8 +1978,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit459: ; preds = %757
 
 762:                                              ; preds = %760
   %763 = sitofp i64 %759 to double
-  %764 = fsub double %763, %756
-  %765 = fmul double %764, 1.000000e+03
+  %764 = fsub nnan double %763, %756
+  %765 = fmul nnan double %764, 1.000000e+03
   %766 = fdiv double %765, %761
   %767 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %766)
           to label %_ZNSolsEd.exit461 unwind label %883
@@ -2150,7 +2150,7 @@ _ZNSolsEPFRSoS_E.exit463:                         ; preds = %.noexc800
   %851 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %852 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %853 = fpext float %813 to double
-  %854 = fmul float %813, 3.000000e+00
+  %854 = fmul nnan float %813, 3.000000e+00
   %855 = fptosi float %854 to i32
   %856 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %857 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -3085,8 +3085,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit468: ; preds = %._cr
 
 1192:                                             ; preds = %1190
   %1193 = sitofp i64 %1189 to double
-  %1194 = fsub double %1193, %816
-  %1195 = fmul double %1194, 1.000000e+03
+  %1194 = fsub nnan double %1193, %816
+  %1195 = fmul nnan double %1194, 1.000000e+03
   %1196 = fdiv double %1195, %1191
   %1197 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %1196)
           to label %_ZNSolsEd.exit527 unwind label %892

@@ -797,8 +797,8 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE17_S_check_init_len
 
 128:                                              ; preds = %.lr.ph.preheader.i.i.i, %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE17_S_check_init_lenEmRKS3_.exit.i
   %.sroa.0163.0 = phi ptr [ %.1.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i ], [ null, %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE17_S_check_init_lenEmRKS3_.exit.i ]
-  %129 = fmul double %107, 1.000000e-03
-  %130 = fmul double %117, 1.000000e-03
+  %129 = fmul nnan double %107, 1.000000e-03
+  %130 = fmul nnan double %117, 1.000000e-03
   invoke void (ptr, ...) @_ZN8LightGBM3Log5DebugEPKcz(ptr noundef nonnull @.str.2, double %129, double %130)
           to label %131 unwind label %201
 
@@ -5443,8 +5443,8 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE17_S_check_init_len
 
 128:                                              ; preds = %.lr.ph.preheader.i.i.i, %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE17_S_check_init_lenEmRKS3_.exit.i
   %.sroa.0163.0 = phi ptr [ %.1.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i ], [ null, %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE17_S_check_init_lenEmRKS3_.exit.i ]
-  %129 = fmul double %107, 1.000000e-03
-  %130 = fmul double %117, 1.000000e-03
+  %129 = fmul nnan double %107, 1.000000e-03
+  %130 = fmul nnan double %117, 1.000000e-03
   invoke void (ptr, ...) @_ZN8LightGBM3Log5DebugEPKcz(ptr noundef nonnull @.str.2, double %129, double %130)
           to label %131 unwind label %201
 
@@ -8351,8 +8351,8 @@ _ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE17_S_check_init_len
 
 128:                                              ; preds = %.lr.ph.preheader.i.i.i, %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE17_S_check_init_lenEmRKS3_.exit.i
   %.sroa.0163.0 = phi ptr [ %.1.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i ], [ null, %_ZNSt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEE17_S_check_init_lenEmRKS3_.exit.i ]
-  %129 = fmul double %107, 1.000000e-03
-  %130 = fmul double %117, 1.000000e-03
+  %129 = fmul nnan double %107, 1.000000e-03
+  %130 = fmul nnan double %117, 1.000000e-03
   invoke void (ptr, ...) @_ZN8LightGBM3Log5DebugEPKcz(ptr noundef nonnull @.str.2, double %129, double %130)
           to label %131 unwind label %201
 
@@ -24056,7 +24056,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   %66 = lshr i32 %65, 16
   %67 = and i32 %66, 32767
   %68 = uitofp nneg i32 %67 to float
-  %69 = fmul float %68, 0x3F00000000000000
+  %69 = fmul nnan float %68, 0x3F00000000000000
   %70 = sub nsw i64 %6, %62
   %71 = uitofp i64 %70 to double
   %72 = sub nsw i32 %2, %storemerge31141
@@ -42832,7 +42832,7 @@ _ZN8LightGBM7Dataset23GetSerializedHeaderSizeEv.exit: ; preds = %42, %2
 ._crit_edge:                                      ; preds = %_ZNK8LightGBM12FeatureGroup11SizesInByteEb.exit, %_ZN8LightGBM7Dataset23GetSerializedHeaderSizeEv.exit
   %.018.lcssa = phi i64 [ %56, %_ZN8LightGBM7Dataset23GetSerializedHeaderSizeEv.exit ], [ %127, %_ZNK8LightGBM12FeatureGroup11SizesInByteEb.exit ]
   %59 = uitofp i64 %.018.lcssa to double
-  %60 = fmul double %59, 1.100000e+00
+  %60 = fmul nnan double %59, 1.100000e+00
   %61 = fptoui double %60 to i64
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %63 = icmp slt i64 %61, 0

@@ -14267,7 +14267,7 @@ invoke.cont120.i:                                 ; preds = %invoke.cont118.i
 
 invoke.cont122.i:                                 ; preds = %invoke.cont120.i
   %conv.i = uitofp i32 %inc.i to double
-  %mul.i = fmul nsz double %conv.i, 1.000000e+02
+  %mul.i = fmul nnan nsz double %conv.i, 1.000000e+02
   %144 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !271
   %145 = load ptr, ptr %blocks.i, align 8, !tbaa !273
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %144 to i64
@@ -15685,7 +15685,7 @@ invoke.cont117.i:                                 ; preds = %invoke.cont115.i
 
 invoke.cont119.i:                                 ; preds = %invoke.cont117.i
   %conv.i730 = uitofp i32 %inc.i719 to float
-  %mul.i731 = fmul nsz float %conv.i730, 1.000000e+02
+  %mul.i731 = fmul nnan nsz float %conv.i730, 1.000000e+02
   %308 = load ptr, ptr %_M_finish.i.i707, align 8, !tbaa !271
   %309 = load ptr, ptr %blocks.i653, align 8, !tbaa !273
   %sub.ptr.lhs.cast.i.i732 = ptrtoint ptr %308 to i64

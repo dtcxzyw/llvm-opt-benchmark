@@ -2113,7 +2113,7 @@ _ZN2cv4Mat_IfE6createEii.exit.preheader:          ; preds = %_ZN2cv4Mat_INS_3Vec
 
 75:                                               ; preds = %._crit_edge147.us
   %76 = sitofp i32 %.1.lcssa.us to double
-  %77 = fdiv double 1.000000e+00, %76
+  %77 = fdiv nnan double 1.000000e+00, %76
   br label %78
 
 78:                                               ; preds = %78, %75
@@ -4099,7 +4099,7 @@ define linkonce_odr hidden void @_ZN2cv4rgbd9PlaneBase16UpdateParametersEv(ptr n
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
   %12 = sitofp i32 %9 to double
-  %13 = fdiv double 1.000000e+00, %12
+  %13 = fdiv nnan double 1.000000e+00, %12
   br label %14
 
 14:                                               ; preds = %14, %10

@@ -2130,13 +2130,13 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc, %_ZN4pstd3p
   %111 = getelementptr inbounds nuw [2 x i32], ptr @_ZN4pbrt14pmj02bnSamplesE, i64 %indvars.iv
   %112 = load i32, ptr %111, align 8, !tbaa !28
   %113 = uitofp i32 %112 to double
-  %114 = fmul double %113, 0x3DF0000000000000
-  %115 = fptrunc double %114 to float
+  %114 = fmul nnan double %113, 0x3DF0000000000000
+  %115 = fptrunc nnan double %114 to float
   %116 = getelementptr inbounds nuw i8, ptr %111, i64 4
   %117 = load i32, ptr %116, align 4, !tbaa !28
   %118 = uitofp i32 %117 to double
-  %119 = fmul double %118, 0x3DF0000000000000
-  %120 = fptrunc double %119 to float
+  %119 = fmul nnan double %118, 0x3DF0000000000000
+  %120 = fptrunc nnan double %119 to float
   %121 = load i32, ptr %64, align 8, !tbaa !183
   %122 = sitofp i32 %121 to float
   %123 = fmul float %115, %122
@@ -3643,7 +3643,7 @@ define dso_local void @_ZN4pbrt10MLTSampler11EnsureReadyEi(ptr noundef nonnull a
   %31 = trunc nuw nsw i64 %30 to i32
   %32 = tail call noundef i32 @llvm.fshr.i32(i32 %29, i32 %29, i32 %31)
   %33 = uitofp i32 %32 to float
-  %34 = fmul float %33, 0x3DF0000000000000
+  %34 = fmul nnan float %33, 0x3DF0000000000000
   %35 = fcmp olt float %34, 0x3FEFFFFFE0000000
   %.sroa.speculated.i = select i1 %35, float %34, float 0x3FEFFFFFE0000000
   store float %.sroa.speculated.i, ptr %13, align 8, !tbaa !251
@@ -3678,7 +3678,7 @@ define dso_local void @_ZN4pbrt10MLTSampler11EnsureReadyEi(ptr noundef nonnull a
   %56 = trunc nuw nsw i64 %55 to i32
   %57 = tail call noundef i32 @llvm.fshr.i32(i32 %54, i32 %54, i32 %56)
   %58 = uitofp i32 %57 to float
-  %59 = fmul float %58, 0x3DF0000000000000
+  %59 = fmul nnan float %58, 0x3DF0000000000000
   %60 = fcmp olt float %59, 0x3FEFFFFFE0000000
   %.sroa.speculated.i16 = select i1 %60, float %59, float 0x3FEFFFFFE0000000
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3709,10 +3709,10 @@ define dso_local void @_ZN4pbrt10MLTSampler11EnsureReadyEi(ptr noundef nonnull a
   %81 = trunc nuw nsw i64 %80 to i32
   %82 = tail call noundef i32 @llvm.fshr.i32(i32 %79, i32 %79, i32 %81)
   %83 = uitofp i32 %82 to float
-  %84 = fmul float %83, 0x3DF0000000000000
+  %84 = fmul nnan float %83, 0x3DF0000000000000
   %85 = fcmp olt float %84, 0x3FEFFFFFE0000000
   %.sroa.speculated.i17 = select i1 %85, float %84, float 0x3FEFFFFFE0000000
-  %86 = fmul float %.sroa.speculated.i17, 2.000000e+00
+  %86 = fmul nnan float %.sroa.speculated.i17, 2.000000e+00
   %87 = fadd float %86, -1.000000e+00
   %88 = fneg float %87
   %89 = tail call noundef float @llvm.fma.f32(float %87, float %88, float 1.000000e+00)
@@ -3877,7 +3877,7 @@ define dso_local void @_ZN4pbrt10MLTSampler14StartIterationEv(ptr noundef nonnul
   %16 = trunc nuw nsw i64 %15 to i32
   %17 = tail call noundef i32 @llvm.fshr.i32(i32 %14, i32 %14, i32 %16)
   %18 = uitofp i32 %17 to float
-  %19 = fmul float %18, 0x3DF0000000000000
+  %19 = fmul nnan float %18, 0x3DF0000000000000
   %20 = fcmp olt float %19, 0x3FEFFFFFE0000000
   %.sroa.speculated.i = select i1 %20, float %19, float 0x3FEFFFFFE0000000
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 28

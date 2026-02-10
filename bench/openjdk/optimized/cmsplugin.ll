@@ -339,7 +339,7 @@ define hidden range(i32 0, 2) i32 @_cmsRead15Fixed16Number(ptr noundef %0, ptr n
   %9 = load i32, ptr %3, align 4
   %.sroa.0.0.insert.insert.i = call noundef i32 @llvm.bswap.i32(i32 %9)
   %10 = sitofp i32 %.sroa.0.0.insert.insert.i to double
-  %11 = fmul double %10, 0x3EF0000000000000
+  %11 = fmul nnan double %10, 0x3EF0000000000000
   store double %11, ptr %1, align 8
   br label %12
 
@@ -349,9 +349,9 @@ define hidden range(i32 0, 2) i32 @_cmsRead15Fixed16Number(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef double @_cms15Fixed16toDouble(i32 noundef %0) local_unnamed_addr #0 {
+define hidden double @_cms15Fixed16toDouble(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sitofp i32 %0 to double
-  %3 = fmul double %2, 0x3EF0000000000000
+  %3 = fmul nnan double %2, 0x3EF0000000000000
   ret double %3
 }
 
@@ -372,20 +372,20 @@ define hidden range(i32 0, 2) i32 @_cmsReadXYZNumber(ptr noundef %0, ptr noundef
   %9 = load i32, ptr %3, align 4
   %.sroa.0.0.insert.insert.i = call noundef i32 @llvm.bswap.i32(i32 %9)
   %10 = sitofp i32 %.sroa.0.0.insert.insert.i to double
-  %11 = fmul double %10, 0x3EF0000000000000
+  %11 = fmul nnan double %10, 0x3EF0000000000000
   store double %11, ptr %1, align 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = load i32, ptr %12, align 4
   %.sroa.0.0.insert.insert.i8 = call noundef i32 @llvm.bswap.i32(i32 %13)
   %14 = sitofp i32 %.sroa.0.0.insert.insert.i8 to double
-  %15 = fmul double %14, 0x3EF0000000000000
+  %15 = fmul nnan double %14, 0x3EF0000000000000
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = load i32, ptr %17, align 4
   %.sroa.0.0.insert.insert.i9 = call noundef i32 @llvm.bswap.i32(i32 %18)
   %19 = sitofp i32 %.sroa.0.0.insert.insert.i9 to double
-  %20 = fmul double %19, 0x3EF0000000000000
+  %20 = fmul nnan double %19, 0x3EF0000000000000
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double %20, ptr %21, align 8
   br label %22
@@ -578,9 +578,9 @@ define hidden i32 @_cmsWriteXYZNumber(ptr noundef %0, ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef double @_cms8Fixed8toDouble(i16 noundef zeroext %0) local_unnamed_addr #0 {
+define hidden double @_cms8Fixed8toDouble(i16 noundef zeroext %0) local_unnamed_addr #0 {
   %2 = uitofp i16 %0 to double
-  %3 = fmul double %2, 3.906250e-03
+  %3 = fmul nnan double %2, 3.906250e-03
   ret double %3
 }
 

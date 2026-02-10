@@ -2870,7 +2870,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp7, label %if.end11, label %if.then8
 
 if.then8:                                         ; preds = %if.else
-  %mul = fmul nsz double %conv5, 1.600000e+00
+  %mul = fmul nnan nsz double %conv5, 1.600000e+00
   %conv10 = fptrunc double %mul to float
   br label %if.end11
 
@@ -3451,7 +3451,7 @@ if.else:                                          ; preds = %if.end
   br i1 %cmp66, label %if.end71, label %if.then67
 
 if.then67:                                        ; preds = %if.else
-  %mul = fmul nsz double %conv62, 1.600000e+00
+  %mul = fmul nnan nsz double %conv62, 1.600000e+00
   %conv69 = fptrunc double %mul to float
   br label %if.end71
 

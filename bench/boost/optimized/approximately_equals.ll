@@ -38314,7 +38314,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %28, %30
 
 36:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
   %37 = uitofp i32 %34 to double
-  %38 = fdiv double %37, 5.000000e+01
+  %38 = fdiv nnan double %37, 5.000000e+01
   %39 = load i64, ptr %13, align 8, !tbaa !799
   %40 = uitofp i64 %39 to double
   %41 = fmul double %38, %40
@@ -71727,7 +71727,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.split.us.split.us
   br i1 %26, label %_Z24test_approximately_equalIN5boost8geometry5model5pointIeLm2ENS1_2cs9cartesianEEEdEbRKT_S9_T0_b.exit, label %_Z24test_approximately_equalIN5boost8geometry5model5pointIeLm2ENS1_2cs9cartesianEEEdEbRKT_S9_T0_b.exit.thread.us.us
 
 _Z24test_approximately_equalIN5boost8geometry5model5pointIeLm2ENS1_2cs9cartesianEEEdEbRKT_S9_T0_b.exit.thread.us.us: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.split.us.split.us
-  %27 = fmul double %.0835.us.us, 5.000000e-01
+  %27 = fmul nnan double %.0835.us.us, 5.000000e-01
   %28 = add i64 %storemerge34.us.us, 1
   %29 = fcmp ogt double %27, 0.000000e+00
   br i1 %29, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.split.us.split.us, label %.loopexit, !llvm.loop !1475
@@ -71763,7 +71763,7 @@ _ZN5boost8geometry4math6detail16equals_by_policyIeeNS2_20equals_factor_policyIeL
   br i1 %46, label %_Z24test_approximately_equalIN5boost8geometry5model5pointIeLm2ENS1_2cs9cartesianEEEdEbRKT_S9_T0_b.exit.thread.us50, label %_Z24test_approximately_equalIN5boost8geometry5model5pointIeLm2ENS1_2cs9cartesianEEEdEbRKT_S9_T0_b.exit
 
 _Z24test_approximately_equalIN5boost8geometry5model5pointIeLm2ENS1_2cs9cartesianEEEdEbRKT_S9_T0_b.exit.thread.us50: ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIeeNS2_20equals_factor_policyIeLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i.us48, %41
-  %47 = fmul double %.0835.us46, 5.000000e-01
+  %47 = fmul nnan double %.0835.us46, 5.000000e-01
   %48 = add i64 %storemerge34.us47, 1
   %49 = fcmp ogt double %47, 0.000000e+00
   br i1 %49, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.split.split.split.us, label %.loopexit, !llvm.loop !1475
@@ -72000,7 +72000,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.split.us.split.us
   br i1 %24, label %_Z24test_approximately_equalIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEEdEbRKT_S9_T0_b.exit, label %.critedge.us.us
 
 .critedge.us.us:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.split.us.split.us
-  %25 = fmul double %.0834.us.us, 5.000000e-01
+  %25 = fmul nnan double %.0834.us.us, 5.000000e-01
   %26 = add i64 %storemerge33.us.us, 1
   %27 = fcmp ogt double %25, 0.000000e+00
   br i1 %27, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.split.us.split.us, label %.loopexit, !llvm.loop !1490
@@ -72035,7 +72035,7 @@ _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdL
   br i1 %41, label %.critedge.us53, label %_Z24test_approximately_equalIN5boost8geometry5model5pointIdLm2ENS1_2cs9cartesianEEEdEbRKT_S9_T0_b.exit
 
 .critedge.us53:                                   ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i.us51, %36
-  %42 = fmul double %.0834.us47, 5.000000e-01
+  %42 = fmul nnan double %.0834.us47, 5.000000e-01
   %43 = add i64 %storemerge33.us48, 1
   %44 = fcmp ogt double %42, 0.000000e+00
   br i1 %44, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.split.split.split.us, label %.loopexit, !llvm.loop !1490
@@ -72275,7 +72275,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.split.us.split.us
   br i1 %28, label %_Z24test_approximately_equalIN5boost8geometry5model5pointIfLm2ENS1_2cs9cartesianEEEdEbRKT_S9_T0_b.exit, label %.critedge.us.us
 
 .critedge.us.us:                                  ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.split.us.split.us
-  %29 = fmul double %.0835.us.us, 5.000000e-01
+  %29 = fmul nnan double %.0835.us.us, 5.000000e-01
   %30 = add i64 %storemerge34.us.us, 1
   %31 = fcmp ogt double %29, 0.000000e+00
   br i1 %31, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.split.us.split.us, label %.loopexit, !llvm.loop !1505
@@ -72312,7 +72312,7 @@ _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdL
   br i1 %47, label %.critedge.us54, label %_Z24test_approximately_equalIN5boost8geometry5model5pointIfLm2ENS1_2cs9cartesianEEEdEbRKT_S9_T0_b.exit
 
 .critedge.us54:                                   ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i.us52, %42
-  %48 = fmul double %.0835.us48, 5.000000e-01
+  %48 = fmul nnan double %.0835.us48, 5.000000e-01
   %49 = add i64 %storemerge34.us49, 1
   %50 = fcmp ogt double %48, 0.000000e+00
   br i1 %50, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.split.split.split.us, label %.loopexit, !llvm.loop !1505
@@ -72857,7 +72857,7 @@ common.resume:                                    ; preds = %147, %95
 
 143:                                              ; preds = %_ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE10EviLi0ELi0EEC2ILj100ELS3_10EviTnT2_Li0ETnS6_Li0EEEONS2_IXT_EXT0_ET1_S6_XT3_EXT4_EEEPKNSt9enable_ifIXgeL_ZNS4_9bit_countEEsr13cpp_bin_floatIXT_EXT0_ES7_S6_XT3_EXT4_EEE9bit_countEvE4typeE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %144 = fmul double %.054, 5.000000e-01
+  %144 = fmul nnan double %.054, 5.000000e-01
   %145 = add i64 %48, 1
   store i64 %145, ptr %8, align 8, !tbaa !93
   %146 = fcmp ogt double %144, 0.000000e+00
@@ -74568,7 +74568,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %178
 
 .noexc51:                                         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %183 = uitofp i64 %181 to double
-  %184 = fmul double %183, 0x3EB0C6F7A0B5ED8D
+  %184 = fmul nnan double %183, 0x3EB0C6F7A0B5ED8D
   %185 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %42, double noundef %184)
           to label %.noexc52 unwind label %459
 
@@ -76026,7 +76026,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72: ; preds = %208
 
 .noexc74:                                         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72
   %213 = uitofp i64 %211 to double
-  %214 = fmul double %213, 0x3EB0C6F7A0B5ED8D
+  %214 = fmul nnan double %213, 0x3EB0C6F7A0B5ED8D
   %215 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %191, double noundef %214)
           to label %.noexc75 unwind label %259
 

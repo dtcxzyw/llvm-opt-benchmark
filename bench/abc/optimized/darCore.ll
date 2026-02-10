@@ -915,7 +915,7 @@ Dar_ManCutCount.exit:                             ; preds = %.loopexit.i, %64
   %90 = load ptr, ptr %25, align 8, !tbaa !67
   %91 = call i32 @Aig_MmFixedReadMemUsage(ptr noundef %90) #12
   %92 = sitofp i32 %91 to double
-  %93 = fmul double %92, 0x3EB0000000000000
+  %93 = fmul nnan double %92, 0x3EB0000000000000
   %94 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 24, i32 noundef 4, double noundef %93)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

@@ -38774,7 +38774,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIfhE7calc_RGILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %118, %114
   %119 = uitofp i8 %107 to float
-  %120 = fmul float %119, 0x3F70101020000000
+  %120 = fmul nnan float %119, 0x3F70101020000000
   %121 = load i32, ptr %98, align 8, !tbaa !858
   %122 = add nsw i32 %121, 1
   %123 = icmp eq i32 %122, 2
@@ -38922,7 +38922,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIfhE7calc_RGILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i14: ; preds = %216, %212
   %217 = uitofp i8 %205 to float
-  %218 = fmul float %217, 0x3F70101020000000
+  %218 = fmul nnan float %217, 0x3F70101020000000
   %219 = load i32, ptr %196, align 8, !tbaa !858
   %220 = add nsw i32 %219, 1
   %221 = icmp eq i32 %220, 2
@@ -39084,7 +39084,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIfhE7calc_GBILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %100, %96
   %101 = uitofp i8 %89 to float
-  %102 = fmul float %101, 0x3F70101020000000
+  %102 = fmul nnan float %101, 0x3F70101020000000
   %103 = load i32, ptr %80, align 8, !tbaa !858
   %104 = add nsw i32 %103, 1
   %105 = icmp eq i32 %104, 2
@@ -39250,7 +39250,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIfhE7calc_GBILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i14: ; preds = %216, %212
   %217 = uitofp i8 %205 to float
-  %218 = fmul float %217, 0x3F70101020000000
+  %218 = fmul nnan float %217, 0x3F70101020000000
   %219 = load i32, ptr %196, align 8, !tbaa !858
   %220 = add nsw i32 %219, 1
   %221 = icmp eq i32 %220, 2
@@ -39446,7 +39446,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIfhE7calc_RGILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %127, %123
   %128 = uitofp i8 %116 to float
-  %129 = fmul float %128, 0x3F70101020000000
+  %129 = fmul nnan float %128, 0x3F70101020000000
   %130 = load i32, ptr %107, align 8, !tbaa !858
   %131 = add nsw i32 %130, 1
   %132 = icmp eq i32 %131, 2
@@ -39619,7 +39619,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIfhE7calc_RGILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i14: ; preds = %240, %236
   %241 = uitofp i8 %229 to float
-  %242 = fmul float %241, 0x3F70101020000000
+  %242 = fmul nnan float %241, 0x3F70101020000000
   %243 = load i32, ptr %220, align 8, !tbaa !858
   %244 = add nsw i32 %243, 1
   %245 = icmp eq i32 %244, 2
@@ -39797,7 +39797,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIfhE7calc_GBILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %109, %105
   %110 = uitofp i8 %98 to float
-  %111 = fmul float %110, 0x3F70101020000000
+  %111 = fmul nnan float %110, 0x3F70101020000000
   %112 = load i32, ptr %89, align 8, !tbaa !858
   %113 = add nsw i32 %112, 1
   %114 = icmp eq i32 %113, 2
@@ -39988,7 +39988,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIfhE7calc_GBILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i14: ; preds = %240, %236
   %241 = uitofp i8 %229 to float
-  %242 = fmul float %241, 0x3F70101020000000
+  %242 = fmul nnan float %241, 0x3F70101020000000
   %243 = load i32, ptr %220, align 8, !tbaa !858
   %244 = add nsw i32 %243, 1
   %245 = icmp eq i32 %244, 2
@@ -40320,7 +40320,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_iiiNS1_8WrapModeE.exi
 
 180:                                              ; preds = %.invoke.i.i.i.i, %176, %.noexc88.i.i.i.i, %152, %149, %148, %144
   %181 = uitofp i8 %127 to float
-  %182 = fmul float %181, 0x3F70101020000000
+  %182 = fmul nnan float %181, 0x3F70101020000000
   %183 = load i32, ptr %26, align 8, !tbaa !858
   %184 = add nsw i32 %183, 1
   %185 = icmp eq i32 %184, 2
@@ -44395,7 +44395,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIftE7calc_RGILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %118, %114
   %119 = uitofp i16 %107 to float
-  %120 = fmul float %119, 0x3EF0001000000000
+  %120 = fmul nnan float %119, 0x3EF0001000000000
   %121 = load i32, ptr %98, align 8, !tbaa !995
   %122 = add nsw i32 %121, 1
   %123 = icmp eq i32 %122, 2
@@ -44543,7 +44543,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIftE7calc_RGILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i14: ; preds = %216, %212
   %217 = uitofp i16 %205 to float
-  %218 = fmul float %217, 0x3EF0001000000000
+  %218 = fmul nnan float %217, 0x3EF0001000000000
   %219 = load i32, ptr %196, align 8, !tbaa !995
   %220 = add nsw i32 %219, 1
   %221 = icmp eq i32 %220, 2
@@ -44705,7 +44705,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIftE7calc_GBILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %100, %96
   %101 = uitofp i16 %89 to float
-  %102 = fmul float %101, 0x3EF0001000000000
+  %102 = fmul nnan float %101, 0x3EF0001000000000
   %103 = load i32, ptr %80, align 8, !tbaa !995
   %104 = add nsw i32 %103, 1
   %105 = icmp eq i32 %104, 2
@@ -44871,7 +44871,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIftE7calc_GBILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i14: ; preds = %216, %212
   %217 = uitofp i16 %205 to float
-  %218 = fmul float %217, 0x3EF0001000000000
+  %218 = fmul nnan float %217, 0x3EF0001000000000
   %219 = load i32, ptr %196, align 8, !tbaa !995
   %220 = add nsw i32 %219, 1
   %221 = icmp eq i32 %220, 2
@@ -45067,7 +45067,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIftE7calc_RGILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %127, %123
   %128 = uitofp i16 %116 to float
-  %129 = fmul float %128, 0x3EF0001000000000
+  %129 = fmul nnan float %128, 0x3EF0001000000000
   %130 = load i32, ptr %107, align 8, !tbaa !995
   %131 = add nsw i32 %130, 1
   %132 = icmp eq i32 %131, 2
@@ -45240,7 +45240,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIftE7calc_RGILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i14: ; preds = %240, %236
   %241 = uitofp i16 %229 to float
-  %242 = fmul float %241, 0x3EF0001000000000
+  %242 = fmul nnan float %241, 0x3EF0001000000000
   %243 = load i32, ptr %220, align 8, !tbaa !995
   %244 = add nsw i32 %243, 1
   %245 = icmp eq i32 %244, 2
@@ -45418,7 +45418,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIftE7calc_GBILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %109, %105
   %110 = uitofp i16 %98 to float
-  %111 = fmul float %110, 0x3EF0001000000000
+  %111 = fmul nnan float %110, 0x3EF0001000000000
   %112 = load i32, ptr %89, align 8, !tbaa !995
   %113 = add nsw i32 %112, 1
   %114 = icmp eq i32 %113, 2
@@ -45609,7 +45609,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIftE7calc_GBILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i14: ; preds = %240, %236
   %241 = uitofp i16 %229 to float
-  %242 = fmul float %241, 0x3EF0001000000000
+  %242 = fmul nnan float %241, 0x3EF0001000000000
   %243 = load i32, ptr %220, align 8, !tbaa !995
   %244 = add nsw i32 %243, 1
   %245 = icmp eq i32 %244, 2
@@ -45941,7 +45941,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_iiiNS1_8WrapModeE.exi
 
 180:                                              ; preds = %.invoke.i.i.i.i, %176, %.noexc88.i.i.i.i, %152, %149, %148, %144
   %181 = uitofp i16 %127 to float
-  %182 = fmul float %181, 0x3EF0001000000000
+  %182 = fmul nnan float %181, 0x3EF0001000000000
   %183 = load i32, ptr %26, align 8, !tbaa !995
   %184 = add nsw i32 %183, 1
   %185 = icmp eq i32 %184, 2
@@ -47344,7 +47344,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIhhE7calc_RGILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %136, %132
   %137 = uitofp i8 %125 to float
-  %138 = fmul float %137, 0x3F70101020000000
+  %138 = fmul nnan float %137, 0x3F70101020000000
   %139 = load i32, ptr %116, align 8, !tbaa !1073
   %140 = add nsw i32 %139, 1
   %141 = icmp eq i32 %140, 2
@@ -47519,7 +47519,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIhhE7calc_RGILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i17: ; preds = %252, %248
   %253 = uitofp i8 %241 to float
-  %254 = fmul float %253, 0x3F70101020000000
+  %254 = fmul nnan float %253, 0x3F70101020000000
   %255 = load i32, ptr %232, align 8, !tbaa !1073
   %256 = add nsw i32 %255, 1
   %257 = icmp eq i32 %256, 2
@@ -47708,7 +47708,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIhhE7calc_GBILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %118, %114
   %119 = uitofp i8 %107 to float
-  %120 = fmul float %119, 0x3F70101020000000
+  %120 = fmul nnan float %119, 0x3F70101020000000
   %121 = load i32, ptr %98, align 8, !tbaa !1073
   %122 = add nsw i32 %121, 1
   %123 = icmp eq i32 %122, 2
@@ -47901,7 +47901,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIhhE7calc_GBILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i17: ; preds = %252, %248
   %253 = uitofp i8 %241 to float
-  %254 = fmul float %253, 0x3F70101020000000
+  %254 = fmul nnan float %253, 0x3F70101020000000
   %255 = load i32, ptr %232, align 8, !tbaa !1073
   %256 = add nsw i32 %255, 1
   %257 = icmp eq i32 %256, 2
@@ -48124,7 +48124,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIhhE7calc_RGILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %145, %141
   %146 = uitofp i8 %134 to float
-  %147 = fmul float %146, 0x3F70101020000000
+  %147 = fmul nnan float %146, 0x3F70101020000000
   %148 = load i32, ptr %125, align 8, !tbaa !1073
   %149 = add nsw i32 %148, 1
   %150 = icmp eq i32 %149, 2
@@ -48324,7 +48324,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIhhE7calc_RGILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i17: ; preds = %276, %272
   %277 = uitofp i8 %265 to float
-  %278 = fmul float %277, 0x3F70101020000000
+  %278 = fmul nnan float %277, 0x3F70101020000000
   %279 = load i32, ptr %256, align 8, !tbaa !1073
   %280 = add nsw i32 %279, 1
   %281 = icmp eq i32 %280, 2
@@ -48529,7 +48529,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIhhE7calc_GBILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %127, %123
   %128 = uitofp i8 %116 to float
-  %129 = fmul float %128, 0x3F70101020000000
+  %129 = fmul nnan float %128, 0x3F70101020000000
   %130 = load i32, ptr %107, align 8, !tbaa !1073
   %131 = add nsw i32 %130, 1
   %132 = icmp eq i32 %131, 2
@@ -48747,7 +48747,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIhhE7calc_GBILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i17: ; preds = %276, %272
   %277 = uitofp i8 %265 to float
-  %278 = fmul float %277, 0x3F70101020000000
+  %278 = fmul nnan float %277, 0x3F70101020000000
   %279 = load i32, ptr %256, align 8, !tbaa !1073
   %280 = add nsw i32 %279, 1
   %281 = icmp eq i32 %280, 2
@@ -49079,7 +49079,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_iiiNS1_8WrapModeE.exi
 
 180:                                              ; preds = %.invoke.i.i.i.i, %176, %.noexc88.i.i.i.i, %152, %149, %148, %144
   %181 = uitofp i8 %127 to float
-  %182 = fmul float %181, 0x3F70101020000000
+  %182 = fmul nnan float %181, 0x3F70101020000000
   %183 = load i32, ptr %26, align 8, !tbaa !1073
   %184 = add nsw i32 %183, 1
   %185 = icmp eq i32 %184, 2
@@ -52979,7 +52979,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIttE7calc_RGILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %136, %132
   %137 = uitofp i16 %125 to float
-  %138 = fmul float %137, 0x3EF0001000000000
+  %138 = fmul nnan float %137, 0x3EF0001000000000
   %139 = load i32, ptr %116, align 8, !tbaa !1210
   %140 = add nsw i32 %139, 1
   %141 = icmp eq i32 %140, 2
@@ -53154,7 +53154,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIttE7calc_RGILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i17: ; preds = %252, %248
   %253 = uitofp i16 %241 to float
-  %254 = fmul float %253, 0x3EF0001000000000
+  %254 = fmul nnan float %253, 0x3EF0001000000000
   %255 = load i32, ptr %232, align 8, !tbaa !1210
   %256 = add nsw i32 %255, 1
   %257 = icmp eq i32 %256, 2
@@ -53343,7 +53343,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIttE7calc_GBILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %118, %114
   %119 = uitofp i16 %107 to float
-  %120 = fmul float %119, 0x3EF0001000000000
+  %120 = fmul nnan float %119, 0x3EF0001000000000
   %121 = load i32, ptr %98, align 8, !tbaa !1210
   %122 = add nsw i32 %121, 1
   %123 = icmp eq i32 %122, 2
@@ -53536,7 +53536,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIttE7calc_GBILb0EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i17: ; preds = %252, %248
   %253 = uitofp i16 %241 to float
-  %254 = fmul float %253, 0x3EF0001000000000
+  %254 = fmul nnan float %253, 0x3EF0001000000000
   %255 = load i32, ptr %232, align 8, !tbaa !1210
   %256 = add nsw i32 %255, 1
   %257 = icmp eq i32 %256, 2
@@ -53759,7 +53759,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIttE7calc_RGILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %145, %141
   %146 = uitofp i16 %134 to float
-  %147 = fmul float %146, 0x3EF0001000000000
+  %147 = fmul nnan float %146, 0x3EF0001000000000
   %148 = load i32, ptr %125, align 8, !tbaa !1210
   %149 = add nsw i32 %148, 1
   %150 = icmp eq i32 %149, 2
@@ -53959,7 +53959,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIttE7calc_RGILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i17: ; preds = %276, %272
   %277 = uitofp i16 %265 to float
-  %278 = fmul float %277, 0x3EF0001000000000
+  %278 = fmul nnan float %277, 0x3EF0001000000000
   %279 = load i32, ptr %256, align 8, !tbaa !1210
   %280 = add nsw i32 %279, 1
   %281 = icmp eq i32 %280, 2
@@ -54164,7 +54164,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIttE7calc_GBILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %127, %123
   %128 = uitofp i16 %116 to float
-  %129 = fmul float %128, 0x3EF0001000000000
+  %129 = fmul nnan float %128, 0x3EF0001000000000
   %130 = load i32, ptr %107, align 8, !tbaa !1210
   %131 = add nsw i32 %130, 1
   %132 = icmp eq i32 %131, 2
@@ -54382,7 +54382,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo22LinearBayerDemosaicingIttE7calc_GBILb1EE
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi3EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i17: ; preds = %276, %272
   %277 = uitofp i16 %265 to float
-  %278 = fmul float %277, 0x3EF0001000000000
+  %278 = fmul nnan float %277, 0x3EF0001000000000
   %279 = load i32, ptr %256, align 8, !tbaa !1210
   %280 = add nsw i32 %279, 1
   %281 = icmp eq i32 %280, 2
@@ -54714,7 +54714,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_iiiNS1_8WrapModeE.exi
 
 180:                                              ; preds = %.invoke.i.i.i.i, %176, %.noexc88.i.i.i.i, %152, %149, %148, %144
   %181 = uitofp i16 %127 to float
-  %182 = fmul float %181, 0x3EF0001000000000
+  %182 = fmul nnan float %181, 0x3EF0001000000000
   %183 = load i32, ptr %26, align 8, !tbaa !1210
   %184 = add nsw i32 %183, 1
   %185 = icmp eq i32 %184, 2
@@ -59238,7 +59238,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIfhE7calc_RGILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %133, %129
   %134 = uitofp i8 %122 to float
-  %135 = fmul float %134, 0x3F70101020000000
+  %135 = fmul nnan float %134, 0x3F70101020000000
   %136 = load i32, ptr %113, align 8, !tbaa !1365
   %137 = add nsw i32 %136, 1
   %138 = icmp eq i32 %137, 2
@@ -59425,7 +59425,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIfhE7calc_RGILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i15: ; preds = %271, %267
   %272 = uitofp i8 %260 to float
-  %273 = fmul float %272, 0x3F70101020000000
+  %273 = fmul nnan float %272, 0x3F70101020000000
   %274 = load i32, ptr %251, align 8, !tbaa !1365
   %275 = add nsw i32 %274, 1
   %276 = icmp eq i32 %275, 2
@@ -59628,7 +59628,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIfhE7calc_GBILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %142, %138
   %143 = uitofp i8 %131 to float
-  %144 = fmul float %143, 0x3F70101020000000
+  %144 = fmul nnan float %143, 0x3F70101020000000
   %145 = load i32, ptr %122, align 8, !tbaa !1365
   %146 = add nsw i32 %145, 1
   %147 = icmp eq i32 %146, 2
@@ -59811,7 +59811,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIfhE7calc_GBILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i16: ; preds = %276, %272
   %277 = uitofp i8 %265 to float
-  %278 = fmul float %277, 0x3F70101020000000
+  %278 = fmul nnan float %277, 0x3F70101020000000
   %279 = load i32, ptr %256, align 8, !tbaa !1365
   %280 = add nsw i32 %279, 1
   %281 = icmp eq i32 %280, 2
@@ -60020,7 +60020,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIfhE7calc_RGILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %142, %138
   %143 = uitofp i8 %131 to float
-  %144 = fmul float %143, 0x3F70101020000000
+  %144 = fmul nnan float %143, 0x3F70101020000000
   %145 = load i32, ptr %122, align 8, !tbaa !1365
   %146 = add nsw i32 %145, 1
   %147 = icmp eq i32 %146, 2
@@ -60234,7 +60234,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIfhE7calc_RGILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i15: ; preds = %297, %293
   %298 = uitofp i8 %286 to float
-  %299 = fmul float %298, 0x3F70101020000000
+  %299 = fmul nnan float %298, 0x3F70101020000000
   %300 = load i32, ptr %277, align 8, !tbaa !1365
   %301 = add nsw i32 %300, 1
   %302 = icmp eq i32 %301, 2
@@ -60453,7 +60453,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIfhE7calc_GBILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %151, %147
   %152 = uitofp i8 %140 to float
-  %153 = fmul float %152, 0x3F70101020000000
+  %153 = fmul nnan float %152, 0x3F70101020000000
   %154 = load i32, ptr %131, align 8, !tbaa !1365
   %155 = add nsw i32 %154, 1
   %156 = icmp eq i32 %155, 2
@@ -60663,7 +60663,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIfhE7calc_GBILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i16: ; preds = %302, %298
   %303 = uitofp i8 %291 to float
-  %304 = fmul float %303, 0x3F70101020000000
+  %304 = fmul nnan float %303, 0x3F70101020000000
   %305 = load i32, ptr %282, align 8, !tbaa !1365
   %306 = add nsw i32 %305, 1
   %307 = icmp eq i32 %306, 2
@@ -60998,7 +60998,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_iiiNS1_8WrapModeE.exi
 
 182:                                              ; preds = %.invoke.i.i.i.i, %178, %.noexc87.i.i.i.i, %154, %151, %150, %146
   %183 = uitofp i8 %129 to float
-  %184 = fmul float %183, 0x3F70101020000000
+  %184 = fmul nnan float %183, 0x3F70101020000000
   %185 = load i32, ptr %26, align 8, !tbaa !1365
   %186 = add nsw i32 %185, 1
   %187 = icmp eq i32 %186, 2
@@ -65315,7 +65315,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIftE7calc_RGILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %133, %129
   %134 = uitofp i16 %122 to float
-  %135 = fmul float %134, 0x3EF0001000000000
+  %135 = fmul nnan float %134, 0x3EF0001000000000
   %136 = load i32, ptr %113, align 8, !tbaa !1498
   %137 = add nsw i32 %136, 1
   %138 = icmp eq i32 %137, 2
@@ -65502,7 +65502,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIftE7calc_RGILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i15: ; preds = %271, %267
   %272 = uitofp i16 %260 to float
-  %273 = fmul float %272, 0x3EF0001000000000
+  %273 = fmul nnan float %272, 0x3EF0001000000000
   %274 = load i32, ptr %251, align 8, !tbaa !1498
   %275 = add nsw i32 %274, 1
   %276 = icmp eq i32 %275, 2
@@ -65705,7 +65705,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIftE7calc_GBILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %142, %138
   %143 = uitofp i16 %131 to float
-  %144 = fmul float %143, 0x3EF0001000000000
+  %144 = fmul nnan float %143, 0x3EF0001000000000
   %145 = load i32, ptr %122, align 8, !tbaa !1498
   %146 = add nsw i32 %145, 1
   %147 = icmp eq i32 %146, 2
@@ -65888,7 +65888,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIftE7calc_GBILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i16: ; preds = %276, %272
   %277 = uitofp i16 %265 to float
-  %278 = fmul float %277, 0x3EF0001000000000
+  %278 = fmul nnan float %277, 0x3EF0001000000000
   %279 = load i32, ptr %256, align 8, !tbaa !1498
   %280 = add nsw i32 %279, 1
   %281 = icmp eq i32 %280, 2
@@ -66097,7 +66097,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIftE7calc_RGILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %142, %138
   %143 = uitofp i16 %131 to float
-  %144 = fmul float %143, 0x3EF0001000000000
+  %144 = fmul nnan float %143, 0x3EF0001000000000
   %145 = load i32, ptr %122, align 8, !tbaa !1498
   %146 = add nsw i32 %145, 1
   %147 = icmp eq i32 %146, 2
@@ -66311,7 +66311,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIftE7calc_RGILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i15: ; preds = %297, %293
   %298 = uitofp i16 %286 to float
-  %299 = fmul float %298, 0x3EF0001000000000
+  %299 = fmul nnan float %298, 0x3EF0001000000000
   %300 = load i32, ptr %277, align 8, !tbaa !1498
   %301 = add nsw i32 %300, 1
   %302 = icmp eq i32 %301, 2
@@ -66530,7 +66530,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIftE7calc_GBILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %151, %147
   %152 = uitofp i16 %140 to float
-  %153 = fmul float %152, 0x3EF0001000000000
+  %153 = fmul nnan float %152, 0x3EF0001000000000
   %154 = load i32, ptr %131, align 8, !tbaa !1498
   %155 = add nsw i32 %154, 1
   %156 = icmp eq i32 %155, 2
@@ -66740,7 +66740,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIftE7calc_GBILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i16: ; preds = %302, %298
   %303 = uitofp i16 %291 to float
-  %304 = fmul float %303, 0x3EF0001000000000
+  %304 = fmul nnan float %303, 0x3EF0001000000000
   %305 = load i32, ptr %282, align 8, !tbaa !1498
   %306 = add nsw i32 %305, 1
   %307 = icmp eq i32 %306, 2
@@ -67075,7 +67075,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_iiiNS1_8WrapModeE.exi
 
 182:                                              ; preds = %.invoke.i.i.i.i, %178, %.noexc87.i.i.i.i, %154, %151, %150, %146
   %183 = uitofp i16 %129 to float
-  %184 = fmul float %183, 0x3EF0001000000000
+  %184 = fmul nnan float %183, 0x3EF0001000000000
   %185 = load i32, ptr %26, align 8, !tbaa !1498
   %186 = add nsw i32 %185, 1
   %187 = icmp eq i32 %186, 2
@@ -68492,7 +68492,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIhhE7calc_RGILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %151, %147
   %152 = uitofp i8 %140 to float
-  %153 = fmul float %152, 0x3F70101020000000
+  %153 = fmul nnan float %152, 0x3F70101020000000
   %154 = load i32, ptr %131, align 8, !tbaa !1575
   %155 = add nsw i32 %154, 1
   %156 = icmp eq i32 %155, 2
@@ -68706,7 +68706,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIhhE7calc_RGILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i24: ; preds = %307, %303
   %308 = uitofp i8 %296 to float
-  %309 = fmul float %308, 0x3F70101020000000
+  %309 = fmul nnan float %308, 0x3F70101020000000
   %310 = load i32, ptr %287, align 8, !tbaa !1575
   %311 = add nsw i32 %310, 1
   %312 = icmp eq i32 %311, 2
@@ -68936,7 +68936,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIhhE7calc_GBILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %160, %156
   %161 = uitofp i8 %149 to float
-  %162 = fmul float %161, 0x3F70101020000000
+  %162 = fmul nnan float %161, 0x3F70101020000000
   %163 = load i32, ptr %140, align 8, !tbaa !1575
   %164 = add nsw i32 %163, 1
   %165 = icmp eq i32 %164, 2
@@ -69146,7 +69146,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIhhE7calc_GBILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %312, %308
   %313 = uitofp i8 %301 to float
-  %314 = fmul float %313, 0x3F70101020000000
+  %314 = fmul nnan float %313, 0x3F70101020000000
   %315 = load i32, ptr %292, align 8, !tbaa !1575
   %316 = add nsw i32 %315, 1
   %317 = icmp eq i32 %316, 2
@@ -69382,7 +69382,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIhhE7calc_RGILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %160, %156
   %161 = uitofp i8 %149 to float
-  %162 = fmul float %161, 0x3F70101020000000
+  %162 = fmul nnan float %161, 0x3F70101020000000
   %163 = load i32, ptr %140, align 8, !tbaa !1575
   %164 = add nsw i32 %163, 1
   %165 = icmp eq i32 %164, 2
@@ -69623,7 +69623,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIhhE7calc_RGILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i24: ; preds = %333, %329
   %334 = uitofp i8 %322 to float
-  %335 = fmul float %334, 0x3F70101020000000
+  %335 = fmul nnan float %334, 0x3F70101020000000
   %336 = load i32, ptr %313, align 8, !tbaa !1575
   %337 = add nsw i32 %336, 1
   %338 = icmp eq i32 %337, 2
@@ -69869,7 +69869,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIhhE7calc_GBILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %169, %165
   %170 = uitofp i8 %158 to float
-  %171 = fmul float %170, 0x3F70101020000000
+  %171 = fmul nnan float %170, 0x3F70101020000000
   %172 = load i32, ptr %149, align 8, !tbaa !1575
   %173 = add nsw i32 %172, 1
   %174 = icmp eq i32 %173, 2
@@ -70106,7 +70106,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIhhE7calc_GBILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %338, %334
   %339 = uitofp i8 %327 to float
-  %340 = fmul float %339, 0x3F70101020000000
+  %340 = fmul nnan float %339, 0x3F70101020000000
   %341 = load i32, ptr %318, align 8, !tbaa !1575
   %342 = add nsw i32 %341, 1
   %343 = icmp eq i32 %342, 2
@@ -70441,7 +70441,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_iiiNS1_8WrapModeE.exi
 
 182:                                              ; preds = %.invoke.i.i.i.i, %178, %.noexc87.i.i.i.i, %154, %151, %150, %146
   %183 = uitofp i8 %129 to float
-  %184 = fmul float %183, 0x3F70101020000000
+  %184 = fmul nnan float %183, 0x3F70101020000000
   %185 = load i32, ptr %26, align 8, !tbaa !1575
   %186 = add nsw i32 %185, 1
   %187 = icmp eq i32 %186, 2
@@ -74463,7 +74463,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIttE7calc_RGILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %151, %147
   %152 = uitofp i16 %140 to float
-  %153 = fmul float %152, 0x3EF0001000000000
+  %153 = fmul nnan float %152, 0x3EF0001000000000
   %154 = load i32, ptr %131, align 8, !tbaa !1708
   %155 = add nsw i32 %154, 1
   %156 = icmp eq i32 %155, 2
@@ -74677,7 +74677,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIttE7calc_RGILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i24: ; preds = %307, %303
   %308 = uitofp i16 %296 to float
-  %309 = fmul float %308, 0x3EF0001000000000
+  %309 = fmul nnan float %308, 0x3EF0001000000000
   %310 = load i32, ptr %287, align 8, !tbaa !1708
   %311 = add nsw i32 %310, 1
   %312 = icmp eq i32 %311, 2
@@ -74907,7 +74907,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIttE7calc_GBILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %160, %156
   %161 = uitofp i16 %149 to float
-  %162 = fmul float %161, 0x3EF0001000000000
+  %162 = fmul nnan float %161, 0x3EF0001000000000
   %163 = load i32, ptr %140, align 8, !tbaa !1708
   %164 = add nsw i32 %163, 1
   %165 = icmp eq i32 %164, 2
@@ -75117,7 +75117,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIttE7calc_GBILb0EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %312, %308
   %313 = uitofp i16 %301 to float
-  %314 = fmul float %313, 0x3EF0001000000000
+  %314 = fmul nnan float %313, 0x3EF0001000000000
   %315 = load i32, ptr %292, align 8, !tbaa !1708
   %316 = add nsw i32 %315, 1
   %317 = icmp eq i32 %316, 2
@@ -75353,7 +75353,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIttE7calc_RGILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %160, %156
   %161 = uitofp i16 %149 to float
-  %162 = fmul float %161, 0x3EF0001000000000
+  %162 = fmul nnan float %161, 0x3EF0001000000000
   %163 = load i32, ptr %140, align 8, !tbaa !1708
   %164 = add nsw i32 %163, 1
   %165 = icmp eq i32 %164, 2
@@ -75594,7 +75594,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIttE7calc_RGILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i24: ; preds = %333, %329
   %334 = uitofp i16 %322 to float
-  %335 = fmul float %334, 0x3EF0001000000000
+  %335 = fmul nnan float %334, 0x3EF0001000000000
   %336 = load i32, ptr %313, align 8, !tbaa !1708
   %337 = add nsw i32 %336, 1
   %338 = icmp eq i32 %337, 2
@@ -75840,7 +75840,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIttE7calc_GBILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %169, %165
   %170 = uitofp i16 %158 to float
-  %171 = fmul float %170, 0x3EF0001000000000
+  %171 = fmul nnan float %170, 0x3EF0001000000000
   %172 = load i32, ptr %149, align 8, !tbaa !1708
   %173 = add nsw i32 %172, 1
   %174 = icmp eq i32 %173, 2
@@ -76077,7 +76077,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo19MHCBayerDemosaicingIttE7calc_GBILb1EEEvR
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi2ELi5EXadsoA2_KmL_ZNS1_L17bayer_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %338, %334
   %339 = uitofp i16 %327 to float
-  %340 = fmul float %339, 0x3EF0001000000000
+  %340 = fmul nnan float %339, 0x3EF0001000000000
   %341 = load i32, ptr %318, align 8, !tbaa !1708
   %342 = add nsw i32 %341, 1
   %343 = icmp eq i32 %342, 2
@@ -76412,7 +76412,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_iiiNS1_8WrapModeE.exi
 
 182:                                              ; preds = %.invoke.i.i.i.i, %178, %.noexc87.i.i.i.i, %154, %151, %150, %146
   %183 = uitofp i16 %129 to float
-  %184 = fmul float %183, 0x3EF0001000000000
+  %184 = fmul nnan float %183, 0x3EF0001000000000
   %185 = load i32, ptr %26, align 8, !tbaa !1708
   %186 = add nsw i32 %185, 1
   %187 = icmp eq i32 %186, 2
@@ -86571,7 +86571,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %137, %133
   %138 = uitofp i8 %126 to float
-  %139 = fmul float %138, 0x3F70101020000000
+  %139 = fmul nnan float %138, 0x3F70101020000000
   %140 = load i32, ptr %117, align 8, !tbaa !1947
   %141 = add nsw i32 %140, 1
   %142 = icmp eq i32 %141, 6
@@ -86768,7 +86768,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %274, %270
   %275 = uitofp i8 %263 to float
-  %276 = fmul float %275, 0x3F70101020000000
+  %276 = fmul nnan float %275, 0x3F70101020000000
   %277 = load i32, ptr %254, align 8, !tbaa !1947
   %278 = add nsw i32 %277, 1
   %279 = icmp eq i32 %278, 6
@@ -86965,7 +86965,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i29: ; preds = %411, %407
   %412 = uitofp i8 %400 to float
-  %413 = fmul float %412, 0x3F70101020000000
+  %413 = fmul nnan float %412, 0x3F70101020000000
   %414 = load i32, ptr %391, align 8, !tbaa !1947
   %415 = add nsw i32 %414, 1
   %416 = icmp eq i32 %415, 6
@@ -87172,7 +87172,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %137, %133
   %138 = uitofp i8 %126 to float
-  %139 = fmul float %138, 0x3F70101020000000
+  %139 = fmul nnan float %138, 0x3F70101020000000
   %140 = load i32, ptr %117, align 8, !tbaa !1947
   %141 = add nsw i32 %140, 1
   %142 = icmp eq i32 %141, 6
@@ -87369,7 +87369,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %274, %270
   %275 = uitofp i8 %263 to float
-  %276 = fmul float %275, 0x3F70101020000000
+  %276 = fmul nnan float %275, 0x3F70101020000000
   %277 = load i32, ptr %254, align 8, !tbaa !1947
   %278 = add nsw i32 %277, 1
   %279 = icmp eq i32 %278, 6
@@ -87566,7 +87566,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i29: ; preds = %411, %407
   %412 = uitofp i8 %400 to float
-  %413 = fmul float %412, 0x3F70101020000000
+  %413 = fmul nnan float %412, 0x3F70101020000000
   %414 = load i32, ptr %391, align 8, !tbaa !1947
   %415 = add nsw i32 %414, 1
   %416 = icmp eq i32 %415, 6
@@ -87770,7 +87770,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %134, %130
   %135 = uitofp i8 %123 to float
-  %136 = fmul float %135, 0x3F70101020000000
+  %136 = fmul nnan float %135, 0x3F70101020000000
   %137 = load i32, ptr %114, align 8, !tbaa !1947
   %138 = add nsw i32 %137, 1
   %139 = icmp eq i32 %138, 6
@@ -87982,7 +87982,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %286, %282
   %287 = uitofp i8 %275 to float
-  %288 = fmul float %287, 0x3F70101020000000
+  %288 = fmul nnan float %287, 0x3F70101020000000
   %289 = load i32, ptr %266, align 8, !tbaa !1947
   %290 = add nsw i32 %289, 1
   %291 = icmp eq i32 %290, 6
@@ -88194,7 +88194,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i32: ; preds = %438, %434
   %439 = uitofp i8 %427 to float
-  %440 = fmul float %439, 0x3F70101020000000
+  %440 = fmul nnan float %439, 0x3F70101020000000
   %441 = load i32, ptr %418, align 8, !tbaa !1947
   %442 = add nsw i32 %441, 1
   %443 = icmp eq i32 %442, 6
@@ -88398,7 +88398,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %134, %130
   %135 = uitofp i8 %123 to float
-  %136 = fmul float %135, 0x3F70101020000000
+  %136 = fmul nnan float %135, 0x3F70101020000000
   %137 = load i32, ptr %114, align 8, !tbaa !1947
   %138 = add nsw i32 %137, 1
   %139 = icmp eq i32 %138, 6
@@ -88610,7 +88610,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %286, %282
   %287 = uitofp i8 %275 to float
-  %288 = fmul float %287, 0x3F70101020000000
+  %288 = fmul nnan float %287, 0x3F70101020000000
   %289 = load i32, ptr %266, align 8, !tbaa !1947
   %290 = add nsw i32 %289, 1
   %291 = icmp eq i32 %290, 6
@@ -88822,7 +88822,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i32: ; preds = %438, %434
   %439 = uitofp i8 %427 to float
-  %440 = fmul float %439, 0x3F70101020000000
+  %440 = fmul nnan float %439, 0x3F70101020000000
   %441 = load i32, ptr %418, align 8, !tbaa !1947
   %442 = add nsw i32 %441, 1
   %443 = icmp eq i32 %442, 6
@@ -89026,7 +89026,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %134, %130
   %135 = uitofp i8 %123 to float
-  %136 = fmul float %135, 0x3F70101020000000
+  %136 = fmul nnan float %135, 0x3F70101020000000
   %137 = load i32, ptr %114, align 8, !tbaa !1947
   %138 = add nsw i32 %137, 1
   %139 = icmp eq i32 %138, 6
@@ -89238,7 +89238,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %286, %282
   %287 = uitofp i8 %275 to float
-  %288 = fmul float %287, 0x3F70101020000000
+  %288 = fmul nnan float %287, 0x3F70101020000000
   %289 = load i32, ptr %266, align 8, !tbaa !1947
   %290 = add nsw i32 %289, 1
   %291 = icmp eq i32 %290, 6
@@ -89450,7 +89450,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i32: ; preds = %438, %434
   %439 = uitofp i8 %427 to float
-  %440 = fmul float %439, 0x3F70101020000000
+  %440 = fmul nnan float %439, 0x3F70101020000000
   %441 = load i32, ptr %418, align 8, !tbaa !1947
   %442 = add nsw i32 %441, 1
   %443 = icmp eq i32 %442, 6
@@ -89654,7 +89654,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %134, %130
   %135 = uitofp i8 %123 to float
-  %136 = fmul float %135, 0x3F70101020000000
+  %136 = fmul nnan float %135, 0x3F70101020000000
   %137 = load i32, ptr %114, align 8, !tbaa !1947
   %138 = add nsw i32 %137, 1
   %139 = icmp eq i32 %138, 6
@@ -89866,7 +89866,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %286, %282
   %287 = uitofp i8 %275 to float
-  %288 = fmul float %287, 0x3F70101020000000
+  %288 = fmul nnan float %287, 0x3F70101020000000
   %289 = load i32, ptr %266, align 8, !tbaa !1947
   %290 = add nsw i32 %289, 1
   %291 = icmp eq i32 %290, 6
@@ -90078,7 +90078,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i32: ; preds = %438, %434
   %439 = uitofp i8 %427 to float
-  %440 = fmul float %439, 0x3F70101020000000
+  %440 = fmul nnan float %439, 0x3F70101020000000
   %441 = load i32, ptr %418, align 8, !tbaa !1947
   %442 = add nsw i32 %441, 1
   %443 = icmp eq i32 %442, 6
@@ -90269,7 +90269,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %128, %124
   %129 = uitofp i8 %117 to float
-  %130 = fmul float %129, 0x3F70101020000000
+  %130 = fmul nnan float %129, 0x3F70101020000000
   %131 = load i32, ptr %108, align 8, !tbaa !1947
   %132 = add nsw i32 %131, 1
   %133 = icmp eq i32 %132, 6
@@ -90441,7 +90441,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %250, %246
   %251 = uitofp i8 %239 to float
-  %252 = fmul float %251, 0x3F70101020000000
+  %252 = fmul nnan float %251, 0x3F70101020000000
   %253 = load i32, ptr %230, align 8, !tbaa !1947
   %254 = add nsw i32 %253, 1
   %255 = icmp eq i32 %254, 6
@@ -90613,7 +90613,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i28: ; preds = %372, %368
   %373 = uitofp i8 %361 to float
-  %374 = fmul float %373, 0x3F70101020000000
+  %374 = fmul nnan float %373, 0x3F70101020000000
   %375 = load i32, ptr %352, align 8, !tbaa !1947
   %376 = add nsw i32 %375, 1
   %377 = icmp eq i32 %376, 6
@@ -90803,7 +90803,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %128, %124
   %129 = uitofp i8 %117 to float
-  %130 = fmul float %129, 0x3F70101020000000
+  %130 = fmul nnan float %129, 0x3F70101020000000
   %131 = load i32, ptr %108, align 8, !tbaa !1947
   %132 = add nsw i32 %131, 1
   %133 = icmp eq i32 %132, 6
@@ -90975,7 +90975,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %250, %246
   %251 = uitofp i8 %239 to float
-  %252 = fmul float %251, 0x3F70101020000000
+  %252 = fmul nnan float %251, 0x3F70101020000000
   %253 = load i32, ptr %230, align 8, !tbaa !1947
   %254 = add nsw i32 %253, 1
   %255 = icmp eq i32 %254, 6
@@ -91147,7 +91147,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i28: ; preds = %372, %368
   %373 = uitofp i8 %361 to float
-  %374 = fmul float %373, 0x3F70101020000000
+  %374 = fmul nnan float %373, 0x3F70101020000000
   %375 = load i32, ptr %352, align 8, !tbaa !1947
   %376 = add nsw i32 %375, 1
   %377 = icmp eq i32 %376, 6
@@ -91334,7 +91334,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %125, %121
   %126 = uitofp i8 %114 to float
-  %127 = fmul float %126, 0x3F70101020000000
+  %127 = fmul nnan float %126, 0x3F70101020000000
   %128 = load i32, ptr %105, align 8, !tbaa !1947
   %129 = add nsw i32 %128, 1
   %130 = icmp eq i32 %129, 6
@@ -91521,7 +91521,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %262, %258
   %263 = uitofp i8 %251 to float
-  %264 = fmul float %263, 0x3F70101020000000
+  %264 = fmul nnan float %263, 0x3F70101020000000
   %265 = load i32, ptr %242, align 8, !tbaa !1947
   %266 = add nsw i32 %265, 1
   %267 = icmp eq i32 %266, 6
@@ -91708,7 +91708,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i31: ; preds = %399, %395
   %400 = uitofp i8 %388 to float
-  %401 = fmul float %400, 0x3F70101020000000
+  %401 = fmul nnan float %400, 0x3F70101020000000
   %402 = load i32, ptr %379, align 8, !tbaa !1947
   %403 = add nsw i32 %402, 1
   %404 = icmp eq i32 %403, 6
@@ -91895,7 +91895,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %125, %121
   %126 = uitofp i8 %114 to float
-  %127 = fmul float %126, 0x3F70101020000000
+  %127 = fmul nnan float %126, 0x3F70101020000000
   %128 = load i32, ptr %105, align 8, !tbaa !1947
   %129 = add nsw i32 %128, 1
   %130 = icmp eq i32 %129, 6
@@ -92082,7 +92082,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %262, %258
   %263 = uitofp i8 %251 to float
-  %264 = fmul float %263, 0x3F70101020000000
+  %264 = fmul nnan float %263, 0x3F70101020000000
   %265 = load i32, ptr %242, align 8, !tbaa !1947
   %266 = add nsw i32 %265, 1
   %267 = icmp eq i32 %266, 6
@@ -92269,7 +92269,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i31: ; preds = %399, %395
   %400 = uitofp i8 %388 to float
-  %401 = fmul float %400, 0x3F70101020000000
+  %401 = fmul nnan float %400, 0x3F70101020000000
   %402 = load i32, ptr %379, align 8, !tbaa !1947
   %403 = add nsw i32 %402, 1
   %404 = icmp eq i32 %403, 6
@@ -92456,7 +92456,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %125, %121
   %126 = uitofp i8 %114 to float
-  %127 = fmul float %126, 0x3F70101020000000
+  %127 = fmul nnan float %126, 0x3F70101020000000
   %128 = load i32, ptr %105, align 8, !tbaa !1947
   %129 = add nsw i32 %128, 1
   %130 = icmp eq i32 %129, 6
@@ -92643,7 +92643,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %262, %258
   %263 = uitofp i8 %251 to float
-  %264 = fmul float %263, 0x3F70101020000000
+  %264 = fmul nnan float %263, 0x3F70101020000000
   %265 = load i32, ptr %242, align 8, !tbaa !1947
   %266 = add nsw i32 %265, 1
   %267 = icmp eq i32 %266, 6
@@ -92829,7 +92829,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i31: ; preds = %398, %394
   %399 = uitofp i8 %387 to float
-  %400 = fmul float %399, 0x3F70101020000000
+  %400 = fmul nnan float %399, 0x3F70101020000000
   %401 = load i32, ptr %378, align 8, !tbaa !1947
   %402 = add nsw i32 %401, 1
   %403 = icmp eq i32 %402, 6
@@ -93016,7 +93016,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %125, %121
   %126 = uitofp i8 %114 to float
-  %127 = fmul float %126, 0x3F70101020000000
+  %127 = fmul nnan float %126, 0x3F70101020000000
   %128 = load i32, ptr %105, align 8, !tbaa !1947
   %129 = add nsw i32 %128, 1
   %130 = icmp eq i32 %129, 6
@@ -93203,7 +93203,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %262, %258
   %263 = uitofp i8 %251 to float
-  %264 = fmul float %263, 0x3F70101020000000
+  %264 = fmul nnan float %263, 0x3F70101020000000
   %265 = load i32, ptr %242, align 8, !tbaa !1947
   %266 = add nsw i32 %265, 1
   %267 = icmp eq i32 %266, 6
@@ -93389,7 +93389,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIfhE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIfhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i31: ; preds = %398, %394
   %399 = uitofp i8 %387 to float
-  %400 = fmul float %399, 0x3F70101020000000
+  %400 = fmul nnan float %399, 0x3F70101020000000
   %401 = load i32, ptr %378, align 8, !tbaa !1947
   %402 = add nsw i32 %401, 1
   %403 = icmp eq i32 %402, 6
@@ -93732,7 +93732,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_iiiNS1_8WrapModeE.exi
 
 185:                                              ; preds = %.invoke.i.i.i.i, %181, %.noexc87.i.i.i.i, %157, %154, %153, %149
   %186 = uitofp i8 %132 to float
-  %187 = fmul float %186, 0x3F70101020000000
+  %187 = fmul nnan float %186, 0x3F70101020000000
   %188 = load i32, ptr %26, align 8, !tbaa !1947
   %189 = add nsw i32 %188, 1
   %190 = icmp eq i32 %189, 6
@@ -102540,7 +102540,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %137, %133
   %138 = uitofp i16 %126 to float
-  %139 = fmul float %138, 0x3EF0001000000000
+  %139 = fmul nnan float %138, 0x3EF0001000000000
   %140 = load i32, ptr %117, align 8, !tbaa !2164
   %141 = add nsw i32 %140, 1
   %142 = icmp eq i32 %141, 6
@@ -102737,7 +102737,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %274, %270
   %275 = uitofp i16 %263 to float
-  %276 = fmul float %275, 0x3EF0001000000000
+  %276 = fmul nnan float %275, 0x3EF0001000000000
   %277 = load i32, ptr %254, align 8, !tbaa !2164
   %278 = add nsw i32 %277, 1
   %279 = icmp eq i32 %278, 6
@@ -102934,7 +102934,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i29: ; preds = %411, %407
   %412 = uitofp i16 %400 to float
-  %413 = fmul float %412, 0x3EF0001000000000
+  %413 = fmul nnan float %412, 0x3EF0001000000000
   %414 = load i32, ptr %391, align 8, !tbaa !2164
   %415 = add nsw i32 %414, 1
   %416 = icmp eq i32 %415, 6
@@ -103141,7 +103141,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %137, %133
   %138 = uitofp i16 %126 to float
-  %139 = fmul float %138, 0x3EF0001000000000
+  %139 = fmul nnan float %138, 0x3EF0001000000000
   %140 = load i32, ptr %117, align 8, !tbaa !2164
   %141 = add nsw i32 %140, 1
   %142 = icmp eq i32 %141, 6
@@ -103338,7 +103338,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %274, %270
   %275 = uitofp i16 %263 to float
-  %276 = fmul float %275, 0x3EF0001000000000
+  %276 = fmul nnan float %275, 0x3EF0001000000000
   %277 = load i32, ptr %254, align 8, !tbaa !2164
   %278 = add nsw i32 %277, 1
   %279 = icmp eq i32 %278, 6
@@ -103535,7 +103535,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i29: ; preds = %411, %407
   %412 = uitofp i16 %400 to float
-  %413 = fmul float %412, 0x3EF0001000000000
+  %413 = fmul nnan float %412, 0x3EF0001000000000
   %414 = load i32, ptr %391, align 8, !tbaa !2164
   %415 = add nsw i32 %414, 1
   %416 = icmp eq i32 %415, 6
@@ -103739,7 +103739,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %134, %130
   %135 = uitofp i16 %123 to float
-  %136 = fmul float %135, 0x3EF0001000000000
+  %136 = fmul nnan float %135, 0x3EF0001000000000
   %137 = load i32, ptr %114, align 8, !tbaa !2164
   %138 = add nsw i32 %137, 1
   %139 = icmp eq i32 %138, 6
@@ -103951,7 +103951,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %286, %282
   %287 = uitofp i16 %275 to float
-  %288 = fmul float %287, 0x3EF0001000000000
+  %288 = fmul nnan float %287, 0x3EF0001000000000
   %289 = load i32, ptr %266, align 8, !tbaa !2164
   %290 = add nsw i32 %289, 1
   %291 = icmp eq i32 %290, 6
@@ -104163,7 +104163,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i32: ; preds = %438, %434
   %439 = uitofp i16 %427 to float
-  %440 = fmul float %439, 0x3EF0001000000000
+  %440 = fmul nnan float %439, 0x3EF0001000000000
   %441 = load i32, ptr %418, align 8, !tbaa !2164
   %442 = add nsw i32 %441, 1
   %443 = icmp eq i32 %442, 6
@@ -104367,7 +104367,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %134, %130
   %135 = uitofp i16 %123 to float
-  %136 = fmul float %135, 0x3EF0001000000000
+  %136 = fmul nnan float %135, 0x3EF0001000000000
   %137 = load i32, ptr %114, align 8, !tbaa !2164
   %138 = add nsw i32 %137, 1
   %139 = icmp eq i32 %138, 6
@@ -104579,7 +104579,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %286, %282
   %287 = uitofp i16 %275 to float
-  %288 = fmul float %287, 0x3EF0001000000000
+  %288 = fmul nnan float %287, 0x3EF0001000000000
   %289 = load i32, ptr %266, align 8, !tbaa !2164
   %290 = add nsw i32 %289, 1
   %291 = icmp eq i32 %290, 6
@@ -104791,7 +104791,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i32: ; preds = %438, %434
   %439 = uitofp i16 %427 to float
-  %440 = fmul float %439, 0x3EF0001000000000
+  %440 = fmul nnan float %439, 0x3EF0001000000000
   %441 = load i32, ptr %418, align 8, !tbaa !2164
   %442 = add nsw i32 %441, 1
   %443 = icmp eq i32 %442, 6
@@ -104995,7 +104995,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %134, %130
   %135 = uitofp i16 %123 to float
-  %136 = fmul float %135, 0x3EF0001000000000
+  %136 = fmul nnan float %135, 0x3EF0001000000000
   %137 = load i32, ptr %114, align 8, !tbaa !2164
   %138 = add nsw i32 %137, 1
   %139 = icmp eq i32 %138, 6
@@ -105207,7 +105207,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %286, %282
   %287 = uitofp i16 %275 to float
-  %288 = fmul float %287, 0x3EF0001000000000
+  %288 = fmul nnan float %287, 0x3EF0001000000000
   %289 = load i32, ptr %266, align 8, !tbaa !2164
   %290 = add nsw i32 %289, 1
   %291 = icmp eq i32 %290, 6
@@ -105419,7 +105419,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i32: ; preds = %438, %434
   %439 = uitofp i16 %427 to float
-  %440 = fmul float %439, 0x3EF0001000000000
+  %440 = fmul nnan float %439, 0x3EF0001000000000
   %441 = load i32, ptr %418, align 8, !tbaa !2164
   %442 = add nsw i32 %441, 1
   %443 = icmp eq i32 %442, 6
@@ -105623,7 +105623,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %134, %130
   %135 = uitofp i16 %123 to float
-  %136 = fmul float %135, 0x3EF0001000000000
+  %136 = fmul nnan float %135, 0x3EF0001000000000
   %137 = load i32, ptr %114, align 8, !tbaa !2164
   %138 = add nsw i32 %137, 1
   %139 = icmp eq i32 %138, 6
@@ -105835,7 +105835,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %286, %282
   %287 = uitofp i16 %275 to float
-  %288 = fmul float %287, 0x3EF0001000000000
+  %288 = fmul nnan float %287, 0x3EF0001000000000
   %289 = load i32, ptr %266, align 8, !tbaa !2164
   %290 = add nsw i32 %289, 1
   %291 = icmp eq i32 %290, 6
@@ -106047,7 +106047,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i32: ; preds = %438, %434
   %439 = uitofp i16 %427 to float
-  %440 = fmul float %439, 0x3EF0001000000000
+  %440 = fmul nnan float %439, 0x3EF0001000000000
   %441 = load i32, ptr %418, align 8, !tbaa !2164
   %442 = add nsw i32 %441, 1
   %443 = icmp eq i32 %442, 6
@@ -106238,7 +106238,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %128, %124
   %129 = uitofp i16 %117 to float
-  %130 = fmul float %129, 0x3EF0001000000000
+  %130 = fmul nnan float %129, 0x3EF0001000000000
   %131 = load i32, ptr %108, align 8, !tbaa !2164
   %132 = add nsw i32 %131, 1
   %133 = icmp eq i32 %132, 6
@@ -106410,7 +106410,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %250, %246
   %251 = uitofp i16 %239 to float
-  %252 = fmul float %251, 0x3EF0001000000000
+  %252 = fmul nnan float %251, 0x3EF0001000000000
   %253 = load i32, ptr %230, align 8, !tbaa !2164
   %254 = add nsw i32 %253, 1
   %255 = icmp eq i32 %254, 6
@@ -106582,7 +106582,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i28: ; preds = %372, %368
   %373 = uitofp i16 %361 to float
-  %374 = fmul float %373, 0x3EF0001000000000
+  %374 = fmul nnan float %373, 0x3EF0001000000000
   %375 = load i32, ptr %352, align 8, !tbaa !2164
   %376 = add nsw i32 %375, 1
   %377 = icmp eq i32 %376, 6
@@ -106772,7 +106772,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %128, %124
   %129 = uitofp i16 %117 to float
-  %130 = fmul float %129, 0x3EF0001000000000
+  %130 = fmul nnan float %129, 0x3EF0001000000000
   %131 = load i32, ptr %108, align 8, !tbaa !2164
   %132 = add nsw i32 %131, 1
   %133 = icmp eq i32 %132, 6
@@ -106944,7 +106944,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %250, %246
   %251 = uitofp i16 %239 to float
-  %252 = fmul float %251, 0x3EF0001000000000
+  %252 = fmul nnan float %251, 0x3EF0001000000000
   %253 = load i32, ptr %230, align 8, !tbaa !2164
   %254 = add nsw i32 %253, 1
   %255 = icmp eq i32 %254, 6
@@ -107116,7 +107116,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i28: ; preds = %372, %368
   %373 = uitofp i16 %361 to float
-  %374 = fmul float %373, 0x3EF0001000000000
+  %374 = fmul nnan float %373, 0x3EF0001000000000
   %375 = load i32, ptr %352, align 8, !tbaa !2164
   %376 = add nsw i32 %375, 1
   %377 = icmp eq i32 %376, 6
@@ -107303,7 +107303,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %125, %121
   %126 = uitofp i16 %114 to float
-  %127 = fmul float %126, 0x3EF0001000000000
+  %127 = fmul nnan float %126, 0x3EF0001000000000
   %128 = load i32, ptr %105, align 8, !tbaa !2164
   %129 = add nsw i32 %128, 1
   %130 = icmp eq i32 %129, 6
@@ -107490,7 +107490,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %262, %258
   %263 = uitofp i16 %251 to float
-  %264 = fmul float %263, 0x3EF0001000000000
+  %264 = fmul nnan float %263, 0x3EF0001000000000
   %265 = load i32, ptr %242, align 8, !tbaa !2164
   %266 = add nsw i32 %265, 1
   %267 = icmp eq i32 %266, 6
@@ -107677,7 +107677,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i31: ; preds = %399, %395
   %400 = uitofp i16 %388 to float
-  %401 = fmul float %400, 0x3EF0001000000000
+  %401 = fmul nnan float %400, 0x3EF0001000000000
   %402 = load i32, ptr %379, align 8, !tbaa !2164
   %403 = add nsw i32 %402, 1
   %404 = icmp eq i32 %403, 6
@@ -107864,7 +107864,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %125, %121
   %126 = uitofp i16 %114 to float
-  %127 = fmul float %126, 0x3EF0001000000000
+  %127 = fmul nnan float %126, 0x3EF0001000000000
   %128 = load i32, ptr %105, align 8, !tbaa !2164
   %129 = add nsw i32 %128, 1
   %130 = icmp eq i32 %129, 6
@@ -108051,7 +108051,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %262, %258
   %263 = uitofp i16 %251 to float
-  %264 = fmul float %263, 0x3EF0001000000000
+  %264 = fmul nnan float %263, 0x3EF0001000000000
   %265 = load i32, ptr %242, align 8, !tbaa !2164
   %266 = add nsw i32 %265, 1
   %267 = icmp eq i32 %266, 6
@@ -108238,7 +108238,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i31: ; preds = %399, %395
   %400 = uitofp i16 %388 to float
-  %401 = fmul float %400, 0x3EF0001000000000
+  %401 = fmul nnan float %400, 0x3EF0001000000000
   %402 = load i32, ptr %379, align 8, !tbaa !2164
   %403 = add nsw i32 %402, 1
   %404 = icmp eq i32 %403, 6
@@ -108425,7 +108425,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %125, %121
   %126 = uitofp i16 %114 to float
-  %127 = fmul float %126, 0x3EF0001000000000
+  %127 = fmul nnan float %126, 0x3EF0001000000000
   %128 = load i32, ptr %105, align 8, !tbaa !2164
   %129 = add nsw i32 %128, 1
   %130 = icmp eq i32 %129, 6
@@ -108612,7 +108612,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %262, %258
   %263 = uitofp i16 %251 to float
-  %264 = fmul float %263, 0x3EF0001000000000
+  %264 = fmul nnan float %263, 0x3EF0001000000000
   %265 = load i32, ptr %242, align 8, !tbaa !2164
   %266 = add nsw i32 %265, 1
   %267 = icmp eq i32 %266, 6
@@ -108798,7 +108798,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i31: ; preds = %398, %394
   %399 = uitofp i16 %387 to float
-  %400 = fmul float %399, 0x3EF0001000000000
+  %400 = fmul nnan float %399, 0x3EF0001000000000
   %401 = load i32, ptr %378, align 8, !tbaa !2164
   %402 = add nsw i32 %401, 1
   %403 = icmp eq i32 %402, 6
@@ -108985,7 +108985,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %125, %121
   %126 = uitofp i16 %114 to float
-  %127 = fmul float %126, 0x3EF0001000000000
+  %127 = fmul nnan float %126, 0x3EF0001000000000
   %128 = load i32, ptr %105, align 8, !tbaa !2164
   %129 = add nsw i32 %128, 1
   %130 = icmp eq i32 %129, 6
@@ -109172,7 +109172,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i19: ; preds = %262, %258
   %263 = uitofp i16 %251 to float
-  %264 = fmul float %263, 0x3EF0001000000000
+  %264 = fmul nnan float %263, 0x3EF0001000000000
   %265 = load i32, ptr %242, align 8, !tbaa !2164
   %266 = add nsw i32 %265, 1
   %267 = icmp eq i32 %266, 6
@@ -109358,7 +109358,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIftE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIftLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i31: ; preds = %398, %394
   %399 = uitofp i16 %387 to float
-  %400 = fmul float %399, 0x3EF0001000000000
+  %400 = fmul nnan float %399, 0x3EF0001000000000
   %401 = load i32, ptr %378, align 8, !tbaa !2164
   %402 = add nsw i32 %401, 1
   %403 = icmp eq i32 %402, 6
@@ -109701,7 +109701,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_iiiNS1_8WrapModeE.exi
 
 185:                                              ; preds = %.invoke.i.i.i.i, %181, %.noexc87.i.i.i.i, %157, %154, %153, %149
   %186 = uitofp i16 %132 to float
-  %187 = fmul float %186, 0x3EF0001000000000
+  %187 = fmul nnan float %186, 0x3EF0001000000000
   %188 = load i32, ptr %26, align 8, !tbaa !2164
   %189 = add nsw i32 %188, 1
   %190 = icmp eq i32 %189, 6
@@ -111265,7 +111265,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %155, %151
   %156 = uitofp i8 %144 to float
-  %157 = fmul float %156, 0x3F70101020000000
+  %157 = fmul nnan float %156, 0x3F70101020000000
   %158 = load i32, ptr %135, align 8, !tbaa !2325
   %159 = add nsw i32 %158, 1
   %160 = icmp eq i32 %159, 6
@@ -111489,7 +111489,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %310, %306
   %311 = uitofp i8 %299 to float
-  %312 = fmul float %311, 0x3F70101020000000
+  %312 = fmul nnan float %311, 0x3F70101020000000
   %313 = load i32, ptr %290, align 8, !tbaa !2325
   %314 = add nsw i32 %313, 1
   %315 = icmp eq i32 %314, 6
@@ -111713,7 +111713,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i41: ; preds = %465, %461
   %466 = uitofp i8 %454 to float
-  %467 = fmul float %466, 0x3F70101020000000
+  %467 = fmul nnan float %466, 0x3F70101020000000
   %468 = load i32, ptr %445, align 8, !tbaa !2325
   %469 = add nsw i32 %468, 1
   %470 = icmp eq i32 %469, 6
@@ -111947,7 +111947,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %155, %151
   %156 = uitofp i8 %144 to float
-  %157 = fmul float %156, 0x3F70101020000000
+  %157 = fmul nnan float %156, 0x3F70101020000000
   %158 = load i32, ptr %135, align 8, !tbaa !2325
   %159 = add nsw i32 %158, 1
   %160 = icmp eq i32 %159, 6
@@ -112171,7 +112171,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %310, %306
   %311 = uitofp i8 %299 to float
-  %312 = fmul float %311, 0x3F70101020000000
+  %312 = fmul nnan float %311, 0x3F70101020000000
   %313 = load i32, ptr %290, align 8, !tbaa !2325
   %314 = add nsw i32 %313, 1
   %315 = icmp eq i32 %314, 6
@@ -112395,7 +112395,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i41: ; preds = %465, %461
   %466 = uitofp i8 %454 to float
-  %467 = fmul float %466, 0x3F70101020000000
+  %467 = fmul nnan float %466, 0x3F70101020000000
   %468 = load i32, ptr %445, align 8, !tbaa !2325
   %469 = add nsw i32 %468, 1
   %470 = icmp eq i32 %469, 6
@@ -112626,7 +112626,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %152, %148
   %153 = uitofp i8 %141 to float
-  %154 = fmul float %153, 0x3F70101020000000
+  %154 = fmul nnan float %153, 0x3F70101020000000
   %155 = load i32, ptr %132, align 8, !tbaa !2325
   %156 = add nsw i32 %155, 1
   %157 = icmp eq i32 %156, 6
@@ -112865,7 +112865,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %322, %318
   %323 = uitofp i8 %311 to float
-  %324 = fmul float %323, 0x3F70101020000000
+  %324 = fmul nnan float %323, 0x3F70101020000000
   %325 = load i32, ptr %302, align 8, !tbaa !2325
   %326 = add nsw i32 %325, 1
   %327 = icmp eq i32 %326, 6
@@ -113104,7 +113104,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i47: ; preds = %492, %488
   %493 = uitofp i8 %481 to float
-  %494 = fmul float %493, 0x3F70101020000000
+  %494 = fmul nnan float %493, 0x3F70101020000000
   %495 = load i32, ptr %472, align 8, !tbaa !2325
   %496 = add nsw i32 %495, 1
   %497 = icmp eq i32 %496, 6
@@ -113335,7 +113335,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %152, %148
   %153 = uitofp i8 %141 to float
-  %154 = fmul float %153, 0x3F70101020000000
+  %154 = fmul nnan float %153, 0x3F70101020000000
   %155 = load i32, ptr %132, align 8, !tbaa !2325
   %156 = add nsw i32 %155, 1
   %157 = icmp eq i32 %156, 6
@@ -113574,7 +113574,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %322, %318
   %323 = uitofp i8 %311 to float
-  %324 = fmul float %323, 0x3F70101020000000
+  %324 = fmul nnan float %323, 0x3F70101020000000
   %325 = load i32, ptr %302, align 8, !tbaa !2325
   %326 = add nsw i32 %325, 1
   %327 = icmp eq i32 %326, 6
@@ -113813,7 +113813,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i47: ; preds = %492, %488
   %493 = uitofp i8 %481 to float
-  %494 = fmul float %493, 0x3F70101020000000
+  %494 = fmul nnan float %493, 0x3F70101020000000
   %495 = load i32, ptr %472, align 8, !tbaa !2325
   %496 = add nsw i32 %495, 1
   %497 = icmp eq i32 %496, 6
@@ -114044,7 +114044,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %152, %148
   %153 = uitofp i8 %141 to float
-  %154 = fmul float %153, 0x3F70101020000000
+  %154 = fmul nnan float %153, 0x3F70101020000000
   %155 = load i32, ptr %132, align 8, !tbaa !2325
   %156 = add nsw i32 %155, 1
   %157 = icmp eq i32 %156, 6
@@ -114283,7 +114283,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %322, %318
   %323 = uitofp i8 %311 to float
-  %324 = fmul float %323, 0x3F70101020000000
+  %324 = fmul nnan float %323, 0x3F70101020000000
   %325 = load i32, ptr %302, align 8, !tbaa !2325
   %326 = add nsw i32 %325, 1
   %327 = icmp eq i32 %326, 6
@@ -114522,7 +114522,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i47: ; preds = %492, %488
   %493 = uitofp i8 %481 to float
-  %494 = fmul float %493, 0x3F70101020000000
+  %494 = fmul nnan float %493, 0x3F70101020000000
   %495 = load i32, ptr %472, align 8, !tbaa !2325
   %496 = add nsw i32 %495, 1
   %497 = icmp eq i32 %496, 6
@@ -114753,7 +114753,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %152, %148
   %153 = uitofp i8 %141 to float
-  %154 = fmul float %153, 0x3F70101020000000
+  %154 = fmul nnan float %153, 0x3F70101020000000
   %155 = load i32, ptr %132, align 8, !tbaa !2325
   %156 = add nsw i32 %155, 1
   %157 = icmp eq i32 %156, 6
@@ -114992,7 +114992,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %322, %318
   %323 = uitofp i8 %311 to float
-  %324 = fmul float %323, 0x3F70101020000000
+  %324 = fmul nnan float %323, 0x3F70101020000000
   %325 = load i32, ptr %302, align 8, !tbaa !2325
   %326 = add nsw i32 %325, 1
   %327 = icmp eq i32 %326, 6
@@ -115231,7 +115231,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i47: ; preds = %492, %488
   %493 = uitofp i8 %481 to float
-  %494 = fmul float %493, 0x3F70101020000000
+  %494 = fmul nnan float %493, 0x3F70101020000000
   %495 = load i32, ptr %472, align 8, !tbaa !2325
   %496 = add nsw i32 %495, 1
   %497 = icmp eq i32 %496, 6
@@ -115449,7 +115449,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %146, %142
   %147 = uitofp i8 %135 to float
-  %148 = fmul float %147, 0x3F70101020000000
+  %148 = fmul nnan float %147, 0x3F70101020000000
   %149 = load i32, ptr %126, align 8, !tbaa !2325
   %150 = add nsw i32 %149, 1
   %151 = icmp eq i32 %150, 6
@@ -115648,7 +115648,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %286, %282
   %287 = uitofp i8 %275 to float
-  %288 = fmul float %287, 0x3F70101020000000
+  %288 = fmul nnan float %287, 0x3F70101020000000
   %289 = load i32, ptr %266, align 8, !tbaa !2325
   %290 = add nsw i32 %289, 1
   %291 = icmp eq i32 %290, 6
@@ -115847,7 +115847,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i40: ; preds = %426, %422
   %427 = uitofp i8 %415 to float
-  %428 = fmul float %427, 0x3F70101020000000
+  %428 = fmul nnan float %427, 0x3F70101020000000
   %429 = load i32, ptr %406, align 8, !tbaa !2325
   %430 = add nsw i32 %429, 1
   %431 = icmp eq i32 %430, 6
@@ -116064,7 +116064,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %146, %142
   %147 = uitofp i8 %135 to float
-  %148 = fmul float %147, 0x3F70101020000000
+  %148 = fmul nnan float %147, 0x3F70101020000000
   %149 = load i32, ptr %126, align 8, !tbaa !2325
   %150 = add nsw i32 %149, 1
   %151 = icmp eq i32 %150, 6
@@ -116263,7 +116263,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %286, %282
   %287 = uitofp i8 %275 to float
-  %288 = fmul float %287, 0x3F70101020000000
+  %288 = fmul nnan float %287, 0x3F70101020000000
   %289 = load i32, ptr %266, align 8, !tbaa !2325
   %290 = add nsw i32 %289, 1
   %291 = icmp eq i32 %290, 6
@@ -116462,7 +116462,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i40: ; preds = %426, %422
   %427 = uitofp i8 %415 to float
-  %428 = fmul float %427, 0x3F70101020000000
+  %428 = fmul nnan float %427, 0x3F70101020000000
   %429 = load i32, ptr %406, align 8, !tbaa !2325
   %430 = add nsw i32 %429, 1
   %431 = icmp eq i32 %430, 6
@@ -116676,7 +116676,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %143, %139
   %144 = uitofp i8 %132 to float
-  %145 = fmul float %144, 0x3F70101020000000
+  %145 = fmul nnan float %144, 0x3F70101020000000
   %146 = load i32, ptr %123, align 8, !tbaa !2325
   %147 = add nsw i32 %146, 1
   %148 = icmp eq i32 %147, 6
@@ -116890,7 +116890,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %298, %294
   %299 = uitofp i8 %287 to float
-  %300 = fmul float %299, 0x3F70101020000000
+  %300 = fmul nnan float %299, 0x3F70101020000000
   %301 = load i32, ptr %278, align 8, !tbaa !2325
   %302 = add nsw i32 %301, 1
   %303 = icmp eq i32 %302, 6
@@ -117104,7 +117104,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i46: ; preds = %453, %449
   %454 = uitofp i8 %442 to float
-  %455 = fmul float %454, 0x3F70101020000000
+  %455 = fmul nnan float %454, 0x3F70101020000000
   %456 = load i32, ptr %433, align 8, !tbaa !2325
   %457 = add nsw i32 %456, 1
   %458 = icmp eq i32 %457, 6
@@ -117318,7 +117318,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %143, %139
   %144 = uitofp i8 %132 to float
-  %145 = fmul float %144, 0x3F70101020000000
+  %145 = fmul nnan float %144, 0x3F70101020000000
   %146 = load i32, ptr %123, align 8, !tbaa !2325
   %147 = add nsw i32 %146, 1
   %148 = icmp eq i32 %147, 6
@@ -117532,7 +117532,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %298, %294
   %299 = uitofp i8 %287 to float
-  %300 = fmul float %299, 0x3F70101020000000
+  %300 = fmul nnan float %299, 0x3F70101020000000
   %301 = load i32, ptr %278, align 8, !tbaa !2325
   %302 = add nsw i32 %301, 1
   %303 = icmp eq i32 %302, 6
@@ -117746,7 +117746,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i46: ; preds = %453, %449
   %454 = uitofp i8 %442 to float
-  %455 = fmul float %454, 0x3F70101020000000
+  %455 = fmul nnan float %454, 0x3F70101020000000
   %456 = load i32, ptr %433, align 8, !tbaa !2325
   %457 = add nsw i32 %456, 1
   %458 = icmp eq i32 %457, 6
@@ -117960,7 +117960,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %143, %139
   %144 = uitofp i8 %132 to float
-  %145 = fmul float %144, 0x3F70101020000000
+  %145 = fmul nnan float %144, 0x3F70101020000000
   %146 = load i32, ptr %123, align 8, !tbaa !2325
   %147 = add nsw i32 %146, 1
   %148 = icmp eq i32 %147, 6
@@ -118174,7 +118174,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %298, %294
   %299 = uitofp i8 %287 to float
-  %300 = fmul float %299, 0x3F70101020000000
+  %300 = fmul nnan float %299, 0x3F70101020000000
   %301 = load i32, ptr %278, align 8, !tbaa !2325
   %302 = add nsw i32 %301, 1
   %303 = icmp eq i32 %302, 6
@@ -118387,7 +118387,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i46: ; preds = %452, %448
   %453 = uitofp i8 %441 to float
-  %454 = fmul float %453, 0x3F70101020000000
+  %454 = fmul nnan float %453, 0x3F70101020000000
   %455 = load i32, ptr %432, align 8, !tbaa !2325
   %456 = add nsw i32 %455, 1
   %457 = icmp eq i32 %456, 6
@@ -118601,7 +118601,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %143, %139
   %144 = uitofp i8 %132 to float
-  %145 = fmul float %144, 0x3F70101020000000
+  %145 = fmul nnan float %144, 0x3F70101020000000
   %146 = load i32, ptr %123, align 8, !tbaa !2325
   %147 = add nsw i32 %146, 1
   %148 = icmp eq i32 %147, 6
@@ -118815,7 +118815,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %298, %294
   %299 = uitofp i8 %287 to float
-  %300 = fmul float %299, 0x3F70101020000000
+  %300 = fmul nnan float %299, 0x3F70101020000000
   %301 = load i32, ptr %278, align 8, !tbaa !2325
   %302 = add nsw i32 %301, 1
   %303 = icmp eq i32 %302, 6
@@ -119028,7 +119028,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIhhE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIhhLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i46: ; preds = %452, %448
   %453 = uitofp i8 %441 to float
-  %454 = fmul float %453, 0x3F70101020000000
+  %454 = fmul nnan float %453, 0x3F70101020000000
   %455 = load i32, ptr %432, align 8, !tbaa !2325
   %456 = add nsw i32 %455, 1
   %457 = icmp eq i32 %456, 6
@@ -119371,7 +119371,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorIhfEC2ERKS1_iiiNS1_8WrapModeE.exi
 
 185:                                              ; preds = %.invoke.i.i.i.i, %181, %.noexc87.i.i.i.i, %157, %154, %153, %149
   %186 = uitofp i8 %132 to float
-  %187 = fmul float %186, 0x3F70101020000000
+  %187 = fmul nnan float %186, 0x3F70101020000000
   %188 = load i32, ptr %26, align 8, !tbaa !2325
   %189 = add nsw i32 %188, 1
   %190 = icmp eq i32 %189, 6
@@ -126754,7 +126754,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %155, %151
   %156 = uitofp i16 %144 to float
-  %157 = fmul float %156, 0x3EF0001000000000
+  %157 = fmul nnan float %156, 0x3EF0001000000000
   %158 = load i32, ptr %135, align 8, !tbaa !2542
   %159 = add nsw i32 %158, 1
   %160 = icmp eq i32 %159, 6
@@ -126978,7 +126978,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %310, %306
   %311 = uitofp i16 %299 to float
-  %312 = fmul float %311, 0x3EF0001000000000
+  %312 = fmul nnan float %311, 0x3EF0001000000000
   %313 = load i32, ptr %290, align 8, !tbaa !2542
   %314 = add nsw i32 %313, 1
   %315 = icmp eq i32 %314, 6
@@ -127202,7 +127202,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i41: ; preds = %465, %461
   %466 = uitofp i16 %454 to float
-  %467 = fmul float %466, 0x3EF0001000000000
+  %467 = fmul nnan float %466, 0x3EF0001000000000
   %468 = load i32, ptr %445, align 8, !tbaa !2542
   %469 = add nsw i32 %468, 1
   %470 = icmp eq i32 %469, 6
@@ -127436,7 +127436,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %155, %151
   %156 = uitofp i16 %144 to float
-  %157 = fmul float %156, 0x3EF0001000000000
+  %157 = fmul nnan float %156, 0x3EF0001000000000
   %158 = load i32, ptr %135, align 8, !tbaa !2542
   %159 = add nsw i32 %158, 1
   %160 = icmp eq i32 %159, 6
@@ -127660,7 +127660,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %310, %306
   %311 = uitofp i16 %299 to float
-  %312 = fmul float %311, 0x3EF0001000000000
+  %312 = fmul nnan float %311, 0x3EF0001000000000
   %313 = load i32, ptr %290, align 8, !tbaa !2542
   %314 = add nsw i32 %313, 1
   %315 = icmp eq i32 %314, 6
@@ -127884,7 +127884,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i41: ; preds = %465, %461
   %466 = uitofp i16 %454 to float
-  %467 = fmul float %466, 0x3EF0001000000000
+  %467 = fmul nnan float %466, 0x3EF0001000000000
   %468 = load i32, ptr %445, align 8, !tbaa !2542
   %469 = add nsw i32 %468, 1
   %470 = icmp eq i32 %469, 6
@@ -128115,7 +128115,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %152, %148
   %153 = uitofp i16 %141 to float
-  %154 = fmul float %153, 0x3EF0001000000000
+  %154 = fmul nnan float %153, 0x3EF0001000000000
   %155 = load i32, ptr %132, align 8, !tbaa !2542
   %156 = add nsw i32 %155, 1
   %157 = icmp eq i32 %156, 6
@@ -128354,7 +128354,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %322, %318
   %323 = uitofp i16 %311 to float
-  %324 = fmul float %323, 0x3EF0001000000000
+  %324 = fmul nnan float %323, 0x3EF0001000000000
   %325 = load i32, ptr %302, align 8, !tbaa !2542
   %326 = add nsw i32 %325, 1
   %327 = icmp eq i32 %326, 6
@@ -128593,7 +128593,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i47: ; preds = %492, %488
   %493 = uitofp i16 %481 to float
-  %494 = fmul float %493, 0x3EF0001000000000
+  %494 = fmul nnan float %493, 0x3EF0001000000000
   %495 = load i32, ptr %472, align 8, !tbaa !2542
   %496 = add nsw i32 %495, 1
   %497 = icmp eq i32 %496, 6
@@ -128824,7 +128824,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %152, %148
   %153 = uitofp i16 %141 to float
-  %154 = fmul float %153, 0x3EF0001000000000
+  %154 = fmul nnan float %153, 0x3EF0001000000000
   %155 = load i32, ptr %132, align 8, !tbaa !2542
   %156 = add nsw i32 %155, 1
   %157 = icmp eq i32 %156, 6
@@ -129063,7 +129063,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %322, %318
   %323 = uitofp i16 %311 to float
-  %324 = fmul float %323, 0x3EF0001000000000
+  %324 = fmul nnan float %323, 0x3EF0001000000000
   %325 = load i32, ptr %302, align 8, !tbaa !2542
   %326 = add nsw i32 %325, 1
   %327 = icmp eq i32 %326, 6
@@ -129302,7 +129302,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i47: ; preds = %492, %488
   %493 = uitofp i16 %481 to float
-  %494 = fmul float %493, 0x3EF0001000000000
+  %494 = fmul nnan float %493, 0x3EF0001000000000
   %495 = load i32, ptr %472, align 8, !tbaa !2542
   %496 = add nsw i32 %495, 1
   %497 = icmp eq i32 %496, 6
@@ -129533,7 +129533,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %152, %148
   %153 = uitofp i16 %141 to float
-  %154 = fmul float %153, 0x3EF0001000000000
+  %154 = fmul nnan float %153, 0x3EF0001000000000
   %155 = load i32, ptr %132, align 8, !tbaa !2542
   %156 = add nsw i32 %155, 1
   %157 = icmp eq i32 %156, 6
@@ -129772,7 +129772,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %322, %318
   %323 = uitofp i16 %311 to float
-  %324 = fmul float %323, 0x3EF0001000000000
+  %324 = fmul nnan float %323, 0x3EF0001000000000
   %325 = load i32, ptr %302, align 8, !tbaa !2542
   %326 = add nsw i32 %325, 1
   %327 = icmp eq i32 %326, 6
@@ -130011,7 +130011,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i47: ; preds = %492, %488
   %493 = uitofp i16 %481 to float
-  %494 = fmul float %493, 0x3EF0001000000000
+  %494 = fmul nnan float %493, 0x3EF0001000000000
   %495 = load i32, ptr %472, align 8, !tbaa !2542
   %496 = add nsw i32 %495, 1
   %497 = icmp eq i32 %496, 6
@@ -130242,7 +130242,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %152, %148
   %153 = uitofp i16 %141 to float
-  %154 = fmul float %153, 0x3EF0001000000000
+  %154 = fmul nnan float %153, 0x3EF0001000000000
   %155 = load i32, ptr %132, align 8, !tbaa !2542
   %156 = add nsw i32 %155, 1
   %157 = icmp eq i32 %156, 6
@@ -130481,7 +130481,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %322, %318
   %323 = uitofp i16 %311 to float
-  %324 = fmul float %323, 0x3EF0001000000000
+  %324 = fmul nnan float %323, 0x3EF0001000000000
   %325 = load i32, ptr %302, align 8, !tbaa !2542
   %326 = add nsw i32 %325, 1
   %327 = icmp eq i32 %326, 6
@@ -130720,7 +130720,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i47: ; preds = %492, %488
   %493 = uitofp i16 %481 to float
-  %494 = fmul float %493, 0x3EF0001000000000
+  %494 = fmul nnan float %493, 0x3EF0001000000000
   %495 = load i32, ptr %472, align 8, !tbaa !2542
   %496 = add nsw i32 %495, 1
   %497 = icmp eq i32 %496, 6
@@ -130938,7 +130938,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %146, %142
   %147 = uitofp i16 %135 to float
-  %148 = fmul float %147, 0x3EF0001000000000
+  %148 = fmul nnan float %147, 0x3EF0001000000000
   %149 = load i32, ptr %126, align 8, !tbaa !2542
   %150 = add nsw i32 %149, 1
   %151 = icmp eq i32 %150, 6
@@ -131137,7 +131137,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %286, %282
   %287 = uitofp i16 %275 to float
-  %288 = fmul float %287, 0x3EF0001000000000
+  %288 = fmul nnan float %287, 0x3EF0001000000000
   %289 = load i32, ptr %266, align 8, !tbaa !2542
   %290 = add nsw i32 %289, 1
   %291 = icmp eq i32 %290, 6
@@ -131336,7 +131336,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_GRB_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i40: ; preds = %426, %422
   %427 = uitofp i16 %415 to float
-  %428 = fmul float %427, 0x3EF0001000000000
+  %428 = fmul nnan float %427, 0x3EF0001000000000
   %429 = load i32, ptr %406, align 8, !tbaa !2542
   %430 = add nsw i32 %429, 1
   %431 = icmp eq i32 %430, 6
@@ -131553,7 +131553,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %146, %142
   %147 = uitofp i16 %135 to float
-  %148 = fmul float %147, 0x3EF0001000000000
+  %148 = fmul nnan float %147, 0x3EF0001000000000
   %149 = load i32, ptr %126, align 8, !tbaa !2542
   %150 = add nsw i32 %149, 1
   %151 = icmp eq i32 %150, 6
@@ -131752,7 +131752,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %286, %282
   %287 = uitofp i16 %275 to float
-  %288 = fmul float %287, 0x3EF0001000000000
+  %288 = fmul nnan float %287, 0x3EF0001000000000
   %289 = load i32, ptr %266, align 8, !tbaa !2542
   %290 = add nsw i32 %289, 1
   %291 = icmp eq i32 %290, 6
@@ -131951,7 +131951,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_GBR_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i40: ; preds = %426, %422
   %427 = uitofp i16 %415 to float
-  %428 = fmul float %427, 0x3EF0001000000000
+  %428 = fmul nnan float %427, 0x3EF0001000000000
   %429 = load i32, ptr %406, align 8, !tbaa !2542
   %430 = add nsw i32 %429, 1
   %431 = icmp eq i32 %430, 6
@@ -132165,7 +132165,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %143, %139
   %144 = uitofp i16 %132 to float
-  %145 = fmul float %144, 0x3EF0001000000000
+  %145 = fmul nnan float %144, 0x3EF0001000000000
   %146 = load i32, ptr %123, align 8, !tbaa !2542
   %147 = add nsw i32 %146, 1
   %148 = icmp eq i32 %147, 6
@@ -132379,7 +132379,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %298, %294
   %299 = uitofp i16 %287 to float
-  %300 = fmul float %299, 0x3EF0001000000000
+  %300 = fmul nnan float %299, 0x3EF0001000000000
   %301 = load i32, ptr %278, align 8, !tbaa !2542
   %302 = add nsw i32 %301, 1
   %303 = icmp eq i32 %302, 6
@@ -132593,7 +132593,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_BGG_rg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i46: ; preds = %453, %449
   %454 = uitofp i16 %442 to float
-  %455 = fmul float %454, 0x3EF0001000000000
+  %455 = fmul nnan float %454, 0x3EF0001000000000
   %456 = load i32, ptr %433, align 8, !tbaa !2542
   %457 = add nsw i32 %456, 1
   %458 = icmp eq i32 %457, 6
@@ -132807,7 +132807,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %143, %139
   %144 = uitofp i16 %132 to float
-  %145 = fmul float %144, 0x3EF0001000000000
+  %145 = fmul nnan float %144, 0x3EF0001000000000
   %146 = load i32, ptr %123, align 8, !tbaa !2542
   %147 = add nsw i32 %146, 1
   %148 = icmp eq i32 %147, 6
@@ -133021,7 +133021,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %298, %294
   %299 = uitofp i16 %287 to float
-  %300 = fmul float %299, 0x3EF0001000000000
+  %300 = fmul nnan float %299, 0x3EF0001000000000
   %301 = load i32, ptr %278, align 8, !tbaa !2542
   %302 = add nsw i32 %301, 1
   %303 = icmp eq i32 %302, 6
@@ -133235,7 +133235,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_RGG_bg
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i46: ; preds = %453, %449
   %454 = uitofp i16 %442 to float
-  %455 = fmul float %454, 0x3EF0001000000000
+  %455 = fmul nnan float %454, 0x3EF0001000000000
   %456 = load i32, ptr %433, align 8, !tbaa !2542
   %457 = add nsw i32 %456, 1
   %458 = icmp eq i32 %457, 6
@@ -133449,7 +133449,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %143, %139
   %144 = uitofp i16 %132 to float
-  %145 = fmul float %144, 0x3EF0001000000000
+  %145 = fmul nnan float %144, 0x3EF0001000000000
   %146 = load i32, ptr %123, align 8, !tbaa !2542
   %147 = add nsw i32 %146, 1
   %148 = icmp eq i32 %147, 6
@@ -133663,7 +133663,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %298, %294
   %299 = uitofp i16 %287 to float
-  %300 = fmul float %299, 0x3EF0001000000000
+  %300 = fmul nnan float %299, 0x3EF0001000000000
   %301 = load i32, ptr %278, align 8, !tbaa !2542
   %302 = add nsw i32 %301, 1
   %303 = icmp eq i32 %302, 6
@@ -133876,7 +133876,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_RGG_gb
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i46: ; preds = %452, %448
   %453 = uitofp i16 %441 to float
-  %454 = fmul float %453, 0x3EF0001000000000
+  %454 = fmul nnan float %453, 0x3EF0001000000000
   %455 = load i32, ptr %432, align 8, !tbaa !2542
   %456 = add nsw i32 %455, 1
   %457 = icmp eq i32 %456, 6
@@ -134090,7 +134090,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i: ; preds = %143, %139
   %144 = uitofp i16 %132 to float
-  %145 = fmul float %144, 0x3EF0001000000000
+  %145 = fmul nnan float %144, 0x3EF0001000000000
   %146 = load i32, ptr %123, align 8, !tbaa !2542
   %147 = add nsw i32 %146, 1
   %148 = icmp eq i32 %147, 6
@@ -134304,7 +134304,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i25: ; preds = %298, %294
   %299 = uitofp i16 %287 to float
-  %300 = fmul float %299, 0x3EF0001000000000
+  %300 = fmul nnan float %299, 0x3EF0001000000000
   %301 = load i32, ptr %278, align 8, !tbaa !2542
   %302 = add nsw i32 %301, 1
   %303 = icmp eq i32 %302, 6
@@ -134517,7 +134517,7 @@ _ZZN11OpenImageIO6v3_1_012ImageBufAlgo23LinearXTransDemosaicingIttE12calc_BGG_gr
 
 _ZN11OpenImageIO6v3_1_012ImageBufAlgo15DemosaicingBaseIttLi6ELi5EXadsoA6_KmL_ZNS1_L18xtrans_channel_mapEEEEE6Window3Row5fetchEv.exit.i.i46: ; preds = %452, %448
   %453 = uitofp i16 %441 to float
-  %454 = fmul float %453, 0x3EF0001000000000
+  %454 = fmul nnan float %453, 0x3EF0001000000000
   %455 = load i32, ptr %432, align 8, !tbaa !2542
   %456 = add nsw i32 %455, 1
   %457 = icmp eq i32 %456, 6
@@ -134860,7 +134860,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf13ConstIteratorItfEC2ERKS1_iiiNS1_8WrapModeE.exi
 
 185:                                              ; preds = %.invoke.i.i.i.i, %181, %.noexc87.i.i.i.i, %157, %154, %153, %149
   %186 = uitofp i16 %132 to float
-  %187 = fmul float %186, 0x3EF0001000000000
+  %187 = fmul nnan float %186, 0x3EF0001000000000
   %188 = load i32, ptr %26, align 8, !tbaa !2542
   %189 = add nsw i32 %188, 1
   %190 = icmp eq i32 %189, 6
@@ -139006,7 +139006,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit19: ; preds = %_ZN11OpenI
   %103 = getelementptr inbounds i16, ptr %100, i64 %102
   %104 = load i16, ptr %103, align 2, !tbaa !604
   %105 = uitofp i16 %104 to float
-  %106 = fmul float %105, 0x3EF0001000000000
+  %106 = fmul nnan float %105, 0x3EF0001000000000
   %107 = load ptr, ptr %17, align 8, !tbaa !2720
   %108 = getelementptr inbounds nuw float, ptr %107, i64 %98
   %109 = load float, ptr %108, align 4, !tbaa !28
@@ -139477,7 +139477,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit19: ; preds = %_ZN11OpenI
   %103 = getelementptr inbounds i16, ptr %100, i64 %102
   %104 = load i16, ptr %103, align 2, !tbaa !604
   %105 = uitofp i16 %104 to float
-  %106 = fmul float %105, 0x3EF0001000000000
+  %106 = fmul nnan float %105, 0x3EF0001000000000
   %107 = load ptr, ptr %17, align 8, !tbaa !2728
   %108 = getelementptr inbounds nuw float, ptr %107, i64 %98
   %109 = load float, ptr %108, align 4, !tbaa !28
@@ -140348,7 +140348,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit19: ; preds = %_ZN11OpenI
   %103 = getelementptr inbounds i8, ptr %100, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !15
   %105 = uitofp i8 %104 to float
-  %106 = fmul float %105, 0x3F70101020000000
+  %106 = fmul nnan float %105, 0x3F70101020000000
   %107 = load ptr, ptr %17, align 8, !tbaa !2736
   %108 = getelementptr inbounds nuw float, ptr %107, i64 %98
   %109 = load float, ptr %108, align 4, !tbaa !28
@@ -140819,7 +140819,7 @@ _ZN11OpenImageIO6v3_1_08ImageBuf12IteratorBaseD2Ev.exit19: ; preds = %_ZN11OpenI
   %103 = getelementptr inbounds i8, ptr %100, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !15
   %105 = uitofp i8 %104 to float
-  %106 = fmul float %105, 0x3F70101020000000
+  %106 = fmul nnan float %105, 0x3F70101020000000
   %107 = load ptr, ptr %17, align 8, !tbaa !2744
   %108 = getelementptr inbounds nuw float, ptr %107, i64 %98
   %109 = load float, ptr %108, align 4, !tbaa !28

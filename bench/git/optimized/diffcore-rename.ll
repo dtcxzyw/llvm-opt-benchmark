@@ -738,7 +738,7 @@ find_exact_renames.exit:                          ; preds = %find_identical_file
 
 303:                                              ; preds = %299, %297
   %.0187 = phi double [ %302, %299 ], [ 5.000000e-01, %297 ]
-  %304 = fsub double 6.000000e+04, %289
+  %304 = fsub nnan double 6.000000e+04, %289
   %305 = fmul double %304, %.0187
   %306 = fptosi double %305 to i32
   %307 = add nsw i32 %spec.store.select, %306
@@ -2919,10 +2919,10 @@ define internal fastcc i32 @estimate_similarity(ptr noundef %0, ptr noundef %1, 
   %33 = sub i64 %., %32
   %34 = uitofp i64 %. to double
   %35 = sitofp i32 %3 to double
-  %36 = fsub double 6.000000e+04, %35
+  %36 = fsub nnan double 6.000000e+04, %35
   %37 = fmul double %36, %34
   %38 = uitofp i64 %33 to double
-  %39 = fmul double %38, 6.000000e+04
+  %39 = fmul nnan double %38, 6.000000e+04
   %40 = fcmp olt double %37, %39
   br i1 %40, label %61, label %41
 
@@ -2962,7 +2962,7 @@ define internal fastcc i32 @estimate_similarity(ptr noundef %0, ptr noundef %1, 
 55:                                               ; preds = %53
   %56 = load i64, ptr %6, align 8, !tbaa !169
   %57 = uitofp i64 %56 to double
-  %58 = fmul double %57, 6.000000e+04
+  %58 = fmul nnan double %57, 6.000000e+04
   %59 = fdiv double %58, %34
   %60 = fptosi double %59 to i32
   br label %61

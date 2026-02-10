@@ -32435,7 +32435,7 @@ _ZNK11colvar_gridImE5valueERKSt6vectorIiSaIiEERKm.exit: ; preds = %12, %6
   %39 = fsub double %.07, %31
   %40 = sub nsw i32 %35, %30
   %41 = sitofp i32 %40 to double
-  %42 = fmul double %.07, %41
+  %42 = fmul nnan double %.07, %41
   %43 = fdiv double %39, %42
   br label %_ZN20colvar_grid_gradient21smooth_inverse_weightEd.exit
 

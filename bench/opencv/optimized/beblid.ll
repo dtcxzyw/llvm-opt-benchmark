@@ -2192,7 +2192,7 @@ _ZNSt12_Vector_baseIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EEC2EmRKS3_.exit.
   %54 = load i32, ptr %39, align 8, !tbaa !80
   %55 = add nsw i32 %54, %53
   %56 = sitofp i32 %55 to float
-  %57 = fmul float %56, 5.000000e-01
+  %57 = fmul nnan float %56, 5.000000e-01
   %58 = fdiv float %52, %57
   %59 = ptrtoint ptr %45 to i64
   %60 = ptrtoint ptr %44 to i64
@@ -2249,8 +2249,8 @@ _ZNSt6vectorIN2cv11xfeatures2d17ABWLParamsFloatThESaIS2_EE6resizeEm.exit.i: ; pr
   br i1 %92, label %.thread.i, label %93
 
 93:                                               ; preds = %91
-  %94 = fpext float %78 to double
-  %95 = fmul double %94, 0x3F91DF46A2529D39
+  %94 = fpext nnan float %78 to double
+  %95 = fmul nnan double %94, 0x3F91DF46A2529D39
   %96 = call double @cos(double noundef %95) #23, !tbaa !132
   %97 = fptrunc double %96 to float
   %98 = call double @sin(double noundef %95) #23, !tbaa !132
@@ -3591,7 +3591,7 @@ _ZNSt12_Vector_baseIN2cv11xfeatures2d10ABWLParamsESaIS2_EEC2EmRKS3_.exit.thread.
   %54 = load i32, ptr %39, align 8, !tbaa !80
   %55 = add nsw i32 %54, %53
   %56 = sitofp i32 %55 to float
-  %57 = fmul float %56, 5.000000e-01
+  %57 = fmul nnan float %56, 5.000000e-01
   %58 = fdiv float %52, %57
   %59 = ptrtoint ptr %45 to i64
   %60 = ptrtoint ptr %44 to i64
@@ -3648,8 +3648,8 @@ _ZNSt6vectorIN2cv11xfeatures2d10ABWLParamsESaIS2_EE6resizeEm.exit.i: ; preds = %
   br i1 %92, label %.thread.i, label %93
 
 93:                                               ; preds = %91
-  %94 = fpext float %78 to double
-  %95 = fmul double %94, 0x3F91DF46A2529D39
+  %94 = fpext nnan float %78 to double
+  %95 = fmul nnan double %94, 0x3F91DF46A2529D39
   %96 = call double @cos(double noundef %95) #23, !tbaa !132
   %97 = fptrunc double %96 to float
   %98 = call double @sin(double noundef %95) #23, !tbaa !132

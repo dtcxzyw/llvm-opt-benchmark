@@ -330,7 +330,7 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
 
 .lr.ph:                                           ; preds = %.thread
   %25 = sitofp i64 %24 to double
-  %26 = fmul reassoc nsz arcp contract afn double %25, 0x3EB0C6F7A0B5ED8D
+  %26 = fmul reassoc nnan nsz arcp contract afn double %25, 0x3EB0C6F7A0B5ED8D
   %27 = add nsw i64 %22, -1290608000
   %28 = sitofp i64 %27 to double
   %29 = fadd reassoc nsz arcp contract afn double %26, %28
@@ -411,7 +411,7 @@ define internal fastcc void @_film_import1(ptr noundef %0, ptr noundef %1, ptr n
   %62 = sitofp i64 %61 to double
   %63 = load i64, ptr %32, align 8, !tbaa !27
   %64 = sitofp i64 %63 to double
-  %65 = fmul reassoc nsz arcp contract afn double %64, 0x3EB0C6F7A0B5ED8D
+  %65 = fmul reassoc nnan nsz arcp contract afn double %64, 0x3EB0C6F7A0B5ED8D
   %66 = fadd reassoc nsz arcp contract afn double %65, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %67 = icmp sgt i32 %.06699, 2

@@ -7648,7 +7648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %52,
   store i8 0, ptr %57, align 1, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %58 = sitofp i32 %2 to float
-  %59 = fmul float %58, 5.000000e-01
+  %59 = fmul nnan float %58, 5.000000e-01
   %60 = fpext float %59 to double
   %61 = call double @llvm.floor.f64(double %60)
   %62 = fptosi double %61 to i32

@@ -261,9 +261,9 @@ switch.lookup:                                    ; preds = %13
 
 ._crit_edge243:                                   ; preds = %.loopexit
   %90 = uitofp i64 %.1103 to double
-  %91 = fmul double %90, 0x3EB0000000000000
+  %91 = fmul nnan double %90, 0x3EB0000000000000
   %92 = uitofp i64 %.1113 to double
-  %93 = fmul double %92, 0x3EB0000000000000
+  %93 = fmul nnan double %92, 0x3EB0000000000000
   call void @free(ptr noundef %.194) #13
   br i1 %.1131, label %._crit_edge243.thread, label %94
 
@@ -345,7 +345,7 @@ define internal fastcc void @print_queue(i32 noundef %0, ptr noundef readonly ca
   %24 = fdiv double %23, 1.000000e+06
   %25 = uitofp nneg i64 %.138 to double
   %26 = uitofp i32 %.1 to double
-  %27 = fmul double %26, 1.000000e+06
+  %27 = fmul nnan double %26, 1.000000e+06
   %28 = fdiv double %25, %27
   %29 = tail call i32 (i32, ptr, ...) @mdprintf(i32 noundef %0, ptr noundef nonnull @.str.27, double noundef %22, double noundef %24, double noundef %28) #13
   %.not49 = icmp eq i32 %.136, 0

@@ -23529,7 +23529,7 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %55 = load i32, ptr %54, align 4
   %56 = sitofp i32 %55 to double
-  %57 = fmul double %56, 8.000000e-01
+  %57 = fmul nnan double %56, 8.000000e-01
   %58 = fptosi double %57 to i32
   br label %_ZN9hb_font_t29guess_v_origin_minus_h_originEjPiS0_.exit
 
@@ -23646,7 +23646,7 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit.i._ZN9hb_font_t27get
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %56 = load i32, ptr %55, align 4
   %57 = sitofp i32 %56 to double
-  %58 = fmul double %57, 8.000000e-01
+  %58 = fmul nnan double %57, 8.000000e-01
   %59 = fptosi double %58 to i32
   br label %_ZN9hb_font_t29guess_v_origin_minus_h_originEjPiS0_.exit
 

@@ -3907,7 +3907,7 @@ _ZNK7QCPAxis13tickLabelFontEv.exit:               ; preds = %323
 
 328:                                              ; preds = %326
   %329 = sitofp i32 %327 to double
-  %330 = fmul double %329, 5.000000e-01
+  %330 = fmul nnan double %329, 5.000000e-01
   %331 = load i32, ptr %299, align 8
   %332 = load i32, ptr %297, align 4
   %333 = icmp ult i32 %331, %332
@@ -3929,7 +3929,7 @@ _ZNK7QCPAxis13tickLabelFontEv.exit:               ; preds = %323
   %345 = call double @llvm.copysign.f64(double 5.000000e-01, double %344)
   %346 = fadd double %344, %345
   %347 = fptosi double %346 to i32
-  %348 = fmul double %330, 5.000000e-01
+  %348 = fmul nnan double %330, 5.000000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %349 = load i32, ptr %297, align 4
   %350 = uitofp i32 %349 to double
@@ -4105,8 +4105,8 @@ _ZN7QStringD2Ev.exit:                             ; preds = %413, %_ZN17QArrayDa
 
 419:                                              ; preds = %_ZN7QStringD2Ev.exit
   %420 = sitofp i32 %418 to double
-  %421 = fsub double %405, %420
-  %422 = fmul double %421, 5.000000e-01
+  %421 = fsub nnan double %405, %420
+  %422 = fmul nnan double %421, 5.000000e-01
   %423 = fadd double %422, %402
   %424 = fptosi double %423 to i32
   %425 = fsub double %374, %348

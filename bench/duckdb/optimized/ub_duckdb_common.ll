@@ -119527,7 +119527,7 @@ define noundef double @_ZN6duckdb10StringUtil16SimilarityRatingERKNSt7__cxx1112b
 ._crit_edge.loopexit.i.i:                         ; preds = %15, %.lr.ph.i.i
   %.030.lcssa.ph.i.i = phi i64 [ %10, %15 ], [ %.03050.i.i, %.lr.ph.i.i ]
   %17 = uitofp nneg i64 %.030.lcssa.ph.i.i to double
-  %18 = fmul double %17, 1.000000e-01
+  %18 = fmul nnan double %17, 1.000000e-01
   br label %_ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit
 
 _ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit: ; preds = %2, %._crit_edge.loopexit.i.i
@@ -120083,7 +120083,7 @@ _ZNSt16allocator_traitsISaISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 ._crit_edge.loopexit.i.i.i:                       ; preds = %64, %.lr.ph.i.i.i
   %.030.lcssa.ph.i.i.i = phi i64 [ %59, %64 ], [ %.03050.i.i.i, %.lr.ph.i.i.i ]
   %66 = uitofp nneg i64 %.030.lcssa.ph.i.i.i to double
-  %67 = fmul double %66, 1.000000e-01
+  %67 = fmul nnan double %66, 1.000000e-01
   br label %_ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit.i
 
 _ZN19duckdb_jaro_winkler23jaro_winkler_similarityIPKcS2_EENSt9enable_ifIXaasr6common11is_iteratorIT_EE5valuesr6common11is_iteratorIT0_EE5valueEdE4typeES4_S4_S5_S5_dd.exit.i: ; preds = %._crit_edge.loopexit.i.i.i, %52

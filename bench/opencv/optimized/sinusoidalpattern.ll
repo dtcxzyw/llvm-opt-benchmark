@@ -580,7 +580,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %32, %34, %35, %_ZSt
   %.0103.in = sitofp i32 %.0103.in.in to float
   %.0103 = fptosi float %.0103.in to i32
   %52 = sitofp i32 %.0102 to float
-  %53 = fdiv float 1.000000e+00, %52
+  %53 = fdiv nnan float 1.000000e+00, %52
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %55 = getelementptr inbounds nuw i8, ptr %8, i64 208
   %56 = getelementptr inbounds nuw i8, ptr %8, i64 112
@@ -588,8 +588,8 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %32, %34, %35, %_ZSt
   br label %66
 
 .preheader130:                                    ; preds = %88
-  %58 = fpext float %53 to double
-  %59 = fmul double %58, 0x401921FB54442D18
+  %58 = fpext nnan float %53 to double
+  %59 = fmul nnan double %58, 0x401921FB54442D18
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -5393,7 +5393,7 @@ define void @_ZN2cv16structured_light34SinusoidalPatternProfilometry_Impl25compu
   %118 = load i8, ptr %117, align 1, !tbaa !50
   %119 = uitofp i8 %118 to float
   %120 = fsub float %99, %119
-  %121 = fmul float %120, 3.000000e+00
+  %121 = fmul nnan float %120, 3.000000e+00
   %122 = fneg float %99
   %123 = call float @llvm.fmuladd.f32(float %109, float 2.000000e+00, float %122)
   %124 = fsub float %123, %119

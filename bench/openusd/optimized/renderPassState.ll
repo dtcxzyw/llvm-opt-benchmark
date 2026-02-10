@@ -536,11 +536,11 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17HdRenderPassState21GetImage
   %reass.sub = sub i32 %.sroa.10.0, %.sroa.031.0
   %41 = add i32 %reass.sub, 1
   %42 = sitofp i32 %41 to double
-  %43 = fmul double %42, 5.000000e-01
+  %43 = fmul nnan double %42, 5.000000e-01
   %reass.sub44 = sub i32 %.sroa.15.0, %.sroa.6.0
   %44 = add i32 %reass.sub44, 1
   %45 = sitofp i32 %44 to double
-  %46 = fmul double %45, 5.000000e-01
+  %46 = fmul nnan double %45, 5.000000e-01
   store double %43, ptr %3, align 8
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store double %46, ptr %47, align 8

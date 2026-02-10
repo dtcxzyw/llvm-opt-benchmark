@@ -850,7 +850,7 @@ define internal zeroext i1 @dissect_waveagent_heur(ptr noundef %0, ptr noundef r
 206:                                              ; preds = %.preheader.i.i
   %207 = and i8 %201, 127
   %208 = uitofp nneg i8 %207 to double
-  %209 = fmul double %208, 5.000000e-01
+  %209 = fmul nnan double %208, 5.000000e-01
   %.not497.i.i = icmp sgt i8 %201, -1
   %210 = select i1 %.not497.i.i, ptr @.str.348, ptr @.str.347
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %187, ptr noundef nonnull @.str.346, double noundef %209, ptr noundef nonnull %210)

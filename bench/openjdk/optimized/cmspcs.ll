@@ -163,8 +163,8 @@ define hidden void @cmsLab2XYZ(ptr noundef readonly captures(address_is_null) %0
   %15 = load double, ptr %14, align 8
   %16 = tail call double @llvm.fmuladd.f64(double %15, double -5.000000e-03, double %10)
   %17 = fcmp ugt double %13, 0x3FCA7B9611A7B961
-  %18 = fadd double %13, 0xBFC1A7B9611A7B96
-  %19 = fmul double %18, 0x3FC07004DED20922
+  %18 = fadd nnan double %13, 0xBFC1A7B9611A7B96
+  %19 = fmul nnan double %18, 0x3FC07004DED20922
   %20 = fmul double %13, %13
   %21 = fmul double %13, %20
   %.0.i = select i1 %17, double %21, double %19
@@ -172,8 +172,8 @@ define hidden void @cmsLab2XYZ(ptr noundef readonly captures(address_is_null) %0
   %23 = fmul double %22, %.0.i
   store double %23, ptr %1, align 8
   %24 = fcmp ugt double %10, 0x3FCA7B9611A7B961
-  %25 = fadd double %10, 0xBFC1A7B9611A7B96
-  %26 = fmul double %25, 0x3FC07004DED20922
+  %25 = fadd nnan double %10, 0xBFC1A7B9611A7B96
+  %26 = fmul nnan double %25, 0x3FC07004DED20922
   %27 = fmul double %10, %10
   %28 = fmul double %10, %27
   %.0.i16 = select i1 %24, double %28, double %26
@@ -183,8 +183,8 @@ define hidden void @cmsLab2XYZ(ptr noundef readonly captures(address_is_null) %0
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %31, ptr %32, align 8
   %33 = fcmp ugt double %16, 0x3FCA7B9611A7B961
-  %34 = fadd double %16, 0xBFC1A7B9611A7B96
-  %35 = fmul double %34, 0x3FC07004DED20922
+  %34 = fadd nnan double %16, 0xBFC1A7B9611A7B96
+  %35 = fmul nnan double %34, 0x3FC07004DED20922
   %36 = fmul double %16, %16
   %37 = fmul double %16, %36
   %.0.i17 = select i1 %33, double %37, double %35
@@ -205,14 +205,14 @@ define hidden void @cmsLabEncoded2FloatV2(ptr noundef writeonly captures(none) i
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = uitofp i16 %7 to double
-  %9 = fmul double %8, 3.906250e-03
+  %9 = fmul nnan double %8, 3.906250e-03
   %10 = fadd double %9, -1.280000e+02
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %13 = load i16, ptr %12, align 2
   %14 = uitofp i16 %13 to double
-  %15 = fmul double %14, 3.906250e-03
+  %15 = fmul nnan double %14, 3.906250e-03
   %16 = fadd double %15, -1.280000e+02
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %16, ptr %17, align 8
@@ -1188,7 +1188,7 @@ atan2deg.exit96:                                  ; preds = %.lr.ph13.i92, %atan
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %59
-  %62 = fadd double %55, 3.600000e+02
+  %62 = fadd nnan double %55, 3.600000e+02
   br label %65
 
 63:                                               ; preds = %59

@@ -334,7 +334,7 @@ define void @ff_dca_downmix_to_stereo_float(ptr noundef readonly captures(none) 
   %40 = getelementptr inbounds nuw i32, ptr %2, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !43
   %42 = sitofp i32 %41 to float
-  %43 = fmul nsz float %42, 0x3F00000000000000
+  %43 = fmul nnan nsz float %42, 0x3F00000000000000
   tail call void %36(ptr noundef %38, ptr noundef %38, float noundef %43, i32 noundef %3) #7
   %44 = load ptr, ptr %35, align 8, !tbaa !55
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -343,7 +343,7 @@ define void @ff_dca_downmix_to_stereo_float(ptr noundef readonly captures(none) 
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4, !tbaa !43
   %50 = sitofp i32 %49 to float
-  %51 = fmul nsz float %50, 0x3F00000000000000
+  %51 = fmul nnan nsz float %50, 0x3F00000000000000
   tail call void %44(ptr noundef %46, ptr noundef %46, float noundef %51, i32 noundef %3) #7
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = add nuw nsw i32 %.1.i, %15
@@ -374,7 +374,7 @@ define void @ff_dca_downmix_to_stereo_float(ptr noundef readonly captures(none) 
   %66 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !57
   %68 = sitofp i32 %60 to float
-  %69 = fmul nsz float %68, 0x3F00000000000000
+  %69 = fmul nnan nsz float %68, 0x3F00000000000000
   tail call void %64(ptr noundef %65, ptr noundef %67, float noundef %69, i32 noundef %3) #7
   br label %70
 
@@ -391,7 +391,7 @@ define void @ff_dca_downmix_to_stereo_float(ptr noundef readonly captures(none) 
   %77 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8, !tbaa !57
   %79 = sitofp i32 %71 to float
-  %80 = fmul nsz float %79, 0x3F00000000000000
+  %80 = fmul nnan nsz float %79, 0x3F00000000000000
   tail call void %75(ptr noundef %76, ptr noundef %78, float noundef %80, i32 noundef %3) #7
   br label %81
 

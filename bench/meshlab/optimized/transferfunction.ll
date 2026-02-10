@@ -2734,7 +2734,7 @@ _ZN9TfChannel6addKeyEff.exit245:                  ; preds = %_ZN9TfChannel6addKe
 
 231:                                              ; preds = %_ZN9TfChannel6addKeyEff.exit245
   %232 = uitofp nneg i32 %.019 to float
-  %233 = fmul float %232, 2.500000e-01
+  %233 = fmul nnan float %232, 2.500000e-01
   %234 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc228 unwind label %.loopexit.split-lp.loopexit
 
@@ -2748,7 +2748,7 @@ _ZN9TfChannel6addKeyEff.exit245:                  ; preds = %_ZN9TfChannel6addKe
 _ZN9TfChannel6addKeyEff.exit230:                  ; preds = %.noexc228
   %237 = add nuw nsw i32 %.019, 1
   %238 = uitofp nneg i32 %237 to float
-  %239 = fmul float %238, 2.500000e-01
+  %239 = fmul nnan float %238, 2.500000e-01
   %240 = fpext float %239 to double
   %241 = fadd double %240, -1.000000e-04
   %242 = fptrunc double %241 to float
@@ -2813,7 +2813,7 @@ _ZN9TfChannel6addKeyEff.exit263:                  ; preds = %_ZN9TfChannel6addKe
 
 258:                                              ; preds = %_ZN9TfChannel6addKeyEff.exit263
   %259 = uitofp nneg i32 %.0 to float
-  %260 = fmul float %259, 1.250000e-01
+  %260 = fmul nnan float %259, 1.250000e-01
   %261 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %.noexc246 unwind label %.loopexit264
 
@@ -2827,7 +2827,7 @@ _ZN9TfChannel6addKeyEff.exit263:                  ; preds = %_ZN9TfChannel6addKe
 _ZN9TfChannel6addKeyEff.exit248:                  ; preds = %.noexc246
   %264 = add nuw nsw i32 %.0, 1
   %265 = uitofp nneg i32 %264 to float
-  %266 = fmul float %265, 1.250000e-01
+  %266 = fmul nnan float %265, 1.250000e-01
   %267 = fpext float %266 to double
   %268 = fadd double %267, -1.000000e-04
   %269 = fptrunc double %268 to float

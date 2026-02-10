@@ -9566,10 +9566,10 @@ bcdec_bc2.exit.i.i.i:                             ; preds = %288, %_Z25bcdec__sm
   br i1 %690, label %691, label %_ZN11OpenImageIO6v3_1_0L14ComputeNormalZEhh.exit.i.i.i.i
 
 691:                                              ; preds = %.preheader241.i.i.i
-  %692 = tail call float @llvm.sqrt.f32(float %689)
-  %693 = fadd float %692, 1.000000e+00
-  %694 = fmul float %693, 2.550000e+02
-  %695 = fmul float %694, 5.000000e-01
+  %692 = tail call nnan float @llvm.sqrt.f32(float %689)
+  %693 = fadd nnan float %692, 1.000000e+00
+  %694 = fmul nnan float %693, 2.550000e+02
+  %695 = fmul nnan float %694, 5.000000e-01
   %696 = fptosi float %695 to i32
   %697 = tail call i32 @llvm.smax.i32(i32 %696, i32 0)
   %698 = tail call i32 @llvm.umin.i32(i32 %697, i32 255)
@@ -9611,10 +9611,10 @@ _ZN11OpenImageIO6v3_1_0L14ComputeNormalZEhh.exit.i.i.i.i: ; preds = %691, %.preh
   br i1 %720, label %721, label %_ZN11OpenImageIO6v3_1_0L14ComputeNormalZEhh.exit.i77.i.i.i
 
 721:                                              ; preds = %.preheader243.i.i.i
-  %722 = tail call float @llvm.sqrt.f32(float %719)
-  %723 = fadd float %722, 1.000000e+00
-  %724 = fmul float %723, 2.550000e+02
-  %725 = fmul float %724, 5.000000e-01
+  %722 = tail call nnan float @llvm.sqrt.f32(float %719)
+  %723 = fadd nnan float %722, 1.000000e+00
+  %724 = fmul nnan float %723, 2.550000e+02
+  %725 = fmul nnan float %724, 5.000000e-01
   %726 = fptosi float %725 to i32
   %727 = tail call i32 @llvm.smax.i32(i32 %726, i32 0)
   %728 = tail call i32 @llvm.umin.i32(i32 %727, i32 255)

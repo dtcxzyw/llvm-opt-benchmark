@@ -288,7 +288,7 @@ define void @_ZN5arrow2io12CacheOptions12LazyDefaultsEv(ptr dead_on_unwind noali
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5arrow2io12CacheOptions22MakeFromNetworkMetricsElldl(ptr dead_on_unwind noalias writable writeonly sret(%"struct.arrow::io::CacheOptions") align 8 captures(none) initializes((0, 17), (24, 32)) %0, i64 noundef %1, i64 noundef %2, double noundef %3, i64 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = sitofp i64 %1 to double
-  %7 = fdiv double %6, 1.000000e+03
+  %7 = fdiv nnan double %6, 1.000000e+03
   %8 = shl nsw i64 %2, 20
   %9 = shl nsw i64 %4, 20
   %10 = sitofp i64 %8 to double

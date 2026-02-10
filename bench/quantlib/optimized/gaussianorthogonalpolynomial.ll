@@ -693,7 +693,7 @@ entry:
   %rem = and i64 %i, 1
   %cmp.not = icmp eq i64 %rem, 0
   %conv2 = uitofp i64 %i to double
-  %div3 = fmul double %conv2, 5.000000e-01
+  %div3 = fmul nnan double %conv2, 5.000000e-01
   %mu_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load double, ptr %mu_, align 8
   %add = select i1 %cmp.not, double -0.000000e+00, double %0
@@ -1576,7 +1576,7 @@ entry:
   %ref.tmp95 = alloca %"class.std::allocator", align 1
   %ref.tmp98 = alloca %"class.std::__cxx11::basic_string", align 8
   %conv = uitofp i64 %i to double
-  %mul = fmul double %conv, 4.000000e+00
+  %mul = fmul nnan double %conv, 4.000000e+00
   %alpha_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load double, ptr %alpha_, align 8, !tbaa !26
   %add = fadd double %0, %conv
@@ -1968,7 +1968,7 @@ define noundef double @_ZNK8QuantLib25GaussHyperbolicPolynomial4betaEm(ptr nonnu
 entry:
   %cmp.not = icmp eq i64 %i, 0
   %conv = uitofp i64 %i to double
-  %mul = fmul double %conv, 0x4003BD3CC9BE45DE
+  %mul = fmul nnan double %conv, 0x4003BD3CC9BE45DE
   %mul3 = fmul double %mul, %conv
   %cond = select i1 %cmp.not, double 0x400921FB54442D18, double %mul3
   ret double %cond

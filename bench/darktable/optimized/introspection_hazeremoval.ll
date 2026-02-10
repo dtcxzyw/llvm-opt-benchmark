@@ -588,7 +588,7 @@ _dark_channel.exit.i:                             ; preds = %.lr.ph.i.i, %77
   %94 = mul i64 %93, %23
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 64 %92, ptr readonly align 64 %80, i64 %94, i1 false)
   %95 = uitofp i64 %24 to float
-  %96 = fmul reassoc nsz arcp contract afn float %95, 0x3FEE666660000000
+  %96 = fmul reassoc nnan nsz arcp contract afn float %95, 0x3FEE666660000000
   %97 = fptoui float %96 to i64
   %98 = getelementptr inbounds nuw float, ptr %92, i64 %97
   %99 = getelementptr inbounds nuw float, ptr %92, i64 %24
@@ -690,7 +690,7 @@ _dark_channel.exit.i:                             ; preds = %.lr.ph.i.i, %77
 .loopexit139.i:                                   ; preds = %.lr.ph149.i, %135, %._crit_edge.i
   %145 = sub i64 %.0111.lcssa.i, %.0110.lcssa.i
   %146 = uitofp i64 %145 to float
-  %147 = fmul reassoc nsz arcp contract afn float %146, 0x3FEE666660000000
+  %147 = fmul reassoc nnan nsz arcp contract afn float %146, 0x3FEE666660000000
   %148 = fptoui float %147 to i64
   %149 = getelementptr inbounds nuw float, ptr %92, i64 %.0110.lcssa.i
   %150 = getelementptr float, ptr %149, i64 %148
@@ -775,8 +775,8 @@ _dark_channel.exit.i:                             ; preds = %.lr.ph.i.i, %77
   br i1 %188, label %189, label %_ambient_light.exit
 
 189:                                              ; preds = %.loopexit.i
-  %190 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %100)
-  %191 = fmul reassoc nsz arcp contract afn float %190, -1.125000e+00
+  %190 = tail call reassoc nnan nsz arcp contract afn float @llvm.log.f32(float %100)
+  %191 = fmul reassoc nnan nsz arcp contract afn float %190, -1.125000e+00
   br label %_ambient_light.exit
 
 _ambient_light.exit:                              ; preds = %.loopexit.i, %189

@@ -940,7 +940,7 @@ _setup_overlay.exit:                              ; preds = %197, %_get_disabled
   br i1 %416, label %417, label %420
 
 417:                                              ; preds = %415
-  %418 = fmul reassoc nsz arcp contract afn float %287, 5.000000e-01
+  %418 = fmul reassoc nnan nsz arcp contract afn float %287, 5.000000e-01
   %419 = fsub reassoc nsz arcp contract afn float %418, %411
   br label %425
 
@@ -969,7 +969,7 @@ _setup_overlay.exit:                              ; preds = %197, %_get_disabled
   ]
 
 426:                                              ; preds = %425, %425, %425
-  %427 = fmul reassoc nsz arcp contract afn float %284, 5.000000e-01
+  %427 = fmul reassoc nnan nsz arcp contract afn float %284, 5.000000e-01
   %428 = fsub reassoc nsz arcp contract afn float %427, %408
   br label %432
 
@@ -1774,12 +1774,12 @@ define internal void @_draw_thumb(ptr noundef %0, ptr noundef %1, ptr noundef re
   %56 = load i32, ptr %55, align 4, !tbaa !188
   %57 = sub nsw i32 %12, %56
   %58 = sitofp i32 %57 to double
-  %59 = fmul reassoc nsz arcp contract afn double %58, 5.000000e-01
+  %59 = fmul reassoc nnan nsz arcp contract afn double %58, 5.000000e-01
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %61 = load i32, ptr %60, align 4, !tbaa !190
   %62 = sub nsw i32 %14, %61
   %63 = sitofp i32 %62 to double
-  %64 = fmul reassoc nsz arcp contract afn double %63, 5.000000e-01
+  %64 = fmul reassoc nnan nsz arcp contract afn double %63, 5.000000e-01
   call void @cairo_move_to(ptr noundef %1, double noundef %59, double noundef %64) #21
   call void @pango_cairo_show_layout(ptr noundef %1, ptr noundef %53) #21
   call void @pango_font_description_free(ptr noundef %48) #21

@@ -33029,11 +33029,11 @@ _ZN5image5color9ColorType15bytes_per_pixel17hcff21ecdd81b7288E.exit..thread105_c
   %105 = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.02.010.i.us.us.us.us
   %106 = load i8, ptr %105, align 1, !noundef !19
   %107 = uitofp i8 %106 to double
-  %108 = fmul double %95, %107
+  %108 = fmul nnan double %95, %107
   %109 = getelementptr inbounds nuw i8, ptr %11, i64 %.sroa.02.010.i.us.us.us.us
   %110 = load i8, ptr %109, align 1, !noundef !19
   %111 = uitofp i8 %110 to double
-  %112 = fmul double %92, %111
+  %112 = fmul nnan double %92, %111
   %113 = fmul double %97, %112
   %114 = fadd double %108, %113
   %115 = fdiv double %114, %99

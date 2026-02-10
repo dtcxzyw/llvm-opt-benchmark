@@ -1606,7 +1606,7 @@ define internal range(i32 0, 65536) i32 @get_dnp3_message_len(ptr readnone captu
   %7 = zext i8 %6 to i32
   %8 = add nsw i32 %7, -5
   %9 = sitofp i32 %8 to double
-  %10 = fmul double %9, 6.250000e-02
+  %10 = fmul nnan double %9, 6.250000e-02
   %11 = tail call double @llvm.ceil.f64(double %10)
   %12 = fptoui double %11 to i16
   %13 = shl i16 %12, 1

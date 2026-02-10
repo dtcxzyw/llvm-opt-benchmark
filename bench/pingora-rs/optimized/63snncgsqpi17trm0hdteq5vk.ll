@@ -9841,10 +9841,10 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17h526b4db181ff434aE.exit.
 
 874:                                              ; preds = %._crit_edge393.i.i
   %875 = uitofp nneg i64 %.sroa.7.0398.i.i to float
-  %876 = fmul float %875, 0x3FB1EB8520000000
-  %877 = fdiv float %876, 2.000000e+03
-  %878 = fadd float %877, 0x3FE8A3D700000000
-  %879 = fmul float %878, 0x403C1999A0000000
+  %876 = fmul nnan float %875, 0x3FB1EB8520000000
+  %877 = fdiv nnan float %876, 2.000000e+03
+  %878 = fadd nnan float %877, 0x3FE8A3D700000000
+  %879 = fmul nnan float %878, 0x403C1999A0000000
   br label %816
 
 880:                                              ; preds = %.lr.ph392.i.i
@@ -12382,10 +12382,10 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17h526b4db181ff434aE.exit.
 
 1756:                                             ; preds = %._crit_edge393.i.i195
   %1757 = uitofp nneg i64 %.sroa.7.0398.i.i165 to float
-  %1758 = fmul float %1757, 0x3FB1EB8520000000
-  %1759 = fdiv float %1758, 2.000000e+03
-  %1760 = fadd float %1759, 0x3FE8A3D700000000
-  %1761 = fmul float %1760, 1.350000e+01
+  %1758 = fmul nnan float %1757, 0x3FB1EB8520000000
+  %1759 = fdiv nnan float %1758, 2.000000e+03
+  %1760 = fadd nnan float %1759, 0x3FE8A3D700000000
+  %1761 = fmul nnan float %1760, 1.350000e+01
   br label %1698
 
 1762:                                             ; preds = %.lr.ph392.i.i187
@@ -14918,10 +14918,10 @@ _ZN6brotli3enc14block_splitter22update_cost_and_signal17h526b4db181ff434aE.exit.
 
 2635:                                             ; preds = %._crit_edge393.i.i686
   %2636 = uitofp nneg i64 %.sroa.7.0398.i.i656 to float
-  %2637 = fmul float %2636, 0x3FB1EB8520000000
-  %2638 = fdiv float %2637, 2.000000e+03
-  %2639 = fadd float %2638, 0x3FE8A3D700000000
-  %2640 = fmul float %2639, 0x402D333340000000
+  %2637 = fmul nnan float %2636, 0x3FB1EB8520000000
+  %2638 = fdiv nnan float %2637, 2.000000e+03
+  %2639 = fadd nnan float %2638, 0x3FE8A3D700000000
+  %2640 = fmul nnan float %2639, 0x402D333340000000
   br label %2577
 
 2641:                                             ; preds = %.lr.ph392.i.i678

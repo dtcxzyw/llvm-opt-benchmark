@@ -263,8 +263,8 @@ define internal zeroext i1 @HIDAPI_DriverXbox360W_UpdateDevice(ptr noundef %0) #
 66:                                               ; preds = %65
   %67 = load i8, ptr %35, align 1
   %68 = uitofp i8 %67 to float
-  %69 = fdiv float %68, 2.550000e+02
-  %70 = fmul float %69, 1.000000e+02
+  %69 = fdiv nnan float %68, 2.550000e+02
+  %70 = fmul nnan float %69, 1.000000e+02
   %71 = call float @SDL_roundf_REAL(float noundef %70) #8
   %72 = fptosi float %71 to i32
   call void @SDL_SendJoystickPowerInfo(ptr noundef nonnull %.0, i32 noundef 1, i32 noundef %72) #8
@@ -284,8 +284,8 @@ define internal zeroext i1 @HIDAPI_DriverXbox360W_UpdateDevice(ptr noundef %0) #
 77:                                               ; preds = %76
   %78 = load i8, ptr %23, align 4
   %79 = uitofp i8 %78 to float
-  %80 = fdiv float %79, 2.550000e+02
-  %81 = fmul float %80, 1.000000e+02
+  %80 = fdiv nnan float %79, 2.550000e+02
+  %81 = fmul nnan float %80, 1.000000e+02
   %82 = call float @SDL_roundf_REAL(float noundef %81) #8
   %83 = fptosi float %82 to i32
   call void @SDL_SendJoystickPowerInfo(ptr noundef nonnull %.0, i32 noundef 1, i32 noundef %83) #8

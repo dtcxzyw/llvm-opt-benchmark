@@ -109,7 +109,7 @@ define void @_ZN9grpc_core21StaticStrideScheduler4MakeEN4absl12lts_202407224Span
   %38 = trunc i64 %36 to i32
   %39 = and i32 %38, 65535
   %40 = uitofp nneg i32 %39 to double
-  %41 = fmul double %40, 1.000000e-02
+  %41 = fmul nnan double %40, 1.000000e-02
   %42 = tail call i64 @lround(double noundef %41) #13, !tbaa !10
   %43 = trunc i64 %42 to i16
   %.sroa.speculated89 = tail call i16 @llvm.umax.i16(i16 %43, i16 1)

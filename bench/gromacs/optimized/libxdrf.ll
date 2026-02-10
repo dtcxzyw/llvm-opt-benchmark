@@ -127,7 +127,7 @@ define noundef i32 @_Z11xdr3dfcoordP3XDRPfPiS1_i(ptr noundef %0, ptr noundef %1,
 
 48:                                               ; preds = %44
   %49 = uitofp i64 %36 to double
-  %50 = fmul double %49, 1.200000e+00
+  %50 = fmul nnan double %49, 1.200000e+00
   %51 = fptoui double %50 to i64
   %52 = mul nuw nsw i64 %35, 12
   %53 = tail call noalias ptr @malloc(i64 noundef %52) #20
@@ -1229,7 +1229,7 @@ thread-pre-split:                                 ; preds = %622, %626
 
 644:                                              ; preds = %640
   %645 = uitofp i64 %632 to double
-  %646 = fmul double %645, 1.200000e+00
+  %646 = fmul nnan double %645, 1.200000e+00
   %647 = fptoui double %646 to i64
   %648 = mul nuw nsw i64 %631, 12
   %649 = call noalias ptr @malloc(i64 noundef %648) #20

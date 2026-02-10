@@ -1122,11 +1122,11 @@ dt_ui_panel_visible.exit:                         ; preds = %44, %47
   br i1 %.not91, label %59, label %51
 
 51:                                               ; preds = %dt_ui_panel_visible.exit
-  %52 = fmul reassoc nsz arcp contract afn float %15, 5.000000e-01
+  %52 = fmul reassoc nnan nsz arcp contract afn float %15, 5.000000e-01
   %53 = fsub reassoc nsz arcp contract afn float %52, %12
   %54 = fpext reassoc nsz arcp contract afn float %53 to double
   call void @cairo_move_to(ptr noundef %31, double noundef %33, double noundef %54) #18
-  %55 = fmul reassoc nsz arcp contract afn float %12, 2.000000e+00
+  %55 = fmul reassoc nnan nsz arcp contract afn float %12, 2.000000e+00
   %56 = fpext reassoc nsz arcp contract afn float %55 to double
   call void @cairo_rel_line_to(ptr noundef %31, double noundef 0.000000e+00, double noundef %56) #18
   %57 = fneg reassoc nsz arcp contract afn float %12
@@ -1135,11 +1135,11 @@ dt_ui_panel_visible.exit:                         ; preds = %44, %47
   br label %151
 
 59:                                               ; preds = %dt_ui_panel_visible.exit.thread, %dt_ui_panel_visible.exit
-  %60 = fmul reassoc nsz arcp contract afn float %15, 5.000000e-01
+  %60 = fmul reassoc nnan nsz arcp contract afn float %15, 5.000000e-01
   %61 = fsub reassoc nsz arcp contract afn float %60, %12
   %62 = fpext reassoc nsz arcp contract afn float %61 to double
   call void @cairo_move_to(ptr noundef %31, double noundef 0.000000e+00, double noundef %62) #18
-  %63 = fmul reassoc nsz arcp contract afn float %12, 2.000000e+00
+  %63 = fmul reassoc nnan nsz arcp contract afn float %12, 2.000000e+00
   %64 = fpext reassoc nsz arcp contract afn float %63 to double
   call void @cairo_rel_line_to(ptr noundef %31, double noundef 0.000000e+00, double noundef %64) #18
   %65 = fneg reassoc nsz arcp contract afn float %12
@@ -1178,11 +1178,11 @@ dt_ui_panel_visible.exit98:                       ; preds = %72, %75
   br i1 %.not90, label %87, label %79
 
 79:                                               ; preds = %dt_ui_panel_visible.exit98
-  %80 = fmul reassoc nsz arcp contract afn float %15, 5.000000e-01
+  %80 = fmul reassoc nnan nsz arcp contract afn float %15, 5.000000e-01
   %81 = fsub reassoc nsz arcp contract afn float %80, %12
   %82 = fpext reassoc nsz arcp contract afn float %81 to double
   call void @cairo_move_to(ptr noundef %31, double noundef 0.000000e+00, double noundef %82) #18
-  %83 = fmul reassoc nsz arcp contract afn float %12, 2.000000e+00
+  %83 = fmul reassoc nnan nsz arcp contract afn float %12, 2.000000e+00
   %84 = fpext reassoc nsz arcp contract afn float %83 to double
   call void @cairo_rel_line_to(ptr noundef %31, double noundef 0.000000e+00, double noundef %84) #18
   %85 = fneg reassoc nsz arcp contract afn float %12
@@ -1191,11 +1191,11 @@ dt_ui_panel_visible.exit98:                       ; preds = %72, %75
   br label %151
 
 87:                                               ; preds = %dt_ui_panel_visible.exit98.thread, %dt_ui_panel_visible.exit98
-  %88 = fmul reassoc nsz arcp contract afn float %15, 5.000000e-01
+  %88 = fmul reassoc nnan nsz arcp contract afn float %15, 5.000000e-01
   %89 = fsub reassoc nsz arcp contract afn float %88, %12
   %90 = fpext reassoc nsz arcp contract afn float %89 to double
   call void @cairo_move_to(ptr noundef %31, double noundef %33, double noundef %90) #18
-  %91 = fmul reassoc nsz arcp contract afn float %12, 2.000000e+00
+  %91 = fmul reassoc nnan nsz arcp contract afn float %12, 2.000000e+00
   %92 = fpext reassoc nsz arcp contract afn float %91 to double
   call void @cairo_rel_line_to(ptr noundef %31, double noundef 0.000000e+00, double noundef %92) #18
   %93 = fneg reassoc nsz arcp contract afn float %12
@@ -1234,11 +1234,11 @@ dt_ui_panel_visible.exit104:                      ; preds = %100, %103
   br i1 %.not89, label %115, label %107
 
 107:                                              ; preds = %dt_ui_panel_visible.exit104
-  %108 = fmul reassoc nsz arcp contract afn float %12, 5.000000e-01
+  %108 = fmul reassoc nnan nsz arcp contract afn float %12, 5.000000e-01
   %109 = fsub reassoc nsz arcp contract afn float %108, %15
   %110 = fpext reassoc nsz arcp contract afn float %109 to double
   call void @cairo_move_to(ptr noundef %31, double noundef %110, double noundef %34) #18
-  %111 = fmul reassoc nsz arcp contract afn float %15, 2.000000e+00
+  %111 = fmul reassoc nnan nsz arcp contract afn float %15, 2.000000e+00
   %112 = fpext reassoc nsz arcp contract afn float %111 to double
   call void @cairo_rel_line_to(ptr noundef %31, double noundef %112, double noundef 0.000000e+00) #18
   %113 = fneg reassoc nsz arcp contract afn float %15
@@ -1247,11 +1247,11 @@ dt_ui_panel_visible.exit104:                      ; preds = %100, %103
   br label %151
 
 115:                                              ; preds = %dt_ui_panel_visible.exit104.thread, %dt_ui_panel_visible.exit104
-  %116 = fmul reassoc nsz arcp contract afn float %12, 5.000000e-01
+  %116 = fmul reassoc nnan nsz arcp contract afn float %12, 5.000000e-01
   %117 = fsub reassoc nsz arcp contract afn float %116, %15
   %118 = fpext reassoc nsz arcp contract afn float %117 to double
   call void @cairo_move_to(ptr noundef %31, double noundef %118, double noundef 0.000000e+00) #18
-  %119 = fmul reassoc nsz arcp contract afn float %15, 2.000000e+00
+  %119 = fmul reassoc nnan nsz arcp contract afn float %15, 2.000000e+00
   %120 = fpext reassoc nsz arcp contract afn float %119 to double
   call void @cairo_rel_line_to(ptr noundef %31, double noundef %120, double noundef 0.000000e+00) #18
   %121 = fneg reassoc nsz arcp contract afn float %15
@@ -1290,11 +1290,11 @@ dt_ui_panel_visible.exit110:                      ; preds = %128, %131
   br i1 %.not92, label %143, label %135
 
 135:                                              ; preds = %dt_ui_panel_visible.exit110
-  %136 = fmul reassoc nsz arcp contract afn float %12, 5.000000e-01
+  %136 = fmul reassoc nnan nsz arcp contract afn float %12, 5.000000e-01
   %137 = fsub reassoc nsz arcp contract afn float %136, %15
   %138 = fpext reassoc nsz arcp contract afn float %137 to double
   call void @cairo_move_to(ptr noundef %31, double noundef %138, double noundef 0.000000e+00) #18
-  %139 = fmul reassoc nsz arcp contract afn float %15, 2.000000e+00
+  %139 = fmul reassoc nnan nsz arcp contract afn float %15, 2.000000e+00
   %140 = fpext reassoc nsz arcp contract afn float %139 to double
   call void @cairo_rel_line_to(ptr noundef %31, double noundef %140, double noundef 0.000000e+00) #18
   %141 = fneg reassoc nsz arcp contract afn float %15
@@ -1303,11 +1303,11 @@ dt_ui_panel_visible.exit110:                      ; preds = %128, %131
   br label %151
 
 143:                                              ; preds = %dt_ui_panel_visible.exit110.thread, %dt_ui_panel_visible.exit110
-  %144 = fmul reassoc nsz arcp contract afn float %12, 5.000000e-01
+  %144 = fmul reassoc nnan nsz arcp contract afn float %12, 5.000000e-01
   %145 = fsub reassoc nsz arcp contract afn float %144, %15
   %146 = fpext reassoc nsz arcp contract afn float %145 to double
   call void @cairo_move_to(ptr noundef %31, double noundef %146, double noundef %34) #18
-  %147 = fmul reassoc nsz arcp contract afn float %15, 2.000000e+00
+  %147 = fmul reassoc nnan nsz arcp contract afn float %15, 2.000000e+00
   %148 = fpext reassoc nsz arcp contract afn float %147 to double
   call void @cairo_rel_line_to(ptr noundef %31, double noundef %148, double noundef 0.000000e+00) #18
   %149 = fneg reassoc nsz arcp contract afn float %15
@@ -8250,7 +8250,7 @@ define internal void @_ui_log_redraw_callback(ptr readnone captures(none) %0, pt
   %39 = tail call i32 @gtk_widget_get_allocated_height(ptr noundef %38) #18
   %40 = tail call ptr @gtk_widget_get_parent(ptr noundef %1) #18
   %41 = sitofp i32 %39 to double
-  %42 = fmul reassoc nsz arcp contract afn double %41, 1.500000e-01
+  %42 = fmul reassoc nnan nsz arcp contract afn double %41, 1.500000e-01
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !15
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1424
   %45 = load double, ptr %44, align 8, !tbaa !105
@@ -8347,7 +8347,7 @@ define internal void @_ui_toast_redraw_callback(ptr readnone captures(none) %0, 
   %40 = tail call i32 @gtk_widget_get_allocated_height(ptr noundef %39) #18
   %41 = tail call ptr @gtk_widget_get_parent(ptr noundef %1) #18
   %42 = sitofp i32 %40 to double
-  %43 = fmul reassoc nsz arcp contract afn double %42, 1.500000e-01
+  %43 = fmul reassoc nnan nsz arcp contract afn double %42, 1.500000e-01
   %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 104), align 8, !tbaa !15
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1424
   %46 = load double, ptr %45, align 8, !tbaa !105

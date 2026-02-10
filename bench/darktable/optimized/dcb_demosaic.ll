@@ -57,7 +57,7 @@ define void @_ZN6LibRaw7dcb_verEPA3_f(ptr noundef nonnull readonly align 8 captu
   %35 = zext i16 %34 to i32
   %36 = add nuw nsw i32 %35, %30
   %37 = uitofp nneg i32 %36 to double
-  %38 = fmul reassoc nsz arcp contract afn double %37, 5.000000e-01
+  %38 = fmul reassoc nnan nsz arcp contract afn double %37, 5.000000e-01
   %39 = fptosi double %38 to i32
   %40 = tail call i32 @llvm.smax.i32(i32 %39, i32 0)
   %41 = tail call i32 @llvm.umin.i32(i32 %40, i32 65535)
@@ -130,7 +130,7 @@ define void @_ZN6LibRaw7dcb_horEPA3_f(ptr noundef nonnull readonly align 8 captu
   %33 = zext i16 %32 to i32
   %34 = add nuw nsw i32 %33, %30
   %35 = uitofp nneg i32 %34 to double
-  %36 = fmul reassoc nsz arcp contract afn double %35, 5.000000e-01
+  %36 = fmul reassoc nnan nsz arcp contract afn double %35, 5.000000e-01
   %37 = fptosi double %36 to i32
   %38 = tail call i32 @llvm.smax.i32(i32 %37, i32 0)
   %39 = tail call i32 @llvm.umin.i32(i32 %38, i32 65535)
@@ -263,7 +263,7 @@ define void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull readonly align 8 capture
   %84 = add nsw i32 %83, %74
   %85 = add nsw i32 %84, %77
   %86 = sitofp i32 %85 to double
-  %87 = fmul reassoc nsz arcp contract afn double %86, 2.500000e-01
+  %87 = fmul reassoc nnan nsz arcp contract afn double %86, 2.500000e-01
   %88 = fptosi double %87 to i32
   %89 = tail call i32 @llvm.smax.i32(i32 %88, i32 0)
   %90 = tail call i32 @llvm.umin.i32(i32 %89, i32 65535)
@@ -343,7 +343,7 @@ define void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull readonly align 8 capture
   %145 = add nsw i32 %144, %139
   %146 = add nsw i32 %145, %142
   %147 = sitofp i32 %146 to double
-  %148 = fmul reassoc nsz arcp contract afn double %147, 5.000000e-01
+  %148 = fmul reassoc nnan nsz arcp contract afn double %147, 5.000000e-01
   %149 = fptosi double %148 to i32
   %150 = tail call i32 @llvm.smax.i32(i32 %149, i32 0)
   %151 = tail call i32 @llvm.umin.i32(i32 %150, i32 65535)
@@ -373,7 +373,7 @@ define void @_ZN6LibRaw9dcb_colorEv(ptr noundef nonnull readonly align 8 capture
   %173 = add nsw i32 %172, %167
   %174 = add nsw i32 %173, %170
   %175 = sitofp i32 %174 to double
-  %176 = fmul reassoc nsz arcp contract afn double %175, 5.000000e-01
+  %176 = fmul reassoc nnan nsz arcp contract afn double %175, 5.000000e-01
   %177 = fptosi double %176 to i32
   %178 = tail call i32 @llvm.smax.i32(i32 %177, i32 0)
   %179 = tail call i32 @llvm.umin.i32(i32 %178, i32 65535)
@@ -565,7 +565,7 @@ define void @_ZN6LibRaw10dcb_color2EPA3_f(ptr noundef nonnull readonly align 8 c
   %117 = zext i16 %116 to i32
   %118 = add nuw nsw i32 %117, %113
   %119 = uitofp nneg i32 %118 to double
-  %120 = fmul reassoc nsz arcp contract afn double %119, 5.000000e-01
+  %120 = fmul reassoc nnan nsz arcp contract afn double %119, 5.000000e-01
   %121 = fptosi double %120 to i32
   %122 = tail call i32 @llvm.smax.i32(i32 %121, i32 0)
   %123 = tail call i32 @llvm.umin.i32(i32 %122, i32 65535)
@@ -807,7 +807,7 @@ define void @_ZN6LibRaw10dcb_color3EPA3_f(ptr noundef nonnull readonly align 8 c
   %140 = zext i16 %139 to i32
   %141 = add nuw nsw i32 %140, %137
   %142 = uitofp nneg i32 %141 to double
-  %143 = fmul reassoc nsz arcp contract afn double %142, 5.000000e-01
+  %143 = fmul reassoc nnan nsz arcp contract afn double %142, 5.000000e-01
   %144 = fptosi double %143 to i32
   %145 = tail call i32 @llvm.smax.i32(i32 %144, i32 0)
   %146 = tail call i32 @llvm.umin.i32(i32 %145, i32 65535)
@@ -1326,7 +1326,7 @@ define void @_ZN6LibRaw6dcb_ppEv(ptr noundef nonnull readonly align 8 captures(n
   %48 = zext i16 %47 to i32
   %49 = add nuw nsw i32 %45, %48
   %50 = uitofp nneg i32 %49 to double
-  %51 = fmul reassoc nsz arcp contract afn double %50, 1.250000e-01
+  %51 = fmul reassoc nnan nsz arcp contract afn double %50, 1.250000e-01
   %52 = fptosi double %51 to i32
   %53 = getelementptr i8, ptr %18, i64 -6
   %54 = load i16, ptr %53, align 2, !tbaa !73
@@ -1360,7 +1360,7 @@ define void @_ZN6LibRaw6dcb_ppEv(ptr noundef nonnull readonly align 8 captures(n
   %82 = zext i16 %81 to i32
   %83 = add nuw nsw i32 %79, %82
   %84 = uitofp nneg i32 %83 to double
-  %85 = fmul reassoc nsz arcp contract afn double %84, 1.250000e-01
+  %85 = fmul reassoc nnan nsz arcp contract afn double %84, 1.250000e-01
   %86 = fptosi double %85 to i32
   %87 = getelementptr i8, ptr %18, i64 -4
   %88 = load i16, ptr %87, align 2, !tbaa !73
@@ -1394,7 +1394,7 @@ define void @_ZN6LibRaw6dcb_ppEv(ptr noundef nonnull readonly align 8 captures(n
   %116 = zext i16 %115 to i32
   %117 = add nuw nsw i32 %113, %116
   %118 = uitofp nneg i32 %117 to double
-  %119 = fmul reassoc nsz arcp contract afn double %118, 1.250000e-01
+  %119 = fmul reassoc nnan nsz arcp contract afn double %118, 1.250000e-01
   %120 = fptosi double %119 to i32
   %121 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %122 = load i16, ptr %121, align 2, !tbaa !73
@@ -1530,7 +1530,7 @@ define void @_ZN6LibRaw11dcb_nyquistEv(ptr noundef nonnull readonly align 8 capt
   %72 = add nuw nsw i32 %68, %71
   %73 = sub nsw i32 %56, %72
   %reass.add = sitofp i32 %73 to double
-  %reass.mul = fmul reassoc nsz arcp contract afn double %reass.add, 2.500000e-01
+  %reass.mul = fmul reassoc nnan nsz arcp contract afn double %reass.add, 2.500000e-01
   %74 = fadd reassoc nsz arcp contract afn double %reass.mul, %57
   %75 = fptosi double %74 to i32
   %76 = tail call i32 @llvm.smax.i32(i32 %75, i32 0)
@@ -3238,7 +3238,7 @@ define void @_ZN6LibRaw7dcb_mapEv(ptr noundef nonnull readonly align 8 captures(
   %37 = zext i16 %36 to i32
   %38 = add nuw nsw i32 %34, %37
   %39 = uitofp nneg i32 %38 to double
-  %40 = fmul reassoc nsz arcp contract afn double %39, 2.500000e-01
+  %40 = fmul reassoc nnan nsz arcp contract afn double %39, 2.500000e-01
   %41 = fcmp reassoc nsz arcp contract afn olt double %40, %20
   %42 = add nuw nsw i32 %37, %33
   br i1 %41, label %43, label %50
@@ -3405,8 +3405,8 @@ define void @_ZN6LibRaw14dcb_correctionEv(ptr noundef nonnull readonly align 8 c
   %88 = add nuw nsw i32 %87, %84
   %89 = mul nuw nsw i32 %88, %71
   %90 = uitofp nneg i32 %89 to double
-  %91 = fadd reassoc nsz arcp contract afn double %90, %81
-  %92 = fmul reassoc nsz arcp contract afn double %91, 3.125000e-02
+  %91 = fadd reassoc nnan nsz arcp contract afn double %90, %81
+  %92 = fmul reassoc nnan nsz arcp contract afn double %91, 3.125000e-02
   %93 = fptoui double %92 to i16
   %94 = getelementptr inbounds nuw i8, ptr %31, i64 2
   store i16 %93, ptr %94, align 2, !tbaa !73
@@ -3553,8 +3553,8 @@ define void @_ZN6LibRaw15dcb_correction2Ev(ptr noundef nonnull readonly align 8 
   %97 = add nuw nsw i32 %96, %93
   %98 = sub nsw i32 %89, %97
   %reass.add = sitofp i32 %98 to double
-  %reass.mul = fmul reassoc nsz arcp contract afn double %reass.add, 5.000000e-01
-  %99 = fadd reassoc nsz arcp contract afn double %reass.mul, %90
+  %reass.mul = fmul reassoc nnan nsz arcp contract afn double %reass.add, 5.000000e-01
+  %99 = fadd reassoc nnan nsz arcp contract afn double %reass.mul, %90
   %100 = fmul reassoc nsz arcp contract afn double %99, %82
   %101 = uitofp nneg i32 %80 to double
   %102 = getelementptr inbounds nuw i8, ptr %46, i64 2
@@ -3573,8 +3573,8 @@ define void @_ZN6LibRaw15dcb_correction2Ev(ptr noundef nonnull readonly align 8 
   %115 = add nuw nsw i32 %114, %111
   %116 = sub nsw i32 %108, %115
   %reass.add122 = sitofp i32 %116 to double
-  %reass.mul123 = fmul reassoc nsz arcp contract afn double %reass.add122, 5.000000e-01
-  %117 = fadd reassoc nsz arcp contract afn double %reass.mul123, %90
+  %reass.mul123 = fmul reassoc nnan nsz arcp contract afn double %reass.add122, 5.000000e-01
+  %117 = fadd reassoc nnan nsz arcp contract afn double %reass.mul123, %90
   %118 = fmul reassoc nsz arcp contract afn double %117, %101
   %119 = fadd reassoc nsz arcp contract afn double %118, %100
   %120 = fmul reassoc nsz arcp contract afn double %119, 6.250000e-02
@@ -3740,7 +3740,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
 107:                                              ; preds = %93
   %108 = zext i16 %106 to i32
   %109 = uitofp i16 %95 to float
-  %110 = fmul reassoc nsz arcp contract afn float %109, 2.000000e+00
+  %110 = fmul reassoc nnan nsz arcp contract afn float %109, 2.000000e+00
   %111 = add nuw nsw i32 %108, %91
   %112 = uitofp nneg i32 %111 to float
   %113 = fdiv reassoc nsz arcp contract afn float %110, %112
@@ -3767,7 +3767,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
 126:                                              ; preds = %.thread
   %127 = zext i16 %125 to i32
   %128 = uitofp i16 %98 to float
-  %129 = fmul reassoc nsz arcp contract afn float %128, 2.000000e+00
+  %129 = fmul reassoc nnan nsz arcp contract afn float %128, 2.000000e+00
   %130 = add nuw nsw i32 %127, %91
   %131 = uitofp nneg i32 %130 to float
   %132 = fdiv reassoc nsz arcp contract afn float %129, %131
@@ -3811,7 +3811,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
 159:                                              ; preds = %.thread1664
   %160 = zext i16 %158 to i32
   %161 = uitofp i16 %149 to float
-  %162 = fmul reassoc nsz arcp contract afn float %161, 2.000000e+00
+  %162 = fmul reassoc nnan nsz arcp contract afn float %161, 2.000000e+00
   %163 = add nuw nsw i32 %160, %91
   %164 = uitofp nneg i32 %163 to float
   %165 = fdiv reassoc nsz arcp contract afn float %162, %164
@@ -3836,7 +3836,7 @@ define void @_ZN6LibRaw14dcb_refinementEv(ptr noundef nonnull readonly align 8 c
 176:                                              ; preds = %.thread1667
   %177 = zext i16 %175 to i32
   %178 = uitofp i16 %152 to float
-  %179 = fmul reassoc nsz arcp contract afn float %178, 2.000000e+00
+  %179 = fmul reassoc nnan nsz arcp contract afn float %178, 2.000000e+00
   %180 = add nuw nsw i32 %177, %91
   %181 = uitofp nneg i32 %180 to float
   %182 = fdiv reassoc nsz arcp contract afn float %179, %181
@@ -4470,11 +4470,11 @@ define void @_ZN6LibRaw10rgb_to_lchEPA3_d(ptr noundef nonnull readonly align 8 c
   store double %24, ptr %25, align 8, !tbaa !118
   %26 = sub nsw i32 %15, %18
   %27 = sitofp i32 %26 to double
-  %28 = fmul reassoc nsz arcp contract afn double %27, 0x3FFBB67AE875ED0F
+  %28 = fmul reassoc nnan nsz arcp contract afn double %27, 0x3FFBB67AE875ED0F
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store double %28, ptr %29, align 8, !tbaa !118
   %30 = uitofp i16 %21 to double
-  %31 = fmul reassoc nsz arcp contract afn double %30, 2.000000e+00
+  %31 = fmul reassoc nnan nsz arcp contract afn double %30, 2.000000e+00
   %32 = uitofp i16 %14 to double
   %33 = uitofp i16 %17 to double
   %34 = fadd reassoc nsz arcp contract afn double %32, %33
@@ -5041,7 +5041,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   %148 = mul nsw i32 %147, 40
   %149 = add nsw i32 %143, %148
   %150 = sitofp i32 %149 to double
-  %151 = fmul reassoc nsz arcp contract afn double %150, 0x3F95555555555555
+  %151 = fmul reassoc nnan nsz arcp contract afn double %150, 0x3F95555555555555
   %152 = fptosi double %151 to i32
   %153 = tail call i32 @llvm.smax.i32(i32 %152, i32 0)
   %154 = tail call i32 @llvm.umin.i32(i32 %153, i32 65535)
@@ -5065,7 +5065,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   %170 = add nsw i32 %159, %169
   %171 = add nsw i32 %170, %167
   %172 = sitofp i32 %171 to double
-  %173 = fmul reassoc nsz arcp contract afn double %172, 0x3F95555555555555
+  %173 = fmul reassoc nnan nsz arcp contract afn double %172, 0x3F95555555555555
   %174 = fptosi double %173 to i32
   %175 = tail call i32 @llvm.smax.i32(i32 %174, i32 0)
   %176 = tail call i32 @llvm.umin.i32(i32 %175, i32 65535)
@@ -5089,7 +5089,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   %194 = add nsw i32 %181, %193
   %195 = add nsw i32 %194, %191
   %196 = sitofp i32 %195 to double
-  %197 = fmul reassoc nsz arcp contract afn double %196, 0x3F95555555555555
+  %197 = fmul reassoc nnan nsz arcp contract afn double %196, 0x3F95555555555555
   %198 = fptosi double %197 to i32
   %199 = tail call i32 @llvm.smax.i32(i32 %198, i32 0)
   %200 = tail call i32 @llvm.umin.i32(i32 %199, i32 65535)
@@ -5111,7 +5111,7 @@ define void @_ZN6LibRaw10fbdd_greenEv(ptr noundef nonnull readonly align 8 captu
   %214 = add nsw i32 %205, %213
   %215 = add nsw i32 %214, %211
   %216 = sitofp i32 %215 to double
-  %217 = fmul reassoc nsz arcp contract afn double %216, 0x3F95555555555555
+  %217 = fmul reassoc nnan nsz arcp contract afn double %216, 0x3F95555555555555
   %218 = fptosi double %217 to i32
   %219 = tail call i32 @llvm.smax.i32(i32 %218, i32 0)
   %220 = tail call i32 @llvm.umin.i32(i32 %219, i32 65535)
@@ -5717,11 +5717,11 @@ define void @_ZN6LibRaw4fbddEi(ptr noundef nonnull align 8 dereferenceable(76768
   store double %37, ptr %38, align 8, !tbaa !118
   %39 = sub nsw i32 %28, %31
   %40 = sitofp i32 %39 to double
-  %41 = fmul reassoc nsz arcp contract afn double %40, 0x3FFBB67AE875ED0F
+  %41 = fmul reassoc nnan nsz arcp contract afn double %40, 0x3FFBB67AE875ED0F
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store double %41, ptr %42, align 8, !tbaa !118
   %43 = uitofp i16 %34 to double
-  %44 = fmul reassoc nsz arcp contract afn double %43, 2.000000e+00
+  %44 = fmul reassoc nnan nsz arcp contract afn double %43, 2.000000e+00
   %45 = uitofp i16 %27 to double
   %46 = uitofp i16 %30 to double
   %47 = fadd reassoc nsz arcp contract afn double %45, %46
@@ -5864,7 +5864,7 @@ define void @_ZN6LibRaw3dcbEii(ptr noundef nonnull align 8 dereferenceable(76768
   %46 = zext i16 %45 to i32
   %47 = add nuw nsw i32 %46, %43
   %48 = uitofp nneg i32 %47 to double
-  %49 = fmul reassoc nsz arcp contract afn double %48, 5.000000e-01
+  %49 = fmul reassoc nnan nsz arcp contract afn double %48, 5.000000e-01
   %50 = fptosi double %49 to i32
   %51 = tail call i32 @llvm.smax.i32(i32 %50, i32 0)
   %52 = tail call i32 @llvm.umin.i32(i32 %51, i32 65535)
@@ -5935,7 +5935,7 @@ _ZN6LibRaw7dcb_horEPA3_f.exit:                    ; preds = %._crit_edge.i, %3
   %89 = zext i16 %88 to i32
   %90 = add nuw nsw i32 %89, %84
   %91 = uitofp nneg i32 %90 to double
-  %92 = fmul reassoc nsz arcp contract afn double %91, 5.000000e-01
+  %92 = fmul reassoc nnan nsz arcp contract afn double %91, 5.000000e-01
   %93 = fptosi double %92 to i32
   %94 = tail call i32 @llvm.smax.i32(i32 %93, i32 0)
   %95 = tail call i32 @llvm.umin.i32(i32 %94, i32 65535)
@@ -6056,7 +6056,7 @@ _ZN6LibRaw18dcb_copy_to_bufferEPA3_f.exit:        ; preds = %109, %_ZN6LibRaw7dc
   %152 = add nuw nsw i32 %151, %148
   %153 = add nuw nsw i32 %152, %143
   %154 = uitofp nneg i32 %153 to double
-  %155 = fmul reassoc nsz arcp contract afn double %154, 2.500000e-01
+  %155 = fmul reassoc nnan nsz arcp contract afn double %154, 2.500000e-01
   %156 = fcmp reassoc nsz arcp contract afn olt double %155, %135
   br i1 %156, label %157, label %164
 
@@ -6170,7 +6170,7 @@ _ZN6LibRaw7dcb_mapEv.exit:                        ; preds = %._crit_edge.i27, %1
   %218 = add nuw nsw i32 %217, %214
   %219 = add nuw nsw i32 %218, %209
   %220 = uitofp nneg i32 %219 to double
-  %221 = fmul reassoc nsz arcp contract afn double %220, 2.500000e-01
+  %221 = fmul reassoc nnan nsz arcp contract afn double %220, 2.500000e-01
   %222 = fcmp reassoc nsz arcp contract afn olt double %221, %201
   br i1 %222, label %223, label %230
 
@@ -6277,7 +6277,7 @@ _ZN6LibRaw7dcb_mapEv.exit52:                      ; preds = %._crit_edge.i36, %.
   %283 = add nuw nsw i32 %282, %279
   %284 = add nuw nsw i32 %283, %274
   %285 = uitofp nneg i32 %284 to double
-  %286 = fmul reassoc nsz arcp contract afn double %285, 2.500000e-01
+  %286 = fmul reassoc nnan nsz arcp contract afn double %285, 2.500000e-01
   %287 = fcmp reassoc nsz arcp contract afn olt double %286, %266
   br i1 %287, label %288, label %295
 
@@ -6384,7 +6384,7 @@ _ZN6LibRaw7dcb_mapEv.exit72:                      ; preds = %._crit_edge.i56, %_
   %348 = add nuw nsw i32 %347, %344
   %349 = add nuw nsw i32 %348, %339
   %350 = uitofp nneg i32 %349 to double
-  %351 = fmul reassoc nsz arcp contract afn double %350, 2.500000e-01
+  %351 = fmul reassoc nnan nsz arcp contract afn double %350, 2.500000e-01
   %352 = fcmp reassoc nsz arcp contract afn olt double %351, %331
   br i1 %352, label %353, label %360
 
@@ -6491,7 +6491,7 @@ _ZN6LibRaw7dcb_mapEv.exit92:                      ; preds = %._crit_edge.i76, %_
   %413 = add nuw nsw i32 %412, %409
   %414 = add nuw nsw i32 %413, %404
   %415 = uitofp nneg i32 %414 to double
-  %416 = fmul reassoc nsz arcp contract afn double %415, 2.500000e-01
+  %416 = fmul reassoc nnan nsz arcp contract afn double %415, 2.500000e-01
   %417 = fcmp reassoc nsz arcp contract afn olt double %416, %396
   br i1 %417, label %418, label %425
 
@@ -6602,7 +6602,7 @@ _ZN6LibRaw7dcb_mapEv.exit112._ZN6LibRaw7dcb_mapEv.exit132_crit_edge: ; preds = %
   %477 = add nuw nsw i32 %476, %473
   %478 = add nuw nsw i32 %477, %468
   %479 = uitofp nneg i32 %478 to double
-  %480 = fmul reassoc nsz arcp contract afn double %479, 2.500000e-01
+  %480 = fmul reassoc nnan nsz arcp contract afn double %479, 2.500000e-01
   %481 = fcmp reassoc nsz arcp contract afn olt double %480, %460
   br i1 %481, label %482, label %489
 

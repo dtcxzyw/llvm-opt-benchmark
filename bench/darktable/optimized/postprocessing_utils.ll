@@ -30,7 +30,7 @@ define void @_ZN6LibRaw7exp_befEff(ptr noundef nonnull align 8 dereferenceable(7
   %.078 = select nsz i1 %14, float 0.000000e+00, float %2
   %15 = fcmp reassoc nsz arcp contract afn ogt float %.078, 1.000000e+00
   %.179 = select nsz i1 %15, float 1.000000e+00, float %.078
-  %16 = tail call reassoc nsz arcp contract afn noundef float @llvm.log.f32(float %.1)
+  %16 = tail call reassoc ninf nsz arcp contract afn float @llvm.log.f32(float %.1)
   %17 = fmul reassoc nsz arcp contract afn float %16, 0xC007154760000000
   %18 = tail call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %17)
   %19 = fmul reassoc nsz arcp contract afn float %18, 6.553600e+04

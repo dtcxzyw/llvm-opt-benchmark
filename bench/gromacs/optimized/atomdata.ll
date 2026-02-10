@@ -2334,7 +2334,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit218.i
   %164 = getelementptr inbounds nuw i8, ptr %144, i64 %.idx348.i
   store float %163, ptr %164, align 4, !tbaa !71
   %165 = fpext float %154 to double
-  %166 = fmul double %165, 2.500000e-01
+  %166 = fmul nnan double %165, 2.500000e-01
   %167 = fmul double %166, %165
   %168 = fpext float %157 to double
   %169 = fdiv double %167, %168
@@ -2543,7 +2543,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit218.i
 
 278:                                              ; preds = %.noexc45
   %279 = fpext float %243 to double
-  %280 = fmul double %279, 2.500000e-01
+  %280 = fmul nnan double %279, 2.500000e-01
   %281 = fmul double %280, %279
   %282 = fpext float %244 to double
   %283 = fdiv double %281, %282
@@ -3064,7 +3064,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_20HostAllocationPolicyEEEE6resizeEm.exit.i.i:
   %.idx128.i.i = shl nuw nsw i64 %indvars.iv103.i.i, 3
   %512 = getelementptr inbounds nuw i8, ptr %480, i64 %.idx128.i.i
   store float %511, ptr %512, align 4, !tbaa !71
-  %513 = fmul float %502, %502
+  %513 = fmul nnan float %502, %502
   %514 = fdiv float %513, %504
   %515 = call noundef float @sqrtf(float noundef %514) #22, !tbaa !100
   br label %518

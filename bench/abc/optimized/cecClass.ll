@@ -3777,8 +3777,8 @@ Cec_ManSimSimDeref.exit267:                       ; preds = %402, %422
   %444 = sitofp i32 %.val242 to double
   %445 = add nsw i32 %.val241.val, 1
   %446 = sitofp i32 %445 to double
-  %447 = fmul double %444, %446
-  %448 = fmul double %447, 0x3EB0000000000000
+  %447 = fmul nnan double %444, %446
+  %448 = fmul nnan double %447, 0x3EB0000000000000
   %449 = fptrunc double %448 to float
   tail call void @Gia_ManEquivPrintClasses(ptr noundef %443, i32 noundef 0, float noundef %449) #24
   br label %450
@@ -4530,8 +4530,8 @@ Gia_ObjLevel.exit:                                ; preds = %67, %._crit_edge.i.
   %211 = sitofp i32 %.val121 to double
   %212 = add nsw i32 %.val120.val, 1
   %213 = sitofp i32 %212 to double
-  %214 = fmul double %211, %213
-  %215 = fmul double %214, 0x3EB0000000000000
+  %214 = fmul nnan double %211, %213
+  %215 = fmul nnan double %214, 0x3EB0000000000000
   %216 = fptrunc double %215 to float
   tail call void @Gia_ManEquivPrintClasses(ptr noundef %209, i32 noundef 0, float noundef %216) #24
   br label %.loopexit
@@ -4559,8 +4559,8 @@ Gia_ObjLevel.exit:                                ; preds = %67, %._crit_edge.i.
   %228 = sitofp i32 %.val119 to double
   %229 = add nsw i32 %.val118.val, 1
   %230 = sitofp i32 %229 to double
-  %231 = fmul double %228, %230
-  %232 = fmul double %231, 0x3EB0000000000000
+  %231 = fmul nnan double %228, %230
+  %232 = fmul nnan double %231, 0x3EB0000000000000
   %233 = fptrunc double %232 to float
   tail call void @Gia_ManEquivPrintClasses(ptr noundef %227, i32 noundef 0, float noundef %233) #24
   br label %.preheader197
@@ -4656,8 +4656,8 @@ define range(i32 0, 2) i32 @Cec_ManSimClassesRefine(ptr noundef initializes((16,
   %30 = sitofp i32 %.val26 to double
   %31 = add nsw i32 %.val25.val, 1
   %32 = sitofp i32 %31 to double
-  %33 = fmul double %30, %32
-  %34 = fmul double %33, 0x3EB0000000000000
+  %33 = fmul nnan double %30, %32
+  %34 = fmul nnan double %33, 0x3EB0000000000000
   %35 = fptrunc double %34 to float
   tail call void @Gia_ManEquivPrintClasses(ptr noundef %29, i32 noundef 0, float noundef %35) #24
   br label %36
@@ -4687,8 +4687,8 @@ define range(i32 0, 2) i32 @Cec_ManSimClassesRefine(ptr noundef initializes((16,
   %47 = sitofp i32 %.val24 to double
   %48 = add nsw i32 %.val.val, 1
   %49 = sitofp i32 %48 to double
-  %50 = fmul double %47, %49
-  %51 = fmul double %50, 0x3EB0000000000000
+  %50 = fmul nnan double %47, %49
+  %51 = fmul nnan double %50, 0x3EB0000000000000
   %52 = fptrunc double %51 to float
   tail call void @Gia_ManEquivPrintClasses(ptr noundef %45, i32 noundef 0, float noundef %52) #24
   br label %.loopexit

@@ -7892,7 +7892,7 @@ sys_setswitchinterval_impl.exit:                  ; preds = %14, %.thread, %9
 define internal ptr @sys_getswitchinterval(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call i64 @_PyEval_GetSwitchInterval() #15
   %4 = uitofp i64 %3 to double
-  %5 = fmul double %4, 0x3EB0C6F7A0B5ED8D
+  %5 = fmul nnan double %4, 0x3EB0C6F7A0B5ED8D
   %6 = tail call ptr @PyFloat_FromDouble(double noundef %5) #15
   ret ptr %6
 }

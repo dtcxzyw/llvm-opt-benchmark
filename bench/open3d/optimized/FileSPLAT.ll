@@ -2966,7 +2966,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit371: ; preds = %59
   %634 = getelementptr inbounds nuw i8, ptr %121, i64 %indvars.iv398
   %635 = load i8, ptr %634, align 1, !tbaa !51
   %636 = uitofp i8 %635 to double
-  %637 = fmul double %636, 7.812500e-03
+  %637 = fmul nnan double %636, 7.812500e-03
   %638 = fadd double %637, -1.000000e+00
   %639 = fptrunc double %638 to float
   %640 = getelementptr inbounds nuw float, ptr %630, i64 %indvars.iv398
@@ -3022,7 +3022,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit371: ; preds = %59
 
 660:                                              ; preds = %658
   %661 = sitofp i64 %652 to double
-  %662 = fmul double %661, 1.000000e+02
+  %662 = fmul nnan double %661, 1.000000e+02
   %663 = uitofp nneg i64 %656 to double
   %664 = fdiv double %662, %663
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i
@@ -35635,7 +35635,7 @@ _ZN6open3d1t2io12_GLOBAL__N_118SortedSplatIndicesERNS0_8geometry9TensorMapE.exit
 
 767:                                              ; preds = %765
   %768 = uitofp nneg i64 %.051391 to double
-  %769 = fmul double %768, 1.000000e+02
+  %769 = fmul nnan double %768, 1.000000e+02
   %770 = uitofp nneg i64 %763 to double
   %771 = fdiv double %769, %770
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i

@@ -104,10 +104,10 @@ Init.exit:                                        ; preds = %3
   %39 = load double, ptr @tol2, align 8, !tbaa !3
   %40 = fmul double %39, 1.000000e-01
   %41 = tail call double @llvm.fabs.f64(double %2)
-  %42 = tail call double @llvm.maxnum.f64(double %41, double 1.000000e-03)
+  %42 = tail call nsz double @llvm.maxnum.f64(double %41, double 1.000000e-03)
   %43 = fmul double %2, 5.000000e-01
   %44 = fsub double 1.000000e+00, %43
-  %45 = tail call double @llvm.minnum.f64(double %44, double 1.000000e+00)
+  %45 = tail call nsz double @llvm.minnum.f64(double %44, double 1.000000e+00)
   %46 = fmul double %42, %45
   %47 = fmul double %46, 5.000000e-01
   %48 = tail call double @sqrt(double noundef %47) #15, !tbaa !15
@@ -3411,7 +3411,7 @@ SinCosSeries.exit308:                             ; preds = %784
   br i1 %or.cond574, label %815, label %827
 
 815:                                              ; preds = %811
-  %816 = fadd double %.3229, 1.000000e+00
+  %816 = fadd nnan double %.3229, 1.000000e+00
   %817 = fadd double %133, 1.000000e+00
   %818 = fadd double %.0479, 1.000000e+00
   %819 = fmul double %817, %.0480

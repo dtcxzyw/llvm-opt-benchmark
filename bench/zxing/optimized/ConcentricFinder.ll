@@ -2035,7 +2035,7 @@ _ZNSt3_V26rotateIN9__gnu_cxx17__normal_iteratorIPN5ZXing6PointTIdEESt6vectorIS5_
   %490 = ashr exact i64 %489, 4
   %491 = icmp sgt i64 %490, 3
   %492 = uitofp nneg i64 %490 to double
-  %493 = fmul double %492, 1.250000e-01
+  %493 = fmul nnan double %492, 1.250000e-01
   %494 = fcmp olt double %493, 8.000000e+00
   %495 = select i1 %494, double %493, double 8.000000e+00
   %496 = fcmp ogt double %495, 1.000000e+00

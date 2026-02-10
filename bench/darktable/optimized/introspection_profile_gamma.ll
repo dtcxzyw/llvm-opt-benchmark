@@ -271,7 +271,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   br label %48
 
 41:                                               ; preds = %30
-  %42 = fmul reassoc nsz arcp contract afn float %32, 6.553600e+04
+  %42 = fmul reassoc nnan nsz arcp contract afn float %32, 6.553600e+04
   %43 = fptosi float %42 to i32
   %narrow.us = tail call i32 @llvm.smax.i32(i32 %43, i32 0)
   %44 = tail call i32 @llvm.umin.i32(i32 %narrow.us, i32 65535)
@@ -332,10 +332,10 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
   %72 = and i32 %71, 8388607
   %73 = or disjoint i32 %72, 1056964608
   %74 = uitofp i32 %71 to float
-  %75 = fmul reassoc nsz arcp contract afn float %74, 0x3E80000000000000
+  %75 = fmul reassoc nnan nsz arcp contract afn float %74, 0x3E80000000000000
   %76 = bitcast i32 %73 to float
   %77 = fadd reassoc nsz arcp contract afn float %76, 0x3FD6889F20000000
-  %.neg.i = fmul reassoc nsz arcp contract afn float %76, 0xBFF7F7EEA0000000
+  %.neg.i = fmul reassoc nnan nsz arcp contract afn float %76, 0xBFF7F7EEA0000000
   %.neg6.i = fdiv reassoc nsz arcp contract afn float 0xBFFB9D3460000000, %77
   %78 = load float, ptr %62, align 4, !tbaa !57
   %.neg7.i = fsub reassoc nsz arcp contract afn float 0xC05F0E6EE0000000, %78
@@ -545,7 +545,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   %53 = fdiv reassoc nsz arcp contract afn float %49, %52
   %54 = fcmp reassoc nsz arcp contract afn ogt float %53, 0x3EF0000000000000
   %55 = select reassoc nsz arcp contract afn i1 %54, float %53, float 0x3EF0000000000000
-  %56 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %55)
+  %56 = tail call reassoc nnan nsz arcp contract afn float @llvm.log.f32(float %55)
   %57 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %58 = load float, ptr %57, align 4, !tbaa !12
   %59 = fmul reassoc nsz arcp contract afn float %58, 0x3F8D8BE060000000
@@ -596,7 +596,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   %92 = fdiv reassoc nsz arcp contract afn float %88, %91
   %93 = fcmp reassoc nsz arcp contract afn ogt float %92, 0x3EF0000000000000
   %94 = select reassoc nsz arcp contract afn i1 %93, float %92, float 0x3EF0000000000000
-  %95 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %94)
+  %95 = tail call reassoc nnan nsz arcp contract afn float @llvm.log.f32(float %94)
   %96 = getelementptr inbounds nuw i8, ptr %78, i64 24
   %97 = load float, ptr %96, align 4, !tbaa !12
   %98 = fmul reassoc nsz arcp contract afn float %97, 0x3F8D8BE060000000
@@ -647,7 +647,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   %133 = fdiv reassoc nsz arcp contract afn float %132, %122
   %134 = fcmp reassoc nsz arcp contract afn ogt float %133, 0x3EF0000000000000
   %135 = select reassoc nsz arcp contract afn i1 %134, float %133, float 0x3EF0000000000000
-  %136 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %135)
+  %136 = tail call reassoc nnan nsz arcp contract afn float @llvm.log.f32(float %135)
   %137 = getelementptr inbounds nuw i8, ptr %114, i64 24
   %138 = load float, ptr %137, align 4, !tbaa !12
   %139 = fmul reassoc nsz arcp contract afn float %138, 0x3F8D8BE060000000
@@ -664,7 +664,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   %150 = fdiv reassoc nsz arcp contract afn float %149, %122
   %151 = fcmp reassoc nsz arcp contract afn ogt float %150, 0x3EF0000000000000
   %152 = select reassoc nsz arcp contract afn i1 %151, float %150, float 0x3EF0000000000000
-  %153 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %152)
+  %153 = tail call reassoc nnan nsz arcp contract afn float @llvm.log.f32(float %152)
   %154 = fmul reassoc nsz arcp contract afn float %153, %140
   %155 = getelementptr inbounds nuw i8, ptr %114, i64 20
   store float %141, ptr %155, align 4, !tbaa !14
@@ -727,7 +727,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %indvars.iv86 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next87, %17 ]
   %18 = trunc nuw nsw i64 %indvars.iv86 to i32
   %19 = uitofp nneg i32 %18 to double
-  %20 = fmul reassoc nsz arcp contract afn double %19, 0x3EF0000000000000
+  %20 = fmul reassoc nnan nsz arcp contract afn double %19, 0x3EF0000000000000
   %21 = fptrunc reassoc nsz arcp contract afn double %20 to float
   %22 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv86
   store float %21, ptr %22, align 4, !tbaa !55
@@ -748,7 +748,7 @@ define void @commit_params(ptr noundef readnone captures(none) %0, ptr noundef r
   %indvars.iv82 = phi i64 [ 0, %.preheader73 ], [ %indvars.iv.next83, %27 ]
   %28 = trunc nuw nsw i64 %indvars.iv82 to i32
   %29 = uitofp nneg i32 %28 to double
-  %30 = fmul reassoc nsz arcp contract afn double %29, 0x3EF0000000000000
+  %30 = fmul reassoc nnan nsz arcp contract afn double %29, 0x3EF0000000000000
   %31 = fptrunc reassoc nsz arcp contract afn double %30 to float
   %32 = tail call reassoc nsz arcp contract afn float @llvm.pow.f32(float %31, float %11)
   %33 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv82

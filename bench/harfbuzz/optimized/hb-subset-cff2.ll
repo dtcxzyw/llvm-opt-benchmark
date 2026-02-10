@@ -7187,7 +7187,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EE4pushEv.exit.i.i: ; preds = %81, %7
 
 _ZN3CFF11arg_stack_tINS_11blend_arg_tEE10push_fixedEi.exit.i: ; preds = %.thread.i.i.i.i.i.i.i, %87, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EE4pushEv.exit.i.i
   %91 = sitofp i32 %72 to double
-  %92 = fmul double %91, 0x3EF0000000000000
+  %92 = fmul nnan double %91, 0x3EF0000000000000
   store double %92, ptr %.0.i.i.i, align 8, !tbaa !334
   %93 = load i32, ptr %59, align 4, !tbaa !328
   %94 = add i32 %93, 4
@@ -13162,7 +13162,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EE4pushEv.exit.i.i: ; preds = %50, %4
 
 _ZN3CFF11arg_stack_tINS_11blend_arg_tEE10push_fixedEi.exit.i: ; preds = %.thread.i.i.i.i.i.i.i, %56, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EE4pushEv.exit.i.i
   %60 = sitofp i32 %41 to double
-  %61 = fmul double %60, 0x3EF0000000000000
+  %61 = fmul nnan double %60, 0x3EF0000000000000
   store double %61, ptr %.0.i.i.i, align 8, !tbaa !334
   %62 = load i32, ptr %28, align 4, !tbaa !328
   %63 = add i32 %62, 4

@@ -569,7 +569,7 @@ dissect_norm_hdrext.exit.i.i:                     ; preds = %170, %166
 202:                                              ; preds = %.lr.ph.i.i
   %203 = add nuw nsw i32 %200, 1
   %204 = uitofp nneg i32 %203 to double
-  %205 = fmul double %204, 0x3EB0C6F7A0B5ED8D
+  %205 = fmul nnan double %204, 0x3EB0C6F7A0B5ED8D
   br label %UnquantizeRtt.exit.i.i
 
 206:                                              ; preds = %.lr.ph.i.i
@@ -951,7 +951,7 @@ define internal fastcc void @dissect_grrtetc(ptr noundef %0, ptr noundef %1) unn
 8:                                                ; preds = %2
   %9 = add nuw nsw i32 %6, 1
   %10 = uitofp nneg i32 %9 to double
-  %11 = fmul double %10, 0x3EB0C6F7A0B5ED8D
+  %11 = fmul nnan double %10, 0x3EB0C6F7A0B5ED8D
   br label %UnquantizeRtt.exit
 
 12:                                               ; preds = %2

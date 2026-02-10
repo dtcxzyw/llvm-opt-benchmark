@@ -1390,7 +1390,7 @@ define hidden void @_ZN4ncnn14draw_circle_c1EPhiiiiiiji(ptr noundef writeonly ca
 
 45:                                               ; preds = %9
   %46 = sitofp i32 %8 to float
-  %47 = fmul reassoc nsz arcp contract afn float %46, 5.000000e-01
+  %47 = fmul reassoc nnan nsz arcp contract afn float %46, 5.000000e-01
   %48 = add nsw i32 %6, -1
   %49 = sub nsw i32 %5, %48
   %50 = sitofp i32 %49 to float
@@ -1574,7 +1574,7 @@ define hidden void @_ZN4ncnn14draw_circle_c2EPhiiiiiiji(ptr noundef writeonly ca
 
 47:                                               ; preds = %9
   %48 = sitofp i32 %8 to float
-  %49 = fmul reassoc nsz arcp contract afn float %48, 5.000000e-01
+  %49 = fmul reassoc nnan nsz arcp contract afn float %48, 5.000000e-01
   %50 = sub nsw i32 %5, %6
   %51 = sitofp i32 %50 to float
   %52 = fsub fast float %51, %49
@@ -1767,7 +1767,7 @@ define hidden void @_ZN4ncnn14draw_circle_c3EPhiiiiiiji(ptr noundef writeonly ca
 
 48:                                               ; preds = %9
   %49 = sitofp i32 %8 to float
-  %50 = fmul reassoc nsz arcp contract afn float %49, 5.000000e-01
+  %50 = fmul reassoc nnan nsz arcp contract afn float %49, 5.000000e-01
   %51 = sub nsw i32 %5, %6
   %52 = sitofp i32 %51 to float
   %53 = fsub fast float %52, %50
@@ -1954,7 +1954,7 @@ define hidden void @_ZN4ncnn14draw_circle_c4EPhiiiiiiji(ptr noundef writeonly ca
 
 46:                                               ; preds = %9
   %47 = sitofp i32 %8 to float
-  %48 = fmul reassoc nsz arcp contract afn float %47, 5.000000e-01
+  %48 = fmul reassoc nnan nsz arcp contract afn float %47, 5.000000e-01
   %49 = add nsw i32 %6, -1
   %50 = sub nsw i32 %5, %49
   %51 = sitofp i32 %50 to float
@@ -2090,7 +2090,7 @@ define hidden void @_ZN4ncnn12draw_line_c1EPhiiiiiiji(ptr noundef writeonly capt
 define hidden void @_ZN4ncnn12draw_line_c1EPhiiiiiiiji(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %.sroa.0.0.extract.trunc = trunc i32 %8 to i8
   %11 = sitofp i32 %9 to float
-  %12 = fmul reassoc nsz arcp contract afn float %11, 5.000000e-01
+  %12 = fmul reassoc nnan nsz arcp contract afn float %11, 5.000000e-01
   %.sroa.speculated38 = tail call i32 @llvm.smin.i32(i32 %7, i32 %5)
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %5, i32 %7)
   %13 = sitofp i32 %.sroa.speculated38 to float
@@ -2218,7 +2218,7 @@ define hidden void @_ZN4ncnn12draw_line_c2EPhiiiiiiji(ptr noundef writeonly capt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @_ZN4ncnn12draw_line_c2EPhiiiiiiiji(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = sitofp i32 %9 to float
-  %12 = fmul reassoc nsz arcp contract afn float %11, 5.000000e-01
+  %12 = fmul reassoc nnan nsz arcp contract afn float %11, 5.000000e-01
   %.sroa.speculated41 = tail call i32 @llvm.smin.i32(i32 %7, i32 %5)
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %5, i32 %7)
   %13 = sitofp i32 %.sroa.speculated41 to float
@@ -2353,7 +2353,7 @@ define hidden void @_ZN4ncnn12draw_line_c3EPhiiiiiiiji(ptr noundef writeonly cap
   %.sroa.3.0.extract.shift = lshr i32 %8, 16
   %.sroa.3.0.extract.trunc = trunc i32 %.sroa.3.0.extract.shift to i8
   %11 = sitofp i32 %9 to float
-  %12 = fmul reassoc nsz arcp contract afn float %11, 5.000000e-01
+  %12 = fmul reassoc nnan nsz arcp contract afn float %11, 5.000000e-01
   %.sroa.speculated44 = tail call i32 @llvm.smin.i32(i32 %7, i32 %5)
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %5, i32 %7)
   %13 = sitofp i32 %.sroa.speculated44 to float
@@ -2486,7 +2486,7 @@ define hidden void @_ZN4ncnn12draw_line_c4EPhiiiiiiji(ptr noundef writeonly capt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @_ZN4ncnn12draw_line_c4EPhiiiiiiiji(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = sitofp i32 %9 to float
-  %12 = fmul reassoc nsz arcp contract afn float %11, 5.000000e-01
+  %12 = fmul reassoc nnan nsz arcp contract afn float %11, 5.000000e-01
   %.sroa.speculated47 = tail call i32 @llvm.smin.i32(i32 %7, i32 %5)
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %5, i32 %7)
   %13 = sitofp i32 %.sroa.speculated47 to float

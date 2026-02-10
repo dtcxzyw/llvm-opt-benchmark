@@ -1143,13 +1143,13 @@ _ZN3vcg12glMultMatrixERKNS_8Matrix44IfEE.exit:    ; preds = %54
   %133 = fadd float %96, %132
   %134 = fcmp ugt float %.sroa.021.0.i, %133
   %135 = fcmp ugt float %133, %.sroa.8.0.i
-  %or.cond11.i.i = or i1 %134, %135
+  %or.cond11.i.i = select i1 %134, i1 true, i1 %135
   br i1 %or.cond11.i.i, label %_ZNK3vcg4Box3IfE4IsInERKNS_6Point3IfEE.exit.thread.i, label %136
 
 136:                                              ; preds = %131
   %137 = fcmp ole float %.sroa.322.0.i, %129
   %138 = fcmp ole float %129, %.sroa.11.0.i
-  %or.cond.i.not27.i = and i1 %137, %138
+  %or.cond.i.not27.i = select i1 %137, i1 %138, i1 false
   %139 = call float @llvm.fabs.f32(float %.sroa.016.8.vec.extract.i.i)
   %140 = fcmp ole float %139, 1.000000e+00
   %or.cond23.i = and i1 %140, %or.cond.i.not27.i
@@ -8636,7 +8636,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit95:                  ; preds = %._crit_edge132
   %110 = sub i64 %108, %109
   %111 = ashr exact i64 %110, 2
   %112 = uitofp i64 %111 to double
-  %113 = fmul double %112, 5.000000e-01
+  %113 = fmul nnan double %112, 5.000000e-01
   %114 = fptoui double %113 to i64
   %115 = getelementptr inbounds float, ptr %.sroa.0.0.lcssa, i64 %114
   %116 = load float, ptr %115, align 4
@@ -10262,7 +10262,7 @@ _ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit: ; preds = %8, %11
 
 .lr.ph:                                           ; preds = %_ZN3vcg3tri9AllocatorI6CMeshOE11AddVerticesERS2_m.exit
   %18 = uitofp nneg i32 %1 to double
-  %19 = fdiv double 0x401921FB54442D18, %18
+  %19 = fdiv nnan double 0x401921FB54442D18, %18
   br label %23
 
 .lr.ph41:                                         ; preds = %23

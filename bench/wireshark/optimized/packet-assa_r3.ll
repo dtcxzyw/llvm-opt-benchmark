@@ -5885,7 +5885,7 @@ define internal void @dissect_r3_upstreammfgfield_adcs(ptr noundef %0, i32 nound
   %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %4, i32 noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef -2147483648)
   %16 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %14)
   %17 = uitofp i8 %16 to double
-  %18 = fmul double %17, 4.154000e-02
+  %18 = fmul nnan double %17, 4.154000e-02
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %15, ptr noundef nonnull @.str.2031, double noundef %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

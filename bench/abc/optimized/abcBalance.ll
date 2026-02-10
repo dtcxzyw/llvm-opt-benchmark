@@ -67,7 +67,7 @@ define noundef ptr @Abc_NtkBalance(ptr noundef %0, i32 noundef %1, i32 noundef %
 Abc_NtkMarkCriticalNodes.exit:                    ; preds = %26, %.split22
   %.0.lcssa.i = phi i32 [ 0, %.split22 ], [ %.1.i, %26 ]
   %31 = sitofp i32 %.0.lcssa.i to double
-  %32 = fmul double %31, 1.000000e+02
+  %32 = fmul nnan double %31, 1.000000e+02
   %33 = getelementptr i8, ptr %0, i64 124
   %.val17.i = load i32, ptr %33, align 4, !tbaa !30
   %34 = sitofp i32 %.val17.i to double

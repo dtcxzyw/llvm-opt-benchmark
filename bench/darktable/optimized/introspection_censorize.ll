@@ -527,11 +527,11 @@ define internal fastcc void @make_noise(ptr noundef captures(none) %0, float nou
   %60 = add i32 %59, %58
   %61 = lshr i32 %60, 8
   %62 = uitofp nneg i32 %61 to float
-  %63 = fmul reassoc nsz arcp contract afn float %62, 0x3E70000000000000
+  %63 = fmul reassoc nnan nsz arcp contract afn float %62, 0x3E70000000000000
   %64 = and i64 %56, 1
   %.not.i.us = icmp eq i64 %64, 0
-  %65 = fpext reassoc nsz arcp contract afn float %63 to double
-  %66 = fmul reassoc nsz arcp contract afn double %65, 0x401921FB54442D18
+  %65 = fpext reassoc nnan nsz arcp contract afn float %63 to double
+  %66 = fmul reassoc nnan nsz arcp contract afn double %65, 0x401921FB54442D18
   %67 = fptrunc reassoc nsz arcp contract afn double %66 to float
   br i1 %.not.i.us, label %70, label %68
 
@@ -548,10 +548,10 @@ gaussian_noise.exit.us:                           ; preds = %70, %68
   %72 = add i32 %51, %50
   %73 = lshr i32 %72, 8
   %74 = uitofp nneg i32 %73 to float
-  %75 = fmul reassoc nsz arcp contract afn float %74, 0x3E70000000000000
-  %76 = tail call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %75, float 0x3810000000000000)
-  %77 = tail call reassoc nsz arcp contract afn float @llvm.log.f32(float %76)
-  %78 = fmul reassoc nsz arcp contract afn float %77, -2.000000e+00
+  %75 = fmul reassoc nnan nsz arcp contract afn float %74, 0x3E70000000000000
+  %76 = tail call reassoc nnan nsz arcp contract afn float @llvm.maxnum.f32(float %75, float 0x3810000000000000)
+  %77 = tail call reassoc nnan nsz arcp contract afn float @llvm.log.f32(float %76)
+  %78 = fmul reassoc nnan nsz arcp contract afn float %77, -2.000000e+00
   %79 = tail call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %78)
   %80 = fmul reassoc nsz arcp contract afn float %79, %1
   %81 = fmul reassoc nsz arcp contract afn float %80, %55

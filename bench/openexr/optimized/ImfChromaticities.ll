@@ -192,7 +192,7 @@ define void @_ZN7Imf_3_48RGBtoXYZERKNS_14ChromaticitiesEf(ptr dead_on_unwind noa
 
 9:                                                ; preds = %3
   %10 = tail call noundef float @llvm.fabs.f32(float %.pre105)
-  %11 = fmul float %7, 0x47EFFFFFE0000000
+  %11 = fmul nnan float %7, 0x47EFFFFFE0000000
   %12 = fcmp ult float %10, %11
   br i1 %12, label %._crit_edge, label %13
 
@@ -261,7 +261,7 @@ define void @_ZN7Imf_3_48RGBtoXYZERKNS_14ChromaticitiesEf(ptr dead_on_unwind noa
 
 64:                                               ; preds = %._crit_edge
   %65 = tail call noundef float @llvm.fabs.f32(float %50)
-  %66 = fmul float %62, 0x47EFFFFFE0000000
+  %66 = fmul nnan float %62, 0x47EFFFFFE0000000
   %67 = fcmp ult float %65, %66
   %68 = tail call float @llvm.fabs.f32(float %57)
   %69 = fcmp ult float %68, %66

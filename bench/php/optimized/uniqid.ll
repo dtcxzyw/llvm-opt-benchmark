@@ -132,8 +132,8 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %21
 48:                                               ; preds = %._crit_edge, %45
   %49 = phi i32 [ %.pre101, %._crit_edge ], [ %47, %45 ]
   %50 = uitofp i32 %49 to double
-  %51 = fdiv double %50, 0x41EFFFFFFFE00000
-  %52 = fmul double %51, 1.000000e+01
+  %51 = fdiv nnan double %50, 0x41EFFFFFFFE00000
+  %52 = fmul nnan double %51, 1.000000e+01
   %53 = call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef nonnull %.1, i32 noundef %37, i32 noundef %39, double noundef %52) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %56

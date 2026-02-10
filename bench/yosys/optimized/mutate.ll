@@ -31008,7 +31008,7 @@ _ZN12_GLOBAL__N_120mutate_chain_queue_tIN5Yosys5RTLIL8IdStringENS_19mutate_once_
 ._crit_edge2851:                                  ; preds = %.lr.ph2850, %._crit_edge2844
   %.0294.lcssa = phi i32 [ 0, %._crit_edge2844 ], [ %spec.select365, %.lr.ph2850 ]
   %4287 = uitofp nneg i32 %.0290.lcssa to double
-  %4288 = fmul double %4287, 1.000000e+02
+  %4288 = fmul nnan double %4287, 1.000000e+02
   %4289 = sitofp i32 %4254 to double
   %4290 = fdiv double %4288, %4289
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.113, i32 noundef %.0290.lcssa, i32 noundef %4254, double noundef %4290)
@@ -31023,7 +31023,7 @@ _ZN12_GLOBAL__N_120mutate_chain_queue_tIN5Yosys5RTLIL8IdStringENS_19mutate_once_
   %4297 = lshr exact i64 %4296, 4
   %4298 = trunc i64 %4297 to i32
   %4299 = uitofp nneg i32 %.0292.lcssa to double
-  %4300 = fmul double %4299, 1.000000e+02
+  %4300 = fmul nnan double %4299, 1.000000e+02
   %4301 = sitofp i32 %4298 to double
   %4302 = fdiv double %4300, %4301
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.114, i32 noundef %.0292.lcssa, i32 noundef %4298, double noundef %4302)
@@ -31038,7 +31038,7 @@ _ZN12_GLOBAL__N_120mutate_chain_queue_tIN5Yosys5RTLIL8IdStringENS_19mutate_once_
   %4309 = sdiv exact i64 %4308, 20
   %4310 = trunc i64 %4309 to i32
   %4311 = uitofp nneg i32 %.0294.lcssa to double
-  %4312 = fmul double %4311, 1.000000e+02
+  %4312 = fmul nnan double %4311, 1.000000e+02
   %4313 = sitofp i32 %4310 to double
   %4314 = fdiv double %4312, %4313
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.115, i32 noundef %.0294.lcssa, i32 noundef %4310, double noundef %4314)

@@ -1238,7 +1238,7 @@ define internal void @display_latitude(ptr noundef %0, i32 noundef %1) #2 {
   %10 = srem i32 %9, 1000000
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = uitofp nneg i32 %11 to double
-  %13 = fmul double %12, 6.000000e+00
+  %13 = fmul nnan double %12, 6.000000e+00
   %14 = fdiv double %13, 1.000000e+05
   %15 = icmp sgt i32 %1, -1
   %16 = select i1 %15, i32 78, i32 83
@@ -1258,7 +1258,7 @@ define internal void @display_longitude(ptr noundef %0, i32 noundef %1) #2 {
   %10 = srem i32 %9, 1000000
   %11 = tail call i32 @llvm.abs.i32(i32 %10, i1 true)
   %12 = uitofp nneg i32 %11 to double
-  %13 = fmul double %12, 6.000000e+00
+  %13 = fmul nnan double %12, 6.000000e+00
   %14 = fdiv double %13, 1.000000e+05
   %15 = icmp sgt i32 %1, -1
   %16 = select i1 %15, i32 69, i32 87
@@ -1286,7 +1286,7 @@ define internal void @display_heading(ptr noundef %0, i32 noundef %1) #2 {
 define internal void @display_cbr(ptr noundef %0, i8 noundef zeroext %1) #2 {
   %3 = zext i8 %1 to i32
   %4 = uitofp i8 %1 to double
-  %5 = fmul double %4, 1.000000e+02
+  %5 = fmul nnan double %4, 1.000000e+02
   %6 = fdiv double %5, 2.550000e+02
   %7 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.369, double noundef %6, i32 noundef %3)
   ret void

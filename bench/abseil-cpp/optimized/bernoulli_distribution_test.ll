@@ -4386,7 +4386,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %.0.i.i, %55
+  %56 = fmul nnan double %.0.i.i, %55
   %57 = fcmp une double %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 
@@ -6106,7 +6106,7 @@ define internal void @_ZN12_GLOBAL__N_127BernoulliTest_Accuracy_Test8TestBodyEv(
 
 25:                                               ; preds = %17
   %26 = uitofp nneg i64 %.fr to double
-  %27 = fmul double %26, 0x3DF0000000000000
+  %27 = fmul nnan double %26, 0x3DF0000000000000
   %28 = fsub double %.013.i.i, %27
   %29 = fmul double %28, 0x41F0000000000000
   %30 = fcmp une double %29, 0.000000e+00
@@ -7025,7 +7025,7 @@ define internal void @_ZN12_GLOBAL__N_132BernoulliTest_StabilityTest_Test8TestBo
 
 57:                                               ; preds = %48
   %58 = uitofp nneg i64 %.fr3.i to double
-  %59 = fmul double %58, 0x3DF0000000000000
+  %59 = fmul nnan double %58, 0x3DF0000000000000
   %60 = fsub double %.013.i.i.i, %59
   %61 = fmul double %60, 0x41F0000000000000
   %62 = fcmp une double %61, 0.000000e+00
@@ -7407,7 +7407,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 179:                                              ; preds = %170
   %180 = uitofp nneg i64 %.fr3.i130 to double
-  %181 = fmul double %180, 0x3DF0000000000000
+  %181 = fmul nnan double %180, 0x3DF0000000000000
   %182 = fsub double %.013.i.i.i129, %181
   %183 = fmul double %182, 0x41F0000000000000
   %184 = fcmp une double %183, 0.000000e+00
@@ -7814,7 +7814,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 307:                                              ; preds = %298
   %308 = uitofp nneg i64 %.fr3.i194 to double
-  %309 = fmul double %308, 0x3DF0000000000000
+  %309 = fmul nnan double %308, 0x3DF0000000000000
   %310 = fsub double %.013.i.i.i193, %309
   %311 = fmul double %310, 0x41F0000000000000
   %312 = fcmp une double %311, 0.000000e+00
@@ -8219,7 +8219,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 434:                                              ; preds = %425
   %435 = uitofp nneg i64 %.fr3.i258 to double
-  %436 = fmul double %435, 0x3DF0000000000000
+  %436 = fmul nnan double %435, 0x3DF0000000000000
   %437 = fsub double %.013.i.i.i257, %436
   %438 = fmul double %437, 0x41F0000000000000
   %439 = fcmp une double %438, 0.000000e+00
@@ -9442,7 +9442,7 @@ define internal void @_ZN12_GLOBAL__N_133BernoulliTest_StabilityTest2_Test8TestB
 
 47:                                               ; preds = %38
   %48 = uitofp nneg i64 %.fr3.i to double
-  %49 = fmul double %48, 0x3DF0000000000000
+  %49 = fmul nnan double %48, 0x3DF0000000000000
   %50 = fsub double %.013.i.i.i, %49
   %51 = fmul double %50, 0x41F0000000000000
   %52 = fcmp une double %51, 0.000000e+00
@@ -9824,7 +9824,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 169:                                              ; preds = %160
   %170 = uitofp nneg i64 %.fr3.i107 to double
-  %171 = fmul double %170, 0x3DF0000000000000
+  %171 = fmul nnan double %170, 0x3DF0000000000000
   %172 = fsub double %.013.i.i.i106, %171
   %173 = fmul double %172, 0x41F0000000000000
   %174 = fcmp une double %173, 0.000000e+00
@@ -10229,7 +10229,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 296:                                              ; preds = %287
   %297 = uitofp nneg i64 %.fr3.i171 to double
-  %298 = fmul double %297, 0x3DF0000000000000
+  %298 = fmul nnan double %297, 0x3DF0000000000000
   %299 = fsub double %.013.i.i.i170, %298
   %300 = fmul double %299, 0x41F0000000000000
   %301 = fcmp une double %300, 0.000000e+00

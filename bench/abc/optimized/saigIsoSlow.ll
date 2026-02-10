@@ -341,7 +341,7 @@ define void @Iso_ManStop(ptr noundef captures(none) %0, i32 noundef %1) local_un
   %16 = load i64, ptr %4, align 8, !tbaa !52
   %.not45 = icmp eq i64 %16, 0
   %17 = sitofp i64 %16 to double
-  %18 = fmul double %14, 1.000000e+02
+  %18 = fmul nnan double %14, 1.000000e+02
   %19 = fdiv double %18, %17
   %20 = select i1 %.not45, double 0.000000e+00, double %19
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, double noundef %15, double noundef %20)
@@ -355,7 +355,7 @@ define void @Iso_ManStop(ptr noundef captures(none) %0, i32 noundef %1) local_un
   %27 = load i64, ptr %4, align 8, !tbaa !52
   %.not46 = icmp eq i64 %27, 0
   %28 = sitofp i64 %27 to double
-  %29 = fmul double %25, 1.000000e+02
+  %29 = fmul nnan double %25, 1.000000e+02
   %30 = fdiv double %29, %28
   %31 = select i1 %.not46, double 0.000000e+00, double %30
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, double noundef %26, double noundef %31)
@@ -366,7 +366,7 @@ define void @Iso_ManStop(ptr noundef captures(none) %0, i32 noundef %1) local_un
   %35 = load i64, ptr %4, align 8, !tbaa !52
   %.not47 = icmp eq i64 %35, 0
   %36 = sitofp i64 %35 to double
-  %37 = fmul double %33, 1.000000e+02
+  %37 = fmul nnan double %33, 1.000000e+02
   %38 = fdiv double %37, %36
   %39 = select i1 %.not47, double 0.000000e+00, double %38
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, double noundef %34, double noundef %39)
@@ -377,7 +377,7 @@ define void @Iso_ManStop(ptr noundef captures(none) %0, i32 noundef %1) local_un
   %43 = load i64, ptr %4, align 8, !tbaa !52
   %.not48 = icmp eq i64 %43, 0
   %44 = sitofp i64 %43 to double
-  %45 = fmul double %41, 1.000000e+02
+  %45 = fmul nnan double %41, 1.000000e+02
   %46 = fdiv double %45, %44
   %47 = select i1 %.not48, double 0.000000e+00, double %46
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, double noundef %42, double noundef %47)
@@ -386,7 +386,7 @@ define void @Iso_ManStop(ptr noundef captures(none) %0, i32 noundef %1) local_un
   %49 = sitofp i64 %48 to double
   %50 = fdiv double %49, 1.000000e+06
   %.not49 = icmp eq i64 %48, 0
-  %51 = fmul double %49, 1.000000e+02
+  %51 = fmul nnan double %49, 1.000000e+02
   %52 = fdiv double %51, %49
   %53 = select i1 %.not49, double 0.000000e+00, double %52
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, double noundef %50, double noundef %53)

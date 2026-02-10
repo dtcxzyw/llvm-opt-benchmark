@@ -882,7 +882,7 @@ _ZN11OpenImageIO6v3_1_08PSDInput9read_bigeIjfEEbRT0_.exit:
   %29 = call i32 @llvm.bswap.i32(i32 %.promoted.i)
   %30 = uitofp i32 %29 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %31 = fmul float %30, 0x3EF0000000000000
+  %31 = fmul nnan float %30, 0x3EF0000000000000
   %32 = select i1 %28, float %31, float 0.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %33 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010ImageInput6ioreadEPvmm(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull %22, i64 noundef 2, i64 noundef 1)
@@ -899,7 +899,7 @@ _ZN11OpenImageIO6v3_1_08PSDInput9read_bigeIjfEEbRT0_.exit:
   %37 = call i32 @llvm.bswap.i32(i32 %.promoted.i33)
   %38 = uitofp i32 %37 to float
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %39 = fmul float %38, 0x3EF0000000000000
+  %39 = fmul nnan float %38, 0x3EF0000000000000
   %40 = select i1 %36, float %39, float 0.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %41 = call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010ImageInput6ioreadEPvmm(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef nonnull %19, i64 noundef 2, i64 noundef 1)
@@ -1408,25 +1408,25 @@ _ZN11OpenImageIO6v3_1_08PSDInput9read_bigeIiiEEbRT0_.exit: ; preds = %_ZN11OpenI
   %8 = phi i1 [ %5, %_ZN11OpenImageIO6v3_1_08PSDInput9read_bigeIiiEEbRT0_.exit ], [ false, %_ZN11OpenImageIO6v3_1_08PSDInput9read_bigeIaaEEbRT0_.exit ]
   %9 = trunc i32 %.0 to i8
   %10 = uitofp i8 %9 to float
-  %11 = fmul float %10, 0x3F70101020000000
+  %11 = fmul nnan float %10, 0x3F70101020000000
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 636
   store float %11, ptr %12, align 4, !tbaa !13
   %13 = lshr i32 %.0, 8
   %14 = trunc i32 %13 to i8
   %15 = uitofp i8 %14 to float
-  %16 = fmul float %15, 0x3F70101020000000
+  %16 = fmul nnan float %15, 0x3F70101020000000
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 640
   store float %16, ptr %17, align 8, !tbaa !13
   %18 = lshr i32 %.0, 16
   %19 = trunc i32 %18 to i8
   %20 = uitofp i8 %19 to float
-  %21 = fmul float %20, 0x3F70101020000000
+  %21 = fmul nnan float %20, 0x3F70101020000000
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 644
   store float %21, ptr %22, align 4, !tbaa !13
   %23 = lshr i32 %.0, 24
   %24 = trunc nuw i32 %23 to i8
   %25 = uitofp i8 %24 to float
-  %26 = fmul float %25, 0x3F70101020000000
+  %26 = fmul nnan float %25, 0x3F70101020000000
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 648
   store float %26, ptr %27, align 8, !tbaa !13
   ret i1 %8
@@ -5059,11 +5059,11 @@ define hidden void @_ZNK11OpenImageIO6v3_1_08PSDInput24background_to_assocalphaE
 15:                                               ; preds = %14
   %16 = load i8, ptr %13, align 1, !tbaa !12
   %17 = uitofp i8 %16 to float
-  %18 = fmul float %17, 0x3F70101020000000
+  %18 = fmul nnan float %17, 0x3F70101020000000
   %19 = getelementptr inbounds nuw i8, ptr %.028.us.i, i64 %indvars.iv.i
   %20 = load i8, ptr %19, align 1, !tbaa !12
   %21 = uitofp i8 %20 to float
-  %22 = fsub float 1.000000e+00, %18
+  %22 = fsub nnan float 1.000000e+00, %18
   %23 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   %24 = load float, ptr %23, align 4, !tbaa !13
   %25 = fmul float %24, %22
@@ -5114,11 +5114,11 @@ define hidden void @_ZNK11OpenImageIO6v3_1_08PSDInput24background_to_assocalphaE
 40:                                               ; preds = %39
   %41 = load i16, ptr %38, align 2, !tbaa !24
   %42 = uitofp i16 %41 to float
-  %43 = fmul float %42, 0x3EF0001000000000
+  %43 = fmul nnan float %42, 0x3EF0001000000000
   %44 = getelementptr inbounds nuw i16, ptr %.028.us.i21, i64 %indvars.iv.i23
   %45 = load i16, ptr %44, align 2, !tbaa !24
   %46 = uitofp i16 %45 to float
-  %47 = fsub float 1.000000e+00, %43
+  %47 = fsub nnan float 1.000000e+00, %43
   %48 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i23
   %49 = load float, ptr %48, align 4, !tbaa !13
   %50 = fmul float %49, %47
@@ -5169,11 +5169,11 @@ define hidden void @_ZNK11OpenImageIO6v3_1_08PSDInput24background_to_assocalphaE
 65:                                               ; preds = %64
   %66 = load i64, ptr %63, align 8, !tbaa !23
   %67 = uitofp i64 %66 to float
-  %68 = fmul float %67, 0x3BF0000000000000
+  %68 = fmul nnan float %67, 0x3BF0000000000000
   %69 = getelementptr inbounds nuw i64, ptr %.028.us.i34, i64 %indvars.iv.i36
   %70 = load i64, ptr %69, align 8, !tbaa !23
   %71 = uitofp i64 %70 to float
-  %72 = fsub float 1.000000e+00, %68
+  %72 = fsub nnan float 1.000000e+00, %68
   %73 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv.i36
   %74 = load float, ptr %73, align 4, !tbaa !13
   %75 = fmul float %74, %72
@@ -5288,7 +5288,7 @@ define hidden void @_ZNK11OpenImageIO6v3_1_08PSDInput24background_to_unassalphaE
 15:                                               ; preds = %14
   %16 = load i8, ptr %13, align 1, !tbaa !12
   %17 = uitofp i8 %16 to float
-  %18 = fmul float %17, 0x3F70101020000000
+  %18 = fmul nnan float %17, 0x3F70101020000000
   %19 = getelementptr inbounds nuw i8, ptr %.033.us.i, i64 %indvars.iv.i
   %20 = fcmp ogt float %18, 0.000000e+00
   br i1 %20, label %21, label %32
@@ -5296,7 +5296,7 @@ define hidden void @_ZNK11OpenImageIO6v3_1_08PSDInput24background_to_unassalphaE
 21:                                               ; preds = %15
   %22 = load i8, ptr %19, align 1, !tbaa !12
   %23 = uitofp i8 %22 to float
-  %24 = fsub float 1.000000e+00, %18
+  %24 = fsub nnan float 1.000000e+00, %18
   %25 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i
   %26 = load float, ptr %25, align 4, !tbaa !13
   %27 = fmul float %24, %26
@@ -5352,7 +5352,7 @@ define hidden void @_ZNK11OpenImageIO6v3_1_08PSDInput24background_to_unassalphaE
 44:                                               ; preds = %43
   %45 = load i16, ptr %42, align 2, !tbaa !24
   %46 = uitofp i16 %45 to float
-  %47 = fmul float %46, 0x3EF0001000000000
+  %47 = fmul nnan float %46, 0x3EF0001000000000
   %48 = getelementptr inbounds nuw i16, ptr %.033.us.i21, i64 %indvars.iv.i23
   %49 = fcmp ogt float %47, 0.000000e+00
   br i1 %49, label %50, label %61
@@ -5360,7 +5360,7 @@ define hidden void @_ZNK11OpenImageIO6v3_1_08PSDInput24background_to_unassalphaE
 50:                                               ; preds = %44
   %51 = load i16, ptr %48, align 2, !tbaa !24
   %52 = uitofp i16 %51 to float
-  %53 = fsub float 1.000000e+00, %47
+  %53 = fsub nnan float 1.000000e+00, %47
   %54 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i23
   %55 = load float, ptr %54, align 4, !tbaa !13
   %56 = fmul float %53, %55
@@ -5416,7 +5416,7 @@ define hidden void @_ZNK11OpenImageIO6v3_1_08PSDInput24background_to_unassalphaE
 73:                                               ; preds = %72
   %74 = load i64, ptr %71, align 8, !tbaa !23
   %75 = uitofp i64 %74 to float
-  %76 = fmul float %75, 0x3BF0000000000000
+  %76 = fmul nnan float %75, 0x3BF0000000000000
   %77 = getelementptr inbounds nuw i64, ptr %.033.us.i35, i64 %indvars.iv.i37
   %78 = fcmp ogt float %76, 0.000000e+00
   br i1 %78, label %79, label %90
@@ -5424,7 +5424,7 @@ define hidden void @_ZNK11OpenImageIO6v3_1_08PSDInput24background_to_unassalphaE
 79:                                               ; preds = %73
   %80 = load i64, ptr %77, align 8, !tbaa !23
   %81 = uitofp i64 %80 to float
-  %82 = fsub float 1.000000e+00, %76
+  %82 = fsub nnan float 1.000000e+00, %76
   %83 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv.i37
   %84 = load float, ptr %83, align 4, !tbaa !13
   %85 = fmul float %82, %84
@@ -5485,7 +5485,7 @@ define hidden void @_ZNK11OpenImageIO6v3_1_08PSDInput24background_to_unassalphaE
 
 106:                                              ; preds = %102
   %107 = load float, ptr %104, align 4, !tbaa !13
-  %108 = fsub float 1.000000e+00, %103
+  %108 = fsub nnan float 1.000000e+00, %103
   %109 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv.i51
   %110 = load float, ptr %109, align 4, !tbaa !13
   %111 = fmul float %108, %110
@@ -5555,7 +5555,7 @@ define hidden void @_ZNK11OpenImageIO6v3_1_08PSDInput24unassalpha_to_assocalphaE
   %17 = uitofp i8 %16 to float
   %18 = load i8, ptr %12, align 1, !tbaa !12
   %19 = uitofp i8 %18 to float
-  %20 = fmul float %19, 0x3F70101020000000
+  %20 = fmul nnan float %19, 0x3F70101020000000
   %21 = fmul float %20, %17
   %22 = fptoui float %21 to i8
   store i8 %22, ptr %15, align 1, !tbaa !12
@@ -5604,7 +5604,7 @@ define hidden void @_ZNK11OpenImageIO6v3_1_08PSDInput24unassalpha_to_assocalphaE
   %36 = uitofp i16 %35 to float
   %37 = load i16, ptr %31, align 2, !tbaa !24
   %38 = uitofp i16 %37 to float
-  %39 = fmul float %38, 0x3EF0001000000000
+  %39 = fmul nnan float %38, 0x3EF0001000000000
   %40 = fmul float %39, %36
   %41 = fptoui float %40 to i16
   store i16 %41, ptr %34, align 2, !tbaa !24
@@ -5653,7 +5653,7 @@ define hidden void @_ZNK11OpenImageIO6v3_1_08PSDInput24unassalpha_to_assocalphaE
   %55 = uitofp i64 %54 to float
   %56 = load i64, ptr %50, align 8, !tbaa !23
   %57 = uitofp i64 %56 to float
-  %58 = fmul float %57, 0x3BF0000000000000
+  %58 = fmul nnan float %57, 0x3BF0000000000000
   %59 = fmul float %58, %55
   %60 = fptoui float %59 to i64
   store i64 %60, ptr %53, align 8, !tbaa !23
@@ -6872,19 +6872,19 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PSDInput11cmyk_to_rgbIt
   %13 = getelementptr i16, ptr %1, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !24
   %15 = uitofp i16 %14 to float
-  %16 = fmul float %15, 0x3EF0001000000000
+  %16 = fmul nnan float %15, 0x3EF0001000000000
   %17 = getelementptr i8, ptr %13, i64 2
   %18 = load i16, ptr %17, align 2, !tbaa !24
   %19 = uitofp i16 %18 to float
-  %20 = fmul float %19, 0x3EF0001000000000
+  %20 = fmul nnan float %19, 0x3EF0001000000000
   %21 = getelementptr i8, ptr %13, i64 4
   %22 = load i16, ptr %21, align 2, !tbaa !24
   %23 = uitofp i16 %22 to float
-  %24 = fmul float %23, 0x3EF0001000000000
+  %24 = fmul nnan float %23, 0x3EF0001000000000
   %25 = getelementptr i8, ptr %13, i64 6
   %26 = load i16, ptr %25, align 2, !tbaa !24
   %27 = uitofp i16 %26 to float
-  %28 = fmul float %27, 0x3EF0001000000000
+  %28 = fmul nnan float %27, 0x3EF0001000000000
   %29 = fmul float %16, %28
   %30 = fmul float %20, %28
   %31 = fmul float %24, %28
@@ -6922,7 +6922,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PSDInput11cmyk_to_rgbIt
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %50 = load i16, ptr %49, align 2, !tbaa !24
   %51 = uitofp i16 %50 to float
-  %52 = fmul float %51, 6.553500e+04
+  %52 = fmul nnan float %51, 6.553500e+04
   %53 = fadd float %52, 5.000000e-01
   %54 = fcmp ogt float %53, 6.553500e+04
   %.1.i.i.i37 = select i1 %54, float 6.553500e+04, float %53
@@ -6958,19 +6958,19 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PSDInput11cmyk_to_rgbIh
   %13 = getelementptr i8, ptr %1, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !12
   %15 = uitofp i8 %14 to float
-  %16 = fmul float %15, 0x3F70101020000000
+  %16 = fmul nnan float %15, 0x3F70101020000000
   %17 = getelementptr i8, ptr %13, i64 1
   %18 = load i8, ptr %17, align 1, !tbaa !12
   %19 = uitofp i8 %18 to float
-  %20 = fmul float %19, 0x3F70101020000000
+  %20 = fmul nnan float %19, 0x3F70101020000000
   %21 = getelementptr i8, ptr %13, i64 2
   %22 = load i8, ptr %21, align 1, !tbaa !12
   %23 = uitofp i8 %22 to float
-  %24 = fmul float %23, 0x3F70101020000000
+  %24 = fmul nnan float %23, 0x3F70101020000000
   %25 = getelementptr i8, ptr %13, i64 3
   %26 = load i8, ptr %25, align 1, !tbaa !12
   %27 = uitofp i8 %26 to float
-  %28 = fmul float %27, 0x3F70101020000000
+  %28 = fmul nnan float %27, 0x3F70101020000000
   %29 = fmul float %16, %28
   %30 = fmul float %20, %28
   %31 = fmul float %24, %28
@@ -7008,7 +7008,7 @@ define linkonce_odr hidden void @_ZN11OpenImageIO6v3_1_08PSDInput11cmyk_to_rgbIh
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %50 = load i8, ptr %49, align 1, !tbaa !12
   %51 = uitofp i8 %50 to float
-  %52 = fmul float %51, 2.550000e+02
+  %52 = fmul nnan float %51, 2.550000e+02
   %53 = fadd float %52, 5.000000e-01
   %54 = fcmp ogt float %53, 2.550000e+02
   %.1.i.i.i37 = select i1 %54, float 2.550000e+02, float %53

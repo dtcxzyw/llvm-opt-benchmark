@@ -985,7 +985,7 @@ define dso_local void @stable_init(ptr noundef writeonly captures(none) initiali
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %6, align 4
   %7 = uitofp i32 %1 to double
-  %8 = fmul double %7, 5.000000e-01
+  %8 = fmul nnan double %7, 5.000000e-01
   %9 = fptoui double %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %9, ptr %10, align 8
@@ -1141,7 +1141,7 @@ sentry_find.exit.i:                               ; preds = %.lr.ph.i.i, %48
 stable_resize.exit:                               ; preds = %69, %37
   store ptr %41, ptr %4, align 8
   %70 = uitofp nneg i32 %spec.select.i to double
-  %71 = fmul double %70, 5.000000e-01
+  %71 = fmul nnan double %70, 5.000000e-01
   %72 = fptoui double %71 to i32
   store i32 %72, ptr %31, align 8
   store i32 %spec.select.i, ptr %6, align 4

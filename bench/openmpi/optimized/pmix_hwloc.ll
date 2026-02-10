@@ -2488,7 +2488,7 @@ define internal fastcc i32 @enough_space(ptr noundef readonly captures(none) %0,
 
 6:                                                ; preds = %2
   %7 = uitofp i64 %1 to double
-  %8 = fmul double %7, 5.000000e-02
+  %8 = fmul nnan double %7, 5.000000e-02
   %9 = fptoui double %8 to i64
   %10 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %4, i32 noundef 47) #18
   store i8 0, ptr %10, align 1, !tbaa !39

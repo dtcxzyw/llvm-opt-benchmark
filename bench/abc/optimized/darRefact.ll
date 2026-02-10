@@ -284,7 +284,7 @@ define void @Dar_ManRefPrintStats(ptr noundef readonly captures(none) %0) local_
   %8 = add nsw i32 %.val15, %.val
   %9 = sub nsw i32 %3, %8
   %10 = sitofp i32 %9 to double
-  %11 = fmul double %10, 1.000000e+02
+  %11 = fmul nnan double %10, 1.000000e+02
   %12 = sitofp i32 %3 to double
   %13 = fdiv double %11, %12
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %3, i32 noundef %8, i32 noundef %9, double noundef %13)

@@ -1063,7 +1063,7 @@ define internal i32 @resample_linear_float(ptr noundef captures(none) %0, ptr no
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8, !tbaa !29
   %12 = sitofp i32 %11 to double
-  %13 = fdiv nsz double 1.000000e+00, %12
+  %13 = fdiv nnan nsz double 1.000000e+00, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8, !tbaa !23
   %.not76 = icmp slt i32 %7, %15
@@ -1177,7 +1177,7 @@ define internal i32 @resample_linear_float(ptr noundef captures(none) %0, ptr no
   %.16496 = phi i32 [ %.063.lcssa, %.lr.ph99.split ], [ %.265.lcssa, %._crit_edge92 ]
   %.06695 = phi i32 [ %9, %.lr.ph99.split ], [ %.167, %._crit_edge92 ]
   %58 = sitofp i32 %.06695 to double
-  %59 = fmul nsz double %54, %58
+  %59 = fmul ninf nsz double %54, %58
   %60 = fptrunc nsz double %59 to float
   %61 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
   store float %60, ptr %61, align 4, !tbaa !48
@@ -1475,7 +1475,7 @@ define internal i32 @resample_linear_double(ptr noundef captures(none) %0, ptr n
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load i32, ptr %10, align 8, !tbaa !29
   %12 = sitofp i32 %11 to double
-  %13 = fdiv nsz double 1.000000e+00, %12
+  %13 = fdiv nnan nsz double 1.000000e+00, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i32, ptr %14, align 8, !tbaa !23
   %.not76 = icmp slt i32 %7, %15
@@ -1586,7 +1586,7 @@ define internal i32 @resample_linear_double(ptr noundef captures(none) %0, ptr n
   %.16496 = phi i32 [ %.063.lcssa, %.lr.ph99.split ], [ %.265.lcssa, %._crit_edge92 ]
   %.06695 = phi i32 [ %9, %.lr.ph99.split ], [ %.167, %._crit_edge92 ]
   %55 = sitofp i32 %.06695 to double
-  %56 = fmul nsz double %51, %55
+  %56 = fmul ninf nsz double %51, %55
   %57 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
   store double %56, ptr %57, align 8, !tbaa !59
   %58 = add nsw i32 %25, %.06695

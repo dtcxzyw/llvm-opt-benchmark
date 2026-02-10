@@ -3229,7 +3229,7 @@ define internal void @rcpi_threshold_custom(ptr noundef %0, i8 noundef zeroext %
 
 8:                                                ; preds = %6
   %9 = uitofp i8 %1 to float
-  %10 = fmul float %9, 5.000000e-01
+  %10 = fmul nnan float %9, 5.000000e-01
   %11 = fadd float %10, -1.100000e+02
   %12 = fpext float %11 to double
   %13 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.1729, double noundef %12)

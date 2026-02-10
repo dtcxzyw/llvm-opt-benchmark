@@ -2624,11 +2624,11 @@ _ZN2cv10AutoBufferIfLm264EED2Ev.exit287:          ; preds = %366, %_ZN2cv10AutoB
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define hidden noundef range(i32 0, -2147483648) i32 @_ZN2cv18DISOpticalFlowImpl23autoSelectCoarsestScaleEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1560) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = sitofp i32 %1 to float
-  %4 = fmul float %3, 2.000000e+00
+  %4 = fmul nnan float %3, 2.000000e+00
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8, !tbaa !47
   %7 = sitofp i32 %6 to float
-  %8 = fmul float %7, 5.000000e+00
+  %8 = fmul nnan float %7, 5.000000e+00
   %9 = fdiv float %4, %8
   %10 = tail call noundef float @log2f(float noundef %9) #22, !tbaa !74
   %11 = tail call noundef float @llvm.floor.f32(float %10)
@@ -2643,7 +2643,7 @@ define hidden void @_ZN2cv18DISOpticalFlowImpl28autoSelectPatchSizeAndScalesEi(p
   %4 = load i32, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = sitofp i32 %1 to float
-  %7 = fmul float %6, 2.000000e+00
+  %7 = fmul nnan float %6, 2.000000e+00
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
   switch i32 %4, label %27 [
     i32 1, label %9
@@ -2911,7 +2911,7 @@ define hidden void @_ZNK2cv18DISOpticalFlowImpl26PatchInverseSearch_ParBodyclERK
   %128 = sext i32 %38 to i64
   %wide.trip.count46.i = zext nneg i32 %31 to i64
   %129 = sitofp i32 %31 to float
-  %130 = fmul float %129, %129
+  %130 = fmul nnan float %129, %129
   %131 = icmp sgt i32 %118, 0
   %132 = sitofp i32 %31 to double
   br label %133
@@ -4815,7 +4815,7 @@ _ZNK2cv11_InputArray6getMatEi.exit178:            ; preds = %167, %170
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %178 = load i32, ptr %177, align 8, !tbaa !47
   %179 = sitofp i32 %178 to double
-  %180 = fmul double %179, 4.000000e+00
+  %180 = fmul nnan double %179, 4.000000e+00
   %181 = fdiv double %176, %180
   %182 = call double @log(double noundef %181) #22, !tbaa !74
   %183 = fdiv double %182, 0x3FE62E42FEFA39EF
@@ -5153,7 +5153,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183: ; preds = %20
   %378 = trunc nsw i64 %indvars.iv to i32
   store i32 %378, ptr %290, align 4, !tbaa !139
   %379 = sitofp i32 %365 to double
-  %380 = fmul double %379, 1.250000e-01
+  %380 = fmul nnan double %379, 1.250000e-01
   %381 = call double @llvm.ceil.f64(double %380)
   %382 = fptosi double %381 to i32
   store i32 %382, ptr %291, align 4, !tbaa !140

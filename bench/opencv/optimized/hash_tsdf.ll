@@ -3483,7 +3483,7 @@ _ZN2cvmiIiLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit.i: ; preds = %172
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %196 = trunc i16 %195 to i8
   %197 = sitofp i8 %196 to float
-  %198 = fmul float %197, -7.812500e-03
+  %198 = fmul nnan float %197, -7.812500e-03
   br label %_ZNK2cv5kinfu17HashTSDFVolumeCPU12atVolumeUnitERKNS_3VecIiLi3EEES5_NSt8__detail20_Node_const_iteratorISt4pairIS4_NS0_10VolumeUnitEELb0ELb0EEE.exit
 
 _ZNK2cv5kinfu17HashTSDFVolumeCPU12atVolumeUnitERKNS_3VecIiLi3EEES5_NSt8__detail20_Node_const_iteratorISt4pairIS4_NS0_10VolumeUnitEELb0ELb0EEE.exit: ; preds = %166, %_ZN2cvmiIiLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit.i
@@ -9458,7 +9458,7 @@ _ZNKSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENS
   %275 = call i16 %274(ptr noundef nonnull align 8 dereferenceable(404) %15, ptr noundef nonnull align 4 dereferenceable(12) %12, i32 noundef %271)
   %.sroa.029.0.extract.trunc.i.i.i = trunc i16 %275 to i8
   %276 = sitofp i8 %.sroa.029.0.extract.trunc.i.i.i to float
-  %277 = fmul float %276, -7.812500e-03
+  %277 = fmul nnan float %276, -7.812500e-03
   %278 = load ptr, ptr %94, align 8, !tbaa !473
   %279 = load float, ptr %278, align 4, !tbaa !33
   %280 = icmp ugt i16 %275, 255

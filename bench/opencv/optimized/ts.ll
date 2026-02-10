@@ -1562,7 +1562,7 @@ define hidden noundef i32 @_ZN6cvtest8BaseTest15update_progressEiiid(ptr noundef
   %11 = sub nsw i32 60, %10
   %12 = sitofp i32 %2 to double
   %13 = sitofp i32 %11 to double
-  %14 = fmul double %12, %13
+  %14 = fmul nnan double %12, %13
   %15 = uitofp nneg i32 %3 to double
   %16 = fdiv double %14, %15
   %17 = insertelement <2 x double> poison, double %16, i64 0

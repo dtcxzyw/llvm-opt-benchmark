@@ -301,7 +301,7 @@ define noundef i32 @slamc2_(ptr noundef writeonly captures(none) %0, ptr noundef
   %20 = fptosi float %19 to i32
   store i32 %20, ptr @slamc1_.lbeta, align 4, !tbaa !3
   %21 = sitofp i32 %20 to float
-  %22 = fmul float %21, 5.000000e-01
+  %22 = fmul nnan float %21, 5.000000e-01
   %23 = fdiv float %21, 1.000000e+02
   %24 = fsub float %22, %23
   %25 = fadd float %10, %24
@@ -309,14 +309,14 @@ define noundef i32 @slamc2_(ptr noundef writeonly captures(none) %0, ptr noundef
   %27 = fadd float %22, %23
   %28 = fadd float %10, %27
   %29 = fcmp une float %28, %10
-  %spec.store.select.i = and i1 %26, %29
+  %spec.store.select.i = select i1 %26, i1 %29, i1 false
   store i1 %spec.store.select.i, ptr @slamc1_.lrnd, align 4
   %30 = fadd float %10, %22
   %31 = fadd float %storemerge10.lcssa.i, %22
   %32 = fcmp oeq float %30, %10
   %33 = fcmp ogt float %31, %storemerge10.lcssa.i
   %or.cond15.i = and i1 %32, %33
-  %narrow.i = and i1 %or.cond15.i, %spec.store.select.i
+  %narrow.i = select i1 %or.cond15.i, i1 %spec.store.select.i, i1 false
   %34 = zext i1 %narrow.i to i32
   store i32 %34, ptr @slamc1_.lieee1, align 4, !tbaa !3
   br label %35
@@ -400,9 +400,9 @@ spow_ui.exit:                                     ; preds = %.lr.ph.i44, %45
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.1183215 = phi float [ %70, %.lr.ph ], [ %.1183215.ph, %.lr.ph.preheader ]
-  %63 = fmul float %.1183215, 5.000000e-01
-  %64 = fmul float %.1183215, %.1183215
-  %65 = fmul float %64, 3.200000e+01
+  %63 = fmul nnan float %.1183215, 5.000000e-01
+  %64 = fmul nnan float %.1183215, %.1183215
+  %65 = fmul nnan float %64, 3.200000e+01
   %66 = fadd float %63, %65
   %67 = fsub float 5.000000e-01, %66
   %68 = fadd float %67, 5.000000e-01
@@ -908,7 +908,7 @@ define noundef i32 @slamc1_(ptr noundef writeonly captures(none) %0, ptr noundef
   %15 = fptosi float %14 to i32
   store i32 %15, ptr @slamc1_.lbeta, align 4, !tbaa !3
   %16 = sitofp i32 %15 to float
-  %17 = fmul float %16, 5.000000e-01
+  %17 = fmul nnan float %16, 5.000000e-01
   %18 = fdiv float %16, 1.000000e+02
   %19 = fsub float %17, %18
   %20 = fadd float %5, %19
@@ -916,14 +916,14 @@ define noundef i32 @slamc1_(ptr noundef writeonly captures(none) %0, ptr noundef
   %22 = fadd float %17, %18
   %23 = fadd float %5, %22
   %24 = fcmp une float %23, %5
-  %spec.store.select = and i1 %21, %24
+  %spec.store.select = select i1 %21, i1 %24, i1 false
   store i1 %spec.store.select, ptr @slamc1_.lrnd, align 4
   %25 = fadd float %5, %17
   %26 = fadd float %storemerge10.lcssa, %17
   %27 = fcmp oeq float %25, %5
   %28 = fcmp ogt float %26, %storemerge10.lcssa
   %or.cond15 = and i1 %27, %28
-  %narrow = and i1 %or.cond15, %spec.store.select
+  %narrow = select i1 %or.cond15, i1 %spec.store.select, i1 false
   %29 = zext i1 %narrow to i32
   store i32 %29, ptr @slamc1_.lieee1, align 4, !tbaa !3
   br label %30
@@ -1095,7 +1095,7 @@ define noundef i32 @slamc5_(ptr noundef readonly captures(none) %0, ptr noundef 
   %38 = phi i32 [ %36, %35 ], [ %33, %32 ]
   %39 = load i32, ptr %0, align 4, !tbaa !3
   %40 = sitofp i32 %39 to float
-  %41 = fdiv float 1.000000e+00, %40
+  %41 = fdiv nnan float 1.000000e+00, %40
   %42 = load i32, ptr %1, align 4, !tbaa !3
   %.not5165 = icmp slt i32 %42, 1
   br i1 %.not5165, label %._crit_edge, label %.lr.ph.preheader

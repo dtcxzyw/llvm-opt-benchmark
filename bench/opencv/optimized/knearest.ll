@@ -1903,7 +1903,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit:             ; preds = %8, %23
 
 .lr.ph299:                                        ; preds = %._crit_edge274.us, %.preheader248, %.preheader248.thread394
   %.pn = sitofp i32 %2 to float
-  %124 = fdiv float 1.000000e+00, %.pn
+  %124 = fdiv nnan float 1.000000e+00, %.pn
   %.not227 = icmp eq ptr %5, null
   %125 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 72

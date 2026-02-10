@@ -1326,7 +1326,7 @@ gather_data_for_cel.exit.i:                       ; preds = %.loopexit.i.i, %563
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %595, i32 noundef 16, ptr noundef nonnull @.str.11, i32 noundef %329) #9
   %598 = load i64, ptr %15, align 8, !tbaa !58
   %599 = uitofp i64 %598 to double
-  %600 = fmul nsz double %599, 1.500000e+00
+  %600 = fmul nnan nsz double %599, 1.500000e+00
   %601 = fptoui double %600 to i64
   store i64 %601, ptr %15, align 8, !tbaa !58
   store i32 0, ptr %319, align 8, !tbaa !94

@@ -2008,7 +2008,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %.0.i.i, %55
+  %56 = fmul nnan double %.0.i.i, %55
   %57 = fcmp une double %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 
@@ -5641,7 +5641,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIfE5Pr
   %53 = fadd float %52, 5.000000e-01
   %54 = fptosi float %53 to i32
   %55 = sitofp i32 %54 to float
-  %56 = fmul float %.0.i.i, %55
+  %56 = fmul nnan float %.0.i.i, %55
   %57 = fcmp une float %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEfPSo.exit
 
@@ -26663,7 +26663,7 @@ _ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEv
 _ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i: ; preds = %.split.i.i.i.us.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68
   %.0.i.i.i.i.us.i67 = phi float [ %29, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIfE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68 ], [ 0.000000e+00, %.split.i.i.i.us.i ]
   %.sroa.03.08.us.i.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.03.08.us.i.idx
-  %30 = fmul float %.0.i.i.i.i.us.i67, 1.000000e+06
+  %30 = fmul nnan float %.0.i.i.i.i.us.i67, 1.000000e+06
   %31 = fptosi float %30 to i32
   store i32 %31, ptr %.sroa.03.08.us.i.ptr, align 4, !tbaa !66
   %.sroa.03.08.us.i.add = add nuw nsw i64 %.sroa.03.08.us.i.idx, 4
@@ -31534,7 +31534,7 @@ _ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEv
 _ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i: ; preds = %.split.i.i.i.us.i, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68
   %.0.i.i.i.i.us.i67 = phi double [ %27, %_ZZN12_GLOBAL__N_146UniformRealDistributionTest_StabilityTest_TestIdE8TestBodyEvENKUlvE_clEv.exit.loopexit.us.i.split.loop.exit68 ], [ 0.000000e+00, %.split.i.i.i.us.i ]
   %.sroa.03.08.us.i.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.03.08.us.i.idx
-  %28 = fmul double %.0.i.i.i.i.us.i67, 1.000000e+06
+  %28 = fmul nnan double %.0.i.i.i.i.us.i67, 1.000000e+06
   %29 = fptosi double %28 to i32
   store i32 %29, ptr %.sroa.03.08.us.i.ptr, align 4, !tbaa !66
   %.sroa.03.08.us.i.add = add nuw nsw i64 %.sroa.03.08.us.i.idx, 4
@@ -31824,7 +31824,7 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 .noexc:                                           ; preds = %.split.i.i, %.noexc.split.loop.exit70
   %.0.i.i.i69 = phi x86_fp80 [ %28, %.noexc.split.loop.exit70 ], [ 0xK00000000000000000000, %.split.i.i ]
   %.sroa.03.07.i.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.03.07.i.idx
-  %29 = fmul x86_fp80 %.0.i.i.i69, 0xK4012F424000000000000
+  %29 = fmul nnan x86_fp80 %.0.i.i.i69, 0xK4012F424000000000000
   %30 = fptosi x86_fp80 %29 to i32
   store i32 %30, ptr %.sroa.03.07.i.ptr, align 4, !tbaa !66
   %.sroa.03.07.i.add = add nuw nsw i64 %.sroa.03.07.i.idx, 4

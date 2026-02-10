@@ -92,7 +92,7 @@ define hidden range(i32 0, 256) i32 @awt_color_matchGS(i32 noundef %0, i32 nound
   %14 = load ptr, ptr %13, align 8
   %15 = uitofp nneg i32 %6 to double
   %16 = uitofp nneg i32 %8 to double
-  %17 = fmul double %16, 5.870000e-01
+  %17 = fmul nnan double %16, 5.870000e-01
   %18 = tail call double @llvm.fmuladd.f64(double %15, double 2.990000e-01, double %17)
   %19 = uitofp nneg i32 %10 to double
   %20 = tail call double @llvm.fmuladd.f64(double %19, double 1.140000e-01, double %18)

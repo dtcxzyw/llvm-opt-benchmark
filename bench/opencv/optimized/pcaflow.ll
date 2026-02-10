@@ -1680,7 +1680,7 @@ _ZNK2cv11_InputArray6getMatEi.exit113:            ; preds = %321, %318
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %377 = uitofp nneg i32 %.0152.i to double
-  %378 = fmul double %377, 0x400921FB54442D18
+  %378 = fmul nnan double %377, 0x400921FB54442D18
   %379 = fdiv double %378, %333
   br label %385
 
@@ -1705,7 +1705,7 @@ _ZNK2cv11_InputArray6getMatEi.exit113:            ; preds = %321, %318
   %390 = fptrunc double %389 to float
   %391 = call float @cosf(float noundef %390) #24, !tbaa !9
   %392 = uitofp nneg i32 %.01.i to double
-  %393 = fmul double %392, 0x400921FB54442D18
+  %393 = fmul nnan double %392, 0x400921FB54442D18
   %394 = fdiv double %393, %334
   %395 = load float, ptr %370, align 4, !tbaa !66
   %396 = fpext float %395 to double
@@ -2755,7 +2755,7 @@ _ZNK2cv11_InputArray6getMatEi.exit137:            ; preds = %373, %370
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %429 = uitofp nneg i32 %.0152.i to double
-  %430 = fmul double %429, 0x400921FB54442D18
+  %430 = fmul nnan double %429, 0x400921FB54442D18
   %431 = fdiv double %430, %385
   br label %437
 
@@ -2780,7 +2780,7 @@ _ZNK2cv11_InputArray6getMatEi.exit137:            ; preds = %373, %370
   %442 = fptrunc double %441 to float
   %443 = call float @cosf(float noundef %442) #24, !tbaa !9
   %444 = uitofp nneg i32 %.01.i to double
-  %445 = fmul double %444, 0x400921FB54442D18
+  %445 = fmul nnan double %444, 0x400921FB54442D18
   %446 = fdiv double %445, %386
   %447 = load float, ptr %422, align 4, !tbaa !66
   %448 = fpext float %447 to double

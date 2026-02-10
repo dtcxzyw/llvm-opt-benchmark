@@ -409,14 +409,14 @@ define internal void @outputHandleDone(ptr noundef %0, ptr readnone captures(non
   %16 = getelementptr inbounds %struct.GLFWvidmode, ptr %12, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !118
   %18 = sitofp i32 %17 to float
-  %19 = fmul float %18, 0x4039666660000000
+  %19 = fmul nnan float %18, 0x4039666660000000
   %20 = fdiv float %19, 9.600000e+01
   %21 = fptosi float %20 to i32
   store i32 %21, ptr %3, align 8, !tbaa !124
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !119
   %24 = sitofp i32 %23 to float
-  %25 = fmul float %24, 0x4039666660000000
+  %25 = fmul nnan float %24, 0x4039666660000000
   %26 = fdiv float %25, 9.600000e+01
   %27 = fptosi float %26 to i32
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 140

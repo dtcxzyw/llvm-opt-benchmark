@@ -1614,7 +1614,7 @@ Wln_NtkIncrementTravId.exit156:                   ; preds = %Wln_NtkIncrementTra
   tail call void @Wln_NtkCreateRefs(ptr noundef nonnull %0)
   %.val127 = load i32, ptr %68, align 4, !tbaa !21
   %92 = uitofp nneg i32 %90 to double
-  %93 = fmul double %92, 1.000000e+02
+  %93 = fmul nnan double %92, 1.000000e+02
   %94 = sitofp i32 %.val127 to double
   %95 = fdiv double %93, %94
   %96 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %.val127, i32 noundef %90, double noundef %95)

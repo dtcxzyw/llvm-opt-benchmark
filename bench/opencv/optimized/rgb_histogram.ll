@@ -399,7 +399,7 @@ define hidden noundef float @_ZN3vas2ot12RgbHistogram17ComputeSimilarityERKN2cv3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 21:                                               ; preds = %._crit_edge
-  %22 = fmul float %19, %20
+  %22 = fmul nnan float %19, %20
   %23 = tail call float @sqrtf(float noundef %22) #12, !tbaa !11
   %24 = fdiv float %18, %23
   br label %._crit_edge.thread

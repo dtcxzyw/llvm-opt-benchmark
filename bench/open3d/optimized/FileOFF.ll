@@ -1156,7 +1156,7 @@ _ZNSirsERf.exit130:                               ; preds = %_ZNSirsERf.exit129
 
 251:                                              ; preds = %249
   %252 = sitofp i64 %244 to double
-  %253 = fmul double %252, 1.000000e+02
+  %253 = fmul nnan double %252, 1.000000e+02
   %254 = uitofp nneg i64 %247 to double
   %255 = fdiv double %253, %254
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i.i
@@ -1494,7 +1494,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjE
 
 372:                                              ; preds = %370
   %373 = sitofp i64 %365 to double
-  %374 = fmul double %373, 1.000000e+02
+  %374 = fmul nnan double %373, 1.000000e+02
   %375 = uitofp nneg i64 %368 to double
   %376 = fdiv double %374, %375
   br label %_ZN6open3d7utility24CountingProgressReporter10CallUpdateEd.exit.i.i150

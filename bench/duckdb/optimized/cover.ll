@@ -1504,8 +1504,8 @@ define void @_ZN11duckdb_zstd16COVER_selectDictEPhmmPKhPKmjmmNS_20ZDICT_cover_pa
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %17 = load i32, ptr %16, align 4, !tbaa !76
   %18 = uitofp i32 %17 to double
-  %19 = fdiv double %18, 1.000000e+02
-  %20 = fadd double %19, 1.000000e+00
+  %19 = fdiv nnan double %18, 1.000000e+02
+  %20 = fadd nnan double %19, 1.000000e+00
   %21 = icmp ne ptr %14, null
   %22 = icmp ne ptr %15, null
   %or.cond = and i1 %21, %22

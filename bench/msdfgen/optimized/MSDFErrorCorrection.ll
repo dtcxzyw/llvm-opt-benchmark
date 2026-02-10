@@ -9603,7 +9603,7 @@ if.then.i:                                        ; preds = %land.lhs.true11.i, 
   br i1 %or.cond22.i, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit, label %land.lhs.true23.i
 
 land.lhs.true23.i:                                ; preds = %if.then.i
-  %sub13.i = fsub double 1.000000e+00, %2
+  %sub13.i = fsub nnan double 1.000000e+00, %2
   %mul15.i = fmul double %sub13.i, %1
   %sub26.i = fsub double %conv25.i, %mul15.i
   %cmp27.i = fcmp ugt double %sub26.i, %conv.i71
@@ -9667,7 +9667,7 @@ land.lhs.true11.i111:                             ; preds = %lor.lhs.false10.i10
   br i1 %cmp12.i120, label %if.then.i122, label %if.end
 
 if.then.i122:                                     ; preds = %land.lhs.true11.i111, %lor.lhs.false.i102, %if.then18
-  %sub.i = fsub double %2, %.tEx0
+  %sub.i = fsub nnan double %2, %.tEx0
   %mul.i123 = fmul double %sub.i, %1
   %conv.i124 = fpext float %conv17.i to double
   %conv16.i125 = fpext float %em.sroa.0.1 to double
@@ -9679,7 +9679,7 @@ if.then.i122:                                     ; preds = %land.lhs.true11.i11
   br i1 %or.cond22.i130, label %if.end, label %land.lhs.true23.i131
 
 land.lhs.true23.i131:                             ; preds = %if.then.i122
-  %sub13.i132 = fsub double %tEx0., %2
+  %sub13.i132 = fsub nnan double %tEx0., %2
   %mul15.i133 = fmul double %sub13.i132, %1
   %conv25.i134 = fpext float %em.sroa.6.1 to double
   %sub26.i135 = fsub double %conv25.i134, %mul15.i133
@@ -9745,7 +9745,7 @@ land.lhs.true11.i180:                             ; preds = %lor.lhs.false10.i17
   br i1 %cmp12.i189, label %if.then.i191, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit211
 
 if.then.i191:                                     ; preds = %land.lhs.true11.i180, %lor.lhs.false.i171, %if.then44
-  %sub.i192 = fsub double %2, %.tEx1
+  %sub.i192 = fsub nnan double %2, %.tEx1
   %mul.i193 = fmul double %sub.i192, %1
   %conv.i194 = fpext float %conv17.i to double
   %conv16.i195 = fpext float %em.sroa.0.0 to double
@@ -9757,7 +9757,7 @@ if.then.i191:                                     ; preds = %land.lhs.true11.i18
   br i1 %or.cond22.i200, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit211, label %land.lhs.true23.i201
 
 land.lhs.true23.i201:                             ; preds = %if.then.i191
-  %sub13.i202 = fsub double %tEx1., %2
+  %sub13.i202 = fsub nnan double %tEx1., %2
   %mul15.i203 = fmul double %sub13.i202, %1
   %conv25.i204 = fpext float %em.sroa.6.0 to double
   %sub26.i205 = fsub double %conv25.i204, %mul15.i203
@@ -10442,7 +10442,7 @@ if.then.i:                                        ; preds = %land.lhs.true11.i, 
   br i1 %or.cond22.i, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit, label %land.lhs.true23.i
 
 land.lhs.true23.i:                                ; preds = %if.then.i
-  %sub13.i = fsub double 1.000000e+00, %0
+  %sub13.i = fsub nnan double 1.000000e+00, %0
   %mul15.i = fmul double %sub13.i, %17
   %sub26.i = fsub double %conv25.i, %mul15.i
   %cmp27.i = fcmp ugt double %sub26.i, %conv.i71
@@ -10508,7 +10508,7 @@ land.lhs.true11.i111:                             ; preds = %lor.lhs.false10.i10
   br i1 %cmp12.i120, label %if.then.i122, label %if.end
 
 if.then.i122:                                     ; preds = %land.lhs.true11.i111, %lor.lhs.false.i102, %if.then18
-  %sub.i = fsub double %0, %.tEx0
+  %sub.i = fsub nnan double %0, %.tEx0
   %25 = load double, ptr %artifactClassifier, align 8
   %mul.i123 = fmul double %sub.i, %25
   %conv.i124 = fpext float %conv17.i to double
@@ -10521,7 +10521,7 @@ if.then.i122:                                     ; preds = %land.lhs.true11.i11
   br i1 %or.cond22.i130, label %if.end, label %land.lhs.true23.i131
 
 land.lhs.true23.i131:                             ; preds = %if.then.i122
-  %sub13.i132 = fsub double %tEx0., %0
+  %sub13.i132 = fsub nnan double %tEx0., %0
   %mul15.i133 = fmul double %sub13.i132, %25
   %conv25.i134 = fpext float %em.sroa.6.1 to double
   %sub26.i135 = fsub double %conv25.i134, %mul15.i133
@@ -10589,7 +10589,7 @@ land.lhs.true11.i180:                             ; preds = %lor.lhs.false10.i17
   br i1 %cmp12.i189, label %if.then.i191, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit211
 
 if.then.i191:                                     ; preds = %land.lhs.true11.i180, %lor.lhs.false.i171, %if.then44
-  %sub.i192 = fsub double %0, %.tEx1
+  %sub.i192 = fsub nnan double %0, %.tEx1
   %34 = load double, ptr %artifactClassifier, align 8
   %mul.i193 = fmul double %sub.i192, %34
   %conv.i194 = fpext float %conv17.i to double
@@ -10602,7 +10602,7 @@ if.then.i191:                                     ; preds = %land.lhs.true11.i18
   br i1 %or.cond22.i200, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit211, label %land.lhs.true23.i201
 
 land.lhs.true23.i201:                             ; preds = %if.then.i191
-  %sub13.i202 = fsub double %tEx1., %0
+  %sub13.i202 = fsub nnan double %tEx1., %0
   %mul15.i203 = fmul double %sub13.i202, %34
   %conv25.i204 = fpext float %em.sroa.6.0 to double
   %sub26.i205 = fsub double %conv25.i204, %mul15.i203
@@ -11092,7 +11092,7 @@ if.then.i:                                        ; preds = %land.lhs.true11.i, 
   br i1 %or.cond22.i, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit, label %land.lhs.true23.i
 
 land.lhs.true23.i:                                ; preds = %if.then.i
-  %sub13.i = fsub double 1.000000e+00, %0
+  %sub13.i = fsub nnan double 1.000000e+00, %0
   %mul15.i = fmul double %sub13.i, %17
   %sub26.i = fsub double %conv25.i, %mul15.i
   %cmp27.i = fcmp ugt double %sub26.i, %conv.i71
@@ -11158,7 +11158,7 @@ land.lhs.true11.i111:                             ; preds = %lor.lhs.false10.i10
   br i1 %cmp12.i120, label %if.then.i122, label %if.end
 
 if.then.i122:                                     ; preds = %land.lhs.true11.i111, %lor.lhs.false.i102, %if.then18
-  %sub.i = fsub double %0, %.tEx0
+  %sub.i = fsub nnan double %0, %.tEx0
   %25 = load double, ptr %artifactClassifier, align 8
   %mul.i123 = fmul double %sub.i, %25
   %conv.i124 = fpext float %conv17.i to double
@@ -11171,7 +11171,7 @@ if.then.i122:                                     ; preds = %land.lhs.true11.i11
   br i1 %or.cond22.i130, label %if.end, label %land.lhs.true23.i131
 
 land.lhs.true23.i131:                             ; preds = %if.then.i122
-  %sub13.i132 = fsub double %tEx0., %0
+  %sub13.i132 = fsub nnan double %tEx0., %0
   %mul15.i133 = fmul double %sub13.i132, %25
   %conv25.i134 = fpext float %em.sroa.6.1 to double
   %sub26.i135 = fsub double %conv25.i134, %mul15.i133
@@ -11239,7 +11239,7 @@ land.lhs.true11.i180:                             ; preds = %lor.lhs.false10.i17
   br i1 %cmp12.i189, label %if.then.i191, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit211
 
 if.then.i191:                                     ; preds = %land.lhs.true11.i180, %lor.lhs.false.i171, %if.then44
-  %sub.i192 = fsub double %0, %.tEx1
+  %sub.i192 = fsub nnan double %0, %.tEx1
   %34 = load double, ptr %artifactClassifier, align 8
   %mul.i193 = fmul double %sub.i192, %34
   %conv.i194 = fpext float %conv17.i to double
@@ -11252,7 +11252,7 @@ if.then.i191:                                     ; preds = %land.lhs.true11.i18
   br i1 %or.cond22.i200, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit211, label %land.lhs.true23.i201
 
 land.lhs.true23.i201:                             ; preds = %if.then.i191
-  %sub13.i202 = fsub double %tEx1., %0
+  %sub13.i202 = fsub nnan double %tEx1., %0
   %mul15.i203 = fmul double %sub13.i202, %34
   %conv25.i204 = fpext float %em.sroa.6.0 to double
   %sub26.i205 = fsub double %conv25.i204, %mul15.i203
@@ -11727,7 +11727,7 @@ if.then.i:                                        ; preds = %land.lhs.true11.i, 
   br i1 %or.cond22.i, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit, label %land.lhs.true23.i
 
 land.lhs.true23.i:                                ; preds = %if.then.i
-  %sub13.i = fsub double 1.000000e+00, %0
+  %sub13.i = fsub nnan double 1.000000e+00, %0
   %mul15.i = fmul double %sub13.i, %17
   %sub26.i = fsub double %conv25.i, %mul15.i
   %cmp27.i = fcmp ugt double %sub26.i, %conv.i71
@@ -11793,7 +11793,7 @@ land.lhs.true11.i111:                             ; preds = %lor.lhs.false10.i10
   br i1 %cmp12.i120, label %if.then.i122, label %if.end
 
 if.then.i122:                                     ; preds = %land.lhs.true11.i111, %lor.lhs.false.i102, %if.then18
-  %sub.i = fsub double %0, %.tEx0
+  %sub.i = fsub nnan double %0, %.tEx0
   %25 = load double, ptr %artifactClassifier, align 8
   %mul.i123 = fmul double %sub.i, %25
   %conv.i124 = fpext float %conv17.i to double
@@ -11806,7 +11806,7 @@ if.then.i122:                                     ; preds = %land.lhs.true11.i11
   br i1 %or.cond22.i130, label %if.end, label %land.lhs.true23.i131
 
 land.lhs.true23.i131:                             ; preds = %if.then.i122
-  %sub13.i132 = fsub double %tEx0., %0
+  %sub13.i132 = fsub nnan double %tEx0., %0
   %mul15.i133 = fmul double %sub13.i132, %25
   %conv25.i134 = fpext float %em.sroa.6.1 to double
   %sub26.i135 = fsub double %conv25.i134, %mul15.i133
@@ -11874,7 +11874,7 @@ land.lhs.true11.i180:                             ; preds = %lor.lhs.false10.i17
   br i1 %cmp12.i189, label %if.then.i191, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit211
 
 if.then.i191:                                     ; preds = %land.lhs.true11.i180, %lor.lhs.false.i171, %if.then44
-  %sub.i192 = fsub double %0, %.tEx1
+  %sub.i192 = fsub nnan double %0, %.tEx1
   %34 = load double, ptr %artifactClassifier, align 8
   %mul.i193 = fmul double %sub.i192, %34
   %conv.i194 = fpext float %conv17.i to double
@@ -11887,7 +11887,7 @@ if.then.i191:                                     ; preds = %land.lhs.true11.i18
   br i1 %or.cond22.i200, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit211, label %land.lhs.true23.i201
 
 land.lhs.true23.i201:                             ; preds = %if.then.i191
-  %sub13.i202 = fsub double %tEx1., %0
+  %sub13.i202 = fsub nnan double %tEx1., %0
   %mul15.i203 = fmul double %sub13.i202, %34
   %conv25.i204 = fpext float %em.sroa.6.0 to double
   %sub26.i205 = fsub double %conv25.i204, %mul15.i203
@@ -12275,7 +12275,7 @@ if.then.i:                                        ; preds = %land.lhs.true11.i, 
   br i1 %or.cond22.i, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit, label %land.lhs.true23.i
 
 land.lhs.true23.i:                                ; preds = %if.then.i
-  %sub13.i = fsub double 1.000000e+00, %0
+  %sub13.i = fsub nnan double 1.000000e+00, %0
   %mul15.i = fmul double %sub13.i, %17
   %sub26.i = fsub double %conv25.i, %mul15.i
   %cmp27.i = fcmp ugt double %sub26.i, %conv.i71
@@ -12341,7 +12341,7 @@ land.lhs.true11.i111:                             ; preds = %lor.lhs.false10.i10
   br i1 %cmp12.i120, label %if.then.i122, label %if.end
 
 if.then.i122:                                     ; preds = %land.lhs.true11.i111, %lor.lhs.false.i102, %if.then18
-  %sub.i = fsub double %0, %.tEx0
+  %sub.i = fsub nnan double %0, %.tEx0
   %25 = load double, ptr %artifactClassifier, align 8
   %mul.i123 = fmul double %sub.i, %25
   %conv.i124 = fpext float %conv17.i to double
@@ -12354,7 +12354,7 @@ if.then.i122:                                     ; preds = %land.lhs.true11.i11
   br i1 %or.cond22.i130, label %if.end, label %land.lhs.true23.i131
 
 land.lhs.true23.i131:                             ; preds = %if.then.i122
-  %sub13.i132 = fsub double %tEx0., %0
+  %sub13.i132 = fsub nnan double %tEx0., %0
   %mul15.i133 = fmul double %sub13.i132, %25
   %conv25.i134 = fpext float %em.sroa.6.1 to double
   %sub26.i135 = fsub double %conv25.i134, %mul15.i133
@@ -12422,7 +12422,7 @@ land.lhs.true11.i180:                             ; preds = %lor.lhs.false10.i17
   br i1 %cmp12.i189, label %if.then.i191, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit211
 
 if.then.i191:                                     ; preds = %land.lhs.true11.i180, %lor.lhs.false.i171, %if.then44
-  %sub.i192 = fsub double %0, %.tEx1
+  %sub.i192 = fsub nnan double %0, %.tEx1
   %34 = load double, ptr %artifactClassifier, align 8
   %mul.i193 = fmul double %sub.i192, %34
   %conv.i194 = fpext float %conv17.i to double
@@ -12435,7 +12435,7 @@ if.then.i191:                                     ; preds = %land.lhs.true11.i18
   br i1 %or.cond22.i200, label %_ZNK7msdfgen22BaseArtifactClassifier9rangeTestEdddfff.exit211, label %land.lhs.true23.i201
 
 land.lhs.true23.i201:                             ; preds = %if.then.i191
-  %sub13.i202 = fsub double %tEx1., %0
+  %sub13.i202 = fsub nnan double %tEx1., %0
   %mul15.i203 = fmul double %sub13.i202, %34
   %conv25.i204 = fpext float %em.sroa.6.0 to double
   %sub26.i205 = fsub double %conv25.i204, %mul15.i203

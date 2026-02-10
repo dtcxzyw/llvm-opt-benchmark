@@ -10043,7 +10043,7 @@ define noundef double @_ZNK10open_spiel9goofspiel13GoofspielGame10MaxUtilityEv(p
   %14 = load i32, ptr %13, align 8
   %15 = add nsw i32 %14, -1
   %16 = sitofp i32 %15 to double
-  %17 = fmul double %16, %12
+  %17 = fmul nnan double %16, %12
   %18 = sitofp i32 %14 to double
   %19 = fdiv double %17, %18
   br label %35

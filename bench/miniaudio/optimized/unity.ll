@@ -15345,7 +15345,7 @@ define void @ma_pcm_u8_to_f32(ptr noundef writeonly captures(none) %0, ptr nound
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.0.i7
   %6 = load i8, ptr %5, align 1, !tbaa !7
   %7 = uitofp i8 %6 to float
-  %8 = fmul float %7, 0x3F80101020000000
+  %8 = fmul nnan float %7, 0x3F80101020000000
   %9 = fadd float %8, -1.000000e+00
   %10 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7
   store float %9, ptr %10, align 4, !tbaa !339
@@ -15663,7 +15663,7 @@ define void @ma_pcm_s16_to_f32(ptr noundef writeonly captures(none) %0, ptr noun
   %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.0.i7
   %6 = load i16, ptr %5, align 2, !tbaa !334
   %7 = sitofp i16 %6 to float
-  %8 = fmul float %7, 0x3F00000000000000
+  %8 = fmul nnan float %7, 0x3F00000000000000
   %9 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7
   store float %8, ptr %9, align 4, !tbaa !339
   %10 = add nuw i64 %.0.i7, 1
@@ -16067,7 +16067,7 @@ define void @ma_pcm_s24_to_f32(ptr noundef writeonly captures(none) %0, ptr noun
   %14 = or disjoint i32 %13, %9
   %15 = ashr exact i32 %14, 8
   %16 = sitofp i32 %15 to float
-  %17 = fmul float %16, 0x3E80000000000000
+  %17 = fmul nnan float %16, 0x3E80000000000000
   %18 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7
   store float %17, ptr %18, align 4, !tbaa !339
   %19 = add nuw i64 %.0.i7, 1
@@ -16462,7 +16462,7 @@ define void @ma_pcm_s32_to_f32(ptr noundef writeonly captures(none) %0, ptr noun
   %5 = getelementptr inbounds nuw i32, ptr %1, i64 %.0.i7
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = sitofp i32 %6 to double
-  %8 = fmul double %7, 0x3E00000000000000
+  %8 = fmul nnan double %7, 0x3E00000000000000
   %9 = fptrunc double %8 to float
   %10 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7
   store float %9, ptr %10, align 4, !tbaa !339
@@ -17475,7 +17475,7 @@ define void @ma_pcm_convert(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i7.i103
   %46 = load i8, ptr %45, align 1, !tbaa !7
   %47 = uitofp i8 %46 to float
-  %48 = fmul float %47, 0x3F80101020000000
+  %48 = fmul nnan float %47, 0x3F80101020000000
   %49 = fadd float %48, -1.000000e+00
   %50 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7.i103
   store float %49, ptr %50, align 4, !tbaa !339
@@ -17543,7 +17543,7 @@ define void @ma_pcm_convert(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
   %74 = getelementptr inbounds nuw i16, ptr %2, i64 %.0.i7.i115
   %75 = load i16, ptr %74, align 2, !tbaa !334
   %76 = sitofp i16 %75 to float
-  %77 = fmul float %76, 0x3F00000000000000
+  %77 = fmul nnan float %76, 0x3F00000000000000
   %78 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7.i115
   store float %77, ptr %78, align 4, !tbaa !339
   %79 = add nuw i64 %.0.i7.i115, 1
@@ -17606,7 +17606,7 @@ define void @ma_pcm_convert(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
   %106 = or disjoint i32 %105, %101
   %107 = ashr exact i32 %106, 8
   %108 = sitofp i32 %107 to float
-  %109 = fmul float %108, 0x3E80000000000000
+  %109 = fmul nnan float %108, 0x3E80000000000000
   %110 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7.i123
   store float %109, ptr %110, align 4, !tbaa !339
   %111 = add nuw i64 %.0.i7.i123, 1
@@ -17663,7 +17663,7 @@ define void @ma_pcm_convert(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
   %130 = getelementptr inbounds nuw i32, ptr %2, i64 %.0.i7.i131
   %131 = load i32, ptr %130, align 4, !tbaa !3
   %132 = sitofp i32 %131 to double
-  %133 = fmul double %132, 0x3E00000000000000
+  %133 = fmul nnan double %132, 0x3E00000000000000
   %134 = fptrunc double %133 to float
   %135 = getelementptr inbounds nuw float, ptr %0, i64 %.0.i7.i131
   store float %134, ptr %135, align 4, !tbaa !339
@@ -20030,7 +20030,7 @@ cdce.end10.i.i:                                   ; preds = %cdce.call189, %cdce
   %.sink288.in = phi i32 [ %143, %141 ], [ %139, %138 ]
   %.sink288 = uitofp i32 %.sink288.in to double
   %147 = uitofp i32 %.sink290 to double
-  %148 = fdiv double 0x400921FB54442D18, %147
+  %148 = fdiv nnan double 0x400921FB54442D18, %147
   %149 = fmul double %148, %.sink288
   %150 = fsub double 0x3FF921FB54442D18, %149
   %151 = call double @sin(double noundef %150) #66, !tbaa !3
@@ -22536,7 +22536,7 @@ cdce.end10.i.i:                                   ; preds = %cdce.call190, %cdce
   %.sink289.in = phi i32 [ %143, %141 ], [ %139, %138 ]
   %.sink289 = uitofp i32 %.sink289.in to double
   %147 = uitofp i32 %.sink291 to double
-  %148 = fdiv double 0x400921FB54442D18, %147
+  %148 = fdiv nnan double 0x400921FB54442D18, %147
   %149 = fmul double %148, %.sink289
   %150 = fsub double 0x3FF921FB54442D18, %149
   %151 = call double @sin(double noundef %150) #66, !tbaa !3
@@ -23703,7 +23703,7 @@ ma_zero_memory_default.exit17.i:                  ; preds = %ma_zero_memory_defa
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %66, ptr %67, align 8, !tbaa !7
   %68 = fdiv double 0.000000e+00, %23
-  %69 = fmul double %68, 1.638400e+04
+  %69 = fmul ninf double %68, 1.638400e+04
   %70 = fptosi double %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 12
   store i32 %70, ptr %71, align 4, !tbaa !7
@@ -23951,7 +23951,7 @@ define range(i32 -3, 1) i32 @ma_bpf2_reinit(ptr noundef readonly captures(addres
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %55, ptr %56, align 8, !tbaa !7
   %57 = fdiv double 0.000000e+00, %23
-  %58 = fmul double %57, 1.638400e+04
+  %58 = fmul ninf double %57, 1.638400e+04
   %59 = fptosi double %58 to i32
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %59, ptr %60, align 4, !tbaa !7
@@ -28515,7 +28515,7 @@ define range(i32 -2, 1) i32 @ma_panner_process_pcm_frames(ptr noundef readonly c
   br i1 %100, label %101, label %114
 
 101:                                              ; preds = %99
-  %102 = fsub float 1.000000e+00, %17
+  %102 = fsub nnan float 1.000000e+00, %17
   %.not44.i.i = icmp eq i64 %3, 0
   br i1 %.not44.i.i, label %ma_stereo_balance_pcm_frames.exit, label %.lr.ph43.i.i
 
@@ -30983,7 +30983,7 @@ ma_spatializer_get_cone.exit:                     ; preds = %ma_attenuation_inve
   %147 = fneg float %134
   %148 = fneg float %133
   %149 = bitcast i32 %140 to float
-  %150 = fmul float %138, 5.000000e-01
+  %150 = fmul nnan float %138, 5.000000e-01
   %151 = fpext float %150 to double
   %152 = fsub double 0x3FF921FB54442D18, %151
   %153 = call double @sin(double noundef %152) #66, !tbaa !3
@@ -31030,7 +31030,7 @@ ma_spatializer_get_cone.exit:                     ; preds = %ma_attenuation_inve
   %182 = load float, ptr %181, align 8, !tbaa !764
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %184 = load float, ptr %183, align 4, !tbaa !765
-  %185 = fmul float %175, 5.000000e-01
+  %185 = fmul nnan float %175, 5.000000e-01
   %186 = fpext float %185 to double
   %187 = fsub double 0x3FF921FB54442D18, %186
   %188 = call double @sin(double noundef %187) #66, !tbaa !3
@@ -31750,7 +31750,7 @@ ma_channel_map_get_channel.exit.i347:             ; preds = %ma_channel_map_get_
 
 ._crit_edge.i:                                    ; preds = %ma_channel_map_get_channel.exit.i347
   %87 = uitofp i32 %spec.select.i348 to float
-  %88 = fdiv float 1.000000e+00, %87
+  %88 = fdiv nnan float 1.000000e+00, %87
   %.not380.i = icmp eq i64 %6, 0
   br i1 %.not380.i, label %.critedge334, label %.preheader305.us.i
 
@@ -31760,7 +31760,7 @@ ma_channel_map_get_channel.exit.i347:             ; preds = %ma_channel_map_get_
 
 .preheader305.lr.ph.split.us.thread.i:            ; preds = %._crit_edge.thread.i
   %89 = uitofp i32 %spec.select.us.i350 to float
-  %90 = fdiv float 1.000000e+00, %89
+  %90 = fdiv nnan float 1.000000e+00, %89
   %91 = zext i32 %2 to i64
   br label %.preheader305.us.us.i
 
@@ -34316,7 +34316,7 @@ ma_gcf_u32.exit:                                  ; preds = %16
   %. = tail call i32 @llvm.umax.i32(i32 %19, i32 %20)
   %25 = tail call i32 @llvm.umin.i32(i32 %19, i32 %20)
   %26 = uitofp i32 %25 to double
-  %27 = fmul double %26, 5.000000e-01
+  %27 = fmul nnan double %26, 5.000000e-01
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %29 = load double, ptr %28, align 8, !tbaa !875
   %30 = fmul double %27, %29
@@ -35777,7 +35777,7 @@ ma_gcf_u32.exit.i:                                ; preds = %13
   %..i = tail call i32 @llvm.umax.i32(i32 %17, i32 %18)
   %23 = tail call i32 @llvm.umin.i32(i32 %17, i32 %18)
   %24 = uitofp nneg i32 %23 to double
-  %25 = fmul double %24, 5.000000e-01
+  %25 = fmul nnan double %24, 5.000000e-01
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load double, ptr %26, align 8, !tbaa !875
   %28 = fmul double %25, %27
@@ -37972,7 +37972,7 @@ ma_channel_map_get_channel.exit.i.i320:           ; preds = %471, %ma_channel_ma
   %481 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %482 = load i32, ptr %5, align 4
   %483 = zext i32 %482 to i64
-  %484 = fmul float %479, 4.096000e+03
+  %484 = fmul nnan float %479, 4.096000e+03
   %485 = fptosi float %484 to i32
   br label %486
 
@@ -51445,7 +51445,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit.i:         ; preds = %32, %38
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 %.01114.i.i.i
   %65 = load i8, ptr %64, align 1, !tbaa !7
   %66 = uitofp i8 %65 to float
-  %67 = fmul float %66, 0x3F80101020000000
+  %67 = fmul nnan float %66, 0x3F80101020000000
   %68 = fadd float %67, -1.000000e+00
   %69 = getelementptr inbounds nuw i8, ptr %.015.i.i.i, i64 4
   store float %68, ptr %.015.i.i.i, align 4, !tbaa !339
@@ -51463,7 +51463,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit.i:         ; preds = %32, %38
   %72 = getelementptr inbounds nuw i16, ptr %8, i64 %.012.i.i.i
   %73 = load i16, ptr %72, align 2, !tbaa !334
   %74 = sitofp i16 %73 to float
-  %75 = fmul float %74, 0x3F00000000000000
+  %75 = fmul nnan float %74, 0x3F00000000000000
   %76 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i, i64 4
   store float %75, ptr %.0811.i.i.i, align 4, !tbaa !339
   %77 = add nuw i64 %.012.i.i.i, 1
@@ -51489,7 +51489,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit.i:         ; preds = %32, %38
   %88 = or disjoint i32 %87, %83
   %89 = ashr exact i32 %88, 8
   %90 = sitofp i32 %89 to double
-  %91 = fmul double %90, 0x3E80000000000000
+  %91 = fmul nnan double %90, 0x3E80000000000000
   %92 = fptrunc double %91 to float
   %93 = getelementptr inbounds nuw i8, ptr %.020.i.i.i, i64 4
   store float %92, ptr %.020.i.i.i, align 4, !tbaa !339
@@ -51507,7 +51507,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit.i:         ; preds = %32, %38
   %96 = getelementptr inbounds nuw i32, ptr %8, i64 %.012.i45.i.i
   %97 = load i32, ptr %96, align 4, !tbaa !3
   %98 = sitofp i32 %97 to double
-  %99 = fmul double %98, 0x3E00000000000000
+  %99 = fmul nnan double %98, 0x3E00000000000000
   %100 = fptrunc double %99 to float
   %101 = getelementptr inbounds nuw i8, ptr %.0811.i46.i.i, i64 4
   store float %100, ptr %.0811.i46.i.i, align 4, !tbaa !339
@@ -51551,7 +51551,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit.i:         ; preds = %32, %38
 114:                                              ; preds = %106
   %115 = getelementptr inbounds nuw i8, ptr %.03858.i.i, i64 %49
   %116 = sitofp i64 %112 to double
-  %117 = fmul double %116, 0x3C00000000000000
+  %117 = fmul nnan double %116, 0x3C00000000000000
   %118 = fptrunc double %117 to float
   %119 = getelementptr inbounds nuw i8, ptr %.03759.i.i, i64 4
   store float %118, ptr %.03759.i.i, align 4, !tbaa !339
@@ -51601,7 +51601,7 @@ ma_dr_wav_read_pcm_frames_f32__pcm.exit:          ; preds = %53, %56, %.loopexit
   %137 = getelementptr inbounds nuw i16, ptr %7, i64 %.012.i.i
   %138 = load i16, ptr %137, align 2, !tbaa !334
   %139 = sitofp i16 %138 to float
-  %140 = fmul float %139, 0x3F00000000000000
+  %140 = fmul nnan float %139, 0x3F00000000000000
   %141 = getelementptr inbounds nuw i8, ptr %.0811.i.i, i64 4
   store float %140, ptr %.0811.i.i, align 4, !tbaa !339
   %142 = add nuw i64 %.012.i.i, 1
@@ -51869,7 +51869,7 @@ ma_dr_wav_read_pcm_frames_f32__ieee.exit:         ; preds = %.preheader.split.us
   %260 = getelementptr inbounds nuw i16, ptr @g_ma_dr_wavAlawTable, i64 %259
   %261 = load i16, ptr %260, align 2, !tbaa !334
   %262 = sitofp i16 %261 to float
-  %263 = fmul float %262, 0x3F00000000000000
+  %263 = fmul nnan float %262, 0x3F00000000000000
   %264 = getelementptr inbounds nuw i8, ptr %.0811.i.i57, i64 4
   store float %263, ptr %.0811.i.i57, align 4, !tbaa !339
   %265 = add nuw i64 %.012.i.i56, 1
@@ -51969,7 +51969,7 @@ ma_dr_wav_read_pcm_frames_f32__alaw.exit:         ; preds = %247, %250, %.loopex
   %308 = getelementptr inbounds nuw i16, ptr @g_ma_dr_wavMulawTable, i64 %307
   %309 = load i16, ptr %308, align 2, !tbaa !334
   %310 = sitofp i16 %309 to float
-  %311 = fmul float %310, 0x3F00000000000000
+  %311 = fmul nnan float %310, 0x3F00000000000000
   %312 = getelementptr inbounds nuw i8, ptr %.0811.i.i76, i64 4
   store float %311, ptr %.0811.i.i76, align 4, !tbaa !339
   %313 = add nuw i64 %.012.i.i75, 1
@@ -54613,9 +54613,9 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %90 = tail call <4 x i32> @llvm.x86.sse2.pslli.d(<4 x i32> %89, i32 range(i32 -232, 288) %84)
   %91 = sub <4 x i32> %87, %90
   %92 = sitofp <4 x i32> %87 to <4 x float>
-  %93 = fmul <4 x float> %92, splat (float 0x3E80000000000000)
+  %93 = fmul nnan <4 x float> %92, splat (float 0x3E80000000000000)
   %94 = sitofp <4 x i32> %91 to <4 x float>
-  %95 = fmul <4 x float> %94, splat (float 0x3E80000000000000)
+  %95 = fmul nnan <4 x float> %94, splat (float 0x3E80000000000000)
   %.idx.i = shl nuw nsw i64 %.0.i190, 5
   %96 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx.i
   %97 = shufflevector <4 x float> %93, <4 x float> %95, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -54642,12 +54642,12 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %107 = shl i32 %106, %84
   %108 = sub i32 %104, %107
   %109 = sitofp i32 %104 to float
-  %110 = fmul float %109, 0x3E80000000000000
+  %110 = fmul nnan float %109, 0x3E80000000000000
   %.idx127 = shl nuw nsw i64 %.1.i194, 3
   %111 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx127
   store float %110, ptr %111, align 4, !tbaa !339
   %112 = sitofp i32 %108 to float
-  %113 = fmul float %112, 0x3E80000000000000
+  %113 = fmul nnan float %112, 0x3E80000000000000
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 4
   store float %113, ptr %114, align 4, !tbaa !339
   %115 = add nuw nsw i64 %.1.i194, 1
@@ -54700,36 +54700,36 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %155 = sub i32 %136, %149
   %156 = sub i32 %140, %152
   %157 = sitofp i32 %128 to float
-  %158 = fmul float %157, 0x3E00000000000000
+  %158 = fmul nnan float %157, 0x3E00000000000000
   %.idx126 = shl nuw nsw i64 %.0.i94183, 5
   %159 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx126
   store float %158, ptr %159, align 4, !tbaa !339
   %160 = sitofp i32 %153 to float
-  %161 = fmul float %160, 0x3E00000000000000
+  %161 = fmul nnan float %160, 0x3E00000000000000
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 4
   store float %161, ptr %162, align 4, !tbaa !339
   %163 = sitofp i32 %132 to float
-  %164 = fmul float %163, 0x3E00000000000000
+  %164 = fmul nnan float %163, 0x3E00000000000000
   %165 = getelementptr inbounds nuw i8, ptr %159, i64 8
   store float %164, ptr %165, align 4, !tbaa !339
   %166 = sitofp i32 %154 to float
-  %167 = fmul float %166, 0x3E00000000000000
+  %167 = fmul nnan float %166, 0x3E00000000000000
   %168 = getelementptr inbounds nuw i8, ptr %159, i64 12
   store float %167, ptr %168, align 4, !tbaa !339
   %169 = sitofp i32 %136 to float
-  %170 = fmul float %169, 0x3E00000000000000
+  %170 = fmul nnan float %169, 0x3E00000000000000
   %171 = getelementptr inbounds nuw i8, ptr %159, i64 16
   store float %170, ptr %171, align 4, !tbaa !339
   %172 = sitofp i32 %155 to float
-  %173 = fmul float %172, 0x3E00000000000000
+  %173 = fmul nnan float %172, 0x3E00000000000000
   %174 = getelementptr inbounds nuw i8, ptr %159, i64 20
   store float %173, ptr %174, align 4, !tbaa !339
   %175 = sitofp i32 %140 to float
-  %176 = fmul float %175, 0x3E00000000000000
+  %176 = fmul nnan float %175, 0x3E00000000000000
   %177 = getelementptr inbounds nuw i8, ptr %159, i64 24
   store float %176, ptr %177, align 4, !tbaa !339
   %178 = sitofp i32 %156 to float
-  %179 = fmul float %178, 0x3E00000000000000
+  %179 = fmul nnan float %178, 0x3E00000000000000
   %180 = getelementptr inbounds nuw i8, ptr %159, i64 28
   store float %179, ptr %180, align 4, !tbaa !339
   %181 = add nuw nsw i64 %.0.i94183, 1
@@ -54751,12 +54751,12 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %188 = shl i32 %187, %124
   %189 = sub i32 %185, %188
   %190 = sitofp i32 %185 to float
-  %191 = fmul float %190, 0x3E00000000000000
+  %191 = fmul nnan float %190, 0x3E00000000000000
   %.idx125 = shl nuw nsw i64 %.1.i95187, 3
   %192 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx125
   store float %191, ptr %192, align 4, !tbaa !339
   %193 = sitofp i32 %189 to float
-  %194 = fmul float %193, 0x3E00000000000000
+  %194 = fmul nnan float %193, 0x3E00000000000000
   %195 = getelementptr inbounds nuw i8, ptr %192, i64 4
   store float %194, ptr %195, align 4, !tbaa !339
   %196 = add nuw nsw i64 %.1.i95187, 1
@@ -54799,9 +54799,9 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %213 = tail call <4 x i32> @llvm.x86.sse2.pslli.d(<4 x i32> %212, i32 range(i32 -232, 288) %207)
   %214 = add <4 x i32> %213, %210
   %215 = sitofp <4 x i32> %214 to <4 x float>
-  %216 = fmul <4 x float> %215, splat (float 0x3E80000000000000)
+  %216 = fmul nnan <4 x float> %215, splat (float 0x3E80000000000000)
   %217 = sitofp <4 x i32> %213 to <4 x float>
-  %218 = fmul <4 x float> %217, splat (float 0x3E80000000000000)
+  %218 = fmul nnan <4 x float> %217, splat (float 0x3E80000000000000)
   %.idx.i98 = shl nuw nsw i64 %.0.i96176, 5
   %219 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx.i98
   %220 = shufflevector <4 x float> %216, <4 x float> %218, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -54828,12 +54828,12 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %230 = shl i32 %229, %207
   %231 = add i32 %230, %227
   %232 = sitofp i32 %231 to float
-  %233 = fmul float %232, 0x3E80000000000000
+  %233 = fmul nnan float %232, 0x3E80000000000000
   %.idx124 = shl nuw nsw i64 %.1.i97180, 3
   %234 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx124
   store float %233, ptr %234, align 4, !tbaa !339
   %235 = sitofp i32 %230 to float
-  %236 = fmul float %235, 0x3E80000000000000
+  %236 = fmul nnan float %235, 0x3E80000000000000
   %237 = getelementptr inbounds nuw i8, ptr %234, i64 4
   store float %236, ptr %237, align 4, !tbaa !339
   %238 = add nuw nsw i64 %.1.i97180, 1
@@ -54886,36 +54886,36 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %278 = add i32 %272, %259
   %279 = add i32 %275, %263
   %280 = sitofp i32 %276 to float
-  %281 = fmul float %280, 0x3E00000000000000
+  %281 = fmul nnan float %280, 0x3E00000000000000
   %.idx123 = shl nuw nsw i64 %.0.i99169, 5
   %282 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx123
   store float %281, ptr %282, align 4, !tbaa !339
   %283 = sitofp i32 %266 to float
-  %284 = fmul float %283, 0x3E00000000000000
+  %284 = fmul nnan float %283, 0x3E00000000000000
   %285 = getelementptr inbounds nuw i8, ptr %282, i64 4
   store float %284, ptr %285, align 4, !tbaa !339
   %286 = sitofp i32 %277 to float
-  %287 = fmul float %286, 0x3E00000000000000
+  %287 = fmul nnan float %286, 0x3E00000000000000
   %288 = getelementptr inbounds nuw i8, ptr %282, i64 8
   store float %287, ptr %288, align 4, !tbaa !339
   %289 = sitofp i32 %269 to float
-  %290 = fmul float %289, 0x3E00000000000000
+  %290 = fmul nnan float %289, 0x3E00000000000000
   %291 = getelementptr inbounds nuw i8, ptr %282, i64 12
   store float %290, ptr %291, align 4, !tbaa !339
   %292 = sitofp i32 %278 to float
-  %293 = fmul float %292, 0x3E00000000000000
+  %293 = fmul nnan float %292, 0x3E00000000000000
   %294 = getelementptr inbounds nuw i8, ptr %282, i64 16
   store float %293, ptr %294, align 4, !tbaa !339
   %295 = sitofp i32 %272 to float
-  %296 = fmul float %295, 0x3E00000000000000
+  %296 = fmul nnan float %295, 0x3E00000000000000
   %297 = getelementptr inbounds nuw i8, ptr %282, i64 20
   store float %296, ptr %297, align 4, !tbaa !339
   %298 = sitofp i32 %279 to float
-  %299 = fmul float %298, 0x3E00000000000000
+  %299 = fmul nnan float %298, 0x3E00000000000000
   %300 = getelementptr inbounds nuw i8, ptr %282, i64 24
   store float %299, ptr %300, align 4, !tbaa !339
   %301 = sitofp i32 %275 to float
-  %302 = fmul float %301, 0x3E00000000000000
+  %302 = fmul nnan float %301, 0x3E00000000000000
   %303 = getelementptr inbounds nuw i8, ptr %282, i64 28
   store float %302, ptr %303, align 4, !tbaa !339
   %304 = add nuw nsw i64 %.0.i99169, 1
@@ -54937,12 +54937,12 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %311 = shl i32 %310, %247
   %312 = add i32 %311, %308
   %313 = sitofp i32 %312 to float
-  %314 = fmul float %313, 0x3E00000000000000
+  %314 = fmul nnan float %313, 0x3E00000000000000
   %.idx122 = shl nuw nsw i64 %.1.i100173, 3
   %315 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx122
   store float %314, ptr %315, align 4, !tbaa !339
   %316 = sitofp i32 %311 to float
-  %317 = fmul float %316, 0x3E00000000000000
+  %317 = fmul nnan float %316, 0x3E00000000000000
   %318 = getelementptr inbounds nuw i8, ptr %315, i64 4
   store float %317, ptr %318, align 4, !tbaa !339
   %319 = add nuw nsw i64 %.1.i100173, 1
@@ -54985,9 +54985,9 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %342 = sub <4 x i32> %339, %336
   %343 = ashr <4 x i32> %342, splat (i32 1)
   %344 = sitofp <4 x i32> %341 to <4 x float>
-  %345 = fmul <4 x float> %344, splat (float 0x3E80000000000000)
+  %345 = fmul nnan <4 x float> %344, splat (float 0x3E80000000000000)
   %346 = sitofp <4 x i32> %343 to <4 x float>
-  %347 = fmul <4 x float> %346, splat (float 0x3E80000000000000)
+  %347 = fmul nnan <4 x float> %346, splat (float 0x3E80000000000000)
   %.idx111.i = shl nuw nsw i64 %.0.i102163, 5
   %348 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx111.i
   %349 = shufflevector <4 x float> %345, <4 x float> %347, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -55025,14 +55025,14 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %368 = add i32 %367, %364
   %369 = ashr i32 %368, 1
   %370 = sitofp i32 %369 to float
-  %371 = fmul float %370, 0x3E80000000000000
+  %371 = fmul nnan float %370, 0x3E80000000000000
   %.idx121 = shl nuw nsw i64 %.1.i103166, 3
   %372 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx121
   store float %371, ptr %372, align 4, !tbaa !339
   %373 = sub i32 %367, %364
   %374 = ashr i32 %373, 1
   %375 = sitofp i32 %374 to float
-  %376 = fmul float %375, 0x3E80000000000000
+  %376 = fmul nnan float %375, 0x3E80000000000000
   %377 = getelementptr inbounds nuw i8, ptr %372, i64 4
   store float %376, ptr %377, align 4, !tbaa !339
   %378 = add nuw nsw i64 %.1.i103166, 1
@@ -55062,9 +55062,9 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %396 = sub <4 x i32> %393, %390
   %397 = tail call <4 x i32> @llvm.x86.sse2.pslli.d(<4 x i32> %396, i32 range(i32 -232, 288) %44)
   %398 = sitofp <4 x i32> %395 to <4 x float>
-  %399 = fmul <4 x float> %398, splat (float 0x3E80000000000000)
+  %399 = fmul nnan <4 x float> %398, splat (float 0x3E80000000000000)
   %400 = sitofp <4 x i32> %397 to <4 x float>
-  %401 = fmul <4 x float> %400, splat (float 0x3E80000000000000)
+  %401 = fmul nnan <4 x float> %400, splat (float 0x3E80000000000000)
   %.idx.i101 = shl nuw nsw i64 %.2.i158, 5
   %402 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx.i101
   %403 = shufflevector <4 x float> %399, <4 x float> %401, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -55102,14 +55102,14 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %422 = add i32 %421, %418
   %423 = shl i32 %422, %44
   %424 = sitofp i32 %423 to float
-  %425 = fmul float %424, 0x3E80000000000000
+  %425 = fmul nnan float %424, 0x3E80000000000000
   %.idx120 = shl nuw nsw i64 %.3.i160, 3
   %426 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx120
   store float %425, ptr %426, align 4, !tbaa !339
   %427 = sub i32 %421, %418
   %428 = shl i32 %427, %44
   %429 = sitofp i32 %428 to float
-  %430 = fmul float %429, 0x3E80000000000000
+  %430 = fmul nnan float %429, 0x3E80000000000000
   %431 = getelementptr inbounds nuw i8, ptr %426, i64 4
   store float %430, ptr %431, align 4, !tbaa !339
   %432 = add nuw nsw i64 %.3.i160, 1
@@ -55200,36 +55200,36 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %500 = sub i32 %485, %473
   %501 = shl i32 %500, %40
   %502 = sitofp i32 %487 to float
-  %503 = fmul float %502, 0x3E00000000000000
+  %503 = fmul nnan float %502, 0x3E00000000000000
   %.idx = shl nuw nsw i64 %.0.i104153, 5
   %504 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx
   store float %503, ptr %504, align 4, !tbaa !339
   %505 = sitofp i32 %495 to float
-  %506 = fmul float %505, 0x3E00000000000000
+  %506 = fmul nnan float %505, 0x3E00000000000000
   %507 = getelementptr inbounds nuw i8, ptr %504, i64 4
   store float %506, ptr %507, align 4, !tbaa !339
   %508 = sitofp i32 %489 to float
-  %509 = fmul float %508, 0x3E00000000000000
+  %509 = fmul nnan float %508, 0x3E00000000000000
   %510 = getelementptr inbounds nuw i8, ptr %504, i64 8
   store float %509, ptr %510, align 4, !tbaa !339
   %511 = sitofp i32 %497 to float
-  %512 = fmul float %511, 0x3E00000000000000
+  %512 = fmul nnan float %511, 0x3E00000000000000
   %513 = getelementptr inbounds nuw i8, ptr %504, i64 12
   store float %512, ptr %513, align 4, !tbaa !339
   %514 = sitofp i32 %491 to float
-  %515 = fmul float %514, 0x3E00000000000000
+  %515 = fmul nnan float %514, 0x3E00000000000000
   %516 = getelementptr inbounds nuw i8, ptr %504, i64 16
   store float %515, ptr %516, align 4, !tbaa !339
   %517 = sitofp i32 %499 to float
-  %518 = fmul float %517, 0x3E00000000000000
+  %518 = fmul nnan float %517, 0x3E00000000000000
   %519 = getelementptr inbounds nuw i8, ptr %504, i64 20
   store float %518, ptr %519, align 4, !tbaa !339
   %520 = sitofp i32 %493 to float
-  %521 = fmul float %520, 0x3E00000000000000
+  %521 = fmul nnan float %520, 0x3E00000000000000
   %522 = getelementptr inbounds nuw i8, ptr %504, i64 24
   store float %521, ptr %522, align 4, !tbaa !339
   %523 = sitofp i32 %501 to float
-  %524 = fmul float %523, 0x3E00000000000000
+  %524 = fmul nnan float %523, 0x3E00000000000000
   %525 = getelementptr inbounds nuw i8, ptr %504, i64 28
   store float %524, ptr %525, align 4, !tbaa !339
   %526 = add nuw nsw i64 %.0.i104153, 1
@@ -55295,36 +55295,36 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %582 = sub i32 %567, %555
   %583 = ashr i32 %582, 1
   %584 = sitofp i32 %569 to float
-  %585 = fmul float %584, 0x3E00000000000000
+  %585 = fmul nnan float %584, 0x3E00000000000000
   %.idx119 = shl nuw nsw i64 %.1.i106154, 5
   %586 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx119
   store float %585, ptr %586, align 4, !tbaa !339
   %587 = sitofp i32 %577 to float
-  %588 = fmul float %587, 0x3E00000000000000
+  %588 = fmul nnan float %587, 0x3E00000000000000
   %589 = getelementptr inbounds nuw i8, ptr %586, i64 4
   store float %588, ptr %589, align 4, !tbaa !339
   %590 = sitofp i32 %571 to float
-  %591 = fmul float %590, 0x3E00000000000000
+  %591 = fmul nnan float %590, 0x3E00000000000000
   %592 = getelementptr inbounds nuw i8, ptr %586, i64 8
   store float %591, ptr %592, align 4, !tbaa !339
   %593 = sitofp i32 %579 to float
-  %594 = fmul float %593, 0x3E00000000000000
+  %594 = fmul nnan float %593, 0x3E00000000000000
   %595 = getelementptr inbounds nuw i8, ptr %586, i64 12
   store float %594, ptr %595, align 4, !tbaa !339
   %596 = sitofp i32 %573 to float
-  %597 = fmul float %596, 0x3E00000000000000
+  %597 = fmul nnan float %596, 0x3E00000000000000
   %598 = getelementptr inbounds nuw i8, ptr %586, i64 16
   store float %597, ptr %598, align 4, !tbaa !339
   %599 = sitofp i32 %581 to float
-  %600 = fmul float %599, 0x3E00000000000000
+  %600 = fmul nnan float %599, 0x3E00000000000000
   %601 = getelementptr inbounds nuw i8, ptr %586, i64 20
   store float %600, ptr %601, align 4, !tbaa !339
   %602 = sitofp i32 %575 to float
-  %603 = fmul float %602, 0x3E00000000000000
+  %603 = fmul nnan float %602, 0x3E00000000000000
   %604 = getelementptr inbounds nuw i8, ptr %586, i64 24
   store float %603, ptr %604, align 4, !tbaa !339
   %605 = sitofp i32 %583 to float
-  %606 = fmul float %605, 0x3E00000000000000
+  %606 = fmul nnan float %605, 0x3E00000000000000
   %607 = getelementptr inbounds nuw i8, ptr %586, i64 28
   store float %606, ptr %607, align 4, !tbaa !339
   %608 = add nuw nsw i64 %.1.i106154, 1
@@ -55358,7 +55358,7 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %625 = ashr i32 %624, 1
   %626 = shl i32 %625, %34
   %627 = sitofp i32 %626 to float
-  %628 = fmul float %627, 0x3E00000000000000
+  %628 = fmul nnan float %627, 0x3E00000000000000
   %.idx118 = shl nuw nsw i64 %.2.i105156, 3
   %629 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx118
   store float %628, ptr %629, align 4, !tbaa !339
@@ -55366,7 +55366,7 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %631 = ashr i32 %630, 1
   %632 = shl i32 %631, %34
   %633 = sitofp i32 %632 to float
-  %634 = fmul float %633, 0x3E00000000000000
+  %634 = fmul nnan float %633, 0x3E00000000000000
   %635 = getelementptr inbounds nuw i8, ptr %629, i64 4
   store float %634, ptr %635, align 4, !tbaa !339
   %636 = add nuw nsw i64 %.2.i105156, 1
@@ -55408,9 +55408,9 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %652 = load <4 x i32>, ptr %651, align 1, !tbaa !7
   %653 = tail call <4 x i32> @llvm.x86.sse2.pslli.d(<4 x i32> %652, i32 range(i32 -232, 288) %647)
   %654 = sitofp <4 x i32> %650 to <4 x float>
-  %655 = fmul <4 x float> %654, splat (float 0x3E80000000000000)
+  %655 = fmul nnan <4 x float> %654, splat (float 0x3E80000000000000)
   %656 = sitofp <4 x i32> %653 to <4 x float>
-  %657 = fmul <4 x float> %656, splat (float 0x3E80000000000000)
+  %657 = fmul nnan <4 x float> %656, splat (float 0x3E80000000000000)
   %.idx.i109 = shl nuw nsw i64 %.0.i107204, 5
   %658 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx.i109
   %659 = shufflevector <4 x float> %655, <4 x float> %657, <4 x i32> <i32 0, i32 4, i32 1, i32 5>
@@ -55433,7 +55433,7 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %665 = load i32, ptr %664, align 4, !tbaa !3
   %666 = shl i32 %665, %645
   %667 = sitofp i32 %666 to float
-  %668 = fmul float %667, 0x3E80000000000000
+  %668 = fmul nnan float %667, 0x3E80000000000000
   %.idx130 = shl nuw nsw i64 %.1.i108208, 3
   %669 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx130
   store float %668, ptr %669, align 4, !tbaa !339
@@ -55441,7 +55441,7 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %671 = load i32, ptr %670, align 4, !tbaa !3
   %672 = shl i32 %671, %647
   %673 = sitofp i32 %672 to float
-  %674 = fmul float %673, 0x3E80000000000000
+  %674 = fmul nnan float %673, 0x3E80000000000000
   %675 = getelementptr inbounds nuw i8, ptr %669, i64 4
   store float %674, ptr %675, align 4, !tbaa !339
   %676 = add nuw nsw i64 %.1.i108208, 1
@@ -55490,36 +55490,36 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %712 = load i32, ptr %711, align 4, !tbaa !3
   %713 = shl i32 %712, %685
   %714 = sitofp i32 %689 to float
-  %715 = fmul float %714, 0x3E00000000000000
+  %715 = fmul nnan float %714, 0x3E00000000000000
   %.idx129 = shl nuw nsw i64 %.0.i110197, 5
   %716 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx129
   store float %715, ptr %716, align 4, !tbaa !339
   %717 = sitofp i32 %704 to float
-  %718 = fmul float %717, 0x3E00000000000000
+  %718 = fmul nnan float %717, 0x3E00000000000000
   %719 = getelementptr inbounds nuw i8, ptr %716, i64 4
   store float %718, ptr %719, align 4, !tbaa !339
   %720 = sitofp i32 %693 to float
-  %721 = fmul float %720, 0x3E00000000000000
+  %721 = fmul nnan float %720, 0x3E00000000000000
   %722 = getelementptr inbounds nuw i8, ptr %716, i64 8
   store float %721, ptr %722, align 4, !tbaa !339
   %723 = sitofp i32 %707 to float
-  %724 = fmul float %723, 0x3E00000000000000
+  %724 = fmul nnan float %723, 0x3E00000000000000
   %725 = getelementptr inbounds nuw i8, ptr %716, i64 12
   store float %724, ptr %725, align 4, !tbaa !339
   %726 = sitofp i32 %697 to float
-  %727 = fmul float %726, 0x3E00000000000000
+  %727 = fmul nnan float %726, 0x3E00000000000000
   %728 = getelementptr inbounds nuw i8, ptr %716, i64 16
   store float %727, ptr %728, align 4, !tbaa !339
   %729 = sitofp i32 %710 to float
-  %730 = fmul float %729, 0x3E00000000000000
+  %730 = fmul nnan float %729, 0x3E00000000000000
   %731 = getelementptr inbounds nuw i8, ptr %716, i64 20
   store float %730, ptr %731, align 4, !tbaa !339
   %732 = sitofp i32 %701 to float
-  %733 = fmul float %732, 0x3E00000000000000
+  %733 = fmul nnan float %732, 0x3E00000000000000
   %734 = getelementptr inbounds nuw i8, ptr %716, i64 24
   store float %733, ptr %734, align 4, !tbaa !339
   %735 = sitofp i32 %713 to float
-  %736 = fmul float %735, 0x3E00000000000000
+  %736 = fmul nnan float %735, 0x3E00000000000000
   %737 = getelementptr inbounds nuw i8, ptr %716, i64 28
   store float %736, ptr %737, align 4, !tbaa !339
   %738 = add nuw nsw i64 %.0.i110197, 1
@@ -55537,7 +55537,7 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %741 = load i32, ptr %740, align 4, !tbaa !3
   %742 = shl i32 %741, %683
   %743 = sitofp i32 %742 to float
-  %744 = fmul float %743, 0x3E00000000000000
+  %744 = fmul nnan float %743, 0x3E00000000000000
   %.idx128 = shl nuw nsw i64 %.1.i111201, 3
   %745 = getelementptr inbounds nuw i8, ptr %.080217, i64 %.idx128
   store float %744, ptr %745, align 4, !tbaa !339
@@ -55545,7 +55545,7 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %747 = load i32, ptr %746, align 4, !tbaa !3
   %748 = shl i32 %747, %685
   %749 = sitofp i32 %748 to float
-  %750 = fmul float %749, 0x3E00000000000000
+  %750 = fmul nnan float %749, 0x3E00000000000000
   %751 = getelementptr inbounds nuw i8, ptr %745, i64 4
   store float %750, ptr %751, align 4, !tbaa !339
   %752 = add nuw nsw i64 %.1.i111201, 1
@@ -55572,7 +55572,7 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %766 = add nsw i32 %34, %765
   %767 = shl i32 %762, %766
   %768 = sitofp i32 %767 to double
-  %769 = fmul double %768, 0x3E00000000000000
+  %769 = fmul nnan double %768, 0x3E00000000000000
   %770 = fptrunc double %769 to float
   %771 = getelementptr inbounds nuw float, ptr %755, i64 %indvars.iv
   store float %770, ptr %771, align 4, !tbaa !339
@@ -59887,7 +59887,7 @@ ma_dr_mp3_read_pcm_frames_raw.exit:               ; preds = %.split.i, %22, %48
   %59 = getelementptr inbounds nuw i16, ptr %4, i64 %.08.i
   %60 = load i16, ptr %59, align 2, !tbaa !334
   %61 = sitofp i16 %60 to float
-  %62 = fmul float %61, 0x3F00000000000000
+  %62 = fmul nnan float %61, 0x3F00000000000000
   %63 = getelementptr inbounds nuw float, ptr %57, i64 %.08.i
   store float %62, ptr %63, align 4, !tbaa !339
   %64 = add nuw i64 %.08.i, 1
@@ -69201,7 +69201,7 @@ define range(i32 -3, 1) i32 @ma_noise_read_pcm_frames(ptr noundef %0, ptr nounde
   %34 = mul nsw i32 %33, 48271
   %35 = srem i32 %34, 2147483647
   %36 = sitofp i32 %35 to double
-  %37 = fdiv double %36, 0x41DFFFFFFFC00000
+  %37 = fdiv nnan double %36, 0x41DFFFFFFFC00000
   %38 = fmul double %31, %37
   %39 = fptrunc double %38 to float
   %40 = mul i64 %.0.i205, %32
@@ -69234,7 +69234,7 @@ define range(i32 -3, 1) i32 @ma_noise_read_pcm_frames(ptr noundef %0, ptr nounde
   %50 = mul nsw i32 %49, 48271
   %51 = srem i32 %50, 2147483647
   %52 = sitofp i32 %51 to double
-  %53 = fdiv double %52, 0x41DFFFFFFFC00000
+  %53 = fdiv nnan double %52, 0x41DFFFFFFFC00000
   %54 = fmul double %31, %53
   %55 = fptrunc double %54 to float
   %56 = getelementptr float, ptr %47, i64 %indvars.iv340
@@ -69265,7 +69265,7 @@ define range(i32 -3, 1) i32 @ma_noise_read_pcm_frames(ptr noundef %0, ptr nounde
   %67 = mul nsw i32 %66, 48271
   %68 = srem i32 %67, 2147483647
   %69 = sitofp i32 %68 to double
-  %70 = fdiv double %69, 0x41DFFFFFFFC00000
+  %70 = fdiv nnan double %69, 0x41DFFFFFFFC00000
   %71 = fmul double %64, %70
   %72 = fptrunc double %71 to float
   %73 = fmul float %72, 3.276700e+04
@@ -69300,7 +69300,7 @@ define range(i32 -3, 1) i32 @ma_noise_read_pcm_frames(ptr noundef %0, ptr nounde
   %85 = mul nsw i32 %84, 48271
   %86 = srem i32 %85, 2147483647
   %87 = sitofp i32 %86 to double
-  %88 = fdiv double %87, 0x41DFFFFFFFC00000
+  %88 = fdiv nnan double %87, 0x41DFFFFFFFC00000
   %89 = fmul double %64, %88
   %90 = fptrunc double %89 to float
   %91 = fmul float %90, 3.276700e+04
@@ -69338,7 +69338,7 @@ define range(i32 -3, 1) i32 @ma_noise_read_pcm_frames(ptr noundef %0, ptr nounde
   %108 = srem i32 %107, 2147483647
   store i32 %108, ptr %103, align 4, !tbaa !54
   %109 = sitofp i32 %108 to double
-  %110 = fdiv double %109, 0x41DFFFFFFFC00000
+  %110 = fdiv nnan double %109, 0x41DFFFFFFFC00000
   %111 = load double, ptr %104, align 8, !tbaa !1518
   %112 = fmul double %111, %110
   %113 = fptrunc double %112 to float
@@ -69379,7 +69379,7 @@ define range(i32 -3, 1) i32 @ma_noise_read_pcm_frames(ptr noundef %0, ptr nounde
   %129 = srem i32 %128, 2147483647
   store i32 %129, ptr %103, align 4, !tbaa !54
   %130 = sitofp i32 %129 to double
-  %131 = fdiv double %130, 0x41DFFFFFFFC00000
+  %131 = fdiv nnan double %130, 0x41DFFFFFFFC00000
   %132 = load double, ptr %104, align 8, !tbaa !1518
   %133 = fmul double %132, %131
   %134 = fptrunc double %133 to float
@@ -69490,7 +69490,7 @@ ma_tzcnt32.exit71:                                ; preds = %.lr.ph185, %160
   %198 = srem i32 %197, 2147483647
   store i32 %198, ptr %153, align 8, !tbaa !54
   %199 = sitofp i32 %198 to double
-  %200 = fdiv double %199, 0x41DFFFFFFFC00000
+  %200 = fdiv nnan double %199, 0x41DFFFFFFFC00000
   %201 = load ptr, ptr %154, align 8, !tbaa !7
   %202 = load double, ptr %201, align 8, !tbaa !514
   %203 = fadd double %202, %200
@@ -69591,7 +69591,7 @@ ma_tzcnt32.exit82:                                ; preds = %216, %221
   %262 = srem i32 %261, 2147483647
   store i32 %262, ptr %153, align 8, !tbaa !54
   %263 = sitofp i32 %262 to double
-  %264 = fdiv double %263, 0x41DFFFFFFFC00000
+  %264 = fdiv nnan double %263, 0x41DFFFFFFFC00000
   %265 = load ptr, ptr %154, align 8, !tbaa !7
   %266 = getelementptr inbounds nuw double, ptr %265, i64 %indvars.iv304
   %267 = load double, ptr %266, align 8, !tbaa !514
@@ -69689,7 +69689,7 @@ ma_tzcnt32.exit:                                  ; preds = %.lr.ph180, %288
   %326 = srem i32 %325, 2147483647
   store i32 %326, ptr %281, align 8, !tbaa !54
   %327 = sitofp i32 %326 to double
-  %328 = fdiv double %327, 0x41DFFFFFFFC00000
+  %328 = fdiv nnan double %327, 0x41DFFFFFFFC00000
   %329 = load ptr, ptr %282, align 8, !tbaa !7
   %330 = load double, ptr %329, align 8, !tbaa !514
   %331 = fadd double %330, %328
@@ -69792,7 +69792,7 @@ ma_tzcnt32.exit60:                                ; preds = %346, %351
   %392 = srem i32 %391, 2147483647
   store i32 %392, ptr %281, align 8, !tbaa !54
   %393 = sitofp i32 %392 to double
-  %394 = fdiv double %393, 0x41DFFFFFFFC00000
+  %394 = fdiv nnan double %393, 0x41DFFFFFFFC00000
   %395 = load ptr, ptr %282, align 8, !tbaa !7
   %396 = getelementptr inbounds nuw double, ptr %395, i64 %indvars.iv292
   %397 = load double, ptr %396, align 8, !tbaa !514
@@ -69898,7 +69898,7 @@ ma_tzcnt32.exit93:                                ; preds = %.lr.ph190, %424
   %462 = srem i32 %461, 2147483647
   store i32 %462, ptr %417, align 8, !tbaa !54
   %463 = sitofp i32 %462 to double
-  %464 = fdiv double %463, 0x41DFFFFFFFC00000
+  %464 = fdiv nnan double %463, 0x41DFFFFFFFC00000
   %465 = load ptr, ptr %418, align 8, !tbaa !7
   %466 = load double, ptr %465, align 8, !tbaa !514
   %467 = fadd double %466, %464
@@ -70006,7 +70006,7 @@ ma_tzcnt32.exit104:                               ; preds = %484, %489
   %530 = srem i32 %529, 2147483647
   store i32 %530, ptr %417, align 8, !tbaa !54
   %531 = sitofp i32 %530 to double
-  %532 = fdiv double %531, 0x41DFFFFFFFC00000
+  %532 = fdiv nnan double %531, 0x41DFFFFFFFC00000
   %533 = load ptr, ptr %418, align 8, !tbaa !7
   %534 = getelementptr inbounds nuw double, ptr %533, i64 %indvars.iv316
   %535 = load double, ptr %534, align 8, !tbaa !514
@@ -92529,7 +92529,7 @@ define i64 @ma_dr_wav_target_write_size_bytes(ptr noundef readonly captures(none
   %11 = zext i32 %10 to i64
   %12 = mul nsw i64 %8, %11
   %13 = sitofp i64 %12 to double
-  %14 = fmul double %13, 1.250000e-01
+  %14 = fmul nnan double %13, 1.250000e-01
   %15 = fptoui double %14 to i64
   %16 = load i32, ptr %0, align 4, !tbaa !1437
   switch i32 %16, label %35 [
@@ -95201,7 +95201,7 @@ define void @ma_dr_wav_u8_to_f32(ptr noundef writeonly captures(address_is_null)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %.01114
   %8 = load i8, ptr %7, align 1, !tbaa !7
   %9 = uitofp i8 %8 to float
-  %10 = fmul float %9, 0x3F80101020000000
+  %10 = fmul nnan float %9, 0x3F80101020000000
   %11 = fadd float %10, -1.000000e+00
   %12 = getelementptr inbounds nuw i8, ptr %.015, i64 4
   store float %11, ptr %.015, align 4, !tbaa !339
@@ -95228,7 +95228,7 @@ define void @ma_dr_wav_s16_to_f32(ptr noundef writeonly captures(address_is_null
   %7 = getelementptr inbounds nuw i16, ptr %1, i64 %.012
   %8 = load i16, ptr %7, align 2, !tbaa !334
   %9 = sitofp i16 %8 to float
-  %10 = fmul float %9, 0x3F00000000000000
+  %10 = fmul nnan float %9, 0x3F00000000000000
   %11 = getelementptr inbounds nuw i8, ptr %.0811, i64 4
   store float %10, ptr %.0811, align 4, !tbaa !339
   %12 = add nuw i64 %.012, 1
@@ -95263,7 +95263,7 @@ define void @ma_dr_wav_s24_to_f32(ptr noundef writeonly captures(address_is_null
   %16 = or disjoint i32 %15, %11
   %17 = ashr exact i32 %16, 8
   %18 = sitofp i32 %17 to double
-  %19 = fmul double %18, 0x3E80000000000000
+  %19 = fmul nnan double %18, 0x3E80000000000000
   %20 = fptrunc double %19 to float
   %21 = getelementptr inbounds nuw i8, ptr %.020, i64 4
   store float %20, ptr %.020, align 4, !tbaa !339
@@ -95290,7 +95290,7 @@ define void @ma_dr_wav_s32_to_f32(ptr noundef writeonly captures(address_is_null
   %7 = getelementptr inbounds nuw i32, ptr %1, i64 %.012
   %8 = load i32, ptr %7, align 4, !tbaa !3
   %9 = sitofp i32 %8 to double
-  %10 = fmul double %9, 0x3E00000000000000
+  %10 = fmul nnan double %9, 0x3E00000000000000
   %11 = fptrunc double %10 to float
   %12 = getelementptr inbounds nuw i8, ptr %.0811, i64 4
   store float %11, ptr %.0811, align 4, !tbaa !339
@@ -95345,7 +95345,7 @@ define void @ma_dr_wav_alaw_to_f32(ptr noundef writeonly captures(address_is_nul
   %10 = getelementptr inbounds nuw i16, ptr @g_ma_dr_wavAlawTable, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !334
   %12 = sitofp i16 %11 to float
-  %13 = fmul float %12, 0x3F00000000000000
+  %13 = fmul nnan float %12, 0x3F00000000000000
   %14 = getelementptr inbounds nuw i8, ptr %.0811, i64 4
   store float %13, ptr %.0811, align 4, !tbaa !339
   %15 = add nuw i64 %.012, 1
@@ -95374,7 +95374,7 @@ define void @ma_dr_wav_mulaw_to_f32(ptr noundef writeonly captures(address_is_nu
   %10 = getelementptr inbounds nuw i16, ptr @g_ma_dr_wavMulawTable, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !334
   %12 = sitofp i16 %11 to float
-  %13 = fmul float %12, 0x3F00000000000000
+  %13 = fmul nnan float %12, 0x3F00000000000000
   %14 = getelementptr inbounds nuw i8, ptr %.0811, i64 4
   store float %13, ptr %.0811, align 4, !tbaa !339
   %15 = add nuw i64 %.012, 1
@@ -98859,7 +98859,7 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__seek_to_pcm_frame__seek_
   %43 = zext i8 %42 to i64
   %44 = mul i64 %40, %43
   %45 = sitofp i64 %44 to float
-  %46 = fmul float %45, 1.250000e-01
+  %46 = fmul nnan float %45, 1.250000e-01
   %47 = fptoui float %46 to i64
   %48 = add i64 %36, %47
   %49 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -99324,7 +99324,7 @@ ma_dr_flac__seek_forward_by_pcm_frames.exit:      ; preds = %ma_dr_flac__read_an
   %73 = zext i8 %72 to i64
   %74 = mul i64 %70, %73
   %75 = sitofp i64 %74 to float
-  %76 = fmul float %75, 1.250000e-01
+  %76 = fmul nnan float %75, 1.250000e-01
   %77 = fptoui float %76 to i64
   %78 = add i64 %64, %77
   %79 = tail call fastcc i32 @ma_dr_flac__seek_to_pcm_frame__binary_search_internal(ptr noundef %0, i64 noundef %1, i64 noundef %64, i64 noundef %78)
@@ -120051,7 +120051,7 @@ define internal noundef i32 @ma_device_read__null(ptr noundef captures(none) %0,
   %57 = load i64, ptr %18, align 8, !tbaa !7
   %58 = sub i64 %56, %57
   %59 = uitofp i64 %58 to double
-  %60 = fdiv double %59, 1.000000e+09
+  %60 = fdiv nnan double %59, 1.000000e+09
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %61 = fadd double %51, %60
   %62 = uitofp i32 %.0.i to double
@@ -120178,7 +120178,7 @@ define internal noundef i32 @ma_device_write__null(ptr noundef %0, ptr readnone 
   %42 = load i64, ptr %16, align 8, !tbaa !7
   %43 = sub i64 %41, %42
   %44 = uitofp i64 %43 to double
-  %45 = fdiv double %44, 1.000000e+09
+  %45 = fdiv nnan double %44, 1.000000e+09
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %46 = fadd double %36, %45
   %47 = uitofp i32 %.0.i to double
@@ -148292,8 +148292,8 @@ define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__seek_to_pcm_frame__binar
   %22 = zext i8 %21 to i64
   %23 = mul i64 %19, %22
   %24 = sitofp i64 %23 to float
-  %25 = fmul float %24, 1.250000e-01
-  %26 = fmul float %25, 0x3FE3333340000000
+  %25 = fmul nnan float %24, 1.250000e-01
+  %26 = fmul nnan float %25, 0x3FE3333340000000
   %27 = fptoui float %26 to i64
   %28 = add i64 %2, %27
   %.080 = tail call i64 @llvm.umin.i64(i64 %28, i64 %3)
@@ -148483,7 +148483,7 @@ ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit126: ; preds = 
   %105 = mul nuw nsw i64 %104, %102
   %106 = mul i64 %105, %.013.i
   %107 = sitofp i64 %106 to float
-  %108 = fmul float %107, 1.250000e-01
+  %108 = fmul nnan float %107, 1.250000e-01
   %109 = fdiv float %100, %108
   br i1 %.not103, label %110, label %114
 
@@ -148567,7 +148567,7 @@ ma_dr_flac__decode_flac_frame_and_seek_forward_by_pcm_frames.exit139: ; preds = 
   %spec.select111 = tail call i64 @llvm.umax.i64(i64 %.085197, i64 %97)
   %141 = mul i64 %105, %115
   %142 = sitofp i64 %141 to float
-  %143 = fmul float %142, 1.250000e-01
+  %143 = fmul nnan float %142, 1.250000e-01
   %144 = fmul float %143, %109
   %145 = fptoui float %144 to i64
   %146 = add i64 %97, %145

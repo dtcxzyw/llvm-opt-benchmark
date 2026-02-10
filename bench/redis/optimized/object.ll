@@ -4463,7 +4463,7 @@ define dso_local noalias noundef ptr @getMemoryOverheadData() local_unnamed_addr
   %159 = getelementptr inbounds nuw i8, ptr %2, i64 104
   store i64 %158, ptr %159, align 8, !tbaa !187
   %160 = uitofp i64 %1 to float
-  %161 = fmul float %160, 1.000000e+02
+  %161 = fmul nnan float %160, 1.000000e+02
   %162 = uitofp i64 %6 to float
   %163 = fdiv float %161, %162
   %164 = getelementptr inbounds nuw i8, ptr %2, i64 132
@@ -4473,7 +4473,7 @@ define dso_local noalias noundef ptr @getMemoryOverheadData() local_unnamed_addr
   %167 = uitofp i64 %166 to float
   %.0 = select i1 %165, float %167, float 1.000000e+00
   %168 = uitofp i64 %158 to float
-  %169 = fmul float %168, 1.000000e+02
+  %169 = fmul nnan float %168, 1.000000e+02
   %170 = fdiv float %169, %.0
   %171 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store float %170, ptr %171, align 8, !tbaa !189

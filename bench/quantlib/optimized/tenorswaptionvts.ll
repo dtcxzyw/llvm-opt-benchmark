@@ -1048,7 +1048,7 @@ invoke.cont95:                                    ; preds = %invoke.cont86
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp91)
   %conv92 = fptosi double %swapLength to i64
   %conv93 = sitofp i64 %conv92 to double
-  %mul = fmul double %conv93, 1.200000e+01
+  %mul = fmul nnan double %conv93, 1.200000e+01
   %conv.i = fptosi double %mul to i32
   %retval.sroa.0.0.insert.ext.i187 = zext i32 %conv.i to i64
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.0.0.insert.ext.i187, 8589934592
@@ -5832,7 +5832,7 @@ invoke.cont94:                                    ; preds = %invoke.cont85
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp90)
   %conv91 = fptosi double %swapLength to i64
   %conv92 = sitofp i64 %conv91 to double
-  %mul = fmul double %conv92, 1.200000e+01
+  %mul = fmul nnan double %conv92, 1.200000e+01
   %conv.i = fptosi double %mul to i32
   %retval.sroa.0.0.insert.ext.i192 = zext i32 %conv.i to i64
   %retval.sroa.0.0.insert.insert.i = or disjoint i64 %retval.sroa.0.0.insert.ext.i192, 8589934592

@@ -4285,7 +4285,7 @@ define void @_ZN7rocksdb11clock_cache20FixedHyperClockTableC2EmNS_25CacheMetadat
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !157
   %16 = uitofp i64 %15 to double
-  %17 = fmul double %16, 0x3FE6666666666666
+  %17 = fmul nnan double %16, 0x3FE6666666666666
   %18 = icmp eq i32 %2, 1
   %19 = fadd double %17, 6.400000e+01
   %spec.select.i = select i1 %18, double %19, double %17
@@ -4327,7 +4327,7 @@ _ZN7rocksdb11clock_cache20FixedHyperClockTable12CalcHashBitsEmmNS_25CacheMetadat
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %38 = shl nuw i64 1, %.pre-phi
   %39 = uitofp i64 %38 to double
-  %40 = fmul double %39, 8.400000e-01
+  %40 = fmul nnan double %39, 8.400000e-01
   %41 = fptoui double %40 to i64
   store i64 %41, ptr %37, align 16, !tbaa !40
   %42 = icmp ugt i32 %.0.i, 57
@@ -4360,7 +4360,7 @@ _ZN7rocksdb11clock_cache20FixedHyperClockTable12CalcHashBitsEmmNS_25CacheMetadat
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i32 0, 2147483647) i32 @_ZN7rocksdb11clock_cache20FixedHyperClockTable12CalcHashBitsEmmNS_25CacheMetadataChargePolicyE(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = uitofp i64 %1 to double
-  %5 = fmul double %4, 0x3FE6666666666666
+  %5 = fmul nnan double %4, 0x3FE6666666666666
   %6 = icmp eq i32 %2, 1
   %7 = fadd double %5, 6.400000e+01
   %spec.select = select i1 %6, double %7, double %5
@@ -4922,7 +4922,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET0_T_S8_S
           to label %107 unwind label %121
 
 107:                                              ; preds = %105
-  %108 = fmul double %.144, 1.000000e+02
+  %108 = fmul nnan double %.144, 1.000000e+02
   %109 = fptosi double %108 to i32
   %110 = load i32, ptr %106, align 4, !tbaa !194
   %111 = zext i32 %110 to i64
@@ -5228,7 +5228,7 @@ define void @_ZN7rocksdb11clock_cache19AutoHyperClockTableC2EmNS_25CacheMetadata
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !211
   %17 = uitofp i64 %16 to double
-  %18 = fmul double %17, 6.000000e-01
+  %18 = fmul nnan double %17, 6.000000e-01
   %19 = icmp eq i32 %2, 1
   %20 = fadd double %18, 6.400000e+01
   %spec.select.i = select i1 %19, double %20, double %18
@@ -5349,7 +5349,7 @@ declare void @_ZN7rocksdb10MemMapping18AllocateLazyZeroedEm(ptr dead_on_unwind w
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i64 @_ZN7rocksdb11clock_cache19AutoHyperClockTable19CalcMaxUsableLengthEmmNS_25CacheMetadataChargePolicyE(i64 noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = uitofp i64 %1 to double
-  %5 = fmul double %4, 6.000000e-01
+  %5 = fmul nnan double %4, 6.000000e-01
   %6 = icmp eq i32 %2, 1
   %7 = fadd double %5, 6.400000e+01
   %spec.select = select i1 %6, double %7, double %5

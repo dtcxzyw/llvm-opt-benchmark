@@ -434,7 +434,7 @@ define internal fastcc noundef zeroext i1 @logcat_text_read_packet(ptr noundef %
   %75 = call i64 @mktime(ptr noundef nonnull %7) #12
   %76 = load i32, ptr %6, align 4
   %77 = sitofp i32 %76 to double
-  %78 = fmul double %77, 1.000000e+06
+  %78 = fmul nnan double %77, 1.000000e+06
   %79 = fptosi double %78 to i32
   br label %get_time.exit
 
@@ -474,7 +474,7 @@ get_time.exit:                                    ; preds = %62, %70
   %95 = call i64 @mktime(ptr noundef nonnull %5) #12
   %96 = load i32, ptr %4, align 4
   %97 = sitofp i32 %96 to double
-  %98 = fmul double %97, 1.000000e+06
+  %98 = fmul nnan double %97, 1.000000e+06
   %99 = fptosi double %98 to i32
   br label %get_time.exit76
 

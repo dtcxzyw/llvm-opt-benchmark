@@ -5702,7 +5702,7 @@ while.body.lr.ph.i.i:                             ; preds = %.noexc57
   %solver.sroa.45.0 = select i1 %cmp.i324.i, double %sub.i.i, double %sub.i179.i
   %solver.sroa.23.0 = select i1 %cmp.i324.i, double %minVol, double %maxVol
   %sub.i326.i = fsub double 1.000000e-01, %solver.sroa.23.0
-  %mul45.i.i = fmul double %.sroa.speculated.i, 5.000000e-01
+  %mul45.i.i = fmul nnan double %.sroa.speculated.i, 5.000000e-01
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %.noexc64, %while.body.lr.ph.i.i

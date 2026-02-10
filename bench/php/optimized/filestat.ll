@@ -260,13 +260,13 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
 
 41:                                               ; preds = %35
   %42 = uitofp i64 %37 to double
-  %43 = fmul double %42, %40
+  %43 = fmul nnan double %42, %40
   br label %48
 
 44:                                               ; preds = %35
   %45 = load i64, ptr %3, align 8, !tbaa !45
   %46 = uitofp i64 %45 to double
-  %47 = fmul double %40, %46
+  %47 = fmul nnan double %40, %46
   br label %48
 
 48:                                               ; preds = %44, %41
@@ -403,13 +403,13 @@ thread-pre-split:                                 ; preds = %zend_parse_arg_str_
 
 41:                                               ; preds = %35
   %42 = uitofp i64 %37 to double
-  %43 = fmul double %42, %40
+  %43 = fmul nnan double %42, %40
   br label %48
 
 44:                                               ; preds = %35
   %45 = load i64, ptr %3, align 8, !tbaa !45
   %46 = uitofp i64 %45 to double
-  %47 = fmul double %40, %46
+  %47 = fmul nnan double %40, %46
   br label %48
 
 48:                                               ; preds = %44, %41

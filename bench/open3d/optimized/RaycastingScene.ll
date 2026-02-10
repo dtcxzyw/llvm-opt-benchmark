@@ -54125,7 +54125,7 @@ define linkonce_odr void @_ZN5Eigen8internal16parallelize_gemmILb1ENS0_12gemm_fu
   %.sroa.speculated30 = tail call i64 @llvm.smax.i64(i64 %13, i64 1)
   %14 = sitofp i64 %1 to double
   %15 = sitofp i64 %2 to double
-  %16 = fmul double %14, %15
+  %16 = fmul nnan double %14, %15
   %17 = sitofp i64 %3 to double
   %18 = fmul double %16, %17
   %19 = fdiv double %18, 5.000000e+04
@@ -58292,7 +58292,7 @@ _ZN6open3d4core11SmallVectorINS_7utility8optionalIlEELj4EED2Ev.exit80: ; preds =
 
 56:                                               ; preds = %_ZN6open3d4core11SmallVectorINS_7utility8optionalIlEELj4EED2Ev.exit80
   %57 = sitofp i32 %5 to double
-  %58 = fmul double %57, 5.000000e-01
+  %58 = fmul nnan double %57, 5.000000e-01
   %59 = fdiv double %58, %54
   store double %59, ptr %55, align 8, !tbaa !1119
   %60 = getelementptr i8, ptr %55, i64 32
@@ -58301,7 +58301,7 @@ _ZN6open3d4core11SmallVectorINS_7utility8optionalIlEELj4EED2Ev.exit80: ; preds =
   store double %58, ptr %61, align 8, !tbaa !1119
   %62 = getelementptr i8, ptr %55, i64 40
   %63 = sitofp i32 %6 to double
-  %64 = fmul double %63, 5.000000e-01
+  %64 = fmul nnan double %63, 5.000000e-01
   store double %64, ptr %62, align 8, !tbaa !1119
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)

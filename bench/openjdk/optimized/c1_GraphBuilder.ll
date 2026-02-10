@@ -3387,7 +3387,7 @@ define hidden void @_ZN12GraphBuilder9ScopeDataC2EPS0_(ptr noundef nonnull write
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %13 = load i64, ptr %12, align 8
   %14 = sitofp i64 %13 to float
-  %15 = fmul float %14, 9.000000e+01
+  %15 = fmul nnan float %14, 9.000000e+01
   %16 = fdiv float %15, 1.000000e+02
   %17 = fptosi float %16 to i64
   br label %20
@@ -35485,7 +35485,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %18, %20
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %34 = load i64, ptr %33, align 8
   %35 = sitofp i64 %34 to float
-  %36 = fmul float %35, 9.000000e+01
+  %36 = fmul nnan float %35, 9.000000e+01
   %37 = fdiv float %36, 1.000000e+02
   %38 = fptosi float %37 to i64
   br label %_ZN12GraphBuilder9ScopeDataC2EPS0_.exit
@@ -36671,7 +36671,7 @@ _ZN12GraphBuilder9ScopeDataC2EPS0_.exit.thread:   ; preds = %_ZN22CompilationRes
   %163 = getelementptr inbounds nuw i8, ptr %149, i64 48
   %164 = load i64, ptr %163, align 8
   %165 = sitofp i64 %164 to float
-  %166 = fmul float %165, 9.000000e+01
+  %166 = fmul nnan float %165, 9.000000e+01
   %167 = fdiv float %166, 1.000000e+02
   %168 = fptosi float %167 to i64
   %169 = getelementptr inbounds nuw i8, ptr %.0.i.i.i17, i64 48

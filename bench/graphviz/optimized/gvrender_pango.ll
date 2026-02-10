@@ -245,7 +245,7 @@ define internal void @cairogen_begin_page(ptr noundef %0) #0 {
   %90 = shl i32 %88, 2
   %91 = mul i32 %90, %89
   %92 = uitofp i32 %91 to double
-  %93 = fmul double %92, 0x3F50000000000000
+  %93 = fmul nnan double %92, 0x3F50000000000000
   %94 = tail call double @llvm.round.f64(double %93)
   %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %85, ptr noundef nonnull @.str.10, ptr noundef %87, double noundef %94, i32 noundef %88, i32 noundef %89) #22
   br label %96
@@ -284,7 +284,7 @@ define internal void @cairogen_begin_page(ptr noundef %0) #0 {
   %114 = load i32, ptr %113, align 8, !tbaa !48
   %115 = sub nsw i32 0, %114
   %116 = sitofp i32 %115 to double
-  %117 = fmul double %116, 0x400921FB54442D18
+  %117 = fmul nnan double %116, 0x400921FB54442D18
   %118 = fdiv double %117, 1.800000e+02
   call void @cairo_rotate(ptr noundef %.0, double noundef %118) #20
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 632
@@ -1291,7 +1291,7 @@ define internal fastcc void @cairo_gradient_fill(ptr noundef %0, ptr noundef rea
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %8 = load i32, ptr %7, align 8, !tbaa !78
   %9 = sitofp i32 %8 to double
-  %10 = fmul double %9, 0x400921FB54442D18
+  %10 = fmul nnan double %9, 0x400921FB54442D18
   %11 = fdiv double %10, 1.800000e+02
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %12 = icmp eq i32 %2, 2

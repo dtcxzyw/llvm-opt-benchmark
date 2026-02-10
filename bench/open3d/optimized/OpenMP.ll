@@ -2541,7 +2541,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16parallelize_gemmILb1ENS0
   %.sroa.speculated30 = tail call i64 @llvm.smax.i64(i64 %13, i64 1)
   %14 = sitofp i64 %1 to double
   %15 = sitofp i64 %2 to double
-  %16 = fmul double %14, %15
+  %16 = fmul nnan double %14, %15
   %17 = sitofp i64 %3 to double
   %18 = fmul double %16, %17
   %19 = fdiv double %18, 5.000000e+04
@@ -20619,7 +20619,7 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal16parallelize_gemmILb1ENS0
   %.sroa.speculated30 = tail call i64 @llvm.smax.i64(i64 %13, i64 1)
   %14 = sitofp i64 %1 to double
   %15 = sitofp i64 %2 to double
-  %16 = fmul double %14, %15
+  %16 = fmul nnan double %14, %15
   %17 = sitofp i64 %3 to double
   %18 = fmul double %16, %17
   %19 = fdiv double %18, 5.000000e+04
@@ -52772,21 +52772,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %70,
   %79 = getelementptr inbounds nuw %"class.Eigen::Matrix.1926", ptr %78, i64 %indvars.iv
   %80 = call i32 @rand() #22
   %81 = sitofp i32 %80 to double
-  %82 = fmul double %81, 2.000000e+00
+  %82 = fmul nnan double %81, 2.000000e+00
   %83 = fdiv double %82, 0x41DFFFFFFFC00000
   %84 = fadd double %83, -1.000000e+00
   store double %84, ptr %79, align 8, !tbaa !47
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %86 = call i32 @rand() #22
   %87 = sitofp i32 %86 to double
-  %88 = fmul double %87, 2.000000e+00
+  %88 = fmul nnan double %87, 2.000000e+00
   %89 = fdiv double %88, 0x41DFFFFFFFC00000
   %90 = fadd double %89, -1.000000e+00
   store double %90, ptr %85, align 8, !tbaa !47
   %91 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %92 = call i32 @rand() #22
   %93 = sitofp i32 %92 to double
-  %94 = fmul double %93, 2.000000e+00
+  %94 = fmul nnan double %93, 2.000000e+00
   %95 = fdiv double %94, 0x41DFFFFFFFC00000
   %96 = fadd double %95, -1.000000e+00
   store double %96, ptr %91, align 8, !tbaa !47

@@ -2811,7 +2811,7 @@ define void @Lms_ManPrintFreqStats(ptr noundef readonly captures(none) %0) local
   %8 = getelementptr i8, ptr %7, i64 4
   %.val79 = load i32, ptr %8, align 4, !tbaa !92
   %9 = sitofp i32 %.val79 to double
-  %10 = fmul double %9, 1.000000e+02
+  %10 = fmul nnan double %9, 1.000000e+02
   %11 = load i32, ptr %3, align 8, !tbaa !113
   %12 = sitofp i32 %11 to double
   %13 = fdiv double %10, %12
@@ -3056,29 +3056,29 @@ Abc_TtSupportSize.exit:                           ; preds = %Abc_TtHasVar.exit.t
 
 .critedge.loopexit:                               ; preds = %110
   %115 = sitofp i32 %.sroa.039.196 to double
-  %116 = fmul double %115, 1.000000e+02
+  %116 = fmul nnan double %115, 1.000000e+02
   %117 = sitofp i32 %.sroa.641.194 to double
-  %118 = fmul double %117, 1.000000e+02
+  %118 = fmul nnan double %117, 1.000000e+02
   %119 = sitofp i32 %.sroa.943.192 to double
-  %120 = fmul double %119, 1.000000e+02
+  %120 = fmul nnan double %119, 1.000000e+02
   %121 = sitofp i32 %.sroa.031.190 to double
-  %122 = fmul double %121, 1.000000e+02
+  %122 = fmul nnan double %121, 1.000000e+02
   %123 = sitofp i32 %.sroa.633.188 to double
-  %124 = fmul double %123, 1.000000e+02
+  %124 = fmul nnan double %123, 1.000000e+02
   %125 = sitofp i32 %.sroa.935.186 to double
-  %126 = fmul double %125, 1.000000e+02
+  %126 = fmul nnan double %125, 1.000000e+02
   %127 = sitofp i32 %.sroa.023.1 to double
-  %128 = fmul double %127, 1.000000e+02
+  %128 = fmul nnan double %127, 1.000000e+02
   %129 = sitofp i32 %.sroa.625.1 to double
-  %130 = fmul double %129, 1.000000e+02
+  %130 = fmul nnan double %129, 1.000000e+02
   %131 = sitofp i32 %.sroa.927.1 to double
-  %132 = fmul double %131, 1.000000e+02
+  %132 = fmul nnan double %131, 1.000000e+02
   %133 = sitofp i32 %.sroa.0.1 to double
-  %134 = fmul double %133, 1.000000e+02
+  %134 = fmul nnan double %133, 1.000000e+02
   %135 = sitofp i32 %.sroa.6.1 to double
-  %136 = fmul double %135, 1.000000e+02
+  %136 = fmul nnan double %135, 1.000000e+02
   %137 = sitofp i32 %.sroa.9.1 to double
-  %138 = fmul double %137, 1.000000e+02
+  %138 = fmul nnan double %137, 1.000000e+02
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %1
@@ -3213,7 +3213,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %29 = load i32, ptr %28, align 8, !tbaa !113
   %.not102 = icmp eq i32 %29, 0
   %30 = sitofp i32 %29 to double
-  %31 = fmul double %30, 1.000000e+02
+  %31 = fmul nnan double %30, 1.000000e+02
   %32 = fdiv double %31, %30
   %33 = select i1 %.not102, double 0.000000e+00, double %32
   %34 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %29, double noundef %33)
@@ -3222,7 +3222,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %37 = load i32, ptr %28, align 8, !tbaa !113
   %.not103 = icmp eq i32 %37, 0
   %38 = sitofp i32 %36 to double
-  %39 = fmul double %38, 1.000000e+02
+  %39 = fmul nnan double %38, 1.000000e+02
   %40 = sitofp i32 %37 to double
   %41 = fdiv double %39, %40
   %42 = select i1 %.not103, double 0.000000e+00, double %41
@@ -3232,7 +3232,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %46 = load i32, ptr %28, align 8, !tbaa !113
   %.not104 = icmp eq i32 %46, 0
   %47 = sitofp i32 %45 to double
-  %48 = fmul double %47, 1.000000e+02
+  %48 = fmul nnan double %47, 1.000000e+02
   %49 = sitofp i32 %46 to double
   %50 = fdiv double %48, %49
   %51 = select i1 %.not104, double 0.000000e+00, double %50
@@ -3242,7 +3242,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %55 = load i32, ptr %28, align 8, !tbaa !113
   %.not105 = icmp eq i32 %55, 0
   %56 = sitofp i32 %54 to double
-  %57 = fmul double %56, 1.000000e+02
+  %57 = fmul nnan double %56, 1.000000e+02
   %58 = sitofp i32 %55 to double
   %59 = fdiv double %57, %58
   %60 = select i1 %.not105, double 0.000000e+00, double %59
@@ -3252,7 +3252,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %64 = load i32, ptr %28, align 8, !tbaa !113
   %.not106 = icmp eq i32 %64, 0
   %65 = sitofp i32 %63 to double
-  %66 = fmul double %65, 1.000000e+02
+  %66 = fmul nnan double %65, 1.000000e+02
   %67 = sitofp i32 %64 to double
   %68 = fdiv double %66, %67
   %69 = select i1 %.not106, double 0.000000e+00, double %68
@@ -3262,7 +3262,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %73 = load i32, ptr %28, align 8, !tbaa !113
   %.not107 = icmp eq i32 %73, 0
   %74 = sitofp i32 %72 to double
-  %75 = fmul double %74, 1.000000e+02
+  %75 = fmul nnan double %74, 1.000000e+02
   %76 = sitofp i32 %73 to double
   %77 = fdiv double %75, %76
   %78 = select i1 %.not107, double 0.000000e+00, double %77
@@ -3272,7 +3272,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %82 = load i32, ptr %28, align 8, !tbaa !113
   %.not108 = icmp eq i32 %82, 0
   %83 = sitofp i32 %81 to double
-  %84 = fmul double %83, 1.000000e+02
+  %84 = fmul nnan double %83, 1.000000e+02
   %85 = sitofp i32 %82 to double
   %86 = fdiv double %84, %85
   %87 = select i1 %.not108, double 0.000000e+00, double %86
@@ -3281,7 +3281,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %90 = load i32, ptr %28, align 8, !tbaa !113
   %.not109 = icmp eq i32 %90, 0
   %91 = sitofp i32 %89 to double
-  %92 = fmul double %91, 1.000000e+02
+  %92 = fmul nnan double %91, 1.000000e+02
   %93 = sitofp i32 %90 to double
   %94 = fdiv double %92, %93
   %95 = select i1 %.not109, double 0.000000e+00, double %94
@@ -3290,7 +3290,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %98 = load i32, ptr %28, align 8, !tbaa !113
   %.not110 = icmp eq i32 %98, 0
   %99 = sitofp i32 %97 to double
-  %100 = fmul double %99, 1.000000e+02
+  %100 = fmul nnan double %99, 1.000000e+02
   %101 = sitofp i32 %98 to double
   %102 = fdiv double %100, %101
   %103 = select i1 %.not110, double 0.000000e+00, double %102
@@ -3304,7 +3304,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %108 = load i32, ptr %28, align 8, !tbaa !113
   %.not112 = icmp eq i32 %108, 0
   %109 = sitofp i32 %106 to double
-  %110 = fmul double %109, 1.000000e+02
+  %110 = fmul nnan double %109, 1.000000e+02
   %111 = sitofp i32 %108 to double
   %112 = fdiv double %110, %111
   %113 = select i1 %.not112, double 0.000000e+00, double %112
@@ -3338,7 +3338,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %137 = load i64, ptr %116, align 8, !tbaa !91
   %.not113 = icmp eq i64 %137, 0
   %138 = sitofp i64 %137 to double
-  %139 = fmul double %135, 1.000000e+02
+  %139 = fmul nnan double %135, 1.000000e+02
   %140 = fdiv double %139, %138
   %141 = select i1 %.not113, double 0.000000e+00, double %140
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.28, double noundef %136, double noundef %141)
@@ -3349,7 +3349,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %145 = load i64, ptr %116, align 8, !tbaa !91
   %.not114 = icmp eq i64 %145, 0
   %146 = sitofp i64 %145 to double
-  %147 = fmul double %143, 1.000000e+02
+  %147 = fmul nnan double %143, 1.000000e+02
   %148 = fdiv double %147, %146
   %149 = select i1 %.not114, double 0.000000e+00, double %148
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.28, double noundef %144, double noundef %149)
@@ -3360,7 +3360,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %153 = load i64, ptr %116, align 8, !tbaa !91
   %.not115 = icmp eq i64 %153, 0
   %154 = sitofp i64 %153 to double
-  %155 = fmul double %151, 1.000000e+02
+  %155 = fmul nnan double %151, 1.000000e+02
   %156 = fdiv double %155, %154
   %157 = select i1 %.not115, double 0.000000e+00, double %156
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.28, double noundef %152, double noundef %157)
@@ -3371,7 +3371,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %161 = load i64, ptr %116, align 8, !tbaa !91
   %.not116 = icmp eq i64 %161, 0
   %162 = sitofp i64 %161 to double
-  %163 = fmul double %159, 1.000000e+02
+  %163 = fmul nnan double %159, 1.000000e+02
   %164 = fdiv double %163, %162
   %165 = select i1 %.not116, double 0.000000e+00, double %164
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.28, double noundef %160, double noundef %165)
@@ -3382,7 +3382,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %169 = load i64, ptr %116, align 8, !tbaa !91
   %.not117 = icmp eq i64 %169, 0
   %170 = sitofp i64 %169 to double
-  %171 = fmul double %167, 1.000000e+02
+  %171 = fmul nnan double %167, 1.000000e+02
   %172 = fdiv double %171, %170
   %173 = select i1 %.not117, double 0.000000e+00, double %172
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.28, double noundef %168, double noundef %173)
@@ -3393,7 +3393,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %177 = load i64, ptr %116, align 8, !tbaa !91
   %.not118 = icmp eq i64 %177, 0
   %178 = sitofp i64 %177 to double
-  %179 = fmul double %175, 1.000000e+02
+  %179 = fmul nnan double %175, 1.000000e+02
   %180 = fdiv double %179, %178
   %181 = select i1 %.not118, double 0.000000e+00, double %180
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.28, double noundef %176, double noundef %181)
@@ -3401,7 +3401,7 @@ define void @Lms_ManPrint(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %182 = load i64, ptr %116, align 8, !tbaa !91
   %183 = sitofp i64 %182 to double
   %.not119 = icmp eq i64 %182, 0
-  %184 = fmul double %183, 1.000000e+02
+  %184 = fmul nnan double %183, 1.000000e+02
   %185 = fdiv double %184, %183
   %186 = select i1 %.not119, double 0.000000e+00, double %185
   %187 = fdiv double %183, 1.000000e+06

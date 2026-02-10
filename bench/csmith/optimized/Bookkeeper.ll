@@ -995,13 +995,13 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit42: ; preds = %10
   %119 = load i32, ptr @_ZN10Bookkeeper15use_old_var_cntE, align 4, !tbaa !12
   %120 = add nsw i32 %119, %118
   %121 = sitofp i32 %118 to double
-  %122 = fmul double %121, 1.000000e+02
+  %122 = fmul nnan double %121, 1.000000e+02
   %123 = sitofp i32 %120 to double
   %124 = fdiv double %122, %123
   tail call fastcc void @_ZL16formated_outputfRSoPKcd(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.58, double noundef %124)
   %125 = load i32, ptr @_ZN10Bookkeeper15use_old_var_cntE, align 4, !tbaa !12
   %126 = sitofp i32 %125 to double
-  %127 = fmul double %126, 1.000000e+02
+  %127 = fmul nnan double %126, 1.000000e+02
   %128 = fdiv double %127, %123
   tail call fastcc void @_ZL16formated_outputfRSoPKcd(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.59, double noundef %128)
   %129 = load i8, ptr @_ZN10Bookkeeper16rely_on_int_sizeE, align 1, !tbaa !93, !range !66, !noundef !67
@@ -1457,7 +1457,7 @@ define dso_local void @_ZN10Bookkeeper25output_pointer_statisticsERSo(ptr nounde
 
 ._crit_edge.loopexit:                             ; preds = %36
   %45 = uitofp nneg i32 %spec.select to double
-  %46 = fmul double %45, 1.000000e+02
+  %46 = fmul nnan double %45, 1.000000e+02
   %47 = sitofp i32 %14 to double
   %48 = trunc i64 %43 to i32
   br label %._crit_edge
@@ -1974,7 +1974,7 @@ define dso_local void @_ZN10Bookkeeper33output_volatile_access_statisticsERSo(pt
   %9 = load i32, ptr @_ZN10Bookkeeper22write_non_volatile_cntE, align 4, !tbaa !12
   %10 = add nsw i32 %9, %8
   %11 = sitofp i32 %10 to double
-  %12 = fmul double %11, 1.000000e+02
+  %12 = fmul nnan double %11, 1.000000e+02
   %13 = load i32, ptr @_ZN10Bookkeeper17read_volatile_cntE, align 4, !tbaa !12
   %14 = add nsw i32 %10, %13
   %15 = load i32, ptr @_ZN10Bookkeeper18write_volatile_cntE, align 4, !tbaa !12
@@ -2009,13 +2009,13 @@ define dso_local void @_ZN10Bookkeeper20output_var_freshnessERSo(ptr noundef non
   %3 = load i32, ptr @_ZN10Bookkeeper15use_old_var_cntE, align 4, !tbaa !12
   %4 = add nsw i32 %3, %2
   %5 = sitofp i32 %2 to double
-  %6 = fmul double %5, 1.000000e+02
+  %6 = fmul nnan double %5, 1.000000e+02
   %7 = sitofp i32 %4 to double
   %8 = fdiv double %6, %7
   tail call fastcc void @_ZL16formated_outputfRSoPKcd(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.58, double noundef %8)
   %9 = load i32, ptr @_ZN10Bookkeeper15use_old_var_cntE, align 4, !tbaa !12
   %10 = sitofp i32 %9 to double
-  %11 = fmul double %10, 1.000000e+02
+  %11 = fmul nnan double %10, 1.000000e+02
   %12 = fdiv double %11, %7
   tail call fastcc void @_ZL16formated_outputfRSoPKcd(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.59, double noundef %12)
   ret void

@@ -111,8 +111,8 @@ define void @_ZN20QtOutline2Rasterizer9rasterizeERN3vcg18RasterizedOutline2Efiii
   %28 = alloca %"class.std::vector.6", align 8
   %29 = shl nsw i32 %4, 1
   %30 = sitofp i32 %2 to float
-  %31 = fpext float %30 to double
-  %32 = fmul double %31, 0x401921FB54442D18
+  %31 = fpext nnan ninf float %30 to double
+  %32 = fmul nnan double %31, 0x401921FB54442D18
   %33 = sitofp i32 %3 to float
   %34 = fpext float %33 to double
   %35 = fdiv double %32, %34
@@ -387,7 +387,7 @@ _ZN3vcg4Box2IfE3AddERKNS_6Point2IfEE.exit:        ; preds = %.lr.ph, %73, %68
 
 145:                                              ; preds = %144
   %146 = sitofp i32 %125 to float
-  %147 = fmul float %146, 5.000000e-01
+  %147 = fmul nnan float %146, 5.000000e-01
   %148 = fneg float %.sroa.0321.0.lcssa560573
   %149 = call float @llvm.fmuladd.f32(float %148, float %1, float %147)
   %150 = fpext float %149 to double

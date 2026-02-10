@@ -38161,7 +38161,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %28, %30
 
 36:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit
   %37 = uitofp i32 %34 to double
-  %38 = fdiv double %37, 5.000000e+01
+  %38 = fdiv nnan double %37, 5.000000e+01
   %39 = load i64, ptr %13, align 8, !tbaa !799
   %40 = uitofp i64 %39 to double
   %41 = fmul double %38, %40
@@ -73306,7 +73306,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %178
 
 .noexc51:                                         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %183 = uitofp i64 %181 to double
-  %184 = fmul double %183, 0x3EB0C6F7A0B5ED8D
+  %184 = fmul nnan double %183, 0x3EB0C6F7A0B5ED8D
   %185 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %42, double noundef %184)
           to label %.noexc52 unwind label %459
 
@@ -74764,7 +74764,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72: ; preds = %208
 
 .noexc74:                                         ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit72
   %213 = uitofp i64 %211 to double
-  %214 = fmul double %213, 0x3EB0C6F7A0B5ED8D
+  %214 = fmul nnan double %213, 0x3EB0C6F7A0B5ED8D
   %215 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %191, double noundef %214)
           to label %.noexc75 unwind label %259
 
@@ -140842,7 +140842,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i: ; preds = %30
   %36 = select i1 %35, double %31, double %28
   %37 = fcmp olt double %36, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i = select i1 %37, double 1.000000e+00, double %36
-  %38 = fmul double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
+  %38 = fmul nnan double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
   %39 = fcmp ugt double %34, %38
   br i1 %39, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i.i, label %_ZNK5boost8geometry8strategy4area9sphericalIdvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS6_4ringISC_Lb1ELb1ESt6vectorSaEEEEvRKT_SI_RNS4_5stateIT0_EE.exit.i
 
@@ -140941,7 +140941,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i: ; preds = %77
   %83 = select i1 %82, double %78, double %75
   %84 = fcmp olt double %83, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i = select i1 %84, double 1.000000e+00, double %83
-  %85 = fmul double %.sroa.speculated.i.i.i.i.i.i, 0x3CB0000000000000
+  %85 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i, 0x3CB0000000000000
   %86 = fcmp ugt double %81, %85
   br i1 %86, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i.i.i, label %_ZNK5boost8geometry8strategy4area9sphericalIdvE5applyINS0_5model5pointIdLm2ENS0_2cs20spherical_equatorialINS0_6degreeEEEEENS6_4ringISC_Lb1ELb1ESt6vectorSaEEEEvRKT_SI_RNS4_5stateIT0_EE.exit.i.i
 
@@ -141071,7 +141071,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i: ; preds = %44
   %49 = select i1 %48, double 0x400921FB54442D18, double %42
   %50 = fcmp olt double %49, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i = select i1 %50, double 1.000000e+00, double %49
-  %51 = fmul double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
+  %51 = fmul nnan double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
   %52 = fcmp ugt double %47, %51
   br i1 %52, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i.i, label %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit.thread
 
@@ -141098,7 +141098,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i: ; preds = %59
   %65 = select i1 %64, double 0x400921FB54442D18, double %60
   %66 = fcmp olt double %65, 1.000000e+00
   %.sroa.speculated.i.i.i10.i.i = select i1 %66, double 1.000000e+00, double %65
-  %67 = fmul double %.sroa.speculated.i.i.i10.i.i, 0x3CB0000000000000
+  %67 = fmul nnan double %.sroa.speculated.i.i.i10.i.i, 0x3CB0000000000000
   %68 = fcmp ugt double %63, %67
   br i1 %68, label %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit, label %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit.thread
 
@@ -141195,7 +141195,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i: ; preds = %24
   %29 = select i1 %28, double 0x400921FB54442D18, double %22
   %30 = fcmp olt double %29, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i = select i1 %30, double 1.000000e+00, double %29
-  %31 = fmul double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
+  %31 = fmul nnan double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
   %32 = fcmp ugt double %27, %31
   br i1 %32, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i.i, label %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit.thread
 
@@ -141222,7 +141222,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i: ; preds = %39
   %45 = select i1 %44, double 0x400921FB54442D18, double %40
   %46 = fcmp olt double %45, 1.000000e+00
   %.sroa.speculated.i.i.i10.i.i = select i1 %46, double 1.000000e+00, double %45
-  %47 = fmul double %.sroa.speculated.i.i.i10.i.i, 0x3CB0000000000000
+  %47 = fmul nnan double %.sroa.speculated.i.i.i10.i.i, 0x3CB0000000000000
   %48 = fcmp ugt double %43, %47
   br i1 %48, label %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit, label %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit.thread
 
@@ -143932,7 +143932,7 @@ define linkonce_odr hidden noundef double @_ZN5boost8geometry6detail4area9ring_a
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i: ; preds = %28
   %31 = fcmp olt double %29, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i.i.i = select i1 %31, double 1.000000e+00, double %29
-  %32 = fmul double %.sroa.speculated.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %32 = fmul nnan double %.sroa.speculated.i.i.i.i.i.i.i, 0x3CB0000000000000
   %33 = fcmp ugt double %29, %32
   br i1 %33, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread9.i.i.i.i, label %_ZNK5boost8geometry10strategies4area10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvE4areaINS0_5model4ringINSB_5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEELb1ELb1ESt6vectorSaEEEEDaRKT_PNSt9enable_ifIXntsr4util6is_boxISL_EE5valueEvE4typeE.exit
 
@@ -144056,7 +144056,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i: ; preds = %86
   %92 = select i1 %91, double %87, double %84
   %93 = fcmp olt double %92, 1.000000e+00
   %.sroa.speculated.i.i.i.i = select i1 %93, double 1.000000e+00, double %92
-  %94 = fmul double %.sroa.speculated.i.i.i.i, 0x3CB0000000000000
+  %94 = fmul nnan double %.sroa.speculated.i.i.i.i, 0x3CB0000000000000
   %95 = fcmp ugt double %90, %94
   br i1 %95, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i, label %_ZNK5boost8geometry8strategy4area10geographicINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENSA_4ringISG_Lb1ELb1ESt6vectorSaEEEEvRKT_SM_RNS8_5stateIT0_EE.exit
 
@@ -144077,7 +144077,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread.i: ; preds = %_ZN5boos
 _ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.i: ; preds = %101
   %104 = fcmp olt double %102, 1.000000e+00
   %.sroa.speculated.i.i.i12.i = select i1 %104, double 1.000000e+00, double %102
-  %105 = fmul double %.sroa.speculated.i.i.i12.i, 0x3CB0000000000000
+  %105 = fmul nnan double %.sroa.speculated.i.i.i12.i, 0x3CB0000000000000
   %106 = fcmp ugt double %102, %105
   br i1 %106, label %.critedge.i, label %_ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread.i
 
@@ -144095,7 +144095,7 @@ _ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit.thread.i: ; preds = %_ZN5boos
 _ZN5boost8geometry4math6equalsIdiEEbRKT_RKT0_.exit16.i: ; preds = %110
   %113 = fcmp olt double %111, 1.000000e+00
   %.sroa.speculated.i.i.i14.i = select i1 %113, double 1.000000e+00, double %111
-  %114 = fmul double %.sroa.speculated.i.i.i14.i, 0x3CB0000000000000
+  %114 = fmul nnan double %.sroa.speculated.i.i.i14.i, 0x3CB0000000000000
   %115 = fcmp ugt double %111, %114
   br i1 %115, label %.critedge.i, label %_ZNK5boost8geometry8strategy4area10geographicINS1_7andoyerELm1ENS0_3srs8spheroidIdEEvE5applyINS0_5model5pointIdLm2ENS0_2cs10geographicINS0_6degreeEEEEENSA_4ringISG_Lb1ELb1ESt6vectorSaEEEEvRKT_SM_RNS8_5stateIT0_EE.exit
 
@@ -144203,7 +144203,7 @@ define linkonce_odr hidden noundef x86_fp80 @_ZN5boost4math6detail9atanh_impIeNS
 
 42:                                               ; preds = %40
   %43 = fmul x86_fp80 %0, %0
-  %44 = fmul x86_fp80 %0, %43
+  %44 = fmul nnan x86_fp80 %0, %43
   %45 = fdiv x86_fp80 %44, 0xK4000C000000000000000
   %46 = fadd x86_fp80 %0, %45
   br label %47
@@ -145856,7 +145856,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i: ; preds = %24
   %29 = select i1 %28, double 0x400921FB54442D18, double %22
   %30 = fcmp olt double %29, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i = select i1 %30, double 1.000000e+00, double %29
-  %31 = fmul double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
+  %31 = fmul nnan double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
   %32 = fcmp ugt double %27, %31
   br i1 %32, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i.i, label %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit.thread
 
@@ -145883,7 +145883,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i: ; preds = %39
   %45 = select i1 %44, double 0x400921FB54442D18, double %40
   %46 = fcmp olt double %45, 1.000000e+00
   %.sroa.speculated.i.i.i10.i.i = select i1 %46, double 1.000000e+00, double %45
-  %47 = fmul double %.sroa.speculated.i.i.i10.i.i, 0x3CB0000000000000
+  %47 = fmul nnan double %.sroa.speculated.i.i.i10.i.i, 0x3CB0000000000000
   %48 = fcmp ugt double %43, %47
   br i1 %48, label %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit, label %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit.thread
 
@@ -146070,7 +146070,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i: ; preds = %76
   %81 = select i1 %80, double 0x400921FB54442D18, double %74
   %82 = fcmp olt double %81, 1.000000e+00
   %.sroa.speculated.i.i.i.i.i = select i1 %82, double 1.000000e+00, double %81
-  %83 = fmul double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
+  %83 = fmul nnan double %.sroa.speculated.i.i.i.i.i, 0x3CB0000000000000
   %84 = fcmp ugt double %79, %83
   br i1 %84, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i.i, label %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit.thread
 
@@ -146097,7 +146097,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i: ; preds = %91
   %97 = select i1 %96, double 0x400921FB54442D18, double %92
   %98 = fcmp olt double %97, 1.000000e+00
   %.sroa.speculated.i.i.i10.i.i = select i1 %98, double 1.000000e+00, double %97
-  %99 = fmul double %.sroa.speculated.i.i.i10.i.i, 0x3CB0000000000000
+  %99 = fmul nnan double %.sroa.speculated.i.i.i10.i.i, 0x3CB0000000000000
   %100 = fcmp ugt double %95, %99
   br i1 %100, label %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit, label %_ZN5boost8geometry4math19normalize_longitudeINS0_6radianEdEEvRT0_.exit.thread
 
@@ -146363,7 +146363,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit: ; preds = %14
   %20 = select i1 %19, double %15, double %12
   %21 = fcmp olt double %20, 1.000000e+00
   %.sroa.speculated.i.i.i = select i1 %21, double 1.000000e+00, double %20
-  %22 = fmul double %.sroa.speculated.i.i.i, 0x3CB0000000000000
+  %22 = fmul nnan double %.sroa.speculated.i.i.i, 0x3CB0000000000000
   %23 = fcmp ugt double %18, %22
   br i1 %23, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread132
 
@@ -146390,7 +146390,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit71: ; preds = %30
   %36 = select i1 %35, double %31, double %28
   %37 = fcmp olt double %36, 1.000000e+00
   %.sroa.speculated.i.i.i69 = select i1 %37, double 1.000000e+00, double %36
-  %38 = fmul double %.sroa.speculated.i.i.i69, 0x3CB0000000000000
+  %38 = fmul nnan double %.sroa.speculated.i.i.i69, 0x3CB0000000000000
   %39 = fcmp ugt double %34, %38
   br i1 %39, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread, label %_ZN5boost8geometry7formula15andoyer_inverseIdLb1ELb1ELb1ELb0ELb0EE17normalize_azimuthERdRKdS6_.exit92
 
@@ -146449,7 +146449,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit74.thread139: ; preds = %72
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit74: ; preds = %72
   %77 = fcmp olt double %73, 1.000000e+00
   %.sroa.speculated.i.i.i72 = select i1 %77, double 1.000000e+00, double %73
-  %78 = fmul double %.sroa.speculated.i.i.i72, 0x3CB0000000000000
+  %78 = fmul nnan double %.sroa.speculated.i.i.i72, 0x3CB0000000000000
   %79 = fcmp ugt double %73, %78
   %80 = fadd double %62, %68
   %81 = fdiv double %80, %69
@@ -146476,7 +146476,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit77.thread145: ; preds = %85
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit77: ; preds = %85
   %90 = fcmp olt double %86, 1.000000e+00
   %.sroa.speculated.i.i.i75 = select i1 %90, double 1.000000e+00, double %86
-  %91 = fmul double %.sroa.speculated.i.i.i75, 0x3CB0000000000000
+  %91 = fmul nnan double %.sroa.speculated.i.i.i75, 0x3CB0000000000000
   %92 = fcmp ugt double %86, %91
   %93 = fsub double %62, %68
   %94 = fdiv double %93, %70
@@ -146505,7 +146505,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit77.thread: ; preds = %82, %_ZN
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit80: ; preds = %104
   %107 = fcmp olt double %105, 1.000000e+00
   %.sroa.speculated.i.i.i78 = select i1 %107, double 1.000000e+00, double %105
-  %108 = fmul double %.sroa.speculated.i.i.i78, 0x3CB0000000000000
+  %108 = fmul nnan double %.sroa.speculated.i.i.i78, 0x3CB0000000000000
   %109 = fcmp ugt double %105, %108
   br i1 %109, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit80.thread149, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit80.thread
 
@@ -146532,7 +146532,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit83: ; preds = %115
   %119 = tail call noundef double @llvm.fabs.f64(double %118)
   %120 = fcmp olt double %116, 1.000000e+00
   %121 = select i1 %120, double 1.000000e+00, double %116
-  %122 = fmul double %121, 0x3CB0000000000000
+  %122 = fmul nnan double %121, 0x3CB0000000000000
   %123 = fcmp ugt double %119, %122
   br i1 %123, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit83.thread152, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit83.thread
 
@@ -146562,7 +146562,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit80.thread149: ; preds = %104, 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit86: ; preds = %129
   %132 = fcmp olt double %130, 1.000000e+00
   %.sroa.speculated.i.i.i84 = select i1 %132, double 1.000000e+00, double %130
-  %133 = fmul double %.sroa.speculated.i.i.i84, 0x3CB0000000000000
+  %133 = fmul nnan double %.sroa.speculated.i.i.i84, 0x3CB0000000000000
   %134 = fcmp ugt double %130, %133
   br i1 %134, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit86.thread155, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit86.thread
 
@@ -146601,7 +146601,7 @@ _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit86.thread155: ; preds = %129, 
 _ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit89: ; preds = %150
   %153 = fcmp olt double %151, 1.000000e+00
   %.sroa.speculated.i.i.i87 = select i1 %153, double 1.000000e+00, double %151
-  %154 = fmul double %.sroa.speculated.i.i.i87, 0x3CB0000000000000
+  %154 = fmul nnan double %.sroa.speculated.i.i.i87, 0x3CB0000000000000
   %155 = fcmp ugt double %151, %154
   br i1 %155, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit89.thread158, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit89.thread
 

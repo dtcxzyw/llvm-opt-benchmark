@@ -299,7 +299,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi26EEERS2_RAT__Kc.exit: ; pr
 90:                                               ; preds = %85
   %91 = call i32 @rand() #17
   %92 = sitofp i32 %91 to double
-  %93 = fmul double %92, 1.000000e+02
+  %93 = fmul nnan double %92, 1.000000e+02
   %94 = fdiv double %93, 0x41DFFFFFFFC00000
   %95 = fptosi double %94 to i32
   %96 = add nsw i32 %95, 100

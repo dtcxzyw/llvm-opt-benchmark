@@ -51,7 +51,7 @@ define hidden void @_ZN6timeitC2EbPKcPSo(ptr noundef nonnull writeonly align 8 c
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %11 = tail call noundef i64 @_ZN6memory19get_allocation_sizeEv()
   %12 = uitofp i64 %11 to double
-  %13 = fmul double %12, 0x3EB0000000000000
+  %13 = fmul nnan double %12, 0x3EB0000000000000
   store double %13, ptr %10, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %15 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #11
@@ -132,7 +132,7 @@ _ZN9stopwatch4stopEv.exit:                        ; preds = %5, %1
 
 12:                                               ; preds = %_ZN9stopwatch4stopEv.exit
   %13 = uitofp i64 %11 to double
-  %14 = fmul double %13, 0x3EB0000000000000
+  %14 = fmul nnan double %13, 0x3EB0000000000000
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !26
   %17 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull @.str, i64 noundef 1)

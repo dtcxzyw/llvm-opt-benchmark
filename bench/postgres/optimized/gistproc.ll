@@ -1279,7 +1279,7 @@ adjustBox.exit270:                                ; preds = %397, %float8_gt.exi
 
 408:                                              ; preds = %._crit_edge349
   %409 = uitofp nneg i32 %11 to double
-  %410 = fmul double %409, 3.000000e-01
+  %410 = fmul nnan double %409, 3.000000e-01
   %411 = tail call double @llvm.ceil.f64(double %410)
   %412 = fptosi double %411 to i32
   br label %413

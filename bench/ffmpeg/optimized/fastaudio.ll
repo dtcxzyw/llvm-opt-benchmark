@@ -146,7 +146,7 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %indvars.iv130 = phi i64 [ 0, %.preheader82 ], [ %indvars.iv.next131, %59 ]
   %60 = trunc nuw nsw i64 %indvars.iv130 to i32
   %61 = uitofp nneg i32 %60 to float
-  %62 = fmul nsz float %61, 0x3FCC28F5C0000000
+  %62 = fmul nnan nsz float %61, 0x3FCC28F5C0000000
   %63 = fdiv nsz float %62, 3.000000e+00
   %64 = fadd nsz float %63, 0xBFE3333340000000
   %65 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv130
@@ -163,7 +163,7 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %indvars.iv134 = phi i64 [ 0, %.preheader81 ], [ %indvars.iv.next135, %67 ]
   %68 = trunc nuw nsw i64 %indvars.iv134 to i32
   %69 = uitofp nneg i32 %68 to float
-  %70 = fmul nsz float %69, 0x3FC99999A0000000
+  %70 = fmul nnan nsz float %69, 0x3FC99999A0000000
   %71 = fdiv nsz float %70, 3.000000e+00
   %72 = fadd nsz float %71, 0xBFD3333340000000
   %73 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv134
@@ -180,7 +180,7 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %indvars.iv138 = phi i64 [ 0, %.preheader80 ], [ %indvars.iv.next139, %75 ]
   %76 = trunc nuw nsw i64 %indvars.iv138 to i32
   %77 = uitofp nneg i32 %76 to float
-  %78 = fmul nsz float %77, 0x3FD70A3D80000000
+  %78 = fmul nnan nsz float %77, 0x3FD70A3D80000000
   %79 = fdiv nsz float %78, 3.000000e+00
   %80 = fadd nsz float %79, 0xBFD99999A0000000
   %81 = getelementptr inbounds nuw float, ptr %66, i64 %indvars.iv138
@@ -204,7 +204,7 @@ define internal range(i32 -12, 1) i32 @fastaudio_init(ptr noundef captures(none)
   %indvars.iv142 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next143, %88 ]
   %89 = trunc nuw nsw i64 %indvars.iv142 to i32
   %90 = uitofp nneg i32 %89 to float
-  %91 = fmul nsz float %90, 0x3FD5C28F60000000
+  %91 = fmul nnan nsz float %90, 0x3FD5C28F60000000
   %92 = fdiv nsz float %91, 3.000000e+00
   %93 = fadd nsz float %92, 0xBFC99999A0000000
   %94 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv142

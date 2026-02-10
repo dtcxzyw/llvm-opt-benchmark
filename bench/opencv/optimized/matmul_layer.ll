@@ -2707,7 +2707,7 @@ _ZN2cv3dnn14dnn4_v20241223L5totalERKNS_3MatEii.exit: ; preds = %_ZN2cv3dnn14dnn4
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn15MatMulLayerImpl7forwardERKNS0_11_InputArrayERKNS0_12_OutputArrayESC_EUlS3_E_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr %126, align 8, !tbaa !147
   %130 = mul i64 %123, %122
   %131 = uitofp i64 %130 to double
-  %132 = fmul double %131, 0x3F50000000000000
+  %132 = fmul nnan double %131, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %133 = getelementptr inbounds nuw i8, ptr %6, i64 16

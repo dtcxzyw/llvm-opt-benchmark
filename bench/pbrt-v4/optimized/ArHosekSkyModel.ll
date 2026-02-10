@@ -577,8 +577,8 @@ define dso_local noalias noundef ptr @arhosekskymodelstate_alienworld_alloc_init
   store double %18, ptr %19, align 8, !tbaa !8
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = uitofp nneg i32 %20 to double
-  %22 = tail call double @llvm.fmuladd.f64(double %21, double 4.000000e+01, double 3.200000e+02)
-  %23 = fmul double %22, 1.000000e-09
+  %22 = tail call nnan double @llvm.fmuladd.f64(double %21, double 4.000000e+01, double 3.200000e+02)
+  %23 = fmul nnan double %22, 1.000000e-09
   %24 = getelementptr inbounds nuw double, ptr @originalSolarRadianceTable, i64 %indvars.iv
   %25 = load double, ptr %24, align 8, !tbaa !8
   %26 = tail call double @pow(double noundef %23, double noundef 5.000000e+00) #12, !tbaa !4

@@ -2353,7 +2353,7 @@ _ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEE9push_backB8ne19000
   %892 = getelementptr inbounds %"class.std::__1::vector.113", ptr %891, i64 %.06771524
   %893 = load i8, ptr %890, align 1
   %894 = uitofp i8 %893 to float
-  %895 = fmul contract float %894, 0x3F70101020000000
+  %895 = fmul nnan contract float %894, 0x3F70101020000000
   %896 = fcmp contract ogt float %895, 0x3FA4B5DCC0000000
   br i1 %896, label %.preheader.i, label %908
 
@@ -2362,7 +2362,7 @@ _ZNSt3__16vectorIN7mitsuba6VectorIfLm2EEENS_9allocatorIS3_EEE9push_backB8ne19000
   %898 = call contract noundef float @llvm.fma.f32(float %895, float 0xC047BBCF60000000, float 0xC026660D00000000)
   %899 = call contract noundef float @llvm.fma.f32(float %895, float 0xC0332413A0000000, float 0xBF71747C80000000)
   %900 = call contract noundef float @llvm.fma.f32(float %895, float 0xC03239CA80000000, float 0xC04D8C5700000000)
-  %901 = fmul contract float %895, %895
+  %901 = fmul nnan contract float %895, %895
   %902 = call contract noundef float @llvm.fma.f32(float %901, float %898, float %897)
   %903 = fmul contract float %901, %901
   %904 = call contract noundef float @llvm.fma.f32(float %903, float 0xC04205DA60000000, float %902)
@@ -2439,7 +2439,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   %941 = getelementptr inbounds nuw i8, ptr %890, i64 1
   %942 = load i8, ptr %941, align 1
   %943 = uitofp i8 %942 to float
-  %944 = fmul contract float %943, 0x3F70101020000000
+  %944 = fmul nnan contract float %943, 0x3F70101020000000
   %945 = fcmp contract ogt float %944, 0x3FA4B5DCC0000000
   br i1 %945, label %.preheader.i886, label %957
 
@@ -2448,7 +2448,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   %947 = call contract noundef float @llvm.fma.f32(float %944, float 0xC047BBCF60000000, float 0xC026660D00000000)
   %948 = call contract noundef float @llvm.fma.f32(float %944, float 0xC0332413A0000000, float 0xBF71747C80000000)
   %949 = call contract noundef float @llvm.fma.f32(float %944, float 0xC03239CA80000000, float 0xC04D8C5700000000)
-  %950 = fmul contract float %944, %944
+  %950 = fmul nnan contract float %944, %944
   %951 = call contract noundef float @llvm.fma.f32(float %950, float %947, float %946)
   %952 = fmul contract float %950, %950
   %953 = call contract noundef float @llvm.fma.f32(float %952, float 0xC04205DA60000000, float %951)
@@ -2525,7 +2525,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   %990 = getelementptr inbounds nuw i8, ptr %890, i64 2
   %991 = load i8, ptr %990, align 1
   %992 = uitofp i8 %991 to float
-  %993 = fmul contract float %992, 0x3F70101020000000
+  %993 = fmul nnan contract float %992, 0x3F70101020000000
   %994 = fcmp contract ogt float %993, 0x3FA4B5DCC0000000
   br i1 %994, label %.preheader.i900, label %1006
 
@@ -2534,7 +2534,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIfEEEENS_19__allocation_re
   %996 = call contract noundef float @llvm.fma.f32(float %993, float 0xC047BBCF60000000, float 0xC026660D00000000)
   %997 = call contract noundef float @llvm.fma.f32(float %993, float 0xC0332413A0000000, float 0xBF71747C80000000)
   %998 = call contract noundef float @llvm.fma.f32(float %993, float 0xC03239CA80000000, float 0xC04D8C5700000000)
-  %999 = fmul contract float %993, %993
+  %999 = fmul nnan contract float %993, %993
   %1000 = call contract noundef float @llvm.fma.f32(float %999, float %996, float %995)
   %1001 = fmul contract float %999, %999
   %1002 = call contract noundef float @llvm.fma.f32(float %1001, float 0xC04205DA60000000, float %1000)

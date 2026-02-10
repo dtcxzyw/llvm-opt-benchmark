@@ -171,7 +171,7 @@ define hidden i32 @ff_twinvq_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 %indvars.iv49.i.i
   %109 = load i8, ptr %108, align 1, !tbaa !60
   %110 = uitofp i8 %109 to float
-  %111 = fmul nsz float %110, 0x40497D7D80000000
+  %111 = fmul nnan nsz float %110, 0x40497D7D80000000
   %112 = fadd nsz float %111, 0x40397D7D80000000
   %113 = fdiv nsz float %112, 1.300000e+04
   %114 = fcmp nsz ogt float %113, -1.000000e+00
@@ -180,7 +180,7 @@ define hidden i32 @ff_twinvq_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %..i.i38.us.i.i = select nsz i1 %116, float 1.000000e+00, float %115
   %117 = fcmp nsz ogt float %..i.i38.us.i.i, 0.000000e+00
   %118 = select nsz i1 %117, float 1.300000e+04, float -1.300000e+04
-  %119 = fpext nsz float %118 to double
+  %119 = fpext nnan ninf nsz float %118 to double
   %120 = call nsz float @llvm.fabs.f32(float %..i.i38.us.i.i)
   %121 = fpext float %120 to double
   %122 = fmul nsz double %121, 0x401275E2271BBA31
@@ -199,7 +199,7 @@ define hidden i32 @ff_twinvq_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %132 = getelementptr inbounds nuw i8, ptr %106, i64 %131
   %133 = load i8, ptr %132, align 1, !tbaa !60
   %134 = uitofp i8 %133 to float
-  %135 = fmul nsz float %134, 0x4062252940000000
+  %135 = fmul nnan nsz float %134, 0x4062252940000000
   %136 = fadd nsz float %135, 0x4052252940000000
   %137 = fdiv nsz float %136, 4.500000e+03
   %138 = fcmp nsz ogt float %137, -1.000000e+00
@@ -208,7 +208,7 @@ define hidden i32 @ff_twinvq_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %..i.i39.us.i.i = select nsz i1 %140, float 1.000000e+00, float %139
   %141 = fcmp nsz ogt float %..i.i39.us.i.i, 0.000000e+00
   %142 = select nsz i1 %141, float 4.500000e+03, float -4.500000e+03
-  %143 = fpext nsz float %142 to double
+  %143 = fpext nnan ninf nsz float %142 to double
   %144 = call nsz float @llvm.fabs.f32(float %..i.i39.us.i.i)
   %145 = fpext float %144 to double
   %146 = fmul nsz double %145, 0x401275E2271BBA31
@@ -242,7 +242,7 @@ define hidden i32 @ff_twinvq_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 %indvars.iv54.i.i
   %157 = load i8, ptr %156, align 1, !tbaa !60
   %158 = uitofp i8 %157 to float
-  %159 = fmul nsz float %158, 0x40497D7D80000000
+  %159 = fmul nnan nsz float %158, 0x40497D7D80000000
   %160 = fadd nsz float %159, 0x40397D7D80000000
   %161 = fdiv nsz float %160, 1.300000e+04
   %162 = fcmp nsz ogt float %161, -1.000000e+00
@@ -251,7 +251,7 @@ define hidden i32 @ff_twinvq_decode_frame(ptr noundef %0, ptr noundef %1, ptr no
   %..i.i.i.i = select nsz i1 %164, float 1.000000e+00, float %163
   %165 = fcmp nsz ogt float %..i.i.i.i, 0.000000e+00
   %166 = select nsz i1 %165, float 1.300000e+04, float -1.300000e+04
-  %167 = fpext nsz float %166 to double
+  %167 = fpext nnan ninf nsz float %166 to double
   %168 = call nsz float @llvm.fabs.f32(float %..i.i.i.i)
   %169 = fpext float %168 to double
   %170 = fmul nsz double %169, 0x401275E2271BBA31
@@ -1274,10 +1274,10 @@ define internal fastcc i32 @init_mdct_win(ptr noundef %0) unnamed_addr #2 {
   %.zext95 = zext i16 %29 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %30 = uitofp i16 %29 to float
-  %31 = fdiv nsz float %17, %30
-  %32 = fpext nsz float %31 to double
-  %33 = call nsz double @llvm.sqrt.f64(double %32)
-  %34 = fmul nsz double %33, 0xBF00000000000000
+  %31 = fdiv nnan nsz float %17, %30
+  %32 = fpext nnan nsz float %31 to double
+  %33 = call nnan nsz double @llvm.sqrt.f64(double %32)
+  %34 = fmul nnan nsz double %33, 0xBF00000000000000
   %35 = fptrunc nsz double %34 to float
   store float %35, ptr %2, align 4, !tbaa !61
   %36 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
@@ -1332,7 +1332,7 @@ define internal fastcc i32 @init_mdct_win(ptr noundef %0) unnamed_addr #2 {
   %61 = zext i8 %60 to i32
   %62 = udiv i32 %58, %61
   %63 = uitofp nneg i32 %62 to double
-  %64 = fdiv nsz double 0x401921FB54442D18, %63
+  %64 = fdiv nnan nsz double 0x401921FB54442D18, %63
   %65 = lshr i32 %62, 2
   %66 = zext nneg i32 %65 to i64
   %67 = call ptr @av_malloc_array(i64 noundef %66, i64 noundef 4) #10

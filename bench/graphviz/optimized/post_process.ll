@@ -1610,7 +1610,7 @@ gv_calloc.exit243.i:                              ; preds = %96, %.thread.i242.i
   %125 = load i32, ptr %112, align 4, !tbaa !22
   %126 = sub nsw i32 %124, %125
   %127 = sitofp i32 %126 to double
-  %128 = fmul double %127, %127
+  %128 = fmul nnan double %127, %127
   %129 = sext i32 %.1224304.i to i64
   %130 = getelementptr inbounds i32, ptr %.0213.i, i64 %129
   store i32 %110, ptr %130, align 4, !tbaa !22

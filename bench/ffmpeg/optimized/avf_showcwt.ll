@@ -506,7 +506,7 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %10 = load i32, ptr %9, align 8, !tbaa !73
   %11 = sitofp i32 %10 to float
-  %12 = fmul nsz float %11, 5.000000e-01
+  %12 = fmul nnan nsz float %11, 5.000000e-01
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 332
   %14 = load float, ptr %13, align 4, !tbaa !74
   %15 = tail call nsz float @llvm.minnum.f32(float %14, float %12)
@@ -604,8 +604,8 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   %59 = fadd nsz float %58, 1.000000e+00
   %60 = tail call nsz float @llvm.log10.f32(float %59)
   %61 = fmul nsz float %60, 2.595000e+03
-  %62 = fdiv nsz float %15, 7.000000e+02
-  %63 = fadd nsz float %62, 1.000000e+00
+  %62 = fdiv nnan nsz float %15, 7.000000e+02
+  %63 = fadd nnan nsz float %62, 1.000000e+00
   %64 = tail call nsz float @llvm.log10.f32(float %63)
   %65 = fmul nsz float %64, 2.595000e+03
   br label %97
@@ -617,8 +617,8 @@ define internal range(i32 -2147483648, 1) i32 @config_output(ptr noundef %0) #1 
   %70 = fadd nsz float %69, 1.000000e+00
   %71 = tail call nsz float @llvm.log.f32(float %70)
   %72 = fmul nsz float %71, 0x4026586980000000
-  %73 = fmul nsz float %15, 0x4047085E60000000
-  %74 = fadd nsz float %15, 0x40CCAB3EC0000000
+  %73 = fmul nnan nsz float %15, 0x4047085E60000000
+  %74 = fadd nnan nsz float %15, 0x40CCAB3EC0000000
   %75 = fdiv nsz float %73, %74
   %76 = fadd nsz float %75, 1.000000e+00
   %77 = tail call nsz float @llvm.log.f32(float %76)

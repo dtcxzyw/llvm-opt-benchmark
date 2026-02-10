@@ -632,8 +632,8 @@ define internal fastcc i32 @encode_frame(ptr noundef initializes((40, 72)) %0, p
 
 46:                                               ; preds = %._crit_edge.i
   %47 = sitofp i32 %40 to double
-  %48 = tail call nsz double @llvm.sqrt.f64(double %47)
-  %49 = fpext nsz float %42 to double
+  %48 = tail call ninf nsz double @llvm.sqrt.f64(double %47)
+  %49 = fpext nnan nsz float %42 to double
   %50 = fmul nsz double %48, %49
   %51 = fptrunc nsz double %50 to float
   br label %52
@@ -690,8 +690,8 @@ init_exp.exit.preheader.i:                        ; preds = %.lr.ph287.i
   %.0231.i.us.i = phi ptr [ %82, %78 ], [ %63, %.lr.ph.preheader.i.us.i ]
   %67 = load i32, ptr %.04.i.us.i, align 4, !tbaa !94
   %68 = sitofp i32 %67 to double
-  %69 = fmul nsz double %68, 6.250000e-02
-  %70 = fmul nsz double %69, 0x400A934F0979A371
+  %69 = fmul nnan nsz double %68, 6.250000e-02
+  %70 = fmul nnan nsz double %69, 0x400A934F0979A371
   %71 = tail call nsz double @llvm.exp2.f64(double %70)
   %72 = fptrunc nsz double %71 to float
   %73 = load i16, ptr %.0231.i.us.i, align 2, !tbaa !100
@@ -729,9 +729,9 @@ init_exp.exit.loopexit.us.i:                      ; preds = %78
   %wide.trip.count349.i.pre-phi = phi i64 [ %wide.trip.count339.i, %.preheader281.i ], [ %wide.trip.count334.i, %init_exp.exit.i ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 17624
   %86 = sitofp i32 %4 to double
-  %87 = fmul nsz double %86, 5.000000e-02
-  %88 = fmul nsz double %87, 0x400A934F0979A371
-  %89 = tail call nsz double @llvm.exp2.f64(double %88)
+  %87 = fmul nnan nsz double %86, 5.000000e-02
+  %88 = fmul nnan nsz double %87, 0x400A934F0979A371
+  %89 = tail call nnan nsz double @llvm.exp2.f64(double %88)
   %90 = sext i32 %36 to i64
   %invariant.gep = getelementptr float, ptr %1, i64 %90
   br label %93

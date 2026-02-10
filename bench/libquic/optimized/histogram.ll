@@ -3456,7 +3456,7 @@ define void @_ZN4base15LinearHistogram22InitializeBucketRangesEiiPNS_12BucketRan
   %22 = uitofp i64 %21 to double
   %23 = add i64 %.017, -1
   %24 = uitofp i64 %23 to double
-  %25 = fmul double %6, %24
+  %25 = fmul nnan double %6, %24
   %26 = call double @llvm.fmuladd.f64(double %5, double %22, double %25)
   %27 = fdiv double %26, %17
   store double %27, ptr %4, align 8, !tbaa !120

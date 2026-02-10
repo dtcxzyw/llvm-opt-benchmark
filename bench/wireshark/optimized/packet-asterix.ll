@@ -39692,7 +39692,7 @@ twos_complement.exit:                             ; preds = %69, %64, %22
   %160 = load ptr, ptr %159, align 8
   %161 = load i32, ptr %160, align 4
   %162 = sitofp i64 %16 to double
-  %163 = fmul double %.0, %162
+  %163 = fmul nnan double %.0, %162
   %164 = tail call ptr @proto_tree_add_double(ptr noundef %3, i32 noundef %161, ptr noundef %0, i32 noundef %24, i32 noundef %30, double noundef %163)
   br label %.backedge
 

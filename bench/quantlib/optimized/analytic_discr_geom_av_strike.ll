@@ -2543,7 +2543,7 @@ for.body438:                                      ; preds = %_ZN8QuantLib12Inter
 
 invoke.cont468:                                   ; preds = %for.body438, %_ZN8QuantLib12InterestRateD2Ev.exit373
   %temp.0.lcssa = phi double [ 0.000000e+00, %_ZN8QuantLib12InterestRateD2Ev.exit373 ], [ %196, %for.body438 ]
-  %call462 = call double @llvm.log.f64(double %call324), !tbaa !85
+  %call462 = call double @llvm.log.f64(double %call324)
   %mul463 = fmul double %sub756, %call462
   %197 = call double @llvm.fmuladd.f64(double %div755, double %call117, double %mul463)
   %mul464 = fmul double %__init.addr.0.lcssa.i, %188

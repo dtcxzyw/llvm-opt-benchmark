@@ -77,7 +77,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZN3net5Cubic31Congestion
   %4 = load i64, ptr %3, align 8, !tbaa !15
   %5 = icmp ult i64 %1, %4
   %6 = uitofp i64 %1 to float
-  %7 = fmul float %6, 0x3FEB333340000000
+  %7 = fmul nnan float %6, 0x3FEB333340000000
   %8 = fptosi float %7 to i32
   %9 = sext i32 %8 to i64
   %storemerge = select i1 %5, i64 %9, i64 %1
@@ -88,7 +88,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZN3net5Cubic31Congestion
   %12 = load i32, ptr %11, align 8, !tbaa !12
   %13 = add nsw i32 %12, -1
   %14 = sitofp i32 %13 to float
-  %15 = fadd float %14, 0x3FE6666660000000
+  %15 = fadd nnan float %14, 0x3FE6666660000000
   %16 = sitofp i32 %12 to float
   %17 = fdiv float %15, %16
   %18 = fmul float %17, %6

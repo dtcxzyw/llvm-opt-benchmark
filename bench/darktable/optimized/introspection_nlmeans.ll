@@ -134,7 +134,7 @@ define void @tiling_callback(ptr noundef readnone captures(none) %0, ptr noundef
   %20 = fptrunc reassoc nsz arcp contract afn double %19 to float
   %21 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %20)
   %22 = fptosi float %21 to i32
-  %23 = fmul reassoc nsz arcp contract afn double %13, 7.000000e+00
+  %23 = fmul reassoc nnan nsz arcp contract afn double %13, 7.000000e+00
   %24 = fdiv reassoc nsz arcp contract afn double %23, %18
   %25 = fptrunc reassoc nsz arcp contract afn double %24 to float
   %26 = tail call reassoc nsz arcp contract afn float @llvm.ceil.f32(float %25)

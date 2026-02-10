@@ -182,7 +182,7 @@ define ptr @dt_cache_testget(ptr noundef %0, i32 noundef %1, i8 noundef signext 
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !65
   %17 = sitofp i64 %16 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 0x3EB0C6F7A0B5ED8D
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 0x3EB0C6F7A0B5ED8D
   %19 = fadd reassoc nsz arcp contract afn double %18, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dt_get_debug_wtime.exit
@@ -246,7 +246,7 @@ dt_get_debug_wtime.exit:                          ; preds = %3, %10
   %55 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %56 = load i64, ptr %55, align 8, !tbaa !65
   %57 = sitofp i64 %56 to double
-  %58 = fmul reassoc nsz arcp contract afn double %57, 0x3EB0C6F7A0B5ED8D
+  %58 = fmul reassoc nnan nsz arcp contract afn double %57, 0x3EB0C6F7A0B5ED8D
   %59 = fadd reassoc nsz arcp contract afn double %58, %54
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dt_get_debug_wtime.exit32
@@ -276,7 +276,7 @@ dt_get_debug_wtime.exit32:                        ; preds = %40, %50
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %73 = load i64, ptr %72, align 8, !tbaa !65
   %74 = sitofp i64 %73 to double
-  %75 = fmul reassoc nsz arcp contract afn double %74, 0x3EB0C6F7A0B5ED8D
+  %75 = fmul reassoc nnan nsz arcp contract afn double %74, 0x3EB0C6F7A0B5ED8D
   %76 = fadd reassoc nsz arcp contract afn double %75, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %dt_get_debug_wtime.exit34
@@ -327,7 +327,7 @@ define ptr @dt_cache_get_with_caller(ptr noundef %0, i32 noundef %1, i8 noundef 
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !65
   %18 = sitofp i64 %17 to double
-  %19 = fmul reassoc nsz arcp contract afn double %18, 0x3EB0C6F7A0B5ED8D
+  %19 = fmul reassoc nnan nsz arcp contract afn double %18, 0x3EB0C6F7A0B5ED8D
   %20 = fadd reassoc nsz arcp contract afn double %19, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dt_get_debug_wtime.exit
@@ -400,7 +400,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %57 = load i64, ptr %56, align 8, !tbaa !17
   %58 = uitofp i64 %57 to float
-  %59 = fmul reassoc nsz arcp contract afn float %58, 0x3FE99999A0000000
+  %59 = fmul reassoc nnan nsz arcp contract afn float %58, 0x3FE99999A0000000
   %60 = fcmp reassoc nsz arcp contract afn olt float %59, %55
   br i1 %60, label %61, label %62
 
@@ -494,7 +494,7 @@ dt_get_debug_wtime.exit:                          ; preds = %5, %11
   %108 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %109 = load i64, ptr %108, align 8, !tbaa !65
   %110 = sitofp i64 %109 to double
-  %111 = fmul reassoc nsz arcp contract afn double %110, 0x3EB0C6F7A0B5ED8D
+  %111 = fmul reassoc nnan nsz arcp contract afn double %110, 0x3EB0C6F7A0B5ED8D
   %112 = fadd reassoc nsz arcp contract afn double %111, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dt_get_debug_wtime.exit76

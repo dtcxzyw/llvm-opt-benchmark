@@ -2728,7 +2728,7 @@ define internal fastcc noundef float @_ZL24calculateAccuracyPercentRKN2cv3MatES2
 
 7:                                                ; preds = %5
   %8 = sitofp i32 %6 to float
-  %9 = fmul float %8, 1.000000e+02
+  %9 = fmul nnan float %8, 1.000000e+02
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !44
   %12 = sitofp i32 %11 to float

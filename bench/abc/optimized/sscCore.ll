@@ -510,7 +510,7 @@ define void @Ssc_ManPrintStats(ptr noundef captures(none) initializes((192, 200)
   %53 = load i64, ptr %29, align 8, !tbaa !65
   %.not = icmp eq i64 %53, 0
   %54 = sitofp i64 %53 to double
-  %55 = fmul double %51, 1.000000e+02
+  %55 = fmul nnan double %51, 1.000000e+02
   %56 = fdiv double %55, %54
   %57 = select i1 %.not, double 0.000000e+00, double %56
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.9, double noundef %52, double noundef %57)
@@ -521,7 +521,7 @@ define void @Ssc_ManPrintStats(ptr noundef captures(none) initializes((192, 200)
   %61 = load i64, ptr %29, align 8, !tbaa !65
   %.not67 = icmp eq i64 %61, 0
   %62 = sitofp i64 %61 to double
-  %63 = fmul double %59, 1.000000e+02
+  %63 = fmul nnan double %59, 1.000000e+02
   %64 = fdiv double %63, %62
   %65 = select i1 %.not67, double 0.000000e+00, double %64
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.9, double noundef %60, double noundef %65)
@@ -532,7 +532,7 @@ define void @Ssc_ManPrintStats(ptr noundef captures(none) initializes((192, 200)
   %69 = load i64, ptr %29, align 8, !tbaa !65
   %.not68 = icmp eq i64 %69, 0
   %70 = sitofp i64 %69 to double
-  %71 = fmul double %67, 1.000000e+02
+  %71 = fmul nnan double %67, 1.000000e+02
   %72 = fdiv double %71, %70
   %73 = select i1 %.not68, double 0.000000e+00, double %72
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.9, double noundef %68, double noundef %73)
@@ -546,7 +546,7 @@ define void @Ssc_ManPrintStats(ptr noundef captures(none) initializes((192, 200)
   %80 = load i64, ptr %29, align 8, !tbaa !65
   %.not69 = icmp eq i64 %80, 0
   %81 = sitofp i64 %80 to double
-  %82 = fmul double %78, 1.000000e+02
+  %82 = fmul nnan double %78, 1.000000e+02
   %83 = fdiv double %82, %81
   %84 = select i1 %.not69, double 0.000000e+00, double %83
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.9, double noundef %79, double noundef %84)
@@ -557,7 +557,7 @@ define void @Ssc_ManPrintStats(ptr noundef captures(none) initializes((192, 200)
   %88 = load i64, ptr %29, align 8, !tbaa !65
   %.not70 = icmp eq i64 %88, 0
   %89 = sitofp i64 %88 to double
-  %90 = fmul double %86, 1.000000e+02
+  %90 = fmul nnan double %86, 1.000000e+02
   %91 = fdiv double %90, %89
   %92 = select i1 %.not70, double 0.000000e+00, double %91
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.9, double noundef %87, double noundef %92)
@@ -568,7 +568,7 @@ define void @Ssc_ManPrintStats(ptr noundef captures(none) initializes((192, 200)
   %96 = load i64, ptr %29, align 8, !tbaa !65
   %.not71 = icmp eq i64 %96, 0
   %97 = sitofp i64 %96 to double
-  %98 = fmul double %94, 1.000000e+02
+  %98 = fmul nnan double %94, 1.000000e+02
   %99 = fdiv double %98, %97
   %100 = select i1 %.not71, double 0.000000e+00, double %99
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.9, double noundef %95, double noundef %100)
@@ -579,7 +579,7 @@ define void @Ssc_ManPrintStats(ptr noundef captures(none) initializes((192, 200)
   %104 = load i64, ptr %29, align 8, !tbaa !65
   %.not72 = icmp eq i64 %104, 0
   %105 = sitofp i64 %104 to double
-  %106 = fmul double %102, 1.000000e+02
+  %106 = fmul nnan double %102, 1.000000e+02
   %107 = fdiv double %106, %105
   %108 = select i1 %.not72, double 0.000000e+00, double %107
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.9, double noundef %103, double noundef %108)
@@ -590,7 +590,7 @@ define void @Ssc_ManPrintStats(ptr noundef captures(none) initializes((192, 200)
   %112 = load i64, ptr %29, align 8, !tbaa !65
   %.not73 = icmp eq i64 %112, 0
   %113 = sitofp i64 %112 to double
-  %114 = fmul double %110, 1.000000e+02
+  %114 = fmul nnan double %110, 1.000000e+02
   %115 = fdiv double %114, %113
   %116 = select i1 %.not73, double 0.000000e+00, double %115
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.9, double noundef %111, double noundef %116)
@@ -598,7 +598,7 @@ define void @Ssc_ManPrintStats(ptr noundef captures(none) initializes((192, 200)
   %117 = load i64, ptr %29, align 8, !tbaa !65
   %118 = sitofp i64 %117 to double
   %.not74 = icmp eq i64 %117, 0
-  %119 = fmul double %118, 1.000000e+02
+  %119 = fmul nnan double %118, 1.000000e+02
   %120 = fdiv double %119, %118
   %121 = select i1 %.not74, double 0.000000e+00, double %120
   %122 = fdiv double %118, 1.000000e+06
@@ -1719,7 +1719,7 @@ Abc_Clock.exit215:                                ; preds = %407, %411
   %442 = xor i32 %441, -1
   %443 = add i32 %434, %442
   %444 = sitofp i32 %443 to double
-  %445 = fmul double %444, 1.000000e+02
+  %445 = fmul nnan double %444, 1.000000e+02
   %446 = sitofp i32 %432 to double
   %447 = fdiv double %445, %446
   %448 = fsub double 1.000000e+02, %447

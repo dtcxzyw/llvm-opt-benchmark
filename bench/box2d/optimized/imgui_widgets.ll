@@ -2767,7 +2767,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui11ScrollbarExERK6ImRectj9ImGuiAxis
 
 147:                                              ; preds = %143
   %148 = fsub float %121, %104
-  %149 = fmul float %89, 5.000000e-01
+  %149 = fmul nnan float %89, 5.000000e-01
   %150 = fsub float %148, %149
   br label %151
 
@@ -2787,7 +2787,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui11ScrollbarExERK6ImRectj9ImGuiAxis
   %159 = getelementptr inbounds nuw i8, ptr %12, i64 9320
   %160 = load float, ptr %159, align 8, !tbaa !228
   %161 = fsub float %121, %160
-  %162 = fmul float %89, 5.000000e-01
+  %162 = fmul nnan float %89, 5.000000e-01
   %163 = fsub float %161, %162
   %164 = fsub float 1.000000e+00, %89
   %165 = fdiv float %163, %164
@@ -2934,7 +2934,7 @@ define dso_local void @_ZN5ImGui5ImageEPvRK6ImVec2S3_S3_RK6ImVec4S6_(ptr noundef
   %.val26 = load float, ptr %25, align 4, !tbaa !159
   %26 = fadd float %.val23, %.val25
   %27 = fadd float %.val24, %.val26
-  %28 = fmul float %22, 2.000000e+00
+  %28 = fmul nnan float %22, 2.000000e+00
   %29 = fadd float %28, %26
   %30 = fadd float %28, %27
   %.sroa.0.0.vec.insert.i35 = insertelement <2 x float> poison, float %29, i64 0
@@ -3505,7 +3505,7 @@ _ZNK6ImRect8OverlapsERKS_.exit:                   ; preds = %68
   %185 = fadd float %.sroa.097.4.vec.extract103, %181
   %.sroa.0.0.vec.insert.i91 = insertelement <2 x float> poison, float %184, i64 0
   %.sroa.0.4.vec.insert.i92 = insertelement <2 x float> %.sroa.0.0.vec.insert.i91, float %185, i64 1
-  %186 = fmul float %181, 2.000000e+00
+  %186 = fmul nnan float %181, 2.000000e+00
   %187 = fsub float %22, %186
   call void @_ZN5ImGui15RenderCheckMarkEP10ImDrawList6ImVec2jf(ptr noundef %183, <2 x float> %.sroa.0.4.vec.insert.i92, i32 noundef %159, float noundef %187)
   br label %188
@@ -15497,7 +15497,7 @@ _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit297: ; preds = %286, %289
 
 332:                                              ; preds = %330
   %333 = sitofp i32 %16 to float
-  %334 = fmul float %305, %333
+  %334 = fmul nnan float %305, %333
   %335 = icmp ugt i32 %4, %5
   %336 = select i1 %335, float -5.000000e-01, float 5.000000e-01
   %337 = fadd float %336, %334
@@ -15641,7 +15641,7 @@ _ZN5ImGui20ScaleRatioFromValueTIjifEEfiT_S1_S1_bff.exit307: ; preds = %_ZN5ImGui
 
 414:                                              ; preds = %412
   %415 = sitofp i32 %16 to float
-  %416 = fmul float %.2227346, %415
+  %416 = fmul nnan float %.2227346, %415
   %417 = icmp ugt i32 %4, %5
   %418 = select i1 %417, float -5.000000e-01, float 5.000000e-01
   %419 = fadd float %418, %416
@@ -17017,7 +17017,7 @@ _ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit297: ; preds = %290, %293
 
 338:                                              ; preds = %336
   %339 = sitofp i64 %16 to float
-  %340 = fmul float %310, %339
+  %340 = fmul nnan float %310, %339
   %341 = fpext float %340 to double
   %342 = icmp ugt i64 %4, %5
   %343 = select i1 %342, double -5.000000e-01, double 5.000000e-01
@@ -17165,7 +17165,7 @@ _ZN5ImGui20ScaleRatioFromValueTIyxdEEfiT_S1_S1_bff.exit307: ; preds = %_ZN5ImGui
 
 424:                                              ; preds = %422
   %425 = sitofp i64 %16 to float
-  %426 = fmul float %.2227346, %425
+  %426 = fmul nnan float %.2227346, %425
   %427 = fpext float %426 to double
   %428 = icmp ugt i64 %4, %5
   %429 = select i1 %428, double -5.000000e-01, double 5.000000e-01
@@ -30302,14 +30302,14 @@ _ZL18ColorEditRestoreHSPKfPfS1_S1_.exit553:       ; preds = %625, %622, %.crited
   %indvars.iv = phi i64 [ 0, %671 ], [ %indvars.iv.next, %785 ]
   %787 = trunc nuw nsw i64 %indvars.iv to i32
   %788 = uitofp nneg i32 %787 to float
-  %789 = fdiv float %788, 6.000000e+00
-  %790 = fmul float %789, 2.000000e+00
-  %791 = fmul float %790, 0x400921FB60000000
+  %789 = fdiv nnan float %788, 6.000000e+00
+  %790 = fmul nnan float %789, 2.000000e+00
+  %791 = fmul nnan float %790, 0x400921FB60000000
   %792 = fsub float %791, %672
-  %793 = fadd float %788, 1.000000e+00
-  %794 = fdiv float %793, 6.000000e+00
-  %795 = fmul float %794, 2.000000e+00
-  %796 = fmul float %795, 0x400921FB60000000
+  %793 = fadd nnan float %788, 1.000000e+00
+  %794 = fdiv nnan float %793, 6.000000e+00
+  %795 = fmul nnan float %794, 2.000000e+00
+  %796 = fmul nnan float %795, 0x400921FB60000000
   %797 = fadd float %672, %796
   %798 = load i32, ptr %676, align 8, !tbaa !529
   call void @_ZN10ImDrawList9PathArcToERK6ImVec2fffi(ptr noundef nonnull align 8 dereferenceable(200) %73, ptr noundef nonnull align 4 dereferenceable(8) %26, float noundef %678, float noundef %792, float noundef %797, i32 noundef %675)
@@ -36591,7 +36591,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui7ListBoxEPKcPiPKS1_ii(ptr noundef 
   %11 = tail call i32 @llvm.smin.i32(i32 %3, i32 7)
   %.035.i = select i1 %10, i32 %11, i32 %4
   %12 = sitofp i32 %.035.i to float
-  %13 = fadd float %12, 2.500000e-01
+  %13 = fadd nnan float %12, 2.500000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = tail call noundef float @_ZN5ImGui28GetTextLineHeightWithSpacingEv()
   %15 = fmul float %13, %14
@@ -36769,7 +36769,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui7ListBoxEPKcPiPFS1_PviES3_ii(ptr n
   %12 = tail call i32 @llvm.smin.i32(i32 %4, i32 7)
   %.035 = select i1 %11, i32 %12, i32 %5
   %13 = sitofp i32 %.035 to float
-  %14 = fadd float %13, 2.500000e-01
+  %14 = fadd nnan float %13, 2.500000e-01
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %15 = tail call noundef float @_ZN5ImGui28GetTextLineHeightWithSpacingEv()
   %16 = fmul float %14, %15
@@ -38614,7 +38614,7 @@ _ZN16ImGuiMenuColumns11DeclColumnsEffff.exit._crit_edge: ; preds = %_ZN16ImGuiMe
   %286 = fcmp ogt float %282, %284
   %287 = select i1 %286, float %284, float %282
   %288 = select i1 %285, float %283, float %287
-  %289 = fmul float %260, 5.000000e-01
+  %289 = fmul nnan float %260, 5.000000e-01
   %290 = fsub float %272, %289
   store float %290, ptr %7, align 8, !tbaa !158
   %291 = fmul float %254, %260
@@ -45136,7 +45136,7 @@ define linkonce_odr dso_local noundef i32 @_ZN5ImGui20ScaleValueFromRatioTIiifEE
 94:                                               ; preds = %92
   %95 = sub nsw i32 %3, %2
   %96 = sitofp i32 %95 to float
-  %97 = fmul float %1, %96
+  %97 = fmul nnan float %1, %96
   %98 = icmp sgt i32 %2, %3
   %99 = select i1 %98, float -5.000000e-01, float 5.000000e-01
   %100 = fadd float %99, %97
@@ -45712,7 +45712,7 @@ define linkonce_odr dso_local noundef i64 @_ZN5ImGui20ScaleValueFromRatioTIxxdEE
 104:                                              ; preds = %102
   %105 = sub nsw i64 %3, %2
   %106 = sitofp i64 %105 to float
-  %107 = fmul float %1, %106
+  %107 = fmul nnan float %1, %106
   %108 = fpext float %107 to double
   %109 = icmp sgt i64 %2, %3
   %110 = select i1 %109, double -5.000000e-01, double 5.000000e-01
@@ -46701,7 +46701,7 @@ define linkonce_odr dso_local noundef double @_ZN5ImGui20ScaleValueFromRatioTIdd
 
 90:                                               ; preds = %87
   %91 = fsub double %3, %2
-  %92 = fpext float %1 to double
+  %92 = fpext ninf float %1 to double
   %93 = fmul double %91, %92
   %94 = fadd double %2, %93
   br label %105
@@ -46711,7 +46711,7 @@ define linkonce_odr dso_local noundef double @_ZN5ImGui20ScaleValueFromRatioTIdd
   br i1 %96, label %97, label %105
 
 97:                                               ; preds = %95
-  %98 = fpext float %1 to double
+  %98 = fpext nnan ninf float %1 to double
   %99 = fsub double %3, %2
   %100 = fmul double %99, %98
   %101 = fcmp ogt double %2, %3

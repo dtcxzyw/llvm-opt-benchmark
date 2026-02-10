@@ -140,7 +140,7 @@ define hidden void @_ZN7Vec3fToIhE4makeEi(ptr dead_on_unwind noalias writable wr
 _ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_i.exit:     ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %11 = sitofp i32 %2 to double
-  %12 = fdiv double 1.000000e+00, %11
+  %12 = fdiv nnan double 1.000000e+00, %11
   br label %13
 
 13:                                               ; preds = %13, %_ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_i.exit
@@ -1463,7 +1463,7 @@ _ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EE6assignEmRKS2_.exit: ; preds = %_ZSt10_Cons
 _ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_i.exit.i:   ; preds = %154
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   %159 = sitofp i32 %152 to double
-  %160 = fdiv double 1.000000e+00, %159
+  %160 = fdiv nnan double 1.000000e+00, %159
   br label %161
 
 161:                                              ; preds = %161, %_ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_i.exit.i
@@ -1611,7 +1611,7 @@ _ZN2cvpLIffLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit: ; preds = %172
 _ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_i.exit.i103: ; preds = %239
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
   %244 = sitofp i32 %237 to double
-  %245 = fdiv double 1.000000e+00, %244
+  %245 = fdiv nnan double 1.000000e+00, %244
   br label %246
 
 246:                                              ; preds = %246, %_ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_i.exit.i103
@@ -1701,7 +1701,7 @@ _ZN2cvmIIffLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit: ; preds = %257
 _ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_i.exit.i115: ; preds = %282
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
   %287 = sitofp i32 %280 to double
-  %288 = fdiv double 1.000000e+00, %287
+  %288 = fdiv nnan double 1.000000e+00, %287
   br label %289
 
 289:                                              ; preds = %289, %_ZN2cvmlIfLi3EEENS_3VecIT_XT0_EEERKS3_i.exit.i115
@@ -1788,7 +1788,7 @@ _ZN2cvpLIffLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit123: ; preds = %300
   %323 = load i32, ptr %322, align 4, !tbaa !47
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %324 = sitofp i32 %323 to double
-  %325 = fdiv double 1.000000e+00, %324
+  %325 = fdiv nnan double 1.000000e+00, %324
   br label %326
 
 326:                                              ; preds = %326, %.loopexit172
@@ -2518,7 +2518,7 @@ _ZN2cvpLIffLi3EEERNS_3VecIT_XT1_EEES4_RKNS1_IT0_XT1_EEE.exit116: ; preds = %308
   %331 = load i32, ptr %330, align 4, !tbaa !47
   tail call void @llvm.experimental.noalias.scope.decl(metadata !161)
   %332 = sitofp i32 %331 to double
-  %333 = fdiv double 1.000000e+00, %332
+  %333 = fdiv nnan double 1.000000e+00, %332
   br label %334
 
 334:                                              ; preds = %334, %.loopexit166

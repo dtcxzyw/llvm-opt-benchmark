@@ -10523,18 +10523,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit403: ; preds = %_Z
   %767 = getelementptr inbounds nuw %"struct.Assimp::MD3::Vertex", ptr %377, i64 %766
   %768 = load i16, ptr %767, align 2
   %769 = sitofp i16 %768 to float
-  %770 = fmul float %769, 1.562500e-02
+  %770 = fmul nnan float %769, 1.562500e-02
   store float %770, ptr %765, align 4
   %771 = getelementptr inbounds nuw i8, ptr %767, i64 2
   %772 = load i16, ptr %771, align 2
   %773 = sitofp i16 %772 to float
-  %774 = fmul float %773, 1.562500e-02
+  %774 = fmul nnan float %773, 1.562500e-02
   %775 = getelementptr inbounds nuw i8, ptr %765, i64 4
   store float %774, ptr %775, align 4
   %776 = getelementptr inbounds nuw i8, ptr %767, i64 4
   %777 = load i16, ptr %776, align 2
   %778 = sitofp i16 %777 to float
-  %779 = fmul float %778, 1.562500e-02
+  %779 = fmul nnan float %778, 1.562500e-02
   %780 = getelementptr inbounds nuw i8, ptr %765, i64 8
   store float %779, ptr %780, align 4
   %781 = load ptr, ptr %699, align 8
@@ -10546,8 +10546,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit403: ; preds = %_Z
   %787 = uitofp nneg i32 %786 to float
   %788 = and i32 %785, 255
   %789 = uitofp nneg i32 %788 to float
-  %790 = fmul float %787, 0x3F9922AA20000000
-  %791 = fmul float %789, 0x3F9922AA20000000
+  %790 = fmul nnan float %787, 0x3F9922AA20000000
+  %791 = fmul nnan float %789, 0x3F9922AA20000000
   %792 = call noundef float @cosf(float noundef %790) #25
   %793 = call noundef float @sinf(float noundef %791) #25
   %794 = fmul float %792, %793

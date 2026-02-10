@@ -927,7 +927,7 @@ define range(i32 -1, 1) i32 @H5HF_dblock_debug(ptr noundef %0, i64 noundef %1, p
   %99 = sub i64 %98, %46
   %100 = sub i64 %99, %.174
   %101 = uitofp i64 %100 to double
-  %102 = fmul double %101, 1.000000e+02
+  %102 = fmul nnan double %101, 1.000000e+02
   %103 = uitofp i64 %99 to double
   %104 = fdiv double %102, %103
   %105 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.56, i32 noundef %3, ptr noundef nonnull @.str.6, i32 noundef %4, ptr noundef nonnull @.str.57, double noundef %104) #9

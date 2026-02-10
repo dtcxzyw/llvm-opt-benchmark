@@ -638,7 +638,7 @@ read_gains.exit.thread274:                        ; preds = %26, %33
   %.034.lcssa.i.i = phi double [ 0.000000e+00, %81 ], [ %114, %96 ]
   %92 = getelementptr inbounds nuw double, ptr %57, i64 %indvars.iv.i.i
   %93 = load double, ptr %92, align 8, !tbaa !75
-  %exp2.i.i = call nsz double @llvm.exp2.f64(double %.pre.i.i)
+  %exp2.i.i = call nnan nsz double @llvm.exp2.f64(double %.pre.i.i)
   %94 = fmul nsz double %exp2.i.i, %93
   %95 = call nsz double @llvm.fmuladd.f64(double %94, double %.034.lcssa.i.i, double %.03646.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -711,7 +711,7 @@ coef_sf2zf.exit.loopexit.i:                       ; preds = %._crit_edge.i.i
   %.034.lcssa.i54.i = phi double [ 0.000000e+00, %120 ], [ %153, %135 ]
   %131 = getelementptr inbounds nuw double, ptr %61, i64 %indvars.iv.i43.i
   %132 = load double, ptr %131, align 8, !tbaa !75
-  %exp2.i55.i = call nsz double @llvm.exp2.f64(double %.pre.i47.i)
+  %exp2.i55.i = call nnan nsz double @llvm.exp2.f64(double %.pre.i47.i)
   %133 = fmul nsz double %exp2.i55.i, %132
   %134 = call nsz double @llvm.fmuladd.f64(double %133, double %.034.lcssa.i54.i, double %.03646.i44.i)
   %indvars.iv.next.i56.i = add nuw nsw i64 %indvars.iv.i43.i, 1
@@ -1154,7 +1154,7 @@ check_stability.exit:                             ; preds = %.loopexit.i217, %22
   %.018141.i = phi double [ 0xFFEFFFFFFFFFFFFF, %.lr.ph.i225 ], [ %423, %get_response.exit.i ]
   %355 = trunc nuw nsw i64 %indvars.iv.i228 to i32
   %356 = uitofp nneg i32 %355 to double
-  %357 = fmul nsz double %356, 0x400921FB54442D18
+  %357 = fmul nnan nsz double %356, 0x400921FB54442D18
   %358 = fdiv nsz double %357, %347
   br i1 %350, label %.preheader95.i.i, label %.preheader97.i.i
 

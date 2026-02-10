@@ -2404,7 +2404,7 @@ define linkonce_odr hidden void @_ZN5boost6locale8impl_icu13calendar_impl8set_ti
   %3 = alloca i32, align 4
   %4 = load i64, ptr %1, align 8, !tbaa !66
   %5 = sitofp i64 %4 to double
-  %6 = fmul double %5, 1.000000e+03
+  %6 = fmul nnan double %5, 1.000000e+03
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !58
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80

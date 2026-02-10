@@ -64668,7 +64668,7 @@ invoke.cont237:                                   ; preds = %invoke.cont234
 
 invoke.cont239:                                   ; preds = %invoke.cont237
   %conv241 = uitofp i64 %call169 to double
-  %mul242 = fmul double %conv241, 1.000000e+02
+  %mul242 = fmul nnan double %conv241, 1.000000e+02
   %conv243 = uitofp i64 %mul217 to double
   %div = fdiv double %mul242, %conv243
   %call245 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.69)
@@ -64696,9 +64696,9 @@ if.then257:                                       ; preds = %invoke.cont254
 
 invoke.cont263:                                   ; preds = %if.then257
   %conv258 = uitofp i64 %call173 to double
-  %mul259 = fmul double %conv258, 1.000000e+02
+  %mul259 = fmul nnan double %conv258, 1.000000e+02
   %conv260 = uitofp i32 %15 to double
-  %mul261 = fmul double %conv260, 5.120000e+02
+  %mul261 = fmul nnan double %conv260, 5.120000e+02
   %div262 = fdiv double %mul259, %mul261
   %call266 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call264, double noundef %div262)
           to label %invoke.cont265 unwind label %lpad83.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
@@ -64986,7 +64986,7 @@ invoke.cont361:                                   ; preds = %invoke.cont359
 
 invoke.cont367:                                   ; preds = %invoke.cont361
   %conv369 = uitofp i64 %call317 to double
-  %mul370 = fmul double %conv369, 1.000000e+02
+  %mul370 = fmul nnan double %conv369, 1.000000e+02
   %conv371 = uitofp i64 %totalVoxels.0 to double
   %div372 = fdiv double %mul370, %conv371
   %call374 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call368, double noundef %div372)
@@ -65002,7 +65002,7 @@ invoke.cont375:                                   ; preds = %invoke.cont373
 
 invoke.cont377:                                   ; preds = %invoke.cont375
   %conv379 = uitofp i64 %call173 to double
-  %mul380 = fmul double %conv379, 1.000000e+02
+  %mul380 = fmul nnan double %conv379, 1.000000e+02
   %div382 = fdiv double %mul380, %conv369
   %call384 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8) %call378, double noundef %div382)
           to label %invoke.cont383 unwind label %lpad83.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

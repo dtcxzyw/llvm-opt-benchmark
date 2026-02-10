@@ -711,7 +711,7 @@ _blendif_lab_b.exit:                              ; preds = %_blendif_compute_fa
   br i1 %229, label %230, label %232
 
 230:                                              ; preds = %222
-  %231 = fmul reassoc nsz arcp contract afn float %228, 0x3FC45F3060000000
+  %231 = fmul reassoc nnan nsz arcp contract afn float %228, 0x3FC45F3060000000
   br label %dt_Lab_2_LCH.exit.i
 
 232:                                              ; preds = %222
@@ -1237,7 +1237,7 @@ dt_Lab_2_LCH.exit156.i:                           ; preds = %239, %dt_Lab_2_LCH.
   br i1 %264, label %265, label %267
 
 265:                                              ; preds = %.lr.ph188.i
-  %266 = fmul reassoc nsz arcp contract afn float %263, 0x3FC45F3060000000
+  %266 = fmul reassoc nnan nsz arcp contract afn float %263, 0x3FC45F3060000000
   br label %dt_Lab_2_LCH.exit158.i
 
 267:                                              ; preds = %.lr.ph188.i
@@ -1278,7 +1278,7 @@ dt_Lab_2_LCH.exit158.i:                           ; preds = %267, %265
   br i1 %287, label %288, label %290
 
 288:                                              ; preds = %.lr.ph.i
-  %289 = fmul reassoc nsz arcp contract afn float %286, 0x3FC45F3060000000
+  %289 = fmul reassoc nnan nsz arcp contract afn float %286, 0x3FC45F3060000000
   br label %dt_Lab_2_LCH.exit160.i
 
 290:                                              ; preds = %.lr.ph.i
@@ -1368,7 +1368,7 @@ _display_channel.exit:                            ; preds = %dt_Lab_2_LCH.exit16
   %331 = select reassoc nsz arcp contract afn i1 %330, float %329, float %71
   %332 = fptosi float %331 to i32
   %333 = sitofp i32 %332 to float
-  %334 = fsub reassoc nsz arcp contract afn float %329, %333
+  %334 = fsub reassoc nnan nsz arcp contract afn float %329, %333
   %335 = sext i32 %332 to i64
   %336 = getelementptr inbounds float, ptr %318, i64 %335
   %337 = load float, ptr %336, align 4, !tbaa !36
@@ -1491,7 +1491,7 @@ dt_ioppr_rgb_matrix_to_xyz.exit.i:                ; preds = %377, %dt_apply_tran
   %407 = bitcast i32 %406 to float
   %408 = fmul reassoc nsz arcp contract afn float %407, %407
   %409 = fmul reassoc nsz arcp contract afn float %408, %407
-  %factor.i.i.i.i = fmul reassoc nsz arcp contract afn float %401, 2.000000e+00
+  %factor.i.i.i.i = fmul reassoc nnan nsz arcp contract afn float %401, 2.000000e+00
   %410 = fadd reassoc nsz arcp contract afn float %409, %factor.i.i.i.i
   %411 = fmul reassoc nsz arcp contract afn float %410, %407
   %factor11.i.i.i.i = fmul reassoc nsz arcp contract afn float %409, 2.000000e+00
@@ -1613,7 +1613,7 @@ dt_Rec709_to_XYZ_D50.exit:                        ; preds = %444
   %474 = bitcast i32 %473 to float
   %475 = fmul reassoc nsz arcp contract afn float %474, %474
   %476 = fmul reassoc nsz arcp contract afn float %475, %474
-  %factor.i.i.i = fmul reassoc nsz arcp contract afn float %468, 2.000000e+00
+  %factor.i.i.i = fmul reassoc nnan nsz arcp contract afn float %468, 2.000000e+00
   %477 = fadd reassoc nsz arcp contract afn float %476, %factor.i.i.i
   %478 = fmul reassoc nsz arcp contract afn float %477, %474
   %factor11.i.i.i = fmul reassoc nsz arcp contract afn float %476, 2.000000e+00
@@ -3952,7 +3952,7 @@ _CLAMP_XYZ.exit:                                  ; preds = %_blend_Lab_scale.ex
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %_CLAMP_XYZ.exit
-  %40 = fmul reassoc nsz arcp contract afn float %37, 0x3FC45F3060000000
+  %40 = fmul reassoc nnan nsz arcp contract afn float %37, 0x3FC45F3060000000
   br label %dt_Lab_2_LCH.exit
 
 41:                                               ; preds = %_CLAMP_XYZ.exit
@@ -4119,7 +4119,7 @@ _CLAMP_XYZ.exit:                                  ; preds = %_blend_Lab_scale.ex
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %_CLAMP_XYZ.exit
-  %40 = fmul reassoc nsz arcp contract afn float %37, 0x3FC45F3060000000
+  %40 = fmul reassoc nnan nsz arcp contract afn float %37, 0x3FC45F3060000000
   br label %dt_Lab_2_LCH.exit
 
 41:                                               ; preds = %_CLAMP_XYZ.exit
@@ -4171,7 +4171,7 @@ _CLAMP_XYZ.exit35:                                ; preds = %_blend_Lab_scale.ex
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %_CLAMP_XYZ.exit35
-  %70 = fmul reassoc nsz arcp contract afn float %67, 0x3FC45F3060000000
+  %70 = fmul reassoc nnan nsz arcp contract afn float %67, 0x3FC45F3060000000
   br label %dt_Lab_2_LCH.exit37
 
 71:                                               ; preds = %_CLAMP_XYZ.exit35
@@ -4186,7 +4186,7 @@ dt_Lab_2_LCH.exit37:                              ; preds = %69, %71
   %76 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %75)
   %77 = fcmp reassoc nsz arcp contract afn ogt float %76, 5.000000e-01
   %78 = fneg reassoc nsz arcp contract afn float %16
-  %79 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %76
+  %79 = fsub reassoc nnan nsz arcp contract afn float 1.000000e+00, %76
   %80 = fmul reassoc nsz arcp contract afn float %79, %78
   %81 = fdiv reassoc nsz arcp contract afn float %80, %76
   %82 = select reassoc nsz arcp contract afn i1 %77, float %81, float %16
@@ -4311,7 +4311,7 @@ _CLAMP_XYZ.exit:                                  ; preds = %_blend_Lab_scale.ex
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %_CLAMP_XYZ.exit
-  %40 = fmul reassoc nsz arcp contract afn float %37, 0x3FC45F3060000000
+  %40 = fmul reassoc nnan nsz arcp contract afn float %37, 0x3FC45F3060000000
   br label %dt_Lab_2_LCH.exit
 
 41:                                               ; preds = %_CLAMP_XYZ.exit
@@ -4363,7 +4363,7 @@ _CLAMP_XYZ.exit37:                                ; preds = %_blend_Lab_scale.ex
   br i1 %68, label %69, label %71
 
 69:                                               ; preds = %_CLAMP_XYZ.exit37
-  %70 = fmul reassoc nsz arcp contract afn float %67, 0x3FC45F3060000000
+  %70 = fmul reassoc nnan nsz arcp contract afn float %67, 0x3FC45F3060000000
   br label %dt_Lab_2_LCH.exit39
 
 71:                                               ; preds = %_CLAMP_XYZ.exit37
@@ -4382,7 +4382,7 @@ dt_Lab_2_LCH.exit39:                              ; preds = %69, %71
   %80 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %79)
   %81 = fcmp reassoc nsz arcp contract afn ogt float %80, 5.000000e-01
   %82 = fneg reassoc nsz arcp contract afn float %16
-  %83 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %80
+  %83 = fsub reassoc nnan nsz arcp contract afn float 1.000000e+00, %80
   %84 = fmul reassoc nsz arcp contract afn float %83, %82
   %85 = fdiv reassoc nsz arcp contract afn float %84, %80
   %86 = select reassoc nsz arcp contract afn i1 %81, float %85, float %16
@@ -4604,7 +4604,7 @@ _CLAMP_XYZ.exit:                                  ; preds = %_blend_Lab_scale.ex
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %_CLAMP_XYZ.exit
-  %40 = fmul reassoc nsz arcp contract afn float %37, 0x3FC45F3060000000
+  %40 = fmul reassoc nnan nsz arcp contract afn float %37, 0x3FC45F3060000000
   br label %dt_Lab_2_LCH.exit
 
 41:                                               ; preds = %_CLAMP_XYZ.exit
@@ -4655,7 +4655,7 @@ _CLAMP_XYZ.exit37:                                ; preds = %_blend_Lab_scale.ex
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %_CLAMP_XYZ.exit37
-  %69 = fmul reassoc nsz arcp contract afn float %66, 0x3FC45F3060000000
+  %69 = fmul reassoc nnan nsz arcp contract afn float %66, 0x3FC45F3060000000
   br label %dt_Lab_2_LCH.exit39
 
 70:                                               ; preds = %_CLAMP_XYZ.exit37
@@ -4674,7 +4674,7 @@ dt_Lab_2_LCH.exit39:                              ; preds = %68, %70
   %79 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %78)
   %80 = fcmp reassoc nsz arcp contract afn ogt float %79, 5.000000e-01
   %81 = fneg reassoc nsz arcp contract afn float %16
-  %82 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %79
+  %82 = fsub reassoc nnan nsz arcp contract afn float 1.000000e+00, %79
   %83 = fmul reassoc nsz arcp contract afn float %82, %81
   %84 = fdiv reassoc nsz arcp contract afn float %83, %79
   %85 = select reassoc nsz arcp contract afn i1 %80, float %84, float %16

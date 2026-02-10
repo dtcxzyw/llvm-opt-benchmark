@@ -943,7 +943,7 @@ define internal void @nellymoser_init_static() #0 {
   %3 = trunc i64 %indvars.iv to i32
   %4 = sub i32 0, %3
   %5 = sitofp i32 %4 to double
-  %6 = fmul nsz double %5, 0x3F40000000000000
+  %6 = fmul nnan nsz double %5, 0x3F40000000000000
   %7 = tail call nsz double @llvm.exp2.f64(double %6)
   %8 = fptrunc nsz double %7 to float
   %9 = getelementptr inbounds nuw float, ptr @pow_table, i64 %indvars.iv
@@ -953,7 +953,7 @@ define internal void @nellymoser_init_static() #0 {
   %12 = sub nuw nsw i64 1024, %indvars.iv
   %13 = getelementptr inbounds nuw float, ptr @pow_table, i64 %12
   store float %11, ptr %13, align 4, !tbaa !27
-  %14 = fmul nsz double %7, 0x3FE6A09E667F3BCD
+  %14 = fmul nnan nsz double %7, 0x3FE6A09E667F3BCD
   %15 = fptrunc nsz double %14 to float
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 4096
   store float %15, ptr %16, align 4, !tbaa !27

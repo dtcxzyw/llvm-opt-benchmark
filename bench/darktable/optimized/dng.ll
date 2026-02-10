@@ -1285,7 +1285,7 @@ define void @_ZN6LibRaw18lossy_dng_load_rawEv(ptr noundef nonnull align 8 derefe
   %indvars.iv158 = phi i64 [ 0, %.preheader95 ], [ %indvars.iv.next159, %69 ]
   %59 = trunc nuw nsw i64 %indvars.iv158 to i32
   %60 = uitofp nneg i32 %59 to double
-  %61 = fmul reassoc nsz arcp contract afn double %60, 0x3F70101010101010
+  %61 = fmul reassoc nnan nsz arcp contract afn double %60, 0x3F70101010101010
   br label %62
 
 62:                                               ; preds = %.preheader94, %62

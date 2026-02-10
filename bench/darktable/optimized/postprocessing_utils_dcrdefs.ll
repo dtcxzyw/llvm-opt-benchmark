@@ -1206,8 +1206,8 @@ define void @_ZN6LibRaw12scale_colorsEv(ptr noundef nonnull align 8 dereferencea
   %.2278 = phi i32 [ 0, %.lr.ph279 ], [ %444, %.loopexit ]
   %375 = uitofp nneg i32 %.2278 to double
   %376 = uitofp i16 %373 to double
-  %377 = fmul reassoc nsz arcp contract afn double %376, 5.000000e-01
-  %378 = fsub reassoc nsz arcp contract afn double %375, %377
+  %377 = fmul reassoc nnan nsz arcp contract afn double %376, 5.000000e-01
+  %378 = fsub reassoc nnan nsz arcp contract afn double %375, %377
   %379 = fmul reassoc nsz arcp contract afn double %368, %378
   %380 = fadd reassoc nsz arcp contract afn double %379, %377
   %381 = fptrunc reassoc nsz arcp contract afn double %380 to float
@@ -1235,8 +1235,8 @@ define void @_ZN6LibRaw12scale_colorsEv(ptr noundef nonnull align 8 dereferencea
   %.2144273 = phi i32 [ 0, %.lr.ph275 ], [ %440, %438 ]
   %394 = uitofp nneg i32 %.2144273 to double
   %395 = uitofp i16 %392 to double
-  %396 = fmul reassoc nsz arcp contract afn double %395, 5.000000e-01
-  %397 = fsub reassoc nsz arcp contract afn double %394, %396
+  %396 = fmul reassoc nnan nsz arcp contract afn double %395, 5.000000e-01
+  %397 = fsub reassoc nnan nsz arcp contract afn double %394, %396
   %398 = fmul reassoc nsz arcp contract afn double %397, %368
   %399 = fadd reassoc nsz arcp contract afn double %398, %396
   %400 = fptrunc reassoc nsz arcp contract afn double %399 to float
@@ -1410,9 +1410,9 @@ define void @_ZN6LibRaw14green_matchingEv(ptr noundef nonnull align 8 dereferenc
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 153000
   %35 = load i32, ptr %34, align 8
   %36 = uitofp i32 %35 to double
-  %37 = fmul reassoc nsz arcp contract afn double %36, 0x3FEE666666666666
+  %37 = fmul reassoc nnan nsz arcp contract afn double %36, 0x3FEE666666666666
   %38 = uitofp i32 %35 to float
-  %39 = fmul reassoc nsz arcp contract afn float %38, 0x3F847AE140000000
+  %39 = fmul reassoc nnan nsz arcp contract afn float %38, 0x3F847AE140000000
   %40 = fpext reassoc nsz arcp contract afn float %39 to double
   %.pre = load i16, ptr %18, align 2, !tbaa !101
   br label %.preheader
@@ -1490,12 +1490,12 @@ define void @_ZN6LibRaw14green_matchingEv(ptr noundef nonnull align 8 dereferenc
   %99 = add nuw nsw i32 %98, %70
   %100 = add nuw nsw i32 %99, %73
   %101 = uitofp nneg i32 %100 to double
-  %102 = fmul reassoc nsz arcp contract afn double %101, 2.500000e-01
+  %102 = fmul reassoc nnan nsz arcp contract afn double %101, 2.500000e-01
   %103 = add nuw nsw i32 %87, %80
   %104 = add nuw nsw i32 %103, %94
   %105 = add nuw nsw i32 %104, %97
   %106 = uitofp nneg i32 %105 to double
-  %107 = fmul reassoc nsz arcp contract afn double %106, 2.500000e-01
+  %107 = fmul reassoc nnan nsz arcp contract afn double %106, 2.500000e-01
   %108 = getelementptr inbounds nuw i8, ptr %91, i64 6
   %109 = load i16, ptr %108, align 2, !tbaa !108
   %110 = uitofp i16 %109 to double
@@ -1521,7 +1521,7 @@ define void @_ZN6LibRaw14green_matchingEv(ptr noundef nonnull align 8 dereferenc
   %128 = add nuw nsw i32 %127, %123
   %129 = add nuw nsw i32 %128, %125
   %130 = uitofp nneg i32 %129 to double
-  %131 = fmul reassoc nsz arcp contract afn double %130, 0x3FC5555555555555
+  %131 = fmul reassoc nnan nsz arcp contract afn double %130, 0x3FC5555555555555
   %132 = sub nsw i32 %60, %63
   %133 = tail call i32 @llvm.abs.i32(i32 %132, i1 true)
   %134 = sub nsw i32 %60, %70
@@ -1540,7 +1540,7 @@ define void @_ZN6LibRaw14green_matchingEv(ptr noundef nonnull align 8 dereferenc
   %147 = add nuw nsw i32 %146, %142
   %148 = add nuw nsw i32 %147, %144
   %149 = uitofp nneg i32 %148 to double
-  %150 = fmul reassoc nsz arcp contract afn double %149, 0x3FC5555555555555
+  %150 = fmul reassoc nnan nsz arcp contract afn double %149, 0x3FC5555555555555
   %151 = fcmp reassoc nsz arcp contract afn olt double %150, %40
   %152 = fcmp reassoc nsz arcp contract afn olt double %131, %40
   %or.cond100 = select i1 %151, i1 %152, i1 false

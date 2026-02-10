@@ -953,7 +953,7 @@ _Z15shortestArcQuatRK9btVector3S1_.exit:          ; preds = %344, %444
 
 522:                                              ; preds = %512
   %523 = fmul float %519, %519
-  %524 = fmul float %518, %518
+  %524 = fmul nnan float %518, %518
   %525 = fdiv float %523, %524
   %526 = fmul float %504, %504
   %527 = fdiv float 1.000000e+00, %526
@@ -1004,7 +1004,7 @@ _ZN21btConeTwistConstraint20computeConeLimitInfoERK12btQuaternionRfR9btVector3S3
   %554 = fneg float %553
   %.0.i = select i1 %551, float %553, float %554
   %555 = fneg float %.0.i
-  %556 = fmul float %.sroa.6358.0, %.sroa.6358.0
+  %556 = fmul nnan float %.sroa.6358.0, %.sroa.6358.0
   %557 = call float @llvm.fmuladd.f32(float %.sroa.0356.0, float %.sroa.0356.0, float %556)
   %558 = call noundef float @llvm.fmuladd.f32(float %.0.i, float %.0.i, float %557)
   %sqrt.i.i.i175 = call noundef float @llvm.sqrt.f32(float %558)
@@ -2361,7 +2361,7 @@ define dso_local void @_ZN21btConeTwistConstraint13buildJacobianEv(ptr noundef n
   br i1 %126, label %128, label %139
 
 128:                                              ; preds = %119
-  %129 = fmul float %122, %122
+  %129 = fmul nnan float %122, %122
   %130 = tail call float @llvm.fmuladd.f32(float %121, float %121, float %129)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %130)
   %131 = fdiv float 1.000000e+00, %sqrt.i
@@ -5236,7 +5236,7 @@ _Z11btAtan2Fastff.exit91:                         ; preds = %153, %158
   br i1 %261, label %262, label %269
 
 262:                                              ; preds = %259
-  %263 = fmul float %75, %75
+  %263 = fmul nnan float %75, %75
   %264 = tail call float @llvm.fmuladd.f32(float %66, float %66, float %263)
   %sqrt.i.i124 = tail call float @llvm.sqrt.f32(float %264)
   %265 = fdiv float 1.000000e+00, %sqrt.i.i124
@@ -5482,7 +5482,7 @@ define dso_local void @_ZN21btConeTwistConstraint20computeConeLimitInfoERK12btQu
 
 30:                                               ; preds = %13
   %31 = fmul float %25, %25
-  %32 = fmul float %24, %24
+  %32 = fmul nnan float %24, %24
   %33 = fdiv float %31, %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %35 = load float, ptr %34, align 8, !tbaa !27
@@ -5527,7 +5527,7 @@ define dso_local void @_ZNK21btConeTwistConstraint33adjustSwingAxisToUseEllipseN
   %.0 = select i1 %18, float %20, float %21
   %22 = fneg float %.0
   %23 = load float, ptr %1, align 4, !tbaa !51
-  %24 = fmul float %4, %4
+  %24 = fmul nnan float %4, %4
   %25 = tail call float @llvm.fmuladd.f32(float %23, float %23, float %24)
   %26 = tail call noundef float @llvm.fmuladd.f32(float %.0, float %.0, float %25)
   %sqrt.i.i = tail call noundef float @llvm.sqrt.f32(float %26)
@@ -5670,7 +5670,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK21btConeTwistConstraint16GetP
   %38 = tail call float @llvm.fmuladd.f32(float %32, float 0.000000e+00, float %37)
   %39 = fneg float %29
   %40 = tail call float @llvm.fmuladd.f32(float %39, float 0.000000e+00, float %38)
-  %41 = fmul float %29, 0.000000e+00
+  %41 = fmul ninf float %29, 0.000000e+00
   %42 = tail call float @llvm.fmuladd.f32(float %32, float 0.000000e+00, float %41)
   %43 = fneg float %30
   %44 = tail call float @llvm.fmuladd.f32(float %43, float %2, float %42)
@@ -5935,11 +5935,11 @@ _Z15shortestArcQuatRK9btVector3S1_.exit:          ; preds = %2, %41
 
 117:                                              ; preds = %107
   %118 = fmul float %114, %114
-  %119 = fmul float %113, %113
+  %119 = fmul nnan float %113, %113
   %120 = fdiv float %118, %119
-  %121 = fmul float %99, %99
+  %121 = fmul nnan float %99, %99
   %122 = fdiv float 1.000000e+00, %121
-  %123 = fmul float %96, %96
+  %123 = fmul nnan float %96, %96
   %124 = fdiv float %120, %123
   %125 = fadd float %122, %124
   %126 = fadd float %120, 1.000000e+00
@@ -6069,7 +6069,7 @@ _ZN21btConeTwistConstraint21computeTwistLimitInfoERK12btQuaternionRfR9btVector3.
   %186 = tail call float @llvm.fmuladd.f32(float %.sroa.045.0, float %.sroa.045.0, float %185)
   %187 = tail call noundef float @llvm.fmuladd.f32(float %.sroa.8.0, float %.sroa.8.0, float %186)
   %sqrt.i.i.i37 = tail call noundef float @llvm.sqrt.f32(float %187)
-  %188 = fmul float %.0134, 5.000000e-01
+  %188 = fmul nnan float %.0134, 5.000000e-01
   %189 = tail call noundef float @sinf(float noundef %188) #23, !tbaa !67
   %190 = fdiv float %189, %sqrt.i.i.i37
   %191 = fmul float %.sroa.045.0, %190

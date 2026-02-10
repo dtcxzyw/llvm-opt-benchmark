@@ -1661,7 +1661,7 @@ define range(i32 -2147483648, 1) i32 @ff_h2645_sei_to_frame(ptr noundef %0, ptr 
 58:                                               ; preds = %56
   %59 = mul nsw i32 %49, 360
   %60 = sitofp i32 %59 to double
-  %61 = fmul nsz double %60, 0xBEF0000000000000
+  %61 = fmul nnan nsz double %60, 0xBEF0000000000000
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %63 = load i32, ptr %62, align 4, !tbaa !35
   %.not166 = icmp eq i32 %63, 0

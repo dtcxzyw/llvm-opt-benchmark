@@ -2682,7 +2682,7 @@ _ZN4lean7sstreamlsIPKcEERS0_RKT_.exit:            ; preds = %20
           to label %23 unwind label %27
 
 23:                                               ; preds = %_ZN4lean7sstreamlsIPKcEERS0_RKT_.exit
-  %24 = fmul double %11, 1.000000e+03
+  %24 = fmul nnan double %11, 1.000000e+03
   %25 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(376) %4, double noundef %24)
           to label %_ZN4lean7sstreamlsIdEERS0_RKT_.exit unwind label %29
 

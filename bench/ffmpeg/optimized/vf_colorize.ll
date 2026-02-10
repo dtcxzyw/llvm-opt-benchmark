@@ -89,7 +89,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 42:                                               ; preds = %40
   %43 = fsub nsz float %25, %27
-  %44 = fsub nsz float 0x3FE5555560000000, %.1.i.i
+  %44 = fsub nnan nsz float 0x3FE5555560000000, %.1.i.i
   %45 = fmul nsz float %44, %43
   %46 = tail call nsz float @llvm.fmuladd.f32(float %45, float 6.000000e+00, float %27)
   br label %hue2rgb.exit.i
@@ -121,7 +121,7 @@ hue2rgb.exit.i:                                   ; preds = %42, %40, %38, %34
 
 60:                                               ; preds = %58
   %61 = fsub nsz float %25, %27
-  %62 = fsub nsz float 0x3FE5555560000000, %.1.i29.i
+  %62 = fsub nnan nsz float 0x3FE5555560000000, %.1.i29.i
   %63 = fmul nsz float %62, %61
   %64 = tail call nsz float @llvm.fmuladd.f32(float %63, float 6.000000e+00, float %27)
   br label %hue2rgb.exit31.i
@@ -154,7 +154,7 @@ hue2rgb.exit31.i:                                 ; preds = %60, %58, %56, %52
 
 79:                                               ; preds = %77
   %80 = fsub nsz float %25, %27
-  %81 = fsub nsz float 0x3FE5555560000000, %.1.i33.i
+  %81 = fsub nnan nsz float 0x3FE5555560000000, %.1.i33.i
   %82 = fmul nsz float %81, %80
   %83 = tail call nsz float @llvm.fmuladd.f32(float %82, float 6.000000e+00, float %27)
   br label %hsl2rgb.exit

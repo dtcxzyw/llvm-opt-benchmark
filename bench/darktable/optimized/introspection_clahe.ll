@@ -139,8 +139,8 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 
 51:                                               ; preds = %50, %48, %42
   %52 = phi reassoc nsz arcp contract afn double [ 1.000000e+00, %48 ], [ %46, %50 ], [ 0.000000e+00, %42 ]
-  %53 = fadd reassoc nsz arcp contract afn double %52, %43
-  %54 = fmul reassoc nsz arcp contract afn double %53, 5.000000e-01
+  %53 = fadd reassoc nnan nsz arcp contract afn double %52, %43
+  %54 = fmul reassoc nnan nsz arcp contract afn double %53, 5.000000e-01
   %55 = fptrunc reassoc nsz arcp contract afn double %54 to float
   store float %55, ptr %.0195233.us, align 4, !tbaa !29
   %56 = getelementptr inbounds float, ptr %.0194234.us, i64 %23
@@ -385,7 +385,7 @@ define void @process(ptr noundef readnone captures(none) %0, ptr noundef readonl
 
 193:                                              ; preds = %204
   %194 = uitofp nneg i32 %.2 to float
-  %195 = fmul reassoc nsz arcp contract afn float %194, 0x3F6FE01FE0000000
+  %195 = fmul reassoc nnan nsz arcp contract afn float %194, 0x3F6FE01FE0000000
   %196 = fptosi float %195 to i32
   br label %207
 
@@ -664,7 +664,7 @@ rgb2hsl.exit:                                     ; preds = %293, %295, %297
 334:                                              ; preds = %332
   %335 = fcmp reassoc nsz arcp contract afn olt float %326, 4.000000e+00
   %336 = fsub reassoc nsz arcp contract afn float %319, %323
-  %337 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %326
+  %337 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %326
   %338 = fmul reassoc nsz arcp contract afn float %336, %337
   %339 = fadd reassoc nsz arcp contract afn float %338, %323
   %340 = select reassoc nsz arcp contract afn i1 %335, float %339, float %323
@@ -688,7 +688,7 @@ hue2rgb.exit.i:                                   ; preds = %334, %332, %328
 
 348:                                              ; preds = %346
   %349 = fsub reassoc nsz arcp contract afn float %319, %323
-  %350 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %324
+  %350 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %324
   %351 = fmul reassoc nsz arcp contract afn float %349, %350
   %352 = fadd reassoc nsz arcp contract afn float %351, %323
   %353 = select reassoc nsz arcp contract afn i1 %325, float %352, float %323
@@ -717,7 +717,7 @@ hue2rgb.exit36.i:                                 ; preds = %348, %346, %342
 364:                                              ; preds = %362
   %365 = fcmp reassoc nsz arcp contract afn olt float %356, 4.000000e+00
   %366 = fsub reassoc nsz arcp contract afn float %319, %323
-  %367 = fsub reassoc nsz arcp contract afn float 4.000000e+00, %356
+  %367 = fsub reassoc nnan nsz arcp contract afn float 4.000000e+00, %356
   %368 = fmul reassoc nsz arcp contract afn float %366, %367
   %369 = fadd reassoc nsz arcp contract afn float %368, %323
   %370 = select reassoc nsz arcp contract afn i1 %365, float %369, float %323

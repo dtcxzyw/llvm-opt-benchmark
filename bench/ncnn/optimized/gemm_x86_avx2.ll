@@ -6531,8 +6531,8 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   %.41111.i = phi nsz <8 x float> [ %783, %.lr.ph1544.i ], [ %826, %816 ], [ %783, %792 ], [ %814, %813 ], [ %811, %810 ], [ %786, %.thread1269.i ], [ %790, %789 ]
   %.14908.i = phi nsz <8 x float> [ %.119051539.i, %.lr.ph1544.i ], [ %820, %816 ], [ %.119051539.i, %792 ], [ %.12906.i, %813 ], [ %.12906.i, %810 ], [ %.119051539.i, %.thread1269.i ], [ %.119051539.i, %789 ]
   %.13.i = phi ptr [ null, %.lr.ph1544.i ], [ %828, %816 ], [ %.121543.i, %792 ], [ %809, %813 ], [ %809, %810 ], [ %.121543.i, %.thread1269.i ], [ %.121543.i, %789 ]
-  %.51118.i = fmul reassoc nsz arcp contract afn <8 x float> %.41117.i, %88
-  %.51112.i = fmul reassoc nsz arcp contract afn <8 x float> %.41111.i, %88
+  %.51118.i = fmul reassoc nnan nsz arcp contract afn <8 x float> %.41117.i, %88
+  %.51112.i = fmul reassoc nnan nsz arcp contract afn <8 x float> %.41111.i, %88
   br i1 %.not1909.i, label %832, label %829
 
 829:                                              ; preds = %.thread1278.i
@@ -7747,8 +7747,8 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   %.41077.i = phi nsz <4 x float> [ %1459, %.lr.ph1593.i ], [ %1516, %1506 ], [ %1459, %1468 ], [ %1501, %1500 ], [ %1504, %1503 ], [ %1462, %.thread1372.i ], [ %1466, %1465 ]
   %.41071.i = phi nsz <4 x float> [ %1460, %.lr.ph1593.i ], [ %1517, %1506 ], [ %1460, %1468 ], [ %1502, %1500 ], [ %1505, %1503 ], [ %1463, %.thread1372.i ], [ %1467, %1465 ]
   %.33.i = phi ptr [ null, %.lr.ph1593.i ], [ %1518, %1506 ], [ %.321592.i, %1468 ], [ %1499, %1500 ], [ %1499, %1503 ], [ %.321592.i, %.thread1372.i ], [ %.321592.i, %1465 ]
-  %.51078.i = fmul reassoc nsz arcp contract afn <4 x float> %.41077.i, %130
-  %.51072.i = fmul reassoc nsz arcp contract afn <4 x float> %.41071.i, %130
+  %.51078.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.41077.i, %130
+  %.51072.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.41071.i, %130
   br i1 %.not1903.i, label %1522, label %1519
 
 1519:                                             ; preds = %.thread1381.i
@@ -8392,8 +8392,8 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   %.4987.i = phi nsz <4 x float> [ %1800, %.lr.ph1634.i ], [ %1822, %1819 ], [ %1800, %1809 ], [ %.2985.i, %1810 ], [ %1803, %.thread1444.i ], [ %1807, %1806 ]
   %.4981.i = phi nsz <4 x float> [ %1801, %.lr.ph1634.i ], [ %1823, %1819 ], [ %1801, %1809 ], [ %.2979.i, %1810 ], [ %1804, %.thread1444.i ], [ %1808, %1806 ]
   %.48.i = phi ptr [ null, %.lr.ph1634.i ], [ %1824, %1819 ], [ %.471633.i, %1809 ], [ %1818, %1810 ], [ %.471633.i, %.thread1444.i ], [ %.471633.i, %1806 ]
-  %.5988.i = fmul reassoc nsz arcp contract afn <4 x float> %.4987.i, %948
-  %.5982.i = fmul reassoc nsz arcp contract afn <4 x float> %.4981.i, %948
+  %.5988.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.4987.i, %948
+  %.5982.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.4981.i, %948
   br i1 %.not1897.i, label %1838, label %1825
 
 1825:                                             ; preds = %.thread1453.i
@@ -8786,8 +8786,8 @@ define hidden void @_ZN4ncnn37unpack_output_tile_int32_to_fp32_avx2ERKNS_3MatES2
   %.1955.i = phi nsz <4 x float> [ %2000, %.lr.ph1669.i ], [ %2013, %2009 ], [ %2000, %2008 ], [ %2006, %.thread1498.i ]
   %.1952.i = phi nsz <4 x float> [ %2004, %.lr.ph1669.i ], [ %2014, %2009 ], [ %2004, %2008 ], [ %2007, %.thread1498.i ]
   %.61.i = phi ptr [ null, %.lr.ph1669.i ], [ %2015, %2009 ], [ %.601668.i, %2008 ], [ %.601668.i, %.thread1498.i ]
-  %.2956.i = fmul reassoc nsz arcp contract afn <4 x float> %.1955.i, %1602
-  %.2953.i = fmul reassoc nsz arcp contract afn <4 x float> %.1952.i, %1602
+  %.2956.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.1955.i, %1602
+  %.2953.i = fmul reassoc nnan nsz arcp contract afn <4 x float> %.1952.i, %1602
   br i1 %.not.i, label %2035, label %2017
 
 2017:                                             ; preds = %2016

@@ -6263,7 +6263,7 @@ SDL_GetRenderOutputSize_REAL.exit:                ; preds = %34, %32, %27, %22, 
   %77 = sdiv i32 %75, %76
   %.1150 = call i32 @llvm.smax.i32(i32 %77, i32 1)
   %.1 = uitofp nneg i32 %.1150 to float
-  %78 = fmul float %10, %.1
+  %78 = fmul nnan float %10, %.1
   %79 = call float @SDL_floorf_REAL(float noundef %78) #15
   %80 = getelementptr inbounds nuw i8, ptr %5, i64 112
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 120
@@ -6271,7 +6271,7 @@ SDL_GetRenderOutputSize_REAL.exit:                ; preds = %34, %32, %27, %22, 
   %82 = fsub float %65, %79
   %83 = fmul float %82, 5.000000e-01
   store float %83, ptr %80, align 4
-  %84 = fmul float %13, %.1
+  %84 = fmul nnan float %13, %.1
   %85 = call float @SDL_floorf_REAL(float noundef %84) #15
   %86 = getelementptr inbounds nuw i8, ptr %5, i64 124
   store float %85, ptr %86, align 4

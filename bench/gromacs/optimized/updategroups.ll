@@ -3425,8 +3425,8 @@ define noundef float @_ZN3gmx27computeMaxUpdateGroupRadiusERK10gmx_mtop_tNS_8Arr
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %34 = fcmp ogt float %3, 0.000000e+00
-  %35 = fpext float %3 to double
-  %36 = fmul double %35, 0x3FA98AC26C586BA4
+  %35 = fpext nnan float %3 to double
+  %36 = fmul nnan double %35, 0x3FA98AC26C586BA4
   %37 = fcmp oge float %3, 0.000000e+00
   %38 = fcmp oeq float %3, 0.000000e+00
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 40

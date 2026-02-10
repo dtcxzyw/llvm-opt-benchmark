@@ -197,7 +197,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23fast_rv32i_vfwcvt_f_x
   %69 = lshr i64 %1, 7
   %70 = and i64 %69, 31
   %71 = trunc nuw nsw i64 %70 to i32
-  %72 = fmul float %50, 2.000000e+00
+  %72 = fmul nnan float %50, 2.000000e+00
   %73 = fptoui float %72 to i32
   %.not.i = icmp eq i32 %73, 0
   %74 = add i32 %73, 31
@@ -1298,7 +1298,7 @@ define noundef i64 @_Z23fast_rv64i_vfwcvt_f_x_vP11processor_t6insn_tm(ptr nounde
   %69 = lshr i64 %1, 7
   %70 = and i64 %69, 31
   %71 = trunc nuw nsw i64 %70 to i32
-  %72 = fmul float %50, 2.000000e+00
+  %72 = fmul nnan float %50, 2.000000e+00
   %73 = fptoui float %72 to i32
   %.not.i = icmp eq i32 %73, 0
   %74 = add i32 %73, 31
@@ -2267,7 +2267,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z25logged_rv32i_vfwcvt_f
   %69 = lshr i64 %1, 7
   %70 = and i64 %69, 31
   %71 = trunc nuw nsw i64 %70 to i32
-  %72 = fmul float %50, 2.000000e+00
+  %72 = fmul nnan float %50, 2.000000e+00
   %73 = fptoui float %72 to i32
   %.not.i = icmp eq i32 %73, 0
   %74 = add i32 %73, 31
@@ -3238,7 +3238,7 @@ define noundef i64 @_Z25logged_rv64i_vfwcvt_f_x_vP11processor_t6insn_tm(ptr noun
   %69 = lshr i64 %1, 7
   %70 = and i64 %69, 31
   %71 = trunc nuw nsw i64 %70 to i32
-  %72 = fmul float %50, 2.000000e+00
+  %72 = fmul nnan float %50, 2.000000e+00
   %73 = fptoui float %72 to i32
   %.not.i = icmp eq i32 %73, 0
   %74 = add i32 %73, 31
@@ -4207,7 +4207,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z23fast_rv32e_vfwcvt_f_x
   %69 = lshr i64 %1, 7
   %70 = and i64 %69, 31
   %71 = trunc nuw nsw i64 %70 to i32
-  %72 = fmul float %50, 2.000000e+00
+  %72 = fmul nnan float %50, 2.000000e+00
   %73 = fptoui float %72 to i32
   %.not.i = icmp eq i32 %73, 0
   %74 = add i32 %73, 31
@@ -5178,7 +5178,7 @@ define noundef i64 @_Z23fast_rv64e_vfwcvt_f_x_vP11processor_t6insn_tm(ptr nounde
   %69 = lshr i64 %1, 7
   %70 = and i64 %69, 31
   %71 = trunc nuw nsw i64 %70 to i32
-  %72 = fmul float %50, 2.000000e+00
+  %72 = fmul nnan float %50, 2.000000e+00
   %73 = fptoui float %72 to i32
   %.not.i = icmp eq i32 %73, 0
   %74 = add i32 %73, 31
@@ -6147,7 +6147,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z25logged_rv32e_vfwcvt_f
   %69 = lshr i64 %1, 7
   %70 = and i64 %69, 31
   %71 = trunc nuw nsw i64 %70 to i32
-  %72 = fmul float %50, 2.000000e+00
+  %72 = fmul nnan float %50, 2.000000e+00
   %73 = fptoui float %72 to i32
   %.not.i = icmp eq i32 %73, 0
   %74 = add i32 %73, 31
@@ -7118,7 +7118,7 @@ define noundef i64 @_Z25logged_rv64e_vfwcvt_f_x_vP11processor_t6insn_tm(ptr noun
   %69 = lshr i64 %1, 7
   %70 = and i64 %69, 31
   %71 = trunc nuw nsw i64 %70 to i32
-  %72 = fmul float %50, 2.000000e+00
+  %72 = fmul nnan float %50, 2.000000e+00
   %73 = fptoui float %72 to i32
   %.not.i = icmp eq i32 %73, 0
   %74 = add i32 %73, 31

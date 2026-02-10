@@ -14,10 +14,10 @@ define weak_odr dso_local void @_ZN3igl26two_axis_valuator_fixed_upIffEEviidRKN5
 _ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit:
   %9 = sub nsw i32 %6, %4
   %10 = sitofp i32 %9 to float
-  %11 = fpext float %10 to double
-  %12 = fmul double %11, 0x400921FB54442D18
+  %11 = fpext nnan ninf float %10 to double
+  %12 = fmul nnan double %11, 0x400921FB54442D18
   %13 = sitofp i32 %0 to float
-  %14 = fpext float %13 to double
+  %14 = fpext nnan ninf float %13 to double
   %15 = fdiv double %12, %14
   %16 = fmul double %2, %15
   %17 = fmul double %16, 5.000000e-01
@@ -62,9 +62,9 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit:
   %storemerge = select i1 %49, <4 x float> %53, <4 x float> %44
   %54 = sub nsw i32 %7, %5
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %55, 0x400921FB54442D18
+  %56 = fmul nnan double %55, 0x400921FB54442D18
   %57 = sitofp i32 %1 to float
-  %58 = fpext float %57 to double
+  %58 = fpext nnan ninf float %57 to double
   %59 = fdiv double %56, %58
   %60 = fmul double %2, %59
   %61 = fmul double %60, 5.000000e-01
@@ -115,7 +115,7 @@ define weak_odr dso_local void @_ZN3igl26two_axis_valuator_fixed_upIddEEviidRKN5
 _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit:
   %9 = sub nsw i32 %6, %4
   %10 = sitofp i32 %9 to double
-  %11 = fmul double %10, 0x400921FB54442D18
+  %11 = fmul nnan double %10, 0x400921FB54442D18
   %12 = sitofp i32 %0 to double
   %13 = fdiv double %11, %12
   %14 = fmul double %2, %13
@@ -179,7 +179,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit:
   %66 = select i1 %60, <2 x double> %63, <2 x double> %42
   %67 = sub nsw i32 %7, %5
   %68 = sitofp i32 %67 to double
-  %69 = fmul double %68, 0x400921FB54442D18
+  %69 = fmul nnan double %68, 0x400921FB54442D18
   %70 = sitofp i32 %1 to double
   %71 = fdiv double %69, %70
   %72 = fmul double %2, %71

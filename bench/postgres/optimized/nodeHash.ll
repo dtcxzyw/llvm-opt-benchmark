@@ -1285,7 +1285,7 @@ tailrecurse:                                      ; preds = %65, %9
 
 28:                                               ; preds = %tailrecurse
   %29 = uitofp i64 %27 to double
-  %30 = fmul double %15, %29
+  %30 = fmul nnan double %15, %29
   %31 = fcmp olt double %30, 0x43F0000000000000
   %32 = select i1 %31, double %30, double 0x43F0000000000000
   %33 = fptoui double %32 to i64
@@ -3900,7 +3900,7 @@ ExecParallelHashCloseBatchAccessors.exit:         ; preds = %.lr.ph.i, %11
   %68 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %69 = load i64, ptr %68, align 8
   %70 = uitofp i64 %69 to double
-  %71 = fmul double %70, 2.000000e+00
+  %71 = fmul nnan double %70, 2.000000e+00
   %72 = sitofp i32 %.0 to double
   %73 = fdiv double %71, %72
   %74 = tail call double @llvm.ceil.f64(double %73)

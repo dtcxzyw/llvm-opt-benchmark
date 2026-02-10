@@ -2149,7 +2149,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit118:                 ; preds = %83, %74, %78, %_ZNS
   %112 = sub nsw i32 %110, %109
   %113 = sitofp i32 %112 to double
   %114 = sitofp i32 %109 to double
-  %115 = fmul double %113, %113
+  %115 = fmul nnan double %113, %113
   %116 = fdiv double %115, %114
   %117 = fadd double %.019.i, %116
   br label %118
@@ -2182,7 +2182,7 @@ _ZN4absl15random_internal9ChiSquareIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorI
   %129 = load i32, ptr %128, align 4, !tbaa !39
   %130 = sub nsw i32 %127, %129
   %131 = sitofp i32 %130 to double
-  %132 = fmul double %131, %131
+  %132 = fmul nnan double %131, %131
   %133 = sitofp i32 %129 to double
   %134 = fdiv double %132, %133
   %135 = fadd double %.080161, %134
@@ -5514,7 +5514,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16UniversalPrinterIdE5Pr
   %53 = fadd double %52, 5.000000e-01
   %54 = fptosi double %53 to i32
   %55 = sitofp i32 %54 to double
-  %56 = fmul double %.0.i.i, %55
+  %56 = fmul nnan double %.0.i.i, %55
   %57 = fcmp une double %56, %.034.i.i
   br i1 %57, label %58, label %_ZN7testing8internal7PrintToEdPSo.exit
 

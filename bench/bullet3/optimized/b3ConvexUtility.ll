@@ -2783,7 +2783,7 @@ define linkonce_odr dso_local void @_Z24b3GrahamScanConvexHull2DR20b3AlignedObje
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = load float, ptr %11, align 4, !tbaa !56
-  %13 = fmul float %7, %7
+  %13 = fmul nnan float %7, %7
   %14 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %13)
   %sqrt.i = tail call float @llvm.sqrt.f32(float %14)
   %15 = fdiv float 1.000000e+00, %sqrt.i

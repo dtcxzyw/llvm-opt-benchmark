@@ -1883,8 +1883,8 @@ define i32 @Abc_NtkNodeFactor(ptr noundef readonly captures(none) %0, i32 nounde
   %4 = load i32, ptr %3, align 4
   %5 = lshr i32 %4, 12
   %6 = uitofp nneg i32 %5 to double
-  %7 = tail call double @llvm.fmuladd.f64(double %6, double 1.000000e-02, double 1.000000e+00)
-  %8 = fmul double %7, 1.000000e+08
+  %7 = tail call nnan double @llvm.fmuladd.f64(double %6, double 1.000000e-02, double 1.000000e+00)
+  %8 = fmul nnan double %7, 1.000000e+08
   %9 = fptosi double %8 to i32
   ret i32 %9
 }

@@ -430,7 +430,7 @@ constrain_rgb.exit.us.us.i.i:                     ; preds = %151
   br label %189
 
 187:                                              ; preds = %181
-  %188 = fmul nsz double %182, 0x40120E1AF262875F
+  %188 = fmul nnan nsz double %182, 0x40120E1AF262875F
   br label %189
 
 189:                                              ; preds = %187, %184
@@ -445,7 +445,7 @@ constrain_rgb.exit.us.us.i.i:                     ; preds = %151
   br label %197
 
 195:                                              ; preds = %189
-  %196 = fmul nsz double %191, 0x40120E1AF262875F
+  %196 = fmul nnan nsz double %191, 0x40120E1AF262875F
   br label %197
 
 197:                                              ; preds = %195, %192
@@ -460,7 +460,7 @@ constrain_rgb.exit.us.us.i.i:                     ; preds = %151
   br label %gamma_correct_rgb.exit.us.us.i.i
 
 203:                                              ; preds = %197
-  %204 = fmul nsz double %199, 0x40120E1AF262875F
+  %204 = fmul nnan nsz double %199, 0x40120E1AF262875F
   br label %gamma_correct_rgb.exit.us.us.i.i
 
 gamma_correct_rgb.exit.us.us.i.i:                 ; preds = %203, %200
@@ -1930,18 +1930,18 @@ define internal void @filter_rgb24(ptr noundef readonly captures(none) %0, ptr n
   %15 = getelementptr inbounds i8, ptr %12, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !95
   %17 = uitofp i8 %16 to float
-  %18 = fadd nsz float %17, 0x3F847AE140000000
-  %19 = fmul nsz float %18, 0x3F70101020000000
+  %18 = fadd nnan nsz float %17, 0x3F847AE140000000
+  %19 = fmul nnan nsz float %18, 0x3F70101020000000
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !95
   %22 = uitofp i8 %21 to float
-  %23 = fadd nsz float %22, 0x3F847AE140000000
-  %24 = fmul nsz float %23, 0x3F70101020000000
+  %23 = fadd nnan nsz float %22, 0x3F847AE140000000
+  %24 = fmul nnan nsz float %23, 0x3F70101020000000
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %26 = load i8, ptr %25, align 1, !tbaa !95
   %27 = uitofp i8 %26 to float
-  %28 = fadd nsz float %27, 0x3F847AE140000000
-  %29 = fmul nsz float %28, 0x3F70101020000000
+  %28 = fadd nnan nsz float %27, 0x3F847AE140000000
+  %29 = fmul nnan nsz float %28, 0x3F70101020000000
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 262232
   %31 = load float, ptr %30, align 4, !tbaa !54
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 262236
@@ -1995,18 +1995,18 @@ define internal void @filter_rgba(ptr noundef readonly captures(none) %0, ptr no
   %15 = getelementptr inbounds i8, ptr %12, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !95
   %17 = uitofp i8 %16 to float
-  %18 = fadd nsz float %17, 0x3F847AE140000000
-  %19 = fmul nsz float %18, 0x3F70101020000000
+  %18 = fadd nnan nsz float %17, 0x3F847AE140000000
+  %19 = fmul nnan nsz float %18, 0x3F70101020000000
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !95
   %22 = uitofp i8 %21 to float
-  %23 = fadd nsz float %22, 0x3F847AE140000000
-  %24 = fmul nsz float %23, 0x3F70101020000000
+  %23 = fadd nnan nsz float %22, 0x3F847AE140000000
+  %24 = fmul nnan nsz float %23, 0x3F70101020000000
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %26 = load i8, ptr %25, align 1, !tbaa !95
   %27 = uitofp i8 %26 to float
-  %28 = fadd nsz float %27, 0x3F847AE140000000
-  %29 = fmul nsz float %28, 0x3F70101020000000
+  %28 = fadd nnan nsz float %27, 0x3F847AE140000000
+  %29 = fmul nnan nsz float %28, 0x3F70101020000000
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 262232
   %31 = load float, ptr %30, align 4, !tbaa !54
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 262236
@@ -2060,18 +2060,18 @@ define internal void @filter_rgb48(ptr noundef readonly captures(none) %0, ptr n
   %15 = getelementptr inbounds i8, ptr %12, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !60
   %17 = uitofp i16 %16 to float
-  %18 = fadd nsz float %17, 0x3F847AE140000000
-  %19 = fmul nsz float %18, 0x3EF0001000000000
+  %18 = fadd nnan nsz float %17, 0x3F847AE140000000
+  %19 = fmul nnan nsz float %18, 0x3EF0001000000000
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %21 = load i16, ptr %20, align 2, !tbaa !60
   %22 = uitofp i16 %21 to float
-  %23 = fadd nsz float %22, 0x3F847AE140000000
-  %24 = fmul nsz float %23, 0x3EF0001000000000
+  %23 = fadd nnan nsz float %22, 0x3F847AE140000000
+  %24 = fmul nnan nsz float %23, 0x3EF0001000000000
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %26 = load i16, ptr %25, align 2, !tbaa !60
   %27 = uitofp i16 %26 to float
-  %28 = fadd nsz float %27, 0x3F847AE140000000
-  %29 = fmul nsz float %28, 0x3EF0001000000000
+  %28 = fadd nnan nsz float %27, 0x3F847AE140000000
+  %29 = fmul nnan nsz float %28, 0x3EF0001000000000
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 262232
   %31 = load float, ptr %30, align 4, !tbaa !54
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 262236
@@ -2125,18 +2125,18 @@ define internal void @filter_rgba64(ptr noundef readonly captures(none) %0, ptr 
   %15 = getelementptr inbounds i8, ptr %12, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !60
   %17 = uitofp i16 %16 to float
-  %18 = fadd nsz float %17, 0x3F847AE140000000
-  %19 = fmul nsz float %18, 0x3EF0001000000000
+  %18 = fadd nnan nsz float %17, 0x3F847AE140000000
+  %19 = fmul nnan nsz float %18, 0x3EF0001000000000
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %21 = load i16, ptr %20, align 2, !tbaa !60
   %22 = uitofp i16 %21 to float
-  %23 = fadd nsz float %22, 0x3F847AE140000000
-  %24 = fmul nsz float %23, 0x3EF0001000000000
+  %23 = fadd nnan nsz float %22, 0x3F847AE140000000
+  %24 = fmul nnan nsz float %23, 0x3EF0001000000000
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %26 = load i16, ptr %25, align 2, !tbaa !60
   %27 = uitofp i16 %26 to float
-  %28 = fadd nsz float %27, 0x3F847AE140000000
-  %29 = fmul nsz float %28, 0x3EF0001000000000
+  %28 = fadd nnan nsz float %27, 0x3F847AE140000000
+  %29 = fmul nnan nsz float %28, 0x3EF0001000000000
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 262232
   %31 = load float, ptr %30, align 4, !tbaa !54
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 262236

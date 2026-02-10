@@ -2449,7 +2449,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit471
 
 .split.us:                                        ; preds = %._crit_edge1610.us, %.preheader1541
-  %988 = fmul double %.02471622, 9.000000e-01
+  %988 = fmul nnan double %.02471622, 9.000000e-01
   %989 = fcmp ogt double %988, 1.000000e-05
   br i1 %989, label %.preheader1541, label %990, !llvm.loop !121
 

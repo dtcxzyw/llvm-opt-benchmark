@@ -335,14 +335,14 @@ define internal void @rtd_draw(ptr noundef readonly captures(none) %0) #0 {
   %140 = load i32, ptr %129, align 8
   %.not96 = icmp eq i32 %140, 0
   %141 = uitofp i32 %139 to double
-  %142 = fmul double %141, 1.000000e+02
+  %142 = fmul nnan double %141, 1.000000e+02
   %143 = uitofp i32 %140 to double
   %144 = fdiv double %142, %143
   %145 = select i1 %.not96, double 0.000000e+00, double %144
   %146 = getelementptr inbounds nuw i8, ptr %126, i64 28
   %147 = load i32, ptr %146, align 4
   %148 = uitofp i32 %147 to double
-  %149 = fmul double %148, 1.000000e+02
+  %149 = fmul nnan double %148, 1.000000e+02
   %150 = fdiv double %149, %143
   %151 = select i1 %.not96, double 0.000000e+00, double %150
   %152 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef %101, i32 noundef %107, double noundef %109, double noundef %116, double noundef %124, i32 noundef %131, i32 noundef %133, i32 noundef %135, i32 noundef %137, i32 noundef %139, double noundef %145, i32 noundef %147, double noundef %151)

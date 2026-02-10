@@ -345,7 +345,7 @@ define void @_ZN7xgboost6common12HumanMemUnitB5cxx11Em(ptr dead_on_unwind noalia
   %.sroa.853.0..023.sroa_idx = getelementptr inbounds nuw i8, ptr %.023.ptr, i64 16
   %.sroa.853.0.copyload = load i64, ptr %.sroa.853.0..023.sroa_idx, align 8
   %15 = sitofp i32 %.sroa.051.0.copyload to double
-  %mul = fmul double %15, 1.000000e+01
+  %mul = fmul nnan double %15, 1.000000e+01
   %exp2 = call double @exp2(double %mul)
   %16 = fcmp ugt double %exp2, %5
   br i1 %16, label %14, label %17

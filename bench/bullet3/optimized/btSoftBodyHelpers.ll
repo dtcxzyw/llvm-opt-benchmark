@@ -356,13 +356,13 @@ define dso_local void @_ZN17btSoftBodyHelpers4DrawEP10btSoftBodyP12btIDebugDrawi
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %148 = call i32 @rand() #26
   %149 = sitofp i32 %148 to float
-  %150 = fmul float %149, 0x3E00000000000000
+  %150 = fmul nnan float %149, 0x3E00000000000000
   %151 = call i32 @rand() #26
   %152 = sitofp i32 %151 to float
-  %153 = fmul float %152, 0x3E00000000000000
+  %153 = fmul nnan float %152, 0x3E00000000000000
   %154 = call i32 @rand() #26
   %155 = sitofp i32 %154 to float
-  %156 = fmul float %155, 0x3E00000000000000
+  %156 = fmul nnan float %155, 0x3E00000000000000
   store float %150, ptr %43, align 8, !tbaa !4
   store float %153, ptr %116, align 4, !tbaa !4
   store float %156, ptr %117, align 8, !tbaa !4
@@ -4766,10 +4766,10 @@ _ZN17btCollisionObjectdlEPv.exit:                 ; preds = %77
   %.not219 = icmp eq ptr %9, null
   %138 = add nsw i32 %5, -1
   %139 = uitofp nneg i32 %138 to float
-  %140 = fdiv float 1.000000e+00, %139
+  %140 = fdiv nnan float 1.000000e+00, %139
   %141 = add nsw i32 %6, -1
   %142 = uitofp nneg i32 %141 to float
-  %143 = fdiv float 1.000000e+00, %142
+  %143 = fdiv nnan float 1.000000e+00, %142
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us249
@@ -4900,7 +4900,7 @@ define dso_local noundef float @_ZN17btSoftBodyHelpers11CalculateUVEiiiii(i32 no
 6:                                                ; preds = %5
   %7 = add nsw i32 %0, -1
   %8 = sitofp i32 %7 to float
-  %9 = fdiv float 1.000000e+00, %8
+  %9 = fdiv nnan float 1.000000e+00, %8
   %10 = sitofp i32 %2 to float
   %11 = fmul float %9, %10
   br label %34
@@ -4908,7 +4908,7 @@ define dso_local noundef float @_ZN17btSoftBodyHelpers11CalculateUVEiiiii(i32 no
 12:                                               ; preds = %5
   %13 = add nsw i32 %1, -1
   %14 = sitofp i32 %13 to float
-  %15 = fdiv float 1.000000e+00, %14
+  %15 = fdiv nnan float 1.000000e+00, %14
   %16 = sub nsw i32 %13, %3
   %17 = sitofp i32 %16 to float
   %18 = fmul float %15, %17
@@ -4917,7 +4917,7 @@ define dso_local noundef float @_ZN17btSoftBodyHelpers11CalculateUVEiiiii(i32 no
 19:                                               ; preds = %5
   %20 = add nsw i32 %1, -1
   %21 = sitofp i32 %20 to float
-  %22 = fdiv float 1.000000e+00, %21
+  %22 = fdiv nnan float 1.000000e+00, %21
   %23 = xor i32 %3, -1
   %24 = add i32 %20, %23
   %25 = sitofp i32 %24 to float
@@ -4927,7 +4927,7 @@ define dso_local noundef float @_ZN17btSoftBodyHelpers11CalculateUVEiiiii(i32 no
 27:                                               ; preds = %5
   %28 = add nsw i32 %0, -1
   %29 = sitofp i32 %28 to float
-  %30 = fdiv float 1.000000e+00, %29
+  %30 = fdiv nnan float 1.000000e+00, %29
   %31 = add nsw i32 %2, 1
   %32 = sitofp i32 %31 to float
   %33 = fmul float %30, %32

@@ -6231,8 +6231,8 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   %reass.sub46 = sub nsw i64 %100, %101
   %102 = add nsw i64 %reass.sub46, 4602678819172646912
   %103 = bitcast i64 %102 to double
-  %104 = tail call double @llvm.log.f64(double %103), !tbaa !27
-  %105 = fmul double %104, 0x3FD2972A8AFC6175
+  %104 = tail call nnan double @llvm.log.f64(double %103)
+  %105 = fmul nnan double %104, 0x3FD2972A8AFC6175
   %106 = icmp samesign ugt i64 %81, 310
   br i1 %106, label %107, label %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EEclEv.exit
 
@@ -7769,9 +7769,9 @@ _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %1
   %24 = fdiv double 1.000000e+00, %23
   %25 = uitofp i64 %.sroa.0.0.extract.trunc.i.i.i to double
   %26 = uitofp i64 %.narrow.i.i.i to double
-  %27 = tail call noundef double @llvm.fmuladd.f64(double %26, double 0x43F0000000000000, double %25)
-  %28 = fadd double %27, 5.000000e-01
-  %29 = tail call double @llvm.log.f64(double %28), !tbaa !27
+  %27 = tail call nnan double @llvm.fmuladd.f64(double %26, double 0x43F0000000000000, double %25)
+  %28 = fadd nnan double %27, 5.000000e-01
+  %29 = tail call nnan double @llvm.log.f64(double %28)
   %30 = fmul double %29, %24
   %31 = tail call double @llvm.ceil.f64(double %30)
   %32 = fptosi double %31 to i32
@@ -14669,8 +14669,8 @@ _ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13ra
   %reass.sub = sub nsw i64 %28, %27
   %29 = add nsw i64 %reass.sub, 4602678819172646912
   %30 = bitcast i64 %29 to double
-  %31 = tail call double @llvm.log.f64(double %30), !tbaa !27
-  %32 = fmul double %31, 0x3FD2972A8AFC6175
+  %31 = tail call nnan double @llvm.log.f64(double %30)
+  %32 = fmul nnan double %31, 0x3FD2972A8AFC6175
   %33 = icmp ugt i64 %20, 31
   br i1 %33, label %34, label %_ZN4absl15random_internal15FastUniformBitsImEclINS0_17NonsecureURBGBaseINS0_13randen_engineImEENS0_17RandenPoolSeedSeqEEEEEmRT_.exit9
 
@@ -16342,9 +16342,9 @@ _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %1
   %24 = fdiv double 1.000000e+00, %23
   %25 = uitofp i64 %.sroa.0.0.extract.trunc.i.i.i to double
   %26 = uitofp i64 %.narrow.i.i.i to double
-  %27 = tail call noundef double @llvm.fmuladd.f64(double %26, double 0x43F0000000000000, double %25)
-  %28 = fadd double %27, 5.000000e-01
-  %29 = tail call double @llvm.log.f64(double %28), !tbaa !27
+  %27 = tail call nnan double @llvm.fmuladd.f64(double %26, double 0x43F0000000000000, double %25)
+  %28 = fadd nnan double %27, 5.000000e-01
+  %29 = tail call nnan double @llvm.log.f64(double %28)
   %30 = fmul double %29, %24
   %31 = tail call double @llvm.ceil.f64(double %30)
   %32 = fptosi double %31 to i32
@@ -22099,8 +22099,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %reass.sub51 = sub nsw i64 %42, %43
   %44 = add nsw i64 %reass.sub51, 4602678819172646912
   %45 = bitcast i64 %44 to double
-  %46 = tail call double @llvm.log.f64(double %45), !tbaa !27
-  %47 = fmul double %46, 0x3FD2972A8AFC6175
+  %46 = tail call nnan double @llvm.log.f64(double %45)
+  %47 = fmul nnan double %46, 0x3FD2972A8AFC6175
   %.sroa.24.0.insert.ext.i.i.i.i.i.i12.i = zext i64 %.narrow.i.i.i.i.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i13.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i12.i, 64
   %.sroa.03.0.insert.ext.i.i.i.i.i.i14.i = and i128 %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i, 18446744073709551615
@@ -24149,9 +24149,9 @@ _ZN4absl15random_internal8BitWidthINS_7uint128EEEiT_.exit.i.i: ; preds = %15, %1
   %24 = fdiv double 1.000000e+00, %23
   %25 = uitofp i64 %.sroa.0.0.extract.trunc.i.i.i to double
   %26 = uitofp i64 %.narrow.i.i.i to double
-  %27 = tail call noundef double @llvm.fmuladd.f64(double %26, double 0x43F0000000000000, double %25)
-  %28 = fadd double %27, 5.000000e-01
-  %29 = tail call double @llvm.log.f64(double %28), !tbaa !27
+  %27 = tail call nnan double @llvm.fmuladd.f64(double %26, double 0x43F0000000000000, double %25)
+  %28 = fadd nnan double %27, 5.000000e-01
+  %29 = tail call nnan double @llvm.log.f64(double %28)
   %30 = fmul double %29, %24
   %31 = tail call double @llvm.ceil.f64(double %30)
   %32 = fptosi double %31 to i32

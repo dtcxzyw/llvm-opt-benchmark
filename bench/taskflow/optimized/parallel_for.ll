@@ -20105,7 +20105,7 @@ _ZN2tf15PreemptionGuardC2ERNS_7RuntimeE.exit.i.i.i: ; preds = %44, %40
   %.sroa.13.52.insert.insert.i.i.i = or disjoint i64 %.sroa.13.52.insert.shift.i.i.i, %.sroa.13.48.insert.ext.i.i.i
   %57 = shl nsw i64 %spec.select.i.i.i, 1
   %58 = uitofp i64 %spec.select.i.i.i to float
-  %59 = fdiv float 5.000000e-01, %58
+  %59 = fdiv nnan float 5.000000e-01, %58
   br label %93
 
 60:                                               ; preds = %"_ZZZN2tf24make_for_each_index_taskIiiiZ14for_each_indexiE3$_0NS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_T0_T1_T2_T3_ENUlRNS_7RuntimeEE_clESB_ENUlvE0_D2Ev.exit33.i.i.i"
@@ -20707,7 +20707,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZZN2tf24make_for_each_index_
   %14 = add i64 %spec.select.i.i.i.i, 1
   %15 = mul i64 %13, %14
   %16 = uitofp i64 %5 to float
-  %17 = fdiv float 5.000000e-01, %16
+  %17 = fdiv nnan float 5.000000e-01, %16
   %18 = load atomic i64, ptr %7 monotonic, align 8
   br label %19
 
@@ -21024,7 +21024,7 @@ _ZN2tf15PreemptionGuardC2ERNS_7RuntimeE.exit.i.i.i: ; preds = %39, %35
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %52 = shl nsw i64 %spec.select.i.i.i, 1
   %53 = uitofp i64 %spec.select.i.i.i to float
-  %54 = fdiv float 5.000000e-01, %53
+  %54 = fdiv nnan float 5.000000e-01, %53
   br label %88
 
 55:                                               ; preds = %"_ZZZN2tf24make_for_each_index_taskINS_10IndexRangeIiEEZ14for_each_indexiE3$_1NS_17GuidedPartitionerINS_21DefaultClosureWrapperEEEEEDaT_T0_T1_ENUlRNS_7RuntimeEE_clESB_ENUlvE0_D2Ev.exit36.i.i.i"
@@ -21521,7 +21521,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZZN2tf24make_for_each_index_
   %11 = add i64 %spec.select.i.i.i.i, 1
   %12 = mul i64 %10, %11
   %13 = uitofp i64 %5 to float
-  %14 = fdiv float 5.000000e-01, %13
+  %14 = fdiv nnan float 5.000000e-01, %13
   %15 = load atomic i64, ptr %7 monotonic, align 8
   br label %16
 

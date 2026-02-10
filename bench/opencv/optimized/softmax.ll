@@ -256,7 +256,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %61,
   store i64 %84, ptr %20, align 8, !tbaa !22
   %85 = mul i64 %78, %76
   %86 = uitofp i64 %85 to double
-  %87 = fmul double %86, 0x3F50000000000000
+  %87 = fmul nnan double %86, 0x3F50000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %88 = add nsw i32 %4, 7
   %89 = and i32 %88, -8

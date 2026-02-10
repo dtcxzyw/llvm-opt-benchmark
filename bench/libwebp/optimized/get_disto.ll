@@ -224,7 +224,7 @@ sub_1114:                                         ; preds = %.tail, %sub_1
   %86 = load float, ptr %85, align 4, !tbaa !13
   %87 = fpext float %86 to double
   %88 = uitofp i64 %61 to float
-  %89 = fmul float %88, 8.000000e+00
+  %89 = fmul nnan float %88, 8.000000e+00
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %91 = load i32, ptr %90, align 8, !tbaa !15
   %92 = sitofp i32 %91 to float
@@ -877,7 +877,7 @@ define internal fastcc void @ConvertToGray(ptr noundef nonnull readonly captures
   %24 = and i32 %19, 255
   %25 = uitofp nneg i32 %21 to double
   %26 = uitofp nneg i32 %23 to double
-  %27 = fmul double %26, 7.152000e-01
+  %27 = fmul nnan double %26, 7.152000e-01
   %28 = tail call double @llvm.fmuladd.f64(double %25, double 2.126000e-01, double %27)
   %29 = uitofp nneg i32 %24 to double
   %30 = tail call double @llvm.fmuladd.f64(double %29, double 7.220000e-02, double %28)

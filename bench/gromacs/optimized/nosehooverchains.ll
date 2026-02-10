@@ -1014,9 +1014,9 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i55: ; preds = %_ZNSt6vectorIfS
   %41 = fpext float %4 to double
   %42 = fdiv double %41, 0x401921FB54442D18
   %43 = fmul double %42, %42
-  %44 = fpext float %2 to double
+  %44 = fpext nnan float %2 to double
   %45 = fmul double %43, %44
-  %46 = fpext float %3 to double
+  %46 = fpext nnan float %3 to double
   %47 = icmp eq i32 %6, 1
   %wide.trip.count76 = zext nneg i32 %1 to i64
   br i1 %47, label %.lr.ph.split, label %.lr.ph.split.us

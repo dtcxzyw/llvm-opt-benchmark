@@ -1651,7 +1651,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK11btRigidBody37computeGyrosco
   %68 = fmul float %10, %42
   %69 = fsub float 0.000000e+00, %68
   %70 = call noundef float @llvm.fmuladd.f32(float %38, float 0.000000e+00, float %69)
-  %71 = fadd float %65, 0.000000e+00
+  %71 = fadd ninf float %65, 0.000000e+00
   %72 = call noundef float @llvm.fmuladd.f32(float %13, float %38, float %71)
   %73 = call float @llvm.fmuladd.f32(float %7, float %42, float 0.000000e+00)
   %74 = call noundef float @llvm.fmuladd.f32(float %63, float 0.000000e+00, float %73)

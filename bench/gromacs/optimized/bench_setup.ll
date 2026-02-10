@@ -1160,7 +1160,7 @@ define internal fastcc void @_ZN3gmxL19setupAndRunInstanceERKNS_15BenchmarkSyste
   %85 = fmul double %84, %80
   %86 = fptrunc double %85 to float
   %87 = uitofp i64 %44 to double
-  %88 = fmul double %87, 5.000000e-01
+  %88 = fmul nnan double %87, 5.000000e-01
   %89 = fadd float %86, 1.000000e+00
   %90 = fpext float %89 to double
   %91 = fmul double %88, %90
@@ -2293,7 +2293,7 @@ _ZN3gmxL21setupInteractionConstERKNS_23NbnxmKernelBenchOptionsE.exit: ; preds = 
   %618 = load i8, ptr %617, align 4, !tbaa !50, !range !24, !noundef !25
   %619 = trunc nuw i8 %618 to i1
   %620 = load ptr, ptr @stdout, align 8, !tbaa !38
-  %621 = fmul double %616, 0x3EB0C6F7A0B5ED8D
+  %621 = fmul nnan double %616, 0x3EB0C6F7A0B5ED8D
   %622 = load i32, ptr %458, align 4, !tbaa !44
   %623 = sitofp i32 %622 to double
   %624 = fdiv double %616, %623

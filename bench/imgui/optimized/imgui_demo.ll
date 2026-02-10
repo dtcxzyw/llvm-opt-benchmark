@@ -10256,14 +10256,14 @@ _ZL10HelpMarkerPKc.exit163:                       ; preds = %_ZL10HelpMarkerPKc.
 388:                                              ; preds = %382, %388
   %.0145169 = phi i32 [ 0, %382 ], [ %404, %388 ]
   %389 = uitofp nneg i32 %.0145169 to float
-  %390 = fmul float %389, 6.500000e+01
+  %390 = fmul nnan float %389, 6.500000e+01
   %391 = fdiv float %390, 7.000000e+00
   %392 = fadd float %391, 5.000000e+00
   call void @_ZN5ImGui10BeginGroupEv()
   %393 = fpext float %392 to double
   %394 = call noundef i32 @_ZNK10ImDrawList27_CalcCircleAutoSegmentCountEf(ptr noundef nonnull align 8 dereferenceable(216) %383, float noundef %392)
   call void (ptr, ...) @_ZN5ImGui4TextEPKcz(ptr noundef nonnull @.str.281, double noundef %393, i32 noundef %394)
-  %395 = fmul float %392, 2.000000e+00
+  %395 = fmul nnan float %392, 2.000000e+00
   %396 = fcmp oge float %.sroa.012.0.vec.extract, %395
   %397 = select i1 %396, float %.sroa.012.0.vec.extract, float %395
   %398 = fmul float %397, 5.000000e-01
@@ -12920,7 +12920,7 @@ _ZL10HelpMarkerPKc.exit611:                       ; preds = %1067, %1069
   %indvars.iv141 = phi i64 [ 0, %_ZL10HelpMarkerPKc.exit611 ], [ %indvars.iv.next142, %1080 ]
   %1074 = trunc nuw nsw i64 %indvars.iv141 to i32
   %1075 = uitofp nneg i32 %1074 to float
-  %1076 = fmul float %1075, 5.000000e-01
+  %1076 = fmul nnan float %1075, 5.000000e-01
   %1077 = fpext float %1076 to double
   %1078 = mul nuw nsw i64 %indvars.iv141, 3
   %invariant.gep = getelementptr inbounds nuw i8, ptr @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataE8selected_2, i64 %1078
@@ -12940,7 +12940,7 @@ _ZL10HelpMarkerPKc.exit611:                       ; preds = %1067, %1069
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
   %1082 = trunc nuw nsw i64 %indvars.iv137 to i32
   %1083 = uitofp nneg i32 %1082 to float
-  %1084 = fmul float %1083, 5.000000e-01
+  %1084 = fmul nnan float %1083, 5.000000e-01
   store float %1084, ptr %74, align 4, !tbaa !42
   store float %1076, ptr %1072, align 4, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
@@ -17593,7 +17593,7 @@ _ZL10HelpMarkerPKc.exit239:                       ; preds = %470, %472
   %524 = fadd float %.sroa.073.4.vec.extract, %523
   %525 = trunc nuw nsw i64 %indvars.iv313 to i32
   %526 = uitofp nneg i32 %525 to float
-  %527 = fmul float %526, 2.500000e-01
+  %527 = fmul nnan float %526, 2.500000e-01
   call void @_ZN5ImGui17SetScrollFromPosYEff(float noundef %524, float noundef %527)
   br label %528
 
@@ -17603,7 +17603,7 @@ _ZL10HelpMarkerPKc.exit239:                       ; preds = %470, %472
 .preheader274:                                    ; preds = %528
   %529 = trunc nuw nsw i64 %indvars.iv313 to i32
   %530 = uitofp nneg i32 %529 to float
-  %531 = fmul float %530, 2.500000e-01
+  %531 = fmul nnan float %530, 2.500000e-01
   br label %532
 
 532:                                              ; preds = %.preheader274, %539
@@ -17718,7 +17718,7 @@ _ZL10HelpMarkerPKc.exit240:                       ; preds = %547, %549
   %579 = fadd float %.sroa.055.0.vec.extract, %578
   %580 = trunc nuw nsw i64 %indvars.iv318 to i32
   %581 = uitofp nneg i32 %580 to float
-  %582 = fmul float %581, 2.500000e-01
+  %582 = fmul nnan float %581, 2.500000e-01
   call void @_ZN5ImGui17SetScrollFromPosXEff(float noundef %579, float noundef %582)
   br label %583
 
@@ -17728,7 +17728,7 @@ _ZL10HelpMarkerPKc.exit240:                       ; preds = %547, %549
 .preheader273:                                    ; preds = %583
   %584 = trunc nuw nsw i64 %indvars.iv318 to i32
   %585 = uitofp nneg i32 %584 to float
-  %586 = fmul float %585, 2.500000e-01
+  %586 = fmul nnan float %585, 2.500000e-01
   br label %587
 
 587:                                              ; preds = %.preheader273, %596
@@ -17887,7 +17887,7 @@ _ZL10HelpMarkerPKc.exit241:                       ; preds = %606, %608
 647:                                              ; preds = %644, %642, %638
   %648 = phi ptr [ @.str.1338, %638 ], [ %646, %644 ], [ @.str.1339, %642 ]
   %649 = uitofp nneg i32 %.0166296 to float
-  %650 = fmul float %649, 0x3FA99999A0000000
+  %650 = fmul nnan float %649, 0x3FA99999A0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -20557,7 +20557,7 @@ _ZL21EditTableColumnsFlagsPi.exit:                ; preds = %_ZL10HelpMarkerPKc.
   br i1 %exitcond892.not, label %827, label %831, !llvm.loop !326
 
 835:                                              ; preds = %838
-  %836 = fmul float %830, 8.000000e+00
+  %836 = fmul nnan float %830, 8.000000e+00
   call void @_ZN5ImGui8UnindentEf(float noundef %836)
   call void @_ZN5ImGui8EndTableEv()
   br label %846
@@ -26969,15 +26969,15 @@ _ZN16ImGuiListClipper18IncludeItemByIndexEi.exit312: ; preds = %807, %_ZN16ImGui
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %854 = and i32 %853, 255
   %855 = uitofp nneg i32 %854 to float
-  %856 = fmul float %855, 0x3F70101020000000
+  %856 = fmul nnan float %855, 0x3F70101020000000
   %857 = lshr i32 %853, 8
   %858 = and i32 %857, 255
   %859 = uitofp nneg i32 %858 to float
-  %860 = fmul float %859, 0x3F70101020000000
+  %860 = fmul nnan float %859, 0x3F70101020000000
   %861 = lshr i32 %853, 16
   %862 = and i32 %861, 255
   %863 = uitofp nneg i32 %862 to float
-  %864 = fmul float %863, 0x3F70101020000000
+  %864 = fmul nnan float %863, 0x3F70101020000000
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %856, i64 0
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %860, i64 1
   %.sroa.6.12.vec.insert = insertelement <2 x float> <float poison, float 1.000000e+00>, float %864, i64 0
@@ -27713,7 +27713,7 @@ declare void @_ZN5ImGui13PlotHistogramEPKcPKfiiS1_ff6ImVec2i(ptr noundef, ptr no
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(errnomem: write) uwtable
 define internal noundef float @_ZZL21ShowDemoWindowWidgetsP19ImGuiDemoWindowDataEN5Funcs3SinE_1Pvi(ptr readnone captures(none) %0, i32 noundef %1) #16 align 2 {
   %3 = sitofp i32 %1 to float
-  %4 = fmul float %3, 0x3FB99999A0000000
+  %4 = fmul nnan float %3, 0x3FB99999A0000000
   %5 = tail call float @sinf(float noundef %4) #33, !tbaa !54
   ret float %5
 }
@@ -33931,7 +33931,7 @@ _ZN12ExampleAsset17SortWithSortSpecsEP19ImGuiTableSortSpecsPS_i.exit: ; preds = 
   br i1 %137, label %138, label %142
 
 138:                                              ; preds = %129
-  %139 = fmul float %134, 5.000000e-01
+  %139 = fmul nnan float %134, 5.000000e-01
   %140 = call float @llvm.floor.f32(float %139)
   %141 = fadd float %.sroa.062.0.vec.extract, %140
   br label %142
@@ -34973,7 +34973,7 @@ define linkonce_odr void @_ZN20ExampleAssetsBrowser17UpdateLayoutSizesEf(ptr nou
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %2
-  %11 = fmul float %5, 5.000000e-01
+  %11 = fmul nnan float %5, 5.000000e-01
   %12 = tail call float @llvm.floor.f32(float %11)
   %13 = fadd float %1, %12
   br label %14

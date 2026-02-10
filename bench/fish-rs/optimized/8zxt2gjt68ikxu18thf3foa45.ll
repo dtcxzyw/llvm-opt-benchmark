@@ -9136,7 +9136,7 @@ _ZN4core3fmt9Formatter9write_fmt17h84cdd179c532562aE.exit79: ; preds = %_ZN4core
   %34 = icmp ugt i64 %33, 1048575
   %35 = uitofp i64 %33 to double
   %.sroa.040.0.v = select i1 %34, double 0x3EB0000000000000, double 0x3F50000000000000
-  %.sroa.040.0 = fmul double %.sroa.040.0.v, %35
+  %.sroa.040.0 = fmul nnan double %.sroa.040.0.v, %35
   %.sroa.041.0 = select i1 %34, ptr @anon.21a3d60d47e9a7a4b9c3e30d929412c3.295, ptr @anon.21a3d60d47e9a7a4b9c3e30d929412c3.294
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store double %.sroa.040.0, ptr %11, align 8

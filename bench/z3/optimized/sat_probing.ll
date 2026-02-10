@@ -3272,7 +3272,7 @@ _ZNSolsEj.exit12:                                 ; preds = %_ZStlsISt11char_tra
 
 .noexc:                                           ; preds = %76
   %78 = uitofp i64 %77 to double
-  %79 = fmul double %78, 0x3EB0000000000000
+  %79 = fmul nnan double %78, 0x3EB0000000000000
   %80 = load ptr, ptr %75, align 8, !tbaa !227
   %81 = getelementptr i8, ptr %80, i64 -24
   %82 = load i64, ptr %81, align 8
@@ -3454,7 +3454,7 @@ _ZNSolsEj.exit36:                                 ; preds = %_ZStlsISt11char_tra
 
 .noexc37:                                         ; preds = %170
   %172 = uitofp i64 %171 to double
-  %173 = fmul double %172, 0x3EB0000000000000
+  %173 = fmul nnan double %172, 0x3EB0000000000000
   %174 = load ptr, ptr %169, align 8, !tbaa !227
   %175 = getelementptr i8, ptr %174, i64 -24
   %176 = load i64, ptr %175, align 8

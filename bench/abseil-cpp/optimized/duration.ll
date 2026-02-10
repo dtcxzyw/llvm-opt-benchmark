@@ -415,9 +415,9 @@ define dso_local noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8Durat
 11:                                               ; preds = %2
   %.sroa.03.0.copyload = load i64, ptr %0, align 4
   %12 = sitofp i64 %.sroa.03.0.copyload to double
-  %13 = fmul double %1, %12
+  %13 = fmul nnan double %1, %12
   %14 = uitofp i32 %.sroa.226.0.copyload to double
-  %15 = fmul double %1, %14
+  %15 = fmul nnan double %1, %14
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store double 0.000000e+00, ptr %3, align 8, !tbaa !11
   %16 = call double @modf(double noundef %13, ptr noundef nonnull %3) #19
@@ -1269,8 +1269,8 @@ _ZN4abslltENS_8DurationES0_.exit.i:               ; preds = %2
 6:                                                ; preds = %2
   %7 = sitofp i64 %0 to double
   %8 = uitofp i32 %1 to double
-  %9 = tail call double @llvm.fmuladd.f64(double %7, double 4.000000e+09, double %8)
-  %10 = fmul double %9, 2.500000e-01
+  %9 = tail call nnan double @llvm.fmuladd.f64(double %7, double 4.000000e+09, double %8)
+  %10 = fmul nnan double %9, 2.500000e-01
   br label %_ZN4absl12FDivDurationENS_8DurationES0_.exit
 
 _ZN4absl12FDivDurationENS_8DurationES0_.exit:     ; preds = %_ZN4abslltENS_8DurationES0_.exit.i, %6
@@ -1849,7 +1849,7 @@ _ZN4abslltENS_8DurationES0_.exit161:              ; preds = %32
 
 _ZN4absl12FDivDurationENS_8DurationES0_.exit:     ; preds = %_ZN4abslltENS_8DurationES0_.exit161
   %35 = uitofp nneg i32 %.sroa.2116.0.copyload to double
-  %36 = fmul double %35, 2.500000e-01
+  %36 = fmul nnan double %35, 2.500000e-01
   br label %_ZN4absl12FDivDurationENS_8DurationES0_.exit176.invoke
 
 _ZN4abslltENS_8DurationES0_.exit164:              ; preds = %_ZN4abslltENS_8DurationES0_.exit161

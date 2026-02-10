@@ -17303,7 +17303,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoC2ERKNS_18TraceStaticKeyDat
 
 43:                                               ; preds = %26
   %44 = uitofp nneg i64 %40 to float
-  %45 = fmul float %44, 2.000000e+00
+  %45 = fmul nnan float %44, 2.000000e+00
   %46 = tail call noundef float @llvm.ceil.f32(float %45)
   %47 = fptoui float %46 to i64
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashINS_7TfTokenENS0_9robin_setIS3_NS3_11HashFunctorESt8equal_toIS3_ESaIS3_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectEvS5_S7_S8_Lb0ESB_E11rehash_implEm(ptr noundef nonnull align 8 dereferenceable(80) %5, i64 noundef %47)
@@ -25932,7 +25932,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashINS_
   %.sroa.speculated.i13.i = select i1 %70, float %69, float 0x3FEE666660000000
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 68
   store float %.sroa.speculated.i13.i, ptr %71, align 4
-  %72 = fmul float %.sroa.speculated.i13.i, %.val.i.i
+  %72 = fmul nnan float %.sroa.speculated.i13.i, %.val.i.i
   %73 = fptoui float %72 to i64
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store i64 %73, ptr %74, align 8
@@ -56101,7 +56101,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashINS_
   %.sroa.speculated.i9 = select i1 %71, float %70, float 0x3FEE666660000000
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store float %.sroa.speculated.i9, ptr %72, align 4
-  %73 = fmul float %.sroa.speculated.i9, %64
+  %73 = fmul nnan float %.sroa.speculated.i9, %64
   %74 = fptoui float %73 to i64
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %74, ptr %75, align 8

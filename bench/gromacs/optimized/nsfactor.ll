@@ -1000,7 +1000,7 @@ define noundef ptr @_Z34calc_radial_distribution_histogramP10gmx_sans_tPA3_fS2_P
 114:                                              ; preds = %112
   %115 = load i32, ptr %14, align 4, !tbaa !37
   %116 = sitofp i32 %115 to double
-  %117 = fmul double %116, 5.000000e-03
+  %117 = fmul nnan double %116, 5.000000e-03
   br label %124
 
 118:                                              ; preds = %112

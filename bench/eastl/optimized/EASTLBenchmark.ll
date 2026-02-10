@@ -513,8 +513,8 @@ invoke.cont:
   %cmp = fcmp ogt double %div, 1.000000e+02
   %cond = select i1 %cmp, double 1.000000e+02, double %div
   %sub = fsub double %conv, %conv1
-  %add = fadd double %conv, %conv1
-  %div10 = fmul double %add, 5.000000e-01
+  %add = fadd nnan double %conv, %conv1
+  %div10 = fmul nnan double %add, 5.000000e-01
   %div11 = fdiv double %sub, %div10
   %2 = tail call double @llvm.fabs.f64(double %div11)
   %cmp13 = icmp sgt i64 %0, 10

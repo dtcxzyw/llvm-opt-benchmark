@@ -199,9 +199,9 @@ define void @Ssw_ManPrintStats(ptr noundef captures(none) %0) local_unnamed_addr
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !22
   %9 = sitofp i32 %8 to double
-  %10 = fmul double %6, %9
-  %11 = fmul double %10, 2.400000e+01
-  %12 = fmul double %11, 0x3EB0000000000000
+  %10 = fmul nnan double %6, %9
+  %11 = fmul nnan double %10, 2.400000e+01
+  %12 = fmul nnan double %11, 0x3EB0000000000000
   %13 = load ptr, ptr %0, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %15 = load i32, ptr %14, align 4, !tbaa !20
@@ -300,7 +300,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %70 = load i32, ptr %69, align 4, !tbaa !70
   %71 = sub nsw i32 %68, %70
   %72 = sitofp i32 %71 to double
-  %73 = fmul double %72, 1.000000e+02
+  %73 = fmul nnan double %72, 1.000000e+02
   %.not = icmp eq i32 %68, 0
   %74 = sitofp i32 %68 to double
   %75 = select i1 %.not, double 1.000000e+00, double %74
@@ -311,7 +311,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %80 = load i32, ptr %79, align 4, !tbaa !72
   %81 = sub nsw i32 %78, %80
   %82 = sitofp i32 %81 to double
-  %83 = fmul double %82, 1.000000e+02
+  %83 = fmul nnan double %82, 1.000000e+02
   %.not118 = icmp eq i32 %78, 0
   br i1 %.not118, label %.split101, label %.split
 
@@ -352,7 +352,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %108 = load i64, ptr %87, align 8, !tbaa !73
   %.not119 = icmp eq i64 %108, 0
   %109 = sitofp i64 %108 to double
-  %110 = fmul double %106, 1.000000e+02
+  %110 = fmul nnan double %106, 1.000000e+02
   %111 = fdiv double %110, %109
   %112 = select i1 %.not119, double 0.000000e+00, double %111
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %107, double noundef %112)
@@ -363,7 +363,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %116 = load i64, ptr %87, align 8, !tbaa !73
   %.not120 = icmp eq i64 %116, 0
   %117 = sitofp i64 %116 to double
-  %118 = fmul double %114, 1.000000e+02
+  %118 = fmul nnan double %114, 1.000000e+02
   %119 = fdiv double %118, %117
   %120 = select i1 %.not120, double 0.000000e+00, double %119
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %115, double noundef %120)
@@ -374,7 +374,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %124 = load i64, ptr %87, align 8, !tbaa !73
   %.not121 = icmp eq i64 %124, 0
   %125 = sitofp i64 %124 to double
-  %126 = fmul double %122, 1.000000e+02
+  %126 = fmul nnan double %122, 1.000000e+02
   %127 = fdiv double %126, %125
   %128 = select i1 %.not121, double 0.000000e+00, double %127
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %123, double noundef %128)
@@ -385,7 +385,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %132 = load i64, ptr %87, align 8, !tbaa !73
   %.not122 = icmp eq i64 %132, 0
   %133 = sitofp i64 %132 to double
-  %134 = fmul double %130, 1.000000e+02
+  %134 = fmul nnan double %130, 1.000000e+02
   %135 = fdiv double %134, %133
   %136 = select i1 %.not122, double 0.000000e+00, double %135
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %131, double noundef %136)
@@ -396,7 +396,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %140 = load i64, ptr %87, align 8, !tbaa !73
   %.not123 = icmp eq i64 %140, 0
   %141 = sitofp i64 %140 to double
-  %142 = fmul double %138, 1.000000e+02
+  %142 = fmul nnan double %138, 1.000000e+02
   %143 = fdiv double %142, %141
   %144 = select i1 %.not123, double 0.000000e+00, double %143
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %139, double noundef %144)
@@ -408,7 +408,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %149 = load i64, ptr %87, align 8, !tbaa !73
   %.not124 = icmp eq i64 %149, 0
   %150 = sitofp i64 %149 to double
-  %151 = fmul double %147, 1.000000e+02
+  %151 = fmul nnan double %147, 1.000000e+02
   %152 = fdiv double %151, %150
   %153 = select i1 %.not124, double 0.000000e+00, double %152
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %148, double noundef %153)
@@ -420,7 +420,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %158 = load i64, ptr %87, align 8, !tbaa !73
   %.not125 = icmp eq i64 %158, 0
   %159 = sitofp i64 %158 to double
-  %160 = fmul double %156, 1.000000e+02
+  %160 = fmul nnan double %156, 1.000000e+02
   %161 = fdiv double %160, %159
   %162 = select i1 %.not125, double 0.000000e+00, double %161
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %157, double noundef %162)
@@ -432,7 +432,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %167 = load i64, ptr %87, align 8, !tbaa !73
   %.not126 = icmp eq i64 %167, 0
   %168 = sitofp i64 %167 to double
-  %169 = fmul double %165, 1.000000e+02
+  %169 = fmul nnan double %165, 1.000000e+02
   %170 = fdiv double %169, %168
   %171 = select i1 %.not126, double 0.000000e+00, double %170
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %166, double noundef %171)
@@ -443,7 +443,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %175 = load i64, ptr %87, align 8, !tbaa !73
   %.not127 = icmp eq i64 %175, 0
   %176 = sitofp i64 %175 to double
-  %177 = fmul double %173, 1.000000e+02
+  %177 = fmul nnan double %173, 1.000000e+02
   %178 = fdiv double %177, %176
   %179 = select i1 %.not127, double 0.000000e+00, double %178
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %174, double noundef %179)
@@ -452,7 +452,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %181 = sitofp i64 %180 to double
   %182 = fdiv double %181, 1.000000e+06
   %.not128 = icmp eq i64 %180, 0
-  %183 = fmul double %181, 1.000000e+02
+  %183 = fmul nnan double %181, 1.000000e+02
   %184 = fdiv double %183, %181
   %185 = select i1 %.not128, double 0.000000e+00, double %184
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7, double noundef %182, double noundef %185)
@@ -469,7 +469,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 316
   %193 = load i32, ptr %192, align 4, !tbaa !84
   %194 = sitofp i32 %193 to double
-  %195 = fmul double %194, 1.000000e+02
+  %195 = fmul nnan double %194, 1.000000e+02
   %196 = sitofp i32 %191 to double
   %197 = fdiv double %195, %196
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.18, i32 noundef %191, i32 noundef %193, double noundef %197)
@@ -478,7 +478,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 324
   %201 = load i32, ptr %200, align 4, !tbaa !86
   %202 = sitofp i32 %201 to double
-  %203 = fmul double %202, 1.000000e+02
+  %203 = fmul nnan double %202, 1.000000e+02
   %204 = sitofp i32 %199 to double
   %205 = fdiv double %203, %204
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.19, i32 noundef %199, i32 noundef %201, double noundef %205)
@@ -488,7 +488,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %209 = load i32, ptr %208, align 4, !tbaa !88
   %210 = sub nsw i32 %207, %209
   %211 = sitofp i32 %210 to double
-  %212 = fmul double %211, 1.000000e+02
+  %212 = fmul nnan double %211, 1.000000e+02
   %.not130 = icmp eq i32 %207, 0
   %213 = sitofp i32 %207 to double
   %214 = select i1 %.not130, double 1.000000e+00, double %213
@@ -499,7 +499,7 @@ Ssw_ManCountEquivs.exit:                          ; preds = %58, %1
   %219 = load i32, ptr %218, align 4, !tbaa !90
   %220 = sub nsw i32 %217, %219
   %221 = sitofp i32 %220 to double
-  %222 = fmul double %221, 1.000000e+02
+  %222 = fmul nnan double %221, 1.000000e+02
   %.not131 = icmp eq i32 %217, 0
   br i1 %.not131, label %.split104, label %.split103
 

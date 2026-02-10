@@ -143,7 +143,7 @@ define dso_local void @_ZNK18btStaticPlaneShape19processAllTrianglesEP18btTriang
 21:                                               ; preds = %4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %23 = load float, ptr %22, align 8, !tbaa !17
-  %24 = fmul float %18, %18
+  %24 = fmul nnan float %18, %18
   %25 = tail call float @llvm.fmuladd.f32(float %23, float %23, float %24)
   %sqrt.i33 = tail call float @llvm.sqrt.f32(float %25)
   %26 = fdiv float 1.000000e+00, %sqrt.i33

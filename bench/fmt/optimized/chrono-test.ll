@@ -166874,7 +166874,7 @@ _ZN3fmt3v116detail6bufferIcE11try_reserveEm.exit.i.i.i.i: ; preds = %.noexc26, %
   br i1 %or.cond.i.i, label %75, label %_ZN3fmt3v1118safe_duration_cast18safe_duration_castINSt6chrono8durationIfSt5ratioILl1ELl1EEEEfS5_ILl1000000000000000000ELl1EETnNSt9enable_ifIXsr3std17is_floating_pointIT0_EE5valueEiE4typeELi0ETnNS9_IXsr3std17is_floating_pointINT_3repEEE5valueEiE4typeELi0EEESD_NS4_ISA_T1_EERi.exit.i.i
 
 75:                                               ; preds = %74
-  %76 = fmul float %69, 0x43ABC16D60000000
+  %76 = fmul nnan float %69, 0x43ABC16D60000000
   br label %77
 
 _ZN3fmt3v1118safe_duration_cast18safe_duration_castINSt6chrono8durationIfSt5ratioILl1ELl1EEEEfS5_ILl1000000000000000000ELl1EETnNSt9enable_ifIXsr3std17is_floating_pointIT0_EE5valueEiE4typeELi0ETnNS9_IXsr3std17is_floating_pointINT_3repEEE5valueEiE4typeELi0EEESD_NS4_ISA_T1_EERi.exit.i.i: ; preds = %74
@@ -222623,7 +222623,7 @@ _ZN3fmt3v116gmtimeINSt6chrono8durationIdSt5ratioILl1ELl3EEEEEE2tmNS2_10time_poin
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4050
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %17 = sitofp i64 %9 to double
-  %18 = fmul double %17, 3.000000e+00
+  %18 = fmul nnan double %17, 3.000000e+00
   %19 = fsub double %1, %18
   %20 = fcmp uno double %19, 0.000000e+00
   %.sroa.012.0.i.i = select i1 %20, double 0x7FF8000000000000, double %19

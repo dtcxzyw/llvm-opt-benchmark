@@ -9723,7 +9723,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -9804,7 +9804,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -10745,7 +10745,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -10826,7 +10826,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -11529,7 +11529,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -11610,7 +11610,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -12313,7 +12313,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -12394,7 +12394,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -13097,7 +13097,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -13178,7 +13178,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -13881,7 +13881,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -13962,7 +13962,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -14665,7 +14665,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -14746,7 +14746,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -15441,7 +15441,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -15522,7 +15522,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -16250,7 +16250,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -16331,7 +16331,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -17026,7 +17026,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -17107,7 +17107,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -17832,7 +17832,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -17913,7 +17913,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -18608,7 +18608,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -18689,7 +18689,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -19422,7 +19422,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -19503,7 +19503,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -20198,7 +20198,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -20279,7 +20279,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -20974,7 +20974,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -21055,7 +21055,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -21783,7 +21783,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -21864,7 +21864,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -22559,7 +22559,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -22640,7 +22640,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -23335,7 +23335,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -23416,7 +23416,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -24111,7 +24111,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !165
   %48 = sitofp i32 %42 to double
   %49 = uitofp i64 %10 to double
-  %50 = fdiv double 1.000000e+00, %49
+  %50 = fdiv nnan double 1.000000e+00, %49
   %51 = fmul double %50, %48
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -24192,7 +24192,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %64, %67
 72:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %73 = sitofp i32 %45 to double
   %74 = uitofp i64 %10 to double
-  %75 = fdiv double 1.000000e+00, %74
+  %75 = fdiv nnan double 1.000000e+00, %74
   %76 = fmul double %75, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -24941,7 +24941,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %10, ptr %29, align 8, !tbaa !165
   %71 = sitofp i32 %65 to double
   %72 = uitofp i64 %12 to double
-  %73 = fdiv double 1.000000e+00, %72
+  %73 = fdiv nnan double 1.000000e+00, %72
   %74 = fmul double %73, %71
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 0, ptr %30, align 4, !tbaa !172
@@ -25028,7 +25028,7 @@ _ZNSt14_Function_baseD2Ev.exit33:                 ; preds = %87, %90
 95:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %96 = sitofp i32 %68 to double
   %97 = uitofp i64 %12 to double
-  %98 = fdiv double 1.000000e+00, %97
+  %98 = fdiv nnan double 1.000000e+00, %97
   %99 = fmul double %98, %96
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 0, ptr %32, align 4, !tbaa !172
@@ -26066,7 +26066,7 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn20NaryEltwiseLayerImpl17nary_forward_implIhZNS6_10opDispatchIhJRSt6vectorINS0_3MatESaISA_EESD_EEEvmDpOT0_EUlRKhSI_E18_EEvRKT0_T_iiRKS9_IiSaIiEEPPKcPcRKS9_IS9_ImSaImEESaISX_EEmEUlS3_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation, ptr %82, align 8, !tbaa !182
   %89 = sitofp i32 %59 to double
   %90 = uitofp i64 %9 to double
-  %91 = fdiv double 1.000000e+00, %90
+  %91 = fdiv nnan double 1.000000e+00, %90
   %92 = fmul double %91, %89
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %27, ptr noundef %28, double noundef %92)
           to label %93 unwind label %105
@@ -26154,7 +26154,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit41:          ; preds = %115, %_ZNSt14_Funct
 116:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %117 = sitofp i32 %62 to double
   %118 = uitofp i64 %9 to double
-  %119 = fdiv double 1.000000e+00, %118
+  %119 = fdiv nnan double 1.000000e+00, %118
   %120 = fmul double %119, %117
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 4, !tbaa !172
@@ -27284,7 +27284,7 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn20NaryEltwiseLayerImpl17nary_forward_implIhZNS6_10opDispatchIhJRSt6vectorINS0_3MatESaISA_EESD_EEEvmDpOT0_EUlRKhSI_E19_EEvRKT0_T_iiRKS9_IiSaIiEEPPKcPcRKS9_IS9_ImSaImEESaISX_EEmEUlS3_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation, ptr %82, align 8, !tbaa !182
   %89 = sitofp i32 %59 to double
   %90 = uitofp i64 %9 to double
-  %91 = fdiv double 1.000000e+00, %90
+  %91 = fdiv nnan double 1.000000e+00, %90
   %92 = fmul double %91, %89
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %27, ptr noundef %28, double noundef %92)
           to label %93 unwind label %105
@@ -27372,7 +27372,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit41:          ; preds = %115, %_ZNSt14_Funct
 116:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %117 = sitofp i32 %62 to double
   %118 = uitofp i64 %9 to double
-  %119 = fdiv double 1.000000e+00, %118
+  %119 = fdiv nnan double 1.000000e+00, %118
   %120 = fmul double %119, %117
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 4, !tbaa !172
@@ -28501,7 +28501,7 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn20NaryEltwiseLayerImpl17nary_forward_implIhZNS6_10opDispatchIhJRSt6vectorINS0_3MatESaISA_EESD_EEEvmDpOT0_EUlRKhSI_E20_EEvRKT0_T_iiRKS9_IiSaIiEEPPKcPcRKS9_IS9_ImSaImEESaISX_EEmEUlS3_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation, ptr %82, align 8, !tbaa !182
   %89 = sitofp i32 %59 to double
   %90 = uitofp i64 %9 to double
-  %91 = fdiv double 1.000000e+00, %90
+  %91 = fdiv nnan double 1.000000e+00, %90
   %92 = fmul double %91, %89
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %27, ptr noundef %28, double noundef %92)
           to label %93 unwind label %105
@@ -28589,7 +28589,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit41:          ; preds = %115, %_ZNSt14_Funct
 116:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %117 = sitofp i32 %62 to double
   %118 = uitofp i64 %9 to double
-  %119 = fdiv double 1.000000e+00, %118
+  %119 = fdiv nnan double 1.000000e+00, %118
   %120 = fmul double %119, %117
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 4, !tbaa !172
@@ -29713,7 +29713,7 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn20NaryEltwiseLayerImpl17nary_forward_implIhZNS6_10opDispatchIhJRSt6vectorINS0_3MatESaISA_EESD_EEEvmDpOT0_EUlRKhSI_E21_EEvRKT0_T_iiRKS9_IiSaIiEEPPKcPcRKS9_IS9_ImSaImEESaISX_EEmEUlS3_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation, ptr %82, align 8, !tbaa !182
   %89 = sitofp i32 %59 to double
   %90 = uitofp i64 %9 to double
-  %91 = fdiv double 1.000000e+00, %90
+  %91 = fdiv nnan double 1.000000e+00, %90
   %92 = fmul double %91, %89
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %27, ptr noundef %28, double noundef %92)
           to label %93 unwind label %105
@@ -29801,7 +29801,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit41:          ; preds = %115, %_ZNSt14_Funct
 116:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %117 = sitofp i32 %62 to double
   %118 = uitofp i64 %9 to double
-  %119 = fdiv double 1.000000e+00, %118
+  %119 = fdiv nnan double 1.000000e+00, %118
   %120 = fmul double %119, %117
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 4, !tbaa !172
@@ -32728,7 +32728,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -32809,7 +32809,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -33502,7 +33502,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -33583,7 +33583,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -34270,7 +34270,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -34351,7 +34351,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -35038,7 +35038,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -35119,7 +35119,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -35806,7 +35806,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -35887,7 +35887,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -36574,7 +36574,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -36655,7 +36655,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -37342,7 +37342,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -37423,7 +37423,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -38110,7 +38110,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -38191,7 +38191,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -38900,7 +38900,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -38981,7 +38981,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -39668,7 +39668,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -39749,7 +39749,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -40450,7 +40450,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -40531,7 +40531,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -41210,7 +41210,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -41291,7 +41291,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -41978,7 +41978,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -42059,7 +42059,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -42738,7 +42738,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -42819,7 +42819,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -43649,7 +43649,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -43730,7 +43730,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -44439,7 +44439,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -44520,7 +44520,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -45199,7 +45199,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -45280,7 +45280,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -45959,7 +45959,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -46040,7 +46040,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -46719,7 +46719,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !95
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -46800,7 +46800,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -47534,7 +47534,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %10, ptr %29, align 8, !tbaa !95
   %75 = sitofp i32 %69 to double
   %76 = uitofp i64 %12 to double
-  %77 = fdiv double 1.000000e+00, %76
+  %77 = fdiv nnan double 1.000000e+00, %76
   %78 = fmul double %77, %75
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 0, ptr %30, align 4, !tbaa !172
@@ -47621,7 +47621,7 @@ _ZNSt14_Function_baseD2Ev.exit33:                 ; preds = %91, %94
 99:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %100 = sitofp i32 %72 to double
   %101 = uitofp i64 %12 to double
-  %102 = fdiv double 1.000000e+00, %101
+  %102 = fdiv nnan double 1.000000e+00, %101
   %103 = fmul double %102, %100
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 0, ptr %32, align 4, !tbaa !172
@@ -48627,7 +48627,7 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn20NaryEltwiseLayerImpl17nary_forward_implIiZNS6_10opDispatchIiJRSt6vectorINS0_3MatESaISA_EESD_EEEvmDpOT0_EUlRKiSI_E14_EEvRKT0_T_iiRKS9_IiSaIiEEPPKcPcRKS9_IS9_ImSaImEESaISX_EEmEUlS3_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation, ptr %85, align 8, !tbaa !182
   %92 = sitofp i32 %62 to double
   %93 = uitofp i64 %9 to double
-  %94 = fdiv double 1.000000e+00, %93
+  %94 = fdiv nnan double 1.000000e+00, %93
   %95 = fmul double %94, %92
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %27, ptr noundef %28, double noundef %95)
           to label %96 unwind label %108
@@ -48715,7 +48715,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit41:          ; preds = %118, %_ZNSt14_Funct
 119:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %120 = sitofp i32 %65 to double
   %121 = uitofp i64 %9 to double
-  %122 = fdiv double 1.000000e+00, %121
+  %122 = fdiv nnan double 1.000000e+00, %121
   %123 = fmul double %122, %120
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 4, !tbaa !172
@@ -49779,7 +49779,7 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn20NaryEltwiseLayerImpl17nary_forward_implIiZNS6_10opDispatchIiJRSt6vectorINS0_3MatESaISA_EESD_EEEvmDpOT0_EUlRKiSI_E15_EEvRKT0_T_iiRKS9_IiSaIiEEPPKcPcRKS9_IS9_ImSaImEESaISX_EEmEUlS3_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation, ptr %85, align 8, !tbaa !182
   %92 = sitofp i32 %62 to double
   %93 = uitofp i64 %9 to double
-  %94 = fdiv double 1.000000e+00, %93
+  %94 = fdiv nnan double 1.000000e+00, %93
   %95 = fmul double %94, %92
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %27, ptr noundef %28, double noundef %95)
           to label %96 unwind label %108
@@ -49867,7 +49867,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit41:          ; preds = %118, %_ZNSt14_Funct
 119:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %120 = sitofp i32 %65 to double
   %121 = uitofp i64 %9 to double
-  %122 = fdiv double 1.000000e+00, %121
+  %122 = fdiv nnan double 1.000000e+00, %121
   %123 = fmul double %122, %120
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 4, !tbaa !172
@@ -50931,7 +50931,7 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn20NaryEltwiseLayerImpl17nary_forward_implIiZNS6_10opDispatchIiJRSt6vectorINS0_3MatESaISA_EESD_EEEvmDpOT0_EUlRKiSI_E16_EEvRKT0_T_iiRKS9_IiSaIiEEPPKcPcRKS9_IS9_ImSaImEESaISX_EEmEUlS3_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation, ptr %85, align 8, !tbaa !182
   %92 = sitofp i32 %62 to double
   %93 = uitofp i64 %9 to double
-  %94 = fdiv double 1.000000e+00, %93
+  %94 = fdiv nnan double 1.000000e+00, %93
   %95 = fmul double %94, %92
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %27, ptr noundef %28, double noundef %95)
           to label %96 unwind label %108
@@ -51019,7 +51019,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit41:          ; preds = %118, %_ZNSt14_Funct
 119:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %120 = sitofp i32 %65 to double
   %121 = uitofp i64 %9 to double
-  %122 = fdiv double 1.000000e+00, %121
+  %122 = fdiv nnan double 1.000000e+00, %121
   %123 = fmul double %122, %120
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 4, !tbaa !172
@@ -52083,7 +52083,7 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn20NaryEltwiseLayerImpl17nary_forward_implIiZNS6_10opDispatchIiJRSt6vectorINS0_3MatESaISA_EESD_EEEvmDpOT0_EUlRKiSI_E17_EEvRKT0_T_iiRKS9_IiSaIiEEPPKcPcRKS9_IS9_ImSaImEESaISX_EEmEUlS3_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation, ptr %85, align 8, !tbaa !182
   %92 = sitofp i32 %62 to double
   %93 = uitofp i64 %9 to double
-  %94 = fdiv double 1.000000e+00, %93
+  %94 = fdiv nnan double 1.000000e+00, %93
   %95 = fmul double %94, %92
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %27, ptr noundef %28, double noundef %95)
           to label %96 unwind label %108
@@ -52171,7 +52171,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit41:          ; preds = %118, %_ZNSt14_Funct
 119:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %120 = sitofp i32 %65 to double
   %121 = uitofp i64 %9 to double
-  %122 = fdiv double 1.000000e+00, %121
+  %122 = fdiv nnan double 1.000000e+00, %121
   %123 = fmul double %122, %120
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 4, !tbaa !172
@@ -55030,7 +55030,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -55111,7 +55111,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -55814,7 +55814,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -55895,7 +55895,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -56582,7 +56582,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -56663,7 +56663,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -57350,7 +57350,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -57431,7 +57431,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -58118,7 +58118,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -58199,7 +58199,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -58886,7 +58886,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -58967,7 +58967,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -59654,7 +59654,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -59735,7 +59735,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -60438,7 +60438,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -60519,7 +60519,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -61201,7 +61201,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -61282,7 +61282,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -61985,7 +61985,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -62066,7 +62066,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -62785,7 +62785,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -62866,7 +62866,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -63553,7 +63553,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -63634,7 +63634,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -64321,7 +64321,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -64402,7 +64402,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -65089,7 +65089,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -65170,7 +65170,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -66021,7 +66021,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -66102,7 +66102,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -66784,7 +66784,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -66865,7 +66865,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -67544,7 +67544,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -67625,7 +67625,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -68304,7 +68304,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -68385,7 +68385,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -69064,7 +69064,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %8, ptr %22, align 8, !tbaa !1599
   %51 = sitofp i32 %45 to double
   %52 = uitofp i64 %10 to double
-  %53 = fdiv double 1.000000e+00, %52
+  %53 = fdiv nnan double 1.000000e+00, %52
   %54 = fmul double %53, %51
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
   store i32 0, ptr %23, align 4, !tbaa !172
@@ -69145,7 +69145,7 @@ _ZNSt14_Function_baseD2Ev.exit26:                 ; preds = %67, %70
 75:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %76 = sitofp i32 %48 to double
   %77 = uitofp i64 %10 to double
-  %78 = fdiv double 1.000000e+00, %77
+  %78 = fdiv nnan double 1.000000e+00, %77
   %79 = fmul double %78, %76
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4, !tbaa !172
@@ -69879,7 +69879,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multi
   store ptr %10, ptr %29, align 8, !tbaa !1599
   %75 = sitofp i32 %69 to double
   %76 = uitofp i64 %12 to double
-  %77 = fdiv double 1.000000e+00, %76
+  %77 = fdiv nnan double 1.000000e+00, %76
   %78 = fmul double %77, %75
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   store i32 0, ptr %30, align 4, !tbaa !172
@@ -69966,7 +69966,7 @@ _ZNSt14_Function_baseD2Ev.exit33:                 ; preds = %91, %94
 99:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %100 = sitofp i32 %72 to double
   %101 = uitofp i64 %12 to double
-  %102 = fdiv double 1.000000e+00, %101
+  %102 = fdiv nnan double 1.000000e+00, %101
   %103 = fmul double %102, %100
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 0, ptr %32, align 4, !tbaa !172
@@ -70968,7 +70968,7 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn20NaryEltwiseLayerImpl17nary_forward_implIfZNS6_10opDispatchIfJRSt6vectorINS0_3MatESaISA_EESD_EEEvmDpOT0_EUlRKfSI_E14_EEvRKT0_T_iiRKS9_IiSaIiEEPPKcPcRKS9_IS9_ImSaImEESaISX_EEmEUlS3_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation, ptr %85, align 8, !tbaa !182
   %92 = sitofp i32 %62 to double
   %93 = uitofp i64 %9 to double
-  %94 = fdiv double 1.000000e+00, %93
+  %94 = fdiv nnan double 1.000000e+00, %93
   %95 = fmul double %94, %92
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %27, ptr noundef %28, double noundef %95)
           to label %96 unwind label %108
@@ -71056,7 +71056,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit41:          ; preds = %118, %_ZNSt14_Funct
 119:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %120 = sitofp i32 %65 to double
   %121 = uitofp i64 %9 to double
-  %122 = fdiv double 1.000000e+00, %121
+  %122 = fdiv nnan double 1.000000e+00, %121
   %123 = fmul double %122, %120
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 4, !tbaa !172
@@ -72054,7 +72054,7 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn20NaryEltwiseLayerImpl17nary_forward_implIfZNS6_10opDispatchIfJRSt6vectorINS0_3MatESaISA_EESD_EEEvmDpOT0_EUlRKfSI_E15_EEvRKT0_T_iiRKS9_IiSaIiEEPPKcPcRKS9_IS9_ImSaImEESaISX_EEmEUlS3_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation, ptr %85, align 8, !tbaa !182
   %92 = sitofp i32 %62 to double
   %93 = uitofp i64 %9 to double
-  %94 = fdiv double 1.000000e+00, %93
+  %94 = fdiv nnan double 1.000000e+00, %93
   %95 = fmul double %94, %92
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %27, ptr noundef %28, double noundef %95)
           to label %96 unwind label %108
@@ -72142,7 +72142,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit41:          ; preds = %118, %_ZNSt14_Funct
 119:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %120 = sitofp i32 %65 to double
   %121 = uitofp i64 %9 to double
-  %122 = fdiv double 1.000000e+00, %121
+  %122 = fdiv nnan double 1.000000e+00, %121
   %123 = fmul double %122, %120
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 4, !tbaa !172
@@ -73130,7 +73130,7 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn20NaryEltwiseLayerImpl17nary_forward_implIfZNS6_10opDispatchIfJRSt6vectorINS0_3MatESaISA_EESD_EEEvmDpOT0_EUlRKfSI_E16_EEvRKT0_T_iiRKS9_IiSaIiEEPPKcPcRKS9_IS9_ImSaImEESaISX_EEmEUlS3_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation, ptr %85, align 8, !tbaa !182
   %92 = sitofp i32 %62 to double
   %93 = uitofp i64 %9 to double
-  %94 = fdiv double 1.000000e+00, %93
+  %94 = fdiv nnan double 1.000000e+00, %93
   %95 = fmul double %94, %92
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %27, ptr noundef %28, double noundef %95)
           to label %96 unwind label %108
@@ -73218,7 +73218,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit41:          ; preds = %118, %_ZNSt14_Funct
 119:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %120 = sitofp i32 %65 to double
   %121 = uitofp i64 %9 to double
-  %122 = fdiv double 1.000000e+00, %121
+  %122 = fdiv nnan double 1.000000e+00, %121
   %123 = fmul double %122, %120
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 4, !tbaa !172
@@ -74216,7 +74216,7 @@ _ZN2cv10AutoBufferIcLm1032EEC2Em.exit:            ; preds = %_ZSt10accumulateIN9
   store ptr @_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_3dnn20NaryEltwiseLayerImpl17nary_forward_implIfZNS6_10opDispatchIfJRSt6vectorINS0_3MatESaISA_EESD_EEEvmDpOT0_EUlRKfSI_E17_EEvRKT0_T_iiRKS9_IiSaIiEEPPKcPcRKS9_IS9_ImSaImEESaISX_EEmEUlS3_E_E10_M_managerERSt9_Any_dataRKS14_St18_Manager_operation, ptr %85, align 8, !tbaa !182
   %92 = sitofp i32 %62 to double
   %93 = uitofp i64 %9 to double
-  %94 = fdiv double 1.000000e+00, %93
+  %94 = fdiv nnan double 1.000000e+00, %93
   %95 = fmul double %94, %92
   invoke fastcc void @_ZN2cvL13parallel_for_ERKNS_5RangeESt8functionIFvS2_EEd(ptr noundef nonnull align 4 dereferenceable(8) %27, ptr noundef %28, double noundef %95)
           to label %96 unwind label %108
@@ -74304,7 +74304,7 @@ _ZN2cv10AutoBufferIcLm1032EED2Ev.exit41:          ; preds = %118, %_ZNSt14_Funct
 119:                                              ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt10multipliesIiEET0_T_SB_SA_T1_.exit
   %120 = sitofp i32 %65 to double
   %121 = uitofp i64 %9 to double
-  %122 = fdiv double 1.000000e+00, %121
+  %122 = fdiv nnan double 1.000000e+00, %121
   %123 = fmul double %122, %120
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   store i32 0, ptr %29, align 4, !tbaa !172

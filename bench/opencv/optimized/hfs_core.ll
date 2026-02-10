@@ -671,11 +671,11 @@ define hidden void @_ZN2cv3hfs7HfsCore13getSLICIdxCpuERKNS_3MatERi(ptr dead_on_u
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #24
   store i32 0, ptr %3, align 4, !tbaa !45
   %22 = sitofp i32 %12 to float
-  %23 = fmul float %22, 1.250000e-01
+  %23 = fmul nnan float %22, 1.250000e-01
   %24 = call noundef float @llvm.ceil.f32(float %23)
   %25 = fptosi float %24 to i32
   %26 = sitofp i32 %10 to float
-  %27 = fmul float %26, 1.250000e-01
+  %27 = fmul nnan float %26, 1.250000e-01
   %28 = call noundef float @llvm.ceil.f32(float %27)
   %29 = fptosi float %28 to i32
   %30 = mul nsw i32 %25, %29
@@ -2299,7 +2299,7 @@ _ZNSt12_Vector_baseIN2cv3hfs4EdgeESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = %_Z
   %309 = load i32, ptr %308, align 4, !tbaa !45
   %310 = getelementptr inbounds nuw %"class.cv::Vec.26", ptr %.sroa.0391.0, i64 %indvars.iv688
   %311 = sitofp i32 %309 to double
-  %312 = fdiv double 1.000000e+00, %311
+  %312 = fdiv nnan double 1.000000e+00, %311
   br label %313
 
 313:                                              ; preds = %313, %.lr.ph614
@@ -3583,7 +3583,7 @@ _ZNSt12_Vector_baseIN2cv3hfs4EdgeESaIS2_EEC2EmRKS3_.exit.thread.i: ; preds = %_Z
   %112 = load i32, ptr %111, align 4, !tbaa !45
   %113 = getelementptr inbounds nuw %"class.cv::Vec.26", ptr %.sroa.0254.0, i64 %indvars.iv354
   %114 = sitofp i32 %112 to double
-  %115 = fdiv double 1.000000e+00, %114
+  %115 = fdiv nnan double 1.000000e+00, %114
   br label %116
 
 116:                                              ; preds = %116, %.lr.ph
@@ -4591,7 +4591,7 @@ _ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EED2Ev.exit70.thread: ; preds = %.noexc58
   %52 = load i32, ptr %51, align 4, !tbaa !45
   %53 = getelementptr inbounds nuw %"class.cv::Vec.26", ptr %.sroa.074.0, i64 %indvars.iv121
   %54 = sitofp i32 %52 to double
-  %55 = fdiv double 1.000000e+00, %54
+  %55 = fdiv nnan double 1.000000e+00, %54
   br label %56
 
 56:                                               ; preds = %56, %.lr.ph

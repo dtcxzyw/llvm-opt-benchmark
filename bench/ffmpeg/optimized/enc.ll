@@ -1277,7 +1277,7 @@ celt_enc_tf.exit.i:                               ; preds = %478, %472
   %.0.i.i.i = select i1 %518, i32 0, i32 %..i.i.i
   call void @ff_opus_rc_put_raw(ptr noundef nonnull %113, i32 noundef %.0.i.i.i, i32 noundef %506) #9
   %519 = sitofp i32 %.0.i.i.i to float
-  %520 = fadd nsz float %519, 5.000000e-01
+  %520 = fadd nnan nsz float %519, 5.000000e-01
   %521 = load i32, ptr %502, align 4, !tbaa !113
   %522 = sub nsw i32 14, %521
   %523 = shl nuw i32 1, %522
@@ -1401,8 +1401,8 @@ celt_quant_fine.exit.i:                           ; preds = %.loopexit.i.i, %cel
   %585 = sub i32 13, %584
   %586 = shl nuw i32 1, %585
   %587 = sitofp i32 %586 to float
-  %588 = fmul nsz float %587, 5.000000e-01
-  %589 = fmul nsz float %588, 0x3F10000000000000
+  %588 = fmul nnan nsz float %587, 5.000000e-01
+  %589 = fmul nnan nsz float %588, 0x3F10000000000000
   %590 = fadd nsz float %583, %589
   %591 = call nsz float @llvm.fabs.f32(float %590)
   %592 = fsub nsz float %583, %589
@@ -1944,7 +1944,7 @@ define internal fastcc void @celt_enc_quant_pfilter(ptr noundef %0, ptr noundef 
   %26 = add nsw i32 %25, -1
   tail call void @ff_opus_rc_put_raw(ptr noundef %0, i32 noundef %26, i32 noundef 3) #9
   %27 = sitofp i32 %25 to float
-  %28 = fmul nsz float %27, 9.375000e-02
+  %28 = fmul nnan nsz float %27, 9.375000e-02
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %30 = load i32, ptr %29, align 8, !tbaa !104
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56

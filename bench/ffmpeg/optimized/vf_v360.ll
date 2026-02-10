@@ -1289,8 +1289,8 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   store ptr @xyz_to_cube3x2, ptr %176, align 8, !tbaa !104
   %177 = tail call fastcc i32 @prepare_cube_in(ptr noundef %3)
   %178 = sitofp i32 %.0444 to float
-  %179 = fdiv nsz float %178, 3.000000e+00
-  %180 = fmul nsz float %179, 4.000000e+00
+  %179 = fdiv nnan nsz float %178, 3.000000e+00
+  %180 = fmul nnan nsz float %179, 4.000000e+00
   %181 = sitofp i32 %.0446 to float
   br label %427
 
@@ -1299,7 +1299,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   store ptr @xyz_to_cube1x6, ptr %183, align 8, !tbaa !104
   %184 = tail call fastcc i32 @prepare_cube_in(ptr noundef %3)
   %185 = sitofp i32 %.0444 to float
-  %186 = fmul nsz float %185, 4.000000e+00
+  %186 = fmul nnan nsz float %185, 4.000000e+00
   %187 = sitofp i32 %.0446 to float
   %188 = fdiv nsz float %187, 3.000000e+00
   br label %427
@@ -1309,10 +1309,10 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   store ptr @xyz_to_cube6x1, ptr %190, align 8, !tbaa !104
   %191 = tail call fastcc i32 @prepare_cube_in(ptr noundef %3)
   %192 = sitofp i32 %.0444 to float
-  %193 = fdiv nsz float %192, 3.000000e+00
-  %194 = fmul nsz float %193, 2.000000e+00
+  %193 = fdiv nnan nsz float %192, 3.000000e+00
+  %194 = fmul nnan nsz float %193, 2.000000e+00
   %195 = sitofp i32 %.0446 to float
-  %196 = fmul nsz float %195, 2.000000e+00
+  %196 = fmul nnan nsz float %195, 2.000000e+00
   br label %427
 
 197:                                              ; preds = %155
@@ -1345,8 +1345,8 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   store i32 3, ptr %210, align 4, !tbaa !90
   %211 = sitofp i32 %.0444 to float
   %212 = sitofp i32 %.0446 to float
-  %213 = fdiv nsz float %212, 9.000000e+00
-  %214 = fmul nsz float %213, 8.000000e+00
+  %213 = fdiv nnan nsz float %212, 9.000000e+00
+  %214 = fmul nnan nsz float %213, 8.000000e+00
   br label %.thread517
 
 215:                                              ; preds = %155
@@ -1403,8 +1403,8 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   %251 = getelementptr inbounds nuw i8, ptr %8, i64 584
   store ptr @xyz_to_barrel, ptr %251, align 8, !tbaa !104
   %252 = sitofp i32 %.0444 to float
-  %253 = fdiv nsz float %252, 5.000000e+00
-  %254 = fmul nsz float %253, 4.000000e+00
+  %253 = fdiv nnan nsz float %252, 5.000000e+00
+  %254 = fmul nnan nsz float %253, 4.000000e+00
   %255 = sitofp i32 %.0446 to float
   br label %.thread517
 
@@ -1436,7 +1436,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   store float %276, ptr %277, align 8, !tbaa !49
   %278 = sitofp i32 %.0444 to float
   %279 = sitofp i32 %.0446 to float
-  %280 = fmul nsz float %279, 5.000000e-01
+  %280 = fmul nnan nsz float %279, 5.000000e-01
   br label %.thread517
 
 281:                                              ; preds = %155
@@ -1444,7 +1444,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   store ptr @xyz_to_mercator, ptr %282, align 8, !tbaa !104
   %283 = sitofp i32 %.0444 to float
   %284 = sitofp i32 %.0446 to float
-  %285 = fmul nsz float %284, 5.000000e-01
+  %285 = fmul nnan nsz float %284, 5.000000e-01
   br label %.thread517
 
 286:                                              ; preds = %155
@@ -1452,7 +1452,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   store ptr @xyz_to_ball, ptr %287, align 8, !tbaa !104
   %288 = sitofp i32 %.0444 to float
   %289 = sitofp i32 %.0446 to float
-  %290 = fmul nsz float %289, 5.000000e-01
+  %290 = fmul nnan nsz float %289, 5.000000e-01
   br label %.thread517
 
 291:                                              ; preds = %155
@@ -1519,7 +1519,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   store float %332, ptr %333, align 8, !tbaa !49
   %334 = sitofp i32 %.0444 to float
   %335 = sitofp i32 %.0446 to float
-  %336 = fmul nsz float %335, 2.000000e+00
+  %336 = fmul nnan nsz float %335, 2.000000e+00
   br label %.thread517
 
 337:                                              ; preds = %155
@@ -1554,7 +1554,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   %357 = getelementptr inbounds nuw i8, ptr %8, i64 584
   store ptr @xyz_to_barrelsplit, ptr %357, align 8, !tbaa !104
   %358 = sitofp i32 %.0444 to float
-  %359 = fmul nsz float %358, 4.000000e+00
+  %359 = fmul nnan nsz float %358, 4.000000e+00
   %360 = fdiv nsz float %359, 3.000000e+00
   %361 = sitofp i32 %.0446 to float
   br label %.thread517
@@ -1570,7 +1570,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   %367 = getelementptr inbounds nuw i8, ptr %8, i64 584
   store ptr @xyz_to_hequirect, ptr %367, align 8, !tbaa !104
   %368 = sitofp i32 %.0444 to float
-  %369 = fmul nsz float %368, 2.000000e+00
+  %369 = fmul nnan nsz float %368, 2.000000e+00
   %370 = sitofp i32 %.0446 to float
   br label %.thread517
 
@@ -1602,7 +1602,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   store float %391, ptr %392, align 8, !tbaa !49
   %393 = sitofp i32 %.0444 to float
   %394 = sitofp i32 %.0446 to float
-  %395 = fmul nsz float %394, 5.000000e-01
+  %395 = fmul nnan nsz float %394, 5.000000e-01
   br label %.thread517
 
 396:                                              ; preds = %155
@@ -1633,7 +1633,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   store float %416, ptr %417, align 8, !tbaa !49
   %418 = sitofp i32 %.0444 to float
   %419 = sitofp i32 %.0446 to float
-  %420 = fmul nsz float %419, 5.000000e-01
+  %420 = fmul nnan nsz float %419, 5.000000e-01
   br label %.thread517
 
 421:                                              ; preds = %155
@@ -1641,7 +1641,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   store ptr @xyz_to_octahedron, ptr %422, align 8, !tbaa !104
   %423 = sitofp i32 %.0444 to float
   %424 = sitofp i32 %.0446 to float
-  %425 = fmul nsz float %424, 5.000000e-01
+  %425 = fmul nnan nsz float %424, 5.000000e-01
   br label %.thread517
 
 426:                                              ; preds = %155
@@ -1697,34 +1697,34 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
 433:                                              ; preds = %.thread517
   %434 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @cube3x2_to_xyz, ptr %434, align 8, !tbaa !106
-  %435 = fmul nsz float %.0438523, 2.500000e-01
-  %436 = fmul nsz float %435, 3.000000e+00
+  %435 = fmul nnan nsz float %.0438523, 2.500000e-01
+  %436 = fmul nnan nsz float %435, 3.000000e+00
   %437 = tail call i64 @llvm.lrint.i64.f32(float %436)
   br label %529
 
 438:                                              ; preds = %.thread517
   %439 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @cube1x6_to_xyz, ptr %439, align 8, !tbaa !106
-  %440 = fmul nsz float %.0438523, 2.500000e-01
+  %440 = fmul nnan nsz float %.0438523, 2.500000e-01
   %441 = tail call i64 @llvm.lrint.i64.f32(float %440)
-  %442 = fmul nsz float %.0439522, 3.000000e+00
+  %442 = fmul nnan nsz float %.0439522, 3.000000e+00
   br label %529
 
 443:                                              ; preds = %.thread517
   %444 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @cube6x1_to_xyz, ptr %444, align 8, !tbaa !106
-  %445 = fmul nsz float %.0438523, 5.000000e-01
-  %446 = fmul nsz float %445, 3.000000e+00
+  %445 = fmul nnan nsz float %.0438523, 5.000000e-01
+  %446 = fmul nnan nsz float %445, 3.000000e+00
   %447 = tail call i64 @llvm.lrint.i64.f32(float %446)
-  %448 = fmul nsz float %.0439522, 5.000000e-01
+  %448 = fmul nnan nsz float %.0439522, 5.000000e-01
   br label %529
 
 449:                                              ; preds = %.thread517
   %450 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @eac_to_xyz, ptr %450, align 8, !tbaa !106
   %451 = tail call i64 @llvm.lrint.i64.f32(float %.0438523)
-  %452 = fmul nsz float %.0439522, 1.250000e-01
-  %453 = fmul nsz float %452, 9.000000e+00
+  %452 = fmul nnan nsz float %.0439522, 1.250000e-01
+  %453 = fmul nnan nsz float %452, 9.000000e+00
   br label %529
 
 454:                                              ; preds = %.thread517
@@ -1742,8 +1742,8 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
 460:                                              ; preds = %.thread517
   %461 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @barrel_to_xyz, ptr %461, align 8, !tbaa !106
-  %462 = fmul nsz float %.0438523, 2.500000e-01
-  %463 = fmul nsz float %462, 5.000000e+00
+  %462 = fmul nnan nsz float %.0438523, 2.500000e-01
+  %463 = fmul nnan nsz float %462, 5.000000e+00
   %464 = tail call i64 @llvm.lrint.i64.f32(float %463)
   br label %529
 
@@ -1751,21 +1751,21 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   %466 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @stereographic_to_xyz, ptr %466, align 8, !tbaa !106
   %467 = tail call i64 @llvm.lrint.i64.f32(float %.0438523)
-  %468 = fmul nsz float %.0439522, 2.000000e+00
+  %468 = fmul nnan nsz float %.0439522, 2.000000e+00
   br label %529
 
 469:                                              ; preds = %.thread517
   %470 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @mercator_to_xyz, ptr %470, align 8, !tbaa !106
   %471 = tail call i64 @llvm.lrint.i64.f32(float %.0438523)
-  %472 = fmul nsz float %.0439522, 2.000000e+00
+  %472 = fmul nnan nsz float %.0439522, 2.000000e+00
   br label %529
 
 473:                                              ; preds = %.thread517
   %474 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @ball_to_xyz, ptr %474, align 8, !tbaa !106
   %475 = tail call i64 @llvm.lrint.i64.f32(float %.0438523)
-  %476 = fmul nsz float %.0439522, 2.000000e+00
+  %476 = fmul nnan nsz float %.0439522, 2.000000e+00
   br label %529
 
 477:                                              ; preds = %.thread517
@@ -1783,7 +1783,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
 483:                                              ; preds = %.thread517
   %484 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @fisheye_to_xyz, ptr %484, align 8, !tbaa !106
-  %485 = fmul nsz float %.0438523, 5.000000e-01
+  %485 = fmul nnan nsz float %.0438523, 5.000000e-01
   %486 = tail call i64 @llvm.lrint.i64.f32(float %485)
   br label %529
 
@@ -1797,7 +1797,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   %491 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @cylindrical_to_xyz, ptr %491, align 8, !tbaa !106
   %492 = tail call i64 @llvm.lrint.i64.f32(float %.0438523)
-  %493 = fmul nsz float %.0439522, 5.000000e-01
+  %493 = fmul nnan nsz float %.0439522, 5.000000e-01
   br label %529
 
 494:                                              ; preds = %.thread517
@@ -1809,7 +1809,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
 497:                                              ; preds = %.thread517
   %498 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @perspective_to_xyz, ptr %498, align 8, !tbaa !106
-  %499 = fmul nsz float %.0438523, 5.000000e-01
+  %499 = fmul nnan nsz float %.0438523, 5.000000e-01
   %500 = tail call i64 @llvm.lrint.i64.f32(float %499)
   br label %529
 
@@ -1822,8 +1822,8 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
 504:                                              ; preds = %.thread517
   %505 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @barrelsplit_to_xyz, ptr %505, align 8, !tbaa !106
-  %506 = fmul nsz float %.0438523, 2.500000e-01
-  %507 = fmul nsz float %506, 3.000000e+00
+  %506 = fmul nnan nsz float %.0438523, 2.500000e-01
+  %507 = fmul nnan nsz float %506, 3.000000e+00
   %508 = tail call i64 @llvm.lrint.i64.f32(float %507)
   br label %529
 
@@ -1836,7 +1836,7 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
 512:                                              ; preds = %.thread517
   %513 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @hequirect_to_xyz, ptr %513, align 8, !tbaa !106
-  %514 = fmul nsz float %.0438523, 5.000000e-01
+  %514 = fmul nnan nsz float %.0438523, 5.000000e-01
   %515 = tail call i64 @llvm.lrint.i64.f32(float %514)
   br label %529
 
@@ -1844,21 +1844,21 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
   %517 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @equisolid_to_xyz, ptr %517, align 8, !tbaa !106
   %518 = tail call i64 @llvm.lrint.i64.f32(float %.0438523)
-  %519 = fmul nsz float %.0439522, 2.000000e+00
+  %519 = fmul nnan nsz float %.0439522, 2.000000e+00
   br label %529
 
 520:                                              ; preds = %.thread517
   %521 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @orthographic_to_xyz, ptr %521, align 8, !tbaa !106
   %522 = tail call i64 @llvm.lrint.i64.f32(float %.0438523)
-  %523 = fmul nsz float %.0439522, 2.000000e+00
+  %523 = fmul nnan nsz float %.0439522, 2.000000e+00
   br label %529
 
 524:                                              ; preds = %.thread517
   %525 = getelementptr inbounds nuw i8, ptr %8, i64 592
   store ptr @octahedron_to_xyz, ptr %525, align 8, !tbaa !106
   %526 = tail call i64 @llvm.lrint.i64.f32(float %.0438523)
-  %527 = fmul nsz float %.0439522, 2.000000e+00
+  %527 = fmul nnan nsz float %.0439522, 2.000000e+00
   br label %529
 
 528:                                              ; preds = %.thread517
@@ -1906,14 +1906,14 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
 
 551:                                              ; preds = %547
   %552 = uitofp nneg i32 %532 to float
-  %553 = fpext nsz float %540 to double
-  %554 = fmul nsz double %553, 0x400921FB54442D18
+  %553 = fpext nnan nsz float %540 to double
+  %554 = fmul nnan nsz double %553, 0x400921FB54442D18
   %555 = fdiv nsz double %554, 3.600000e+02
   %556 = fptrunc nsz double %555 to float
   %557 = tail call nsz float @llvm.tan.f32(float %556)
   %558 = fdiv nsz float %552, %557
-  %559 = fpext nsz float %544 to double
-  %560 = fmul nsz double %559, 0x400921FB54442D18
+  %559 = fpext nnan nsz float %544 to double
+  %560 = fmul nnan nsz double %559, 0x400921FB54442D18
   %561 = fdiv nsz double %560, 3.600000e+02
   %562 = fptrunc nsz double %561 to float
   %563 = tail call nsz float @llvm.tan.f32(float %562)
@@ -1947,14 +1947,14 @@ set_dimensions.exit:                              ; preds = %83, %77, %72
 
 581:                                              ; preds = %577
   %582 = uitofp nneg i32 %535 to float
-  %583 = fpext nsz float %574 to double
-  %584 = fmul nsz double %583, 0x400921FB54442D18
+  %583 = fpext nnan nsz float %574 to double
+  %584 = fmul nnan nsz double %583, 0x400921FB54442D18
   %585 = fdiv nsz double %584, 3.600000e+02
   %586 = fptrunc nsz double %585 to float
   %587 = tail call nsz float @llvm.tan.f32(float %586)
   %588 = fdiv nsz float %582, %587
-  %589 = fpext nsz float %570 to double
-  %590 = fmul nsz double %589, 0x400921FB54442D18
+  %589 = fpext nnan nsz float %570 to double
+  %590 = fmul nnan nsz double %589, 0x400921FB54442D18
   %591 = fdiv nsz double %590, 3.600000e+02
   %592 = fptrunc nsz double %591 to float
   %593 = tail call nsz float @llvm.tan.f32(float %592)
@@ -4739,12 +4739,12 @@ define internal void @mitchell_kernel(float noundef %0, float noundef %1, ptr no
   br i1 %15, label %16, label %27
 
 16:                                               ; preds = %9
-  %17 = fmul nsz float %13, %13
-  %18 = tail call nsz float @llvm.fmuladd.f32(float %14, float 0x3FF2AAAAA0000000, float -2.000000e+00)
+  %17 = fmul nnan nsz float %13, %13
+  %18 = tail call nnan nsz float @llvm.fmuladd.f32(float %14, float 0x3FF2AAAAA0000000, float -2.000000e+00)
   %19 = tail call nsz float @llvm.fmuladd.f32(float %17, float %18, float 0x3FEC71C720000000)
-  %20 = fmul nsz float %14, 0x3FF2AAAAA0000000
-  %21 = fmul nsz float %20, 5.000000e-01
-  %22 = fadd nsz float %21, -2.000000e+00
+  %20 = fmul nnan nsz float %14, 0x3FF2AAAAA0000000
+  %21 = fmul nnan nsz float %20, 5.000000e-01
+  %22 = fadd nnan nsz float %21, -2.000000e+00
   %23 = fmul nsz float %17, %22
   %24 = fmul nsz float %23, 2.500000e-01
   %25 = fadd nsz float %24, 0x3FEC71C720000000
@@ -4756,17 +4756,17 @@ define internal void @mitchell_kernel(float noundef %0, float noundef %1, ptr no
   br i1 %28, label %29, label %42
 
 29:                                               ; preds = %27
-  %30 = tail call nsz float @llvm.fmuladd.f32(float %14, float 0xBFD8E38E60000000, float 2.000000e+00)
-  %31 = tail call nsz float @llvm.fmuladd.f32(float %14, float %30, float 0xC00AAAAAA0000000)
-  %32 = tail call nsz float @llvm.fmuladd.f32(float %14, float %31, float 0x3FFC71C720000000)
-  %33 = fmul nsz float %14, 5.000000e-01
-  %34 = tail call nsz float @llvm.fmuladd.f32(float %33, float 0xBFD8E38E60000000, float 2.000000e+00)
-  %35 = fmul nsz float %14, %34
-  %36 = fmul nsz float %35, 5.000000e-01
-  %37 = fadd nsz float %36, 0xC00AAAAAA0000000
-  %38 = fmul nsz float %14, %37
-  %39 = fmul nsz float %38, 5.000000e-01
-  %40 = fadd nsz float %39, 0x3FFC71C720000000
+  %30 = tail call nnan nsz float @llvm.fmuladd.f32(float %14, float 0xBFD8E38E60000000, float 2.000000e+00)
+  %31 = tail call nnan nsz float @llvm.fmuladd.f32(float %14, float %30, float 0xC00AAAAAA0000000)
+  %32 = tail call nnan nsz float @llvm.fmuladd.f32(float %14, float %31, float 0x3FFC71C720000000)
+  %33 = fmul nnan nsz float %14, 5.000000e-01
+  %34 = tail call nnan nsz float @llvm.fmuladd.f32(float %33, float 0xBFD8E38E60000000, float 2.000000e+00)
+  %35 = fmul nnan nsz float %14, %34
+  %36 = fmul nnan nsz float %35, 5.000000e-01
+  %37 = fadd nnan nsz float %36, 0xC00AAAAAA0000000
+  %38 = fmul nnan nsz float %14, %37
+  %39 = fmul nnan nsz float %38, 5.000000e-01
+  %40 = fadd nnan nsz float %39, 0x3FFC71C720000000
   %41 = fmul nsz float %32, %40
   br label %42
 
@@ -4801,12 +4801,12 @@ calculate_cubic_bc_coeffs.exit:                   ; preds = %.preheader.i, %80
   br i1 %53, label %54, label %65
 
 54:                                               ; preds = %calculate_cubic_bc_coeffs.exit
-  %55 = fmul nsz float %51, %51
-  %56 = tail call nsz float @llvm.fmuladd.f32(float %52, float 0x3FF2AAAAA0000000, float -2.000000e+00)
+  %55 = fmul nnan nsz float %51, %51
+  %56 = tail call nnan nsz float @llvm.fmuladd.f32(float %52, float 0x3FF2AAAAA0000000, float -2.000000e+00)
   %57 = tail call nsz float @llvm.fmuladd.f32(float %55, float %56, float 0x3FEC71C720000000)
-  %58 = fmul nsz float %52, 0x3FF2AAAAA0000000
-  %59 = fmul nsz float %58, 5.000000e-01
-  %60 = fadd nsz float %59, -2.000000e+00
+  %58 = fmul nnan nsz float %52, 0x3FF2AAAAA0000000
+  %59 = fmul nnan nsz float %58, 5.000000e-01
+  %60 = fadd nnan nsz float %59, -2.000000e+00
   %61 = fmul nsz float %55, %60
   %62 = fmul nsz float %61, 2.500000e-01
   %63 = fadd nsz float %62, 0x3FEC71C720000000
@@ -4818,17 +4818,17 @@ calculate_cubic_bc_coeffs.exit:                   ; preds = %.preheader.i, %80
   br i1 %66, label %67, label %80
 
 67:                                               ; preds = %65
-  %68 = tail call nsz float @llvm.fmuladd.f32(float %52, float 0xBFD8E38E60000000, float 2.000000e+00)
-  %69 = tail call nsz float @llvm.fmuladd.f32(float %52, float %68, float 0xC00AAAAAA0000000)
-  %70 = tail call nsz float @llvm.fmuladd.f32(float %52, float %69, float 0x3FFC71C720000000)
-  %71 = fmul nsz float %52, 5.000000e-01
-  %72 = tail call nsz float @llvm.fmuladd.f32(float %71, float 0xBFD8E38E60000000, float 2.000000e+00)
-  %73 = fmul nsz float %52, %72
-  %74 = fmul nsz float %73, 5.000000e-01
-  %75 = fadd nsz float %74, 0xC00AAAAAA0000000
-  %76 = fmul nsz float %52, %75
-  %77 = fmul nsz float %76, 5.000000e-01
-  %78 = fadd nsz float %77, 0x3FFC71C720000000
+  %68 = tail call nnan nsz float @llvm.fmuladd.f32(float %52, float 0xBFD8E38E60000000, float 2.000000e+00)
+  %69 = tail call nnan nsz float @llvm.fmuladd.f32(float %52, float %68, float 0xC00AAAAAA0000000)
+  %70 = tail call nnan nsz float @llvm.fmuladd.f32(float %52, float %69, float 0x3FFC71C720000000)
+  %71 = fmul nnan nsz float %52, 5.000000e-01
+  %72 = tail call nnan nsz float @llvm.fmuladd.f32(float %71, float 0xBFD8E38E60000000, float 2.000000e+00)
+  %73 = fmul nnan nsz float %52, %72
+  %74 = fmul nnan nsz float %73, 5.000000e-01
+  %75 = fadd nnan nsz float %74, 0xC00AAAAAA0000000
+  %76 = fmul nnan nsz float %52, %75
+  %77 = fmul nnan nsz float %76, 5.000000e-01
+  %78 = fadd nnan nsz float %77, 0x3FFC71C720000000
   %79 = fmul nsz float %70, %78
   br label %80
 
@@ -5097,11 +5097,11 @@ define internal range(i32 0, 2) i32 @xyz_to_equirect(ptr noundef readonly captur
   %21 = fdiv nsz float %18, %20
   %22 = sitofp i32 %2 to float
   %23 = tail call nsz float @llvm.fmuladd.f32(float %15, float 5.000000e-01, float 5.000000e-01)
-  %24 = fadd nsz float %22, -1.000000e+00
+  %24 = fadd nnan nsz float %22, -1.000000e+00
   %25 = fmul nsz float %24, %23
   %26 = sitofp i32 %3 to float
   %27 = tail call nsz float @llvm.fmuladd.f32(float %21, float 5.000000e-01, float 5.000000e-01)
-  %28 = fadd nsz float %26, -1.000000e+00
+  %28 = fadd nnan nsz float %26, -1.000000e+00
   %29 = fmul nsz float %28, %27
   %30 = tail call nsz float @llvm.floor.f32(float %25)
   %31 = fptosi float %30 to i32
@@ -5248,7 +5248,7 @@ define internal noundef i32 @xyz_to_cube3x2(ptr noundef readonly captures(none) 
   %14 = load i32, ptr %13, align 4, !tbaa !181
   %15 = icmp sgt i32 %14, 0
   %16 = sitofp i32 %3 to float
-  %17 = fmul nsz float %16, 5.000000e-01
+  %17 = fmul nnan nsz float %16, 5.000000e-01
   br i1 %15, label %18, label %24
 
 18:                                               ; preds = %8
@@ -5307,11 +5307,11 @@ define internal noundef i32 @xyz_to_cube3x2(ptr noundef readonly captures(none) 
   %57 = fsub nsz float %53, %56
   %58 = fptosi float %57 to i32
   %59 = sitofp i32 %49 to float
-  %60 = fmul nsz float %59, 5.000000e-01
+  %60 = fmul nnan nsz float %59, 5.000000e-01
   %61 = fadd nsz float %31, 1.000000e+00
   %62 = tail call nsz float @llvm.fmuladd.f32(float %60, float %61, float -5.000000e-01)
   %63 = sitofp i32 %58 to float
-  %64 = fmul nsz float %63, 5.000000e-01
+  %64 = fmul nnan nsz float %63, 5.000000e-01
   %65 = fadd nsz float %33, 1.000000e+00
   %66 = tail call nsz float @llvm.fmuladd.f32(float %64, float %65, float -5.000000e-01)
   %67 = tail call nsz float @llvm.floor.f32(float %62)
@@ -5338,7 +5338,7 @@ define internal noundef i32 @xyz_to_cube3x2(ptr noundef readonly captures(none) 
   %81 = trunc i64 %79 to i32
   %82 = add i32 %81, -1
   %83 = sitofp i32 %82 to float
-  %84 = fmul nsz float %83, 2.000000e+00
+  %84 = fmul nnan nsz float %83, 2.000000e+00
   %85 = fdiv nsz float %84, %63
   %86 = fadd nsz float %85, -1.000000e+00
   %87 = fdiv nsz float %86, %29
@@ -5390,7 +5390,7 @@ define internal noundef i32 @xyz_to_cube3x2(ptr noundef readonly captures(none) 
 111:                                              ; preds = %96, %92
   %112 = trunc nsw i64 %94 to i32
   %113 = sitofp i32 %112 to float
-  %114 = fmul nsz float %113, 2.000000e+00
+  %114 = fmul nnan nsz float %113, 2.000000e+00
   %115 = fdiv nsz float %114, %59
   %116 = fadd nsz float %115, -1.000000e+00
   %117 = fdiv nsz float %116, %28
@@ -5429,7 +5429,7 @@ define internal noundef i32 @xyz_to_cube3x2(ptr noundef readonly captures(none) 
   %145 = fsub nsz float %143, %144
   %146 = fptosi float %145 to i32
   %147 = sitofp i32 %139 to float
-  %148 = fmul nsz float %147, 5.000000e-01
+  %148 = fmul nnan nsz float %147, 5.000000e-01
   %149 = fadd nsz float %119, 1.000000e+00
   %150 = fmul nsz float %149, %148
   %151 = tail call i64 @llvm.lrint.i64.f32(float %150)
@@ -5439,7 +5439,7 @@ define internal noundef i32 @xyz_to_cube3x2(ptr noundef readonly captures(none) 
   %..i = tail call i32 @llvm.smin.i32(i32 %153, i32 %152)
   %.0.i = select i1 %154, i32 0, i32 %..i
   %155 = sitofp i32 %146 to float
-  %156 = fmul nsz float %155, 5.000000e-01
+  %156 = fmul nnan nsz float %155, 5.000000e-01
   %157 = fadd nsz float %121, 1.000000e+00
   %158 = fmul nsz float %157, %156
   %159 = tail call i64 @llvm.lrint.i64.f32(float %158)
@@ -5622,11 +5622,11 @@ define internal noundef i32 @xyz_to_cube1x6(ptr noundef readonly captures(none) 
   %44 = tail call nsz float @llvm.ceil.f32(float %43)
   %45 = fsub nsz float %41, %44
   %46 = fptosi float %45 to i32
-  %47 = fmul nsz float %.pre-phi90, 5.000000e-01
+  %47 = fmul nnan nsz float %.pre-phi90, 5.000000e-01
   %48 = fadd nsz float %30, 1.000000e+00
   %49 = tail call nsz float @llvm.fmuladd.f32(float %47, float %48, float -5.000000e-01)
   %50 = sitofp i32 %46 to float
-  %51 = fmul nsz float %50, 5.000000e-01
+  %51 = fmul nnan nsz float %50, 5.000000e-01
   %52 = fadd nsz float %32, 1.000000e+00
   %53 = tail call nsz float @llvm.fmuladd.f32(float %51, float %52, float -5.000000e-01)
   %54 = tail call nsz float @llvm.floor.f32(float %49)
@@ -5654,7 +5654,7 @@ define internal noundef i32 @xyz_to_cube1x6(ptr noundef readonly captures(none) 
   %69 = trunc i64 %67 to i32
   %70 = add i32 %69, -1
   %71 = sitofp i32 %70 to float
-  %72 = fmul nsz float %71, 2.000000e+00
+  %72 = fmul nnan nsz float %71, 2.000000e+00
   %73 = fdiv nsz float %72, %50
   %74 = fadd nsz float %73, -1.000000e+00
   %75 = fdiv nsz float %74, %28
@@ -5700,7 +5700,7 @@ define internal noundef i32 @xyz_to_cube1x6(ptr noundef readonly captures(none) 
 93:                                               ; preds = %84, %80
   %94 = trunc nsw i64 %82 to i32
   %95 = sitofp i32 %94 to float
-  %96 = fmul nsz float %95, 2.000000e+00
+  %96 = fmul nnan nsz float %95, 2.000000e+00
   %97 = fdiv nsz float %96, %.pre-phi90
   %98 = fadd nsz float %97, -1.000000e+00
   %99 = fdiv nsz float %98, %27
@@ -5733,7 +5733,7 @@ define internal noundef i32 @xyz_to_cube1x6(ptr noundef readonly captures(none) 
   %..i = tail call i32 @llvm.smin.i32(i32 %62, i32 %119)
   %.0.i = select i1 %120, i32 0, i32 %..i
   %121 = sitofp i32 %115 to float
-  %122 = fmul nsz float %121, 5.000000e-01
+  %122 = fmul nnan nsz float %121, 5.000000e-01
   %123 = fadd nsz float %103, 1.000000e+00
   %124 = fmul nsz float %123, %122
   %125 = tail call i64 @llvm.lrint.i64.f32(float %124)
@@ -5817,10 +5817,10 @@ define internal noundef i32 @xyz_to_cube6x1(ptr noundef readonly captures(none) 
   %45 = fsub nsz float %41, %44
   %46 = fptosi float %45 to i32
   %47 = sitofp i32 %46 to float
-  %48 = fmul nsz float %47, 5.000000e-01
+  %48 = fmul nnan nsz float %47, 5.000000e-01
   %49 = fadd nsz float %30, 1.000000e+00
   %50 = tail call nsz float @llvm.fmuladd.f32(float %48, float %49, float -5.000000e-01)
-  %51 = fmul nsz float %16, 5.000000e-01
+  %51 = fmul nnan nsz float %16, 5.000000e-01
   %52 = fadd nsz float %32, 1.000000e+00
   %53 = tail call nsz float @llvm.fmuladd.f32(float %51, float %52, float -5.000000e-01)
   %54 = tail call nsz float @llvm.floor.f32(float %50)
@@ -5849,7 +5849,7 @@ define internal noundef i32 @xyz_to_cube6x1(ptr noundef readonly captures(none) 
   %70 = trunc i64 %67 to i32
   %71 = add i32 %70, -1
   %72 = sitofp i32 %71 to float
-  %73 = fmul nsz float %72, 2.000000e+00
+  %73 = fmul nnan nsz float %72, 2.000000e+00
   %74 = fdiv nsz float %73, %16
   %75 = fadd nsz float %74, -1.000000e+00
   %76 = fdiv nsz float %75, %28
@@ -5892,7 +5892,7 @@ define internal noundef i32 @xyz_to_cube6x1(ptr noundef readonly captures(none) 
 94:                                               ; preds = %81
   %95 = trunc nsw i64 %83 to i32
   %96 = sitofp i32 %95 to float
-  %97 = fmul nsz float %96, 2.000000e+00
+  %97 = fmul nnan nsz float %96, 2.000000e+00
   %98 = fdiv nsz float %97, %47
   %99 = fadd nsz float %98, -1.000000e+00
   %100 = fdiv nsz float %99, %27
@@ -5918,7 +5918,7 @@ define internal noundef i32 @xyz_to_cube6x1(ptr noundef readonly captures(none) 
   %115 = fsub nsz float %113, %114
   %116 = fptosi float %115 to i32
   %117 = sitofp i32 %116 to float
-  %118 = fmul nsz float %117, 5.000000e-01
+  %118 = fmul nnan nsz float %117, 5.000000e-01
   %119 = fadd nsz float %102, 1.000000e+00
   %120 = fmul nsz float %119, %118
   %121 = tail call i64 @llvm.lrint.i64.f32(float %120)
@@ -5984,7 +5984,7 @@ define internal noundef i32 @xyz_to_eac(ptr noundef readonly captures(none) %0, 
   %32 = fptrunc nsz double %31 to float
   %33 = sitofp i32 %21 to float
   %34 = fadd nsz float %33, %27
-  %35 = tail call nsz float @llvm.fmuladd.f32(float %13, float -2.000000e+00, float 1.000000e+00)
+  %35 = tail call nnan nsz float @llvm.fmuladd.f32(float %13, float -2.000000e+00, float 1.000000e+00)
   %36 = fmul nsz float %35, %34
   %37 = fdiv nsz float %36, 3.000000e+00
   %38 = fadd nsz float %13, %37
@@ -6091,11 +6091,11 @@ define internal range(i32 0, 2) i32 @xyz_to_flat(ptr noundef readonly captures(n
   %37 = fdiv nsz float %35, %36
   %38 = sitofp i32 %2 to float
   %39 = tail call nsz float @llvm.fmuladd.f32(float %37, float 5.000000e-01, float 5.000000e-01)
-  %40 = fadd nsz float %38, -1.000000e+00
+  %40 = fadd nnan nsz float %38, -1.000000e+00
   %41 = fmul nsz float %40, %39
   %42 = sitofp i32 %3 to float
   %43 = tail call nsz float @llvm.fmuladd.f32(float %33, float 5.000000e-01, float 5.000000e-01)
-  %44 = fadd nsz float %42, -1.000000e+00
+  %44 = fadd nnan nsz float %42, -1.000000e+00
   %45 = fmul nsz float %44, %43
   br label %46
 
@@ -6205,7 +6205,7 @@ define internal range(i32 0, 2) i32 @xyz_to_flat(ptr noundef readonly captures(n
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef i32 @xyz_to_dfisheye(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 4)) %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7) #1 {
   %9 = sitofp i32 %2 to float
-  %10 = fmul nsz float %9, 5.000000e-01
+  %10 = fmul nnan nsz float %9, 5.000000e-01
   %11 = sitofp i32 %3 to float
   %12 = load float, ptr %1, align 4, !tbaa !49
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6234,7 +6234,7 @@ define internal noundef i32 @xyz_to_dfisheye(ptr noundef readonly captures(none)
   %36 = load float, ptr %35, align 4, !tbaa !49
   %37 = fdiv nsz float %34, %36
   %38 = tail call nsz float @llvm.fmuladd.f32(float %37, float 5.000000e-01, float 5.000000e-01)
-  %39 = fadd nsz float %11, -1.000000e+00
+  %39 = fadd nnan nsz float %11, -1.000000e+00
   %40 = fmul nsz float %39, %38
   %41 = fcmp nsz ult float %19, 0.000000e+00
   br i1 %41, label %45, label %42
@@ -6330,8 +6330,8 @@ define internal noundef i32 @xyz_to_barrel(ptr readnone captures(none) %0, ptr n
   %24 = fmul nsz double %22, %23
   %25 = fmul nsz double %24, 5.000000e-01
   %26 = fptrunc nsz double %25 to float
-  %27 = fdiv nsz float %14, 0x3FE921FB60000000
-  %28 = tail call nsz float @llvm.fmuladd.f32(float %27, float 0x3FEFAE1480000000, float 1.000000e+00)
+  %27 = fdiv nnan nsz float %14, 0x3FE921FB60000000
+  %28 = tail call nnan nsz float @llvm.fmuladd.f32(float %27, float 0x3FEFAE1480000000, float 1.000000e+00)
   %29 = sitofp i32 %3 to float
   %30 = fmul nsz float %28, %29
   %31 = fmul nsz float %30, 5.000000e-01
@@ -6349,11 +6349,11 @@ define internal noundef i32 @xyz_to_barrel(ptr readnone captures(none) %0, ptr n
   %.1 = fdiv nsz float %38, %13
   %.159 = fdiv nsz float %.pn, %13
   %39 = sitofp i32 %33 to float
-  %40 = fmul nsz float %39, 5.000000e-01
+  %40 = fmul nnan nsz float %39, 5.000000e-01
   %41 = tail call nsz float @llvm.fmuladd.f32(float %.159, float 0x3FEFAE1480000000, float 1.000000e+00)
   %42 = fmul nsz float %40, %41
   %43 = sitofp i32 %34 to float
-  %44 = fmul nsz float %43, 5.000000e-01
+  %44 = fmul nnan nsz float %43, 5.000000e-01
   %45 = tail call nsz float @llvm.fmuladd.f32(float %.1, float 0x3FEFAE1480000000, float 1.000000e+00)
   %46 = fmul nsz float %44, %45
   br label %47
@@ -6442,11 +6442,11 @@ define internal range(i32 0, 2) i32 @xyz_to_stereographic(ptr noundef readonly c
   %26 = fdiv nsz float %23, %25
   %27 = sitofp i32 %2 to float
   %28 = tail call nsz float @llvm.fmuladd.f32(float %22, float 5.000000e-01, float 5.000000e-01)
-  %29 = fadd nsz float %27, -1.000000e+00
+  %29 = fadd nnan nsz float %27, -1.000000e+00
   %30 = fmul nsz float %29, %28
   %31 = sitofp i32 %3 to float
   %32 = tail call nsz float @llvm.fmuladd.f32(float %26, float 5.000000e-01, float 5.000000e-01)
-  %33 = fadd nsz float %31, -1.000000e+00
+  %33 = fadd nnan nsz float %31, -1.000000e+00
   %34 = fmul nsz float %33, %32
   %35 = tail call nsz float @llvm.floor.f32(float %30)
   %36 = fptosi float %35 to i32
@@ -6574,11 +6574,11 @@ define internal noundef i32 @xyz_to_mercator(ptr readnone captures(none) %0, ptr
   %..i34 = select nsz i1 %27, float 1.000000e+00, float %26
   %28 = sitofp i32 %2 to float
   %29 = tail call nsz float @llvm.fmuladd.f32(float %15, float 5.000000e-01, float 5.000000e-01)
-  %30 = fadd nsz float %28, -1.000000e+00
+  %30 = fadd nnan nsz float %28, -1.000000e+00
   %31 = fmul nsz float %30, %29
   %32 = sitofp i32 %3 to float
   %33 = tail call nsz float @llvm.fmuladd.f32(float %..i34, float 5.000000e-01, float 5.000000e-01)
-  %34 = fadd nsz float %32, -1.000000e+00
+  %34 = fadd nnan nsz float %32, -1.000000e+00
   %35 = fmul nsz float %34, %33
   %36 = tail call nsz float @llvm.floor.f32(float %31)
   %37 = fptosi float %36 to i32
@@ -6652,13 +6652,13 @@ define internal noundef i32 @xyz_to_ball(ptr readnone captures(none) %0, ptr nou
   %23 = fdiv nsz float %22, %21
   %24 = sitofp i32 %2 to float
   %25 = tail call nsz float @llvm.fmuladd.f32(float %23, float 5.000000e-01, float 5.000000e-01)
-  %26 = fadd nsz float %24, -1.000000e+00
+  %26 = fadd nnan nsz float %24, -1.000000e+00
   %27 = fmul nsz float %26, %25
   %28 = fmul nsz float %11, %19
   %29 = fdiv nsz float %28, %21
   %30 = sitofp i32 %3 to float
   %31 = tail call nsz float @llvm.fmuladd.f32(float %29, float 5.000000e-01, float 5.000000e-01)
-  %32 = fadd nsz float %30, -1.000000e+00
+  %32 = fadd nnan nsz float %30, -1.000000e+00
   %33 = fmul nsz float %32, %31
   %34 = tail call nsz float @llvm.floor.f32(float %27)
   %35 = fptosi float %34 to i32
@@ -6809,14 +6809,14 @@ define internal noundef i32 @xyz_to_sinusoidal(ptr readnone captures(none) %0, p
   %20 = fptrunc nsz double %19 to float
   %21 = sitofp i32 %2 to float
   %22 = tail call nsz float @llvm.fmuladd.f32(float %20, float 5.000000e-01, float 5.000000e-01)
-  %23 = fadd nsz float %21, -1.000000e+00
+  %23 = fadd nnan nsz float %21, -1.000000e+00
   %24 = fmul nsz float %23, %22
   %25 = fpext nsz float %11 to double
   %26 = fdiv nsz double %25, 0x3FF921FB54442D18
   %27 = fptrunc nsz double %26 to float
   %28 = sitofp i32 %3 to float
   %29 = tail call nsz float @llvm.fmuladd.f32(float %27, float 5.000000e-01, float 5.000000e-01)
-  %30 = fadd nsz float %28, -1.000000e+00
+  %30 = fadd nnan nsz float %28, -1.000000e+00
   %31 = fmul nsz float %30, %29
   %32 = tail call nsz float @llvm.floor.f32(float %24)
   %33 = fptosi float %32 to i32
@@ -6903,12 +6903,12 @@ define internal range(i32 0, 2) i32 @xyz_to_fisheye(ptr noundef readonly capture
   %34 = fmul nsz float %25, 2.000000e+00
   %35 = sitofp i32 %2 to float
   %36 = tail call nsz float @llvm.fmuladd.f32(float %34, float 5.000000e-01, float 5.000000e-01)
-  %37 = fadd nsz float %35, -1.000000e+00
+  %37 = fadd nnan nsz float %35, -1.000000e+00
   %38 = fmul nsz float %37, %36
   %39 = fmul nsz float %30, 2.000000e+00
   %40 = sitofp i32 %3 to float
   %41 = tail call nsz float @llvm.fmuladd.f32(float %39, float 5.000000e-01, float 5.000000e-01)
-  %42 = fadd nsz float %40, -1.000000e+00
+  %42 = fadd nnan nsz float %40, -1.000000e+00
   %43 = fmul nsz float %42, %41
   %44 = tail call nsz float @llvm.floor.f32(float %38)
   %45 = fptosi float %44 to i32
@@ -7011,11 +7011,11 @@ define internal range(i32 0, 2) i32 @xyz_to_pannini(ptr noundef readonly capture
   %25 = fmul nsz float %24, %21
   %26 = sitofp i32 %2 to float
   %27 = tail call nsz float @llvm.fmuladd.f32(float %23, float 5.000000e-01, float 5.000000e-01)
-  %28 = fadd nsz float %26, -1.000000e+00
+  %28 = fadd nnan nsz float %26, -1.000000e+00
   %29 = fmul nsz float %28, %27
   %30 = sitofp i32 %3 to float
   %31 = tail call nsz float @llvm.fmuladd.f32(float %25, float 5.000000e-01, float 5.000000e-01)
-  %32 = fadd nsz float %30, -1.000000e+00
+  %32 = fadd nnan nsz float %30, -1.000000e+00
   %33 = fmul nsz float %32, %31
   %34 = tail call nsz float @llvm.floor.f32(float %29)
   %35 = fptosi float %34 to i32
@@ -7132,7 +7132,7 @@ define internal range(i32 0, 2) i32 @xyz_to_cylindrical(ptr noundef readonly cap
   %18 = tail call nsz float @llvm.asin.f32(float %17)
   %19 = sitofp i32 %2 to float
   %20 = tail call nsz float @llvm.fmuladd.f32(float %15, float 5.000000e-01, float 5.000000e-01)
-  %21 = fadd nsz float %19, -1.000000e+00
+  %21 = fadd nnan nsz float %19, -1.000000e+00
   %22 = fmul nsz float %21, %20
   %23 = tail call nsz float @llvm.tan.f32(float %18)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -7140,7 +7140,7 @@ define internal range(i32 0, 2) i32 @xyz_to_cylindrical(ptr noundef readonly cap
   %26 = fdiv nsz float %23, %25
   %27 = sitofp i32 %3 to float
   %28 = tail call nsz float @llvm.fmuladd.f32(float %26, float 5.000000e-01, float 5.000000e-01)
-  %29 = fadd nsz float %27, -1.000000e+00
+  %29 = fadd nnan nsz float %27, -1.000000e+00
   %30 = fmul nsz float %29, %28
   %31 = tail call nsz float @llvm.floor.f32(float %22)
   %32 = fptosi float %31 to i32
@@ -7271,7 +7271,7 @@ define internal range(i32 0, 2) i32 @xyz_to_cylindricalea(ptr noundef readonly c
   %18 = tail call nsz float @llvm.asin.f32(float %17)
   %19 = sitofp i32 %2 to float
   %20 = tail call nsz float @llvm.fmuladd.f32(float %15, float 5.000000e-01, float 5.000000e-01)
-  %21 = fadd nsz float %19, -1.000000e+00
+  %21 = fadd nnan nsz float %19, -1.000000e+00
   %22 = fmul nsz float %21, %20
   %23 = tail call nsz float @llvm.sin.f32(float %18)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -7279,7 +7279,7 @@ define internal range(i32 0, 2) i32 @xyz_to_cylindricalea(ptr noundef readonly c
   %26 = fdiv nsz float %23, %25
   %27 = sitofp i32 %3 to float
   %28 = tail call nsz float @llvm.fmuladd.f32(float %26, float 5.000000e-01, float 5.000000e-01)
-  %29 = fadd nsz float %27, -1.000000e+00
+  %29 = fadd nnan nsz float %27, -1.000000e+00
   %30 = fmul nsz float %29, %28
   %31 = tail call nsz float @llvm.floor.f32(float %22)
   %32 = fptosi float %31 to i32
@@ -7609,11 +7609,11 @@ define internal noundef i32 @xyz_to_barrelsplit(ptr noundef readonly captures(no
 21:                                               ; preds = %20
   %22 = uitofp nneg i32 %18 to float
   %23 = sitofp i32 %2 to float
-  %24 = fmul nsz float %23, 2.000000e+00
+  %24 = fmul nnan nsz float %23, 2.000000e+00
   %25 = fdiv nsz float %24, 3.000000e+00
   %26 = fdiv nsz float %22, %25
   %27 = sitofp i32 %3 to float
-  %28 = fmul nsz float %27, 5.000000e-01
+  %28 = fmul nnan nsz float %27, 5.000000e-01
   %29 = fdiv nsz float %22, %28
   br label %33
 
@@ -7639,9 +7639,9 @@ define internal noundef i32 @xyz_to_barrelsplit(ptr noundef readonly captures(no
   %44 = fpext nsz float %43 to double
   %45 = fdiv nsz double %44, 0x3FF921FB54442D18
   %46 = fptrunc nsz double %45 to float
-  %47 = fpext nsz float %15 to double
-  %48 = fdiv nsz double %47, 0x3FE921FB54442D18
-  %49 = fptrunc nsz double %48 to float
+  %47 = fpext nnan ninf nsz float %15 to double
+  %48 = fdiv nnan nsz double %47, 0x3FE921FB54442D18
+  %49 = fptrunc nnan nsz double %48 to float
   %.not = icmp eq i32 %42, 0
   br i1 %.not, label %53, label %50
 
@@ -7673,7 +7673,7 @@ define internal noundef i32 @xyz_to_barrelsplit(ptr noundef readonly captures(no
   %66 = fdiv nsz float %65, 3.000000e+00
   %67 = fdiv nsz float %64, %66
   %68 = sitofp i32 %3 to float
-  %69 = fmul nsz float %68, 2.500000e-01
+  %69 = fmul nnan nsz float %68, 2.500000e-01
   %70 = fdiv nsz float %64, %69
   br label %74
 
@@ -7729,7 +7729,7 @@ define internal noundef i32 @xyz_to_barrelsplit(ptr noundef readonly captures(no
   %101 = fsub nsz float 1.000000e+00, %83
   %102 = fmul nsz float %76, %101
   %103 = sitofp i32 %3 to float
-  %104 = fmul nsz float %103, 2.500000e-01
+  %104 = fmul nnan nsz float %103, 2.500000e-01
   %105 = fptosi float %104 to i32
   br label %120
 
@@ -7740,7 +7740,7 @@ define internal noundef i32 @xyz_to_barrelsplit(ptr noundef readonly captures(no
   %108 = fadd nsz float %83, -1.000000e+00
   %109 = tail call nsz float @llvm.fmuladd.f32(float %108, float %76, float 1.000000e+00)
   %110 = sitofp i32 %3 to float
-  %111 = fmul nsz float %110, 5.000000e-01
+  %111 = fmul nnan nsz float %110, 5.000000e-01
   %112 = fptosi float %111 to i32
   br label %120
 
@@ -7749,7 +7749,7 @@ define internal noundef i32 @xyz_to_barrelsplit(ptr noundef readonly captures(no
   %115 = fadd nsz float %83, 1.000000e+00
   %116 = fmul nsz float %76, %115
   %117 = sitofp i32 %3 to float
-  %118 = fmul nsz float %117, 7.500000e-01
+  %118 = fmul nnan nsz float %117, 7.500000e-01
   %119 = fptosi float %118 to i32
   br label %120
 
@@ -7759,11 +7759,11 @@ define internal noundef i32 @xyz_to_barrelsplit(ptr noundef readonly captures(no
   %.2 = phi nsz float [ %81, %100 ], [ %114, %113 ], [ %81, %107 ], [ %91, %90 ]
   %.1 = phi i32 [ %105, %100 ], [ %119, %113 ], [ %112, %107 ], [ 0, %90 ]
   %121 = sitofp i32 %2 to float
-  %122 = fmul nsz float %121, 5.000000e-01
-  %123 = fdiv nsz float %122, 3.000000e+00
+  %122 = fmul nnan nsz float %121, 5.000000e-01
+  %123 = fdiv nnan nsz float %122, 3.000000e+00
   %124 = fadd nsz float %.2, 1.000000e+00
   %125 = fmul nsz float %123, %124
-  %126 = fmul nsz float %.pre-phi, 2.500000e-01
+  %126 = fmul nnan nsz float %.pre-phi, 2.500000e-01
   %127 = fmul nsz float %126, %.1108
   br label %128
 
@@ -8056,11 +8056,11 @@ define internal range(i32 0, 2) i32 @xyz_to_hequirect(ptr readnone captures(none
   %21 = fptrunc nsz double %20 to float
   %22 = sitofp i32 %2 to float
   %23 = tail call nsz float @llvm.fmuladd.f32(float %15, float 5.000000e-01, float 5.000000e-01)
-  %24 = fadd nsz float %22, -1.000000e+00
+  %24 = fadd nnan nsz float %22, -1.000000e+00
   %25 = fmul nsz float %24, %23
   %26 = sitofp i32 %3 to float
   %27 = tail call nsz float @llvm.fmuladd.f32(float %21, float 5.000000e-01, float 5.000000e-01)
-  %28 = fadd nsz float %26, -1.000000e+00
+  %28 = fadd nnan nsz float %26, -1.000000e+00
   %29 = fmul nsz float %28, %27
   %30 = tail call nsz float @llvm.floor.f32(float %25)
   %31 = fptosi float %30 to i32
@@ -8141,11 +8141,11 @@ define internal range(i32 0, 2) i32 @xyz_to_equisolid(ptr noundef readonly captu
   %26 = fdiv nsz float %23, %25
   %27 = sitofp i32 %2 to float
   %28 = tail call nsz float @llvm.fmuladd.f32(float %22, float 5.000000e-01, float 5.000000e-01)
-  %29 = fadd nsz float %27, -1.000000e+00
+  %29 = fadd nnan nsz float %27, -1.000000e+00
   %30 = fmul nsz float %29, %28
   %31 = sitofp i32 %3 to float
   %32 = tail call nsz float @llvm.fmuladd.f32(float %26, float 5.000000e-01, float 5.000000e-01)
-  %33 = fadd nsz float %31, -1.000000e+00
+  %33 = fadd nnan nsz float %31, -1.000000e+00
   %34 = fmul nsz float %33, %32
   %35 = tail call nsz float @llvm.floor.f32(float %30)
   %36 = fptosi float %35 to i32
@@ -8270,11 +8270,11 @@ define internal range(i32 0, 2) i32 @xyz_to_orthographic(ptr noundef readonly ca
   %25 = fdiv nsz float %22, %24
   %26 = sitofp i32 %2 to float
   %27 = tail call nsz float @llvm.fmuladd.f32(float %21, float 5.000000e-01, float 5.000000e-01)
-  %28 = fadd nsz float %26, -1.000000e+00
+  %28 = fadd nnan nsz float %26, -1.000000e+00
   %29 = fmul nsz float %28, %27
   %30 = sitofp i32 %3 to float
   %31 = tail call nsz float @llvm.fmuladd.f32(float %25, float 5.000000e-01, float 5.000000e-01)
-  %32 = fadd nsz float %30, -1.000000e+00
+  %32 = fadd nnan nsz float %30, -1.000000e+00
   %33 = fmul nsz float %32, %31
   %34 = tail call nsz float @llvm.floor.f32(float %29)
   %35 = fptosi float %34 to i32
@@ -8415,11 +8415,11 @@ define internal noundef i32 @xyz_to_octahedron(ptr readnone captures(none) %0, p
   %.042 = phi nsz float [ %32, %22 ], [ %19, %8 ]
   %34 = sitofp i32 %2 to float
   %35 = tail call nsz float @llvm.fmuladd.f32(float %.042, float 5.000000e-01, float 5.000000e-01)
-  %36 = fadd nsz float %34, -1.000000e+00
+  %36 = fadd nnan nsz float %34, -1.000000e+00
   %37 = fmul nsz float %36, %35
   %38 = sitofp i32 %3 to float
   %39 = tail call nsz float @llvm.fmuladd.f32(float %.043, float 5.000000e-01, float 5.000000e-01)
-  %40 = fadd nsz float %38, -1.000000e+00
+  %40 = fadd nnan nsz float %38, -1.000000e+00
   %41 = fmul nsz float %40, %39
   %42 = tail call nsz float @llvm.floor.f32(float %37)
   %43 = fptosi float %42 to i32
@@ -8478,7 +8478,7 @@ define internal noundef i32 @xyz_to_octahedron(ptr readnone captures(none) %0, p
 define internal noundef i32 @equirect_to_xyz(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 12)) %5) #0 {
   %7 = sitofp i32 %3 to float
   %8 = sitofp i32 %1 to float
-  %9 = tail call nsz float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float 1.000000e+00)
+  %9 = tail call nnan nsz float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float 1.000000e+00)
   %10 = fdiv nsz float %9, %7
   %11 = fadd nsz float %10, -1.000000e+00
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 284
@@ -8486,7 +8486,7 @@ define internal noundef i32 @equirect_to_xyz(ptr noundef readonly captures(none)
   %14 = fmul nsz float %11, %13
   %15 = sitofp i32 %4 to float
   %16 = sitofp i32 %2 to float
-  %17 = tail call nsz float @llvm.fmuladd.f32(float %16, float 2.000000e+00, float 1.000000e+00)
+  %17 = tail call nnan nsz float @llvm.fmuladd.f32(float %16, float 2.000000e+00, float 1.000000e+00)
   %18 = fdiv nsz float %17, %15
   %19 = fadd nsz float %18, -1.000000e+00
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -8538,7 +8538,7 @@ define internal noundef i32 @cube3x2_to_xyz(ptr noundef readonly captures(none) 
   %8 = load i32, ptr %7, align 8, !tbaa !233
   %9 = icmp sgt i32 %8, 0
   %10 = sitofp i32 %4 to float
-  %11 = fmul nsz float %10, 5.000000e-01
+  %11 = fmul nnan nsz float %10, 5.000000e-01
   br i1 %9, label %12, label %18
 
 12:                                               ; preds = %6
@@ -8827,7 +8827,7 @@ define internal noundef i32 @eac_to_xyz(ptr readnone captures(none) %0, i32 noun
   %9 = sitofp i32 %4 to float
   %10 = fdiv nsz float 2.000000e+00, %9
   %11 = sitofp i32 %1 to float
-  %12 = fadd nsz float %11, 5.000000e-01
+  %12 = fadd nnan nsz float %11, 5.000000e-01
   %13 = fdiv nsz float %12, %7
   %14 = sitofp i32 %2 to float
   %15 = fadd nsz float %14, 5.000000e-01
@@ -8876,8 +8876,8 @@ define internal noundef i32 @eac_to_xyz(ptr readnone captures(none) %0, i32 noun
   br i1 %or.cond, label %45, label %50
 
 45:                                               ; preds = %33
-  %46 = fpext nsz float %.051 to double
-  %47 = fmul nsz double %46, 0x3FF921FB54442D18
+  %46 = fpext nnan ninf nsz float %.051 to double
+  %47 = fmul nnan nsz double %46, 0x3FF921FB54442D18
   %48 = fptrunc nsz double %47 to float
   %49 = tail call nsz float @llvm.tan.f32(float %48)
   br label %52
@@ -8894,8 +8894,8 @@ define internal noundef i32 @eac_to_xyz(ptr readnone captures(none) %0, i32 noun
   br i1 %or.cond3, label %55, label %60
 
 55:                                               ; preds = %52
-  %56 = fpext nsz float %42 to double
-  %57 = fmul nsz double %56, 0x3FF921FB54442D18
+  %56 = fpext nnan ninf nsz float %42 to double
+  %57 = fmul nnan nsz double %56, 0x3FF921FB54442D18
   %58 = fptrunc nsz double %57 to float
   %59 = tail call nsz float @llvm.tan.f32(float %58)
   br label %62
@@ -8992,7 +8992,7 @@ define internal noundef i32 @flat_to_xyz(ptr noundef readonly captures(none) %0,
   %8 = load float, ptr %7, align 4, !tbaa !49
   %9 = sitofp i32 %3 to float
   %10 = sitofp i32 %1 to float
-  %11 = tail call nsz float @llvm.fmuladd.f32(float %10, float 2.000000e+00, float 1.000000e+00)
+  %11 = tail call nnan nsz float @llvm.fmuladd.f32(float %10, float 2.000000e+00, float 1.000000e+00)
   %12 = fdiv nsz float %11, %9
   %13 = fadd nsz float %12, -1.000000e+00
   %14 = fmul nsz float %13, %8
@@ -9000,7 +9000,7 @@ define internal noundef i32 @flat_to_xyz(ptr noundef readonly captures(none) %0,
   %16 = load float, ptr %15, align 4, !tbaa !49
   %17 = sitofp i32 %4 to float
   %18 = sitofp i32 %2 to float
-  %19 = tail call nsz float @llvm.fmuladd.f32(float %18, float 2.000000e+00, float 1.000000e+00)
+  %19 = tail call nnan nsz float @llvm.fmuladd.f32(float %18, float 2.000000e+00, float 1.000000e+00)
   %20 = fdiv nsz float %19, %17
   %21 = fadd nsz float %20, -1.000000e+00
   %22 = fmul nsz float %21, %16
@@ -9042,7 +9042,7 @@ define internal noundef i32 @prepare_flat_out(ptr noundef readonly captures(none
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal noundef i32 @dfisheye_to_xyz(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 12)) %5) #0 {
   %7 = sitofp i32 %3 to float
-  %8 = fmul nsz float %7, 5.000000e-01
+  %8 = fmul nnan nsz float %7, 5.000000e-01
   %9 = sitofp i32 %1 to float
   %10 = fcmp nsz ugt float %8, %9
   %11 = select i1 %10, float -1.000000e+00, float 1.000000e+00
@@ -9053,22 +9053,22 @@ define internal noundef i32 @dfisheye_to_xyz(ptr noundef readonly captures(none)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %17 = load float, ptr %16, align 4, !tbaa !49
   %18 = sitofp i32 %15 to float
-  %19 = tail call nsz float @llvm.fmuladd.f32(float %18, float 2.000000e+00, float 1.000000e+00)
+  %19 = tail call nnan nsz float @llvm.fmuladd.f32(float %18, float 2.000000e+00, float 1.000000e+00)
   %20 = fdiv nsz float %19, %8
   %21 = fadd nsz float %20, -1.000000e+00
   %22 = fmul nsz float %21, %17
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %24 = load float, ptr %23, align 4, !tbaa !49
   %25 = sitofp i32 %2 to float
-  %26 = tail call nsz float @llvm.fmuladd.f32(float %25, float 2.000000e+00, float 1.000000e+00)
+  %26 = tail call nnan nsz float @llvm.fmuladd.f32(float %25, float 2.000000e+00, float 1.000000e+00)
   %27 = fdiv nsz float %26, %14
   %28 = fadd nsz float %27, -1.000000e+00
   %29 = fmul nsz float %28, %24
   %30 = tail call nsz float @hypotf(float noundef %22, float noundef %29) #20
   %31 = fcmp nsz ogt float %30, 0.000000e+00
   %32 = select nsz i1 %31, float %30, float 1.000000e+00
-  %33 = fpext nsz float %11 to double
-  %34 = fmul nsz double %33, 0x3FF921FB54442D18
+  %33 = fpext nnan ninf nsz float %11 to double
+  %34 = fmul nnan nsz double %33, 0x3FF921FB54442D18
   %35 = fsub nsz float 1.000000e+00, %30
   %36 = fpext nsz float %35 to double
   %37 = fmul nsz double %34, %36
@@ -9124,7 +9124,7 @@ define internal noundef i32 @barrel_to_xyz(ptr readnone captures(none) %0, i32 n
   %19 = fptrunc nsz double %18 to float
   %20 = sitofp i32 %4 to float
   %21 = sitofp i32 %2 to float
-  %22 = tail call nsz float @llvm.fmuladd.f32(float %21, float 2.000000e+00, float 1.000000e+00)
+  %22 = tail call nnan nsz float @llvm.fmuladd.f32(float %21, float 2.000000e+00, float 1.000000e+00)
   %23 = fdiv nsz float %22, %20
   %24 = fadd nsz float %23, -1.000000e+00
   %25 = fmul nsz float %24, 0x3FE921FB60000000
@@ -9177,7 +9177,7 @@ define internal noundef i32 @barrel_to_xyz(ptr readnone captures(none) %0, i32 n
 define internal noundef i32 @stereographic_to_xyz(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 12)) %5) #0 {
   %7 = sitofp i32 %3 to float
   %8 = sitofp i32 %1 to float
-  %9 = tail call nsz float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float 1.000000e+00)
+  %9 = tail call nnan nsz float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float 1.000000e+00)
   %10 = fdiv nsz float %9, %7
   %11 = fadd nsz float %10, -1.000000e+00
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 284
@@ -9185,7 +9185,7 @@ define internal noundef i32 @stereographic_to_xyz(ptr noundef readonly captures(
   %14 = fmul nsz float %11, %13
   %15 = sitofp i32 %4 to float
   %16 = sitofp i32 %2 to float
-  %17 = tail call nsz float @llvm.fmuladd.f32(float %16, float 2.000000e+00, float 1.000000e+00)
+  %17 = tail call nnan nsz float @llvm.fmuladd.f32(float %16, float 2.000000e+00, float 1.000000e+00)
   %18 = fdiv nsz float %17, %15
   %19 = fadd nsz float %18, -1.000000e+00
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -9293,7 +9293,7 @@ define internal range(i32 0, 2) i32 @ball_to_xyz(ptr readnone captures(none) %0,
   br i1 %18, label %33, label %19
 
 19:                                               ; preds = %6
-  %20 = fmul nsz float %17, 2.000000e+00
+  %20 = fmul nnan nsz float %17, 2.000000e+00
   %21 = fneg nsz float %17
   %22 = tail call nsz float @llvm.fmuladd.f32(float %21, float %17, float 1.000000e+00)
   %23 = tail call nsz float @llvm.sqrt.f32(float %22)
@@ -9414,7 +9414,7 @@ define internal noundef i32 @fisheye_to_xyz(ptr noundef readonly captures(none) 
   %8 = load float, ptr %7, align 4, !tbaa !49
   %9 = sitofp i32 %3 to float
   %10 = sitofp i32 %1 to float
-  %11 = tail call nsz float @llvm.fmuladd.f32(float %10, float 2.000000e+00, float 1.000000e+00)
+  %11 = tail call nnan nsz float @llvm.fmuladd.f32(float %10, float 2.000000e+00, float 1.000000e+00)
   %12 = fdiv nsz float %11, %9
   %13 = fadd nsz float %12, -1.000000e+00
   %14 = fmul nsz float %13, %8
@@ -9422,7 +9422,7 @@ define internal noundef i32 @fisheye_to_xyz(ptr noundef readonly captures(none) 
   %16 = load float, ptr %15, align 4, !tbaa !49
   %17 = sitofp i32 %4 to float
   %18 = sitofp i32 %2 to float
-  %19 = tail call nsz float @llvm.fmuladd.f32(float %18, float 2.000000e+00, float 1.000000e+00)
+  %19 = tail call nnan nsz float @llvm.fmuladd.f32(float %18, float 2.000000e+00, float 1.000000e+00)
   %20 = fdiv nsz float %19, %17
   %21 = fadd nsz float %20, -1.000000e+00
   %22 = fmul nsz float %21, %16
@@ -9501,7 +9501,7 @@ define internal noundef i32 @cylindrical_to_xyz(ptr noundef readonly captures(no
   %8 = load float, ptr %7, align 4, !tbaa !49
   %9 = sitofp i32 %3 to float
   %10 = sitofp i32 %1 to float
-  %11 = tail call nsz float @llvm.fmuladd.f32(float %10, float 2.000000e+00, float 1.000000e+00)
+  %11 = tail call nnan nsz float @llvm.fmuladd.f32(float %10, float 2.000000e+00, float 1.000000e+00)
   %12 = fdiv nsz float %11, %9
   %13 = fadd nsz float %12, -1.000000e+00
   %14 = fmul nsz float %13, %8
@@ -9509,7 +9509,7 @@ define internal noundef i32 @cylindrical_to_xyz(ptr noundef readonly captures(no
   %16 = load float, ptr %15, align 4, !tbaa !49
   %17 = sitofp i32 %4 to float
   %18 = sitofp i32 %2 to float
-  %19 = tail call nsz float @llvm.fmuladd.f32(float %18, float 2.000000e+00, float 1.000000e+00)
+  %19 = tail call nnan nsz float @llvm.fmuladd.f32(float %18, float 2.000000e+00, float 1.000000e+00)
   %20 = fdiv nsz float %19, %17
   %21 = fadd nsz float %20, -1.000000e+00
   %22 = fmul nsz float %21, %16
@@ -9559,7 +9559,7 @@ define internal noundef i32 @cylindricalea_to_xyz(ptr noundef readonly captures(
   %8 = load float, ptr %7, align 4, !tbaa !49
   %9 = sitofp i32 %3 to float
   %10 = sitofp i32 %1 to float
-  %11 = tail call nsz float @llvm.fmuladd.f32(float %10, float 2.000000e+00, float 1.000000e+00)
+  %11 = tail call nnan nsz float @llvm.fmuladd.f32(float %10, float 2.000000e+00, float 1.000000e+00)
   %12 = fdiv nsz float %11, %9
   %13 = fadd nsz float %12, -1.000000e+00
   %14 = fmul nsz float %13, %8
@@ -9567,7 +9567,7 @@ define internal noundef i32 @cylindricalea_to_xyz(ptr noundef readonly captures(
   %16 = load float, ptr %15, align 4, !tbaa !49
   %17 = sitofp i32 %4 to float
   %18 = sitofp i32 %2 to float
-  %19 = tail call nsz float @llvm.fmuladd.f32(float %18, float 2.000000e+00, float 1.000000e+00)
+  %19 = tail call nnan nsz float @llvm.fmuladd.f32(float %18, float 2.000000e+00, float 1.000000e+00)
   %20 = fdiv nsz float %19, %17
   %21 = fadd nsz float %20, -1.000000e+00
   %22 = fmul nsz float %21, %16
@@ -9723,10 +9723,10 @@ define internal range(i32 0, 2) i32 @barrelsplit_to_xyz(ptr noundef readonly cap
 
 20:                                               ; preds = %19
   %21 = uitofp nneg i32 %17 to float
-  %22 = fmul nsz float %9, 2.000000e+00
+  %22 = fmul nnan nsz float %9, 2.000000e+00
   %23 = fdiv nsz float %22, 3.000000e+00
   %24 = fdiv nsz float %21, %23
-  %25 = fmul nsz float %13, 5.000000e-01
+  %25 = fmul nnan nsz float %13, 5.000000e-01
   %26 = fdiv nsz float %21, %25
   br label %30
 
@@ -9742,7 +9742,7 @@ define internal range(i32 0, 2) i32 @barrelsplit_to_xyz(ptr noundef readonly cap
   %32 = fsub nsz float 1.000000e+00, %.pn82
   %33 = fmul nsz float %14, 2.000000e+00
   %34 = tail call nsz float @llvm.floor.f32(float %33)
-  %35 = tail call nsz float @llvm.fmuladd.f32(float %10, float 1.500000e+00, float -5.000000e-01)
+  %35 = tail call nnan nsz float @llvm.fmuladd.f32(float %10, float 1.500000e+00, float -5.000000e-01)
   %36 = fdiv nsz float %35, %31
   %37 = fsub nsz float %36, %34
   %38 = fpext nsz float %37 to double
@@ -9769,7 +9769,7 @@ define internal range(i32 0, 2) i32 @barrelsplit_to_xyz(ptr noundef readonly cap
   %55 = uitofp nneg i32 %17 to float
   %56 = fdiv nsz float %9, 3.000000e+00
   %57 = fdiv nsz float %55, %56
-  %58 = fmul nsz float %13, 2.500000e-01
+  %58 = fmul nnan nsz float %13, 2.500000e-01
   %59 = fdiv nsz float %55, %58
   br label %63
 
@@ -9821,7 +9821,7 @@ define internal range(i32 0, 2) i32 @barrelsplit_to_xyz(ptr noundef readonly cap
   %.0 = phi nsz float [ %77, %73 ], [ %82, %78 ]
   %85 = fsub nsz float 5.000000e-01, %.070
   %86 = fdiv nsz float %85, %64
-  %87 = fmul nsz float %71, 5.000000e-01
+  %87 = fmul nnan nsz float %71, 5.000000e-01
   %88 = fadd nsz float %.0, -5.000000e-01
   %89 = fmul nsz float %71, %88
   %90 = fdiv nsz float %89, %65
@@ -9902,8 +9902,8 @@ define internal noundef i32 @tspyramid_to_xyz(ptr readnone captures(none) %0, i3
   br i1 %or.cond9, label %37, label %41
 
 37:                                               ; preds = %34
-  %38 = fadd nsz float %10, -5.000000e-01
-  %39 = fmul nsz float %38, 2.000000e+00
+  %38 = fadd nnan nsz float %10, -5.000000e-01
+  %39 = fmul nnan nsz float %38, 2.000000e+00
   %40 = fcmp nsz oge float %14, %39
   %or.cond11 = and i1 %23, %24
   %or.cond112 = or i1 %40, %or.cond11
@@ -9920,8 +9920,8 @@ define internal noundef i32 @tspyramid_to_xyz(ptr readnone captures(none) %0, i3
   br i1 %or.cond13, label %45, label %61
 
 45:                                               ; preds = %42
-  %46 = fsub nsz float 1.000000e+00, %10
-  %47 = fmul nsz float %46, 2.000000e+00
+  %46 = fsub nnan nsz float 1.000000e+00, %10
+  %47 = fmul nnan nsz float %46, 2.000000e+00
   %48 = fcmp nsz ugt float %14, %47
   br i1 %48, label %61, label %49
 
@@ -9935,8 +9935,8 @@ define internal noundef i32 @tspyramid_to_xyz(ptr readnone captures(none) %0, i3
   %55 = fadd nsz float %54, -1.000000e+00
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %55, ptr %56, align 4, !tbaa !49
-  %57 = fadd nsz float %10, -5.000000e-01
-  %58 = fmul nsz float %57, 2.000000e+00
+  %57 = fadd nnan nsz float %10, -5.000000e-01
+  %58 = fmul nnan nsz float %57, 2.000000e+00
   %59 = fdiv nsz float %58, 1.875000e-01
   %60 = fsub nsz float 1.000000e+00, %59
   br label %126
@@ -9954,7 +9954,7 @@ define internal noundef i32 @tspyramid_to_xyz(ptr readnone captures(none) %0, i3
   br i1 %or.cond17, label %67, label %71
 
 67:                                               ; preds = %64
-  %68 = fmul nsz float %14, 5.000000e-01
+  %68 = fmul nnan nsz float %14, 5.000000e-01
   %69 = fsub nsz float 1.000000e+00, %68
   %70 = fcmp nsz oge float %10, %69
   %or.cond19 = and i1 %23, %24
@@ -9984,8 +9984,8 @@ define internal noundef i32 @tspyramid_to_xyz(ptr readnone captures(none) %0, i3
   %83 = fadd nsz float %82, -1.000000e+00
   %84 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float %83, ptr %84, align 4, !tbaa !49
-  %85 = fadd nsz float %10, -8.125000e-01
-  %86 = fmul nsz float %85, 2.000000e+00
+  %85 = fadd nnan nsz float %10, -8.125000e-01
+  %86 = fmul nnan nsz float %85, 2.000000e+00
   %87 = fdiv nsz float %86, 1.875000e-01
   %88 = fadd nsz float %87, -1.000000e+00
   br label %126
@@ -10001,8 +10001,8 @@ define internal noundef i32 @tspyramid_to_xyz(ptr readnone captures(none) %0, i3
   br i1 %or.cond25, label %92, label %96
 
 92:                                               ; preds = %91
-  %93 = fadd nsz float %10, -5.000000e-01
-  %94 = fmul nsz float %93, 2.000000e+00
+  %93 = fadd nnan nsz float %10, -5.000000e-01
+  %94 = fmul nnan nsz float %93, 2.000000e+00
   %95 = fcmp nsz olt float %14, %94
   %brmerge = or i1 %or.cond, %95
   br i1 %brmerge, label %102, label %97
@@ -10014,7 +10014,7 @@ define internal noundef i32 @tspyramid_to_xyz(ptr readnone captures(none) %0, i3
   br i1 %or.cond15, label %98, label %114
 
 98:                                               ; preds = %97
-  %99 = fmul nsz float %14, 5.000000e-01
+  %99 = fmul nnan nsz float %14, 5.000000e-01
   %100 = fsub nsz float 1.000000e+00, %99
   %101 = fcmp nsz olt float %10, %100
   br i1 %101, label %102, label %114
@@ -10029,8 +10029,8 @@ define internal noundef i32 @tspyramid_to_xyz(ptr readnone captures(none) %0, i3
   store float %108, ptr %5, align 4, !tbaa !49
   %109 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store float -1.000000e+00, ptr %109, align 4, !tbaa !49
-  %110 = fsub nsz float 3.750000e-01, %14
-  %111 = fmul nsz float %110, 2.000000e+00
+  %110 = fsub nnan nsz float 3.750000e-01, %14
+  %111 = fmul nnan nsz float %110, 2.000000e+00
   %112 = fdiv nsz float %111, 3.750000e-01
   %113 = fadd nsz float %112, -1.000000e+00
   br label %126
@@ -10094,7 +10094,7 @@ define internal noundef i32 @hequirect_to_xyz(ptr readnone captures(none) %0, i3
 define internal noundef i32 @equisolid_to_xyz(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 12)) %5) #0 {
   %7 = sitofp i32 %3 to float
   %8 = sitofp i32 %1 to float
-  %9 = tail call nsz float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float 1.000000e+00)
+  %9 = tail call nnan nsz float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float 1.000000e+00)
   %10 = fdiv nsz float %9, %7
   %11 = fadd nsz float %10, -1.000000e+00
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 284
@@ -10102,7 +10102,7 @@ define internal noundef i32 @equisolid_to_xyz(ptr noundef readonly captures(none
   %14 = fmul nsz float %11, %13
   %15 = sitofp i32 %4 to float
   %16 = sitofp i32 %2 to float
-  %17 = tail call nsz float @llvm.fmuladd.f32(float %16, float 2.000000e+00, float 1.000000e+00)
+  %17 = tail call nnan nsz float @llvm.fmuladd.f32(float %16, float 2.000000e+00, float 1.000000e+00)
   %18 = fdiv nsz float %17, %15
   %19 = fadd nsz float %18, -1.000000e+00
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -10154,7 +10154,7 @@ define internal noundef i32 @prepare_equisolid_out(ptr noundef readonly captures
 define internal range(i32 0, 2) i32 @orthographic_to_xyz(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 12)) %5) #0 {
   %7 = sitofp i32 %3 to float
   %8 = sitofp i32 %1 to float
-  %9 = tail call nsz float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float 1.000000e+00)
+  %9 = tail call nnan nsz float @llvm.fmuladd.f32(float %8, float 2.000000e+00, float 1.000000e+00)
   %10 = fdiv nsz float %9, %7
   %11 = fadd nsz float %10, -1.000000e+00
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 284
@@ -10162,7 +10162,7 @@ define internal range(i32 0, 2) i32 @orthographic_to_xyz(ptr noundef readonly ca
   %14 = fmul nsz float %11, %13
   %15 = sitofp i32 %4 to float
   %16 = sitofp i32 %2 to float
-  %17 = tail call nsz float @llvm.fmuladd.f32(float %16, float 2.000000e+00, float 1.000000e+00)
+  %17 = tail call nnan nsz float @llvm.fmuladd.f32(float %16, float 2.000000e+00, float 1.000000e+00)
   %18 = fdiv nsz float %17, %15
   %19 = fadd nsz float %18, -1.000000e+00
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 288

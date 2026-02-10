@@ -1638,7 +1638,7 @@ keepwal_update_parameters.exit:                   ; preds = %keepwal_compute_siz
   store i32 %25, ptr %26, align 4
   %27 = icmp eq i64 %.0.i.i.i, 4294967296
   %28 = uitofp i64 %.0.i.i.i to double
-  %29 = fmul double %28, 9.000000e-01
+  %29 = fmul nnan double %28, 9.000000e-01
   %30 = fptoui double %29 to i32
   %.sink.i = select i1 %27, i32 -85899346, i32 %30
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1765,7 +1765,7 @@ filehash_update_parameters.exit:                  ; preds = %filehash_compute_si
   store i32 %25, ptr %26, align 4
   %27 = icmp eq i64 %.0.i.i.i, 4294967296
   %28 = uitofp i64 %.0.i.i.i to double
-  %29 = fmul double %28, 9.000000e-01
+  %29 = fmul nnan double %28, 9.000000e-01
   %30 = fptoui double %29 to i32
   %.sink.i = select i1 %27, i32 -85899346, i32 %30
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16

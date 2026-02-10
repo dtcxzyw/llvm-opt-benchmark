@@ -1084,7 +1084,7 @@ define void @_ZN10Parameters5resetEv(ptr noundef nonnull writeonly align 8 captu
 define noundef double @_ZN10Parameters6randomEdd(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(288) %0, double noundef %1, double noundef %2) local_unnamed_addr #4 align 2 {
   %4 = tail call i32 @rand() #27
   %5 = sitofp i32 %4 to double
-  %6 = fmul double %5, 0x3E00000000000000
+  %6 = fmul nnan double %5, 0x3E00000000000000
   %7 = fsub double %1, %2
   %8 = tail call double @llvm.fmuladd.f64(double %6, double %7, double %2)
   ret double %8
@@ -1107,7 +1107,7 @@ define void @_ZN10Parameters9randomDirEiPdd(ptr noundef nonnull readnone align 8
   %.01921 = phi double [ 0.000000e+00, %.lr.ph.preheader ], [ %11, %.lr.ph ]
   %6 = tail call i32 @rand() #27
   %7 = sitofp i32 %6 to double
-  %8 = fmul double %7, 0x3E00000000000000
+  %8 = fmul nnan double %7, 0x3E00000000000000
   %9 = tail call noundef double @llvm.fmuladd.f64(double %8, double 2.000000e+00, double -1.000000e+00)
   %10 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
   store double %9, ptr %10, align 8
@@ -1150,7 +1150,7 @@ define void @_ZN10Parameters6rattleEd(ptr noundef nonnull align 8 captures(none)
   %.01921.i = phi double [ 0.000000e+00, %2 ], [ %12, %.lr.ph.i ]
   %7 = tail call i32 @rand() #27
   %8 = sitofp i32 %7 to double
-  %9 = fmul double %8, 0x3E00000000000000
+  %9 = fmul nnan double %8, 0x3E00000000000000
   %10 = tail call noundef double @llvm.fmuladd.f64(double %9, double 2.000000e+00, double -1.000000e+00)
   %11 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i
   store double %10, ptr %11, align 8
@@ -1614,12 +1614,12 @@ define noundef double @_ZN10Parameters9pixelDiffERN3vcg4ShotIfNS0_8Matrix44IfEEE
   %.02933 = phi i32 [ 0, %.lr.ph ], [ %45, %44 ]
   %9 = tail call i32 @rand() #27
   %10 = sitofp i32 %9 to double
-  %11 = fmul double %10, 0x3E00000000000000
+  %11 = fmul nnan double %10, 0x3E00000000000000
   %12 = tail call i32 @rand() #27
   %13 = sitofp i32 %12 to double
-  %14 = fmul double %13, 0x3E00000000000000
-  %15 = fmul double %11, 1.600000e+04
-  %16 = fmul double %14, 1.600000e+04
+  %14 = fmul nnan double %13, 0x3E00000000000000
+  %15 = fmul nnan double %11, 1.600000e+04
+  %16 = fmul nnan double %14, 1.600000e+04
   %17 = tail call double @llvm.fmuladd.f64(double %15, double 1.600000e+04, double %16)
   %18 = fptosi double %17 to i32
   %19 = sext i32 %18 to i64

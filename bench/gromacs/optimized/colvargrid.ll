@@ -25155,7 +25155,7 @@ _ZNK11colvar_gridImE5valueERKSt6vectorIiSaIiEERKm.exit: ; preds = %12, %6
   %39 = fsub double %.07, %31
   %40 = sub nsw i32 %35, %30
   %41 = sitofp i32 %40 to double
-  %42 = fmul double %.07, %41
+  %42 = fmul nnan double %.07, %41
   %43 = fdiv double %39, %42
   br label %_ZN20colvar_grid_gradient21smooth_inverse_weightEd.exit
 
@@ -31077,7 +31077,7 @@ _ZNK11colvar_gridImE5valueERKSt6vectorIiSaIiEERKm.exit.i.i: ; preds = %146, %141
   %171 = fsub double %.013.i.i, %164
   %172 = sub nsw i32 %167, %163
   %173 = sitofp i32 %172 to double
-  %174 = fmul double %.013.i.i, %173
+  %174 = fmul nnan double %.013.i.i, %173
   %175 = fdiv double %171, %174
   br label %_ZN20colvar_grid_gradient21smooth_inverse_weightEd.exit.i.i
 
@@ -31769,7 +31769,7 @@ _ZNK11colvar_gridImE5valueERKSt6vectorIiSaIiEERKm.exit.i: ; preds = %51, %45
   %78 = fsub double %.013.i, %70
   %79 = sub nsw i32 %74, %69
   %80 = sitofp i32 %79 to double
-  %81 = fmul double %.013.i, %80
+  %81 = fmul nnan double %.013.i, %80
   %82 = fdiv double %78, %81
   br label %_ZN20colvar_grid_gradient21smooth_inverse_weightEd.exit.i
 
@@ -32379,7 +32379,7 @@ define void @_ZN19integrate_potential6atimesERKSt6vectorIdSaIdEERS2_(ptr noundef
   %369 = sext i32 %352 to i64
   %370 = sext i32 %350 to i64
   %371 = mul nsw i64 %369, %370
-  %372 = fmul double %363, %365
+  %372 = fmul nnan double %363, %365
   %373 = add i32 %353, -1
   %374 = icmp sgt i32 %353, 2
   br i1 %374, label %.preheader1297.lr.ph, label %._crit_edge
@@ -32780,7 +32780,7 @@ define void @_ZN19integrate_potential6atimesERKSt6vectorIdSaIdEERS2_(ptr noundef
   br i1 %exitcond1690.not, label %.loopexit1295, label %544, !llvm.loop !624
 
 .loopexit1295:                                    ; preds = %._crit_edge1350, %._crit_edge1380, %459, %.preheader1294
-  %596 = fmul double %361, %365
+  %596 = fmul nnan double %361, %365
   %597 = icmp sgt i32 %353, 0
   br i1 %597, label %.lr.ph1432, label %.loopexit
 
@@ -33170,7 +33170,7 @@ define void @_ZN19integrate_potential6atimesERKSt6vectorIdSaIdEERS2_(ptr noundef
   br i1 %exitcond1698.not, label %.loopexit1292, label %770, !llvm.loop !631
 
 .loopexit1292:                                    ; preds = %._crit_edge1445, %._crit_edge1475
-  %827 = fmul double %361, %363
+  %827 = fmul nnan double %361, %363
   %828 = add i32 %350, -1
   %829 = icmp sgt i32 %350, 2
   %830 = load ptr, ptr %1, align 8

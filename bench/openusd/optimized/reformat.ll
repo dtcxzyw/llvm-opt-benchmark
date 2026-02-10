@@ -2750,8 +2750,8 @@ avifImageYUVAnyToRGBAnySlow.exit:                 ; preds = %.thread131, %avifCr
   %notmask.i = shl nsw i32 -1, %597
   %598 = xor i32 %notmask.i, -1
   %599 = uitofp nneg i32 %598 to float
-  %600 = fdiv float 1.000000e+00, %599
-  %601 = fmul float %600, 0x38F0000000000000
+  %600 = fdiv nnan float 1.000000e+00, %599
+  %601 = fmul nnan float %600, 0x38F0000000000000
   %602 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %603 = load i32, ptr %602, align 4
   %.not35.i = icmp eq i32 %603, 0
@@ -3063,18 +3063,18 @@ define hidden void @avifGetRGBAPixel(ptr noundef readonly captures(none) %0, i32
   %53 = zext i16 %24 to i32
   %54 = shl nuw nsw i32 %53, 13
   %55 = bitcast i32 %54 to float
-  %56 = fmul float %55, 0x46F0000000000000
+  %56 = fmul nnan float %55, 0x46F0000000000000
   store float %56, ptr %4, align 4
   %57 = zext i16 %29 to i32
   %58 = shl nuw nsw i32 %57, 13
   %59 = bitcast i32 %58 to float
-  %60 = fmul float %59, 0x46F0000000000000
+  %60 = fmul nnan float %59, 0x46F0000000000000
   %61 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store float %60, ptr %61, align 4
   %62 = zext i16 %34 to i32
   %63 = shl nuw nsw i32 %62, 13
   %64 = bitcast i32 %63 to float
-  %65 = fmul float %64, 0x46F0000000000000
+  %65 = fmul nnan float %64, 0x46F0000000000000
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store float %65, ptr %66, align 4
   %67 = load i32, ptr %35, align 4
@@ -3083,7 +3083,7 @@ define hidden void @avifGetRGBAPixel(ptr noundef readonly captures(none) %0, i32
   %69 = zext i16 %49 to i32
   %70 = shl nuw nsw i32 %69, 13
   %71 = bitcast i32 %70 to float
-  %72 = fmul float %71, 0x46F0000000000000
+  %72 = fmul nnan float %71, 0x46F0000000000000
   %73 = select i1 %.not66, float 1.000000e+00, float %72
   br label %162
 
@@ -3824,7 +3824,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %50 = fmul float %9, %47
   %51 = fmul float %50, 0.000000e+00
   %52 = tail call float @llvm.fmuladd.f32(float %49, float 0.000000e+00, float %51)
-  %53 = fmul float %52, 2.000000e+00
+  %53 = fmul ninf float %52, 2.000000e+00
   %54 = fdiv float %53, %7
   %55 = zext i32 %11 to i64
   %56 = load i32, ptr %0, align 8
@@ -4266,7 +4266,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %50 = fmul float %9, %47
   %51 = fmul float %50, 0.000000e+00
   %52 = tail call float @llvm.fmuladd.f32(float %49, float 0.000000e+00, float %51)
-  %53 = fmul float %52, 2.000000e+00
+  %53 = fmul ninf float %52, 2.000000e+00
   %54 = fdiv float %53, %7
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %56 = zext i32 %11 to i64
@@ -4691,7 +4691,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %46 = fmul float %9, %43
   %47 = fmul float %46, 0.000000e+00
   %48 = tail call float @llvm.fmuladd.f32(float %45, float 0.000000e+00, float %47)
-  %49 = fmul float %48, 2.000000e+00
+  %49 = fmul ninf float %48, 2.000000e+00
   %50 = fdiv float %49, %7
   %51 = zext i32 %11 to i64
   %52 = load i32, ptr %0, align 8
@@ -5113,7 +5113,7 @@ avifCreateYUVToRGBLookUpTables.exit:              ; preds = %19
   %46 = fmul float %9, %43
   %47 = fmul float %46, 0.000000e+00
   %48 = tail call float @llvm.fmuladd.f32(float %45, float 0.000000e+00, float %47)
-  %49 = fmul float %48, 2.000000e+00
+  %49 = fmul ninf float %48, 2.000000e+00
   %50 = fdiv float %49, %7
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %52 = zext i32 %11 to i64

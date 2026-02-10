@@ -1653,8 +1653,8 @@ define internal fastcc double @fade_gain(i32 noundef %0, i64 noundef %1, i64 nou
   ]
 
 12:                                               ; preds = %5
-  %13 = fmul nsz double %..i, 0x400921FB54442D18
-  %14 = fmul nsz double %13, 5.000000e-01
+  %13 = fmul nnan nsz double %..i, 0x400921FB54442D18
+  %14 = fmul nnan nsz double %13, 5.000000e-01
   %15 = tail call nsz double @llvm.sin.f64(double %14)
   br label %128
 
@@ -1673,7 +1673,7 @@ define internal fastcc double @fade_gain(i32 noundef %0, i64 noundef %1, i64 nou
   br label %128
 
 26:                                               ; preds = %5
-  %27 = fmul nsz double %..i, 0x400921FB54442D18
+  %27 = fmul nnan nsz double %..i, 0x400921FB54442D18
   %28 = tail call nsz double @llvm.cos.f64(double %27)
   %29 = fsub nsz double 1.000000e+00, %28
   %30 = fmul nsz double %29, 5.000000e-01
@@ -1734,7 +1734,7 @@ define internal fastcc double @fade_gain(i32 noundef %0, i64 noundef %1, i64 nou
   br i1 %63, label %68, label %64
 
 64:                                               ; preds = %62
-  %65 = fmul nsz double %..i, 2.000000e+00
+  %65 = fmul nnan nsz double %..i, 2.000000e+00
   %66 = tail call nsz double @cbrt(double noundef %65) #13
   %67 = fmul nsz double %66, 5.000000e-01
   br label %128
@@ -1752,7 +1752,7 @@ define internal fastcc double @fade_gain(i32 noundef %0, i64 noundef %1, i64 nou
   br i1 %75, label %81, label %76
 
 76:                                               ; preds = %74
-  %77 = fmul nsz double %..i, 2.000000e+00
+  %77 = fmul nnan nsz double %..i, 2.000000e+00
   %78 = fmul nsz double %77, %77
   %79 = fmul nsz double %77, %78
   %80 = fmul nsz double %79, 5.000000e-01
@@ -1794,7 +1794,7 @@ define internal fastcc double @fade_gain(i32 noundef %0, i64 noundef %1, i64 nou
   br i1 %105, label %106, label %128
 
 106:                                              ; preds = %104
-  %107 = fmul nsz double %..i, 0x400921FB54442D18
+  %107 = fmul nnan nsz double %..i, 0x400921FB54442D18
   %108 = tail call nsz double @llvm.sin.f64(double %107)
   %109 = fdiv nsz double %108, %107
   %110 = fsub nsz double 1.000000e+00, %109
@@ -1811,14 +1811,14 @@ define internal fastcc double @fade_gain(i32 noundef %0, i64 noundef %1, i64 nou
   br label %128
 
 117:                                              ; preds = %5
-  %118 = fmul nsz double %..i, 0x400921FB54442D18
-  %119 = fmul nsz double %118, 5.000000e-01
+  %118 = fmul nnan nsz double %..i, 0x400921FB54442D18
+  %119 = fmul nnan nsz double %118, 5.000000e-01
   %120 = tail call nsz double @llvm.sin.f64(double %119)
   %121 = fmul nsz double %120, %120
   br label %128
 
 122:                                              ; preds = %5
-  %123 = fmul nsz double %..i, 0x400921FB54442D18
+  %123 = fmul nnan nsz double %..i, 0x400921FB54442D18
   %124 = tail call nsz double @llvm.cos.f64(double %123)
   %125 = fsub nsz double 1.000000e+00, %124
   %126 = fmul nsz double %125, 5.000000e-01

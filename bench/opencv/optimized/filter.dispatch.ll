@@ -9960,7 +9960,7 @@ define internal fastcc noundef zeroext i1 @_ZN2cvL24createBitExactKernel_32SERKN
 18:                                               ; preds = %16
   %19 = trunc i64 %17 to i32
   %20 = uitofp nneg i32 %9 to float
-  %21 = fmul float %20, 0x3EB4000000000000
+  %21 = fmul nnan float %20, 0x3EB4000000000000
   %22 = fpext float %21 to double
   %.not41 = icmp slt i32 %19, 1
   br i1 %.not41, label %.critedge, label %.lr.ph

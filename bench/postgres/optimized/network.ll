@@ -2959,7 +2959,7 @@ define dso_local double @convert_network_to_scalar(i64 noundef %0, i32 noundef %
   %32 = zext i8 %31 to i32
   %33 = or disjoint i32 %29, %32
   %34 = uitofp nneg i32 %33 to double
-  %35 = fmul double %34, 0x4170000000000000
+  %35 = fmul nnan double %34, 0x4170000000000000
   %36 = getelementptr inbounds nuw i8, ptr %21, i64 3
   %37 = load i8, ptr %36, align 1
   %38 = zext i8 %37 to i32
@@ -2997,7 +2997,7 @@ define dso_local double @convert_network_to_scalar(i64 noundef %0, i32 noundef %
   %68 = zext i8 %67 to i32
   %69 = or disjoint i32 %65, %68
   %70 = sitofp i32 %69 to double
-  %71 = fmul double %70, 0x41F0000000000000
+  %71 = fmul nnan double %70, 0x41F0000000000000
   %72 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i32

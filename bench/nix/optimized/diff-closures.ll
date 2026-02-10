@@ -4574,7 +4574,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 495:                                              ; preds = %.thread372
   %496 = sitofp i64 %213 to double
-  %497 = fmul double %496, 0x3F50000000000000
+  %497 = fmul nnan double %496, 0x3F50000000000000
   store double %497, ptr %32, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZN5boost12basic_formatIcSt11char_traitsIcESaIcEEC2ERKNSt7__cxx1112basic_stringIcS2_S3_EE(ptr noundef nonnull align 8 dereferenceable(224) %8, ptr noundef nonnull align 8 dereferenceable(32) %30)

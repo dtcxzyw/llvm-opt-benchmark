@@ -6328,7 +6328,7 @@ _ZNSt12__shared_ptrIN2cv4usac22UniformRandomGeneratorELN9__gnu_cxx12_Lock_policy
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %857 = load i32, ptr %182, align 8, !tbaa !231
   %858 = sitofp i32 %857 to double
-  %859 = fmul double %858, 5.000000e-02
+  %859 = fmul nnan double %858, 5.000000e-02
   %860 = fptosi double %859 to i32
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %860, i32 5)
   %861 = getelementptr inbounds nuw i8, ptr %0, i64 824
@@ -7835,7 +7835,7 @@ _ZN2cv4usac25FundamentalDegeneracyImpl19getNonPlanarSupportERKNS_3MatEbi.exit51:
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %225 = load i32, ptr %48, align 4, !tbaa !242
   %226 = sitofp i32 %225 to double
-  %227 = fmul double %226, 1.000000e-01
+  %227 = fmul nnan double %226, 1.000000e-01
   %228 = fptosi double %227 to i32
   %229 = load i32, ptr %224, align 8, !tbaa !102
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %229, i32 %228)
@@ -8583,7 +8583,7 @@ _ZN2cv4usac25FundamentalDegeneracyImpl19getNonPlanarSupportERKNS_3MatEbi.exit: ;
   %265 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %266 = load i32, ptr %173, align 4, !tbaa !242
   %267 = sitofp i32 %266 to double
-  %268 = fmul double %267, 1.000000e-01
+  %268 = fmul nnan double %267, 1.000000e-01
   %269 = fptosi double %268 to i32
   %270 = load i32, ptr %265, align 8, !tbaa !102
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %270, i32 %269)
@@ -12692,7 +12692,7 @@ _ZNSt6vectorIN2cv4MatxIdLi3ELi3EEESaIS2_EE12emplace_backIJRKS2_EEEvDpOT_.exit: ;
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 820
   %364 = load i32, ptr %363, align 4, !tbaa !242
   %365 = sitofp i32 %364 to double
-  %366 = fmul double %365, 1.000000e-01
+  %366 = fmul nnan double %365, 1.000000e-01
   %367 = fptosi double %366 to i32
   %368 = load i32, ptr %362, align 8, !tbaa !102
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %368, i32 %367)
@@ -13302,7 +13302,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac25FundamentalDegeneracyImpl9o
   %15 = load i32, ptr %14, align 8, !tbaa !233
   %.not = icmp sgt i32 %11, %15
   %16 = sitofp i32 %11 to double
-  %17 = fmul double %16, 8.000000e-01
+  %17 = fmul nnan double %16, 8.000000e-01
   %18 = fptosi double %17 to i32
   %19 = select i1 %.not, i32 %15, i32 %18
   %20 = load ptr, ptr %13, align 8, !tbaa !51
@@ -13393,7 +13393,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac25FundamentalDegeneracyImpl9o
   %77 = load i32, ptr %14, align 8, !tbaa !233
   %.not23 = icmp sgt i32 %75, %77
   %78 = sitofp i32 %75 to double
-  %79 = fmul double %78, 8.000000e-01
+  %79 = fmul nnan double %78, 8.000000e-01
   %80 = fptosi double %79 to i32
   %81 = select i1 %.not23, i32 %77, i32 %80
   %82 = load ptr, ptr %76, align 8, !tbaa !51

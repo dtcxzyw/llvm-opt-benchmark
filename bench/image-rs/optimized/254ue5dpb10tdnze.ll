@@ -13266,8 +13266,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h00ad77b38b28ee02E(ptr
   %.sroa.07.0.ptr11.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.07.0.idx10.i.i
   %33 = load i8, ptr %.sroa.07.0.ptr11.i.i, align 1, !alias.scope !1334, !noalias !1337, !noundef !4
   %34 = uitofp i8 %33 to float
-  %35 = fdiv float %34, 2.550000e+02
-  %36 = fadd float %35, -5.000000e-01
+  %35 = fdiv nnan float %34, 2.550000e+02
+  %36 = fadd nnan float %35, -5.000000e-01
   %37 = fmul float %25, %36
   %38 = fadd float %37, 5.000000e-01
   %39 = fmul float %38, 2.550000e+02
@@ -13465,8 +13465,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h01339855e8f3f47bE(ptr
   %.sroa.07.0.ptr11.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.07.0.idx10.i.i
   %34 = load i16, ptr %.sroa.07.0.ptr11.i.i, align 2, !alias.scope !1362, !noalias !1365, !noundef !4
   %35 = uitofp i16 %34 to float
-  %36 = fdiv float %35, 6.553500e+04
-  %37 = fadd float %36, -5.000000e-01
+  %36 = fdiv nnan float %35, 6.553500e+04
+  %37 = fadd nnan float %36, -5.000000e-01
   %38 = fmul float %23, %37
   %39 = fadd float %38, 5.000000e-01
   %40 = fmul float %39, 6.553500e+04
@@ -13672,8 +13672,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h193584b3e9f92e0dE(ptr
   %.sroa.07.0.ptr11.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.07.0.idx10.i.i
   %33 = load i8, ptr %.sroa.07.0.ptr11.i.i, align 1, !alias.scope !1395, !noalias !1398, !noundef !4
   %34 = uitofp i8 %33 to float
-  %35 = fdiv float %34, 2.550000e+02
-  %36 = fadd float %35, -5.000000e-01
+  %35 = fdiv nnan float %34, 2.550000e+02
+  %36 = fadd nnan float %35, -5.000000e-01
   %37 = fmul float %25, %36
   %38 = fadd float %37, 5.000000e-01
   %39 = fmul float %38, 2.550000e+02
@@ -13862,8 +13862,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h2f99d3279e6ffee3E(ptr
   %.sroa.0.0.copyload.i.i = load i16, ptr %29, align 2, !noalias !1416
   %31 = add nuw i32 %28, 1
   %32 = uitofp i16 %.sroa.0.0.copyload.i.i to float
-  %33 = fdiv float %32, 6.553500e+04
-  %34 = fadd float %33, -5.000000e-01
+  %33 = fdiv nnan float %32, 6.553500e+04
+  %34 = fadd nnan float %33, -5.000000e-01
   %35 = fmul float %22, %34
   %36 = fadd float %35, 5.000000e-01
   %37 = fmul float %36, 6.553500e+04
@@ -14044,8 +14044,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17h61be420e03ae586eE(ptr
   %.sroa.07.0.ptr11.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.07.0.idx10.i.i
   %34 = load i16, ptr %.sroa.07.0.ptr11.i.i, align 2, !alias.scope !1441, !noalias !1444, !noundef !4
   %35 = uitofp i16 %34 to float
-  %36 = fdiv float %35, 6.553500e+04
-  %37 = fadd float %36, -5.000000e-01
+  %36 = fdiv nnan float %35, 6.553500e+04
+  %37 = fadd nnan float %36, -5.000000e-01
   %38 = fmul float %23, %37
   %39 = fadd float %38, 5.000000e-01
   %40 = fmul float %39, 6.553500e+04
@@ -14626,8 +14626,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hd07d66cc86b13adcE(ptr
   %.sroa.07.0.idx10.i.sroa.phi.i = phi ptr [ %.sroa.0.sroa.0.i, %29 ], [ %.sroa.0.sroa.5.i, %"_ZN5image8imageops8colorops8contrast28_$u7b$$u7b$closure$u7d$$u7d$17h824ffcbdea62e2f4E.exit.i.i" ]
   %33 = load i8, ptr %.sroa.07.0.idx10.i.sroa.phi.i, align 1, !alias.scope !1531, !noalias !1534, !noundef !4
   %34 = uitofp i8 %33 to float
-  %35 = fdiv float %34, 2.550000e+02
-  %36 = fadd float %35, -5.000000e-01
+  %35 = fdiv nnan float %34, 2.550000e+02
+  %36 = fadd nnan float %35, -5.000000e-01
   %37 = fmul float %24, %36
   %38 = fadd float %37, 5.000000e-01
   %39 = fmul float %38, 2.550000e+02
@@ -14825,8 +14825,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17he4e2c7efb5b8c79bE(ptr
   %.sroa.0.0.copyload.i.i = load i8, ptr %28, align 1, !noalias !1555
   %30 = add nuw i32 %27, 1
   %31 = uitofp i8 %.sroa.0.0.copyload.i.i to float
-  %32 = fdiv float %31, 2.550000e+02
-  %33 = fadd float %32, -5.000000e-01
+  %32 = fdiv nnan float %31, 2.550000e+02
+  %33 = fadd nnan float %32, -5.000000e-01
   %34 = fmul float %24, %33
   %35 = fadd float %34, 5.000000e-01
   %36 = fmul float %35, 2.550000e+02
@@ -15004,8 +15004,8 @@ define hidden void @_ZN5image8imageops8colorops8contrast17hfd88831cfa5d1533E(ptr
   %.sroa.07.0.ptr11.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.07.0.idx10.i.i
   %34 = load i16, ptr %.sroa.07.0.ptr11.i.i, align 2, !alias.scope !1578, !noalias !1581, !noundef !4
   %35 = uitofp i16 %34 to float
-  %36 = fdiv float %35, 6.553500e+04
-  %37 = fadd float %36, -5.000000e-01
+  %36 = fdiv nnan float %35, 6.553500e+04
+  %37 = fadd nnan float %36, -5.000000e-01
   %38 = fmul float %23, %37
   %39 = fadd float %38, 5.000000e-01
   %40 = fmul float %39, 6.553500e+04
@@ -16914,7 +16914,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h356f22b824d15908E(pt
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.fca.1.extract.i61, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1876
   %21 = sitofp i32 %2 to double
-  %22 = fmul double %21, 0x400921FB54442D18
+  %22 = fmul nnan double %21, 0x400921FB54442D18
   %23 = fdiv double %22, 1.800000e+02
   %24 = tail call double @llvm.cos.f64(double %23)
   %25 = tail call double @llvm.sin.f64(double %23)
@@ -17173,7 +17173,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h54c3678743e0d078E(pt
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.fca.1.extract.i59, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1893
   %21 = sitofp i32 %2 to double
-  %22 = fmul double %21, 0x400921FB54442D18
+  %22 = fmul nnan double %21, 0x400921FB54442D18
   %23 = fdiv double %22, 1.800000e+02
   %24 = tail call double @llvm.cos.f64(double %23)
   %25 = tail call double @llvm.sin.f64(double %23)
@@ -17408,7 +17408,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h64ac2ce6b55ba0b9E(pt
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 %11, ptr %18, align 4, !alias.scope !1910
   %19 = sitofp i32 %2 to double
-  %20 = fmul double %19, 0x400921FB54442D18
+  %20 = fmul nnan double %19, 0x400921FB54442D18
   %21 = fdiv double %20, 1.800000e+02
   %22 = tail call double @llvm.cos.f64(double %21)
   %23 = tail call double @llvm.sin.f64(double %21)
@@ -17666,7 +17666,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h747a5d022d393d27E(pt
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 %12, ptr %19, align 4, !alias.scope !1930
   %20 = sitofp i32 %2 to double
-  %21 = fmul double %20, 0x400921FB54442D18
+  %21 = fmul nnan double %20, 0x400921FB54442D18
   %22 = fdiv double %21, 1.800000e+02
   %23 = tail call double @llvm.cos.f64(double %22)
   %24 = tail call double @llvm.sin.f64(double %22)
@@ -17920,7 +17920,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h7f6925bb418e8295E(pt
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 %11, ptr %18, align 4, !alias.scope !1954
   %19 = sitofp i32 %2 to double
-  %20 = fmul double %19, 0x400921FB54442D18
+  %20 = fmul nnan double %19, 0x400921FB54442D18
   %21 = fdiv double %20, 1.800000e+02
   %22 = tail call double @llvm.cos.f64(double %21)
   %23 = tail call double @llvm.sin.f64(double %21)
@@ -18191,7 +18191,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h9897dffe59774248E(pt
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 %11, ptr %18, align 4, !alias.scope !1974
   %19 = sitofp i32 %2 to double
-  %20 = fmul double %19, 0x400921FB54442D18
+  %20 = fmul nnan double %19, 0x400921FB54442D18
   %21 = fdiv double %20, 1.800000e+02
   %22 = tail call double @llvm.cos.f64(double %21)
   %23 = tail call double @llvm.sin.f64(double %21)
@@ -18431,7 +18431,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17h9a52b863d3d34e4aE(pt
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 %11, ptr %18, align 4, !alias.scope !1994
   %19 = sitofp i32 %2 to double
-  %20 = fmul double %19, 0x400921FB54442D18
+  %20 = fmul nnan double %19, 0x400921FB54442D18
   %21 = fdiv double %20, 1.800000e+02
   %22 = tail call double @llvm.cos.f64(double %21)
   %23 = tail call double @llvm.sin.f64(double %21)
@@ -18687,7 +18687,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17ha1ed3e6d6392ecfdE(pt
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.fca.1.extract.i59, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2014
   %21 = sitofp i32 %2 to double
-  %22 = fmul double %21, 0x400921FB54442D18
+  %22 = fmul nnan double %21, 0x400921FB54442D18
   %23 = fdiv double %22, 1.800000e+02
   %24 = tail call double @llvm.cos.f64(double %23)
   %25 = tail call double @llvm.sin.f64(double %23)
@@ -18938,7 +18938,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17habf37beb48e73fcbE(pt
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.fca.1.extract.i59, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !2031
   %21 = sitofp i32 %2 to double
-  %22 = fmul double %21, 0x400921FB54442D18
+  %22 = fmul nnan double %21, 0x400921FB54442D18
   %23 = fdiv double %22, 1.800000e+02
   %24 = tail call double @llvm.cos.f64(double %23)
   %25 = tail call double @llvm.sin.f64(double %23)
@@ -19192,7 +19192,7 @@ define hidden void @_ZN5image8imageops8colorops9huerotate17hd6fc99e0678652b0E(pt
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 28
   store i32 %12, ptr %19, align 4, !alias.scope !2048
   %20 = sitofp i32 %2 to double
-  %21 = fmul double %20, 0x400921FB54442D18
+  %21 = fmul nnan double %20, 0x400921FB54442D18
   %22 = fdiv double %21, 1.800000e+02
   %23 = tail call double @llvm.cos.f64(double %22)
   %24 = tail call double @llvm.sin.f64(double %22)
@@ -23621,13 +23621,13 @@ define hidden void @"_ZN68_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..co
 15:                                               ; preds = %2
   %16 = load i8, ptr %1, align 1, !noundef !4
   %17 = uitofp i8 %16 to float
-  %18 = fdiv float %17, 2.550000e+02
+  %18 = fdiv nnan float %17, 2.550000e+02
   %19 = load i8, ptr %0, align 1, !noundef !4
   %20 = uitofp i8 %19 to float
-  %21 = fdiv float %20, 2.550000e+02
+  %21 = fdiv nnan float %20, 2.550000e+02
   %22 = fmul float %8, %21
   %23 = fmul float %10, %18
-  %24 = fsub float 1.000000e+00, %10
+  %24 = fsub nnan float 1.000000e+00, %10
   %25 = fmul float %24, %22
   %26 = fadd float %23, %25
   %27 = fdiv float %26, %13
@@ -23683,13 +23683,13 @@ define hidden void @"_ZN68_$LT$image..color..LumaA$LT$T$GT$$u20$as$u20$image..co
 15:                                               ; preds = %2
   %16 = load i16, ptr %1, align 2, !noundef !4
   %17 = uitofp i16 %16 to float
-  %18 = fdiv float %17, 6.553500e+04
+  %18 = fdiv nnan float %17, 6.553500e+04
   %19 = load i16, ptr %0, align 2, !noundef !4
   %20 = uitofp i16 %19 to float
-  %21 = fdiv float %20, 6.553500e+04
+  %21 = fdiv nnan float %20, 6.553500e+04
   %22 = fmul float %8, %21
   %23 = fmul float %10, %18
-  %24 = fsub float 1.000000e+00, %10
+  %24 = fsub nnan float 1.000000e+00, %10
   %25 = fmul float %24, %22
   %26 = fadd float %23, %25
   %27 = fdiv float %26, %13
@@ -23743,11 +23743,11 @@ define hidden void @"_ZN67_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..col
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %10 = load i8, ptr %9, align 1, !noundef !4
   %11 = uitofp i8 %6 to float
-  %12 = fdiv float %11, 2.550000e+02
+  %12 = fdiv nnan float %11, 2.550000e+02
   %13 = uitofp i8 %8 to float
   %14 = fdiv float %13, 2.550000e+02
   %15 = uitofp i8 %10 to float
-  %16 = fdiv float %15, 2.550000e+02
+  %16 = fdiv nnan float %15, 2.550000e+02
   %17 = uitofp i8 %.val68 to float
   %18 = fdiv float %17, 2.550000e+02
   %19 = fadd float %18, %14
@@ -23765,17 +23765,17 @@ define hidden void @"_ZN67_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..col
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %26 = load i8, ptr %25, align 1, !noundef !4
   %27 = uitofp i8 %26 to float
-  %28 = fdiv float %27, 2.550000e+02
+  %28 = fdiv nnan float %27, 2.550000e+02
   %29 = load i8, ptr %1, align 1, !noundef !4
   %30 = uitofp i8 %29 to float
-  %31 = fdiv float %30, 2.550000e+02
+  %31 = fdiv nnan float %30, 2.550000e+02
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %33 = load i8, ptr %32, align 1, !noundef !4
   %34 = uitofp i8 %33 to float
-  %35 = fdiv float %34, 2.550000e+02
+  %35 = fdiv nnan float %34, 2.550000e+02
   %36 = load i8, ptr %0, align 1, !noundef !4
   %37 = uitofp i8 %36 to float
-  %38 = fdiv float %37, 2.550000e+02
+  %38 = fdiv nnan float %37, 2.550000e+02
   %39 = fmul float %14, %38
   %40 = fmul float %14, %35
   %41 = fmul float %18, %31
@@ -23868,11 +23868,11 @@ define hidden void @"_ZN67_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..col
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %10 = load i16, ptr %9, align 2, !noundef !4
   %11 = uitofp i16 %6 to float
-  %12 = fdiv float %11, 6.553500e+04
+  %12 = fdiv nnan float %11, 6.553500e+04
   %13 = uitofp i16 %8 to float
   %14 = fdiv float %13, 6.553500e+04
   %15 = uitofp i16 %10 to float
-  %16 = fdiv float %15, 6.553500e+04
+  %16 = fdiv nnan float %15, 6.553500e+04
   %17 = uitofp i16 %.val65 to float
   %18 = fdiv float %17, 6.553500e+04
   %19 = fadd float %18, %14
@@ -23890,17 +23890,17 @@ define hidden void @"_ZN67_$LT$image..color..Rgba$LT$T$GT$$u20$as$u20$image..col
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %26 = load i16, ptr %25, align 2, !noundef !4
   %27 = uitofp i16 %26 to float
-  %28 = fdiv float %27, 6.553500e+04
+  %28 = fdiv nnan float %27, 6.553500e+04
   %29 = load i16, ptr %1, align 2, !noundef !4
   %30 = uitofp i16 %29 to float
-  %31 = fdiv float %30, 6.553500e+04
+  %31 = fdiv nnan float %30, 6.553500e+04
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %33 = load i16, ptr %32, align 2, !noundef !4
   %34 = uitofp i16 %33 to float
-  %35 = fdiv float %34, 6.553500e+04
+  %35 = fdiv nnan float %34, 6.553500e+04
   %36 = load i16, ptr %0, align 2, !noundef !4
   %37 = uitofp i16 %36 to float
-  %38 = fdiv float %37, 6.553500e+04
+  %38 = fdiv nnan float %37, 6.553500e+04
   %39 = fmul float %14, %38
   %40 = fmul float %14, %35
   %41 = fmul float %18, %31

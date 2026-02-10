@@ -5436,8 +5436,8 @@ define internal fastcc noundef i32 @dissect_rtcp_rr(ptr noundef %0, ptr noundef 
   %49 = load i32, ptr @hf_rtcp_ssrc_dlsr, align 4
   %50 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %49, ptr noundef %1, i32 noundef %47, i32 noundef 4, i32 noundef 0)
   %51 = uitofp i32 %48 to double
-  %52 = fmul double %51, 0x3EF0000000000000
-  %53 = fmul double %52, 1.000000e+03
+  %52 = fmul nnan double %51, 0x3EF0000000000000
+  %53 = fmul nnan double %52, 1.000000e+03
   %54 = fptosi double %53 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %50, ptr noundef nonnull @.str.924, i32 noundef %54)
   %55 = add i32 %.079, 24
@@ -6213,8 +6213,8 @@ dissect_rtcp_rtpfb_ccfb_fci.exit.thread:          ; preds = %proto_item_set_gene
   %67 = and i16 %66, 3
   %68 = and i16 %64, 8191
   %69 = uitofp nneg i16 %68 to float
-  %70 = fmul float %69, 0x3F50000000000000
-  %71 = fmul float %70, 1.000000e+03
+  %70 = fmul nnan float %69, 0x3F50000000000000
+  %71 = fmul nnan float %70, 1.000000e+03
   %72 = load i32, ptr @ett_rtcp_rtpfb_ccfb_metric_block, align 4
   %73 = zext nneg i16 %65 to i32
   %74 = zext nneg i16 %67 to i32
@@ -6605,7 +6605,7 @@ define internal range(i32 4, -2147483648) i32 @dissect_rtcp_rtpfb_transport_cc(p
   %177 = zext i16 %176 to i32
   %178 = load i32, ptr %8, align 4
   %179 = uitofp i32 %178 to double
-  %180 = fmul double %179, 2.500000e+02
+  %180 = fmul nnan double %179, 2.500000e+02
   %181 = fdiv double %180, 1.000000e+03
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %174, ptr noundef nonnull @.str.1056, i32 noundef %177, double noundef %181)
   %182 = add i32 %.8217342.i, 1
@@ -6624,7 +6624,7 @@ define internal range(i32 4, -2147483648) i32 @dissect_rtcp_rtpfb_transport_cc(p
   %190 = load i16, ptr %189, align 2
   %191 = zext i16 %190 to i32
   %192 = sitofp i16 %186 to double
-  %193 = fmul double %192, 2.500000e+02
+  %193 = fmul nnan double %192, 2.500000e+02
   %194 = fdiv double %193, 1.000000e+03
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %185, ptr noundef nonnull @.str.1057, i32 noundef %191, double noundef %194)
   br label %203

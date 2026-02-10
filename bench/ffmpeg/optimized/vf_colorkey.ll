@@ -167,7 +167,7 @@ define internal noundef i32 @do_colorkey_slice8(ptr noundef readonly captures(no
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 14
   %32 = fcmp nsz olt float %23, 1.000000e+04
   %33 = fpext nsz float %25 to double
-  %34 = fpext nsz float %23 to double
+  %34 = fpext nnan nsz float %23 to double
   %35 = sitofp i32 %19 to double
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 11
   %37 = load i32, ptr %27, align 8, !tbaa !57
@@ -352,7 +352,7 @@ define internal noundef i32 @do_colorkey_slice16(ptr noundef readonly captures(n
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 13
   %33 = getelementptr inbounds nuw i8, ptr %13, i64 14
   %34 = fpext nsz float %25 to double
-  %35 = fpext nsz float %23 to double
+  %35 = fpext nnan nsz float %23 to double
   %36 = sitofp i32 %19 to double
   %37 = getelementptr inbounds nuw i8, ptr %13, i64 11
   br i1 %29, label %.lr.ph45.split.us, label %._crit_edge46
@@ -546,7 +546,7 @@ define internal noundef i32 @do_colorhold_slice8(ptr noundef readonly captures(n
   %34 = getelementptr inbounds nuw i8, ptr %13, i64 14
   %35 = fcmp nsz olt float %26, 1.000000e+04
   %36 = fpext nsz float %28 to double
-  %37 = fpext nsz float %26 to double
+  %37 = fpext nnan nsz float %26 to double
   %38 = sitofp i32 %17 to double
   %39 = load i32, ptr %30, align 8, !tbaa !57
   %40 = icmp sgt i32 %39, 0
@@ -724,7 +724,7 @@ define internal noundef i32 @do_colorhold_slice16(ptr noundef readonly captures(
   %36 = getelementptr inbounds nuw i8, ptr %13, i64 14
   %37 = fcmp nsz olt float %23, 1.000000e+04
   %38 = fpext nsz float %25 to double
-  %39 = fpext nsz float %23 to double
+  %39 = fpext nnan nsz float %23 to double
   %40 = sitofp i32 %15 to double
   %41 = sext i32 %26 to i64
   %42 = zext i32 %28 to i64

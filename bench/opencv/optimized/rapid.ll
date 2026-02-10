@@ -765,7 +765,7 @@ _ZN2cv4Mat_INS_3VecIiLi3EEEEclEi.exit:            ; preds = %129, %123, %116
   %271 = sitofp i32 %266 to double
   %272 = sitofp i32 %267 to double
   %273 = fneg double %272
-  %274 = fmul double %271, %273
+  %274 = fmul nnan double %271, %273
   %275 = call noundef double @llvm.fmuladd.f64(double %269, double %270, double %274)
   %276 = fcmp ult double %275, 0.000000e+00
   br i1 %276, label %279, label %.thread

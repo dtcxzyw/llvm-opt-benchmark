@@ -3118,7 +3118,7 @@ _ZN8LightGBM9TcpSocket5CloseEv.exit:              ; preds = %.noexc41, %156
 .thread75:                                        ; preds = %_ZN8LightGBM9TcpSocket5CloseEv.exit, %176
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.in.in = sitofp i32 %.072101 to float
-  %.in = fmul float %.in.in, 0x3FF4CCCCC0000000
+  %.in = fmul nnan float %.in.in, 0x3FF4CCCCC0000000
   %177 = fptosi float %.in to i32
   %178 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %178, %.sroa.speculated
@@ -5896,7 +5896,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit48: ; pred
 
 89:                                               ; preds = %79
   %90 = uitofp i64 %83 to double
-  %91 = fmul double %90, 0x3E10000000000000
+  %91 = fmul nnan double %90, 0x3E10000000000000
   %92 = load ptr, ptr %11, align 8, !tbaa !112
   call void (ptr, ...) @_ZN8LightGBM3Log5DebugEPKcz(ptr noundef nonnull @.str.26, double noundef %91, ptr noundef %92)
   br label %93

@@ -285,7 +285,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit12:               ; preds = %39, %_ZNKSt7__cxx11
   %135 = fpext float %.145.i to double
   %136 = fmul double %135, 2.000000e+00
   %137 = sitofp i32 %.1.i to double
-  %138 = fmul double %137, 0x3F81072C483AF26D
+  %138 = fmul nnan double %137, 0x3F81072C483AF26D
   %139 = fdiv double %136, %138
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -399,7 +399,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit12:               ; preds = %39, %_ZNKSt7__cxx11
   %230 = call double @sqrt(double noundef %229) #21, !tbaa !89
   %231 = fptrunc double %230 to float
   %232 = getelementptr inbounds [3 x float], ptr %3, i64 %147
-  %233 = fmul double %228, 5.000000e-01
+  %233 = fmul nnan double %228, 5.000000e-01
   br label %236
 
 234:                                              ; preds = %_ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_12ThreeFry2x64ILj64EEEEEfRT_.exit.i

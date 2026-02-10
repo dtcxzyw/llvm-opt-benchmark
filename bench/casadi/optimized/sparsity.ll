@@ -4985,7 +4985,7 @@ define noundef double @_ZNK6casadi8Sparsity7densityEv(ptr noundef nonnull align 
   %8 = getelementptr inbounds i64, ptr %5, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !41
   %10 = sitofp i64 %9 to double
-  %11 = fmul double %10, 1.000000e+02
+  %11 = fmul nnan double %10, 1.000000e+02
   %12 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !37

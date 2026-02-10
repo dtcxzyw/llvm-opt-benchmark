@@ -379,7 +379,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit69:             ; preds = %.noexc68, %_ZNSt6ve
 83:                                               ; preds = %81
   %84 = sub i64 %82, %42
   %85 = uitofp i64 %84 to double
-  %86 = fmul double %85, 1.024000e+03
+  %86 = fmul nnan double %85, 1.024000e+03
   %87 = add nuw nsw i32 %.0134, 1
   %88 = uitofp nneg i32 %87 to double
   %89 = fdiv double %86, %88
@@ -458,7 +458,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit71:                  ; preds = %96, %94
 112:                                              ; preds = %52
   %113 = sub i64 %54, %42
   %114 = uitofp i64 %113 to double
-  %115 = fmul double %114, 1.024000e+03
+  %115 = fmul nnan double %114, 1.024000e+03
   %116 = fdiv double %115, 1.000000e+04
   store double %116, ptr %7, align 8, !tbaa !24
   %117 = load i32, ptr %6, align 4, !tbaa !8, !noalias !26

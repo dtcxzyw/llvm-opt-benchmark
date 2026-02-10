@@ -673,7 +673,7 @@ define internal fastcc double @mcelem_array_contained_selec(ptr noundef readonly
 
 98:                                               ; preds = %94
   %99 = sitofp i32 %1 to double
-  %100 = fmul double %99, 4.000000e+02
+  %100 = fmul nnan double %99, 4.000000e+02
   %101 = tail call double @llvm.fmuladd.f64(double %99, double %99, double %100)
   %102 = tail call double @sqrt(double noundef %101) #9
   %103 = fsub double %102, %99

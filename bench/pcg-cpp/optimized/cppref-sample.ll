@@ -882,7 +882,7 @@ _ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15
 
 67:                                               ; preds = %_ZNSt8__detail8_AdaptorIN10pcg_detail6engineIjmNS1_12xsh_rr_mixinIjmEELb1ENS1_15specific_streamImEENS1_18default_multiplierImEEEEdEclEv.exit27
   store i64 %45, ptr %13, align 8, !tbaa !24
-  %68 = tail call double @llvm.log.f64(double %63), !tbaa !17
+  %68 = tail call ninf double @llvm.log.f64(double %63)
   %69 = fmul double %68, -2.000000e+00
   %70 = fdiv double %69, %63
   %71 = tail call double @sqrt(double noundef %70) #20, !tbaa !17

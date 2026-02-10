@@ -852,7 +852,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = trunc nuw nsw i64 %indvars.iv.next to i32
   %62 = uitofp nneg i32 %61 to double
-  %63 = fmul nsz double %62, -5.000000e-01
+  %63 = fmul nnan nsz double %62, -5.000000e-01
   %64 = fmul nsz double %63, %62
   %65 = fdiv nsz double %64, %56
   %66 = fptrunc nsz double %65 to float

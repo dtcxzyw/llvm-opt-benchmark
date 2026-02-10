@@ -135,7 +135,7 @@ define void @Cec_ManSatPrintStats(ptr noundef readonly captures(none) %0) local_
   %30 = load i32, ptr %29, align 4, !tbaa !53
   %.not = icmp eq i32 %30, 0
   %31 = sitofp i32 %28 to double
-  %32 = fmul double %31, 1.000000e+02
+  %32 = fmul nnan double %31, 1.000000e+02
   %33 = sitofp i32 %30 to double
   %34 = fdiv double %32, %33
   %35 = select i1 %.not, double 0.000000e+00, double %34
@@ -160,7 +160,7 @@ define void @Cec_ManSatPrintStats(ptr noundef readonly captures(none) %0) local_
   %47 = sitofp i32 %44 to double
   %.not.i = icmp eq i32 %46, 0
   %48 = sitofp i32 %46 to double
-  %49 = fmul double %47, 1.000000e+02
+  %49 = fmul nnan double %47, 1.000000e+02
   %50 = fdiv double %49, %48
   %51 = select i1 %.not.i, double 0.000000e+00, double %50
   %52 = fdiv double %47, 1.000000e+06
@@ -170,7 +170,7 @@ define void @Cec_ManSatPrintStats(ptr noundef readonly captures(none) %0) local_
   %55 = load i32, ptr %29, align 4, !tbaa !53
   %.not39 = icmp eq i32 %55, 0
   %56 = sitofp i32 %54 to double
-  %57 = fmul double %56, 1.000000e+02
+  %57 = fmul nnan double %56, 1.000000e+02
   %58 = sitofp i32 %55 to double
   %59 = fdiv double %57, %58
   %60 = select i1 %.not39, double 0.000000e+00, double %59
@@ -194,7 +194,7 @@ define void @Cec_ManSatPrintStats(ptr noundef readonly captures(none) %0) local_
   %71 = sitofp i32 %69 to double
   %.not.i43 = icmp eq i32 %70, 0
   %72 = sitofp i32 %70 to double
-  %73 = fmul double %71, 1.000000e+02
+  %73 = fmul nnan double %71, 1.000000e+02
   %74 = fdiv double %73, %72
   %75 = select i1 %.not.i43, double 0.000000e+00, double %74
   %76 = fdiv double %71, 1.000000e+06
@@ -216,7 +216,7 @@ define void @Cec_ManSatPrintStats(ptr noundef readonly captures(none) %0) local_
 86:                                               ; preds = %66, %81
   %87 = phi double [ %85, %81 ], [ 0.000000e+00, %66 ]
   %.not41 = icmp eq i32 %79, 0
-  %88 = fmul double %80, 1.000000e+02
+  %88 = fmul nnan double %80, 1.000000e+02
   %89 = sitofp i32 %79 to double
   %90 = fdiv double %88, %89
   %91 = select i1 %.not41, double 0.000000e+00, double %90
@@ -228,7 +228,7 @@ define void @Cec_ManSatPrintStats(ptr noundef readonly captures(none) %0) local_
   %95 = sitofp i32 %93 to double
   %.not.i44 = icmp eq i32 %94, 0
   %96 = sitofp i32 %94 to double
-  %97 = fmul double %95, 1.000000e+02
+  %97 = fmul nnan double %95, 1.000000e+02
   %98 = fdiv double %97, %96
   %99 = select i1 %.not.i44, double 0.000000e+00, double %98
   %100 = fdiv double %95, 1.000000e+06
@@ -413,7 +413,7 @@ define void @Cec_ManPatPrintStats(ptr noundef readonly captures(none) %0) local_
   %15 = load i32, ptr %14, align 8, !tbaa !81
   %16 = sub nsw i32 %.val, %15
   %17 = sitofp i32 %16 to double
-  %18 = fmul double %17, 0x3EB0000000000000
+  %18 = fmul nnan double %17, 0x3EB0000000000000
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.11, i32 noundef %3, i32 noundef %5, i32 noundef %7, double noundef %10, double noundef %18)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %19, align 8, !tbaa !82
@@ -428,7 +428,7 @@ define void @Cec_ManPatPrintStats(ptr noundef readonly captures(none) %0) local_
   %29 = getelementptr i8, ptr %28, i64 4
   %.val24 = load i32, ptr %29, align 4, !tbaa !70
   %30 = sitofp i32 %.val24 to double
-  %31 = fmul double %30, 0x3EB0000000000000
+  %31 = fmul nnan double %30, 0x3EB0000000000000
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.12, i32 noundef %20, i32 noundef %22, i32 noundef %24, double noundef %27, double noundef %31)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %33 = load i64, ptr %32, align 8, !tbaa !85
@@ -438,7 +438,7 @@ define void @Cec_ManPatPrintStats(ptr noundef readonly captures(none) %0) local_
   %36 = sitofp i64 %33 to double
   %.not.i = icmp eq i64 %35, 0
   %37 = sitofp i64 %35 to double
-  %38 = fmul double %36, 1.000000e+02
+  %38 = fmul nnan double %36, 1.000000e+02
   %39 = fdiv double %38, %37
   %40 = select i1 %.not.i, double 0.000000e+00, double %39
   %41 = fdiv double %36, 1.000000e+06
@@ -450,7 +450,7 @@ define void @Cec_ManPatPrintStats(ptr noundef readonly captures(none) %0) local_
   %45 = sitofp i64 %43 to double
   %.not.i25 = icmp eq i64 %44, 0
   %46 = sitofp i64 %44 to double
-  %47 = fmul double %45, 1.000000e+02
+  %47 = fmul nnan double %45, 1.000000e+02
   %48 = fdiv double %47, %46
   %49 = select i1 %.not.i25, double 0.000000e+00, double %48
   %50 = fdiv double %45, 1.000000e+06
@@ -462,7 +462,7 @@ define void @Cec_ManPatPrintStats(ptr noundef readonly captures(none) %0) local_
   %54 = sitofp i64 %52 to double
   %.not.i26 = icmp eq i64 %53, 0
   %55 = sitofp i64 %53 to double
-  %56 = fmul double %54, 1.000000e+02
+  %56 = fmul nnan double %54, 1.000000e+02
   %57 = fdiv double %56, %55
   %58 = select i1 %.not.i26, double 0.000000e+00, double %57
   %59 = fdiv double %54, 1.000000e+06
@@ -474,7 +474,7 @@ define void @Cec_ManPatPrintStats(ptr noundef readonly captures(none) %0) local_
   %63 = sitofp i64 %61 to double
   %.not.i27 = icmp eq i64 %62, 0
   %64 = sitofp i64 %62 to double
-  %65 = fmul double %63, 1.000000e+02
+  %65 = fmul nnan double %63, 1.000000e+02
   %66 = fdiv double %65, %64
   %67 = select i1 %.not.i27, double 0.000000e+00, double %66
   %68 = fdiv double %63, 1.000000e+06
@@ -486,7 +486,7 @@ define void @Cec_ManPatPrintStats(ptr noundef readonly captures(none) %0) local_
   %72 = sitofp i64 %70 to double
   %.not.i28 = icmp eq i64 %71, 0
   %73 = sitofp i64 %71 to double
-  %74 = fmul double %72, 1.000000e+02
+  %74 = fmul nnan double %72, 1.000000e+02
   %75 = fdiv double %74, %73
   %76 = select i1 %.not.i28, double 0.000000e+00, double %75
   %77 = fdiv double %72, 1.000000e+06

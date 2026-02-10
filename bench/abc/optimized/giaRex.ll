@@ -2360,7 +2360,7 @@ Vec_WrdFind.exit.thread:                          ; preds = %30, %22, %Vec_WrdFi
   %43 = fdiv float %41, %42
   %44 = tail call i32 @rand() #25
   %45 = sitofp i32 %44 to float
-  %46 = fmul float %45, 0x3E00000000000000
+  %46 = fmul nnan float %45, 0x3E00000000000000
   %47 = fcmp ogt float %43, %46
   br i1 %47, label %48, label %50
 

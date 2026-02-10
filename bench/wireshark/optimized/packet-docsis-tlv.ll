@@ -1618,7 +1618,7 @@ define hidden void @proto_register_docsis_tlv() local_unnamed_addr #1 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @fourth_dbmv(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 2.500000e-01
+  %4 = fmul nnan double %3, 2.500000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.915, double noundef %4)
   ret void
 }
@@ -1626,7 +1626,7 @@ define internal void @fourth_dbmv(ptr noundef %0, i32 noundef %1) #2 {
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
 define internal void @fourth_db(ptr noundef %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to double
-  %4 = fmul double %3, 2.500000e-01
+  %4 = fmul nnan double %3, 2.500000e-01
   %5 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.985, double noundef %4)
   ret void
 }
@@ -2728,7 +2728,7 @@ dissect_cos.exit:                                 ; preds = %209, %133
   %583 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %216, i32 noundef %582, ptr noundef %0, i32 noundef %221, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %60)
   %584 = load i32, ptr %60, align 4
   %585 = uitofp i32 %584 to double
-  %586 = fmul double %585, 2.500000e-01
+  %586 = fmul nnan double %585, 2.500000e-01
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %583, ptr noundef nonnull @.str.1031, double noundef %586)
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %.loopexit.i

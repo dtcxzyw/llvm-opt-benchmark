@@ -202,7 +202,7 @@ define void @process(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %55 = sitofp i32 %54 to float
   %56 = load i32, ptr %47, align 4, !tbaa !52
   %57 = sitofp i32 %56 to float
-  %58 = fmul reassoc nsz arcp contract afn float %55, 2.048000e+03
+  %58 = fmul reassoc nnan nsz arcp contract afn float %55, 2.048000e+03
   %59 = fdiv reassoc nsz arcp contract afn float %58, %57
   %60 = fcmp reassoc nsz arcp contract afn ogt float %59, 2.047000e+03
   br i1 %60, label %65, label %61
@@ -231,7 +231,7 @@ capture_histogram.exit:                           ; preds = %65
   %69 = trunc i64 %indvars.iv.i145 to i32
   %70 = mul i32 %69, 100
   %71 = uitofp nneg i32 %70 to double
-  %72 = fmul reassoc nsz arcp contract afn double %71, 0x3F40000000000000
+  %72 = fmul reassoc nnan nsz arcp contract afn double %71, 0x3F40000000000000
   %73 = fptrunc reassoc nsz arcp contract afn double %72 to float
   %74 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv.i145
   store float %73, ptr %74, align 4, !tbaa !51
@@ -260,7 +260,7 @@ capture_histogram.exit:                           ; preds = %65
 80:                                               ; preds = %.lr.ph.i149
   %81 = trunc nsw i64 %indvars.iv30.i to i32
   %82 = sitofp i32 %81 to double
-  %83 = fmul reassoc nsz arcp contract afn double %82, 0x3FA9000000000000
+  %83 = fmul reassoc nnan nsz arcp contract afn double %82, 0x3FA9000000000000
   %84 = fptrunc reassoc nsz arcp contract afn double %83 to float
   %85 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv34.i
   store float %84, ptr %85, align 4, !tbaa !51
@@ -392,7 +392,7 @@ invert_histogram.exit:                            ; preds = %.loopexit.i
   %139 = sitofp i32 %138 to float
   %140 = load i32, ptr %131, align 4, !tbaa !52
   %141 = sitofp i32 %140 to float
-  %142 = fmul reassoc nsz arcp contract afn float %139, 2.048000e+03
+  %142 = fmul reassoc nnan nsz arcp contract afn float %139, 2.048000e+03
   %143 = fdiv reassoc nsz arcp contract afn float %142, %141
   %144 = fcmp reassoc nsz arcp contract afn ogt float %143, 2.047000e+03
   br i1 %144, label %149, label %145
@@ -763,7 +763,7 @@ get_clusters.exit.us:                             ; preds = %228
 define internal fastcc void @kmeans(ptr noundef readonly captures(none) %0, i32 %.8.val, i32 %.12.val, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #3 {
   %5 = mul nsw i32 %.12.val, %.8.val
   %6 = sitofp i32 %5 to double
-  %7 = fmul reassoc nsz arcp contract afn double %6, 2.000000e-01
+  %7 = fmul reassoc nnan nsz arcp contract afn double %6, 2.000000e-01
   %8 = fptosi double %7 to i32
   %9 = sext i32 %1 to i64
   %10 = shl nsw i64 %9, 3
@@ -1067,7 +1067,7 @@ get_cluster.exit.loopexit.us.us:                  ; preds = %.lr.ph.i.us.us
   %170 = trunc nuw nsw i64 %169 to i32
   %171 = or disjoint i32 %170, 1065353216
   %172 = bitcast i32 %171 to float
-  %173 = fmul reassoc nsz arcp contract afn float %172, 4.000000e+01
+  %173 = fmul reassoc nnan nsz arcp contract afn float %172, 4.000000e+01
   %174 = fsub reassoc nsz arcp contract afn float 6.000000e+01, %173
   %175 = getelementptr inbounds nuw [2 x float], ptr %2, i64 %indvars.iv
   store float %174, ptr %175, align 4, !tbaa !51
@@ -1083,7 +1083,7 @@ get_cluster.exit.loopexit.us.us:                  ; preds = %.lr.ph.i.us.us
   %185 = trunc nuw nsw i64 %184 to i32
   %186 = or disjoint i32 %185, 1065353216
   %187 = bitcast i32 %186 to float
-  %188 = fmul reassoc nsz arcp contract afn float %187, 4.000000e+01
+  %188 = fmul reassoc nnan nsz arcp contract afn float %187, 4.000000e+01
   %189 = fsub reassoc nsz arcp contract afn float 6.000000e+01, %188
   %190 = getelementptr inbounds nuw i8, ptr %175, i64 4
   store float %189, ptr %190, align 4, !tbaa !51

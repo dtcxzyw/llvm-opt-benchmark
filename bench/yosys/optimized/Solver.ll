@@ -7524,7 +7524,7 @@ define void @_ZNK7Minisat6Solver10printStatsEv(ptr noundef nonnull readonly alig
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %23 = load i64, ptr %22, align 8, !tbaa !152
   %24 = uitofp i64 %23 to float
-  %25 = fmul float %24, 1.000000e+02
+  %25 = fmul nnan float %24, 1.000000e+02
   %26 = uitofp i64 %21 to float
   %27 = fdiv float %25, %26
   %28 = fpext float %27 to double

@@ -233,7 +233,7 @@ define range(i32 0, 2) i32 @RAND_poll() local_unnamed_addr #0 {
   %19 = trunc i64 %18 to i32
   %20 = tail call i64 @ossl_rand_pool_entropy(ptr noundef nonnull %7) #8
   %21 = uitofp i64 %20 to double
-  %22 = fmul double %21, 1.250000e-01
+  %22 = fmul nnan double %21, 1.250000e-01
   %23 = tail call i32 %14(ptr noundef %17, i32 noundef %19, double noundef %22) #8
   %24 = icmp ne i32 %23, 0
   %25 = zext i1 %24 to i32

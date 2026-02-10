@@ -890,7 +890,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN9UPerfTest11runTestLoopEPcS0_(ptr n
 
 54:                                               ; preds = %50, %46
   %55 = sitofp i32 %47 to double
-  %56 = fmul double %55, 9.000000e-01
+  %56 = fmul nnan double %55, 9.000000e-01
   %57 = fptosi double %56 to i32
   %58 = sitofp i32 %57 to double
   br label %59

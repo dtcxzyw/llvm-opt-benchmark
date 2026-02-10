@@ -11605,7 +11605,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit95:                  ; preds = %._crit_edge132
   %110 = sub i64 %108, %109
   %111 = ashr exact i64 %110, 2
   %112 = uitofp i64 %111 to double
-  %113 = fmul double %112, 5.000000e-01
+  %113 = fmul nnan double %112, 5.000000e-01
   %114 = fptoui double %113 to i64
   %115 = getelementptr inbounds float, ptr %.sroa.0.0.lcssa, i64 %114
   %116 = load float, ptr %115, align 4
@@ -23436,7 +23436,7 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEES3_ESaIS4_EED2Ev.exit.thread: ; preds = %42
   %83 = uitofp i8 %82 to float
   %84 = load i8, ptr %75, align 1
   %85 = uitofp i8 %84 to float
-  %86 = fmul float %85, 5.000000e-01
+  %86 = fmul nnan float %85, 5.000000e-01
   %87 = call float @llvm.fmuladd.f32(float %83, float 5.000000e-01, float %86)
   %88 = fptoui float %87 to i8
   store i8 %88, ptr %75, align 1
@@ -23446,7 +23446,7 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEES3_ESaIS4_EED2Ev.exit.thread: ; preds = %42
   %92 = getelementptr inbounds nuw i8, ptr %74, i64 41
   %93 = load i8, ptr %92, align 1
   %94 = uitofp i8 %93 to float
-  %95 = fmul float %94, 5.000000e-01
+  %95 = fmul nnan float %94, 5.000000e-01
   %96 = call float @llvm.fmuladd.f32(float %91, float 5.000000e-01, float %95)
   %97 = fptoui float %96 to i8
   store i8 %97, ptr %92, align 1
@@ -23456,7 +23456,7 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEES3_ESaIS4_EED2Ev.exit.thread: ; preds = %42
   %101 = getelementptr inbounds nuw i8, ptr %74, i64 42
   %102 = load i8, ptr %101, align 1
   %103 = uitofp i8 %102 to float
-  %104 = fmul float %103, 5.000000e-01
+  %104 = fmul nnan float %103, 5.000000e-01
   %105 = call float @llvm.fmuladd.f32(float %100, float 5.000000e-01, float %104)
   %106 = fptoui float %105 to i8
   store i8 %106, ptr %101, align 1
@@ -23466,7 +23466,7 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEES3_ESaIS4_EED2Ev.exit.thread: ; preds = %42
   %110 = getelementptr inbounds nuw i8, ptr %74, i64 43
   %111 = load i8, ptr %110, align 1
   %112 = uitofp i8 %111 to float
-  %113 = fmul float %112, 5.000000e-01
+  %113 = fmul nnan float %112, 5.000000e-01
   %114 = call float @llvm.fmuladd.f32(float %109, float 5.000000e-01, float %113)
   %115 = fptoui float %114 to i8
   store i8 %115, ptr %110, align 1
@@ -23474,7 +23474,7 @@ _ZNSt6vectorISt4pairIN3vcg6Point3IfEES3_ESaIS4_EED2Ev.exit.thread: ; preds = %42
 
 116:                                              ; preds = %72
   %117 = sitofp i32 %.1146 to float
-  %118 = fmul float %117, 1.000000e+02
+  %118 = fmul nnan float %117, 1.000000e+02
   %119 = load i32, ptr %51, align 8
   %120 = sitofp i32 %119 to float
   %121 = fdiv float %118, %120
@@ -28611,7 +28611,7 @@ define linkonce_odr void @_ZN3vcg3tri19OddPointLoopGenericI6CMeshONS0_8CentroidI
   %22 = uitofp i8 %21 to float
   %23 = load i8, ptr %19, align 1
   %24 = uitofp i8 %23 to float
-  %25 = fmul float %24, 5.000000e-01
+  %25 = fmul nnan float %24, 5.000000e-01
   %26 = tail call float @llvm.fmuladd.f32(float %22, float 5.000000e-01, float %25)
   %27 = fptoui float %26 to i8
   store i8 %27, ptr %18, align 8
@@ -28621,7 +28621,7 @@ define linkonce_odr void @_ZN3vcg3tri19OddPointLoopGenericI6CMeshONS0_8CentroidI
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 41
   %32 = load i8, ptr %31, align 1
   %33 = uitofp i8 %32 to float
-  %34 = fmul float %33, 5.000000e-01
+  %34 = fmul nnan float %33, 5.000000e-01
   %35 = tail call float @llvm.fmuladd.f32(float %30, float 5.000000e-01, float %34)
   %36 = fptoui float %35 to i8
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 41
@@ -28632,7 +28632,7 @@ define linkonce_odr void @_ZN3vcg3tri19OddPointLoopGenericI6CMeshONS0_8CentroidI
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 42
   %42 = load i8, ptr %41, align 1
   %43 = uitofp i8 %42 to float
-  %44 = fmul float %43, 5.000000e-01
+  %44 = fmul nnan float %43, 5.000000e-01
   %45 = tail call float @llvm.fmuladd.f32(float %40, float 5.000000e-01, float %44)
   %46 = fptoui float %45 to i8
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 42
@@ -28643,7 +28643,7 @@ define linkonce_odr void @_ZN3vcg3tri19OddPointLoopGenericI6CMeshONS0_8CentroidI
   %51 = getelementptr inbounds nuw i8, ptr %11, i64 43
   %52 = load i8, ptr %51, align 1
   %53 = uitofp i8 %52 to float
-  %54 = fmul float %53, 5.000000e-01
+  %54 = fmul nnan float %53, 5.000000e-01
   %55 = tail call float @llvm.fmuladd.f32(float %50, float 5.000000e-01, float %54)
   %56 = fptoui float %55 to i8
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 43
@@ -32117,7 +32117,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit22:             ; preds = %38, %40, %42, %44
   %59 = fpext float %58 to double
   %60 = trunc nuw nsw i64 %indvars.iv32 to i32
   %61 = uitofp nneg i32 %60 to float
-  %62 = fpext float %61 to double
+  %62 = fpext nnan ninf float %61 to double
   %63 = fmul double %54, %62
   %64 = sitofp i32 %57 to double
   %65 = fdiv double %63, %64

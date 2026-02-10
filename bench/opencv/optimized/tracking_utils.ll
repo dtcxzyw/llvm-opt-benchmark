@@ -198,7 +198,7 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   %.1 = phi i32 [ 0, %.lr.ph203 ], [ 0, %.preheader ], [ %57, %._crit_edge.us ], [ 0, %68 ], [ %77, %.lr.ph ]
   %88 = uitofp i32 %.1120 to double
   %89 = uitofp i32 %.1 to double
-  %90 = fmul double %89, %89
+  %90 = fmul nnan double %89, %89
   %91 = sitofp i32 %24 to double
   %92 = fdiv double %90, %91
   %93 = fsub double %88, %92
@@ -207,7 +207,7 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
   %95 = tail call double @sqrt(double noundef %.sroa.speculated169) #10, !tbaa !27
   %96 = uitofp i32 %.1124 to double
   %97 = uitofp i32 %.1116 to double
-  %98 = fmul double %97, %97
+  %98 = fmul nnan double %97, %97
   %99 = fdiv double %98, %91
   %100 = fsub double %96, %99
   %101 = fcmp ogt double %100, 0.000000e+00
@@ -223,7 +223,7 @@ define hidden noundef double @_ZN2cv17tracking_internal10computeNCCERKNS_3MatES3
 
 107:                                              ; preds = %.loopexit
   %108 = uitofp i32 %.1128 to double
-  %109 = fmul double %97, %89
+  %109 = fmul nnan double %97, %89
   %110 = fdiv double %109, %91
   %111 = fsub double %108, %110
   %112 = fdiv double %111, %95

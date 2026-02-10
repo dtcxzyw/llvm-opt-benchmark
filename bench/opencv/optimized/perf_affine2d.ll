@@ -3151,7 +3151,7 @@ define hidden void @_ZN11opencv_test38EstimateAffine_EstimateAffinePartial2D12Pe
   store i64 %47, ptr %42, align 8, !tbaa !165, !noalias !162
   %48 = trunc i64 %47 to i32
   %49 = uitofp i32 %48 to float
-  %50 = fmul float %49, 0x3DF0000000000000
+  %50 = fmul nnan float %49, 0x3DF0000000000000
   %51 = tail call noundef float @llvm.fmuladd.f32(float %50, float 0x401921FB60000000, float 0.000000e+00)
   %52 = fpext float %51 to double
   %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv6theRNGEv(), !noalias !162
@@ -3163,7 +3163,7 @@ define hidden void @_ZN11opencv_test38EstimateAffine_EstimateAffinePartial2D12Pe
   store i64 %58, ptr %53, align 8, !tbaa !165, !noalias !162
   %59 = trunc i64 %58 to i32
   %60 = uitofp i32 %59 to float
-  %61 = fmul float %60, 0x3DF0000000000000
+  %61 = fmul nnan float %60, 0x3DF0000000000000
   %62 = tail call noundef float @llvm.fmuladd.f32(float %61, float 3.000000e+00, float 0.000000e+00)
   %63 = fpext float %62 to double
   %64 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv6theRNGEv(), !noalias !162
@@ -3175,7 +3175,7 @@ define hidden void @_ZN11opencv_test38EstimateAffine_EstimateAffinePartial2D12Pe
   store i64 %69, ptr %64, align 8, !tbaa !165, !noalias !162
   %70 = trunc i64 %69 to i32
   %71 = uitofp i32 %70 to float
-  %72 = fmul float %71, 0x3DF0000000000000
+  %72 = fmul nnan float %71, 0x3DF0000000000000
   %73 = tail call noundef float @llvm.fmuladd.f32(float %72, float 4.000000e+00, float -2.000000e+00)
   %74 = fpext float %73 to double
   %75 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv6theRNGEv(), !noalias !162
@@ -3187,7 +3187,7 @@ define hidden void @_ZN11opencv_test38EstimateAffine_EstimateAffinePartial2D12Pe
   store i64 %80, ptr %75, align 8, !tbaa !165, !noalias !162
   %81 = trunc i64 %80 to i32
   %82 = uitofp i32 %81 to float
-  %83 = fmul float %82, 0x3DF0000000000000
+  %83 = fmul nnan float %82, 0x3DF0000000000000
   %84 = tail call noundef float @llvm.fmuladd.f32(float %83, float 4.000000e+00, float -2.000000e+00)
   %85 = fpext float %84 to double
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !162

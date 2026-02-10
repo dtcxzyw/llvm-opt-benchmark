@@ -1745,7 +1745,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 296:                                              ; preds = %275
   %297 = load i64, ptr %231, align 8
   %298 = sitofp i64 %297 to double
-  %299 = fmul double %298, 1.000000e+02
+  %299 = fmul nnan double %298, 1.000000e+02
   %300 = fdiv double %299, %75
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

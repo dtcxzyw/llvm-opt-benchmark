@@ -9394,7 +9394,7 @@ _ZL20checkForUnboundAtomsPK10gmx_mtop_tbP14WarningHandlerRKN3gmx8MDLoggerE.exit:
   br i1 %or.cond7.i, label %3111, label %3117
 
 3111:                                             ; preds = %.lr.ph183.i
-  %3112 = fmul float %3104, 0x4043BD3CC0000000
+  %3112 = fmul nnan float %3104, 0x4043BD3CC0000000
   %3113 = fmul float %3112, %3107
   %3114 = fadd float %3104, %3107
   %3115 = fmul float %.0135.i, %3114

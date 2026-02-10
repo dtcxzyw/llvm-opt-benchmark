@@ -364,7 +364,7 @@ define noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(do
   br i1 %27, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc8441d8cf4b952dbE.exit", label %.preheader
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc8441d8cf4b952dbE.exit": ; preds = %.preheader
-  %28 = fmul double %0, 0x400921FB54442D18
+  %28 = fmul nnan double %0, 0x400921FB54442D18
   %29 = tail call double @llvm.sin.f64(double %28)
   %30 = tail call noundef double @llvm.log.f64(double %29)
   %31 = fsub double 0x3FF250D048E7A1BD, %30
@@ -372,8 +372,8 @@ define noundef double @_ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E(do
   %33 = fsub double %31, %32
   %34 = fadd double %33, 0xBFE3DD72B6129832
   %35 = fsub double 5.000000e-01, %0
-  %36 = fadd double %35, 0x4025CD0FC71D6063
-  %37 = fdiv double %36, 0x4005BF0A8B145769
+  %36 = fadd nnan double %35, 0x4025CD0FC71D6063
+  %37 = fdiv nnan double %36, 0x4005BF0A8B145769
   %38 = tail call noundef double @llvm.log.f64(double %37)
   %39 = fmul double %35, %38
   %40 = fsub double %34, %39
@@ -430,7 +430,7 @@ define noundef double @_ZN6statrs8function5gamma5gamma17h06f0182cd00424dbE(doubl
   br i1 %25, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09587e0053e36485E.exit", label %.preheader
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09587e0053e36485E.exit": ; preds = %.preheader
-  %26 = fmul double %0, 0x400921FB54442D18
+  %26 = fmul nnan double %0, 0x400921FB54442D18
   %27 = tail call double @llvm.sin.f64(double %26)
   %28 = fmul double %27, %22
   %29 = fmul double %28, 0x3FFDC420AF97465B
@@ -504,7 +504,7 @@ define noundef double @_ZN6statrs8function5gamma8gamma_ui17hf42ba329a4b24b6dE(do
   br i1 %33, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09587e0053e36485E.exit.i.i", label %.preheader.i.i
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09587e0053e36485E.exit.i.i": ; preds = %.preheader.i.i
-  %34 = fmul double %0, 0x400921FB54442D18
+  %34 = fmul nnan double %0, 0x400921FB54442D18
   %35 = tail call double @llvm.sin.f64(double %34)
   %36 = fmul double %35, %30
   %37 = fmul double %36, 0x3FFDC420AF97465B
@@ -591,7 +591,7 @@ define void @_ZN6statrs8function5gamma16checked_gamma_ui17h8b4593dbcffafd5dE(ptr
   br i1 %33, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09587e0053e36485E.exit.i", label %.preheader.i
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09587e0053e36485E.exit.i": ; preds = %.preheader.i
-  %34 = fmul double %1, 0x400921FB54442D18
+  %34 = fmul nnan double %1, 0x400921FB54442D18
   %35 = tail call double @llvm.sin.f64(double %34)
   %36 = fmul double %35, %30
   %37 = fmul double %36, 0x3FFDC420AF97465B
@@ -677,7 +677,7 @@ define noundef double @_ZN6statrs8function5gamma8gamma_li17hf72f675100a6cdb5E(do
   br i1 %33, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09587e0053e36485E.exit.i.i", label %.preheader.i.i
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09587e0053e36485E.exit.i.i": ; preds = %.preheader.i.i
-  %34 = fmul double %0, 0x400921FB54442D18
+  %34 = fmul nnan double %0, 0x400921FB54442D18
   %35 = tail call double @llvm.sin.f64(double %34)
   %36 = fmul double %35, %30
   %37 = fmul double %36, 0x3FFDC420AF97465B
@@ -764,7 +764,7 @@ define void @_ZN6statrs8function5gamma16checked_gamma_li17h016f072646675049E(ptr
   br i1 %33, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09587e0053e36485E.exit.i", label %.preheader.i
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h09587e0053e36485E.exit.i": ; preds = %.preheader.i
-  %34 = fmul double %1, 0x400921FB54442D18
+  %34 = fmul nnan double %1, 0x400921FB54442D18
   %35 = tail call double @llvm.sin.f64(double %34)
   %36 = fmul double %35, %30
   %37 = fmul double %36, 0x3FFDC420AF97465B
@@ -893,7 +893,7 @@ _ZN6statrs8function5gamma8gamma_lr17hde27b862f6dd8958E.exit: ; preds = %15
   br label %108
 
 23:                                               ; preds = %12
-  %24 = tail call noundef double @llvm.log.f64(double %2)
+  %24 = tail call ninf double @llvm.log.f64(double %2)
   %25 = fmul double %1, %24
   %26 = fsub double %25, %2
   %27 = fcmp olt double %1, 5.000000e-01
@@ -942,7 +942,7 @@ _ZN6statrs8function5gamma8gamma_lr17hde27b862f6dd8958E.exit: ; preds = %15
   br i1 %52, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc8441d8cf4b952dbE.exit.i", label %.preheader.i
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc8441d8cf4b952dbE.exit.i": ; preds = %.preheader.i
-  %53 = fmul double %1, 0x400921FB54442D18
+  %53 = fmul nnan double %1, 0x400921FB54442D18
   %54 = tail call double @llvm.sin.f64(double %53)
   %55 = tail call noundef double @llvm.log.f64(double %54)
   %56 = fsub double 0x3FF250D048E7A1BD, %55
@@ -950,8 +950,8 @@ _ZN6statrs8function5gamma8gamma_lr17hde27b862f6dd8958E.exit: ; preds = %15
   %58 = fsub double %56, %57
   %59 = fadd double %58, 0xBFE3DD72B6129832
   %60 = fsub double 5.000000e-01, %1
-  %61 = fadd double %60, 0x4025CD0FC71D6063
-  %62 = fdiv double %61, 0x4005BF0A8B145769
+  %61 = fadd nnan double %60, 0x4025CD0FC71D6063
+  %62 = fdiv nnan double %61, 0x4005BF0A8B145769
   %63 = tail call noundef double @llvm.log.f64(double %62)
   %64 = fmul double %60, %63
   %65 = fsub double %59, %64
@@ -968,7 +968,7 @@ _ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E.exit: ; preds = %"_ZN100_
   %70 = fadd double %2, %69
   %71 = fadd double %70, 1.000000e+00
   %72 = fadd double %2, 1.000000e+00
-  %73 = fmul double %2, %71
+  %73 = fmul nnan double %2, %71
   %74 = fdiv double %72, %73
   br label %.outer
 
@@ -1012,7 +1012,7 @@ _ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E.exit: ; preds = %"_ZN100_
 
 91:                                               ; preds = %78
   %92 = fmul double %.sroa.036.0, 0x3CB0000000000000
-  %93 = fmul double %85, 0x3CB0000000000000
+  %93 = fmul nnan double %85, 0x3CB0000000000000
   %94 = fmul double %.sroa.040.0, 0x3CB0000000000000
   %95 = fmul double %88, 0x3CB0000000000000
   br label %96
@@ -1140,7 +1140,7 @@ define void @_ZN6statrs8function5gamma16checked_gamma_lr17haeb1295c98ca9646E(ptr
   br label %110
 
 18:                                               ; preds = %13
-  %19 = tail call noundef double @llvm.log.f64(double %2)
+  %19 = tail call ninf double @llvm.log.f64(double %2)
   %20 = fmul double %1, %19
   %21 = fsub double %20, %2
   %22 = fcmp olt double %1, 5.000000e-01
@@ -1189,7 +1189,7 @@ define void @_ZN6statrs8function5gamma16checked_gamma_lr17haeb1295c98ca9646E(ptr
   br i1 %47, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc8441d8cf4b952dbE.exit.i", label %.preheader.i
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc8441d8cf4b952dbE.exit.i": ; preds = %.preheader.i
-  %48 = fmul double %1, 0x400921FB54442D18
+  %48 = fmul nnan double %1, 0x400921FB54442D18
   %49 = tail call double @llvm.sin.f64(double %48)
   %50 = tail call noundef double @llvm.log.f64(double %49)
   %51 = fsub double 0x3FF250D048E7A1BD, %50
@@ -1197,8 +1197,8 @@ define void @_ZN6statrs8function5gamma16checked_gamma_lr17haeb1295c98ca9646E(ptr
   %53 = fsub double %51, %52
   %54 = fadd double %53, 0xBFE3DD72B6129832
   %55 = fsub double 5.000000e-01, %1
-  %56 = fadd double %55, 0x4025CD0FC71D6063
-  %57 = fdiv double %56, 0x4005BF0A8B145769
+  %56 = fadd nnan double %55, 0x4025CD0FC71D6063
+  %57 = fdiv nnan double %56, 0x4005BF0A8B145769
   %58 = tail call noundef double @llvm.log.f64(double %57)
   %59 = fmul double %55, %58
   %60 = fsub double %54, %59
@@ -1232,7 +1232,7 @@ _ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E.exit: ; preds = %"_ZN100_
   %73 = fadd double %2, %72
   %74 = fadd double %73, 1.000000e+00
   %75 = fadd double %2, 1.000000e+00
-  %76 = fmul double %2, %74
+  %76 = fmul nnan double %2, %74
   %77 = fdiv double %75, %76
   br label %.outer
 
@@ -1272,7 +1272,7 @@ _ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E.exit: ; preds = %"_ZN100_
 
 92:                                               ; preds = %78
   %93 = fmul double %.sroa.045.0, 0x3CB0000000000000
-  %94 = fmul double %86, 0x3CB0000000000000
+  %94 = fmul nnan double %86, 0x3CB0000000000000
   %95 = fmul double %.sroa.049.0, 0x3CB0000000000000
   %96 = fmul double %89, 0x3CB0000000000000
   br label %97
@@ -1394,7 +1394,7 @@ common.ret39:                                     ; preds = %4, %"_ZN47_$LT$f64$
 25:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.exit.thread25"
   %26 = fsub double 1.000000e+00, %0
   %27 = tail call noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(double noundef %26)
-  %28 = fmul double %0, 0xC00921FB54442D18
+  %28 = fmul nnan double %0, 0xC00921FB54442D18
   %29 = tail call noundef double @tan(double noundef %28)
   %30 = fdiv double 0x400921FB54442D18, %29
   %31 = fadd double %27, %30
@@ -1403,7 +1403,7 @@ common.ret39:                                     ; preds = %4, %"_ZN47_$LT$f64$
 32:                                               ; preds = %22
   %33 = fdiv double 1.000000e+00, %0
   %34 = fsub double 0xBFE2788CFC6FB619, %33
-  %35 = fmul double %0, 0x3FFA51A6625307D3
+  %35 = fmul nnan double %0, 0x3FFA51A6625307D3
   %36 = fadd double %35, %34
   br label %common.ret39
 
@@ -1425,12 +1425,12 @@ common.ret39:                                     ; preds = %4, %"_ZN47_$LT$f64$
 42:                                               ; preds = %._crit_edge
   %43 = fdiv double 1.000000e+00, %.sroa.05.0.lcssa
   %44 = tail call noundef double @llvm.log.f64(double %.sroa.05.0.lcssa)
-  %45 = fmul double %43, 5.000000e-01
+  %45 = fmul nnan double %43, 5.000000e-01
   %46 = fsub double %44, %45
   %47 = fadd double %.sroa.0.1.lcssa, %46
   %48 = fmul double %43, %43
-  %49 = fmul double %48, 0x3F7F07C1F07C1F08
-  %50 = fsub double 0x3F71111111111111, %49
+  %49 = fmul nnan double %48, 0x3F7F07C1F07C1F08
+  %50 = fsub nnan double 0x3F71111111111111, %49
   %51 = fmul double %48, %50
   %52 = fsub double 0x3F70410410410410, %51
   %53 = fmul double %48, %52
@@ -1479,7 +1479,7 @@ _ZN6statrs8function5gamma6signum17hffa30618b10934b7E.exit: ; preds = %9, %13, %1
   %.sroa.0.0.i = phi double [ %16, %15 ], [ 0.000000e+00, %9 ], [ 0x7FF8000000000000, %13 ]
   %17 = fmul double %.sroa.03.06, %.sroa.0.0.i
   %18 = fadd double %.sroa.0.17, %17
-  %19 = fmul double %.sroa.03.06, 5.000000e-01
+  %19 = fmul nnan double %.sroa.03.06, 5.000000e-01
   %20 = fcmp ogt double %19, 1.000000e-15
   br i1 %20, label %9, label %.loopexit
 

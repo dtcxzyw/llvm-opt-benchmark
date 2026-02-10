@@ -4837,7 +4837,7 @@ define hidden void @_ZN6quiche8recovery10congestion3bbr4init8bbr_init17h153def6b
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   %19 = load i64, ptr %18, align 8, !alias.scope !524, !noundef !3
   %20 = uitofp i64 %19 to double
-  %21 = fdiv double %20, 3.330000e-01
+  %21 = fdiv nnan double %20, 3.330000e-01
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %23 = load double, ptr %22, align 8, !alias.scope !524, !noundef !3
   %24 = fmul double %23, %21

@@ -161,8 +161,8 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
   %49 = add i32 %34, 1
   store i32 %49, ptr %29, align 8, !tbaa !35
   %50 = uitofp i32 %45 to double
-  %51 = fdiv nsz double %50, 0x41EFFFFFFFE00000
-  %52 = tail call nsz double @llvm.fmuladd.f64(double %51, double 2.000000e+00, double -1.000000e+00)
+  %51 = fdiv nnan nsz double %50, 0x41EFFFFFFFE00000
+  %52 = tail call nnan nsz double @llvm.fmuladd.f64(double %51, double 2.000000e+00, double -1.000000e+00)
   %53 = fmul nsz double %33, %52
   %54 = load ptr, ptr %30, align 8, !tbaa !36
   %55 = tail call nsz double %54(double noundef %53, ptr noundef nonnull %31) #10

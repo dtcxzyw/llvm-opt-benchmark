@@ -504,7 +504,7 @@ define void @_ZN3net21QuicServerSessionBase24OnCongestionWindowChangeENS_8QuicTi
   %53 = uitofp nneg i64 %52 to double
   %54 = call noundef i64 @_ZNK3net13QuicBandwidth15ToBitsPerSecondEv(ptr noundef nonnull align 8 dereferenceable(8) %49)
   %55 = sitofp i64 %54 to double
-  %56 = fmul double %55, 5.000000e-01
+  %56 = fmul nnan double %55, 5.000000e-01
   %57 = fcmp olt double %56, %53
   br i1 %57, label %58, label %144
 

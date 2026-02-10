@@ -626,7 +626,7 @@ define hidden noundef range(i32 0, 1028) i32 @_Z24pj_calc_ellipsoid_paramsP8PJco
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %43
-  %69 = fsub double 1.000000e+00, %38
+  %69 = fsub nnan double 1.000000e+00, %38
   %70 = fmul double %1, %69
   store double %70, ptr %65, align 8, !tbaa !50
   br label %71

@@ -472,7 +472,7 @@ sub_12058:                                        ; preds = %.tail2051, %sub_120
 
 ._crit_edge:                                      ; preds = %185
   %187 = sitofp i32 %.1200 to double
-  %188 = fmul double %187, 0x400921FB54442D18
+  %188 = fmul nnan double %187, 0x400921FB54442D18
   %189 = icmp eq ptr %.1185, null
   br i1 %189, label %._crit_edge.thread, label %198
 
@@ -3639,7 +3639,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit749: ; preds = %12
 1312:                                             ; preds = %1310
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %1313 = sitofp i32 %1311 to float
-  %1314 = fmul float %1313, 5.000000e-01
+  %1314 = fmul nnan float %1313, 5.000000e-01
   %1315 = sitofp i32 %1307 to float
   %1316 = fmul float %659, %1315
   %1317 = fpext float %1316 to double

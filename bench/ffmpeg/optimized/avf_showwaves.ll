@@ -1679,7 +1679,7 @@ define internal i32 @get_log_h(i16 noundef signext %0, i32 noundef %1) #8 {
   %6 = tail call i16 @llvm.abs.i16(i16 %0, i1 false)
   %narrow = add nuw i16 %6, 1
   %7 = uitofp i16 %narrow to double
-  %8 = tail call nsz double @llvm.log10.f64(double %7)
+  %8 = tail call nnan nsz double @llvm.log10.f64(double %7)
   %9 = fmul nsz double %8, %4
   %10 = fdiv nsz double %9, 0x40120FD21B95825F
   %11 = select nsz i1 %5, double -1.000000e+00, double 1.000000e+00
@@ -1693,7 +1693,7 @@ define internal i32 @get_log_h2(i16 noundef signext %0, i32 noundef %1) #8 {
   %3 = tail call i16 @llvm.abs.i16(i16 %0, i1 false)
   %narrow = add nuw i16 %3, 1
   %4 = uitofp i16 %narrow to double
-  %5 = tail call nsz double @llvm.log10.f64(double %4)
+  %5 = tail call nnan nsz double @llvm.log10.f64(double %4)
   %6 = sitofp i32 %1 to double
   %7 = fmul nsz double %5, %6
   %8 = fdiv nsz double %7, 0x40120FD21B95825F
@@ -1708,8 +1708,8 @@ define internal i32 @get_sqrt_h(i16 noundef signext %0, i32 noundef %1) #8 {
   %5 = icmp sgt i16 %0, 0
   %6 = tail call i16 @llvm.abs.i16(i16 %0, i1 false)
   %7 = uitofp i16 %6 to double
-  %8 = tail call nsz double @llvm.sqrt.f64(double %7)
-  %9 = fmul nsz double %8, %4
+  %8 = tail call nnan ninf nsz double @llvm.sqrt.f64(double %7)
+  %9 = fmul nnan nsz double %8, %4
   %10 = fdiv nsz double %9, 0x4066A087C5D584F3
   %11 = select nsz i1 %5, double -1.000000e+00, double 1.000000e+00
   %12 = tail call nsz double @llvm.fmuladd.f64(double %11, double %10, double %4)
@@ -1721,9 +1721,9 @@ define internal i32 @get_sqrt_h(i16 noundef signext %0, i32 noundef %1) #8 {
 define internal i32 @get_sqrt_h2(i16 noundef signext %0, i32 noundef %1) #8 {
   %3 = tail call i16 @llvm.abs.i16(i16 %0, i1 false)
   %4 = uitofp i16 %3 to double
-  %5 = tail call nsz double @llvm.sqrt.f64(double %4)
+  %5 = tail call nnan ninf nsz double @llvm.sqrt.f64(double %4)
   %6 = sitofp i32 %1 to double
-  %7 = fmul nsz double %5, %6
+  %7 = fmul nnan nsz double %5, %6
   %8 = fdiv nsz double %7, 0x4066A087C5D584F3
   %9 = fptosi double %8 to i32
   ret i32 %9

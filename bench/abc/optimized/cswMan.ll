@@ -195,7 +195,7 @@ define void @Csw_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %13 = add nsw i32 %.val66, %.val
   %14 = sub nsw i32 %8, %13
   %15 = sitofp i32 %14 to double
-  %16 = fmul double %15, 1.000000e+02
+  %16 = fmul nnan double %15, 1.000000e+02
   %17 = sitofp i32 %8 to double
   %18 = fdiv double %16, %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -220,7 +220,7 @@ define void @Csw_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %37 = load i64, ptr %36, align 8, !tbaa !55
   %.not56 = icmp eq i64 %37, 0
   %38 = sitofp i64 %37 to double
-  %39 = fmul double %34, 1.000000e+02
+  %39 = fmul nnan double %34, 1.000000e+02
   %40 = fdiv double %39, %38
   %41 = select i1 %.not56, double 0.000000e+00, double %40
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %35, double noundef %41)
@@ -232,7 +232,7 @@ define void @Csw_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %46 = load i64, ptr %36, align 8, !tbaa !55
   %.not57 = icmp eq i64 %46, 0
   %47 = sitofp i64 %46 to double
-  %48 = fmul double %44, 1.000000e+02
+  %48 = fmul nnan double %44, 1.000000e+02
   %49 = fdiv double %48, %47
   %50 = select i1 %.not57, double 0.000000e+00, double %49
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %45, double noundef %50)
@@ -244,7 +244,7 @@ define void @Csw_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %55 = load i64, ptr %36, align 8, !tbaa !55
   %.not58 = icmp eq i64 %55, 0
   %56 = sitofp i64 %55 to double
-  %57 = fmul double %53, 1.000000e+02
+  %57 = fmul nnan double %53, 1.000000e+02
   %58 = fdiv double %57, %56
   %59 = select i1 %.not58, double 0.000000e+00, double %58
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %54, double noundef %59)
@@ -253,7 +253,7 @@ define void @Csw_ManStop(ptr noundef %0) local_unnamed_addr #0 {
   %61 = sitofp i64 %60 to double
   %62 = fdiv double %61, 1.000000e+06
   %.not59 = icmp eq i64 %60, 0
-  %63 = fmul double %61, 1.000000e+02
+  %63 = fmul nnan double %61, 1.000000e+02
   %64 = fdiv double %63, %61
   %65 = select i1 %.not59, double 0.000000e+00, double %64
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, double noundef %62, double noundef %65)

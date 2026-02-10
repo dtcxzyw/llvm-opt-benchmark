@@ -4589,7 +4589,7 @@ _ZNK26ShenandoahRegionPartitions35find_index_of_next_available_regionE28Shenando
   %46 = uitofp i64 %28 to double
   %47 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeBytesE, align 8
   %48 = uitofp i64 %47 to double
-  %49 = fmul double %46, %48
+  %49 = fmul nnan double %46, %48
   %50 = uitofp i64 %.1 to double
   %51 = fdiv double %49, %50
   %52 = fsub double 1.000000e+00, %51

@@ -1311,7 +1311,7 @@ define void @_Z20glucose2_print_statsRN6Gluco210SimpSolverEl(ptr noundef nonnull
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %60 = load i64, ptr %59, align 8, !tbaa !107
   %61 = sitofp i64 %60 to float
-  %62 = fmul float %61, 1.000000e+02
+  %62 = fmul nnan float %61, 1.000000e+02
   %63 = sitofp i64 %57 to float
   %64 = fdiv float %62, %63
   %65 = fpext float %64 to double

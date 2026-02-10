@@ -27556,13 +27556,13 @@ define i24 @_ZN5image6codecs4tiff11cmyk_to_rgb17h5c7c3e9b49b39b97E(ptr noalias n
   %21 = uitofp i8 %20 to float
   %22 = fdiv float %21, 2.550000e+02
   %23 = fsub float 1.000000e+00, %22
-  %24 = fsub float 2.550000e+02, %18
+  %24 = fsub nnan float 2.550000e+02, %18
   %25 = fmul float %24, %23
   %26 = tail call i8 @llvm.fptoui.sat.i8.f32(float %25)
-  %27 = fsub float 2.550000e+02, %17
+  %27 = fsub nnan float 2.550000e+02, %17
   %28 = fmul float %27, %23
   %29 = tail call i8 @llvm.fptoui.sat.i8.f32(float %28)
-  %30 = fsub float 2.550000e+02, %16
+  %30 = fsub nnan float 2.550000e+02, %16
   %31 = fmul float %30, %23
   %32 = tail call i8 @llvm.fptoui.sat.i8.f32(float %31)
   %.sroa.3.0.insert.ext = zext i8 %32 to i24

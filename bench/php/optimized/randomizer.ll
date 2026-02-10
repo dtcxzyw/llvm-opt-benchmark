@@ -393,7 +393,7 @@ define hidden void @zim_Random_Randomizer_nextFloat(ptr noundef readonly capture
 22:                                               ; preds = %14
   %23 = lshr i64 %18, 11
   %24 = uitofp nneg i64 %23 to double
-  %25 = fmul double %24, 0x3CA0000000000000
+  %25 = fmul nnan double %24, 0x3CA0000000000000
   store double %25, ptr %1, align 8, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 5, ptr %26, align 8, !tbaa !4
@@ -801,10 +801,10 @@ zend_parse_arg_long_ex.exit..critedge_crit_edge:  ; preds = %zend_parse_arg_long
   %43 = sitofp i64 %42 to double
   %44 = load i64, ptr %3, align 8, !tbaa !83
   %45 = sitofp i64 %44 to double
-  %46 = fsub double %43, %45
-  %47 = fadd double %46, 1.000000e+00
+  %46 = fsub nnan double %43, %45
+  %47 = fadd nnan double %46, 1.000000e+00
   %48 = uitofp nneg i64 %41 to double
-  %49 = fmul double %48, 0x3E00000000000000
+  %49 = fmul nnan double %48, 0x3E00000000000000
   %50 = fmul double %49, %47
   %51 = fptoui double %50 to i64
   %52 = add i64 %44, %51

@@ -1353,7 +1353,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit162:              ; preds = %614
   %637 = add nsw i64 %636, -1
   %638 = mul i64 %637, %636
   %639 = uitofp i64 %638 to double
-  %640 = fmul double %639, 5.000000e-01
+  %640 = fmul nnan double %639, 5.000000e-01
   %641 = fptosi double %640 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %225)
   %642 = mul nsw i32 %641, 3
@@ -4137,7 +4137,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit201.i:            ; preds = %1487
   %1516 = add nsw i64 %1515, -1
   %1517 = mul i64 %1516, %1515
   %1518 = uitofp i64 %1517 to double
-  %1519 = fmul double %1518, 5.000000e-01
+  %1519 = fmul nnan double %1518, 5.000000e-01
   %1520 = fptosi double %1519 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %176)
   %1521 = mul nsw i32 %1520, 3
@@ -5630,7 +5630,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit224.i:            ; preds = %1961
   %1980 = add nsw i64 %1979, -1
   %1981 = mul i64 %1980, %1979
   %1982 = uitofp i64 %1981 to double
-  %1983 = fmul double %1982, 5.000000e-01
+  %1983 = fmul nnan double %1982, 5.000000e-01
   %1984 = fptosi double %1983 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %110)
   %1985 = mul nsw i32 %1984, 3
@@ -6344,7 +6344,7 @@ _ZN2cvL22calibrateHandEyeHoraudERKSt6vectorINS_3MatESaIS1_EES5_RS1_S6_.exit: ; p
   %2188 = add nsw i64 %2187, -1
   %2189 = mul i64 %2188, %2187
   %2190 = uitofp i64 %2189 to double
-  %2191 = fmul double %2190, 5.000000e-01
+  %2191 = fmul nnan double %2190, 5.000000e-01
   %2192 = fptosi double %2191 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %2193 = mul nsw i32 %2192, 12
@@ -7935,7 +7935,7 @@ define internal fastcc void @_ZN2cvL26calibrateHandEyeDaniilidisERKSt6vectorINS_
   %148 = add nsw i64 %147, -1
   %149 = mul i64 %148, %147
   %150 = uitofp i64 %149 to double
-  %151 = fmul double %150, 5.000000e-01
+  %151 = fmul nnan double %150, 5.000000e-01
   %152 = fptosi double %151 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)

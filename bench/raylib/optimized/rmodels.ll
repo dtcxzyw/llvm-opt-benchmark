@@ -25610,7 +25610,7 @@ define hidden noalias noundef ptr @par_shapes_create_parametric_disk(i32 noundef
   store float %20, ptr %18, align 4
   %21 = getelementptr inbounds nuw i8, ptr %.05870.i, i64 8
   %22 = load float, ptr %21, align 4
-  %23 = fmul float %20, %20
+  %23 = fmul ninf float %20, %20
   %24 = tail call float @llvm.fmuladd.f32(float %17, float %17, float %23)
   %25 = tail call float @llvm.fmuladd.f32(float %22, float %22, float %24)
   %26 = fcmp ogt float %25, 0.000000e+00
@@ -27317,8 +27317,8 @@ par_shapes__normalize3.exit:                      ; preds = %._crit_edge, %27
   %.05567 = phi i32 [ 0, %.lr.ph ], [ %49, %34 ]
   %.054 = getelementptr inbounds nuw i8, ptr %.pn68, i64 12
   %35 = uitofp nneg i32 %.05567 to double
-  %36 = fmul double %35, 0x400921FB54442EEA
-  %37 = fmul double %36, 2.000000e+00
+  %36 = fmul nnan double %35, 0x400921FB54442EEA
+  %37 = fmul nnan double %36, 2.000000e+00
   %38 = fdiv double %37, %16
   %39 = fptrunc double %38 to float
   %40 = fpext float %39 to double
@@ -28288,7 +28288,7 @@ par_shapes__apply_turtle.exit:                    ; preds = %117, %102
   %179 = sitofp i32 %.130.i to float
   %180 = tail call i32 @rand() #63
   %181 = sitofp i32 %180 to float
-  %182 = fmul float %181, 0x3E00000000000000
+  %182 = fmul nnan float %181, 0x3E00000000000000
   br label %191
 
 .lr.ph.i180:                                      ; preds = %174, %190
@@ -29403,7 +29403,7 @@ define internal fastcc double @par__simplex_noise2(ptr noundef readonly captures
   %17 = add nsw i32 %16, %13
   %18 = add nsw i32 %12, %17
   %19 = sitofp i32 %18 to double
-  %20 = fmul double %19, 0x3FD76CF5D0B0995B
+  %20 = fmul nnan double %19, 0x3FD76CF5D0B0995B
   %21 = sitofp i32 %12 to double
   %22 = fadd double %20, %21
   %23 = sitofp i32 %17 to double
@@ -29424,7 +29424,7 @@ define internal fastcc double @par__simplex_noise2(ptr noundef readonly captures
   br i1 %37, label %38, label %63
 
 38:                                               ; preds = %3
-  %39 = fmul double %36, %36
+  %39 = fmul nnan double %36, %36
   %40 = fmul double %39, %39
   %41 = add nsw i32 %12, 1
   %.val = load ptr, ptr %0, align 8
@@ -29464,7 +29464,7 @@ define internal fastcc double @par__simplex_noise2(ptr noundef readonly captures
   br i1 %71, label %72, label %97
 
 72:                                               ; preds = %63
-  %73 = fmul double %70, %70
+  %73 = fmul nnan double %70, %70
   %74 = fmul double %73, %73
   %75 = add nsw i32 %17, 1
   %.val156 = load ptr, ptr %0, align 8
@@ -29581,7 +29581,7 @@ define internal fastcc double @par__simplex_noise2(ptr noundef readonly captures
   br i1 %146, label %147, label %171
 
 147:                                              ; preds = %141
-  %148 = fmul double %145, %145
+  %148 = fmul nnan double %145, %145
   %149 = fmul double %148, %148
   %.val157 = load ptr, ptr %0, align 8
   %150 = and i32 %.0, 255
@@ -29617,7 +29617,7 @@ define internal fastcc double @par__simplex_noise2(ptr noundef readonly captures
   br i1 %176, label %177, label %201
 
 177:                                              ; preds = %171
-  %178 = fmul double %175, %175
+  %178 = fmul nnan double %175, %175
   %179 = fmul double %178, %178
   %.val158 = load ptr, ptr %0, align 8
   %180 = and i32 %.1145, 255
@@ -29740,7 +29740,7 @@ define void @DrawCircle3D(<2 x float> %0, float %1, float noundef %2, <2 x float
   %.018 = phi i32 [ 0, %7 ], [ %16, %9 ]
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.0.0.extract.trunc, i8 noundef zeroext %.sroa.2.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.4.0.extract.trunc) #63
   %10 = uitofp nneg i32 %.018 to float
-  %11 = fmul float %10, 0x3F91DF46A0000000
+  %11 = fmul nnan float %10, 0x3F91DF46A0000000
   %12 = tail call float @sinf(float noundef %11) #63
   %13 = fmul float %2, %12
   %14 = tail call float @cosf(float noundef %11) #63
@@ -29748,7 +29748,7 @@ define void @DrawCircle3D(<2 x float> %0, float %1, float noundef %2, <2 x float
   tail call void @rlVertex3f(float noundef %13, float noundef %15, float noundef 0.000000e+00) #63
   %16 = add nuw nsw i32 %.018, 10
   %17 = uitofp nneg i32 %16 to float
-  %18 = fmul float %17, 0x3F91DF46A0000000
+  %18 = fmul nnan float %17, 0x3F91DF46A0000000
   %19 = tail call float @sinf(float noundef %18) #63
   %20 = fmul float %2, %19
   %21 = tail call float @cosf(float noundef %18) #63
@@ -30011,11 +30011,11 @@ define void @DrawSphereEx(<2 x float> %0, float %1, float noundef %2, i32 nounde
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.088.0.extract.trunc, i8 noundef zeroext %.sroa.289.0.extract.trunc, i8 noundef zeroext %.sroa.390.0.extract.trunc, i8 noundef zeroext %.sroa.4.0.extract.trunc) #63
   %7 = add i32 %3, 1
   %8 = sitofp i32 %7 to float
-  %9 = fdiv float 1.800000e+02, %8
-  %10 = fmul float %9, 0x3F91DF46A0000000
+  %9 = fdiv nnan float 1.800000e+02, %8
+  %10 = fmul nnan float %9, 0x3F91DF46A0000000
   %11 = sitofp i32 %4 to float
-  %12 = fdiv float 3.600000e+02, %11
-  %13 = fmul float %12, 0x3F91DF46A0000000
+  %12 = fdiv nnan float 3.600000e+02, %11
+  %13 = fmul nnan float %12, 0x3F91DF46A0000000
   %14 = tail call float @cosf(float noundef %10) #63
   %15 = tail call float @sinf(float noundef %10) #63
   %16 = tail call float @cosf(float noundef %13) #63
@@ -30127,7 +30127,7 @@ define void @DrawSphereWires(<2 x float> %0, float %1, float noundef %2, i32 nou
   %.074.us = phi i32 [ 0, %.preheader.us ], [ %34, %21 ]
   %22 = tail call float @cosf(float noundef %16) #63
   %23 = uitofp nneg i32 %.074.us to float
-  %24 = fmul float %23, 3.600000e+02
+  %24 = fmul nnan float %23, 3.600000e+02
   %25 = fdiv float %24, %13
   %26 = fmul float %25, 0x3F91DF46A0000000
   %27 = tail call float @sinf(float noundef %26) #63
@@ -30140,7 +30140,7 @@ define void @DrawSphereWires(<2 x float> %0, float %1, float noundef %2, i32 nou
   %33 = tail call float @cosf(float noundef %20) #63
   %34 = add nuw nsw i32 %.074.us, 1
   %35 = uitofp nneg i32 %34 to float
-  %36 = fmul float %35, 3.600000e+02
+  %36 = fmul nnan float %35, 3.600000e+02
   %37 = fdiv float %36, %13
   %38 = fmul float %37, 0x3F91DF46A0000000
   %39 = tail call float @sinf(float noundef %38) #63
@@ -30219,7 +30219,7 @@ define void @DrawCylinder(<2 x float> %0, float %1, float noundef %2, float noun
 .preheader101:                                    ; preds = %7, %.preheader101
   %.099105 = phi i32 [ %18, %.preheader101 ], [ 0, %7 ]
   %11 = uitofp nneg i32 %.099105 to float
-  %12 = fmul float %11, 0x3F91DF46A0000000
+  %12 = fmul nnan float %11, 0x3F91DF46A0000000
   %13 = fmul float %9, %12
   %14 = tail call float @sinf(float noundef %13) #63
   %15 = fmul float %3, %14
@@ -30228,7 +30228,7 @@ define void @DrawCylinder(<2 x float> %0, float %1, float noundef %2, float noun
   tail call void @rlVertex3f(float noundef %15, float noundef 0.000000e+00, float noundef %17) #63
   %18 = add nuw nsw i32 %.099105, 1
   %19 = uitofp nneg i32 %18 to float
-  %20 = fmul float %19, 0x3F91DF46A0000000
+  %20 = fmul nnan float %19, 0x3F91DF46A0000000
   %21 = fmul float %9, %20
   %22 = tail call float @sinf(float noundef %21) #63
   %23 = fmul float %3, %22
@@ -30262,7 +30262,7 @@ define void @DrawCylinder(<2 x float> %0, float %1, float noundef %2, float noun
   %.098106 = phi i32 [ %49, %.preheader ], [ 0, %.preheader101 ]
   tail call void @rlVertex3f(float noundef 0.000000e+00, float noundef %4, float noundef 0.000000e+00) #63
   %42 = uitofp nneg i32 %.098106 to float
-  %43 = fmul float %42, 0x3F91DF46A0000000
+  %43 = fmul nnan float %42, 0x3F91DF46A0000000
   %44 = fmul float %9, %43
   %45 = tail call float @sinf(float noundef %44) #63
   %46 = fmul float %2, %45
@@ -30271,7 +30271,7 @@ define void @DrawCylinder(<2 x float> %0, float %1, float noundef %2, float noun
   tail call void @rlVertex3f(float noundef %46, float noundef %4, float noundef %48) #63
   %49 = add nuw nsw i32 %.098106, 1
   %50 = uitofp nneg i32 %49 to float
-  %51 = fmul float %50, 0x3F91DF46A0000000
+  %51 = fmul nnan float %50, 0x3F91DF46A0000000
   %52 = fmul float %9, %51
   %53 = tail call float @sinf(float noundef %52) #63
   %54 = fmul float %2, %53
@@ -30288,7 +30288,7 @@ define void @DrawCylinder(<2 x float> %0, float %1, float noundef %2, float noun
   %.097104 = phi i32 [ %64, %.preheader102 ], [ 0, %7 ]
   tail call void @rlVertex3f(float noundef 0.000000e+00, float noundef %4, float noundef 0.000000e+00) #63
   %57 = uitofp nneg i32 %.097104 to float
-  %58 = fmul float %57, 0x3F91DF46A0000000
+  %58 = fmul nnan float %57, 0x3F91DF46A0000000
   %59 = fmul float %9, %58
   %60 = tail call float @sinf(float noundef %59) #63
   %61 = fmul float %3, %60
@@ -30297,7 +30297,7 @@ define void @DrawCylinder(<2 x float> %0, float %1, float noundef %2, float noun
   tail call void @rlVertex3f(float noundef %61, float noundef 0.000000e+00, float noundef %63) #63
   %64 = add nuw nsw i32 %.097104, 1
   %65 = uitofp nneg i32 %64 to float
-  %66 = fmul float %65, 0x3F91DF46A0000000
+  %66 = fmul nnan float %65, 0x3F91DF46A0000000
   %67 = fmul float %9, %66
   %68 = tail call float @sinf(float noundef %67) #63
   %69 = fmul float %3, %68
@@ -30317,7 +30317,7 @@ define void @DrawCylinder(<2 x float> %0, float %1, float noundef %2, float noun
   tail call void @rlVertex3f(float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00) #63
   %73 = add nuw nsw i32 %.0107, 1
   %74 = uitofp nneg i32 %73 to float
-  %75 = fmul float %74, 0x3F91DF46A0000000
+  %75 = fmul nnan float %74, 0x3F91DF46A0000000
   %76 = fmul float %9, %75
   %77 = tail call float @sinf(float noundef %76) #63
   %78 = fmul float %3, %77
@@ -30325,7 +30325,7 @@ define void @DrawCylinder(<2 x float> %0, float %1, float noundef %2, float noun
   %80 = fmul float %3, %79
   tail call void @rlVertex3f(float noundef %78, float noundef 0.000000e+00, float noundef %80) #63
   %81 = uitofp nneg i32 %.0107 to float
-  %82 = fmul float %81, 0x3F91DF46A0000000
+  %82 = fmul nnan float %81, 0x3F91DF46A0000000
   %83 = fmul float %9, %82
   %84 = tail call float @sinf(float noundef %83) #63
   %85 = fmul float %3, %84
@@ -30556,7 +30556,7 @@ define void @DrawCylinderWires(<2 x float> %0, float %1, float noundef %2, float
 11:                                               ; preds = %7, %11
   %.060 = phi i32 [ 0, %7 ], [ %19, %11 ]
   %12 = uitofp nneg i32 %.060 to float
-  %13 = fmul float %12, 0x3F91DF46A0000000
+  %13 = fmul nnan float %12, 0x3F91DF46A0000000
   %14 = fmul float %9, %13
   %15 = tail call float @sinf(float noundef %14) #63
   %16 = fmul float %3, %15
@@ -30565,7 +30565,7 @@ define void @DrawCylinderWires(<2 x float> %0, float %1, float noundef %2, float
   tail call void @rlVertex3f(float noundef %16, float noundef 0.000000e+00, float noundef %18) #63
   %19 = add nuw nsw i32 %.060, 1
   %20 = uitofp nneg i32 %19 to float
-  %21 = fmul float %20, 0x3F91DF46A0000000
+  %21 = fmul nnan float %20, 0x3F91DF46A0000000
   %22 = fmul float %9, %21
   %23 = tail call float @sinf(float noundef %22) #63
   %24 = fmul float %3, %23
@@ -34656,8 +34656,8 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1637 = getelementptr inbounds nuw i16, ptr %1604, i64 %1636
   %1638 = load i16, ptr %1637, align 2, !noalias !19
   %1639 = uitofp i16 %1638 to float
-  %1640 = fdiv float %1639, 6.553500e+04
-  %1641 = fmul float %1640, 2.550000e+02
+  %1640 = fdiv nnan float %1639, 6.553500e+04
+  %1641 = fmul nnan float %1640, 2.550000e+02
   %1642 = fptoui float %1641 to i8
   %1643 = load ptr, ptr %1122, align 8, !noalias !19
   %1644 = getelementptr inbounds nuw i8, ptr %1643, i64 %1635
@@ -34667,8 +34667,8 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1647 = getelementptr inbounds nuw i16, ptr %1604, i64 %1646
   %1648 = load i16, ptr %1647, align 2, !noalias !19
   %1649 = uitofp i16 %1648 to float
-  %1650 = fdiv float %1649, 6.553500e+04
-  %1651 = fmul float %1650, 2.550000e+02
+  %1650 = fdiv nnan float %1649, 6.553500e+04
+  %1651 = fmul nnan float %1650, 2.550000e+02
   %1652 = fptoui float %1651 to i8
   %1653 = load ptr, ptr %1122, align 8, !noalias !19
   %1654 = or disjoint i32 %.08921290.i, 1
@@ -34680,8 +34680,8 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1659 = getelementptr inbounds nuw i16, ptr %1604, i64 %1658
   %1660 = load i16, ptr %1659, align 2, !noalias !19
   %1661 = uitofp i16 %1660 to float
-  %1662 = fdiv float %1661, 6.553500e+04
-  %1663 = fmul float %1662, 2.550000e+02
+  %1662 = fdiv nnan float %1661, 6.553500e+04
+  %1663 = fmul nnan float %1662, 2.550000e+02
   %1664 = fptoui float %1663 to i8
   %1665 = load ptr, ptr %1122, align 8, !noalias !19
   %1666 = or disjoint i32 %.08921290.i, 2
@@ -34946,8 +34946,8 @@ LoadIQM.exit:                                     ; preds = %301, %306, %310, %.
   %1831 = getelementptr inbounds nuw i16, ptr %1804, i64 %1830
   %1832 = load i16, ptr %1831, align 2, !noalias !19
   %1833 = uitofp i16 %1832 to float
-  %1834 = fdiv float %1833, 6.553500e+04
-  %1835 = fmul float %1834, 2.550000e+02
+  %1834 = fdiv nnan float %1833, 6.553500e+04
+  %1835 = fmul nnan float %1834, 2.550000e+02
   %1836 = fptoui float %1835 to i8
   %1837 = load ptr, ptr %1122, align 8, !noalias !19
   %1838 = getelementptr inbounds nuw i8, ptr %1837, i64 %1830
@@ -35434,8 +35434,8 @@ LoadBoneInfoGLTF.exit.i:                          ; preds = %2072, %2050
   %.sroa.13.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %2108, i64 36
   store float %.sroa.13.0.i.i, ptr %.sroa.13.0..sroa_idx.i.i, align 4, !noalias !19
   %2140 = call float @llvm.fabs.f32(float %2124)
-  %2141 = call float @llvm.maxnum.f32(float %2140, float 1.000000e+00)
-  %2142 = fmul float %2141, 0x3EB0C6F7A0000000
+  %2141 = call nsz float @llvm.maxnum.f32(float %2140, float 1.000000e+00)
+  %2142 = fmul nnan float %2141, 0x3EB0C6F7A0000000
   %2143 = fcmp ugt float %2140, %2142
   br i1 %2143, label %2144, label %MatrixDecompose.exit.i
 
@@ -43973,7 +43973,7 @@ cgltf_accessor_read_float.exit.thread200.us.i:    ; preds = %cgltf_accessor_read
   store ptr %1062, ptr %1064, align 8
   %1065 = trunc nuw nsw i64 %indvars.iv231.i to i32
   %1066 = uitofp nneg i32 %1065 to float
-  %1067 = fmul float %1066, 1.700000e+01
+  %1067 = fmul nnan float %1066, 1.700000e+01
   %1068 = fdiv float %1067, 1.000000e+03
   %1069 = load i32, ptr %936, align 8
   %1070 = icmp sgt i32 %1069, 0
@@ -46994,7 +46994,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias writable sret(%struct.M
   %64 = zext i8 %63 to i32
   %65 = add nuw nsw i32 %61, %64
   %66 = uitofp nneg i32 %65 to float
-  %67 = fdiv float %66, 3.000000e+00
+  %67 = fdiv nnan float %66, 3.000000e+00
   %68 = fmul float %32, %67
   %69 = getelementptr i8, ptr %55, i64 4
   store float %68, ptr %69, align 4
@@ -47014,7 +47014,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias writable sret(%struct.M
   %80 = zext i8 %79 to i32
   %81 = add nuw nsw i32 %77, %80
   %82 = uitofp nneg i32 %81 to float
-  %83 = fdiv float %82, 3.000000e+00
+  %83 = fdiv nnan float %82, 3.000000e+00
   %84 = fmul float %32, %83
   %85 = getelementptr i8, ptr %55, i64 16
   store float %84, ptr %85, align 4
@@ -47038,7 +47038,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias writable sret(%struct.M
   %99 = zext i8 %98 to i32
   %100 = add nuw nsw i32 %96, %99
   %101 = uitofp nneg i32 %100 to float
-  %102 = fdiv float %101, 3.000000e+00
+  %102 = fdiv nnan float %101, 3.000000e+00
   %103 = fmul float %32, %102
   %104 = getelementptr i8, ptr %55, i64 28
   store float %103, ptr %104, align 4
@@ -47070,7 +47070,7 @@ define void @GenMeshHeightmap(ptr dead_on_unwind noalias writable sret(%struct.M
   %121 = zext i8 %120 to i32
   %122 = add nuw nsw i32 %118, %121
   %123 = uitofp nneg i32 %122 to float
-  %124 = fdiv float %123, 3.000000e+00
+  %124 = fdiv nnan float %123, 3.000000e+00
   %125 = fmul float %32, %124
   %126 = getelementptr i8, ptr %55, i64 64
   store float %125, ptr %126, align 4
@@ -47254,9 +47254,9 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
 
 .lr.ph:                                           ; preds = %.preheader1058
   %24 = uitofp nneg i32 %.010501068 to float
-  %25 = fadd float %24, -5.000000e-01
+  %25 = fadd nnan float %24, -5.000000e-01
   %26 = fmul float %3, %25
-  %27 = fadd float %24, 5.000000e-01
+  %27 = fadd nnan float %24, 5.000000e-01
   %28 = fmul float %3, %27
   %29 = add nuw nsw i32 %.010501068, 1
   %cond = icmp eq i32 %.010501068, 0
@@ -47318,9 +47318,9 @@ define void @GenMeshCubicmap(ptr dead_on_unwind noalias writable sret(%struct.Me
   %.110451063 = phi i32 [ %.010441069, %.lr.ph ], [ %.51049, %.thread ]
   %.010511059 = phi i32 [ 0, %.lr.ph ], [ %363, %.thread ]
   %54 = uitofp nneg i32 %.010511059 to float
-  %55 = fadd float %54, -5.000000e-01
+  %55 = fadd nnan float %54, -5.000000e-01
   %56 = fmul float %.sroa.01030.0.vec.extract, %55
-  %57 = fadd float %54, 5.000000e-01
+  %57 = fadd nnan float %54, 5.000000e-01
   %58 = fmul float %.sroa.01030.0.vec.extract, %57
   %59 = mul nsw i32 %53, %.010501068
   %60 = add nsw i32 %59, %.010511059
@@ -70430,9 +70430,9 @@ cgltf_accessor_read_float.exit187:                ; preds = %51, %cgltf_buffer_v
   %71 = tail call float @llvm.fabs.f32(float %70)
   %72 = tail call float @llvm.fabs.f32(float %69)
   %73 = tail call float @llvm.fabs.f32(float %68)
-  %74 = tail call float @llvm.maxnum.f32(float %72, float %73)
-  %75 = tail call float @llvm.maxnum.f32(float %74, float 1.000000e+00)
-  %76 = fmul float %75, 0x3EB0C6F7A0000000
+  %74 = tail call nsz float @llvm.maxnum.f32(float %72, float %73)
+  %75 = tail call nsz float @llvm.maxnum.f32(float %74, float 1.000000e+00)
+  %76 = fmul nnan float %75, 0x3EB0C6F7A0000000
   %77 = fcmp ugt float %71, %76
   br i1 %77, label %78, label %.thread229
 

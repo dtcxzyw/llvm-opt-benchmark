@@ -618,11 +618,11 @@ define dso_local void @_Z11init_tables5Gamut(i32 noundef %0) local_unnamed_addr 
   %indvars.iv62 = phi i64 [ 0, %15 ], [ %indvars.iv.next63, %77 ]
   %20 = trunc nuw nsw i64 %indvars.iv62 to i32
   %21 = uitofp nneg i32 %20 to double
-  %22 = fmul double %21, 0x3FFAAAAAAAAAAAAB
+  %22 = fmul nnan double %21, 0x3FFAAAAAAAAAAAAB
   %23 = fadd double %22, 3.600000e+02
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %24 = fadd double %23, -3.600000e+02
-  %25 = fmul double %24, 2.000000e-01
+  %24 = fadd nnan double %23, -3.600000e+02
+  %25 = fmul nnan double %24, 2.000000e-01
   %26 = fptosi double %25 to i32
   %spec.store.select.i = tail call i32 @llvm.smax.i32(i32 %26, i32 0)
   %spec.store.select1.i = tail call i32 @llvm.umin.i32(i32 %spec.store.select.i, i32 93)
@@ -1374,7 +1374,7 @@ _Z12LUPDecomposePPdidPi.exit:                     ; preds = %.loopexit.i
   br i1 %165, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %157
-  %166 = fdiv double 2.000000e+02, %164
+  %166 = fdiv nnan double 2.000000e+02, %164
   br label %176
 
 _Z8LUPSolvePPdPKiPKdiS_.exit:                     ; preds = %._crit_edge49.i, %_Z8LUPSolvePPdPKiPKdiS_.exit

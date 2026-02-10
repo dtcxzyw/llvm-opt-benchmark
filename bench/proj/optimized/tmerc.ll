@@ -524,8 +524,8 @@ define hidden noundef ptr @_Z32pj_projection_specific_setup_utmP8PJconsts(ptr no
 46:                                               ; preds = %27, %35, %44
   %.036 = phi i64 [ 0, %35 ], [ %45, %44 ], [ %32, %27 ]
   %47 = uitofp nneg i64 %.036 to double
-  %48 = fadd double %47, 5.000000e-01
-  %49 = fmul double %48, 0x400921FB54442D18
+  %48 = fadd nnan double %47, 5.000000e-01
+  %49 = fmul nnan double %48, 0x400921FB54442D18
   %50 = fdiv double %49, 3.000000e+01
   %51 = fadd double %50, 0xC00921FB54442D18
   store double %51, ptr %9, align 8, !tbaa !81
@@ -1142,7 +1142,7 @@ define internal { double, double } @_ZL11exact_e_inv5PJ_XYP8PJconsts(double %0, 
   %16 = fmul double %15, 2.000000e+00
   %17 = tail call double @sin(double noundef %16) #13, !tbaa !76
   %18 = tail call double @cos(double noundef %16) #13, !tbaa !76
-  %19 = fmul double %8, 2.000000e+00
+  %19 = fmul nnan double %8, 2.000000e+00
   %20 = tail call double @exp(double noundef %19) #13, !tbaa !76
   %21 = fdiv double 5.000000e-01, %20
   %22 = fneg double %21

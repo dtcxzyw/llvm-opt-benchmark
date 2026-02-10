@@ -20629,7 +20629,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn28TextDetectionModel_EAST_Impl20detec
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 %109
   %123 = trunc nuw nsw i64 %indvars.iv326 to i32
   %124 = uitofp nneg i32 %123 to float
-  %125 = fmul float %124, 4.000000e+00
+  %125 = fmul nnan float %124, 4.000000e+00
   br label %126
 
 126:                                              ; preds = %.lr.ph.us, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit.us
@@ -20643,7 +20643,7 @@ define linkonce_odr hidden void @_ZN2cv3dnn28TextDetectionModel_EAST_Impl20detec
 131:                                              ; preds = %126
   %132 = trunc nuw nsw i64 %indvars.iv to i32
   %133 = uitofp nneg i32 %132 to float
-  %134 = fmul float %133, 4.000000e+00
+  %134 = fmul nnan float %133, 4.000000e+00
   %135 = getelementptr inbounds nuw float, ptr %122, i64 %indvars.iv
   %136 = load float, ptr %135, align 4, !tbaa !102
   %137 = call noundef float @cosf(float noundef %136) #33, !tbaa !98
@@ -23969,7 +23969,7 @@ _ZNKSt6vectorIN2cv6Point_IfEESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i85: ; preds =
   %62 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %61)
   %63 = sub nsw i32 %60, %62
   %64 = sitofp i32 %63 to double
-  %65 = fmul double %64, %64
+  %65 = fmul nnan double %64, %64
   %66 = call double @llvm.fmuladd.f64(double %58, double %58, double %65)
   %sqrt.i = call noundef double @llvm.sqrt.f64(double %66)
   %67 = fdiv double %19, %sqrt.i

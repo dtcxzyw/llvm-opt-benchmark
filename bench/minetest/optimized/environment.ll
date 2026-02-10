@@ -1255,7 +1255,7 @@ for.cond137.preheader:                            ; preds = %for.cond127.prehead
   %found_boxcenter.sroa.0.11167 = phi <2 x float> [ %found_boxcenter.sroa.0.7, %for.cond137.for.cond.cleanup143_crit_edge.split ], [ %found_boxcenter.sroa.0.01258, %for.cond127.preheader ]
   %np.sroa.0.0.insert.ext716 = zext i16 %x.01169 to i48
   %conv.i532 = sitofp i16 %x.01169 to float
-  %mul.i = fmul nsz float %conv.i532, 1.000000e+01
+  %mul.i = fmul nnan nsz float %conv.i532, 1.000000e+01
   %32 = insertelement <2 x float> poison, float %mul.i, i64 0
   br label %for.cond147.preheader
 
@@ -1267,7 +1267,7 @@ for.cond147.preheader:                            ; preds = %for.cond147.for.con
   %np.sroa.8.0.insert.ext723 = zext i16 %y.01126 to i48
   %np.sroa.8.0.insert.shift724 = shl nuw nsw i48 %np.sroa.8.0.insert.ext723, 16
   %conv1.i = sitofp i16 %y.01126 to float
-  %mul2.i = fmul nsz float %conv1.i, 1.000000e+01
+  %mul2.i = fmul nnan nsz float %conv1.i, 1.000000e+01
   %33 = insertelement <2 x float> %32, float %mul2.i, i64 1
   %invariant.op = or disjoint i48 %np.sroa.8.0.insert.shift724, %np.sroa.0.0.insert.ext716
   br label %for.body154
@@ -1367,7 +1367,7 @@ invoke.cont169:                                   ; preds = %if.end166
 
 invoke.cont179:                                   ; preds = %invoke.cont169
   %conv3.i = sitofp i16 %z.01095 to float
-  %mul4.i = fmul nsz float %conv3.i, 1.000000e+01
+  %mul4.i = fmul nnan nsz float %conv3.i, 1.000000e+01
   %41 = load <2 x float>, ptr %state, align 4, !tbaa !42
   %42 = fsub nsz <2 x float> %41, %33
   %43 = load float, ptr %Z.i538, align 4, !tbaa !133

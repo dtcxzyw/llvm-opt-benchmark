@@ -91,7 +91,7 @@ define void @_ZN6LibRaw18canon_600_fixed_wbEi(ptr noundef nonnull writeonly alig
   %36 = getelementptr inbounds nuw i16, ptr %31, i64 %indvars.iv35
   %37 = load i16, ptr %36, align 2, !tbaa !6
   %38 = sitofp i16 %37 to float
-  %39 = fsub reassoc nsz arcp contract afn float %35, %38
+  %39 = fsub reassoc nnan nsz arcp contract afn float %35, %38
   %40 = fmul reassoc nsz arcp contract afn float %39, %.0
   %41 = fadd reassoc nsz arcp contract afn float %40, %38
   %42 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %41
@@ -638,7 +638,7 @@ define void @_ZN6LibRaw15canon_600_coeffEv(ptr noundef nonnull align 8 captures(
   %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
   %34 = load i16, ptr %gep, align 2, !tbaa !6
   %35 = sitofp i16 %34 to float
-  %36 = fmul reassoc nsz arcp contract afn float %35, 0x3F50000000000000
+  %36 = fmul reassoc nnan nsz arcp contract afn float %35, 0x3F50000000000000
   %37 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
   store float %36, ptr %37, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -895,8 +895,8 @@ define void @_ZN6LibRaw17canon_600_correctEv(ptr noundef nonnull align 8 derefer
   %59 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN6LibRaw18canon_600_fixed_wbEiE3mul, i64 20), i64 %indvars.iv35.i
   %60 = load i16, ptr %59, align 2, !tbaa !6
   %61 = sitofp i16 %60 to float
-  %62 = fsub reassoc nsz arcp contract afn float %58, %61
-  %63 = fmul reassoc nsz arcp contract afn float %62, 0x3FE5F15F20000000
+  %62 = fsub reassoc nnan nsz arcp contract afn float %58, %61
+  %63 = fmul reassoc nnan nsz arcp contract afn float %62, 0x3FE5F15F20000000
   %64 = fadd reassoc nsz arcp contract afn float %63, %61
   %65 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %64
   %66 = getelementptr float, ptr %0, i64 %indvars.iv35.i
@@ -971,7 +971,7 @@ _ZN6LibRaw18canon_600_fixed_wbEi.exit:            ; preds = %.split.loop.exit41.
   %gep.i = getelementptr inbounds nuw i16, ptr %invariant.gep.i, i64 %indvars.iv.i19
   %101 = load i16, ptr %gep.i, align 2, !tbaa !6
   %102 = sitofp i16 %101 to float
-  %103 = fmul reassoc nsz arcp contract afn float %102, 0x3F50000000000000
+  %103 = fmul reassoc nnan nsz arcp contract afn float %102, 0x3F50000000000000
   %104 = getelementptr inbounds nuw float, ptr %99, i64 %indvars.iv.i19
   store float %103, ptr %104, align 4, !tbaa !13
   %indvars.iv.next.i20 = add nuw nsw i64 %indvars.iv.i19, 1

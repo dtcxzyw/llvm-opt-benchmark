@@ -4913,7 +4913,7 @@ declare void @_ZN14duckdb_parquet17BloomFilterHeaderD1Ev(ptr noundef nonnull ali
 define void @_ZN6duckdb18ParquetBloomFilterC2Emd(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, i64 noundef %1, double noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8, !tbaa !208
   %4 = uitofp i64 %1 to double
-  %5 = fmul double %4, -8.000000e+00
+  %5 = fmul nnan double %4, -8.000000e+00
   %6 = tail call double @pow(double noundef %2, double noundef 1.250000e-01) #25, !tbaa !39
   %7 = fsub double 1.000000e+00, %6
   %8 = tail call double @log(double noundef %7) #25, !tbaa !39
@@ -5164,7 +5164,7 @@ define noundef double @_ZN6duckdb18ParquetBloomFilter8OneRatioEv(ptr noundef non
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !212
   %11 = uitofp i64 %10 to double
-  %12 = fmul double %11, 8.000000e+00
+  %12 = fmul nnan double %11, 8.000000e+00
   %13 = fdiv double %.06.lcssa, %12
   ret double %13
 

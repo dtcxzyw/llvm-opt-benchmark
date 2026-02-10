@@ -6135,7 +6135,7 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImiEE
   %124 = load i32, ptr %123, align 8
   %125 = add nsw i32 %124, -1
   %126 = sitofp i32 %125 to double
-  %127 = fmul double %126, 5.000000e-01
+  %127 = fmul nnan double %126, 5.000000e-01
   %128 = fptrunc double %127 to float
   br label %129
 

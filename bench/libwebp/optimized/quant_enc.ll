@@ -58,8 +58,8 @@ define hidden void @VP8SetSegmentParams(ptr noundef %0, float noundef %1) local_
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %8 = load i32, ptr %7, align 4, !tbaa !25
   %9 = sitofp i32 %8 to double
-  %10 = fmul double %9, 9.000000e-01
-  %11 = fdiv double %10, 1.000000e+02
+  %10 = fmul nnan double %9, 9.000000e-01
+  %11 = fdiv nnan double %10, 1.000000e+02
   %12 = fpext float %1 to double
   %13 = fdiv double %12, 1.000000e+02
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 80
@@ -89,7 +89,7 @@ QualityToJPEGCompression.exit:                    ; preds = %16, %22
 
 29:                                               ; preds = %2
   %30 = fcmp olt double %13, 7.500000e-01
-  %31 = fmul double %13, 0x3FE5555555555555
+  %31 = fmul nnan double %13, 0x3FE5555555555555
   %32 = tail call double @llvm.fmuladd.f64(double %13, double 2.000000e+00, double -1.000000e+00)
   %33 = select i1 %30, double %31, double %32
   %34 = tail call double @pow(double noundef %33, double noundef 0x3FD5555555555555) #12, !tbaa !30
@@ -109,7 +109,7 @@ QualityToJPEGCompression.exit:                    ; preds = %16, %22
 
 .lr.ph:                                           ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  %42 = fmul double %11, -7.812500e-03
+  %42 = fmul nnan double %11, -7.812500e-03
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %43
 

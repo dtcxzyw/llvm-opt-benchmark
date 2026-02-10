@@ -2398,7 +2398,7 @@ _ZNK6icu_778TimeZone5getIDERNS_13UnicodeStringE.exit: ; preds = %14
 _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %119, %135, %140
   %.0.i.i = phi i64 [ %130, %119 ], [ %139, %135 ], [ %152, %140 ]
   %153 = sitofp i64 %.0.i.i to double
-  %154 = fmul double %153, 1.000000e+03
+  %154 = fmul nnan double %153, 1.000000e+03
   %155 = fcmp ugt double %154, %109
   %or.cond = select i1 %108, i1 %155, i1 false
   br i1 %or.cond, label %160, label %156
@@ -2899,7 +2899,7 @@ define linkonce_odr noundef double @_ZNK6icu_7713OlsonTimeZone14transitionTimeEs
 _ZNK6icu_7713OlsonTimeZone23transitionTimeInSecondsEs.exit: ; preds = %6, %25, %32
   %.0.i = phi i64 [ %19, %6 ], [ %31, %25 ], [ %46, %32 ]
   %47 = sitofp i64 %.0.i to double
-  %48 = fmul double %47, 1.000000e+03
+  %48 = fmul nnan double %47, 1.000000e+03
   ret double %48
 }
 
@@ -3095,7 +3095,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
 _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %78, %92, %97
   %.0.i.i = phi i64 [ %88, %78 ], [ %96, %92 ], [ %109, %97 ]
   %110 = sitofp i64 %.0.i.i to double
-  %111 = fmul double %110, 1.000000e+03
+  %111 = fmul nnan double %110, 1.000000e+03
   %112 = fcmp ule double %1, %111
   %113 = fcmp une double %1, %111
   %or.cond.not64 = or i1 %.not55, %113
@@ -3197,7 +3197,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %78, %92, %97
 178:                                              ; preds = %165, %160, %146
   %.0.i.i59 = phi i64 [ %156, %146 ], [ %164, %160 ], [ %177, %165 ]
   %179 = sitofp i64 %.0.i.i59 to double
-  %180 = fmul double %179, 1.000000e+03
+  %180 = fmul nnan double %179, 1.000000e+03
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !35
   %181 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3519,7 +3519,7 @@ _ZNK6icu_7713OlsonTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = %
 _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %77, %92, %97
   %.0.i.i = phi i64 [ %88, %77 ], [ %96, %92 ], [ %109, %97 ]
   %110 = sitofp i64 %.0.i.i to double
-  %111 = fmul double %110, 1.000000e+03
+  %111 = fmul nnan double %110, 1.000000e+03
   %112 = fcmp ule double %1, %111
   %113 = fcmp une double %1, %111
   %or.cond.not60 = or i1 %.not53, %113
@@ -3596,7 +3596,7 @@ _ZNK6icu_7713OlsonTimeZone14transitionTimeEs.exit: ; preds = %77, %92, %97
 167:                                              ; preds = %154, %149, %134
   %.0.i.i56 = phi i64 [ %145, %134 ], [ %153, %149 ], [ %166, %154 ]
   %168 = sitofp i64 %.0.i.i56 to double
-  %169 = fmul double %168, 1.000000e+03
+  %169 = fmul nnan double %168, 1.000000e+03
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !35
   %170 = getelementptr inbounds nuw i8, ptr %6, i64 8

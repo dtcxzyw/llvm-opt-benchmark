@@ -927,7 +927,7 @@ define internal i64 @FastSLog2Slow_C(i32 noundef %0) #7 {
 
 21:                                               ; preds = %1
   %22 = uitofp i32 %0 to double
-  %23 = fmul double %22, 0x41671547652B82FE
+  %23 = fmul nnan double %22, 0x41671547652B82FE
   %24 = tail call double @log(double noundef %22) #13, !tbaa !9
   %25 = tail call double @llvm.fmuladd.f64(double %23, double %24, double 5.000000e-01)
   %26 = fptoui double %25 to i64

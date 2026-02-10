@@ -32597,7 +32597,7 @@ define linkonce_odr void @_ZN5Eigen8internal16parallelize_gemmILb1ENS0_12gemm_fu
   %.sroa.speculated31 = tail call i64 @llvm.smax.i64(i64 %13, i64 1)
   %14 = sitofp i64 %1 to double
   %15 = sitofp i64 %2 to double
-  %16 = fmul double %14, %15
+  %16 = fmul nnan double %14, %15
   %17 = sitofp i64 %3 to double
   %18 = fmul double %16, %17
   %19 = fdiv double %18, 5.000000e+04

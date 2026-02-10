@@ -460,7 +460,7 @@ define internal fastcc void @check_params(ptr noundef captures(none) %0, ptr nou
   %18 = mul i32 %17, %16
   %19 = add nsw i32 %18, %13
   %20 = sitofp i32 %19 to float
-  %21 = fmul nsz float %20, 2.000000e+00
+  %21 = fmul nnan nsz float %20, 2.000000e+00
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load float, ptr %22, align 4, !tbaa !73
   %24 = fmul nsz float %23, %21

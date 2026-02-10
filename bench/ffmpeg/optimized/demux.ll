@@ -10104,8 +10104,8 @@ define internal fastcc void @update_stream_timings(ptr noundef %0) unnamed_addr 
 
 151:                                              ; preds = %147
   %152 = uitofp nneg i64 %145 to double
-  %153 = fmul nsz double %152, 8.000000e+00
-  %154 = fmul nsz double %153, 1.000000e+06
+  %153 = fmul nnan nsz double %152, 8.000000e+00
+  %154 = fmul nnan nsz double %153, 1.000000e+06
   %155 = uitofp nneg i64 %149 to double
   %156 = fdiv nsz double %154, %155
   %157 = fcmp nsz oge double %156, 0.000000e+00

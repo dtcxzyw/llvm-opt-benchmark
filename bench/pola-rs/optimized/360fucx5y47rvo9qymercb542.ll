@@ -43720,7 +43720,7 @@ define { i32, float } @"_ZN62_$LT$f32$u20$as$u20$polars_compute..cast..binary_to
 
 30:                                               ; preds = %19
   %31 = uitofp nneg i64 %24 to float
-  %32 = fmul float %31, 1.000000e+10
+  %32 = fmul nnan float %31, 1.000000e+10
   br label %33
 
 33:                                               ; preds = %41, %37, %30
@@ -44257,7 +44257,7 @@ define { i64, double } @"_ZN62_$LT$f64$u20$as$u20$polars_compute..cast..binary_t
 
 30:                                               ; preds = %19
   %31 = uitofp nneg i64 %24 to double
-  %32 = fmul double %31, 1.000000e+22
+  %32 = fmul nnan double %31, 1.000000e+22
   br label %33
 
 33:                                               ; preds = %41, %37, %30

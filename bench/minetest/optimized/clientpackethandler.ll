@@ -14452,7 +14452,7 @@ entry:
   %call2 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERt(ptr noundef nonnull align 8 dereferenceable(36) %call, ptr noundef nonnull align 2 dereferenceable(2) %day_night_ratio_u)
   %0 = load i16, ptr %day_night_ratio_u, align 2, !tbaa !51
   %conv = uitofp i16 %0 to float
-  %div = fmul nsz float %conv, 0x3EF0000000000000
+  %div = fmul nnan nsz float %conv, 0x3EF0000000000000
   call void @llvm.lifetime.start.p0(ptr nonnull %event)
   %call3 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call3, i8 0, i64 40, i1 false)

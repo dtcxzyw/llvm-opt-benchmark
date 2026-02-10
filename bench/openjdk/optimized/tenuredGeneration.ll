@@ -397,9 +397,9 @@ define hidden void @_ZN17TenuredGeneration22compute_new_size_innerEv(ptr noundef
   br i1 %.not66, label %44, label %40
 
 40:                                               ; preds = %38
-  %41 = fmul double %30, 0x3F50000000000000
-  %42 = fmul double %19, 0x3F50000000000000
-  %43 = fmul double %31, 0x3F50000000000000
+  %41 = fmul nnan double %30, 0x3F50000000000000
+  %42 = fmul nnan double %19, 0x3F50000000000000
+  %43 = fmul nnan double %31, 0x3F50000000000000
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.8, double noundef %41, double noundef %42, double noundef %43)
   br label %44
 
@@ -434,12 +434,12 @@ define hidden void @_ZN17TenuredGeneration22compute_new_size_innerEv(ptr noundef
 
 57:                                               ; preds = %55
   %58 = uitofp i64 %25 to double
-  %59 = fmul double %58, 0x3F50000000000000
+  %59 = fmul nnan double %58, 0x3F50000000000000
   %60 = uitofp i64 %50 to double
-  %61 = fmul double %60, 0x3F50000000000000
+  %61 = fmul nnan double %60, 0x3F50000000000000
   %62 = load i64, ptr %51, align 8
   %63 = uitofp i64 %62 to double
-  %64 = fmul double %63, 0x3F50000000000000
+  %64 = fmul nnan double %63, 0x3F50000000000000
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.10, double noundef %59, double noundef %61, double noundef %64)
   br label %144
 
@@ -476,11 +476,11 @@ define hidden void @_ZN17TenuredGeneration22compute_new_size_innerEv(ptr noundef
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %85 = load i64, ptr %84, align 8
   %86 = uitofp i64 %85 to double
-  %87 = fmul double %86, 0x3F50000000000000
+  %87 = fmul nnan double %86, 0x3F50000000000000
   %88 = uitofp i64 %25 to double
-  %89 = fmul double %88, 0x3F50000000000000
+  %89 = fmul nnan double %88, 0x3F50000000000000
   %90 = uitofp i64 %78 to double
-  %91 = fmul double %90, 0x3F50000000000000
+  %91 = fmul nnan double %90, 0x3F50000000000000
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.12, double noundef %87, double noundef %89, double noundef %91)
   br label %92
 
@@ -520,9 +520,9 @@ define hidden void @_ZN17TenuredGeneration22compute_new_size_innerEv(ptr noundef
 107:                                              ; preds = %105
   %108 = load i64, ptr @OldSize, align 8
   %109 = uitofp i64 %108 to double
-  %110 = fmul double %109, 0x3F50000000000000
+  %110 = fmul nnan double %109, 0x3F50000000000000
   %111 = uitofp i64 %78 to double
-  %112 = fmul double %111, 0x3F50000000000000
+  %112 = fmul nnan double %111, 0x3F50000000000000
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.13, double noundef %110, double noundef %112)
   br label %113
 
@@ -533,12 +533,12 @@ define hidden void @_ZN17TenuredGeneration22compute_new_size_innerEv(ptr noundef
 
 115:                                              ; preds = %113
   %116 = uitofp i64 %.1 to double
-  %117 = fmul double %116, 0x3F50000000000000
+  %117 = fmul nnan double %116, 0x3F50000000000000
   %118 = load i64, ptr %2, align 8
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %120 = load i64, ptr %119, align 8
   %121 = uitofp i64 %120 to double
-  %122 = fmul double %121, 0x3F50000000000000
+  %122 = fmul nnan double %121, 0x3F50000000000000
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.14, double noundef %117, i64 noundef %3, i64 noundef %118, double noundef %122)
   br label %123
 
@@ -558,13 +558,13 @@ define hidden void @_ZN17TenuredGeneration22compute_new_size_innerEv(ptr noundef
   br i1 %.not72, label %140, label %132
 
 132:                                              ; preds = %127
-  %133 = fmul double %31, 0x3F50000000000000
+  %133 = fmul nnan double %31, 0x3F50000000000000
   %134 = uitofp i64 %125 to double
-  %135 = fmul double %134, 0x3F50000000000000
+  %135 = fmul nnan double %134, 0x3F50000000000000
   %136 = uitofp i64 %129 to double
-  %137 = fmul double %136, 0x3F50000000000000
+  %137 = fmul nnan double %136, 0x3F50000000000000
   %138 = uitofp i64 %130 to double
-  %139 = fmul double %138, 0x3F50000000000000
+  %139 = fmul nnan double %138, 0x3F50000000000000
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_52ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.15, double noundef %133, double noundef %135, double noundef %137, double noundef %139)
   br label %140
 

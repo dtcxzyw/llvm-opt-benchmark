@@ -7000,7 +7000,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %164
   %180 = getelementptr inbounds nuw i8, ptr %155, i64 4
   %181 = load i32, ptr %180, align 4, !tbaa !37
   %182 = sitofp i32 %181 to double
-  %183 = fmul double %182, 5.000000e-01
+  %183 = fmul nnan double %182, 5.000000e-01
   %184 = getelementptr inbounds nuw i8, ptr %178, i64 16
   store double %183, ptr %184, align 8, !tbaa !22
   %185 = load i64, ptr %179, align 8, !tbaa !72
@@ -7010,7 +7010,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %164
   %188 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %189 = load i32, ptr %188, align 4, !tbaa !49
   %190 = sitofp i32 %189 to double
-  %191 = fmul double %190, 5.000000e-01
+  %191 = fmul nnan double %190, 5.000000e-01
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 16
   store double %191, ptr %192, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -7068,7 +7068,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i136:            ; preds = %193
   %209 = getelementptr inbounds nuw i8, ptr %157, i64 4
   %210 = load i32, ptr %209, align 4, !tbaa !37
   %211 = sitofp i32 %210 to double
-  %212 = fmul double %211, 5.000000e-01
+  %212 = fmul nnan double %211, 5.000000e-01
   %213 = getelementptr inbounds nuw i8, ptr %207, i64 16
   store double %212, ptr %213, align 8, !tbaa !22
   %214 = load i64, ptr %208, align 8, !tbaa !72
@@ -7078,7 +7078,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i136:            ; preds = %193
   %217 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %218 = load i32, ptr %217, align 4, !tbaa !49
   %219 = sitofp i32 %218 to double
-  %220 = fmul double %219, 5.000000e-01
+  %220 = fmul nnan double %219, 5.000000e-01
   %221 = getelementptr inbounds nuw i8, ptr %215, i64 16
   store double %220, ptr %221, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %20)

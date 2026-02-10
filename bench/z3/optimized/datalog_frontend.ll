@@ -800,8 +800,8 @@ _ZN9stopwatch4stopEv.exit._crit_edge:             ; preds = %163, %160
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_piece_timer, i64 8), align 8, !tbaa !229
   %168 = sdiv i64 %.pre, 1000000
   %169 = sitofp i64 %168 to double
-  %170 = fdiv double %169, 1.000000e+03
-  %171 = fmul double %170, 1.000000e+03
+  %170 = fdiv nnan double %169, 1.000000e+03
+  %171 = fmul nnan double %170, 1.000000e+03
   %172 = fptosi double %171 to i32
   store i32 %172, ptr @_ZL9t_parsing, align 4, !tbaa !230
   %173 = invoke noundef i32 @_Z19get_verbosity_levelv()
@@ -2144,8 +2144,8 @@ _ZN9stopwatch4stopEv.exit._crit_edge:             ; preds = %14, %_ZNSt10lock_gu
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_piece_timer, i64 8), align 8, !tbaa !229
   %19 = sdiv i64 %.pre, 1000000
   %20 = sitofp i64 %19 to double
-  %21 = fdiv double %20, 1.000000e+03
-  %22 = fmul double %21, 1.000000e+03
+  %21 = fdiv nnan double %20, 1.000000e+03
+  %22 = fmul nnan double %21, 1.000000e+03
   %23 = fptosi double %22 to i32
   %24 = trunc nuw i8 %.pre2 to i1
   br i1 %24, label %25, label %_ZN9stopwatch4stopEv.exit58
@@ -2502,8 +2502,8 @@ _ZN9stopwatch4stopEv.exit.i92:                    ; preds = %_ZStlsISt11char_tra
   %139 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZL14g_overall_time, i64 8), align 8, !tbaa !229
   %140 = sdiv i64 %139, 1000000
   %141 = sitofp i64 %140 to double
-  %142 = fdiv double %141, 1.000000e+03
-  %143 = fmul double %142, 1.000000e+03
+  %142 = fdiv nnan double %141, 1.000000e+03
+  %143 = fmul nnan double %142, 1.000000e+03
   %144 = fptosi double %143 to i32
   %145 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, i32 noundef %144)
           to label %146 unwind label %66

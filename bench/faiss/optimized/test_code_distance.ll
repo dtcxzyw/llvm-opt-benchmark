@@ -621,8 +621,8 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i130: ; preds = %_ZNSt6vectorIf
   %142 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #12
   %143 = sub nsw i64 %142, %136
   %144 = sitofp i64 %143 to double
-  %145 = fdiv double %144, 1.000000e+09
-  %146 = fmul double %145, 1.000000e+03
+  %145 = fdiv nnan double %144, 1.000000e+09
+  %146 = fmul nnan double %145, 1.000000e+03
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %147 = load i64, ptr %6, align 8, !tbaa !5
   %148 = icmp ugt i64 %147, 2305843009213693951
@@ -680,8 +680,8 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i140: ; preds = %_ZNSt6vectorIf
   %163 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #12
   %164 = sub nsw i64 %163, %157
   %165 = sitofp i64 %164 to double
-  %166 = fdiv double %165, 1.000000e+09
-  %167 = fmul double %166, 1.000000e+03
+  %166 = fdiv nnan double %165, 1.000000e+09
+  %167 = fmul nnan double %166, 1.000000e+03
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %168 = load i64, ptr %6, align 8, !tbaa !5
   %169 = icmp ugt i64 %168, 2305843009213693951
@@ -739,8 +739,8 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i152: ; preds = %_ZNSt6vectorIf
   %184 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #12
   %185 = sub nsw i64 %184, %178
   %186 = sitofp i64 %185 to double
-  %187 = fdiv double %186, 1.000000e+09
-  %188 = fmul double %187, 1.000000e+03
+  %187 = fdiv nnan double %186, 1.000000e+09
+  %188 = fmul nnan double %187, 1.000000e+03
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %189 = load i64, ptr %6, align 8, !tbaa !5
   %190 = icmp ugt i64 %189, 2305843009213693951
@@ -798,8 +798,8 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i164: ; preds = %_ZNSt6vectorIf
   %205 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #12
   %206 = sub nsw i64 %205, %199
   %207 = sitofp i64 %206 to double
-  %208 = fdiv double %207, 1.000000e+09
-  %209 = fmul double %208, 1.000000e+03
+  %208 = fdiv nnan double %207, 1.000000e+09
+  %209 = fmul nnan double %208, 1.000000e+03
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %15, align 8, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %16)

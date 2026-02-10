@@ -223,7 +223,7 @@ _ZN2cv4Mat_IfEC2EONS_3MatE.exit88:                ; preds = %_ZNK2cv11_InputArra
   %76 = add nsw i32 %70, -1
   %77 = add i32 %75, -1
   %78 = uitofp i32 %77 to float
-  %79 = fdiv float 1.000000e+00, %78
+  %79 = fdiv nnan float 1.000000e+00, %78
   %80 = uitofp i32 %70 to float
   %81 = fmul float %79, %80
   %.not.i = icmp eq i32 %75, 0
@@ -317,7 +317,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.
   %135 = trunc i64 %indvars.iv.i90 to i32
   %136 = add i32 %135, -16
   %137 = sitofp i32 %136 to float
-  %138 = fmul float %137, 5.000000e-01
+  %138 = fmul nnan float %137, 5.000000e-01
   %139 = getelementptr inbounds nuw float, ptr %132, i64 %indvars.iv.i90
   store float %138, ptr %139, align 4, !tbaa !31
   %indvars.iv.next.i91 = add nuw nsw i64 %indvars.iv.i90, 1

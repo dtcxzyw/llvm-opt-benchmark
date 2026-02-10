@@ -2328,7 +2328,7 @@ define void @_ZN9grpc_core12experimental28DirectoryReloaderCrlProviderC2ENSt6chr
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN9grpc_core12experimental28DirectoryReloaderCrlProviderE, i64 16), ptr %0, align 8, !tbaa !30
   %8 = sitofp i64 %1 to double
-  %9 = fmul double %8, 1.000000e+03
+  %9 = fmul nnan double %8, 1.000000e+03
   %10 = fcmp ult double %9, 0x43E0000000000000
   br i1 %10, label %11, label %_ZN9grpc_core8Duration19FromSecondsAsDoubleEd.exit
 

@@ -176,7 +176,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef %0) #2 {
   %19 = load i32, ptr %18, align 8, !tbaa !51
   %20 = sdiv i32 %19, 2
   %21 = sitofp i32 %20 to double
-  %22 = fmul nsz double %21, 0x401921FB54442D18
+  %22 = fmul nnan nsz double %21, 0x401921FB54442D18
   br label %23
 
 23:                                               ; preds = %.preheader, %23
@@ -291,7 +291,7 @@ define internal void @filter_flt(ptr noundef readonly captures(none) %0, ptr nou
   %.fr269 = freeze i32 %9
   %10 = icmp sgt i32 %.fr269, 1
   %11 = uitofp nneg i32 %.fr269 to float
-  %12 = fmul nsz float %11, 5.000000e-01
+  %12 = fmul nnan nsz float %11, 5.000000e-01
   %13 = select nsz i1 %10, float %12, float 1.000000e+00
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load double, ptr %14, align 8, !tbaa !69
@@ -695,7 +695,7 @@ define internal void @filter_dbl(ptr noundef readonly captures(none) %0, ptr nou
   %.fr269 = freeze i32 %9
   %10 = icmp sgt i32 %.fr269, 1
   %11 = uitofp nneg i32 %.fr269 to double
-  %12 = fmul nsz double %11, 5.000000e-01
+  %12 = fmul nnan nsz double %11, 5.000000e-01
   %13 = select nsz i1 %10, double %12, double 1.000000e+00
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load double, ptr %14, align 8, !tbaa !69

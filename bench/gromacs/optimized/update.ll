@@ -1397,8 +1397,8 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit50:             ; preds = %54, %56, %58, %60
   %80 = load i64, ptr %76, align 8, !tbaa !62
   %81 = or i64 %80, %78
   store i64 %81, ptr %76, align 8, !tbaa !62
-  %82 = fpext float %70 to double
-  %83 = fmul double %82, 0x3F81072C483AF26D
+  %82 = fpext nnan float %70 to double
+  %83 = fmul nnan double %82, 0x3F81072C483AF26D
   %84 = fptrunc double %83 to float
   %85 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv69
   store float %84, ptr %85, align 4, !tbaa !169
@@ -5264,7 +5264,7 @@ _Z11do_per_stepll.exit101.i:                      ; preds = %_Z11do_per_stepll.e
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.preheader.i.i.i.i.i.i.i.i
   %230 = icmp eq ptr %155, %156
   %231 = sitofp i32 %153 to double
-  %232 = fmul double %231, 5.000000e-01
+  %232 = fmul nnan double %231, 5.000000e-01
   %233 = fpext float %149 to double
   %234 = fmul double %232, %233
   %235 = load ptr, ptr %117, align 8, !tbaa !250, !noalias !495
@@ -5464,7 +5464,7 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   %343 = getelementptr inbounds nuw i8, ptr %176, i64 200
   %344 = load float, ptr %343, align 8, !tbaa !529, !noalias !528
   %345 = sitofp i32 %153 to double
-  %346 = fmul double %345, 5.000000e-01
+  %346 = fmul nnan double %345, 5.000000e-01
   %347 = fpext float %149 to double
   %348 = fmul double %346, %347
   %349 = sext i32 %133 to i64
@@ -5620,7 +5620,7 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
   %429 = icmp eq ptr %155, %156
   %430 = icmp eq ptr %162, %163
   %431 = sitofp i32 %153 to double
-  %432 = fmul double %431, 5.000000e-01
+  %432 = fmul nnan double %431, 5.000000e-01
   %433 = fpext float %149 to double
   %434 = fmul double %432, %433
   %435 = sext i32 %133 to i64
@@ -5777,7 +5777,7 @@ _ZN3gmx22multiplyVectorByMatrixIfEENS_11BasicVectorIT_EERKNS_13MultiDimArrayISt5
 .lr.ph.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %511
   %514 = icmp eq ptr %155, %156
   %515 = sitofp i32 %153 to double
-  %516 = fmul double %515, 5.000000e-01
+  %516 = fmul nnan double %515, 5.000000e-01
   %517 = fpext float %149 to double
   %518 = fmul double %516, %517
   %519 = sext i32 %133 to i64

@@ -4744,7 +4744,7 @@ Vec_WrdUniqify.exit:                              ; preds = %.lr.ph, %._crit_edg
   %70 = sitofp i32 %.val to double
   %71 = fdiv double %69, %70
   %72 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.51, double noundef %71)
-  %73 = fmul double %70, 1.000000e+02
+  %73 = fmul nnan double %70, 1.000000e+02
   %74 = fdiv double %73, %69
   %75 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.52, double noundef %74)
   call void @Dau_DsdPrintFromTruth(ptr noundef nonnull %35, i32 noundef %32) #31

@@ -236,8 +236,8 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr noundef readonly c
 
 108:                                              ; preds = %100
   %109 = uitofp nneg i32 %105 to float
-  %110 = fmul float %109, 2.500000e+00
-  %111 = fmul float %110, 0x3FE99999A0000000
+  %110 = fmul nnan float %109, 2.500000e+00
+  %111 = fmul nnan float %110, 0x3FE99999A0000000
   br label %hwloc__pci_link_speed.exit
 
 112:                                              ; preds = %100
@@ -248,16 +248,16 @@ define internal range(i32 -1, 1) i32 @hwloc_nvml_discover(ptr noundef readonly c
 
 116:                                              ; preds = %112
   %117 = uitofp nneg i32 %115 to float
-  %118 = fmul float %117, 8.000000e+00
-  %119 = fmul float %118, 1.280000e+02
+  %118 = fmul nnan float %117, 8.000000e+00
+  %119 = fmul nnan float %118, 1.280000e+02
   %120 = fdiv float %119, 1.300000e+02
   br label %hwloc__pci_link_speed.exit
 
 121:                                              ; preds = %112
   %122 = sitofp i32 %115 to float
-  %123 = fmul float %122, 8.000000e+00
-  %124 = fmul float %123, 2.420000e+02
-  %125 = fmul float %124, 3.906250e-03
+  %123 = fmul nnan float %122, 8.000000e+00
+  %124 = fmul nnan float %123, 2.420000e+02
+  %125 = fmul nnan float %124, 3.906250e-03
   br label %hwloc__pci_link_speed.exit
 
 hwloc__pci_link_speed.exit:                       ; preds = %108, %116, %121

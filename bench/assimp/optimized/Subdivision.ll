@@ -3613,7 +3613,7 @@ _ZN6Assimp6VertexC2EPK6aiMeshj.exit652.split:     ; preds = %_ZNK6aiMesh15HasVer
 
 1469:                                             ; preds = %.thread
   %1470 = uitofp i32 %1432 to float
-  %1471 = fmul float %1470, %1470
+  %1471 = fmul nnan float %1470, %1470
   %1472 = fdiv float 1.000000e+00, %1471
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)

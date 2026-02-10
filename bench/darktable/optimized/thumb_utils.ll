@@ -519,7 +519,7 @@ define void @_ZN6LibRaw18kodak_thumb_loaderEv(ptr noundef nonnull align 8 derefe
   %252 = zext i16 %251 to i32
   %253 = mul nuw nsw i32 %252, %250
   %254 = uitofp nneg i32 %253 to double
-  %255 = fmul reassoc nsz arcp contract afn double %254, 1.000000e-02
+  %255 = fmul reassoc nnan nsz arcp contract afn double %254, 1.000000e-02
   %256 = fptosi double %255 to i32
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 381494
   %258 = load i16, ptr %257, align 2, !tbaa !108

@@ -4222,7 +4222,7 @@ define void @_ZN22FilterMutualInfoPlugin20imageMutualInfoAlignER12MeshDocumentib
 123:                                              ; preds = %120
   %124 = sitofp i32 %96 to double
   %125 = sitofp i32 %119 to double
-  %126 = fmul double %124, %125
+  %126 = fmul nnan double %124, %125
   %127 = sitofp i32 %122 to double
   %128 = fdiv double %126, %127
   %129 = fptosi double %128 to i32
@@ -4483,8 +4483,8 @@ _ZNK19MeshLabPluginLogger3logIJiRiEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream
 
 246:                                              ; preds = %242
   %247 = sitofp i32 %244 to float
-  %248 = fpext float %247 to double
-  %249 = fmul double %248, 5.000000e-01
+  %248 = fpext nnan ninf float %247 to double
+  %249 = fmul nnan double %248, 5.000000e-01
   %250 = fptosi double %249 to i32
   %251 = sitofp i32 %250 to float
   %252 = getelementptr inbounds nuw i8, ptr %245, i64 20
@@ -4500,8 +4500,8 @@ _ZNK19MeshLabPluginLogger3logIJiRiEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStream
 
 258:                                              ; preds = %254
   %259 = sitofp i32 %256 to float
-  %260 = fpext float %259 to double
-  %261 = fmul double %260, 5.000000e-01
+  %260 = fpext nnan ninf float %259 to double
+  %261 = fmul nnan double %260, 5.000000e-01
   %262 = fptosi double %261 to i32
   %263 = sitofp i32 %262 to float
   %264 = getelementptr inbounds nuw i8, ptr %257, i64 24

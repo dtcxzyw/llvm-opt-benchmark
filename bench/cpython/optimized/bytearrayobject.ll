@@ -1352,7 +1352,7 @@ PyByteArray_AS_STRING.exit:                       ; preds = %20
 24:                                               ; preds = %_canresize.exit
   %25 = uitofp i64 %1 to double
   %26 = uitofp i64 %4 to double
-  %27 = fmul double %26, 1.125000e+00
+  %27 = fmul nnan double %26, 1.125000e+00
   %28 = fcmp ult double %27, %25
   br i1 %28, label %35, label %29
 

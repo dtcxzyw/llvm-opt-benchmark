@@ -63,7 +63,7 @@ define range(i32 0, 2) i32 @_datetime_gdatetime_to_numbers(ptr noundef writeonly
   store i32 %13, ptr %14, align 4, !tbaa !55
   %15 = tail call i32 @g_date_time_get_microsecond(ptr noundef nonnull %1) #7
   %16 = sitofp i32 %15 to double
-  %17 = fmul reassoc nsz arcp contract afn double %16, 1.000000e-03
+  %17 = fmul reassoc nnan nsz arcp contract afn double %16, 1.000000e-03
   %18 = fptosi double %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %18, ptr %19, align 4, !tbaa !56
@@ -179,7 +179,7 @@ define range(i32 0, 2) i32 @dt_datetime_exif_to_numbers(ptr noundef writeonly ca
   store i32 %47, ptr %48, align 4, !tbaa !55
   %49 = call i32 @g_date_time_get_microsecond(ptr noundef nonnull %36) #7
   %50 = sitofp i32 %49 to double
-  %51 = fmul reassoc nsz arcp contract afn double %50, 1.000000e-03
+  %51 = fmul reassoc nnan nsz arcp contract afn double %50, 1.000000e-03
   %52 = fptosi double %51 to i32
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %52, ptr %53, align 4, !tbaa !56
@@ -326,7 +326,7 @@ define range(i32 0, 2) i32 @dt_datetime_gdatetime_to_local(ptr noundef %0, i64 n
 17:                                               ; preds = %16
   %18 = tail call i32 @g_date_time_get_microsecond(ptr noundef nonnull %2) #7
   %19 = sitofp i32 %18 to double
-  %20 = fmul reassoc nsz arcp contract afn double %19, 1.000000e-03
+  %20 = fmul reassoc nnan nsz arcp contract afn double %19, 1.000000e-03
   %21 = fptosi double %20 to i32
   %22 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.6, ptr noundef nonnull %.025, ptr noundef nonnull @.str.7, i32 noundef %21) #7
   tail call void @g_free(ptr noundef nonnull %.025) #7
@@ -410,7 +410,7 @@ define range(i32 0, 2) i32 @dt_datetime_img_to_local(ptr noundef %0, i64 noundef
 15:                                               ; preds = %14
   %16 = tail call i32 @g_date_time_get_microsecond(ptr noundef nonnull %11) #7
   %17 = sitofp i32 %16 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 1.000000e-03
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 1.000000e-03
   %19 = fptosi double %18 to i32
   %20 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.6, ptr noundef nonnull %13, ptr noundef nonnull @.str.7, i32 noundef %19) #7
   tail call void @g_free(ptr noundef nonnull %13) #7
@@ -500,7 +500,7 @@ define range(i32 0, 2) i32 @dt_datetime_gdatetime_to_exif(ptr noundef %0, i64 no
 11:                                               ; preds = %9
   %12 = tail call i32 @g_date_time_get_microsecond(ptr noundef nonnull %2) #7
   %13 = sitofp i32 %12 to double
-  %14 = fmul reassoc nsz arcp contract afn double %13, 1.000000e-03
+  %14 = fmul reassoc nnan nsz arcp contract afn double %13, 1.000000e-03
   %15 = fptosi double %14 to i32
   %16 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.6, ptr noundef nonnull %8, ptr noundef nonnull @.str.7, i32 noundef %15) #7
   tail call void @g_free(ptr noundef nonnull %8) #7
@@ -715,7 +715,7 @@ define range(i32 0, 2) i32 @dt_datetime_gtimespan_to_exif(ptr noundef %0, i64 no
 14:                                               ; preds = %12
   %15 = tail call i32 @g_date_time_get_microsecond(ptr noundef nonnull %9) #7
   %16 = sitofp i32 %15 to double
-  %17 = fmul reassoc nsz arcp contract afn double %16, 1.000000e-03
+  %17 = fmul reassoc nnan nsz arcp contract afn double %16, 1.000000e-03
   %18 = fptosi double %17 to i32
   %19 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.6, ptr noundef nonnull %11, ptr noundef nonnull @.str.7, i32 noundef %18) #7
   tail call void @g_free(ptr noundef nonnull %11) #7
@@ -836,7 +836,7 @@ dt_datetime_gdatetime_to_exif.exit.i:             ; preds = %14, %12
 30:                                               ; preds = %28
   %31 = call i32 @g_date_time_get_microsecond(ptr noundef nonnull %25) #7
   %32 = sitofp i32 %31 to double
-  %33 = fmul reassoc nsz arcp contract afn double %32, 1.000000e-03
+  %33 = fmul reassoc nnan nsz arcp contract afn double %32, 1.000000e-03
   %34 = fptosi double %33 to i32
   %35 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.6, ptr noundef nonnull %27, ptr noundef nonnull @.str.7, i32 noundef %34) #7
   call void @g_free(ptr noundef nonnull %27) #7
@@ -997,7 +997,7 @@ dt_datetime_gdatetime_to_exif.exit.i:             ; preds = %14, %12
 59:                                               ; preds = %57
   %60 = call i32 @g_date_time_get_microsecond(ptr noundef nonnull %54) #7
   %61 = sitofp i32 %60 to double
-  %62 = fmul reassoc nsz arcp contract afn double %61, 1.000000e-03
+  %62 = fmul reassoc nnan nsz arcp contract afn double %61, 1.000000e-03
   %63 = fptosi double %62 to i32
   %64 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.6, ptr noundef nonnull %56, ptr noundef nonnull @.str.7, i32 noundef %63) #7
   call void @g_free(ptr noundef nonnull %56) #7
@@ -1166,7 +1166,7 @@ _datetime_gdatetime_to_numbers.exit:              ; preds = %2
   store i32 %14, ptr %15, align 4, !tbaa !55
   %16 = tail call i32 @g_date_time_get_microsecond(ptr noundef nonnull %4) #7
   %17 = sitofp i32 %16 to double
-  %18 = fmul reassoc nsz arcp contract afn double %17, 1.000000e-03
+  %18 = fmul reassoc nnan nsz arcp contract afn double %17, 1.000000e-03
   %19 = fptosi double %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %19, ptr %20, align 4, !tbaa !56

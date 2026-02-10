@@ -2329,12 +2329,12 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   store i16 19789, ptr %70, align 8, !tbaa !85
   %618 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %619 = uitofp i16 %618 to double
-  %620 = fmul reassoc nsz arcp contract afn double %619, 3.906250e-03
+  %620 = fmul reassoc nnan nsz arcp contract afn double %619, 3.906250e-03
   %621 = fptrunc reassoc nsz arcp contract afn double %620 to float
   store float %621, ptr %312, align 8, !tbaa !102
   %622 = call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %623 = uitofp i16 %622 to double
-  %624 = fmul reassoc nsz arcp contract afn double %623, 3.906250e-03
+  %624 = fmul reassoc nnan nsz arcp contract afn double %623, 3.906250e-03
   %625 = fptrunc reassoc nsz arcp contract afn double %624 to float
   store float %625, ptr %314, align 8, !tbaa !102
   br label %.thread328

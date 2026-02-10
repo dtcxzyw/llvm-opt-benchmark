@@ -1823,7 +1823,7 @@ _ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm256
   br i1 %31, label %for.body.i.i.backedge, label %do.end
 
 do.end:                                           ; preds = %_ZNSt8__detail8_AdaptorISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEdEclEv.exit35
-  %call6 = tail call double @llvm.log.f64(double %30)
+  %call6 = tail call ninf double @llvm.log.f64(double %30)
   %mul = fmul double %call6, -2.000000e+00
   %div = fdiv double %mul, %30
   %call7 = tail call double @sqrt(double noundef %div) #15

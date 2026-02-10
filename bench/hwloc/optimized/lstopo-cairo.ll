@@ -138,7 +138,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load i32, ptr %47, align 8, !tbaa !39
   %49 = sitofp i32 %48 to double
-  %50 = fmul double %49, 2.540000e+01
+  %50 = fmul nnan double %49, 2.540000e+01
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %52 = load i32, ptr %51, align 8, !tbaa !42
   %53 = sitofp i32 %52 to double
@@ -147,7 +147,7 @@ define hidden range(i32 -1, 1) i32 @output_x11(ptr noundef %0, ptr noundef readn
   %56 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %57 = load i32, ptr %56, align 4, !tbaa !43
   %58 = sitofp i32 %57 to double
-  %59 = fmul double %58, 2.540000e+01
+  %59 = fmul nnan double %58, 2.540000e+01
   %60 = getelementptr inbounds nuw i8, ptr %46, i64 36
   %61 = load i32, ptr %60, align 4, !tbaa !44
   %62 = sitofp i32 %61 to double

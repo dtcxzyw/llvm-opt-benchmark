@@ -2981,12 +2981,12 @@ define internal fastcc i32 @dissect_usb_rx_packet(ptr noundef %0, ptr noundef %1
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %39, ptr noundef %3, i32 noundef %25, i32 noundef 2, i32 noundef -2147483648)
   %41 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %3, i32 noundef %25)
   %42 = uitofp i16 %41 to double
-  %43 = fmul double %42, 1.250000e+00
+  %43 = fmul nnan double %42, 1.250000e+00
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %40, ptr noundef nonnull @.str.948, double noundef %43)
   %44 = load ptr, ptr %21, align 8
   %45 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %3, i32 noundef %25)
   %46 = uitofp i16 %45 to double
-  %47 = fmul double %46, 1.250000e+00
+  %47 = fmul nnan double %46, 1.250000e+00
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %44, i32 noundef 25, ptr noundef nonnull @.str.949, double noundef %47)
   %48 = add i32 %4, 4
   br label %56

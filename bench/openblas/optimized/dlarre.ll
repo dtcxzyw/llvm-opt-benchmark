@@ -446,7 +446,7 @@ define void @dlarre_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 233:                                              ; preds = %._crit_edge848
   %234 = uitofp nneg i32 %.2717.lcssa to double
   %235 = sitofp i32 %156 to double
-  %236 = fmul double %235, 5.000000e-01
+  %236 = fmul nnan double %235, 5.000000e-01
   %237 = fcmp olt double %236, %234
   %238 = add nsw i32 %.2717.lcssa, %.0708934
   %239 = add nsw i32 %238, -1

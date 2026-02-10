@@ -14066,7 +14066,7 @@ de_rr_3g_priority_param_desc.exit:                ; preds = %83
 
 247:                                              ; preds = %242
   %248 = uitofp i8 %245 to float
-  %249 = fmul float %248, 5.000000e-01
+  %249 = fmul nnan float %248, 5.000000e-01
   %250 = fpext float %249 to double
   %251 = fadd double %250, -1.950000e+01
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %246, ptr noundef nonnull @.str.1833, double noundef %251)
@@ -14145,7 +14145,7 @@ de_rr_3g_priority_param_desc.exit:                ; preds = %83
 
 299:                                              ; preds = %294
   %300 = uitofp i8 %297 to float
-  %301 = fmul float %300, 5.000000e-01
+  %301 = fmul nnan float %300, 5.000000e-01
   %302 = fpext float %301 to double
   %303 = fadd double %302, -1.950000e+01
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %298, ptr noundef nonnull @.str.1833, double noundef %303)
@@ -14680,7 +14680,7 @@ define internal fastcc i32 @de_rr_eutran_measurement_param_desc(ptr noundef %0, 
 
 55:                                               ; preds = %51
   %56 = uitofp i8 %54 to float
-  %57 = fmul float %56, 5.000000e-01
+  %57 = fmul nnan float %56, 5.000000e-01
   %58 = fpext float %57 to double
   %59 = fadd double %58, -1.950000e+01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef nonnull @.str.1833, double noundef %59)
@@ -14756,7 +14756,7 @@ define internal fastcc i32 @de_rr_eutran_measurement_param_desc(ptr noundef %0, 
 
 106:                                              ; preds = %102
   %107 = uitofp i8 %105 to float
-  %108 = fmul float %107, 5.000000e-01
+  %108 = fmul nnan float %107, 5.000000e-01
   %109 = fpext float %108 to double
   %110 = fadd double %109, -1.950000e+01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %104, ptr noundef nonnull @.str.1833, double noundef %110)
@@ -14815,7 +14815,7 @@ define internal fastcc i32 @de_rr_eutran_measurement_param_desc(ptr noundef %0, 
 
 143:                                              ; preds = %136
   %144 = uitofp i8 %139 to float
-  %145 = fmul float %144, 5.000000e-01
+  %145 = fmul nnan float %144, 5.000000e-01
   %146 = fpext float %145 to double
   %147 = fadd double %146, -1.950000e+01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %138, ptr noundef nonnull @.str.1833, double noundef %147)
@@ -14843,7 +14843,7 @@ define internal fastcc i32 @de_rr_eutran_measurement_param_desc(ptr noundef %0, 
 
 163:                                              ; preds = %159
   %164 = uitofp i8 %162 to float
-  %165 = fmul float %164, 5.000000e-01
+  %165 = fmul nnan float %164, 5.000000e-01
   %166 = fpext float %165 to double
   %167 = fadd double %166, -1.950000e+01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %161, ptr noundef nonnull @.str.1833, double noundef %167)
@@ -14907,7 +14907,7 @@ define internal fastcc i32 @de_rr_eutran_measurement_param_desc(ptr noundef %0, 
 
 204:                                              ; preds = %197
   %205 = uitofp i8 %200 to float
-  %206 = fmul float %205, 5.000000e-01
+  %206 = fmul nnan float %205, 5.000000e-01
   %207 = fpext float %206 to double
   %208 = fadd double %207, -1.950000e+01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %199, ptr noundef nonnull @.str.1833, double noundef %208)
@@ -14935,7 +14935,7 @@ define internal fastcc i32 @de_rr_eutran_measurement_param_desc(ptr noundef %0, 
 
 224:                                              ; preds = %220
   %225 = uitofp i8 %223 to float
-  %226 = fmul float %225, 5.000000e-01
+  %226 = fmul nnan float %225, 5.000000e-01
   %227 = fpext float %226 to double
   %228 = fadd double %227, -1.950000e+01
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %222, ptr noundef nonnull @.str.1833, double noundef %228)

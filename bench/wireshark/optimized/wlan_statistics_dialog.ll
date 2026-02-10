@@ -3591,7 +3591,7 @@ _ZN7QStringD2Ev.exit8:                            ; preds = %.body, %_ZN17QArray
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %47 = load i32, ptr %46, align 8
   %48 = sitofp i32 %47 to double
-  %49 = fmul double %48, 1.000000e+02
+  %49 = fmul nnan double %48, 1.000000e+02
   %50 = sitofp i32 %1 to double
   %51 = fdiv double %49, %50
   store double %51, ptr %14, align 8
@@ -3611,7 +3611,7 @@ _ZN7QStringD2Ev.exit8:                            ; preds = %.body, %_ZN17QArray
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %57 = load i32, ptr %56, align 8
   %58 = sitofp i32 %57 to double
-  %59 = fmul double %58, 1.000000e+02
+  %59 = fmul nnan double %58, 1.000000e+02
   %60 = load i32, ptr %46, align 8
   %61 = sitofp i32 %60 to double
   %62 = fdiv double %59, %61
@@ -7831,7 +7831,7 @@ define linkonce_odr void @_ZN25WlanStationTreeWidgetItem4drawEP8_addressi(ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %35 = sitofp i32 %31 to double
-  %36 = fmul double %35, 1.000000e+02
+  %36 = fmul nnan double %35, 1.000000e+02
   %37 = uitofp nneg i32 %2 to double
   %38 = fdiv double %36, %37
   store double %38, ptr %14, align 8
@@ -7851,7 +7851,7 @@ define linkonce_odr void @_ZN25WlanStationTreeWidgetItem4drawEP8_addressi(ptr no
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %44 = load i32, ptr %43, align 4
   %45 = sitofp i32 %44 to double
-  %46 = fmul double %45, 1.000000e+02
+  %46 = fmul nnan double %45, 1.000000e+02
   %47 = load i32, ptr %30, align 8
   %48 = sitofp i32 %47 to double
   %49 = fdiv double %46, %48

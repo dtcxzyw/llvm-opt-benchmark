@@ -331,10 +331,10 @@ define internal i32 @dissect_olsr(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %52 = zext nneg i32 %51 to i64
   %53 = shl nuw nsw i64 1, %52
   %54 = uitofp nneg i64 %53 to double
-  %55 = fmul double %54, 6.250000e-02
+  %55 = fmul nnan double %54, 6.250000e-02
   %56 = uitofp nneg i32 %50 to double
-  %57 = fmul double %56, 6.250000e-02
-  %58 = fadd double %57, 1.000000e+00
+  %57 = fmul nnan double %56, 6.250000e-02
+  %58 = fadd nnan double %57, 1.000000e+00
   %59 = fmul double %58, %55
   %60 = add nuw nsw i32 %.0166196, 2
   %61 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %60)
@@ -637,10 +637,10 @@ define internal fastcc noundef range(i32 -2147483648, 65536) i32 @dissect_olsr_h
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw nsw i64 1, %17
   %19 = uitofp nneg i64 %18 to double
-  %20 = fmul double %19, 6.250000e-02
+  %20 = fmul nnan double %19, 6.250000e-02
   %21 = uitofp nneg i32 %15 to double
-  %22 = fmul double %21, 6.250000e-02
-  %23 = fadd double %22, 1.000000e+00
+  %22 = fmul nnan double %21, 6.250000e-02
+  %23 = fadd nnan double %22, 1.000000e+00
   %24 = fmul double %23, %20
   %25 = load i32, ptr @hf_olsr_htime, align 4
   %26 = tail call ptr (ptr, i32, ptr, i32, i32, double, ptr, ...) @proto_tree_add_double_format_value(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef %12, i32 noundef 1, double noundef %24, ptr noundef nonnull @.str.124, double noundef %24)

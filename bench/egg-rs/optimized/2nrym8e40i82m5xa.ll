@@ -65,7 +65,7 @@ define noundef i128 @_ZN3egg4test10percentile17h86d6f65026f76f59E(double noundef
 
 7:                                                ; preds = %3
   %8 = uitofp i64 %2 to double
-  %9 = fmul double %0, %8
+  %9 = fmul nnan double %0, %8
   %10 = tail call i64 @llvm.fptoui.sat.i64.f64(double %9)
   %11 = add i64 %2, -1
   %.sroa.0.0.sroa.speculated.i = tail call noundef i64 @llvm.umin.i64(i64 %10, i64 %11)

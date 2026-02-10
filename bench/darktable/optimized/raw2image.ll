@@ -1405,12 +1405,12 @@ define noundef i32 @_ZN6LibRaw12raw2image_exEi(ptr noundef nonnull align 8 deref
 
 71:                                               ; preds = %60
   %72 = sitofp i32 %70 to double
-  %73 = fmul reassoc nsz arcp contract afn double %72, 0x3FF6A09E667F3BCD
+  %73 = fmul reassoc nnan nsz arcp contract afn double %72, 0x3FF6A09E667F3BCD
   %74 = fptosi double %73 to i32
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %76 = load i32, ptr %75, align 4, !tbaa !115
   %77 = sitofp i32 %76 to double
-  %78 = fmul reassoc nsz arcp contract afn double %77, 0x3FE6A09E667F3BCC
+  %78 = fmul reassoc nnan nsz arcp contract afn double %77, 0x3FE6A09E667F3BCC
   %79 = fptosi double %78 to i32
   br label %80
 

@@ -54,7 +54,7 @@ define dso_local noundef float @_Z12myrand_floatv() local_unnamed_addr #3 {
 entry:
   %call = tail call noundef i32 @_ZN9PcgRandom4nextEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZL9g_pcgrand)
   %conv = uitofp i32 %call to float
-  %div = fmul nsz float %conv, 0x3DF0000000000000
+  %div = fmul nnan nsz float %conv, 0x3DF0000000000000
   ret float %div
 }
 
@@ -73,7 +73,7 @@ entry:
   %sub = fsub nsz float %max, %min
   %call.i = tail call noundef i32 @_ZN9PcgRandom4nextEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZL9g_pcgrand)
   %conv.i = uitofp i32 %call.i to float
-  %div.i = fmul nsz float %conv.i, 0x3DF0000000000000
+  %div.i = fmul nnan nsz float %conv.i, 0x3DF0000000000000
   %0 = tail call nsz float @llvm.fmuladd.f32(float %sub, float %div.i, float %min)
   ret float %0
 }
@@ -244,13 +244,13 @@ entry:
   %blockpos_nodes.sroa.5.0.extract.trunc = and i16 %3, -16
   %4 = or disjoint i16 %mul.i, 8
   %add = sitofp i16 %4 to float
-  %mul = fmul nsz float %add, 1.000000e+01
+  %mul = fmul nnan nsz float %add, 1.000000e+01
   %5 = or disjoint i16 %blockpos_nodes.sroa.4.0.extract.trunc, 8
   %add4 = sitofp i16 %5 to float
-  %mul5 = fmul nsz float %add4, 1.000000e+01
+  %mul5 = fmul nnan nsz float %add4, 1.000000e+01
   %6 = or disjoint i16 %blockpos_nodes.sroa.5.0.extract.trunc, 8
   %add7 = sitofp i16 %6 to float
-  %mul8 = fmul nsz float %add7, 1.000000e+01
+  %mul8 = fmul nnan nsz float %add7, 1.000000e+01
   %camera_pos.sroa.0.0.vec.extract = extractelement <2 x float> %camera_pos.coerce0, i64 0
   %sub.i = fsub nsz float %mul, %camera_pos.sroa.0.0.vec.extract
   %camera_pos.sroa.0.4.vec.extract = extractelement <2 x float> %camera_pos.coerce0, i64 1
