@@ -4547,12 +4547,12 @@ define hidden void @_ZN16wasmtime_runtime8instance9allocator7pooling11memory_poo
 .thread:                                          ; preds = %18, %13, %12
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  br label %38
+  br label %42
 
 17:                                               ; preds = %.split.i, %26, %27
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
-  br i1 %.not, label %37, label %38
+  br i1 %.not, label %41, label %42
 
 18:                                               ; preds = %.noexc10
   store ptr %16, ptr %7, align 8
@@ -4607,28 +4607,28 @@ define hidden void @_ZN16wasmtime_runtime8instance9allocator7pooling11memory_poo
   invoke void @_ZN16wasmtime_runtime8instance9allocator7pooling15index_allocator28ModuleAffinityIndexAllocator4free17h4b846d76eb05c3ccE(ptr noundef nonnull align 8 %33, i32 noundef %30)
           to label %34 unwind label %17
 
-34:                                               ; preds = %27
-  br i1 %.not, label %35, label %36
+38:                                               ; preds = %27
+  br i1 %.not, label %39, label %40
 
-35:                                               ; preds = %36, %34
+39:                                               ; preds = %40, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
-36:                                               ; preds = %34
+40:                                               ; preds = %38
   call void @"_ZN4core3ptr59drop_in_place$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$17h0a38a78a02add2bcE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8)
-  br label %35
+  br label %39
 
-37:                                               ; preds = %38, %17
+41:                                               ; preds = %42, %17
   %lpad.phi18 = phi { ptr, i32 } [ %lpad.phi19, %38 ], [ %lpad.thr_comm.split-lp, %17 ]
   resume { ptr, i32 } %lpad.phi18
 
-38:                                               ; preds = %.thread, %17
+42:                                               ; preds = %.thread, %17
   %lpad.phi19 = phi { ptr, i32 } [ %lpad.thr_comm, %.thread ], [ %lpad.thr_comm.split-lp, %17 ]
   invoke void @"_ZN4core3ptr59drop_in_place$LT$wasmtime_runtime..cow..MemoryImageSlot$GT$17h0a38a78a02add2bcE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %8) #25
-          to label %37 unwind label %39
+          to label %37 unwind label %43
 
-39:                                               ; preds = %38
-  %40 = landingpad { ptr, i32 }
+43:                                               ; preds = %42
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #26
   unreachable

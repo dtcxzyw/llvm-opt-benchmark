@@ -1130,15 +1130,15 @@ from_words52.exit292:                             ; preds = %.lr.ph.i38.i274, %.
   %exitcond.not.i.i = icmp eq i64 %603, %589
   br i1 %exitcond.not.i.i, label %.lr.ph.i.i295, label %595, !llvm.loop !18
 
-.lr.ph.i.i295:                                    ; preds = %595
+.lr.ph.i.i295:; preds = %595
   %604 = call i64 @bn_sub_words(ptr noundef nonnull %37, ptr noundef %6, ptr noundef %9, i32 noundef %588) #6
   %605 = sub i64 0, %604
   %606 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %605) #8, !srcloc !17
-  %607 = add i64 %604, -1
-  %608 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %607) #8, !srcloc !17
-  br label %609
+  %604 = add i64 %604, -1
+  %608 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %604) #8, !srcloc !17
+  br label %.lr.ph.i.i295
 
-609:                                              ; preds = %609, %.lr.ph.i.i295
+.lr.ph.i.i295:                                    ; preds = %609, %.lr.ph.i.i295
   %.09.i.i296 = phi i64 [ 0, %.lr.ph.i.i295 ], [ %617, %609 ]
   %610 = getelementptr inbounds nuw i64, ptr %6, i64 %.09.i.i296
   %611 = load i64, ptr %610, align 8, !tbaa !7
@@ -1152,7 +1152,7 @@ from_words52.exit292:                             ; preds = %.lr.ph.i38.i274, %.
   %exitcond.not.i.i297 = icmp eq i64 %617, %589
   br i1 %exitcond.not.i.i297, label %RSAZ_mod_exp_x2_ifma256.exit.thread, label %609, !llvm.loop !18
 
-RSAZ_mod_exp_x2_ifma256.exit.thread:              ; preds = %609, %394, %383, %to_words52.exit258
+RSAZ_mod_exp_x2_ifma256.exit.thread:; preds = %.lr.ph.i.i295, %394, %383, %to_words52.exit258
   %.0.ph = phi i32 [ 0, %394 ], [ 0, %383 ], [ 0, %to_words52.exit258 ], [ 1, %609 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %37, i64 noundef %36) #6
   call void @CRYPTO_free(ptr noundef nonnull %37, ptr noundef nonnull @.str, i32 noundef 312) #6
