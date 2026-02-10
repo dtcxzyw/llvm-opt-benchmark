@@ -1110,58 +1110,50 @@ from_words52.exit292:                             ; preds = %.lr.ph.i38.i274, %.
   %588 = lshr exact i32 %12, 6
   %589 = zext nneg i32 %588 to i64
   %590 = call i64 @bn_sub_words(ptr noundef nonnull %37, ptr noundef %0, ptr noundef %3, i32 noundef %588) #6
-  %.not.i.i = icmp eq i32 %12, 0
-  br i1 %.not.i.i, label %bn_reduce_once_in_place.exit.thread, label %.lr.ph.i.i293
+  %591 = sub i64 0, %590
+  %592 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %591) #8, !srcloc !17
+  %593 = add i64 %590, -1
+  %594 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %593) #8, !srcloc !17
+  br label %595
 
-bn_reduce_once_in_place.exit.thread:              ; preds = %from_words52.exit292
-  %591 = call i64 @bn_sub_words(ptr noundef nonnull %37, ptr noundef %6, ptr noundef %9, i32 noundef %588) #6
-  br label %RSAZ_mod_exp_x2_ifma256.exit.thread
+595:                                              ; preds = %595, %from_words52.exit292
+  %.09.i.i = phi i64 [ 0, %from_words52.exit292 ], [ %603, %595 ]
+  %596 = getelementptr inbounds nuw i64, ptr %0, i64 %.09.i.i
+  %597 = load i64, ptr %596, align 8, !tbaa !7
+  %598 = getelementptr inbounds nuw i64, ptr %37, i64 %.09.i.i
+  %599 = load i64, ptr %598, align 8, !tbaa !7
+  %600 = and i64 %597, %592
+  %601 = and i64 %599, %594
+  %602 = or i64 %601, %600
+  store i64 %602, ptr %596, align 8, !tbaa !7
+  %603 = add nuw i64 %.09.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %603, %589
+  br i1 %exitcond.not.i.i, label %.lr.ph.i.i295, label %595, !llvm.loop !18
 
-.lr.ph.i.i293:                                    ; preds = %from_words52.exit292
-  %592 = sub i64 0, %590
-  %593 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %592) #8, !srcloc !17
-  %594 = add i64 %590, -1
-  %595 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %594) #8, !srcloc !17
-  br label %596
+.lr.ph.i.i295:                                    ; preds = %595
+  %604 = call i64 @bn_sub_words(ptr noundef nonnull %37, ptr noundef %6, ptr noundef %9, i32 noundef %588) #6
+  %605 = sub i64 0, %604
+  %606 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %605) #8, !srcloc !17
+  %607 = add i64 %604, -1
+  %608 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %607) #8, !srcloc !17
+  br label %609
 
-596:                                              ; preds = %596, %.lr.ph.i.i293
-  %.09.i.i = phi i64 [ 0, %.lr.ph.i.i293 ], [ %604, %596 ]
-  %597 = getelementptr inbounds nuw i64, ptr %0, i64 %.09.i.i
-  %598 = load i64, ptr %597, align 8, !tbaa !7
-  %599 = getelementptr inbounds nuw i64, ptr %37, i64 %.09.i.i
-  %600 = load i64, ptr %599, align 8, !tbaa !7
-  %601 = and i64 %598, %593
-  %602 = and i64 %600, %595
-  %603 = or i64 %602, %601
-  store i64 %603, ptr %597, align 8, !tbaa !7
-  %604 = add nuw i64 %.09.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %604, %589
-  br i1 %exitcond.not.i.i, label %.lr.ph.i.i295, label %596, !llvm.loop !18
+609:                                              ; preds = %609, %.lr.ph.i.i295
+  %.09.i.i296 = phi i64 [ 0, %.lr.ph.i.i295 ], [ %617, %609 ]
+  %610 = getelementptr inbounds nuw i64, ptr %6, i64 %.09.i.i296
+  %611 = load i64, ptr %610, align 8, !tbaa !7
+  %612 = getelementptr inbounds nuw i64, ptr %37, i64 %.09.i.i296
+  %613 = load i64, ptr %612, align 8, !tbaa !7
+  %614 = and i64 %611, %606
+  %615 = and i64 %613, %608
+  %616 = or i64 %615, %614
+  store i64 %616, ptr %610, align 8, !tbaa !7
+  %617 = add nuw i64 %.09.i.i296, 1
+  %exitcond.not.i.i297 = icmp eq i64 %617, %589
+  br i1 %exitcond.not.i.i297, label %RSAZ_mod_exp_x2_ifma256.exit.thread, label %609, !llvm.loop !18
 
-.lr.ph.i.i295:                                    ; preds = %596
-  %605 = call i64 @bn_sub_words(ptr noundef nonnull %37, ptr noundef %6, ptr noundef %9, i32 noundef %588) #6
-  %606 = sub i64 0, %605
-  %607 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %606) #8, !srcloc !17
-  %608 = add i64 %605, -1
-  %609 = call i64 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %608) #8, !srcloc !17
-  br label %610
-
-610:                                              ; preds = %610, %.lr.ph.i.i295
-  %.09.i.i296 = phi i64 [ 0, %.lr.ph.i.i295 ], [ %618, %610 ]
-  %611 = getelementptr inbounds nuw i64, ptr %6, i64 %.09.i.i296
-  %612 = load i64, ptr %611, align 8, !tbaa !7
-  %613 = getelementptr inbounds nuw i64, ptr %37, i64 %.09.i.i296
-  %614 = load i64, ptr %613, align 8, !tbaa !7
-  %615 = and i64 %612, %607
-  %616 = and i64 %614, %609
-  %617 = or i64 %616, %615
-  store i64 %617, ptr %611, align 8, !tbaa !7
-  %618 = add nuw i64 %.09.i.i296, 1
-  %exitcond.not.i.i297 = icmp eq i64 %618, %589
-  br i1 %exitcond.not.i.i297, label %RSAZ_mod_exp_x2_ifma256.exit.thread, label %610, !llvm.loop !18
-
-RSAZ_mod_exp_x2_ifma256.exit.thread:              ; preds = %610, %394, %383, %to_words52.exit258, %bn_reduce_once_in_place.exit.thread
-  %.0.ph = phi i32 [ 0, %394 ], [ 1, %bn_reduce_once_in_place.exit.thread ], [ 0, %to_words52.exit258 ], [ 0, %383 ], [ 1, %610 ]
+RSAZ_mod_exp_x2_ifma256.exit.thread:              ; preds = %609, %394, %383, %to_words52.exit258
+  %.0.ph = phi i32 [ 0, %394 ], [ 0, %383 ], [ 0, %to_words52.exit258 ], [ 1, %609 ]
   call void @OPENSSL_cleanse(ptr noundef nonnull %37, i64 noundef %36) #6
   call void @CRYPTO_free(ptr noundef nonnull %37, ptr noundef nonnull @.str, i32 noundef 312) #6
   br label %bn_reduce_once_in_place.exit298

@@ -6255,11 +6255,9 @@ entry:
   %ref.tmp54 = alloca %"class.std::__cxx11::basic_string", align 8
   %_M_string_length.i = getelementptr inbounds nuw i8, ptr %data, i64 8
   %0 = load i64, ptr %_M_string_length.i, align 8, !tbaa !14
-  %cmp = icmp ugt i64 %0, 5
   %rem = urem i64 %0, 20
   %cmp2.not = icmp eq i64 %rem, 6
-  %or.cond = and i1 %cmp, %cmp2.not
-  br i1 %or.cond, label %if.end, label %if.then
+  br i1 %cmp2.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 40) #31
