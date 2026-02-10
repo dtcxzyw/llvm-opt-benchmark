@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.Triple = type { double, double, double }
 %struct.hb_ot_var_axis_info_t = type { i32, i32, i32, i32, float, float, float, i32 }
-%"struct.hb_user_data_array_t::hb_user_data_item_t" = type { ptr, ptr, ptr }
+%"struct.hb_hashmap_t<unsigned int, Triple>::item_t" = type { ptr, ptr, ptr }
 
 $_ZN12hb_bit_set_t9set_arrayIjEEvbPKT_jj = comdat any
 
