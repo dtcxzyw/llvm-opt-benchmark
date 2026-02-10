@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FT_Outline_ = type { i16, i16, ptr, ptr, ptr, i32 }
 %struct.FT_Raster_Params_ = type { ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, %struct.FT_BBox_ }
 %struct.FT_BBox_ = type { i64, i64, i64, i64 }
-%struct.FT_Vector_ = type { i64, i64 }
 %struct.TPoint_ = type { i64, i64 }
 
 @ft_standard_raster = hidden constant { i32, [4 x i8], ptr, ptr, ptr, ptr, ptr } { i32 1869968492, [4 x i8] zeroinitializer, ptr @ft_black_new, ptr @ft_black_reset, ptr @ft_black_set_mode, ptr @ft_black_render, ptr @ft_black_done }, align 8
@@ -86,7 +85,7 @@ define internal i32 @ft_black_render(ptr noundef readnone captures(address_is_nu
 23:                                               ; preds = %20
   %24 = add nuw nsw i64 %15, 4294967295
   %25 = and i64 %24, 4294967295
-  %26 = getelementptr inbounds nuw i16, ptr %19, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !27
   %28 = zext i16 %27 to i32
   %29 = add nuw nsw i32 %28, 1
@@ -749,13 +748,13 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
   store ptr null, ptr %22, align 8, !tbaa !106
   %46 = add nuw nsw i64 %.096.i, 1
   %47 = load ptr, ptr %23, align 8, !tbaa !107
-  %48 = getelementptr inbounds nuw i16, ptr %47, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %indvars.iv.i
   %49 = load i16, ptr %48, align 2, !tbaa !27
   %50 = zext i16 %49 to i64
   %51 = load ptr, ptr %24, align 8, !tbaa !108
-  %52 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %51, i64 %50
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %50
   %53 = and i64 %46, 4294967295
-  %54 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %51, i64 %53
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !79
   %56 = load i32, ptr %25, align 4, !tbaa !90
   %57 = sext i32 %56 to i64
@@ -1167,7 +1166,7 @@ define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((
   %275 = ashr i32 %274, 1
   %276 = add nsw i32 %.0, 1
   %277 = sext i32 %.0 to i64
-  %278 = getelementptr inbounds i32, ptr %7, i64 %277
+  %278 = getelementptr inbounds [4 x i8], ptr %7, i64 %277
   store i32 %.027, ptr %278, align 4, !tbaa !3
   %279 = add nsw i32 %275, 1
   br label %36
@@ -1186,7 +1185,7 @@ Convert_Glyph.exit.thread165:                     ; preds = %269, %259
   %282 = trunc i64 %281 to i32
   %283 = load i32, ptr %18, align 4, !tbaa !102
   %284 = sext i32 %283 to i64
-  %285 = getelementptr inbounds i64, ptr %280, i64 %284
+  %285 = getelementptr inbounds [8 x i8], ptr %280, i64 %284
   %286 = load i64, ptr %285, align 8, !tbaa !124
   %287 = trunc i64 %286 to i32
   %288 = add nsw i32 %287, -1
@@ -1462,7 +1461,7 @@ Convert_Glyph.exit.thread165:                     ; preds = %269, %259
   store i32 %409, ptr %407, align 8, !tbaa !130
   %410 = getelementptr inbounds nuw i8, ptr %402, i64 40
   %411 = sext i32 %409 to i64
-  %412 = getelementptr inbounds i64, ptr %410, i64 %411
+  %412 = getelementptr inbounds [8 x i8], ptr %410, i64 %411
   %413 = load i64, ptr %412, align 8, !tbaa !124
   %414 = getelementptr inbounds nuw i8, ptr %402, i64 32
   store i64 %413, ptr %414, align 8, !tbaa !126
@@ -1538,7 +1537,7 @@ Increment.exit.i:                                 ; preds = %427, %.preheader.i.
   store i32 %436, ptr %434, align 8, !tbaa !130
   %437 = getelementptr inbounds nuw i8, ptr %429, i64 40
   %438 = sext i32 %436 to i64
-  %439 = getelementptr inbounds i64, ptr %437, i64 %438
+  %439 = getelementptr inbounds [8 x i8], ptr %437, i64 %438
   %440 = load i64, ptr %439, align 8, !tbaa !124
   %441 = getelementptr inbounds nuw i8, ptr %429, i64 32
   store i64 %440, ptr %441, align 8, !tbaa !126
@@ -1618,7 +1617,7 @@ Convert_Glyph.exit.thread45:                      ; preds = %36, %._crit_edge.i,
   %461 = add nsw i32 %.0, -1
   %462 = add nsw i32 %.027, -1
   %463 = zext nneg i32 %461 to i64
-  %464 = getelementptr inbounds nuw i32, ptr %7, i64 %463
+  %464 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %463
   %465 = load i32, ptr %464, align 4, !tbaa !3
   br label %.outer
 
@@ -1899,7 +1898,7 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i32 %56, ptr %57, align 8, !tbaa !130
   %58 = zext nneg i32 %56 to i64
-  %59 = getelementptr inbounds nuw i64, ptr %6, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %58
   br label %60
 
 60:                                               ; preds = %51, %33
@@ -1919,14 +1918,14 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
 
 67:                                               ; preds = %60
   %68 = sext i32 %63 to i64
-  %69 = getelementptr inbounds i64, ptr %65, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %65, i64 %68
   %70 = load i64, ptr %69, align 8, !tbaa !124
   %71 = icmp slt i64 %70, %.pre.i
   br i1 %71, label %._crit_edge.i, label %73
 
 ._crit_edge.i:                                    ; preds = %67, %60
   %.pre-phi44.i = phi i64 [ %68, %67 ], [ 0, %60 ]
-  %72 = getelementptr inbounds i64, ptr %65, i64 %.pre-phi44.i
+  %72 = getelementptr inbounds [8 x i8], ptr %65, i64 %.pre-phi44.i
   store i64 %.pre.i, ptr %72, align 8, !tbaa !124
   br label %73
 
@@ -1945,7 +1944,7 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
 
 80:                                               ; preds = %78
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %81 = getelementptr inbounds i64, ptr %65, i64 %indvars.iv.next.i
+  %81 = getelementptr inbounds [8 x i8], ptr %65, i64 %indvars.iv.next.i
   %82 = load i64, ptr %81, align 8, !tbaa !124
   %83 = icmp sgt i64 %82, %74
   br i1 %83, label %78, label %.critedge.i, !llvm.loop !137
@@ -1956,7 +1955,7 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
 
 85:                                               ; preds = %.critedge.i
   %86 = and i64 %indvars.iv.next.i, 4294967295
-  %87 = getelementptr inbounds nuw i64, ptr %65, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !124
   %89 = icmp slt i64 %88, %74
   br i1 %89, label %.critedge.thread.i, label %100
@@ -1976,7 +1975,7 @@ define internal fastcc signext range(i8 0, 2) i8 @End_Profile(ptr noundef nonnul
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv39.i = phi i64 [ %91, %.preheader.preheader.i ], [ %indvars.iv.next40.i, %.preheader.i ]
   %.029.i = phi i32 [ %.047, %.preheader.preheader.i ], [ %94, %.preheader.i ]
-  %92 = getelementptr inbounds i64, ptr %65, i64 %indvars.iv39.i
+  %92 = getelementptr inbounds [8 x i8], ptr %65, i64 %indvars.iv39.i
   %93 = load i64, ptr %92, align 8, !tbaa !124
   %94 = trunc i64 %93 to i32
   %95 = sext i32 %.029.i to i64
@@ -2262,7 +2261,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Conic_To(ptr noundef nonnull c
   %114 = load i32, ptr %0, align 8, !tbaa !86
   %115 = zext nneg i32 %114 to i64
   %116 = lshr i64 %113, %115
-  %117 = getelementptr inbounds nuw i64, ptr %112, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load ptr, ptr %21, align 8, !tbaa !101
   %.not.i = icmp ult ptr %118, %119
@@ -2438,7 +2437,7 @@ Bezier_Up.exit:                                   ; preds = %111
   %221 = load i32, ptr %0, align 8, !tbaa !86
   %222 = zext nneg i32 %221 to i64
   %223 = lshr i64 %220, %222
-  %224 = getelementptr inbounds nuw i64, ptr %219, i64 %223
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 8
   %226 = load ptr, ptr %21, align 8, !tbaa !101
   %.not.i82 = icmp ult ptr %225, %226
@@ -2950,7 +2949,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Line_Up(ptr noundef nonnull ca
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %48 = load ptr, ptr %47, align 8, !tbaa !100
   %49 = sext i32 %46 to i64
-  %50 = getelementptr inbounds i64, ptr %48, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %48, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %52 = load ptr, ptr %51, align 8, !tbaa !101
   %.not = icmp ult ptr %50, %52
@@ -3037,7 +3036,7 @@ declare hidden i64 @FT_MulDiv_No_Round(i64 noundef, i64 noundef, i64 noundef) lo
 ; Function Attrs: nounwind uwtable
 define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 2, 4) %1, ptr noundef nonnull %2, ptr noundef readonly captures(none) %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw %struct.TPoint_, ptr %2, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !141
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3099,7 +3098,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull 
   %49 = load i32, ptr %0, align 8, !tbaa !86
   %50 = zext nneg i32 %49 to i64
   %51 = lshr i64 %48, %50
-  %52 = getelementptr inbounds nuw i64, ptr %47, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load ptr, ptr %54, align 8, !tbaa !101
@@ -3128,7 +3127,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull 
   br i1 %65, label %66, label %90
 
 66:                                               ; preds = %61
-  %67 = getelementptr inbounds nuw %struct.TPoint_, ptr %.074, i64 %7
+  %67 = getelementptr inbounds nuw [16 x i8], ptr %.074, i64 %7
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load i64, ptr %68, align 8, !tbaa !141
   %70 = sub nsw i64 %63, %69
@@ -3158,7 +3157,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull 
   %86 = load i32, ptr %56, align 4, !tbaa !88
   %87 = sext i32 %86 to i64
   %88 = add nsw i64 %.177, %87
-  %89 = getelementptr inbounds %struct.TPoint_, ptr %.074, i64 %57
+  %89 = getelementptr inbounds [16 x i8], ptr %.074, i64 %57
   br label %99
 
 90:                                               ; preds = %61
@@ -3176,7 +3175,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr noundef nonnull 
 97:                                               ; preds = %92, %90
   %.278 = phi i64 [ %96, %92 ], [ %.177, %90 ]
   %.1 = phi ptr [ %93, %92 ], [ %.0, %90 ]
-  %98 = getelementptr inbounds %struct.TPoint_, ptr %.074, i64 %57
+  %98 = getelementptr inbounds [16 x i8], ptr %.074, i64 %57
   br label %99
 
 99:                                               ; preds = %97, %80, %79

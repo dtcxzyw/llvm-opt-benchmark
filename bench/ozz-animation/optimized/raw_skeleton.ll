@@ -4,17 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.ozz::animation::offline::(anonymous namespace)::JointCounter" = type { i32 }
-%"struct.ozz::animation::offline::RawSkeleton::Joint" = type { %"class.std::vector", %"class.std::__cxx11::basic_string", %"struct.ozz::math::Transform" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl" = type { %"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<ozz::animation::offline::RawSkeleton::Joint, ozz::StdAllocator<ozz::animation::offline::RawSkeleton::Joint>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"struct.ozz::math::Transform" = type { %"struct.ozz::math::Float3", %"struct.ozz::math::Quaternion", %"struct.ozz::math::Float3" }
-%"struct.ozz::math::Quaternion" = type { float, float, float, float }
-%"struct.ozz::math::Float3" = type { float, float, float }
 
 $__clang_call_terminate = comdat any
 
@@ -199,7 +188,7 @@ define internal fastcc void @_ZN3ozz9animation7offline12_GLOBAL__N_123_IterHiera
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %6 = phi ptr [ %12, %.lr.ph ], [ %5, %2 ]
   %.01 = phi i64 [ %10, %.lr.ph ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %"struct.ozz::animation::offline::RawSkeleton::Joint", ptr %6, i64 %.01
+  %7 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %.01
   %8 = load i32, ptr %1, align 4, !tbaa !22
   %9 = add nsw i32 %8, 1
   store i32 %9, ptr %1, align 4, !tbaa !22

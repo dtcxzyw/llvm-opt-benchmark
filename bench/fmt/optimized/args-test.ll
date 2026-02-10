@@ -44,9 +44,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.23" = type { %"struct.std::_Head_base.26" }
 %"struct.std::_Head_base.26" = type { ptr }
 %"class.testing::internal::AssertHelper" = type { ptr }
-%"class.fmt::v11::basic_format_arg" = type <{ %"class.fmt::v11::detail::value", i32, [12 x i8] }>
-%"class.fmt::v11::detail::value" = type { %union.anon.93 }
-%union.anon.93 = type { i128 }
 %struct.custom_type = type { i32 }
 %struct.to_stringable = type { i8 }
 %"struct.fmt::v11::detail::named_arg" = type { ptr, ptr }
@@ -73,7 +70,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"struct.fmt::v11::detail::format_arg_store" = type { [1 x %"class.fmt::v11::detail::value"] }
-%"struct.fmt::v11::detail::named_arg_info" = type { ptr, i32 }
+%"class.fmt::v11::detail::value" = type { %union.anon.93 }
+%union.anon.93 = type { i128 }
+%"class.fmt::v11::basic_format_arg" = type <{ %"class.fmt::v11::detail::value", i32, [12 x i8] }>
 %"struct.testing::internal::CodeLocation" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 
 $_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci = comdat any
@@ -800,7 +799,7 @@ _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %39, %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i.i.i24
   store ptr %33, ptr %1, align 8, !tbaa !25
   store ptr %38, ptr %6, align 8, !tbaa !28
-  %40 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %31
   store ptr %40, ptr %7, align 8, !tbaa !29
   br label %41
 
@@ -1237,7 +1236,7 @@ _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE17_M_realloc_insertIJRA11_KcEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %38, %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i.i.i
   store ptr %32, ptr %2, align 8, !tbaa !25
   store ptr %37, ptr %11, align 8, !tbaa !28
-  %39 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %32, i64 %30
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %30
   store ptr %39, ptr %13, align 8, !tbaa !29
   br label %40
 
@@ -1319,7 +1318,7 @@ _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE17_M_realloc_insertIJRKNS1_17basic_string_viewIcEEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %68, %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i
   store ptr %61, ptr %2, align 8, !tbaa !25
   store ptr %67, ptr %11, align 8, !tbaa !28
-  %69 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [32 x i8], ptr %61, i64 %59
   store ptr %69, ptr %13, align 8, !tbaa !29
   br label %70
 
@@ -1681,7 +1680,7 @@ _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE17_M_realloc_ins
   %.pre = phi i32 [ %.pre.pre, %43 ], [ %13, %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i.i.i ]
   store ptr %36, ptr %2, align 8, !tbaa !25
   store ptr %42, ptr %14, align 8, !tbaa !28
-  %44 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %36, i64 %34
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %34
   store ptr %44, ptr %16, align 8, !tbaa !29
   br label %45
 
@@ -2018,7 +2017,7 @@ _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE17_M_realloc_insertIJRK11custom_typeEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %38, %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i.i
   store ptr %31, ptr %0, align 8, !tbaa !25
   store ptr %37, ptr %9, align 8, !tbaa !28
-  %39 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %31, i64 %29
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %29
   store ptr %39, ptr %11, align 8, !tbaa !29
   br label %_ZN3fmt3v1124dynamic_format_arg_storeINS0_7contextEE11emplace_argI11custom_typeEEvRKT_.exit
 
@@ -4176,7 +4175,7 @@ _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i86: ; preds = %188, %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i.i.i83
   store ptr %182, ptr %1, align 8, !tbaa !25
   store ptr %187, ptr %14, align 8, !tbaa !28
-  %189 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %182, i64 %180
+  %189 = getelementptr inbounds nuw [32 x i8], ptr %182, i64 %180
   store ptr %189, ptr %15, align 8, !tbaa !29
   br label %190
 
@@ -5860,7 +5859,7 @@ _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %85, %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i.i.i
   store ptr %79, ptr %2, align 8, !tbaa !25
   store ptr %84, ptr %21, align 8, !tbaa !28
-  %86 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %79, i64 %77
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %79, i64 %77
   store ptr %86, ptr %60, align 8, !tbaa !29
   br label %_ZN3fmt3v1124dynamic_format_arg_storeINS0_7contextEE9push_backIiEEvRKT_.exit
 
@@ -7026,7 +7025,7 @@ _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE17_M_realloc_insertIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i, %38
   store ptr %28, ptr %0, align 8, !tbaa !25
   store ptr %37, ptr %3, align 8, !tbaa !28
-  %39 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %28, i64 %26
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %26
   store ptr %39, ptr %5, align 8, !tbaa !29
   br label %40
 
@@ -7966,7 +7965,7 @@ _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i
   store ptr %37, ptr %0, align 8, !tbaa !25
   store ptr %43, ptr %15, align 8, !tbaa !28
-  %45 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %37, i64 %35
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %35
   store ptr %45, ptr %17, align 8, !tbaa !29
   br label %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE12emplace_backIJRKiEEERS4_DpOT_.exit
 
@@ -8049,7 +8048,7 @@ _ZNSt6vectorIN3fmt3v116detail14named_arg_infoIcEESaIS4_EE17_M_realloc_insertIJS4
   %.pre24 = phi ptr [ %.pre24.pre, %78 ], [ %46, %_ZNSt6vectorIN3fmt3v116detail14named_arg_infoIcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i ]
   store ptr %73, ptr %4, align 8, !tbaa !66
   store ptr %77, ptr %6, align 8, !tbaa !154
-  %79 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %73, i64 %71
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %71
   store ptr %79, ptr %56, align 8, !tbaa !68
   br label %_ZNSt10unique_ptrISt6vectorIN3fmt3v1116basic_format_argINS2_7contextEEESaIS5_EEZNS2_24dynamic_format_arg_storeIS4_E11emplace_argIiEEvRKNS2_6detail9named_argIcT_EEEUlPS7_E_ED2Ev.exit
 
@@ -8198,7 +8197,7 @@ define linkonce_odr hidden ptr @_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7co
   %25 = sub i64 %24, %5
   %26 = ashr exact i64 %25, 5
   %27 = sub nsw i64 0, %26
-  %28 = getelementptr inbounds %"class.fmt::v11::basic_format_arg", ptr %20, i64 %27
+  %28 = getelementptr inbounds [32 x i8], ptr %20, i64 %27
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %28, ptr align 16 %18, i64 %25, i1 false)
   br label %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE13_M_insert_auxIS4_EEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEOT_.exit
 
@@ -8272,7 +8271,7 @@ _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i, %48
   store ptr %41, ptr %0, align 8, !tbaa !25
   store ptr %.0.lcssa.i.i.i21.i, ptr %8, align 8, !tbaa !28
-  %52 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %41, i64 %39
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %39
   store ptr %52, ptr %10, align 8, !tbaa !29
   br label %53
 
@@ -8469,7 +8468,7 @@ _ZNSt6vectorIN3fmt3v116detail14named_arg_infoIcEESaIS4_EE11_S_relocateEPS4_S7_S7
 _ZNSt6vectorIN3fmt3v116detail14named_arg_infoIcEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %49, %_ZNSt6vectorIN3fmt3v116detail14named_arg_infoIcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %44, ptr %4, align 8, !tbaa !66
   store ptr %48, ptr %6, align 8, !tbaa !154
-  %50 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %44, i64 %42
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %42
   store ptr %50, ptr %27, align 8, !tbaa !68
   br label %_ZNSt10unique_ptrISt6vectorIN3fmt3v1116basic_format_argINS2_7contextEEESaIS5_EEZNS2_24dynamic_format_arg_storeIS4_E11emplace_argINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKNS2_6detail9named_argIcT_EEEUlPS7_E_ED2Ev.exit
 
@@ -8586,7 +8585,7 @@ _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE17_M_realloc_insertIJRA11_KcEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %43, %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i
   store ptr %37, ptr %0, align 8, !tbaa !25
   store ptr %42, ptr %16, align 8, !tbaa !28
-  %44 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %37, i64 %35
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %35
   store ptr %44, ptr %18, align 8, !tbaa !29
   br label %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE12emplace_backIJRA11_KcEEERS4_DpOT_.exit
 
@@ -8669,7 +8668,7 @@ _ZNSt6vectorIN3fmt3v116detail14named_arg_infoIcEESaIS4_EE17_M_realloc_insertIJS4
   %.pre24 = phi ptr [ %.pre24.pre, %77 ], [ %45, %_ZNSt6vectorIN3fmt3v116detail14named_arg_infoIcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i ]
   store ptr %72, ptr %4, align 8, !tbaa !66
   store ptr %76, ptr %6, align 8, !tbaa !154
-  %78 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %72, i64 %70
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %70
   store ptr %78, ptr %55, align 8, !tbaa !68
   br label %_ZNSt10unique_ptrISt6vectorIN3fmt3v1116basic_format_argINS2_7contextEEESaIS5_EEZNS2_24dynamic_format_arg_storeIS4_E11emplace_argISt17reference_wrapperIA11_KcEEEvRKNS2_6detail9named_argIcT_EEEUlPS7_E_ED2Ev.exit
 
@@ -8871,7 +8870,7 @@ _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE17_M_realloc_insertIJRA15_KcEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %43, %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i
   store ptr %37, ptr %0, align 8, !tbaa !25
   store ptr %42, ptr %16, align 8, !tbaa !28
-  %44 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %37, i64 %35
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %35
   store ptr %44, ptr %18, align 8, !tbaa !29
   br label %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE12emplace_backIJRA15_KcEEERS4_DpOT_.exit
 
@@ -8954,7 +8953,7 @@ _ZNSt6vectorIN3fmt3v116detail14named_arg_infoIcEESaIS4_EE17_M_realloc_insertIJS4
   %.pre24 = phi ptr [ %.pre24.pre, %77 ], [ %45, %_ZNSt6vectorIN3fmt3v116detail14named_arg_infoIcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i ]
   store ptr %72, ptr %4, align 8, !tbaa !66
   store ptr %76, ptr %6, align 8, !tbaa !154
-  %78 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %72, i64 %70
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %70
   store ptr %78, ptr %55, align 8, !tbaa !68
   br label %_ZNSt10unique_ptrISt6vectorIN3fmt3v1116basic_format_argINS2_7contextEEESaIS5_EEZNS2_24dynamic_format_arg_storeIS4_E11emplace_argISt17reference_wrapperIA15_KcEEEvRKNS2_6detail9named_argIcT_EEEUlPS7_E_ED2Ev.exit
 
@@ -9159,7 +9158,7 @@ _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE17_M_realloc_insertIJRK11custom_typeEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i
   store ptr %37, ptr %0, align 8, !tbaa !25
   store ptr %43, ptr %15, align 8, !tbaa !28
-  %45 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %37, i64 %35
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %35
   store ptr %45, ptr %17, align 8, !tbaa !29
   br label %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE12emplace_backIJRK11custom_typeEEERS4_DpOT_.exit
 
@@ -9242,7 +9241,7 @@ _ZNSt6vectorIN3fmt3v116detail14named_arg_infoIcEESaIS4_EE17_M_realloc_insertIJS4
   %.pre24 = phi ptr [ %.pre24.pre, %78 ], [ %46, %_ZNSt6vectorIN3fmt3v116detail14named_arg_infoIcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i ]
   store ptr %73, ptr %4, align 8, !tbaa !66
   store ptr %77, ptr %6, align 8, !tbaa !154
-  %79 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %73, i64 %71
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %71
   store ptr %79, ptr %56, align 8, !tbaa !68
   br label %_ZNSt10unique_ptrISt6vectorIN3fmt3v1116basic_format_argINS2_7contextEEESaIS5_EEZNS2_24dynamic_format_arg_storeIS4_E11emplace_argI11custom_typeEEvRKNS2_6detail9named_argIcT_EEEUlPS7_E_ED2Ev.exit
 
@@ -9363,7 +9362,7 @@ _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE17_M_realloc_insertIJRK11custom_typeEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %45, %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit32.i.i
   store ptr %38, ptr %0, align 8, !tbaa !25
   store ptr %44, ptr %16, align 8, !tbaa !28
-  %46 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %38, i64 %36
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %36
   store ptr %46, ptr %18, align 8, !tbaa !29
   br label %_ZNSt6vectorIN3fmt3v1116basic_format_argINS1_7contextEEESaIS4_EE12emplace_backIJRK11custom_typeEEERS4_DpOT_.exit
 
@@ -9446,7 +9445,7 @@ _ZNSt6vectorIN3fmt3v116detail14named_arg_infoIcEESaIS4_EE17_M_realloc_insertIJS4
   %.pre24 = phi ptr [ %.pre24.pre, %79 ], [ %47, %_ZNSt6vectorIN3fmt3v116detail14named_arg_infoIcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i ]
   store ptr %74, ptr %4, align 8, !tbaa !66
   store ptr %78, ptr %6, align 8, !tbaa !154
-  %80 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %74, i64 %72
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %72
   store ptr %80, ptr %57, align 8, !tbaa !68
   br label %_ZNSt10unique_ptrISt6vectorIN3fmt3v1116basic_format_argINS2_7contextEEESaIS5_EEZNS2_24dynamic_format_arg_storeIS4_E11emplace_argISt17reference_wrapperIK11custom_typeEEEvRKNS2_6detail9named_argIcT_EEEUlPS7_E_ED2Ev.exit
 

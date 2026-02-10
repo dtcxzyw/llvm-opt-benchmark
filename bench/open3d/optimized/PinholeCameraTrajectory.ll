@@ -17,17 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.open3d::camera::PinholeCameraParameters" = type { %"class.open3d::utility::IJsonConvertible", %"class.open3d::camera::PinholeCameraIntrinsic", %"class.Eigen::Matrix.6" }
-%"class.open3d::utility::IJsonConvertible" = type { ptr }
-%"class.open3d::camera::PinholeCameraIntrinsic" = type { %"class.open3d::utility::IJsonConvertible", i32, i32, %"class.Eigen::Matrix" }
-%"class.Eigen::Matrix" = type { %"class.Eigen::PlainObjectBase" }
-%"class.Eigen::PlainObjectBase" = type { %"class.Eigen::DenseStorage" }
-%"class.Eigen::DenseStorage" = type { %"struct.Eigen::internal::plain_array" }
-%"struct.Eigen::internal::plain_array" = type { [9 x double] }
-%"class.Eigen::Matrix.6" = type { %"class.Eigen::PlainObjectBase.7" }
-%"class.Eigen::PlainObjectBase.7" = type { %"class.Eigen::DenseStorage.14" }
-%"class.Eigen::DenseStorage.14" = type { %"struct.Eigen::internal::plain_array.15" }
-%"struct.Eigen::internal::plain_array.15" = type { [16 x double] }
 
 $__clang_call_terminate = comdat any
 
@@ -467,7 +456,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit85: ; preds = %56,
   br i1 %87, label %88, label %_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit.preheader
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw %"class.open3d::camera::PinholeCameraParameters", ptr %78, i64 %75
+  %89 = getelementptr inbounds nuw [224 x i8], ptr %78, i64 %75
   %.not.i.i = icmp eq ptr %77, %89
   br i1 %.not.i.i, label %_ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit.preheader, label %.lr.ph.i.i.i.i
 
@@ -513,7 +502,7 @@ _ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit: ; 
           to label %104 unwind label %109
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds nuw %"class.open3d::camera::PinholeCameraParameters", ptr %102, i64 %.034
+  %105 = getelementptr inbounds nuw [224 x i8], ptr %102, i64 %.034
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = invoke noundef zeroext i1 @_ZN6open3d6camera22PinholeCameraIntrinsic20ConvertFromJsonValueERKN4Json5ValueE(ptr noundef nonnull align 8 dereferenceable(88) %106, ptr noundef nonnull align 8 dereferenceable(40) %103)
           to label %108 unwind label %109
@@ -532,7 +521,7 @@ _ZNSt6vectorIN6open3d6camera23PinholeCameraParametersESaIS2_EE6resizeEm.exit: ; 
           to label %114 unwind label %109
 
 114:                                              ; preds = %111
-  %115 = getelementptr inbounds nuw %"class.open3d::camera::PinholeCameraParameters", ptr %112, i64 %.034
+  %115 = getelementptr inbounds nuw [224 x i8], ptr %112, i64 %.034
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 96
   %117 = invoke noundef zeroext i1 @_ZN6open3d7utility16IJsonConvertible26EigenMatrix4dFromJsonArrayERN5Eigen6MatrixIdLi4ELi4ELi2ELi4ELi4EEERKN4Json5ValueE(ptr noundef nonnull align 8 dereferenceable(128) %116, ptr noundef nonnull align 8 dereferenceable(40) %113)
           to label %118 unwind label %109
@@ -991,9 +980,9 @@ _ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersEEvT_S4_.exit59: ; preds 
 
 _ZNSt12_Vector_baseIN6open3d6camera23PinholeCameraParametersESaIS2_EE13_M_deallocateEPS2_m.exit61: ; preds = %_ZSt8_DestroyIPN6open3d6camera23PinholeCameraParametersEEvT_S4_.exit59, %74
   store ptr %40, ptr %0, align 8, !tbaa !20
-  %78 = getelementptr inbounds nuw %"class.open3d::camera::PinholeCameraParameters", ptr %41, i64 %1
+  %78 = getelementptr inbounds nuw [224 x i8], ptr %41, i64 %1
   store ptr %78, ptr %4, align 8, !tbaa !18
-  %79 = getelementptr inbounds nuw %"class.open3d::camera::PinholeCameraParameters", ptr %40, i64 %38
+  %79 = getelementptr inbounds nuw [224 x i8], ptr %40, i64 %38
   store ptr %79, ptr %11, align 8, !tbaa !24
   br label %80
 

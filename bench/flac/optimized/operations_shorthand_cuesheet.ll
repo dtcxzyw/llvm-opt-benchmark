@@ -3,9 +3,6 @@ source_filename = "bench/flac/original/operations_shorthand_cuesheet.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FLAC__StreamMetadata_CueSheet_Track = type { i64, i8, [13 x i8], i8, i8, ptr }
-%struct.FLAC__StreamMetadata_CueSheet_Index = type { i64, i8 }
-
 @.str = private unnamed_addr constant [34 x i8] c"out of memory allocating iterator\00", align 1
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str.1 = private unnamed_addr constant [99 x i8] c"%s: ERROR: FLAC file must have total_samples set in STREAMINFO in order to import/export cuesheet\0A\00", align 1
@@ -268,7 +265,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__cuesheet(ptr nound
   %114 = phi i32 [ %111, %.lr.ph59.i ], [ %130, %._crit_edge.i ]
   %indvars.iv65.i = phi i64 [ 0, %.lr.ph59.i ], [ %indvars.iv.next66.i, %._crit_edge.i ]
   %115 = load ptr, ptr %112, align 8, !tbaa !23
-  %116 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %115, i64 %indvars.iv65.i
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %115, i64 %indvars.iv65.i
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 23
   %118 = load i8, ptr %117, align 1, !tbaa !24
   %.not63.i = icmp eq i8 %118, 0
@@ -282,7 +279,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__cuesheet(ptr nound
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %120 ]
   %121 = load i64, ptr %116, align 8, !tbaa !26
   %122 = load ptr, ptr %119, align 8, !tbaa !27
-  %123 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %122, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %122, i64 %indvars.iv.i
   %124 = load i64, ptr %123, align 8, !tbaa !28
   %125 = add i64 %124, %121
   %126 = call i32 (ptr, i64, ptr, ...) @flac_snprintf(ptr noundef nonnull %7, i64 noundef 128, ptr noundef nonnull @.str.15, i64 noundef %125) #9

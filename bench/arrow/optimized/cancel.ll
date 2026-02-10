@@ -32,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sigaction = type { %union.anon.68, %struct.__sigset_t, i32, ptr }
 %union.anon.68 = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
-%"struct.arrow::(anonymous namespace)::SignalStopState::SavedSignalHandler" = type { i32, %"class.arrow::internal::SignalHandler" }
 %"class.arrow::util::ArrowLog" = type <{ %"class.arrow::util::ArrowLogBase", ptr, i8, [7 x i8] }>
 %"class.arrow::util::ArrowLogBase" = type { ptr }
 %"class.std::weak_ptr.38" = type { %"class.std::__weak_ptr.39" }
@@ -1571,7 +1570,7 @@ _ZNSt6vectorIN5arrow12_GLOBAL__N_115SignalStopState18SavedSignalHandlerESaIS3_EE
 _ZNSt6vectorIN5arrow12_GLOBAL__N_115SignalStopState18SavedSignalHandlerESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %185, %_ZNSt6vectorIN5arrow12_GLOBAL__N_115SignalStopState18SavedSignalHandlerESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit26.i.i.i.i
   store ptr %180, ptr %26, align 8, !tbaa !98, !noalias !63
   store ptr %184, ptr %27, align 8, !tbaa !93, !noalias !63
-  %186 = getelementptr inbounds nuw %"struct.arrow::(anonymous namespace)::SignalStopState::SavedSignalHandler", ptr %180, i64 %178
+  %186 = getelementptr inbounds nuw [160 x i8], ptr %180, i64 %178
   store ptr %186, ptr %147, align 8, !tbaa !95, !noalias !63
   br label %_ZNSt6vectorIN5arrow12_GLOBAL__N_115SignalStopState18SavedSignalHandlerESaIS3_EE9push_backEOS3_.exit.i
 

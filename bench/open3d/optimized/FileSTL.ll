@@ -26,14 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Eigen::PlainObjectBase" = type { %"class.Eigen::DenseStorage" }
 %"class.Eigen::DenseStorage" = type { %"struct.Eigen::internal::plain_array" }
 %"struct.Eigen::internal::plain_array" = type { [3 x float] }
-%"class.Eigen::Matrix.41" = type { %"class.Eigen::PlainObjectBase.42" }
-%"class.Eigen::PlainObjectBase.42" = type { %"class.Eigen::DenseStorage.49" }
-%"class.Eigen::DenseStorage.49" = type { %"struct.Eigen::internal::plain_array.50" }
-%"struct.Eigen::internal::plain_array.50" = type { [3 x double] }
-%"class.Eigen::Matrix.51" = type { %"class.Eigen::PlainObjectBase.52" }
-%"class.Eigen::PlainObjectBase.52" = type { %"class.Eigen::DenseStorage.59" }
-%"class.Eigen::DenseStorage.59" = type { %"struct.Eigen::internal::plain_array.60" }
-%"struct.Eigen::internal::plain_array.60" = type { [3 x i32] }
 
 $_ZN6open3d7utility6Logger11LogWarning_IJEEEvPKciS4_S4_DpOT_ = comdat any
 
@@ -259,7 +251,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %106
   %.01951 = phi i64 [ 0, %.lr.ph ], [ %150, %149 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %113 = load ptr, ptr %69, align 8, !tbaa !10
-  %114 = getelementptr inbounds nuw %"class.Eigen::Matrix.41", ptr %113, i64 %.01951
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %.01951
   %115 = load double, ptr %114, align 8, !tbaa !36
   %116 = fptrunc double %115 to float
   store float %116, ptr %14, align 4, !tbaa !38
@@ -289,12 +281,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %106
   %indvars.iv = phi i64 [ %indvars.iv.next, %144 ], [ 0, %112 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %128 = load ptr, ptr %59, align 8, !tbaa !40
-  %129 = getelementptr inbounds nuw %"class.Eigen::Matrix.51", ptr %128, i64 %.01951
-  %130 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [12 x i8], ptr %128, i64 %.01951
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %indvars.iv
   %131 = load i32, ptr %130, align 4, !tbaa !43
   %132 = sext i32 %131 to i64
   %133 = load ptr, ptr %55, align 8, !tbaa !10
-  %134 = getelementptr inbounds nuw %"class.Eigen::Matrix.41", ptr %133, i64 %132
+  %134 = getelementptr inbounds nuw [24 x i8], ptr %133, i64 %132
   %135 = load double, ptr %134, align 8, !tbaa !36
   %136 = fptrunc double %135 to float
   store float %136, ptr %15, align 4, !tbaa !38

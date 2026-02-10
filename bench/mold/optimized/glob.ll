@@ -15,12 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.2" = type { %"struct.std::_Vector_base<mold::Glob::Element, std::allocator<mold::Glob::Element>>::_Vector_impl" }
 %"struct.std::_Vector_base<mold::Glob::Element, std::allocator<mold::Glob::Element>>::_Vector_impl" = type { %"struct.std::_Vector_base<mold::Glob::Element, std::allocator<mold::Glob::Element>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<mold::Glob::Element, std::allocator<mold::Glob::Element>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.mold::Glob::Element" = type { i32, %"class.std::__cxx11::basic_string", %"class.std::bitset" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::bitset" = type { %"struct.std::_Base_bitset" }
-%"struct.std::_Base_bitset" = type { [4 x i64] }
 
 $_ZN4mold7Counter9instancesE = comdat any
 
@@ -258,7 +252,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit57: ; preds = %54
 68:                                               ; preds = %65, %68
   %.036122 = phi i64 [ %66, %65 ], [ %75, %68 ]
   %69 = lshr i64 %.036122, 6
-  %70 = getelementptr inbounds nuw i64, ptr %28, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %69
   %71 = and i64 %.036122, 63
   %72 = shl nuw i64 1, %71
   %73 = load i64, ptr %70, align 8, !tbaa !32
@@ -272,7 +266,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit60: ; preds = %._ZN
   %76 = phi i8 [ %.pre138, %._ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit60_crit_edge ], [ %.pre139, %45 ]
   %77 = zext i8 %76 to i64
   %78 = lshr i64 %77, 6
-  %79 = getelementptr inbounds nuw i64, ptr %28, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %78
   %80 = and i64 %77, 63
   %81 = shl nuw i64 1, %80
   %82 = load i64, ptr %79, align 8, !tbaa !32
@@ -300,7 +294,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit60: ; preds = %._ZN
 
 .preheader:                                       ; preds = %88, %.preheader
   %.04.i.i = phi i64 [ %94, %.preheader ], [ 0, %88 ]
-  %91 = getelementptr inbounds nuw i64, ptr %28, i64 %.04.i.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.04.i.i
   %92 = load i64, ptr %91, align 8, !tbaa !32
   %93 = xor i64 %92, -1
   store i64 %93, ptr %91, align 8, !tbaa !32
@@ -797,7 +791,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit63: ; preds = %64
   %71 = load i8, ptr %.sroa.17.0140, align 1, !tbaa !11
   %72 = sext i8 %71 to i64
   %73 = lshr i64 %72, 6
-  %74 = getelementptr inbounds nuw i64, ptr %70, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %73
   %75 = and i64 %72, 63
   %76 = load i64, ptr %74, align 8, !tbaa !32
   %77 = shl nuw i64 1, %75
@@ -994,7 +988,7 @@ _ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26: ; 
 _ZNSt12_Vector_baseIN4mold4Glob7ElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4mold4Glob7ElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26, %69
   store ptr %20, ptr %0, align 8, !tbaa !39
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !14
-  %73 = getelementptr inbounds nuw %"struct.mold::Glob::Element", ptr %20, i64 %16
+  %73 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !17
   ret void
 }

@@ -3,8 +3,6 @@ source_filename = "bench/libevent/original/evmap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.event_change = type { i32, i16, i8, i8, i8 }
-
 @.str = private unnamed_addr constant [44 x i8] c"Too many events reading or writing on fd %d\00", align 1
 @event_debug_mode_on_ = external local_unnamed_addr global i32, align 4
 @.str.1 = private unnamed_addr constant [67 x i8] c"Tried to mix edge-triggered and non-edge-triggered events on fd %d\00", align 1
@@ -41,7 +39,7 @@ define hidden void @evmap_io_clear_(ptr noundef captures(none) %0) local_unnamed
   %6 = phi i32 [ %12, %11 ], [ %4, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %.preheader.i ]
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %.not11.i = icmp eq ptr %9, null
   br i1 %.not11.i, label %11, label %10
@@ -90,7 +88,7 @@ define hidden void @evmap_signal_clear_(ptr noundef captures(none) %0) local_unn
   %6 = phi i32 [ %12, %11 ], [ %4, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.preheader ]
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %.not11 = icmp eq ptr %9, null
   br i1 %.not11, label %11, label %10
@@ -168,7 +166,7 @@ define hidden range(i32 -1, 2) i32 @evmap_io_add_(ptr noundef %0, i32 noundef %1
 21:                                               ; preds = %15
   %22 = load i32, ptr %8, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %19, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %19, i64 %23
   %25 = sub nsw i32 %.025.i, %22
   %26 = shl nsw i32 %25, 3
   %27 = sext i32 %26 to i64
@@ -180,7 +178,7 @@ define hidden range(i32 -1, 2) i32 @evmap_io_add_(ptr noundef %0, i32 noundef %1
 evmap_make_space.exit:                            ; preds = %21, %7
   %28 = load ptr, ptr %5, align 8
   %29 = zext nneg i32 %1 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %45
@@ -191,10 +189,10 @@ evmap_make_space.exit:                            ; preds = %21, %7
   %36 = add i64 %35, 16
   %37 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef %36) #7
   %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %29
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %29
   store ptr %37, ptr %39, align 8
   %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %29
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %29
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %evmap_make_space.exit.thread, label %44, !prof !6
@@ -202,7 +200,7 @@ evmap_make_space.exit:                            ; preds = %21, %7
 44:                                               ; preds = %33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %42, i8 0, i64 14, i1 false)
   %.pre = load ptr, ptr %5, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %29
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %29
   %.pre111 = load ptr, ptr %.phi.trans.insert, align 8
   br label %45
 
@@ -349,7 +347,7 @@ define hidden range(i32 -1, 2) i32 @evmap_io_del_(ptr noundef %0, i32 noundef %1
 10:                                               ; preds = %7
   %11 = load ptr, ptr %5, align 8
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i16, ptr %15, align 8
@@ -462,7 +460,7 @@ define hidden void @evmap_io_active_(ptr noundef readonly captures(none) %0, i32
 9:                                                ; preds = %6
   %10 = load ptr, ptr %4, align 8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %.preheader
@@ -543,7 +541,7 @@ define hidden range(i32 -1, 2) i32 @evmap_signal_add_(ptr noundef %0, i32 nounde
 19:                                               ; preds = %13
   %20 = load i32, ptr %8, align 8
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %17, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %17, i64 %21
   %23 = sub nsw i32 %.025.i, %20
   %24 = shl nsw i32 %23, 3
   %25 = sext i32 %24 to i64
@@ -555,7 +553,7 @@ define hidden range(i32 -1, 2) i32 @evmap_signal_add_(ptr noundef %0, i32 nounde
 evmap_make_space.exit:                            ; preds = %19, %7
   %26 = load ptr, ptr %6, align 8
   %27 = zext nneg i32 %1 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %44
@@ -567,10 +565,10 @@ evmap_make_space.exit:                            ; preds = %19, %7
   %35 = add i64 %34, 8
   %36 = tail call ptr @event_mm_calloc_(i64 noundef 1, i64 noundef %35) #7
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %27
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %27
   store ptr %36, ptr %38, align 8
   %39 = load ptr, ptr %6, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %27
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %27
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %evmap_make_space.exit.thread, label %43, !prof !6
@@ -578,7 +576,7 @@ evmap_make_space.exit:                            ; preds = %19, %7
 43:                                               ; preds = %31
   store ptr null, ptr %41, align 8
   %.pre = load ptr, ptr %6, align 8
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %27
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %27
   %.pre38 = load ptr, ptr %.phi.trans.insert, align 8
   br label %44
 
@@ -645,7 +643,7 @@ define hidden range(i32 -1, 2) i32 @evmap_signal_del_(ptr noundef %0, i32 nounde
 11:                                               ; preds = %8
   %12 = load ptr, ptr %6, align 8
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -699,7 +697,7 @@ define hidden void @evmap_signal_active_(ptr noundef readonly captures(none) %0,
 9:                                                ; preds = %6
   %10 = load ptr, ptr %4, align 8
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not13 = icmp eq ptr %13, null
   br i1 %.not13, label %.loopexit, label %.preheader
@@ -729,7 +727,7 @@ define hidden void @evmap_signal_active_(ptr noundef readonly captures(none) %0,
 define hidden ptr @evmap_io_get_fdinfo_(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -750,7 +748,7 @@ define hidden range(i32 -1, 1) i32 @evmap_reinit_(ptr noundef %0) local_unnamed_
   %6 = phi i32 [ %36, %select.unfold.i ], [ %4, %1 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %select.unfold.i ], [ 0, %1 ]
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %select.unfold.i, label %10
@@ -837,7 +835,7 @@ evmap_io_foreach_fd.exit.thread:                  ; preds = %1, %evmap_io_foreac
   %45 = phi i32 [ %59, %select.unfold.i9 ], [ %42, %.lr.ph.i3.preheader ]
   %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i10, %select.unfold.i9 ], [ 0, %.lr.ph.i3.preheader ]
   %46 = load ptr, ptr %40, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i4
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i4
   %48 = load ptr, ptr %47, align 8
   %.not.i5 = icmp eq ptr %48, null
   br i1 %.not.i5, label %select.unfold.i9, label %49
@@ -889,7 +887,7 @@ define hidden void @evmap_delete_all_(ptr noundef readonly captures(none) %0) lo
   %6 = phi i32 [ %15, %select.unfold.i ], [ %4, %1 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %select.unfold.i ], [ 0, %1 ]
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %select.unfold.i, label %10
@@ -930,7 +928,7 @@ evmap_signal_foreach_signal.exit:                 ; preds = %select.unfold.i, %1
   %22 = phi i32 [ %31, %select.unfold.i9 ], [ %20, %evmap_signal_foreach_signal.exit ]
   %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i10, %select.unfold.i9 ], [ 0, %evmap_signal_foreach_signal.exit ]
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i4
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i4
   %25 = load ptr, ptr %24, align 8
   %.not.i5 = icmp eq ptr %25, null
   br i1 %.not.i5, label %select.unfold.i9, label %26
@@ -979,7 +977,7 @@ define hidden void @event_changelist_remove_all_(ptr noundef captures(none) %0, 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw %struct.event_change, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 6
   %9 = load i8, ptr %8, align 2
   %10 = and i8 %9, 8
@@ -990,7 +988,7 @@ define hidden void @event_changelist_remove_all_(ptr noundef captures(none) %0, 
   %.11.i = select i1 %.not.i, i64 16, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %..i
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %12
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %12
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 %.11.i
   store i32 0, ptr %17, align 4
@@ -1061,7 +1059,7 @@ event_changelist_get_or_construct.exit.thread23:  ; preds = %12, %event_changeli
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %13, align 8
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds %struct.event_change, ptr %25, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %25, i64 %28
   store i32 %27, ptr %4, align 4
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i64 0, ptr %30, align 4
@@ -1072,7 +1070,7 @@ event_changelist_get_or_construct.exit.thread23:  ; preds = %12, %event_changeli
 event_changelist_get_or_construct.exit:           ; preds = %5
   %31 = load ptr, ptr %6, align 8
   %32 = sext i32 %10 to i64
-  %33 = getelementptr %struct.event_change, ptr %31, i64 %32
+  %33 = getelementptr [12 x i8], ptr %31, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -12
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %event_changelist_get_or_construct.exit.thread, label %35
@@ -1154,7 +1152,7 @@ event_changelist_get_or_construct.exit.thread32:  ; preds = %12, %event_changeli
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %13, align 8
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds %struct.event_change, ptr %25, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %25, i64 %28
   store i32 %27, ptr %4, align 4
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store i64 0, ptr %30, align 4
@@ -1165,7 +1163,7 @@ event_changelist_get_or_construct.exit.thread32:  ; preds = %12, %event_changeli
 event_changelist_get_or_construct.exit:           ; preds = %5
   %31 = load ptr, ptr %6, align 8
   %32 = sext i32 %10 to i64
-  %33 = getelementptr %struct.event_change, ptr %31, i64 %32
+  %33 = getelementptr [12 x i8], ptr %31, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -12
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %event_changelist_get_or_construct.exit.thread, label %35
@@ -1240,7 +1238,7 @@ define hidden i32 @evmap_foreach_event_(ptr noundef %0, ptr noundef readonly cap
   %8 = phi i32 [ %16, %select.unfold.i ], [ %6, %3 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %select.unfold.i ], [ 0, %3 ]
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %select.unfold.i, label %12
@@ -1286,7 +1284,7 @@ select.unfold.i:                                  ; preds = %12, %.select.unfold
   %23 = phi i32 [ %31, %select.unfold.i13 ], [ %21, %.loopexit ]
   %indvars.iv.i8 = phi i64 [ %indvars.iv.next.i14, %select.unfold.i13 ], [ 0, %.loopexit ]
   %24 = load ptr, ptr %19, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i8
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i8
   %26 = load ptr, ptr %25, align 8
   %.not.i9 = icmp eq ptr %26, null
   br i1 %.not.i9, label %select.unfold.i13, label %27

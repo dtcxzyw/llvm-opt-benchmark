@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::nothrow_t" = type { i8 }
-%struct.pollfd = type { i32, i16, i16 }
-%"struct.zmq::socket_poller_t::item_t" = type { ptr, i32, ptr, i16, i32 }
-%struct.zmq_poller_event_t = type { ptr, i32, ptr, i16 }
 %"class.zmq::clock_t" = type { i64, i64 }
 
 $__clang_call_terminate = comdat any
@@ -180,7 +177,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noun
   %55 = load ptr, ptr %.sroa.021.043, align 8, !tbaa !27
   %56 = load ptr, ptr %6, align 8, !tbaa !17
   %57 = sext i32 %.144 to i64
-  %58 = getelementptr inbounds %struct.pollfd, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   %59 = call noundef i32 @_ZN3zmq13socket_base_t10getsockoptEiPvPm(ptr noundef nonnull align 8 dereferenceable(1825) %55, i32 noundef 14, ptr noundef %58, ptr noundef nonnull %2)
   %.not18 = icmp eq i32 %59, 0
   br i1 %.not18, label %65, label %60, !prof !39
@@ -195,7 +192,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noun
 
 65:                                               ; preds = %60, %54
   %66 = load ptr, ptr %6, align 8, !tbaa !17
-  %67 = getelementptr inbounds %struct.pollfd, ptr %66, i64 %57
+  %67 = getelementptr inbounds [8 x i8], ptr %66, i64 %57
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i16 1, ptr %68, align 4, !tbaa !36
   %69 = add nsw i32 %.144, 1
@@ -207,7 +204,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq15socket_poller_t7rebuildEv(ptr noun
   %72 = load i32, ptr %71, align 8, !tbaa !42
   %73 = load ptr, ptr %6, align 8, !tbaa !17
   %74 = sext i32 %.144 to i64
-  %75 = getelementptr inbounds %struct.pollfd, ptr %73, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %73, i64 %74
   store i32 %72, ptr %75, align 4, !tbaa !34
   %76 = and i16 %49, 1
   %77 = shl i16 %49, 1
@@ -550,7 +547,7 @@ _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %63, %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %58, ptr %5, align 8, !tbaa !18
   store ptr %62, ptr %7, align 8, !tbaa !47
-  %64 = getelementptr inbounds nuw %"struct.zmq::socket_poller_t::item_t", ptr %58, i64 %56
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 %56
   store ptr %64, ptr %40, align 8, !tbaa !48
   br label %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE9push_backERKS2_.exit
 
@@ -713,7 +710,7 @@ _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %36, ptr %5, align 8, !tbaa !18
   store ptr %40, ptr %7, align 8, !tbaa !47
-  %42 = getelementptr inbounds nuw %"struct.zmq::socket_poller_t::item_t", ptr %36, i64 %34
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %34
   store ptr %42, ptr %19, align 8, !tbaa !48
   br label %_ZNSt6vectorIN3zmq15socket_poller_t6item_tESaIS2_EE9push_backERKS2_.exit
 
@@ -994,7 +991,7 @@ define void @_ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds [32 x i8], ptr %0, i64 %indvars.iv
   store ptr null, ptr %6, align 8, !tbaa !54
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 -1, ptr %7, align 8, !tbaa !56
@@ -1051,7 +1048,7 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
 24:                                               ; preds = %18
   %25 = load ptr, ptr %.sroa.054.069, align 8, !tbaa !27
   %26 = sext i32 %.04171 to i64
-  %27 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %1, i64 %26
+  %27 = getelementptr inbounds [32 x i8], ptr %1, i64 %26
   store ptr %25, ptr %27, align 8, !tbaa !54
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 -1, ptr %28, align 8, !tbaa !56
@@ -1102,7 +1099,7 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
   %50 = phi i32 [ %.pre, %44 ], [ %42, %40 ]
   %51 = load ptr, ptr %13, align 8, !tbaa !17
   %52 = sext i32 %50 to i64
-  %53 = getelementptr inbounds %struct.pollfd, ptr %51, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %51, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 6
   %55 = load i16, ptr %54, align 2, !tbaa !62
   %spec.select = and i16 %55, 1
@@ -1120,7 +1117,7 @@ define noundef i32 @_ZN3zmq15socket_poller_t12check_eventsEP18zmq_poller_event_t
 
 62:                                               ; preds = %49
   %63 = sext i32 %.04171 to i64
-  %64 = getelementptr inbounds %struct.zmq_poller_event_t, ptr %1, i64 %63
+  %64 = getelementptr inbounds [32 x i8], ptr %1, i64 %63
   store ptr null, ptr %64, align 8, !tbaa !54
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.054.069, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !42
@@ -1342,7 +1339,7 @@ _ZN3zmq15socket_poller_t17zero_trail_eventsEP18zmq_poller_event_tii.exit: ; pred
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %72, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %73 = getelementptr inbounds nuw %struct.zmq_poller_event_t, ptr %1, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i
   store ptr null, ptr %73, align 8, !tbaa !54
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i32 -1, ptr %74, align 8, !tbaa !56

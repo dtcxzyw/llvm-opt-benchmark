@@ -31,10 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.12" = type { ptr }
 %"class.testing::internal::AssertHelper" = type { ptr }
 %class.anon.33 = type { ptr }
-%"class.std::vector.28" = type { %"struct.std::_Vector_base.29" }
-%"struct.std::_Vector_base.29" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator" = type { i8 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
@@ -1041,7 +1037,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %30, %_ZNKS
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %27, ptr %6, align 8
   store ptr %31, ptr %7, align 8
-  %33 = getelementptr inbounds nuw i32, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %25
   store ptr %33, ptr %9, align 8
   br label %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit
 
@@ -1115,10 +1111,10 @@ common.resume:                                    ; preds = %132, %24
   %31 = zext i32 %30 to i64
   %32 = lshr i64 %31, 1
   %33 = load ptr, ptr %12, align 8
-  %34 = getelementptr inbounds nuw %"class.std::vector.28", ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %32
   %35 = and i64 %31, 1
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %35
   %38 = load i32, ptr %3, align 4, !noalias !12
   %39 = load i32, ptr %29, align 4, !noalias !12
   %40 = icmp eq i32 %38, %39
@@ -1774,10 +1770,10 @@ common.resume:                                    ; preds = %132, %24
   %31 = zext i32 %30 to i64
   %32 = lshr i64 %31, 1
   %33 = load ptr, ptr %12, align 8
-  %34 = getelementptr inbounds nuw %"class.std::vector.28", ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %32
   %35 = and i64 %31, 1
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %35
   %38 = load i32, ptr %3, align 4, !noalias !19
   %39 = load i32, ptr %29, align 4, !noalias !19
   %40 = icmp eq i32 %38, %39
@@ -2580,7 +2576,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %19, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8
-  %42 = getelementptr inbounds nuw %"class.std::vector.28", ptr %19, i64 %15
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %15
   store ptr %42, ptr %41, align 8
   ret void
 }

@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.snappy::Source" = type { ptr }
 %"class.snappy::SnappyDecompressor" = type <{ ptr, ptr, ptr, ptr, i32, i8, [5 x i8], [6 x i8] }>
 %"class.snappy::SnappyIOVecWriter" = type { ptr, ptr, ptr, i64, i64, i64 }
-%struct.iovec = type { ptr, i64 }
 %"class.snappy::SnappyArrayWriter" = type { ptr, ptr, ptr, ptr }
 %"class.snappy::SnappyDecompressionValidator" = type { i64, i64 }
 %"class.snappy::UncheckedByteArraySink" = type { %"class.snappy::Sink", ptr }
@@ -25,7 +24,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl" }
 %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl" = type { %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.snappy::SnappySinkAllocator::Datablock" = type { ptr, i64 }
 
 $_ZN6snappy17SnappyIOVecReaderD0Ev = comdat any
 
@@ -2096,7 +2094,7 @@ _ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit: ; preds = %.loopexit
   %127 = load i64, ptr %5, align 8, !tbaa !7
   %128 = lshr exact i32 %.0.i.i64, 1
   %129 = zext nneg i32 %128 to i64
-  %130 = getelementptr inbounds nuw i16, ptr %80, i64 %129
+  %130 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %129
   %131 = call noundef ptr @_ZN6snappy8internal26CompressFragmentDoubleHashEPKcmPcPtiS4_i(ptr noundef %.056, i64 noundef %127, ptr noundef %122, ptr noundef nonnull %80, i32 noundef %128, ptr noundef nonnull %130, i32 poison)
   br label %132
 
@@ -2147,7 +2145,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy20RawUncompressToIOVecEPNS_6Sourc
   %5 = alloca %"class.snappy::SnappyDecompressor", align 8
   %6 = alloca %"class.snappy::SnappyIOVecWriter", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %2
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %7, ptr %6, align 8, !tbaa !60
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %8, align 8, !tbaa !63
@@ -2940,7 +2938,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.016 = phi i64 [ %45, %.lr.ph ], [ 0, %4 ]
   %.01215 = phi i64 [ %46, %.lr.ph ], [ 0, %4 ]
-  %42 = getelementptr inbounds nuw %struct.iovec, ptr %0, i64 %.01215
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.01215
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !66
   %45 = add i64 %44, %.016
@@ -3720,7 +3718,7 @@ _ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge: ; preds = %46, %128,
 
 137:                                              ; preds = %_ZN6snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit
   %138 = zext nneg i32 %35 to i64
-  %139 = getelementptr inbounds nuw i16, ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %138
+  %139 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %138
   %140 = load i16, ptr %139, align 2, !tbaa !21
   %141 = sext i16 %140 to i64
   %.0.copyload.i130 = load i32, ptr %34, align 1
@@ -3820,7 +3818,7 @@ define linkonce_odr dso_local { ptr, i64 } @_ZN6snappy20DecompressBranchlessIPcE
   %.2103190 = phi ptr [ %.1102, %20 ], [ %.5106141, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit ]
   %.2110189 = phi i64 [ %.1109, %20 ], [ %.5113140, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit ]
   %.2117188 = phi ptr [ %.1116, %20 ], [ %45, %_ZN6snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit ]
-  %24 = getelementptr inbounds nuw i16, ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %.196192
+  %24 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %.196192
   %25 = load i16, ptr %24, align 2, !tbaa !21
   %26 = sext i16 %25 to i64
   %27 = lshr i64 %.196192, 2
@@ -4754,7 +4752,7 @@ define linkonce_odr dso_local void @_ZN6snappy18SnappyDecompressor17DecompressAl
   %.295171.i = phi i64 [ %.194.i, %41 ], [ %.5133.i, %89 ]
   %.2106170.i = phi i64 [ %.1105.i, %41 ], [ %.5109132.i, %89 ]
   %.2113169.i = phi ptr [ %.1112.i, %41 ], [ %66, %89 ]
-  %45 = getelementptr inbounds nuw i16, ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %.192172.i
+  %45 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %.192172.i
   %46 = load i16, ptr %45, align 2, !tbaa !21
   %47 = sext i16 %46 to i64
   %48 = lshr i64 %.192172.i, 2
@@ -5000,7 +4998,7 @@ _ZN6snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit: ; preds = %1
 
 175:                                              ; preds = %108
   %176 = zext i8 %110 to i64
-  %177 = getelementptr inbounds nuw i16, ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %176
+  %177 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %176
   %178 = load i16, ptr %177, align 2, !tbaa !21
   %179 = sext i16 %178 to i64
   %.0.copyload.i131 = load i32, ptr %112, align 1
@@ -5371,7 +5369,7 @@ _ZN6snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit: ; preds = %63
 
 167:                                              ; preds = %59
   %168 = zext nneg i32 %61 to i64
-  %169 = getelementptr inbounds nuw i16, ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %168
+  %169 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %168
   %170 = load i16, ptr %169, align 2, !tbaa !21
   %171 = sext i16 %170 to i64
   %.0.copyload.i135 = load i32, ptr %60, align 1
@@ -5763,7 +5761,7 @@ _ZN6snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcmPPc.exit
 
 157:                                              ; preds = %63
   %158 = zext nneg i32 %65 to i64
-  %159 = getelementptr inbounds nuw i16, ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %158
+  %159 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %158
   %160 = load i16, ptr %159, align 2, !tbaa !21
   %161 = sext i16 %160 to i64
   %.0.copyload.i134 = load i32, ptr %64, align 1
@@ -6044,7 +6042,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %60, %
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %62, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %57, ptr %15, align 8, !tbaa !119
   store ptr %61, ptr %16, align 8, !tbaa !155
-  %63 = getelementptr inbounds nuw ptr, ptr %57, i64 %55
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %55
   store ptr %63, ptr %17, align 8, !tbaa !156
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit
 
@@ -6145,7 +6143,7 @@ _ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_S_relocateEPS2_S
 _ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %27, ptr %7, align 8, !tbaa !115
   store ptr %31, ptr %8, align 8, !tbaa !116
-  %33 = getelementptr inbounds nuw %"struct.snappy::SnappySinkAllocator::Datablock", ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %25
   store ptr %33, ptr %10, align 8, !tbaa !158
   br label %_ZNSt6vectorIN6snappy19SnappySinkAllocator9DatablockESaIS2_EE9push_backERKS2_.exit
 
@@ -6201,7 +6199,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN6snappy21SnappyScatteredWri
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = lshr i64 %.034, 16
   %28 = load ptr, ptr %23, align 8, !tbaa !119
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8, !tbaa !122
   %31 = and i64 %.034, 65535
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31

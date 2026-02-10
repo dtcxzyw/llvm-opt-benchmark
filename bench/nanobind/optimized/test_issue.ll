@@ -60,7 +60,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.nanobind::detail::type_caster.94" = type { %"struct.nanobind::pointer_and_handle.95" }
 %"struct.nanobind::pointer_and_handle.95" = type { ptr, %"class.nanobind::handle" }
 %"struct.nanobind::detail::tuple.102" = type { %"struct.nanobind::detail::type_caster.96" }
-%struct.Example = type { %"class.std::__cxx11::basic_string" }
 %"struct.nanobind::detail::type_caster.120" = type { %"struct.nanobind::detail::type_caster_base.121" }
 %"struct.nanobind::detail::type_caster_base.121" = type { ptr }
 %"struct.nanobind::detail::tuple.118" = type { %"struct.nanobind::detail::tuple.119", %"struct.nanobind::detail::type_caster.122" }
@@ -893,7 +892,7 @@ define internal void @_ZN8nanobind6detail9wrap_moveIZL28nanobind_init_test_issue
   %26 = getelementptr i8, ptr %11, i64 56
   %.val3.i.i.i.i.i = load i64, ptr %26, align 8, !tbaa !94
   %27 = urem i64 %.val3.i.i.i.i.i, %8
-  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %27
   store ptr %9, ptr %28, align 8, !tbaa !96
   br label %_ZZL28nanobind_init_test_issue_extRN8nanobind7module_EEN5ModelC2EOS2_.exit
 
@@ -970,7 +969,7 @@ define internal fastcc void @_ZZL28nanobind_init_test_issue_extRN8nanobind7modul
   %28 = load ptr, ptr %4, align 8, !tbaa !78
   %.val2.i.i.i.i.i = load i64, ptr %5, align 8, !tbaa !77
   %29 = urem i64 %.val37.i.i.i, %.val2.i.i.i.i.i
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   store ptr %8, ptr %30, align 8, !tbaa !96
   %.0281.i.i.i = load ptr, ptr %21, align 8, !tbaa !71
   %.not302.i.i.i = icmp eq ptr %.0281.i.i.i, null
@@ -992,7 +991,7 @@ define internal fastcc void @_ZZL28nanobind_init_test_issue_extRN8nanobind7modul
   %.val34.i.i.i = load i64, ptr %5, align 8, !tbaa !77
   %36 = urem i64 %.val36.i.i.i, %.val34.i.i.i
   %37 = load ptr, ptr %4, align 8, !tbaa !78
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %36
   %39 = load ptr, ptr %38, align 8, !tbaa !96
   %.not32.i.i.i = icmp eq ptr %39, null
   br i1 %.not32.i.i.i, label %40, label %45
@@ -1881,7 +1880,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %43 = getelementptr i8, ptr %.032.i.i.i.i, i64 56
   %.val29.i.i.i.i = load i64, ptr %43, align 8, !tbaa !94
   %44 = urem i64 %.val29.i.i.i.i, %35
-  %45 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !96
   %.not27.i.i.i.i = icmp eq ptr %46, null
   br i1 %.not27.i.i.i.i, label %47, label %52
@@ -1896,7 +1895,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28.i.i.i.i, label %55, label %50
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i, i64 %.02531.i.i.i.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i, i64 %.02531.i.i.i.i
   store ptr %.032.i.i.i.i, ptr %51, align 8, !tbaa !96
   br label %55
 
@@ -1960,7 +1959,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %.0.i.i = phi i64 [ %72, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIZL28nanobind_init_test_issue_extRN8nanobind7module_EE5ParamEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i ], [ %6, %._crit_edge.i.i ]
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 56
   store i64 %4, ptr %75, align 8, !tbaa !94
-  %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %.0.i.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.0.i.i
   %77 = load ptr, ptr %76, align 8, !tbaa !96
   %.not.i.i.i = icmp eq ptr %77, null
   br i1 %.not.i.i.i, label %81, label %78
@@ -1985,7 +1984,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %85 = getelementptr i8, ptr %83, i64 56
   %.val13.i.i.i = load i64, ptr %85, align 8, !tbaa !94
   %86 = urem i64 %.val13.i.i.i, %.val12.i.i.i
-  %87 = getelementptr inbounds nuw ptr, ptr %74, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %86
   store ptr %10, ptr %87, align 8, !tbaa !96
   br label %88
 
@@ -2017,7 +2016,7 @@ _ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind optsize willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define internal fastcc noundef ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIZL28nanobind_init_test_issue_extRN8nanobind7module_EE5ParamEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m(ptr readonly captures(none) %.0.val, i64 %.8.val, i64 noundef %0, ptr readonly captures(none) %.0.val1, i64 %.8.val3, i64 noundef %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds nuw ptr, ptr %.0.val, i64 %0
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %.0.val, i64 %0
   %4 = load ptr, ptr %3, align 8, !tbaa !96
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIZL28nanobind_init_test_issue_extRN8nanobind7module_EE5ParamEESaISE_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSG_18_Mod_range_hashingENSG_20_Default_ranged_hashENSG_20_Prime_rehash_policyENSG_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS7_m.exit.thread, label %5
@@ -2533,7 +2532,7 @@ define internal void @_ZN8nanobind6detail9wrap_moveIZL28nanobind_init_test_issue
   %26 = getelementptr i8, ptr %11, i64 56
   %.val3.i.i.i.i.i.i = load i64, ptr %26, align 8, !tbaa !94
   %27 = urem i64 %.val3.i.i.i.i.i.i, %8
-  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %27
   store ptr %9, ptr %28, align 8, !tbaa !96
   br label %_ZZL28nanobind_init_test_issue_extRN8nanobind7module_EEN6ModelAC2EOS2_.exit
 
@@ -3267,7 +3266,7 @@ _ZNSt6vectorIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7ExampleSaIS3_
 
 _ZNSt6vectorIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7ExampleSaIS3_EE7reserveEm.exit.i: ; preds = %16
   %18 = call fastcc noundef ptr @_ZNSt6vectorIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7ExampleSaIS3_EE11_S_relocateEPS3_S6_S6_RS4_(ptr noundef null, ptr noundef null, ptr noundef %17) #27
-  %19 = getelementptr inbounds nuw %struct.Example, ptr %17, i64 %11
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %11
   %.pre.i = load i64, ptr %5, align 8, !tbaa !92
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %20 = icmp ne ptr %10, null
@@ -3279,7 +3278,7 @@ _ZNSt6vectorIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7ExampleSaIS3_
   %.sroa.13.2 = phi ptr [ %.sroa.13.4, %_ZNSt6vectorIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7ExampleSaIS3_EE9push_backERKS3_.exit.i ], [ %17, %_ZNSt6vectorIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7ExampleSaIS3_EE7reserveEm.exit.i ]
   %.sroa.014.1 = phi ptr [ %.sroa.014.3, %_ZNSt6vectorIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7ExampleSaIS3_EE9push_backERKS3_.exit.i ], [ %17, %_ZNSt6vectorIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7ExampleSaIS3_EE7reserveEm.exit.i ]
   %.023.i = phi i64 [ %66, %_ZNSt6vectorIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7ExampleSaIS3_EE9push_backERKS3_.exit.i ], [ 0, %_ZNSt6vectorIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7ExampleSaIS3_EE7reserveEm.exit.i ]
-  %21 = getelementptr inbounds nuw ptr, ptr %10, i64 %.023.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.023.i
   %22 = load ptr, ptr %21, align 8, !tbaa !106
   %23 = call noundef zeroext i1 @_ZN8nanobind6detail11nb_type_getEPKSt9type_infoP7_objecthPNS0_12cleanup_listEPPv(ptr noundef nonnull @_ZTIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7Example, ptr noundef %22, i8 noundef zeroext %9, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %7) #27
   br i1 %23, label %24, label %._crit_edge.i
@@ -3373,7 +3372,7 @@ _ZNSt16allocator_traitsISaIZL28nanobind_init_test_issue_extRN8nanobind7module_EE
   unreachable
 
 _ZNSt6vectorIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7ExampleSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %53, %_ZNSt16allocator_traitsISaIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7ExampleEE9constructIS3_JRKS3_EEEvRS4_PT_DpOT0_.exit.i.i.i
-  %65 = getelementptr inbounds nuw %struct.Example, ptr %45, i64 %44
+  %65 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %44
   br label %_ZNSt6vectorIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7ExampleSaIS3_EE9push_backERKS3_.exit.i
 
 _ZNSt6vectorIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7ExampleSaIS3_EE9push_backERKS3_.exit.i: ; preds = %28, %_ZNSt6vectorIZL28nanobind_init_test_issue_extRN8nanobind7module_EE7ExampleSaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i

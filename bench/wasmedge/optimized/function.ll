@@ -23,17 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cxx20::detail::span_storage.184" = type { ptr, i64 }
 %"struct.cxx20::span.185" = type { %"class.cxx20::detail::span_storage.186" }
 %"class.cxx20::detail::span_storage.186" = type { ptr, i64 }
-%"class.WasmEdge::AST::CodeSegment" = type { %"class.WasmEdge::AST::Segment", i32, %"class.std::vector.12", %"class.WasmEdge::Symbol" }
-%"class.WasmEdge::AST::Segment" = type { %"class.WasmEdge::AST::Expression" }
-%"class.WasmEdge::AST::Expression" = type { %"class.std::vector.7" }
-%"class.std::vector.7" = type { %"struct.std::_Vector_base.8" }
-%"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction>>::_Vector_impl" }
-%"struct.std::_Vector_base<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction>>::_Vector_impl" = type { %"struct.std::_Vector_base<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<WasmEdge::AST::Instruction, std::allocator<WasmEdge::AST::Instruction>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.12" = type { %"struct.std::_Vector_base.13" }
-%"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<std::pair<unsigned int, WasmEdge::ValType>, std::allocator<std::pair<unsigned int, WasmEdge::ValType>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned int, WasmEdge::ValType>, std::allocator<std::pair<unsigned int, WasmEdge::ValType>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned int, WasmEdge::ValType>, std::allocator<std::pair<unsigned int, WasmEdge::ValType>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned int, WasmEdge::ValType>, std::allocator<std::pair<unsigned int, WasmEdge::ValType>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -120,7 +109,7 @@ define void @_ZN8WasmEdge8Executor8Executor11instantiateERNS_7Runtime8Instance14
   %38 = phi i64 [ 0, %.lr.ph ], [ %120, %_ZN8WasmEdge6SymbolIvED2Ev.exit ]
   %.01855 = phi i32 [ 0, %.lr.ph ], [ %119, %_ZN8WasmEdge6SymbolIvED2Ev.exit ]
   %.sroa.136.054 = phi ptr [ undef, %.lr.ph ], [ %.sroa.136.1, %_ZN8WasmEdge6SymbolIvED2Ev.exit ]
-  %39 = getelementptr inbounds nuw %"class.WasmEdge::AST::CodeSegment", ptr %14, i64 %38
+  %39 = getelementptr inbounds nuw [80 x i8], ptr %14, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %41 = load ptr, ptr %40, align 8
   store ptr %41, ptr %8, align 8
@@ -150,7 +139,7 @@ _ZN8WasmEdge6SymbolIvEC2ERKS1_.exit:              ; preds = %37, %47, %50
   %52 = getelementptr inbounds nuw i8, ptr %39, i64 72
   %53 = load ptr, ptr %52, align 8
   store ptr %53, ptr %28, align 8
-  %54 = getelementptr inbounds nuw i32, ptr %12, i64 %38
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %38
   %55 = load i32, ptr %54, align 4
   br label %56
 
@@ -187,7 +176,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %56
   br label %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit
 
 69:                                               ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i
-  %70 = getelementptr inbounds nuw ptr, ptr %61, i64 %59
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   %71 = load ptr, ptr %70, align 8, !noalias !4
   br label %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit
 
@@ -324,7 +313,7 @@ common.resume:                                    ; preds = %_ZNSt11unique_lockI
   %125 = phi i64 [ 0, %.lr.ph58 ], [ %172, %_ZN8WasmEdge7Runtime8Instance14ModuleInstance7addFuncIJRKjRKNS_3AST12FunctionTypeEN5cxx204spanIKSt4pairIjNS_7ValTypeEELm18446744073709551615EEENSB_IKNS6_11InstructionELm18446744073709551615EEEEEEvDpOT_.exit ]
   %.057 = phi i32 [ 0, %.lr.ph58 ], [ %171, %_ZN8WasmEdge7Runtime8Instance14ModuleInstance7addFuncIJRKjRKNS_3AST12FunctionTypeEN5cxx204spanIKSt4pairIjNS_7ValTypeEELm18446744073709551615EEENSB_IKNS6_11InstructionELm18446744073709551615EEEEEEvDpOT_.exit ]
   %.sroa.1.056 = phi ptr [ undef, %.lr.ph58 ], [ %.sroa.1.1, %_ZN8WasmEdge7Runtime8Instance14ModuleInstance7addFuncIJRKjRKNS_3AST12FunctionTypeEN5cxx204spanIKSt4pairIjNS_7ValTypeEELm18446744073709551615EEENSB_IKNS6_11InstructionELm18446744073709551615EEEEEEvDpOT_.exit ]
-  %126 = getelementptr inbounds nuw i32, ptr %12, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %125
   %127 = load i32, ptr %126, align 4
   br label %128
 
@@ -361,7 +350,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i26: ; preds = %128
   br label %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit29
 
 141:                                              ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i26
-  %142 = getelementptr inbounds nuw ptr, ptr %133, i64 %131
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %131
   %143 = load ptr, ptr %142, align 8, !noalias !9
   br label %_ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit29
 
@@ -375,7 +364,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i26: ; preds = %128
 _ZNK8WasmEdge7Runtime8Instance14ModuleInstance7getTypeEj.exit29: ; preds = %138, %141
   %.sroa.1.1 = phi ptr [ %143, %141 ], [ %140, %138 ]
   %147 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) %32) #14, !noalias !9
-  %148 = getelementptr inbounds nuw %"class.WasmEdge::AST::CodeSegment", ptr %14, i64 %125
+  %148 = getelementptr inbounds nuw [80 x i8], ptr %14, i64 %125
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 32
   %150 = load ptr, ptr %149, align 8
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 40
@@ -639,7 +628,7 @@ _ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14de
 _ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i, %49
   store ptr %43, ptr %1, align 8
   store ptr %48, ptr %23, align 8
-  %53 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %43, i64 %41
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
   store ptr %53, ptr %25, align 8
   br label %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS3_EED2Ev.exit
 
@@ -705,7 +694,7 @@ _ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EE11_S_relocat
 _ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %81, %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %76, ptr %2, align 8
   store ptr %80, ptr %56, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %76, i64 %74
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %74
   store ptr %82, ptr %58, align 8
   br label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EE9push_backEOS4_.exit
 
@@ -1118,7 +1107,7 @@ _ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14de
 _ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE9push_backEOS7_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i, %43
   store ptr %37, ptr %1, align 8
   store ptr %42, ptr %17, align 8
-  %47 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %37, i64 %35
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %47, ptr %19, align 8
   br label %_ZNSt10unique_ptrIN8WasmEdge7Runtime8Instance16FunctionInstanceESt14default_deleteIS3_EED2Ev.exit
 
@@ -1184,7 +1173,7 @@ _ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EE11_S_relocat
 _ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %75, %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %70, ptr %2, align 8
   store ptr %74, ptr %50, align 8
-  %76 = getelementptr inbounds nuw ptr, ptr %70, i64 %68
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %68
   store ptr %76, ptr %52, align 8
   br label %_ZNSt6vectorIPN8WasmEdge7Runtime8Instance16FunctionInstanceESaIS4_EE9push_backEOS4_.exit
 
@@ -1280,7 +1269,7 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKSt4pairIjN8WasmEdge7ValTypeEES
           to label %35 unwind label %37
 
 35:                                               ; preds = %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKSt4pairIjN8WasmEdge7ValTypeEESt6vectorIS5_SaIS5_EEEEjZNS3_7Runtime8Instance16FunctionInstance12WasmFunctionC1EN5cxx204spanIS6_Lm18446744073709551615EEENSH_IKNS3_3AST11InstructionELm18446744073709551615EEEEUljRKT_E_ET0_SN_SN_SR_T1_.exit
-  %36 = getelementptr inbounds %"class.WasmEdge::AST::Instruction", ptr %3, i64 %4
+  %36 = getelementptr inbounds [32 x i8], ptr %3, i64 %4
   invoke void @_ZNSt6vectorIN8WasmEdge3AST11InstructionESaIS2_EE13_M_assign_auxIPKS2_EEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef %3, ptr noundef %36)
           to label %_ZNSt6vectorIN8WasmEdge3AST11InstructionESaIS2_EE6assignIPKS2_vEEvT_S8_.exit unwind label %37
 
@@ -1376,7 +1365,7 @@ _ZNSt12_Vector_baseIN8WasmEdge3AST11InstructionESaIS2_EE13_M_deallocateEPS2_m.ex
   store ptr %19, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %19, i64 %17
   store ptr %38, ptr %14, align 8
-  %39 = getelementptr inbounds nuw %"class.WasmEdge::AST::Instruction", ptr %19, i64 %1
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %1
   store ptr %39, ptr %6, align 8
   br label %40
 

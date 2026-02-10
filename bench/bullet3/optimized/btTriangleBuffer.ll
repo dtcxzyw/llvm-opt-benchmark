@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %class.btVector3 = type { [4 x float] }
-%struct.btTriangle = type { %class.btVector3, %class.btVector3, %class.btVector3, i32, i32 }
 
 $_ZN16btTriangleBufferD2Ev = comdat any
 
@@ -68,9 +67,9 @@ _ZN20btAlignedObjectArrayI10btTriangleE8allocateEi.exit.i.i: ; preds = %17, %16
 
 24:                                               ; preds = %24, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %24 ]
-  %25 = getelementptr inbounds nuw %struct.btTriangle, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %26 = load ptr, ptr %23, align 8, !tbaa !16
-  %27 = getelementptr inbounds nuw %struct.btTriangle, ptr %26, i64 %indvars.iv.i.i.i
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %25, ptr noundef nonnull align 4 dereferenceable(56) %27, i64 56, i1 false), !tbaa.struct !17
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -102,7 +101,7 @@ _ZN20btAlignedObjectArrayI10btTriangleE9push_backERKS0_.exit: ; preds = %4, %12,
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !16
   %37 = sext i32 %34 to i64
-  %38 = getelementptr inbounds %struct.btTriangle, ptr %36, i64 %37
+  %38 = getelementptr inbounds [56 x i8], ptr %36, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %38, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0, i64 48, i1 false), !tbaa.struct !17
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 48
   store i32 %2, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !18

@@ -16,8 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.uv__work = type { ptr, ptr, ptr, %struct.uv__queue }
 %struct.uv__queue = type { ptr, ptr }
 %struct.uv_buf_t = type { ptr, i64 }
-%struct.uv_dirent_s = type { ptr, i32 }
-%struct.iovec = type { ptr, i64 }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @uv__fs_statx.no_statx = internal unnamed_addr global i32 0, align 4
@@ -1152,7 +1150,7 @@ sub_0.i:                                          ; preds = %538
 .tail1.thread.i:                                  ; preds = %.tail.i, %.tail1.i, %sub_0.i
   %554 = getelementptr inbounds nuw i8, ptr %540, i64 19
   %555 = load ptr, ptr %.val74, align 8
-  %556 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %555, i64 %537
+  %556 = getelementptr inbounds nuw [16 x i8], ptr %555, i64 %537
   %557 = call ptr @uv__strdup(ptr noundef nonnull %554) #15
   store ptr %557, ptr %556, align 8
   %558 = icmp eq ptr %557, null
@@ -1179,11 +1177,11 @@ sub_0.i:                                          ; preds = %538
 .lr.ph21.i:                                       ; preds = %.lr.ph21.i, %.lr.ph21.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph21.preheader.i ], [ %indvars.iv.next.i, %.lr.ph21.i ]
   %565 = load ptr, ptr %.val74, align 8
-  %566 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %565, i64 %indvars.iv.i
+  %566 = getelementptr inbounds nuw [16 x i8], ptr %565, i64 %indvars.iv.i
   %567 = load ptr, ptr %566, align 8
   call void @uv__free(ptr noundef %567) #15
   %568 = load ptr, ptr %.val74, align 8
-  %569 = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %568, i64 %indvars.iv.i
+  %569 = getelementptr inbounds nuw [16 x i8], ptr %568, i64 %indvars.iv.i
   store ptr null, ptr %569, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1861,7 +1859,7 @@ uv__fs_write.exit.i:                              ; preds = %uv__pwritev.exit.i.
 834:                                              ; preds = %838, %832
   %.026.i.i = phi i64 [ 0, %832 ], [ %840, %838 ]
   %.01525.i.i = phi i64 [ %.0.i.i, %832 ], [ %839, %838 ]
-  %835 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %833, i64 %.026.i.i
+  %835 = getelementptr inbounds nuw [16 x i8], ptr %833, i64 %.026.i.i
   %836 = getelementptr inbounds nuw i8, ptr %835, i64 8
   %837 = load i64, ptr %836, align 8
   %.not17.i.i = icmp ugt i64 %837, %.01525.i.i
@@ -1889,7 +1887,7 @@ uv__fs_buf_offset.exit.i:                         ; preds = %838, %.critedge.i.i
   %846 = trunc i64 %.020.i.i to i32
   store i32 %846, ptr %26, align 4
   %847 = and i64 %.020.i.i, 4294967295
-  %848 = getelementptr inbounds nuw %struct.uv_buf_t, ptr %845, i64 %847
+  %848 = getelementptr inbounds nuw [16 x i8], ptr %845, i64 %847
   store ptr %848, ptr %27, align 8
   %849 = sub i32 %.059.i118, %846
   %850 = add nuw nsw i64 %.0.i.i, %.03158.i
@@ -4404,7 +4402,7 @@ define internal i64 @uv__preadv_emul(i32 noundef %0, ptr noundef readonly captur
   %.02838.i = phi i64 [ %21, %20 ], [ %3, %4 ]
   %.02937.i = phi i64 [ %22, %20 ], [ 0, %4 ]
   %.03136.i = phi i64 [ %18, %20 ], [ 0, %4 ]
-  %6 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.02937.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.02937.i
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8
@@ -4452,7 +4450,7 @@ define internal i64 @uv__pwritev_emul(i32 noundef %0, ptr noundef readonly captu
   %.02838.us.i = phi i64 [ %11, %10 ], [ %3, %4 ]
   %.02937.us.i = phi i64 [ %12, %10 ], [ 0, %4 ]
   %.03136.us.i = phi i64 [ %20, %10 ], [ 0, %4 ]
-  %6 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %.02937.us.i
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.02937.us.i
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8

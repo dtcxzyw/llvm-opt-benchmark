@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { i64, ptr, i32, [40 x i8] }
 %struct.release_t = type { ptr, ptr, i64 }
 %struct.cpu_set_t = type { [16 x i64] }
-%struct.newmemstruct = type { i64, ptr, i32, [40 x i8] }
 
 @get_num_procs.nums = internal unnamed_addr global i32 0, align 4
 @blas_cpu_number = local_unnamed_addr global i32 0, align 4
@@ -329,7 +328,7 @@ blas_get_cpu_number.exit:                         ; preds = %12, %8
 
 24:                                               ; preds = %28, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %22 ]
-  %25 = getelementptr inbounds nuw %struct.anon, ptr @memory, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [64 x i8], ptr @memory, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load volatile i32, ptr %26, align 16, !tbaa !8
   %.not49 = icmp eq i32 %27, 0
@@ -350,7 +349,7 @@ blas_get_cpu_number.exit:                         ; preds = %12, %8
 
 31:                                               ; preds = %.preheader56, %35
   %indvars.iv81 = phi i64 [ 50, %.preheader56 ], [ %indvars.iv.next82, %35 ]
-  %32 = getelementptr %struct.newmemstruct, ptr %30, i64 %indvars.iv81
+  %32 = getelementptr [64 x i8], ptr %30, i64 %indvars.iv81
   %33 = getelementptr i8, ptr %32, i64 -3184
   %34 = load volatile i32, ptr %33, align 8, !tbaa !16
   %.not51 = icmp eq i32 %34, 0
@@ -417,7 +416,7 @@ blas_get_cpu_number.exit:                         ; preds = %12, %8
 
 64:                                               ; preds = %55, %64
   %indvars.iv85 = phi i64 [ 0, %55 ], [ %indvars.iv.next86, %64 ]
-  %65 = getelementptr inbounds nuw %struct.newmemstruct, ptr %63, i64 %indvars.iv85
+  %65 = getelementptr inbounds nuw [64 x i8], ptr %63, i64 %indvars.iv85
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store volatile ptr null, ptr %66, align 8, !tbaa !27
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
@@ -432,7 +431,7 @@ blas_get_cpu_number.exit:                         ; preds = %12, %8
   %.3 = phi i64 [ %.135, %64 ], [ %indvars.iv81, %31 ]
   %69 = add i64 %.3, 4294967246
   %70 = and i64 %69, 4294967295
-  %71 = getelementptr inbounds nuw %struct.newmemstruct, ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [64 x i8], ptr %68, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   store volatile i32 1, ptr %72, align 8, !tbaa !16
   %73 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
@@ -454,12 +453,12 @@ blas_get_cpu_number.exit:                         ; preds = %12, %8
 82:                                               ; preds = %74
   %83 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @alloc_lock) #15
   %84 = load ptr, ptr @newmemory, align 8, !tbaa !14
-  %85 = getelementptr inbounds nuw %struct.newmemstruct, ptr %84, i64 %70
+  %85 = getelementptr inbounds nuw [64 x i8], ptr %84, i64 %70
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store volatile ptr %76, ptr %86, align 8, !tbaa !27
   %87 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @alloc_lock) #15
   %88 = load ptr, ptr @newmemory, align 8, !tbaa !14
-  %89 = getelementptr inbounds nuw %struct.newmemstruct, ptr %88, i64 %70
+  %89 = getelementptr inbounds nuw [64 x i8], ptr %88, i64 %70
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load volatile ptr, ptr %90, align 8, !tbaa !27
   br label %95
@@ -505,7 +504,7 @@ define internal ptr @alloc_mmap(ptr noundef %0) #0 {
 
 11:                                               ; preds = %7
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds %struct.release_t, ptr @release_info, i64 %12
+  %13 = getelementptr inbounds [24 x i8], ptr @release_info, i64 %12
   store ptr %.0, ptr %13, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr @alloc_mmap_free, ptr %14, align 8, !tbaa !34
@@ -514,7 +513,7 @@ define internal ptr @alloc_mmap(ptr noundef %0) #0 {
 15:                                               ; preds = %7
   %16 = load ptr, ptr @new_release_info, align 8, !tbaa !25
   %17 = zext nneg i32 %9 to i64
-  %18 = getelementptr %struct.release_t, ptr %16, i64 %17
+  %18 = getelementptr [24 x i8], ptr %16, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -1200
   store ptr %.0, ptr %19, align 8, !tbaa !32
   %20 = getelementptr i8, ptr %18, i64 -1192
@@ -548,7 +547,7 @@ define internal noundef nonnull ptr @alloc_malloc(ptr readnone captures(none) %0
 
 7:                                                ; preds = %4
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds %struct.release_t, ptr @release_info, i64 %8
+  %9 = getelementptr inbounds [24 x i8], ptr @release_info, i64 %8
   store ptr %spec.store.select, ptr %9, align 8, !tbaa !32
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr @alloc_malloc_free, ptr %10, align 8, !tbaa !34
@@ -557,7 +556,7 @@ define internal noundef nonnull ptr @alloc_malloc(ptr readnone captures(none) %0
 11:                                               ; preds = %4
   %12 = load ptr, ptr @new_release_info, align 8, !tbaa !25
   %13 = zext nneg i32 %5 to i64
-  %14 = getelementptr %struct.release_t, ptr %12, i64 %13
+  %14 = getelementptr [24 x i8], ptr %12, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -1200
   store ptr %spec.store.select, ptr %15, align 8, !tbaa !32
   %16 = getelementptr i8, ptr %14, i64 -1192
@@ -597,7 +596,7 @@ define void @blas_memory_free(ptr noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %4 = getelementptr inbounds nuw %struct.anon, ptr @memory, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [64 x i8], ptr @memory, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load volatile ptr, ptr %5, align 8, !tbaa !19
   %.not = icmp eq ptr %6, %0
@@ -622,7 +621,7 @@ define void @blas_memory_free(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %.lr.ph, %13
   %indvars.iv31 = phi i64 [ 50, %.lr.ph ], [ %indvars.iv.next32, %13 ]
-  %10 = getelementptr %struct.newmemstruct, ptr %8, i64 %indvars.iv31
+  %10 = getelementptr [64 x i8], ptr %8, i64 %indvars.iv31
   %11 = getelementptr i8, ptr %10, i64 -3192
   %12 = load volatile ptr, ptr %11, align 8, !tbaa !27
   %.not18 = icmp eq ptr %12, %0
@@ -637,7 +636,7 @@ define void @blas_memory_free(ptr noundef %0) local_unnamed_addr #0 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !36
   %15 = load ptr, ptr @newmemory, align 8, !tbaa !14
   %16 = and i64 %indvars.iv31, 4294967295
-  %17 = getelementptr %struct.newmemstruct, ptr %15, i64 %16
+  %17 = getelementptr [64 x i8], ptr %15, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -3184
   store volatile i32 0, ptr %18, align 8, !tbaa !16
   br label %24
@@ -645,7 +644,7 @@ define void @blas_memory_free(ptr noundef %0) local_unnamed_addr #0 {
 .thread:                                          ; preds = %3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !38
   %19 = and i64 %indvars.iv, 4294967295
-  %20 = getelementptr inbounds nuw %struct.anon, ptr @memory, i64 %19
+  %20 = getelementptr inbounds nuw [64 x i8], ptr @memory, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store volatile i32 0, ptr %21, align 16, !tbaa !8
   br label %24
@@ -689,7 +688,7 @@ define void @blas_shutdown() local_unnamed_addr #0 {
   br i1 %5, label %6, label %10, !prof !31
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw %struct.release_t, ptr @release_info, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [24 x i8], ptr @release_info, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !34
   tail call void %9(ptr noundef nonnull %7) #15
@@ -697,7 +696,7 @@ define void @blas_shutdown() local_unnamed_addr #0 {
 
 10:                                               ; preds = %.lr.ph
   %11 = load ptr, ptr @new_release_info, align 8, !tbaa !25
-  %12 = getelementptr %struct.release_t, ptr %11, i64 %indvars.iv
+  %12 = getelementptr [24 x i8], ptr %11, i64 %indvars.iv
   %13 = getelementptr i8, ptr %12, i64 -1200
   %14 = getelementptr i8, ptr %12, i64 -1192
   %15 = load ptr, ptr %14, align 8, !tbaa !34
@@ -716,7 +715,7 @@ define void @blas_shutdown() local_unnamed_addr #0 {
 
 .preheader17:                                     ; preds = %.preheader17.preheader, %.preheader17
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %.preheader17 ], [ 0, %.preheader17.preheader ]
-  %20 = getelementptr inbounds nuw %struct.anon, ptr @memory, i64 %indvars.iv22
+  %20 = getelementptr inbounds nuw [64 x i8], ptr @memory, i64 %indvars.iv22
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store volatile ptr null, ptr %21, align 8, !tbaa !19
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -736,7 +735,7 @@ define void @blas_shutdown() local_unnamed_addr #0 {
 
 25:                                               ; preds = %.preheader, %25
   %indvars.iv25 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next26, %25 ]
-  %26 = getelementptr inbounds nuw %struct.newmemstruct, ptr %24, i64 %indvars.iv25
+  %26 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 %indvars.iv25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store volatile ptr null, ptr %27, align 8, !tbaa !27
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16

@@ -8,15 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<ZXing::QRCode::DataBlock, std::allocator<ZXing::QRCode::DataBlock>>::_Vector_impl" = type { %"struct.std::_Vector_base<ZXing::QRCode::DataBlock, std::allocator<ZXing::QRCode::DataBlock>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ZXing::QRCode::DataBlock, std::allocator<ZXing::QRCode::DataBlock>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator" = type { i8 }
-%"struct.ZXing::QRCode::ECBlocks" = type { i32, %"struct.std::array.10" }
-%"struct.std::array.10" = type { [2 x %"struct.ZXing::QRCode::ECB"] }
-%"struct.ZXing::QRCode::ECB" = type { i32, i32 }
-%"class.ZXing::QRCode::DataBlock" = type { i32, %"class.ZXing::ByteArray" }
-%"class.ZXing::ByteArray" = type { %"class.std::vector.0" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt6vectorIN5ZXing6QRCode9DataBlockESaIS2_EEC2EmRKS3_ = comdat any
 
@@ -49,7 +40,7 @@ define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7Ve
 15:                                               ; preds = %4
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = sext i32 %3 to i64
-  %18 = getelementptr inbounds nuw %"struct.ZXing::QRCode::ECBlocks", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [20 x i8], ptr %16, i64 %17
   %.ptr87 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %19 = load i32, ptr %.ptr87, align 4, !tbaa !20
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 12
@@ -114,7 +105,7 @@ define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7Ve
   %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %57 ]
   %.08193 = phi i32 [ 0, %.lr.ph ], [ %58, %57 ]
   %50 = load ptr, ptr %0, align 8, !tbaa !22
-  %51 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %indvars.iv
   %52 = load i32, ptr %28, align 4, !tbaa !26
   store i32 %52, ptr %51, align 8, !tbaa !27
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -145,7 +136,7 @@ define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7Ve
 
 66:                                               ; preds = %63
   %67 = add nsw i64 %indvars.iv124, -1
-  %68 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %31, i64 %67
+  %68 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !3
@@ -209,7 +200,7 @@ define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7Ve
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 %indvars.iv130
   %94 = load i8, ptr %93, align 1, !tbaa !39
   %95 = load ptr, ptr %0, align 8, !tbaa !22
-  %96 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %95, i64 %indvars.iv128
+  %96 = getelementptr inbounds nuw [32 x i8], ptr %95, i64 %indvars.iv128
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !9
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv136
@@ -250,7 +241,7 @@ define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7Ve
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 %indvars.iv141
   %116 = load i8, ptr %115, align 1, !tbaa !39
   %117 = load ptr, ptr %0, align 8, !tbaa !22
-  %118 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %117, i64 %indvars.iv139
+  %118 = getelementptr inbounds nuw [32 x i8], ptr %117, i64 %indvars.iv139
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !9
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 %86
@@ -289,7 +280,7 @@ define void @_ZN5ZXing6QRCode9DataBlock13GetDataBlocksERKNS_9ByteArrayERKNS0_7Ve
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 %indvars.iv151
   %130 = load i8, ptr %129, align 1, !tbaa !39
   %131 = load ptr, ptr %0, align 8, !tbaa !22
-  %132 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %131, i64 %indvars.iv149
+  %132 = getelementptr inbounds nuw [32 x i8], ptr %131, i64 %indvars.iv149
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = sext i32 %127 to i64
   %135 = load ptr, ptr %133, align 8, !tbaa !9
@@ -331,7 +322,7 @@ _ZNSt12_Vector_baseIN5ZXing6QRCode9DataBlockESaIS2_EEC2EmRKS3_.exit.thread: ; pr
 .lr.ph.preheader.i.i.i.i:                         ; preds = %_ZNSt6vectorIN5ZXing6QRCode9DataBlockESaIS2_EE17_S_check_init_lenEmRKS3_.exit
   %6 = tail call noundef ptr @_ZNSt15__new_allocatorIN5ZXing6QRCode9DataBlockEE8allocateEmPKv(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef null) #10
   store ptr %6, ptr %0, align 8, !tbaa !22
-  %7 = getelementptr inbounds nuw %"class.ZXing::QRCode::DataBlock", ptr %6, i64 %1
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %8, align 8, !tbaa !44
   %9 = shl nuw nsw i64 %1, 5

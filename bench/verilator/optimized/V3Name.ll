@@ -65,10 +65,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base" = type { ptr }
 %"class.std::tuple.74" = type { i8 }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, unsigned int>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
-%class.V3UniqueNames = type <{ %"class.std::__cxx11::basic_string", %"class.std::map.52", i8, [7 x i8] }>
-%"class.std::map.52" = type { %"class.std::_Rb_tree.53" }
-%"class.std::_Rb_tree.53" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, unsigned int>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, unsigned int>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned int>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, unsigned int>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
 
 $_ZN11NameVisitorD2Ev = comdat any
@@ -4913,7 +4909,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode9privateAsI8AstCFuncPS_EEP
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.20)
   %.sroa.0.0.copyload.i.i5 = load i16, ptr %3, align 8, !tbaa !82
   %8 = zext i16 %.sroa.0.0.copyload.i.i5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !173
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %10)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.21)
@@ -4957,7 +4953,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode9privateAsI6AstVarPS_EEPT_
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.20)
   %.sroa.0.0.copyload.i.i5 = load i16, ptr %3, align 8, !tbaa !82
   %8 = zext i16 %.sroa.0.0.copyload.i.i5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !173
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %10)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.21)
@@ -5579,7 +5575,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode8typeNameEv(ptr noundef n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i16, ptr %2, align 8, !tbaa !82
   %3 = zext i16 %.sroa.0.0.copyload.i to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !173
   ret ptr %5
 }
@@ -5593,7 +5589,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode15unsafePrivateAsI8AstCFun
 define linkonce_odr dso_local noundef ptr @_ZNK6VNType5asciiEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 {
   %2 = load i16, ptr %0, align 2, !tbaa !186
   %3 = zext i16 %2 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !173
   ret ptr %5
 }
@@ -24230,7 +24226,7 @@ _ZSt8_DestroyIP13V3UniqueNamesS0_EvT_S2_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyI
 _ZNSt12_Vector_baseI13V3UniqueNamesSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt8_DestroyIP13V3UniqueNamesS0_EvT_S2_RSaIT0_E.exit, %69
   store ptr %23, ptr %0, align 8, !tbaa !59
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %5, align 8, !tbaa !62
-  %73 = getelementptr inbounds nuw %class.V3UniqueNames, ptr %23, i64 %17
+  %73 = getelementptr inbounds nuw [88 x i8], ptr %23, i64 %17
   store ptr %73, ptr %68, align 8, !tbaa !66
   ret void
 

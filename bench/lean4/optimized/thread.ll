@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 module asm ".globl _ZSt21ios_base_library_initv"
 
-%"struct.std::pair" = type { ptr, ptr }
 %class.anon = type { i64, %"class.std::function" }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
@@ -195,7 +194,7 @@ define void @lean_finalize_thread() local_unnamed_addr #0 personality ptr @__gxx
   %indvars.iv.i.i = phi i64 [ %14, %.lr.ph.preheader.i.i ], [ %15, %.lr.ph.i.i ]
   %15 = add nsw i64 %indvars.iv.i.i, -1
   %16 = load ptr, ptr %3, align 8, !tbaa !27
-  %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !30
@@ -248,7 +247,7 @@ _ZN4lean21run_thread_finalizersEv.exit:           ; preds = %0, %._crit_edge.i.i
   %indvars.iv.i.i5 = phi i64 [ %37, %.lr.ph.preheader.i.i3 ], [ %38, %.lr.ph.i.i4 ]
   %38 = add nsw i64 %indvars.iv.i.i5, -1
   %39 = load ptr, ptr %27, align 8, !tbaa !27
-  %40 = getelementptr inbounds nuw %"struct.std::pair", ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %38
   %41 = load ptr, ptr %40, align 8, !tbaa !28
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !30
@@ -305,7 +304,7 @@ define void @_ZN4lean21run_thread_finalizersEv() local_unnamed_addr #0 personali
   %indvars.iv.i = phi i64 [ %14, %.lr.ph.preheader.i ], [ %15, %.lr.ph.i ]
   %15 = add nsw i64 %indvars.iv.i, -1
   %16 = load ptr, ptr %3, align 8, !tbaa !27
-  %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !28
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !30
@@ -363,7 +362,7 @@ define void @_ZN4lean26run_post_thread_finalizersEv() local_unnamed_addr #0 pers
   %indvars.iv.i = phi i64 [ %15, %.lr.ph.preheader.i ], [ %16, %.lr.ph.i ]
   %16 = add nsw i64 %indvars.iv.i, -1
   %17 = load ptr, ptr %5, align 8, !tbaa !27
-  %18 = getelementptr inbounds nuw %"struct.std::pair", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %16
   %19 = load ptr, ptr %18, align 8, !tbaa !28
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !30
@@ -734,7 +733,7 @@ define hidden void @_ZN4lean26run_thread_finalizers_coreERSt6vectorISt4pairIPFvP
   %indvars.iv = phi i64 [ %11, %.lr.ph.preheader ], [ %12, %.lr.ph ]
   %12 = add nsw i64 %indvars.iv, -1
   %13 = load ptr, ptr %0, align 8, !tbaa !27
-  %14 = getelementptr inbounds nuw %"struct.std::pair", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !28
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !30
@@ -851,7 +850,7 @@ _ZNSt6vectorISt4pairIPFvPvES1_ESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i.i: 
 _ZNSt6vectorISt4pairIPFvPvES1_ESaIS4_EE17_M_realloc_insertIJRS3_RS1_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorISt4pairIPFvPvES1_ESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i.i
   store ptr %33, ptr %12, align 8, !tbaa !27
   store ptr %38, ptr %13, align 8, !tbaa !24
-  %40 = getelementptr inbounds nuw %"struct.std::pair", ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %31
   store ptr %40, ptr %15, align 8, !tbaa !48
   br label %_ZNSt6vectorISt4pairIPFvPvES1_ESaIS4_EE12emplace_backIJRS3_RS1_EEEvDpOT_.exit
 
@@ -945,7 +944,7 @@ _ZNSt6vectorISt4pairIPFvPvES1_ESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i.i: 
 _ZNSt6vectorISt4pairIPFvPvES1_ESaIS4_EE17_M_realloc_insertIJRS3_RS1_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %40, %_ZNSt6vectorISt4pairIPFvPvES1_ESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit33.i.i
   store ptr %34, ptr %13, align 8, !tbaa !27
   store ptr %39, ptr %14, align 8, !tbaa !24
-  %41 = getelementptr inbounds nuw %"struct.std::pair", ptr %34, i64 %32
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %32
   store ptr %41, ptr %16, align 8, !tbaa !48
   br label %_ZNSt6vectorISt4pairIPFvPvES1_ESaIS4_EE12emplace_backIJRS3_RS1_EEEvDpOT_.exit
 
@@ -1372,7 +1371,7 @@ define linkonce_odr hidden void @_ZN4lean25thread_finalizers_manager15finalize_t
   %indvars.iv.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %13, %.lr.ph.i ]
   %13 = add nsw i64 %indvars.iv.i, -1
   %14 = load ptr, ptr %0, align 8, !tbaa !27
-  %15 = getelementptr inbounds nuw %"struct.std::pair", ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !30
@@ -1417,7 +1416,7 @@ _ZN4lean26run_thread_finalizers_coreERSt6vectorISt4pairIPFvPvES2_ESaIS5_EE.exit:
   %indvars.iv.i8 = phi i64 [ %30, %.lr.ph.preheader.i6 ], [ %31, %.lr.ph.i7 ]
   %31 = add nsw i64 %indvars.iv.i8, -1
   %32 = load ptr, ptr %21, align 8, !tbaa !27
-  %33 = getelementptr inbounds nuw %"struct.std::pair", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8, !tbaa !28
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !30
@@ -1630,7 +1629,7 @@ _ZNSt6vectorISt8functionIFvvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35: ; pre
 _ZNSt12_Vector_baseISt8functionIFvvEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, %60
   store ptr %22, ptr %0, align 8, !tbaa !58
   store ptr %.0.lcssa.i.i.i.i34, ptr %4, align 8, !tbaa !8
-  %64 = getelementptr inbounds nuw %"class.std::function", ptr %22, i64 %16
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %64, ptr %59, align 8, !tbaa !11
   ret void
 

@@ -27,16 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.casadi::XmlNode" = type { %"class.std::map", %"class.std::vector", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, %"class.std::__cxx11::basic_string" }
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<casadi::XmlNode, std::allocator<casadi::XmlNode>>::_Vector_impl" }
-%"struct.std::_Vector_base<casadi::XmlNode, std::allocator<casadi::XmlNode>>::_Vector_impl" = type { %"struct.std::_Vector_base<casadi::XmlNode, std::allocator<casadi::XmlNode>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<casadi::XmlNode, std::allocator<casadi::XmlNode>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_istringstream" = type { %"class.std::basic_istream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 
@@ -1440,7 +1430,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %.lr.ph
   unreachable
 
 29:                                               ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %30 = getelementptr inbounds nuw i64, ptr %23, i64 %.031
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.031
   %31 = load i64, ptr %30, align 8, !tbaa !41
   %32 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIxEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %10, i64 noundef %31)
           to label %_ZNSolsEx.exit21 unwind label %.loopexit28
@@ -2516,7 +2506,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96: ; preds = %_ZN
   unreachable
 
 _ZNK6casadi7XmlNodeixEm.exit:                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit96
-  %298 = getelementptr inbounds nuw %"struct.casadi::XmlNode", ptr %292, i64 %.0198
+  %298 = getelementptr inbounds nuw [176 x i8], ptr %292, i64 %.0198
   call void @_ZNK6casadi7XmlNode4dumpERSox(ptr noundef nonnull align 8 dereferenceable(176) %298, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %213)
   %299 = add nuw nsw i64 %.0198, 1
   %300 = load ptr, ptr %208, align 8, !tbaa !93
@@ -3092,7 +3082,7 @@ _ZNSt6vectorIxSaIxEE11_S_relocateEPxS2_S2_RS0_.exit16.i.i: ; preds = %44, %.noex
 _ZNSt6vectorIxSaIxEE17_M_realloc_insertIJRKxEEEvN9__gnu_cxx17__normal_iteratorIPxS1_EEDpOT_.exit.i: ; preds = %46, %_ZNSt6vectorIxSaIxEE11_S_relocateEPxS2_S2_RS0_.exit16.i.i
   store ptr %40, ptr %1, align 8, !tbaa !45
   store ptr %45, ptr %6, align 8, !tbaa !43
-  %47 = getelementptr inbounds nuw i64, ptr %40, i64 %38
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %38
   store ptr %47, ptr %9, align 8, !tbaa !103
   br label %_ZNSt6vectorIxSaIxEE9push_backERKx.exit
 
@@ -3543,7 +3533,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %19, ptr %0, align 8, !tbaa !33
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %41, ptr %14, align 8, !tbaa !35
-  %42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %1
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %1
   store ptr %42, ptr %6, align 8, !tbaa !37
   br label %43
 
@@ -4519,7 +4509,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !35
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !37
   ret void
 

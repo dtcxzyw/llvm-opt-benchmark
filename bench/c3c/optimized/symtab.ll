@@ -3,8 +3,6 @@ source_filename = "bench/c3c/original/symtab.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SEntry = type { ptr, ptr }
-
 @symtab.0 = internal unnamed_addr global ptr null, align 8
 @symtab.2 = internal unnamed_addr global i64 0, align 8
 @.str = private unnamed_addr constant [23 x i8] c"Too small symtab size.\00", align 1
@@ -796,7 +794,7 @@ define dso_local ptr @symtab_add(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %6 = load i64, ptr @symtab.2, align 8
   %7 = and i64 %6, %5
   %8 = load ptr, ptr @symtab.0, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %12, label %.preheader
@@ -808,7 +806,7 @@ define dso_local ptr @symtab_add(ptr noundef %0, i32 noundef %1, i32 noundef %2,
 12:                                               ; preds = %4
   %13 = tail call ptr @calloc_arena(i64 noundef 40) #12
   %14 = load ptr, ptr @symtab.0, align 8
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %7
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %7
   store ptr %13, ptr %15, align 8
   %16 = trunc i32 %1 to i16
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -865,7 +863,7 @@ define dso_local ptr @symtab_add(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   %47 = tail call ptr @calloc_arena(i64 noundef 40) #12
   store ptr %10, ptr %47, align 8
   %48 = load ptr, ptr @symtab.0, align 8
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %7
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %7
   store ptr %47, ptr %49, align 8
   %50 = trunc i32 %1 to i16
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16
@@ -892,7 +890,7 @@ define dso_local ptr @symtab_find(ptr noundef readonly captures(none) %0, i32 no
   %6 = load i64, ptr @symtab.2, align 8
   %7 = and i64 %6, %5
   %8 = load ptr, ptr @symtab.0, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %.017 = load ptr, ptr %9, align 8
   %.not18 = icmp eq ptr %.017, null
   br i1 %.not18, label %.loopexit, label %.lr.ph
@@ -1020,7 +1018,7 @@ define dso_local ptr @stable_set(ptr noundef captures(none) %0, ptr noundef %1, 
   %12 = trunc i64 %11 to i32
   %13 = and i32 %9, %12
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct.SEntry, ptr %5, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %1
   %.not14.i = icmp eq ptr %16, null
@@ -1032,7 +1030,7 @@ define dso_local ptr @stable_set(ptr noundef captures(none) %0, ptr noundef %1, 
   %18 = add i32 %.016.i, 1
   %19 = and i32 %18, %9
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.SEntry, ptr %5, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %1
   %.not.i = icmp eq ptr %22, null
@@ -1090,7 +1088,7 @@ sentry_find.exit:                                 ; preds = %.lr.ph.i, %3
 44:                                               ; preds = %69, %.lr.ph.i22
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i22 ], [ %indvars.iv.next.i, %69 ]
   %45 = load ptr, ptr %4, align 8
-  %46 = getelementptr inbounds nuw %struct.SEntry, ptr %45, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %indvars.iv.i
   %47 = load ptr, ptr %46, align 8
   %.not28.i = icmp eq ptr %47, null
   br i1 %.not28.i, label %69, label %48
@@ -1105,7 +1103,7 @@ sentry_find.exit:                                 ; preds = %.lr.ph.i, %3
   %54 = trunc i64 %53 to i32
   %55 = and i32 %43, %54
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw %struct.SEntry, ptr %41, i64 %56
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, %47
   %.not14.i.i = icmp eq ptr %58, null
@@ -1117,7 +1115,7 @@ sentry_find.exit:                                 ; preds = %.lr.ph.i, %3
   %60 = add i32 %.016.i.i, 1
   %61 = and i32 %60, %43
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %struct.SEntry, ptr %41, i64 %62
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, %47
   %.not.i.i = icmp eq ptr %64, null
@@ -1168,7 +1166,7 @@ define dso_local ptr @stable_get(ptr noundef readonly captures(none) %0, ptr nou
   %12 = trunc i64 %11 to i32
   %13 = and i32 %9, %12
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct.SEntry, ptr %4, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %1
   %.not14.i = icmp eq ptr %16, null
@@ -1180,7 +1178,7 @@ define dso_local ptr @stable_get(ptr noundef readonly captures(none) %0, ptr nou
   %18 = add i32 %.016.i, 1
   %19 = and i32 %18, %9
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.SEntry, ptr %4, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, %1
   %.not.i = icmp eq ptr %22, null
@@ -1194,7 +1192,7 @@ sentry_find.exit:                                 ; preds = %.lr.ph.i, %5
   br i1 %26, label %31, label %27
 
 27:                                               ; preds = %sentry_find.exit
-  %28 = getelementptr inbounds nuw %struct.SEntry, ptr %4, i64 %25
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %25
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   br label %31
@@ -1245,7 +1243,7 @@ define dso_local ptr @htable_set(ptr noundef readonly captures(none) %0, ptr nou
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %15, label %.preheader
@@ -1301,7 +1299,7 @@ define dso_local ptr @htable_get(ptr noundef readonly captures(none) %0, ptr nou
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %8 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.loopexit, label %.preheader

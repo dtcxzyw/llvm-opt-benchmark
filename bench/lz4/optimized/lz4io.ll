@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.cRess_t = type { ptr, i64, ptr, i64, ptr, %struct.LZ4F_preferences_t, ptr, ptr, ptr }
 %struct.dRess_t = type { ptr, i64, ptr, i64, ptr, ptr, ptr, i64 }
 %struct.LZ4IO_frameInfo_t = type { %struct.LZ4F_frameInfo_t, i32 }
-%struct.BufferDesc = type { ptr, i64, i64 }
 
 @g_displayLevel = internal unnamed_addr global i32 0, align 4
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -332,7 +331,7 @@ define dso_local i64 @LZ4IO_setBlockSizeID(ptr noundef writeonly captures(none) 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %5, align 4, !tbaa !17
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr i64, ptr @LZ4IO_setBlockSizeID.blockSizeTable, i64 %6
+  %7 = getelementptr [8 x i8], ptr @LZ4IO_setBlockSizeID.blockSizeTable, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -32
   %9 = load i64, ptr %8, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -854,7 +853,7 @@ LZ4IO_isStdout.exit:                              ; preds = %LZ4IO_isStdout.exit
   %.04973 = phi i32 [ 0, %LZ4IO_isStdout.exit.lr.ph ], [ %.150.ph, %35 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !32
-  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !57
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #30
   %19 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.3) #30
@@ -4432,7 +4431,7 @@ LZ4IO_isStdout.exit:                              ; preds = %LZ4IO_isStdout.exit
   %.04774 = phi ptr [ %8, %LZ4IO_isStdout.exit.lr.ph ], [ %.148.ph, %37 ]
   %.05073 = phi i64 [ 30, %LZ4IO_isStdout.exit.lr.ph ], [ %.151.ph, %37 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !57
   %20 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #30
   %21 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %2, ptr noundef nonnull dereferenceable(7) @.str.3) #30
@@ -5045,7 +5044,7 @@ LZ4IO_isStdout.exit:                              ; preds = %LZ4IO_isStdout.exit
   %.06486 = phi i64 [ 30, %LZ4IO_isStdout.exit.lr.ph ], [ %.165, %146 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 0, ptr %6, align 8, !tbaa !32
-  %70 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8, !tbaa !57
   %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #30
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 %72
@@ -5447,7 +5446,7 @@ define dso_local range(i32 0, 2) i32 @LZ4IO_displayCompressedFilesInfo(ptr nound
 
 40:                                               ; preds = %.lr.ph, %551
   %.023380 = phi i64 [ 0, %.lr.ph ], [ %552, %551 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.023380
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.023380
   %42 = load ptr, ptr %41, align 8, !tbaa !57
   %43 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %42, i32 noundef 47) #30
   %.not.i = icmp eq ptr %43, null
@@ -5901,7 +5900,7 @@ LZ4IO_skipBlocksData.exit.i:                      ; preds = %238, %237, %230
   %256 = add i64 %.sroa.11.1, 1
   %257 = load i32, ptr %25, align 8, !tbaa !141
   %258 = zext i32 %257 to i64
-  %259 = getelementptr inbounds nuw ptr, ptr @LZ4IO_frameTypeNames, i64 %258
+  %259 = getelementptr inbounds nuw [8 x i8], ptr @LZ4IO_frameTypeNames, i64 %258
   %260 = load ptr, ptr %259, align 8, !tbaa !57
   %261 = load i32, ptr %30, align 8, !tbaa !138
   %.not115.i = icmp eq i32 %261, 0
@@ -6099,7 +6098,7 @@ LZ4IO_skipLegacyBlocksData.exit.i:                ; preds = %291, %285
   %358 = add i64 %.sroa.11.1, 1
   %359 = load i32, ptr %25, align 8, !tbaa !141
   %360 = zext i32 %359 to i64
-  %361 = getelementptr inbounds nuw ptr, ptr @LZ4IO_frameTypeNames, i64 %360
+  %361 = getelementptr inbounds nuw [8 x i8], ptr @LZ4IO_frameTypeNames, i64 %360
   %362 = load ptr, ptr %361, align 8, !tbaa !57
   %363 = add i64 %.020.i.i, 4
   %364 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %357, ptr noundef nonnull @.str.117, i64 noundef %358, ptr noundef %362, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.41, i64 noundef %363, ptr noundef nonnull @.str.41, ptr noundef nonnull @.str.41) #24
@@ -6428,7 +6427,7 @@ LZ4IO_getCompressedFileInfo.exit:                 ; preds = %.lr.ph.i
 
 507:                                              ; preds = %.thread
   %508 = zext i32 %.sroa.2967.2111 to i64
-  %509 = getelementptr inbounds nuw ptr, ptr @LZ4IO_frameTypeNames, i64 %508
+  %509 = getelementptr inbounds nuw [8 x i8], ptr @LZ4IO_frameTypeNames, i64 %508
   %510 = load ptr, ptr %509, align 8, !tbaa !57
   br label %511
 
@@ -6735,7 +6734,7 @@ define internal void @LZ4IO_checkWriteOrder(ptr noundef captures(none) %0) #10 {
   %12 = load ptr, ptr %11, align 8, !tbaa !37
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !146
-  %15 = getelementptr %struct.BufferDesc, ptr %12, i64 %14
+  %15 = getelementptr [24 x i8], ptr %12, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -24
   %17 = load ptr, ptr %16, align 8, !tbaa !147
   %.not.i = icmp eq ptr %17, null
@@ -6813,7 +6812,7 @@ thread-pre-split.i:                               ; preds = %43, %38
 
 57:                                               ; preds = %18
   store ptr %22, ptr %11, align 8, !tbaa !37
-  %58 = getelementptr inbounds nuw %struct.BufferDesc, ptr %22, i64 %14
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %14
   %59 = mul nuw nsw i64 %19, 24
   %60 = icmp ult i64 %14, 2
   %61 = add nsw i64 %59, -24
@@ -6835,7 +6834,7 @@ thread-pre-split.i:                               ; preds = %43, %38
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %64
   %.031.i = phi i64 [ %65, %64 ], [ 0, %.preheader.i ]
-  %66 = getelementptr inbounds nuw %struct.BufferDesc, ptr %12, i64 %.031.i
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.031.i
   %67 = load ptr, ptr %66, align 8, !tbaa !147
   %68 = icmp eq ptr %67, null
   br i1 %68, label %69, label %64
@@ -6891,7 +6890,7 @@ WR_addBufDesc.exit:                               ; preds = %64, %.preheader.i, 
 
 90:                                               ; preds = %88, %.lr.ph.i38
   %.09.i = phi i64 [ 0, %.lr.ph.i38 ], [ %89, %88 ]
-  %91 = getelementptr inbounds nuw %struct.BufferDesc, ptr %87, i64 %.09.i
+  %91 = getelementptr inbounds nuw [24 x i8], ptr %87, i64 %.09.i
   %92 = load ptr, ptr %91, align 8, !tbaa !147
   %93 = icmp eq ptr %92, null
   br i1 %93, label %.loopexit, label %94
@@ -6909,7 +6908,7 @@ WR_addBufDesc.exit:                               ; preds = %64, %.preheader.i, 
 
 .lr.ph.i41:                                       ; preds = %94, %98
   %.011.i = phi i64 [ %99, %98 ], [ 0, %94 ]
-  %100 = getelementptr inbounds nuw %struct.BufferDesc, ptr %87, i64 %.011.i
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %87, i64 %.011.i
   %101 = load ptr, ptr %100, align 8, !tbaa !147, !noalias !154
   %102 = icmp eq ptr %101, null
   br i1 %102, label %._crit_edge.i, label %103
@@ -6997,7 +6996,7 @@ WR_getBufID.exit:                                 ; preds = %103
 
 145:                                              ; preds = %154, %.lr.ph.i46
   %.033.i = phi i64 [ 0, %.lr.ph.i46 ], [ %155, %154 ]
-  %146 = getelementptr inbounds nuw %struct.BufferDesc, ptr %144, i64 %.033.i
+  %146 = getelementptr inbounds nuw [24 x i8], ptr %144, i64 %.033.i
   %147 = load ptr, ptr %146, align 8, !tbaa !147
   %148 = icmp eq ptr %147, null
   br i1 %148, label %WR_removeBuffID.exit, label %149
@@ -7030,17 +7029,17 @@ WR_getBufID.exit:                                 ; preds = %103
   br i1 %157, label %159, label %166
 
 159:                                              ; preds = %.loopexit22.i
-  %160 = getelementptr inbounds nuw %struct.BufferDesc, ptr %158, i64 %.1.in.i
-  %161 = getelementptr inbounds nuw %struct.BufferDesc, ptr %158, i64 %.1.i
+  %160 = getelementptr inbounds nuw [24 x i8], ptr %158, i64 %.1.in.i
+  %161 = getelementptr inbounds nuw [24 x i8], ptr %158, i64 %.1.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %160, ptr noundef nonnull align 8 dereferenceable(24) %161, i64 24, i1 false), !tbaa.struct !158
   %162 = load ptr, ptr %84, align 8, !tbaa !37
-  %163 = getelementptr inbounds nuw %struct.BufferDesc, ptr %162, i64 %.1.i
+  %163 = getelementptr inbounds nuw [24 x i8], ptr %162, i64 %.1.i
   %164 = load ptr, ptr %163, align 8, !tbaa !147
   %165 = icmp eq ptr %164, null
   br i1 %165, label %WR_removeBuffID.exit, label %.loopexit22.i, !llvm.loop !159
 
 166:                                              ; preds = %.loopexit22.i
-  %167 = getelementptr %struct.BufferDesc, ptr %158, i64 %156
+  %167 = getelementptr [24 x i8], ptr %158, i64 %156
   %168 = getelementptr i8, ptr %167, i64 -24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %168, i8 0, i64 24, i1 false)
   br label %WR_removeBuffID.exit
@@ -9030,7 +9029,7 @@ thread-pre-split101:                              ; preds = %70, %65
 
 .lr.ph:                                           ; preds = %.lr.ph133, %91
   %.082127 = phi i64 [ %92, %91 ], [ 0, %.lr.ph133 ]
-  %88 = getelementptr inbounds nuw i64, ptr %.076131, i64 %.082127
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %.076131, i64 %.082127
   %89 = load i64, ptr %88, align 8, !tbaa !29
   %90 = icmp eq i64 %89, 0
   br i1 %90, label %91, label %.critedge
@@ -9124,7 +9123,7 @@ thread-pre-split106:                              ; preds = %122, %115
 
 136:                                              ; preds = %97
   %137 = sub nsw i64 %spec.select, %.082.lcssa
-  %138 = getelementptr inbounds nuw i64, ptr %.076131, i64 %.082.lcssa
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %.076131, i64 %.082.lcssa
   %139 = tail call i64 @fwrite(ptr noundef %138, i64 noundef 8, i64 noundef %137, ptr noundef %0)
   %.not96 = icmp eq i64 %139, %137
   br i1 %.not96, label %173, label %140
@@ -9191,7 +9190,7 @@ thread-pre-split111:                              ; preds = %159, %154
   %.181 = phi i64 [ %spec.select, %.critedge ], [ %137, %136 ], [ %spec.select, %.critedge.thread ]
   %.177 = phi ptr [ %.076131, %.critedge ], [ %138, %136 ], [ %.076131, %.critedge.thread ]
   %.2 = phi i32 [ %96, %.critedge ], [ 0, %136 ], [ %94, %.critedge.thread ]
-  %174 = getelementptr inbounds nuw i64, ptr %.177, i64 %.181
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %.177, i64 %.181
   %175 = icmp ult ptr %174, %7
   br i1 %175, label %.lr.ph133, label %._crit_edge, !llvm.loop !164
 

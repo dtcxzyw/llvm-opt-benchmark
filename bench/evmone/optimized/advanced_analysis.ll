@@ -16,10 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.evmone::advanced::Instruction" = type { ptr, %"union.evmone::advanced::InstructionArgument" }
-%"union.evmone::advanced::InstructionArgument" = type { i64 }
-%"struct.intx::uint" = type { [4 x i64] }
-%"struct.evmone::advanced::OpTableEntry" = type { ptr, i16, i8, i8 }
 
 $_ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE12emplace_backIJRKPFPKS2_S7_RNS1_22AdvancedExecutionStateEEEEERS2_DpOT_ = comdat any
 
@@ -78,7 +74,7 @@ _ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
 _ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i, %20
   store ptr %15, ptr %0, align 8, !tbaa !9
   store ptr %15, ptr %13, align 8, !tbaa !12
-  %25 = getelementptr inbounds nuw %"struct.evmone::advanced::Instruction", ptr %15, i64 %8
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %8
   store ptr %25, ptr %12, align 8, !tbaa !22
   %26 = add nsw i64 %2, 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -137,7 +133,7 @@ _ZNSt12_Vector_baseIN4intx4uintILj256EEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; 
   store ptr %43, ptr %27, align 8, !tbaa !26
   %53 = getelementptr inbounds nuw i8, ptr %43, i64 %41
   store ptr %53, ptr %38, align 8, !tbaa !27
-  %54 = getelementptr inbounds nuw %"struct.intx::uint", ptr %43, i64 %26
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %26
   store ptr %54, ptr %30, align 8, !tbaa !23
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !12
@@ -215,7 +211,7 @@ _ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
 _ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE17_M_realloc_insertIJRKPFPKS2_S7_RNS1_22AdvancedExecutionStateEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %81, %_ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %75, ptr %0, align 8, !tbaa !9
   store ptr %80, ptr %57, align 8, !tbaa !12
-  %85 = getelementptr inbounds nuw %"struct.evmone::advanced::Instruction", ptr %75, i64 %73
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %75, i64 %73
   store ptr %85, ptr %12, align 8, !tbaa !22
   br label %_ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE12emplace_backIJRKPFPKS2_S7_RNS1_22AdvancedExecutionStateEEEEERS2_DpOT_.exit
 
@@ -246,7 +242,7 @@ _ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE12emplace_backIJRKPFPKS2_S7_
   %97 = getelementptr inbounds nuw i8, ptr %.058206, i64 1
   %98 = load i8, ptr %.058206, align 1, !tbaa !15
   %99 = zext i8 %98 to i64
-  %100 = getelementptr inbounds nuw %"struct.evmone::advanced::OpTableEntry", ptr %5, i64 %99
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %99
   %101 = zext i8 %98 to i32
   %102 = icmp eq i8 %98, 91
   br i1 %102, label %103, label %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit80
@@ -265,7 +261,7 @@ _ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE12emplace_backIJRKPFPKS2_S7_
   %.sroa.0.0.insert.ext.i = and i64 %106, 4294967295
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.insert.i, %.sroa.0.0.insert.ext.i
   %107 = load ptr, ptr %0, align 8, !tbaa !9
-  %108 = getelementptr inbounds nuw %"struct.evmone::advanced::Instruction", ptr %107, i64 %.sroa.28146.0201
+  %108 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %.sroa.28146.0201
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   store i64 %.sroa.0.0.insert.insert.i, ptr %109, align 8
   %110 = load ptr, ptr %57, align 8, !tbaa !12
@@ -335,7 +331,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %139, %_ZNK
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %141, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %136, ptr %87, align 8, !tbaa !46
   store ptr %140, ptr %90, align 8, !tbaa !40
-  %145 = getelementptr inbounds nuw i32, ptr %136, i64 %134
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %134
   store ptr %145, ptr %91, align 8, !tbaa !43
   %.pre218 = load ptr, ptr %57, align 8, !tbaa !12
   %.pre219 = load ptr, ptr %0, align 8, !tbaa !9
@@ -406,7 +402,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i77: ; preds = %168, %_Z
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i79: ; preds = %170, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i77
   store ptr %165, ptr %92, align 8, !tbaa !46
   store ptr %169, ptr %93, align 8, !tbaa !40
-  %174 = getelementptr inbounds nuw i32, ptr %165, i64 %163
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %165, i64 %163
   store ptr %174, ptr %94, align 8, !tbaa !43
   br label %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit80
 
@@ -520,7 +516,7 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit80: ; preds = %_ZNSt6vectorI
   %.sroa.0.0.insert.ext.i90 = and i64 %202, 4294967295
   %.sroa.0.0.insert.insert.i91 = or disjoint i64 %.sroa.2.0.insert.insert.i89, %.sroa.0.0.insert.ext.i90
   %203 = load ptr, ptr %0, align 8, !tbaa !9
-  %204 = getelementptr inbounds nuw %"struct.evmone::advanced::Instruction", ptr %203, i64 %.sroa.28146.1
+  %204 = getelementptr inbounds nuw [16 x i8], ptr %203, i64 %.sroa.28146.1
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store i64 %.sroa.0.0.insert.insert.i91, ptr %205, align 8
   %206 = load ptr, ptr %57, align 8, !tbaa !12
@@ -636,7 +632,7 @@ _ZNSt6vectorIN4intx4uintILj256EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i
 _ZNSt6vectorIN4intx4uintILj256EEESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %257, %_ZNSt6vectorIN4intx4uintILj256EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit21.i.i
   store ptr %252, ptr %27, align 8, !tbaa !26
   store ptr %256, ptr %95, align 8, !tbaa !27
-  %261 = getelementptr inbounds nuw %"struct.intx::uint", ptr %252, i64 %250
+  %261 = getelementptr inbounds nuw [32 x i8], ptr %252, i64 %250
   store ptr %261, ptr %30, align 8, !tbaa !23
   br label %_ZNSt6vectorIN4intx4uintILj256EEESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
@@ -710,7 +706,7 @@ _ZNSt6vectorIN4intx4uintILj256EEESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; pr
   %.sroa.28146.0.lcssa = phi i64 [ 0, %_ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE12emplace_backIJRKPFPKS2_S7_RNS1_22AdvancedExecutionStateEEEEERS2_DpOT_.exit ], [ %.sroa.28146.2, %._crit_edge208.loopexit ]
   %.sroa.0.0.insert.insert.i110 = phi i64 [ 0, %_ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE12emplace_backIJRKPFPKS2_S7_RNS1_22AdvancedExecutionStateEEEEERS2_DpOT_.exit ], [ %291, %._crit_edge208.loopexit ]
   %292 = load ptr, ptr %0, align 8, !tbaa !9
-  %293 = getelementptr inbounds nuw %"struct.evmone::advanced::Instruction", ptr %292, i64 %.sroa.28146.0.lcssa
+  %293 = getelementptr inbounds nuw [16 x i8], ptr %292, i64 %.sroa.28146.0.lcssa
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 8
   store i64 %.sroa.0.0.insert.insert.i110, ptr %294, align 8
   %295 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE12emplace_backIJRKPFPKS2_S7_RNS1_22AdvancedExecutionStateEEEEERS2_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -795,7 +791,7 @@ _ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
 _ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE17_M_realloc_insertIJRKPFPKS2_S7_RNS1_22AdvancedExecutionStateEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, %32
   store ptr %25, ptr %0, align 8, !tbaa !9
   store ptr %31, ptr %3, align 8, !tbaa !12
-  %36 = getelementptr inbounds nuw %"struct.evmone::advanced::Instruction", ptr %25, i64 %23
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %23
   store ptr %36, ptr %5, align 8, !tbaa !22
   br label %37
 

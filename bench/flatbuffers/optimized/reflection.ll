@@ -22,8 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.flatbuffers::Offset.19" = type { i32 }
-%"struct.flatbuffers::Offset" = type { i32 }
 %"class.flatbuffers::VerifierTemplate" = type { ptr, i64, %"struct.flatbuffers::VerifierTemplate<false>::Options", i64, i32, i32, ptr }
 %"struct.flatbuffers::VerifierTemplate<false>::Options" = type <{ i32, i32, i8, i8, [6 x i8], i64, i8, [7 x i8] }>
 %"struct.flatbuffers::Offset.11" = type { i32 }
@@ -1981,7 +1979,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i29.us: ; preds = %.l
 _ZNK10reflection6Object6fieldsEv.exit31.us:       ; preds = %34, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i29.us, %.lr.ph.split.us
   %40 = phi ptr [ %39, %34 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i29.us ], [ null, %.lr.ph.split.us ]
   %41 = sub i64 %23, %.073.us
-  %42 = getelementptr inbounds nuw i32, ptr %18, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !9
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %45 = shl i32 %43, 2
@@ -2044,7 +2042,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i: ; preds = %_ZNK11fla
 
 _ZNK10reflection5Field2idEv.exit:                 ; preds = %71, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i24
   %76 = phi i64 [ %75, %71 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i24 ]
-  %77 = getelementptr inbounds nuw i32, ptr %18, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %76
   store i32 %56, ptr %77, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
@@ -2083,7 +2081,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i29: ; preds = %.lr.p
 
 _ZNK10reflection6Object6fieldsEv.exit31:          ; preds = %86, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i29, %.lr.ph.split
   %92 = phi ptr [ %91, %86 ], [ null, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i29 ], [ null, %.lr.ph.split ]
-  %93 = getelementptr inbounds nuw i32, ptr %18, i64 %.073
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.073
   %94 = load i32, ptr %93, align 4, !tbaa !9
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %96 = shl i32 %94, 2
@@ -3448,7 +3446,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i233: ; preds = %_ZNK10
           to label %.lr.ph unwind label %356
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i.i.i.i.i
-  %332 = getelementptr inbounds nuw %"struct.flatbuffers::Offset.19", ptr %331, i64 %329
+  %332 = getelementptr inbounds nuw [4 x i8], ptr %331, i64 %329
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %331, i8 0, i64 %330, i1 false), !tbaa !95
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %331, i64 %330
   %333 = ptrtoint ptr %332 to i64
@@ -3470,7 +3468,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i233: ; preds = %_ZNK10
           to label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit241.us unwind label %.split.us
 
 _ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit241.us: ; preds = %.lr.ph.split.us
-  %345 = getelementptr inbounds nuw %"struct.flatbuffers::Offset.19", ptr %331, i64 %indvars.iv518
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %331, i64 %indvars.iv518
   store i32 %344, ptr %345, align 4, !tbaa !9
   %indvars.iv.next519 = add nuw nsw i64 %indvars.iv518, 1
   %346 = load i32, ptr %254, align 4, !tbaa !97
@@ -3517,7 +3515,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.
 
 _ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateStringINS_6OffsetEEET_INS_6StringEEPKS5_.exit245: ; preds = %.lr.ph.split
   %367 = load i32, ptr %23, align 8, !tbaa !89
-  %368 = getelementptr inbounds nuw %"struct.flatbuffers::Offset.19", ptr %331, i64 %indvars.iv
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %331, i64 %indvars.iv
   store i32 %367, ptr %368, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %369 = load i32, ptr %254, align 4, !tbaa !97
@@ -3579,7 +3577,7 @@ _ZNK10reflection6Object9is_structEv.exit251.thread: ; preds = %.thread369, %_ZNK
           to label %.lr.ph447 unwind label %398
 
 .lr.ph447:                                        ; preds = %.lr.ph.preheader.i.i.i.i.i253
-  %389 = getelementptr inbounds nuw %"struct.flatbuffers::Offset", ptr %388, i64 %386
+  %389 = getelementptr inbounds nuw [4 x i8], ptr %388, i64 %386
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %388, i8 0, i64 %387, i1 false), !tbaa !100
   %scevgep.i.i.i.i.i254 = getelementptr i8, ptr %388, i64 %387
   %390 = ptrtoint ptr %389 to i64
@@ -3616,7 +3614,7 @@ _ZNK10reflection6Object9is_structEv.exit251.thread: ; preds = %.thread369, %_ZNK
           to label %408 unwind label %.thread609
 
 408:                                              ; preds = %400
-  %409 = getelementptr inbounds nuw %"struct.flatbuffers::Offset", ptr %388, i64 %indvars.iv521
+  %409 = getelementptr inbounds nuw [4 x i8], ptr %388, i64 %indvars.iv521
   store i32 %407, ptr %409, align 4, !tbaa !9
   %indvars.iv.next522 = add nuw nsw i64 %indvars.iv521, 1
   %410 = load i32, ptr %254, align 4, !tbaa !93
@@ -3656,7 +3654,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE12CreateVectorINS_6OffsetIPKNS_5Tab
 .thread371:                                       ; preds = %_ZNK10reflection4Type7elementEv.exit, %_ZNK10reflection5Field4typeEv.exit224, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i225
   %.ph370 = phi i64 [ %275, %_ZNK10reflection4Type7elementEv.exit ], [ 0, %_ZNK10reflection5Field4typeEv.exit224 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i225 ]
   %421 = and i64 %.ph370, 4294967295
-  %422 = getelementptr inbounds nuw i64, ptr @_ZZN11flatbuffers11GetTypeSizeEN10reflection8BaseTypeEE5sizes, i64 %421
+  %422 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers11GetTypeSizeEN10reflection8BaseTypeEE5sizes, i64 %421
   %423 = load i64, ptr %422, align 8, !tbaa !11
   br label %_ZNK10reflection6Object9is_structEv.exit265.thread
 
@@ -3877,7 +3875,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %513, %.noe
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %515, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
-  %516 = getelementptr inbounds nuw i32, ptr %510, i64 %508
+  %516 = getelementptr inbounds nuw [4 x i8], ptr %510, i64 %508
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNK10reflection5Field6offsetEv.exit.i187, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i188, %_ZNK10reflection5Field6offsetEv.exit.i, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i2.i, %_ZNK10reflection5Field4typeEv.exit, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i183, %_ZNK10reflection6Object9is_structEv.exit205, %_ZNK10reflection4Type9base_typeEv.exit, %_ZNK10reflection5Field6offsetEv.exit, %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE18CreateSharedStringEPKNS_6StringE.exit, %496, %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %_ZNK11flatbuffers5Table10CheckFieldEt.exit
@@ -4271,7 +4269,7 @@ _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i314: ; preds = %.threa
 _ZNK10reflection5Field6offsetEv.exit316:          ; preds = %711, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i314, %.thread376
   %715 = phi i16 [ %714, %711 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i314 ], [ 0, %.thread376 ]
   %716 = add i64 %.0145466, 1
-  %717 = getelementptr inbounds nuw i32, ptr %.sroa.0359.0.lcssa, i64 %.0145466
+  %717 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0359.0.lcssa, i64 %.0145466
   %718 = load i32, ptr %717, align 4, !tbaa !9
   %.not.i.i317 = icmp eq i32 %718, 0
   br i1 %.not.i.i317, label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit, label %719
@@ -4345,7 +4343,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE7ReferToEj.exit.i: ; preds = %_ZN11
 _ZNK10reflection4Type9base_typeEv.exit295.thread: ; preds = %_ZNK10reflection5Field4typeEv.exit292, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i293, %_ZNK10reflection4Type9base_typeEv.exit295
   %745 = phi i64 [ %628, %_ZNK10reflection4Type9base_typeEv.exit295 ], [ 0, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i293 ], [ 0, %_ZNK10reflection5Field4typeEv.exit292 ]
   %746 = and i64 %745, 4294967295
-  %747 = getelementptr inbounds nuw i64, ptr @_ZZN11flatbuffers11GetTypeSizeEN10reflection8BaseTypeEE5sizes, i64 %746
+  %747 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers11GetTypeSizeEN10reflection8BaseTypeEE5sizes, i64 %746
   %748 = load i64, ptr %747, align 8, !tbaa !11
   invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_110CopyInlineERNS_21FlatBufferBuilderImplILb0EEERKN10reflection5FieldERKNS_5TableEmm(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 1 dereferenceable(1) %583, ptr noundef nonnull align 1 dereferenceable(1) %3, i64 noundef %748, i64 noundef %748)
           to label %_ZN11flatbuffers21FlatBufferBuilderImplILb0EE9AddOffsetIvEEvtNS_6OffsetIT_EE.exit unwind label %749
@@ -7976,7 +7974,7 @@ _ZNK10reflection6Object9is_structEv.exit111:      ; preds = %_ZNK11flatbuffers5T
   br i1 %.not74.us, label %285, label %294
 
 285:                                              ; preds = %.lr.ph.split.us
-  %286 = getelementptr inbounds nuw i32, ptr %272, i64 %indvars.iv138
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %272, i64 %indvars.iv138
   %287 = load i32, ptr %286, align 4, !tbaa !9
   %288 = zext i32 %287 to i64
   %289 = getelementptr inbounds nuw i8, ptr %275, i64 %288
@@ -8023,7 +8021,7 @@ _ZN11flatbuffers13ResizeContext8StraddleIjLi1EEEvPKvS3_Pv.exit115.us: ; preds = 
   br i1 %.not74, label %310, label %_ZN11flatbuffers13ResizeContext8StraddleIjLi1EEEvPKvS3_Pv.exit115
 
 310:                                              ; preds = %.lr.ph.split
-  %311 = getelementptr inbounds nuw i32, ptr %271, i64 %indvars.iv
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %indvars.iv
   %312 = load i32, ptr %311, align 4, !tbaa !9
   %313 = zext i32 %312 to i64
   %314 = getelementptr inbounds nuw i8, ptr %300, i64 %313
@@ -10512,7 +10510,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit: ; preds =
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.07 = phi i64 [ %45, %.lr.ph ], [ %2, %3 ]
   %45 = add i64 %.07, -1
-  %46 = getelementptr inbounds nuw %"struct.flatbuffers::Offset.19", ptr %1, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %45
   %.sroa.0.0.copyload = load i32, ptr %46, align 4, !tbaa !9
   %47 = tail call noundef i32 @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIPKNS_6StringENS_6OffsetEEEjT0_IT_E(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 %.sroa.0.0.copyload)
   %.not = icmp eq i64 %45, 0
@@ -10755,7 +10753,7 @@ _ZN11flatbuffers21FlatBufferBuilderImplILb0EE9EndVectorIjjEET0_m.exit: ; preds =
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.07 = phi i64 [ %45, %.lr.ph ], [ %2, %3 ]
   %45 = add i64 %.07, -1
-  %46 = getelementptr inbounds nuw %"struct.flatbuffers::Offset", ptr %1, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %45
   %.sroa.0.0.copyload = load i32, ptr %46, align 4, !tbaa !9
   %47 = tail call noundef i32 @_ZN11flatbuffers21FlatBufferBuilderImplILb0EE11PushElementIPKNS_5TableENS_6OffsetEEEjT0_IT_E(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 %.sroa.0.0.copyload)
   %.not = icmp eq i64 %45, 0

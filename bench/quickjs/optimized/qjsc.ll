@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.FeatureEntry = type { ptr, ptr }
-%struct.namelist_entry_t = type { ptr, ptr, i32 }
 
 @cmodule_list.0 = internal unnamed_addr global ptr null, align 8
 @cmodule_list.1 = internal unnamed_addr global i32 0, align 8
@@ -132,7 +131,7 @@ define dso_local void @namelist_add(ptr noundef captures(none) %0, ptr noundef r
   %20 = add i32 %18, 1
   store i32 %20, ptr %5, align 8, !tbaa !7
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds %struct.namelist_entry_t, ptr %19, i64 %21
+  %22 = getelementptr inbounds [24 x i8], ptr %19, i64 %21
   %23 = tail call noalias ptr @strdup(ptr noundef %1) #18
   store ptr %23, ptr %22, align 8, !tbaa !15
   %.not = icmp eq ptr %2, null
@@ -170,7 +169,7 @@ define dso_local void @namelist_free(ptr noundef captures(none) %0) local_unname
   %7 = add nsw i32 %5, -1
   store i32 %7, ptr %2, align 8, !tbaa !7
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw %struct.namelist_entry_t, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   tail call void @free(ptr noundef %10) #18
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -211,7 +210,7 @@ define dso_local noundef ptr @namelist_find(ptr noundef readonly captures(none) 
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw %struct.namelist_entry_t, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %1) #19
   %.not.not = icmp eq i32 %11, 0
@@ -246,7 +245,7 @@ define dso_local ptr @jsc_module_loader(ptr noundef %0, ptr noundef %1, ptr read
 
 11:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
-  %12 = getelementptr inbounds nuw %struct.namelist_entry_t, ptr %9, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !15
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %1) #19
   %.not.not.i = icmp eq i32 %14, 0
@@ -279,7 +278,7 @@ namelist_find.exit:                               ; preds = %11
   %30 = add i32 %28, 1
   store i32 %30, ptr @init_module_list.1, align 8, !tbaa !7
   %31 = sext i32 %28 to i64
-  %32 = getelementptr inbounds %struct.namelist_entry_t, ptr %29, i64 %31
+  %32 = getelementptr inbounds [24 x i8], ptr %29, i64 %31
   %33 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %13) #18
   store ptr %33, ptr %32, align 8, !tbaa !15
   %.not.i = icmp eq ptr %16, null
@@ -349,7 +348,7 @@ namelist_add.exit:                                ; preds = %27, %34
 
 59:                                               ; preds = %58, %.lr.ph.i40
   %indvars.iv.i42 = phi i64 [ 0, %.lr.ph.i40 ], [ %indvars.iv.next.i44, %58 ]
-  %60 = getelementptr inbounds nuw %struct.namelist_entry_t, ptr %57, i64 %indvars.iv.i42
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %57, i64 %indvars.iv.i42
   %61 = load ptr, ptr %60, align 8, !tbaa !15
   %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull readonly dereferenceable(1) %6) #19
   %.not.not.i43 = icmp eq i32 %62, 0
@@ -386,7 +385,7 @@ namelist_find.exit46:                             ; preds = %59
 
 74:                                               ; preds = %73, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %73 ]
-  %75 = getelementptr inbounds nuw %struct.namelist_entry_t, ptr %72, i64 %indvars.iv.i.i
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %indvars.iv.i.i
   %76 = load ptr, ptr %75, align 8, !tbaa !15
   %77 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %76, ptr noundef nonnull readonly dereferenceable(1) %4) #19
   %.not.not.i.i = icmp eq i32 %77, 0
@@ -568,7 +567,7 @@ namelist_add.exit:                                ; preds = %10, %14
   %23 = add i32 %21, 1
   store i32 %23, ptr @cname_list.1, align 8, !tbaa !7
   %24 = sext i32 %21 to i64
-  %25 = getelementptr inbounds %struct.namelist_entry_t, ptr %22, i64 %24
+  %25 = getelementptr inbounds [24 x i8], ptr %22, i64 %24
   %26 = call noalias ptr @strdup(ptr noundef nonnull readonly %4) #18
   store ptr %26, ptr %25, align 8, !tbaa !15
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -726,7 +725,7 @@ namelist_add.exit:                                ; preds = %2, %19
   %28 = add i32 %27, 1
   store i32 %28, ptr @cmodule_list.1, align 8, !tbaa !7
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds %struct.namelist_entry_t, ptr %.pre.i137, i64 %29
+  %30 = getelementptr inbounds [24 x i8], ptr %.pre.i137, i64 %29
   %31 = tail call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.4) #18
   store ptr %31, ptr %30, align 8, !tbaa !15
   %32 = tail call noalias dereferenceable_or_null(4) ptr @strdup(ptr noundef nonnull @.str.4) #18
@@ -755,7 +754,7 @@ namelist_add.exit139:                             ; preds = %namelist_add.exit, 
   %45 = add i32 %43, 1
   store i32 %45, ptr @cmodule_list.1, align 8, !tbaa !7
   %46 = sext i32 %43 to i64
-  %47 = getelementptr inbounds %struct.namelist_entry_t, ptr %44, i64 %46
+  %47 = getelementptr inbounds [24 x i8], ptr %44, i64 %46
   %48 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.5) #18
   store ptr %48, ptr %47, align 8, !tbaa !15
   %49 = tail call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.5) #18
@@ -844,7 +843,7 @@ namelist_add.exit139:                             ; preds = %namelist_add.exit, 
 
 67:                                               ; preds = %.preheader161, %75
   %indvars.iv = phi i64 [ 0, %.preheader161 ], [ %indvars.iv.next, %75 ]
-  %68 = getelementptr inbounds nuw %struct.FeatureEntry, ptr @feature_list, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [16 x i8], ptr @feature_list, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 16, !tbaa !34
   %70 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %66, ptr noundef nonnull dereferenceable(1) %69) #19
   %.not124 = icmp eq i32 %70, 0
@@ -932,7 +931,7 @@ namelist_add.exit142:                             ; preds = %90, %94
   %103 = add i32 %101, 1
   store i32 %103, ptr @cmodule_list.1, align 8, !tbaa !7
   %104 = sext i32 %101 to i64
-  %105 = getelementptr inbounds %struct.namelist_entry_t, ptr %102, i64 %104
+  %105 = getelementptr inbounds [24 x i8], ptr %102, i64 %104
   %106 = call noalias ptr @strdup(ptr noundef nonnull readonly %14) #18
   store ptr %106, ptr %105, align 8, !tbaa !15
   %107 = call noalias ptr @strdup(ptr noundef nonnull readonly %15) #18
@@ -963,7 +962,7 @@ namelist_add.exit145:                             ; preds = %110, %113
   %.sroa.11.2 = phi i32 [ %116, %113 ], [ %.sroa.11.0, %110 ]
   %120 = add i32 %.sroa.7.0, 1
   %121 = sext i32 %.sroa.7.0 to i64
-  %122 = getelementptr inbounds %struct.namelist_entry_t, ptr %.sroa.0.2, i64 %121
+  %122 = getelementptr inbounds [24 x i8], ptr %.sroa.0.2, i64 %121
   %123 = call noalias ptr @strdup(ptr noundef readonly %111) #18
   store ptr %123, ptr %122, align 8, !tbaa !15
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 8
@@ -1075,7 +1074,7 @@ namelist_add.exit145:                             ; preds = %110, %113
 163:                                              ; preds = %.lr.ph, %compile_file.exit
   %indvars.iv228 = phi i64 [ %161, %.lr.ph ], [ %indvars.iv.next229, %compile_file.exit ]
   %.2102186 = phi ptr [ %.0100, %.lr.ph ], [ null, %compile_file.exit ]
-  %164 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv228
+  %164 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv228
   %165 = load ptr, ptr %164, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1166,7 +1165,7 @@ compile_file.exit:                                ; preds = %187, %190, %195
 
 .lr.ph189:                                        ; preds = %.lr.ph189.preheader, %196
   %indvars.iv232 = phi i64 [ 0, %.lr.ph189.preheader ], [ %indvars.iv.next233, %196 ]
-  %197 = getelementptr inbounds nuw %struct.namelist_entry_t, ptr %.sroa.0.0, i64 %indvars.iv232
+  %197 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.0, i64 %indvars.iv232
   %198 = load ptr, ptr %197, align 8, !tbaa !15
   %199 = call ptr @jsc_module_loader(ptr noundef %149, ptr noundef %198, ptr poison)
   %.not136 = icmp eq ptr %199, null
@@ -1199,7 +1198,7 @@ compile_file.exit:                                ; preds = %187, %190, %195
   br i1 %or.cond, label %216, label %211
 
 211:                                              ; preds = %207
-  %212 = getelementptr inbounds nuw %struct.FeatureEntry, ptr @feature_list, i64 %indvars.iv239
+  %212 = getelementptr inbounds nuw [16 x i8], ptr @feature_list, i64 %indvars.iv239
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   %214 = load ptr, ptr %213, align 8, !tbaa !39
   %215 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %145, ptr noundef nonnull @.str.21, ptr noundef %214) #18
@@ -1236,7 +1235,7 @@ compile_file.exit:                                ; preds = %187, %190, %195
 .lr.ph193:                                        ; preds = %221, %.lr.ph193
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %.lr.ph193 ], [ 0, %221 ]
   %226 = load ptr, ptr @init_module_list.0, align 8, !tbaa !14
-  %227 = getelementptr inbounds nuw %struct.namelist_entry_t, ptr %226, i64 %indvars.iv243
+  %227 = getelementptr inbounds nuw [24 x i8], ptr %226, i64 %indvars.iv243
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %229 = load ptr, ptr %228, align 8, !tbaa !18
   %230 = load ptr, ptr %227, align 8, !tbaa !15
@@ -1251,7 +1250,7 @@ compile_file.exit:                                ; preds = %187, %190, %195
   %235 = phi i32 [ %224, %.lr.ph195.preheader ], [ %244, %243 ]
   %236 = phi ptr [ %.pre257, %.lr.ph195.preheader ], [ %245, %243 ]
   %indvars.iv246 = phi i64 [ 0, %.lr.ph195.preheader ], [ %indvars.iv.next247, %243 ]
-  %237 = getelementptr inbounds nuw %struct.namelist_entry_t, ptr %236, i64 %indvars.iv246
+  %237 = getelementptr inbounds nuw [24 x i8], ptr %236, i64 %indvars.iv246
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %239 = load i32, ptr %238, align 8, !tbaa !19
   %.not133 = icmp eq i32 %239, 0
@@ -1307,7 +1306,7 @@ compile_file.exit:                                ; preds = %187, %190, %195
   %262 = phi i32 [ %260, %.lr.ph199.preheader ], [ %271, %270 ]
   %263 = phi ptr [ %.pre260, %.lr.ph199.preheader ], [ %272, %270 ]
   %indvars.iv249 = phi i64 [ 0, %.lr.ph199.preheader ], [ %indvars.iv.next250, %270 ]
-  %264 = getelementptr inbounds nuw %struct.namelist_entry_t, ptr %263, i64 %indvars.iv249
+  %264 = getelementptr inbounds nuw [24 x i8], ptr %263, i64 %indvars.iv249
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 16
   %266 = load i32, ptr %265, align 8, !tbaa !19
   %.not132 = icmp eq i32 %266, 0
@@ -1481,7 +1480,7 @@ output_executable.exit:                           ; preds = %320
   %331 = phi i32 [ %332, %.lr.ph.i149 ], [ %328, %.lr.ph.i149.preheader ]
   %332 = add nsw i32 %331, -1
   %333 = zext nneg i32 %332 to i64
-  %334 = getelementptr inbounds nuw %struct.namelist_entry_t, ptr %330, i64 %333
+  %334 = getelementptr inbounds nuw [24 x i8], ptr %330, i64 %333
   %335 = load ptr, ptr %334, align 8, !tbaa !15
   call void @free(ptr noundef %335) #18
   %336 = getelementptr inbounds nuw i8, ptr %334, i64 8
@@ -1511,7 +1510,7 @@ namelist_free.exit:                               ; preds = %namelist_free.exit.
   %343 = phi i32 [ %344, %.lr.ph.i151 ], [ %340, %.lr.ph.i151.preheader ]
   %344 = add nsw i32 %343, -1
   %345 = zext nneg i32 %344 to i64
-  %346 = getelementptr inbounds nuw %struct.namelist_entry_t, ptr %342, i64 %345
+  %346 = getelementptr inbounds nuw [24 x i8], ptr %342, i64 %345
   %347 = load ptr, ptr %346, align 8, !tbaa !15
   call void @free(ptr noundef %347) #18
   %348 = getelementptr inbounds nuw i8, ptr %346, i64 8
@@ -1541,7 +1540,7 @@ namelist_free.exit152:                            ; preds = %namelist_free.exit1
   %355 = phi i32 [ %356, %.lr.ph.i154 ], [ %352, %.lr.ph.i154.preheader ]
   %356 = add nsw i32 %355, -1
   %357 = zext nneg i32 %356 to i64
-  %358 = getelementptr inbounds nuw %struct.namelist_entry_t, ptr %354, i64 %357
+  %358 = getelementptr inbounds nuw [24 x i8], ptr %354, i64 %357
   %359 = load ptr, ptr %358, align 8, !tbaa !15
   call void @free(ptr noundef %359) #18
   %360 = getelementptr inbounds nuw i8, ptr %358, i64 8

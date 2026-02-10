@@ -21,10 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pmix_iof_sink_t = type { %struct.pmix_list_item_t, %struct.pmix_proc, i16, %struct.pmix_iof_write_event_t, i8, i8, i8 }
 %struct.pmix_iof_write_event_t = type { %struct.pmix_list_item_t, i8, i8, i32, ptr, %struct.timeval, i32, %struct.pmix_list_t }
 %struct.pmix_psquash_base_module_t = type { ptr, i8, ptr, ptr, ptr, ptr, ptr }
-%struct.pmix_info = type { [512 x i8], i32, %struct.pmix_value }
-%struct.pmix_value = type { i16, %union.anon }
-%union.anon = type { %struct.pmix_envar_t }
-%struct.pmix_envar_t = type { ptr, ptr, i8 }
 
 @pmix_version_string = local_unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @pmix_tool_basename = local_unnamed_addr global ptr null, align 8
@@ -275,7 +271,7 @@ define i32 @pmix_rte_init(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr no
 .lr.ph364:                                        ; preds = %12, %.thread
   %.1363 = phi i1 [ %.2, %.thread ], [ false, %12 ]
   %.0216362 = phi i64 [ %198, %.thread ], [ 0, %12 ]
-  %14 = getelementptr inbounds nuw %struct.pmix_info, ptr %1, i64 %.0216362
+  %14 = getelementptr inbounds nuw [552 x i8], ptr %1, i64 %.0216362
   %15 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %14, ptr noundef nonnull @.str.13) #17
   br i1 %15, label %16, label %23
 
@@ -442,7 +438,7 @@ define i32 @pmix_rte_init(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr no
 
 .lr.ph:                                           ; preds = %87, %.thread346
   %.0215361 = phi i64 [ %165, %.thread346 ], [ 0, %87 ]
-  %94 = getelementptr inbounds nuw %struct.pmix_info, ptr %91, i64 %.0215361
+  %94 = getelementptr inbounds nuw [552 x i8], ptr %91, i64 %.0215361
   %95 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %94, ptr noundef nonnull @.str.13) #17
   br i1 %95, label %96, label %103
 

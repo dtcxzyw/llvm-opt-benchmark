@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Tcl_ChannelType = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.Tcl_DString = type { ptr, i32, i32, [200 x i8] }
 %struct.DbEvalContext = type { ptr, ptr, ptr, ptr, i32, i32, ptr, ptr }
-%struct.DbConfigChoices = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"8.5-\00", align 1
 @tclStubsPtr = external local_unnamed_addr global ptr, align 8
@@ -379,7 +378,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 2736
   %61 = load ptr, ptr %60, align 8, !tbaa !19
   %62 = sext i32 %.0143227 to i64
-  %63 = getelementptr inbounds ptr, ptr %3, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %3, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !15
   %65 = call ptr %61(ptr noundef %64) #15
   %66 = load i8, ptr %65, align 1, !tbaa !18
@@ -424,7 +423,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 2736
   %88 = load ptr, ptr %87, align 8, !tbaa !19
   %89 = sext i32 %79 to i64
-  %90 = getelementptr inbounds ptr, ptr %3, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %3, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !15
   %92 = call ptr %88(ptr noundef %91) #15
   br label %200
@@ -440,7 +439,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 272
   %99 = load ptr, ptr %98, align 8, !tbaa !20
   %100 = sext i32 %79 to i64
-  %101 = getelementptr inbounds ptr, ptr %3, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %3, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !15
   %103 = call i32 %99(ptr noundef %1, ptr noundef %102, ptr noundef nonnull %9) #15
   %.not164 = icmp eq i32 %103, 0
@@ -472,7 +471,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 272
   %116 = load ptr, ptr %115, align 8, !tbaa !20
   %117 = sext i32 %79 to i64
-  %118 = getelementptr inbounds ptr, ptr %3, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %3, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !15
   %120 = call i32 %116(ptr noundef %1, ptr noundef %119, ptr noundef nonnull %10) #15
   %.not162 = icmp eq i32 %120, 0
@@ -505,7 +504,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 272
   %132 = load ptr, ptr %131, align 8, !tbaa !20
   %133 = sext i32 %79 to i64
-  %134 = getelementptr inbounds ptr, ptr %3, i64 %133
+  %134 = getelementptr inbounds [8 x i8], ptr %3, i64 %133
   %135 = load ptr, ptr %134, align 8, !tbaa !15
   %136 = call i32 %132(ptr noundef %1, ptr noundef %135, ptr noundef nonnull %11) #15
   %.not160 = icmp eq i32 %136, 0
@@ -535,7 +534,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 272
   %146 = load ptr, ptr %145, align 8, !tbaa !20
   %147 = sext i32 %79 to i64
-  %148 = getelementptr inbounds ptr, ptr %3, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %3, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !15
   %150 = call i32 %146(ptr noundef %1, ptr noundef %149, ptr noundef nonnull %12) #15
   %.not158 = icmp eq i32 %150, 0
@@ -566,7 +565,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 272
   %162 = load ptr, ptr %161, align 8, !tbaa !20
   %163 = sext i32 %79 to i64
-  %164 = getelementptr inbounds ptr, ptr %3, i64 %163
+  %164 = getelementptr inbounds [8 x i8], ptr %3, i64 %163
   %165 = load ptr, ptr %164, align 8, !tbaa !15
   %166 = call i32 %162(ptr noundef %1, ptr noundef %165, ptr noundef nonnull %13) #15
   %.not156 = icmp eq i32 %166, 0
@@ -597,7 +596,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 272
   %178 = load ptr, ptr %177, align 8, !tbaa !20
   %179 = sext i32 %79 to i64
-  %180 = getelementptr inbounds ptr, ptr %3, i64 %179
+  %180 = getelementptr inbounds [8 x i8], ptr %3, i64 %179
   %181 = load ptr, ptr %180, align 8, !tbaa !15
   %182 = call i32 %178(ptr noundef %1, ptr noundef %181, ptr noundef nonnull %14) #15
   %.not154 = icmp eq i32 %182, 0
@@ -626,7 +625,7 @@ define internal range(i32 0, 2) i32 @DbMain(ptr readnone captures(none) %0, ptr 
   %191 = getelementptr inbounds nuw i8, ptr %189, i64 272
   %192 = load ptr, ptr %191, align 8, !tbaa !20
   %193 = sext i32 %79 to i64
-  %194 = getelementptr inbounds ptr, ptr %3, i64 %193
+  %194 = getelementptr inbounds [8 x i8], ptr %3, i64 %193
   %195 = load ptr, ptr %194, align 8, !tbaa !15
   %196 = call i32 %192(ptr noundef %1, ptr noundef %195, ptr noundef nonnull %7) #15
   %.not153 = icmp eq i32 %196, 0
@@ -1893,7 +1892,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !12
   %499 = load ptr, ptr %0, align 8, !tbaa !26
-  %500 = getelementptr inbounds nuw %struct.DbConfigChoices, ptr @DbObjCmd.aDbConfig, i64 %indvars.iv1469
+  %500 = getelementptr inbounds nuw [16 x i8], ptr @DbObjCmd.aDbConfig, i64 %indvars.iv1469
   %501 = getelementptr inbounds nuw i8, ptr %500, i64 8
   %502 = load i32, ptr %501, align 8, !tbaa !69
   %503 = call i32 (ptr, i32, ...) @sqlite3_db_config(ptr noundef %499, i32 noundef %502, i32 noundef -1, ptr noundef nonnull %15) #15
@@ -1941,7 +1940,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 529:                                              ; preds = %520, %528
   %indvars.iv1465 = phi i64 [ 0, %520 ], [ %indvars.iv.next1466, %528 ]
-  %530 = getelementptr inbounds nuw %struct.DbConfigChoices, ptr @DbObjCmd.aDbConfig, i64 %indvars.iv1465
+  %530 = getelementptr inbounds nuw [16 x i8], ptr @DbObjCmd.aDbConfig, i64 %indvars.iv1465
   %531 = load ptr, ptr %530, align 16, !tbaa !73
   %532 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %531, ptr noundef nonnull dereferenceable(1) %spec.select) #16
   %533 = icmp eq i32 %532, 0
@@ -2284,7 +2283,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 717:                                              ; preds = %714
   %718 = getelementptr i8, ptr %.09881420, i64 %601
   %719 = sext i32 %715 to i64
-  %720 = getelementptr inbounds ptr, ptr %691, i64 %719
+  %720 = getelementptr inbounds [8 x i8], ptr %691, i64 %719
   store ptr %718, ptr %720, align 8, !tbaa !81
   %721 = getelementptr i8, ptr %718, i64 -1
   br label %722
@@ -2330,7 +2329,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 
 .lr.ph1427:                                       ; preds = %.preheader1321, %752
   %indvars.iv1461 = phi i64 [ %indvars.iv.next1462.pre-phi, %752 ], [ 0, %.preheader1321 ]
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %691, i64 %indvars.iv1461
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %691, i64 %indvars.iv1461
   %.pre1473 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !81
   br i1 %.not1144, label %.lr.ph1427._crit_edge, label %737
 
@@ -2457,7 +2456,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %795 = getelementptr inbounds nuw i8, ptr %794, i64 2736
   %796 = load ptr, ptr %795, align 8, !tbaa !19
   %797 = sext i32 %.09941407 to i64
-  %798 = getelementptr inbounds ptr, ptr %3, i64 %797
+  %798 = getelementptr inbounds [8 x i8], ptr %3, i64 %797
   %799 = load ptr, ptr %798, align 8, !tbaa !15
   %800 = call ptr %796(ptr noundef %799) #15
   %801 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %800, ptr noundef nonnull dereferenceable(9) @.str.125) #16
@@ -2473,7 +2472,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %807 = load ptr, ptr %806, align 8, !tbaa !86
   %808 = add nsw i32 %.09941407, 1
   %809 = sext i32 %808 to i64
-  %810 = getelementptr inbounds ptr, ptr %3, i64 %809
+  %810 = getelementptr inbounds [8 x i8], ptr %3, i64 %809
   %811 = load ptr, ptr %810, align 8, !tbaa !15
   %812 = call i32 %807(ptr noundef %1, ptr noundef %811, ptr noundef nonnull %23) #15
   %.not1132 = icmp eq i32 %812, 0
@@ -2497,7 +2496,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %820 = load ptr, ptr %819, align 8, !tbaa !20
   %821 = add nsw i32 %.09941407, 1
   %822 = sext i32 %821 to i64
-  %823 = getelementptr inbounds ptr, ptr %3, i64 %822
+  %823 = getelementptr inbounds [8 x i8], ptr %3, i64 %822
   %824 = load ptr, ptr %823, align 8, !tbaa !15
   %825 = call i32 %820(ptr noundef %1, ptr noundef %824, ptr noundef nonnull %22) #15
   %.not1131 = icmp eq i32 %825, 0
@@ -2535,7 +2534,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 ._crit_edge1410:                                  ; preds = %.thread1248, %.preheader1322
   %.0992.lcssa = phi ptr [ null, %.preheader1322 ], [ %.19931254, %.thread1248 ]
   %838 = zext nneg i32 %786 to i64
-  %839 = getelementptr inbounds nuw ptr, ptr %3, i64 %838
+  %839 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %838
   %840 = load ptr, ptr %839, align 8, !tbaa !15
   %841 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %842 = getelementptr inbounds nuw i8, ptr %841, i64 280
@@ -2920,7 +2919,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 1038:                                             ; preds = %1036, %1028, %1026
   %.01007 = phi ptr [ %1037, %1036 ], [ null, %1028 ], [ null, %1026 ]
   %1039 = zext nneg i32 %.0891.lcssa to i64
-  %1040 = getelementptr ptr, ptr %.0898.lcssa, i64 %1039
+  %1040 = getelementptr [8 x i8], ptr %.0898.lcssa, i64 %1039
   %1041 = getelementptr i8, ptr %1040, i64 -8
   %1042 = load ptr, ptr %1041, align 8, !tbaa !15
   %1043 = load i32, ptr %1042, align 8, !tbaa !61
@@ -2971,7 +2970,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %1063 = getelementptr inbounds nuw i8, ptr %1062, i64 2736
   %1064 = load ptr, ptr %1063, align 8, !tbaa !19
   %1065 = sext i32 %.09961380 to i64
-  %1066 = getelementptr inbounds ptr, ptr %3, i64 %1065
+  %1066 = getelementptr inbounds [8 x i8], ptr %3, i64 %1065
   %1067 = load ptr, ptr %1066, align 8, !tbaa !15
   %1068 = call ptr %1064(ptr noundef %1067) #15
   %strlen.i1219 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1068)
@@ -3001,7 +3000,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %1082 = load ptr, ptr %1081, align 8, !tbaa !51
   %1083 = add nsw i32 %.09961380, 1
   %1084 = sext i32 %1083 to i64
-  %1085 = getelementptr inbounds ptr, ptr %3, i64 %1084
+  %1085 = getelementptr inbounds [8 x i8], ptr %3, i64 %1084
   %1086 = load ptr, ptr %1085, align 8, !tbaa !15
   %1087 = call i32 %1082(ptr noundef %1, ptr noundef %1086, ptr noundef nonnull %29) #15
   %.not1121 = icmp eq i32 %1087, 0
@@ -3070,7 +3069,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
   %1119 = getelementptr inbounds nuw i8, ptr %1118, i64 2448
   %1120 = load ptr, ptr %1119, align 8, !tbaa !45
   %1121 = sext i32 %1117 to i64
-  %1122 = getelementptr inbounds ptr, ptr %3, i64 %1121
+  %1122 = getelementptr inbounds [8 x i8], ptr %3, i64 %1121
   %1123 = load ptr, ptr %1122, align 8, !tbaa !15
   %1124 = call i32 %1120(ptr noundef %1, ptr noundef %1123, ptr noundef nonnull %31, i32 noundef 8, ptr noundef nonnull @.str.145, i32 noundef 0, ptr noundef nonnull %30) #15
   %.not1120 = icmp eq i32 %1124, 0
@@ -3100,7 +3099,7 @@ define internal i32 @DbObjCmd(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 ._crit_edge:                                      ; preds = %1131, %.preheader1324
   %.01003.lcssa = phi i32 [ 1, %.preheader1324 ], [ %.11004, %1131 ]
   %1134 = zext nneg i32 %1055 to i64
-  %1135 = getelementptr inbounds nuw ptr, ptr %3, i64 %1134
+  %1135 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %1134
   %1136 = load ptr, ptr %1135, align 8, !tbaa !15
   %1137 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %1138 = getelementptr inbounds nuw i8, ptr %1137, i64 344
@@ -3234,7 +3233,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1163, %1167, %1167,
   %1199 = getelementptr inbounds nuw i8, ptr %1198, i64 2736
   %1200 = load ptr, ptr %1199, align 8, !tbaa !19
   %1201 = zext nneg i32 %.0991 to i64
-  %1202 = getelementptr inbounds nuw ptr, ptr %3, i64 %1201
+  %1202 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %1201
   %1203 = getelementptr inbounds nuw i8, ptr %1202, i64 16
   %1204 = load ptr, ptr %1203, align 8, !tbaa !15
   %1205 = call ptr %1200(ptr noundef %1204) #15
@@ -3246,7 +3245,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1163, %1167, %1167,
   %1208 = getelementptr inbounds nuw i8, ptr %1207, i64 2736
   %1209 = load ptr, ptr %1208, align 8, !tbaa !19
   %1210 = zext nneg i32 %2 to i64
-  %1211 = getelementptr ptr, ptr %3, i64 %1210
+  %1211 = getelementptr [8 x i8], ptr %3, i64 %1210
   %1212 = getelementptr i8, ptr %1211, i64 -24
   %1213 = load ptr, ptr %1212, align 8, !tbaa !15
   %1214 = call ptr %1209(ptr noundef %1213) #15
@@ -4271,7 +4270,7 @@ safeToUseEvalObjv.exit:                           ; preds = %1163, %1167, %1167,
 1764:                                             ; preds = %1762, %1750
   %.0895 = phi ptr [ %switch.select1207, %1762 ], [ @.str.166, %1750 ]
   %1765 = zext nneg i32 %2 to i64
-  %1766 = getelementptr ptr, ptr %3, i64 %1765
+  %1766 = getelementptr [8 x i8], ptr %3, i64 %1765
   %1767 = getelementptr i8, ptr %1766, i64 -8
   %1768 = load ptr, ptr %1767, align 8, !tbaa !15
   %1769 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4458,7 +4457,7 @@ define internal range(i32 0, 1000) i32 @auth_callback(ptr noundef readonly captu
 
 switch.lookup:                                    ; preds = %10
   %12 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.auth_callback, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.auth_callback, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %13
 
@@ -5278,7 +5277,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %190 = load ptr, ptr %112, align 8, !tbaa !145
   %191 = add nsw i32 %.0162277.i, 1
   %192 = sext i32 %.0162277.i to i64
-  %193 = getelementptr inbounds ptr, ptr %190, i64 %192
+  %193 = getelementptr inbounds [8 x i8], ptr %190, i64 %192
   store ptr %.0159240.i, ptr %193, align 8, !tbaa !15
   br label %248
 
@@ -5361,7 +5360,7 @@ define internal fastcc range(i32 0, 4) i32 @dbEvalStep(ptr noundef %0) unnamed_a
   %244 = load ptr, ptr %112, align 8, !tbaa !145
   %245 = add nsw i32 %.0162277.i, 1
   %246 = sext i32 %.0162277.i to i64
-  %247 = getelementptr inbounds ptr, ptr %244, i64 %246
+  %247 = getelementptr inbounds [8 x i8], ptr %244, i64 %246
   store ptr %.0159240.i, ptr %247, align 8, !tbaa !15
   br label %248
 
@@ -5493,7 +5492,7 @@ dbPrepareAndBind.exit:                            ; preds = %64, %79, %.thread26
   %287 = phi i32 [ %299, %298 ], [ %285, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %298 ], [ 0, %.preheader.i ]
   %288 = load ptr, ptr %10, align 8, !tbaa !161
-  %289 = getelementptr inbounds nuw ptr, ptr %288, i64 %indvars.iv.i
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %288, i64 %indvars.iv.i
   %290 = load ptr, ptr %289, align 8, !tbaa !15
   %291 = load i32, ptr %290, align 8, !tbaa !61
   %292 = add nsw i32 %291, -1
@@ -5550,7 +5549,7 @@ dbReleaseColumnNames.exit:                        ; preds = %274, %._crit_edge.i
   %313 = phi i32 [ %309, %.lr.ph.i57 ], [ %325, %324 ]
   %indvars.iv.i58 = phi i64 [ 0, %.lr.ph.i57 ], [ %indvars.iv.next.i59, %324 ]
   %314 = load ptr, ptr %311, align 8, !tbaa !145
-  %315 = getelementptr inbounds nuw ptr, ptr %314, i64 %indvars.iv.i58
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 %indvars.iv.i58
   %316 = load ptr, ptr %315, align 8, !tbaa !15
   %317 = load i32, ptr %316, align 8, !tbaa !61
   %318 = add nsw i32 %317, -1
@@ -5752,7 +5751,7 @@ define internal fastcc void @dbEvalFinalize(ptr noundef captures(none) %0) unnam
   %38 = phi i32 [ %50, %49 ], [ %36, %.preheader.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %49 ], [ 0, %.preheader.i ]
   %39 = load ptr, ptr %33, align 8, !tbaa !161
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i
   %41 = load ptr, ptr %40, align 8, !tbaa !15
   %42 = load i32, ptr %41, align 8, !tbaa !61
   %43 = add nsw i32 %42, -1
@@ -5841,7 +5840,7 @@ define internal fastcc void @dbEvalRowInfo(ptr noundef captures(none) %0, ptr no
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   %28 = tail call ptr @sqlite3_column_name(ptr noundef %11, i32 noundef %27) #15
   %29 = tail call ptr %26(ptr noundef %28, i32 noundef -1) #15
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   store ptr %29, ptr %30, align 8, !tbaa !15
   %31 = load i32, ptr %29, align 8, !tbaa !61
   %32 = add nsw i32 %31, 1
@@ -5884,7 +5883,7 @@ define internal fastcc void @dbEvalRowInfo(ptr noundef captures(none) %0, ptr no
   %48 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 368
   %50 = load ptr, ptr %49, align 8, !tbaa !71
-  %51 = getelementptr inbounds nuw ptr, ptr %.041, i64 %indvars.iv55
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.041, i64 %indvars.iv55
   %52 = load ptr, ptr %51, align 8, !tbaa !15
   %53 = tail call i32 %50(ptr noundef %39, ptr noundef %43, ptr noundef %52) #15
   %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
@@ -6010,7 +6009,7 @@ define internal i32 @DbEvalNextCmd(ptr noundef readonly captures(none) %0, ptr n
   %38 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 1584
   %40 = load ptr, ptr %39, align 8, !tbaa !169
-  %41 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv79
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv79
   %42 = load ptr, ptr %41, align 8, !tbaa !15
   %43 = load ptr, ptr %16, align 8, !tbaa !137
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -6136,7 +6135,7 @@ dbEvalColumnValue.exit.us.us:                     ; preds = %82, %75, %70, %66, 
   %112 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 2736
   %114 = load ptr, ptr %113, align 8, !tbaa !19
-  %115 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv
   %116 = load ptr, ptr %115, align 8, !tbaa !15
   %117 = call ptr %114(ptr noundef %116) #15
   %118 = call i32 %108(ptr noundef %1, ptr noundef %111, ptr noundef %117, i32 noundef 0) #15
@@ -6147,7 +6146,7 @@ dbEvalColumnValue.exit.us.us:                     ; preds = %82, %75, %70, %66, 
   %120 = load ptr, ptr @tclStubsPtr, align 8, !tbaa !3
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 1584
   %122 = load ptr, ptr %121, align 8, !tbaa !169
-  %123 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv
   %124 = load ptr, ptr %123, align 8, !tbaa !15
   %125 = load ptr, ptr %16, align 8, !tbaa !137
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
@@ -6446,7 +6445,7 @@ define internal void @tclSqlFunc(ptr noundef %0, i32 noundef %1, ptr noundef rea
 
 48:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !183
   %51 = call i32 @sqlite3_value_type(ptr noundef %50) #15
   switch i32 %51, label %86 [
@@ -7194,8 +7193,8 @@ define internal noundef i32 @DbTransPostCmd(ptr noundef readonly captures(none) 
   %9 = select i1 %8, i64 2, i64 0
   %10 = icmp eq i32 %7, 0
   %11 = zext i1 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @DbTransPostCmd.azEnd, i64 %9
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @DbTransPostCmd.azEnd, i64 %9
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !81
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %16 = load i32, ptr %15, align 8, !tbaa !117
@@ -7331,7 +7330,7 @@ define internal fastcc void @dbReleaseStmt(ptr noundef captures(none) %0, ptr no
   %9 = phi i32 [ %5, %.lr.ph ], [ %21, %20 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !145
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = load i32, ptr %12, align 8, !tbaa !61
   %14 = add nsw i32 %13, -1
@@ -8135,7 +8134,7 @@ define internal void @DbUpdateHandler(ptr noundef readonly captures(none) %0, i3
   %19 = add nsw i32 %1, -1
   %20 = sdiv i32 %19, 9
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr @DbUpdateHandler.azStr, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr @DbUpdateHandler.azStr, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !81
   %24 = tail call ptr %18(ptr noundef %23, i32 noundef -1) #15
   %25 = tail call i32 %16(ptr noundef null, ptr noundef nonnull %11, ptr noundef %24) #15

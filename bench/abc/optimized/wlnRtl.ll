@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/wlnRtl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Gia_Obj_t_ = type <{ i64, i32 }>
-
 @.str = private unnamed_addr constant [14 x i8] c"_temp__.rtlil\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"rb\00", align 1
 @.str.2 = private unnamed_addr constant [36 x i8] c"Cannot open file \22%s\22 for reading.\0A\00", align 1
@@ -469,10 +467,10 @@ Wln_GetYosysName.exit:                            ; preds = %15, %17
 66:                                               ; preds = %.lr.ph
   %67 = getelementptr i8, ptr %.val5161, i64 8
   %.val53.val = load ptr, ptr %67, align 8, !tbaa !37
-  %68 = getelementptr inbounds nuw i32, ptr %.val53.val, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %.val53.val, i64 %indvars.iv
   %69 = load i32, ptr %68, align 4, !tbaa !38
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val52, i64 %70
+  %71 = getelementptr inbounds [12 x i8], ptr %.val52, i64 %70
   %72 = load i64, ptr %71, align 4
   %73 = xor i64 %72, 536870912
   store i64 %73, ptr %71, align 4

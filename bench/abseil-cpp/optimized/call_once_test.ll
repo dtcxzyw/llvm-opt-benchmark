@@ -37,8 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.17" = type { %"struct.std::_Head_base.20" }
 %"struct.std::_Head_base.20" = type { ptr }
 %"class.testing::internal::AssertHelper" = type { ptr }
-%"class.std::thread" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -1596,7 +1594,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32: ; preds = %.l
 _ZNSt12_Vector_baseISt6threadSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32, %45
   store ptr %21, ptr %0, align 8, !tbaa !85
   store ptr %.0.lcssa.i.i.i31, ptr %5, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw %"class.std::thread", ptr %21, i64 %17
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %17
   store ptr %49, ptr %44, align 8, !tbaa !23
   ret void
 

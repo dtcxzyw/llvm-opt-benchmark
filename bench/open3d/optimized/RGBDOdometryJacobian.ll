@@ -10,14 +10,6 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"class.Eigen::PlainObjectBase" = type { %"class.Eigen::DenseStorage" }
 %"class.Eigen::DenseStorage" = type { %"struct.Eigen::internal::plain_array" }
 %"struct.Eigen::internal::plain_array" = type { [9 x double] }
-%"class.Eigen::Matrix.38" = type { %"class.Eigen::PlainObjectBase.39" }
-%"class.Eigen::PlainObjectBase.39" = type { %"class.Eigen::DenseStorage.46" }
-%"class.Eigen::DenseStorage.46" = type { %"struct.Eigen::internal::plain_array.47" }
-%"struct.Eigen::internal::plain_array.47" = type { [4 x i32] }
-%"class.Eigen::Matrix.70" = type { %"class.Eigen::PlainObjectBase.71" }
-%"class.Eigen::PlainObjectBase.71" = type { %"class.Eigen::DenseStorage.78" }
-%"class.Eigen::DenseStorage.78" = type { %"struct.Eigen::internal::plain_array.79" }
-%"struct.Eigen::internal::plain_array.79" = type { [6 x double] }
 
 $_ZN6open3d9pipelines8odometry33RGBDOdometryJacobianFromColorTermD0Ev = comdat any
 
@@ -90,7 +82,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %27 = load double, ptr %26, align 16, !tbaa !7
   %28 = sext i32 %1 to i64
   %29 = load ptr, ptr %12, align 8, !tbaa !11
-  %30 = getelementptr inbounds nuw %"class.Eigen::Matrix.38", ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %28
   %31 = load i32, ptr %30, align 4, !tbaa !15
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !15
@@ -340,7 +332,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %30 = load double, ptr %29, align 16, !tbaa !7
   %31 = sext i32 %1 to i64
   %32 = load ptr, ptr %12, align 8, !tbaa !11
-  %33 = getelementptr inbounds nuw %"class.Eigen::Matrix.38", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %31
   %34 = load i32, ptr %33, align 4, !tbaa !15
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !15
@@ -698,9 +690,9 @@ _ZNSt6vectorIN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EEENS0_17aligned_allocatorIS2_EE
 
 _ZNSt12_Vector_baseIN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EEENS0_17aligned_allocatorIS2_EEE13_M_deallocateEPS2_m.exit32: ; preds = %_ZNSt6vectorIN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EEENS0_17aligned_allocatorIS2_EEE11_S_relocateEPS2_S6_S6_RS4_.exit, %35
   store ptr %27, ptr %0, align 8, !tbaa !22
-  %36 = getelementptr inbounds nuw %"class.Eigen::Matrix.70", ptr %32, i64 %1
+  %36 = getelementptr inbounds nuw [48 x i8], ptr %32, i64 %1
   store ptr %36, ptr %4, align 8, !tbaa !19
-  %37 = getelementptr inbounds nuw %"class.Eigen::Matrix.70", ptr %27, i64 %25
+  %37 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %25
   store ptr %37, ptr %11, align 8, !tbaa !27
   br label %38
 
@@ -814,9 +806,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !26
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !23
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !36
   br label %41
 

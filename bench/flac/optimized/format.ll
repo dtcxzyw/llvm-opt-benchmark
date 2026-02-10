@@ -3,10 +3,6 @@ source_filename = "bench/flac/original/format.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FLAC__StreamMetadata_SeekPoint = type { i64, i64, i32 }
-%struct.FLAC__StreamMetadata_CueSheet_Track = type { i64, i8, [13 x i8], i8, i8, ptr }
-%struct.FLAC__StreamMetadata_CueSheet_Index = type { i64, i8 }
-
 @.str = private unnamed_addr constant [22 x i8] c"git-6974998f 20250203\00", align 1
 @FLAC__VERSION_STRING = local_unnamed_addr global ptr @.str, align 8
 @.str.1 = private unnamed_addr constant [40 x i8] c"reference libFLAC git-6974998f 20250203\00", align 1
@@ -200,7 +196,7 @@ define range(i32 0, 2) i32 @FLAC__format_seektable_is_legal(ptr noundef readonly
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %._crit_edge ]
   %.not20 = phi i1 [ true, %.lr.ph ], [ false, %._crit_edge ]
   %.01219 = phi i64 [ 0, %.lr.ph ], [ %.pre23, %._crit_edge ]
-  %.phi.trans.insert = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %.pre.pre, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [24 x i8], ptr %.pre.pre, i64 %indvars.iv
   %.pre23 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !10
   br i1 %.not20, label %._crit_edge, label %6
 
@@ -251,7 +247,7 @@ define i32 @FLAC__format_seektable_sort(ptr noundef readonly captures(none) %0) 
   %13 = phi i1 [ false, %28 ], [ true, %4 ]
   %.02937 = phi i32 [ %.130, %28 ], [ 0, %4 ]
   %14 = load ptr, ptr %5, align 8, !tbaa !9
-  %15 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8, !tbaa !10
   %17 = icmp eq i64 %16, -1
   %or.cond = or i1 %13, %17
@@ -260,7 +256,7 @@ define i32 @FLAC__format_seektable_sort(ptr noundef readonly captures(none) %0) 
 18:                                               ; preds = %.lr.ph
   %19 = add i32 %.02937, -1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %14, i64 %20
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !10
   %23 = icmp eq i64 %16, %22
   br i1 %23, label %28, label %24
@@ -268,7 +264,7 @@ define i32 @FLAC__format_seektable_sort(ptr noundef readonly captures(none) %0) 
 24:                                               ; preds = %18, %.lr.ph
   %25 = add i32 %.02937, 1
   %26 = zext i32 %.02937 to i64
-  %27 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %14, i64 %26
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false), !tbaa.struct !15
   %.pre = load i32, ptr %0, align 8, !tbaa !3
   br label %28
@@ -283,7 +279,7 @@ define i32 @FLAC__format_seektable_sort(ptr noundef readonly captures(none) %0) 
 
 32:                                               ; preds = %.lr.ph40, %32
   %indvars.iv42 = phi i64 [ %11, %.lr.ph40 ], [ %indvars.iv.next43, %32 ]
-  %33 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %10, i64 %indvars.iv42
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv42
   store i64 -1, ptr %33, align 8, !tbaa !10
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 0, ptr %34, align 8, !tbaa !19
@@ -677,7 +673,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
   %22 = load ptr, ptr %21, align 8, !tbaa !30
   %23 = add i32 %17, -1
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i8, ptr %26, align 8, !tbaa !31
   %.not75 = icmp eq i8 %27, -86
@@ -696,7 +692,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
 .split102.us.split:                               ; preds = %.split102.us.split.preheader, %._crit_edge.split.us.us
   %.068101.us = phi i32 [ %47, %._crit_edge.split.us.us ], [ 0, %.split102.us.split.preheader ]
   %29 = zext i32 %.068101.us to i64
-  %30 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %.pre, i64 %29
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i8, ptr %31, align 8, !tbaa !31
   %33 = icmp eq i8 %32, 0
@@ -740,7 +736,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
 
 50:                                               ; preds = %49
   %51 = load ptr, ptr %48, align 8, !tbaa !34
-  %52 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %51, i64 %indvars.iv129
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %indvars.iv129
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i8, ptr %53, align 8, !tbaa !35
   %55 = zext i8 %54 to i32
@@ -759,7 +755,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
 .split102:                                        ; preds = %20, %._crit_edge.split
   %.068101 = phi i32 [ %103, %._crit_edge.split ], [ 0, %20 ]
   %61 = zext i32 %.068101 to i64
-  %62 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Track, ptr %22, i64 %61
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load i8, ptr %63, align 8, !tbaa !31
   %65 = icmp eq i8 %64, 0
@@ -831,7 +827,7 @@ define range(i32 0, 2) i32 @FLAC__format_cuesheet_is_legal(ptr noundef readonly 
 
 88:                                               ; preds = %.lr.ph, %102
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %102 ]
-  %89 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_CueSheet_Index, ptr %87, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %87, i64 %indvars.iv
   %90 = load i64, ptr %89, align 8, !tbaa !40
   %91 = urem i64 %90, 588
   %.not78 = icmp eq i64 %91, 0

@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char, std::char_traits<char>, glslang::pool_allocator<char>>::_Alloc_hider" = type { %"class.glslang::pool_allocator", ptr }
 %"class.glslang::pool_allocator" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.glslang::TSourceLoc" = type { ptr, i32, i32, i32 }
 
 $_ZNSt6vectorIN7glslang10TPpContext11TokenStream5TokenENS0_14pool_allocatorIS3_EEE9push_backERKS3_ = comdat any
 
@@ -221,7 +220,7 @@ define noundef i32 @_ZN7glslang10TPpContext11TokenStream8getTokenERNS_17TParseCo
 14:                                               ; preds = %3
   %15 = add nuw i64 %5, 1
   store i64 %15, ptr %4, align 8
-  %16 = getelementptr inbounds %"class.glslang::TPpContext::TokenStream::Token", ptr %9, i64 %5
+  %16 = getelementptr inbounds [56 x i8], ptr %9, i64 %5
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i8 0, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -267,7 +266,7 @@ define noundef i32 @_ZN7glslang10TPpContext11TokenStream8getTokenERNS_17TParseCo
   %48 = tail call i32 @llvm.smin.i32(i32 %46, i32 %47)
   %.sroa.speculated.i.i = tail call i32 @llvm.smax.i32(i32 %48, i32 0)
   %49 = zext nneg i32 %.sroa.speculated.i.i to i64
-  %50 = getelementptr inbounds nuw %"struct.glslang::TSourceLoc", ptr %39, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %49
   br label %_ZNK7glslang14TParseVersions13getCurrentLocEv.exit
 
 _ZNK7glslang14TParseVersions13getCurrentLocEv.exit: ; preds = %35, %37
@@ -288,7 +287,7 @@ _ZNK7glslang14TParseVersions13getCurrentLocEv.exit: ; preds = %35, %37
   br i1 %.not.i, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit.thread
 
 _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit: ; preds = %52
-  %60 = getelementptr inbounds %"class.glslang::TPpContext::TokenStream::Token", ptr %55, i64 %53
+  %60 = getelementptr inbounds [56 x i8], ptr %55, i64 %53
   %61 = load i32, ptr %60, align 8
   %62 = icmp eq i32 %61, 35
   br i1 %62, label %63, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit.thread
@@ -330,7 +329,7 @@ define noundef zeroext i1 @_ZN7glslang10TPpContext11TokenStream20peekTokenizedPa
 
 _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit: ; preds = %2, %16
   %13 = phi i64 [ %17, %16 ], [ %4, %2 ]
-  %14 = getelementptr inbounds %"class.glslang::TPpContext::TokenStream::Token", ptr %8, i64 %13
+  %14 = getelementptr inbounds [56 x i8], ptr %8, i64 %13
   %15 = load i32, ptr %14, align 8
   switch i32 %15, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit7.thread [
     i32 32, label %16
@@ -353,7 +352,7 @@ _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit7.thread: ; preds = %16, %_
 
 _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9: ; preds = %.preheader, %22
   %18 = phi i64 [ %23, %22 ], [ %.promoted19, %.preheader ]
-  %19 = getelementptr inbounds %"class.glslang::TPpContext::TokenStream::Token", ptr %8, i64 %18
+  %19 = getelementptr inbounds [56 x i8], ptr %8, i64 %18
   %20 = load i32, ptr %19, align 8
   %21 = icmp eq i32 %20, 32
   br i1 %21, label %22, label %.sink.split
@@ -392,7 +391,7 @@ define noundef zeroext i1 @_ZN7glslang10TPpContext11TokenStream22peekUntokenized
 
 _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit: ; preds = %1, %15
   %12 = phi i64 [ %16, %15 ], [ %3, %1 ]
-  %13 = getelementptr inbounds %"class.glslang::TPpContext::TokenStream::Token", ptr %7, i64 %12
+  %13 = getelementptr inbounds [56 x i8], ptr %7, i64 %12
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit5 [
     i32 32, label %15
@@ -412,7 +411,7 @@ _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit: ; preds = %1, %15
   br i1 %.not.i4, label %19, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit5
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds %"class.glslang::TPpContext::TokenStream::Token", ptr %7, i64 %18
+  %20 = getelementptr inbounds [56 x i8], ptr %7, i64 %18
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %21, 35
   br label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit5
@@ -500,7 +499,7 @@ _ZNSt6vectorIPN7glslang10TPpContext6tInputESaIS3_EE17_M_realloc_insertIJRKS3_EEE
   %.pre = phi ptr [ %.pre.pre, %39 ], [ getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN7glslang10TPpContext11tTokenInputE, i64 16), %_ZNSt6vectorIPN7glslang10TPpContext6tInputESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i ]
   store ptr %34, ptr %13, align 8
   store ptr %38, ptr %14, align 8
-  %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   store ptr %40, ptr %16, align 8
   br label %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit
 
@@ -610,7 +609,7 @@ _ZNSt6vectorIPN7glslang10TPpContext6tInputESaIS3_EE17_M_realloc_insertIJRKS3_EEE
   %.pre = phi ptr [ %.pre.pre, %35 ], [ getelementptr inbounds nuw inrange(-16, 96) (i8, ptr @_ZTVN7glslang10TPpContext16tUngotTokenInputE, i64 16), %_ZNSt6vectorIPN7glslang10TPpContext6tInputESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i ]
   store ptr %30, ptr %9, align 8
   store ptr %34, ptr %10, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %36, ptr %12, align 8
   br label %_ZN7glslang10TPpContext9pushInputEPNS0_6tInputE.exit
 
@@ -827,7 +826,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang10TPpContext11tTokenInput11pe
 
 _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit.i: ; preds = %1, %20
   %17 = phi i64 [ %21, %20 ], [ %8, %1 ]
-  %18 = getelementptr inbounds %"class.glslang::TPpContext::TokenStream::Token", ptr %12, i64 %17
+  %18 = getelementptr inbounds [56 x i8], ptr %12, i64 %17
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %_ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit7.thread.i [
     i32 32, label %20
@@ -850,7 +849,7 @@ _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit7.thread.i: ; preds = %_ZN7
 
 _ZN7glslang10TPpContext11TokenStream9peekTokenEi.exit9.i: ; preds = %.preheader.i, %26
   %22 = phi i64 [ %27, %26 ], [ %.promoted19.i, %.preheader.i ]
-  %23 = getelementptr inbounds %"class.glslang::TPpContext::TokenStream::Token", ptr %12, i64 %22
+  %23 = getelementptr inbounds [56 x i8], ptr %12, i64 %22
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 32
   br i1 %25, label %26, label %.sink.split.i
@@ -892,7 +891,7 @@ define linkonce_odr noundef zeroext i1 @_ZN7glslang10TPpContext11tTokenInput20pe
   br i1 %or.cond.not.i, label %24, label %17
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds %"class.glslang::TPpContext::TokenStream::Token", ptr %10, i64 %6
+  %18 = getelementptr inbounds [56 x i8], ptr %10, i64 %6
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i8, ptr %19, align 4
   %21 = trunc i8 %20 to i1
@@ -1060,7 +1059,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7
   %32 = urem i64 %.09.lcssa.i.i, %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   %36 = load ptr, ptr %35, align 8
   %.not.i.i6 = icmp eq ptr %36, null
   br i1 %.not.i.i6, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_iENS5_ISA_EENSt8__detail10_Select1stESt8equal_toIS7_ESt4hashIS7_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS9_m.exit, label %37
@@ -1328,7 +1327,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN7glslang10TPpContext11TokenStream5Tok
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %22, ptr %4, align 8
   store ptr %.0.lcssa.i.i25, ptr %5, align 8
-  %93 = getelementptr inbounds nuw %"class.glslang::TPpContext::TokenStream::Token", ptr %22, i64 %17
+  %93 = getelementptr inbounds nuw [56 x i8], ptr %22, i64 %17
   store ptr %93, ptr %92, align 8
   ret void
 }

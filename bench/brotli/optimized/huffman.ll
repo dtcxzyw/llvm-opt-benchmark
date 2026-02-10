@@ -3,8 +3,6 @@ source_filename = "bench/brotli/original/huffman.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.HuffmanCode = type { i8, i16 }
-
 @kReverseBits = internal unnamed_addr constant [256 x i8] c"\00\80@\C0 \A0`\E0\10\90P\D00\B0p\F0\08\88H\C8(\A8h\E8\18\98X\D88\B8x\F8\04\84D\C4$\A4d\E4\14\94T\D44\B4t\F4\0C\8CL\CC,\ACl\EC\1C\9C\\\DC<\BC|\FC\02\82B\C2\22\A2b\E2\12\92R\D22\B2r\F2\0A\8AJ\CA*\AAj\EA\1A\9AZ\DA:\BAz\FA\06\86F\C6&\A6f\E6\16\96V\D66\B6v\F6\0E\8EN\CE.\AEn\EE\1E\9E^\DE>\BE~\FE\01\81A\C1!\A1a\E1\11\91Q\D11\B1q\F1\09\89I\C9)\A9i\E9\19\99Y\D99\B9y\F9\05\85E\C5%\A5e\E5\15\95U\D55\B5u\F5\0D\8DM\CD-\ADm\ED\1D\9D]\DD=\BD}\FD\03\83C\C3#\A3c\E3\13\93S\D33\B3s\F3\0B\8BK\CB+\ABk\EB\1B\9B[\DB;\BB{\FB\07\87G\C7'\A7g\E7\17\97W\D77\B7w\F7\0F\8FO\CF/\AFo\EF\1F\9F_\DF?\BF\7F\FF", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
@@ -52,72 +50,72 @@ define hidden void @BrotliBuildCodeLengthsHuffmanTable(ptr noundef writeonly cap
   %33 = getelementptr inbounds i8, ptr %1, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !9
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %5, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !7
   %38 = add nsw i32 %37, -1
   store i32 %38, ptr %36, align 4, !tbaa !7
   %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds i32, ptr %4, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %4, i64 %39
   %41 = trunc nuw nsw i64 %32 to i32
   store i32 %41, ptr %40, align 4, !tbaa !7
   %42 = add nsw i64 %indvars.iv, -2
   %43 = getelementptr inbounds i8, ptr %1, i64 %42
   %44 = load i8, ptr %43, align 1, !tbaa !9
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %5, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !7
   %48 = add nsw i32 %47, -1
   store i32 %48, ptr %46, align 4, !tbaa !7
   %49 = sext i32 %47 to i64
-  %50 = getelementptr inbounds i32, ptr %4, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %4, i64 %49
   %51 = trunc nuw nsw i64 %42 to i32
   store i32 %51, ptr %50, align 4, !tbaa !7
   %52 = add nsw i64 %indvars.iv, -3
   %53 = getelementptr inbounds i8, ptr %1, i64 %52
   %54 = load i8, ptr %53, align 1, !tbaa !9
   %55 = zext i8 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %5, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !7
   %58 = add nsw i32 %57, -1
   store i32 %58, ptr %56, align 4, !tbaa !7
   %59 = sext i32 %57 to i64
-  %60 = getelementptr inbounds i32, ptr %4, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %4, i64 %59
   %61 = trunc nuw nsw i64 %52 to i32
   store i32 %61, ptr %60, align 4, !tbaa !7
   %62 = add nsw i64 %indvars.iv, -4
   %63 = getelementptr inbounds i8, ptr %1, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !9
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %5, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !7
   %68 = add nsw i32 %67, -1
   store i32 %68, ptr %66, align 4, !tbaa !7
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds i32, ptr %4, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %4, i64 %69
   %71 = trunc nuw nsw i64 %62 to i32
   store i32 %71, ptr %70, align 4, !tbaa !7
   %72 = add nsw i64 %indvars.iv, -5
   %73 = getelementptr inbounds i8, ptr %1, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !9
   %75 = zext i8 %74 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %5, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !7
   %78 = add nsw i32 %77, -1
   store i32 %78, ptr %76, align 4, !tbaa !7
   %79 = sext i32 %77 to i64
-  %80 = getelementptr inbounds i32, ptr %4, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %4, i64 %79
   %81 = trunc nuw nsw i64 %72 to i32
   store i32 %81, ptr %80, align 4, !tbaa !7
   %indvars.iv.next = add nsw i64 %indvars.iv, -6
   %82 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.next
   %83 = load i8, ptr %82, align 1, !tbaa !9
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %5, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !7
   %87 = add nsw i32 %86, -1
   store i32 %87, ptr %85, align 4, !tbaa !7
   %88 = sext i32 %86 to i64
-  %89 = getelementptr inbounds i32, ptr %4, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %4, i64 %88
   %90 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %90, ptr %89, align 4, !tbaa !7
   %.not = icmp eq i64 %indvars.iv.next, 0
@@ -135,7 +133,7 @@ define hidden void @BrotliBuildCodeLengthsHuffmanTable(ptr noundef writeonly cap
 
 96:                                               ; preds = %94, %96
   %.07893 = phi i64 [ 0, %94 ], [ %98, %96 ]
-  %97 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %.07893
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.07893
   store i32 %.sroa.22.0.insert.ext.i, ptr %97, align 2
   %98 = add nuw nsw i64 %.07893, 1
   %exitcond107.not = icmp eq i64 %98, 32
@@ -147,7 +145,7 @@ define hidden void @BrotliBuildCodeLengthsHuffmanTable(ptr noundef writeonly cap
   %.081 = phi i32 [ %121, %._crit_edge ], [ 2, %91 ]
   %.179 = phi i64 [ %.280.lcssa, %._crit_edge ], [ 0, %91 ]
   %.1 = phi i32 [ %.2.lcssa, %._crit_edge ], [ 0, %91 ]
-  %99 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv103
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv103
   %100 = load i16, ptr %99, align 2, !tbaa !3
   %.not8488 = icmp eq i16 %100, 0
   br i1 %.not8488, label %._crit_edge, label %.lr.ph
@@ -165,21 +163,21 @@ define hidden void @BrotliBuildCodeLengthsHuffmanTable(ptr noundef writeonly cap
   %indvars.iv100 = phi i64 [ %105, %.lr.ph ], [ %indvars.iv.next101, %ReplicateValue.exit ]
   %.07690 = phi i32 [ %101, %.lr.ph ], [ %119, %ReplicateValue.exit ]
   %.28089 = phi i64 [ %.179, %.lr.ph ], [ %118, %ReplicateValue.exit ]
-  %108 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv100
+  %108 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv100
   %109 = load i32, ptr %108, align 4, !tbaa !7
   %.sroa.22.0.insert.ext.i85 = shl i32 %109, 16
   %.sroa.0.0.insert.insert.i = or disjoint i32 %.sroa.22.0.insert.ext.i85, %106
   %110 = getelementptr inbounds nuw i8, ptr @kReverseBits, i64 %.28089
   %111 = load i8, ptr %110, align 1, !tbaa !9
   %112 = zext i8 %111 to i64
-  %113 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %112
   br label %114
 
 114:                                              ; preds = %114, %107
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %114 ], [ 32, %107 ]
   %115 = sub nsw i64 %indvars.iv97, %104
   %indvars.iv.next98 = add nsw i64 %indvars.iv97, %103
-  %116 = getelementptr inbounds %struct.HuffmanCode, ptr %113, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %113, i64 %115
   store i32 %.sroa.0.0.insert.insert.i, ptr %116, align 2
   %117 = icmp sgt i64 %115, 0
   br i1 %117, label %114, label %ReplicateValue.exit, !llvm.loop !13
@@ -220,7 +218,7 @@ define hidden i32 @BrotliBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr n
 5:                                                ; preds = %5, %4
   %indvars.iv198 = phi i32 [ %indvars.iv.next199, %5 ], [ 15, %4 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %5 ], [ -1, %4 ]
-  %6 = getelementptr inbounds i16, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds [2 x i8], ptr %2, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !3
   %8 = icmp eq i16 %7, -1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -243,7 +241,7 @@ define hidden i32 @BrotliBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr n
   %.0102 = phi i64 [ %.1103.lcssa, %._crit_edge ], [ 0, %9 ]
   %.0101 = phi i64 [ %40, %._crit_edge ], [ 128, %9 ]
   %.095 = phi i32 [ %39, %._crit_edge ], [ 2, %9 ]
-  %17 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv186
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv186
   %18 = load i16, ptr %17, align 2, !tbaa !3
   %.not129 = icmp eq i16 %18, 0
   br i1 %.not129, label %._crit_edge, label %.lr.ph
@@ -260,7 +258,7 @@ define hidden i32 @BrotliBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr n
   %.1103131 = phi i64 [ %.0102, %.lr.ph ], [ %37, %ReplicateValue.exit127 ]
   %.0107130 = phi i32 [ %21, %.lr.ph ], [ %27, %ReplicateValue.exit127 ]
   %24 = sext i32 %.0107130 to i64
-  %25 = getelementptr inbounds i16, ptr %2, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %2, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
   %.sroa.22.0.insert.shift.i123 = shl nuw i32 %27, 16
@@ -268,14 +266,14 @@ define hidden i32 @BrotliBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr n
   %28 = getelementptr inbounds nuw i8, ptr @kReverseBits, i64 %.1103131
   %29 = load i8, ptr %28, align 1, !tbaa !9
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %30
   br label %32
 
 32:                                               ; preds = %32, %23
   %.0.i126 = phi i32 [ %spec.select117, %23 ], [ %33, %32 ]
   %33 = sub nsw i32 %.0.i126, %.095
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %struct.HuffmanCode, ptr %31, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %31, i64 %34
   store i32 %.sroa.0.0.insert.insert.i125, ptr %35, align 2
   %36 = icmp sgt i32 %33, 0
   br i1 %36, label %32, label %ReplicateValue.exit127, !llvm.loop !13
@@ -301,7 +299,7 @@ ReplicateValue.exit127:                           ; preds = %32
 .lr.ph135:                                        ; preds = %.preheader, %.lr.ph135
   %.192134 = phi i32 [ %44, %.lr.ph135 ], [ %spec.select117, %.preheader ]
   %41 = sext i32 %.192134 to i64
-  %42 = getelementptr inbounds %struct.HuffmanCode, ptr %0, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %0, i64 %41
   %43 = shl nsw i64 %41, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %42, ptr align 2 %0, i64 %43, i1 false)
   %44 = shl i32 %.192134, 1
@@ -334,7 +332,7 @@ ReplicateValue.exit127:                           ; preds = %32
   %indvars.iv190 = add nsw i64 %indvars.iv190.in, 1
   %indvars.iv.next196 = add nsw i64 %indvars.iv195, 1
   %51 = add nsw i64 %indvars.iv195, -15
-  %52 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv.next196
+  %52 = getelementptr inbounds [2 x i8], ptr %3, i64 %indvars.iv.next196
   %53 = load i16, ptr %52, align 2, !tbaa !3
   %.not116145 = icmp eq i16 %53, 0
   br i1 %.not116145, label %._crit_edge154, label %.lr.ph153
@@ -363,13 +361,13 @@ ReplicateValue.exit127:                           ; preds = %32
 
 .lr.ph141.us:                                     ; preds = %.lr.ph153.split.us
   %60 = sext i32 %.3149.us to i64
-  %61 = getelementptr inbounds %struct.HuffmanCode, ptr %.1151.us, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %.1151.us, i64 %60
   br label %62
 
 62:                                               ; preds = %.lr.ph141.us, %68
   %indvars.iv192 = phi i64 [ %indvars.iv190, %.lr.ph141.us ], [ %indvars.iv.next193, %68 ]
   %.0.i128139.us = phi i32 [ %56, %.lr.ph141.us ], [ %69, %68 ]
-  %63 = getelementptr inbounds i16, ptr %3, i64 %indvars.iv192
+  %63 = getelementptr inbounds [2 x i8], ptr %3, i64 %indvars.iv192
   %64 = load i16, ptr %63, align 2, !tbaa !3
   %65 = zext i16 %64 to i32
   %66 = sub nsw i32 %.0.i128139.us, %65
@@ -396,7 +394,7 @@ NextTableBitSize.exit.us:                         ; preds = %68, %NextTableBitSi
   %76 = load i8, ptr %75, align 1, !tbaa !9
   %77 = zext i8 %76 to i64
   %78 = add i64 %.3105147.us, %47
-  %79 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %77
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %77
   %80 = ptrtoint ptr %61 to i64
   %81 = sub i64 %80, %48
   %82 = lshr exact i64 %81, 2
@@ -415,7 +413,7 @@ NextTableBitSize.exit.us:                         ; preds = %68, %NextTableBitSi
   %.290.us = phi i32 [ %74, %NextTableBitSize.exit.us ], [ %.189150.us, %.lr.ph153.split.us ]
   %.2.us = phi ptr [ %61, %NextTableBitSize.exit.us ], [ %.1151.us, %.lr.ph153.split.us ]
   %86 = sext i32 %.1108146.us to i64
-  %87 = getelementptr inbounds i16, ptr %2, i64 %86
+  %87 = getelementptr inbounds [2 x i8], ptr %2, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !3
   %89 = zext i16 %88 to i32
   %.sroa.22.0.insert.shift.i.us = shl nuw i32 %89, 16
@@ -423,14 +421,14 @@ NextTableBitSize.exit.us:                         ; preds = %68, %NextTableBitSi
   %90 = getelementptr inbounds nuw i8, ptr @kReverseBits, i64 %.2100.us
   %91 = load i8, ptr %90, align 1, !tbaa !9
   %92 = zext i8 %91 to i64
-  %93 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %.2.us, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.2.us, i64 %92
   br label %94
 
 94:                                               ; preds = %94, %85
   %.0.i.us = phi i32 [ %.4.us, %85 ], [ %95, %94 ]
   %95 = sub nsw i32 %.0.i.us, %.196170
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds %struct.HuffmanCode, ptr %93, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %93, i64 %96
   store i32 %.sroa.0.0.insert.insert.i.us, ptr %97, align 2
   %98 = icmp sgt i32 %95, 0
   br i1 %98, label %94, label %ReplicateValue.exit.us, !llvm.loop !13
@@ -461,13 +459,13 @@ ReplicateValue.exit.us:                           ; preds = %94
 
 NextTableBitSize.exit:                            ; preds = %104
   %106 = sext i32 %.3149 to i64
-  %107 = getelementptr inbounds %struct.HuffmanCode, ptr %.1151, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %.1151, i64 %106
   %108 = add nsw i32 %56, %.189150
   %109 = getelementptr inbounds nuw i8, ptr @kReverseBits, i64 %.3105147
   %110 = load i8, ptr %109, align 1, !tbaa !9
   %111 = zext i8 %110 to i64
   %112 = add i64 %.3105147, %47
-  %113 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %111
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %111
   %114 = ptrtoint ptr %107 to i64
   %115 = sub i64 %114, %48
   %116 = lshr exact i64 %115, 2
@@ -485,7 +483,7 @@ NextTableBitSize.exit:                            ; preds = %104
   %.290 = phi i32 [ %108, %NextTableBitSize.exit ], [ %.189150, %104 ]
   %.2 = phi ptr [ %107, %NextTableBitSize.exit ], [ %.1151, %104 ]
   %120 = sext i32 %.1108146 to i64
-  %121 = getelementptr inbounds i16, ptr %2, i64 %120
+  %121 = getelementptr inbounds [2 x i8], ptr %2, i64 %120
   %122 = load i16, ptr %121, align 2, !tbaa !3
   %123 = zext i16 %122 to i32
   %.sroa.22.0.insert.shift.i = shl nuw i32 %123, 16
@@ -493,14 +491,14 @@ NextTableBitSize.exit:                            ; preds = %104
   %124 = getelementptr inbounds nuw i8, ptr @kReverseBits, i64 %.2100
   %125 = load i8, ptr %124, align 1, !tbaa !9
   %126 = zext i8 %125 to i64
-  %127 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %.2, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.2, i64 %126
   br label %128
 
 128:                                              ; preds = %128, %119
   %.0.i = phi i32 [ %.4, %119 ], [ %129, %128 ]
   %129 = sub nsw i32 %.0.i, %.196170
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds %struct.HuffmanCode, ptr %127, i64 %130
+  %131 = getelementptr inbounds [4 x i8], ptr %127, i64 %130
   store i32 %.sroa.0.0.insert.insert.i, ptr %131, align 2
   %132 = icmp sgt i32 %129, 0
   br i1 %132, label %128, label %ReplicateValue.exit, !llvm.loop !13
@@ -633,14 +631,14 @@ define hidden range(i32 1, -2147483647) i32 @BrotliBuildSimpleHuffmanTable(ptr n
   %indvars.iv183 = phi i64 [ %indvars.iv.next184, %.loopexit ], [ 0, %4 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 1, %4 ]
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
-  %33 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv183
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv183
   %.pre = load i16, ptr %33, align 2, !tbaa !3
   br label %34
 
 34:                                               ; preds = %.lr.ph, %40
   %35 = phi i16 [ %.pre, %.lr.ph ], [ %41, %40 ]
   %indvars.iv180 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next181, %40 ]
-  %36 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv180
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv180
   %37 = load i16, ptr %36, align 2, !tbaa !3
   %38 = icmp ult i16 %37, %35
   br i1 %38, label %39, label %40
@@ -757,7 +755,7 @@ define hidden range(i32 1, -2147483647) i32 @BrotliBuildSimpleHuffmanTable(ptr n
 .lr.ph179:                                        ; preds = %77, %.lr.ph179
   %.1178 = phi i32 [ %81, %.lr.ph179 ], [ %.0, %77 ]
   %78 = zext i32 %.1178 to i64
-  %79 = getelementptr inbounds nuw %struct.HuffmanCode, ptr %0, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %78
   %80 = shl nuw nsw i64 %78, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %79, ptr align 2 %0, i64 %80, i1 false)
   %81 = shl i32 %.1178, 1

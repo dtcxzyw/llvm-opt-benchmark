@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FT_Service_PsCMapsRec_ = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.FT_Module_Class_ = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr, ptr }
 %struct.FT_ServiceDescRec_ = type { ptr, ptr }
-%struct.PS_UniMap_ = type { i32, i32 }
 
 @ft_standard_glyph_names = hidden constant [3696 x i8] c".null\00nonmarkingreturn\00notequal\00infinity\00lessequal\00greaterequal\00partialdiff\00summation\00product\00pi\00integral\00Omega\00radical\00approxequal\00Delta\00nonbreakingspace\00lozenge\00apple\00franc\00Gbreve\00gbreve\00Idotaccent\00Scedilla\00scedilla\00Cacute\00cacute\00Ccaron\00ccaron\00dcroat\00.notdef\00space\00exclam\00quotedbl\00numbersign\00dollar\00percent\00ampersand\00quoteright\00parenleft\00parenright\00asterisk\00plus\00comma\00hyphen\00period\00slash\00zero\00one\00two\00three\00four\00five\00six\00seven\00eight\00nine\00colon\00semicolon\00less\00equal\00greater\00question\00at\00A\00B\00C\00D\00E\00F\00G\00H\00I\00J\00K\00L\00M\00N\00O\00P\00Q\00R\00S\00T\00U\00V\00W\00X\00Y\00Z\00bracketleft\00backslash\00bracketright\00asciicircum\00underscore\00quoteleft\00a\00b\00c\00d\00e\00f\00g\00h\00i\00j\00k\00l\00m\00n\00o\00p\00q\00r\00s\00t\00u\00v\00w\00x\00y\00z\00braceleft\00bar\00braceright\00asciitilde\00exclamdown\00cent\00sterling\00fraction\00yen\00florin\00section\00currency\00quotesingle\00quotedblleft\00guillemotleft\00guilsinglleft\00guilsinglright\00fi\00fl\00endash\00dagger\00daggerdbl\00periodcentered\00paragraph\00bullet\00quotesinglbase\00quotedblbase\00quotedblright\00guillemotright\00ellipsis\00perthousand\00questiondown\00grave\00acute\00circumflex\00tilde\00macron\00breve\00dotaccent\00dieresis\00ring\00cedilla\00hungarumlaut\00ogonek\00caron\00emdash\00AE\00ordfeminine\00Lslash\00Oslash\00OE\00ordmasculine\00ae\00dotlessi\00lslash\00oslash\00oe\00germandbls\00onesuperior\00logicalnot\00mu\00trademark\00Eth\00onehalf\00plusminus\00Thorn\00onequarter\00divide\00brokenbar\00degree\00thorn\00threequarters\00twosuperior\00registered\00minus\00eth\00multiply\00threesuperior\00copyright\00Aacute\00Acircumflex\00Adieresis\00Agrave\00Aring\00Atilde\00Ccedilla\00Eacute\00Ecircumflex\00Edieresis\00Egrave\00Iacute\00Icircumflex\00Idieresis\00Igrave\00Ntilde\00Oacute\00Ocircumflex\00Odieresis\00Ograve\00Otilde\00Scaron\00Uacute\00Ucircumflex\00Udieresis\00Ugrave\00Yacute\00Ydieresis\00Zcaron\00aacute\00acircumflex\00adieresis\00agrave\00aring\00atilde\00ccedilla\00eacute\00ecircumflex\00edieresis\00egrave\00iacute\00icircumflex\00idieresis\00igrave\00ntilde\00oacute\00ocircumflex\00odieresis\00ograve\00otilde\00scaron\00uacute\00ucircumflex\00udieresis\00ugrave\00yacute\00ydieresis\00zcaron\00exclamsmall\00Hungarumlautsmall\00dollaroldstyle\00dollarsuperior\00ampersandsmall\00Acutesmall\00parenleftsuperior\00parenrightsuperior\00twodotenleader\00onedotenleader\00zerooldstyle\00oneoldstyle\00twooldstyle\00threeoldstyle\00fouroldstyle\00fiveoldstyle\00sixoldstyle\00sevenoldstyle\00eightoldstyle\00nineoldstyle\00commasuperior\00threequartersemdash\00periodsuperior\00questionsmall\00asuperior\00bsuperior\00centsuperior\00dsuperior\00esuperior\00isuperior\00lsuperior\00msuperior\00nsuperior\00osuperior\00rsuperior\00ssuperior\00tsuperior\00ff\00ffi\00ffl\00parenleftinferior\00parenrightinferior\00Circumflexsmall\00hyphensuperior\00Gravesmall\00Asmall\00Bsmall\00Csmall\00Dsmall\00Esmall\00Fsmall\00Gsmall\00Hsmall\00Ismall\00Jsmall\00Ksmall\00Lsmall\00Msmall\00Nsmall\00Osmall\00Psmall\00Qsmall\00Rsmall\00Ssmall\00Tsmall\00Usmall\00Vsmall\00Wsmall\00Xsmall\00Ysmall\00Zsmall\00colonmonetary\00onefitted\00rupiah\00Tildesmall\00exclamdownsmall\00centoldstyle\00Lslashsmall\00Scaronsmall\00Zcaronsmall\00Dieresissmall\00Brevesmall\00Caronsmall\00Dotaccentsmall\00Macronsmall\00figuredash\00hypheninferior\00Ogoneksmall\00Ringsmall\00Cedillasmall\00questiondownsmall\00oneeighth\00threeeighths\00fiveeighths\00seveneighths\00onethird\00twothirds\00zerosuperior\00foursuperior\00fivesuperior\00sixsuperior\00sevensuperior\00eightsuperior\00ninesuperior\00zeroinferior\00oneinferior\00twoinferior\00threeinferior\00fourinferior\00fiveinferior\00sixinferior\00seveninferior\00eightinferior\00nineinferior\00centinferior\00dollarinferior\00periodinferior\00commainferior\00Agravesmall\00Aacutesmall\00Acircumflexsmall\00Atildesmall\00Adieresissmall\00Aringsmall\00AEsmall\00Ccedillasmall\00Egravesmall\00Eacutesmall\00Ecircumflexsmall\00Edieresissmall\00Igravesmall\00Iacutesmall\00Icircumflexsmall\00Idieresissmall\00Ethsmall\00Ntildesmall\00Ogravesmall\00Oacutesmall\00Ocircumflexsmall\00Otildesmall\00Odieresissmall\00OEsmall\00Oslashsmall\00Ugravesmall\00Uacutesmall\00Ucircumflexsmall\00Udieresissmall\00Yacutesmall\00Thornsmall\00Ydieresissmall\00001.000\00001.001\00001.002\00001.003\00Black\00Bold\00Book\00Light\00Medium\00Regular\00Roman\00Semibold\00", align 16
 @ft_mac_names = hidden local_unnamed_addr constant [258 x i16] [i16 253, i16 0, i16 6, i16 261, i16 267, i16 274, i16 283, i16 294, i16 301, i16 309, i16 758, i16 330, i16 340, i16 351, i16 360, i16 365, i16 371, i16 378, i16 385, i16 391, i16 396, i16 400, i16 404, i16 410, i16 415, i16 420, i16 424, i16 430, i16 436, i16 441, i16 447, i16 457, i16 462, i16 468, i16 476, i16 485, i16 488, i16 490, i16 492, i16 494, i16 496, i16 498, i16 500, i16 502, i16 504, i16 506, i16 508, i16 510, i16 512, i16 514, i16 516, i16 518, i16 520, i16 522, i16 524, i16 526, i16 528, i16 530, i16 532, i16 534, i16 536, i16 538, i16 540, i16 552, i16 562, i16 575, i16 587, i16 979, i16 608, i16 610, i16 612, i16 614, i16 616, i16 618, i16 620, i16 622, i16 624, i16 626, i16 628, i16 630, i16 632, i16 634, i16 636, i16 638, i16 640, i16 642, i16 644, i16 646, i16 648, i16 650, i16 652, i16 654, i16 656, i16 658, i16 660, i16 670, i16 674, i16 685, i16 1375, i16 1392, i16 1405, i16 1414, i16 1486, i16 1512, i16 1562, i16 1603, i16 1632, i16 1610, i16 1622, i16 1645, i16 1639, i16 1652, i16 1661, i16 1690, i16 1668, i16 1680, i16 1697, i16 1726, i16 1704, i16 1716, i16 1733, i16 1740, i16 1769, i16 1747, i16 1759, i16 1776, i16 1790, i16 1819, i16 1797, i16 1809, i16 839, i16 1263, i16 707, i16 712, i16 741, i16 881, i16 871, i16 1160, i16 1302, i16 1346, i16 1197, i16 985, i16 1031, i16 23, i16 1086, i16 1108, i16 32, i16 1219, i16 41, i16 51, i16 730, i16 1194, i16 64, i16 76, i16 86, i16 94, i16 97, i16 1089, i16 1118, i16 106, i16 1131, i16 1150, i16 966, i16 696, i16 1183, i16 112, i16 734, i16 120, i16 132, i16 783, i16 930, i16 945, i16 138, i16 1385, i16 1398, i16 1529, i16 1115, i16 1157, i16 832, i16 1079, i16 770, i16 916, i16 598, i16 319, i16 1246, i16 155, i16 1833, i16 1586, i16 721, i16 749, i16 797, i16 811, i16 826, i16 829, i16 846, i16 856, i16 888, i16 903, i16 954, i16 1363, i16 1421, i16 1356, i16 1433, i16 1443, i16 1450, i16 1457, i16 1469, i16 1479, i16 1493, i16 1500, i16 163, i16 1522, i16 1543, i16 1550, i16 1572, i16 1134, i16 991, i16 1002, i16 1008, i16 1015, i16 1021, i16 1040, i16 1045, i16 1053, i16 1066, i16 1073, i16 1101, i16 1143, i16 1536, i16 1783, i16 1596, i16 1843, i16 1253, i16 1207, i16 1319, i16 1579, i16 1826, i16 1229, i16 1270, i16 1313, i16 1323, i16 1171, i16 1290, i16 1332, i16 1211, i16 1235, i16 1276, i16 169, i16 175, i16 182, i16 189, i16 200, i16 209, i16 218, i16 225, i16 232, i16 239, i16 246], align 16
@@ -333,7 +332,7 @@ define internal i32 @ps_unicodes_init(ptr noundef %0, ptr noundef captures(none)
 
 .preheader66:                                     ; preds = %18, %20
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %20 ], [ 0, %18 ]
-  %21 = getelementptr inbounds nuw i32, ptr @ft_extra_glyph_name_offsets, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr @ft_extra_glyph_name_offsets, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4, !tbaa !22
   %23 = sext i32 %22 to i64
   %24 = getelementptr inbounds i8, ptr @ft_extra_glyph_names, i64 %23
@@ -342,14 +341,14 @@ define internal i32 @ps_unicodes_init(ptr noundef %0, ptr noundef captures(none)
   br i1 %26, label %27, label %20
 
 27:                                               ; preds = %.preheader66
-  %28 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4, !tbaa !22
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %ps_check_extra_glyph_name.exit
 
 31:                                               ; preds = %27
   store i32 1, ptr %28, align 4, !tbaa !22
-  %32 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   store i32 %.071, ptr %32, align 4, !tbaa !22
   br label %ps_check_extra_glyph_name.exit
 
@@ -366,13 +365,13 @@ ps_check_extra_glyph_name.exit:                   ; preds = %20, %27, %31
 
 .preheader65:                                     ; preds = %ps_check_extra_glyph_name.exit, %35
   %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %35 ], [ 0, %ps_check_extra_glyph_name.exit ]
-  %36 = getelementptr inbounds nuw i32, ptr @ft_extra_glyph_unicodes, i64 %indvars.iv.i62
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @ft_extra_glyph_unicodes, i64 %indvars.iv.i62
   %37 = load i32, ptr %36, align 4, !tbaa !22
   %38 = icmp eq i32 %33, %37
   br i1 %38, label %39, label %35
 
 39:                                               ; preds = %.preheader65
-  %40 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i62
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i62
   store i32 2, ptr %40, align 4, !tbaa !22
   br label %ps_check_extra_glyph_unicode.exit
 
@@ -404,16 +403,16 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
 .preheader:                                       ; preds = %.preheader.preheader, %57
   %indvars.iv = phi i64 [ %indvars.iv.next, %57 ], [ 0, %.preheader.preheader ]
   %.373 = phi ptr [ %.4, %57 ], [ %.373.ph, %.preheader.preheader ]
-  %47 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !22
   %49 = icmp eq i32 %48, 1
   br i1 %49, label %50, label %57
 
 50:                                               ; preds = %.preheader
-  %51 = getelementptr inbounds nuw i32, ptr @ft_extra_glyph_unicodes, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr @ft_extra_glyph_unicodes, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4, !tbaa !22
   store i32 %52, ptr %.373, align 4, !tbaa !25
-  %53 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !22
   %55 = getelementptr inbounds nuw i8, ptr %.373, i64 4
   store i32 %54, ptr %55, align 4, !tbaa !27
@@ -487,7 +486,7 @@ define internal i32 @ps_unicodes_char_index(ptr noundef readonly captures(none) 
   %6 = load ptr, ptr %5, align 8, !tbaa !21
   %7 = zext i32 %4 to i64
   %8 = lshr i64 %7, 1
-  %9 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %.idx = shl nuw nsw i64 %7, 3
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
   br label %.lr.ph
@@ -511,7 +510,7 @@ define internal i32 @ps_unicodes_char_index(ptr noundef readonly captures(none) 
   %.236 = select i1 %16, ptr %.03460, ptr %.03361
   %18 = sub i32 %1, %14
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %.03361, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.03361, i64 %19
   %.not = icmp uge ptr %20, %.236
   %21 = icmp ult ptr %20, %.239
   %or.cond = or i1 %.not, %21
@@ -519,7 +518,7 @@ define internal i32 @ps_unicodes_char_index(ptr noundef readonly captures(none) 
   %23 = ptrtoint ptr %.239 to i64
   %24 = sub i64 %22, %23
   %25 = ashr i64 %24, 4
-  %26 = getelementptr inbounds %struct.PS_UniMap_, ptr %.239, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %.239, i64 %25
   %.2 = select i1 %or.cond, ptr %26, ptr %20
   %27 = icmp ult ptr %.239, %.236
   br i1 %27, label %.lr.ph, label %._crit_edge
@@ -560,7 +559,7 @@ define internal i32 @ps_unicodes_char_next(ptr noundef readonly captures(none) %
   %.04559 = phi i32 [ 0, %.lr.ph ], [ %.146, %24 ]
   %.04958 = phi i32 [ 0, %.lr.ph ], [ %.2, %24 ]
   %11 = zext i32 %.04261 to i64
-  %12 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !25
   %14 = icmp eq i32 %13, %4
   br i1 %14, label %15, label %18
@@ -611,7 +610,7 @@ define internal i32 @ps_unicodes_char_next(ptr noundef readonly captures(none) %
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !21
   %38 = zext i32 %.045.lcssa71 to i64
-  %39 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !27
   %42 = load i32, ptr %39, align 4, !tbaa !25
@@ -630,7 +629,7 @@ define internal nonnull ptr @ps_get_macintosh_name(i32 noundef %0) #4 {
   %2 = icmp ugt i32 %0, 257
   %spec.store.select = select i1 %2, i32 0, i32 %0
   %3 = zext nneg i32 %spec.store.select to i64
-  %4 = getelementptr inbounds nuw i16, ptr @ft_mac_names, i64 %3
+  %4 = getelementptr inbounds nuw [2 x i8], ptr @ft_mac_names, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !31
   %6 = sext i16 %5 to i64
   %7 = getelementptr inbounds i8, ptr @ft_standard_glyph_names, i64 %6
@@ -644,7 +643,7 @@ define internal ptr @ps_get_standard_strings(i32 noundef %0) #4 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw i16, ptr @ft_sid_names, i64 %4
+  %5 = getelementptr inbounds nuw [2 x i8], ptr @ft_sid_names, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !31
   %7 = sext i16 %6 to i64
   %8 = getelementptr inbounds i8, ptr @ft_standard_glyph_names, i64 %7

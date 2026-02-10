@@ -3,15 +3,10 @@ source_filename = "bench/portaudio/original/pa_linux_alsa.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.HwDevInfo = type { ptr, ptr, i32, i32, i32 }
-%struct.PaAlsaDeviceInfo = type { %struct.PaDeviceInfo, ptr, i32, i32, i32 }
-%struct.PaDeviceInfo = type { i32, ptr, i32, i32, i32, double, double, double, double, double }
 %struct.timespec = type { i64, i64 }
 %struct.PaStreamCallbackTimeInfo = type { double, double, double }
 %struct.__pthread_unwind_buf_t = type { [1 x %struct.__cancel_jmp_buf_tag], [4 x ptr] }
 %struct.__cancel_jmp_buf_tag = type { [8 x i64], i32 }
-%struct.pollfd = type { i32, i16, i16 }
-%struct._snd_pcm_channel_area = type { ptr, i32, i32 }
 %struct.timeval = type { i64, i64 }
 
 @numPeriods_ = internal unnamed_addr global i32 4, align 4
@@ -417,7 +412,7 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
   %21 = getelementptr i8, ptr %0, i64 40
   %.val.i = load ptr, ptr %21, align 8, !tbaa !36
   %22 = sext i32 %16 to i64
-  %23 = getelementptr inbounds ptr, ptr %.val.i, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !37
   %.in.i = getelementptr inbounds nuw i8, ptr %24, i64 20
   %25 = load i32, ptr %.in.i, align 4, !tbaa !3
@@ -485,7 +480,7 @@ define internal i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(n
   %50 = getelementptr i8, ptr %0, i64 40
   %.val.i83 = load ptr, ptr %50, align 8, !tbaa !36
   %51 = sext i32 %45 to i64
-  %52 = getelementptr inbounds ptr, ptr %.val.i83, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %.val.i83, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !37
   %.in.i84 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %54 = load i32, ptr %.in.i84, align 4, !tbaa !3
@@ -734,7 +729,7 @@ define internal i32 @IsFormatSupported(ptr noundef readonly captures(none) %0, p
   %11 = getelementptr i8, ptr %0, i64 40
   %.val.i = load ptr, ptr %11, align 8, !tbaa !36
   %12 = sext i32 %6 to i64
-  %13 = getelementptr inbounds ptr, ptr %.val.i, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !37
   %.in.i = getelementptr inbounds nuw i8, ptr %14, i64 20
   %15 = load i32, ptr %.in.i, align 4, !tbaa !3
@@ -801,7 +796,7 @@ define internal i32 @IsFormatSupported(ptr noundef readonly captures(none) %0, p
   %38 = getelementptr i8, ptr %0, i64 40
   %.val.i37 = load ptr, ptr %38, align 8, !tbaa !36
   %39 = sext i32 %33 to i64
-  %40 = getelementptr inbounds ptr, ptr %.val.i37, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %.val.i37, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !37
   %.in.i38 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %42 = load i32, ptr %.in.i38, align 4, !tbaa !3
@@ -1158,7 +1153,7 @@ SkipCardDetailsInName.exit:                       ; preds = %.preheader.i, %._cr
 125:                                              ; preds = %117
   %126 = call ptr @strncpy(ptr noundef nonnull %121, ptr noundef nonnull readonly %8, i64 noundef %120) #27
   store i32 0, ptr @paUtilErr_, align 4, !tbaa !3
-  %127 = getelementptr inbounds nuw %struct.HwDevInfo, ptr %.4168, i64 %.2148341
+  %127 = getelementptr inbounds nuw [32 x i8], ptr %.4168, i64 %.2148341
   store ptr %121, ptr %127, align 8, !tbaa !100
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   store ptr %104, ptr %128, align 8, !tbaa !102
@@ -1335,7 +1330,7 @@ SkipCardDetailsInName.exit:                       ; preds = %.preheader.i, %._cr
 
 196:                                              ; preds = %.preheader, %195
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %195 ], [ 0, %.preheader ]
-  %197 = getelementptr inbounds nuw ptr, ptr @IgnorePlugin.ignoredPlugins, i64 %indvars.iv.i
+  %197 = getelementptr inbounds nuw [8 x i8], ptr @IgnorePlugin.ignoredPlugins, i64 %indvars.iv.i
   %198 = load ptr, ptr %197, align 8, !tbaa !114
   %199 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %190, ptr noundef nonnull dereferenceable(1) %198) #28
   %.not9.i = icmp eq i32 %199, 0
@@ -1386,7 +1381,7 @@ IgnorePlugin.exit:                                ; preds = %195
 
 227:                                              ; preds = %.lr.ph.i235
   %indvars.iv.next.i237 = add nuw nsw i64 %indvars.iv.i236, 1
-  %228 = getelementptr inbounds nuw %struct.HwDevInfo, ptr @predefinedNames, i64 %indvars.iv.next.i237
+  %228 = getelementptr inbounds nuw [32 x i8], ptr @predefinedNames, i64 %indvars.iv.next.i237
   %229 = load ptr, ptr %228, align 16, !tbaa !100
   %.not.i238 = icmp eq ptr %229, null
   br i1 %.not.i238, label %.loopexit, label %.lr.ph.i235, !llvm.loop !119
@@ -1399,8 +1394,8 @@ IgnorePlugin.exit:                                ; preds = %195
   br i1 %232, label %233, label %227
 
 233:                                              ; preds = %.lr.ph.i235
-  %234 = getelementptr inbounds nuw %struct.HwDevInfo, ptr @predefinedNames, i64 %indvars.iv.i236
-  %235 = getelementptr inbounds nuw %struct.HwDevInfo, ptr %.7171, i64 %.4150358
+  %234 = getelementptr inbounds nuw [32 x i8], ptr @predefinedNames, i64 %indvars.iv.i236
+  %235 = getelementptr inbounds nuw [32 x i8], ptr %.7171, i64 %.4150358
   store ptr %204, ptr %235, align 8, !tbaa !100
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
   store ptr %213, ptr %236, align 8, !tbaa !102
@@ -1415,7 +1410,7 @@ IgnorePlugin.exit:                                ; preds = %195
   br label %IgnorePlugin.exit.thread.sink.split
 
 .loopexit:                                        ; preds = %227, %225
-  %243 = getelementptr inbounds nuw %struct.HwDevInfo, ptr %.7171, i64 %.4150358
+  %243 = getelementptr inbounds nuw [32 x i8], ptr %.7171, i64 %.4150358
   store ptr %204, ptr %243, align 8, !tbaa !100
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 8
   store ptr %213, ptr %244, align 8, !tbaa !102
@@ -1427,7 +1422,7 @@ IgnorePlugin.exit:                                ; preds = %195
 
 IgnorePlugin.exit.thread.sink.split:              ; preds = %233, %.loopexit
   %.sink = phi i32 [ 1, %.loopexit ], [ %242, %233 ]
-  %247 = getelementptr inbounds nuw %struct.HwDevInfo, ptr %.7171, i64 %.4150358
+  %247 = getelementptr inbounds nuw [32 x i8], ptr %.7171, i64 %.4150358
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 24
   store i32 %.sink, ptr %248, align 8, !tbaa !105
   br label %IgnorePlugin.exit.thread
@@ -1496,8 +1491,8 @@ IgnorePlugin.exit.thread:                         ; preds = %196, %IgnorePlugin.
 
 .lr.ph365:                                        ; preds = %267, %276
   %.0162363 = phi i64 [ %277, %276 ], [ 0, %267 ]
-  %268 = getelementptr inbounds nuw %struct.PaAlsaDeviceInfo, ptr %264, i64 %.0162363
-  %269 = getelementptr inbounds nuw %struct.HwDevInfo, ptr %.9173, i64 %.0162363
+  %268 = getelementptr inbounds nuw [96 x i8], ptr %264, i64 %.0162363
+  %269 = getelementptr inbounds nuw [32 x i8], ptr %.9173, i64 %.0162363
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %271 = load ptr, ptr %270, align 8, !tbaa !102
   %272 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %271, ptr noundef nonnull dereferenceable(5) @.str.6) #28
@@ -1521,8 +1516,8 @@ IgnorePlugin.exit.thread:                         ; preds = %196, %IgnorePlugin.
 
 .lr.ph367:                                        ; preds = %276, %286
   %.1163366 = phi i64 [ %287, %286 ], [ 0, %276 ]
-  %278 = getelementptr inbounds nuw %struct.PaAlsaDeviceInfo, ptr %264, i64 %.1163366
-  %279 = getelementptr inbounds nuw %struct.HwDevInfo, ptr %.9173, i64 %.1163366
+  %278 = getelementptr inbounds nuw [96 x i8], ptr %264, i64 %.1163366
+  %279 = getelementptr inbounds nuw [32 x i8], ptr %.9173, i64 %.1163366
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %281 = load ptr, ptr %280, align 8, !tbaa !102
   %282 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %281, ptr noundef nonnull dereferenceable(5) @.str.6) #28
@@ -2808,7 +2803,7 @@ define internal fastcc void @FillInDevInfo(ptr noundef nonnull captures(none) %0
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %78 = load ptr, ptr %77, align 8, !tbaa !36
   %79 = sext i32 %76 to i64
-  %80 = getelementptr inbounds ptr, ptr %78, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %78, i64 %79
   store ptr %3, ptr %80, align 8, !tbaa !37
   %81 = add nsw i32 %76, 1
   store i32 %81, ptr %4, align 4, !tbaa !3
@@ -3297,7 +3292,7 @@ define internal fastcc i32 @TestParameters(ptr noundef readonly captures(none) %
   %12 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %12, align 8, !tbaa !36
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds ptr, ptr %.val, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %.val, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !37
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !39
@@ -3367,7 +3362,7 @@ define internal fastcc i32 @TestParameters(ptr noundef readonly captures(none) %
   br i1 %53, label %switch.lookup, label %Pa2AlsaFormat.exit
 
 switch.lookup:                                    ; preds = %.split.i
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.PaAlsaStreamComponent_Initialize, i64 %52
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.PaAlsaStreamComponent_Initialize, i64 %52
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Pa2AlsaFormat.exit
 
@@ -3451,7 +3446,7 @@ define internal fastcc range(i32 -9999, 1) i32 @AlsaOpen(ptr noundef readonly ca
   %9 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %9, align 8, !tbaa !36
   %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds ptr, ptr %.val, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %.val, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !37
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   br label %16
@@ -4417,7 +4412,7 @@ sub_2:                                            ; preds = %sub_1
   %31 = getelementptr i8, ptr %1, i64 40
   %.val = load ptr, ptr %31, align 8, !tbaa !36
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds ptr, ptr %.val, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.val, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !37
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !39
@@ -4486,7 +4481,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %71, label %switch.lookup, label %Pa2AlsaFormat.exit
 
 switch.lookup:                                    ; preds = %.split.i
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.PaAlsaStreamComponent_Initialize, i64 %70
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.PaAlsaStreamComponent_Initialize, i64 %70
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Pa2AlsaFormat.exit
 
@@ -6106,7 +6101,7 @@ define internal fastcc i32 @PaAlsaStream_WaitForFrames(ptr noundef %0, ptr nound
   %.087142152 = phi i32 [ %56, %59 ], [ 0, %58 ]
   %62 = phi i64 [ %60, %59 ], [ 0, %58 ]
   %63 = load ptr, ptr %40, align 8, !tbaa !64
-  %64 = getelementptr inbounds nuw %struct.pollfd, ptr %63, i64 %62
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %62
   %65 = load ptr, ptr %9, align 8, !tbaa !147
   %66 = load i32, ptr %43, align 4, !tbaa !212
   %67 = tail call i32 @snd_pcm_poll_descriptors(ptr noundef %65, ptr noundef %64, i32 noundef %66) #27, !callees !252
@@ -6830,7 +6825,7 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr noundef readonly capt
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %91 = load ptr, ptr %90, align 8, !tbaa !264
   %92 = sext i32 %19 to i64
-  %93 = getelementptr inbounds %struct._snd_pcm_channel_area, ptr %91, i64 %92
+  %93 = getelementptr inbounds [16 x i8], ptr %91, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %95 = load i64, ptr %94, align 8, !tbaa !265
   %96 = getelementptr i8, ptr %93, i64 -16
@@ -6867,7 +6862,7 @@ define internal fastcc i32 @PaAlsaStream_EndProcessing(ptr noundef readonly capt
   %114 = load i32, ptr %16, align 4, !tbaa !207
   %115 = sub nsw i32 %114, %.170.i
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds %struct._snd_pcm_channel_area, ptr %113, i64 %116
+  %117 = getelementptr inbounds [16 x i8], ptr %113, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %119 = load i64, ptr %118, align 8, !tbaa !265
   %sext = shl i64 %1, 32
@@ -7319,7 +7314,7 @@ define internal fastcc range(i32 -9999, 1) i32 @PaAlsaStreamComponent_EndProcess
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %.03647 = phi ptr [ %38, %.lr.ph ], [ %42, %40 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   store ptr %.03647, ptr %41, align 8, !tbaa !7
   %42 = getelementptr inbounds i8, ptr %.03647, i64 %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7731,7 +7726,7 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
 104:                                              ; preds = %.lr.ph127, %104
   %indvars.iv = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next, %104 ]
   %105 = load ptr, ptr %5, align 8, !tbaa !247
-  %106 = getelementptr inbounds nuw %struct._snd_pcm_channel_area, ptr %105, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %indvars.iv
   %107 = load i64, ptr %103, align 8, !tbaa !265
   %108 = load ptr, ptr %106, align 8, !tbaa !266
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 8
@@ -7822,7 +7817,7 @@ define internal fastcc i32 @PaAlsaStreamComponent_RegisterChannels(ptr noundef %
 163:                                              ; preds = %.lr.ph133, %163
   %indvars.iv137 = phi i64 [ 0, %.lr.ph133 ], [ %indvars.iv.next138, %163 ]
   %.089131 = phi ptr [ %158, %.lr.ph133 ], [ %165, %163 ]
-  %164 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv137
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %indvars.iv137
   store ptr %.089131, ptr %164, align 8, !tbaa !7
   %165 = getelementptr inbounds nuw i8, ptr %.089131, i64 %162
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1

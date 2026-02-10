@@ -9,12 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.90 = type { %struct.X86Features, i32, i32 }
 %struct.X86Features = type { [2 x i64], ptr }
 %struct.AlignData = type { i32, i32 }
-%struct.Expr_ = type { ptr, %union.SourceSpan, i16, %union.anon.29 }
-%union.SourceSpan = type { i64 }
-%union.anon.29 = type { %struct.ExprAnySwitch }
-%struct.ExprAnySwitch = type { i8, %union.anon.31 }
-%union.anon.31 = type { %struct.anon.32 }
-%struct.anon.32 = type { ptr, %union.SourceSpan, ptr }
 %struct.Int = type { %struct.Int128_, i32 }
 %struct.Int128_ = type { i64, i64 }
 
@@ -161,7 +155,7 @@ define dso_local noundef zeroext i1 @sema_expr_analyse_builtin_call(ptr noundef 
   %48 = load i32, ptr %41, align 8
   %49 = load ptr, ptr @expr_arena, align 8
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw %struct.Expr_, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load i32, ptr %52, align 8
   %.not = icmp eq ptr %47, null
@@ -346,7 +340,7 @@ builtin_expected_args.exit.thread:                ; preds = %57, %57, %57, %57, 
 
 81:                                               ; preds = %80
   %82 = zext nneg i32 %.0420 to i64
-  %83 = getelementptr ptr, ptr %47, i64 %82
+  %83 = getelementptr [8 x i8], ptr %47, i64 %82
   %84 = getelementptr i8, ptr %83, i64 -8
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
@@ -356,7 +350,7 @@ builtin_expected_args.exit.thread:                ; preds = %57, %57, %57, %57, 
 
 88:                                               ; preds = %80
   %89 = zext nneg i32 %71 to i64
-  %90 = getelementptr inbounds nuw ptr, ptr %47, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i64, ptr %92, align 8
@@ -401,7 +395,7 @@ builtin_expected_args.exit.thread:                ; preds = %57, %57, %57, %57, 
 102:                                              ; preds = %134, %100
   %indvars.iv.i = phi i64 [ 0, %100 ], [ %indvars.iv.next.i, %134 ]
   %.06489.i = phi i1 [ false, %100 ], [ %135, %134 ]
-  %103 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i
   %104 = load ptr, ptr %103, align 8
   %105 = tail call zeroext i1 @sema_analyse_expr(ptr noundef %0, ptr noundef %104) #4
   br i1 %105, label %.preheader.i, label %sema_expr_analyse_swizzle.exit
@@ -584,7 +578,7 @@ type_flatten.exit76.i:                            ; preds = %sema_check_builtin_
 
 181:                                              ; preds = %180, %.lr.ph.i
   %indvars.iv104.i = phi i64 [ %wide.trip.count.i, %.lr.ph.i ], [ %indvars.iv.next105.i, %180 ]
-  %182 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv104.i
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv104.i
   %183 = load ptr, ptr %182, align 8
   %184 = load ptr, ptr @type_int, align 8
   %185 = tail call zeroext i1 @sema_analyse_expr_rhs(ptr noundef %0, ptr noundef %184, ptr noundef %183, i1 noundef zeroext false, ptr noundef null) #4
@@ -686,7 +680,7 @@ type_flatten.exit76.i:                            ; preds = %sema_check_builtin_
 .lr.ph.i479:                                      ; preds = %246, %.lr.ph.preheader.i
   %indvars.iv.i480 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i481, %246 ]
   %.03242.i = phi i1 [ false, %.lr.ph.preheader.i ], [ %247, %246 ]
-  %230 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i480
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i480
   %231 = load ptr, ptr %230, align 8
   %232 = load ptr, ptr @type_uptr, align 8
   %233 = tail call zeroext i1 @sema_analyse_expr_rhs(ptr noundef %0, ptr noundef %232, ptr noundef %231, i1 noundef zeroext true, ptr noundef null) #4
@@ -853,7 +847,7 @@ type_flatten.exit76.i:                            ; preds = %sema_check_builtin_
   %indvars.iv.i488 = phi i64 [ 1, %300 ], [ 2, %355 ]
   %.090130.i = phi ptr [ %302, %300 ], [ %.1.i, %355 ]
   %.092129.i = phi i1 [ %.088.i, %300 ], [ %356, %355 ]
-  %304 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i488
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i488
   %305 = load ptr, ptr %304, align 8
   %306 = getelementptr inbounds nuw i8, ptr %.090130.i, i64 8
   %307 = load ptr, ptr %306, align 8
@@ -981,7 +975,7 @@ type_flatten.exit76.i:                            ; preds = %sema_check_builtin_
   %exitcond155.not.i = phi i1 [ true, %357 ], [ false, %355 ]
   %indvars.iv152.i = phi i64 [ 4, %357 ], [ 3, %355 ]
   %358 = load ptr, ptr @type_bool, align 8
-  %359 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv152.i
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv152.i
   %360 = load ptr, ptr %359, align 8
   %361 = tail call zeroext i1 @sema_analyse_expr_rhs(ptr noundef %0, ptr noundef %358, ptr noundef %360, i1 noundef zeroext false, ptr noundef null) #4
   br i1 %361, label %362, label %sema_expr_analyse_swizzle.exit
@@ -1007,7 +1001,7 @@ type_flatten.exit76.i:                            ; preds = %sema_check_builtin_
   %exitcond159.not.i = phi i1 [ true, %371 ], [ false, %357 ]
   %indvars.iv156.i = phi i64 [ 6, %371 ], [ 5, %357 ]
   %372 = load ptr, ptr @type_char, align 8
-  %373 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv156.i
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv156.i
   %374 = load ptr, ptr %373, align 8
   %375 = tail call zeroext i1 @sema_analyse_expr_rhs(ptr noundef %0, ptr noundef %372, ptr noundef %374, i1 noundef zeroext false, ptr noundef null) #4
   br i1 %375, label %376, label %sema_expr_analyse_swizzle.exit
@@ -1114,7 +1108,7 @@ is_valid_atomicity.exit.i:                        ; preds = %390, %387, %382, %3
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %451
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %451 ]
   %.0424534 = phi i1 [ false, %.lr.ph.preheader ], [ %452, %451 ]
-  %435 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %436 = load ptr, ptr %435, align 8
   %437 = tail call zeroext i1 @sema_analyse_expr(ptr noundef %0, ptr noundef %436) #4
   br i1 %437, label %438, label %sema_expr_analyse_swizzle.exit
@@ -1686,7 +1680,7 @@ is_valid_atomicity.exit.i:                        ; preds = %390, %387, %382, %3
 .preheader:                                       ; preds = %683, %687
   %exitcond579.not = phi i1 [ true, %687 ], [ false, %683 ]
   %indvars.iv576 = phi i64 [ 2, %687 ], [ 1, %683 ]
-  %688 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv576
+  %688 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv576
   %689 = load ptr, ptr %688, align 8
   %690 = getelementptr inbounds nuw i8, ptr %689, i64 16
   %691 = load i16, ptr %690, align 8
@@ -2860,7 +2854,7 @@ define internal fastcc noundef zeroext i1 @sema_check_builtin_args(ptr noundef r
 
 .lr.ph:                                           ; preds = %3, %193
   %.095199 = phi i64 [ %194, %193 ], [ 0, %3 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %.095199
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.095199
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2899,7 +2893,7 @@ define internal fastcc noundef zeroext i1 @sema_check_builtin_args(ptr noundef r
   unreachable
 
 type_flatten.exit:                                ; preds = %9
-  %22 = getelementptr inbounds nuw i32, ptr %1, i64 %.095199
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.095199
   %23 = load i32, ptr %22, align 4
   switch i32 %23, label %192 [
     i32 0, label %24
@@ -3295,7 +3289,7 @@ define internal fastcc noundef zeroext i1 @sema_check_builtin_args_match(ptr nou
 
 16:                                               ; preds = %13, %14
   %.029 = phi i64 [ 1, %13 ], [ %15, %14 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %.029
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.029
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -3475,7 +3469,7 @@ define internal fastcc noundef zeroext i1 @sema_check_builtin_args_const(ptr nou
 
 5:                                                ; preds = %2, %3
   %.011 = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %.011
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.011
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i16, ptr %8, align 8

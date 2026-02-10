@@ -19,11 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.CallbackIncluder = type { %"class.glslang::TShader::Includer", %struct.glsl_include_callbacks_s, ptr }
 %struct.glsl_include_callbacks_s = type { ptr, ptr, ptr }
 %"class.glslang::TShader::ForbidIncluder" = type { %"class.glslang::TShader::Includer" }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<glslang::TShader *, std::allocator<glslang::TShader *>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<glslang::TShader *, std::allocator<glslang::TShader *>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -397,7 +392,7 @@ define range(i32 0, 2) i32 @glslang_shader_preprocess(ptr noundef %0, ptr nounde
 
 switch.lookup:                                    ; preds = %.split.i
   %33 = zext nneg i32 %31 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.glslang_shader_preprocess, i64 %33
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.glslang_shader_preprocess, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZL16c_shader_profile17glslang_profile_t.exit
 
@@ -647,7 +642,7 @@ define void @glslang_program_add_shader(ptr noundef readonly captures(none) %0, 
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::list", ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %8
   %10 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %4, ptr %11, align 8
@@ -675,7 +670,7 @@ define void @glslang_program_add_source_text(ptr noundef readonly captures(none)
   %..i = tail call noundef range(i32 0, 15) i32 @llvm.umin.i32(i32 %1, i32 14)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 352
   %7 = zext nneg i32 %..i to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1920
   %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %2, i64 noundef %3) #16
@@ -692,7 +687,7 @@ define void @glslang_program_set_source_file(ptr noundef readonly captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 352
   %..i = tail call noundef range(i32 0, 15) i32 @llvm.umin.i32(i32 %1, i32 14)
   %7 = zext nneg i32 %..i to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1888
   %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %2) #16
@@ -945,7 +940,7 @@ define linkonce_odr noundef ptr @_ZN20DirStackFileIncluder13readLocalPathEPKcS1_
   br i1 %29, label %30, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %20, i64 %17
+  %31 = getelementptr inbounds [32 x i8], ptr %20, i64 %17
   %.not.i.i = icmp eq ptr %19, %31
   br i1 %.not.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -1222,7 +1217,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %28
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8
   ret void
 }
@@ -1416,9 +1411,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %33
   store ptr %27, ptr %0, align 8
-  %37 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %28, i64 %1
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %1
   store ptr %37, ptr %4, align 8
-  %38 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %25
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %25
   store ptr %38, ptr %11, align 8
   br label %39
 
@@ -1557,7 +1552,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %28
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8
   ret void
 }
