@@ -56,7 +56,7 @@ define i16 @softfloat_mulAddF16(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
 
 36:                                               ; preds = %34
   %.not171 = icmp eq i64 %20, 0
-  br i1 %.not171, label %215, label %204
+  br i1 %.not171, label %223, label %212
 
 37:                                               ; preds = %34
   %.not = icmp eq i8 %7, 0
@@ -64,7 +64,7 @@ define i16 @softfloat_mulAddF16(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
 
 38:                                               ; preds = %37
   %.not161 = icmp eq i64 %8, 0
-  br i1 %.not161, label %206, label %39
+  br i1 %.not161, label %214, label %39
 
 39:                                               ; preds = %38
   %40 = tail call { i8, i64 } @softfloat_normSubnormalF16Sig(i64 noundef %8) #3
@@ -80,7 +80,7 @@ define i16 @softfloat_mulAddF16(i64 noundef %0, i64 noundef %1, i64 noundef %2, 
 
 44:                                               ; preds = %43
   %.not163 = icmp eq i64 %12, 0
-  br i1 %.not163, label %206, label %45
+  br i1 %.not163, label %214, label %45
 
 45:                                               ; preds = %44
   %46 = tail call { i8, i64 } @softfloat_normSubnormalF16Sig(i64 noundef %12) #3
@@ -246,7 +246,7 @@ softfloat_shiftRightJam32.exit179:                ; preds = %130, %139
 146:                                              ; preds = %145
   %147 = sub i64 %.0145, %123
   %.not169 = icmp eq i64 %147, 0
-  br i1 %.not169, label %210, label %148
+  br i1 %.not169, label %218, label %148
 
 148:                                              ; preds = %146
   %149 = and i64 %147, 2147483648
@@ -294,7 +294,7 @@ softfloat_shiftRightJam32.exit180:                ; preds = %153, %155
   %175 = icmp slt i8 %173, 0
   br i1 %175, label %176, label %187
 
-176:                                              ; preds = %168
+176:; preds = %168
   %177 = sub nsw i32 0, %174
   %178 = zext nneg i32 %177 to i64
   %179 = lshr i64 %.0137, %178
@@ -307,12 +307,12 @@ softfloat_shiftRightJam32.exit180:                ; preds = %153, %155
   %186 = or i64 %179, %185
   br label %190
 
-187:                                              ; preds = %168
-  %188 = zext nneg i32 %174 to i64
-  %189 = shl i64 %.0137, %188
+187:; preds = %168
+  %186 = zext nneg i32 %174 to i64
+  %189 = shl i64 %.0137, %186
   br label %190
 
-190:                                              ; preds = %119, %117, %187, %176, %59
+190:; preds = %119, %117, %187, %176, %59
   %.0143 = phi i1 [ %25, %119 ], [ %25, %117 ], [ %.1144, %176 ], [ %.1144, %187 ], [ %25, %59 ]
   %.0141 = phi i8 [ %120, %119 ], [ %.1142, %117 ], [ %172, %176 ], [ %172, %187 ], [ %60, %59 ]
   %.0139 = phi i64 [ %121, %119 ], [ %.1140, %117 ], [ %186, %176 ], [ %189, %187 ], [ %65, %59 ]
@@ -320,62 +320,62 @@ softfloat_shiftRightJam32.exit180:                ; preds = %153, %155
   %192 = tail call i16 @softfloat_roundPackToF16(i1 noundef zeroext %.0143, i64 noundef %191, i64 noundef %.0139) #3
   br label %217
 
-193:                                              ; preds = %33, %27, %28
+193:; preds = %33, %27, %28
   %194 = tail call i64 @softfloat_propagateNaNF16UI(i64 noundef %0, i64 noundef %1) #3
-  br label %204
+  br label %212
 
-195:                                              ; preds = %33, %28
+198:                                              ; preds = %33, %28
   %.sink194 = phi i64 [ %9, %28 ], [ %5, %33 ]
   %.sink193 = phi i64 [ %12, %28 ], [ %8, %33 ]
-  %196 = and i64 %.sink194, 31
-  %197 = or i64 %196, %.sink193
-  %.not174 = icmp eq i64 %197, 0
-  br i1 %.not174, label %203, label %198
+  %204 = and i64 %.sink194, 31
+  %205 = or i64 %204, %.sink193
+  %.not174 = icmp eq i64 %205, 0
+  br i1 %.not174, label %211, label %206
 
-198:                                              ; preds = %195
-  %199 = select i1 %25, i64 64512, i64 31744
+206:                                              ; preds = %195
+  %207 = select i1 %25, i64 64512, i64 31744
   %.not175 = icmp eq i8 %19, 31
-  br i1 %.not175, label %200, label %215
+  br i1 %.not175, label %208, label %223
 
-200:                                              ; preds = %198
+208:                                              ; preds = %206
   %.not176 = icmp eq i64 %20, 0
-  br i1 %.not176, label %201, label %204
+  br i1 %.not176, label %209, label %212
 
-201:                                              ; preds = %200
-  %202 = xor i1 %25, %16
-  br i1 %202, label %203, label %215
+209:                                              ; preds = %208
+  %210 = xor i1 %25, %16
+  br i1 %210, label %211, label %223
 
-203:                                              ; preds = %201, %195
+211:                                              ; preds = %209, %195
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
-  br label %204
+  br label %212
 
-204:                                              ; preds = %36, %200, %203, %193
-  %.0138 = phi i64 [ %194, %193 ], [ %199, %200 ], [ 32256, %203 ], [ 0, %36 ]
-  %205 = tail call i64 @softfloat_propagateNaNF16UI(i64 noundef %.0138, i64 noundef %2) #3
-  br label %215
+212:                                              ; preds = %36, %208, %211, %193
+  %.0138 = phi i64 [ %194, %193 ], [ %207, %200 ], [ 32256, %203 ], [ 0, %36 ]
+  %213 = tail call i64 @softfloat_propagateNaNF16UI(i64 noundef %.0138, i64 noundef %2) #3
+  br label %223
 
-206:                                              ; preds = %44, %38
-  %207 = and i64 %17, 31
-  %208 = or i64 %207, %20
-  %.not164 = icmp eq i64 %208, 0
-  %209 = xor i1 %25, %16
-  %or.cond177 = and i1 %.not164, %209
-  br i1 %or.cond177, label %210, label %215
+214:                                              ; preds = %44, %38
+  %215 = and i64 %17, 31
+  %216 = or i64 %215, %20
+  %.not164 = icmp eq i64 %216, 0
+  %217 = xor i1 %25, %16
+  %or.cond177 = and i1 %.not164, %217
+  br i1 %or.cond177, label %218, label %223
 
-210:                                              ; preds = %206, %146
-  %211 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
-  %212 = load i8, ptr %211, align 1, !tbaa !3
-  %213 = icmp eq i8 %212, 2
-  %214 = select i1 %213, i64 32768, i64 0
-  br label %215
+218:                                              ; preds = %214, %146
+  %219 = tail call align 1 ptr @llvm.threadlocal.address.p0(ptr align 1 @softfloat_roundingMode)
+  %220 = load i8, ptr %219, align 1, !tbaa !3
+  %221 = icmp eq i8 %220, 2
+  %222 = select i1 %221, i64 32768, i64 0
+  br label %223
 
-215:                                              ; preds = %36, %206, %210, %201, %198, %204
-  %.1 = phi i64 [ %205, %204 ], [ %199, %198 ], [ %199, %201 ], [ %2, %36 ], [ %214, %210 ], [ %2, %206 ]
-  %216 = trunc i64 %.1 to i16
-  br label %217
+223:                                              ; preds = %36, %214, %218, %209, %206, %212
+  %.1 = phi i64 [ %213, %204 ], [ %207, %198 ], [ %199, %201 ], [ %2, %36 ], [ %222, %210 ], [ %2, %206 ]
+  %224 = trunc i64 %.1 to i16
+  br label %225
 
-217:                                              ; preds = %215, %190
-  %.sroa.0130.0 = phi i16 [ %216, %215 ], [ %192, %190 ]
+225:                                              ; preds = %223, %190
+  %.sroa.0130.0 = phi i16 [ %224, %215 ], [ %192, %190 ]
   ret i16 %.sroa.0130.0
 }
 

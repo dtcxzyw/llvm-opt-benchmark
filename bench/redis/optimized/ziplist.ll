@@ -1009,7 +1009,7 @@ define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone ca
   store i32 %., ptr %77, align 8, !tbaa !22
   %78 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %2, ptr %78, align 8, !tbaa !23
-  br label %217
+  br label %219
 
 .sink.split:                                      ; preds = %66, %36, %45, %32, %68, %70, %71, %69
   %.sink = phi i32 [ %44, %36 ], [ 3, %69 ], [ 8, %71 ], [ 4, %70 ], [ 2, %68 ], [ %35, %32 ], [ %63, %45 ], [ 1, %66 ]
@@ -1033,7 +1033,7 @@ define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone ca
   %88 = icmp ult ptr %87, %6
   %89 = icmp ugt ptr %87, %8
   %spec.select216 = select i1 %88, i1 true, i1 %89, !prof !24
-  br i1 %spec.select216, label %217, label %90, !prof !24
+  br i1 %spec.select216, label %219, label %90, !prof !24
 
 90:                                               ; preds = %81
   %.not213 = icmp eq i32 %4, 0
@@ -1046,16 +1046,16 @@ define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone ca
   %95 = icmp ult ptr %94, %6
   %96 = icmp ugt ptr %94, %8
   %spec.select217 = select i1 %95, i1 true, i1 %96, !prof !24
-  br i1 %spec.select217, label %217, label %97, !prof !24
+  br i1 %spec.select217, label %219, label %97, !prof !24
 
 97:                                               ; preds = %91, %90
-  br label %217
+  br label %219
 
 98:                                               ; preds = %5
   %99 = icmp ult ptr %2, %6
   %100 = icmp ugt ptr %2, %8
   %101 = select i1 %99, i1 true, i1 %100, !prof !24
-  br i1 %101, label %217, label %102, !prof !24
+  br i1 %101, label %219, label %102, !prof !24
 
 102:                                              ; preds = %98
   %103 = load i8, ptr %2, align 1, !tbaa !9
@@ -1067,7 +1067,7 @@ define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone ca
   %107 = icmp ugt ptr %106, %8
   br i1 %107, label %217, label %108, !prof !24
 
-108:                                              ; preds = %102
+108:; preds = %102
   %109 = load i8, ptr %106, align 1, !tbaa !9
   %110 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %111 = icmp ult i8 %109, -64
@@ -1082,25 +1082,25 @@ define internal fastcc range(i32 0, 2) i32 @zipEntrySafe(ptr noundef readnone ca
     i8 -64, label %119
   ]
 
-113:                                              ; preds = %108
-  %114 = add i8 %spec.select219, 15
-  %or.cond14.i = icmp ult i8 %114, 13
-  br i1 %or.cond14.i, label %119, label %115
-
-115:                                              ; preds = %113
-  switch i8 %spec.select219, label %zipEncodingLenSize.exit [
-    i8 0, label %119
-    i8 64, label %116
-    i8 -128, label %117
-  ]
-
-116:                                              ; preds = %115
-  br label %119
+115:                                              ; preds = %108
+  %116 = add i8 %spec.select219, 15
+  %or.cond14.i = icmp ult i8 %116, 13
+  br i1 %or.cond14.i, label %119, label %117
 
 117:                                              ; preds = %115
+  switch i8 %spec.select219, label %zipEncodingLenSize.exit [
+    i8 0, label %119
+    i8 64, label %118
+    i8 -128, label %119
+  ]
+
+118:                                              ; preds = %117
   br label %119
 
-zipEncodingLenSize.exit:                          ; preds = %115
+119:                                              ; preds = %117
+  br label %119
+
+zipEncodingLenSize.exit:                          ; preds = %117
   %118 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 255, ptr %118, align 8, !tbaa !29
   br label %217
@@ -1116,111 +1116,111 @@ zipEncodingLenSize.exit:                          ; preds = %115
   %spec.select220 = select i1 %123, i1 true, i1 %124, !prof !24
   br i1 %spec.select220, label %217, label %125, !prof !24
 
-125:                                              ; preds = %119
+125: ; preds = %119
   %126 = load i8, ptr %2, align 1, !tbaa !9
-  %127 = icmp ult i8 %126, -2
-  %.221 = select i1 %127, i32 1, i32 5
+  %126 = icmp ult i8 %126, -2
+  %spec.select220 = select i1 %127, i32 1, i32 5
   store i32 %.221, ptr %3, align 8, !tbaa !15
-  br i1 %127, label %128, label %131
+  br i1 %127, label %130, label %133
 
-128:                                              ; preds = %125
-  %129 = load i8, ptr %2, align 1, !tbaa !9
-  %130 = zext i8 %129 to i32
-  br label %134
+130:                                              ; preds = %125
+  %131 = load i8, ptr %2, align 1, !tbaa !9
+  %132 = zext i8 %131 to i32
+  br label %136
 
-131:                                              ; preds = %125
-  %132 = getelementptr i8, ptr %2, i64 1
-  %133 = load i32, ptr %132, align 1
-  br label %134
+133:                                              ; preds = %125
+  %134 = getelementptr i8, ptr %2, i64 1
+  %135 = load i32, ptr %134, align 1
+  br label %136
 
-134:                                              ; preds = %128, %131
-  %135 = phi i32 [ %130, %128 ], [ %133, %131 ]
-  %136 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store i32 %135, ptr %136, align 4, !tbaa !19
-  br i1 %111, label %137, label %182
+136:                                              ; preds = %130, %133
+  %137 = phi i32 [ %132, %128 ], [ %135, %131 ]
+  %138 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 %137, ptr %138, align 4, !tbaa !19
+  br i1 %111, label %139, label %184
 
-137:                                              ; preds = %134
-  %138 = lshr i8 %109, 6
-  switch i8 %138, label %.unreachabledefault235 [
-    i8 0, label %139
-    i8 1, label %146
-    i8 2, label %158
-    i8 3, label %180
+139:                                              ; preds = %136
+  %140 = lshr i8 %109, 6
+  switch i8 %140, label %.unreachabledefault235 [
+    i8 0, label %141
+    i8 1, label %148
+    i8 2, label %160
+    i8 3, label %182
   ]
 
-139:                                              ; preds = %137
+141:                                              ; preds = %139
   store i32 1, ptr %120, align 8, !tbaa !29
-  %140 = zext nneg i32 %.221 to i64
-  %141 = getelementptr inbounds nuw i8, ptr %2, i64 %140
-  %142 = load i8, ptr %141, align 1, !tbaa !9
-  %143 = and i8 %142, 63
-  %144 = zext nneg i8 %143 to i32
-  %145 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %144, ptr %145, align 4, !tbaa !21
+  %142 = zext nneg i32 %.221 to i64
+  %143 = getelementptr inbounds nuw i8, ptr %2, i64 %142
+  %144 = load i8, ptr %143, align 1, !tbaa !9
+  %145 = and i8 %144, 63
+  %146 = zext nneg i8 %145 to i32
+  %147 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %146, ptr %147, align 4, !tbaa !21
   br label %197
 
-146:                                              ; preds = %137
+148:                                              ; preds = %139
   store i32 2, ptr %120, align 8, !tbaa !29
-  %147 = zext nneg i32 %.221 to i64
-  %148 = getelementptr inbounds nuw i8, ptr %2, i64 %147
-  %149 = load i8, ptr %148, align 1, !tbaa !9
-  %150 = and i8 %149, 63
-  %151 = zext nneg i8 %150 to i32
-  %152 = shl nuw nsw i32 %151, 8
-  %153 = getelementptr inbounds nuw i8, ptr %148, i64 1
-  %154 = load i8, ptr %153, align 1, !tbaa !9
-  %155 = zext i8 %154 to i32
-  %156 = or disjoint i32 %152, %155
-  %157 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %156, ptr %157, align 4, !tbaa !21
+  %149 = zext nneg i32 %.221 to i64
+  %150 = getelementptr inbounds nuw i8, ptr %2, i64 %149
+  %151 = load i8, ptr %150, align 1, !tbaa !9
+  %152 = and i8 %151, 63
+  %153 = zext nneg i8 %152 to i32
+  %154 = shl nuw nsw i32 %153, 8
+  %155 = getelementptr inbounds nuw i8, ptr %150, i64 1
+  %156 = load i8, ptr %155, align 1, !tbaa !9
+  %157 = zext i8 %156 to i32
+  %158 = or disjoint i32 %154, %157
+  %159 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %158, ptr %159, align 4, !tbaa !21
   br label %197
 
-158:                                              ; preds = %137
+160:                                              ; preds = %139
   store i32 5, ptr %120, align 8, !tbaa !29
-  %159 = zext nneg i32 %.221 to i64
-  %160 = getelementptr inbounds nuw i8, ptr %2, i64 %159
-  %161 = getelementptr inbounds nuw i8, ptr %160, i64 1
-  %162 = load i8, ptr %161, align 1, !tbaa !9
-  %163 = zext i8 %162 to i32
-  %164 = shl nuw i32 %163, 24
-  %165 = getelementptr inbounds nuw i8, ptr %160, i64 2
-  %166 = load i8, ptr %165, align 1, !tbaa !9
-  %167 = zext i8 %166 to i32
-  %168 = shl nuw nsw i32 %167, 16
-  %169 = or disjoint i32 %168, %164
-  %170 = getelementptr inbounds nuw i8, ptr %160, i64 3
-  %171 = load i8, ptr %170, align 1, !tbaa !9
-  %172 = zext i8 %171 to i32
-  %173 = shl nuw nsw i32 %172, 8
-  %174 = or disjoint i32 %169, %173
-  %175 = getelementptr inbounds nuw i8, ptr %160, i64 4
-  %176 = load i8, ptr %175, align 1, !tbaa !9
-  %177 = zext i8 %176 to i32
-  %178 = or disjoint i32 %174, %177
-  %179 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 %178, ptr %179, align 4, !tbaa !21
+  %161 = zext nneg i32 %.221 to i64
+  %162 = getelementptr inbounds nuw i8, ptr %2, i64 %161
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 1
+  %164 = load i8, ptr %163, align 1, !tbaa !9
+  %165 = zext i8 %164 to i32
+  %166 = shl nuw i32 %165, 24
+  %167 = getelementptr inbounds nuw i8, ptr %162, i64 2
+  %168 = load i8, ptr %167, align 1, !tbaa !9
+  %169 = zext i8 %168 to i32
+  %170 = shl nuw nsw i32 %169, 16
+  %171 = or disjoint i32 %170, %166
+  %172 = getelementptr inbounds nuw i8, ptr %162, i64 3
+  %173 = load i8, ptr %172, align 1, !tbaa !9
+  %174 = zext i8 %173 to i32
+  %175 = shl nuw nsw i32 %174, 8
+  %176 = or disjoint i32 %171, %175
+  %177 = getelementptr inbounds nuw i8, ptr %162, i64 4
+  %178 = load i8, ptr %177, align 1, !tbaa !9
+  %179 = zext i8 %178 to i32
+  %180 = or disjoint i32 %176, %179
+  %181 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 %180, ptr %181, align 4, !tbaa !21
   br label %197
 
-.unreachabledefault235:                           ; preds = %137
+.unreachabledefault235:                           ; preds = %139
   unreachable
 
-180:                                              ; preds = %137
+182:                                              ; preds = %139
   store i32 0, ptr %120, align 8, !tbaa !29
-  %181 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 0, ptr %181, align 4, !tbaa !21
+  %183 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 0, ptr %183, align 4, !tbaa !21
   br label %197
 
-182:                                              ; preds = %134
+184:                                              ; preds = %136
   store i32 1, ptr %120, align 8, !tbaa !29
   switch i8 %109, label %193 [
-    i8 -2, label %183
+    i8 -2, label %185
     i8 -64, label %185
     i8 -16, label %187
     i8 -48, label %189
     i8 -32, label %191
   ]
 
-183:                                              ; preds = %182
+185:                                              ; preds = %184
   %184 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %184, align 4, !tbaa !21
   br label %197
@@ -1230,29 +1230,29 @@ zipEncodingLenSize.exit:                          ; preds = %115
   store i32 2, ptr %186, align 4, !tbaa !21
   br label %197
 
-187:                                              ; preds = %182
+187:                                              ; preds = %184
   %188 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 3, ptr %188, align 4, !tbaa !21
   br label %197
 
-189:                                              ; preds = %182
+189:                                              ; preds = %184
   %190 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 4, ptr %190, align 4, !tbaa !21
   br label %197
 
-191:                                              ; preds = %182
+191:                                              ; preds = %184
   %192 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 8, ptr %192, align 4, !tbaa !21
   br label %197
 
-193:                                              ; preds = %182
+193:                                              ; preds = %184
   %194 = add nsw i8 %109, 1
   %or.cond222 = icmp ult i8 %194, -14
   %195 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 0, ptr %195, align 4, !tbaa !21
   br i1 %or.cond222, label %196, label %197
 
-196:                                              ; preds = %193
+196:; preds = %193
   store i32 0, ptr %120, align 8, !tbaa !29
   br label %197
 
@@ -1265,31 +1265,31 @@ zipEncodingLenSize.exit:                          ; preds = %115
   %202 = zext nneg i32 %200 to i64
   %203 = getelementptr inbounds nuw i8, ptr %2, i64 %202
   %204 = zext i32 %198 to i64
-  %205 = getelementptr inbounds nuw i8, ptr %203, i64 %204
-  %206 = icmp ult ptr %205, %6
+  %203 = getelementptr inbounds nuw i8, ptr %203, i64 %204
+  %206 = icmp ult ptr %203, %6
   %207 = icmp ugt ptr %205, %8
   %spec.select223 = select i1 %206, i1 true, i1 %207, !prof !24
   br i1 %spec.select223, label %217, label %208, !prof !24
 
-208:                                              ; preds = %197
+208:; preds = %197
   %.not209 = icmp eq i32 %4, 0
-  br i1 %.not209, label %215, label %209
+  br i1 %.not209, label %217, label %211
 
-209:                                              ; preds = %208
-  %210 = zext i32 %135 to i64
-  %211 = sub nsw i64 0, %210
-  %212 = getelementptr inbounds i8, ptr %2, i64 %211
-  %213 = icmp ult ptr %212, %6
-  %214 = icmp ugt ptr %212, %8
-  %spec.select224 = select i1 %213, i1 true, i1 %214, !prof !24
-  br i1 %spec.select224, label %217, label %215, !prof !24
+211:                                              ; preds = %208
+  %212 = zext i32 %137 to i64
+  %213 = sub nsw i64 0, %212
+  %214 = getelementptr inbounds i8, ptr %2, i64 %213
+  %215 = icmp ult ptr %214, %6
+  %216 = icmp ugt ptr %214, %8
+  %spec.select224 = select i1 %215, i1 true, i1 %216, !prof !24
+  br i1 %spec.select224, label %219, label %217, !prof !24
 
-215:                                              ; preds = %209, %208
-  %216 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %2, ptr %216, align 8, !tbaa !23
-  br label %217
+217:                                              ; preds = %211, %208
+  %218 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %2, ptr %218, align 8, !tbaa !23
+  br label %219
 
-217:                                              ; preds = %76, %zipEncodingLenSize.exit, %209, %197, %119, %102, %98, %91, %81, %215, %97
+219:                                              ; preds = %76, %zipEncodingLenSize.exit, %211, %197, %119, %102, %98, %91, %81, %217, %97
   %.0 = phi i32 [ 1, %215 ], [ 0, %76 ], [ 0, %81 ], [ 1, %97 ], [ 0, %91 ], [ 0, %98 ], [ 0, %102 ], [ 0, %zipEncodingLenSize.exit ], [ 0, %119 ], [ 0, %197 ], [ 0, %209 ]
   ret i32 %.0
 }

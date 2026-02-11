@@ -16144,22 +16144,22 @@ _ZN6vectorIPN3sat9lookahead4naryELb0EjE3endEv.exit: ; preds = %11
   %24 = zext i32 %23 to i64
   %25 = shl nuw nsw i64 %24, 3
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 %25
-  %.not76 = icmp eq i32 %23, 0
-  br i1 %.not76, label %.thread56, label %.lr.ph79
+  %.not74 = icmp eq i32 %23, 0
+  br i1 %.not74, label %.thread56, label %.lr.ph77
 
-.lr.ph79:                                         ; preds = %_ZN6vectorIPN3sat9lookahead4naryELb0EjE3endEv.exit
+.lr.ph77:                                         ; preds = %_ZN6vectorIPN3sat9lookahead4naryELb0EjE3endEv.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %28 = load i32, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %30 = load ptr, ptr %29, align 8
   br label %31
 
-31:                                               ; preds = %.lr.ph79, %select.unfold
-  %.03678 = phi i32 [ %16, %.lr.ph79 ], [ %33, %select.unfold ]
-  %.03777 = phi ptr [ %20, %.lr.ph79 ], [ %55, %select.unfold ]
-  %32 = load ptr, ptr %.03777, align 8, !tbaa !105
-  %33 = add i32 %.03678, -1
-  %34 = icmp eq i32 %.03678, 0
+31:                                               ; preds = %.lr.ph77, %select.unfold
+  %.03676 = phi i32 [ %16, %.lr.ph79 ], [ %33, %select.unfold ]
+  %.03775 = phi ptr [ %20, %.lr.ph79 ], [ %55, %select.unfold ]
+  %32 = load ptr, ptr %.03775, align 8, !tbaa !105
+  %33 = add i32 %.03676, -1
+  %34 = icmp eq i32 %.03676, 0
   br i1 %34, label %.thread56, label %35
 
 35:                                               ; preds = %31
@@ -16176,17 +16176,17 @@ _ZN6vectorIPN3sat9lookahead4naryELb0EjE3endEv.exit: ; preds = %11
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %.idx = and i64 %40, -4
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx
-  %.not48.not72 = icmp samesign eq i64 %.idx, 0
-  br i1 %.not48.not72, label %_ZNK6vectorIjLb0EjE5emptyEv.exit.thread, label %.lr.ph
+  %.not48.not71 = icmp samesign eq i64 %.idx, 0
+  br i1 %.not48.not71, label %_ZNK6vectorIjLb0EjE5emptyEv.exit.thread, label %.lr.ph
 
 46:                                               ; preds = %.lr.ph
-  %47 = getelementptr inbounds nuw i8, ptr %.04773, i64 4
+  %47 = getelementptr inbounds nuw i8, ptr %.04772, i64 4
   %.not48.not = icmp eq ptr %47, %45
   br i1 %.not48.not, label %_ZNK6vectorIjLb0EjE5emptyEv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %43, %46
-  %.04773 = phi ptr [ %47, %46 ], [ %44, %43 ]
-  %.sroa.011.0.copyload = load i32, ptr %.04773, align 4, !tbaa !87
+  %.04772 = phi ptr [ %47, %46 ], [ %44, %43 ]
+  %.sroa.011.0.copyload = load i32, ptr %.04772, align 4, !tbaa !87
   %48 = lshr i32 %.sroa.011.0.copyload, 1
   %49 = zext nneg i32 %48 to i64
   %50 = getelementptr inbounds nuw i32, ptr %30, i64 %49
@@ -16198,7 +16198,7 @@ _ZN6vectorIPN3sat9lookahead4naryELb0EjE3endEv.exit: ; preds = %11
   br i1 %.not63, label %46, label %select.unfold
 
 select.unfold:                                    ; preds = %.lr.ph, %35
-  %55 = getelementptr inbounds nuw i8, ptr %.03777, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.03775, i64 8
   %.not = icmp eq ptr %55, %26
   br i1 %.not, label %.thread56, label %31
 
@@ -16218,9 +16218,9 @@ _ZNK6vectorIN3sat9lookahead6binaryELb0EjE4sizeEv.exit: ; preds = %.thread56
   %65 = getelementptr inbounds nuw i32, ptr %64, i64 %14
   %66 = load i32, ptr %65, align 4, !tbaa !87
   %67 = icmp ult i32 %66, %62
-  br i1 %67, label %.lr.ph82, label %_ZNK6vectorIjLb0EjE5emptyEv.exit.thread
+  br i1 %67, label %.lr.ph80, label %_ZNK6vectorIjLb0EjE5emptyEv.exit.thread
 
-.lr.ph82:                                         ; preds = %_ZNK6vectorIN3sat9lookahead6binaryELb0EjE4sizeEv.exit
+.lr.ph80:                                         ; preds = %_ZNK6vectorIN3sat9lookahead6binaryELb0EjE4sizeEv.exit
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %69 = load i32, ptr %68, align 8, !tbaa !92
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 880
@@ -16228,7 +16228,7 @@ _ZNK6vectorIN3sat9lookahead6binaryELb0EjE4sizeEv.exit: ; preds = %.thread56
   %72 = zext i32 %66 to i64
   br label %73
 
-73:                                               ; preds = %.lr.ph82, %.critedge
+73:                                               ; preds = %.lr.ph80, %.critedge
   %indvars.iv = phi i64 [ %72, %.lr.ph82 ], [ %indvars.iv.next, %.critedge ]
   %74 = getelementptr inbounds nuw %"struct.sat::lookahead::binary", ptr %59, i64 %indvars.iv
   %.sroa.04.0.copyload = load i32, ptr %74, align 4, !tbaa !87

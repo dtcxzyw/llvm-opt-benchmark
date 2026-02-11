@@ -18565,15 +18565,15 @@ define internal fastcc range(i32 0, 9) i32 @triplet_decode(ptr noundef readonly 
   br i1 %7, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %6
-  %.not139 = icmp eq i64 %3, 0
-  br i1 %.not139, label %._crit_edge, label %.lr.ph
+  %.not143 = icmp eq i64 %3, 0
+  br i1 %.not143, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %146
   %8 = phi i64 [ %153, %146 ], [ 0, %.preheader ]
-  %.084138 = phi i32 [ %152, %146 ], [ 0, %.preheader ]
-  %.086137 = phi i64 [ %20, %146 ], [ 0, %.preheader ]
-  %.0113136 = phi i32 [ %148, %146 ], [ 0, %.preheader ]
-  %.0114135 = phi i32 [ %147, %146 ], [ 0, %.preheader ]
+  %.084142 = phi i32 [ %152, %146 ], [ 0, %.preheader ]
+  %.086141 = phi i64 [ %20, %146 ], [ 0, %.preheader ]
+  %.0114140 = phi i32 [ %148, %146 ], [ 0, %.preheader ]
+  %.0115139 = phi i32 [ %147, %146 ], [ 0, %.preheader ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %8
   %10 = load i8, ptr %9, align 1, !tbaa !15
   %.not = icmp sgt i8 %10, -1
@@ -18594,20 +18594,20 @@ define internal fastcc range(i32 0, 9) i32 @triplet_decode(ptr noundef readonly 
 
 19:                                               ; preds = %17, %15, %.lr.ph
   %.085 = phi i64 [ 2, %15 ], [ 1, %.lr.ph ], [ %., %17 ]
-  %20 = add i64 %.085, %.086137
+  %20 = add i64 %.085, %.086141
   %21 = icmp ugt i64 %20, %2
-  %22 = icmp ult i64 %20, %.086137
+  %22 = icmp ult i64 %20, %.086141
   %or.cond = or i1 %21, %22
   br i1 %or.cond, label %.critedge, label %23
 
 23:                                               ; preds = %19
   %24 = icmp samesign ult i8 %12, 10
-  br i1 %24, label %.thread, label %34
+  br i1 %24, label %.thread123, label %34
 
-.thread:                                          ; preds = %23
+.thread123:                                       ; preds = %23
   %25 = shl nuw nsw i32 %13, 7
   %26 = and i32 %25, 1792
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %.086137
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %.086141
   %28 = load i8, ptr %27, align 1, !tbaa !15
   %29 = zext i8 %28 to i32
   %30 = or disjoint i32 %26, %29
@@ -18625,7 +18625,7 @@ define internal fastcc range(i32 0, 9) i32 @triplet_decode(ptr noundef readonly 
   %37 = shl nuw nsw i32 %13, 7
   %38 = add nuw nsw i32 %37, 768
   %39 = and i32 %38, 1792
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 %.086137
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 %.086141
   %41 = load i8, ptr %40, align 1, !tbaa !15
   %42 = zext i8 %41 to i32
   %43 = or disjoint i32 %39, %42
@@ -18640,7 +18640,7 @@ define internal fastcc range(i32 0, 9) i32 @triplet_decode(ptr noundef readonly 
 
 48:                                               ; preds = %47
   %49 = add nsw i32 %13, -20
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %.086137
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 %.086141
   %51 = load i8, ptr %50, align 1, !tbaa !15
   %52 = zext i8 %51 to i32
   %53 = and i32 %49, 48
@@ -18672,7 +18672,7 @@ define internal fastcc range(i32 0, 9) i32 @triplet_decode(ptr noundef readonly 
   %.zext = zext nneg i8 %71 to i32
   %72 = shl nuw nsw i32 %.zext, 8
   %73 = or disjoint i32 %72, 1
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 %.086137
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 %.086141
   %75 = load i8, ptr %74, align 1, !tbaa !15
   %76 = zext i8 %75 to i32
   %77 = add nuw nsw i32 %73, %76
@@ -18681,8 +18681,8 @@ define internal fastcc range(i32 0, 9) i32 @triplet_decode(ptr noundef readonly 
   %79 = sub nsw i32 0, %77
   %80 = select i1 %.not.i101, i32 %79, i32 %77
   %81 = urem i8 %.lhs.trunc, 12
-  %.zext133 = zext nneg i8 %81 to i32
-  %82 = shl nuw nsw i32 %.zext133, 6
+  %.zext137 = zext nneg i8 %81 to i32
+  %82 = shl nuw nsw i32 %.zext137, 6
   %83 = and i32 %82, 768
   %84 = or disjoint i32 %83, 1
   %85 = getelementptr i8, ptr %74, i64 1
@@ -18697,7 +18697,7 @@ define internal fastcc range(i32 0, 9) i32 @triplet_decode(ptr noundef readonly 
 
 92:                                               ; preds = %68
   %93 = icmp samesign ult i8 %12, 124
-  %94 = getelementptr i8, ptr %1, i64 %.086137
+  %94 = getelementptr i8, ptr %1, i64 %.086141
   br i1 %93, label %95, label %116
 
 95:                                               ; preds = %92
@@ -18754,8 +18754,8 @@ define internal fastcc range(i32 0, 9) i32 @triplet_decode(ptr noundef readonly 
 138:                                              ; preds = %36, %70, %116, %95, %48
   %.089 = phi i32 [ %137, %116 ], [ 0, %36 ], [ %67, %48 ], [ %91, %70 ], [ %115, %95 ]
   %.088 = phi i32 [ %126, %116 ], [ %46, %36 ], [ %59, %48 ], [ %80, %70 ], [ %106, %95 ]
-  %139 = icmp sgt i32 %.0114135, 0
-  %140 = sub nuw nsw i32 2147483647, %.0114135
+  %139 = icmp sgt i32 %.0115139, 0
+  %140 = sub nuw nsw i32 2147483647, %.0115139
   %141 = icmp sgt i32 %.088, %140
   %or.cond.i = select i1 %139, i1 %141, i1 false
   br i1 %or.cond.i, label %.critedge, label %142
@@ -18763,22 +18763,22 @@ define internal fastcc range(i32 0, 9) i32 @triplet_decode(ptr noundef readonly 
 142:                                              ; preds = %138, %.thread
   %.088121 = phi i32 [ 0, %.thread ], [ %.088, %138 ]
   %.089119 = phi i32 [ %33, %.thread ], [ %.089, %138 ]
-  %143 = icmp sgt i32 %.0113136, 0
+  %145 = icmp sgt i32 %.0114140, 0
   %144 = sub nuw nsw i32 2147483647, %.0113136
   %145 = icmp sgt i32 %.089119, %144
   %or.cond.i107 = select i1 %143, i1 %145, i1 false
   br i1 %or.cond.i107, label %.critedge, label %146
 
-146:                                              ; preds = %142
-  %147 = add nsw i32 %.088121, %.0114135
-  %148 = add nsw i32 %.089119, %.0113136
+146: ; preds = %142
+  %147 = add nsw i32 %.088121, %.0115139
+  %148 = add nsw i32 %.089119, %.0114140
   %149 = getelementptr inbounds nuw %struct.WOFF2_PointRec_, ptr %4, i64 %8
   store i32 %147, ptr %149, align 4, !tbaa !674
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
   store i32 %148, ptr %150, align 4, !tbaa !676
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 8
   store i8 %11, ptr %151, align 4, !tbaa !677
-  %152 = add i32 %.084138, 1
+  %152 = add i32 %.084142, 1
   %153 = zext i32 %152 to i64
   %154 = icmp ugt i64 %3, %153
   br i1 %154, label %.lr.ph, label %._crit_edge, !llvm.loop !678

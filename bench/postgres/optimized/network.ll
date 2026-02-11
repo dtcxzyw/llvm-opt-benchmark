@@ -2414,9 +2414,9 @@ define dso_local noundef i64 @network_network(ptr noundef readonly captures(none
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.not3945 = icmp eq i8 %13, 0
-  br i1 %.not3945, label %28, label %select.unfold.us
+  br i1 %.not3945, label %select.unfold._crit_edge, label %select.unfold.preheader
 
-select.unfold.us:                                 ; preds = %1
+select.unfold:                                    ; preds = %1
   %.not38 = icmp eq i8 %15, 0
   %18 = select i1 %.not38, ptr %17, ptr %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
@@ -2427,42 +2427,42 @@ select.unfold.us:                                 ; preds = %1
   %24 = shl nuw nsw i16 255, %23
   %25 = trunc i16 %24 to i8
   %.037.us = select i1 %22, i8 -1, i8 %25
-  %26 = load i8, ptr %20, align 1
-  %27 = and i8 %26, %.037.us
+  %29 = load i8, ptr %20, align 1
+  %30 = and i8 %29, %.037.us
   store i8 %27, ptr %19, align 1
   %.pre = load i8, ptr %5, align 1
   %.pre48 = load i8, ptr %6, align 1
   %.pre49 = and i8 %.pre, 1
   %.pre50 = and i8 %.pre48, 1
-  br label %28
+  br label %select.unfold._crit_edge
 
-28:                                               ; preds = %select.unfold.us, %1
+select.unfold._crit_edge:                         ; preds = %select.unfold, %1
   %.pre-phi51 = phi i8 [ %.pre50, %select.unfold.us ], [ %15, %1 ]
   %.pre-phi = phi i8 [ %.pre49, %select.unfold.us ], [ %8, %1 ]
   %.not40 = icmp eq i8 %.pre-phi, 0
-  %29 = select i1 %.not40, ptr %10, ptr %9
-  %30 = load i8, ptr %29, align 1
+  %33 = select i1 %.not40, ptr %10, ptr %9
+  %34 = load i8, ptr %33, align 1
   %.not41 = icmp eq i8 %.pre-phi51, 0
-  %31 = select i1 %.not41, ptr %17, ptr %16
-  store i8 %30, ptr %31, align 1
-  %32 = load i8, ptr %5, align 1
-  %33 = and i8 %32, 1
-  %.not42 = icmp eq i8 %33, 0
-  %34 = select i1 %.not42, ptr %10, ptr %9
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1
-  %36 = load i8, ptr %35, align 1
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  store i8 %36, ptr %37, align 1
-  %38 = load i8, ptr %6, align 1
-  %39 = and i8 %38, 1
-  %.not44 = icmp eq i8 %39, 0
-  %40 = select i1 %.not44, ptr %17, ptr %16
-  %41 = load i8, ptr %40, align 1
-  %42 = icmp eq i8 %41, 2
-  %43 = select i1 %42, i32 40, i32 88
-  store i32 %43, ptr %6, align 4
-  %44 = ptrtoint ptr %6 to i64
-  ret i64 %44
+  %35 = select i1 %.not41, ptr %17, ptr %16
+  store i8 %34, ptr %35, align 1
+  %36 = load i8, ptr %5, align 1
+  %37 = and i8 %36, 1
+  %.not42 = icmp eq i8 %37, 0
+  %38 = select i1 %.not42, ptr %10, ptr %9
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
+  %40 = load i8, ptr %39, align 1
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 1
+  store i8 %40, ptr %41, align 1
+  %42 = load i8, ptr %6, align 1
+  %43 = and i8 %42, 1
+  %.not44 = icmp eq i8 %43, 0
+  %44 = select i1 %.not44, ptr %17, ptr %16
+  %45 = load i8, ptr %44, align 1
+  %46 = icmp eq i8 %45, 2
+  %47 = select i1 %46, i32 40, i32 88
+  store i32 %47, ptr %6, align 4
+  %48 = ptrtoint ptr %6 to i64
+  ret i64 %48
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2485,9 +2485,9 @@ define dso_local noundef i64 @network_netmask(ptr noundef readonly captures(none
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 1
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.not3440 = icmp eq i8 %13, 0
-  br i1 %.not3440, label %25, label %select.unfold.us
+  br i1 %.not3440, label %select.unfold._crit_edge, label %select.unfold.preheader
 
-select.unfold.us:                                 ; preds = %1
+select.unfold.preheader:                          ; preds = %1
   %.not33 = icmp eq i8 %15, 0
   %18 = select i1 %.not33, ptr %17, ptr %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
@@ -2502,36 +2502,36 @@ select.unfold.us:                                 ; preds = %1
   %.pre43 = load i8, ptr %6, align 1
   %.pre44 = and i8 %.pre, 1
   %.pre45 = and i8 %.pre43, 1
-  br label %25
+  br label %select.unfold._crit_edge
 
-25:                                               ; preds = %select.unfold.us, %1
+select.unfold._crit_edge:                         ; preds = %select.unfold, %1
   %.pre-phi46 = phi i8 [ %.pre45, %select.unfold.us ], [ %15, %1 ]
   %.pre-phi = phi i8 [ %.pre44, %select.unfold.us ], [ %8, %1 ]
   %.not35 = icmp eq i8 %.pre-phi, 0
-  %26 = select i1 %.not35, ptr %10, ptr %9
-  %27 = load i8, ptr %26, align 1
+  %29 = select i1 %.not35, ptr %10, ptr %9
+  %30 = load i8, ptr %29, align 1
   %.not36 = icmp eq i8 %.pre-phi46, 0
-  %28 = select i1 %.not36, ptr %17, ptr %16
-  store i8 %27, ptr %28, align 1
-  %29 = load i8, ptr %5, align 1
-  %30 = and i8 %29, 1
-  %.not37 = icmp eq i8 %30, 0
-  %31 = select i1 %.not37, ptr %10, ptr %9
-  %32 = load i8, ptr %31, align 1
-  %33 = icmp eq i8 %32, 2
-  %34 = select i1 %33, i8 32, i8 -128
-  %35 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store i8 %34, ptr %35, align 1
-  %36 = load i8, ptr %6, align 1
-  %37 = and i8 %36, 1
-  %.not39 = icmp eq i8 %37, 0
-  %38 = select i1 %.not39, ptr %17, ptr %16
-  %39 = load i8, ptr %38, align 1
-  %40 = icmp eq i8 %39, 2
-  %41 = select i1 %40, i32 40, i32 88
-  store i32 %41, ptr %6, align 4
-  %42 = ptrtoint ptr %6 to i64
-  ret i64 %42
+  %31 = select i1 %.not36, ptr %17, ptr %16
+  store i8 %30, ptr %31, align 1
+  %32 = load i8, ptr %5, align 1
+  %33 = and i8 %32, 1
+  %.not37 = icmp eq i8 %33, 0
+  %34 = select i1 %.not37, ptr %10, ptr %9
+  %35 = load i8, ptr %34, align 1
+  %36 = icmp eq i8 %35, 2
+  %37 = select i1 %36, i8 32, i8 -128
+  %38 = getelementptr inbounds nuw i8, ptr %31, i64 1
+  store i8 %37, ptr %38, align 1
+  %39 = load i8, ptr %6, align 1
+  %40 = and i8 %39, 1
+  %.not39 = icmp eq i8 %40, 0
+  %41 = select i1 %.not39, ptr %17, ptr %16
+  %42 = load i8, ptr %41, align 1
+  %43 = icmp eq i8 %42, 2
+  %44 = select i1 %43, i32 40, i32 88
+  store i32 %44, ptr %6, align 4
+  %45 = ptrtoint ptr %6 to i64
+  ret i64 %45
 }
 
 ; Function Attrs: nounwind uwtable

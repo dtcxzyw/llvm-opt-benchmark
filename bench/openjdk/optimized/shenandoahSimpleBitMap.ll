@@ -404,9 +404,9 @@ define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap30find_last_consecutive_s
   %.048.us = phi i64 [ %.048.us.be, %.split.us.backedge ], [ %8, %7 ]
   %.047.us = phi i64 [ %.047.us.be, %.split.us.backedge ], [ %2, %7 ]
   %18 = icmp eq i64 %.153.us, 0
-  br i1 %18, label %59, label %.lr.ph.i.us
+  br i1 %18, label %59, label %.lr.ph.i.preheader.us
 
-.lr.ph.i.us:                                      ; preds = %.split.us, %55
+.lr.ph.i.preheader.us:                            ; preds = %.split.us, %55
   %.02126.i.us = phi i64 [ %56, %55 ], [ %.047.us, %.split.us ]
   %.02225.i.us = phi i64 [ %57, %55 ], [ %3, %.split.us ]
   %19 = ashr i64 %.02126.i.us, 6
@@ -416,18 +416,18 @@ define hidden noundef i64 @_ZNK22ShenandoahSimpleBitMap30find_last_consecutive_s
   %23 = add nuw nsw i64 %20, 1
   %24 = xor i64 %20, 63
   %25 = shl i64 %22, %24
-  %.not.i.us = icmp eq i64 %25, -1
+  %.not.i73.us = icmp eq i64 %25, -1
   %26 = xor i64 %25, -1
   %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %26, i1 true)
-  %.0.i.us = select i1 %.not.i.us, i64 %23, i64 %27
-  %.not24.i.us = icmp samesign ult i64 %.0.i.us, %.02225.i.us
-  br i1 %.not24.i.us, label %28, label %.loopexit
+  %.0.i74.us = select i1 %.not.i73.us, i64 %23, i64 %27
+  %.not24.i75.us = icmp samesign ult i64 %.0.i74.us, %.02225.i.us
+  br i1 %.not24.i75.us, label %.lr.ph.us, label %.loopexit
 
-28:                                               ; preds = %.lr.ph.i.us
-  %29 = icmp eq i64 %.0.i.us, %23
-  br i1 %29, label %55, label %_ZNK22ShenandoahSimpleBitMap28is_backward_consecutive_onesEll.exit.us
+.lr.ph.us:                                        ; preds = %.lr.ph.i.preheader.us
+  %29 = icmp eq i64 %.0.i74.us, %23
+  br i1 %29, label %.lr.ph.i.us, label %_ZNK22ShenandoahSimpleBitMap28is_backward_consecutive_onesEll.exit.us
 
-_ZNK22ShenandoahSimpleBitMap28is_backward_consecutive_onesEll.exit.us: ; preds = %28
+_ZNK22ShenandoahSimpleBitMap28is_backward_consecutive_onesEll.exit.us: ; preds = %.lr.ph.us
   %30 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.153.us, i1 true)
   %31 = shl i64 %.048.us, 6
   %32 = or disjoint i64 %31, %30
@@ -446,8 +446,8 @@ _ZNK22ShenandoahSimpleBitMap28is_backward_consecutive_onesEll.exit.us: ; preds =
   %.026.i.us = phi i64 [ %38, %.lr.ph.i64.us ], [ %35, %_ZNK22ShenandoahSimpleBitMap28is_backward_consecutive_onesEll.exit.us ]
   %.01925.i.us = phi i64 [ 0, %.lr.ph.i64.us ], [ %36, %_ZNK22ShenandoahSimpleBitMap28is_backward_consecutive_onesEll.exit.us ]
   %.02024.i.us = phi i64 [ %37, %.lr.ph.i64.us ], [ 0, %_ZNK22ShenandoahSimpleBitMap28is_backward_consecutive_onesEll.exit.us ]
-  %reass.sub78 = sub i64 %.02024.i.us, %.01925.i.us
-  %37 = add i64 %reass.sub78, 64
+  %reass.sub86 = sub i64 %.02024.i.us, %.01925.i.us
+  %37 = add i64 %reass.sub86, 64
   %38 = add i64 %.026.i.us, 1
   %.018.in.i.us = getelementptr inbounds i64, ptr %11, i64 %38
   %.018.i.us = load i64, ptr %.018.in.i.us, align 8
@@ -481,62 +481,62 @@ _ZNK22ShenandoahSimpleBitMap18count_leading_onesEl.exit.us: ; preds = %.lr.ph.i6
   %54 = and i64 %50, %53
   br label %.split.us.backedge
 
-55:                                               ; preds = %28
-  %56 = sub i64 %.02126.i.us, %23
-  %57 = sub nsw i64 %.02225.i.us, %23
+.lr.ph.i.us:                                      ; preds = %.lr.ph.us
+  %55 = sub i64 %.02126.i.us, %23
+  %56 = sub nsw i64 %.02225.i.us, %23
   %58 = icmp sgt i64 %57, 0
   br i1 %58, label %.lr.ph.i.us, label %.loopexit, !llvm.loop !11
 
-59:                                               ; preds = %.split.us
+59:; preds = %.split.us
   %.neg62.us = xor i64 %.050.us, -1
-  %60 = add i64 %.047.us, %.neg62.us
-  %61 = icmp slt i64 %60, %5
-  br i1 %61, label %.loopexit69, label %62
+  %67 = add i64 %.047.us, %.neg62.us
+  %68 = icmp slt i64 %67, %5
+  br i1 %68, label %.loopexit69, label %69
 
-62:                                               ; preds = %59
-  %63 = add i64 %.048.us, -1
-  %64 = getelementptr inbounds i64, ptr %11, i64 %63
-  %65 = load i64, ptr %64, align 8
+69:                                               ; preds = %59
+  %70 = add i64 %.048.us, -1
+  %71 = getelementptr inbounds i64, ptr %11, i64 %70
+  %72 = load i64, ptr %71, align 8
   br label %.split.us.backedge
 
-.split.us.backedge:                               ; preds = %62, %51, %46
-  %.153.us.be = phi i64 [ %50, %46 ], [ %65, %62 ], [ %54, %51 ]
+.split.us.backedge:                               ; preds = %69, %51, %46
+  %.153.us.be = phi i64 [ %50, %46 ], [ %72, %62 ], [ %54, %51 ]
   %.050.us.be = phi i64 [ 63, %46 ], [ 63, %62 ], [ %48, %51 ]
-  %.048.us.be = phi i64 [ %47, %46 ], [ %63, %62 ], [ %47, %51 ]
-  %.047.us.be = phi i64 [ %44, %46 ], [ %60, %62 ], [ %44, %51 ]
+  %.048.us.be = phi i64 [ %47, %46 ], [ %70, %62 ], [ %47, %51 ]
+  %.047.us.be = phi i64 [ %44, %46 ], [ %67, %62 ], [ %44, %51 ]
   br label %.split.us, !llvm.loop !13
 
 .split:                                           ; preds = %7
-  %66 = icmp eq i64 %.052, 0
-  br i1 %66, label %.lr.ph.preheader, label %.loopexit
+  %73 = icmp eq i64 %.052, 0
+  br i1 %73, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.split
-  %67 = xor i64 %9, -1
+  %74 = xor i64 %9, -1
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %70
-  %.04777 = phi i64 [ %68, %70 ], [ %2, %.lr.ph.preheader ]
-  %.04876 = phi i64 [ %71, %70 ], [ %8, %.lr.ph.preheader ]
-  %.05075 = phi i64 [ -64, %70 ], [ %67, %.lr.ph.preheader ]
-  %68 = add i64 %.04777, %.05075
-  %69 = icmp slt i64 %68, %5
-  br i1 %69, label %.loopexit69, label %70
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %77
+  %.04785 = phi i64 [ %75, %70 ], [ %2, %.lr.ph.preheader ]
+  %.04884 = phi i64 [ %78, %70 ], [ %8, %.lr.ph.preheader ]
+  %.05083 = phi i64 [ -64, %70 ], [ %74, %.lr.ph.preheader ]
+  %75 = add i64 %.04785, %.05083
+  %76 = icmp slt i64 %75, %5
+  br i1 %76, label %.loopexit69, label %77
 
-70:                                               ; preds = %.lr.ph
-  %71 = add i64 %.04876, -1
-  %72 = getelementptr inbounds i64, ptr %11, i64 %71
-  %73 = load i64, ptr %72, align 8
-  %74 = icmp eq i64 %73, 0
-  br i1 %74, label %.lr.ph, label %.loopexit, !llvm.loop !13
+77:                                               ; preds = %.lr.ph
+  %78 = add i64 %.04884, -1
+  %79 = getelementptr inbounds i64, ptr %11, i64 %78
+  %80 = load i64, ptr %79, align 8
+  %81 = icmp eq i64 %80, 0
+  br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !13
 
-.loopexit:                                        ; preds = %70, %55, %.lr.ph.i.us, %.split
-  %.04772 = phi i64 [ %2, %.split ], [ %.047.us, %55 ], [ %.047.us, %.lr.ph.i.us ], [ %68, %70 ]
-  %reass.sub79 = sub i64 %.04772, %3
-  %75 = add i64 %reass.sub79, 1
+.loopexit:                                        ; preds = %77, %55, %.lr.ph.i.preheader.us, %.split
+  %.04772 = phi i64 [ %2, %.split ], [ %.047.us, %55 ], [ %.047.us, %.lr.ph.i.us ], [ %75, %70 ]
+  %reass.sub87 = sub i64 %.04772, %3
+  %82 = add i64 %reass.sub87, 1
   br label %.loopexit69
 
 .loopexit69:                                      ; preds = %.lr.ph, %59, %_ZNK22ShenandoahSimpleBitMap18count_leading_onesEl.exit.us, %4, %.loopexit
-  %.0 = phi i64 [ %75, %.loopexit ], [ %1, %4 ], [ %1, %59 ], [ %1, %_ZNK22ShenandoahSimpleBitMap18count_leading_onesEl.exit.us ], [ %1, %.lr.ph ]
+  %.0 = phi i64 [ %82, %.loopexit ], [ %1, %4 ], [ %1, %59 ], [ %1, %_ZNK22ShenandoahSimpleBitMap18count_leading_onesEl.exit.us ], [ %1, %.lr.ph ]
   ret i64 %.0
 }
 

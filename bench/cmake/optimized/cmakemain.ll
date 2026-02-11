@@ -5450,7 +5450,7 @@ sub_1:                                            ; preds = %sub_0
   %1751 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1750) #30
           to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i.i146 unwind label %_ZNKSt14default_deleteI12cmConsoleBufEclEPS0_.exit.i163
 
-_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i.i146: ; preds = %1744
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i.i146:; preds = %1744
   store ptr %1751, ptr %3, align 8, !tbaa !148
   store ptr %1751, ptr %1749, align 8, !tbaa !150
   %1752 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1751, i64 %1747

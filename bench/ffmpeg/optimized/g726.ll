@@ -795,13 +795,13 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   store i32 %92, ptr %88, align 4, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond.not, label %.loopexit.loopexit185, label %84, !llvm.loop !79
+  br i1 %exitcond.not, label %.loopexit.loopexit179, label %84, !llvm.loop !79
 
-.loopexit.loopexit185:                            ; preds = %84
+.loopexit.loopexit179:                            ; preds = %84
   %93 = icmp slt i32 %72, -11776
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.loopexit.loopexit185, %.loopexit.loopexit
+.loopexit:                                        ; preds = %.loopexit.loopexit179, %.loopexit.loopexit
   %94 = phi i1 [ %93, %.loopexit.loopexit185 ], [ false, %.loopexit.loopexit ]
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %96 = load i32, ptr %95, align 8, !tbaa !48
@@ -961,9 +961,9 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   br label %206
 
 206:                                              ; preds = %179, %206
-  %indvars.iv193 = phi i64 [ 0, %179 ], [ %indvars.iv.next194, %206 ]
+  %indvars.iv187 = phi i64 [ 0, %179 ], [ %indvars.iv.next194, %206 ]
   %207 = phi i32 [ 0, %179 ], [ %240, %206 ]
-  %208 = getelementptr inbounds nuw i32, ptr %205, i64 %indvars.iv193
+  %208 = getelementptr inbounds nuw i32, ptr %205, i64 %indvars.iv187
   %209 = load i32, ptr %208, align 4, !tbaa !48
   %210 = ashr i32 %209, 2
   %.lobit.i152 = lshr i32 %210, 31
@@ -984,7 +984,7 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   %.narrow = add i8 %.tr, %216
   %220 = zext i8 %.narrow to i32
   %221 = ashr i32 %219, %220
-  %222 = getelementptr inbounds nuw %struct.Float11, ptr %120, i64 %indvars.iv193
+  %222 = getelementptr inbounds nuw %struct.Float11, ptr %120, i64 %indvars.iv187
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 1
   %224 = load i8, ptr %223, align 1, !tbaa !81
   %225 = zext i8 %224 to i32
@@ -1002,14 +1002,14 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   %237 = load i8, ptr %222, align 1, !tbaa !78
   %.not.i = icmp eq i8 %237, %211
   %238 = sub nsw i32 0, %236
-  %239 = select i1 %.not.i, i32 %236, i32 %238
+  %240 = select i1 %.not.i, i32 %236, i32 %238
   %240 = add nsw i32 %239, %207
   store i32 %240, ptr %43, align 8, !tbaa !65
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond196.not = icmp eq i64 %indvars.iv.next194, 6
   br i1 %exitcond196.not, label %241, label %206, !llvm.loop !87
 
-241:                                              ; preds = %206
+241:; preds = %206
   %242 = ashr i32 %240, 1
   store i32 %242, ptr %47, align 4, !tbaa !77
   br label %243
@@ -1029,19 +1029,19 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   %251 = lshr i32 %spec.select.i158, 8
   %spec.select.i.i160 = select i1 %.not.i.i159, i32 %spec.select.i158, i32 %251
   %spec.select7.i.i161 = select i1 %.not.i.i159, i8 0, i8 8
-  %252 = zext nneg i32 %spec.select.i.i160 to i64
-  %253 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %252
-  %254 = load i8, ptr %253, align 1, !tbaa !66
-  %255 = icmp ne i32 %248, 0
-  %256 = zext i1 %255 to i8
-  %.tr200 = or disjoint i8 %spec.select7.i.i161, %256
-  %257 = shl i32 %spec.select.i158, 6
-  %.narrow201 = add i8 %.tr200, %254
-  %258 = zext i8 %.narrow201 to i32
-  %259 = ashr i32 %257, %258
-  %260 = getelementptr inbounds nuw %struct.Float11, ptr %99, i64 %indvars.iv197
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 1
-  %262 = load i8, ptr %261, align 1, !tbaa !81
+  %257 = zext nneg i32 %spec.select.i.i160 to i64
+  %258 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %257
+  %259 = load i8, ptr %258, align 1, !tbaa !66
+  %260 = icmp ne i32 %248, 0
+  %261 = zext i1 %260 to i8
+  %.tr194 = or disjoint i8 %spec.select7.i.i161, %261
+  %262 = shl i32 %spec.select.i158, 6
+  %.narrow195 = add i8 %.tr194, %259
+  %263 = zext i8 %.narrow195 to i32
+  %264 = ashr i32 %262, %263
+  %265 = getelementptr inbounds nuw %struct.Float11, ptr %99, i64 %indvars.iv197
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 1
+  %267 = load i8, ptr %266, align 1, !tbaa !81
   %263 = zext i8 %262 to i32
   %264 = and i32 %259, 255
   %265 = select i1 %255, i32 %264, i32 32
@@ -1051,17 +1051,17 @@ define internal fastcc signext i16 @g726_decode(ptr noundef captures(none) %0, i
   %269 = mul nuw nsw i32 %265, %268
   %270 = add nuw nsw i32 %269, 48
   %271 = lshr i32 %270, 4
-  %272 = add nuw nsw i32 %258, %263
+  %272 = add nuw nsw i32 %263, %263
   %273 = sub nsw i32 19, %272
   %274 = lshr i32 %271, %273
   %275 = load i8, ptr %260, align 1, !tbaa !78
   %.not.i162 = icmp eq i8 %275, %249
   %276 = sub nsw i32 0, %274
   %277 = select i1 %.not.i162, i32 %274, i32 %276
-  %278 = add nsw i32 %277, %245
+  %279 = add nsw i32 %277, %245
   br i1 %244, label %243, label %279, !llvm.loop !88
 
-279:                                              ; preds = %243
+279:; preds = %243
   %280 = ashr i32 %278, 1
   store i32 %280, ptr %43, align 8, !tbaa !65
   %281 = ashr exact i32 %sext, 14

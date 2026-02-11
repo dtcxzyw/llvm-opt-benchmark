@@ -13975,11 +13975,11 @@ define linkonce_odr hidden void @_ZN5Eigen19ColPivHouseholderQRINS_6MatrixIdLi3E
   %62 = getelementptr inbounds nuw double, ptr %7, i64 %.075149
   %63 = load double, ptr %62, align 8, !tbaa !82
   switch i64 %.075149, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEELi1ELin1ELb0EEEE8maxCoeffIlEEdPT_.exit [
-    i64 0, label %.preheader25.us.preheader.i.i.i.i
+    i64 0, label %.preheader25.us.preheader.i.i.i.i.preheader
     i64 1, label %.preheader25.us43.i.i.i.i
   ]
 
-.preheader25.us.preheader.i.i.i.i:                ; preds = %60
+.preheader25.us.preheader.i.i.i.i.preheader:      ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %65 = load <2 x double>, ptr %64, align 8, !tbaa !41
   %.sroa.0.0.vec.extract.i.i.i.us.i.i.i.i = extractelement <2 x double> %65, i64 0
@@ -13989,7 +13989,7 @@ define linkonce_odr hidden void @_ZN5Eigen19ColPivHouseholderQRINS_6MatrixIdLi3E
   %68 = fcmp ogt double %67, %63
   br i1 %68, label %69, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEELi1ELin1ELb0EEEE8maxCoeffIlEEdPT_.exit
 
-69:                                               ; preds = %.preheader25.us.preheader.i.i.i.i
+69:                                               ; preds = %.preheader25.us.preheader.i.i.i.i.preheader
   %70 = insertelement <2 x double> poison, double %67, i64 0
   %71 = shufflevector <2 x double> %70, <2 x double> poison, <2 x i32> zeroinitializer
   %72 = fcmp oeq <2 x double> %71, %65
@@ -14034,7 +14034,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEELi1ELin1ELb0EEE
   store i64 %82, ptr %92, align 8, !tbaa !49
   %.not81 = icmp eq i64 %.sroa.6.4.i.i, 0
   %.pre = mul nuw nsw i64 %.075149, 24
-  br i1 %.not81, label %._crit_edge156, label %93
+  br i1 %.not81, label %._crit_edge157, label %93
 
 93:                                               ; preds = %91
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 %.pre
@@ -14062,9 +14062,9 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEELi1ELin1ELb0EEE
   store double %108, ptr %105, align 8, !tbaa !82
   store double %107, ptr %106, align 8, !tbaa !82
   %109 = add nsw i64 %.072150, 1
-  br label %._crit_edge156
+  br label %._crit_edge157
 
-._crit_edge156:                                   ; preds = %91, %93
+._crit_edge157:                                   ; preds = %91, %93
   %.1 = phi i64 [ %109, %93 ], [ %.072150, %91 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -14100,11 +14100,11 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEELi1ELin1ELb0EEE
   %120 = fcmp ogt double %118, %119
   br i1 %120, label %121, label %122
 
-121:                                              ; preds = %._crit_edge156
+121:                                              ; preds = %._crit_edge157
   store double %118, ptr %24, align 8, !tbaa !346
   br label %122
 
-122:                                              ; preds = %121, %._crit_edge156
+122:                                              ; preds = %121, %._crit_edge157
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %123 = add nuw nsw i64 %.075149, 1
   %.idx.i.i.i.i85 = mul nuw nsw i64 %123, 24
@@ -14137,14 +14137,14 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEELi1ELin1ELb0EEE
 
 .lr.ph:                                           ; preds = %122
   %128 = and i64 %113, 2
-  %.not166 = icmp eq i64 %128, %113
+  %.not167 = icmp eq i64 %128, %113
   %trunc = trunc nuw i64 %.075149 to i1
   br label %129
 
 ._crit_edge:                                      ; preds = %164, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %exitcond153.not = icmp eq i64 %123, 3
-  br i1 %exitcond153.not, label %55, label %60, !llvm.loop !381
+  %exitcond154.not = icmp eq i64 %123, 3
+  br i1 %exitcond154.not, label %55, label %60, !llvm.loop !381
 
 129:                                              ; preds = %.lr.ph, %164
   %.073148 = phi i64 [ %123, %.lr.ph ], [ %165, %164 ]
@@ -14179,10 +14179,10 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi1ELi3ELi1ELi1ELi3EEELi1ELin1ELb0EEE
 150:                                              ; preds = %149
   %151 = load <2 x double>, ptr %gep, align 8, !tbaa !41
   %152 = fmul <2 x double> %151, %151
-  %shift168 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop169 = fadd <2 x double> %152, %shift168
-  %153 = extractelement <2 x double> %foldExtExtBinop169, i64 0
-  br i1 %.not166, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi1ELb1EEELin1ELi1ELb0EEEE4normEv.exit, label %.lr.ph85.i.i.i.i.i
+  %shift169 = shufflevector <2 x double> %152, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop170 = fadd <2 x double> %152, %shift169
+  %153 = extractelement <2 x double> %foldExtExtBinop170, i64 0
+  br i1 %.not167, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi1ELb1EEELin1ELi1ELb0EEEE4normEv.exit, label %.lr.ph85.i.i.i.i.i
 
 .lr.ph85.i.i.i.i.i:                               ; preds = %150, %.lr.ph85.i.i.i.i.i
   %.05283.i.i.i.i.i = phi i64 [ %158, %.lr.ph85.i.i.i.i.i ], [ %128, %150 ]
@@ -14218,8 +14218,8 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEELi3ELi1E
 
 164:                                              ; preds = %.sink.split, %129
   %165 = add nuw nsw i64 %.073148, 1
-  %exitcond152.not = icmp eq i64 %165, 3
-  br i1 %exitcond152.not, label %._crit_edge, label %129, !llvm.loop !383
+  %exitcond153.not = icmp eq i64 %165, 3
+  br i1 %exitcond153.not, label %._crit_edge, label %129, !llvm.loop !383
 
 166:                                              ; preds = %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi3ELi3EiEEE11setIdentityEl.exit
   %167 = and i64 %.1, 1
@@ -14244,8 +14244,8 @@ _ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi3ELi3EiEEE11setIdentityEl.ex
   store i32 %177, ptr %173, align 4, !tbaa !28
   store i32 %176, ptr %175, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond155.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond155.not, label %166, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi3ELi3EiEEE11setIdentityEl.exit, !llvm.loop !385
+  %exitcond156.not = icmp eq i64 %indvars.iv.next, 3
+  br i1 %exitcond156.not, label %166, label %_ZN5Eigen15PermutationBaseINS_17PermutationMatrixILi3ELi3EiEEE11setIdentityEl.exit, !llvm.loop !385
 }
 
 ; Function Attrs: mustprogress ssp uwtable

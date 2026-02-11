@@ -1831,7 +1831,7 @@ define noalias noundef ptr @Dau_DecFindSets_int(ptr noundef readonly captures(no
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %10, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %20, i1 false)
   %21 = shl nuw i32 1, %1
   %22 = icmp sgt i32 %1, 0
-  br i1 %22, label %.lr.ph.preheader, label %._crit_edge207
+  br i1 %22, label %.lr.ph.preheader, label %._crit_edge208
 
 .lr.ph.preheader:                                 ; preds = %.preheader192
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -1839,42 +1839,42 @@ define noalias noundef ptr @Dau_DecFindSets_int(ptr noundef readonly captures(no
 
 .preheader191:                                    ; preds = %.lr.ph
   %23 = icmp samesign ugt i32 %1, 2
-  br i1 %23, label %.preheader190.lr.ph, label %._crit_edge207
+  br i1 %23, label %.preheader190.lr.ph, label %._crit_edge208
 
 .preheader190.lr.ph:                              ; preds = %.preheader191
   %.not = icmp eq i32 %1, 31
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 512
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 512
-  br i1 %.not, label %._crit_edge207, label %.preheader190.us.preheader
+  br i1 %.not, label %._crit_edge208, label %.preheader190.us.preheader
 
 .preheader190.us.preheader:                       ; preds = %.preheader190.lr.ph
   %26 = add nsw i32 %1, -2
   %smax = tail call i32 @llvm.smax.i32(i32 %21, i32 1)
   %27 = zext nneg i32 %1 to i64
-  %wide.trip.count224 = zext nneg i32 %26 to i64
+  %wide.trip.count225 = zext nneg i32 %26 to i64
   br label %.preheader190.us
 
 .preheader190.us:                                 ; preds = %.preheader190.us.preheader, %._crit_edge.us
-  %.pre.i96.us248 = phi ptr [ %13, %.preheader190.us.preheader ], [ %.pre.i96.us251, %._crit_edge.us ]
-  %.val11.i.us240 = phi ptr [ %13, %.preheader190.us.preheader ], [ %.val11.i.us243, %._crit_edge.us ]
-  %.pre.i.us231 = phi ptr [ %13, %.preheader190.us.preheader ], [ %.pre.i.us238, %._crit_edge.us ]
-  %indvars.iv219 = phi i64 [ 2, %.preheader190.us.preheader ], [ %indvars.iv.next220, %._crit_edge.us ]
-  %indvars.iv215 = phi i32 [ 1, %.preheader190.us.preheader ], [ %indvars.iv.next216, %._crit_edge.us ]
-  %indvar210 = phi i64 [ 0, %.preheader190.us.preheader ], [ %indvar.next211, %._crit_edge.us ]
-  %28 = trunc i64 %indvar210 to i32
+  %.pre.i96.us249 = phi ptr [ %13, %.preheader190.us.preheader ], [ %.pre.i96.us252, %._crit_edge.us ]
+  %.val11.i.us241 = phi ptr [ %13, %.preheader190.us.preheader ], [ %.val11.i.us244, %._crit_edge.us ]
+  %.pre.i.us232 = phi ptr [ %13, %.preheader190.us.preheader ], [ %.pre.i.us239, %._crit_edge.us ]
+  %indvars.iv220 = phi i64 [ 2, %.preheader190.us.preheader ], [ %indvars.iv.next221, %._crit_edge.us ]
+  %indvars.iv216 = phi i32 [ 1, %.preheader190.us.preheader ], [ %indvars.iv.next217, %._crit_edge.us ]
+  %indvar211 = phi i64 [ 0, %.preheader190.us.preheader ], [ %indvar.next212, %._crit_edge.us ]
+  %28 = trunc i64 %indvar211 to i32
   %29 = sub i32 %26, %28
   %30 = sext i32 %29 to i64
   %31 = shl nsw i64 %30, 2
   %scevgep = getelementptr i8, ptr %8, i64 %31
-  %32 = shl nuw nsw i64 %indvar210, 2
+  %32 = shl nuw nsw i64 %indvar211, 2
   %33 = add nuw nsw i64 %32, 8
-  %34 = sub nsw i64 %27, %indvars.iv219
-  %35 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv219
+  %34 = sub nsw i64 %27, %indvars.iv220
+  %35 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv220
   %36 = icmp slt i64 %34, 6
   %37 = trunc i64 %34 to i32
   %38 = add i32 %37, -6
   %39 = shl nuw i32 1, %38
-  %40 = trunc nuw nsw i64 %indvars.iv219 to i32
+  %40 = trunc nuw nsw i64 %indvars.iv220 to i32
   %41 = shl nuw i32 1, %40
   %42 = sext i32 %39 to i64
   %43 = shl nsw i64 %42, 3
@@ -1886,20 +1886,20 @@ define noalias noundef ptr @Dau_DecFindSets_int(ptr noundef readonly captures(no
   %notmask.i.us = shl nsw i64 -1, %46
   %47 = xor i64 %notmask.i.us, -1
   %48 = sub nsw i64 6, %34
-  %.not68201.us = icmp samesign ult i64 %indvars.iv219, 3
+  %.not68201.us = icmp samesign ult i64 %indvars.iv220, 3
   %49 = trunc nsw i64 %48 to i32
   %50 = trunc nsw i64 %48 to i32
   br label %51
 
 51:                                               ; preds = %.preheader190.us, %.loopexit189.us
-  %.pre.i96.us250 = phi ptr [ %.pre.i96.us248, %.preheader190.us ], [ %.pre.i96.us251, %.loopexit189.us ]
-  %.val11.i.us242 = phi ptr [ %.val11.i.us240, %.preheader190.us ], [ %.val11.i.us243, %.loopexit189.us ]
-  %52 = phi ptr [ %.pre.i.us231, %.preheader190.us ], [ %.pre.i.us238, %.loopexit189.us ]
+  %.pre.i96.us251 = phi ptr [ %.pre.i96.us249, %.preheader190.us ], [ %.pre.i96.us252, %.loopexit189.us ]
+  %.val11.i.us243 = phi ptr [ %.val11.i.us241, %.preheader190.us ], [ %.val11.i.us244, %.loopexit189.us ]
+  %52 = phi ptr [ %.pre.i.us232, %.preheader190.us ], [ %.pre.i.us239, %.loopexit189.us ]
   %.063204.us = phi i32 [ 0, %.preheader190.us ], [ %247, %.loopexit189.us ]
   %53 = and i32 %.063204.us, 65535
   %54 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %53)
   %55 = zext nneg i32 %54 to i64
-  %56 = icmp eq i64 %indvars.iv219, %55
+  %56 = icmp eq i64 %indvars.iv220, %55
   br i1 %56, label %.lr.ph.i.us, label %.loopexit189.us
 
 .lr.ph.i.us:                                      ; preds = %51, %61
@@ -1919,18 +1919,18 @@ define noalias noundef ptr @Dau_DecFindSets_int(ptr noundef readonly captures(no
   %.1.i.us = phi i32 [ %.013.i.us, %.lr.ph.i.us ], [ %60, %59 ]
   %62 = add nuw nsw i32 %.01012.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %62, %1
-  br i1 %exitcond.not.i.us, label %Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader, label %.lr.ph.i.us, !llvm.loop !38
+  br i1 %exitcond.not.i.us, label %Dau_DecMoveFreeToLSB.exit.us, label %.lr.ph.i.us, !llvm.loop !38
 
-Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader:  ; preds = %61
+Dau_DecMoveFreeToLSB.exit.us:                     ; preds = %61
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %9, ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i64 %33, i1 false), !tbaa !3
   %63 = load ptr, ptr %35, align 8, !tbaa !46
   br i1 %36, label %.preheader134.i.us.preheader, label %.preheader118.i.us.preheader
 
-.preheader118.i.us.preheader:                     ; preds = %Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader, %71
+.preheader118.i.us.preheader:                     ; preds = %Dau_DecMoveFreeToLSB.exit.us, %71
   %64 = phi ptr [ %72, %71 ], [ null, %Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader ]
   %65 = phi ptr [ %73, %71 ], [ null, %Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader ]
   %indvars.iv141.i.us = phi i64 [ %indvars.iv.next142.i.us, %71 ], [ 0, %Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader ]
-  %.092125.i.us = phi i32 [ %77, %71 ], [ 0, %Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader ]
+  %64 = phi i32 [ %77, %71 ], [ 0, %Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader ]
   %.not108.i.us = icmp eq ptr %65, null
   %.pre.i101.us = shl i32 %.092125.i.us, %38
   %.pre154.i.us = sext i32 %.pre.i101.us to i64
@@ -1966,7 +1966,7 @@ Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader:  ; preds = %61
   %exitcond146.not.i.us = icmp eq i64 %indvars.iv.next142.i.us, %wide.trip.count145.i.us
   br i1 %exitcond146.not.i.us, label %.lr.ph.i71.us.preheader, label %.preheader118.i.us.preheader, !llvm.loop !19
 
-.preheader134.i.us.preheader:                     ; preds = %Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader, %92
+.lr.ph144.i.us:                                   ; preds = %Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader, %92
   %78 = phi i64 [ %93, %92 ], [ -1, %Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader ]
   %79 = phi i64 [ %94, %92 ], [ -1, %Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader ]
   %indvars.iv157.i.us = phi i64 [ %indvars.iv.next158.i.us, %92 ], [ 0, %Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader ]
@@ -1985,13 +1985,13 @@ Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader:  ; preds = %61
   %or.cond126.i.us = select i1 %.not121.i.us, i1 true, i1 %89
   br i1 %or.cond126.i.us, label %92, label %90
 
-90:                                               ; preds = %.preheader134.i.us.preheader
+90:                                               ; preds = %.lr.ph144.i.us
   %.not122.i.us = icmp eq i64 %78, -1
   %91 = icmp eq i64 %78, %88
   %or.cond127.i.us = select i1 %.not122.i.us, i1 true, i1 %91
   br i1 %or.cond127.i.us, label %92, label %.loopexit
 
-92:                                               ; preds = %.preheader134.i.us.preheader, %90
+92:                                               ; preds = %.lr.ph144.i.us, %90
   %93 = phi i64 [ %88, %90 ], [ %78, %.preheader134.i.us.preheader ]
   %94 = phi i64 [ %79, %90 ], [ %88, %.preheader134.i.us.preheader ]
   %95 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv157.i.us
@@ -2000,7 +2000,7 @@ Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader:  ; preds = %61
   %98 = xor i32 %97, %.0105141.i.us
   %indvars.iv.next158.i.us = add nuw nsw i64 %indvars.iv157.i.us, 1
   %exitcond162.not.i.us = icmp eq i64 %indvars.iv.next158.i.us, %wide.trip.count145.i.us
-  br i1 %exitcond162.not.i.us, label %.lr.ph.i71.us.preheader, label %.preheader134.i.us.preheader, !llvm.loop !12
+  br i1 %exitcond162.not.i.us, label %.lr.ph.i71.us.preheader, label %.lr.ph144.i.us, !llvm.loop !12
 
 .lr.ph.i71.us.preheader:                          ; preds = %71, %92
   br label %.lr.ph.i71.us
@@ -2014,7 +2014,7 @@ Dau_DecMoveFreeToLSB.exit.loopexit.us.preheader:  ; preds = %61
   %.1.v.i.us = shl nuw i32 1, %101
   %.1.i73.us = or i32 %.1.v.i.us, %.01112.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
-  %exitcond.not.i74.us = icmp eq i64 %indvars.iv.next.i.us, %indvars.iv219
+  %exitcond.not.i74.us = icmp eq i64 %indvars.iv.next.i.us, %indvars.iv220
   br i1 %exitcond.not.i74.us, label %Dau_DecCreateSet.exit.us, label %.lr.ph.i71.us, !llvm.loop !47
 
 Dau_DecCreateSet.exit.us:                         ; preds = %.lr.ph.i71.us
@@ -2055,20 +2055,20 @@ Dau_DecCreateSet.exit.us:                         ; preds = %.lr.ph.i71.us
   br label %Vec_IntPush.exit.us.sink.split
 
 Vec_IntPush.exit.us.sink.split:                   ; preds = %116, %118, %111, %113
-  %.sink277 = phi ptr [ %114, %113 ], [ %112, %111 ], [ %117, %116 ], [ %119, %118 ]
+  %.sink282 = phi ptr [ %114, %113 ], [ %112, %111 ], [ %117, %116 ], [ %119, %118 ]
   %.sink = phi i32 [ %108, %113 ], [ %108, %111 ], [ 16, %116 ], [ 16, %118 ]
-  store ptr %.sink277, ptr %14, align 8, !tbaa !36
+  store ptr %.sink282, ptr %14, align 8, !tbaa !36
   store i32 %.sink, ptr %11, align 8, !tbaa !45
   br label %Vec_IntPush.exit.us
 
 Vec_IntPush.exit.us:                              ; preds = %Vec_IntPush.exit.us.sink.split, %Dau_DecCreateSet.exit.us
-  %.pre.i96.us249 = phi ptr [ %.pre.i96.us250, %Dau_DecCreateSet.exit.us ], [ %.sink277, %Vec_IntPush.exit.us.sink.split ]
-  %.val11.i.us241 = phi ptr [ %.val11.i.us242, %Dau_DecCreateSet.exit.us ], [ %.sink277, %Vec_IntPush.exit.us.sink.split ]
-  %.pre.i.us239 = phi ptr [ %52, %Dau_DecCreateSet.exit.us ], [ %.sink277, %Vec_IntPush.exit.us.sink.split ]
+  %.pre.i96.us250 = phi ptr [ %.pre.i96.us251, %Dau_DecCreateSet.exit.us ], [ %.sink282, %Vec_IntPush.exit.us.sink.split ]
+  %.val11.i.us242 = phi ptr [ %.val11.i.us243, %Dau_DecCreateSet.exit.us ], [ %.sink282, %Vec_IntPush.exit.us.sink.split ]
+  %.pre.i.us240 = phi ptr [ %52, %Dau_DecCreateSet.exit.us ], [ %.sink282, %Vec_IntPush.exit.us.sink.split ]
   %120 = add nsw i32 %102, 1
   store i32 %120, ptr %12, align 4, !tbaa !33
   %121 = sext i32 %102 to i64
-  %122 = getelementptr inbounds i32, ptr %.pre.i.us239, i64 %121
+  %122 = getelementptr inbounds i32, ptr %.pre.i.us240, i64 %121
   store i32 %.1.i73.us, ptr %122, align 4, !tbaa !3
   br label %.loopexit189.us
 
@@ -2076,25 +2076,25 @@ Vec_IntPush.exit.us:                              ; preds = %Vec_IntPush.exit.us
   br i1 %.not68201.us, label %.loopexit189.us, label %.lr.ph203.us
 
 .lr.ph203.us:                                     ; preds = %.loopexit, %.loopexit187.us
-  %.pre.i96.us252 = phi ptr [ %.pre.i96.us253, %.loopexit187.us ], [ %.pre.i96.us250, %.loopexit ]
-  %.val11.i.us244 = phi ptr [ %.val11.i.us245, %.loopexit187.us ], [ %.val11.i.us242, %.loopexit ]
-  %.pre.i.us236 = phi ptr [ %.pre.i.us232, %.loopexit187.us ], [ %52, %.loopexit ]
+  %.pre.i96.us253 = phi ptr [ %.pre.i96.us254, %.loopexit187.us ], [ %.pre.i96.us251, %.loopexit ]
+  %.val11.i.us245 = phi ptr [ %.val11.i.us246, %.loopexit187.us ], [ %.val11.i.us243, %.loopexit ]
+  %.pre.i.us237 = phi ptr [ %.pre.i.us233, %.loopexit187.us ], [ %52, %.loopexit ]
   %.064202.us = phi i32 [ %124, %.loopexit187.us ], [ 1, %.loopexit ]
   %123 = icmp samesign ult i32 %.064202.us, 4
   br i1 %123, label %.preheader.us, label %.loopexit187.us
 
 .loopexit187.us:                                  ; preds = %Dau_DecSetIsContained.exit.us, %.lr.ph203.us
-  %.pre.i96.us253 = phi ptr [ %.pre.i96.us252, %.lr.ph203.us ], [ %.pre.i96.us255, %Dau_DecSetIsContained.exit.us ]
-  %.val11.i.us245 = phi ptr [ %.val11.i.us244, %.lr.ph203.us ], [ %.val11.i.us247, %Dau_DecSetIsContained.exit.us ]
-  %.pre.i.us232 = phi ptr [ %.pre.i.us236, %.lr.ph203.us ], [ %.pre.i.us233, %Dau_DecSetIsContained.exit.us ]
+  %.pre.i96.us254 = phi ptr [ %.pre.i96.us253, %.lr.ph203.us ], [ %.pre.i96.us256, %Dau_DecSetIsContained.exit.us ]
+  %.val11.i.us246 = phi ptr [ %.val11.i.us245, %.lr.ph203.us ], [ %.val11.i.us248, %Dau_DecSetIsContained.exit.us ]
+  %.pre.i.us233 = phi ptr [ %.pre.i.us237, %.lr.ph203.us ], [ %.pre.i.us234, %Dau_DecSetIsContained.exit.us ]
   %124 = add nuw nsw i32 %.064202.us, 1
-  %exitcond217.not = icmp eq i32 %124, %indvars.iv215
-  br i1 %exitcond217.not, label %.loopexit189.us, label %.lr.ph203.us, !llvm.loop !48
+  %exitcond218.not = icmp eq i32 %124, %indvars.iv216
+  br i1 %exitcond218.not, label %.loopexit189.us, label %.lr.ph203.us, !llvm.loop !48
 
 125:                                              ; preds = %.preheader.us, %Dau_DecSetIsContained.exit.us
-  %126 = phi ptr [ %.pre.i96.us252, %.preheader.us ], [ %.pre.i96.us255, %Dau_DecSetIsContained.exit.us ]
-  %.val11.i.us = phi ptr [ %.val11.i.us244, %.preheader.us ], [ %.val11.i.us247, %Dau_DecSetIsContained.exit.us ]
-  %.pre.i.us235 = phi ptr [ %.pre.i.us236, %.preheader.us ], [ %.pre.i.us233, %Dau_DecSetIsContained.exit.us ]
+  %126 = phi ptr [ %.pre.i96.us253, %.preheader.us ], [ %.pre.i96.us256, %Dau_DecSetIsContained.exit.us ]
+  %.val11.i.us = phi ptr [ %.val11.i.us245, %.preheader.us ], [ %.val11.i.us248, %Dau_DecSetIsContained.exit.us ]
+  %.pre.i.us236 = phi ptr [ %.pre.i.us237, %.preheader.us ], [ %.pre.i.us234, %Dau_DecSetIsContained.exit.us ]
   %.062198.us = phi i32 [ 0, %.preheader.us ], [ %245, %Dau_DecSetIsContained.exit.us ]
   %127 = and i32 %.062198.us, 65535
   %128 = call range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %127)
@@ -2115,7 +2115,7 @@ Vec_IntPush.exit.us:                              ; preds = %Vec_IntPush.exit.us
   %.1.v.i80.us = shl i32 %.1.v.v.i.us, %132
   %.1.i81.us = or i32 %.1.v.i80.us, %.01112.i78.us
   %indvars.iv.next.i82.us = add nuw nsw i64 %indvars.iv.i77.us, 1
-  %exitcond.not.i83.us = icmp eq i64 %indvars.iv.next.i82.us, %indvars.iv219
+  %exitcond.not.i83.us = icmp eq i64 %indvars.iv.next.i82.us, %indvars.iv220
   br i1 %exitcond.not.i83.us, label %Dau_DecCreateSet.exit84.us, label %.lr.ph.i76.us, !llvm.loop !47
 
 Dau_DecCreateSet.exit84.us:                       ; preds = %.lr.ph.i76.us
@@ -2152,7 +2152,7 @@ Dau_DecCreateSet.exit84.us:                       ; preds = %.lr.ph.i76.us
   br i1 %exitcond.not.i90.us, label %.loopexit.us, label %138, !llvm.loop !49
 
 .loopexit.us:                                     ; preds = %150, %Dau_DecCreateSet.exit84.us
-  %.pre.i.us234 = phi ptr [ %.pre.i.us235, %Dau_DecCreateSet.exit84.us ], [ %.val11.i.us, %150 ]
+  %.pre.i.us235 = phi ptr [ %.pre.i.us236, %Dau_DecCreateSet.exit84.us ], [ %.val11.i.us, %150 ]
   %151 = load ptr, ptr %35, align 8, !tbaa !46
   br i1 %36, label %184, label %152
 
@@ -2174,7 +2174,7 @@ Dau_DecCreateSet.exit84.us:                       ; preds = %.lr.ph.i76.us
   %157 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i146.us
   store i32 %.097119.sink.i.us, ptr %157, align 4, !tbaa !3
   %indvars.iv.next.i149.us = add nuw nsw i64 %indvars.iv.i146.us, 1
-  %exitcond.not.i150.us = icmp eq i64 %indvars.iv.next.i149.us, %indvars.iv219
+  %exitcond.not.i150.us = icmp eq i64 %indvars.iv.next.i149.us, %indvars.iv220
   br i1 %exitcond.not.i150.us, label %.lr.ph123.i.us, label %.lr.ph.i145.us, !llvm.loop !14
 
 .lr.ph123.i.us:                                   ; preds = %.lr.ph.i145.us, %.lr.ph123.i.us
@@ -2266,7 +2266,7 @@ Dau_DecCreateSet.exit84.us:                       ; preds = %.lr.ph.i76.us
   %189 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i178.us
   store i32 %.0110135.sink.i.us, ptr %189, align 4, !tbaa !3
   %indvars.iv.next.i182.us = add nuw nsw i64 %indvars.iv.i178.us, 1
-  %exitcond.not.i183.us = icmp eq i64 %indvars.iv.next.i182.us, %indvars.iv219
+  %exitcond.not.i183.us = icmp eq i64 %indvars.iv.next.i182.us, %indvars.iv220
   br i1 %exitcond.not.i183.us, label %.lr.ph139.i.us, label %.lr.ph.i177.us, !llvm.loop !7
 
 .lr.ph139.i.us:                                   ; preds = %.lr.ph.i177.us, %.lr.ph139.i.us
@@ -2381,37 +2381,37 @@ Dau_DecCheckSetTop.exit93.us:                     ; preds = %Dau_DecCheckSetTop6
   br label %Vec_IntPush.exit100.us.sink.split
 
 Vec_IntPush.exit100.us.sink.split:                ; preds = %238, %240, %233, %235
-  %.sink279 = phi ptr [ %236, %235 ], [ %234, %233 ], [ %239, %238 ], [ %241, %240 ]
-  %.sink278 = phi i32 [ %230, %235 ], [ %230, %233 ], [ 16, %238 ], [ 16, %240 ]
-  store ptr %.sink279, ptr %14, align 8, !tbaa !36
-  store i32 %.sink278, ptr %11, align 8, !tbaa !45
+  %.sink284 = phi ptr [ %236, %235 ], [ %234, %233 ], [ %239, %238 ], [ %241, %240 ]
+  %.sink283 = phi i32 [ %230, %235 ], [ %230, %233 ], [ 16, %238 ], [ 16, %240 ]
+  store ptr %.sink284, ptr %14, align 8, !tbaa !36
+  store i32 %.sink283, ptr %11, align 8, !tbaa !45
   br label %Vec_IntPush.exit100.us
 
 Vec_IntPush.exit100.us:                           ; preds = %Vec_IntPush.exit100.us.sink.split, %224
-  %.pre.i96.us256 = phi ptr [ %126, %224 ], [ %.sink279, %Vec_IntPush.exit100.us.sink.split ]
+  %.pre.i96.us257 = phi ptr [ %126, %224 ], [ %.sink284, %Vec_IntPush.exit100.us.sink.split ]
   %242 = add nsw i32 %.val.i.us, 1
   store i32 %242, ptr %12, align 4, !tbaa !33
   %243 = sext i32 %.val.i.us to i64
-  %244 = getelementptr inbounds i32, ptr %.pre.i96.us256, i64 %243
+  %244 = getelementptr inbounds i32, ptr %.pre.i96.us257, i64 %243
   store i32 %.1.i81.us, ptr %244, align 4, !tbaa !3
   br label %Dau_DecSetIsContained.exit.us
 
 Dau_DecSetIsContained.exit.us:                    ; preds = %143, %Vec_IntPush.exit100.us, %Dau_DecCheckSetTop.exit93.us, %125
-  %.pre.i96.us255 = phi ptr [ %126, %125 ], [ %.pre.i96.us256, %Vec_IntPush.exit100.us ], [ %126, %Dau_DecCheckSetTop.exit93.us ], [ %126, %143 ]
-  %.val11.i.us247 = phi ptr [ %.val11.i.us, %125 ], [ %.pre.i96.us256, %Vec_IntPush.exit100.us ], [ %.val11.i.us, %Dau_DecCheckSetTop.exit93.us ], [ %.val11.i.us, %143 ]
-  %.pre.i.us233 = phi ptr [ %.pre.i.us235, %125 ], [ %.pre.i96.us256, %Vec_IntPush.exit100.us ], [ %.pre.i.us234, %Dau_DecCheckSetTop.exit93.us ], [ %.val11.i.us, %143 ]
+  %.pre.i96.us256 = phi ptr [ %126, %125 ], [ %.pre.i96.us257, %Vec_IntPush.exit100.us ], [ %126, %Dau_DecCheckSetTop.exit93.us ], [ %126, %143 ]
+  %.val11.i.us248 = phi ptr [ %.val11.i.us, %125 ], [ %.pre.i96.us257, %Vec_IntPush.exit100.us ], [ %.val11.i.us, %Dau_DecCheckSetTop.exit93.us ], [ %.val11.i.us, %143 ]
+  %.pre.i.us234 = phi ptr [ %.pre.i.us236, %125 ], [ %.pre.i96.us257, %Vec_IntPush.exit100.us ], [ %.pre.i.us235, %Dau_DecCheckSetTop.exit93.us ], [ %.val11.i.us, %143 ]
   %245 = add nuw nsw i32 %.062198.us, 1
   %.062.highbits.us = lshr i32 %245, %40
   %246 = icmp eq i32 %.062.highbits.us, 0
   br i1 %246, label %125, label %.loopexit187.us, !llvm.loop !50
 
 .loopexit189.us:                                  ; preds = %.loopexit187.us, %.loopexit, %Vec_IntPush.exit.us, %51
-  %.pre.i96.us251 = phi ptr [ %.pre.i96.us250, %51 ], [ %.pre.i96.us250, %.loopexit ], [ %.pre.i96.us249, %Vec_IntPush.exit.us ], [ %.pre.i96.us253, %.loopexit187.us ]
-  %.val11.i.us243 = phi ptr [ %.val11.i.us242, %51 ], [ %.val11.i.us242, %.loopexit ], [ %.val11.i.us241, %Vec_IntPush.exit.us ], [ %.val11.i.us245, %.loopexit187.us ]
-  %.pre.i.us238 = phi ptr [ %52, %51 ], [ %52, %.loopexit ], [ %.pre.i.us239, %Vec_IntPush.exit.us ], [ %.pre.i.us232, %.loopexit187.us ]
+  %.pre.i96.us252 = phi ptr [ %.pre.i96.us251, %51 ], [ %.pre.i96.us251, %.loopexit ], [ %.pre.i96.us250, %Vec_IntPush.exit.us ], [ %.pre.i96.us254, %.loopexit187.us ]
+  %.val11.i.us244 = phi ptr [ %.val11.i.us243, %51 ], [ %.val11.i.us243, %.loopexit ], [ %.val11.i.us242, %Vec_IntPush.exit.us ], [ %.val11.i.us246, %.loopexit187.us ]
+  %.pre.i.us239 = phi ptr [ %52, %51 ], [ %52, %.loopexit ], [ %.pre.i.us240, %Vec_IntPush.exit.us ], [ %.pre.i.us233, %.loopexit187.us ]
   %247 = add nuw nsw i32 %.063204.us, 1
-  %exitcond218.not = icmp eq i32 %247, %smax
-  br i1 %exitcond218.not, label %._crit_edge.us, label %51, !llvm.loop !51
+  %exitcond219.not = icmp eq i32 %247, %smax
+  br i1 %exitcond219.not, label %._crit_edge.us, label %51, !llvm.loop !51
 
 Dau_DecCheckSetTop5.exit184.loopexit.us:          ; preds = %223, %205
   %.0.i171.ph.us = phi i32 [ 1, %223 ], [ 0, %205 ]
@@ -2431,11 +2431,11 @@ Dau_DecCheckSetTop6.exit151.loopexit.us:          ; preds = %183, %168
   br label %125
 
 ._crit_edge.us:                                   ; preds = %.loopexit189.us
-  %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
-  %indvar.next211 = add nuw nsw i64 %indvar210, 1
-  %indvars.iv.next216 = add nuw nsw i32 %indvars.iv215, 1
-  %exitcond225.not = icmp eq i64 %indvar.next211, %wide.trip.count224
-  br i1 %exitcond225.not, label %._crit_edge207, label %.preheader190.us, !llvm.loop !52
+  %indvars.iv.next221 = add nuw nsw i64 %indvars.iv220, 1
+  %indvar.next212 = add nuw nsw i64 %indvar211, 1
+  %indvars.iv.next217 = add nuw nsw i32 %indvars.iv216, 1
+  %exitcond226.not = icmp eq i64 %indvar.next212, %wide.trip.count225
+  br i1 %exitcond226.not, label %._crit_edge208, label %.preheader190.us, !llvm.loop !52
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -2448,7 +2448,7 @@ Dau_DecCheckSetTop6.exit151.loopexit.us:          ; preds = %183, %168
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader191, label %.lr.ph, !llvm.loop !53
 
-._crit_edge207:                                   ; preds = %._crit_edge.us, %.preheader192, %.preheader190.lr.ph, %.preheader191
+._crit_edge208:                                   ; preds = %._crit_edge.us, %.preheader192, %.preheader190.lr.ph, %.preheader191
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

@@ -2006,16 +2006,16 @@ get_cos.exit:                                     ; preds = %.lr.ph.split, %get_
   %118 = fcmp nsz uge double %117, %113
   %119 = fcmp nsz ult float %108, %111
   %or.cond = and i1 %119, %118
-  br i1 %or.cond, label %126, label %.lr.ph.preheader.i86
+  br i1 %or.cond, label %126, label %.lr.ph.i87.preheader
 
-.lr.ph.preheader.i86:                             ; preds = %106
+.lr.ph.i87.preheader:                             ; preds = %106
   %120 = getelementptr inbounds float, ptr %114, i64 %77
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %122 = fsub nsz float %115, %111
   %123 = fdiv nsz float %122, %79
   br label %.lr.ph.i87
 
-.lr.ph.i87:                                       ; preds = %.lr.ph.i87, %.lr.ph.preheader.i86
+.lr.ph.i87:                                       ; preds = %.lr.ph.i87, %.lr.ph.i87.preheader
   %indvars.iv.i88 = phi i64 [ 0, %.lr.ph.preheader.i86 ], [ %indvars.iv.next.i89, %.lr.ph.i87 ]
   %.012.i = phi float [ %111, %.lr.ph.preheader.i86 ], [ %124, %.lr.ph.i87 ]
   %124 = fadd nsz float %123, %.012.i
@@ -2131,9 +2131,9 @@ eval_lpc_spectrum.exit100:                        ; preds = %.lr.ph.i95, %get_co
 
 interpolate.exit:                                 ; preds = %.lr.ph.i87, %.lr.ph.i113, %eval_lpc_spectrum.exit100
   %.not = icmp samesign ugt i64 %indvars.iv.next156, %86
-  br i1 %.not, label %._crit_edge, label %106, !llvm.loop !129
+  br i1 %.not, label %.lr.ph.preheader.i120, label %106, !llvm.loop !129
 
-._crit_edge:                                      ; preds = %interpolate.exit, %.preheader.._crit_edge_crit_edge
+.lr.ph.preheader.i120:                            ; preds = %interpolate.exit, %.preheader.._crit_edge_crit_edge
   %wide.trip.count.i121.pre-phi = phi i64 [ %.pre162, %.preheader.._crit_edge_crit_edge ], [ %wide.trip.count.i, %interpolate.exit ]
   %.pre-phi161 = phi float [ %.pre160, %.preheader.._crit_edge_crit_edge ], [ %79, %interpolate.exit ]
   %.pre-phi = phi i64 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %86, %interpolate.exit ]
@@ -2153,7 +2153,7 @@ interpolate.exit:                                 ; preds = %.lr.ph.i87, %.lr.ph
   %199 = fdiv nsz float %198, %.pre-phi161
   br label %.lr.ph.i122
 
-.lr.ph.i122:                                      ; preds = %.lr.ph.i122, %._crit_edge
+.lr.ph.i122:                                      ; preds = %.lr.ph.i122, %.lr.ph.preheader.i120
   %indvars.iv.i123 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i125, %.lr.ph.i122 ]
   %.012.i124 = phi float [ %197, %._crit_edge ], [ %200, %.lr.ph.i122 ]
   %200 = fadd nsz float %199, %.012.i124

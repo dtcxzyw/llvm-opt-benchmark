@@ -476,11 +476,11 @@ l_Lake_rpad.exit.thread:                          ; preds = %lean_dec.exit6
   %21 = tail call ptr @l_Nat_repeatTR_loop___at_Lake_rpad___spec__1(i32 noundef %6, ptr noundef nonnull %20, ptr noundef nonnull %0)
   br label %lean_dec.exit
 
-22:                                               ; preds = %lean_dec.exit6
+26:                                               ; preds = %lean_dec.exit6
   %23 = or disjoint i64 %18, 1
   %24 = inttoptr i64 %23 to ptr
   %25 = tail call ptr @lean_nat_big_sub(ptr noundef %2, ptr noundef nonnull %24) #3
-  %26 = tail call ptr @l_Nat_repeatTR_loop___at_Lake_rpad___spec__1(i32 noundef %6, ptr noundef %25, ptr noundef nonnull %0)
+  %30 = tail call ptr @l_Nat_repeatTR_loop___at_Lake_rpad___spec__1(i32 noundef %6, ptr noundef %25, ptr noundef nonnull %0)
   %27 = load i32, ptr %2, align 4, !tbaa !5
   %28 = icmp sgt i32 %27, 1
   br i1 %28, label %29, label %31, !prof !4
@@ -490,17 +490,17 @@ l_Lake_rpad.exit.thread:                          ; preds = %lean_dec.exit6
   store i32 %30, ptr %2, align 4, !tbaa !5
   br label %lean_dec.exit
 
-31:                                               ; preds = %22
+36:                                               ; preds = %26
   %.not.i7 = icmp eq i32 %27, 0
-  br i1 %.not.i7, label %lean_dec.exit, label %32
+  br i1 %.not.i7, label %lean_dec.exit, label %37
 
-32:                                               ; preds = %31
+37:                                               ; preds = %36
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %32, %31, %29, %l_Lake_rpad.exit.thread
-  %33 = phi ptr [ %21, %l_Lake_rpad.exit.thread ], [ %26, %29 ], [ %26, %31 ], [ %26, %32 ]
-  ret ptr %33
+lean_dec.exit:                                    ; preds = %37, %36, %29, %l_Lake_rpad.exit.thread
+  %38 = phi ptr [ %21, %l_Lake_rpad.exit.thread ], [ %30, %29 ], [ %30, %31 ], [ %30, %32 ]
+  ret ptr %38
 }
 
 ; Function Attrs: nounwind uwtable

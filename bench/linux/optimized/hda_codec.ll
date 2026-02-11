@@ -5560,14 +5560,14 @@ define internal fastcc void @set_spdif_ctls(ptr noundef %0, i16 noundef zeroext 
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.loopexit, label %15
+  br i1 %14, label %39, label %15
 
-15:                                               ; preds = %4
+34:                                               ; preds = %4
   %16 = load i16, ptr %13, align 2
   %17 = icmp eq i16 %16, 0
-  br i1 %17, label %.loopexit, label %.preheader
+  br i1 %17, label %39, label %.preheader
 
-.preheader:                                       ; preds = %15, %.preheader
+.preheader:; preds = %15, %.preheader
   %18 = phi i16 [ %25, %.preheader ], [ %16, %15 ]
   %19 = phi ptr [ %24, %.preheader ], [ %13, %15 ]
   %20 = zext i16 %18 to i32
@@ -5579,23 +5579,23 @@ define internal fastcc void @set_spdif_ctls(ptr noundef %0, i16 noundef zeroext 
   %26 = icmp eq i16 %25, 0
   br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !51
 
-.loopexit:                                        ; preds = %.preheader, %15, %4
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 828
-  %28 = load i16, ptr %27, align 4
+39:                                               ; preds = %.preheader, %34, %4
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 828
+  %41 = load i16, ptr %40, align 4
   %29 = zext i16 %28 to i32
   %30 = icmp ugt i16 %28, %1
   br i1 %30, label %.thread, label %31
 
-31:                                               ; preds = %.loopexit
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 824
+51:                                               ; preds = %39
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %33 = load i32, ptr %32, align 8
   %34 = add i32 %33, %29
   %35 = icmp ugt i32 %34, %8
   br i1 %35, label %36, label %.thread
 
-36:                                               ; preds = %31
+53:                                               ; preds = %51
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %38 = load ptr, ptr %37, align 8
+  %55 = load ptr, ptr %37, align 8
   %39 = sub nsw i32 %8, %29
   %40 = sext i32 %39 to i64
   %41 = getelementptr i32, ptr %38, i64 %40
@@ -5607,20 +5607,20 @@ define internal fastcc void @set_spdif_ctls(ptr noundef %0, i16 noundef zeroext 
   %47 = or i1 %46, %44
   br i1 %47, label %.thread, label %48
 
-48:                                               ; preds = %36
+58:                                               ; preds = %53
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %invariant.op = or disjoint i32 %9, 32768
   br label %50
 
-50:                                               ; preds = %69, %48
+62:                                               ; preds = %69, %58
   %51 = phi i1 [ true, %48 ], [ false, %69 ]
   %52 = load i16, ptr %27, align 4
   %53 = zext i16 %52 to i32
   %54 = icmp ugt i16 %52, %1
   br i1 %54, label %67, label %55
 
-55:                                               ; preds = %50
-  %56 = load i32, ptr %32, align 8
+70:                                               ; preds = %62
+  %71 = load i32, ptr %52, align 8
   %57 = add i32 %56, %53
   %58 = icmp ugt i32 %57, %8
   br i1 %58, label %59, label %67
@@ -5639,25 +5639,25 @@ define internal fastcc void @set_spdif_ctls(ptr noundef %0, i16 noundef zeroext 
   %68 = load i16, ptr %49, align 8
   br label %69
 
-69:                                               ; preds = %67, %59
-  %70 = phi i16 [ %1, %59 ], [ %68, %67 ]
-  %71 = select i1 %51, i32 8192, i32 0
+72:                                               ; preds = %67, %59
+  %73 = phi i16 [ %1, %59 ], [ %68, %67 ]
+  %74 = select i1 %51, i32 8192, i32 0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !9
-  %72 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %70, i32 noundef 18, ptr noundef nonnull %5) #24
-  %73 = load i32, ptr %5, align 4
-  %74 = icmp sgt i32 %72, -1
-  %75 = and i32 %73, -1073741824
+  %75 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %73, i32 noundef 18, ptr noundef nonnull %5) #24
+  %76 = load i32, ptr %5, align 4
+  %77 = icmp sgt i32 %75, -1
+  %78 = and i32 %76, -1073741824
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %76 = icmp eq i32 %75, 1073741824
-  %77 = select i1 %74, i1 %76, i1 false
-  %78 = select i1 %77, i32 720912, i32 720896
-  %79 = or disjoint i32 %71, %78
-  %.reass = or disjoint i32 %79, %invariant.op
-  %80 = call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %.reass, i32 noundef 128, i32 noundef 0) #24
+  %79 = icmp eq i32 %78, 1073741824
+  %80 = select i1 %77, i1 %79, i1 false
+  %81 = select i1 %80, i32 720912, i32 720896
+  %82 = or disjoint i32 %74, %81
+  %.reass = or disjoint i32 %82, %invariant.op
+  %83 = call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %.reass, i32 noundef 128, i32 noundef 0) #24
   br i1 %51, label %50, label %.thread, !llvm.loop !36
 
-.thread:                                          ; preds = %69, %.loopexit, %31, %36
+.thread:                                          ; preds = %72, %.loopexit, %31, %36
   ret void
 }
 

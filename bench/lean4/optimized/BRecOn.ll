@@ -8018,57 +8018,57 @@ lean_nat_sub.exit:
   %23 = inttoptr i64 %22 to ptr
   %24 = tail call ptr @l_Array_extract___rarg(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull %16) #6
   %25 = tail call ptr @l_Lean_Expr_replaceFVars(ptr noundef %2, ptr noundef nonnull %1, ptr noundef %24) #6
-  %26 = tail call ptr @l_Lean_mkAppN(ptr noundef %3, ptr noundef %24) #6
+  %25 = tail call ptr @l_Lean_mkAppN(ptr noundef %3, ptr noundef %24) #6
   %27 = ptrtoint ptr %24 to i64
   %28 = trunc i64 %27 to i1
   br i1 %28, label %lean_dec.exit, label %29
 
-29:                                               ; preds = %lean_nat_sub.exit
-  %30 = load i32, ptr %24, align 4, !tbaa !8
-  %31 = icmp sgt i32 %30, 1
-  br i1 %31, label %32, label %34, !prof !11
+30:                                               ; preds = %lean_nat_sub.exit
+  %31 = load i32, ptr %24, align 4, !tbaa !8
+  %32 = icmp sgt i32 %31, 1
+  br i1 %32, label %33, label %35, !prof !11
 
-32:                                               ; preds = %29
-  %33 = add nsw i32 %30, -1
-  store i32 %33, ptr %24, align 4, !tbaa !8
+33:                                               ; preds = %30
+  %34 = add nsw i32 %31, -1
+  store i32 %34, ptr %24, align 4, !tbaa !8
   br label %lean_dec.exit
 
-34:                                               ; preds = %29
-  %.not.i34 = icmp eq i32 %30, 0
-  br i1 %.not.i34, label %lean_dec.exit, label %35
+35:                                               ; preds = %30
+  %.not.i34 = icmp eq i32 %31, 0
+  br i1 %.not.i34, label %lean_dec.exit, label %36
 
-35:                                               ; preds = %34
+36:                                               ; preds = %35
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %24) #6
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %35, %34, %32, %lean_nat_sub.exit
+lean_dec.exit:                                    ; preds = %36, %35, %33, %lean_nat_sub.exit
   tail call void @lean_inc_heartbeat() #6
-  %36 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %lean_alloc_closure.exit
+  %37 = tail call noalias ptr @mi_malloc_small(i64 noundef 48) #6
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %39, label %lean_alloc_closure.exit
 
-38:                                               ; preds = %lean_dec.exit
+39:                                               ; preds = %lean_dec.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 lean_alloc_closure.exit:                          ; preds = %lean_dec.exit
-  %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
-  store i32 1, ptr %36, align 4, !tbaa !8
-  store i32 -184549328, ptr %39, align 4
-  %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr @l___private_Lean_Elab_PreDefinition_Structural_BRecOn_0__Lean_Elab_Structural_toBelowAux___lambda__5___boxed, ptr %40, align 8, !tbaa !4
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i16 10, ptr %41, align 8, !tbaa !14
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 18
-  store i16 3, ptr %42, align 2, !tbaa !14
-  %43 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr %4, ptr %43, align 8, !tbaa !4
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store ptr %5, ptr %44, align 8, !tbaa !4
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store ptr %6, ptr %45, align 8, !tbaa !4
-  %46 = tail call ptr @l_Lean_Elab_Structural_searchPProd___rarg(ptr noundef %25, ptr noundef %26, ptr noundef nonnull %36, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
-  ret ptr %46
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  store i32 1, ptr %37, align 4, !tbaa !8
+  store i32 -184549328, ptr %40, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store ptr @l___private_Lean_Elab_PreDefinition_Structural_BRecOn_0__Lean_Elab_Structural_toBelowAux___lambda__5___boxed, ptr %41, align 8, !tbaa !4
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store i16 10, ptr %42, align 8, !tbaa !14
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 18
+  store i16 3, ptr %43, align 2, !tbaa !14
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  store ptr %4, ptr %44, align 8, !tbaa !4
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  store ptr %5, ptr %45, align 8, !tbaa !4
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 40
+  store ptr %6, ptr %46, align 8, !tbaa !4
+  %47 = tail call ptr @l_Lean_Elab_Structural_searchPProd___rarg(ptr noundef %25, ptr noundef %26, ptr noundef nonnull %37, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12)
+  ret ptr %47
 }
 
 declare ptr @l_Array_extract___rarg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

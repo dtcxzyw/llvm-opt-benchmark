@@ -16933,10 +16933,10 @@ for.inc545:                                       ; preds = %for.body532
 if.then.i.i1411:                                  ; preds = %for.inc545
   %add.i.i1400 = add nsw i64 %it.sroa.24.33736, -2
   %div7.i.i1412 = lshr i64 %add.i.i1400, 6
-  %rem.i.i1414 = and i64 %add.i.i1400, 63
+  %rem11.i.i1407 = and i64 %add.i.i1400, 63
   br label %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1415
 
-if.else.i.i1402:                                  ; preds = %for.inc545
+if.else.i.i1402:; preds = %for.inc545
   %sub6.i.i1403 = sub nuw nsw i64 1, %it.sroa.24.33736
   %sub12.i.i1408 = xor i64 %sub6.i.i1403, 63
   br label %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1415

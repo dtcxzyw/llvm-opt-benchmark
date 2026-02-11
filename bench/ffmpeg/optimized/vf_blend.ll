@@ -3946,9 +3946,9 @@ define internal void @blend_extremity_9bit(ptr noundef readonly captures(none) %
 
 .preheader.us:                                    ; preds = %10, %._crit_edge.us
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %._crit_edge.us ], [ 0, %10 ]
-  %.03846.us = phi ptr [ %33, %._crit_edge.us ], [ %4, %10 ]
-  %.03945.us = phi ptr [ %35, %._crit_edge.us ], [ %2, %10 ]
-  %.04044.us = phi ptr [ %34, %._crit_edge.us ], [ %0, %10 ]
+  %.03846.us = phi ptr [ %36, %._crit_edge.us ], [ %4, %10 ]
+  %.03945.us = phi ptr [ %38, %._crit_edge.us ], [ %2, %10 ]
+  %.04044.us = phi ptr [ %37, %._crit_edge.us ], [ %0, %10 ]
   br label %19
 
 19:                                               ; preds = %.preheader.us, %19
@@ -3962,7 +3962,7 @@ define internal void @blend_extremity_9bit(ptr noundef readonly captures(none) %
   %26 = zext i16 %25 to i32
   %reass.add = shl nuw nsw i32 %22, 1
   %27 = add nuw nsw i32 %reass.add, %26
-  %28 = sub nsw i32 511, %27
+  %29 = sub nsw i32 511, %27
   %29 = sitofp i32 %28 to float
   %30 = tail call nsz float @llvm.fmuladd.f32(float %29, float %13, float %23)
   %31 = fptoui float %30 to i16
@@ -3973,9 +3973,9 @@ define internal void @blend_extremity_9bit(ptr noundef readonly captures(none) %
   br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !194
 
 ._crit_edge.us:                                   ; preds = %19
-  %33 = getelementptr inbounds nuw i16, ptr %.03846.us, i64 %14
-  %34 = getelementptr inbounds nuw i16, ptr %.04044.us, i64 %15
-  %35 = getelementptr inbounds nuw i16, ptr %.03945.us, i64 %16
+  %36 = getelementptr inbounds nuw i16, ptr %.03846.us, i64 %14
+  %37 = getelementptr inbounds nuw i16, ptr %.04044.us, i64 %15
+  %38 = getelementptr inbounds nuw i16, ptr %.03945.us, i64 %16
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, %7
   br i1 %exitcond55.not, label %._crit_edge48, label %.preheader.us, !llvm.loop !195
@@ -6340,9 +6340,9 @@ define internal void @blend_extremity_10bit(ptr noundef readonly captures(none) 
 
 .preheader.us:                                    ; preds = %10, %._crit_edge.us
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %._crit_edge.us ], [ 0, %10 ]
-  %.03846.us = phi ptr [ %33, %._crit_edge.us ], [ %4, %10 ]
-  %.03945.us = phi ptr [ %35, %._crit_edge.us ], [ %2, %10 ]
-  %.04044.us = phi ptr [ %34, %._crit_edge.us ], [ %0, %10 ]
+  %.03846.us = phi ptr [ %36, %._crit_edge.us ], [ %4, %10 ]
+  %.03945.us = phi ptr [ %38, %._crit_edge.us ], [ %2, %10 ]
+  %.04044.us = phi ptr [ %37, %._crit_edge.us ], [ %0, %10 ]
   br label %19
 
 19:                                               ; preds = %.preheader.us, %19
@@ -6356,7 +6356,7 @@ define internal void @blend_extremity_10bit(ptr noundef readonly captures(none) 
   %26 = zext i16 %25 to i32
   %reass.add = shl nuw nsw i32 %22, 1
   %27 = add nuw nsw i32 %reass.add, %26
-  %28 = sub nsw i32 1023, %27
+  %29 = sub nsw i32 1023, %27
   %29 = sitofp i32 %28 to float
   %30 = tail call nsz float @llvm.fmuladd.f32(float %29, float %13, float %23)
   %31 = fptoui float %30 to i16
@@ -6367,9 +6367,9 @@ define internal void @blend_extremity_10bit(ptr noundef readonly captures(none) 
   br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !274
 
 ._crit_edge.us:                                   ; preds = %19
-  %33 = getelementptr inbounds nuw i16, ptr %.03846.us, i64 %14
-  %34 = getelementptr inbounds nuw i16, ptr %.04044.us, i64 %15
-  %35 = getelementptr inbounds nuw i16, ptr %.03945.us, i64 %16
+  %36 = getelementptr inbounds nuw i16, ptr %.03846.us, i64 %14
+  %37 = getelementptr inbounds nuw i16, ptr %.04044.us, i64 %15
+  %38 = getelementptr inbounds nuw i16, ptr %.03945.us, i64 %16
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, %7
   br i1 %exitcond55.not, label %._crit_edge48, label %.preheader.us, !llvm.loop !275
@@ -8682,9 +8682,9 @@ define internal void @blend_extremity_12bit(ptr noundef readonly captures(none) 
 
 .preheader.us:                                    ; preds = %10, %._crit_edge.us
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %._crit_edge.us ], [ 0, %10 ]
-  %.03846.us = phi ptr [ %33, %._crit_edge.us ], [ %4, %10 ]
-  %.03945.us = phi ptr [ %35, %._crit_edge.us ], [ %2, %10 ]
-  %.04044.us = phi ptr [ %34, %._crit_edge.us ], [ %0, %10 ]
+  %.03846.us = phi ptr [ %36, %._crit_edge.us ], [ %4, %10 ]
+  %.03945.us = phi ptr [ %38, %._crit_edge.us ], [ %2, %10 ]
+  %.04044.us = phi ptr [ %37, %._crit_edge.us ], [ %0, %10 ]
   br label %19
 
 19:                                               ; preds = %.preheader.us, %19
@@ -8698,7 +8698,7 @@ define internal void @blend_extremity_12bit(ptr noundef readonly captures(none) 
   %26 = zext i16 %25 to i32
   %reass.add = shl nuw nsw i32 %22, 1
   %27 = add nuw nsw i32 %reass.add, %26
-  %28 = sub nsw i32 4095, %27
+  %29 = sub nsw i32 4095, %27
   %29 = sitofp i32 %28 to float
   %30 = tail call nsz float @llvm.fmuladd.f32(float %29, float %13, float %23)
   %31 = fptoui float %30 to i16
@@ -8709,9 +8709,9 @@ define internal void @blend_extremity_12bit(ptr noundef readonly captures(none) 
   br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !352
 
 ._crit_edge.us:                                   ; preds = %19
-  %33 = getelementptr inbounds nuw i16, ptr %.03846.us, i64 %14
-  %34 = getelementptr inbounds nuw i16, ptr %.04044.us, i64 %15
-  %35 = getelementptr inbounds nuw i16, ptr %.03945.us, i64 %16
+  %36 = getelementptr inbounds nuw i16, ptr %.03846.us, i64 %14
+  %37 = getelementptr inbounds nuw i16, ptr %.04044.us, i64 %15
+  %38 = getelementptr inbounds nuw i16, ptr %.03945.us, i64 %16
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, %7
   br i1 %exitcond55.not, label %._crit_edge48, label %.preheader.us, !llvm.loop !353
@@ -11024,9 +11024,9 @@ define internal void @blend_extremity_14bit(ptr noundef readonly captures(none) 
 
 .preheader.us:                                    ; preds = %10, %._crit_edge.us
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %._crit_edge.us ], [ 0, %10 ]
-  %.03846.us = phi ptr [ %33, %._crit_edge.us ], [ %4, %10 ]
-  %.03945.us = phi ptr [ %35, %._crit_edge.us ], [ %2, %10 ]
-  %.04044.us = phi ptr [ %34, %._crit_edge.us ], [ %0, %10 ]
+  %.03846.us = phi ptr [ %36, %._crit_edge.us ], [ %4, %10 ]
+  %.03945.us = phi ptr [ %38, %._crit_edge.us ], [ %2, %10 ]
+  %.04044.us = phi ptr [ %37, %._crit_edge.us ], [ %0, %10 ]
   br label %19
 
 19:                                               ; preds = %.preheader.us, %19
@@ -11040,7 +11040,7 @@ define internal void @blend_extremity_14bit(ptr noundef readonly captures(none) 
   %26 = zext i16 %25 to i32
   %reass.add = shl nuw nsw i32 %22, 1
   %27 = add nuw nsw i32 %reass.add, %26
-  %28 = sub nsw i32 16383, %27
+  %29 = sub nsw i32 16383, %27
   %29 = sitofp i32 %28 to float
   %30 = tail call nsz float @llvm.fmuladd.f32(float %29, float %13, float %23)
   %31 = fptoui float %30 to i16
@@ -11051,9 +11051,9 @@ define internal void @blend_extremity_14bit(ptr noundef readonly captures(none) 
   br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !430
 
 ._crit_edge.us:                                   ; preds = %19
-  %33 = getelementptr inbounds nuw i16, ptr %.03846.us, i64 %14
-  %34 = getelementptr inbounds nuw i16, ptr %.04044.us, i64 %15
-  %35 = getelementptr inbounds nuw i16, ptr %.03945.us, i64 %16
+  %36 = getelementptr inbounds nuw i16, ptr %.03846.us, i64 %14
+  %37 = getelementptr inbounds nuw i16, ptr %.04044.us, i64 %15
+  %38 = getelementptr inbounds nuw i16, ptr %.03945.us, i64 %16
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, %7
   br i1 %exitcond55.not, label %._crit_edge48, label %.preheader.us, !llvm.loop !431
