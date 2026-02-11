@@ -328,7 +328,7 @@ define i32 @Ssw_SmlCountXorImplication(ptr noundef readonly captures(none) %0, p
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load i32, ptr %33, align 8, !tbaa !14
   %35 = icmp slt i32 %34, %12
-  br i1 %.not, label %48, label %36
+  br i1 %.not, label %66, label %36
 
 36:                                               ; preds = %4
   br i1 %35, label %.lr.ph.preheader, label %.loopexit
@@ -356,33 +356,33 @@ define i32 @Ssw_SmlCountXorImplication(ptr noundef readonly captures(none) %0, p
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
-48:                                               ; preds = %4
+66:                                               ; preds = %4
   br i1 %35, label %.lr.ph37.preheader, label %.loopexit
 
-.lr.ph37.preheader:                               ; preds = %48
-  %49 = sext i32 %34 to i64
+.lr.ph37.preheader:                               ; preds = %66
+  %67 = sext i32 %34 to i64
   %wide.trip.count45 = sext i32 %12 to i64
   br label %.lr.ph37
 
 .lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
-  %indvars.iv42 = phi i64 [ %49, %.lr.ph37.preheader ], [ %indvars.iv.next43, %.lr.ph37 ]
+  %indvars.iv42 = phi i64 [ %67, %.lr.ph37.preheader ], [ %indvars.iv.next43, %.lr.ph37 ]
   %.236 = phi i32 [ 0, %.lr.ph37.preheader ], [ %60, %.lr.ph37 ]
-  %50 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv42
-  %51 = load i32, ptr %50, align 4, !tbaa !15
-  %52 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv42
-  %53 = load i32, ptr %52, align 4, !tbaa !15
-  %54 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv42
-  %55 = load i32, ptr %54, align 4, !tbaa !15
-  %56 = xor i32 %53, %55
-  %57 = xor i32 %56, -1
-  %58 = and i32 %51, %57
-  %59 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %58)
+  %68 = getelementptr inbounds i32, ptr %15, i64 %indvars.iv42
+  %69 = load i32, ptr %68, align 4, !tbaa !15
+  %70 = getelementptr inbounds i32, ptr %20, i64 %indvars.iv42
+  %71 = load i32, ptr %70, align 4, !tbaa !15
+  %72 = getelementptr inbounds i32, ptr %25, i64 %indvars.iv42
+  %73 = load i32, ptr %72, align 4, !tbaa !15
+  %74 = xor i32 %71, %73
+  %75 = xor i32 %74, -1
+  %76 = and i32 %69, %75
+  %59 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %76)
   %60 = add nuw nsw i32 %59, %.236
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, 1
   %exitcond46.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count45
   br i1 %exitcond46.not, label %.loopexit, label %.lr.ph37, !llvm.loop !24
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph37, %36, %48
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph37, %36, %66
   %.1 = phi i32 [ %60, %.lr.ph37 ], [ 0, %48 ], [ 0, %36 ], [ %47, %.lr.ph ]
   ret i32 %.1
 }
@@ -414,7 +414,7 @@ define i32 @Ssw_SmlCountEqual(ptr noundef readonly captures(none) %0, ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %20, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.015 = phi i32 [ 0, %.lr.ph.preheader ], [ %28, %.lr.ph ]
+  %.015 = phi i32 [ 0, %.lr.ph.preheader ], [ %46, %.lr.ph ]
   %21 = getelementptr inbounds i32, ptr %11, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !15
   %23 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
@@ -428,7 +428,7 @@ define i32 @Ssw_SmlCountEqual(ptr noundef readonly captures(none) %0, ptr nounde
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %28, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %46, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
@@ -540,9 +540,9 @@ define i32 @Ssw_SmlNodeCountOnesReal(ptr noundef readonly captures(none) %0, ptr
 .lr.ph24:                                         ; preds = %.lr.ph24.preheader, %.lr.ph24
   %indvars.iv29 = phi i64 [ 0, %.lr.ph24.preheader ], [ %indvars.iv.next30, %.lr.ph24 ]
   %.223 = phi i32 [ 0, %.lr.ph24.preheader ], [ %30, %.lr.ph24 ]
-  %27 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv29
-  %28 = load i32, ptr %27, align 4, !tbaa !15
-  %29 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %28)
+  %45 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv29
+  %46 = load i32, ptr %45, align 4, !tbaa !15
+  %29 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %46)
   %30 = add nuw nsw i32 %29, %.223
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32

@@ -713,42 +713,42 @@ select.unfold.i:                                  ; preds = %12, %select.unfold.
 Kit_TruthCountOnes.exit:                          ; preds = %select.unfold.i, %12
   %.0.lcssa.i = phi i32 [ 0, %12 ], [ %17, %select.unfold.i ]
   %.idx = mul nuw nsw i64 %indvars.iv, 104
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
-  store i32 %.0.lcssa.i, ptr %19, align 4, !tbaa !46
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  tail call void @Kit_TruthCountOnesInCofs0(ptr noundef %3, i32 noundef %1, ptr noundef nonnull %20) #16
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
+  store i32 %.0.lcssa.i, ptr %37, align 4, !tbaa !46
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  tail call void @Kit_TruthCountOnesInCofs0(ptr noundef %3, i32 noundef %1, ptr noundef nonnull %38) #16
   br i1 %.not, label %Aig_RManSortNums.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %Kit_TruthCountOnes.exit, %._crit_edge.i
   %indvars.iv32.i = phi i64 [ %indvars.iv.next33.i, %._crit_edge.i ], [ 0, %Kit_TruthCountOnes.exit ]
   %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i35, %._crit_edge.i ], [ 1, %Kit_TruthCountOnes.exit ]
-  %21 = trunc nuw nsw i64 %indvars.iv32.i to i32
+  %39 = trunc nuw nsw i64 %indvars.iv32.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv29.i = phi i64 [ %indvars.iv.i33, %.lr.ph.preheader.i ], [ %indvars.iv.next30.i, %.lr.ph.i ]
-  %.02124.i = phi i32 [ %21, %.lr.ph.preheader.i ], [ %spec.select.i34, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv29.i
-  %23 = load i32, ptr %22, align 4, !tbaa !23
-  %24 = sext i32 %.02124.i to i64
-  %25 = getelementptr inbounds i32, ptr %20, i64 %24
-  %26 = load i32, ptr %25, align 4, !tbaa !23
-  %27 = icmp sgt i32 %23, %26
-  %28 = trunc nuw nsw i64 %indvars.iv29.i to i32
-  %spec.select.i34 = select i1 %27, i32 %28, i32 %.02124.i
+  %.02124.i = phi i32 [ %39, %.lr.ph.preheader.i ], [ %spec.select.i34, %.lr.ph.i ]
+  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv29.i
+  %41 = load i32, ptr %40, align 4, !tbaa !23
+  %42 = sext i32 %.02124.i to i64
+  %43 = getelementptr inbounds i32, ptr %38, i64 %42
+  %44 = load i32, ptr %43, align 4, !tbaa !23
+  %45 = icmp sgt i32 %41, %44
+  %46 = trunc nuw nsw i64 %indvars.iv29.i to i32
+  %spec.select.i34 = select i1 %45, i32 %46, i32 %.02124.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !44
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next33.i = add nuw nsw i64 %indvars.iv32.i, 1
-  %29 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv32.i
-  %30 = load i32, ptr %29, align 4, !tbaa !23
-  %31 = sext i32 %spec.select.i34 to i64
-  %32 = getelementptr inbounds i32, ptr %20, i64 %31
-  %33 = load i32, ptr %32, align 4, !tbaa !23
-  store i32 %33, ptr %29, align 4, !tbaa !23
-  store i32 %30, ptr %32, align 4, !tbaa !23
+  %47 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv32.i
+  %48 = load i32, ptr %47, align 4, !tbaa !23
+  %49 = sext i32 %spec.select.i34 to i64
+  %50 = getelementptr inbounds i32, ptr %38, i64 %49
+  %51 = load i32, ptr %50, align 4, !tbaa !23
+  store i32 %51, ptr %47, align 4, !tbaa !23
+  store i32 %48, ptr %50, align 4, !tbaa !23
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i33, 1
   %exitcond36.not.i = icmp eq i64 %indvars.iv.next33.i, %wide.trip.count35.i
   br i1 %exitcond36.not.i, label %Aig_RManSortNums.exit, label %.lr.ph.preheader.i, !llvm.loop !45
@@ -761,8 +761,8 @@ select.unfold.i39:                                ; preds = %Aig_RManSortNums.ex
   %indvars.iv.i40 = phi i64 [ %indvars.iv.next.i42, %select.unfold.i39 ], [ %10, %Aig_RManSortNums.exit ]
   %.08.i41 = phi i32 [ %37, %select.unfold.i39 ], [ 0, %Aig_RManSortNums.exit ]
   %indvars.iv.next.i42 = add nsw i64 %indvars.iv.i40, -1
-  %34 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i42
-  %35 = load i32, ptr %34, align 4, !tbaa !23
+  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next.i42
+  %53 = load i32, ptr %52, align 4, !tbaa !23
   %36 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %35)
   %37 = add nuw nsw i32 %36, %.08.i41
   %38 = icmp samesign ugt i64 %indvars.iv.i40, 1
@@ -770,42 +770,42 @@ select.unfold.i39:                                ; preds = %Aig_RManSortNums.ex
 
 Kit_TruthCountOnes.exit43:                        ; preds = %select.unfold.i39, %Aig_RManSortNums.exit
   %.0.lcssa.i37 = phi i32 [ 0, %Aig_RManSortNums.exit ], [ %37, %select.unfold.i39 ]
-  %39 = getelementptr inbounds nuw i8, ptr %19, i64 52
-  store i32 %.0.lcssa.i37, ptr %39, align 4, !tbaa !46
-  %40 = getelementptr inbounds nuw i8, ptr %19, i64 56
-  tail call void @Kit_TruthCountOnesInCofs0(ptr noundef %3, i32 noundef %1, ptr noundef nonnull %40) #16
+  %75 = getelementptr inbounds nuw i8, ptr %37, i64 52
+  store i32 %.0.lcssa.i37, ptr %75, align 4, !tbaa !46
+  %76 = getelementptr inbounds nuw i8, ptr %37, i64 56
+  tail call void @Kit_TruthCountOnesInCofs0(ptr noundef %3, i32 noundef %1, ptr noundef nonnull %76) #16
   br i1 %.not, label %Aig_RManSortNums.exit60, label %.lr.ph.preheader.i47
 
 .lr.ph.preheader.i47:                             ; preds = %Kit_TruthCountOnes.exit43, %._crit_edge.i57
   %indvars.iv32.i48 = phi i64 [ %indvars.iv.next33.i50, %._crit_edge.i57 ], [ 0, %Kit_TruthCountOnes.exit43 ]
   %indvars.iv.i49 = phi i64 [ %indvars.iv.next.i58, %._crit_edge.i57 ], [ 1, %Kit_TruthCountOnes.exit43 ]
-  %41 = trunc nuw nsw i64 %indvars.iv32.i48 to i32
+  %77 = trunc nuw nsw i64 %indvars.iv32.i48 to i32
   br label %.lr.ph.i51
 
 .lr.ph.i51:                                       ; preds = %.lr.ph.i51, %.lr.ph.preheader.i47
   %indvars.iv29.i52 = phi i64 [ %indvars.iv.i49, %.lr.ph.preheader.i47 ], [ %indvars.iv.next30.i55, %.lr.ph.i51 ]
-  %.02124.i53 = phi i32 [ %41, %.lr.ph.preheader.i47 ], [ %spec.select.i54, %.lr.ph.i51 ]
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv29.i52
-  %43 = load i32, ptr %42, align 4, !tbaa !23
-  %44 = sext i32 %.02124.i53 to i64
-  %45 = getelementptr inbounds i32, ptr %40, i64 %44
-  %46 = load i32, ptr %45, align 4, !tbaa !23
-  %47 = icmp sgt i32 %43, %46
-  %48 = trunc nuw nsw i64 %indvars.iv29.i52 to i32
-  %spec.select.i54 = select i1 %47, i32 %48, i32 %.02124.i53
+  %.02124.i53 = phi i32 [ %77, %.lr.ph.preheader.i47 ], [ %spec.select.i54, %.lr.ph.i51 ]
+  %78 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv29.i52
+  %79 = load i32, ptr %78, align 4, !tbaa !23
+  %80 = sext i32 %.02124.i53 to i64
+  %81 = getelementptr inbounds i32, ptr %76, i64 %80
+  %82 = load i32, ptr %81, align 4, !tbaa !23
+  %83 = icmp sgt i32 %79, %82
+  %84 = trunc nuw nsw i64 %indvars.iv29.i52 to i32
+  %spec.select.i54 = select i1 %83, i32 %84, i32 %.02124.i53
   %indvars.iv.next30.i55 = add nuw nsw i64 %indvars.iv29.i52, 1
   %exitcond.not.i56 = icmp eq i64 %indvars.iv.next30.i55, %wide.trip.count.i
   br i1 %exitcond.not.i56, label %._crit_edge.i57, label %.lr.ph.i51, !llvm.loop !44
 
 ._crit_edge.i57:                                  ; preds = %.lr.ph.i51
   %indvars.iv.next33.i50 = add nuw nsw i64 %indvars.iv32.i48, 1
-  %49 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv32.i48
-  %50 = load i32, ptr %49, align 4, !tbaa !23
-  %51 = sext i32 %spec.select.i54 to i64
-  %52 = getelementptr inbounds i32, ptr %40, i64 %51
-  %53 = load i32, ptr %52, align 4, !tbaa !23
-  store i32 %53, ptr %49, align 4, !tbaa !23
-  store i32 %50, ptr %52, align 4, !tbaa !23
+  %85 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv32.i48
+  %86 = load i32, ptr %85, align 4, !tbaa !23
+  %87 = sext i32 %spec.select.i54 to i64
+  %88 = getelementptr inbounds i32, ptr %76, i64 %87
+  %89 = load i32, ptr %88, align 4, !tbaa !23
+  store i32 %89, ptr %85, align 4, !tbaa !23
+  store i32 %86, ptr %88, align 4, !tbaa !23
   %indvars.iv.next.i58 = add nuw nsw i64 %indvars.iv.i49, 1
   %exitcond36.not.i59 = icmp eq i64 %indvars.iv.next33.i50, %wide.trip.count35.i
   br i1 %exitcond36.not.i59, label %Aig_RManSortNums.exit60, label %.lr.ph.preheader.i47, !llvm.loop !45
@@ -1457,13 +1457,13 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #13
 declare i32 @llvm.ctpop.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #14
+declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #14
+declare i32 @llvm.usub.sat.i32(i32, i32) #15
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

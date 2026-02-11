@@ -1362,44 +1362,44 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %.lr.ph.i
   %91 = add nuw nsw i32 %90, %.076115
   %indvars.iv.next139 = add nuw nsw i64 %indvars.iv138, 1
   %exitcond141.not = icmp eq i64 %indvars.iv.next139, 16384
-  br i1 %exitcond141.not, label %92, label %.preheader, !llvm.loop !76
+  br i1 %exitcond141.not, label %110, label %.preheader, !llvm.loop !76
 
-92:                                               ; preds = %.preheader
+110:                                              ; preds = %.preheader
   %.not.i = icmp eq ptr %17, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %93
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %111
 
-93:                                               ; preds = %92
+111:                                              ; preds = %110
   call void @free(ptr noundef nonnull %17) #20
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %92, %93
-  %94 = sub nsw i32 524288, %91
-  %95 = sitofp i32 %94 to double
-  %96 = fmul nnan double %95, 0x3EC0000000000000
-  %97 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, double noundef %96)
-  %98 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %94, i32 noundef 524288)
+Vec_PtrFree.exit:                                 ; preds = %110, %111
+  %112 = sub nsw i32 524288, %91
+  %113 = sitofp i32 %112 to double
+  %114 = fmul nnan double %113, 0x3EC0000000000000
+  %115 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, double noundef %114)
+  %116 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %112, i32 noundef 524288)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %99 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #20
-  %100 = icmp slt i32 %99, 0
-  br i1 %100, label %Abc_Clock.exit96, label %101
+  %117 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #20
+  %118 = icmp slt i32 %117, 0
+  br i1 %118, label %Abc_Clock.exit96, label %119
 
-101:                                              ; preds = %Vec_PtrFree.exit
-  %102 = load i64, ptr %3, align 8, !tbaa !66
-  %103 = mul nsw i64 %102, 1000000
-  %104 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %105 = load i64, ptr %104, align 8, !tbaa !68
-  %106 = sdiv i64 %105, 1000
-  %107 = add nsw i64 %106, %103
+119:                                              ; preds = %Vec_PtrFree.exit
+  %120 = load i64, ptr %3, align 8, !tbaa !66
+  %121 = mul nsw i64 %120, 1000000
+  %122 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %123 = load i64, ptr %122, align 8, !tbaa !68
+  %124 = sdiv i64 %123, 1000
+  %125 = add nsw i64 %124, %121
   br label %Abc_Clock.exit96
 
-Abc_Clock.exit96:                                 ; preds = %Vec_PtrFree.exit, %101
-  %.0.i95 = phi i64 [ %107, %101 ], [ -1, %Vec_PtrFree.exit ]
+Abc_Clock.exit96:                                 ; preds = %Vec_PtrFree.exit, %119
+  %.0.i95 = phi i64 [ %125, %101 ], [ -1, %Vec_PtrFree.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %108 = add i64 %.0.i95, %.0.i.neg
-  %109 = sitofp i64 %108 to double
-  %110 = fdiv double %109, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %110)
+  %126 = add i64 %.0.i95, %.0.i.neg
+  %127 = sitofp i64 %126 to double
+  %128 = fdiv double %127, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.6, double noundef %128)
   ret void
 }
 

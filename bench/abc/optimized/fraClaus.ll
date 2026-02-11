@@ -6574,45 +6574,45 @@ Fra_ClausEstimateCoverageOne.exit:                ; preds = %.lr.ph30.split.i, %
   %114 = add nuw nsw i32 %113, %.084
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 2048
-  br i1 %exitcond100.not, label %115, label %.critedge, !llvm.loop !203
+  br i1 %exitcond100.not, label %133, label %.critedge, !llvm.loop !203
 
-115:                                              ; preds = %.critedge
+133:                                              ; preds = %.critedge
   call void @Fra_SmlStop(ptr noundef nonnull %14) #25
   %.not = icmp eq ptr %calloc, null
-  br i1 %.not, label %117, label %116
+  br i1 %.not, label %135, label %134
 
-116:                                              ; preds = %115
+134:                                              ; preds = %133
   call void @free(ptr noundef nonnull %calloc) #25
-  br label %117
+  br label %135
 
-117:                                              ; preds = %115, %116
-  %118 = sub nsw i32 65536, %114
-  %119 = sitofp i32 %118 to double
-  %120 = fmul nnan double %119, 0x3EF0000000000000
-  %121 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, double noundef %120)
-  %122 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %118, i32 noundef 65536)
+135:                                              ; preds = %133, %134
+  %136 = sub nsw i32 65536, %114
+  %137 = sitofp i32 %136 to double
+  %138 = fmul nnan double %137, 0x3EF0000000000000
+  %139 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, double noundef %138)
+  %140 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %136, i32 noundef 65536)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.29)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %123 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #25
-  %124 = icmp slt i32 %123, 0
-  br i1 %124, label %Abc_Clock.exit71, label %125
+  %141 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #25
+  %142 = icmp slt i32 %141, 0
+  br i1 %142, label %Abc_Clock.exit71, label %143
 
-125:                                              ; preds = %117
-  %126 = load i64, ptr %2, align 8, !tbaa !102
-  %127 = mul nsw i64 %126, 1000000
-  %128 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %129 = load i64, ptr %128, align 8, !tbaa !104
-  %130 = sdiv i64 %129, 1000
-  %131 = add nsw i64 %130, %127
+143:                                              ; preds = %135
+  %144 = load i64, ptr %2, align 8, !tbaa !102
+  %145 = mul nsw i64 %144, 1000000
+  %146 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %147 = load i64, ptr %146, align 8, !tbaa !104
+  %148 = sdiv i64 %147, 1000
+  %149 = add nsw i64 %148, %145
   br label %Abc_Clock.exit71
 
-Abc_Clock.exit71:                                 ; preds = %117, %125
-  %.0.i70 = phi i64 [ %131, %125 ], [ -1, %117 ]
+Abc_Clock.exit71:                                 ; preds = %135, %143
+  %.0.i70 = phi i64 [ %149, %125 ], [ -1, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %132 = add i64 %.0.i70, %.0.i.neg
-  %133 = sitofp i64 %132 to double
-  %134 = fdiv double %133, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %134)
+  %150 = add i64 %.0.i70, %.0.i.neg
+  %151 = sitofp i64 %150 to double
+  %152 = fdiv double %151, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %152)
   ret void
 }
 

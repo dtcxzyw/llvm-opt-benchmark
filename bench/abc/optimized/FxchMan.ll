@@ -1659,37 +1659,37 @@ Vec_IntPush.exit69:                               ; preds = %.Vec_IntGrow.exit10
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !82
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %89 = tail call i32 @llvm.umax.i32(i32 %88, i32 1)
+  %107 = tail call i32 @llvm.umax.i32(i32 %88, i32 1)
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %Vec_IntPush.exit69
-  %.051.lcssa = phi i32 [ 1, %Vec_IntPush.exit69 ], [ %89, %._crit_edge.loopexit ]
+  %.051.lcssa = phi i32 [ 1, %Vec_IntPush.exit69 ], [ %107, %._crit_edge.loopexit ]
   br i1 %.not, label %.preheader, label %.preheader70
 
 .preheader70:                                     ; preds = %._crit_edge, %.preheader70
-  %.073 = phi i32 [ %91, %.preheader70 ], [ 0, %._crit_edge ]
-  %90 = tail call i32 @Fxch_DivAdd(ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #23
-  %91 = add nuw i32 %.073, 1
-  %exitcond85.not = icmp eq i32 %91, %.051.lcssa
+  %.073 = phi i32 [ %109, %.preheader70 ], [ 0, %._crit_edge ]
+  %108 = tail call i32 @Fxch_DivAdd(ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #23
+  %109 = add nuw i32 %.073, 1
+  %exitcond85.not = icmp eq i32 %109, %.051.lcssa
   br i1 %exitcond85.not, label %.loopexit, label %.preheader70, !llvm.loop !83
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader
-  %.174 = phi i32 [ %93, %.preheader ], [ 0, %._crit_edge ]
-  %92 = tail call i32 @Fxch_DivRemove(ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #23
-  %93 = add nuw i32 %.174, 1
-  %exitcond87.not = icmp eq i32 %93, %.051.lcssa
+  %.174 = phi i32 [ %111, %.preheader ], [ 0, %._crit_edge ]
+  %110 = tail call i32 @Fxch_DivRemove(ptr noundef nonnull %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #23
+  %111 = add nuw i32 %.174, 1
+  %exitcond87.not = icmp eq i32 %111, %.051.lcssa
   br i1 %exitcond87.not, label %.loopexit, label %.preheader, !llvm.loop !84
 
 .loopexit:                                        ; preds = %.preheader70, %.preheader
   %.sink112 = phi i32 [ -1, %.preheader ], [ 1, %.preheader70 ]
-  %94 = load i32, ptr %15, align 8, !tbaa !85
-  %95 = add nsw i32 %94, %.sink112
-  store i32 %95, ptr %15, align 8, !tbaa !85
+  %112 = load i32, ptr %15, align 8, !tbaa !85
+  %113 = add nsw i32 %112, %.sink112
+  store i32 %113, ptr %15, align 8, !tbaa !85
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %.val59 = load i32, ptr %9, align 4, !tbaa !25
-  %96 = trunc nuw i64 %indvars.iv.next91 to i32
-  %97 = icmp sgt i32 %.val59, %96
-  br i1 %97, label %24, label %.critedge2.loopexit, !llvm.loop !86
+  %114 = trunc nuw i64 %indvars.iv.next91 to i32
+  %115 = icmp sgt i32 %.val59, %114
+  br i1 %115, label %24, label %.critedge2.loopexit, !llvm.loop !86
 
 .critedge:                                        ; preds = %17, %.critedge2.loopexit, %4
   ret void
