@@ -170,7 +170,7 @@ A3coeff.exit:                                     ; preds = %polyvalx.exit.i
   %72 = sext i32 %.01924.i to i64
   br label %73
 
-73:                                               ; preds = %.preheader.i, %polyvalx.exit.i39
+73:                                               ; preds = %polyvalx.exit.i39, %.preheader.i
   %indvars.iv.i32 = phi i64 [ %72, %.preheader.i ], [ %indvars.iv.next.i41, %polyvalx.exit.i39 ]
   %.123.i = phi i32 [ %.026.i, %.preheader.i ], [ %91, %polyvalx.exit.i39 ]
   %.01722.i = phi i32 [ 5, %.preheader.i ], [ %92, %polyvalx.exit.i39 ]

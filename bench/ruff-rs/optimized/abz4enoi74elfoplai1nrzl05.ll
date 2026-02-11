@@ -8255,12 +8255,12 @@ define hidden void @_ZN21ruff_python_formatter6string9normalize16normalize_strin
 129:                                              ; preds = %73, %75
   br i1 %22, label %.backedge.backedge, label %190
 
-.backedge.backedge:                               ; preds = %129, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119", %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222, %773, %769, %659, %656, %194, %.thread.i183, %106
-  %.sroa.66.0.be = phi i32 [ 1114113, %129 ], [ 1114113, %194 ], [ 1114113, %656 ], [ 1114113, %769 ], [ 1114113, %106 ], [ 1114113, %.thread.i183 ], [ %.sroa.66.2, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ], [ 1114113, %659 ], [ 1114113, %773 ], [ 1114113, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 ]
-  %.sroa.64.0.be = phi i64 [ %.sroa.64.0, %129 ], [ %.sroa.64.0, %194 ], [ %.sroa.64.0, %656 ], [ %.sroa.64.0, %769 ], [ %.sroa.64.0, %106 ], [ %.sroa.64.0, %.thread.i183 ], [ %.sroa.0.0.i.i.i548, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ], [ %.sroa.64.0, %659 ], [ %.sroa.64.0, %773 ], [ %.sroa.64.0, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 ]
-  %.sroa.44.0.be = phi i64 [ %.sroa.44.1, %129 ], [ %.sroa.44.1, %194 ], [ %.sroa.44.4, %656 ], [ %.sroa.44.5, %769 ], [ %.sroa.44.1, %106 ], [ %703, %.thread.i183 ], [ %.sroa.44.6543, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ], [ %.sroa.44.4, %659 ], [ %.sroa.44.1, %773 ], [ %.sroa.44.1, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 ]
-  %.sroa.0.0472.be = phi ptr [ %.sroa.0.1, %129 ], [ %.sroa.0.1, %194 ], [ %.sroa.0.4, %656 ], [ %.sroa.0.5, %769 ], [ %.sroa.0.1, %106 ], [ %.sroa.0.16, %.thread.i183 ], [ %.sroa.0.10545, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ], [ %.sroa.0.4, %659 ], [ %.sroa.0.1, %773 ], [ %.sroa.0.1, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 ]
-  %.sroa.021.0.be = phi i64 [ %.sroa.021.0, %129 ], [ %.sroa.021.0, %194 ], [ %.sroa.021.2, %656 ], [ %770, %769 ], [ %79, %106 ], [ %.sroa.021.2, %.thread.i183 ], [ %189, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ], [ %.sroa.021.2, %659 ], [ %.sroa.021.0, %773 ], [ %812, %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 ]
+.backedge.backedge:                               ; preds = %129, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119", %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd8b94dd25eaa6dd9E.exit.i219", %773, %769, %659, %656, %194, %.thread.i183, %106
+  %.sroa.66.0.be = phi i32 [ 1114113, %129 ], [ 1114113, %194 ], [ 1114113, %656 ], [ 1114113, %769 ], [ 1114113, %106 ], [ 1114113, %.thread.i183 ], [ %.sroa.66.2, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ], [ 1114113, %659 ], [ 1114113, %773 ], [ 1114113, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd8b94dd25eaa6dd9E.exit.i219" ]
+  %.sroa.64.0.be = phi i64 [ %.sroa.64.0, %129 ], [ %.sroa.64.0, %194 ], [ %.sroa.64.0, %656 ], [ %.sroa.64.0, %769 ], [ %.sroa.64.0, %106 ], [ %.sroa.64.0, %.thread.i183 ], [ %.sroa.0.0.i.i.i548, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ], [ %.sroa.64.0, %659 ], [ %.sroa.64.0, %773 ], [ %.sroa.64.0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd8b94dd25eaa6dd9E.exit.i219" ]
+  %.sroa.44.0.be = phi i64 [ %.sroa.44.1, %129 ], [ %.sroa.44.1, %194 ], [ %.sroa.44.4, %656 ], [ %.sroa.44.5, %769 ], [ %.sroa.44.1, %106 ], [ %703, %.thread.i183 ], [ %.sroa.44.6543, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ], [ %.sroa.44.4, %659 ], [ %.sroa.44.1, %773 ], [ %.sroa.44.1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd8b94dd25eaa6dd9E.exit.i219" ]
+  %.sroa.0.0472.be = phi ptr [ %.sroa.0.1, %129 ], [ %.sroa.0.1, %194 ], [ %.sroa.0.4, %656 ], [ %.sroa.0.5, %769 ], [ %.sroa.0.1, %106 ], [ %.sroa.0.16, %.thread.i183 ], [ %.sroa.0.10545, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ], [ %.sroa.0.4, %659 ], [ %.sroa.0.1, %773 ], [ %.sroa.0.1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd8b94dd25eaa6dd9E.exit.i219" ]
+  %.sroa.021.0.be = phi i64 [ %.sroa.021.0, %129 ], [ %.sroa.021.0, %194 ], [ %.sroa.021.2, %656 ], [ %770, %769 ], [ %79, %106 ], [ %.sroa.021.2, %.thread.i183 ], [ %189, %"_ZN122_$LT$ruff_python_formatter..string..normalize..CharIndicesWithOffset$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf0961ef26ce8d064E.exit119" ], [ %.sroa.021.2, %659 ], [ %.sroa.021.0, %773 ], [ %812, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd8b94dd25eaa6dd9E.exit.i219" ]
   br label %.backedge
 
 130:                                              ; preds = %125, %123, %114
@@ -9649,7 +9649,7 @@ thread-pre-split:                                 ; preds = %.thread.i.i
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h3090820664dc9481E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.86c23db3b5593fac2c462c369b316c3a.54)
           to label %802 unwind label %.loopexit
 
-802:                                              ; preds = %801, %797
+802:                                              ; preds = %797, %801
   %803 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !778, !nonnull !3, !noundef !3
   %804 = getelementptr inbounds nuw i8, ptr %803, i64 %798
   store i8 92, ptr %804, align 1
@@ -9657,13 +9657,13 @@ thread-pre-split:                                 ; preds = %.thread.i.i
   store i64 %805, ptr %.sroa.534.0..sroa_idx, align 8, !alias.scope !778
   %806 = load i64, ptr %9, align 8, !range !204, !alias.scope !783, !noundef !3
   %807 = icmp eq i64 %805, %806
-  br i1 %807, label %808, label %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222
+  br i1 %807, label %808, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd8b94dd25eaa6dd9E.exit.i219"
 
 808:                                              ; preds = %802
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h3090820664dc9481E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.86c23db3b5593fac2c462c369b316c3a.54)
-          to label %_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222 unwind label %.loopexit
+          to label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd8b94dd25eaa6dd9E.exit.i219" unwind label %.loopexit
 
-_ZN5alloc6string6String4push17h444d5a6351d622eeE.exit222: ; preds = %802, %808
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd8b94dd25eaa6dd9E.exit.i219": ; preds = %808, %802
   %809 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !783, !nonnull !3, !noundef !3
   %810 = getelementptr inbounds nuw i8, ptr %809, i64 %805
   store i8 %26, ptr %810, align 1

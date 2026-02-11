@@ -3530,10 +3530,8 @@ common.ret:                                       ; preds = %"_ZN4core3ptr86drop
   br i1 %83, label %.thread30.i, label %.thread.i
 
 "_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hbd03db94297fd2b3E.exit.i": ; preds = %85
-  %.not.i.i.i = icmp samesign ugt i64 %62, 1
   %104 = sub nuw nsw i64 1, %62
-  %.0.i.i.i = select i1 %.not.i.i.i, i64 1, i64 %104
-  store i64 %.0.i.i.i, ptr %80, align 8, !alias.scope !418, !noalias !436
+  store i64 %104, ptr %80, align 8, !alias.scope !418, !noalias !436
   store i64 0, ptr %81, align 8, !alias.scope !418, !noalias !436
   %.sroa.0.0.copyload17.i = load i16, ptr %.sroa.3.0.copyload, align 4, !noalias !438
   %105 = icmp eq i16 %.sroa.0.0.copyload17.i, 2

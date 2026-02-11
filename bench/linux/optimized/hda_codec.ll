@@ -5551,116 +5551,113 @@ define dso_local void @snd_hda_spdif_ctls_assign(ptr noundef %0, i32 noundef %1,
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @set_spdif_ctls(ptr noundef %0, i16 noundef zeroext %1, i32 noundef range(i32 0, 256) %2, i32 noundef range(i32 -1, 256) %3) unnamed_addr #8 align 16 {
   %5 = alloca i32, align 4
-  %6 = icmp eq i32 %3, -1
-  %7 = shl nuw nsw i32 %3, 8
-  %8 = select i1 %6, i32 255, i32 65535
-  %9 = select i1 %6, i32 0, i32 %7
-  %10 = or disjoint i32 %9, %2
-  %11 = zext i16 %1 to i32
-  %12 = shl i32 %11, 20
-  %13 = or disjoint i32 %12, 986368
-  %14 = tail call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %13, i32 noundef %8, i32 noundef %10) #24
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 1312
-  %16 = load ptr, ptr %15, align 8
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %.loopexit, label %18
+  %6 = shl nuw nsw i32 %3, 8
+  %7 = or disjoint i32 %6, %2
+  %8 = zext i16 %1 to i32
+  %9 = shl i32 %8, 20
+  %10 = or disjoint i32 %9, 986368
+  %11 = tail call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %10, i32 noundef 65535, i32 noundef %7) #24
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 1312
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp eq ptr %13, null
+  br i1 %14, label %.loopexit, label %15
 
-18:                                               ; preds = %4
-  %19 = load i16, ptr %16, align 2
-  %20 = icmp eq i16 %19, 0
-  br i1 %20, label %.loopexit, label %.preheader
+15:                                               ; preds = %4
+  %16 = load i16, ptr %13, align 2
+  %17 = icmp eq i16 %16, 0
+  br i1 %17, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %18, %.preheader
-  %21 = phi i16 [ %28, %.preheader ], [ %19, %18 ]
-  %22 = phi ptr [ %27, %.preheader ], [ %16, %18 ]
-  %23 = zext i16 %21 to i32
-  %24 = shl i32 %23, 20
-  %25 = or disjoint i32 %24, 986368
-  %26 = tail call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %25, i32 noundef %8, i32 noundef %10) #24
-  %27 = getelementptr i8, ptr %22, i64 2
-  %28 = load i16, ptr %27, align 2
-  %29 = icmp eq i16 %28, 0
-  br i1 %29, label %.loopexit, label %.preheader, !llvm.loop !51
+.preheader:                                       ; preds = %15, %.preheader
+  %18 = phi i16 [ %25, %.preheader ], [ %16, %15 ]
+  %19 = phi ptr [ %24, %.preheader ], [ %13, %15 ]
+  %20 = zext i16 %18 to i32
+  %21 = shl i32 %20, 20
+  %22 = or disjoint i32 %21, 986368
+  %23 = tail call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %22, i32 noundef 65535, i32 noundef %7) #24
+  %24 = getelementptr i8, ptr %19, i64 2
+  %25 = load i16, ptr %24, align 2
+  %26 = icmp eq i16 %25, 0
+  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !51
 
-.loopexit:                                        ; preds = %.preheader, %18, %4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 828
-  %31 = load i16, ptr %30, align 4
-  %32 = zext i16 %31 to i32
-  %33 = icmp ugt i16 %31, %1
-  br i1 %33, label %.thread, label %34
+.loopexit:                                        ; preds = %.preheader, %15, %4
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 828
+  %28 = load i16, ptr %27, align 4
+  %29 = zext i16 %28 to i32
+  %30 = icmp ugt i16 %28, %1
+  br i1 %30, label %.thread, label %31
 
-34:                                               ; preds = %.loopexit
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 824
-  %36 = load i32, ptr %35, align 8
-  %37 = add i32 %36, %32
-  %38 = icmp ugt i32 %37, %11
-  br i1 %38, label %39, label %.thread
+31:                                               ; preds = %.loopexit
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 824
+  %33 = load i32, ptr %32, align 8
+  %34 = add i32 %33, %29
+  %35 = icmp ugt i32 %34, %8
+  br i1 %35, label %36, label %.thread
 
-39:                                               ; preds = %34
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1144
-  %41 = load ptr, ptr %40, align 8
-  %42 = sub nsw i32 %11, %32
-  %43 = sext i32 %42 to i64
-  %44 = getelementptr i32, ptr %41, i64 %43
-  %45 = load i32, ptr %44, align 4
-  %46 = and i32 %45, 4
-  %47 = icmp eq i32 %46, 0
-  %48 = and i32 %2, 1
-  %49 = icmp eq i32 %48, 0
-  %50 = or i1 %49, %47
-  br i1 %50, label %.thread, label %51
+36:                                               ; preds = %31
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 1144
+  %38 = load ptr, ptr %37, align 8
+  %39 = sub nsw i32 %8, %29
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr i32, ptr %38, i64 %40
+  %42 = load i32, ptr %41, align 4
+  %43 = and i32 %42, 4
+  %44 = icmp eq i32 %43, 0
+  %45 = and i32 %2, 1
+  %46 = icmp eq i32 %45, 0
+  %47 = or i1 %46, %44
+  br i1 %47, label %.thread, label %48
 
-51:                                               ; preds = %39
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 768
-  %invariant.op = or disjoint i32 %12, 32768
-  br label %53
+48:                                               ; preds = %36
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %invariant.op = or disjoint i32 %9, 32768
+  br label %50
 
-53:                                               ; preds = %72, %51
-  %54 = phi i1 [ true, %51 ], [ false, %72 ]
-  %55 = load i16, ptr %30, align 4
-  %56 = zext i16 %55 to i32
-  %57 = icmp ugt i16 %55, %1
-  br i1 %57, label %70, label %58
+50:                                               ; preds = %69, %48
+  %51 = phi i1 [ true, %48 ], [ false, %69 ]
+  %52 = load i16, ptr %27, align 4
+  %53 = zext i16 %52 to i32
+  %54 = icmp ugt i16 %52, %1
+  br i1 %54, label %67, label %55
 
-58:                                               ; preds = %53
-  %59 = load i32, ptr %35, align 8
-  %60 = add i32 %59, %56
-  %61 = icmp ugt i32 %60, %11
-  br i1 %61, label %62, label %70
+55:                                               ; preds = %50
+  %56 = load i32, ptr %32, align 8
+  %57 = add i32 %56, %53
+  %58 = icmp ugt i32 %57, %8
+  br i1 %58, label %59, label %67
 
-62:                                               ; preds = %58
-  %63 = load ptr, ptr %40, align 8
-  %64 = sub nsw i32 %11, %56
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr i32, ptr %63, i64 %65
-  %67 = load i32, ptr %66, align 4
-  %68 = and i32 %67, 8
-  %69 = icmp eq i32 %68, 0
-  br i1 %69, label %70, label %72
+59:                                               ; preds = %55
+  %60 = load ptr, ptr %37, align 8
+  %61 = sub nsw i32 %8, %53
+  %62 = sext i32 %61 to i64
+  %63 = getelementptr i32, ptr %60, i64 %62
+  %64 = load i32, ptr %63, align 4
+  %65 = and i32 %64, 8
+  %66 = icmp eq i32 %65, 0
+  br i1 %66, label %67, label %69
 
-70:                                               ; preds = %62, %58, %53
-  %71 = load i16, ptr %52, align 8
-  br label %72
+67:                                               ; preds = %59, %55, %50
+  %68 = load i16, ptr %49, align 8
+  br label %69
 
-72:                                               ; preds = %70, %62
-  %73 = phi i16 [ %1, %62 ], [ %71, %70 ]
-  %74 = select i1 %54, i32 8192, i32 0
+69:                                               ; preds = %67, %59
+  %70 = phi i16 [ %1, %59 ], [ %68, %67 ]
+  %71 = select i1 %51, i32 8192, i32 0
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !9
-  %75 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %73, i32 noundef 18, ptr noundef nonnull %5) #24
-  %76 = load i32, ptr %5, align 4
-  %77 = icmp sgt i32 %75, -1
-  %78 = and i32 %76, -1073741824
+  %72 = call i32 @_snd_hdac_read_parm(ptr noundef %0, i16 noundef zeroext %70, i32 noundef 18, ptr noundef nonnull %5) #24
+  %73 = load i32, ptr %5, align 4
+  %74 = icmp sgt i32 %72, -1
+  %75 = and i32 %73, -1073741824
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %79 = icmp eq i32 %78, 1073741824
-  %80 = select i1 %77, i1 %79, i1 false
-  %81 = select i1 %80, i32 720912, i32 720896
-  %82 = or disjoint i32 %74, %81
-  %.reass = or disjoint i32 %82, %invariant.op
-  %83 = call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %.reass, i32 noundef 128, i32 noundef 0) #24
-  br i1 %54, label %53, label %.thread, !llvm.loop !36
+  %76 = icmp eq i32 %75, 1073741824
+  %77 = select i1 %74, i1 %76, i1 false
+  %78 = select i1 %77, i32 720912, i32 720896
+  %79 = or disjoint i32 %71, %78
+  %.reass = or disjoint i32 %79, %invariant.op
+  %80 = call i32 @snd_hdac_regmap_update_raw(ptr noundef %0, i32 noundef %.reass, i32 noundef 128, i32 noundef 0) #24
+  br i1 %51, label %50, label %.thread, !llvm.loop !36
 
-.thread:                                          ; preds = %72, %.loopexit, %34, %39
+.thread:                                          ; preds = %69, %.loopexit, %31, %36
   ret void
 }
 

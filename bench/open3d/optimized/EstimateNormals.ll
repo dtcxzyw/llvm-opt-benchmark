@@ -1603,8 +1603,8 @@ define linkonce_odr noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_impl
 
 .critedge:                                        ; preds = %27
   %32 = add nuw i64 %.069, 1
-  %exitcond107.not = icmp eq i64 %.069, %smax
-  br i1 %exitcond107.not, label %.critedge.thread, label %.preheader95
+  %exitcond106.not = icmp eq i64 %.069, %smax
+  br i1 %exitcond106.not, label %.critedge.thread, label %.preheader95
 
 .preheader95:                                     ; preds = %.critedge, %34
   %.168.in = phi i64 [ %.168, %34 ], [ %.1, %.critedge ]
@@ -1842,9 +1842,9 @@ _ZN5Eigen8internalL19tridiagonal_qr_stepILi0EddlEEvPT0_S3_T2_S4_PT1_S4_.exit: ; 
   %166 = getelementptr inbounds nuw double, ptr %0, i64 %.0102
   %167 = load double, ptr %166, align 8, !tbaa !29
   %gep.us.i.i.i.i = getelementptr i8, ptr %166, i64 8
-  br i1 %165, label %.preheader25.us.preheader.i.i.i.i.preheader, label %.preheader25.us43.i.i.i.i
+  br i1 %165, label %.preheader25.us.preheader.i.i.i.i, label %.preheader25.us43.i.i.i.i
 
-.preheader25.us.preheader.i.i.i.i.preheader:      ; preds = %.preheader
+.preheader25.us.preheader.i.i.i.i:                ; preds = %.preheader
   %168 = load <2 x double>, ptr %gep.us.i.i.i.i, align 8, !tbaa !21
   %.sroa.0.8.vec.extract.i.i.i.us.i.i.i.i = extractelement <2 x double> %168, i64 1
   %.sroa.0.0.vec.extract.i.i.i.us.i.i.i.i = extractelement <2 x double> %168, i64 0
@@ -1858,7 +1858,7 @@ _ZN5Eigen8internalL19tridiagonal_qr_stepILi0EddlEEvPT0_S3_T2_S4_PT1_S4_.exit: ; 
   %173 = fcmp olt double %172, %167
   br i1 %173, label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEdPT_.exit.thread91, label %.loopexit
 
-_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEdPT_.exit: ; preds = %.preheader25.us.preheader.i.i.i.i.preheader
+_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEdPT_.exit: ; preds = %.preheader25.us.preheader.i.i.i.i
   %174 = insertelement <2 x double> poison, double %170, i64 0
   %175 = shufflevector <2 x double> %174, <2 x double> poison, <2 x i32> zeroinitializer
   %176 = fcmp oeq <2 x double> %175, %168
@@ -1897,7 +1897,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEE
   store double %194, ptr %193, align 8, !tbaa !29
   br label %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEdPT_.exit.thread
 
-_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEdPT_.exit.thread: ; preds = %.preheader25.us.preheader.i.i.i.i.preheader, %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEdPT_.exit.thread91, %187, %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEdPT_.exit
+_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEdPT_.exit.thread: ; preds = %.preheader25.us.preheader.i.i.i.i, %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEdPT_.exit.thread91, %187, %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEdPT_.exit
   br i1 %165, label %.preheader, label %.loopexit, !llvm.loop !74
 
 .loopexit:                                        ; preds = %.preheader25.us43.i.i.i.i, %_ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEEE8minCoeffIlEEdPT_.exit.thread, %.critedge.thread

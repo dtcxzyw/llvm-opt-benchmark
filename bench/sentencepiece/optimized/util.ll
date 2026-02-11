@@ -217,7 +217,7 @@ define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10Decod
   store i64 1, ptr %2, align 8, !tbaa !14
   %10 = load i8, ptr %0, align 1, !tbaa !12
   %11 = zext i8 %10 to i32
-  br label %89
+  br label %86
 
 12:                                               ; preds = %3
   %13 = icmp ugt i64 %6, 1
@@ -244,7 +244,7 @@ define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10Decod
   %26 = zext nneg i8 %25 to i32
   %27 = or disjoint i32 %20, %26
   store i64 2, ptr %2, align 8, !tbaa !14
-  br label %89
+  br label %86
 
 28:                                               ; preds = %14
   %.not = icmp eq i64 %6, 2
@@ -286,7 +286,7 @@ define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10Decod
 
 54:                                               ; preds = %50
   store i64 3, ptr %2, align 8, !tbaa !14
-  br label %89
+  br label %86
 
 55:                                               ; preds = %29
   %56 = icmp ugt i64 %6, 3
@@ -322,26 +322,21 @@ define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10Decod
 
 81:                                               ; preds = %59
   %82 = icmp slt i8 %74, -64
-  %83 = icmp samesign ugt i32 %67, 65535
-  %or.cond7 = select i1 %82, i1 %83, i1 false
-  br i1 %or.cond7, label %84, label %.thread55
+  %83 = add nsw i32 %67, -65536
+  %84 = icmp ult i32 %83, 1048576
+  %or.cond74 = select i1 %82, i1 %84, i1 false
+  br i1 %or.cond74, label %85, label %.thread55
 
-84:                                               ; preds = %81
-  %85 = icmp samesign ult i32 %78, 55296
-  %86 = icmp samesign ult i32 %67, 1114112
-  %87 = or i1 %86, %85
-  br i1 %87, label %88, label %.thread55
-
-88:                                               ; preds = %84
+85:                                               ; preds = %81
   store i64 4, ptr %2, align 8, !tbaa !14
-  br label %89
+  br label %86
 
-.thread55:                                        ; preds = %59, %81, %84, %12, %28, %32, %47, %50, %18, %55
+.thread55:                                        ; preds = %59, %81, %12, %28, %32, %47, %50, %18, %55
   store i64 1, ptr %2, align 8, !tbaa !14
-  br label %89
+  br label %86
 
-89:                                               ; preds = %88, %54, %.critedge, %.thread55, %9
-  %.0 = phi i32 [ %11, %9 ], [ 65533, %.thread55 ], [ %27, %.critedge ], [ %45, %54 ], [ %78, %88 ]
+86:                                               ; preds = %85, %54, %.critedge, %.thread55, %9
+  %.0 = phi i32 [ %11, %9 ], [ 65533, %.thread55 ], [ %27, %.critedge ], [ %45, %54 ], [ %78, %85 ]
   ret i32 %.0
 }
 

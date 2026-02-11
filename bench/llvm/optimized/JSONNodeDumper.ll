@@ -30455,7 +30455,7 @@ _ZNK5clang16TemplateArgument13getAsIntegralEv.exit: ; preds = %2
 
 _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %20, %26
   %.sink3.i13 = phi i64 [ %.sink3.i12, %20 ], [ %.sink3.i, %26 ]
-  %.sink4.i10 = phi i1 [ true, %20 ], [ false, %26 ]
+  %.sink4.i10.not = phi i1 [ true, %20 ], [ false, %26 ]
   %.0.i = phi i64 [ %.0.i.i, %20 ], [ %28, %26 ]
   store i16 3, ptr %4, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -30465,7 +30465,7 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %20, %26
   call void @_ZN4llvm4json7OStream12attributeEndEv(ptr noundef nonnull align 8 dereferenceable(176) %5) #23
   call void @_ZN4llvm4json5Value7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #23
   %30 = icmp eq i64 %.sink3.i13, 0
-  %or.cond = select i1 %.sink4.i10, i1 true, i1 %30
+  %or.cond = select i1 %.sink4.i10.not, i1 true, i1 %30
   br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit, label %31
 
 31:                                               ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit

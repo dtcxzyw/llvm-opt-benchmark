@@ -608,11 +608,6 @@ decode_frame_header.exit:                         ; preds = %144, %141
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.19, i32 noundef %.096.lcssa140.i, i32 noundef %.pre142.i) #10
   br label %decode_picture_header.exit.thread
 
-decode_picture_header.exit.thread:                ; preds = %216, %221, %256, %259, %266, %227, %176, %167, %._crit_edge
-  %.0.i5769 = phi i32 [ -1094995529, %176 ], [ -1094995529, %256 ], [ -1094995529, %259 ], [ -1094995529, %167 ], [ -1094995529, %._crit_edge ], [ -1094995529, %266 ], [ -1094995529, %227 ], [ -12, %216 ], [ -22, %221 ]
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.6) #10
-  br label %decode_frame_header.exit.thread
-
 decode_picture_header.exit:                       ; preds = %265
   %267 = load ptr, ptr %5, align 8, !tbaa !4
   %268 = load ptr, ptr %158, align 8, !tbaa !71
@@ -624,6 +619,11 @@ decode_picture_header.exit:                       ; preds = %265
   %274 = getelementptr inbounds nuw i8, ptr %267, i64 256
   %275 = load ptr, ptr %274, align 8, !tbaa !61
   br i1 %273, label %.lr.ph.i60, label %decode_picture.exit
+
+decode_picture_header.exit.thread:                ; preds = %216, %221, %256, %259, %266, %227, %176, %167, %._crit_edge
+  %.0.i5769 = phi i32 [ -1094995529, %176 ], [ -1094995529, %256 ], [ -1094995529, %259 ], [ -1094995529, %167 ], [ -1094995529, %._crit_edge ], [ -1094995529, %266 ], [ -1094995529, %227 ], [ -22, %221 ], [ -12, %216 ]
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.6) #10
+  br label %decode_frame_header.exit.thread
 
 .lr.ph.i60:                                       ; preds = %decode_picture_header.exit
   %wide.trip.count.i61 = zext nneg i32 %272 to i64

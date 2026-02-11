@@ -1538,65 +1538,61 @@ seekpoint_array_new_.exit:                        ; preds = %18
 
 22:                                               ; preds = %8
   %23 = load i32, ptr %9, align 8, !tbaa !13
-  %24 = mul nuw nsw i64 %3, 24
-  %25 = icmp ugt i32 %1, 178956970
-  br i1 %25, label %.critedge, label %26
+  %24 = icmp eq i32 %1, 0
+  br i1 %24, label %25, label %26
+
+25:                                               ; preds = %22
+  tail call void @free(ptr noundef nonnull %11) #33
+  br label %29
 
 26:                                               ; preds = %22
-  %27 = icmp eq i32 %1, 0
-  br i1 %27, label %28, label %29
+  %27 = mul nuw nsw i64 %3, 24
+  %28 = tail call ptr @realloc(ptr noundef nonnull %11, i64 noundef %27) #34
+  %.not39 = icmp eq ptr %28, null
+  br i1 %.not39, label %.critedge, label %29
 
-28:                                               ; preds = %26
-  tail call void @free(ptr noundef nonnull %11) #33
-  br label %31
-
-29:                                               ; preds = %26
-  %30 = tail call ptr @realloc(ptr noundef nonnull %11, i64 noundef %24) #34
-  %.not39 = icmp eq ptr %30, null
-  br i1 %.not39, label %.critedge, label %31
-
-31:                                               ; preds = %29, %28
-  %storemerge = phi ptr [ null, %28 ], [ %30, %29 ]
+29:                                               ; preds = %26, %25
+  %storemerge = phi ptr [ null, %25 ], [ %28, %26 ]
   store ptr %storemerge, ptr %10, align 8, !tbaa !13
-  %32 = icmp ugt i32 %1, %23
-  br i1 %32, label %33, label %.critedge.thread
+  %30 = icmp ugt i32 %1, %23
+  br i1 %30, label %31, label %.critedge.thread
 
-33:                                               ; preds = %31
-  %34 = load i32, ptr %9, align 8, !tbaa !13
-  %35 = icmp ult i32 %34, %1
-  br i1 %35, label %.lr.ph, label %.critedge.thread
+31:                                               ; preds = %29
+  %32 = load i32, ptr %9, align 8, !tbaa !13
+  %33 = icmp ult i32 %32, %1
+  br i1 %33, label %.lr.ph, label %.critedge.thread
 
-.lr.ph:                                           ; preds = %33
-  %36 = load i64, ptr @FLAC__STREAM_METADATA_SEEKPOINT_PLACEHOLDER, align 8, !tbaa !76
-  %37 = zext nneg i32 %34 to i64
-  br label %38
+.lr.ph:                                           ; preds = %31
+  %34 = load i64, ptr @FLAC__STREAM_METADATA_SEEKPOINT_PLACEHOLDER, align 8, !tbaa !76
+  %35 = zext i32 %32 to i64
+  br label %36
 
-38:                                               ; preds = %.lr.ph, %38
-  %indvars.iv = phi i64 [ %37, %.lr.ph ], [ %indvars.iv.next, %38 ]
+36:                                               ; preds = %.lr.ph, %36
+  %indvars.iv = phi i64 [ %35, %.lr.ph ], [ %indvars.iv.next, %36 ]
+  %37 = load ptr, ptr %10, align 8, !tbaa !13
+  %38 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %37, i64 %indvars.iv
+  store i64 %34, ptr %38, align 8, !tbaa !44
   %39 = load ptr, ptr %10, align 8, !tbaa !13
   %40 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %39, i64 %indvars.iv
-  store i64 %36, ptr %40, align 8, !tbaa !44
-  %41 = load ptr, ptr %10, align 8, !tbaa !13
-  %42 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %41, i64 %indvars.iv
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i64 0, ptr %43, align 8, !tbaa !46
-  %44 = load ptr, ptr %10, align 8, !tbaa !13
-  %45 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %44, i64 %indvars.iv
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store i32 0, ptr %46, align 8, !tbaa !47
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store i64 0, ptr %41, align 8, !tbaa !46
+  %42 = load ptr, ptr %10, align 8, !tbaa !13
+  %43 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %42, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  store i32 0, ptr %44, align 8, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %3
-  br i1 %exitcond.not, label %.critedge.thread, label %38, !llvm.loop !78
+  br i1 %exitcond.not, label %.critedge.thread, label %36, !llvm.loop !78
 
-.critedge.thread:                                 ; preds = %38, %33, %31, %seekpoint_array_new_.exit
+.critedge.thread:                                 ; preds = %36, %31, %29, %seekpoint_array_new_.exit
   store i32 %1, ptr %9, align 8, !tbaa !13
-  %47 = mul i32 %1, 18
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %47, ptr %48, align 8, !tbaa !8
+  %45 = mul i32 %1, 18
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %45, ptr %46, align 8, !tbaa !8
   br label %.critedge
 
-.critedge:                                        ; preds = %22, %29, %seekpoint_array_new_.exit.thread, %13, %2, %.critedge.thread
-  %.032 = phi i32 [ 0, %seekpoint_array_new_.exit.thread ], [ 0, %2 ], [ 1, %13 ], [ 1, %.critedge.thread ], [ 0, %29 ], [ 0, %22 ]
+.critedge:                                        ; preds = %26, %seekpoint_array_new_.exit.thread, %13, %2, %.critedge.thread
+  %.032 = phi i32 [ 0, %seekpoint_array_new_.exit.thread ], [ 0, %2 ], [ 1, %13 ], [ 1, %.critedge.thread ], [ 0, %26 ]
   ret i32 %.032
 }
 

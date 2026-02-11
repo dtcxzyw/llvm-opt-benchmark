@@ -16906,21 +16906,15 @@ for.end527:                                       ; preds = %invoke.cont508
   br i1 %cmp5313735, label %for.body532.preheader, label %invoke.cont550
 
 for.body532.preheader:                            ; preds = %for.end527
-  %cmp.i.i1393 = icmp samesign ugt i64 %it.sroa.24.2, 1
-  %add.i.i = add nsw i64 %it.sroa.24.2, -2
   %sub6.i.i = sub nuw nsw i64 1, %it.sroa.24.2
   %sub12.i.i = xor i64 %sub6.i.i, 63
-  %storemerge.i.i = select i1 %cmp.i.i1393, i64 %add.i.i, i64 %sub12.i.i
-  %div7.i.i = lshr i64 %add.i.i, 6
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %it.sroa.0.2, i64 %div7.i.i
   %add.ptr10.i.i = getelementptr inbounds i8, ptr %it.sroa.0.2, i64 -8
-  %add.ptr10.sink.i.i = select i1 %cmp.i.i1393, ptr %add.ptr.i.i, ptr %add.ptr10.i.i
   br label %for.body532
 
-for.body532:                                      ; preds = %for.body532.preheader, %for.inc545
-  %i448.33738 = phi i64 [ %i448.3, %for.inc545 ], [ %i448.33734, %for.body532.preheader ]
-  %it.sroa.0.33737 = phi ptr [ %add.ptr10.sink.i.i1409, %for.inc545 ], [ %add.ptr10.sink.i.i, %for.body532.preheader ]
-  %it.sroa.24.33736 = phi i64 [ %storemerge.i.i1410, %for.inc545 ], [ %storemerge.i.i, %for.body532.preheader ]
+for.body532:                                      ; preds = %for.body532.preheader, %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1415
+  %i448.33738 = phi i64 [ %i448.3, %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1415 ], [ %i448.33734, %for.body532.preheader ]
+  %it.sroa.0.33737 = phi ptr [ %add.ptr10.sink.i.i1409, %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1415 ], [ %add.ptr10.i.i, %for.body532.preheader ]
+  %it.sroa.24.33736 = phi i64 [ %storemerge.i.i1410, %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1415 ], [ %sub12.i.i, %for.body532.preheader ]
   %367 = load i64, ptr %it.sroa.0.33737, align 8
   %shl.i.i1396 = shl nuw i64 1, %it.sroa.24.33736
   %and.i.i1397 = and i64 %367, %shl.i.i1396
@@ -16933,19 +16927,29 @@ for.body532:                                      ; preds = %for.body532.prehead
           to label %for.inc545 unwind label %lpad446.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 for.inc545:                                       ; preds = %for.body532
-  %cmp.i.i1401 = icmp slt i64 %it.sroa.24.33736, 2
+  %cmp.i.i1401 = icmp samesign ugt i64 %it.sroa.24.33736, 1
+  br i1 %cmp.i.i1401, label %if.then.i.i1411, label %if.else.i.i1402
+
+if.then.i.i1411:                                  ; preds = %for.inc545
   %add.i.i1400 = add nsw i64 %it.sroa.24.33736, -2
-  %sub6.i.i1403 = sub i64 1, %it.sroa.24.33736
-  %rem11.i.i1407 = and i64 %sub6.i.i1403, 63
-  %sub12.i.i1408 = xor i64 %rem11.i.i1407, 63
-  %div7.i.i1412.pn = sext i1 %cmp.i.i1401 to i64
-  %storemerge.i.i1410 = select i1 %cmp.i.i1401, i64 %sub12.i.i1408, i64 %add.i.i1400
+  %div7.i.i1412 = lshr i64 %add.i.i1400, 6
+  %rem.i.i1414 = and i64 %add.i.i1400, 63
+  br label %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1415
+
+if.else.i.i1402:                                  ; preds = %for.inc545
+  %sub6.i.i1403 = sub nuw nsw i64 1, %it.sroa.24.33736
+  %sub12.i.i1408 = xor i64 %sub6.i.i1403, 63
+  br label %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1415
+
+_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1415: ; preds = %if.then.i.i1411, %if.else.i.i1402
+  %div7.i.i1412.pn = phi i64 [ %div7.i.i1412, %if.then.i.i1411 ], [ -1, %if.else.i.i1402 ]
+  %storemerge.i.i1410 = phi i64 [ %rem.i.i1414, %if.then.i.i1411 ], [ %sub12.i.i1408, %if.else.i.i1402 ]
   %add.ptr10.sink.i.i1409 = getelementptr inbounds i64, ptr %it.sroa.0.33737, i64 %div7.i.i1412.pn
   %i448.3 = add nsw i64 %i448.33738, -2
   %cmp531 = icmp sgt i64 %i448.33738, 1
   br i1 %cmp531, label %for.body532, label %invoke.cont550.loopexit, !llvm.loop !55
 
-invoke.cont550.loopexit:                          ; preds = %for.inc545
+invoke.cont550.loopexit:                          ; preds = %_ZN5eastl24bitvector_const_iteratorImEmIEl.exit1415
   %.pre3814 = load ptr, ptr %mpEnd.i.i1297, align 8
   %.pre3815 = load i64, ptr %mFreeBitCount.i1298, align 8
   %.pre3826 = sub i64 0, %.pre3815

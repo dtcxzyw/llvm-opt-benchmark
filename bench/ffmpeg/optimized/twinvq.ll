@@ -1943,7 +1943,8 @@ get_cos.exit.us136:                               ; preds = %.lr.ph.split, %get_
   %.pre = sext i32 %75 to i64
   %.pre158 = add nsw i32 %5, -1
   %.pre160 = uitofp nneg i32 %5 to float
-  br label %.lr.ph.preheader.i120
+  %.pre162 = zext nneg i32 %.pre158 to i64
+  br label %._crit_edge
 
 .lr.ph139:                                        ; preds = %.preheader
   %76 = zext nneg i32 %5 to i64
@@ -2005,18 +2006,18 @@ get_cos.exit:                                     ; preds = %.lr.ph.split, %get_
   %118 = fcmp nsz uge double %117, %113
   %119 = fcmp nsz ult float %108, %111
   %or.cond = and i1 %119, %118
-  br i1 %or.cond, label %126, label %.lr.ph.i87.preheader
+  br i1 %or.cond, label %126, label %.lr.ph.preheader.i86
 
-.lr.ph.i87.preheader:                             ; preds = %106
+.lr.ph.preheader.i86:                             ; preds = %106
   %120 = getelementptr inbounds float, ptr %114, i64 %77
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
   %122 = fsub nsz float %115, %111
   %123 = fdiv nsz float %122, %79
   br label %.lr.ph.i87
 
-.lr.ph.i87:                                       ; preds = %.lr.ph.i87.preheader, %.lr.ph.i87
-  %indvars.iv.i88 = phi i64 [ %indvars.iv.next.i89, %.lr.ph.i87 ], [ 0, %.lr.ph.i87.preheader ]
-  %.012.i = phi float [ %124, %.lr.ph.i87 ], [ %111, %.lr.ph.i87.preheader ]
+.lr.ph.i87:                                       ; preds = %.lr.ph.i87, %.lr.ph.preheader.i86
+  %indvars.iv.i88 = phi i64 [ 0, %.lr.ph.preheader.i86 ], [ %indvars.iv.next.i89, %.lr.ph.i87 ]
+  %.012.i = phi float [ %111, %.lr.ph.preheader.i86 ], [ %124, %.lr.ph.i87 ]
   %124 = fadd nsz float %123, %.012.i
   %125 = getelementptr inbounds nuw float, ptr %121, i64 %indvars.iv.i88
   store float %124, ptr %125, align 4, !tbaa !61
@@ -2130,11 +2131,11 @@ eval_lpc_spectrum.exit100:                        ; preds = %.lr.ph.i95, %get_co
 
 interpolate.exit:                                 ; preds = %.lr.ph.i87, %.lr.ph.i113, %eval_lpc_spectrum.exit100
   %.not = icmp samesign ugt i64 %indvars.iv.next156, %86
-  br i1 %.not, label %.lr.ph.preheader.i120, label %106, !llvm.loop !129
+  br i1 %.not, label %._crit_edge, label %106, !llvm.loop !129
 
-.lr.ph.preheader.i120:                            ; preds = %interpolate.exit, %.preheader.._crit_edge_crit_edge
+._crit_edge:                                      ; preds = %interpolate.exit, %.preheader.._crit_edge_crit_edge
+  %wide.trip.count.i121.pre-phi = phi i64 [ %.pre162, %.preheader.._crit_edge_crit_edge ], [ %wide.trip.count.i, %interpolate.exit ]
   %.pre-phi161 = phi float [ %.pre160, %.preheader.._crit_edge_crit_edge ], [ %79, %interpolate.exit ]
-  %.pre-phi159 = phi i32 [ %.pre158, %.preheader.._crit_edge_crit_edge ], [ %78, %interpolate.exit ]
   %.pre-phi = phi i64 [ %.pre, %.preheader.._crit_edge_crit_edge ], [ %86, %interpolate.exit ]
   %186 = zext nneg i32 %4 to i64
   %187 = getelementptr inbounds nuw float, ptr %2, i64 %186
@@ -2150,17 +2151,16 @@ interpolate.exit:                                 ; preds = %.lr.ph.i87, %.lr.ph
   %197 = load float, ptr %196, align 4, !tbaa !61
   %198 = fsub nsz float %195, %197
   %199 = fdiv nsz float %198, %.pre-phi161
-  %wide.trip.count.i121 = zext nneg i32 %.pre-phi159 to i64
   br label %.lr.ph.i122
 
-.lr.ph.i122:                                      ; preds = %.lr.ph.i122, %.lr.ph.preheader.i120
-  %indvars.iv.i123 = phi i64 [ 0, %.lr.ph.preheader.i120 ], [ %indvars.iv.next.i125, %.lr.ph.i122 ]
-  %.012.i124 = phi float [ %197, %.lr.ph.preheader.i120 ], [ %200, %.lr.ph.i122 ]
+.lr.ph.i122:                                      ; preds = %.lr.ph.i122, %._crit_edge
+  %indvars.iv.i123 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next.i125, %.lr.ph.i122 ]
+  %.012.i124 = phi float [ %197, %._crit_edge ], [ %200, %.lr.ph.i122 ]
   %200 = fadd nsz float %199, %.012.i124
   %201 = getelementptr inbounds nuw float, ptr %191, i64 %indvars.iv.i123
   store float %200, ptr %201, align 4, !tbaa !61
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i123, 1
-  %exitcond.not.i126 = icmp eq i64 %indvars.iv.next.i125, %wide.trip.count.i121
+  %exitcond.not.i126 = icmp eq i64 %indvars.iv.next.i125, %wide.trip.count.i121.pre-phi
   br i1 %exitcond.not.i126, label %interpolate.exit127, label %.lr.ph.i122, !llvm.loop !86
 
 interpolate.exit127:                              ; preds = %.lr.ph.i122

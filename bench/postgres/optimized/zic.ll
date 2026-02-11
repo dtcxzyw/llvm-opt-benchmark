@@ -8574,43 +8574,41 @@ oadd.exit52:                                      ; preds = %113, %116
 143:                                              ; preds = %137
   %144 = add nsw i32 %125, -1
   %145 = zext nneg i32 %144 to i64
-  %146 = icmp sgt i64 %.1.lcssa, -1
-  %147 = sub nuw nsw i64 9223372036854775807, %.1.lcssa
-  %148 = icmp samesign ult i64 %147, %145
-  %or.cond56 = select i1 %146, i1 %148, i1 false
-  br i1 %or.cond56, label %149, label %oadd.exit53
+  %146 = sub nuw nsw i64 9223372036854775807, %.1.lcssa
+  %147 = icmp samesign ult i64 %146, %145
+  br i1 %147, label %148, label %oadd.exit53
 
-149:                                              ; preds = %143
+148:                                              ; preds = %143
   call void (ptr, ...) @error(ptr noundef nonnull @.str.57)
   call void @exit(i32 noundef 1) #29
   unreachable
 
 oadd.exit53:                                      ; preds = %143
-  %150 = add i64 %.1.lcssa, %145
-  %151 = icmp slt i64 %150, -106751991167300
-  br i1 %151, label %.sink.split, label %152
+  %149 = add i64 %.1.lcssa, %145
+  %150 = icmp slt i64 %149, -106751991167300
+  br i1 %150, label %.sink.split, label %151
 
-152:                                              ; preds = %oadd.exit53
-  %153 = icmp sgt i64 %150, 106751991167300
-  br i1 %153, label %.sink.split, label %154
+151:                                              ; preds = %oadd.exit53
+  %152 = icmp sgt i64 %149, 106751991167300
+  br i1 %152, label %.sink.split, label %153
 
-154:                                              ; preds = %152
-  %155 = mul nsw i64 %150, 86400
-  %156 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %157 = load ptr, ptr %156, align 8
-  %158 = call fastcc i64 @gethms(ptr noundef %157, ptr noundef nonnull @.str.87)
-  %159 = call fastcc i64 @tadd(i64 noundef %155, i64 noundef %158)
-  %160 = icmp slt i64 %159, 0
-  br i1 %160, label %.sink.split, label %161
+153:                                              ; preds = %151
+  %154 = mul nsw i64 %149, 86400
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %156 = load ptr, ptr %155, align 8
+  %157 = call fastcc i64 @gethms(ptr noundef %156, ptr noundef nonnull @.str.87)
+  %158 = call fastcc i64 @tadd(i64 noundef %154, i64 noundef %157)
+  %159 = icmp slt i64 %158, 0
+  br i1 %159, label %.sink.split, label %160
 
-.sink.split:                                      ; preds = %154, %152, %oadd.exit53, %._crit_edge68, %137, %._crit_edge, %2
-  %.str.156.sink = phi ptr [ @.str.155, %152 ], [ @.str.154, %oadd.exit53 ], [ @.str.93, %._crit_edge68 ], [ @.str.86, %._crit_edge ], [ @.str.153, %2 ], [ @.str.93, %137 ], [ @.str.156, %154 ]
-  %.0.ph = phi i64 [ -1, %152 ], [ -1, %oadd.exit53 ], [ -1, %._crit_edge68 ], [ -1, %._crit_edge ], [ -1, %2 ], [ -1, %137 ], [ %159, %154 ]
+.sink.split:                                      ; preds = %153, %151, %oadd.exit53, %._crit_edge68, %137, %._crit_edge, %2
+  %.str.156.sink = phi ptr [ @.str.155, %151 ], [ @.str.154, %oadd.exit53 ], [ @.str.93, %._crit_edge68 ], [ @.str.86, %._crit_edge ], [ @.str.153, %2 ], [ @.str.93, %137 ], [ @.str.156, %153 ]
+  %.0.ph = phi i64 [ -1, %151 ], [ -1, %oadd.exit53 ], [ -1, %._crit_edge68 ], [ -1, %._crit_edge ], [ -1, %2 ], [ -1, %137 ], [ %158, %153 ]
   call void (ptr, ...) @error(ptr noundef nonnull %.str.156.sink)
-  br label %161
+  br label %160
 
-161:                                              ; preds = %.sink.split, %154
-  %.0 = phi i64 [ %159, %154 ], [ %.0.ph, %.sink.split ]
+160:                                              ; preds = %.sink.split, %153
+  %.0 = phi i64 [ %158, %153 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

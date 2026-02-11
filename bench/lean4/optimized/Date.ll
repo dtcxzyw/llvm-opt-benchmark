@@ -467,46 +467,40 @@ lean_dec.exit6:                                   ; preds = %14, %13, %11, %3
   %.val.i = load i64, ptr %15, align 8, !tbaa !10
   %16 = ptrtoint ptr %2 to i64
   %17 = trunc i64 %16 to i1
-  br i1 %17, label %l_Lake_rpad.exit.thread, label %26, !prof !12
+  %18 = shl i64 %.val.i, 1
+  br i1 %17, label %l_Lake_rpad.exit.thread, label %22, !prof !12
 
 l_Lake_rpad.exit.thread:                          ; preds = %lean_dec.exit6
-  %18 = lshr i64 %16, 1
-  %19 = and i64 %.val.i, 9223372036854775807
-  %20 = icmp samesign ult i64 %18, %19
-  %21 = sub nuw nsw i64 %18, %19
-  %22 = shl nuw i64 %21, 1
-  %23 = or disjoint i64 %22, 1
+  %19 = sub i64 %16, %18
+  %20 = inttoptr i64 %19 to ptr
+  %21 = tail call ptr @l_Nat_repeatTR_loop___at_Lake_rpad___spec__1(i32 noundef %6, ptr noundef nonnull %20, ptr noundef nonnull %0)
+  br label %lean_dec.exit
+
+22:                                               ; preds = %lean_dec.exit6
+  %23 = or disjoint i64 %18, 1
   %24 = inttoptr i64 %23 to ptr
-  %.1.i.i.ph = select i1 %20, ptr inttoptr (i64 1 to ptr), ptr %24
-  %25 = tail call ptr @l_Nat_repeatTR_loop___at_Lake_rpad___spec__1(i32 noundef %6, ptr noundef nonnull %.1.i.i.ph, ptr noundef nonnull %0)
+  %25 = tail call ptr @lean_nat_big_sub(ptr noundef %2, ptr noundef nonnull %24) #3
+  %26 = tail call ptr @l_Nat_repeatTR_loop___at_Lake_rpad___spec__1(i32 noundef %6, ptr noundef %25, ptr noundef nonnull %0)
+  %27 = load i32, ptr %2, align 4, !tbaa !5
+  %28 = icmp sgt i32 %27, 1
+  br i1 %28, label %29, label %31, !prof !4
+
+29:                                               ; preds = %22
+  %30 = add nsw i32 %27, -1
+  store i32 %30, ptr %2, align 4, !tbaa !5
   br label %lean_dec.exit
 
-26:                                               ; preds = %lean_dec.exit6
-  %27 = shl i64 %.val.i, 1
-  %28 = or disjoint i64 %27, 1
-  %29 = inttoptr i64 %28 to ptr
-  %30 = tail call ptr @lean_nat_big_sub(ptr noundef %2, ptr noundef nonnull %29) #3
-  %31 = tail call ptr @l_Nat_repeatTR_loop___at_Lake_rpad___spec__1(i32 noundef %6, ptr noundef %30, ptr noundef nonnull %0)
-  %32 = load i32, ptr %2, align 4, !tbaa !5
-  %33 = icmp sgt i32 %32, 1
-  br i1 %33, label %34, label %36, !prof !4
+31:                                               ; preds = %22
+  %.not.i7 = icmp eq i32 %27, 0
+  br i1 %.not.i7, label %lean_dec.exit, label %32
 
-34:                                               ; preds = %26
-  %35 = add nsw i32 %32, -1
-  store i32 %35, ptr %2, align 4, !tbaa !5
-  br label %lean_dec.exit
-
-36:                                               ; preds = %26
-  %.not.i7 = icmp eq i32 %32, 0
-  br i1 %.not.i7, label %lean_dec.exit, label %37
-
-37:                                               ; preds = %36
+32:                                               ; preds = %31
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %2) #3
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %37, %36, %34, %l_Lake_rpad.exit.thread
-  %38 = phi ptr [ %25, %l_Lake_rpad.exit.thread ], [ %31, %34 ], [ %31, %36 ], [ %31, %37 ]
-  ret ptr %38
+lean_dec.exit:                                    ; preds = %32, %31, %29, %l_Lake_rpad.exit.thread
+  %33 = phi ptr [ %21, %l_Lake_rpad.exit.thread ], [ %26, %29 ], [ %26, %31 ], [ %26, %32 ]
+  ret ptr %33
 }
 
 ; Function Attrs: nounwind uwtable

@@ -124197,8 +124197,7 @@ _ZN11ruff_linter5rules5flynt5rules22static_join_to_fstring16is_static_length17ha
   store ptr %83, ptr %85, align 8, !noalias !14705
   %86 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store i64 0, ptr %86, align 8, !noalias !14705
-  %.not822.i = icmp eq i64 %65, 0
-  br i1 %.not822.i, label %._crit_edge.i, label %.lr.ph.i
+  br label %.lr.ph.i
 
 87:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !14705
@@ -124229,7 +124228,7 @@ _ZN11ruff_linter5rules5flynt5rules22static_join_to_fstring16is_static_length17ha
   %98 = icmp eq i32 %97, 17
   br i1 %98, label %_ZN11ruff_linter5rules5flynt5rules22static_join_to_fstring13build_fstring17h26bbb55881239de0E.exit.thread, label %102
 
-._crit_edge.i:                                    ; preds = %130, %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17ha41d4888e30cf81aE.exit.i"
+._crit_edge.i:                                    ; preds = %130
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !14705
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !noalias !14705
   call void @"_ZN152_$LT$ruff_python_ast..nodes..FStringElements$u20$as$u20$core..convert..From$LT$alloc..vec..Vec$LT$ruff_python_ast..generated..FStringElement$GT$$GT$$GT$4from17h6050faf0410b2613E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %7), !noalias !14698

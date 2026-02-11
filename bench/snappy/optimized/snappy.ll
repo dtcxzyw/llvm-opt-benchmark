@@ -88,7 +88,7 @@ define dso_local noundef i64 @_ZN6snappy19MaxCompressedLengthEm(i64 noundef %0) 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPKcmPm(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %.not.i.not = icmp eq i64 %1, 0
-  br i1 %.not.i.not, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread, label %4
+  br i1 %.not.i.not, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -96,11 +96,11 @@ define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPKcmPm(pt
   %7 = and i8 %6, 127
   %8 = zext nneg i8 %7 to i32
   %9 = icmp sgt i8 %6, -1
-  br i1 %9, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit, label %10
+  br i1 %9, label %43, label %10
 
 10:                                               ; preds = %4
   %.not42.i.not = icmp eq i64 %1, 1
-  br i1 %.not42.i.not, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread, label %11
+  br i1 %.not42.i.not, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit, label %11
 
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -110,11 +110,11 @@ define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPKcmPm(pt
   %16 = and i32 %15, 16256
   %17 = or disjoint i32 %16, %8
   %18 = icmp sgt i8 %13, -1
-  br i1 %18, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit, label %19
+  br i1 %18, label %43, label %19
 
 19:                                               ; preds = %11
   %.not43.i = icmp samesign ugt i64 %1, 2
-  br i1 %.not43.i, label %20, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread
+  br i1 %.not43.i, label %20, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit
 
 20:                                               ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -124,11 +124,11 @@ define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPKcmPm(pt
   %25 = and i32 %24, 2080768
   %26 = or disjoint i32 %25, %17
   %27 = icmp sgt i8 %22, -1
-  br i1 %27, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit, label %28
+  br i1 %27, label %43, label %28
 
 28:                                               ; preds = %20
   %.not44.i.not = icmp eq i64 %1, 3
-  br i1 %.not44.i.not, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread, label %29
+  br i1 %.not44.i.not, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit, label %29
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -138,29 +138,28 @@ define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPKcmPm(pt
   %34 = and i32 %33, 266338304
   %35 = or disjoint i32 %34, %26
   %36 = icmp sgt i8 %31, -1
-  br i1 %36, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit, label %37
+  br i1 %36, label %43, label %37
 
 37:                                               ; preds = %29
   %.not45.i = icmp samesign ugt i64 %1, 4
-  br i1 %.not45.i, label %38, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread
+  br i1 %.not45.i, label %38, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit
 
 38:                                               ; preds = %37
   %39 = load i8, ptr %30, align 1, !tbaa !4
   %40 = zext i8 %39 to i32
   %41 = shl nuw i32 %40, 28
   %42 = or disjoint i32 %41, %35
-  %43 = icmp ult i8 %39, 16
-  br i1 %43, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit, label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread
+  br label %43
 
-_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit: ; preds = %38, %29, %20, %11, %4
-  %.0 = phi i32 [ %35, %29 ], [ %8, %4 ], [ %17, %11 ], [ %26, %20 ], [ %42, %38 ]
-  %44 = zext i32 %.0 to i64
+43:                                               ; preds = %4, %11, %20, %29, %38
+  %.0.ph = phi i32 [ %42, %38 ], [ %35, %29 ], [ %26, %20 ], [ %17, %11 ], [ %8, %4 ]
+  %44 = zext i32 %.0.ph to i64
   store i64 %44, ptr %2, align 8, !tbaa !7
-  br label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread
+  br label %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit
 
-_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit.thread: ; preds = %28, %19, %10, %3, %38, %37, %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit
-  %.not8 = phi i1 [ true, %_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit ], [ false, %37 ], [ false, %38 ], [ false, %3 ], [ false, %10 ], [ false, %19 ], [ false, %28 ]
-  ret i1 %.not8
+_ZN6snappy6Varint16Parse32WithLimitEPKcS2_Pj.exit: ; preds = %37, %28, %19, %10, %3, %43
+  %.not9 = phi i1 [ true, %43 ], [ false, %3 ], [ false, %10 ], [ false, %19 ], [ false, %28 ], [ false, %37 ]
+  ret i1 %.not9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2391,7 +2390,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPKcmPNSt7__cxx1112ba
   %8 = and i8 %7, 127
   %9 = zext nneg i8 %8 to i32
   %10 = icmp sgt i8 %7, -1
-  br i1 %10, label %45, label %11
+  br i1 %10, label %44, label %11
 
 11:                                               ; preds = %5
   %.not42.i.not.i = icmp eq i64 %1, 1
@@ -2405,7 +2404,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPKcmPNSt7__cxx1112ba
   %17 = and i32 %16, 16256
   %18 = or disjoint i32 %17, %9
   %19 = icmp sgt i8 %14, -1
-  br i1 %19, label %45, label %20
+  br i1 %19, label %44, label %20
 
 20:                                               ; preds = %12
   %.not43.i.i = icmp samesign ugt i64 %1, 2
@@ -2419,7 +2418,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPKcmPNSt7__cxx1112ba
   %26 = and i32 %25, 2080768
   %27 = or disjoint i32 %26, %18
   %28 = icmp sgt i8 %23, -1
-  br i1 %28, label %45, label %29
+  br i1 %28, label %44, label %29
 
 29:                                               ; preds = %21
   %.not44.i.not.i = icmp eq i64 %1, 3
@@ -2433,7 +2432,7 @@ define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPKcmPNSt7__cxx1112ba
   %35 = and i32 %34, 266338304
   %36 = or disjoint i32 %35, %27
   %37 = icmp sgt i8 %32, -1
-  br i1 %37, label %45, label %38
+  br i1 %37, label %44, label %38
 
 38:                                               ; preds = %30
   %.not45.i.i = icmp samesign ugt i64 %1, 4
@@ -2444,37 +2443,36 @@ define dso_local noundef zeroext i1 @_ZN6snappy10UncompressEPKcmPNSt7__cxx1112ba
   %41 = zext i8 %40 to i32
   %42 = shl nuw i32 %41, 28
   %43 = or disjoint i32 %42, %36
-  %44 = icmp ult i8 %40, 16
-  br i1 %44, label %45, label %_ZN6snappy21GetUncompressedLengthEPKcmPm.exit.thread
+  br label %44
 
-45:                                               ; preds = %5, %12, %21, %30, %39
-  %.0.i = phi i32 [ %36, %30 ], [ %9, %5 ], [ %18, %12 ], [ %27, %21 ], [ %43, %39 ]
-  %46 = zext i32 %.0.i to i64
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %46, i8 noundef signext 0) #25
-  %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !78
-  %49 = icmp eq i64 %48, 0
-  br i1 %49, label %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %50
+44:                                               ; preds = %5, %12, %21, %30, %39
+  %.0.ph.i = phi i32 [ %43, %39 ], [ %36, %30 ], [ %27, %21 ], [ %18, %12 ], [ %9, %5 ]
+  %45 = zext i32 %.0.ph.i to i64
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %45, i8 noundef signext 0) #25
+  %46 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %47 = load i64, ptr %46, align 8, !tbaa !78
+  %48 = icmp eq i64 %47, 0
+  br i1 %48, label %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %49
 
-50:                                               ; preds = %45
-  %51 = load ptr, ptr %2, align 8, !tbaa !81
+49:                                               ; preds = %44
+  %50 = load ptr, ptr %2, align 8, !tbaa !81
   br label %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
-_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %45, %50
-  %52 = phi ptr [ %51, %50 ], [ null, %45 ]
+_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %44, %49
+  %51 = phi ptr [ %50, %49 ], [ null, %44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6snappy15ByteArraySourceE, i64 16), ptr %4, align 8, !tbaa !50
-  %53 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr %0, ptr %53, align 8, !tbaa !56
-  %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 %1, ptr %54, align 8, !tbaa !59
-  %55 = call noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(ptr noundef nonnull %4, ptr noundef %52)
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr %0, ptr %52, align 8, !tbaa !56
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 %1, ptr %53, align 8, !tbaa !59
+  %54 = call noundef zeroext i1 @_ZN6snappy13RawUncompressEPNS_6SourceEPc(ptr noundef nonnull %4, ptr noundef %51)
   call void @_ZN6snappy15ByteArraySourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN6snappy21GetUncompressedLengthEPKcmPm.exit.thread
 
-_ZN6snappy21GetUncompressedLengthEPKcmPm.exit.thread: ; preds = %29, %20, %11, %3, %39, %38, %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %.0 = phi i1 [ %55, %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %38 ], [ false, %39 ], [ false, %3 ], [ false, %11 ], [ false, %20 ], [ false, %29 ]
+_ZN6snappy21GetUncompressedLengthEPKcmPm.exit.thread: ; preds = %38, %29, %20, %11, %3, %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+  %.0 = phi i1 [ %54, %_ZN6snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ false, %3 ], [ false, %11 ], [ false, %20 ], [ false, %29 ], [ false, %38 ]
   ret i1 %.0
 }
 

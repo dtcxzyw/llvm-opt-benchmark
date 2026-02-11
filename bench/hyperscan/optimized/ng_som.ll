@@ -14429,10 +14429,6 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i.i:      ; preds = %1816
   %1821 = shl nuw nsw i64 %.0712.i.i.i.i.i, 6
   %1822 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %1818, i1 true)
   %1823 = or disjoint i64 %1822, %1821
-  %.not843.i.i.i = icmp eq i64 %1823, 256
-  br i1 %.not843.i.i.i, label %._crit_edge849.i.i.i, label %.lr.ph848.i.i.i
-
-.lr.ph848.i.i.i:                                  ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.i.i.i
   %1824 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i394.i.i.i, i64 56
   %1825 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i394.i.i.i, i64 64
   br label %1828
@@ -14442,10 +14438,10 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i.i:      ; preds = %1816
           cleanup
   br label %.body600.i.i.i
 
-1828:                                             ; preds = %_ZNK3ue29CharReach9find_nextEm.exit.i.i.i, %.lr.ph848.i.i.i
-  %.7148847.i.i.i = phi i1 [ %.4145855.i.i.i, %.lr.ph848.i.i.i ], [ %.9150.i.i.i, %_ZNK3ue29CharReach9find_nextEm.exit.i.i.i ]
-  %.5160846.i.i.i = phi i32 [ %.2157854.i.i.i, %.lr.ph848.i.i.i ], [ %.7162.i.i.i, %_ZNK3ue29CharReach9find_nextEm.exit.i.i.i ]
-  %.0167844.i.i.i = phi i64 [ %1823, %.lr.ph848.i.i.i ], [ %1954, %_ZNK3ue29CharReach9find_nextEm.exit.i.i.i ]
+1828:                                             ; preds = %_ZNK3ue29CharReach9find_nextEm.exit.i.i.i, %_ZNK3ue29CharReach10find_firstEv.exit.i.i.i
+  %.7148847.i.i.i = phi i1 [ %.4145855.i.i.i, %_ZNK3ue29CharReach10find_firstEv.exit.i.i.i ], [ %.9150.i.i.i, %_ZNK3ue29CharReach9find_nextEm.exit.i.i.i ]
+  %.5160846.i.i.i = phi i32 [ %.2157854.i.i.i, %_ZNK3ue29CharReach10find_firstEv.exit.i.i.i ], [ %.7162.i.i.i, %_ZNK3ue29CharReach9find_nextEm.exit.i.i.i ]
+  %.0167844.i.i.i = phi i64 [ %1823, %_ZNK3ue29CharReach10find_firstEv.exit.i.i.i ], [ %1954, %_ZNK3ue29CharReach9find_nextEm.exit.i.i.i ]
   %1829 = trunc i64 %.0167844.i.i.i to i8
   %1830 = add i8 %1829, -91
   %1831 = icmp ult i8 %1830, -26
@@ -14746,9 +14742,9 @@ _ZNK3ue29CharReach9find_nextEm.exit.i.i.i:        ; preds = %1951, %1944
   %1954 = or disjoint i64 %1953, %.sink1030.i.i.i
   br label %1828
 
-._crit_edge849.i.i.i:                             ; preds = %1819, %.loopexit.i.i.i, %1946, %_ZNK3ue29CharReach10find_firstEv.exit.i.i.i
-  %.5160.lcssa.i.i.i = phi i32 [ %.2157854.i.i.i, %_ZNK3ue29CharReach10find_firstEv.exit.i.i.i ], [ %.7162.i.i.i, %1946 ], [ %.7162.i.i.i, %.loopexit.i.i.i ], [ %.2157854.i.i.i, %1819 ]
-  %.7148.lcssa.i.i.i = phi i1 [ %.4145855.i.i.i, %_ZNK3ue29CharReach10find_firstEv.exit.i.i.i ], [ %.9150.i.i.i, %1946 ], [ %.9150.i.i.i, %.loopexit.i.i.i ], [ %.4145855.i.i.i, %1819 ]
+._crit_edge849.i.i.i:                             ; preds = %1819, %.loopexit.i.i.i, %1946
+  %.5160.lcssa.i.i.i = phi i32 [ %.7162.i.i.i, %.loopexit.i.i.i ], [ %.7162.i.i.i, %1946 ], [ %.2157854.i.i.i, %1819 ]
+  %.7148.lcssa.i.i.i = phi i1 [ %.9150.i.i.i, %.loopexit.i.i.i ], [ %.9150.i.i.i, %1946 ], [ %.4145855.i.i.i, %1819 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %.thread691.i.i.i
 
