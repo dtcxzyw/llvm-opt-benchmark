@@ -159,7 +159,7 @@ define i32 @Gia_ManCountMinterms(ptr noundef readonly captures(none) %0) local_u
   %.val = load i32, ptr %4, align 8, !tbaa !20
   %.val.fr = freeze i32 %.val
   %5 = icmp sgt i32 %.val.fr, 30
-  br i1 %5, label %105, label %6
+  br i1 %5, label %87, label %6
 
 6:                                                ; preds = %1
   %7 = shl nuw nsw i32 1, %.val.fr
@@ -334,43 +334,25 @@ Gia_ManCountMintermsInCube.exit.us:               ; preds = %._crit_edge41.us.i.
 
 .lr.ph37:                                         ; preds = %.critedge, %.lr.ph37
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph37 ], [ 0, %.critedge ]
-  %.036 = phi i32 [ %104, %.lr.ph37 ], [ 0, %.critedge ]
+  %.036 = phi i32 [ %86, %.lr.ph37 ], [ 0, %.critedge ]
   %83 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
   %84 = load i32, ptr %83, align 4, !tbaa !3
-  %85 = and i32 %84, 1431655765
-  %86 = lshr i32 %84, 1
-  %87 = and i32 %86, 1431655765
-  %88 = add nuw i32 %87, %85
-  %89 = and i32 %88, 858993459
-  %90 = lshr i32 %88, 2
-  %91 = and i32 %90, 858993459
-  %92 = add nuw nsw i32 %91, %89
-  %93 = and i32 %92, 117901063
-  %94 = lshr i32 %92, 4
-  %95 = and i32 %94, 117901063
-  %96 = add nuw nsw i32 %95, %93
-  %97 = and i32 %96, 983055
-  %98 = lshr i32 %96, 8
-  %99 = and i32 %98, 983055
-  %100 = add nuw nsw i32 %99, %97
-  %101 = and i32 %100, 31
-  %102 = lshr i32 %100, 16
-  %103 = add nuw nsw i32 %102, %.036
-  %104 = add nuw nsw i32 %103, %101
+  %85 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %84)
+  %86 = add nuw nsw i32 %85, %.036
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond42.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %exitcond42.not, label %._crit_edge.thread, label %.lr.ph37, !llvm.loop !43
 
 ._crit_edge:                                      ; preds = %.critedge
   %.not25 = icmp eq ptr %13, null
-  br i1 %.not25, label %105, label %._crit_edge.thread
+  br i1 %.not25, label %87, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph37, %._crit_edge
-  %.0.lcssa53 = phi i32 [ 0, %._crit_edge ], [ %104, %.lr.ph37 ]
+  %.0.lcssa53 = phi i32 [ 0, %._crit_edge ], [ %86, %.lr.ph37 ]
   tail call void @free(ptr noundef nonnull %13) #30
-  br label %105
+  br label %87
 
-105:                                              ; preds = %._crit_edge.thread, %._crit_edge, %1
+87:                                               ; preds = %._crit_edge.thread, %._crit_edge, %1
   %.021 = phi i32 [ -1, %1 ], [ 0, %._crit_edge ], [ %.0.lcssa53, %._crit_edge.thread ]
   ret i32 %.021
 }

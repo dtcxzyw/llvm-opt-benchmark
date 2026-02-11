@@ -11357,13 +11357,13 @@ define internal fastcc range(i32 0, 2) i32 @is_onechar_cclass(ptr noundef readon
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %32
 
-32:                                               ; preds = %30, %62
-  %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %62 ]
-  %.33349 = phi i32 [ %.030, %30 ], [ %.5, %62 ]
+32:                                               ; preds = %30, %44
+  %indvars.iv = phi i64 [ 0, %30 ], [ %indvars.iv.next, %44 ]
+  %.33349 = phi i32 [ %.030, %30 ], [ %.5, %44 ]
   %33 = getelementptr i32, ptr %31, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !11
   %.not44 = icmp eq i32 %34, 0
-  br i1 %.not44, label %62, label %35
+  br i1 %.not44, label %44, label %35
 
 35:                                               ; preds = %32
   %36 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %34)
@@ -11374,46 +11374,28 @@ define internal fastcc range(i32 0, 2) i32 @is_onechar_cclass(ptr noundef readon
 
 39:                                               ; preds = %35
   %40 = add i32 %34, -1
-  %41 = and i32 %40, 1431655765
-  %42 = lshr i32 %40, 1
-  %43 = and i32 %42, 1431655765
-  %44 = add nuw nsw i32 %43, %41
-  %45 = and i32 %44, 858993459
-  %46 = lshr i32 %44, 2
-  %47 = and i32 %46, 322122547
-  %48 = add nuw nsw i32 %47, %45
-  %49 = and i32 %48, 117901063
-  %50 = lshr i32 %48, 4
-  %51 = and i32 %50, 117901063
-  %52 = add nuw nsw i32 %51, %49
-  %53 = and i32 %52, 983055
-  %54 = lshr i32 %52, 8
-  %55 = and i32 %54, 983055
-  %56 = add nuw nsw i32 %55, %53
-  %57 = and i32 %56, 31
-  %58 = lshr i32 %56, 16
+  %41 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 range(i32 0, -1) %40)
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %59 = shl i32 %indvars.iv.tr, 5
-  %60 = or disjoint i32 %58, %59
-  %61 = add nuw nsw i32 %60, %57
-  br label %62
+  %42 = shl i32 %indvars.iv.tr, 5
+  %43 = or disjoint i32 %41, %42
+  br label %44
 
-62:                                               ; preds = %39, %32
-  %.5 = phi i32 [ %.33349, %32 ], [ %61, %39 ]
+44:                                               ; preds = %39, %32
+  %.5 = phi i32 [ %.33349, %32 ], [ %43, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %63, label %32, !llvm.loop !166
+  br i1 %exitcond.not, label %45, label %32, !llvm.loop !166
 
-63:                                               ; preds = %62
+45:                                               ; preds = %44
   %.not43 = icmp eq i32 %.5, -1
-  br i1 %.not43, label %.critedge, label %64
+  br i1 %.not43, label %.critedge, label %46
 
-64:                                               ; preds = %63
+46:                                               ; preds = %45
   store i32 %.5, ptr %1, align 4, !tbaa !11
   br label %.critedge
 
-.critedge:                                        ; preds = %35, %9, %13, %63, %2, %64
-  %.0 = phi i32 [ 0, %63 ], [ 0, %9 ], [ 1, %64 ], [ 0, %2 ], [ 0, %13 ], [ 0, %35 ]
+.critedge:                                        ; preds = %35, %9, %13, %45, %2, %46
+  %.0 = phi i32 [ 0, %45 ], [ 0, %9 ], [ 1, %46 ], [ 0, %2 ], [ 0, %13 ], [ 0, %35 ]
   ret i32 %.0
 }
 

@@ -6567,70 +6567,52 @@ Fra_ClausEstimateCoverageOne.exit:                ; preds = %.lr.ph30.split.i, %
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.critedge ], [ 0, %.critedge.preheader ]
-  %.084 = phi i32 [ %132, %.critedge ], [ 0, %.critedge.preheader ]
+  %.084 = phi i32 [ %114, %.critedge ], [ 0, %.critedge.preheader ]
   %111 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv97
   %112 = load i32, ptr %111, align 4, !tbaa !38
-  %113 = and i32 %112, 1431655765
-  %114 = lshr i32 %112, 1
-  %115 = and i32 %114, 1431655765
-  %116 = add nuw i32 %115, %113
-  %117 = and i32 %116, 858993459
-  %118 = lshr i32 %116, 2
-  %119 = and i32 %118, 858993459
-  %120 = add nuw nsw i32 %119, %117
-  %121 = and i32 %120, 117901063
-  %122 = lshr i32 %120, 4
-  %123 = and i32 %122, 117901063
-  %124 = add nuw nsw i32 %123, %121
-  %125 = and i32 %124, 983055
-  %126 = lshr i32 %124, 8
-  %127 = and i32 %126, 983055
-  %128 = add nuw nsw i32 %127, %125
-  %129 = and i32 %128, 31
-  %130 = lshr i32 %128, 16
-  %131 = add nuw nsw i32 %130, %.084
-  %132 = add nuw nsw i32 %131, %129
+  %113 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %112)
+  %114 = add nuw nsw i32 %113, %.084
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 2048
-  br i1 %exitcond100.not, label %133, label %.critedge, !llvm.loop !203
+  br i1 %exitcond100.not, label %115, label %.critedge, !llvm.loop !203
 
-133:                                              ; preds = %.critedge
+115:                                              ; preds = %.critedge
   call void @Fra_SmlStop(ptr noundef nonnull %14) #25
   %.not = icmp eq ptr %calloc, null
-  br i1 %.not, label %135, label %134
+  br i1 %.not, label %117, label %116
 
-134:                                              ; preds = %133
+116:                                              ; preds = %115
   call void @free(ptr noundef nonnull %calloc) #25
-  br label %135
+  br label %117
 
-135:                                              ; preds = %133, %134
-  %136 = sub nsw i32 65536, %132
-  %137 = sitofp i32 %136 to double
-  %138 = fmul nnan double %137, 0x3EF0000000000000
-  %139 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, double noundef %138)
-  %140 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %136, i32 noundef 65536)
+117:                                              ; preds = %115, %116
+  %118 = sub nsw i32 65536, %114
+  %119 = sitofp i32 %118 to double
+  %120 = fmul nnan double %119, 0x3EF0000000000000
+  %121 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27, double noundef %120)
+  %122 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28, i32 noundef %118, i32 noundef 65536)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.29)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %141 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #25
-  %142 = icmp slt i32 %141, 0
-  br i1 %142, label %Abc_Clock.exit71, label %143
+  %123 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #25
+  %124 = icmp slt i32 %123, 0
+  br i1 %124, label %Abc_Clock.exit71, label %125
 
-143:                                              ; preds = %135
-  %144 = load i64, ptr %2, align 8, !tbaa !102
-  %145 = mul nsw i64 %144, 1000000
-  %146 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %147 = load i64, ptr %146, align 8, !tbaa !104
-  %148 = sdiv i64 %147, 1000
-  %149 = add nsw i64 %148, %145
+125:                                              ; preds = %117
+  %126 = load i64, ptr %2, align 8, !tbaa !102
+  %127 = mul nsw i64 %126, 1000000
+  %128 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %129 = load i64, ptr %128, align 8, !tbaa !104
+  %130 = sdiv i64 %129, 1000
+  %131 = add nsw i64 %130, %127
   br label %Abc_Clock.exit71
 
-Abc_Clock.exit71:                                 ; preds = %135, %143
-  %.0.i70 = phi i64 [ %149, %143 ], [ -1, %135 ]
+Abc_Clock.exit71:                                 ; preds = %117, %125
+  %.0.i70 = phi i64 [ %131, %125 ], [ -1, %117 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %150 = add i64 %.0.i70, %.0.i.neg
-  %151 = sitofp i64 %150 to double
-  %152 = fdiv double %151, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %152)
+  %132 = add i64 %.0.i70, %.0.i.neg
+  %133 = sitofp i64 %132 to double
+  %134 = fdiv double %133, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, double noundef %134)
   ret void
 }
 
@@ -7174,6 +7156,9 @@ declare i32 @llvm.smin.i32(i32, i32) #23
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #24
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #23
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

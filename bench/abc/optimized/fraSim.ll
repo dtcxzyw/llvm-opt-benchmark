@@ -170,38 +170,20 @@ define i32 @Fra_SmlNodeNotEquWeight(ptr noundef readonly captures(none) %0, i32 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %16, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.015 = phi i32 [ 0, %.lr.ph.preheader ], [ %41, %.lr.ph ]
+  %.015 = phi i32 [ 0, %.lr.ph.preheader ], [ %23, %.lr.ph ]
   %17 = getelementptr inbounds i32, ptr %9, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !28
   %19 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !28
   %21 = xor i32 %20, %18
-  %22 = and i32 %21, 1431655765
-  %23 = lshr i32 %21, 1
-  %24 = and i32 %23, 1431655765
-  %25 = add nuw i32 %24, %22
-  %26 = and i32 %25, 858993459
-  %27 = lshr i32 %25, 2
-  %28 = and i32 %27, 858993459
-  %29 = add nuw nsw i32 %28, %26
-  %30 = and i32 %29, 117901063
-  %31 = lshr i32 %29, 4
-  %32 = and i32 %31, 117901063
-  %33 = add nuw nsw i32 %32, %30
-  %34 = and i32 %33, 983055
-  %35 = lshr i32 %33, 8
-  %36 = and i32 %35, 983055
-  %37 = add nuw nsw i32 %36, %34
-  %38 = and i32 %37, 31
-  %39 = lshr i32 %37, 16
-  %40 = add nuw nsw i32 %39, %.015
-  %41 = add nuw nsw i32 %40, %38
+  %22 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %21)
+  %23 = add nuw nsw i32 %22, %.015
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %41, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %23, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
@@ -261,35 +243,17 @@ define i32 @Fra_SmlNodeCountOnes(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.010 = phi i32 [ 0, %.lr.ph.preheader ], [ %33, %.lr.ph ]
+  %.010 = phi i32 [ 0, %.lr.ph.preheader ], [ %15, %.lr.ph ]
   %12 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !28
-  %14 = and i32 %13, 1431655765
-  %15 = lshr i32 %13, 1
-  %16 = and i32 %15, 1431655765
-  %17 = add nuw i32 %16, %14
-  %18 = and i32 %17, 858993459
-  %19 = lshr i32 %17, 2
-  %20 = and i32 %19, 858993459
-  %21 = add nuw nsw i32 %20, %18
-  %22 = and i32 %21, 117901063
-  %23 = lshr i32 %21, 4
-  %24 = and i32 %23, 117901063
-  %25 = add nuw nsw i32 %24, %22
-  %26 = and i32 %25, 983055
-  %27 = lshr i32 %25, 8
-  %28 = and i32 %27, 983055
-  %29 = add nuw nsw i32 %28, %26
-  %30 = and i32 %29, 31
-  %31 = lshr i32 %29, 16
-  %32 = add nuw nsw i32 %31, %.010
-  %33 = add nuw nsw i32 %32, %30
+  %14 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %13)
+  %15 = add nuw nsw i32 %14, %.010
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %33, %.lr.ph ]
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %15, %.lr.ph ]
   ret i32 %.0.lcssa
 }
 
@@ -4348,6 +4312,9 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #21
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #20
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20

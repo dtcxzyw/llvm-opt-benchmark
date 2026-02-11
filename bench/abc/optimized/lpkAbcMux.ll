@@ -19,311 +19,275 @@ define ptr @Lpk_MuxAnalize(ptr noundef readnone captures(none) %0, ptr noundef %
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   br label %8
 
-8:                                                ; preds = %2, %219
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %219 ]
+8:                                                ; preds = %2, %183
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %183 ]
   %9 = load i32, ptr %3, align 4, !tbaa !8
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = shl nuw nsw i32 1, %10
   %12 = and i32 %9, %11
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %219, label %13
+  br i1 %.not, label %183, label %13
 
 13:                                               ; preds = %8
   %.idx = shl nuw nsw i64 %indvars.iv, 3
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
   %15 = load i32, ptr %14, align 4, !tbaa !12
-  %16 = and i32 %15, 1431655765
-  %17 = lshr i32 %15, 1
-  %18 = and i32 %17, 1431655765
-  %19 = add nuw i32 %18, %16
-  %20 = and i32 %19, 858993459
-  %21 = lshr i32 %19, 2
-  %22 = and i32 %21, 858993459
-  %23 = add nuw nsw i32 %22, %20
-  %24 = and i32 %23, 117901063
-  %25 = lshr i32 %23, 4
-  %26 = and i32 %25, 117901063
-  %27 = add nuw nsw i32 %26, %24
-  %28 = and i32 %27, 983055
-  %29 = lshr i32 %27, 8
-  %30 = and i32 %29, 983055
-  %31 = add nuw nsw i32 %30, %28
-  %32 = and i32 %31, 31
-  %33 = lshr i32 %31, 16
-  %34 = add nuw nsw i32 %32, %33
-  %35 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  %36 = load i32, ptr %35, align 4, !tbaa !12
-  %37 = and i32 %36, 1431655765
-  %38 = lshr i32 %36, 1
-  %39 = and i32 %38, 1431655765
-  %40 = add nuw i32 %39, %37
-  %41 = and i32 %40, 858993459
-  %42 = lshr i32 %40, 2
-  %43 = and i32 %42, 858993459
-  %44 = add nuw nsw i32 %43, %41
-  %45 = and i32 %44, 117901063
-  %46 = lshr i32 %44, 4
-  %47 = and i32 %46, 117901063
-  %48 = add nuw nsw i32 %47, %45
-  %49 = and i32 %48, 983055
-  %50 = lshr i32 %48, 8
-  %51 = and i32 %50, 983055
-  %52 = add nuw nsw i32 %51, %49
-  %53 = and i32 %52, 31
-  %54 = lshr i32 %52, 16
-  %55 = add nuw nsw i32 %53, %54
-  %56 = icmp eq i32 %34, 0
-  %57 = icmp eq i32 %55, 0
-  %or.cond = select i1 %56, i1 true, i1 %57
-  br i1 %or.cond, label %219, label %58
+  %16 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  %18 = load i32, ptr %17, align 4, !tbaa !12
+  %19 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %18)
+  %20 = icmp eq i32 %15, 0
+  %21 = icmp eq i32 %18, 0
+  %or.cond = select i1 %20, i1 true, i1 %21
+  br i1 %or.cond, label %183, label %22
 
-58:                                               ; preds = %13
-  %59 = load i32, ptr %5, align 8
-  %60 = lshr i32 %59, 12
-  %61 = and i32 %60, 15
-  %62 = add nsw i32 %61, -2
-  %.not158 = icmp sgt i32 %34, %62
-  %.not159 = icmp sgt i32 %55, %62
+22:                                               ; preds = %13
+  %23 = load i32, ptr %5, align 8
+  %24 = lshr i32 %23, 12
+  %25 = and i32 %24, 15
+  %26 = add nsw i32 %25, -2
+  %.not158 = icmp sgt i32 %16, %26
+  %.not159 = icmp sgt i32 %19, %26
   %or.cond164 = select i1 %.not158, i1 true, i1 %.not159
-  br i1 %or.cond164, label %79, label %63
+  br i1 %or.cond164, label %43, label %27
 
-63:                                               ; preds = %58
-  %64 = or i32 %15, %11
+27:                                               ; preds = %22
+  %28 = or i32 %15, %11
+  %29 = tail call i32 @Lpk_SuppDelay(i32 noundef %28, ptr noundef nonnull %6) #4
+  %30 = load i32, ptr %17, align 4, !tbaa !12
+  %31 = tail call i32 @Lpk_SuppDelay(i32 noundef %30, ptr noundef nonnull %6) #4
+  %32 = add nsw i32 %31, 1
+  %33 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %29, i32 range(i32 -2147483647, -2147483648) %32)
+  %34 = load i32, ptr %17, align 4, !tbaa !12
+  %35 = or i32 %34, %11
+  %36 = tail call i32 @Lpk_SuppDelay(i32 noundef %35, ptr noundef nonnull %6) #4
+  %37 = load i32, ptr %14, align 4, !tbaa !12
+  %38 = tail call i32 @Lpk_SuppDelay(i32 noundef %37, ptr noundef nonnull %6) #4
+  %39 = add nsw i32 %38, 1
+  %40 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %36, i32 range(i32 -2147483647, -2147483648) %39)
+  %41 = tail call noundef i32 @llvm.smin.i32(i32 %33, i32 %40)
+  %42 = icmp sle i32 %40, %33
+  br label %146
+
+43:                                               ; preds = %22
+  br i1 %.not158, label %62, label %44
+
+44:                                               ; preds = %43
+  %45 = or i32 %15, %11
+  %46 = tail call i32 @Lpk_SuppDelay(i32 noundef %45, ptr noundef nonnull %6) #4
+  %47 = load i32, ptr %17, align 4, !tbaa !12
+  %48 = tail call i32 @Lpk_SuppDelay(i32 noundef %47, ptr noundef nonnull %6) #4
+  %49 = add nsw i32 %48, 1
+  %50 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %46, i32 range(i32 -2147483647, -2147483648) %49)
+  %51 = load i32, ptr %5, align 8
+  %52 = lshr i32 %51, 12
+  %53 = trunc nuw nsw i32 %19 to i8
+  %.lhs.trunc206 = add nsw i8 %53, -1
+  %54 = trunc i32 %52 to i8
+  %55 = and i8 %54, 15
+  %.rhs.trunc207 = add nsw i8 %55, -1
+  %56 = sdiv i8 %.lhs.trunc206, %.rhs.trunc207
+  %.sext208 = sext i8 %56 to i32
+  %57 = srem i8 %.lhs.trunc206, %.rhs.trunc207
+  %58 = icmp ne i8 %57, 0
+  %59 = zext i1 %58 to i32
+  %60 = add nsw i32 %.sext208, 1
+  %61 = add nsw i32 %60, %59
+  br label %146
+
+62:                                               ; preds = %43
+  br i1 %.not159, label %81, label %63
+
+63:                                               ; preds = %62
+  %64 = or i32 %18, %11
   %65 = tail call i32 @Lpk_SuppDelay(i32 noundef %64, ptr noundef nonnull %6) #4
-  %66 = load i32, ptr %35, align 4, !tbaa !12
+  %66 = load i32, ptr %14, align 4, !tbaa !12
   %67 = tail call i32 @Lpk_SuppDelay(i32 noundef %66, ptr noundef nonnull %6) #4
   %68 = add nsw i32 %67, 1
   %69 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %65, i32 range(i32 -2147483647, -2147483648) %68)
-  %70 = load i32, ptr %35, align 4, !tbaa !12
-  %71 = or i32 %70, %11
-  %72 = tail call i32 @Lpk_SuppDelay(i32 noundef %71, ptr noundef nonnull %6) #4
-  %73 = load i32, ptr %14, align 4, !tbaa !12
-  %74 = tail call i32 @Lpk_SuppDelay(i32 noundef %73, ptr noundef nonnull %6) #4
-  %75 = add nsw i32 %74, 1
-  %76 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %72, i32 range(i32 -2147483647, -2147483648) %75)
-  %77 = tail call noundef i32 @llvm.smin.i32(i32 %69, i32 %76)
-  %78 = icmp sle i32 %76, %69
-  br label %182
+  %70 = load i32, ptr %5, align 8
+  %71 = lshr i32 %70, 12
+  %72 = trunc nuw nsw i32 %16 to i8
+  %.lhs.trunc200 = add nsw i8 %72, -1
+  %73 = trunc i32 %71 to i8
+  %74 = and i8 %73, 15
+  %.rhs.trunc201 = add nsw i8 %74, -1
+  %75 = sdiv i8 %.lhs.trunc200, %.rhs.trunc201
+  %.sext202 = sext i8 %75 to i32
+  %76 = srem i8 %.lhs.trunc200, %.rhs.trunc201
+  %77 = icmp ne i8 %76, 0
+  %78 = zext i1 %77 to i32
+  %79 = add nsw i32 %.sext202, 1
+  %80 = add nsw i32 %79, %78
+  br label %146
 
-79:                                               ; preds = %58
-  br i1 %.not158, label %98, label %80
+81:                                               ; preds = %62
+  %.not162 = icmp samesign ugt i32 %16, %25
+  br i1 %.not162, label %100, label %82
 
-80:                                               ; preds = %79
-  %81 = or i32 %15, %11
-  %82 = tail call i32 @Lpk_SuppDelay(i32 noundef %81, ptr noundef nonnull %6) #4
-  %83 = load i32, ptr %35, align 4, !tbaa !12
+82:                                               ; preds = %81
+  %83 = or i32 %18, %11
   %84 = tail call i32 @Lpk_SuppDelay(i32 noundef %83, ptr noundef nonnull %6) #4
-  %85 = add nsw i32 %84, 1
-  %86 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %82, i32 range(i32 -2147483647, -2147483648) %85)
-  %87 = load i32, ptr %5, align 8
-  %88 = lshr i32 %87, 12
-  %89 = trunc nuw nsw i32 %55 to i8
-  %.lhs.trunc206 = add nsw i8 %89, -1
-  %90 = trunc i32 %88 to i8
-  %91 = and i8 %90, 15
-  %.rhs.trunc207 = add nsw i8 %91, -1
-  %92 = sdiv i8 %.lhs.trunc206, %.rhs.trunc207
-  %.sext208 = sext i8 %92 to i32
-  %93 = srem i8 %.lhs.trunc206, %.rhs.trunc207
-  %94 = icmp ne i8 %93, 0
-  %95 = zext i1 %94 to i32
-  %96 = add nsw i32 %.sext208, 1
-  %97 = add nsw i32 %96, %95
-  br label %182
+  %85 = load i32, ptr %14, align 4, !tbaa !12
+  %86 = tail call i32 @Lpk_SuppDelay(i32 noundef %85, ptr noundef nonnull %6) #4
+  %87 = add nsw i32 %86, 1
+  %88 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %84, i32 range(i32 -2147483647, -2147483648) %87)
+  %89 = load i32, ptr %5, align 8
+  %90 = lshr i32 %89, 12
+  %91 = trunc nuw nsw i32 %19 to i8
+  %.lhs.trunc194 = add nuw nsw i8 %91, 1
+  %92 = trunc i32 %90 to i8
+  %93 = and i8 %92, 15
+  %.rhs.trunc195 = add nsw i8 %93, -1
+  %94 = sdiv i8 %.lhs.trunc194, %.rhs.trunc195
+  %.sext196 = sext i8 %94 to i32
+  %95 = srem i8 %.lhs.trunc194, %.rhs.trunc195
+  %96 = icmp ne i8 %95, 0
+  %97 = zext i1 %96 to i32
+  %98 = add nsw i32 %.sext196, 1
+  %99 = add nsw i32 %98, %97
+  br label %146
 
-98:                                               ; preds = %79
-  br i1 %.not159, label %117, label %99
+100:                                              ; preds = %81
+  %.not163 = icmp samesign ugt i32 %19, %25
+  %101 = or i32 %15, %11
+  %102 = tail call i32 @Lpk_SuppDelay(i32 noundef %101, ptr noundef nonnull %6) #4
+  %103 = load i32, ptr %17, align 4, !tbaa !12
+  %104 = tail call i32 @Lpk_SuppDelay(i32 noundef %103, ptr noundef nonnull %6) #4
+  %105 = add nsw i32 %104, 1
+  %106 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %102, i32 range(i32 -2147483647, -2147483648) %105)
+  br i1 %.not163, label %119, label %107
 
-99:                                               ; preds = %98
-  %100 = or i32 %36, %11
-  %101 = tail call i32 @Lpk_SuppDelay(i32 noundef %100, ptr noundef nonnull %6) #4
-  %102 = load i32, ptr %14, align 4, !tbaa !12
-  %103 = tail call i32 @Lpk_SuppDelay(i32 noundef %102, ptr noundef nonnull %6) #4
-  %104 = add nsw i32 %103, 1
-  %105 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %101, i32 range(i32 -2147483647, -2147483648) %104)
-  %106 = load i32, ptr %5, align 8
-  %107 = lshr i32 %106, 12
-  %108 = trunc nuw nsw i32 %34 to i8
-  %.lhs.trunc200 = add nsw i8 %108, -1
-  %109 = trunc i32 %107 to i8
-  %110 = and i8 %109, 15
-  %.rhs.trunc201 = add nsw i8 %110, -1
-  %111 = sdiv i8 %.lhs.trunc200, %.rhs.trunc201
-  %.sext202 = sext i8 %111 to i32
-  %112 = srem i8 %.lhs.trunc200, %.rhs.trunc201
-  %113 = icmp ne i8 %112, 0
-  %114 = zext i1 %113 to i32
-  %115 = add nsw i32 %.sext202, 1
-  %116 = add nsw i32 %115, %114
-  br label %182
+107:                                              ; preds = %100
+  %108 = load i32, ptr %5, align 8
+  %109 = lshr i32 %108, 12
+  %110 = trunc nuw nsw i32 %16 to i8
+  %.lhs.trunc188 = add nuw nsw i8 %110, 1
+  %111 = trunc i32 %109 to i8
+  %112 = and i8 %111, 15
+  %.rhs.trunc189 = add nsw i8 %112, -1
+  %113 = sdiv i8 %.lhs.trunc188, %.rhs.trunc189
+  %.sext190 = sext i8 %113 to i32
+  %114 = srem i8 %.lhs.trunc188, %.rhs.trunc189
+  %115 = icmp ne i8 %114, 0
+  %116 = zext i1 %115 to i32
+  %117 = add nsw i32 %.sext190, 1
+  %118 = add nsw i32 %117, %116
+  br label %146
 
-117:                                              ; preds = %98
-  %.not162 = icmp samesign ugt i32 %34, %61
-  br i1 %.not162, label %136, label %118
-
-118:                                              ; preds = %117
-  %119 = or i32 %36, %11
-  %120 = tail call i32 @Lpk_SuppDelay(i32 noundef %119, ptr noundef nonnull %6) #4
-  %121 = load i32, ptr %14, align 4, !tbaa !12
+119:                                              ; preds = %100
+  %120 = load i32, ptr %17, align 4, !tbaa !12
+  %121 = or i32 %120, %11
   %122 = tail call i32 @Lpk_SuppDelay(i32 noundef %121, ptr noundef nonnull %6) #4
-  %123 = add nsw i32 %122, 1
-  %124 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %120, i32 range(i32 -2147483647, -2147483648) %123)
-  %125 = load i32, ptr %5, align 8
-  %126 = lshr i32 %125, 12
-  %127 = trunc nuw nsw i32 %55 to i8
-  %.lhs.trunc194 = add nuw nsw i8 %127, 1
-  %128 = trunc i32 %126 to i8
-  %129 = and i8 %128, 15
-  %.rhs.trunc195 = add nsw i8 %129, -1
-  %130 = sdiv i8 %.lhs.trunc194, %.rhs.trunc195
-  %.sext196 = sext i8 %130 to i32
-  %131 = srem i8 %.lhs.trunc194, %.rhs.trunc195
-  %132 = icmp ne i8 %131, 0
-  %133 = zext i1 %132 to i32
-  %134 = add nsw i32 %.sext196, 1
-  %135 = add nsw i32 %134, %133
-  br label %182
+  %123 = load i32, ptr %14, align 4, !tbaa !12
+  %124 = tail call i32 @Lpk_SuppDelay(i32 noundef %123, ptr noundef nonnull %6) #4
+  %125 = add nsw i32 %124, 1
+  %126 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %122, i32 range(i32 -2147483647, -2147483648) %125)
+  %127 = tail call noundef i32 @llvm.smin.i32(i32 %106, i32 %126)
+  %.not212 = icmp sgt i32 %106, %126
+  %128 = load i32, ptr %5, align 8
+  %129 = lshr i32 %128, 12
+  %130 = trunc i32 %129 to i8
+  %131 = and i8 %130, 15
+  %.rhs.trunc177 = add nsw i8 %131, -1
+  %. = select i1 %.not212, i32 %19, i32 %16
+  %.235 = select i1 %.not212, i32 %16, i32 %19
+  %132 = trunc nuw nsw i32 %. to i8
+  %.lhs.trunc176 = add nuw nsw i8 %132, 1
+  %133 = sdiv i8 %.lhs.trunc176, %.rhs.trunc177
+  %.sext178 = sext i8 %133 to i32
+  %134 = srem i8 %.lhs.trunc176, %.rhs.trunc177
+  %135 = icmp ne i8 %134, 0
+  %136 = zext i1 %135 to i32
+  %137 = trunc nuw nsw i32 %.235 to i8
+  %.lhs.trunc182 = add nsw i8 %137, -1
+  %138 = sdiv i8 %.lhs.trunc182, %.rhs.trunc177
+  %.sext184 = sext i8 %138 to i32
+  %139 = srem i8 %.lhs.trunc182, %.rhs.trunc177
+  %140 = icmp ne i8 %139, 0
+  %141 = zext i1 %140 to i32
+  %142 = add nsw i32 %136, %.sext178
+  %143 = add nsw i32 %142, %.sext184
+  %144 = add nsw i32 %143, %141
+  %145 = icmp sle i32 %126, %106
+  br label %146
 
-136:                                              ; preds = %117
-  %.not163 = icmp samesign ugt i32 %55, %61
-  %137 = or i32 %15, %11
-  %138 = tail call i32 @Lpk_SuppDelay(i32 noundef %137, ptr noundef nonnull %6) #4
-  %139 = load i32, ptr %35, align 4, !tbaa !12
-  %140 = tail call i32 @Lpk_SuppDelay(i32 noundef %139, ptr noundef nonnull %6) #4
-  %141 = add nsw i32 %140, 1
-  %142 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %138, i32 range(i32 -2147483647, -2147483648) %141)
-  br i1 %.not163, label %155, label %143
-
-143:                                              ; preds = %136
-  %144 = load i32, ptr %5, align 8
-  %145 = lshr i32 %144, 12
-  %146 = trunc nuw nsw i32 %34 to i8
-  %.lhs.trunc188 = add nuw nsw i8 %146, 1
-  %147 = trunc i32 %145 to i8
-  %148 = and i8 %147, 15
-  %.rhs.trunc189 = add nsw i8 %148, -1
-  %149 = sdiv i8 %.lhs.trunc188, %.rhs.trunc189
-  %.sext190 = sext i8 %149 to i32
-  %150 = srem i8 %.lhs.trunc188, %.rhs.trunc189
-  %151 = icmp ne i8 %150, 0
-  %152 = zext i1 %151 to i32
-  %153 = add nsw i32 %.sext190, 1
-  %154 = add nsw i32 %153, %152
-  br label %182
-
-155:                                              ; preds = %136
-  %156 = load i32, ptr %35, align 4, !tbaa !12
-  %157 = or i32 %156, %11
-  %158 = tail call i32 @Lpk_SuppDelay(i32 noundef %157, ptr noundef nonnull %6) #4
-  %159 = load i32, ptr %14, align 4, !tbaa !12
-  %160 = tail call i32 @Lpk_SuppDelay(i32 noundef %159, ptr noundef nonnull %6) #4
-  %161 = add nsw i32 %160, 1
-  %162 = tail call range(i32 -2147483647, -2147483648) i32 @llvm.smax.i32(i32 %158, i32 range(i32 -2147483647, -2147483648) %161)
-  %163 = tail call noundef i32 @llvm.smin.i32(i32 %142, i32 %162)
-  %.not212 = icmp sgt i32 %142, %162
-  %164 = load i32, ptr %5, align 8
-  %165 = lshr i32 %164, 12
-  %166 = trunc i32 %165 to i8
-  %167 = and i8 %166, 15
-  %.rhs.trunc177 = add nsw i8 %167, -1
-  %. = select i1 %.not212, i32 %55, i32 %34
-  %.233 = select i1 %.not212, i32 %34, i32 %55
-  %168 = trunc nuw nsw i32 %. to i8
-  %.lhs.trunc176 = add nuw nsw i8 %168, 1
-  %169 = sdiv i8 %.lhs.trunc176, %.rhs.trunc177
-  %.sext178 = sext i8 %169 to i32
-  %170 = srem i8 %.lhs.trunc176, %.rhs.trunc177
-  %171 = icmp ne i8 %170, 0
-  %172 = zext i1 %171 to i32
-  %173 = trunc nuw nsw i32 %.233 to i8
-  %.lhs.trunc182 = add nsw i8 %173, -1
-  %174 = sdiv i8 %.lhs.trunc182, %.rhs.trunc177
-  %.sext184 = sext i8 %174 to i32
-  %175 = srem i8 %.lhs.trunc182, %.rhs.trunc177
-  %176 = icmp ne i8 %175, 0
-  %177 = zext i1 %176 to i32
-  %178 = add nsw i32 %172, %.sext178
-  %179 = add nsw i32 %178, %.sext184
-  %180 = add nsw i32 %179, %177
-  %181 = icmp sle i32 %162, %142
-  br label %182
-
-182:                                              ; preds = %80, %118, %155, %143, %99, %63
-  %.0149 = phi i32 [ 2, %63 ], [ %97, %80 ], [ %116, %99 ], [ %135, %118 ], [ %154, %143 ], [ %180, %155 ]
-  %.0148.shrunk = phi i1 [ %78, %63 ], [ false, %80 ], [ true, %99 ], [ true, %118 ], [ false, %143 ], [ %181, %155 ]
-  %.0 = phi i32 [ %77, %63 ], [ %86, %80 ], [ %105, %99 ], [ %124, %118 ], [ %142, %143 ], [ %163, %155 ]
+146:                                              ; preds = %44, %82, %119, %107, %63, %27
+  %.0149 = phi i32 [ 2, %27 ], [ %61, %44 ], [ %80, %63 ], [ %99, %82 ], [ %118, %107 ], [ %144, %119 ]
+  %.0148.shrunk = phi i1 [ %42, %27 ], [ false, %44 ], [ true, %63 ], [ true, %82 ], [ false, %107 ], [ %145, %119 ]
+  %.0 = phi i32 [ %41, %27 ], [ %50, %44 ], [ %69, %63 ], [ %88, %82 ], [ %106, %107 ], [ %127, %119 ]
   %.0148 = zext i1 %.0148.shrunk to i32
-  %183 = load i32, ptr %7, align 8, !tbaa !13
-  %184 = icmp sgt i32 %.0, %183
-  br i1 %184, label %219, label %185
+  %147 = load i32, ptr %7, align 8, !tbaa !13
+  %148 = icmp sgt i32 %.0, %147
+  br i1 %148, label %183, label %149
 
-185:                                              ; preds = %182
-  %186 = load i32, ptr %5, align 8
-  %187 = lshr i32 %186, 16
-  %188 = and i32 %187, 16383
-  %189 = icmp sgt i32 %.0149, %188
-  br i1 %189, label %219, label %190
+149:                                              ; preds = %146
+  %150 = load i32, ptr %5, align 8
+  %151 = lshr i32 %150, 16
+  %152 = and i32 %151, 16383
+  %153 = icmp sgt i32 %.0149, %152
+  br i1 %153, label %183, label %154
 
-190:                                              ; preds = %185
-  %191 = select i1 %.0148.shrunk, i32 0, i32 2
-  %192 = add nuw nsw i32 %191, %34
-  %193 = select i1 %.0148.shrunk, i32 2, i32 0
-  %194 = add nuw nsw i32 %193, %55
-  %195 = tail call i32 @llvm.umin.i32(i32 %192, i32 %194)
-  %196 = tail call i32 @llvm.umax.i32(i32 %192, i32 %194)
-  %197 = lshr i32 %186, 7
-  %198 = and i32 %197, 31
-  %199 = icmp samesign ugt i32 %196, %198
-  br i1 %199, label %219, label %200
+154:                                              ; preds = %149
+  %155 = select i1 %.0148.shrunk, i32 0, i32 2
+  %156 = add nuw nsw i32 %155, %16
+  %157 = select i1 %.0148.shrunk, i32 2, i32 0
+  %158 = add nuw nsw i32 %157, %19
+  %159 = tail call i32 @llvm.umin.i32(i32 %156, i32 %158)
+  %160 = tail call i32 @llvm.umax.i32(i32 %156, i32 %158)
+  %161 = lshr i32 %150, 7
+  %162 = and i32 %161, 31
+  %163 = icmp samesign ugt i32 %160, %162
+  br i1 %163, label %183, label %164
 
-200:                                              ; preds = %190
-  %201 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4, !tbaa !3
-  %202 = icmp eq i32 %201, -1
-  br i1 %202, label %218, label %203
+164:                                              ; preds = %154
+  %165 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4, !tbaa !3
+  %166 = icmp eq i32 %165, -1
+  br i1 %166, label %182, label %167
 
-203:                                              ; preds = %200
-  %204 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4, !tbaa !14
-  %205 = icmp sgt i32 %204, %.0149
-  br i1 %205, label %218, label %206
+167:                                              ; preds = %164
+  %168 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4, !tbaa !14
+  %169 = icmp sgt i32 %168, %.0149
+  br i1 %169, label %182, label %170
 
-206:                                              ; preds = %203
-  %207 = icmp eq i32 %204, %.0149
-  br i1 %207, label %208, label %219
+170:                                              ; preds = %167
+  %171 = icmp eq i32 %168, %.0149
+  br i1 %171, label %172, label %183
 
-208:                                              ; preds = %206
-  %209 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4, !tbaa !15
-  %210 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4, !tbaa !16
-  %211 = add nsw i32 %210, %209
-  %212 = add nuw nsw i32 %192, %194
-  %213 = icmp sgt i32 %211, %212
-  br i1 %213, label %218, label %214
+172:                                              ; preds = %170
+  %173 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4, !tbaa !15
+  %174 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4, !tbaa !16
+  %175 = add nsw i32 %174, %173
+  %176 = add nuw nsw i32 %156, %158
+  %177 = icmp sgt i32 %175, %176
+  br i1 %177, label %182, label %178
 
-214:                                              ; preds = %208
-  %215 = icmp eq i32 %211, %212
-  %216 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 24), align 4
-  %217 = icmp sgt i32 %216, %.0
-  %or.cond166 = select i1 %215, i1 %217, i1 false
-  br i1 %or.cond166, label %218, label %219
+178:                                              ; preds = %172
+  %179 = icmp eq i32 %175, %176
+  %180 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 24), align 4
+  %181 = icmp sgt i32 %180, %.0
+  %or.cond166 = select i1 %179, i1 %181, i1 false
+  br i1 %or.cond166, label %182, label %183
 
-218:                                              ; preds = %214, %208, %203, %200
+182:                                              ; preds = %178, %172, %167, %164
   store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4, !tbaa !3
   store i32 %.0148, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 36), align 4, !tbaa !17
   store i32 %.0149, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4, !tbaa !14
   store i32 %.0, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 24), align 4, !tbaa !18
-  store i32 %195, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4, !tbaa !15
-  store i32 %196, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4, !tbaa !16
-  br label %219
+  store i32 %159, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4, !tbaa !15
+  store i32 %160, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4, !tbaa !16
+  br label %183
 
-219:                                              ; preds = %206, %8, %218, %214, %190, %185, %182, %13
+183:                                              ; preds = %170, %8, %182, %178, %154, %149, %146, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %220, label %8, !llvm.loop !19
+  br i1 %exitcond.not, label %184, label %8, !llvm.loop !19
 
-220:                                              ; preds = %219
-  %221 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4, !tbaa !3
-  %222 = icmp eq i32 %221, -1
-  %223 = select i1 %222, ptr null, ptr @Lpk_MuxAnalize.Res
-  ret ptr %223
+184:                                              ; preds = %183
+  %185 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4, !tbaa !3
+  %186 = icmp eq i32 %185, -1
+  %187 = select i1 %186, ptr null, ptr @Lpk_MuxAnalize.Res
+  ret ptr %187
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
@@ -570,6 +534,9 @@ declare i32 @llvm.smax.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #3
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ctpop.i32(i32) #3
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #3
