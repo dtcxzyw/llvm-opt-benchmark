@@ -4382,182 +4382,170 @@ _ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit167: ; preds = %_
 84:                                               ; preds = %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit167
   %85 = add nsw i32 %spec.select523, %71
   %86 = sub nsw i32 %72, %spec.select
-  %87 = mul nsw i32 %86, %.sroa.33.8.extract.trunc
-  %88 = add nsw i32 %87, %85
   %.sroa.2.0.insert.ext.i182 = zext i32 %86 to i64
   %.sroa.2.0.insert.shift.i183 = shl nuw i64 %.sroa.2.0.insert.ext.i182, 32
   %.sroa.0.0.insert.ext.i184 = zext i32 %85 to i64
   %.sroa.0.0.insert.insert.i185 = or disjoint i64 %.sroa.2.0.insert.shift.i183, %.sroa.0.0.insert.ext.i184
-  %89 = and i64 %.sroa.0.0.insert.insert.i185, -9223372034707292160
-  %or.cond.i192 = icmp eq i64 %89, 0
-  br i1 %or.cond.i192, label %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i193, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit133.thread
+  %87 = and i64 %.sroa.0.0.insert.insert.i185, -9223372034707292160
+  %or.cond.i192 = icmp eq i64 %87, 0
+  %88 = icmp slt i32 %85, %.sroa.33.8.extract.trunc
+  %or.cond = select i1 %or.cond.i192, i1 %88, i1 false
+  br i1 %or.cond, label %89, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit133.thread
 
-_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i193: ; preds = %84
-  %90 = icmp slt i32 %85, %.sroa.33.8.extract.trunc
-  %91 = icmp slt i32 %86, %.sroa.33.8.extract.trunc
-  %spec.select.i.i199 = and i1 %90, %91
-  br i1 %spec.select.i.i199, label %92, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit133.thread
-
-92:                                               ; preds = %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i193
-  %93 = sext i32 %88 to i64
-  %94 = getelementptr inbounds i8, ptr %12, i64 %93
-  %95 = load i8, ptr %94, align 1
-  %96 = icmp eq i8 %95, 4
-  %97 = zext i1 %96 to i32
+89:                                               ; preds = %84
+  %90 = mul nsw i32 %86, %.sroa.33.8.extract.trunc
+  %91 = add nsw i32 %90, %85
+  %92 = sext i32 %91 to i64
+  %93 = getelementptr inbounds i8, ptr %12, i64 %92
+  %94 = load i8, ptr %93, align 1
+  %95 = icmp eq i8 %94, 4
+  %96 = zext i1 %95 to i32
   br label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit133.thread
 
-_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit133.thread: ; preds = %92, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i193, %84, %70, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i159, %.critedge2, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i125, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit167, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit133
-  %98 = phi i32 [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit167 ], [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit133 ], [ 1, %70 ], [ 1, %.critedge2 ], [ 1, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i125 ], [ 1, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i159 ], [ %97, %92 ], [ 1, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i193 ], [ 1, %84 ]
-  %99 = shl nuw nsw i32 %spec.select, 2
-  %100 = shl nuw nsw i32 %spec.select523, 2
-  %101 = add nuw nsw i32 %99, %.sroa.0471.0.extract.trunc
-  %102 = add nuw nsw i32 %100, %.sroa.16.0.extract.trunc
+_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit133.thread: ; preds = %89, %84, %70, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i159, %.critedge2, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i125, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit167, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit133
+  %97 = phi i32 [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit167 ], [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit133 ], [ 1, %70 ], [ 1, %.critedge2 ], [ 1, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i125 ], [ 1, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i159 ], [ %96, %89 ], [ 1, %84 ]
+  %98 = shl nuw nsw i32 %spec.select, 2
+  %99 = shl nuw nsw i32 %spec.select523, 2
+  %100 = add nuw nsw i32 %98, %.sroa.0471.0.extract.trunc
+  %101 = add nuw nsw i32 %99, %.sroa.16.0.extract.trunc
+  %102 = icmp slt i32 %100, %.sroa.33.8.extract.trunc
   %103 = icmp slt i32 %101, %.sroa.33.8.extract.trunc
-  %104 = icmp slt i32 %102, %.sroa.33.8.extract.trunc
-  %spec.select.i.i223 = and i1 %103, %104
+  %spec.select.i.i223 = and i1 %102, %103
   br i1 %spec.select.i.i223, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread
 
 _ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225: ; preds = %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit133.thread
-  %105 = mul nsw i32 %102, %.sroa.33.8.extract.trunc
-  %106 = add nsw i32 %105, %101
-  %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds i8, ptr %12, i64 %107
-  %109 = load i8, ptr %108, align 1
-  %110 = icmp eq i8 %109, 4
-  br i1 %110, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread, label %111
+  %104 = mul nsw i32 %101, %.sroa.33.8.extract.trunc
+  %105 = add nsw i32 %104, %100
+  %106 = sext i32 %105 to i64
+  %107 = getelementptr inbounds i8, ptr %12, i64 %106
+  %108 = load i8, ptr %107, align 1
+  %109 = icmp eq i8 %108, 4
+  br i1 %109, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread, label %110
 
-111:                                              ; preds = %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225
-  %112 = mul nuw nsw i32 %spec.select, 3
-  %113 = mul nuw nsw i32 %spec.select523, 3
-  %114 = add nuw nsw i32 %112, %.sroa.0471.0.extract.trunc
-  %115 = add nuw nsw i32 %113, %.sroa.16.0.extract.trunc
-  %116 = sub nsw i32 %114, %spec.select523
-  %117 = add nuw nsw i32 %115, %spec.select
-  %118 = mul nsw i32 %117, %.sroa.33.8.extract.trunc
-  %119 = add nsw i32 %118, %116
-  %or.cond.i254 = icmp sgt i32 %116, -1
+110:                                              ; preds = %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225
+  %111 = mul nuw nsw i32 %spec.select, 3
+  %112 = mul nuw nsw i32 %spec.select523, 3
+  %113 = add nuw nsw i32 %111, %.sroa.0471.0.extract.trunc
+  %114 = add nuw nsw i32 %112, %.sroa.16.0.extract.trunc
+  %115 = sub nsw i32 %113, %spec.select523
+  %116 = add nuw nsw i32 %114, %spec.select
+  %117 = mul nsw i32 %116, %.sroa.33.8.extract.trunc
+  %118 = add nsw i32 %117, %115
+  %or.cond.i254 = icmp sgt i32 %115, -1
   br i1 %or.cond.i254, label %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i255, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread
 
-_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i255: ; preds = %111
+_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i255: ; preds = %110
+  %119 = icmp slt i32 %115, %.sroa.33.8.extract.trunc
   %120 = icmp slt i32 %116, %.sroa.33.8.extract.trunc
-  %121 = icmp slt i32 %117, %.sroa.33.8.extract.trunc
-  %spec.select.i.i261 = and i1 %120, %121
+  %spec.select.i.i261 = and i1 %119, %120
   br i1 %spec.select.i.i261, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit263, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread
 
 _ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit263: ; preds = %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i255
-  %122 = sext i32 %119 to i64
-  %123 = getelementptr inbounds i8, ptr %12, i64 %122
-  %124 = load i8, ptr %123, align 1
-  %125 = icmp eq i8 %124, 4
-  br i1 %125, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread, label %126
+  %121 = sext i32 %118 to i64
+  %122 = getelementptr inbounds i8, ptr %12, i64 %121
+  %123 = load i8, ptr %122, align 1
+  %124 = icmp eq i8 %123, 4
+  br i1 %124, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread, label %125
 
-126:                                              ; preds = %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit263
-  %127 = add nuw nsw i32 %114, %spec.select523
-  %128 = sub nsw i32 %115, %spec.select
-  %129 = mul nsw i32 %128, %.sroa.33.8.extract.trunc
-  %130 = add nsw i32 %129, %127
-  %or.cond.i292 = icmp sgt i32 %128, -1
-  br i1 %or.cond.i292, label %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i293, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread
+125:                                              ; preds = %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit263
+  %126 = add nuw nsw i32 %113, %spec.select523
+  %127 = sub nsw i32 %114, %spec.select
+  %or.cond.i292 = icmp sgt i32 %127, -1
+  %128 = icmp slt i32 %126, %.sroa.33.8.extract.trunc
+  %or.cond527 = select i1 %or.cond.i292, i1 %128, i1 false
+  br i1 %or.cond527, label %129, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread
 
-_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i293: ; preds = %126
-  %131 = icmp slt i32 %127, %.sroa.33.8.extract.trunc
-  %132 = icmp samesign ult i32 %128, %.sroa.33.8.extract.trunc
-  %spec.select.i.i299 = and i1 %131, %132
-  br i1 %spec.select.i.i299, label %133, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread
-
-133:                                              ; preds = %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i293
-  %134 = sext i32 %130 to i64
-  %135 = getelementptr inbounds i8, ptr %12, i64 %134
-  %136 = load i8, ptr %135, align 1
-  %137 = icmp eq i8 %136, 4
-  %138 = zext i1 %137 to i32
+129:                                              ; preds = %125
+  %130 = mul nsw i32 %127, %.sroa.33.8.extract.trunc
+  %131 = add nsw i32 %130, %126
+  %132 = sext i32 %131 to i64
+  %133 = getelementptr inbounds i8, ptr %12, i64 %132
+  %134 = load i8, ptr %133, align 1
+  %135 = icmp eq i8 %134, 4
+  %136 = zext i1 %135 to i32
   br label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread
 
-_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread: ; preds = %133, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i293, %126, %111, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i255, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit133.thread, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit263, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225
-  %139 = phi i32 [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit263 ], [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225 ], [ 1, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i255 ], [ 1, %111 ], [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit133.thread ], [ %138, %133 ], [ 1, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i293 ], [ 1, %126 ]
-  %140 = add nuw nsw i32 %139, %98
-  %141 = sub nsw i32 %16, %spec.select523
-  %142 = add nuw nsw i32 %17, %spec.select
-  %143 = mul nsw i32 %142, %.sroa.33.8.extract.trunc
-  %144 = add nsw i32 %143, %141
-  %or.cond.i326 = icmp sgt i32 %141, -1
+_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread: ; preds = %129, %125, %110, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i255, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit133.thread, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit263, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225
+  %137 = phi i32 [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit263 ], [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225 ], [ 1, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i255 ], [ 1, %110 ], [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit133.thread ], [ %136, %129 ], [ 1, %125 ]
+  %138 = add nuw nsw i32 %137, %97
+  %139 = sub nsw i32 %16, %spec.select523
+  %140 = add nuw nsw i32 %17, %spec.select
+  %141 = mul nsw i32 %140, %.sroa.33.8.extract.trunc
+  %142 = add nsw i32 %141, %139
+  %or.cond.i326 = icmp sgt i32 %139, -1
   br i1 %or.cond.i326, label %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i327, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread
 
 _ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i327: ; preds = %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread
-  %145 = icmp slt i32 %141, %.sroa.33.8.extract.trunc
-  %146 = icmp slt i32 %142, %.sroa.33.8.extract.trunc
-  %spec.select.i.i333 = and i1 %145, %146
+  %143 = icmp slt i32 %139, %.sroa.33.8.extract.trunc
+  %144 = icmp slt i32 %140, %.sroa.33.8.extract.trunc
+  %spec.select.i.i333 = and i1 %143, %144
   br i1 %spec.select.i.i333, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread
 
 _ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335: ; preds = %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i327
-  %147 = sext i32 %144 to i64
-  %148 = getelementptr inbounds i8, ptr %12, i64 %147
-  %149 = load i8, ptr %148, align 1
-  %150 = icmp eq i8 %149, 4
-  br i1 %150, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread, label %151
+  %145 = sext i32 %142 to i64
+  %146 = getelementptr inbounds i8, ptr %12, i64 %145
+  %147 = load i8, ptr %146, align 1
+  %148 = icmp eq i8 %147, 4
+  br i1 %148, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread, label %149
 
-151:                                              ; preds = %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335
-  %152 = add nuw nsw i32 %spec.select523, %16
-  %153 = sub nsw i32 %17, %spec.select
-  %154 = mul nsw i32 %153, %.sroa.33.8.extract.trunc
-  %155 = add nsw i32 %154, %152
-  %or.cond.i360 = icmp sgt i32 %153, -1
-  br i1 %or.cond.i360, label %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i361, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread
+149:                                              ; preds = %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335
+  %150 = add nuw nsw i32 %spec.select523, %16
+  %151 = sub nsw i32 %17, %spec.select
+  %or.cond.i360 = icmp sgt i32 %151, -1
+  %152 = icmp slt i32 %150, %.sroa.33.8.extract.trunc
+  %or.cond528 = select i1 %or.cond.i360, i1 %152, i1 false
+  br i1 %or.cond528, label %153, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread
 
-_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i361: ; preds = %151
-  %156 = icmp slt i32 %152, %.sroa.33.8.extract.trunc
-  %157 = icmp samesign ult i32 %153, %.sroa.33.8.extract.trunc
-  %spec.select.i.i367 = and i1 %156, %157
-  br i1 %spec.select.i.i367, label %158, label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread
-
-158:                                              ; preds = %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i361
-  %159 = sext i32 %155 to i64
-  %160 = getelementptr inbounds i8, ptr %12, i64 %159
-  %161 = load i8, ptr %160, align 1
-  %162 = icmp eq i8 %161, 4
-  %163 = zext i1 %162 to i32
+153:                                              ; preds = %149
+  %154 = mul nsw i32 %151, %.sroa.33.8.extract.trunc
+  %155 = add nsw i32 %154, %150
+  %156 = sext i32 %155 to i64
+  %157 = getelementptr inbounds i8, ptr %12, i64 %156
+  %158 = load i8, ptr %157, align 1
+  %159 = icmp eq i8 %158, 4
+  %160 = zext i1 %159 to i32
   br label %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread
 
-_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread: ; preds = %158, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i361, %151, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i327, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335
-  %164 = phi i32 [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335 ], [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread ], [ 1, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i327 ], [ %163, %158 ], [ 1, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i361 ], [ 1, %151 ]
-  %165 = add nuw nsw i32 %140, %164
-  %166 = icmp samesign ult i32 %165, 2
-  br i1 %166, label %.critedge, label %.preheader
+_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread: ; preds = %153, %149, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i327, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335
+  %161 = phi i32 [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335 ], [ 1, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit225.thread ], [ 1, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i327 ], [ %160, %153 ], [ 1, %149 ]
+  %162 = add nuw nsw i32 %138, %161
+  %163 = icmp samesign ult i32 %162, 2
+  br i1 %163, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %168 = load i32, ptr %167, align 4
-  %169 = icmp sgt i32 %168, 0
-  br i1 %169, label %.lr.ph, label %.critedge
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %165 = load i32, ptr %164, align 4
+  %166 = icmp sgt i32 %165, 0
+  br i1 %166, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
-  %170 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br label %171
+  %167 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  br label %168
 
-171:                                              ; preds = %.lr.ph, %178
-  %172 = phi i32 [ %168, %.lr.ph ], [ %179, %178 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %178 ]
-  %.040526 = phi i1 [ true, %.lr.ph ], [ %180, %178 ]
-  br i1 %.040526, label %173, label %178
+168:                                              ; preds = %.lr.ph, %175
+  %169 = phi i32 [ %165, %.lr.ph ], [ %176, %175 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %175 ]
+  %.040526 = phi i1 [ true, %.lr.ph ], [ %177, %175 ]
+  br i1 %.040526, label %170, label %175
 
-173:                                              ; preds = %171
-  %174 = load ptr, ptr %170, align 8
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 %indvars.iv
-  %176 = load i8, ptr %175, align 1
-  %177 = tail call noundef zeroext i1 @_ZNK10open_spiel8quoridor13QuoridorState13SearchEndZoneENS0_14QuoridorPlayerENS0_4MoveES3_PNS1_11SearchStateE(ptr noundef nonnull align 8 dereferenceable(228) %0, i8 noundef zeroext %176, i64 poison, i64 %2, i64 poison, i64 %.sroa.3.8.insert.insert.i78, ptr noundef nonnull %3)
-  %.pre = load i32, ptr %167, align 4
-  br label %178
+170:                                              ; preds = %168
+  %171 = load ptr, ptr %167, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %171, i64 %indvars.iv
+  %173 = load i8, ptr %172, align 1
+  %174 = tail call noundef zeroext i1 @_ZNK10open_spiel8quoridor13QuoridorState13SearchEndZoneENS0_14QuoridorPlayerENS0_4MoveES3_PNS1_11SearchStateE(ptr noundef nonnull align 8 dereferenceable(228) %0, i8 noundef zeroext %173, i64 poison, i64 %2, i64 poison, i64 %.sroa.3.8.insert.insert.i78, ptr noundef nonnull %3)
+  %.pre = load i32, ptr %164, align 4
+  br label %175
 
-178:                                              ; preds = %173, %171
-  %179 = phi i32 [ %172, %171 ], [ %.pre, %173 ]
-  %180 = phi i1 [ false, %171 ], [ %177, %173 ]
+175:                                              ; preds = %170, %168
+  %176 = phi i32 [ %169, %168 ], [ %.pre, %170 ]
+  %177 = phi i1 [ false, %168 ], [ %174, %170 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %181 = sext i32 %179 to i64
-  %182 = icmp slt i64 %indvars.iv.next, %181
-  br i1 %182, label %171, label %.critedge, !llvm.loop !24
+  %178 = sext i32 %176 to i64
+  %179 = icmp slt i64 %indvars.iv.next, %178
+  br i1 %179, label %168, label %.critedge, !llvm.loop !24
 
-.critedge:                                        ; preds = %178, %.preheader, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i81, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i57, %4, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread, %50, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit89, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit65
-  %.0 = phi i1 [ false, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit89 ], [ true, %50 ], [ true, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread ], [ false, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit65 ], [ false, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit ], [ false, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i57 ], [ false, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i81 ], [ false, %4 ], [ false, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i ], [ true, %.preheader ], [ %180, %178 ]
+.critedge:                                        ; preds = %175, %.preheader, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i81, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i57, %4, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread, %50, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit89, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit65
+  %.0 = phi i1 [ false, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit89 ], [ true, %50 ], [ true, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit335.thread ], [ false, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit65 ], [ false, %_ZNK10open_spiel8quoridor13QuoridorState6IsWallENS0_4MoveE.exit ], [ false, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i57 ], [ false, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i81 ], [ false, %4 ], [ false, %_ZNK10open_spiel8quoridor4Move7IsValidEv.exit.i ], [ true, %.preheader ], [ %177, %175 ]
   ret i1 %.0
 }
 

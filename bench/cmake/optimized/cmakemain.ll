@@ -5445,24 +5445,24 @@ sub_1:                                            ; preds = %sub_0
   %1746 = add nsw i32 %106, -1
   %1747 = zext nneg i32 %1746 to i64
   %1748 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %1749 = shl nuw nsw i64 %1747, 5
-  %1750 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1749) #30
-          to label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.i146 unwind label %_ZNKSt14default_deleteI12cmConsoleBufEclEPS0_.exit.i163
+  %1749 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %1750 = shl nuw nsw i64 %1747, 5
+  %1751 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %1750) #30
+          to label %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i.i146 unwind label %_ZNKSt14default_deleteI12cmConsoleBufEclEPS0_.exit.i163
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.i146: ; preds = %1744
-  %1751 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %1750, ptr %3, align 8, !tbaa !148
-  store ptr %1750, ptr %1751, align 8, !tbaa !150
-  %1752 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1750, i64 %1747
+_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i.i146: ; preds = %1744
+  store ptr %1751, ptr %3, align 8, !tbaa !148
+  store ptr %1751, ptr %1749, align 8, !tbaa !150
+  %1752 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1751, i64 %1747
   store ptr %1752, ptr %1748, align 8, !tbaa !151
   %1753 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRKPKcEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %108)
           to label %1754 unwind label %_ZNKSt14default_deleteI12cmConsoleBufEclEPS0_.exit.i163
 
-1754:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.i146
+1754:                                             ; preds = %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i.i146
   %1755 = getelementptr inbounds nuw i8, ptr %108, i64 16
   %1756 = zext nneg i32 %106 to i64
   %1757 = getelementptr inbounds nuw ptr, ptr %108, i64 %1756
-  %1758 = load ptr, ptr %1751, align 8, !tbaa !34
+  %1758 = load ptr, ptr %1749, align 8, !tbaa !34
   %1759 = load ptr, ptr %3, align 8, !tbaa !34
   %1760 = ptrtoint ptr %1758 to i64
   %1761 = ptrtoint ptr %1759 to i64
@@ -5488,7 +5488,7 @@ _ZNKSt14default_deleteI12cmConsoleBufEclEPS0_.exit.i.i: ; preds = %1765
 _ZNSt10unique_ptrI12cmConsoleBufSt14default_deleteIS0_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteI12cmConsoleBufEclEPS0_.exit.i.i, %1765
   store ptr null, ptr %4, align 8, !tbaa !251
   %1767 = load ptr, ptr %3, align 8, !tbaa !148
-  %1768 = load ptr, ptr %1751, align 8, !tbaa !150
+  %1768 = load ptr, ptr %1749, align 8, !tbaa !150
   %.not4.i.i.i.i.i149 = icmp eq ptr %1767, %1768
   br i1 %.not4.i.i.i.i.i149, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i155, label %.lr.ph.i.i.i.i9.i
 
@@ -5544,7 +5544,7 @@ _ZNKSt14default_deleteI12cmConsoleBufEclEPS0_.exit.i12.i: ; preds = %1781
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %1876
 
-_ZNKSt14default_deleteI12cmConsoleBufEclEPS0_.exit.i163: ; preds = %1754, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit.i146, %1744
+_ZNKSt14default_deleteI12cmConsoleBufEclEPS0_.exit.i163: ; preds = %1754, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit.i.i146, %1744
   %1784 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #32

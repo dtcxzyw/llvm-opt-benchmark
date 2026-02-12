@@ -14302,19 +14302,19 @@ define hidden void @_ZN3sat6solver16propagate_clauseERNS_6clauseEbjm(ptr noundef
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i32 2, ptr %15, align 8, !tbaa !171
   tail call void @_ZN3sat6solver11assign_coreENS_7literalENS_13justificationE(ptr noundef nonnull align 8 dereferenceable(4264) %0, i32 %.sroa.0.0.copyload, ptr noundef nonnull byval(%"class.sat::justification") align 8 %6)
-  br i1 %2, label %16, label %85
+  br i1 %2, label %16, label %84
 
 16:                                               ; preds = %5
   %17 = load i32, ptr %10, align 4
   %18 = and i32 %17, 4
   %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %85, label %19
+  br i1 %.not, label %84, label %19
 
 19:                                               ; preds = %16
   %20 = lshr i32 %17, 14
   %21 = and i32 %20, 255
   %22 = icmp samesign ugt i32 %21, 2
-  br i1 %22, label %23, label %85
+  br i1 %22, label %23, label %84
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -14438,18 +14438,17 @@ _ZN6vectorIcLb0EjE7reserveEjRKc.exit.i:           ; preds = %.lr.ph.preheader.i.
 _ZN3sat6solver21num_diff_levels_belowEjPKNS_7literalEjRj.exit: ; preds = %.critedge.i, %_ZN6vectorIcLb0EjE7reserveEjRKc.exit.i
   %.2 = phi i32 [ 0, %_ZN6vectorIcLb0EjE7reserveEjRKc.exit.i ], [ %.1, %.critedge.i ]
   %78 = icmp ult i32 %.2, %26
-  br i1 %78, label %79, label %85
+  br i1 %78, label %79, label %84
 
 79:                                               ; preds = %_ZN3sat6solver21num_diff_levels_belowEjPKNS_7literalEjRj.exit
-  %80 = tail call i32 @llvm.umin.i32(i32 %.2, i32 255)
-  %81 = load i32, ptr %10, align 4
-  %82 = shl nuw nsw i32 %80, 14
-  %83 = and i32 %81, -4177921
-  %84 = or disjoint i32 %83, %82
-  store i32 %84, ptr %10, align 4
-  br label %85
+  %80 = load i32, ptr %10, align 4
+  %81 = shl nuw nsw i32 %.2, 14
+  %82 = and i32 %80, -4177921
+  %83 = add nuw nsw i32 %82, %81
+  store i32 %83, ptr %10, align 4
+  br label %84
 
-85:                                               ; preds = %79, %_ZN3sat6solver21num_diff_levels_belowEjPKNS_7literalEjRj.exit, %19, %16, %5
+84:                                               ; preds = %79, %_ZN3sat6solver21num_diff_levels_belowEjPKNS_7literalEjRj.exit, %19, %16, %5
   ret void
 }
 

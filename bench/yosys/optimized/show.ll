@@ -92648,14 +92648,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97: ; preds = %_ZN
   call void @llvm.experimental.noalias.scope.decl(metadata !948)
   %305 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %305, ptr %21, align 8, !tbaa !6, !alias.scope !948
-  %spec.select.i.i.i = call noundef i64 @llvm.umin.i64(i64 %304, i64 %298)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !948
-  store i64 %spec.select.i.i.i, ptr %5, align 8, !tbaa !24, !noalias !948
+  store i64 %304, ptr %5, align 8, !tbaa !24, !noalias !948
   %306 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
   store ptr %306, ptr %21, align 8, !tbaa !23, !alias.scope !948
   %307 = load i64, ptr %5, align 8, !tbaa !24, !noalias !948
   store i64 %307, ptr %305, align 8, !tbaa !15, !alias.scope !948
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %306, ptr align 1 %.pre160, i64 %spec.select.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %306, ptr noundef nonnull align 1 dereferenceable(1) %.pre160, i64 %304, i1 false)
   %308 = load i64, ptr %5, align 8, !tbaa !24, !noalias !948
   %309 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 %308, ptr %309, align 8, !tbaa !12, !alias.scope !948

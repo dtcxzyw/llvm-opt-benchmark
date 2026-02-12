@@ -270,7 +270,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h6ca3caf12adad6f8E.exit.i.i: ;
   %52 = trunc nuw i64 %51 to i16
   store i16 %52, ptr %47, align 2, !noalias !18
   store i16 5, ptr %42, align 2, !noalias !18
-  %53 = getelementptr inbounds nuw { [2 x i64] }, ptr %41, i64 %46
+  %53 = getelementptr { [2 x i64] }, ptr %41, i64 %46
   %54 = shl nuw nsw i64 %49, 4
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %53, ptr nonnull align 8 %41, i64 %54, i1 false), !noalias !18
   %55 = add nuw nsw i64 %51, 1
@@ -288,9 +288,9 @@ _ZN5alloc11collections5btree4node13move_to_slice17h6ca3caf12adad6f8E.exit.i.i: ;
   %66 = load i64, ptr %65, align 8, !noalias !26, !noundef !7
   store ptr %60, ptr %63, align 8, !noalias !26
   store i64 %62, ptr %65, align 8, !noalias !26
-  %67 = getelementptr inbounds nuw { [2 x i64] }, ptr %41, i64 %56
+  %67 = getelementptr i8, ptr %53, i64 -16
   store ptr %64, ptr %67, align 8, !noalias !18
-  %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  %68 = getelementptr i8, ptr %53, i64 -8
   store i64 %66, ptr %68, align 8, !noalias !18
   %cond.i = icmp eq i64 %38, 0
   br i1 %cond.i, label %"_ZN5alloc11collections5btree3fix178_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Owned$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$29fix_right_border_of_plentiful17ha554b74d20ac87b1E.exit", label %_ZN5alloc11collections5btree4node13move_to_slice17h28999f98cd601590E.exit.i.i

@@ -720,21 +720,21 @@ define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr noundef captures
   br label %asn1_string_canon.exit.thread
 
 19:                                               ; preds = %109
-  %20 = add nuw nsw i32 %.03780, 1
+  %20 = add nuw nsw i32 %.03779, 1
   %21 = load ptr, ptr %0, align 8, !tbaa !21
   %22 = tail call i32 @OPENSSL_sk_num(ptr noundef %21) #6
   %23 = icmp slt i32 %20, %22
   br i1 %23, label %.lr.ph, label %._crit_edge, !llvm.loop !37
 
 .lr.ph:                                           ; preds = %.preheader, %19
-  %.03681 = phi i32 [ %.1, %19 ], [ -1, %.preheader ]
-  %.03780 = phi i32 [ %20, %19 ], [ 0, %.preheader ]
-  %.04079 = phi ptr [ %.141, %19 ], [ null, %.preheader ]
+  %.03680 = phi i32 [ %.1, %19 ], [ -1, %.preheader ]
+  %.03779 = phi i32 [ %20, %19 ], [ 0, %.preheader ]
+  %.04078 = phi ptr [ %.141, %19 ], [ null, %.preheader ]
   %24 = load ptr, ptr %0, align 8, !tbaa !21
-  %25 = tail call ptr @OPENSSL_sk_value(ptr noundef %24, i32 noundef %.03780) #6
+  %25 = tail call ptr @OPENSSL_sk_value(ptr noundef %24, i32 noundef %.03779) #6
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 8, !tbaa !26
-  %.not = icmp eq i32 %27, %.03681
+  %.not = icmp eq i32 %27, %.03680
   br i1 %.not, label %36, label %28
 
 28:                                               ; preds = %.lr.ph
@@ -759,8 +759,8 @@ define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr noundef captures
   br label %36
 
 36:                                               ; preds = %34, %.lr.ph
-  %.141 = phi ptr [ %29, %34 ], [ %.04079, %.lr.ph ]
-  %.1 = phi i32 [ %35, %34 ], [ %.03681, %.lr.ph ]
+  %.141 = phi ptr [ %29, %34 ], [ %.04078, %.lr.ph ]
+  %.1 = phi i32 [ %35, %34 ], [ %.03680, %.lr.ph ]
   %37 = tail call ptr @ASN1_item_new(ptr noundef nonnull @X509_NAME_ENTRY_it.local_it) #6
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %40
@@ -850,7 +850,7 @@ define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr noundef captures
 
 .critedge2.thread.i:                              ; preds = %65, %75, %59
   %78 = load ptr, ptr %56, align 8, !tbaa !43
-  br label %asn1_string_canon.exit.thread62
+  br label %asn1_string_canon.exit.thread61
 
 .lr.ph73.preheader.i:                             ; preds = %.lr.ph66.i
   %79 = load ptr, ptr %56, align 8, !tbaa !43
@@ -910,9 +910,9 @@ define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr noundef captures
 
 ._crit_edge.loopexit.i:                           ; preds = %.loopexit.i
   %.pre.i = load ptr, ptr %56, align 8, !tbaa !43
-  br label %asn1_string_canon.exit.thread62
+  br label %asn1_string_canon.exit.thread61
 
-asn1_string_canon.exit.thread62:                  ; preds = %.critedge2.thread.i, %._crit_edge.loopexit.i
+asn1_string_canon.exit.thread61:                  ; preds = %.critedge2.thread.i, %._crit_edge.loopexit.i
   %103 = phi ptr [ %78, %.critedge2.thread.i ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %.148.lcssa.i = phi ptr [ %78, %.critedge2.thread.i ], [ %.249.i, %._crit_edge.loopexit.i ]
   %104 = ptrtoint ptr %.148.lcssa.i to i64
@@ -927,7 +927,7 @@ asn1_string_canon.exit:                           ; preds = %45
   %.not52.i.not = icmp eq i32 %108, 0
   br i1 %.not52.i.not, label %asn1_string_canon.exit.thread, label %109
 
-109:                                              ; preds = %asn1_string_canon.exit.thread62, %asn1_string_canon.exit
+109:                                              ; preds = %asn1_string_canon.exit.thread61, %asn1_string_canon.exit
   %110 = tail call i32 @OPENSSL_sk_push(ptr noundef %.141, ptr noundef nonnull %37) #6
   %.not50 = icmp eq i32 %110, 0
   br i1 %.not50, label %111, label %19
@@ -942,75 +942,79 @@ asn1_string_canon.exit:                           ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %112 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %13) #6
   %113 = icmp sgt i32 %112, 0
-  br i1 %113, label %.lr.ph.i52, label %i2d_name_canon.exit.thread66
+  br i1 %113, label %.lr.ph.i52, label %i2d_name_canon.exit.thread65
 
-.lr.ph.i52:                                       ; preds = %._crit_edge, %119
-  %.01318.i = phi i32 [ %121, %119 ], [ 0, %._crit_edge ]
-  %.01417.i = phi i32 [ %120, %119 ], [ 0, %._crit_edge ]
+i2d_name_canon.exit.thread65:                     ; preds = %._crit_edge
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %124
+
+.lr.ph.i52:                                       ; preds = %._crit_edge, %118
+  %.01318.i = phi i32 [ %120, %118 ], [ 0, %._crit_edge ]
+  %.01417.i = phi i32 [ %119, %118 ], [ 0, %._crit_edge ]
   %114 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %13, i32 noundef %.01318.i) #6
   store ptr %114, ptr %3, align 8, !tbaa !23
   %115 = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %3, ptr noundef null, ptr noundef nonnull @X509_NAME_ENTRIES_it.local_it, i32 noundef -1, i32 noundef -1) #6
-  %116 = icmp slt i32 %115, 0
-  %117 = sub nuw nsw i32 2147483647, %115
-  %118 = icmp sgt i32 %.01417.i, %117
-  %or.cond.i = select i1 %116, i1 true, i1 %118
-  br i1 %or.cond.i, label %i2d_name_canon.exit.thread, label %119
+  %116 = sub nuw nsw i32 2147483647, %115
+  %117 = icmp sgt i32 %.01417.i, %116
+  br i1 %117, label %i2d_name_canon.exit.thread, label %118
 
 i2d_name_canon.exit.thread:                       ; preds = %.lr.ph.i52
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %asn1_string_canon.exit.thread
 
-119:                                              ; preds = %.lr.ph.i52
-  %120 = add nuw nsw i32 %115, %.01417.i
-  %121 = add nuw nsw i32 %.01318.i, 1
-  %122 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %13) #6
-  %123 = icmp slt i32 %121, %122
-  br i1 %123, label %.lr.ph.i52, label %i2d_name_canon.exit.thread66, !llvm.loop !48
+118:                                              ; preds = %.lr.ph.i52
+  %119 = add nuw nsw i32 %115, %.01417.i
+  %120 = add nuw nsw i32 %.01318.i, 1
+  %121 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %13) #6
+  %122 = icmp slt i32 %120, %121
+  br i1 %122, label %.lr.ph.i52, label %i2d_name_canon.exit, !llvm.loop !48
 
-i2d_name_canon.exit.thread66:                     ; preds = %119, %._crit_edge
-  %.0.i68 = phi i32 [ 0, %._crit_edge ], [ %120, %119 ]
+i2d_name_canon.exit:                              ; preds = %118
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.0.i68, ptr %124, align 8, !tbaa !36
-  %125 = zext nneg i32 %.0.i68 to i64
-  %126 = call noalias ptr @CRYPTO_malloc(i64 noundef %125, ptr noundef nonnull @.str.2, i32 noundef 368) #6
-  store ptr %126, ptr %4, align 8, !tbaa !18
-  %127 = icmp eq ptr %126, null
-  br i1 %127, label %asn1_string_canon.exit.thread, label %128
+  %123 = icmp slt i32 %119, 0
+  br i1 %123, label %asn1_string_canon.exit.thread, label %124
 
-128:                                              ; preds = %i2d_name_canon.exit.thread66
-  store ptr %126, ptr %5, align 8, !tbaa !25
+124:                                              ; preds = %i2d_name_canon.exit.thread65, %i2d_name_canon.exit
+  %.0.i67 = phi i32 [ 0, %i2d_name_canon.exit.thread65 ], [ %119, %i2d_name_canon.exit ]
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %.0.i67, ptr %125, align 8, !tbaa !36
+  %126 = zext nneg i32 %.0.i67 to i64
+  %127 = call noalias ptr @CRYPTO_malloc(i64 noundef %126, ptr noundef nonnull @.str.2, i32 noundef 368) #6
+  store ptr %127, ptr %4, align 8, !tbaa !18
+  %128 = icmp eq ptr %127, null
+  br i1 %128, label %asn1_string_canon.exit.thread, label %129
+
+129:                                              ; preds = %124
+  store ptr %127, ptr %5, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %129 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %13) #6
-  %130 = icmp sgt i32 %129, 0
-  br i1 %130, label %.lr.ph.i55, label %i2d_name_canon.exit59
+  %130 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %13) #6
+  %131 = icmp sgt i32 %130, 0
+  br i1 %131, label %.lr.ph.i55, label %i2d_name_canon.exit58
 
-.lr.ph.i55:                                       ; preds = %128, %136
-  %.01318.i56 = phi i32 [ %138, %136 ], [ 0, %128 ]
-  %.01417.i57 = phi i32 [ %137, %136 ], [ 0, %128 ]
-  %131 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %13, i32 noundef %.01318.i56) #6
-  store ptr %131, ptr %2, align 8, !tbaa !23
-  %132 = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull @X509_NAME_ENTRIES_it.local_it, i32 noundef -1, i32 noundef -1) #6
-  %133 = icmp slt i32 %132, 0
-  %134 = sub nuw nsw i32 2147483647, %132
+.lr.ph.i55:                                       ; preds = %129, %136
+  %.01318.i56 = phi i32 [ %138, %136 ], [ 0, %129 ]
+  %.01417.i57 = phi i32 [ %137, %136 ], [ 0, %129 ]
+  %132 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %13, i32 noundef %.01318.i56) #6
+  store ptr %132, ptr %2, align 8, !tbaa !23
+  %133 = call i32 @ASN1_item_ex_i2d(ptr noundef nonnull %2, ptr noundef nonnull %4, ptr noundef nonnull @X509_NAME_ENTRIES_it.local_it, i32 noundef -1, i32 noundef -1) #6
+  %134 = sub nuw nsw i32 2147483647, %133
   %135 = icmp sgt i32 %.01417.i57, %134
-  %or.cond.i58 = select i1 %133, i1 true, i1 %135
-  br i1 %or.cond.i58, label %i2d_name_canon.exit59, label %136
+  br i1 %135, label %i2d_name_canon.exit58, label %136
 
 136:                                              ; preds = %.lr.ph.i55
-  %137 = add nuw nsw i32 %132, %.01417.i57
+  %137 = add nuw nsw i32 %133, %.01417.i57
   %138 = add nuw nsw i32 %.01318.i56, 1
   %139 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %13) #6
   %140 = icmp slt i32 %138, %139
-  br i1 %140, label %.lr.ph.i55, label %i2d_name_canon.exit59, !llvm.loop !48
+  br i1 %140, label %.lr.ph.i55, label %i2d_name_canon.exit58, !llvm.loop !48
 
-i2d_name_canon.exit59:                            ; preds = %.lr.ph.i55, %136, %128
+i2d_name_canon.exit58:                            ; preds = %.lr.ph.i55, %136, %129
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %asn1_string_canon.exit.thread
 
-asn1_string_canon.exit.thread:                    ; preds = %54, %asn1_string_canon.exit, %28, %i2d_name_canon.exit.thread, %i2d_name_canon.exit.thread66, %i2d_name_canon.exit59, %111, %44, %39, %33, %18
-  %.038 = phi ptr [ null, %18 ], [ null, %i2d_name_canon.exit.thread66 ], [ null, %39 ], [ %37, %44 ], [ %37, %111 ], [ null, %i2d_name_canon.exit59 ], [ null, %33 ], [ null, %i2d_name_canon.exit.thread ], [ %37, %54 ], [ %37, %asn1_string_canon.exit ], [ null, %28 ]
-  %.035 = phi i32 [ 0, %18 ], [ 0, %i2d_name_canon.exit.thread66 ], [ 0, %39 ], [ 0, %44 ], [ 0, %111 ], [ 1, %i2d_name_canon.exit59 ], [ 0, %33 ], [ 0, %i2d_name_canon.exit.thread ], [ 0, %28 ], [ 0, %asn1_string_canon.exit ], [ 0, %54 ]
+asn1_string_canon.exit.thread:                    ; preds = %54, %asn1_string_canon.exit, %28, %i2d_name_canon.exit.thread, %124, %i2d_name_canon.exit, %i2d_name_canon.exit58, %111, %44, %39, %33, %18
+  %.038 = phi ptr [ null, %18 ], [ null, %i2d_name_canon.exit58 ], [ null, %39 ], [ %37, %44 ], [ %37, %111 ], [ null, %i2d_name_canon.exit.thread ], [ null, %33 ], [ null, %i2d_name_canon.exit ], [ null, %124 ], [ %37, %54 ], [ %37, %asn1_string_canon.exit ], [ null, %28 ]
+  %.035 = phi i32 [ 0, %18 ], [ 1, %i2d_name_canon.exit58 ], [ 0, %39 ], [ 0, %44 ], [ 0, %111 ], [ 0, %i2d_name_canon.exit.thread ], [ 0, %33 ], [ 0, %i2d_name_canon.exit ], [ 0, %124 ], [ 0, %28 ], [ 0, %asn1_string_canon.exit ], [ 0, %54 ]
   call void @ASN1_item_free(ptr noundef %.038, ptr noundef nonnull @X509_NAME_ENTRY_it.local_it) #6
   call void @OPENSSL_sk_pop_free(ptr noundef %13, ptr noundef nonnull @local_sk_X509_NAME_ENTRY_pop_free) #6
   br label %141
