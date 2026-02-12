@@ -317,85 +317,85 @@ define void @_ZNK6icu_7723RuleBasedTransliterator19handleTransliterateERNS_11Rep
   %9 = sub nsw i32 %6, %8
   %10 = shl nuw i32 %9, 4
   tail call void @umtx_lock_77(ptr noundef null)
-  %11 = load ptr, ptr @_ZN6icu_77L11gLockedTextE, align 8, !tbaa !26
-  %.not = icmp eq ptr %1, %11
+  %12 = load ptr, ptr @_ZN6icu_77L11gLockedTextE, align 8, !tbaa !26
+  %.not = icmp eq ptr %1, %12
   invoke void @umtx_unlock_77(ptr noundef null)
-          to label %_ZN6icu_775MutexD2Ev.exit unwind label %12
+          to label %_ZN6icu_775MutexD2Ev.exit unwind label %13
 
-12:                                               ; preds = %4
-  %13 = landingpad { ptr, i32 }
+13:                                               ; preds = %4
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %14 = extractvalue { ptr, i32 } %13, 0
-  tail call void @__clang_call_terminate(ptr %14) #9
+  %15 = extractvalue { ptr, i32 } %14, 0
+  tail call void @__clang_call_terminate(ptr %15) #9
   unreachable
 
 _ZN6icu_775MutexD2Ev.exit:                        ; preds = %4
-  br i1 %.not, label %_ZN6icu_775MutexD2Ev.exit24, label %15
+  br i1 %.not, label %_ZN6icu_775MutexD2Ev.exit24, label %16
 
-15:                                               ; preds = %_ZN6icu_775MutexD2Ev.exit
+16:                                               ; preds = %_ZN6icu_775MutexD2Ev.exit
   tail call void @umtx_lock_77(ptr noundef nonnull @_ZZNK6icu_7723RuleBasedTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositionaE23transliteratorDataMutex)
   tail call void @umtx_lock_77(ptr noundef null)
   store ptr %1, ptr @_ZN6icu_77L11gLockedTextE, align 8, !tbaa !26
   invoke void @umtx_unlock_77(ptr noundef null)
-          to label %_ZN6icu_775MutexD2Ev.exit24 unwind label %16
+          to label %_ZN6icu_775MutexD2Ev.exit24 unwind label %17
 
-16:                                               ; preds = %15
-  %17 = landingpad { ptr, i32 }
+17:                                               ; preds = %16
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #9
+  %19 = extractvalue { ptr, i32 } %18, 0
+  tail call void @__clang_call_terminate(ptr %19) #9
   unreachable
 
-_ZN6icu_775MutexD2Ev.exit24:                      ; preds = %15, %_ZN6icu_775MutexD2Ev.exit
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %20 = load ptr, ptr %19, align 8, !tbaa !3
-  %.not20 = icmp eq ptr %20, null
+_ZN6icu_775MutexD2Ev.exit24:                      ; preds = %16, %_ZN6icu_775MutexD2Ev.exit
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %21 = load ptr, ptr %20, align 8, !tbaa !3
+  %.not20 = icmp eq ptr %21, null
   br i1 %.not20, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %_ZN6icu_775MutexD2Ev.exit24
-  %21 = load i32, ptr %7, align 4, !tbaa !25
-  %22 = load i32, ptr %5, align 4, !tbaa !23
-  %.not31 = icmp slt i32 %21, %22
+  %22 = load i32, ptr %7, align 4, !tbaa !25
+  %23 = load i32, ptr %5, align 4, !tbaa !23
+  %.not31 = icmp slt i32 %22, %23
   br i1 %.not31, label %.lr.ph, label %.critedge
 
-23:                                               ; preds = %.lr.ph
-  %24 = add nuw i32 %.029, 1
-  %25 = load i32, ptr %7, align 4, !tbaa !25
-  %26 = load i32, ptr %5, align 4, !tbaa !23
-  %27 = icmp sge i32 %25, %26
+24:                                               ; preds = %.lr.ph
+  %25 = add nuw i32 %.029, 1
+  %26 = load i32, ptr %7, align 4, !tbaa !25
+  %27 = load i32, ptr %5, align 4, !tbaa !23
+  %28 = icmp sge i32 %26, %27
   %.not2128 = icmp ule i32 %10, %.029
-  %or.cond = select i1 %27, i1 true, i1 %.not2128
+  %.not21 = select i1 %27, i1 true, i1 %.not2128
   br i1 %or.cond, label %.critedge, label %.lr.ph, !llvm.loop !28
 
-.lr.ph:                                           ; preds = %.preheader, %23
-  %.029 = phi i32 [ %24, %23 ], [ 0, %.preheader ]
-  %28 = load ptr, ptr %19, align 8, !tbaa !3
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %30 = tail call noundef signext i8 @_ZN6icu_7722TransliterationRuleSet13transliterateERNS_11ReplaceableER14UTransPositiona(ptr noundef nonnull align 8 dereferenceable(1056) %29, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, i8 noundef signext %3)
-  %.not22 = icmp eq i8 %30, 0
-  br i1 %.not22, label %.critedge, label %23
+.lr.ph:                                           ; preds = %.preheader, %24
+  %.029 = phi i32 [ %25, %23 ], [ 0, %.preheader ]
+  %29 = load ptr, ptr %20, align 8, !tbaa !3
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = tail call noundef signext i8 @_ZN6icu_7722TransliterationRuleSet13transliterateERNS_11ReplaceableER14UTransPositiona(ptr noundef nonnull align 8 dereferenceable(1056) %30, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(16) %2, i8 noundef signext %3)
+  %.not22 = icmp eq i8 %31, 0
+  br i1 %.not22, label %.critedge, label %24
 
-.critedge:                                        ; preds = %23, %.lr.ph, %.preheader, %_ZN6icu_775MutexD2Ev.exit24
-  br i1 %.not, label %35, label %31
+.critedge:                                        ; preds = %24, %.lr.ph, %.preheader, %_ZN6icu_775MutexD2Ev.exit24
+  br i1 %.not, label %36, label %32
 
-31:                                               ; preds = %.critedge
+32:                                               ; preds = %.critedge
   tail call void @umtx_lock_77(ptr noundef null)
   store ptr null, ptr @_ZN6icu_77L11gLockedTextE, align 8, !tbaa !26
   invoke void @umtx_unlock_77(ptr noundef null)
-          to label %_ZN6icu_775MutexD2Ev.exit25 unwind label %32
+          to label %_ZN6icu_775MutexD2Ev.exit25 unwind label %33
 
-32:                                               ; preds = %31
-  %33 = landingpad { ptr, i32 }
+33:                                               ; preds = %32
+  %34 = landingpad { ptr, i32 }
           catch ptr null
-  %34 = extractvalue { ptr, i32 } %33, 0
-  tail call void @__clang_call_terminate(ptr %34) #9
+  %35 = extractvalue { ptr, i32 } %34, 0
+  tail call void @__clang_call_terminate(ptr %35) #9
   unreachable
 
-_ZN6icu_775MutexD2Ev.exit25:                      ; preds = %31
+_ZN6icu_775MutexD2Ev.exit25:                      ; preds = %32
   tail call void @umtx_unlock_77(ptr noundef nonnull @_ZZNK6icu_7723RuleBasedTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositionaE23transliteratorDataMutex)
-  br label %35
+  br label %36
 
-35:                                               ; preds = %_ZN6icu_775MutexD2Ev.exit25, %.critedge
+36:                                               ; preds = %_ZN6icu_775MutexD2Ev.exit25, %.critedge
   ret void
 }
 

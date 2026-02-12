@@ -3036,20 +3036,20 @@ _ZN11fast_float27decimal35number_of_digits_decimal_left_shift17h4cf4d52e91510716
 .loopexit:                                        ; preds = %60, %.lr.ph42, %._crit_edge, %2
   ret void
 
-.preheader:                                       ; preds = %80
-  %.not2639 = icmp ult i64 %73, 10
+.preheader:                                       ; preds = %83
+  %.not2639 = icmp ult i64 %76, 10
   br i1 %.not2639, label %._crit_edge, label %.lr.ph
 
-40:                                               ; preds = %_ZN11fast_float27decimal35number_of_digits_decimal_left_shift17h4cf4d52e91510716E.exit, %80
+40:                                               ; preds = %_ZN11fast_float27decimal35number_of_digits_decimal_left_shift17h4cf4d52e91510716E.exit, %83
   %.sroa.0.038 = phi i64 [ %4, %_ZN11fast_float27decimal35number_of_digits_decimal_left_shift17h4cf4d52e91510716E.exit ], [ %41, %80 ]
-  %.sroa.05.037 = phi i64 [ 0, %_ZN11fast_float27decimal35number_of_digits_decimal_left_shift17h4cf4d52e91510716E.exit ], [ %74, %80 ]
+  %.sroa.05.037 = phi i64 [ 0, %_ZN11fast_float27decimal35number_of_digits_decimal_left_shift17h4cf4d52e91510716E.exit ], [ %77, %80 ]
   %.sroa.011.036 = phi i64 [ %38, %_ZN11fast_float27decimal35number_of_digits_decimal_left_shift17h4cf4d52e91510716E.exit ], [ %42, %80 ]
   %41 = add i64 %.sroa.0.038, -1
   %42 = add i64 %.sroa.011.036, -1
   %43 = icmp ult i64 %.sroa.0.038, 769
-  br i1 %43, label %68, label %77
+  br i1 %43, label %71, label %80
 
-._crit_edge:                                      ; preds = %64, %.preheader
+._crit_edge:                                      ; preds = %67, %.preheader
   %44 = load i64, ptr %3, align 8, !noundef !7
   %45 = add i64 %44, %.sroa.05.0.i
   %spec.select = tail call i64 @llvm.umin.i64(i64 %45, i64 768)
@@ -3060,19 +3060,19 @@ _ZN11fast_float27decimal35number_of_digits_decimal_left_shift17h4cf4d52e91510716
   %49 = add i32 %48, %46
   store i32 %49, ptr %47, align 8
   %50 = icmp eq i64 %45, 0
-  br i1 %50, label %.loopexit, label %.lr.ph42
+  br i1 %50, label %.loopexit, label %.lr.ph43
 
-.lr.ph:                                           ; preds = %.preheader, %64
-  %.sroa.05.141 = phi i64 [ %52, %64 ], [ %74, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %67
+  %.sroa.05.141 = phi i64 [ %52, %64 ], [ %77, %.preheader ]
   %.sroa.011.140 = phi i64 [ %51, %64 ], [ %.sroa.05.0.i, %.preheader ]
   %51 = add i64 %.sroa.011.140, -1
   %52 = udiv i64 %.sroa.05.141, 10
   %.neg27 = mul nsw i64 %52, -10
   %53 = add nsw i64 %.neg27, %.sroa.05.141
   %54 = icmp ult i64 %51, 768
-  br i1 %54, label %65, label %62
+  br i1 %54, label %68, label %65
 
-.lr.ph42:                                         ; preds = %._crit_edge, %60
+.lr.ph43:                                         ; preds = %._crit_edge, %60
   %55 = phi i64 [ %56, %60 ], [ %spec.select, %._crit_edge ]
   %56 = add i64 %55, -1
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 %56
@@ -3080,62 +3080,62 @@ _ZN11fast_float27decimal35number_of_digits_decimal_left_shift17h4cf4d52e91510716
   %59 = icmp eq i8 %58, 0
   br i1 %59, label %60, label %.loopexit
 
-60:                                               ; preds = %.lr.ph42
+58:                                               ; preds = %.lr.ph43
   store i64 %56, ptr %3, align 8
-  %61 = icmp eq i64 %56, 0
-  br i1 %61, label %.loopexit, label %.lr.ph42
+  %64 = icmp eq i64 %56, 0
+  br i1 %64, label %.loopexit, label %.lr.ph43
 
-62:                                               ; preds = %.lr.ph
+65:                                               ; preds = %.lr.ph
   %.not28 = icmp eq i64 %53, 0
-  br i1 %.not28, label %64, label %63
+  br i1 %.not28, label %67, label %66
 
-63:                                               ; preds = %62
+66:                                               ; preds = %65
   store i8 1, ptr %39, align 1
-  br label %64
+  br label %67
 
-64:                                               ; preds = %62, %63, %65
+67:                                               ; preds = %65, %66, %68
   %.not26 = icmp samesign ult i64 %.sroa.05.141, 10
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
-65:                                               ; preds = %.lr.ph
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 %51
-  %67 = trunc i64 %53 to i8
-  store i8 %67, ptr %66, align 1
-  br label %64
+68:                                               ; preds = %.lr.ph
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %51
+  %70 = trunc i64 %53 to i8
+  store i8 %70, ptr %69, align 1
+  br label %67
 
-68:                                               ; preds = %40
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 %41
-  %70 = load i8, ptr %69, align 1, !noundef !7
-  %71 = zext i8 %70 to i64
-  %72 = shl i64 %71, %7
-  %73 = add i64 %72, %.sroa.05.037
-  %74 = udiv i64 %73, 10
-  %.neg = mul i64 %74, -10
-  %75 = add i64 %.neg, %73
-  %76 = icmp ult i64 %42, 768
-  br i1 %76, label %82, label %78
+71:                                               ; preds = %40
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 %41
+  %73 = load i8, ptr %72, align 1, !noundef !7
+  %74 = zext i8 %73 to i64
+  %75 = shl i64 %74, %7
+  %76 = add i64 %75, %.sroa.05.037
+  %77 = udiv i64 %76, 10
+  %.neg = mul i64 %77, -10
+  %78 = add i64 %.neg, %76
+  %79 = icmp ult i64 %42, 768
+  br i1 %79, label %85, label %81
 
-77:                                               ; preds = %40
+80:                                               ; preds = %40
   tail call void @_ZN4core9panicking18panic_bounds_check17h0cc3ae16a8cc728fE(i64 noundef %41, i64 noundef 768, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a6baca356e46bf5918e2593349c2cd62.47) #41
   unreachable
 
-78:                                               ; preds = %68
-  %.not = icmp eq i64 %75, 0
-  br i1 %.not, label %80, label %79
+81:                                               ; preds = %71
+  %.not = icmp eq i64 %78, 0
+  br i1 %.not, label %83, label %82
 
-79:                                               ; preds = %78
+82:                                               ; preds = %81
   store i8 1, ptr %39, align 1
-  br label %80
+  br label %83
 
-80:                                               ; preds = %78, %79, %82
-  %81 = icmp eq i64 %41, 0
-  br i1 %81, label %.preheader, label %40
+83:                                               ; preds = %81, %82, %85
+  %84 = icmp eq i64 %41, 0
+  br i1 %84, label %.preheader, label %40
 
-82:                                               ; preds = %68
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 %42
-  %84 = trunc i64 %75 to i8
-  store i8 %84, ptr %83, align 1
-  br label %80
+85:                                               ; preds = %71
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 %42
+  %87 = trunc i64 %78 to i8
+  store i8 %87, ptr %86, align 1
+  br label %83
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
